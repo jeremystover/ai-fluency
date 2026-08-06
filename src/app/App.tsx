@@ -1,0 +1,44 @@
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { useApp } from './brand';
+import { Header, Footer } from './components/ui';
+import Landing from './routes/Landing';
+import Enter from './routes/Enter';
+import Hello from './routes/Hello';
+import Diagnostic from './routes/Diagnostic';
+import DiagnosticResult from './routes/DiagnosticResult';
+import Path from './routes/Path';
+import ModuleView from './routes/ModuleView';
+import Activity from './routes/Activity';
+import Complete from './routes/Complete';
+import type { ReactNode } from 'react';
+
+function RequireSession({ children }: { children: ReactNode }) {
+  const { me } = useApp();
+  const location = useLocation();
+  if (me === null) return <div className="min-h-[50vh]" aria-busy="true" />;
+  if (!me.authenticated) return <Navigate to="/enter" replace state={{ from: location.pathname }} />;
+  return <>{children}</>;
+}
+
+export default function App() {
+  return (
+    <div className="min-h-screen flex flex-col bg-bg text-ink">
+      <Header />
+      <div className="flex-1 flex flex-col">
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/enter" element={<Enter />} />
+          <Route path="/hello" element={<RequireSession><Hello /></RequireSession>} />
+          <Route path="/diagnostic" element={<RequireSession><Diagnostic /></RequireSession>} />
+          <Route path="/diagnostic/result" element={<RequireSession><DiagnosticResult /></RequireSession>} />
+          <Route path="/path" element={<RequireSession><Path /></RequireSession>} />
+          <Route path="/module/1" element={<RequireSession><ModuleView /></RequireSession>} />
+          <Route path="/module/1/activity" element={<RequireSession><Activity /></RequireSession>} />
+          <Route path="/module/1/complete" element={<RequireSession><Complete /></RequireSession>} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </div>
+      <Footer />
+    </div>
+  );
+}

@@ -1,0 +1,207 @@
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------
+   Brand tokens. Defaults are the Omnissa set (palette derived from
+   omnissa.com); BrandProvider overwrites these at runtime from
+   /api/brand. Components must only ever read the custom properties —
+   never a literal — so a new brand is one JSON file, zero code.
+------------------------------------------------------------------- */
+:root {
+  --c-bg: #f5f5f7;
+  --c-surface: #ffffff;
+  --c-ink: #28334a;
+  --c-ink-strong: #001e60;
+  --c-muted: #616899;
+  --c-accent: #4a12f0;
+  --c-on-accent: #ffffff;
+  --c-signal: #c9ff27;
+  --c-on-signal: #001e60;
+  --c-line: #d9d9e4;
+  --c-line-strong: #b6b9d0;
+  --c-danger: #b02a37;
+  --c-success: #146c43;
+  --font-display: 'Outfit Variable', 'Outfit', sans-serif;
+  --font-body: 'Outfit Variable', 'Outfit', sans-serif;
+  --font-utility: 'IBM Plex Mono', ui-monospace, monospace;
+  --radius: 6px;
+}
+
+@theme inline {
+  --color-bg: var(--c-bg);
+  --color-surface: var(--c-surface);
+  --color-ink: var(--c-ink);
+  --color-ink-strong: var(--c-ink-strong);
+  --color-muted: var(--c-muted);
+  --color-accent: var(--c-accent);
+  --color-on-accent: var(--c-on-accent);
+  --color-signal: var(--c-signal);
+  --color-on-signal: var(--c-on-signal);
+  --color-line: var(--c-line);
+  --color-line-strong: var(--c-line-strong);
+  --color-danger: var(--c-danger);
+  --color-success: var(--c-success);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-utility: var(--font-utility);
+  --radius-brand: var(--radius);
+}
+
+html {
+  background: var(--c-bg);
+  color: var(--c-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Visible keyboard focus, everywhere. */
+:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Screens focus themselves for keyboard users — that focus is functional, not visual. */
+main:focus-visible {
+  outline: none;
+}
+
+::selection {
+  background: var(--c-signal);
+  color: var(--c-on-signal);
+}
+
+/* Utility label — the instrument voice. */
+.label-utility {
+  font-family: var(--font-utility);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+}
+
+/* ------------------------------------------------------------------
+   Rendered markdown (reading view).
+------------------------------------------------------------------- */
+.md {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+.md h2 {
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-size: 1.6rem;
+  line-height: 1.25;
+  color: var(--c-ink-strong);
+  margin: 2.2rem 0 0.9rem;
+  scroll-margin-top: 5rem;
+}
+.md h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--c-ink-strong);
+  margin: 1.8rem 0 0.6rem;
+}
+.md p {
+  margin: 0.85rem 0;
+}
+.md ul,
+.md ol {
+  margin: 0.85rem 0;
+  padding-left: 1.4rem;
+}
+.md ul {
+  list-style: disc;
+}
+.md ol {
+  list-style: decimal;
+}
+.md li {
+  margin: 0.45rem 0;
+}
+.md blockquote {
+  border-left: 3px solid var(--c-accent);
+  padding: 0.15rem 0 0.15rem 1.1rem;
+  margin: 1.2rem 0;
+  color: var(--c-ink-strong);
+}
+.md strong {
+  color: var(--c-ink-strong);
+}
+.md table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+.md th {
+  font-family: var(--font-utility);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--c-line-strong);
+}
+.md td {
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid var(--c-line);
+  vertical-align: top;
+}
+.md-table-wrap {
+  overflow-x: auto;
+}
+
+/* ------------------------------------------------------------------
+   Motion. Every keyframe is disabled under prefers-reduced-motion.
+------------------------------------------------------------------- */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes draw-line {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.anim-rise {
+  animation: rise-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.anim-fade {
+  animation: fade-in 0.45s ease both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .anim-rise,
+  .anim-fade {
+    animation: none !important;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

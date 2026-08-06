@@ -1,0 +1,108 @@
+{
+  "calibrationScale": [
+    { "label": "Almost certainly usable", "pct": 90 },
+    { "label": "Likely usable", "pct": 70 },
+    { "label": "Even odds", "pct": 50 },
+    { "label": "Unlikely to be usable", "pct": 30 },
+    { "label": "Almost certainly not", "pct": 10 }
+  ],
+  "items": [
+    {
+      "id": "k1",
+      "kind": "knowledge",
+      "prompt": "What does a large language model actually do when you send it a prompt?",
+      "options": [
+        "Looks up an answer in a database of pre-written responses",
+        "Searches the internet and summarizes the top results",
+        "Predicts what text should come next, one small piece at a time, from patterns learned in training",
+        "Reasons through the problem as a human expert would, then writes out the solution"
+      ],
+      "correctIndex": 2,
+      "explanation": "The core mechanic is next-piece prediction. Some tools layer search on top, but the model underneath is a statistical text predictor — not a lookup, not a search engine, and not human-style reasoning, even when the output resembles it."
+    },
+    {
+      "id": "c1",
+      "kind": "calibration",
+      "taskId": "t2",
+      "prompt": "Turn a page of your messy interview notes into a structured debrief a hiring manager can read.",
+      "keyPct": 85,
+      "keyBucket": "well",
+      "reasoning": "Your notes in, structure out. The model never needs to know anything you didn't hand it — this is the center of its competence."
+    },
+    {
+      "id": "k2",
+      "kind": "knowledge",
+      "prompt": "You ask an AI what your organization's bereavement leave policy says. You paste nothing. What's most likely?",
+      "options": [
+        "It produces a fluent, specific, plausible policy that isn't yours",
+        "It refuses and explains it has no access to your systems",
+        "It asks a series of clarifying questions before answering",
+        "It accurately describes typical policy and clearly labels it as generic"
+      ],
+      "correctIndex": 0,
+      "explanation": "The model never saw your handbook, but it has seen thousands of bereavement policies, so it can generate something that reads exactly like one. Some tools will hedge — but you cannot rely on it, and the failure is quiet."
+    },
+    {
+      "id": "c2",
+      "kind": "calibration",
+      "taskId": "t3",
+      "prompt": "Explain what happened to attrition in your Denver office last quarter.",
+      "keyPct": 15,
+      "keyBucket": "badly",
+      "reasoning": "The model never saw your attrition data. It will answer anyway — fluently, and invented."
+    },
+    {
+      "id": "k3",
+      "kind": "knowledge",
+      "prompt": "What is the context window?",
+      "options": [
+        "The hours during which the tool is available",
+        "Your organization's list of approved use cases",
+        "How much text the model can hold in view at once: your message, the conversation, and attachments",
+        "The interface around the chat box"
+      ],
+      "correctIndex": 2,
+      "explanation": "It's the model's working memory for a given response, and it's finite. It explains why long conversations feel like the model forgot something, and why pasting a 90-page handbook can crowd out your actual question."
+    },
+    {
+      "id": "c3",
+      "kind": "calibration",
+      "taskId": "t5",
+      "prompt": "Summarize the themes across 200 engagement survey free-text comments that you paste in.",
+      "keyPct": 50,
+      "keyBucket": "partly",
+      "reasoning": "Good at surfacing patterns — but it flattens minority views and presents a confident summary of the comments it weighted most. Useful, with verification."
+    },
+    {
+      "id": "c4",
+      "kind": "calibration",
+      "taskId": "t8",
+      "prompt": "Recommend the comp band for a new role you're opening.",
+      "keyPct": 15,
+      "keyBucket": "badly",
+      "reasoning": "Your comp philosophy, your bands, your market data — none of it was in training. Any number it gives is a fabrication wearing a confident face."
+    },
+    {
+      "id": "k4",
+      "kind": "knowledge",
+      "prompt": "You want to start using AI well. Which habit is most important to build first?",
+      "options": [
+        "Asking, before any task: what does the model not know that I'd need to give it?",
+        "Always writing the longest, most detailed prompt possible",
+        "Using AI for as many tasks as you can each day to build reps",
+        "Keeping track of which model versions each provider has released"
+      ],
+      "correctIndex": 0,
+      "explanation": "That single question is the seed of good prompting and of good delegation judgment. It forces you to think about the data the model needs, and it surfaces the tasks you shouldn't hand over at all."
+    },
+    {
+      "id": "c5",
+      "kind": "calibration",
+      "taskId": "t14",
+      "prompt": "Produce a plain-language FAQ from a benefits summary you paste in.",
+      "keyPct": 85,
+      "keyBucket": "well",
+      "reasoning": "Pasted source, transformed format. The model has everything it needs because you gave it everything it needs."
+    }
+  ]
+}

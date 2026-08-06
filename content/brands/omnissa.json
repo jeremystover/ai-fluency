@@ -1,0 +1,30 @@
+{
+  "slug": "omnissa",
+  "name": "Omnissa",
+  "tokens": {
+    "color": {
+      "bg": "#F5F5F7",
+      "surface": "#FFFFFF",
+      "ink": "#28334A",
+      "ink-strong": "#001E60",
+      "muted": "#616899",
+      "accent": "#4A12F0",
+      "on-accent": "#FFFFFF",
+      "signal": "#C9FF27",
+      "on-signal": "#001E60",
+      "line": "#D9D9E4",
+      "line-strong": "#B6B9D0",
+      "danger": "#B02A37",
+      "success": "#146C43"
+    },
+    "fontDisplay": "'Outfit Variable', 'Outfit', sans-serif",
+    "fontBody": "'Outfit Variable', 'Outfit', sans-serif",
+    "fontUtility": "'IBM Plex Mono', ui-monospace, monospace",
+    "radius": "6px",
+    "logoUrl": ""
+  },
+  "voice": {
+    "greeting": "Built for how People teams actually work.",
+    "signoff": "Independent demonstration. Not affiliated with or endorsed by Omnissa."
+  }
+}

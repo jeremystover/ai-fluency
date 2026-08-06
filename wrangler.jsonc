@@ -1,0 +1,30 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "fluency-demo",
+  "main": "src/worker/index.ts",
+  "compatibility_date": "2026-01-01",
+  "assets": {
+    "directory": "./dist/client",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "fluency-demo",
+      // Replace with the real database id after `wrangler d1 create fluency-demo`.
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "drizzle"
+    }
+  ],
+  "vars": {
+    // One brand active per deployment. Change to another fd_brand slug to re-skin.
+    "BRAND_SLUG": "omnissa",
+    // Model used for applied-activity grading; persisted on fd_submission.
+    "GRADING_MODEL": "claude-sonnet-5"
+  }
+  // Secrets (set with `wrangler secret put`):
+  //   SESSION_SECRET      — HMAC key for session cookie signing
+  //   ANTHROPIC_API_KEY   — grading calls; never exposed to the client
+}

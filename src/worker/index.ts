@@ -1,0 +1,684 @@
+import { Hono } from 'hono';
+import { getCookie, setCookie } from 'hono/cookie';
+import { drizzle, type DrizzleD1Database } from 'drizzle-orm/d1';
+import { and, asc, desc, eq, gt, sql } from 'drizzle-orm';
+import * as t from '../db/schema';
+import { verifyCode, signSessionId, verifySessionCookie, hashIp } from './crypto';
+import { gradeSubmission, PROMPT_VERSION } from './grading';
+import diagnosticData from '../../content/diagnostic.json';
+import sortingData from '../../content/sorting.json';
+import type {
+  Brand,
+  ContentBlock,
+  DiagnosticFeedback,
+  DiagnosticItemPublic,
+  DiagnosticResult,
+  GradeResult,
+  MeResponse,
+  ModuleCard,
+  ModuleContentResponse,
+  SortingReveal,
+} from '../shared/types';
+
+export interface Env {
+  DB: D1Database;
+  ASSETS: Fetcher;
+  BRAND_SLUG: string;
+  GRADING_MODEL: string;
+  SESSION_SECRET?: string;
+  ANTHROPIC_API_KEY?: string;
+}
+
+type SessionRow = typeof t.fdSession.$inferSelect;
+type Ctx = { Bindings: Env; Variables: { session: SessionRow | null; db: DrizzleD1Database } };
+
+const COOKIE_NAME = 'fd_session';
+const COOKIE_MAX_AGE = 60 * 60 * 24 * 30; // 30 days
+const CODE_ATTEMPT_LIMIT = 10;
+const CODE_ATTEMPT_WINDOW_MS = 15 * 60 * 1000;
+const GRADE_LIMIT_PER_HOUR = 5;
+const MIN_SUBMISSION_CHARS = 700;
+
+// Only these may be posted from the client; everything else is written server-side.
+const CLIENT_EVENT_TYPES = new Set([
+  'landed',
+  'diagnostic_started',
+  'module_opened',
+  'block_read',
+  'try_this_opened',
+  'module_completed',
+]);
+
+const now = () => new Date().toISOString();
+const uuid = () => crypto.randomUUID();
+const secret = (env: Env) => env.SESSION_SECRET ?? 'dev-only-secret-set-SESSION_SECRET-in-production';
+
+const app = new Hono<Ctx>();
+
+async function logEvent(db: DrizzleD1Database, sessionId: string | null, type: string, payload?: unknown) {
+  await db.insert(t.fdEvent).values({
+    id: uuid(),
+    sessionId,
+    type,
+    payloadJson: payload === undefined ? null : JSON.stringify(payload),
+    createdAt: now(),
+  });
+}
+
+app.use('/api/*', async (c, next) => {
+  const db = drizzle(c.env.DB);
+  c.set('db', db);
+  const sessionId = await verifySessionCookie(getCookie(c, COOKIE_NAME), secret(c.env));
+  let session: SessionRow | null = null;
+  if (sessionId) {
+    const rows = await db.select().from(t.fdSession).where(eq(t.fdSession.id, sessionId)).limit(1);
+    session = rows[0] ?? null;
+    if (session) await db.update(t.fdSession).set({ lastSeenAt: now() }).where(eq(t.fdSession.id, session.id));
+  }
+  c.set('session', session);
+  await next();
+});
+
+const requireSession = (c: { get: (k: 'session') => SessionRow | null }): SessionRow | null => c.get('session');
+
+// ---------- brand ----------
+
+app.get('/api/brand', async (c) => {
+  const db = c.get('db');
+  const rows = await db.select().from(t.fdBrand).where(eq(t.fdBrand.slug, c.env.BRAND_SLUG)).limit(1);
+  const row = rows[0];
+  if (!row) return c.json({ error: 'No brand seeded for this deployment. Run the seed migration.' }, 500);
+  const brand: Brand = { slug: row.slug, name: row.name, tokens: JSON.parse(row.tokensJson), voice: JSON.parse(row.voiceJson) };
+  return c.json(brand);
+});
+
+// ---------- events ----------
+
+app.post('/api/event', async (c) => {
+  const db = c.get('db');
+  const session = c.get('session');
+  const body = await c.req.json<{ type?: string; payload?: unknown }>().catch(() => null);
+  if (!body?.type || !CLIENT_EVENT_TYPES.has(body.type)) return c.json({ error: 'Unknown event type.' }, 400);
+  const payload = body.payload === undefined ? undefined : body.payload;
+  if (payload !== undefined && JSON.stringify(payload).length > 4096) return c.json({ error: 'Payload too large.' }, 400);
+  await logEvent(db, session?.id ?? null, body.type, payload);
+  return c.json({ ok: true });
+});
+
+// ---------- access ----------
+
+app.post('/api/enter', async (c) => {
+  const db = c.get('db');
+  const body = await c.req.json<{ code?: string }>().catch(() => null);
+  const code = body?.code?.trim();
+  if (!code) return c.json({ error: 'Enter the passcode you were given.' }, 400);
+
+  const ip = c.req.header('cf-connecting-ip') ?? c.req.header('x-forwarded-for')?.split(',')[0]?.trim() ?? 'local';
+  const ipHashed = await hashIp(ip, secret(c.env));
+
+  const windowStart = new Date(Date.now() - CODE_ATTEMPT_WINDOW_MS).toISOString();
+  const attempts = await db
+    .select({ n: sql<number>`count(*)` })
+    .from(t.fdEvent)
+    .where(
+      and(
+        eq(t.fdEvent.type, 'code_attempt_failed'),
+        gt(t.fdEvent.createdAt, windowStart),
+        sql`json_extract(${t.fdEvent.payloadJson}, '$.ipHash') = ${ipHashed}`,
+      ),
+    );
+  if ((attempts[0]?.n ?? 0) >= CODE_ATTEMPT_LIMIT) {
+    return c.json({ error: 'Too many attempts from this connection. Wait 15 minutes, then try again — or check the code with whoever sent it.' }, 429);
+  }
+
+  const codes = await db
+    .select()
+    .from(t.fdAccessCode)
+    .where(and(eq(t.fdAccessCode.brandSlug, c.env.BRAND_SLUG), eq(t.fdAccessCode.active, 1)));
+
+  let matched: typeof codes[number] | null = null;
+  for (const candidate of codes) {
+    if (await verifyCode(code, candidate.codeHash)) {
+      matched = candidate;
+      break;
+    }
+  }
+
+  const usable =
+    matched !== null &&
+    (matched.expiresAt === null || matched.expiresAt > now()) &&
+    (matched.maxUses === null || matched.uses < matched.maxUses);
+
+  if (!matched || !usable) {
+    await logEvent(db, null, 'code_attempt_failed', { ipHash: ipHashed });
+    return c.json({ error: "That code didn't match. Check for typos — codes aren't case sensitive about your feelings, just the characters." }, 401);
+  }
+
+  await db.update(t.fdAccessCode).set({ uses: matched.uses + 1 }).where(eq(t.fdAccessCode.id, matched.id));
+
+  const sessionId = uuid();
+  await db.insert(t.fdSession).values({
+    id: sessionId,
+    codeId: matched.id,
+    brandSlug: matched.brandSlug,
+    createdAt: now(),
+    lastSeenAt: now(),
+    userAgent: c.req.header('user-agent') ?? null,
+    ipHash: ipHashed,
+  });
+  await logEvent(db, sessionId, 'code_entered', { codeLabel: matched.label });
+
+  setCookie(c, COOKIE_NAME, await signSessionId(sessionId, secret(c.env)), {
+    httpOnly: true,
+    secure: true,
+    sameSite: 'Lax',
+    path: '/',
+    maxAge: COOKIE_MAX_AGE,
+  });
+  return c.json({ ok: true });
+});
+
+app.post('/api/hello', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session. Enter your passcode first.' }, 401);
+  const body = await c.req.json<{ displayName?: string; roleLabel?: string }>().catch(() => ({}) as { displayName?: string; roleLabel?: string });
+  await db.insert(t.fdParticipant).values({
+    id: uuid(),
+    sessionId: session.id,
+    displayName: body.displayName?.trim().slice(0, 80) || null,
+    roleLabel: body.roleLabel?.trim().slice(0, 120) || null,
+    orgLabel: null,
+    createdAt: now(),
+  });
+  return c.json({ ok: true });
+});
+
+app.get('/api/me', async (c) => {
+  const db = c.get('db');
+  const session = c.get('session');
+  if (!session) return c.json({ authenticated: false, progress: { diagnosticDone: false, sortDone: false, activityGraded: false, moduleCompleted: false } } satisfies MeResponse);
+
+  const participants = await db
+    .select()
+    .from(t.fdParticipant)
+    .where(eq(t.fdParticipant.sessionId, session.id))
+    .orderBy(desc(t.fdParticipant.createdAt))
+    .limit(1);
+
+  const has = async (type: string) => {
+    const rows = await db
+      .select({ n: sql<number>`count(*)` })
+      .from(t.fdEvent)
+      .where(and(eq(t.fdEvent.sessionId, session.id), eq(t.fdEvent.type, type)));
+    return (rows[0]?.n ?? 0) > 0;
+  };
+  const gradedRows = await db
+    .select({ n: sql<number>`count(*)` })
+    .from(t.fdSubmission)
+    .where(and(eq(t.fdSubmission.sessionId, session.id), sql`${t.fdSubmission.gradedAt} IS NOT NULL`));
+
+  const res: MeResponse = {
+    authenticated: true,
+    displayName: participants[0]?.displayName ?? null,
+    roleLabel: participants[0]?.roleLabel ?? null,
+    brandSlug: session.brandSlug,
+    progress: {
+      diagnosticDone: await has('diagnostic_completed'),
+      sortDone: await has('sort_submitted'),
+      activityGraded: (gradedRows[0]?.n ?? 0) > 0,
+      moduleCompleted: await has('module_completed'),
+    },
+  };
+  return c.json(res);
+});
+
+// ---------- diagnostic ----------
+
+type DiagItem = (typeof diagnosticData.items)[number];
+const diagItems = diagnosticData.items as DiagItem[];
+const diagById = new Map(diagItems.map((i) => [i.id, i]));
+
+app.get('/api/diagnostic', async (c) => {
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const items: DiagnosticItemPublic[] = diagItems.map((i) =>
+    i.kind === 'knowledge'
+      ? { id: i.id, kind: 'knowledge', prompt: i.prompt, options: i.options! }
+      : { id: i.id, kind: 'calibration', prompt: i.prompt, scale: diagnosticData.calibrationScale },
+  );
+  return c.json({ items });
+});
+
+app.post('/api/diagnostic/answer', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const body = await c.req.json<{ itemId?: string; answerIndex?: number; predictedPct?: number; msElapsed?: number }>().catch(() => null);
+  const item = body?.itemId ? diagById.get(body.itemId) : undefined;
+  if (!body || !item) return c.json({ error: 'Unknown item.' }, 400);
+
+  // Latest answer wins — clear any earlier response for this item.
+  await db.delete(t.fdDiagnosticResponse).where(and(eq(t.fdDiagnosticResponse.sessionId, session.id), eq(t.fdDiagnosticResponse.itemId, item.id)));
+
+  let feedback: DiagnosticFeedback;
+  if (item.kind === 'knowledge') {
+    const idx = Number(body.answerIndex);
+    if (!Number.isInteger(idx) || idx < 0 || idx >= item.options!.length) return c.json({ error: 'Pick one of the options.' }, 400);
+    const correct = idx === item.correctIndex;
+    await db.insert(t.fdDiagnosticResponse).values({
+      id: uuid(),
+      sessionId: session.id,
+      itemId: item.id,
+      answerJson: JSON.stringify({ answerIndex: idx }),
+      correct: correct ? 1 : 0,
+      msElapsed: Number.isFinite(body.msElapsed) ? Math.round(body.msElapsed!) : null,
+    });
+    feedback = { kind: 'knowledge', correct, correctIndex: item.correctIndex!, explanation: item.explanation! };
+  } else {
+    const pct = Number(body.predictedPct);
+    if (!diagnosticData.calibrationScale.some((s) => s.pct === pct)) return c.json({ error: 'Pick one of the options.' }, 400);
+    const delta = pct - item.keyPct!;
+    await db.insert(t.fdDiagnosticResponse).values({
+      id: uuid(),
+      sessionId: session.id,
+      itemId: item.id,
+      answerJson: JSON.stringify({ predictedPct: pct }),
+      correct: null,
+      msElapsed: Number.isFinite(body.msElapsed) ? Math.round(body.msElapsed!) : null,
+    });
+    await db.delete(t.fdCalibration).where(and(eq(t.fdCalibration.sessionId, session.id), eq(t.fdCalibration.context, `diagnostic:${item.taskId}`)));
+    await db.insert(t.fdCalibration).values({
+      id: uuid(),
+      sessionId: session.id,
+      context: `diagnostic:${item.taskId}`,
+      predictedPct: pct,
+      actualOutcome: item.keyPct!,
+      delta,
+      createdAt: now(),
+    });
+    feedback = {
+      kind: 'calibration',
+      keyPct: item.keyPct!,
+      keyBucket: item.keyBucket as 'well' | 'partly' | 'badly',
+      predictedPct: pct,
+      delta,
+      reasoning: item.reasoning!,
+    };
+  }
+  await logEvent(db, session.id, 'diagnostic_item', { itemId: item.id });
+  return c.json({ feedback });
+});
+
+async function computeDiagnosticResult(db: DrizzleD1Database, sessionId: string): Promise<DiagnosticResult> {
+  const responses = await db.select().from(t.fdDiagnosticResponse).where(eq(t.fdDiagnosticResponse.sessionId, sessionId));
+  const byItem = new Map(responses.map((r) => [r.itemId, r]));
+
+  let kCorrect = 0;
+  let kTotal = 0;
+  const points: DiagnosticResult['calibration']['points'] = [];
+  for (const item of diagItems) {
+    const r = byItem.get(item.id);
+    if (item.kind === 'knowledge') {
+      kTotal++;
+      if (r?.correct === 1) kCorrect++;
+    } else if (r) {
+      const predicted = (JSON.parse(r.answerJson) as { predictedPct: number }).predictedPct;
+      points.push({
+        itemId: item.id,
+        task: item.prompt,
+        predictedPct: predicted,
+        keyPct: item.keyPct!,
+        delta: predicted - item.keyPct!,
+        keyBucket: item.keyBucket!,
+      });
+    }
+  }
+
+  const deltas = points.map((p) => p.delta);
+  const mean = deltas.length ? deltas.reduce((a, b) => a + b, 0) / deltas.length : 0;
+  const meanAbs = deltas.length ? deltas.reduce((a, b) => a + Math.abs(b), 0) / deltas.length : 0;
+  const overshoots = points.filter((p) => p.delta >= 20);
+  const undershoots = points.filter((p) => p.delta <= -20);
+
+  let direction: DiagnosticResult['calibration']['direction'];
+  let headline: string;
+  let detail: string;
+  const biggest = [...points].sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta))[0];
+
+  if (mean >= 12) {
+    direction = 'over';
+    headline = 'You consistently expect more from these tools than they deliver.';
+    detail = biggest
+      ? `Your biggest miss: "${biggest.task}" — you put it at ${biggest.predictedPct}%, the field data puts it near ${biggest.keyPct}%. The risk that follows this pattern is shipping something fluent and fabricated. Module 1 is built to close exactly this gap.`
+      : 'The risk that follows this pattern is shipping something fluent and fabricated.';
+  } else if (mean <= -12) {
+    direction = 'under';
+    headline = 'You consistently expect less from these tools than they deliver.';
+    detail = biggest
+      ? `Your biggest miss: "${biggest.task}" — you put it at ${biggest.predictedPct}%, the field data puts it near ${biggest.keyPct}%. The cost is quieter than fabrication: hours of work done by hand that a model would have done in seconds. Module 1 shows you where that leverage is.`
+      : 'The cost is quieter than fabrication: work done by hand that a model would have done in seconds.';
+  } else if (overshoots.length >= 1 && undershoots.length >= 1) {
+    direction = 'mixed';
+    headline = "You overestimate these tools where they're blind, and underestimate them where they're strong.";
+    const over = overshoots[0];
+    const under = undershoots[0];
+    detail = `You put "${over.task}" at ${over.predictedPct}% (field data: ~${over.keyPct}%) but "${under.task}" at ${under.predictedPct}% (field data: ~${under.keyPct}%). That double miss is the most common pattern we see — and the most fixable, because it's one mental model away from resolving.`;
+  } else {
+    direction = 'calibrated';
+    headline = 'Your read on these tools is unusually accurate.';
+    detail = biggest
+      ? `Most people miss by 30 points or more on at least one task. Your largest miss was ${Math.abs(Math.round(biggest.delta))} points, on "${biggest.task}". Module 1 will sharpen the edges — and the sorting exercise inside it is where your calibration gets a real test: fifteen tasks instead of five.`
+      : 'Module 1 will sharpen the edges.';
+  }
+
+  return {
+    answered: responses.length,
+    total: diagItems.length,
+    knowledge: { correct: kCorrect, total: kTotal },
+    calibration: { points, meanDelta: Math.round(mean * 10) / 10, meanAbsDelta: Math.round(meanAbs * 10) / 10, direction, headline, detail },
+  };
+}
+
+app.post('/api/diagnostic/complete', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const result = await computeDiagnosticResult(db, session.id);
+  await logEvent(db, session.id, 'diagnostic_completed', {
+    knowledge: result.knowledge,
+    meanDelta: result.calibration.meanDelta,
+    direction: result.calibration.direction,
+  });
+  return c.json(result);
+});
+
+app.get('/api/diagnostic/result', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  return c.json(await computeDiagnosticResult(db, session.id));
+});
+
+// ---------- path & content ----------
+
+app.get('/api/path', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const modules = await db.select().from(t.fdModule).where(eq(t.fdModule.courseId, 'ai101')).orderBy(asc(t.fdModule.ordinal));
+  // Courses beyond 101 are locked cards; they live in content, not the DB, until they exist.
+  const { courses } = (await import('../../content/modules.json')) as unknown as { courses: unknown };
+  return c.json({ modules, courses });
+});
+
+function toBlock(row: typeof t.fdContentBlock.$inferSelect): ContentBlock {
+  return {
+    id: row.id,
+    moduleId: row.moduleId,
+    ordinal: row.ordinal,
+    kind: row.kind as ContentBlock['kind'],
+    layer: row.layer as ContentBlock['layer'],
+    body: row.body,
+    dependsOn: row.dependsOn ? JSON.parse(row.dependsOn) : undefined,
+    reviewedAt: row.reviewedAt,
+  };
+}
+
+function stampsFor(blocks: ContentBlock[]) {
+  const min = (layer: string) => {
+    const dates = blocks.filter((b) => b.layer === layer).map((b) => b.reviewedAt);
+    return dates.length ? dates.sort()[0] : null;
+  };
+  return { conceptsReviewedAt: min('stable'), examplesCurrentAsOf: min('volatile') };
+}
+
+app.get('/api/module/:id', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const id = c.req.param('id');
+  const modRows = await db.select().from(t.fdModule).where(eq(t.fdModule.id, id)).limit(1);
+  const mod = modRows[0];
+  if (!mod) return c.json({ error: 'No such module.' }, 404);
+  if (mod.status !== 'open') return c.json({ error: 'This module is not open yet.' }, 403);
+  const blockRows = await db.select().from(t.fdContentBlock).where(eq(t.fdContentBlock.moduleId, id)).orderBy(asc(t.fdContentBlock.ordinal));
+  const blocks = blockRows.map(toBlock);
+  const words = blocks.reduce((sum, b) => sum + b.body.split(/\s+/).length, 0);
+  const res: ModuleContentResponse = {
+    module: mod as ModuleCard,
+    blocks,
+    stamps: stampsFor(blocks),
+    estReadMinutes: Math.max(1, Math.round(words / 200)),
+  };
+  return c.json(res);
+});
+
+// ---------- sorting exercise ----------
+
+app.get('/api/module/ai101-m1/sorting', async (c) => {
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  return c.json({
+    buckets: sortingData.buckets,
+    tasks: sortingData.tasks.map((task) => ({ id: task.id, text: task.text })),
+  });
+});
+
+const BUCKET_PCT: Record<string, number> = { well: 85, partly: 50, badly: 15 };
+
+app.post('/api/module/ai101-m1/sort', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const body = await c.req.json<{ assignments?: Record<string, string> }>().catch(() => null);
+  const assignments = body?.assignments ?? {};
+  const valid = new Set(['well', 'partly', 'badly']);
+  for (const task of sortingData.tasks) {
+    if (!valid.has(assignments[task.id])) return c.json({ error: 'Commit all fifteen before the reveal — an unscored guess teaches nothing.' }, 400);
+  }
+
+  const rank: Record<string, number> = { badly: 0, partly: 1, well: 2 };
+  let correct = 0;
+  let overAssigned = 0;
+  let underAssigned = 0;
+  const results: SortingReveal['results'] = sortingData.tasks.map((task) => {
+    const chosen = assignments[task.id];
+    const isCorrect = chosen === task.key;
+    if (isCorrect) correct++;
+    else if (rank[chosen] > rank[task.key]) overAssigned++;
+    else underAssigned++;
+    return { taskId: task.id, text: task.text, chosen, key: task.key, correct: isCorrect, reasoning: task.reasoning };
+  });
+
+  for (const task of sortingData.tasks) {
+    await db.delete(t.fdCalibration).where(and(eq(t.fdCalibration.sessionId, session.id), eq(t.fdCalibration.context, `sort:${task.id}`)));
+    const predicted = BUCKET_PCT[assignments[task.id]];
+    const actual = BUCKET_PCT[task.key];
+    await db.insert(t.fdCalibration).values({
+      id: uuid(),
+      sessionId: session.id,
+      context: `sort:${task.id}`,
+      predictedPct: predicted,
+      actualOutcome: actual,
+      delta: predicted - actual,
+      createdAt: now(),
+    });
+  }
+  await logEvent(db, session.id, 'sort_submitted', { correct, total: sortingData.tasks.length, overAssigned, underAssigned });
+
+  const reveal: SortingReveal = {
+    results,
+    score: { correct, total: sortingData.tasks.length },
+    overAssigned,
+    underAssigned,
+    pattern: sortingData.pattern,
+    postscript: sortingData.postscript,
+  };
+  return c.json(reveal);
+});
+
+// ---------- applied activity & grading ----------
+
+app.get('/api/module/ai101-m1/activity', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const blockRows = await db
+    .select()
+    .from(t.fdContentBlock)
+    .where(eq(t.fdContentBlock.moduleId, 'ai101-m1-activity'))
+    .orderBy(asc(t.fdContentBlock.ordinal));
+  const latest = await db
+    .select()
+    .from(t.fdSubmission)
+    .where(eq(t.fdSubmission.sessionId, session.id))
+    .orderBy(desc(t.fdSubmission.createdAt))
+    .limit(1);
+  const last = latest[0];
+  return c.json({
+    blocks: blockRows.map(toBlock),
+    minChars: MIN_SUBMISSION_CHARS,
+    lastSubmission: last
+      ? {
+          id: last.id,
+          body: last.body,
+          gradedAt: last.gradedAt,
+          total: last.totalScore,
+          dimensions: last.rubricJson ? JSON.parse(last.rubricJson).dimensions : null,
+          summary: last.rubricJson ? JSON.parse(last.rubricJson).summary : null,
+        }
+      : null,
+  });
+});
+
+app.post('/api/module/ai101-m1/activity', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const body = await c.req.json<{ body?: string; predictedPct?: number }>().catch(() => null);
+  const text = body?.body?.trim();
+  if (!text || text.length < MIN_SUBMISSION_CHARS) {
+    return c.json({ error: `Keep going — the activity needs at least ${MIN_SUBMISSION_CHARS} characters to be gradeable.` }, 400);
+  }
+  if (text.length > 40_000) return c.json({ error: 'That’s beyond what the grader will read. Trim to the three conversations and the reflection.' }, 400);
+
+  const predictedPct = Number.isFinite(body?.predictedPct) ? Math.max(0, Math.min(100, Math.round(body!.predictedPct!))) : null;
+
+  // Save first — grading can fail or be limited, the submission never gets lost.
+  const submissionId = uuid();
+  await db.insert(t.fdSubmission).values({
+    id: submissionId,
+    sessionId: session.id,
+    moduleId: 'ai101-m1',
+    body: text,
+    createdAt: now(),
+  });
+  await logEvent(db, session.id, 'activity_submitted', { submissionId, chars: text.length });
+
+  if (predictedPct !== null) {
+    await db.delete(t.fdCalibration).where(and(eq(t.fdCalibration.sessionId, session.id), eq(t.fdCalibration.context, 'm1:conversation2')));
+    await db.insert(t.fdCalibration).values({
+      id: uuid(),
+      sessionId: session.id,
+      context: 'm1:conversation2',
+      predictedPct,
+      actualOutcome: null,
+      delta: null,
+      createdAt: now(),
+    });
+  }
+
+  const hourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
+  const recent = await db
+    .select({ n: sql<number>`count(*)` })
+    .from(t.fdSubmission)
+    .where(and(eq(t.fdSubmission.sessionId, session.id), gt(t.fdSubmission.createdAt, hourAgo)));
+  if ((recent[0]?.n ?? 0) > GRADE_LIMIT_PER_HOUR) {
+    const res: GradeResult = {
+      status: 'rate_limited',
+      submissionId,
+      message: 'Your submission is saved. Grading is limited to five passes an hour — come back shortly and resubmit to grade this version.',
+    };
+    return c.json(res);
+  }
+
+  if (!c.env.ANTHROPIC_API_KEY) {
+    const res: GradeResult = {
+      status: 'saved_ungraded',
+      submissionId,
+      message: 'Your submission is saved. Grading is unavailable right now — resubmit later to get rubric feedback.',
+    };
+    return c.json(res);
+  }
+
+  const grade = await gradeSubmission(c.env.ANTHROPIC_API_KEY, c.env.GRADING_MODEL, text, predictedPct);
+  if (!grade) {
+    const res: GradeResult = {
+      status: 'saved_ungraded',
+      submissionId,
+      message: 'Your submission is saved. Grading is unavailable right now — nothing was lost, and you can resubmit to grade this version.',
+    };
+    return c.json(res);
+  }
+
+  await db
+    .update(t.fdSubmission)
+    .set({
+      rubricJson: JSON.stringify({ dimensions: grade.dimensions, summary: grade.summary }),
+      totalScore: grade.total,
+      modelUsed: c.env.GRADING_MODEL,
+      promptVersion: PROMPT_VERSION,
+      gradedAt: now(),
+    })
+    .where(eq(t.fdSubmission.id, submissionId));
+  await logEvent(db, session.id, 'activity_graded', { submissionId, total: grade.total });
+
+  const res: GradeResult = { status: 'graded', submissionId, dimensions: grade.dimensions, total: grade.total, summary: grade.summary };
+  return c.json(res);
+});
+
+// ---------- completion ----------
+
+app.get('/api/module/ai101-m1/complete', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const graded = await db
+    .select()
+    .from(t.fdSubmission)
+    .where(and(eq(t.fdSubmission.sessionId, session.id), sql`${t.fdSubmission.gradedAt} IS NOT NULL`))
+    .orderBy(desc(t.fdSubmission.gradedAt))
+    .limit(1);
+  const participants = await db
+    .select()
+    .from(t.fdParticipant)
+    .where(eq(t.fdParticipant.sessionId, session.id))
+    .orderBy(desc(t.fdParticipant.createdAt))
+    .limit(1);
+  const sub = graded[0] ?? null;
+  const name = participants[0]?.displayName ?? null;
+  const rubric = sub?.rubricJson ? JSON.parse(sub.rubricJson) : null;
+  const cal = await db
+    .select()
+    .from(t.fdCalibration)
+    .where(and(eq(t.fdCalibration.sessionId, session.id), sql`${t.fdCalibration.context} LIKE 'diagnostic:%'`));
+  const meanDelta = cal.length ? cal.reduce((a, r) => a + (r.delta ?? 0), 0) / cal.length : null;
+
+  return c.json({
+    name,
+    graded: sub
+      ? { total: sub.totalScore, dimensions: rubric?.dimensions ?? [], summary: rubric?.summary ?? '', gradedAt: sub.gradedAt, model: sub.modelUsed }
+      : null,
+    diagnosticMeanDelta: meanDelta === null ? null : Math.round(meanDelta),
+  });
+});
+
+// ---------- fallthrough ----------
+
+app.notFound(async (c) => {
+  if (new URL(c.req.url).pathname.startsWith('/api/')) return c.json({ error: 'Not found.' }, 404);
+  return c.env.ASSETS.fetch(c.req.raw);
+});
+
+export default app;

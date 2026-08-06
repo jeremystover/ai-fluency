@@ -1,0 +1,30 @@
+{
+  "slug": "verdant",
+  "name": "Verdant Collective",
+  "tokens": {
+    "color": {
+      "bg": "#F2F4EF",
+      "surface": "#FBFCF9",
+      "ink": "#25332B",
+      "ink-strong": "#152219",
+      "muted": "#5E7266",
+      "accent": "#2F6B4F",
+      "on-accent": "#FFFFFF",
+      "signal": "#FFB84D",
+      "on-signal": "#152219",
+      "line": "#D4DCD2",
+      "line-strong": "#AFBDB1",
+      "danger": "#A33B2E",
+      "success": "#2F6B4F"
+    },
+    "fontDisplay": "Georgia, 'Times New Roman', serif",
+    "fontBody": "-apple-system, 'Segoe UI', system-ui, sans-serif",
+    "fontUtility": "'Courier New', ui-monospace, monospace",
+    "radius": "14px",
+    "logoUrl": ""
+  },
+  "voice": {
+    "greeting": "Grow judgment, not just skills.",
+    "signoff": "Verdant Collective is a fictional brand used to prove the theming system."
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "promptVersion": "m1-testing-the-edges-v1",
+  "moduleId": "ai101-m1",
+  "minWords": 250,
+  "maxWords": 350,
+  "dimensions": [
+    {
+      "name": "Engagement with all three conversations",
+      "criteria": "All three run, with actual transcripts or faithful accounts. Follow-ups asked. Real subject matter, not placeholder queries."
+    },
+    {
+      "name": "Observation of mechanics",
+      "criteria": "The reflection connects what was observed to how the system works — prediction, training data, context — rather than only reporting what it said."
+    },
+    {
+      "name": "Calibration",
+      "criteria": "A prediction was made before Conversation 2, compared honestly afterward, and the direction of error is named. Accuracy isn't scored; honesty and specificity are."
+    },
+    {
+      "name": "Practical insight",
+      "criteria": "The habit named is concrete, tied to actual work, and checkable. Not \"I'll be more careful.\""
+    }
+  ]
+}

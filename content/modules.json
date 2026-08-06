@@ -1,0 +1,18 @@
+{
+  "modules": [
+    { "id": "ai101-m1", "courseId": "ai101", "ordinal": 1, "title": "What is AI?", "blurb": "A working mental model: what an LLM actually does, the vocabulary, why data decides everything, and a delegation heuristic you can carry under pressure.", "status": "open", "estMinutes": 30 },
+    { "id": "ai101-m2", "courseId": "ai101", "ordinal": 2, "title": "Choosing the tool for the task", "blurb": "Chat assistants, copilots, and the AI already embedded in your HR stack — what each is actually for, and how to tell a language model from a scoring engine before you rely on either.", "status": "locked", "estMinutes": 25 },
+    { "id": "ai101-m3", "courseId": "ai101", "ordinal": 3, "title": "What it costs and how it scales", "blurb": "Tokens, context windows, and pricing — enough of the economics to size a use case, read a vendor quote, and know when a bigger model is worth it.", "status": "locked", "estMinutes": 25 },
+    { "id": "ai101-m4", "courseId": "ai101", "ordinal": 4, "title": "Working with your documents and data", "blurb": "Attachments, long documents, and sensitive material: getting your world into the model's view without crowding out the question — or crossing a line your legal team hasn't cleared.", "status": "locked", "estMinutes": 30 },
+    { "id": "ai101-m5", "courseId": "ai101", "ordinal": 5, "title": "Prompting as briefing", "blurb": "Role, task, context, format. Prompting as briefing a capable stranger — and iteration as the keystone behavior that separates fluent users from frustrated ones.", "status": "locked", "estMinutes": 35 },
+    { "id": "ai101-m6", "courseId": "ai101", "ordinal": 6, "title": "When it's confidently wrong", "blurb": "Hallucination in depth: why fluent output deserves more scrutiny, not less, and the verification habits that keep a fabricated citation out of a document with someone's name on it.", "status": "locked", "estMinutes": 30 },
+    { "id": "ai101-m7", "courseId": "ai101", "ordinal": 7, "title": "The lines that don't move", "blurb": "Bias, adverse impact, and decisions about people. Where AI assists, where it must stop, and how to say so in a way your organization will actually follow.", "status": "locked", "estMinutes": 30 },
+    { "id": "ai101-m8", "courseId": "ai101", "ordinal": 8, "title": "What you own", "blurb": "Data agreements, disclosure, and accountability. What you're responsible for when AI touched the work — and the policy questions to settle before someone asks.", "status": "locked", "estMinutes": 25 }
+  ],
+  "courses": [
+    { "id": "ai101", "title": "AI 101 · Foundations", "level": "L1 → L2", "blurb": "From The Risk to The Novice: a working mental model, honest calibration, and the judgment to know what to hand over.", "status": "open" },
+    { "id": "ai201", "title": "AI 201 · The Practitioner", "level": "L2 → L3", "blurb": "Workflows that stick: multi-step tasks, document pipelines, and building a personal operating rhythm with AI inside real People work.", "status": "locked" },
+    { "id": "ai301", "title": "AI 301 · The Translator", "level": "L3 → L4", "blurb": "Leading adoption beyond your own desk: coaching other functions, evaluating vendors, and running pilots that produce evidence instead of anecdotes.", "status": "locked" },
+    { "id": "ai401", "title": "AI 401 · The Steward", "level": "L4 → L5", "blurb": "Policy, risk, and governance: owning the organizational answer to what AI may touch, who verifies it, and how you'll know when it goes wrong.", "status": "locked" }
+  ]
+}
