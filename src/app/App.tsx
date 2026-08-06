@@ -3,7 +3,8 @@ import { useApp } from './brand';
 import { Header, Footer } from './components/ui';
 import Landing from './routes/Landing';
 import Enter from './routes/Enter';
-import Hello from './routes/Hello';
+import Welcome from './routes/Welcome';
+import Plan from './routes/Plan';
 import Diagnostic from './routes/Diagnostic';
 import DiagnosticResult from './routes/DiagnosticResult';
 import Path from './routes/Path';
@@ -28,7 +29,9 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/enter" element={<Enter />} />
-          <Route path="/hello" element={<RequireSession><Hello /></RequireSession>} />
+          <Route path="/welcome" element={<RequireSession><Welcome /></RequireSession>} />
+          <Route path="/plan" element={<RequireSession><Plan /></RequireSession>} />
+          <Route path="/hello" element={<Navigate to="/welcome" replace />} />
           <Route path="/diagnostic" element={<RequireSession><Diagnostic /></RequireSession>} />
           <Route path="/diagnostic/result" element={<RequireSession><DiagnosticResult /></RequireSession>} />
           <Route path="/path" element={<RequireSession><Path /></RequireSession>} />

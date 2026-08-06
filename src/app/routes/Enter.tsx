@@ -19,7 +19,7 @@ export default function Enter() {
     try {
       await api.post('/api/enter', { code: code.trim() });
       await refreshMe();
-      navigate('/hello');
+      navigate('/welcome');
     } catch (err) {
       setError(err instanceof ApiError ? err.message : 'Something went sideways. Try again.');
     } finally {

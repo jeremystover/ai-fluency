@@ -26,7 +26,7 @@ export default function Landing() {
           wrong in says more about their risk than any quiz score. Then Module 1 closes the gap.
         </p>
         <div className="mt-10 anim-rise" style={{ animationDelay: '220ms' }}>
-          <Button onClick={() => navigate(me?.authenticated ? '/diagnostic' : '/enter')}>
+          <Button onClick={() => navigate(!me?.authenticated ? '/enter' : me.progress.intakeDone ? '/plan' : '/welcome')}>
             {me?.authenticated ? 'Continue' : 'Enter with your passcode'}
           </Button>
         </div>

@@ -168,7 +168,7 @@ export default function DiagnosticResult() {
               : 'Module 1 covers exactly the mechanics behind the ones you missed.'}
           </p>
           <div className="mt-8 flex items-center gap-4">
-            <Button onClick={() => navigate('/path')}>See your path</Button>
+            <Button onClick={() => navigate('/plan')}>Continue your plan</Button>
             <button onClick={() => navigate('/diagnostic')} className="text-muted text-sm underline underline-offset-4 hover:text-ink-strong">
               Retake the diagnostic
             </button>

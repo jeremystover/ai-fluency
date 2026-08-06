@@ -30,7 +30,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
     try {
       setMe(await api.get<MeResponse>('/api/me'));
     } catch {
-      setMe({ authenticated: false, progress: { diagnosticDone: false, sortDone: false, activityGraded: false, moduleCompleted: false } });
+      setMe({
+        authenticated: false,
+        progress: { intakeDone: false, diagnosticDone: false, sortDone: false, activityGraded: false, moduleCompleted: false },
+      });
     }
   };
 
