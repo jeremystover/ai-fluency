@@ -201,6 +201,16 @@ export default function ModuleView() {
                 Open the tutor →
               </Link>
             </div>
+            <Link
+              to="/module/1/podcast"
+              className="mt-2 flex items-center justify-between gap-3 border border-line rounded-brand bg-surface px-4 py-3 no-underline hover:border-ink-strong transition-colors group"
+            >
+              <span>
+                <span className="font-display font-semibold text-ink-strong text-[0.95rem]">Prefer to listen? Make it a podcast.</span>
+                <span className="block text-xs text-muted mt-0.5">Two hosts talk through this module from whatever angle you give them.</span>
+              </span>
+              <span className="text-accent font-semibold text-sm shrink-0 group-hover:underline" aria-hidden="true">Open the studio →</span>
+            </Link>
 
             <div className="mt-6 sm:pl-2">
               {data.blocks.filter((b) => b.moduleId === 'ai101-m1').map((b) => (

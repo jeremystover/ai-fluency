@@ -18,15 +18,31 @@
       "migrations_dir": "drizzle"
     }
   ],
+  // Podcast text-to-speech (@cf/deepgram/aura-1) runs on Workers AI — no extra vendor account.
+  // Note: with this binding present, `wrangler dev` needs a logged-in Cloudflare account
+  // (Workers AI has no local simulator). Remove this block to run fully offline —
+  // the podcast studio degrades to transcript-only.
+  "ai": {
+    "binding": "AI"
+  },
+  // Rendered episode audio cache. Create with `wrangler r2 bucket create fluency-demo-audio`.
+  "r2_buckets": [
+    {
+      "binding": "PODCAST_AUDIO",
+      "bucket_name": "fluency-demo-audio"
+    }
+  ],
   "vars": {
     // One brand active per deployment. Change to another fd_brand slug to re-skin.
     "BRAND_SLUG": "omnissa",
     // Model used for applied-activity grading; persisted on fd_submission.
     "GRADING_MODEL": "claude-sonnet-5",
     // Model behind the module tutor chat; persisted on fd_chat_message.
-    "CHAT_MODEL": "claude-opus-5"
+    "CHAT_MODEL": "claude-opus-5",
+    // Model used to write podcast scripts; persisted on fd_podcast.
+    "PODCAST_MODEL": "claude-sonnet-5"
   }
   // Secrets (set with `wrangler secret put`):
   //   SESSION_SECRET      — HMAC key for session cookie signing
-  //   ANTHROPIC_API_KEY   — grading calls; never exposed to the client
+  //   ANTHROPIC_API_KEY   — grading + tutor chat + podcast scripts; never exposed to the client
 }
