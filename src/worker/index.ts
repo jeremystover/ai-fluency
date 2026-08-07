@@ -5,6 +5,16 @@ import { and, asc, desc, eq, gt, sql } from 'drizzle-orm';
 import * as t from '../db/schema';
 import { verifyCode, signSessionId, verifySessionCookie, hashIp } from './crypto';
 import { gradeSubmission, PROMPT_VERSION } from './grading';
+import {
+  writeScript,
+  renderAudio,
+  estMinutes,
+  PODCAST_PROMPT_VERSION,
+  VOICE_A,
+  VOICE_B,
+  type AiBinding,
+  type LearnerContext,
+} from './podcast';
 import diagnosticData from '../../content/diagnostic.json';
 import sortingData from '../../content/sorting.json';
 import type {
@@ -16,6 +26,11 @@ import type {
   DiagnosticFeedback,
   DiagnosticItemPublic,
   DiagnosticResult,
+  PodcastEpisode,
+  PodcastLength,
+  PodcastLine,
+  PodcastListResponse,
+  PodcastSummary,
   GradeResult,
   MeResponse,
   ModuleCard,
@@ -28,8 +43,12 @@ export interface Env {
   ASSETS: Fetcher;
   BRAND_SLUG: string;
   GRADING_MODEL: string;
+  PODCAST_MODEL?: string;
   SESSION_SECRET?: string;
   ANTHROPIC_API_KEY?: string;
+  // Optional bindings — a deployment without them loses podcast audio, not the app.
+  AI?: AiBinding;
+  PODCAST_AUDIO?: R2Bucket;
 }
 
 type SessionRow = typeof t.fdSession.$inferSelect;
@@ -40,6 +59,7 @@ const COOKIE_MAX_AGE = 60 * 60 * 24 * 30; // 30 days
 const CODE_ATTEMPT_LIMIT = 10;
 const CODE_ATTEMPT_WINDOW_MS = 15 * 60 * 1000;
 const GRADE_LIMIT_PER_HOUR = 5;
+const PODCAST_LIMIT_PER_HOUR = 4;
 const MIN_SUBMISSION_CHARS = 700;
 
 // Only these may be posted from the client; everything else is written server-side.
@@ -51,6 +71,7 @@ const CLIENT_EVENT_TYPES = new Set([
   'block_read',
   'try_this_opened',
   'module_completed',
+  'podcast_played',
 ]);
 
 const now = () => new Date().toISOString();
@@ -322,7 +343,7 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
 
   const notes: string[] = [];
   const styles = prefs.styles ?? [];
-  if (styles.includes('podcast')) notes.push('Podcast-style audio is on the roadmap — your interest is logged.');
+  if (styles.includes('podcast')) notes.push('Podcast-style audio is live — open Module 1 and make a custom two-host episode from any angle you like.');
   if (styles.includes('assistant_mcp')) notes.push('Taking this course inside Claude or ChatGPT, as an MCP server, is on the roadmap — your interest is logged.');
   if (styles.includes('voice')) notes.push('Talking instead of typing is on the roadmap — your interest is logged.');
   if (time > 0) notes.push(`Sized for the ~${time} minutes you said you have. Anything marked "another sitting" keeps.`);
@@ -823,6 +844,190 @@ app.post('/api/module/ai101-m1/activity', async (c) => {
 
   const res: GradeResult = { status: 'graded', submissionId, dimensions: grade.dimensions, total: grade.total, summary: grade.summary };
   return c.json(res);
+});
+
+// ---------- podcast creator ----------
+
+type PodcastRow = typeof t.fdPodcast.$inferSelect;
+
+function toEpisode(row: PodcastRow): PodcastEpisode {
+  return {
+    id: row.id,
+    moduleId: row.moduleId,
+    title: row.title,
+    description: row.description,
+    lengthPref: row.lengthPref as PodcastLength,
+    promptText: row.promptText,
+    lines: JSON.parse(row.scriptJson) as PodcastLine[],
+    estMinutes: estMinutes(row.totalChars),
+    audioCached: row.audioKey !== null,
+    createdAt: row.createdAt,
+  };
+}
+
+app.get('/api/podcast', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const rows = await db
+    .select()
+    .from(t.fdPodcast)
+    .where(eq(t.fdPodcast.sessionId, session.id))
+    .orderBy(desc(t.fdPodcast.createdAt));
+  const episodes: PodcastSummary[] = rows.map((row) => {
+    const { lines: _lines, ...summary } = toEpisode(row);
+    return summary;
+  });
+  const res: PodcastListResponse = {
+    episodes,
+    scriptEnabled: Boolean(c.env.ANTHROPIC_API_KEY),
+    audioEnabled: Boolean(c.env.AI),
+  };
+  return c.json(res);
+});
+
+app.post('/api/podcast', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const body = await c.req.json<{ moduleId?: string; prompt?: string; length?: string }>().catch(() => null);
+  if (!body) return c.json({ error: 'Malformed request.' }, 400);
+
+  const moduleId = body.moduleId ?? 'ai101-m1';
+  const length: PodcastLength = body.length === 'quick' || body.length === 'deep' ? body.length : 'standard';
+  const focus = typeof body.prompt === 'string' && body.prompt.trim() ? body.prompt.trim().slice(0, 400) : null;
+
+  const modRows = await db.select().from(t.fdModule).where(eq(t.fdModule.id, moduleId)).limit(1);
+  const mod = modRows[0];
+  if (!mod || mod.status !== 'open') return c.json({ error: 'Episodes can only be made from open modules.' }, 400);
+
+  const hourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
+  const recent = await db
+    .select({ n: sql<number>`count(*)` })
+    .from(t.fdPodcast)
+    .where(and(eq(t.fdPodcast.sessionId, session.id), gt(t.fdPodcast.createdAt, hourAgo)));
+  if ((recent[0]?.n ?? 0) >= PODCAST_LIMIT_PER_HOUR) {
+    return c.json({ error: `Episode writing is limited to ${PODCAST_LIMIT_PER_HOUR} an hour. Your earlier episodes are below — or come back shortly.` }, 429);
+  }
+
+  if (!c.env.ANTHROPIC_API_KEY) {
+    return c.json({ error: 'The scriptwriter is not configured in this deployment, so episodes cannot be generated yet.' }, 503);
+  }
+
+  await logEvent(db, session.id, 'podcast_requested', { moduleId, length, hasFocus: focus !== null });
+
+  // Source: the module's readable blocks, in order. Exercise blocks carry JSON
+  // payloads, not prose — the hosts can't read those aloud.
+  const blockRows = await db
+    .select()
+    .from(t.fdContentBlock)
+    .where(eq(t.fdContentBlock.moduleId, moduleId))
+    .orderBy(asc(t.fdContentBlock.ordinal));
+  const contentMd = blockRows
+    .filter((b) => b.kind !== 'exercise')
+    .map((b) => b.body)
+    .join('\n\n');
+
+  const participants = await db
+    .select()
+    .from(t.fdParticipant)
+    .where(eq(t.fdParticipant.sessionId, session.id))
+    .orderBy(desc(t.fdParticipant.createdAt))
+    .limit(1);
+  const prefs = await loadPrefs(db, session.id);
+  const diag = await computeDiagnosticResult(db, session.id);
+  const learner: LearnerContext = {
+    name: participants[0]?.displayName ?? null,
+    role: participants[0]?.roleLabel ?? null,
+    objective: prefs.objective ?? null,
+    calibrationHeadline: diag.calibration.points.length > 0 ? diag.calibration.headline : null,
+  };
+
+  const model = c.env.PODCAST_MODEL ?? c.env.GRADING_MODEL;
+  const script = await writeScript(c.env.ANTHROPIC_API_KEY, model, mod.title, contentMd, learner, focus, length);
+  if (!script) {
+    return c.json({ error: 'The scriptwriter is unavailable right now. Nothing was saved — try again in a minute.' }, 503);
+  }
+
+  const row: PodcastRow = {
+    id: uuid(),
+    sessionId: session.id,
+    moduleId,
+    promptText: focus,
+    lengthPref: length,
+    title: script.title,
+    description: script.description,
+    scriptJson: JSON.stringify(script.lines),
+    totalChars: script.lines.reduce((sum, l) => sum + l.text.length, 0),
+    modelUsed: model,
+    promptVersion: PODCAST_PROMPT_VERSION,
+    voiceA: VOICE_A,
+    voiceB: VOICE_B,
+    audioKey: null,
+    audioBytes: null,
+    audioAt: null,
+    createdAt: now(),
+  };
+  await db.insert(t.fdPodcast).values(row);
+  await logEvent(db, session.id, 'podcast_script_ready', { podcastId: row.id, turns: script.lines.length, chars: row.totalChars });
+
+  return c.json(toEpisode(row));
+});
+
+app.get('/api/podcast/:id', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const rows = await db
+    .select()
+    .from(t.fdPodcast)
+    .where(and(eq(t.fdPodcast.id, c.req.param('id')), eq(t.fdPodcast.sessionId, session.id)))
+    .limit(1);
+  if (!rows[0]) return c.json({ error: 'No such episode.' }, 404);
+  return c.json(toEpisode(rows[0]));
+});
+
+// Audio renders lazily on first listen, then serves from the R2 cache. The first
+// request voices every turn (~30–60s) — the client fetches to a blob and shows a
+// rendering state rather than pointing an <audio> tag here cold.
+app.get('/api/podcast/:id/audio', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const rows = await db
+    .select()
+    .from(t.fdPodcast)
+    .where(and(eq(t.fdPodcast.id, c.req.param('id')), eq(t.fdPodcast.sessionId, session.id)))
+    .limit(1);
+  const row = rows[0];
+  if (!row) return c.json({ error: 'No such episode.' }, 404);
+
+  const audioHeaders = { 'content-type': 'audio/mpeg', 'cache-control': 'private, max-age=86400' };
+
+  if (row.audioKey && c.env.PODCAST_AUDIO) {
+    const cached = await c.env.PODCAST_AUDIO.get(row.audioKey);
+    if (cached) return new Response(cached.body, { headers: audioHeaders });
+    // Bucket lost the object (recreated, expired) — fall through and re-render.
+  }
+
+  if (!c.env.AI) {
+    return c.json({ error: 'Audio rendering is not configured in this deployment — the full transcript is the episode for now.' }, 503);
+  }
+
+  const lines = JSON.parse(row.scriptJson) as PodcastLine[];
+  const audio = await renderAudio(c.env.AI, lines);
+  if (!audio) {
+    return c.json({ error: 'The voices are unavailable right now. The script is safe — try the audio again in a minute.' }, 503);
+  }
+
+  if (c.env.PODCAST_AUDIO) {
+    const key = `podcast/${row.id}.mp3`;
+    await c.env.PODCAST_AUDIO.put(key, audio);
+    await db.update(t.fdPodcast).set({ audioKey: key, audioBytes: audio.length, audioAt: now() }).where(eq(t.fdPodcast.id, row.id));
+  }
+  await logEvent(db, session.id, 'podcast_audio_rendered', { podcastId: row.id, bytes: audio.length, cached: Boolean(c.env.PODCAST_AUDIO) });
+
+  return new Response(audio, { headers: { ...audioHeaders, 'content-length': String(audio.length) } });
 });
 
 // ---------- completion ----------
