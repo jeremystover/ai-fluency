@@ -192,6 +192,16 @@ export default function ModuleView() {
             <h1 className="font-display font-bold text-ink-strong text-3xl sm:text-4xl mt-3 tracking-tight">{data.module.title}</h1>
             <p className="text-muted mt-2">{data.module.blurb}</p>
 
+            <div className="mt-5 border border-accent/40 rounded-brand bg-accent/[0.04] px-4 py-3 flex flex-col sm:flex-row sm:items-center gap-2 sm:justify-between">
+              <p className="text-sm text-ink">
+                <span className="font-display font-semibold text-accent">Prefer to talk it through?</span> The module tutor teaches this same
+                material in conversation — lecturettes, questions, quizzes, your pace.
+              </p>
+              <Link to="/module/1/chat" className="text-accent font-semibold text-sm no-underline hover:underline whitespace-nowrap">
+                Open the tutor →
+              </Link>
+            </div>
+
             <div className="mt-6 sm:pl-2">
               {data.blocks.filter((b) => b.moduleId === 'ai101-m1').map((b) => (
                 <Block key={b.id} block={b} />
@@ -202,9 +212,14 @@ export default function ModuleView() {
               <span className="font-utility text-[0.7rem] text-muted">
                 Concepts reviewed {data.stamps.conceptsReviewedAt ?? '—'} · Examples current as of {data.stamps.examplesCurrentAsOf ?? '—'}
               </span>
-              <Link to="/module/1/activity" className="text-accent font-semibold text-sm no-underline hover:underline">
-                Applied activity →
-              </Link>
+              <span className="flex items-center gap-4">
+                <Link to="/module/1/chat" className="text-accent font-semibold text-sm no-underline hover:underline">
+                  Discuss with the tutor →
+                </Link>
+                <Link to="/module/1/activity" className="text-accent font-semibold text-sm no-underline hover:underline">
+                  Applied activity →
+                </Link>
+              </span>
             </footer>
           </article>
         </div>

@@ -22,7 +22,9 @@
     // One brand active per deployment. Change to another fd_brand slug to re-skin.
     "BRAND_SLUG": "omnissa",
     // Model used for applied-activity grading; persisted on fd_submission.
-    "GRADING_MODEL": "claude-sonnet-5"
+    "GRADING_MODEL": "claude-sonnet-5",
+    // Model behind the module tutor chat; persisted on fd_chat_message.
+    "CHAT_MODEL": "claude-opus-5"
   }
   // Secrets (set with `wrangler secret put`):
   //   SESSION_SECRET      — HMAC key for session cookie signing
