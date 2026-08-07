@@ -1,0 +1,79 @@
+{
+  "title": "Knowledge check — 6 questions",
+  "note": "Unlocks after the portfolio is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-07",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "The proof of the Practitioner level is:",
+      "options": [
+        "A workflow running at rung 3 autonomy",
+        "Transferability — a stranger can run the build, read its boundaries, and trust its guardrails from the documentation alone",
+        "Measured time savings above five hours a month",
+        "Completion of all eight capstone stages"
+      ],
+      "correctIndex": 1,
+      "explanation": "Rungs, savings, and stages are properties a good build might have. The level is about whether the judgment left the builder's head and survived in writing."
+    },
+    {
+      "id": "q2",
+      "prompt": "The consistency pass exists because:",
+      "options": [
+        "Reviewers require a single document format",
+        "Artifacts written across seven modules drift apart as the workflow evolves — and contradictions are where cold readers stall and trust dies",
+        "The portfolio must fit in one file",
+        "Each artifact must be re-approved before shipping"
+      ],
+      "correctIndex": 1,
+      "explanation": "The binder was written longitudinally; the workflow kept moving. The pass reconciles them — spec to rhythm, runbook to budget, pack to census — before the stranger reads."
+    },
+    {
+      "id": "q3",
+      "prompt": "During the handoff run, the reader may not ask the builder questions because:",
+      "options": [
+        "The exchange is graded as a test of the reader",
+        "The documentation must answer or fail visibly — a question answered aloud is a gap that ships unfixed",
+        "Peers are anonymous in the exchange",
+        "Questions would take too long"
+      ],
+      "correctIndex": 1,
+      "explanation": "The cold read is the instrument. Every question the builder answers in person is a stall the binder no longer gets credit for revealing — and documentation debt that survives to the *next* reader, who won't have the builder's number."
+    },
+    {
+      "id": "q4",
+      "prompt": "Builders mispredict where readers stall in a specific direction:",
+      "options": [
+        "They predict stalls at complex parts; readers stall at obvious ones, where the builder's expertise has gone invisible",
+        "They predict too many stalls overall",
+        "They predict stalls at the beginning; readers stall at the end",
+        "There is no systematic direction"
+      ],
+      "correctIndex": 0,
+      "explanation": "The tacit-knowledge tax: obviousness is what expertise can no longer see. It's the course's last calibration lesson, and the core diagnostic of the coaching work ahead."
+    },
+    {
+      "id": "q5",
+      "prompt": "The executive sentence — \"saves N hours a month against a measured baseline, at a running cost of $X and Y% sampled error, with a boundary security has seen\" — is powerful because:",
+      "options": [
+        "It uses precise numbers",
+        "Each clause is backed by an artifact that exists and can be audited: the baseline, the cost estimate, the sample tallies, the boundary sheet",
+        "It's short enough for an executive to remember",
+        "It avoids technical vocabulary"
+      ],
+      "correctIndex": 1,
+      "explanation": "The sentence is a claim with receipts — which is what separates it from every AI-enthusiasm anecdote in the same meeting. The numbers matter because the artifacts behind them do."
+    },
+    {
+      "id": "q6",
+      "prompt": "The fifth rubric dimension — \"would a colleague trust it?\" — is the course's test because:",
+      "options": [
+        "Peer approval is required for shipping",
+        "It integrates everything: verification that's real, boundaries that are defensible, autonomy that's evidenced, documentation that's been run — trustworthy, not impressive",
+        "Colleagues will maintain the workflow after handoff",
+        "Trust is easier to grade than quality"
+      ],
+      "correctIndex": 1,
+      "explanation": "Any single module can be performed; trust is what the whole system either earns or doesn't. It's also the property the next course spends: a Translator's credibility starts at their own shipped, trustworthy build."
+    }
+  ]
+}

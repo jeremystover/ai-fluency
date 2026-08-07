@@ -83,10 +83,13 @@ special cases.
   buckets, capstone activity with two rubric-declared calibration fields, 8-question knowledge
   check, micro dose. Chat and podcast lit up automatically, as designed. The path renders per
   course; the plan continues into 201 once the 101 capstone is graded.
-- **D · 201 M2–M8 shallow:** draft-to-blocks converter script (`scripts/convert-draft.mjs`,
-  heading-based, `[V]` detection); knowledge checks extracted (format is uniform); exercises
-  as static + reveal; micros written from each module's takeaways; internal prereqs (M4→M5,
-  M4+M6→M8) live via the existing prereq machinery, completion signal = knowledge check
-  submitted.
+- **D · 201 M2–M8 shallow (done):** all seven drafts converted via the converter — reading
+  view with volatile lab lessons detected, exercises as static prose with commit-first
+  `reveal` keys, knowledge checks extracted and live, rubrics extracted so the generic graded
+  activity works on every capstone stage, micros written for all seven. Internal prereqs are
+  enforced on the path (M4→M5, M4+M6→M8): a strong prerequisite locks even an open module,
+  and 60%+ on the prerequisite's knowledge check clears the gate (retakes free). All eight
+  201 modules now run in every modality — read, chat, podcast, micro — plus checks and graded
+  activities.
 - **E · Later:** bespoke engines for M3/M4/M5's exercise types; 201 activity grading tuned
   per capstone stage; the review queue wired to M8's peer-exchange flow end-to-end.

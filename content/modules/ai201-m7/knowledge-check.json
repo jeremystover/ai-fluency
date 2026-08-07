@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the capstone is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-07",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "How do workflows usually die?",
+      "options": [
+        "A visible incident forces a shutdown",
+        "Quiet decay: sources shift, samples stop, and months later nobody has a number — just a feeling it used to be better",
+        "The model provider deprecates a feature",
+        "They rarely die; maintained workflows are stable"
+      ],
+      "correctIndex": 1,
+      "explanation": "No single failure, just unattended drift — every mode of which an earlier module predicted. The rhythm exists because decay is the default, not the exception."
+    },
+    {
+      "id": "q2",
+      "prompt": "The sizing rule for a workflow's maintenance rhythm:",
+      "options": [
+        "As thorough as the workflow is important",
+        "A small fraction of what the workflow saves — past that, it's a hobby",
+        "One hour per week, standardized across workflows",
+        "Whatever the owner can sustain"
+      ],
+      "correctIndex": 1,
+      "explanation": "The fraction test keeps the rhythm honest in both directions: enough to catch decay, never enough to consume the savings it protects. It's also a retirement trigger when it inverts."
+    },
+    {
+      "id": "q3",
+      "prompt": "A skipped weekly review should be:",
+      "options": [
+        "Made up with a double review next week",
+        "Logged out loud — \"skipped, crunch\" — because two consecutive skips is information",
+        "Avoided by automating the review",
+        "Ignored; the monthly review covers it"
+      ],
+      "correctIndex": 1,
+      "explanation": "The skip isn't the sin; the silent skip is. A visible skip pattern is exactly the M4-style decay signal the rhythm exists to surface — about itself."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why is \"share of debriefs opened by the hiring manager\" the strongest of the kept metrics?",
+      "options": [
+        "It's the easiest to collect",
+        "It measures downstream behavior — whether the work product actually matters to its audience",
+        "It can be tracked automatically",
+        "It correlates with time saved"
+      ],
+      "correctIndex": 1,
+      "explanation": "Time, cost, and quality can all look excellent on a workflow nobody uses. The use metric is the one that catches the workflow whose quality no longer matters to anyone."
+    },
+    {
+      "id": "q5",
+      "prompt": "The test that deletes theater metrics on contact:",
+      "options": [
+        "Can this number be gathered automatically?",
+        "What would I do differently if this number moved?",
+        "Does this number always increase?",
+        "Would an executive find this number impressive?"
+      ],
+      "correctIndex": 1,
+      "explanation": "No decision downstream, no metric. (C is a good tell — always-up numbers restate elapsed time — but B is the test that also catches subtle theater.)"
+    },
+    {
+      "id": "q6",
+      "prompt": "Retirement criteria are written at baseline time because:",
+      "options": [
+        "Baselines are required for retirement calculations",
+        "The future evaluator owns sunk costs and a builder's identity — the criteria must predate the fondness that will argue with them",
+        "Criteria written later would be less accurate",
+        "The rhythm has no other place to put them"
+      ],
+      "correctIndex": 1,
+      "explanation": "It's a pre-commitment against a bias you can name today and will feel next year. Same reasoning as M5's refusal: write the judgment down before the pressure arrives."
+    },
+    {
+      "id": "q7",
+      "prompt": "A workflow saved five hours a month for a year; then the org's new HRIS made it unnecessary, and it was archived with its numbers. This is:",
+      "options": [
+        "A failure to future-proof the design",
+        "A complete success story with an ending — the failure mode is the zombie, not the retirement",
+        "Evidence the workflow was never necessary",
+        "A reason to rebuild it against the new system"
+      ],
+      "correctIndex": 1,
+      "explanation": "Fourteen months of measured savings is the win; the world moving is trigger three working as designed. (D might *also* be true — but that's a new M1 audit, not a reflex.)"
+    },
+    {
+      "id": "q8",
+      "prompt": "The point of scoring the M1 prediction against measured reality is:",
+      "options": [
+        "Grading the accuracy of the original estimate",
+        "Surfacing your systematic direction of error about your own work, and feeding it into the next build",
+        "Producing a success number for the M8 portfolio",
+        "Proving the workflow was worth building"
+      ],
+      "correctIndex": 1,
+      "explanation": "As everywhere in both courses: accuracy isn't the graded thing — direction is. Seven predictions produce a pattern; the practitioner's edge is knowing their own lean and pricing the next build against it."
+    }
+  ]
+}

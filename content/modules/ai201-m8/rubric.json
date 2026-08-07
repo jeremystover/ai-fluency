@@ -1,0 +1,31 @@
+{
+  "promptVersion": "ai201-m8-capstone-v1",
+  "moduleId": "ai201-m8",
+  "minChars": 600,
+  "submitLabel": "Your capstone-stage submission",
+  "intro": "Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited — the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). The AI 201 capstone portfolio: the index page and consistent binder, two real runs with intermediates, the four numbers in executive-sentence form, both directions of the peer exchange with the calibration score, and the closing reflection. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.",
+  "calibration": [],
+  "dimensions": [
+    {
+      "name": "Engagement with real work",
+      "criteria": "The runs are real, the material is real, the fixes were actually made. A portfolio assembled for the grade reads exactly like one — and scores like one."
+    },
+    {
+      "name": "Observation of mechanics",
+      "criteria": "The reflection connects what happened — the stalls, the deltas, the numbers — to how the systems work: context, verification, decay, transfer."
+    },
+    {
+      "name": "Calibration",
+      "criteria": "The handoff prediction was made, scored, and folded into the course-long direction honestly. Accuracy isn't graded; the named lean and its consequence are."
+    },
+    {
+      "name": "Practical insight",
+      "criteria": "The next build is specific: named workflow, starting rung, budget size — each traceable to something this course measured about *you*."
+    },
+    {
+      "name": "Would a colleague trust it?",
+      "criteria": "The test of the whole course: guardrails a reasonable peer would rely on — verification real, boundary defensible, autonomy evidenced, documentation a stranger has run. Not \"is it impressive.\" Is it *trustworthy*."
+    }
+  ]
+}

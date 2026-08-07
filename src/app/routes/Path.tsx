@@ -58,7 +58,7 @@ function ModuleCard({ m }: { m: PathModule }) {
           {m.unlockHint}
         </p>
       )}
-      {m.access === 'full_course' && m.unlockHint && (
+      {m.access !== 'locked' && m.unlockHint && (
         <p className="text-xs text-success mt-2">✓ {m.unlockHint}</p>
       )}
     </div>

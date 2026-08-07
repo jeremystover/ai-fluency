@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ai201-m2-micro-core",
+    "moduleId": "ai201-m2-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Module 2 in two minutes\n\n**The artisan tax** is what you pay every time you re-brief an AI on material that hasn't changed — your voice, your standards, your org's shape, retyped per conversation, forever. The fix is the **context pack**: the durable briefing for one workflow, written once, attached always.\n\n**Three bins, one discipline.** Durable-and-impersonal material lives in the pack: a gold-standard example, the definition of done, your voice rules, the team glossary. Run-specific material — this week's notes, this quarter's verbatims — arrives fresh and leaves with the run. And anything identifying a person never becomes infrastructure: packing it converts a one-time judgment call into a standing condition nobody re-decides.\n\n**Context rots.** The org brief goes stale at the next reorg, and stale context fails the way fluent output always fails — confidently. Date-stamp every pack item, review the fast-aging ones monthly, prune what nobody's needed in two cycles. When a run goes wrong because the pack was wrong, fix the pack before you fix the output."
+  },
+  {
+    "id": "ai201-m2-micro-rule",
+    "moduleId": "ai201-m2-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "### The boundary rule\n\nPeople data must never become infrastructure. Sensitive material may enter a single run as fresh input, under that run's judgment — it never lives in packs, instructions, or anything a future conversation can see."
+  },
+  {
+    "id": "ai201-m2-micro-close",
+    "moduleId": "ai201-m2-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "**The full module adds** the instructions-vs-knowledge design rule, the hands-on pack build in your organization's tools, a twelve-item sorting exercise, and capstone stage 2: the pack for your own workflow."
+  }
+]

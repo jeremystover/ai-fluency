@@ -683,7 +683,16 @@ app.get('/api/path', async (c) => {
       ),
     );
   const completed = new Set(
-    doneRows.map((e) => (e.payloadJson ? (JSON.parse(e.payloadJson) as { moduleId?: string }).moduleId : null)).filter(Boolean),
+    doneRows
+      .map((e) => {
+        if (!e.payloadJson) return null;
+        const p = JSON.parse(e.payloadJson) as { moduleId?: string; correct?: number; total?: number };
+        // A knowledge check clears a prerequisite at 60%+ — retakes are free,
+        // so the gate asks for understanding, not mere submission.
+        if (e.type === 'knowledge_check_submitted' && p.total && (p.correct ?? 0) / p.total < 0.6) return null;
+        return p.moduleId;
+      })
+      .filter(Boolean),
   );
   const kResponses = await db
     .select()
@@ -700,18 +709,20 @@ app.get('/api/path', async (c) => {
     const unmet = prereqs.filter((p) => !satisfied(p));
     let access: PathModule['access'];
     let unlockHint: string | undefined;
-    if (m.status === 'open') {
-      access = 'open';
-    } else if (unmet.length === 0) {
-      access = 'full_course';
-      if (prereqs.length > 0) unlockHint = 'Prerequisite cleared.';
-    } else {
+    if (unmet.length > 0) {
+      // A strong prerequisite locks the module whether or not its content
+      // exists — and the lock always says how to open it.
       access = 'locked';
       const names = unmet.map(titleOf).join(' and ');
-      unlockHint =
-        unmet.includes('ai101-m1')
-          ? `Needs ${names} first — finish it, or test out with a perfect knowledge score on the diagnostic.`
-          : `Needs ${names} first.`;
+      unlockHint = unmet.includes('ai101-m1')
+        ? `Needs ${names} first — finish it, or test out with a perfect knowledge score on the diagnostic.`
+        : `Needs ${names} first — 60%+ on its knowledge check clears the gate, and retakes are free.`;
+    } else if (m.status === 'open') {
+      access = 'open';
+      if (prereqs.length > 0) unlockHint = 'Prerequisite cleared.';
+    } else {
+      access = 'full_course';
+      if (prereqs.length > 0) unlockHint = 'Prerequisite cleared.';
     }
     return { ...(m as ModuleCard), access, prereqs, unlockHint, microMinutes: 2 };
   });

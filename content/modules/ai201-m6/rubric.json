@@ -1,0 +1,27 @@
+{
+  "promptVersion": "ai201-m6-capstone-v1",
+  "moduleId": "ai201-m6",
+  "minChars": 600,
+  "submitLabel": "Your capstone-stage submission",
+  "intro": "Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited — the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). Capstone stage 6: the boundary sheet — a tiered input census, mitigations matched to tier, the four agreement answers with sources (provisional status marked if unknowns remain), the escalation card, and the extended sign-off line. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.",
+  "calibration": [],
+  "dimensions": [
+    {
+      "name": "Tier honesty",
+      "criteria": "The census is complete and the tricky calls — descriptions, small-n, convergence — are caught and reasoned, not waved through."
+    },
+    {
+      "name": "Mitigation matches tier",
+      "criteria": "Step-zero designs are real pipeline steps with checkpoints; Tier 4 handling is removal or named clearance, never \"carefully.\""
+    },
+    {
+      "name": "The agreement layer is factual",
+      "criteria": "Four questions answered from sources, not assumptions; unknowns owned honestly with a pursuit plan."
+    },
+    {
+      "name": "Calibration",
+      "criteria": "Both counts predicted first, scored against the census, direction of error named. Honesty and specificity graded; accuracy never."
+    }
+  ]
+}

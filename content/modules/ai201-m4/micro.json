@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ai201-m4-micro-core",
+    "moduleId": "ai201-m4-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Module 4 in two minutes\n\n**Checking everything is the invisible failure.** It refunds the workflow's savings, then decays under load into approving on fluency — while everyone still believes coverage is total. The alternative is a **verification budget**: how much checking, of what, by whom — sized to stakes, written into the workflow, cheap enough that week six runs it exactly like week one.\n\n**Technique matches failure mode.** Sample volume work and classify what you find (wrong / missing / invented — the classification is diagnosis). Trace factual claims to their sources; compliance claims get traced by a human, every time. Read judgment-adjacent prose adversarially — its failure is slant, not falsehood. Diff against your gold standard for drift.\n\n**A sign-off is its reading list.** One non-delegable name per workflow, with the defined inputs that name reads before anything ships. And when something ships wrong anyway: correct the record at the error's own prominence, check whether a decision about a person stood on it and reopen what was touched, trace the miss to its budget line, reprice that one line."
+  },
+  {
+    "id": "ai201-m4-micro-rule",
+    "moduleId": "ai201-m4-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "### The operational definition\n\n\"Verified by hand\" means: a written budget sized to stakes, techniques matched to failure modes, a defined sign-off, and an honest sample run against real outputs. That's the admission ticket to any autonomy conversation."
+  },
+  {
+    "id": "ai201-m4-micro-close",
+    "moduleId": "ai201-m4-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "**The full module adds** the buy-the-right-verification exercise, the sampling and human-factors literature behind the design, and capstone stage 4: your workflow's verification plan and first honest sample."
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "promptVersion": "ai201-m3-capstone-v1",
+  "moduleId": "ai201-m3",
+  "minChars": 600,
+  "submitLabel": "Your capstone-stage submission",
+  "intro": "Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited — the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). Capstone stage 3: the workflow as a pipeline — step designs with checkpoints, the runbook prompts verbatim, a real run with all intermediate artifacts, and the calibration score for the predicted-lossiest step. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.",
+  "calibration": [],
+  "dimensions": [
+    {
+      "name": "Step discipline",
+      "criteria": "One transformation per step; structured intermediates; prose only at the end. A deliberately small pipeline defended well outscores an elaborate one."
+    },
+    {
+      "name": "Checkpoint design",
+      "criteria": "Each checkpoint names what failure would look like there, and a human could realistically catch it in the artifact submitted."
+    },
+    {
+      "name": "The run is real",
+      "criteria": "Genuine material, all intermediates included, and evidence the checkpoints were actually looked at — not a pipeline run for the grade."
+    },
+    {
+      "name": "Calibration",
+      "criteria": "Prediction recorded before the run, scored honestly after, direction of error named. Accuracy isn't graded; honesty and specificity are."
+    }
+  ]
+}

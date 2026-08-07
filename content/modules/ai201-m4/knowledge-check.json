@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the capstone plan is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-07",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why is \"a human reviews everything\" often the most dangerous verification plan?",
+      "options": [
+        "Human review is less accurate than automated checks",
+        "It refunds the workflow's time savings, then decays under load into fluency-approval — while everyone believes coverage is total",
+        "It violates the delegation heuristic",
+        "Full review is only dangerous for high-stakes outputs"
+      ],
+      "correctIndex": 1,
+      "explanation": "The decay curve is the danger: week one reads everything, week six approves on fluency, and the plan's reputation for rigor is exactly what stops anyone from noticing."
+    },
+    {
+      "id": "q2",
+      "prompt": "The cheapest place to verify a pipeline's work is:",
+      "options": [
+        "The final output, read end to end",
+        "The artifacts at checkpoints, against their sources",
+        "A second model's opinion of the final output",
+        "User complaints after shipping"
+      ],
+      "correctIndex": 1,
+      "explanation": "M3's dividend: a theme table checks against raw comments in minutes, and catches loss that final prose hides by construction. A is the expensive, less reliable afternoon; C is a useful smoke detector, not a foundation."
+    },
+    {
+      "id": "q3",
+      "prompt": "Your weekly sample of debriefs finds two \"missing\" findings and no \"invented\" ones. The likely fix lives in:",
+      "options": [
+        "The model — switch to a more capable one",
+        "The step prompt or pack — source material is being dropped, which is a runbook problem",
+        "The sample size — too small to conclude anything",
+        "Nothing — missing findings are acceptable at low rates"
+      ],
+      "correctIndex": 1,
+      "explanation": "Classification is diagnosis: wrong/missing point at instructions and pack; invented points at gaps in supplied material. That's why the tally is classified at all — the categories have different addresses."
+    },
+    {
+      "id": "q4",
+      "prompt": "Adversarial reading exists because judgment-adjacent prose fails by:",
+      "options": [
+        "Fabricating citations",
+        "Being angled — smoothed and averaged in ways that are plausible rather than false",
+        "Exceeding the context window",
+        "Drifting from the output format"
+      ],
+      "correctIndex": 1,
+      "explanation": "The Denver summary wasn't a lie; it was a slant. Tracing catches false claims; only a critic's read catches a true-ish narrative that buries the signal."
+    },
+    {
+      "id": "q5",
+      "prompt": "A second-model critique pass should be treated as:",
+      "options": [
+        "A replacement for human review on routine outputs",
+        "A guarantee against hallucination",
+        "A cheap skeptic that sharpens the human read but shares the first pass's blind spots",
+        "Forbidden — models must not check models"
+      ],
+      "correctIndex": 2,
+      "explanation": "It's a smoke detector: genuinely useful, cheap to run, and never the thing that makes high-stakes output safe on its own. A is the rubber-stamp trap with extra software."
+    },
+    {
+      "id": "q6",
+      "prompt": "A real sign-off is defined by:",
+      "options": [
+        "The seniority of the person approving",
+        "Its reading list — the named inputs the owner looks at before shipping",
+        "The approval being recorded in writing",
+        "A second approver for high-stakes outputs"
+      ],
+      "correctIndex": 1,
+      "explanation": "\"Sign-off = the theme-table diff plus this week's three samples\" is a control. \"Sign-off = review it\" is a sentiment with a signature line. The name matters too — but only paired with what the name reads."
+    },
+    {
+      "id": "q7",
+      "prompt": "The owner catches herself approving outputs without reading the defined inputs. The module's prescription:",
+      "options": [
+        "Replace the owner",
+        "Add a second approver",
+        "Treat it as a pricing failure — the budget was too expensive to survive a busy month — and reprice it",
+        "Automate the sign-off"
+      ],
+      "correctIndex": 2,
+      "explanation": "Willpower failures of well-designed systems are rare; willpower failures of overpriced ones are guaranteed. Fix the design, and the person's diligence becomes affordable again."
+    },
+    {
+      "id": "q8",
+      "prompt": "\"You may only systematize what you have verified by hand\" — after this module, \"verified\" operationally means:",
+      "options": [
+        "The owner has read every output the workflow has produced",
+        "A sample was run once before launch",
+        "A written budget exists — sized to stakes, techniques matched to failure modes, a defined sign-off — and an honest sample has been run against real outputs",
+        "No errors have been reported by recipients"
+      ],
+      "correctIndex": 2,
+      "explanation": "Not everything read (A is the decay trap), not one pre-launch glance (B), and never silence-as-evidence (D). A designed, running, honest verification layer — which is exactly the ticket M5 checks at the door."
+    }
+  ]
+}

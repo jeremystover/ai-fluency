@@ -1,0 +1,11 @@
+[
+  {
+    "id": "ai201-m2-activity-capstone-stage-2-build-your-workflow-s-p-10",
+    "moduleId": "ai201-m2-activity",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Capstone stage 2 · Build your workflow's pack\n\nYour M1 spec named the workflow's inputs. Now split and build them.\n\n**First, score your calibration** from the top of the module: how many items did the pack\nactually need, and which was genuinely hardest to write? Record both misses with a sentence on\nthe direction — too many predicted items usually means fresh material was headed for the pack;\nthe \"hardest item\" miss usually reveals which part of your own standards you'd never written\ndown.\n\n**Then submit, from your organization's tool:**\n\n1. **The three-bin inventory** — every input from your M1 spec, placed in pack / fresh /\n   excluded, one clause of reasoning each.\n2. **The instructions** — pasted verbatim. Role, definition of done, voice, failure rule.\n3. **The knowledge list** — each document's name, one line on why it earned the place, and its\n   review date and cadence (stable or volatile).\n4. **A fresh-run transcript** — one real run supplying only per-run material, with a sentence on\n   what you no longer had to say.\n\n### Rubric — 20 points\n\n| Dimension | 5 points |\n|---|---|\n| **Pack design** | Instructions are short and behavioral; knowledge is reference, not recitation; a gold-standard example and definition of done are present. The split shows judgment, not just sorting. |\n| **Boundary discipline** | Nothing person-identifying anywhere in pack or instructions; fresh vs. pack placements are defensible; the excluded bin shows they know *why* those items are excluded. |\n| **Durability design** | Every knowledge item carries a review date and a stable/volatile designation; a real review cadence exists somewhere a calendar can enforce it. |\n| **Calibration** | Both predictions recorded before building, scored honestly after, with the direction of error named. Accuracy isn't graded; honesty and specificity are. |"
+  }
+]
