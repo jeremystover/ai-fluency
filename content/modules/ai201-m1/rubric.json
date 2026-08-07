@@ -1,0 +1,44 @@
+{
+  "promptVersion": "ai201-m1-spec-v1",
+  "moduleId": "ai201-m1",
+  "minChars": 600,
+  "submitLabel": "The five-part spec + your selection reasoning",
+  "intro": "Write the five-part spec — trigger, inputs, transformation, verification, output and owner — then defend the choice against the selection rules, including what you rejected and why. Resubmission is free and unlimited.",
+  "activityContext": "The learner is submitting Capstone Stage 1 of AI 201: a five-part workflow spec (trigger, inputs, transformation, verification, output/owner) for one workflow chosen from an audit of their own week, plus a paragraph defending the selection against the module's rules (high frequency, high structure, owned inputs, low-to-medium stakes).",
+  "calibration": [
+    {
+      "key": "hours",
+      "label": "Prediction 1 — hours/month this task costs you today",
+      "hint": "Honest hours, not resentment. Scored for honesty in Module 7.",
+      "placeholder": "e.g. 6",
+      "min": 0,
+      "max": 200
+    },
+    {
+      "key": "savings",
+      "label": "Prediction 2 — % of that time the workflow saves within a month",
+      "hint": "Recorded before you build. Direction of error is the lesson.",
+      "placeholder": "e.g. 50",
+      "min": 0,
+      "max": 100
+    }
+  ],
+  "dimensions": [
+    {
+      "name": "Spec concreteness",
+      "criteria": "All five parts present and specific enough that a colleague could challenge them. Inputs name real sources; the transformation is verbs, not vibes."
+    },
+    {
+      "name": "Selection reasoning",
+      "criteria": "The choice is defended against the selection rules, honestly scored for frequency, structure, ownership, and stakes — including what was rejected and why."
+    },
+    {
+      "name": "Verification exists",
+      "criteria": "The verification part is present and matched to stakes. It can be modest; it cannot be missing or hand-waved."
+    },
+    {
+      "name": "Calibration",
+      "criteria": "Both predictions recorded before the spec, with enough specificity to score in Module 7. Honesty and precision graded; accuracy never."
+    }
+  ]
+}

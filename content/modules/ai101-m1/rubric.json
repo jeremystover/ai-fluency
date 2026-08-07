@@ -20,5 +20,18 @@
       "name": "Practical insight",
       "criteria": "The habit named is concrete, tied to actual work, and checkable. Not \"I'll be more careful.\""
     }
-  ]
+  ],
+  "minChars": 700,
+  "calibration": [
+    {
+      "key": "conversation2",
+      "label": "Conversation 2 prediction — % chance it invented something",
+      "hint": "Recorded before you check — honesty is what's scored, not accuracy.",
+      "placeholder": "e.g. 60",
+      "min": 0,
+      "max": 100
+    }
+  ],
+  "submitLabel": "Three conversations + reflection",
+  "intro": "Paste your three conversation accounts and the reflection below. Resubmission is free and unlimited — the score is a mirror, not a gate."
 }

@@ -93,6 +93,17 @@
       "estMinutes": 25,
       "prereqs": [],
       "microMinutes": 2
+    },
+    {
+      "id": "ai201-m1",
+      "courseId": "ai201",
+      "ordinal": 1,
+      "title": "From one-offs to workflows",
+      "blurb": "The workflow lens: five parts every repeatable workflow has, the audit that finds your candidates, the selection rules — and the capstone's first stage: pick your build and spec it.",
+      "status": "open",
+      "estMinutes": 30,
+      "prereqs": [],
+      "microMinutes": 2
     }
   ],
   "courses": [
@@ -107,8 +118,8 @@
       "id": "ai201",
       "title": "AI 201 · The Practitioner",
       "level": "L2 → L3",
-      "blurb": "Workflows that stick: multi-step tasks, document pipelines, and building a personal operating rhythm with AI inside real People work.",
-      "status": "locked"
+      "blurb": "Workflows that stick: one real build advanced across eight modules. Module 1 is open — designed to follow AI 101, and open to the adventurous either way.",
+      "status": "open"
     },
     {
       "id": "ai301",

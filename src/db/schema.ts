@@ -171,6 +171,22 @@ export const fdPodcast = sqliteTable(
   (t) => [index('idx_podcast_session').on(t.sessionId)],
 );
 
+// Per-module exercise data whose answer keys must never reach the client
+// bundle: sorting exercises, activity rubrics, knowledge checks. One row per
+// (module, kind); payload_json holds the full definition including keys, and
+// the worker serves only the public projection.
+export const fdExercise = sqliteTable(
+  'fd_exercise',
+  {
+    id: text('id').primaryKey(),
+    moduleId: text('module_id').notNull(),
+    kind: text('kind').notNull(), // sorting | rubric | knowledge_check
+    payloadJson: text('payload_json').notNull(),
+    reviewedAt: text('reviewed_at').notNull(),
+  },
+  (t) => [index('idx_exercise_module').on(t.moduleId, t.kind)],
+);
+
 // Operator reviews from the admin console — the async backup path for the
 // M8 peer exchange, and a general second-opinion layer on any submission.
 export const fdReview = sqliteTable(

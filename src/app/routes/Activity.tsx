@@ -1,28 +1,23 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-import type { ContentBlock, GradeResult, RubricDimension } from '../../shared/types';
+import { Link, useParams } from 'react-router-dom';
+import type { ActivityConfig, GradeResult } from '../../shared/types';
 import { Screen, Markdown, Button, ErrorNote } from '../components/ui';
 import MicButton from '../components/MicButton';
 import { api, ApiError } from '../api';
 import { useApp } from '../brand';
 
-type ActivityData = {
-  blocks: ContentBlock[];
-  minChars: number;
-  lastSubmission: { id: string; body: string; gradedAt: string | null; total: number | null; dimensions: RubricDimension[] | null; summary: string | null } | null;
-};
-
 const GRADING_STAGES = [
-  'Reading your three conversations…',
+  'Reading your submission…',
   'Scoring against the rubric…',
   'Writing per-dimension feedback…',
 ];
 
 export default function Activity() {
+  const moduleId = useParams().moduleId ?? 'ai101-m1';
   const { refreshMe } = useApp();
-  const [data, setData] = useState<ActivityData | null>(null);
+  const [data, setData] = useState<ActivityConfig | null>(null);
   const [body, setBody] = useState('');
-  const [predicted, setPredicted] = useState('');
+  const [calibration, setCalibration] = useState<Record<string, string>>({});
   const [error, setError] = useState<string | null>(null);
   const [grading, setGrading] = useState(false);
   const [stage, setStage] = useState(0);
@@ -31,7 +26,7 @@ export default function Activity() {
 
   useEffect(() => {
     api
-      .get<ActivityData>('/api/module/ai101-m1/activity')
+      .get<ActivityConfig>(`/api/module/${moduleId}/activity`)
       .then((d) => {
         setData(d);
         if (d.lastSubmission && !d.lastSubmission.gradedAt) setBody(d.lastSubmission.body);
@@ -46,7 +41,7 @@ export default function Activity() {
         }
       })
       .catch((e) => setError(e instanceof ApiError ? e.message : 'The activity did not load. Reload to try again.'));
-  }, []);
+  }, [moduleId]);
 
   useEffect(() => {
     if (!grading) return;
@@ -61,10 +56,11 @@ export default function Activity() {
     setError(null);
     setResult(null);
     try {
-      const res = await api.post<GradeResult>('/api/module/ai101-m1/activity', {
-        body,
-        predictedPct: predicted.trim() === '' ? undefined : Number(predicted),
-      });
+      const calibrationValues: Record<string, number> = {};
+      for (const [key, value] of Object.entries(calibration)) {
+        if (value.trim() !== '') calibrationValues[key] = Number(value);
+      }
+      const res = await api.post<GradeResult>(`/api/module/${moduleId}/activity`, { body, calibration: calibrationValues });
       setResult(res);
       refreshMe();
       requestAnimationFrame(() => resultRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
@@ -84,7 +80,7 @@ export default function Activity() {
   return (
     <Screen>
       <div className="pt-10 sm:pt-14">
-        <Link to="/module/1" className="label-utility no-underline hover:text-ink-strong">← Module 1</Link>
+        <Link to={`/module/${moduleId}`} className="label-utility no-underline hover:text-ink-strong">← Back to the module</Link>
         <div className="mt-4">
           {data.blocks.map((b) => (
             <Markdown key={b.id} source={b.body} className={b.kind === 'table' ? 'mt-6' : ''} />
@@ -94,26 +90,27 @@ export default function Activity() {
         <div className="mt-10 border-t-2 border-ink-strong pt-6">
           <h2 className="font-display font-semibold text-ink-strong text-xl">Your submission</h2>
           <p className="text-sm text-muted mt-1.5">
-            Paste your three conversation accounts and the reflection below. Resubmission is free and unlimited — the score is
-            a mirror, not a gate.
+            {data.intro ?? 'Resubmission is free and unlimited — the score is a mirror, not a gate.'}
           </p>
 
-          <label className="flex flex-col gap-2 mt-6 max-w-xs">
-            <span className="label-utility">Conversation 2 prediction — % chance it invented something</span>
-            <input
-              type="number"
-              min={0}
-              max={100}
-              value={predicted}
-              onChange={(e) => setPredicted(e.target.value)}
-              placeholder="e.g. 60"
-              className="border border-line-strong bg-surface rounded-brand px-4 py-2.5 font-utility text-ink-strong w-28 focus:border-accent placeholder:text-muted/60"
-            />
-            <span className="text-xs text-muted">Recorded before you check — honesty is what's scored, not accuracy.</span>
-          </label>
+          {data.calibration.map((field) => (
+            <label key={field.key} className="flex flex-col gap-2 mt-6 max-w-md">
+              <span className="label-utility">{field.label}</span>
+              <input
+                type="number"
+                min={field.min}
+                max={field.max}
+                value={calibration[field.key] ?? ''}
+                onChange={(e) => setCalibration((prev) => ({ ...prev, [field.key]: e.target.value }))}
+                placeholder={field.placeholder}
+                className="border border-line-strong bg-surface rounded-brand px-4 py-2.5 font-utility text-ink-strong w-28 focus:border-accent placeholder:text-muted/60"
+              />
+              {field.hint && <span className="text-xs text-muted">{field.hint}</span>}
+            </label>
+          ))}
 
           <label className="flex flex-col gap-2 mt-6">
-            <span className="label-utility">Three conversations + reflection</span>
+            <span className="label-utility">{data.submitLabel ?? 'Your submission'}</span>
             <div className="relative">
               <textarea
                 value={body}
@@ -153,7 +150,7 @@ export default function Activity() {
                 <div className="flex items-center justify-between flex-wrap gap-2">
                   <p className="label-utility">Graded</p>
                   <span className="font-utility font-medium text-2xl px-2.5 py-1 rounded-brand bg-signal text-on-signal">
-                    {result.total} / 20
+                    {result.total} / {(result.dimensions?.length ?? 4) * 5}
                   </span>
                 </div>
                 <div className="mt-4 grid gap-3 sm:grid-cols-2">
@@ -173,13 +170,22 @@ export default function Activity() {
                   ))}
                 </div>
                 {result.summary && <p className="text-ink mt-5 border-t border-line pt-4">{result.summary}</p>}
-                <div className="mt-6">
-                  <Link
-                    to="/module/1/complete"
-                    className="inline-flex px-5 py-2.5 font-display font-semibold text-[0.95rem] rounded-brand bg-accent text-on-accent hover:brightness-110 no-underline"
-                  >
-                    Finish Module 1
-                  </Link>
+                <div className="mt-6 flex items-center gap-4 flex-wrap">
+                  {moduleId === 'ai101-m1' ? (
+                    <Link
+                      to={`/module/${moduleId}/complete`}
+                      className="inline-flex px-5 py-2.5 font-display font-semibold text-[0.95rem] rounded-brand bg-accent text-on-accent hover:brightness-110 no-underline"
+                    >
+                      Finish Module 1
+                    </Link>
+                  ) : (
+                    <Link
+                      to={`/module/${moduleId}/check`}
+                      className="inline-flex px-5 py-2.5 font-display font-semibold text-[0.95rem] rounded-brand bg-accent text-on-accent hover:brightness-110 no-underline"
+                    >
+                      On to the knowledge check
+                    </Link>
+                  )}
                 </div>
               </section>
             ) : (

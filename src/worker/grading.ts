@@ -1,31 +1,42 @@
-// Worker-side grading against the Anthropic API. The key never reaches the client.
-import rubric from '../../content/rubric.json';
+// Worker-side grading against the Anthropic API. The key never reaches the
+// client. Rubrics are data: each module's package seeds an fd_exercise row of
+// kind 'rubric', and this module grades any submission against any rubric.
 import type { RubricDimension } from '../shared/types';
 
-export const PROMPT_VERSION = rubric.promptVersion;
+export type RubricPayload = {
+  promptVersion: string;
+  moduleId: string;
+  minChars?: number;
+  intro?: string;
+  submitLabel?: string;
+  activityContext?: string;
+  calibration?: { key: string; label: string; hint?: string; placeholder?: string; min?: number; max?: number }[];
+  dimensions: { name: string; criteria: string }[];
+};
 
 export type ParsedGrade = { dimensions: RubricDimension[]; total: number; summary: string };
 
-function buildSystemPrompt(): string {
+function buildSystemPrompt(rubric: RubricPayload): string {
   const dims = rubric.dimensions.map((d, i) => `${i + 1}. **${d.name}** (0–5): ${d.criteria}`).join('\n');
+  const maxTotal = rubric.dimensions.length * 5;
   return [
-    'You are grading a learner submission for "Testing the Edges", the applied activity in Module 1 of an AI fluency course for People leaders.',
-    'The submission should contain accounts of three conversations with an AI tool (where it\'s strong; where it might fabricate; where it can\'t know) and a 250–350 word reflection.',
+    rubric.activityContext ??
+      'You are grading a learner submission for an applied activity in an AI fluency course for People leaders.',
     '',
-    'Score each rubric dimension from 0 to 5 (integers):',
+    `Score each rubric dimension from 0 to 5 (integers):`,
     dims,
     '',
-    'Important: the Calibration dimension is scored on honesty and specificity, not accuracy. A learner whose prediction was badly wrong but who states the prediction, the outcome, and the direction of error plainly should score highly. Never penalize a wrong prediction; penalize only a missing, vague, or evasive one.',
+    'Important: any Calibration dimension is scored on honesty and specificity, not accuracy. A learner whose prediction was badly wrong but who states the prediction, the outcome, and the direction of error plainly should score highly. Never penalize a wrong prediction; penalize only a missing, vague, or evasive one.',
     'Comments are 1–2 sentences each, written directly to the learner in second person, specific to what they wrote. Plain verbs, no praise inflation.',
     'The summary is 2–3 sentences: what the submission shows about their current mental model, and the one thing to push on next.',
     '',
     'Respond with strict JSON only — no markdown, no code fences, no text outside the JSON. Shape:',
-    '{"dimensions":[{"name":"<dimension name>","score":<0-5>,"comment":"<string>"}],"total":<0-20>,"summary":"<string>"}',
-    'Include all four dimensions in rubric order. "total" must equal the sum of the four scores.',
+    `{"dimensions":[{"name":"<dimension name>","score":<0-5>,"comment":"<string>"}],"total":<0-${maxTotal}>,"summary":"<string>"}`,
+    `Include all ${rubric.dimensions.length} dimensions in rubric order. "total" must equal the sum of the scores.`,
   ].join('\n');
 }
 
-function parseGrade(text: string): ParsedGrade | null {
+function parseGrade(text: string, rubric: RubricPayload): ParsedGrade | null {
   let raw = text.trim();
   // Strip code fences if the model added them despite instructions.
   raw = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '');
@@ -55,9 +66,15 @@ function parseGrade(text: string): ParsedGrade | null {
   return { dimensions, total, summary };
 }
 
-async function callOnce(apiKey: string, model: string, body: string, predictedPct: number | null): Promise<string | null> {
+async function callOnce(
+  apiKey: string,
+  model: string,
+  rubric: RubricPayload,
+  body: string,
+  calibrationNote: string | null,
+): Promise<string | null> {
   const userContent = [
-    predictedPct !== null ? `The learner's Conversation 2 prediction, captured before they ran it: ${predictedPct}% likely to contain something invented.` : null,
+    calibrationNote ? `Predictions the learner recorded before submitting: ${calibrationNote}` : null,
     'Submission:',
     '<submission>',
     body,
@@ -76,7 +93,7 @@ async function callOnce(apiKey: string, model: string, body: string, predictedPc
     body: JSON.stringify({
       model,
       max_tokens: 1200,
-      system: buildSystemPrompt(),
+      system: buildSystemPrompt(rubric),
       messages: [{ role: 'user', content: userContent }],
     }),
   });
@@ -90,14 +107,15 @@ async function callOnce(apiKey: string, model: string, body: string, predictedPc
 export async function gradeSubmission(
   apiKey: string,
   model: string,
+  rubric: RubricPayload,
   body: string,
-  predictedPct: number | null,
+  calibrationNote: string | null,
 ): Promise<ParsedGrade | null> {
   for (let attempt = 0; attempt < 2; attempt++) {
     try {
-      const text = await callOnce(apiKey, model, body, predictedPct);
+      const text = await callOnce(apiKey, model, rubric, body, calibrationNote);
       if (text) {
-        const grade = parseGrade(text);
+        const grade = parseGrade(text, rubric);
         if (grade) return grade;
       }
     } catch {

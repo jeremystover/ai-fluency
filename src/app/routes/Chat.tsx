@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { marked } from 'marked';
 import type { ChatHistoryResponse, ChatMessage, ChatStreamLine, VoiceStatus } from '../../shared/types';
 import { extractPaths } from '../../shared/chat';
@@ -7,7 +7,6 @@ import { Screen, ErrorNote } from '../components/ui';
 import MicButton from '../components/MicButton';
 import { api, ApiError } from '../api';
 
-const MODULE_ID = 'ai101-m1';
 const VOICE_MODE_KEY = 'fd_chat_voice_mode';
 
 // Unlike seeded module content, chat text comes from the model mid-conversation
@@ -79,6 +78,7 @@ function ListenButton({
 }
 
 export default function Chat() {
+  const MODULE_ID = useParams().moduleId ?? 'ai101-m1';
   const [title, setTitle] = useState<string | null>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [streaming, setStreaming] = useState<string | null>(null); // assistant text in flight
@@ -276,7 +276,7 @@ export default function Chat() {
             <button onClick={reset} disabled={busy} className="text-xs text-muted hover:text-ink underline disabled:opacity-40">
               Start over
             </button>
-            <Link to="/module/1" className="text-accent font-semibold text-sm no-underline hover:underline whitespace-nowrap">
+            <Link to={`/module/${MODULE_ID}`} className="text-accent font-semibold text-sm no-underline hover:underline whitespace-nowrap">
               Back to the read →
             </Link>
           </div>

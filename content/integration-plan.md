@@ -74,12 +74,15 @@ special cases.
 - **A · Consolidate (done):** PR #5 merged; tutor-chat branch merged with migration
   renumbering (`0005_chat`, idempotent); combined app verified: chat + podcast + admin + micro
   coexist on one worker.
-- **B · Engine:** `fd_exercise` migration; package format + seed walker; generic module
-  endpoints and `/module/:id` hub UI; KnowledgeCheck engine; convert 101-M1 to a package
-  (proof the engine reproduces today's behavior exactly).
-- **C · 201-M1 deep:** full package from the draft — calibration prompt, three lessons,
-  12-task sorting exercise, capstone activity with its rubric, knowledge check, micro. Chat
-  and podcast light up automatically.
+- **B · Engine (done):** `fd_exercise` migration (0006); package format + seed walker; generic
+  `/module/:id` endpoints with capability discovery; KnowledgeCheck engine (new — the checks
+  existed in every draft but never had an app surface); 101-M1 converted to a package with
+  verified parity, gaining its knowledge check in the process.
+- **C · 201-M1 deep (done):** full package from the draft via `scripts/convert-draft.mjs` plus
+  hand-tuning — calibration prompt block, three lessons, 12-task sorting exercise with its own
+  buckets, capstone activity with two rubric-declared calibration fields, 8-question knowledge
+  check, micro dose. Chat and podcast lit up automatically, as designed. The path renders per
+  course; the plan continues into 201 once the 101 capstone is graded.
 - **D · 201 M2–M8 shallow:** draft-to-blocks converter script (`scripts/convert-draft.mjs`,
   heading-based, `[V]` detection); knowledge checks extracted (format is uniform); exercises
   as static + reveal; micros written from each module's takeaways; internal prereqs (M4→M5,

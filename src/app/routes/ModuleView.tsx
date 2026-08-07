@@ -1,9 +1,74 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import type { ContentBlock, ModuleContentResponse } from '../../shared/types';
-import { Screen, Markdown, ErrorNote } from '../components/ui';
+import { Screen, Markdown, Button, ErrorNote } from '../components/ui';
 import SortingExercise from '../components/SortingExercise';
 import { api, ApiError, track } from '../api';
+
+const COURSE_LABELS: Record<string, string> = { ai101: 'AI 101', ai201: 'AI 201' };
+
+// A module's opening prediction — captured before the content, echoed later.
+function CalibrationPrompt({ block, moduleId }: { block: ContentBlock; moduleId: string }) {
+  const [text, setText] = useState('');
+  const [saved, setSaved] = useState(false);
+  const save = async () => {
+    if (!text.trim()) return;
+    try {
+      await api.post(`/api/module/${moduleId}/calibration`, { text });
+      setSaved(true);
+    } catch {
+      // Non-blocking: the prediction's value is in the writing, not the saving.
+      setSaved(true);
+    }
+  };
+  return (
+    <div className="border-l-4 border-signal bg-signal/10 rounded-r-brand p-5 my-5">
+      <Markdown source={block.body} className="text-[0.95rem] [&_h2]:mt-0 [&_h2]:text-xl" />
+      {saved ? (
+        <p className="label-utility mt-3">Recorded. It comes back at the capstone.</p>
+      ) : (
+        <div className="mt-3 flex flex-col gap-2">
+          <textarea
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            rows={2}
+            placeholder="Write the prediction down here — numbers included."
+            className="w-full border border-line-strong bg-surface rounded-brand px-3 py-2 text-sm text-ink focus:border-accent placeholder:text-muted/60"
+          />
+          <div>
+            <Button onClick={save} disabled={!text.trim()} variant="quiet">Record it</Button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// Answer keys and reveals in modules whose exercises are static (honest tags:
+// the interactive version ships with the full course).
+function Reveal({ block }: { block: ContentBlock }) {
+  const [open, setOpen] = useState(false);
+  const lines = block.body.split('\n');
+  const heading = lines[0].replace(/^#+\s*/, '');
+  const rest = lines.slice(1).join('\n').trim();
+  return (
+    <div className="border border-line-strong rounded-brand my-5 overflow-hidden" id={block.id}>
+      <button
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        className="w-full flex items-center justify-between gap-3 px-4 py-3 bg-bg hover:bg-line/30 transition-colors text-left"
+      >
+        <span className="font-display font-semibold text-ink-strong text-[0.95rem]">{heading}</span>
+        <span className="font-utility text-[0.65rem] uppercase tracking-wider text-muted">{open ? 'Hide' : 'Commit first, then reveal'}</span>
+      </button>
+      {open && (
+        <div className="px-4 pb-4 pt-1 anim-fade">
+          <Markdown source={rest} className="text-[0.95rem]" />
+        </div>
+      )}
+    </div>
+  );
+}
 
 function TryThis({ block }: { block: ContentBlock }) {
   const [open, setOpen] = useState(false);
@@ -47,7 +112,7 @@ function VolatileMark({ block }: { block: ContentBlock }) {
   );
 }
 
-function Block({ block }: { block: ContentBlock }) {
+function Block({ block, moduleId }: { block: ContentBlock; moduleId: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const logged = useRef(false);
   useEffect(() => {
@@ -74,12 +139,26 @@ function Block({ block }: { block: ContentBlock }) {
       </div>
     );
   }
+  if (block.kind === 'calibration_prompt') {
+    return (
+      <div ref={ref} id={block.id}>
+        <CalibrationPrompt block={block} moduleId={moduleId} />
+      </div>
+    );
+  }
+  if (block.kind === 'reveal') {
+    return (
+      <div ref={ref}>
+        <Reveal block={block} />
+      </div>
+    );
+  }
   if (block.kind === 'exercise') {
     const payload = JSON.parse(block.body) as { type: string; title?: string; intro?: string; blurb?: string; estMinutes?: string };
     if (payload.type === 'sorting') {
       return (
         <div ref={ref} id={block.id}>
-          <SortingExercise title={payload.title ?? 'Exercise'} intro={payload.intro ?? ''} />
+          <SortingExercise moduleId={moduleId} title={payload.title ?? 'Exercise'} intro={payload.intro ?? ''} />
         </div>
       );
     }
@@ -89,7 +168,7 @@ function Block({ block }: { block: ContentBlock }) {
         <h3 className="font-display font-semibold text-ink-strong text-xl mt-2">{payload.title}</h3>
         <p className="text-sm text-ink mt-2">{payload.blurb}</p>
         <Link
-          to="/module/1/activity"
+          to={`/module/${moduleId}/activity`}
           className="inline-flex mt-4 items-center px-5 py-2.5 font-display font-semibold text-[0.95rem] rounded-brand bg-accent text-on-accent hover:brightness-110 no-underline"
         >
           Start the activity
@@ -113,6 +192,7 @@ function Block({ block }: { block: ContentBlock }) {
 }
 
 export default function ModuleView() {
+  const moduleId = useParams().moduleId ?? 'ai101-m1';
   const [data, setData] = useState<ModuleContentResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [activeSection, setActiveSection] = useState<string | null>(null);
@@ -120,19 +200,20 @@ export default function ModuleView() {
   const articleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    setData(null);
     api
-      .get<ModuleContentResponse>('/api/module/ai101-m1')
+      .get<ModuleContentResponse>(`/api/module/${moduleId}`)
       .then((d) => {
         setData(d);
-        track('module_opened', { moduleId: 'ai101-m1' });
+        track('module_opened', { moduleId });
       })
       .catch((e) => setError(e instanceof ApiError ? e.message : 'The module did not load. Reload to try again.'));
-  }, []);
+  }, [moduleId]);
 
   const sections = useMemo(
     () =>
       (data?.blocks ?? [])
-        .filter((b) => (b.kind === 'prose' || b.kind === 'takeaways') && b.body.startsWith('## '))
+        .filter((b) => (b.kind === 'prose' || b.kind === 'takeaways' || b.kind === 'reveal') && b.body.startsWith('## '))
         .map((b) => ({ id: b.id, title: b.body.split('\n')[0].replace(/^##\s*/, '') })),
     [data],
   );
@@ -160,7 +241,7 @@ export default function ModuleView() {
   }, [data, sections]);
 
   if (error) return <Screen><div className="pt-20"><ErrorNote message={error} /></div></Screen>;
-  if (!data) return <Screen><div className="pt-24 text-center"><p className="label-utility">Loading Module 1…</p></div></Screen>;
+  if (!data) return <Screen><div className="pt-24 text-center"><p className="label-utility">Loading the module…</p></div></Screen>;
 
   return (
     <>
@@ -188,36 +269,44 @@ export default function ModuleView() {
           </nav>
 
           <article ref={articleRef} className="max-w-2xl">
-            <p className="label-utility">AI 101 · Module {data.module.ordinal} of 8 · ~{data.estReadMinutes} min read</p>
+            <p className="label-utility">
+              {COURSE_LABELS[data.module.courseId] ?? data.module.courseId} · Module {data.module.ordinal} · ~{data.estReadMinutes} min read
+            </p>
             <h1 className="font-display font-bold text-ink-strong text-3xl sm:text-4xl mt-3 tracking-tight">{data.module.title}</h1>
             <p className="text-muted mt-2">{data.module.blurb}</p>
-            <p className="text-sm mt-2">
-              <Link to="/module/1/micro" className="text-accent no-underline hover:underline">Short on time? The two-minute version →</Link>
-            </p>
-
-            <div className="mt-5 border border-accent/40 rounded-brand bg-accent/[0.04] px-4 py-3 flex flex-col sm:flex-row sm:items-center gap-2 sm:justify-between">
-              <p className="text-sm text-ink">
-                <span className="font-display font-semibold text-accent">Prefer to talk it through?</span> The module tutor teaches this same
-                material in conversation — lecturettes, questions, quizzes, your pace. Type or speak; it can read replies aloud.
+            {data.capabilities.micro && (
+              <p className="text-sm mt-2">
+                <Link to={`/module/${moduleId}/micro`} className="text-accent no-underline hover:underline">Short on time? The two-minute version →</Link>
               </p>
-              <Link to="/module/1/chat" className="text-accent font-semibold text-sm no-underline hover:underline whitespace-nowrap">
-                Open the tutor →
+            )}
+
+            {data.capabilities.chat && (
+              <div className="mt-5 border border-accent/40 rounded-brand bg-accent/[0.04] px-4 py-3 flex flex-col sm:flex-row sm:items-center gap-2 sm:justify-between">
+                <p className="text-sm text-ink">
+                  <span className="font-display font-semibold text-accent">Prefer to talk it through?</span> The module tutor teaches this same
+                  material in conversation — lecturettes, questions, quizzes, your pace. Type or speak; it can read replies aloud.
+                </p>
+                <Link to={`/module/${moduleId}/chat`} className="text-accent font-semibold text-sm no-underline hover:underline whitespace-nowrap">
+                  Open the tutor →
+                </Link>
+              </div>
+            )}
+            {data.capabilities.podcast && (
+              <Link
+                to={`/module/${moduleId}/podcast`}
+                className="mt-2 flex items-center justify-between gap-3 border border-line rounded-brand bg-surface px-4 py-3 no-underline hover:border-ink-strong transition-colors group"
+              >
+                <span>
+                  <span className="font-display font-semibold text-ink-strong text-[0.95rem]">Prefer to listen? Make it a podcast.</span>
+                  <span className="block text-xs text-muted mt-0.5">Two hosts talk through this module from whatever angle you give them.</span>
+                </span>
+                <span className="text-accent font-semibold text-sm shrink-0 group-hover:underline" aria-hidden="true">Open the studio →</span>
               </Link>
-            </div>
-            <Link
-              to="/module/1/podcast"
-              className="mt-2 flex items-center justify-between gap-3 border border-line rounded-brand bg-surface px-4 py-3 no-underline hover:border-ink-strong transition-colors group"
-            >
-              <span>
-                <span className="font-display font-semibold text-ink-strong text-[0.95rem]">Prefer to listen? Make it a podcast.</span>
-                <span className="block text-xs text-muted mt-0.5">Two hosts talk through this module from whatever angle you give them.</span>
-              </span>
-              <span className="text-accent font-semibold text-sm shrink-0 group-hover:underline" aria-hidden="true">Open the studio →</span>
-            </Link>
+            )}
 
             <div className="mt-6 sm:pl-2">
-              {data.blocks.filter((b) => b.moduleId === 'ai101-m1').map((b) => (
-                <Block key={b.id} block={b} />
+              {data.blocks.filter((b) => b.moduleId === moduleId).map((b) => (
+                <Block key={b.id} block={b} moduleId={moduleId} />
               ))}
             </div>
 
@@ -226,12 +315,21 @@ export default function ModuleView() {
                 Concepts reviewed {data.stamps.conceptsReviewedAt ?? '—'} · Examples current as of {data.stamps.examplesCurrentAsOf ?? '—'}
               </span>
               <span className="flex items-center gap-4">
-                <Link to="/module/1/chat" className="text-accent font-semibold text-sm no-underline hover:underline">
-                  Discuss with the tutor →
-                </Link>
-                <Link to="/module/1/activity" className="text-accent font-semibold text-sm no-underline hover:underline">
-                  Applied activity →
-                </Link>
+                {data.capabilities.chat && (
+                  <Link to={`/module/${moduleId}/chat`} className="text-accent font-semibold text-sm no-underline hover:underline">
+                    Discuss with the tutor →
+                  </Link>
+                )}
+                {data.capabilities.knowledgeCheck && (
+                  <Link to={`/module/${moduleId}/check`} className="text-accent font-semibold text-sm no-underline hover:underline">
+                    Knowledge check →
+                  </Link>
+                )}
+                {data.capabilities.activity && (
+                  <Link to={`/module/${moduleId}/activity`} className="text-accent font-semibold text-sm no-underline hover:underline">
+                    Applied activity →
+                  </Link>
+                )}
               </span>
             </footer>
           </article>

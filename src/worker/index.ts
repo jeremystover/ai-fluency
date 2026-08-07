@@ -4,7 +4,7 @@ import { drizzle, type DrizzleD1Database } from 'drizzle-orm/d1';
 import { and, asc, desc, eq, gt, sql } from 'drizzle-orm';
 import * as t from '../db/schema';
 import { verifyCode, signSessionId, verifySessionCookie, hashIp } from './crypto';
-import { gradeSubmission, PROMPT_VERSION } from './grading';
+import { gradeSubmission, type RubricPayload } from './grading';
 import { adminApp } from './admin';
 import { buildTutorSystem, streamTutorReply, KICKOFF_TURN, type LearnerContext as TutorLearnerContext, type TutorMessage } from './chat';
 import { transcribe, speakable, renderSpeech, TUTOR_VOICE } from './voice';
@@ -20,7 +20,6 @@ import {
   type LearnerContext,
 } from './podcast';
 import diagnosticData from '../../content/diagnostic.json';
-import sortingData from '../../content/sorting.json';
 import type {
   Brand,
   ContentBlock,
@@ -312,7 +311,7 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
     title: 'Module 1 · Lesson 1 and the sorting exercise',
     detail: 'The best fifteen minutes in the module: what "AI" means in your stack, then fifteen real tasks sorted into hand-over / verify / don\'t.',
     minutes: 12,
-    route: '/module/1',
+    route: '/module/ai101-m1',
     state: progress.sortDone ? 'done' : 'later',
   };
   const read: PlanStep = {
@@ -320,7 +319,7 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
     title: 'Module 1 · the rest of the read',
     detail: 'What an LLM actually does, the vocabulary, and why data decides everything.',
     minutes: 10,
-    route: '/module/1',
+    route: '/module/ai101-m1',
     state: progress.moduleCompleted ? 'done' : 'later',
   };
   const activity: PlanStep = {
@@ -328,7 +327,7 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
     title: 'Applied activity — "Testing the Edges", AI-graded',
     detail: 'Three short conversations with your own AI tool, a reflection, and rubric feedback in seconds. Unlimited resubmission.',
     minutes: 25,
-    route: '/module/1/activity',
+    route: '/module/ai101-m1/activity',
     state: progress.activityGraded ? 'done' : 'later',
   };
 
@@ -337,7 +336,7 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
     title: 'Module 1 · the two-minute version',
     detail: 'The key concepts and the delegation heuristic, cut for a short sitting. The full module keeps.',
     minutes: 2,
-    route: '/module/1/micro',
+    route: '/module/ai101-m1/micro',
     state: progress.moduleCompleted || progress.sortDone ? 'done' : 'later',
   };
 
@@ -349,6 +348,18 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
     : shortSitting
       ? [diagnostic, micro, core, read, activity]
       : [diagnostic, core, read, activity];
+
+  // Once the 101 capstone is graded, the ladder continues into AI 201.
+  if (progress.activityGraded) {
+    steps.push({
+      id: 'ai201-m1',
+      title: 'AI 201 · From one-offs to workflows',
+      detail: 'The Practitioner course opens: the workflow lens, the audit, the selection rules — and the capstone build that runs through all eight modules.',
+      minutes: 30,
+      route: '/module/ai201-m1',
+      state: 'later',
+    });
+  }
 
   // Fit "now" steps to the time they said they had; 0 = exploring, one step at a time.
   let budget = time === 0 ? Infinity : time + 5;
@@ -658,16 +669,21 @@ app.get('/api/path', async (c) => {
   const db = c.get('db');
   const session = requireSession(c);
   if (!session) return c.json({ error: 'No session.' }, 401);
-  const rows = await db.select().from(t.fdModule).where(eq(t.fdModule.courseId, 'ai101')).orderBy(asc(t.fdModule.ordinal));
+  const rows = await db.select().from(t.fdModule).orderBy(asc(t.fdModule.courseId), asc(t.fdModule.ordinal));
 
-  // A prerequisite is satisfied by completing the module — or by testing out.
-  // Testing out of M1 = a perfect knowledge score on the diagnostic.
-  const completedRows = await db
+  // A prerequisite is satisfied by completing the module, passing its knowledge
+  // check, or — for 101-M1 — testing out with a perfect diagnostic knowledge score.
+  const doneRows = await db
     .select()
     .from(t.fdEvent)
-    .where(and(eq(t.fdEvent.sessionId, session.id), eq(t.fdEvent.type, 'module_completed')));
+    .where(
+      and(
+        eq(t.fdEvent.sessionId, session.id),
+        sql`${t.fdEvent.type} IN ('module_completed', 'knowledge_check_submitted')`,
+      ),
+    );
   const completed = new Set(
-    completedRows.map((e) => (e.payloadJson ? (JSON.parse(e.payloadJson) as { moduleId?: string }).moduleId : null)).filter(Boolean),
+    doneRows.map((e) => (e.payloadJson ? (JSON.parse(e.payloadJson) as { moduleId?: string }).moduleId : null)).filter(Boolean),
   );
   const kResponses = await db
     .select()
@@ -705,16 +721,18 @@ app.get('/api/path', async (c) => {
   return c.json({ modules, courses });
 });
 
-// The two-minute cut of Module 1 — same content system, tighter blocks.
-app.get('/api/module/ai101-m1/micro', async (c) => {
+// The two-minute cut of any module — same content system, tighter blocks.
+app.get('/api/module/:id/micro', async (c) => {
   const db = c.get('db');
   const session = requireSession(c);
   if (!session) return c.json({ error: 'No session.' }, 401);
+  const id = c.req.param('id');
   const blockRows = await db
     .select()
     .from(t.fdContentBlock)
-    .where(eq(t.fdContentBlock.moduleId, 'ai101-m1-micro'))
+    .where(eq(t.fdContentBlock.moduleId, `${id}-micro`))
     .orderBy(asc(t.fdContentBlock.ordinal));
+  if (blockRows.length === 0) return c.json({ error: 'This module has no micro dose yet.' }, 404);
   const blocks = blockRows.map(toBlock);
   return c.json({ blocks, stamps: stampsFor(blocks) });
 });
@@ -740,6 +758,31 @@ function stampsFor(blocks: ContentBlock[]) {
   return { conceptsReviewedAt: min('stable'), examplesCurrentAsOf: min('volatile') };
 }
 
+// Exercise payloads (sorting keys, rubrics, knowledge checks) live in
+// fd_exercise; the client only ever sees a public projection.
+async function getExercise<T>(db: DrizzleD1Database, moduleId: string, kind: string): Promise<T | null> {
+  const rows = await db
+    .select()
+    .from(t.fdExercise)
+    .where(and(eq(t.fdExercise.moduleId, moduleId), eq(t.fdExercise.kind, kind)))
+    .limit(1);
+  return rows[0] ? (JSON.parse(rows[0].payloadJson) as T) : null;
+}
+
+type SortingPayload = {
+  buckets: { id: string; label: string; hint: string; rank: number; pct: number }[];
+  tasks: { id: string; text: string; key: string; reasoning: string }[];
+  pattern: string;
+  postscript: string;
+};
+
+type KnowledgeCheckPayload = {
+  title: string;
+  note: string | null;
+  questions: { id: string; prompt: string; options: string[]; correctIndex: number; explanation: string }[];
+};
+
+
 app.get('/api/module/:id', async (c) => {
   const db = c.get('db');
   const session = requireSession(c);
@@ -752,13 +795,48 @@ app.get('/api/module/:id', async (c) => {
   const blockRows = await db.select().from(t.fdContentBlock).where(eq(t.fdContentBlock.moduleId, id)).orderBy(asc(t.fdContentBlock.ordinal));
   const blocks = blockRows.map(toBlock);
   const words = blocks.reduce((sum, b) => sum + b.body.split(/\s+/).length, 0);
+
+  // Capabilities are discovered from what the package seeded — the modality
+  // hub and every feature route render from this, not from hardcoded module ids.
+  const microCount = await db
+    .select({ n: sql<number>`count(*)` })
+    .from(t.fdContentBlock)
+    .where(eq(t.fdContentBlock.moduleId, `${id}-micro`));
+  const exerciseRows = await db
+    .select({ kind: t.fdExercise.kind })
+    .from(t.fdExercise)
+    .where(eq(t.fdExercise.moduleId, id));
+  const kinds = new Set(exerciseRows.map((r) => r.kind));
+
   const res: ModuleContentResponse = {
     module: mod as ModuleCard,
     blocks,
     stamps: stampsFor(blocks),
     estReadMinutes: Math.max(1, Math.round(words / 200)),
+    capabilities: {
+      read: blocks.length > 0,
+      micro: (microCount[0]?.n ?? 0) > 0,
+      chat: blocks.length > 0,
+      podcast: blocks.length > 0,
+      sorting: kinds.has('sorting'),
+      activity: kinds.has('rubric'),
+      knowledgeCheck: kinds.has('knowledge_check'),
+    },
   };
   return c.json(res);
+});
+
+// Free-text predictions captured by a module's calibration prompt; echoed back
+// on the activity screen. Append-only, latest wins.
+app.post('/api/module/:id/calibration', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const body = await c.req.json<{ text?: string }>().catch(() => null);
+  const text = body?.text?.trim();
+  if (!text) return c.json({ error: 'Write the prediction before saving it.' }, 400);
+  await logEvent(db, session.id, 'module_calibration_recorded', { moduleId: c.req.param('id'), text: text.slice(0, 1000) });
+  return c.json({ ok: true });
 });
 
 // ---------- voice ----------
@@ -1086,33 +1164,41 @@ app.post('/api/module/:id/chat', async (c) => {
 
 // ---------- sorting exercise ----------
 
-app.get('/api/module/ai101-m1/sorting', async (c) => {
-  const session = requireSession(c);
-  if (!session) return c.json({ error: 'No session.' }, 401);
-  return c.json({
-    buckets: sortingData.buckets,
-    tasks: sortingData.tasks.map((task) => ({ id: task.id, text: task.text })),
-  });
-});
-
-const BUCKET_PCT: Record<string, number> = { well: 85, partly: 50, badly: 15 };
-
-app.post('/api/module/ai101-m1/sort', async (c) => {
+app.get('/api/module/:id/sorting', async (c) => {
   const db = c.get('db');
   const session = requireSession(c);
   if (!session) return c.json({ error: 'No session.' }, 401);
+  const sorting = await getExercise<SortingPayload>(db, c.req.param('id'), 'sorting');
+  if (!sorting) return c.json({ error: 'This module has no sorting exercise.' }, 404);
+  return c.json({
+    buckets: sorting.buckets.map(({ id, label, hint }) => ({ id, label, hint })),
+    tasks: sorting.tasks.map((task) => ({ id: task.id, text: task.text })),
+  });
+});
+
+app.post('/api/module/:id/sort', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const moduleId = c.req.param('id');
+  const sorting = await getExercise<SortingPayload>(db, moduleId, 'sorting');
+  if (!sorting) return c.json({ error: 'This module has no sorting exercise.' }, 404);
+
   const body = await c.req.json<{ assignments?: Record<string, string> }>().catch(() => null);
   const assignments = body?.assignments ?? {};
-  const valid = new Set(['well', 'partly', 'badly']);
-  for (const task of sortingData.tasks) {
-    if (!valid.has(assignments[task.id])) return c.json({ error: 'Commit all fifteen before the reveal — an unscored guess teaches nothing.' }, 400);
+  const valid = new Set(sorting.buckets.map((b) => b.id));
+  for (const task of sorting.tasks) {
+    if (!valid.has(assignments[task.id])) {
+      return c.json({ error: `Commit all ${sorting.tasks.length} before the reveal — an unscored guess teaches nothing.` }, 400);
+    }
   }
 
-  const rank: Record<string, number> = { badly: 0, partly: 1, well: 2 };
+  const rank = Object.fromEntries(sorting.buckets.map((b) => [b.id, b.rank]));
+  const pct = Object.fromEntries(sorting.buckets.map((b) => [b.id, b.pct]));
   let correct = 0;
   let overAssigned = 0;
   let underAssigned = 0;
-  const results: SortingReveal['results'] = sortingData.tasks.map((task) => {
+  const results: SortingReveal['results'] = sorting.tasks.map((task) => {
     const chosen = assignments[task.id];
     const isCorrect = chosen === task.key;
     if (isCorrect) correct++;
@@ -1121,54 +1207,101 @@ app.post('/api/module/ai101-m1/sort', async (c) => {
     return { taskId: task.id, text: task.text, chosen, key: task.key, correct: isCorrect, reasoning: task.reasoning };
   });
 
-  for (const task of sortingData.tasks) {
-    await db.delete(t.fdCalibration).where(and(eq(t.fdCalibration.sessionId, session.id), eq(t.fdCalibration.context, `sort:${task.id}`)));
-    const predicted = BUCKET_PCT[assignments[task.id]];
-    const actual = BUCKET_PCT[task.key];
+  for (const task of sorting.tasks) {
+    const context = `sort:${moduleId}:${task.id}`;
+    await db.delete(t.fdCalibration).where(and(eq(t.fdCalibration.sessionId, session.id), eq(t.fdCalibration.context, context)));
     await db.insert(t.fdCalibration).values({
       id: uuid(),
       sessionId: session.id,
-      context: `sort:${task.id}`,
-      predictedPct: predicted,
-      actualOutcome: actual,
-      delta: predicted - actual,
+      context,
+      predictedPct: pct[assignments[task.id]],
+      actualOutcome: pct[task.key],
+      delta: pct[assignments[task.id]] - pct[task.key],
       createdAt: now(),
     });
   }
-  await logEvent(db, session.id, 'sort_submitted', { correct, total: sortingData.tasks.length, overAssigned, underAssigned });
+  await logEvent(db, session.id, 'sort_submitted', { moduleId, correct, total: sorting.tasks.length, overAssigned, underAssigned });
 
   const reveal: SortingReveal = {
     results,
-    score: { correct, total: sortingData.tasks.length },
+    score: { correct, total: sorting.tasks.length },
     overAssigned,
     underAssigned,
-    pattern: sortingData.pattern,
-    postscript: sortingData.postscript,
+    pattern: sorting.pattern,
+    postscript: sorting.postscript,
   };
   return c.json(reveal);
 });
 
-// ---------- applied activity & grading ----------
+// ---------- knowledge check ----------
 
-app.get('/api/module/ai101-m1/activity', async (c) => {
+app.get('/api/module/:id/knowledge-check', async (c) => {
   const db = c.get('db');
   const session = requireSession(c);
   if (!session) return c.json({ error: 'No session.' }, 401);
+  const kc = await getExercise<KnowledgeCheckPayload>(db, c.req.param('id'), 'knowledge_check');
+  if (!kc) return c.json({ error: 'This module has no knowledge check.' }, 404);
+  return c.json({
+    title: kc.title,
+    note: kc.note,
+    questions: kc.questions.map((q) => ({ id: q.id, prompt: q.prompt, options: q.options })),
+  });
+});
+
+app.post('/api/module/:id/knowledge-check', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const moduleId = c.req.param('id');
+  const kc = await getExercise<KnowledgeCheckPayload>(db, moduleId, 'knowledge_check');
+  if (!kc) return c.json({ error: 'This module has no knowledge check.' }, 404);
+  const body = await c.req.json<{ answers?: Record<string, number> }>().catch(() => null);
+  const answers = body?.answers ?? {};
+
+  let correct = 0;
+  const results = kc.questions.map((q) => {
+    const chosen = Number(answers[q.id]);
+    const ok = Number.isInteger(chosen) && chosen === q.correctIndex;
+    if (ok) correct++;
+    return {
+      id: q.id,
+      chosenIndex: Number.isInteger(chosen) ? chosen : -1,
+      correct: ok,
+      correctIndex: q.correctIndex,
+      explanation: q.explanation,
+    };
+  });
+  await logEvent(db, session.id, 'knowledge_check_submitted', { moduleId, correct, total: kc.questions.length });
+  return c.json({ score: { correct, total: kc.questions.length }, results });
+});
+
+// ---------- applied activity & grading ----------
+
+app.get('/api/module/:id/activity', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const moduleId = c.req.param('id');
+  const rubric = await getExercise<RubricPayload>(db, moduleId, 'rubric');
+  if (!rubric) return c.json({ error: 'This module has no graded activity.' }, 404);
   const blockRows = await db
     .select()
     .from(t.fdContentBlock)
-    .where(eq(t.fdContentBlock.moduleId, 'ai101-m1-activity'))
+    .where(eq(t.fdContentBlock.moduleId, `${moduleId}-activity`))
     .orderBy(asc(t.fdContentBlock.ordinal));
   const latest = await db
     .select()
     .from(t.fdSubmission)
-    .where(eq(t.fdSubmission.sessionId, session.id))
+    .where(and(eq(t.fdSubmission.sessionId, session.id), eq(t.fdSubmission.moduleId, moduleId)))
     .orderBy(desc(t.fdSubmission.createdAt))
     .limit(1);
   const last = latest[0];
   return c.json({
     blocks: blockRows.map(toBlock),
-    minChars: MIN_SUBMISSION_CHARS,
+    minChars: rubric.minChars ?? MIN_SUBMISSION_CHARS,
+    intro: rubric.intro,
+    submitLabel: rubric.submitLabel,
+    calibration: rubric.calibration ?? [],
     lastSubmission: last
       ? {
           id: last.id,
@@ -1182,41 +1315,51 @@ app.get('/api/module/ai101-m1/activity', async (c) => {
   });
 });
 
-app.post('/api/module/ai101-m1/activity', async (c) => {
+app.post('/api/module/:id/activity', async (c) => {
   const db = c.get('db');
   const session = requireSession(c);
   if (!session) return c.json({ error: 'No session.' }, 401);
-  const body = await c.req.json<{ body?: string; predictedPct?: number }>().catch(() => null);
-  const text = body?.body?.trim();
-  if (!text || text.length < MIN_SUBMISSION_CHARS) {
-    return c.json({ error: `Keep going — the activity needs at least ${MIN_SUBMISSION_CHARS} characters to be gradeable.` }, 400);
-  }
-  if (text.length > 40_000) return c.json({ error: 'That’s beyond what the grader will read. Trim to the three conversations and the reflection.' }, 400);
+  const moduleId = c.req.param('id');
+  const rubric = await getExercise<RubricPayload>(db, moduleId, 'rubric');
+  if (!rubric) return c.json({ error: 'This module has no graded activity.' }, 404);
+  const minChars = rubric.minChars ?? MIN_SUBMISSION_CHARS;
 
-  const predictedPct = Number.isFinite(body?.predictedPct) ? Math.max(0, Math.min(100, Math.round(body!.predictedPct!))) : null;
+  const body = await c.req.json<{ body?: string; calibration?: Record<string, number> }>().catch(() => null);
+  const text = body?.body?.trim();
+  if (!text || text.length < minChars) {
+    return c.json({ error: `Keep going — the activity needs at least ${minChars} characters to be gradeable.` }, 400);
+  }
+  if (text.length > 40_000) return c.json({ error: 'That’s beyond what the grader will read. Trim to what the activity asks for.' }, 400);
 
   // Save first — grading can fail or be limited, the submission never gets lost.
   const submissionId = uuid();
   await db.insert(t.fdSubmission).values({
     id: submissionId,
     sessionId: session.id,
-    moduleId: 'ai101-m1',
+    moduleId,
     body: text,
     createdAt: now(),
   });
-  await logEvent(db, session.id, 'activity_submitted', { submissionId, chars: text.length });
+  await logEvent(db, session.id, 'activity_submitted', { moduleId, submissionId, chars: text.length });
 
-  if (predictedPct !== null) {
-    await db.delete(t.fdCalibration).where(and(eq(t.fdCalibration.sessionId, session.id), eq(t.fdCalibration.context, 'm1:conversation2')));
+  // Rubric-declared calibration fields → fd_calibration, before grading.
+  const calibrationNotes: string[] = [];
+  for (const field of rubric.calibration ?? []) {
+    const value = Number(body?.calibration?.[field.key]);
+    if (!Number.isFinite(value)) continue;
+    const clamped = Math.max(field.min ?? 0, Math.min(field.max ?? 1_000_000, Math.round(value)));
+    const context = `${moduleId}:cal:${field.key}`;
+    await db.delete(t.fdCalibration).where(and(eq(t.fdCalibration.sessionId, session.id), eq(t.fdCalibration.context, context)));
     await db.insert(t.fdCalibration).values({
       id: uuid(),
       sessionId: session.id,
-      context: 'm1:conversation2',
-      predictedPct,
+      context,
+      predictedPct: clamped,
       actualOutcome: null,
       delta: null,
       createdAt: now(),
     });
+    calibrationNotes.push(`${field.label}: ${clamped}`);
   }
 
   const hourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
@@ -1242,7 +1385,13 @@ app.post('/api/module/ai101-m1/activity', async (c) => {
     return c.json(res);
   }
 
-  const grade = await gradeSubmission(c.env.ANTHROPIC_API_KEY, c.env.GRADING_MODEL, text, predictedPct);
+  const grade = await gradeSubmission(
+    c.env.ANTHROPIC_API_KEY,
+    c.env.GRADING_MODEL,
+    rubric,
+    text,
+    calibrationNotes.length ? calibrationNotes.join(' · ') : null,
+  );
   if (!grade) {
     const res: GradeResult = {
       status: 'saved_ungraded',
@@ -1258,11 +1407,11 @@ app.post('/api/module/ai101-m1/activity', async (c) => {
       rubricJson: JSON.stringify({ dimensions: grade.dimensions, summary: grade.summary }),
       totalScore: grade.total,
       modelUsed: c.env.GRADING_MODEL,
-      promptVersion: PROMPT_VERSION,
+      promptVersion: rubric.promptVersion,
       gradedAt: now(),
     })
     .where(eq(t.fdSubmission.id, submissionId));
-  await logEvent(db, session.id, 'activity_graded', { submissionId, total: grade.total });
+  await logEvent(db, session.id, 'activity_graded', { moduleId, submissionId, total: grade.total });
 
   const res: GradeResult = { status: 'graded', submissionId, dimensions: grade.dimensions, total: grade.total, summary: grade.summary };
   return c.json(res);

@@ -20,11 +20,22 @@ export type ContentBlock = {
   id: string;
   moduleId: string;
   ordinal: number;
-  kind: 'prose' | 'callout' | 'try_this' | 'exercise' | 'takeaways' | 'table';
+  kind: 'prose' | 'callout' | 'try_this' | 'exercise' | 'takeaways' | 'table' | 'calibration_prompt' | 'reveal';
   layer: 'stable' | 'volatile';
   body: string;
   dependsOn?: string[];
   reviewedAt: string;
+};
+
+// What a module's seeded package supports — the modality hub renders from this.
+export type ModuleCapabilities = {
+  read: boolean;
+  micro: boolean;
+  chat: boolean;
+  podcast: boolean;
+  sorting: boolean;
+  activity: boolean;
+  knowledgeCheck: boolean;
 };
 
 export type ModuleCard = {
@@ -81,7 +92,7 @@ export type DiagnosticResult = {
   };
 };
 
-export type SortingBucket = { id: 'well' | 'partly' | 'badly'; label: string; hint: string };
+export type SortingBucket = { id: string; label: string; hint: string; rank?: number; pct?: number };
 export type SortingTaskPublic = { id: string; text: string };
 export type SortingReveal = {
   results: { taskId: string; text: string; chosen: string; key: string; correct: boolean; reasoning: string }[];
@@ -209,4 +220,36 @@ export type ModuleContentResponse = {
   blocks: ContentBlock[];
   stamps: { conceptsReviewedAt: string | null; examplesCurrentAsOf: string | null };
   estReadMinutes: number;
+  capabilities: ModuleCapabilities;
+};
+
+// ---------- generic activity & knowledge check ----------
+
+export type CalibrationField = { key: string; label: string; hint?: string; placeholder?: string; min?: number; max?: number };
+
+export type ActivityConfig = {
+  blocks: ContentBlock[];
+  minChars: number;
+  intro?: string;
+  submitLabel?: string;
+  calibration: CalibrationField[];
+  lastSubmission: {
+    id: string;
+    body: string;
+    gradedAt: string | null;
+    total: number | null;
+    dimensions: RubricDimension[] | null;
+    summary: string | null;
+  } | null;
+};
+
+export type KnowledgeCheckPublic = {
+  title: string;
+  note: string | null;
+  questions: { id: string; prompt: string; options: string[] }[];
+};
+
+export type KnowledgeCheckResult = {
+  score: { correct: number; total: number };
+  results: { id: string; chosenIndex: number; correct: boolean; correctIndex: number; explanation: string }[];
 };

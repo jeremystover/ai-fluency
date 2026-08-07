@@ -9,7 +9,7 @@ import { usePrefersReducedMotion } from '../brand';
 
 type Assignments = Record<string, string | undefined>;
 
-export default function SortingExercise({ intro, title }: { intro: string; title: string }) {
+export default function SortingExercise({ moduleId, intro, title }: { moduleId: string; intro: string; title: string }) {
   const reduced = usePrefersReducedMotion();
   const [buckets, setBuckets] = useState<SortingBucket[]>([]);
   const [tasks, setTasks] = useState<SortingTaskPublic[]>([]);
@@ -23,13 +23,13 @@ export default function SortingExercise({ intro, title }: { intro: string; title
 
   useEffect(() => {
     api
-      .get<{ buckets: SortingBucket[]; tasks: SortingTaskPublic[] }>('/api/module/ai101-m1/sorting')
+      .get<{ buckets: SortingBucket[]; tasks: SortingTaskPublic[] }>(`/api/module/${moduleId}/sorting`)
       .then((d) => {
         setBuckets(d.buckets);
         setTasks(d.tasks);
       })
       .catch((e) => setError(e instanceof ApiError ? e.message : 'The exercise did not load. Reload the page to try again.'));
-  }, []);
+  }, [moduleId]);
 
   const announce = (msg: string) => {
     if (liveRef.current) liveRef.current.textContent = msg;
@@ -51,7 +51,7 @@ export default function SortingExercise({ intro, title }: { intro: string; title
   const unassigned = tasks.filter((t) => !assignments[t.id]);
 
   const onChipKey = (e: React.KeyboardEvent, taskId: string) => {
-    const i = ['1', '2', '3'].indexOf(e.key);
+    const i = buckets.map((_, idx) => String(idx + 1)).indexOf(e.key);
     if (i >= 0 && buckets[i]) {
       e.preventDefault();
       assign(taskId, buckets[i].id);
@@ -66,7 +66,7 @@ export default function SortingExercise({ intro, title }: { intro: string; title
     setBusy(true);
     setError(null);
     try {
-      const res = await api.post<SortingReveal>('/api/module/ai101-m1/sort', { assignments });
+      const res = await api.post<SortingReveal>(`/api/module/${moduleId}/sort`, { assignments });
       setReveal(res);
       if (reduced) setRevealStage(5);
     } catch (e) {
@@ -204,7 +204,7 @@ export default function SortingExercise({ intro, title }: { intro: string; title
       <div className="mt-6 flex items-center justify-between flex-wrap gap-3">
         <span className="font-utility text-xs text-muted">{committed} of {tasks.length} committed</span>
         <Button onClick={submit} disabled={!allCommitted || busy}>
-          {busy ? 'Scoring…' : allCommitted ? 'Reveal' : 'Commit all fifteen to reveal'}
+          {busy ? 'Scoring…' : allCommitted ? 'Reveal' : `Commit all ${tasks.length} to reveal`}
         </Button>
       </div>
     </div>

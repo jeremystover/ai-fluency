@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import type { PodcastEpisode, PodcastLength, PodcastListResponse, PodcastSummary } from '../../shared/types';
 import { PODCAST_HOSTS } from '../../shared/types';
 import { Screen, Button, ErrorNote } from '../components/ui';
@@ -158,6 +158,7 @@ function Player({ episode, audioEnabled }: { episode: PodcastEpisode; audioEnabl
 }
 
 export default function Podcast() {
+  const moduleId = useParams().moduleId ?? 'ai101-m1';
   const [list, setList] = useState<PodcastListResponse | null>(null);
   const [episode, setEpisode] = useState<PodcastEpisode | null>(null);
   const [focus, setFocus] = useState('');
@@ -176,7 +177,7 @@ export default function Podcast() {
     setWriting(true);
     setError(null);
     try {
-      const ep = await api.post<PodcastEpisode>('/api/podcast', { moduleId: 'ai101-m1', prompt: focus.trim() || undefined, length });
+      const ep = await api.post<PodcastEpisode>('/api/podcast', { moduleId, prompt: focus.trim() || undefined, length });
       setEpisode(ep);
       const { lines: _lines, ...summary } = ep;
       setList((prev) => (prev ? { ...prev, episodes: [summary, ...prev.episodes] } : prev));
@@ -294,7 +295,7 @@ export default function Podcast() {
         )}
 
         <p className="mt-10 text-sm">
-          <Link to="/module/1" className="text-accent font-semibold no-underline hover:underline">← Back to Module 1</Link>
+          <Link to={`/module/${moduleId}`} className="text-accent font-semibold no-underline hover:underline">← Back to the module</Link>
         </p>
       </div>
     </Screen>
