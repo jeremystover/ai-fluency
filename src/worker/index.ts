@@ -47,6 +47,7 @@ const MIN_SUBMISSION_CHARS = 700;
 const CLIENT_EVENT_TYPES = new Set([
   'landed',
   'intake_started',
+  'difference_opened',
   'diagnostic_started',
   'module_opened',
   'block_read',

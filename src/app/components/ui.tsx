@@ -1,7 +1,8 @@
-import { useEffect, useRef, type ReactNode, type ButtonHTMLAttributes, type Ref } from 'react';
+import { useEffect, useRef, useState, type ReactNode, type ButtonHTMLAttributes, type Ref } from 'react';
 import { Link } from 'react-router-dom';
 import { marked } from 'marked';
 import { useApp } from '../brand';
+import DifferenceModal from './DifferenceModal';
 
 marked.setOptions({ gfm: true, breaks: false });
 
@@ -47,15 +48,22 @@ export function Screen({ children, wide = false }: { children: ReactNode; wide?:
 
 export function Header() {
   const { brand } = useApp();
+  const [showDifference, setShowDifference] = useState(false);
   return (
     <header className="w-full border-b border-line bg-surface/80 backdrop-blur sticky top-0 z-40">
-      <div className="max-w-5xl mx-auto px-5 h-14 flex items-center justify-between">
-        <Link to="/" className="flex items-baseline gap-2.5 no-underline">
-          <span className="font-display font-bold text-ink-strong text-lg tracking-tight">AI Fluency</span>
-          {brand && <span className="label-utility mt-0.5">for {brand.name}</span>}
+      <div className="max-w-5xl mx-auto px-5 h-14 flex items-center justify-between gap-4">
+        <Link to="/" className="flex items-baseline gap-2.5 no-underline min-w-0">
+          <span className="font-display font-bold text-ink-strong text-lg tracking-tight whitespace-nowrap">AI Fluency</span>
+          {brand && <span className="label-utility mt-0.5 truncate">for {brand.name}</span>}
         </Link>
-        <span className="label-utility hidden sm:block">AI 101 · Module 1</span>
+        <button
+          onClick={() => setShowDifference(true)}
+          className="font-utility text-[0.7rem] uppercase tracking-wider text-accent hover:text-ink-strong whitespace-nowrap"
+        >
+          How is this different?
+        </button>
       </div>
+      <DifferenceModal open={showDifference} onClose={() => setShowDifference(false)} />
     </header>
   );
 }
