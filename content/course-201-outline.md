@@ -3,7 +3,7 @@
 **Audience:** People leaders who completed AI 101 (or tested out).
 **Level transition:** L2 The Novice → L3 The Practitioner.
 **Shape:** 8 modules × ~30 min, each with a hands-on lab and an AI-graded activity. One capstone build threads through all eight — every module's activity advances the learner's own workflow, so by M8 they have shipped something real, not collected certificates.
-**Tooling stance:** Opinionated and hands-on. Reference stack is Claude (Projects for durable context, tool use / MCP for agent work), taught concretely with screenshots. **Every tool-specific passage is volatile-layer** `[V]` so it refreshes without touching the concepts. Parity notes for ChatGPT equivalents ride along as `[V]` blocks.
+**Tooling stance:** Opinionated and hands-on. Reference stack is Claude (Projects for durable context, tool use / MCP for agent work), taught concretely with screenshots. Labs assume Claude access; deployments tailor the lab track to the organization's provisioned tools, so learners always see what they actually have. **Every tool-specific passage is volatile-layer** `[V]` so it refreshes without touching the concepts. Parity notes for ChatGPT equivalents ride along as `[V]` blocks.
 
 ---
 
@@ -134,7 +134,7 @@ Workflows die of neglect, not failure. The personal system that keeps them alive
 Run the workflow for real, on real work, at least twice. Document the before/after with M7's numbers. Package it for handoff — could a peer run this from your documentation alone? Defend the verification and data design in writing.
 
 - **Lesson 1:** The shipping checklist — spec, pack, pipeline, verification, boundary sheet, rhythm, all in one place.
-- **Lesson 2:** The handoff test. Documentation quality measured by a stranger's success, not your satisfaction.
+- **Lesson 2:** The handoff test — run as a **minimal peer exchange**: each learner is paired with one other, runs the first step of their peer's workflow from the documentation alone, and returns a three-question structured review (Could I start? Where did I stall? What did the doc assume I knew?). Documentation quality measured by a stranger's success, not your satisfaction.
 - **Lesson 3:** What's next — which L4 (Translator) skills this build just quietly taught you.
 - **Activity (the capstone grade):** full portfolio submission, graded across the course's four inherited dimensions — engagement with real work, observation of mechanics, calibration honesty across all eight predictions, practical insight — plus one new: *would a reasonable colleague trust this workflow's guardrails?*
 - **Completion:** manager one-pager, 201 edition — what they built, the measured result, and the one question a manager should ask about it.
@@ -148,9 +148,9 @@ Run the workflow for real, on real work, at least twice. Document the before/aft
 - M8 needs M4 + M6 (nothing ships without verification and a data sign-off).
 - Micro doses: every module gets the 2-minute cut, same as 101.
 
-## Open questions for the next pass
+## Decisions (v1 review)
 
-1. **The lab problem.** Hands-on labs assume the learner has Claude access (ideally paid). What's the graceful path for a learner whose org hasn't provisioned anything — read-along screenshots, or a sandboxed demo inside the course itself?
-2. **Capstone privacy.** M8's submission is a real workflow on real work. Graded by AI, stored in the course DB. Does 201 need a "sanitized capstone" track for learners whose best workflow touches tier-3 data?
-3. **Cohort vs. solo.** The capstone thread begs for a peer element (the M8 handoff test is literally "could a peer run this"). Is 201 solo like 101, or is there a light cohort mechanic — even just exchanging capstone docs with one other person?
-4. **Volatile surface area.** Opinionated tooling means M2/M3/M5 labs will age in months, not years. Fine for the maintenance-agent story (it's the pitch, demonstrated) — but worth deciding how much screenshot-heavy content we're committing to refresh.
+1. **Labs assume Claude access.** Deployments tailor lab content to the organization's provisioned tools — learners always see what they already have.
+2. **Capstone privacy:** deferred. No sanitized track for now; revisit if real usage surfaces the problem.
+3. **Peer exchange: in.** Minimal mechanic at M8's handoff test (paired learners, run each other's first step, three-question structured review). Watch how it performs before extending it earlier in the course.
+4. **Volatile refresh:** to be solved by automated scanning that incorporates tool changes into volatile blocks in near-realtime — the maintenance-agent story. Out of scope for now; the `[V]` discipline in the content keeps the door open.
