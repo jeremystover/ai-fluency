@@ -32,7 +32,9 @@
     "ordinal": 40,
     "kind": "prose",
     "layer": "volatile",
-    "dependsOn": ["model-lineup"],
+    "dependsOn": [
+      "model-lineup"
+    ],
     "reviewedAt": "2026-08-04",
     "body": "The LLMs you'll encounter most: Claude, from Anthropic. ChatGPT, from OpenAI, built on the GPT family. Gemini, from Google. Those are the consumer-facing names; underneath, they're the same general kind of system — software trained on an enormous quantity of text that reads and produces human-like language."
   },
@@ -51,7 +53,10 @@
     "ordinal": 60,
     "kind": "prose",
     "layer": "volatile",
-    "dependsOn": ["employment-regulation", "eu-ai-act"],
+    "dependsOn": [
+      "employment-regulation",
+      "eu-ai-act"
+    ],
     "reviewedAt": "2026-08-04",
     "body": "- **It changes your regulatory exposure.** Regulation in this area tends to attach to *automated decision-making about people* rather than to a technology label. A scoring model that ranks candidates is squarely in scope under rules like NYC's Local Law 144 and the EU AI Act's treatment of employment as high-risk. An LLM you use to redraft a job posting generally isn't. Confusing the two means you either over-comply on harmless uses or under-comply on the ones that count. *Verify current specifics with counsel — this area moves.*"
   },
@@ -115,7 +120,9 @@
     "ordinal": 120,
     "kind": "prose",
     "layer": "volatile",
-    "dependsOn": ["memory-features"],
+    "dependsOn": [
+      "memory-features"
+    ],
     "reviewedAt": "2026-08-04",
     "body": "**Why it doesn't remember you.** Each conversation typically starts fresh. The model has no memory across sessions unless something was specifically built to give it one. Memory features have become common across the major tools, but they vary in what they retain and for how long, and the default is often off. Never assume; check what your specific tool does."
   },
@@ -143,7 +150,10 @@
     "ordinal": 150,
     "kind": "prose",
     "layer": "volatile",
-    "dependsOn": ["knowledge-cutoff", "search-features"],
+    "dependsOn": [
+      "knowledge-cutoff",
+      "search-features"
+    ],
     "reviewedAt": "2026-08-04",
     "body": "**Knowledge cutoff.** The date past which the model wasn't trained on new information. Most current tools pair the model with web search to compensate, but the underlying model still has a cutoff. It's why asking about yesterday's news, without search enabled, produces something fluent and useless."
   },
@@ -162,7 +172,9 @@
     "ordinal": 170,
     "kind": "prose",
     "layer": "volatile",
-    "dependsOn": ["multimodal-capabilities"],
+    "dependsOn": [
+      "multimodal-capabilities"
+    ],
     "reviewedAt": "2026-08-04",
     "body": "**Multimodal.** Models that handle more than text — images, audio, documents. Current frontier models are multimodal; you can paste a screenshot of an org chart or attach a PDF policy and ask questions about it. Same mechanics underneath, wider set of inputs."
   },
@@ -190,7 +202,9 @@
     "ordinal": 200,
     "kind": "prose",
     "layer": "volatile",
-    "dependsOn": ["knowledge-cutoff"],
+    "dependsOn": [
+      "knowledge-cutoff"
+    ],
     "reviewedAt": "2026-08-04",
     "body": "One more practical consequence: a model trained through a given date is unreliable about anything after it, unless you supply fresh information or search is enabled."
   },
@@ -218,7 +232,9 @@
     "ordinal": 230,
     "kind": "prose",
     "layer": "volatile",
-    "dependsOn": ["data-agreements"],
+    "dependsOn": [
+      "data-agreements"
+    ],
     "reviewedAt": "2026-08-04",
     "body": "The answer depends entirely on which tool you're using and under what agreement — an enterprise deployment with a data processing agreement is a different situation from a personal account on a consumer tier. Find out which one you're in before you paste, not after. Your security or legal team has this answer. If nobody does, that gap is itself worth raising."
   },
@@ -311,5 +327,32 @@
     "layer": "stable",
     "reviewedAt": "2026-07-28",
     "body": "### Rubric — 20 points\n\n| Dimension | 5 points |\n|---|---|\n| **Engagement with all three conversations** | All three run, with actual transcripts or faithful accounts. Follow-ups asked. Real subject matter, not placeholder queries. |\n| **Observation of mechanics** | The reflection connects what was observed to how the system works — prediction, training data, context — rather than only reporting what it said. |\n| **Calibration** | A prediction was made *before* Conversation 2, compared honestly afterward, and the direction of error is named. Accuracy isn't scored; honesty and specificity are. |\n| **Practical insight** | The habit named is concrete, tied to actual work, and checkable. Not \"I'll be more careful.\" |"
+  },
+  {
+    "id": "m1micro-core",
+    "moduleId": "ai101-m1-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-07-28",
+    "body": "## Module 1 in two minutes\n\n**\"AI\" is a category, not a technology.** The kind reshaping your work is a large language model (LLM): software that, given some text, predicts what should come next — one small piece at a time. It is not searching, not looking things up, and not reasoning like a colleague, even when it sounds like one. Much of the \"AI\" already in your HR stack is something else entirely — a scoring or matching model — and the distinction changes the failure mode, the vendor questions, and the regulatory exposure.\n\n**Confidence and correctness are decoupled.** The model produces statistically likely text. Sometimes likely is also true; sometimes it isn't. In human writing, someone who sounds certain usually has reason to be — that coupling does not exist here. Fluent output deserves more scrutiny, not less, and in People work a fluent, wrong document can shape someone's livelihood.\n\n**The model has never seen your organization.** Not your handbook, your comp bands, your survey data, your investigation files. Anything that requires that knowledge must be supplied by you in the conversation — or it will be invented, fluently, with no signal that it's invented."
+  },
+  {
+    "id": "m1micro-heuristic",
+    "moduleId": "ai101-m1-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-07-28",
+    "body": "### The delegation heuristic\n\nAI does well when you supply the material and ask for transformation. It does badly when the task needs organizational knowledge it was never given. And it must not make decisions about people — regardless of how good the output looks."
+  },
+  {
+    "id": "m1micro-habit",
+    "moduleId": "ai101-m1-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-07-28",
+    "body": "**The one habit to build:** before any task, ask *\"what does the model not know that I'd have to give it?\"* That single question is the seed of good prompting and of good judgment about what to hand over at all."
   }
 ]

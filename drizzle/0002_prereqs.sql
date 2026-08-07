@@ -1,0 +1,1 @@
+ALTER TABLE `fd_module` ADD `prereq_json` text;

@@ -431,6 +431,13 @@
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
+        },
+        "prereq_json": {
+          "name": "prereq_json",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
         }
       },
       "indexes": {},

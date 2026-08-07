@@ -19,15 +19,22 @@
     {
       "idx": 2,
       "version": "6",
-      "when": 1786067692591,
-      "tag": "0002_podcast",
+      "when": 1786066633319,
+      "tag": "0002_prereqs",
       "breakpoints": true
     },
     {
       "idx": 3,
       "version": "6",
-      "when": 1786131194939,
-      "tag": "0003_chat",
+      "when": 1786067692591,
+      "tag": "0003_podcast",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1786134145253,
+      "tag": "0004_chat",
       "breakpoints": true
     }
   ]

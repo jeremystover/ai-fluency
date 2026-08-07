@@ -37,6 +37,17 @@ export type ModuleCard = {
   estMinutes: number;
 };
 
+// Computed per session on /api/path:
+//   open        — content available in this demo, go
+//   full_course — no prerequisites; yours whenever, content ships in the full course
+//   locked      — strong prerequisite unmet; unlockHint says exactly how to unlock
+export type PathModule = ModuleCard & {
+  access: 'open' | 'full_course' | 'locked';
+  prereqs: string[];
+  unlockHint?: string;
+  microMinutes: number;
+};
+
 export type CourseCard = {
   id: string;
   title: string;
@@ -122,7 +133,8 @@ export type IntakePrefs = {
   start?: 'diagnostic' | 'module';
   time?: number; // minutes available this sitting; 0 = just exploring
   styles?: string[]; // reading | interactive | podcast | assistant_mcp | voice
-  objective?: string;
+  goals?: string[]; // fluency | workflows | apply | news | tools | safety | coach | confidence
+  objective?: string; // free-text refinement of the goals
 };
 
 export type PlanStep = {
@@ -138,6 +150,7 @@ export type PlanResponse = {
   greeting: string;
   steps: PlanStep[];
   notes: string[];
+  goals: string[];
   objective: string | null;
   nextRoute: string;
 };

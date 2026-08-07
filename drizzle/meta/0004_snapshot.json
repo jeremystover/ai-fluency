@@ -1,7 +1,7 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "62168561-2879-4ea1-822e-2b8448893deb",
+  "id": "b52e553f-9aae-438a-96ed-f3289428710d",
   "prevId": "4bbe4b2e-3d51-4b6a-b1bf-e9297e828c45",
   "tables": {
     "fd_access_code": {
@@ -506,6 +506,13 @@
           "type": "integer",
           "primaryKey": false,
           "notNull": true,
+          "autoincrement": false
+        },
+        "prereq_json": {
+          "name": "prereq_json",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
           "autoincrement": false
         }
       },

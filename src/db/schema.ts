@@ -179,4 +179,7 @@ export const fdModule = sqliteTable('fd_module', {
   blurb: text('blurb').notNull(),
   status: text('status').notNull(), // open | locked
   estMinutes: integer('est_minutes').notNull(),
+  // JSON array of module ids that are STRONG prerequisites. Empty/null = take
+  // it whenever you want. Locked cards must always say how to unlock.
+  prereqJson: text('prereq_json'),
 });

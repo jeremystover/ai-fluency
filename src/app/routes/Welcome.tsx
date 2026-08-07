@@ -1,14 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Screen, Button, ErrorNote } from '../components/ui';
 import MicButton from '../components/MicButton';
 import { api, ApiError, track } from '../api';
 import { useApp } from '../brand';
+import { GOAL_CHOICES } from '../goals';
 import type { IntakePrefs } from '../../shared/types';
 
 // The orientation: before anything launches at the learner, ask how they
 // want this to go. Same visual grammar as the diagnostic — one question
-// per screen — so it reads as the instrument, not a settings form.
+// per screen. Reachable again later via "Customize your path" (?edit=1).
 
 type StartChoice = { id: 'diagnostic' | 'module' | 'chat'; label: string; detail: string; tag?: string; disabled?: boolean };
 const START_CHOICES: StartChoice[] = [
@@ -34,7 +35,7 @@ const START_CHOICES: StartChoice[] = [
 
 type TimeChoice = { minutes: number; label: string; detail: string };
 const TIME_CHOICES: TimeChoice[] = [
-  { minutes: 10, label: 'About ten minutes', detail: 'Enough for the diagnostic. The rest keeps.' },
+  { minutes: 10, label: 'About ten minutes', detail: 'The diagnostic plus the two-minute cut of Module 1.' },
   { minutes: 30, label: 'About half an hour', detail: 'Diagnostic plus the best parts of Module 1.' },
   { minutes: 60, label: 'An hour or more', detail: 'The full loop, through the AI-graded activity.' },
   { minutes: 0, label: "No clock — I'll explore", detail: 'One step at a time, no pacing.' },
@@ -53,6 +54,8 @@ const TOTAL_STEPS = 5;
 
 export default function Welcome() {
   const navigate = useNavigate();
+  const [params] = useSearchParams();
+  const editing = params.get('edit') === '1';
   const { me, refreshMe } = useApp();
   const [step, setStep] = useState(0);
   const [name, setName] = useState('');
@@ -60,26 +63,41 @@ export default function Welcome() {
   const [start, setStart] = useState<IntakePrefs['start']>();
   const [time, setTime] = useState<number>();
   const [styles, setStyles] = useState<string[]>([]);
+  const [goals, setGoals] = useState<string[]>([]);
   const [objective, setObjective] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const tracked = useRef(false);
+  const prefilled = useRef(false);
 
   useEffect(() => {
     if (!tracked.current) {
       tracked.current = true;
-      track('intake_started');
+      track('intake_started', { editing });
     }
-  }, []);
+  }, [editing]);
 
-  // Already been through this? Straight to the plan.
+  // Already been through this? Straight to the plan — unless they came to edit.
   useEffect(() => {
-    if (me?.progress.intakeDone) navigate('/plan', { replace: true });
-  }, [me, navigate]);
+    if (me?.progress.intakeDone && !editing) navigate('/plan', { replace: true });
+  }, [me, editing, navigate]);
+
+  // Editing starts from the current answers, not a blank slate.
+  useEffect(() => {
+    if (!editing || !me?.authenticated || prefilled.current) return;
+    prefilled.current = true;
+    setName(me.displayName ?? '');
+    setRole(me.roleLabel ?? '');
+    setStart(me.prefs?.start);
+    setTime(me.prefs?.time);
+    setStyles(me.prefs?.styles ?? []);
+    setGoals(me.prefs?.goals ?? []);
+    setObjective(me.prefs?.objective ?? '');
+  }, [editing, me]);
 
   const next = () => setStep((s) => Math.min(s + 1, TOTAL_STEPS - 1));
 
-  const finish = async () => {
+  const finish = async (objectiveOverride?: string) => {
     if (busy) return;
     setBusy(true);
     setError(null);
@@ -87,7 +105,7 @@ export default function Welcome() {
       await api.post('/api/intake', {
         displayName: name,
         roleLabel: role,
-        prefs: { start, time, styles, objective: objective.trim() || undefined } satisfies IntakePrefs,
+        prefs: { start, time, styles, goals, objective: objectiveOverride ?? objective } satisfies IntakePrefs,
       });
       await refreshMe();
       navigate('/plan');
@@ -97,17 +115,6 @@ export default function Welcome() {
     }
   };
 
-  const stepLabel = (
-    <div className="flex items-center justify-between">
-      <span className="label-utility">How you want this to go · {step + 1} of {TOTAL_STEPS}</span>
-      <div className="flex gap-1" aria-hidden="true">
-        {Array.from({ length: TOTAL_STEPS }, (_, i) => (
-          <span key={i} className={`h-1 w-5 rounded-full ${i < step ? 'bg-accent' : i === step ? 'bg-ink-strong' : 'bg-line'}`} />
-        ))}
-      </div>
-    </div>
-  );
-
   const card = (opts: {
     key: string;
     label: string;
@@ -115,6 +122,7 @@ export default function Welcome() {
     tag?: string;
     selected: boolean;
     disabled?: boolean;
+    compact?: boolean;
     onClick: () => void;
   }) => (
     <button
@@ -122,12 +130,12 @@ export default function Welcome() {
       onClick={opts.onClick}
       disabled={opts.disabled}
       aria-pressed={opts.selected}
-      className={`text-left border rounded-brand px-4 py-3.5 bg-surface transition-colors w-full
+      className={`text-left border rounded-brand px-4 bg-surface transition-colors w-full ${opts.compact ? 'py-2.5' : 'py-3.5'}
         ${opts.selected ? 'border-accent ring-2 ring-accent/25' : 'border-line hover:border-line-strong'}
         ${opts.disabled ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer'}`}
     >
       <span className="flex items-center justify-between gap-3">
-        <span className="font-display font-semibold text-ink-strong">{opts.label}</span>
+        <span className={`font-display font-semibold text-ink-strong ${opts.compact ? 'text-[0.95rem]' : ''}`}>{opts.label}</span>
         {opts.tag && (
           <span
             className={`font-utility text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded-full shrink-0 ${
@@ -138,23 +146,31 @@ export default function Welcome() {
           </span>
         )}
       </span>
-      <span className="block text-sm text-ink mt-1">{opts.detail}</span>
+      <span className={`block text-ink mt-1 ${opts.compact ? 'text-[0.8rem]' : 'text-sm'}`}>{opts.detail}</span>
     </button>
   );
 
   return (
     <Screen>
       <div className="pt-10 sm:pt-16 max-w-xl">
-        {stepLabel}
+        <div className="flex items-center justify-between">
+          <span className="label-utility">{editing ? 'Customize your path' : 'How you want this to go'} · {step + 1} of {TOTAL_STEPS}</span>
+          <div className="flex gap-1" aria-hidden="true">
+            {Array.from({ length: TOTAL_STEPS }, (_, i) => (
+              <span key={i} className={`h-1 w-5 rounded-full ${i < step ? 'bg-accent' : i === step ? 'bg-ink-strong' : 'bg-line'}`} />
+            ))}
+          </div>
+        </div>
         <div key={step} className="anim-rise mt-8">
           {step === 0 && (
             <>
               <h1 className="font-display font-bold text-ink-strong text-3xl leading-tight">
-                Here's what we're up to.
+                {editing ? 'Change anything.' : "Here's what we're up to."}
               </h1>
               <p className="text-ink mt-4">
-                This is an AI fluency course that practices what it teaches: it measures your judgment before it feeds you
-                content, and it bends to how you want to learn. Nothing launches at you until you've told it how to go.
+                {editing
+                  ? 'Your plan rebuilds from whatever you change. Walk through the same five questions — your current answers are already filled in.'
+                  : 'This is an AI fluency course that practices what it teaches: it measures your judgment before it feeds you content, and it bends to how you want to learn. Nothing launches at you until you\'ve told it how to go.'}
               </p>
               <p className="text-muted text-sm mt-3">First — both optional, both skippable:</p>
               <div className="mt-5 flex flex-col gap-4">
@@ -245,39 +261,52 @@ export default function Welcome() {
 
           {step === 4 && (
             <>
-              <h1 className="font-display font-semibold text-ink-strong text-2xl leading-snug">
-                Anything specific you want out of this?
-              </h1>
-              <p className="text-muted text-sm mt-2">One sentence, your words. It shapes what gets emphasized. Skippable.</p>
-              <div className="relative mt-5">
-                <textarea
-                  value={objective}
-                  onChange={(e) => setObjective(e.target.value)}
-                  rows={3}
-                  maxLength={280}
-                  autoFocus
-                  placeholder='e.g. "Stop second-guessing what I can safely hand to AI in comp and ER work."'
-                  className="w-full border border-line-strong bg-surface rounded-brand px-4 py-3 pr-14 text-ink leading-relaxed focus:border-accent placeholder:text-muted/60 resize-y"
-                />
-                <MicButton
-                  className="absolute right-2.5 bottom-3"
-                  onError={setError}
-                  onText={(text) => setObjective((prev) => `${prev ? `${prev.trimEnd()} ` : ''}${text}`.slice(0, 280))}
-                />
+              <h1 className="font-display font-semibold text-ink-strong text-2xl leading-snug">What do you want out of this?</h1>
+              <p className="text-muted text-sm mt-2">Pick everything that's true. The plan leans toward what you choose.</p>
+              <div className="mt-6 grid gap-2 sm:grid-cols-2">
+                {GOAL_CHOICES.map((choice) =>
+                  card({
+                    key: choice.id,
+                    label: choice.label,
+                    detail: choice.detail,
+                    compact: true,
+                    selected: goals.includes(choice.id),
+                    onClick: () => setGoals((g) => (g.includes(choice.id) ? g.filter((x) => x !== choice.id) : [...g, choice.id])),
+                  }),
+                )}
               </div>
+              <label className="flex flex-col gap-1.5 mt-5">
+                <span className="label-utility">Refine it, or add your own — optional</span>
+                <div className="relative">
+                  <textarea
+                    value={objective}
+                    onChange={(e) => setObjective(e.target.value)}
+                    rows={2}
+                    maxLength={280}
+                    placeholder='e.g. "Specifically: stop second-guessing what I can hand to AI in ER work."'
+                    className="w-full border border-line-strong bg-surface rounded-brand px-4 py-3 pr-14 text-ink leading-relaxed focus:border-accent placeholder:text-muted/60 resize-y"
+                  />
+                  <MicButton
+                    className="absolute right-2.5 bottom-3"
+                    onError={setError}
+                    onText={(text) => setObjective((prev) => `${prev ? `${prev.trimEnd()} ` : ''}${text}`.slice(0, 280))}
+                  />
+                </div>
+              </label>
               {error && <div className="mt-4"><ErrorNote message={error} /></div>}
               <div className="mt-6 flex items-center gap-4">
-                <Button onClick={finish} disabled={busy}>{busy ? 'Building your plan…' : 'Build my plan'}</Button>
-                <button
-                  onClick={() => {
-                    setObjective('');
-                    finish();
-                  }}
-                  className="text-muted text-sm underline underline-offset-4 hover:text-ink-strong"
-                  disabled={busy}
-                >
-                  Skip this
-                </button>
+                <Button onClick={() => finish()} disabled={busy}>
+                  {busy ? 'Building your plan…' : editing ? 'Rebuild my plan' : 'Build my plan'}
+                </Button>
+                {!editing && (
+                  <button
+                    onClick={() => finish('')}
+                    className="text-muted text-sm underline underline-offset-4 hover:text-ink-strong"
+                    disabled={busy}
+                  >
+                    Skip this
+                  </button>
+                )}
               </div>
             </>
           )}

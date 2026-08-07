@@ -191,6 +191,9 @@ export default function ModuleView() {
             <p className="label-utility">AI 101 · Module {data.module.ordinal} of 8 · ~{data.estReadMinutes} min read</p>
             <h1 className="font-display font-bold text-ink-strong text-3xl sm:text-4xl mt-3 tracking-tight">{data.module.title}</h1>
             <p className="text-muted mt-2">{data.module.blurb}</p>
+            <p className="text-sm mt-2">
+              <Link to="/module/1/micro" className="text-accent no-underline hover:underline">Short on time? The two-minute version →</Link>
+            </p>
 
             <div className="mt-5 border border-accent/40 rounded-brand bg-accent/[0.04] px-4 py-3 flex flex-col sm:flex-row sm:items-center gap-2 sm:justify-between">
               <p className="text-sm text-ink">
