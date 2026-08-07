@@ -26,6 +26,14 @@ export function constantTimeEqual(a: Uint8Array, b: Uint8Array): boolean {
   return diff === 0;
 }
 
+// Create a stored hash for a new access code (admin console's code creation).
+export async function hashCode(code: string, iterations = 100_000): Promise<string> {
+  const salt = crypto.getRandomValues(new Uint8Array(16));
+  const key = await crypto.subtle.importKey('raw', enc.encode(code.normalize('NFKC')), 'PBKDF2', false, ['deriveBits']);
+  const bits = await crypto.subtle.deriveBits({ name: 'PBKDF2', hash: 'SHA-256', salt: salt as unknown as ArrayBuffer, iterations }, key, 256);
+  return `pbkdf2$${iterations}$${b64(salt)}$${b64(bits)}`;
+}
+
 // Stored format: pbkdf2$<iterations>$<salt_b64>$<hash_b64>
 export async function verifyCode(code: string, stored: string): Promise<boolean> {
   const parts = stored.split('$');

@@ -153,6 +153,21 @@ export const fdPodcast = sqliteTable(
   (t) => [index('idx_podcast_session').on(t.sessionId)],
 );
 
+// Operator reviews from the admin console — the async backup path for the
+// M8 peer exchange, and a general second-opinion layer on any submission.
+export const fdReview = sqliteTable(
+  'fd_review',
+  {
+    id: text('id').primaryKey(),
+    submissionId: text('submission_id').notNull(),
+    reviewer: text('reviewer').notNull(), // 'operator' for admin-console reviews
+    body: text('body').notNull(),
+    score: integer('score'),
+    createdAt: text('created_at').notNull(),
+  },
+  (t) => [index('idx_review_submission').on(t.submissionId)],
+);
+
 export const fdModule = sqliteTable('fd_module', {
   id: text('id').primaryKey(),
   courseId: text('course_id').notNull(),

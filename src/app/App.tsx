@@ -11,6 +11,7 @@ import Path from './routes/Path';
 import ModuleView from './routes/ModuleView';
 import MicroView from './routes/MicroView';
 import Podcast from './routes/Podcast';
+import Admin from './routes/Admin';
 import Activity from './routes/Activity';
 import Complete from './routes/Complete';
 import type { ReactNode } from 'react';
@@ -42,6 +43,7 @@ export default function App() {
           <Route path="/module/1/podcast" element={<RequireSession><Podcast /></RequireSession>} />
           <Route path="/module/1/activity" element={<RequireSession><Activity /></RequireSession>} />
           <Route path="/module/1/complete" element={<RequireSession><Complete /></RequireSession>} />
+          <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
