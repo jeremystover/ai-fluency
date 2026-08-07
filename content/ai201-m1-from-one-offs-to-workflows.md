@@ -120,8 +120,8 @@ Pull up last week's calendar and sent mail. List every task that meets all three
 - **It recurs.** Weekly, monthly, per-event — but on a rhythm. One-offs, however painful, don't
   make the list.
 - **It has a shape.** The same kind of input goes in and the same kind of output comes out, every
-  time. If each occurrence is genuinely different, it's not structured — it's judgment wearing a
-  routine's clothes.
+  time. If each occurrence is genuinely different, it's not structured — it's a series of
+  judgment calls that happen to recur.
 - **You supply the material.** The inputs exist and you control them: your notes, your data
   export, your policy text. If the task needs knowledge nobody has written down, 101 told you
   exactly what the model will do with that gap — fill it, fluently, from nothing.
@@ -158,8 +158,8 @@ refuse.
 
 **Wrong answer one: the most annoying task.** Annoyance measures how you feel, not whether the
 task can be systematized. The task you hate most is often hateful precisely *because* it resists
-structure — every instance different, inputs scattered, judgment throughout. Building your first
-workflow on it is learning to swim in a storm.
+structure — every instance different, inputs scattered, judgment throughout. A first build there
+fights the structure problem and the learning problem at the same time.
 
 **Wrong answer two: the highest-stakes task.** The logic seems noble — "if I'm going to invest,
 invest where it matters most." But your first workflow is where you'll make your learning
@@ -187,7 +187,8 @@ And one boundary, before the exercise makes it concrete. 101 gave you the delega
 The second sentence has teeth that surprise people. A workflow that *drafts* a rejection email
 transforms material. A workflow that decides *who gets one* has crossed the line, no matter how
 good the model is, and "a human clicks approve" doesn't move the line back if the human stopped
-reading. M5 and M6 return to this with tooling; for now it shapes which tasks are even candidates.
+reading. The gray zone — decision-support whose default quietly becomes the decision — gets its
+own test in M5. For now the plain rule shapes which tasks are even candidates.
 
 ### Sorting exercise — Workflow it, keep it manual, or never?
 
@@ -287,7 +288,7 @@ same caveat: read the raw comments too),
 **8** (newsletter — low stakes, weekly, you supply every bullet),
 **10** (policy change notes — text in, plainer text out).
 
-**Keep it manual** — judgment wearing a routine's clothes, or a true one-off:
+**Keep it manual** — judgment-heavy work, or a true one-off:
 **5** Grievance response — arrives on a rhythm, but each one is a distinct human situation
 carrying legal weight. AI can help you *understand* a policy; the response is authored, not
 generated.

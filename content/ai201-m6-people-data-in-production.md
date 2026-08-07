@@ -193,6 +193,16 @@ and can't determine whether it's permitted" — is exactly the kind of contribut
 People leader invited into the AI governance conversation. That's AI 401's whole territory;
 you're allowed to arrive early.
 
+**The provisional boundary sheet.** What the gap must not do is stop the course. IT, security,
+and legal answer on their calendars, not yours, and a question in flight is not a reason to
+stall a build for a month. The mechanism: any unanswered question is marked **UNKNOWN**, with
+the owner you asked and the date you asked them. The sheet's status becomes **provisional —
+sign-off pending**, and while it stays provisional the workflow runs under the most restrictive
+plausible answers: Tier 2 ceiling, no Tier 3 inputs, nothing above draft-only autonomy for
+steps the unknowns touch. M8 accepts a provisional sheet — the gap rides visibly on the index
+page, where a reviewer sees it before anything else. A provisional sheet with named unknowns
+and recorded pursuit is a working control. A course stalled on someone else's inbox is not.
+
 **MCP note, because M5 opened the door:** every server your agent connects is part of the
 agreement layer. A document store connected to Claude is data flowing under *some* agreement —
 the four questions apply to it, per server, and "read-only" answers the ladder question, not
@@ -268,7 +278,10 @@ the one an exec or security reviewer reads first.
    removal — or the named, written clearance, if you genuinely hold one.
 3. **The agreement answers** — Lesson 3's four questions, answered for your actual deployment,
    with the source of each answer and its re-verify date. "I don't know yet, and here's who
-   I've asked" is an honest, gradeable answer; a guess is not.
+   I've asked" is an honest, gradeable answer; a guess is not. If any answer is UNKNOWN, mark
+   the sheet **provisional**: record the owner and date asked, state the lowered ceiling you're
+   operating under until it lands, and carry the status line forward — it appears on your M8
+   index page until the sign-off completes.
 4. **The escalation card** — the four steps with your organization's real names and channels
    filled in, short enough to use mid-incident.
 5. **The sign-off line, extended** — your M4 sign-off now reads the boundary too: one sentence
@@ -299,7 +312,8 @@ the one an exec or security reviewer reads first.
 - **Tier 4 doesn't go in.** Routine need for Tier 4 means it shouldn't be a workflow — M1's
   finding, arrived at from the data side.
 - **Know your agreement situation, and the name you'd call.** [V] The four questions, answered
-  and dated, are what "sanctioned" actually means.
+  and dated, are what "sanctioned" actually means. Unanswered questions make the sheet
+  provisional — lowered ceiling, pursuit recorded, gap visible — not the course stuck.
 - **The escalation path is written before it's needed, and safe to use** — because hidden
   incidents are the only unmanageable kind.
 
@@ -418,7 +432,30 @@ correction, and it's fixable by running the person-test twice more this week.
 ## Sources and attribution
 
 Builds on 101 M1 Lesson 4 (the paste gradient; find out which situation you're in) and 201
-M2/M3/M5 (never-infrastructure, step design, permissions-not-hopes). The four-tier system, the
-person-test, the three re-identification traps, and the run-ends-with-hygiene rule are original
-to this course. Lesson 3 and marked passages are volatile layer — agreement and retention
-specifics verified per deployment, on the stamp date's cadence, with counsel where it counts.
+M2/M3/M5 (never-infrastructure, step design, permissions-not-hopes). The four-tier system and
+the person-test are this course's packaging; the re-identification material and the small-n
+floor sit on an established disclosure-control literature, which is where a privacy counsel or
+a data-literate reviewer will (correctly) look for the load-bearing claims:
+
+*To be verified against editions and current URLs before publication; the regulatory items move
+— re-check with counsel on the Tier 1 quarterly cadence.*
+
+1. **Sweeney, L. — "k-Anonymity: A Model for Protecting Privacy," *International Journal of
+   Uncertainty, Fuzziness and Knowledge-Based Systems* 10(5) (2002).** The formal basis for
+   the small-n idea: a record is only as anonymous as the size of the group it hides in.
+2. **Narayanan, A. & Shmatikov, V. — "Robust De-anonymization of Large Sparse Datasets,"
+   *IEEE Symposium on Security and Privacy* (2008).** Re-identification through auxiliary
+   information — the convergence trap, demonstrated at scale on data everyone thought was clean.
+3. **Hundepool, A. et al. — *Statistical Disclosure Control* (Wiley, 2012).** The official-
+   statistics treatment of threshold rules. Lesson 2's "five is a common floor" reflects
+   national-statistics practice, where minimum cell sizes of roughly three to ten are standard;
+   the module's advice stands: set your organization's floor deliberately, don't inherit one.
+4. **HIPAA de-identification standard, 45 CFR §164.514 [V].** Safe Harbor and Expert
+   Determination — the US regulatory version of tiering and minimization, and useful precedent
+   language when writing your own floor.
+5. **Article 29 Working Party — Opinion 05/2014 on Anonymisation Techniques [V].** The EU
+   analysis of why "names removed" is not anonymized — the regulator's version of this
+   module's central correction.
+
+Lesson 3 and marked passages are volatile layer — agreement and retention specifics verified
+per deployment, on the stamp date's cadence, with counsel where it counts.

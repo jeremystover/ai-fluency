@@ -6,6 +6,8 @@
 portfolio — 60–90 min across a week
 **Prerequisites:** **M4 and M6, strictly.** Nothing ships without a verification plan and a
 boundary sheet. The gate is the content: if either is missing, this module *is* those modules.
+A **provisional** boundary sheet — unknowns marked, pursuit recorded, ceiling lowered per M6 —
+satisfies the gate; the gap rides visibly on the index page. An absent sheet does not.
 **Builds on:** everything. That's the design.
 
 > `Concepts reviewed: [DATE] · Examples current as of: [DATE]`
@@ -120,6 +122,17 @@ or it doesn't. Then each returns the structured review, three questions, one par
 3. **What did the doc assume I knew?** The tacit knowledge tax: terms, locations, judgment
    calls the builder no longer notices they're making.
 
+**When there is no peer.** Cohorts don't always pair cleanly, and paired peers don't always
+deliver. Neither stalls your shipping. If you're running solo, your binder and sample material
+go to the course's **review queue**, where an experienced reviewer runs the same cold read and
+returns the same three questions — the reviewer having seen many binders is a feature, not a
+compromise; their stalls are better-aimed than a peer's. And if your paired peer's review
+hasn't arrived within a week, your submission moves to the queue automatically: their stall is
+not your debt, and the module completes on your timeline either way. The giving side survives
+too — solo learners give their structured review to a queued submission from the course
+library, which is the same skill against a build you've never seen. In every variant, the
+mechanics above hold: cold read, no questions during the run, three structured paragraphs back.
+
 **Receiving the review is the skill being graded.** Every stall is documentation debt —
 information about the binder, never about the reader. The reflex you've trained all course
 applies one last time: fix the pack, not the output; fix the doc, not the reader. You'll fix
@@ -143,9 +156,10 @@ after, a verification layer with real sample data, a defensible boundary, an aut
 decision made on evidence, and documentation a stranger has actually run. When someone in
 your organization asks what AI is worth — and someone will, with a budget line attached —
 you are the person in the room with a baseline. One sentence, from your M7 numbers: *"This
-workflow saves N hours a month against a measured baseline, at an X% sampled error rate,
-with a boundary sheet security has seen."* Practice saying it. It's a different kind of
-sentence than this conversation usually gets.
+workflow saves N hours a month against a measured baseline, at a running cost of $X and a
+Y% sampled error rate, with a boundary sheet security has seen."* Practice saying it. The
+cost clause matters as much as the savings clause: it's the difference between a pitch and
+an accounting, and a CFO hears the difference immediately.
 
 **The skills that came along quietly.** Look at what shipping required, and notice none of
 it was prompting: you priced trust in evidence (M4→M5), wrote boundaries a reviewer could
@@ -174,11 +188,12 @@ shipped.
 1. **The index page** and the full binder (or its live location), post-consistency-pass.
 2. **Two real runs**, complete with intermediates: one from before your peer's review, one
    after your fixes. The delta between them is documentation debt, repaid and visible.
-3. **The numbers**: the M7 three, with baseline, stated in the one-sentence-for-an-executive
-   form.
-4. **The exchange, both directions**: the review you received (verbatim) with your fixes
-   listed; the review you gave; and your calibration score — predicted stall vs. actual
-   stall, direction of miss named.
+3. **The numbers**: the M7 four, with baseline, stated in the one-sentence-for-an-executive
+   form — savings and cost both.
+4. **The exchange, both directions**: the review you received — from your peer or from the
+   review queue — verbatim, with your fixes listed; the review you gave, to your peer or to a
+   queued submission; and your calibration score — predicted stall vs. actual stall, direction
+   of miss named.
 5. **The closing reflection** (300–400 words): what shipped, what it measures, your
    systematic direction across the course's predictions (from M7's reckoning, now with the
    handoff miss added) — and the one thing you'll build next, with the rung and budget
@@ -200,8 +215,8 @@ The course's four inherited dimensions, plus one that belongs to this module alo
 
 ## Key takeaways
 
-- **Shipping is transferability.** A workflow only its builder can run is an artisan with
-  better filing. The stranger is the test.
+- **Shipping is transferability.** A workflow only its builder can run isn't a system yet.
+  The stranger is the test.
 - **The consistency pass beats any single artifact.** Contradictions between binder documents
   are where cold readers stall and reviewers stop trusting.
 - **Every stall is documentation debt.** Fix the doc, not the reader — and expect the stalls
@@ -220,9 +235,10 @@ The course's four inherited dimensions, plus one that belongs to this module alo
 > **[Name] just completed AI 201 · The Practitioner.**
 >
 > **What they built.** Not a course completion — a production workflow: [workflow name],
-> saving a measured [N hours/month] against a hand-run baseline, with a designed
-> verification layer (sampled error rate: [X%]), a documented data boundary, and an
-> autonomy decision made on evidence. A peer has run it from the documentation alone.
+> saving a measured [N hours/month] against a hand-run baseline at a running cost of
+> [$X/month], with a designed verification layer (sampled error rate: [Y%]), a documented
+> data boundary, and an autonomy decision made on evidence. A cold reader has run it from
+> the documentation alone.
 >
 > **Three questions for your next 1:1**
 > 1. What did the before/after numbers show, and where should the next build aim?
@@ -279,9 +295,9 @@ The course's four inherited dimensions, plus one that belongs to this module alo
 > **A.** The tacit-knowledge tax: obviousness is what expertise can no longer see. It's the
 > course's last calibration lesson, and the core diagnostic of the coaching work ahead.
 
-**Q5.** The executive sentence — "saves N hours a month against a measured baseline, at X% sampled error, with a boundary security has seen" — is powerful because:
+**Q5.** The executive sentence — "saves N hours a month against a measured baseline, at a running cost of $X and Y% sampled error, with a boundary security has seen" — is powerful because:
 - A. It uses precise numbers
-- B. Each clause is backed by an artifact that exists and can be audited: the baseline, the sample tallies, the boundary sheet ✓
+- B. Each clause is backed by an artifact that exists and can be audited: the baseline, the cost estimate, the sample tallies, the boundary sheet ✓
 - C. It's short enough for an executive to remember
 - D. It avoids technical vocabulary
 

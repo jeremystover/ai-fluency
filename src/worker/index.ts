@@ -5,6 +5,7 @@ import { and, asc, desc, eq, gt, sql } from 'drizzle-orm';
 import * as t from '../db/schema';
 import { verifyCode, signSessionId, verifySessionCookie, hashIp } from './crypto';
 import { gradeSubmission, PROMPT_VERSION } from './grading';
+import { adminApp } from './admin';
 import {
   writeScript,
   renderAudio,
@@ -47,6 +48,7 @@ export interface Env {
   PODCAST_MODEL?: string;
   SESSION_SECRET?: string;
   ANTHROPIC_API_KEY?: string;
+  ADMIN_PASSCODE?: string;
   // Optional bindings — a deployment without them loses podcast audio, not the app.
   AI?: AiBinding;
   PODCAST_AUDIO?: R2Bucket;
@@ -1154,6 +1156,8 @@ app.get('/api/module/ai101-m1/complete', async (c) => {
 });
 
 // ---------- fallthrough ----------
+
+app.route('/api/admin', adminApp);
 
 app.notFound(async (c) => {
   if (new URL(c.req.url).pathname.startsWith('/api/')) return c.json({ error: 'Not found.' }, 404);

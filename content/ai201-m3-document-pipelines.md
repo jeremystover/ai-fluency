@@ -77,8 +77,8 @@ A pipeline is three design decisions, repeated: what each step does, what it han
 step, and what you look at in between.
 
 **One transformation per step.** M1's rule, now load-bearing. "Extract the themes" is a step.
-"Extract the themes and draft the summary" is two steps wearing one prompt, and the model will
-do the first at half attention while performing the second. If your step prompt contains "and
+"Extract the themes and draft the summary" is two steps written as one prompt, and the model
+will do the first at half attention while performing the second. If your step prompt contains "and
 then also," split it.
 
 **Structured intermediates.** What a step hands forward should be *more* structured than what

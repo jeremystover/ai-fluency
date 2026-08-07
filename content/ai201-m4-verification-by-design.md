@@ -36,8 +36,8 @@ that story goes — the failure is quiet, plausible, and wearing your name. Nobo
 is doing that.
 
 The invisible way is more common among people who finished 101: **checking everything.** Every
-output, read end to end, every run. It feels like diligence. It is actually two failures wearing
-a virtue's clothes. First, it silently refunds the time the workflow saved — your M1 calibration
+output, read end to end, every run. It feels like diligence. It is actually two failures at
+once. First, it silently refunds the time the workflow saved — your M1 calibration
 predicted hours back, and full-read review hands most of them right back. Second, it doesn't
 survive contact with a busy month. Willpower-based verification decays: you read every word in
 week one, skim in week three, and by week six you're approving on fluency — which is checking
@@ -65,7 +65,9 @@ By the end of this module you should be able to:
    too high.
 4. Write a sign-off that means something: one name, and a definition of what that name actually
    reads.
-5. State what "verified by hand" in the practitioner's heuristic operationally requires.
+5. Run the output-incident path when something shipped wrong anyway — including the case where
+   it influenced a decision about a person.
+6. State what "verified by hand" in the practitioner's heuristic operationally requires.
 
 ---
 
@@ -98,9 +100,8 @@ pack going stale, the source format shifting, the step prompt that worked in Mar
 June. Both lines go in the budget; they find different things.
 
 And one design constraint that outranks the others: **the budget must be cheap enough that
-week six runs it exactly like week one.** A verification plan you'd abandon under deadline is a
-plan to approve on fluency with extra steps. When in doubt, buy a smaller budget you'll
-actually spend.
+week six runs it exactly like week one.** A verification plan you'd abandon under deadline will
+end as fluency-approval anyway. When in doubt, buy a smaller budget you'll actually spend.
 
 > ### Try this — 2 minutes
 > Take the last AI-assisted output you actually shipped.
@@ -205,6 +206,44 @@ in the handoff test, which is why the spec writes it down rather than assuming i
 
 ---
 
+## Lesson 4 · When it shipped anyway
+
+Everything so far catches errors before they leave. Some won't be caught. The debrief that
+mischaracterized a candidate went to the hiring manager last Tuesday; the theme summary that
+misread a team's comments already shaped a staffing conversation. In People work this is both
+more likely and more consequential than a data spill — and it needs its own path, written in
+advance, exactly like the spill path M6 will give you. Four steps, in order:
+
+**1. Correct the record, at the error's own prominence.** Identify everyone who consumed the
+output — your M3 artifacts and M5 audit trail tell you who, which is a quiet argument for both.
+The correction goes to all of them, through the same channel the error traveled, stated
+plainly: what was wrong, what's right, what's being done. A correction buried in a reply-all
+three days later is not a correction at the error's prominence.
+
+**2. Check for decision impact — and reopen what was touched.** The question a general counsel
+will eventually ask, so answer it before they do: *did this output influence a decision about a
+person?* If the mischaracterized debrief fed a hiring call, the call gets revisited with
+corrected input, and the revisit is documented — who reconvened, what changed, what didn't and
+why. This is the step that distinguishes an error from a harm: the error was the output; the
+harm is a decision standing on it after you knew.
+
+**3. Trace the miss to its budget line.** Which layer should have caught it — a checkpoint, the
+sample, the sign-off's reading list? M3's backward walk gives the address. "It slipped through"
+is not a finding; "the adversarial read doesn't cover per-candidate debriefs" is.
+
+**4. Reprice.** The specific line changes: a checkpoint gains a what-would-wrong-look-like
+clause, the sample widens for that output type, the reading list grows by one item. One
+incident, one design change — resist the urge to add three; untargeted controls are how budgets
+stop surviving week six.
+
+The ownership is already decided: the sign-off name from Lesson 3 owns the correction — that is
+part of what the name means. And the culture rule is the same one M6 will state for spills: the
+path only works if using it is safe. An output incident that gets quietly patched downstream,
+without the correction or the decision check, is the version of this that ends up in front of
+counsel with the timeline against you.
+
+---
+
 ## Capstone stage 4 · The verification plan — and the first honest sample
 
 Your workflow now has a spec (M1), a pack (M2), and a pipeline with checkpoints (M3). Write
@@ -231,6 +270,9 @@ its verification plan, then prove it against reality.
 5. **The escalation line** — the error rate at which you stop and fix (runbook first — M3's
    backward walk), and the rate at which you'd conclude this workflow isn't ready for more
    autonomy. That number is your admission ticket to M5; you'll use it there.
+6. **The output-incident path** — Lesson 4, written for your workflow: who consumed last
+   month's outputs and how you'd reach them, what the correction channel is, and what a
+   decision-impact check would look like for this output specifically.
 
 ### Rubric — 20 points
 
@@ -255,7 +297,10 @@ its verification plan, then prove it against reality.
 - **Classification is diagnosis:** wrong and missing point at the runbook or pack; invented
   points at the inputs. The tally tells you what to fix, not just how worried to be.
 - **One name, defined reading.** A sign-off is its reading list. An approval that stopped
-  reading launders credibility — reprice the budget before it reprices you.
+  reading launders credibility — when you catch it, reprice the budget.
+- **When something ships wrong anyway:** correct the record at the error's own prominence,
+  check whether a decision about a person stood on it and reopen what was touched, trace the
+  miss to its budget line, change that one line. The sign-off name owns the correction.
 - **"Verified by hand" now has a definition** — and it's the currency M5's autonomy ladder is
   priced in.
 
@@ -293,7 +338,7 @@ it must not consume is the budget the packet and the compliance claim need.
 
 **The pattern:** spend where failure is invisible or touches people; save where failure is
 cosmetic and loud. If your six answers were all "standard," you've met the exercise's real
-target — flat budgets are moods, not designs.
+target — a flat budget is a default, not a design.
 
 ---
 
@@ -355,8 +400,8 @@ target — flat budgets are moods, not designs.
 - D. A second approver for high-stakes outputs
 
 > **B.** "Sign-off = the theme-table diff plus this week's three samples" is a control.
-> "Sign-off = review it" is a mood with a signature. The name matters too — but only paired
-> with what the name reads.
+> "Sign-off = review it" is a sentiment with a signature line. The name matters too — but only
+> paired with what the name reads.
 
 **Q7.** The owner catches herself approving outputs without reading the defined inputs. The module's prescription:
 - A. Replace the owner
@@ -384,6 +429,32 @@ target — flat budgets are moods, not designs.
 
 Builds on 101 M6 (confidence/correctness decoupling, verify-specifics-with-counsel) and 201
 M1–M3 (stakes scoring, the pack's definition of done, checkpoints and the backward walk). The
-verification-budget framing, the wrong/missing/invented classification, the decay-curve
-argument against full review, and "a sign-off is its reading list" are original to this
-course. Stable layer throughout; the practices here are deliberately tool-independent.
+verification-budget framing, the wrong/missing/invented classification, and "a sign-off is its
+reading list" are this course's adaptations of a real literature — the sampling and
+human-oversight ideas here are older than AI, and that ancestry is worth citing when a
+data-literate reviewer pushes:
+
+*To be verified against editions and current URLs before publication; re-check on the Tier 1
+quarterly cadence.*
+
+1. **Deming, W. E. — *Out of the Crisis* (1986).** "Cease dependence on inspection to achieve
+   quality" — the classic argument behind Lesson 1's case that checking everything is the wrong
+   spend, and that quality lives in the process design.
+2. **Shewhart, W. A. — *Economic Control of Quality of Manufactured Product* (1931).** Process
+   behavior over single-inspection thinking; the ancestry of reading error rates by direction
+   and trend rather than level.
+3. **ANSI/ASQ Z1.4 (successor to MIL-STD-105), *Sampling Procedures and Tables for Inspection
+   by Attributes*.** The formal home of fixed-size, classified acceptance sampling — Lesson 2's
+   spot-check design, industrialized.
+4. **Bainbridge, L. — "Ironies of Automation," *Automatica* 19(6) (1983).** Why the human
+   checker's job gets harder, not easier, as the automated part improves — the decay curve's
+   classic statement, twenty years before LLMs.
+5. **Parasuraman, R. & Riley, V. — "Humans and Automation: Use, Misuse, Disuse, Abuse,"
+   *Human Factors* 39(2) (1997).** Automation complacency: the rubber-stamp trap, formally
+   studied.
+6. **Vaughan, D. — *The Challenger Launch Decision* (1996).** Normalization of deviance — what
+   unlogged skipped reviews become, at the highest stakes on record.
+7. **Gawande, A. — *The Checklist Manifesto* (2009).** The sign-off reading list is checklist
+   design; this is the accessible case for why short, defined lists outperform diligence.
+
+Stable layer throughout; the practices here are deliberately tool-independent.

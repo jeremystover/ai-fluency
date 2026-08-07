@@ -152,5 +152,5 @@ Run the workflow for real, on real work, at least twice. Document the before/aft
 
 1. **Labs assume Claude access.** Deployments tailor lab content to the organization's provisioned tools — learners always see what they already have.
 2. **Capstone privacy:** deferred. No sanitized track for now; revisit if real usage surfaces the problem.
-3. **Peer exchange: in.** Minimal mechanic at M8's handoff test (paired learners, run each other's first step, three-question structured review). Watch how it performs before extending it earlier in the course.
+3. **Peer exchange: in — with an async backstop.** Minimal mechanic at M8's handoff test (paired learners, run each other's first step, three-question structured review). Backed by a review queue: solo learners submit to it and an operator reviews cold with the same three questions; stalled pairings (no review within a week) route there automatically; solo learners give their review against a queued submission from the library. Requires an admin surface in the product (login, review queue, reporting, access-code management).
 4. **Volatile refresh:** to be solved by automated scanning that incorporates tool changes into volatile blocks in near-realtime — the maintenance-agent story. Out of scope for now; the `[V]` discipline in the content keeps the door open.

@@ -203,8 +203,8 @@ the artisan tax, refunded.
 **Two cautions from 101, now operational.** First: conversations inside a project do not teach
 the project — nothing you say in a chat updates instructions or knowledge unless you edit them
 deliberately. The pack changes when you change it, which is exactly what makes it auditable.
-Second: the context window is still finite. A pack is not an attic; every stale document you
-leave in knowledge is crowding something current out of view.
+Second: the context window is still finite. Knowledge is not unlimited storage; every stale
+document you leave in it crowds something current out of view.
 
 **[V]** *Parity note:* in ChatGPT, the equivalent shape is a Project (or a custom GPT) —
 instructions map to instructions, knowledge to attached files, with the same design judgment
