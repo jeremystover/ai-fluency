@@ -5,7 +5,17 @@
   "submitLabel": "Your capstone-stage submission",
   "intro": "Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited — the score is a mirror, not a gate.",
   "activityContext": "You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). Capstone stage 5: the autonomy decision memo — the measured shuttling split, a per-step rung profile priced in verification evidence, the guardrail spec with the deliberately-not-attached tool list, and the refusal where it applies. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.",
-  "calibration": [],
+  "calibration": [
+    {
+      "key": "shuttlingActual",
+      "label": "Measured — shuttling % from your timed run",
+      "hint": "The stage’s timed end-to-end run, watch in hand.",
+      "placeholder": "e.g. 75",
+      "min": 0,
+      "max": 100,
+      "actualFor": "shuttling"
+    }
+  ],
   "dimensions": [
     {
       "name": "Rung reasoning",
@@ -22,6 +32,16 @@
     {
       "name": "Calibration",
       "criteria": "Shuttling prediction recorded first, measured against a real run, direction of miss named. Honesty and specificity graded; accuracy never."
+    }
+  ],
+  "opening": [
+    {
+      "key": "shuttling",
+      "label": "Predicted — % of a run that is mechanical shuttling",
+      "hint": "Pasting, re-attaching, moving artifacts — versus actual judgment.",
+      "placeholder": "e.g. 60",
+      "min": 0,
+      "max": 100
     }
   ]
 }

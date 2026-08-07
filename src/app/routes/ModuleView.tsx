@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import type { ContentBlock, ModuleContentResponse } from '../../shared/types';
+import type { CalibrationField, ContentBlock, ModuleContentResponse } from '../../shared/types';
 import { Screen, Markdown, Button, ErrorNote } from '../components/ui';
 import SortingExercise from '../components/SortingExercise';
 import ChoiceExercise from '../components/ChoiceExercise';
@@ -8,14 +8,30 @@ import { api, ApiError, track } from '../api';
 
 const COURSE_LABELS: Record<string, string> = { ai101: 'AI 101', ai201: 'AI 201' };
 
-// A module's opening prediction — captured before the content, echoed later.
-function CalibrationPrompt({ block, moduleId }: { block: ContentBlock; moduleId: string }) {
+// A module's opening prediction — captured before the content, echoed at the
+// capstone. Free text always; numeric fields where the rubric declares them
+// (those become real prediction rows the activity's measured value later closes).
+function CalibrationPrompt({
+  block,
+  moduleId,
+  fields,
+  savedValues,
+}: {
+  block: ContentBlock;
+  moduleId: string;
+  fields: CalibrationField[];
+  savedValues: Record<string, number>;
+}) {
   const [text, setText] = useState('');
-  const [saved, setSaved] = useState(false);
+  const [values, setValues] = useState<Record<string, string>>({});
+  const [saved, setSaved] = useState(Object.keys(savedValues).length > 0);
+  const numbersReady = fields.every((f) => (values[f.key] ?? '').trim() !== '');
   const save = async () => {
-    if (!text.trim()) return;
+    if (!text.trim() && !numbersReady) return;
     try {
-      await api.post(`/api/module/${moduleId}/calibration`, { text });
+      const numeric: Record<string, number> = {};
+      for (const [k, v] of Object.entries(values)) if (v.trim() !== '') numeric[k] = Number(v);
+      await api.post(`/api/module/${moduleId}/calibration`, { text, values: numeric });
       setSaved(true);
     } catch {
       // Non-blocking: the prediction's value is in the writing, not the saving.
@@ -26,18 +42,46 @@ function CalibrationPrompt({ block, moduleId }: { block: ContentBlock; moduleId:
     <div className="border-l-4 border-signal bg-signal/10 rounded-r-brand p-5 my-5">
       <Markdown source={block.body} className="text-[0.95rem] [&_h2]:mt-0 [&_h2]:text-xl" />
       {saved ? (
-        <p className="label-utility mt-3">Recorded. It comes back at the capstone.</p>
+        <div className="mt-3">
+          <p className="label-utility">Recorded. It comes back at the capstone.</p>
+          {Object.keys(savedValues).length > 0 && (
+            <p className="font-utility text-xs text-ink-strong mt-1.5">
+              {fields
+                .filter((f) => savedValues[f.key] !== undefined)
+                .map((f) => `${f.label}: ${savedValues[f.key]}`)
+                .join(' · ')}
+            </p>
+          )}
+        </div>
       ) : (
         <div className="mt-3 flex flex-col gap-2">
+          {fields.length > 0 && (
+            <div className="flex flex-wrap gap-3">
+              {fields.map((f) => (
+                <label key={f.key} className="flex flex-col gap-1">
+                  <span className="font-utility text-[0.7rem] text-ink-strong">{f.label}</span>
+                  <input
+                    type="number"
+                    min={f.min}
+                    max={f.max}
+                    value={values[f.key] ?? ''}
+                    onChange={(e) => setValues((prev) => ({ ...prev, [f.key]: e.target.value }))}
+                    placeholder={f.placeholder}
+                    className="border border-line-strong bg-surface rounded-brand px-3 py-1.5 font-utility text-sm text-ink-strong w-28 focus:border-accent placeholder:text-muted/60"
+                  />
+                </label>
+              ))}
+            </div>
+          )}
           <textarea
             value={text}
             onChange={(e) => setText(e.target.value)}
             rows={2}
-            placeholder="Write the prediction down here — numbers included."
+            placeholder={fields.length ? 'And the parts a number can’t hold — name the item, the step, the reason.' : 'Write the prediction down here — numbers included.'}
             className="w-full border border-line-strong bg-surface rounded-brand px-3 py-2 text-sm text-ink focus:border-accent placeholder:text-muted/60"
           />
           <div>
-            <Button onClick={save} disabled={!text.trim()} variant="quiet">Record it</Button>
+            <Button onClick={save} disabled={!text.trim() && !numbersReady} variant="quiet">Record it</Button>
           </div>
         </div>
       )}
@@ -113,7 +157,17 @@ function VolatileMark({ block }: { block: ContentBlock }) {
   );
 }
 
-function Block({ block, moduleId }: { block: ContentBlock; moduleId: string }) {
+function Block({
+  block,
+  moduleId,
+  openingFields,
+  openingValues,
+}: {
+  block: ContentBlock;
+  moduleId: string;
+  openingFields: CalibrationField[];
+  openingValues: Record<string, number>;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const logged = useRef(false);
   useEffect(() => {
@@ -143,7 +197,7 @@ function Block({ block, moduleId }: { block: ContentBlock; moduleId: string }) {
   if (block.kind === 'calibration_prompt') {
     return (
       <div ref={ref} id={block.id}>
-        <CalibrationPrompt block={block} moduleId={moduleId} />
+        <CalibrationPrompt block={block} moduleId={moduleId} fields={openingFields} savedValues={openingValues} />
       </div>
     );
   }
@@ -314,7 +368,7 @@ export default function ModuleView() {
 
             <div className="mt-6 sm:pl-2">
               {data.blocks.filter((b) => b.moduleId === moduleId).map((b) => (
-                <Block key={b.id} block={b} moduleId={moduleId} />
+                <Block key={b.id} block={b} moduleId={moduleId} openingFields={data.openingFields} openingValues={data.openingValues} />
               ))}
             </div>
 

@@ -5,7 +5,25 @@
   "submitLabel": "Your capstone-stage submission",
   "intro": "Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited — the score is a mirror, not a gate.",
   "activityContext": "You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). Capstone stage 6: the boundary sheet — a tiered input census, mitigations matched to tier, the four agreement answers with sources (provisional status marked if unknowns remain), the escalation card, and the extended sign-off line. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.",
-  "calibration": [],
+  "calibration": [
+    {
+      "key": "elementsActual",
+      "label": "Census — elements the boundary sheet actually found",
+      "placeholder": "e.g. 19",
+      "min": 0,
+      "max": 500,
+      "actualFor": "elements"
+    },
+    {
+      "key": "identifyingActual",
+      "label": "Census — how many actually identify a person",
+      "hint": "After the person-test, not before.",
+      "placeholder": "e.g. 7",
+      "min": 0,
+      "max": 500,
+      "actualFor": "identifying"
+    }
+  ],
   "dimensions": [
     {
       "name": "Tier honesty",
@@ -22,6 +40,24 @@
     {
       "name": "Calibration",
       "criteria": "Both counts predicted first, scored against the census, direction of error named. Honesty and specificity graded; accuracy never."
+    }
+  ],
+  "opening": [
+    {
+      "key": "elements",
+      "label": "Predicted — distinct data elements per run",
+      "hint": "A document is one. A pasted table is one. Names inside count separately.",
+      "placeholder": "e.g. 12",
+      "min": 0,
+      "max": 500
+    },
+    {
+      "key": "identifying",
+      "label": "Predicted — how many identify a person",
+      "hint": "By name, or by description a colleague could resolve.",
+      "placeholder": "e.g. 2",
+      "min": 0,
+      "max": 500
     }
   ]
 }

@@ -27,5 +27,6 @@
       "name": "Would a colleague trust it?",
       "criteria": "The test of the whole course: guardrails a reasonable peer would rely on — verification real, boundary defensible, autonomy evidenced, documentation a stranger has run. Not \"is it impressive.\" Is it *trustworthy*."
     }
-  ]
+  ],
+  "includeTrail": true
 }

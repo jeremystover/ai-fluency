@@ -74,6 +74,30 @@
       ],
       "correctIndex": 1,
       "explanation": "Any single module can be performed; trust is what the whole system either earns or doesn't. It's also the property the next course spends: a Translator's credibility starts at their own shipped, trustworthy build."
+    },
+    {
+      "id": "q7",
+      "prompt": "The index page — new in this module — is written for two readers. They are:",
+      "options": [
+        "The builder, as a personal reference, and the review queue",
+        "A successor, as the first page they read, and an executive, as the only page they read",
+        "The deployment owner and the legal team",
+        "The peer reviewer and the hiring manager"
+      ],
+      "correctIndex": 1,
+      "explanation": "One page: what the workflow is, what it saves, where everything lives, who owns it. A successor starts there and reads deeper; an executive reads it and stops — which is why the numbers on it carry their baseline and cost."
+    },
+    {
+      "id": "q8",
+      "prompt": "Your paired peer's review hasn't arrived within a week. Under the course's design, your shipping:",
+      "options": [
+        "Stalls until the peer delivers — the exchange is a hard gate",
+        "Skips the exchange; the consistency pass covers the same ground",
+        "Proceeds — your binder goes to the review queue, where an experienced reviewer runs the same cold read",
+        "Proceeds only if you review your own binder with fresh eyes"
+      ],
+      "correctIndex": 2,
+      "explanation": "No single person can deadlock the course. The queue's reviewer runs the identical protocol — and having seen many binders, their stalls are better-aimed than a peer's. A feature, not a compromise."
     }
   ]
 }

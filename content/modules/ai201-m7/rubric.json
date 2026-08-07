@@ -5,7 +5,17 @@
   "submitLabel": "Your capstone-stage submission",
   "intro": "Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited — the score is a mirror, not a gate.",
   "activityContext": "You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). Capstone stage 7: the four numbers baselined with would-do-differently answers, the rhythm installed on a real calendar, the retirement clause with quantified triggers, and the reckoning against the Module 1 prediction. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.",
-  "calibration": [],
+  "calibration": [
+    {
+      "key": "savingsActual",
+      "label": "Measured — % of the by-hand baseline the workflow actually saves",
+      "hint": "From your timed runs against the baseline. Closes the prediction you made in Module 1.",
+      "placeholder": "e.g. 40",
+      "min": 0,
+      "max": 100,
+      "actualFor": "ai201-m1:savings"
+    }
+  ],
   "dimensions": [
     {
       "name": "Honest numbers",
@@ -23,5 +33,6 @@
       "name": "Calibration",
       "criteria": "The M1 reckoning is done with real numbers; the direction paragraph names a systematic bias and a concrete consequence for the next build."
     }
-  ]
+  ],
+  "includeTrail": true
 }

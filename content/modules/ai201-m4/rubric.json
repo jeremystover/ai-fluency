@@ -5,7 +5,17 @@
   "submitLabel": "Your capstone-stage submission",
   "intro": "Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited — the score is a mirror, not a gate.",
   "activityContext": "You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). Capstone stage 4: the verification plan — a budget sized to stakes, a technique map by failure mode, the sign-off reading list, an honest five-output sample with classified findings, the escalation line, and the output-incident path. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.",
-  "calibration": [],
+  "calibration": [
+    {
+      "key": "errorsActual",
+      "label": "Measured — your sample, scaled to ten: how many actually did",
+      "hint": "From the honest sample this stage asks you to run.",
+      "placeholder": "e.g. 2",
+      "min": 0,
+      "max": 10,
+      "actualFor": "errors"
+    }
+  ],
   "dimensions": [
     {
       "name": "Fit to stakes",
@@ -22,6 +32,16 @@
     {
       "name": "Calibration",
       "criteria": "Both predictions recorded first, scored honestly, direction of error named. Accuracy isn't graded; honesty and specificity are."
+    }
+  ],
+  "opening": [
+    {
+      "key": "errors",
+      "label": "Predicted — of ten outputs, how many hold at least one real error",
+      "hint": "A number, not a range.",
+      "placeholder": "e.g. 3",
+      "min": 0,
+      "max": 10
     }
   ]
 }

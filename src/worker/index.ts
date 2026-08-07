@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import { getCookie, setCookie } from 'hono/cookie';
 import { drizzle, type DrizzleD1Database } from 'drizzle-orm/d1';
-import { and, asc, desc, eq, gt, sql } from 'drizzle-orm';
+import { and, asc, desc, eq, gt, lt, sql } from 'drizzle-orm';
 import * as t from '../db/schema';
 import { verifyCode, signSessionId, verifySessionCookie, hashIp } from './crypto';
 import { gradeSubmission, type RubricPayload } from './grading';
@@ -38,6 +38,9 @@ import type {
   MeResponse,
   ModuleCard,
   ModuleContentResponse,
+  PriorStage,
+  TrailPoint,
+  CalibrationTrail,
   PathModule,
   SortingReveal,
 } from '../shared/types';
@@ -833,6 +836,22 @@ app.get('/api/module/:id', async (c) => {
     .where(eq(t.fdExercise.moduleId, id));
   const kinds = new Set(exerciseRows.map((r) => r.kind));
 
+  // Numeric prediction fields the opening calibration prompt captures, with
+  // whatever this session already recorded — so the prompt renders as saved.
+  const rubric = kinds.has('rubric') ? await getExercise<RubricPayload>(db, id, 'rubric') : null;
+  const openingFields = rubric?.opening ?? [];
+  const openingValues: Record<string, number> = {};
+  if (openingFields.length) {
+    const rows = await db
+      .select({ context: t.fdCalibration.context, predictedPct: t.fdCalibration.predictedPct })
+      .from(t.fdCalibration)
+      .where(eq(t.fdCalibration.sessionId, session.id));
+    for (const field of openingFields) {
+      const row = rows.find((r) => r.context === `${id}:cal:${field.key}`);
+      if (row) openingValues[field.key] = row.predictedPct;
+    }
+  }
+
   const res: ModuleContentResponse = {
     module: mod as ModuleCard,
     blocks,
@@ -847,21 +866,45 @@ app.get('/api/module/:id', async (c) => {
       activity: kinds.has('rubric'),
       knowledgeCheck: kinds.has('knowledge_check'),
     },
+    openingFields,
+    openingValues,
   };
   return c.json(res);
 });
 
-// Free-text predictions captured by a module's calibration prompt; echoed back
-// on the activity screen. Append-only, latest wins.
+// A module's opening calibration prompt: free text always; numeric fields when
+// the rubric declares them. Numbers land in fd_calibration as open predictions
+// — the matching activity field (actualFor) closes the loop at submission time.
 app.post('/api/module/:id/calibration', async (c) => {
   const db = c.get('db');
   const session = requireSession(c);
   if (!session) return c.json({ error: 'No session.' }, 401);
-  const body = await c.req.json<{ text?: string }>().catch(() => null);
+  const moduleId = c.req.param('id');
+  const body = await c.req.json<{ text?: string; values?: Record<string, number> }>().catch(() => null);
   const text = body?.text?.trim();
-  if (!text) return c.json({ error: 'Write the prediction before saving it.' }, 400);
-  await logEvent(db, session.id, 'module_calibration_recorded', { moduleId: c.req.param('id'), text: text.slice(0, 1000) });
-  return c.json({ ok: true });
+  const rubric = await getExercise<RubricPayload>(db, moduleId, 'rubric');
+  const fields = rubric?.opening ?? [];
+  const saved: string[] = [];
+  for (const field of fields) {
+    const value = Number(body?.values?.[field.key]);
+    if (!Number.isFinite(value)) continue;
+    const clamped = Math.max(field.min ?? 0, Math.min(field.max ?? 1_000_000, Math.round(value)));
+    const context = `${moduleId}:cal:${field.key}`;
+    await db.delete(t.fdCalibration).where(and(eq(t.fdCalibration.sessionId, session.id), eq(t.fdCalibration.context, context)));
+    await db.insert(t.fdCalibration).values({
+      id: uuid(),
+      sessionId: session.id,
+      context,
+      predictedPct: clamped,
+      actualOutcome: null,
+      delta: null,
+      createdAt: now(),
+    });
+    saved.push(field.key);
+  }
+  if (!text && !saved.length) return c.json({ error: 'Write the prediction before saving it.' }, 400);
+  if (text) await logEvent(db, session.id, 'module_calibration_recorded', { moduleId, text: text.slice(0, 1000) });
+  return c.json({ ok: true, saved });
 });
 
 // ---------- voice ----------
@@ -1331,6 +1374,93 @@ app.post('/api/module/:id/knowledge-check', async (c) => {
   return c.json({ score: { correct, total: kc.questions.length }, results });
 });
 
+// ---------- capstone threading & the calibration trail ----------
+
+// 201's premise is one build advanced across eight modules — so later stages
+// see the earlier ones: the learner above the editor, the grader in its prompt.
+async function priorStagesFor(db: DrizzleD1Database, sessionId: string, moduleId: string): Promise<PriorStage[]> {
+  const modRows = await db.select().from(t.fdModule).where(eq(t.fdModule.id, moduleId)).limit(1);
+  const mod = modRows[0];
+  if (!mod || mod.courseId !== 'ai201' || mod.ordinal <= 1) return [];
+  const priors = await db
+    .select()
+    .from(t.fdModule)
+    .where(and(eq(t.fdModule.courseId, mod.courseId), lt(t.fdModule.ordinal, mod.ordinal)))
+    .orderBy(asc(t.fdModule.ordinal));
+  const stages: PriorStage[] = [];
+  for (const p of priors) {
+    const latest = await db
+      .select()
+      .from(t.fdSubmission)
+      .where(and(eq(t.fdSubmission.sessionId, sessionId), eq(t.fdSubmission.moduleId, p.id)))
+      .orderBy(desc(t.fdSubmission.createdAt))
+      .limit(1);
+    const s = latest[0];
+    if (!s) continue;
+    stages.push({ moduleId: p.id, ordinal: p.ordinal, title: p.title, body: s.body.slice(0, 6000), gradedAt: s.gradedAt, total: s.totalScore });
+  }
+  return stages;
+}
+
+// The learner's free-text prediction from a module's opening prompt, latest wins.
+async function openingPredictionFor(db: DrizzleD1Database, sessionId: string, moduleId: string): Promise<string | null> {
+  const events = await db
+    .select({ payloadJson: t.fdEvent.payloadJson })
+    .from(t.fdEvent)
+    .where(and(eq(t.fdEvent.sessionId, sessionId), eq(t.fdEvent.type, 'module_calibration_recorded')))
+    .orderBy(desc(t.fdEvent.createdAt));
+  for (const e of events) {
+    const p = JSON.parse(e.payloadJson ?? '{}') as { moduleId?: string; text?: string };
+    if (p.moduleId === moduleId && p.text) return p.text;
+  }
+  return null;
+}
+
+// Everything the learner has predicted and what came of it — M7's reckoning
+// and M8's portfolio render from this. Labels come from the seeded rubrics, so
+// the trail needs no per-module code.
+async function trailFor(db: DrizzleD1Database, sessionId: string): Promise<CalibrationTrail> {
+  const rubricRows = await db.select().from(t.fdExercise).where(eq(t.fdExercise.kind, 'rubric'));
+  const labels = new Map<string, string>();
+  for (const row of rubricRows) {
+    const r = JSON.parse(row.payloadJson) as RubricPayload;
+    for (const f of [...(r.opening ?? []), ...(r.calibration ?? [])]) {
+      // Fields with actualFor close another field's loop; they aren't loops themselves.
+      if (!f.actualFor) labels.set(`${row.moduleId}:cal:${f.key}`, f.label);
+    }
+  }
+  const calRows = await db.select().from(t.fdCalibration).where(eq(t.fdCalibration.sessionId, sessionId));
+  const points: TrailPoint[] = [];
+  for (const row of calRows) {
+    const label = labels.get(row.context);
+    if (!label) continue; // sorting and diagnostic calibration are summarized separately
+    points.push({ moduleId: row.context.split(':')[0], label, predicted: row.predictedPct, actual: row.actualOutcome, delta: row.delta });
+  }
+  points.sort((a, b) => a.moduleId.localeCompare(b.moduleId));
+
+  const events = await db
+    .select({ type: t.fdEvent.type, payloadJson: t.fdEvent.payloadJson })
+    .from(t.fdEvent)
+    .where(and(eq(t.fdEvent.sessionId, sessionId), sql`${t.fdEvent.type} IN ('sort_submitted', 'module_calibration_recorded')`))
+    .orderBy(asc(t.fdEvent.createdAt));
+  const sorts = new Map<string, CalibrationTrail['sorts'][number]>();
+  const predictions = new Map<string, string>();
+  for (const e of events) {
+    const p = JSON.parse(e.payloadJson ?? '{}') as { moduleId?: string; text?: string; correct?: number; total?: number; overAssigned?: number; underAssigned?: number };
+    if (!p.moduleId) continue;
+    if (e.type === 'sort_submitted' && typeof p.total === 'number') {
+      sorts.set(p.moduleId, { moduleId: p.moduleId, correct: p.correct ?? 0, total: p.total, overAssigned: p.overAssigned ?? 0, underAssigned: p.underAssigned ?? 0 });
+    } else if (e.type === 'module_calibration_recorded' && p.text) {
+      predictions.set(p.moduleId, p.text);
+    }
+  }
+  return {
+    points,
+    sorts: [...sorts.values()].sort((a, b) => a.moduleId.localeCompare(b.moduleId)),
+    predictions: [...predictions.entries()].map(([moduleId, text]) => ({ moduleId, text })).sort((a, b) => a.moduleId.localeCompare(b.moduleId)),
+  };
+}
+
 // ---------- applied activity & grading ----------
 
 app.get('/api/module/:id/activity', async (c) => {
@@ -1369,12 +1499,19 @@ app.get('/api/module/:id/activity', async (c) => {
     .where(and(eq(t.fdSubmission.sessionId, session.id), eq(t.fdSubmission.moduleId, moduleId)))
     .orderBy(desc(t.fdReview.createdAt));
 
+  const priorStages = await priorStagesFor(db, session.id, moduleId);
+  const openingPrediction = await openingPredictionFor(db, session.id, moduleId);
+  const trail = rubric.includeTrail ? await trailFor(db, session.id) : null;
+
   return c.json({
     blocks: blockRows.map(toBlock),
     minChars: rubric.minChars ?? MIN_SUBMISSION_CHARS,
     intro: rubric.intro,
     submitLabel: rubric.submitLabel,
     calibration: rubric.calibration ?? [],
+    priorStages,
+    openingPrediction,
+    trail,
     reviews: reviewRows.map((r) => ({
       id: r.id,
       reviewer: r.reviewer,
@@ -1424,11 +1561,30 @@ app.post('/api/module/:id/activity', async (c) => {
   await logEvent(db, session.id, 'activity_submitted', { moduleId, submissionId, chars: text.length });
 
   // Rubric-declared calibration fields → fd_calibration, before grading.
+  // A plain field opens a prediction; an actualFor field closes one — the
+  // measured value lands on the earlier prediction's row with its delta.
   const calibrationNotes: string[] = [];
   for (const field of rubric.calibration ?? []) {
     const value = Number(body?.calibration?.[field.key]);
     if (!Number.isFinite(value)) continue;
     const clamped = Math.max(field.min ?? 0, Math.min(field.max ?? 1_000_000, Math.round(value)));
+    if (field.actualFor) {
+      const [mod, key] = field.actualFor.includes(':') ? field.actualFor.split(':') : [moduleId, field.actualFor];
+      const context = `${mod}:cal:${key}`;
+      const rows = await db
+        .select()
+        .from(t.fdCalibration)
+        .where(and(eq(t.fdCalibration.sessionId, session.id), eq(t.fdCalibration.context, context)))
+        .limit(1);
+      const prior = rows[0];
+      if (prior) {
+        await db.update(t.fdCalibration).set({ actualOutcome: clamped, delta: clamped - prior.predictedPct }).where(eq(t.fdCalibration.id, prior.id));
+        calibrationNotes.push(`${field.label}: ${clamped} (they predicted ${prior.predictedPct}; miss of ${clamped - prior.predictedPct})`);
+      } else {
+        calibrationNotes.push(`${field.label}: ${clamped} (no earlier prediction on record to score against)`);
+      }
+      continue;
+    }
     const context = `${moduleId}:cal:${field.key}`;
     await db.delete(t.fdCalibration).where(and(eq(t.fdCalibration.sessionId, session.id), eq(t.fdCalibration.context, context)));
     await db.insert(t.fdCalibration).values({
@@ -1466,12 +1622,28 @@ app.post('/api/module/:id/activity', async (c) => {
     return c.json(res);
   }
 
+  // The grader sees the build so far and the module-opening prediction, so
+  // stage feedback can reference the actual spec and score honesty on record.
+  const stages = await priorStagesFor(db, session.id, moduleId);
+  const priorContext = stages.length
+    ? stages
+        .map((s) => {
+          const graded = s.total !== null ? ` (graded ${s.total})` : ' (ungraded)';
+          const bodyText = s.body.length > 2500 ? `${s.body.slice(0, 2500)}\n[truncated]` : s.body;
+          return `Stage ${s.ordinal} — ${s.title}${graded}:\n${bodyText}`;
+        })
+        .join('\n\n')
+    : null;
+  const opening = await openingPredictionFor(db, session.id, moduleId);
+  if (opening) calibrationNotes.unshift(`Opening prediction, recorded at the top of the module: "${opening.slice(0, 500)}"`);
+
   const grade = await gradeSubmission(
     c.env.ANTHROPIC_API_KEY,
     c.env.GRADING_MODEL,
     rubric,
     text,
     calibrationNotes.length ? calibrationNotes.join(' · ') : null,
+    priorContext,
   );
   if (!grade) {
     const res: GradeResult = {

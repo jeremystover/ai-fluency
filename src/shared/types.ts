@@ -221,11 +221,19 @@ export type ModuleContentResponse = {
   stamps: { conceptsReviewedAt: string | null; examplesCurrentAsOf: string | null };
   estReadMinutes: number;
   capabilities: ModuleCapabilities;
+  // Numeric prediction fields the module's opening calibration prompt captures
+  // (rubric-declared), with any values this session already recorded.
+  openingFields: CalibrationField[];
+  openingValues: Record<string, number>;
 };
 
 // ---------- generic activity & knowledge check ----------
 
-export type CalibrationField = { key: string; label: string; hint?: string; placeholder?: string; min?: number; max?: number };
+// `actualFor` marks an activity-time field as the measured outcome for an
+// earlier numeric prediction: same-module key ("items") or cross-module
+// ("ai201-m1:savings"). Submitting it closes that prediction's loop —
+// actual recorded, delta computed — instead of opening a new one.
+export type CalibrationField = { key: string; label: string; hint?: string; placeholder?: string; min?: number; max?: number; actualFor?: string };
 
 // A human review from the operator's queue, surfaced back to the learner.
 // onLatest is false when the learner resubmitted after the review was written.
@@ -238,6 +246,34 @@ export type OperatorReview = {
   onLatest: boolean;
 };
 
+// A prior capstone stage's submission, threaded into later stages: shown to
+// the learner above the editor and to the grader in its prompt.
+export type PriorStage = {
+  moduleId: string;
+  ordinal: number;
+  title: string;
+  body: string;
+  gradedAt: string | null;
+  total: number | null;
+};
+
+// One closed (or still-open) prediction loop on the calibration trail.
+export type TrailPoint = {
+  moduleId: string;
+  label: string;
+  predicted: number;
+  actual: number | null;
+  delta: number | null;
+};
+
+// The reckoning data for modules whose rubric sets includeTrail (M7, M8):
+// numeric loops, per-module sorting scores, and the free-text predictions.
+export type CalibrationTrail = {
+  points: TrailPoint[];
+  sorts: { moduleId: string; correct: number; total: number; overAssigned: number; underAssigned: number }[];
+  predictions: { moduleId: string; text: string }[];
+};
+
 export type ActivityConfig = {
   blocks: ContentBlock[];
   minChars: number;
@@ -245,6 +281,10 @@ export type ActivityConfig = {
   submitLabel?: string;
   calibration: CalibrationField[];
   reviews: OperatorReview[];
+  priorStages: PriorStage[];
+  // The learner's free-text prediction from this module's opening calibration prompt.
+  openingPrediction: string | null;
+  trail: CalibrationTrail | null;
   lastSubmission: {
     id: string;
     body: string;

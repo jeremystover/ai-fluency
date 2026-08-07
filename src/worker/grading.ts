@@ -3,6 +3,8 @@
 // kind 'rubric', and this module grades any submission against any rubric.
 import type { RubricDimension } from '../shared/types';
 
+type CalibrationFieldSpec = { key: string; label: string; hint?: string; placeholder?: string; min?: number; max?: number; actualFor?: string };
+
 export type RubricPayload = {
   promptVersion: string;
   moduleId: string;
@@ -10,7 +12,12 @@ export type RubricPayload = {
   intro?: string;
   submitLabel?: string;
   activityContext?: string;
-  calibration?: { key: string; label: string; hint?: string; placeholder?: string; min?: number; max?: number }[];
+  // Numeric predictions captured at the module's opening calibration prompt.
+  opening?: CalibrationFieldSpec[];
+  // When true the activity screen renders the whole calibration trail (M7's
+  // reckoning, M8's portfolio).
+  includeTrail?: boolean;
+  calibration?: CalibrationFieldSpec[];
   dimensions: { name: string; criteria: string }[];
 };
 
@@ -72,8 +79,12 @@ async function callOnce(
   rubric: RubricPayload,
   body: string,
   calibrationNote: string | null,
+  priorContext: string | null,
 ): Promise<string | null> {
   const userContent = [
+    priorContext
+      ? `The learner's capstone build so far — earlier stage submissions, oldest first. Grade only the new submission, but use these to judge whether it genuinely advances the same build and stays consistent with it:\n<build_so_far>\n${priorContext}\n</build_so_far>`
+      : null,
     calibrationNote ? `Predictions the learner recorded before submitting: ${calibrationNote}` : null,
     'Submission:',
     '<submission>',
@@ -110,10 +121,11 @@ export async function gradeSubmission(
   rubric: RubricPayload,
   body: string,
   calibrationNote: string | null,
+  priorContext: string | null = null,
 ): Promise<ParsedGrade | null> {
   for (let attempt = 0; attempt < 2; attempt++) {
     try {
-      const text = await callOnce(apiKey, model, rubric, body, calibrationNote);
+      const text = await callOnce(apiKey, model, rubric, body, calibrationNote, priorContext);
       if (text) {
         const grade = parseGrade(text, rubric);
         if (grade) return grade;

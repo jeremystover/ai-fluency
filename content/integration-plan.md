@@ -102,5 +102,28 @@ special cases.
   reviews written in the admin queue now surface to the learner on the activity screen — "From
   the review desk · a human read this" — with score, date, and an earlier-draft marker when the
   learner has since resubmitted.
-- **Later:** 201 activity grading tuned per capstone stage; M8's peer-exchange flow feeding the
-  same review surface.
+- **F · Depth for M2–M8: thread, measure, reckon (in progress).** After Phase E the "shallow"
+  label undersells these modules — the gap left is connective tissue, not content volume. Three
+  moves, in order of value:
+  1. **Thread the capstone.** 201's premise is one build advanced across eight modules, but
+     each stage is graded blind. The activity screen gains "your build so far" — the learner's
+     prior-stage submissions, collapsible above the editor — and the grader receives the same
+     trail in its prompt, so stage 4's feedback can actually reference the stage 1 spec. No new
+     schema; `fd_submission` already holds everything.
+  2. **Structured calibration per stage.** Each module's opening prediction currently captures
+     free text only. Where the prediction is genuinely numeric — M2's pack-item count, M4's
+     errors-per-ten, M5's shuttling split, M6's two census counts — the calibration prompt gains
+     declared numeric fields (`opening` in the rubric), stored to `fd_calibration` as
+     predictions. The matching activity field is marked `actualFor` and closes the loop at
+     submission time: actual recorded, delta computed. Qualitative predictions (M3's lossiest
+     step, M7's first-decay element, M8's stall point) stay free text and get echoed back on the
+     activity screen instead of asking the learner to scroll up. M7's measured-savings field
+     writes the actual onto M1's savings prediction — the course's oldest open loop.
+  3. **The reckoning and the portfolio.** M7's rubric sets `includeTrail`: its activity screen
+     renders the whole calibration trail — prediction vs. actual pairs as dumbbells, sorting
+     scores per module, the free-text predictions quoted — so "which way are you wrong about
+     your own work?" is answered from data, not memory. M8 gets the same trail plus the full
+     build-so-far stack, which together are the portfolio; its cold-reader handoff test runs
+     through the Phase E review desk. M8's knowledge check grows from six questions to eight,
+     matching its siblings.
+- **Later:** org-tailored [V] lab lessons; a second maintenance-agent pass over volatile blocks.
