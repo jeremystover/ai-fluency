@@ -14,7 +14,7 @@
       "binding": "DB",
       "database_name": "fluency-demo",
       // Replace with the real database id after `wrangler d1 create fluency-demo`.
-      "database_id": "00000000-0000-0000-0000-000000000000",
+      "database_id": "bc317eea-1f6e-4945-99cf-82edf954b0cb",
       "migrations_dir": "drizzle"
     }
   ],
