@@ -35,6 +35,7 @@ import type {
   MeResponse,
   ModuleCard,
   ModuleContentResponse,
+  PathModule,
   SortingReveal,
 } from '../shared/types';
 
@@ -66,6 +67,7 @@ const MIN_SUBMISSION_CHARS = 700;
 const CLIENT_EVENT_TYPES = new Set([
   'landed',
   'intake_started',
+  'difference_opened',
   'diagnostic_started',
   'module_opened',
   'block_read',
@@ -220,6 +222,7 @@ app.post('/api/hello', async (c) => {
 });
 
 const VALID_STYLES = new Set(['reading', 'interactive', 'podcast', 'assistant_mcp', 'voice']);
+const VALID_GOALS = new Set(['fluency', 'workflows', 'apply', 'news', 'tools', 'safety', 'coach', 'confidence']);
 const VALID_TIMES = new Set([0, 10, 30, 60]);
 
 async function loadPrefs(db: DrizzleD1Database, sessionId: string): Promise<IntakePrefs> {
@@ -234,6 +237,7 @@ async function loadPrefs(db: DrizzleD1Database, sessionId: string): Promise<Inta
     if (row.key === 'start') prefs.start = value;
     else if (row.key === 'time') prefs.time = value;
     else if (row.key === 'styles') prefs.styles = value;
+    else if (row.key === 'goals') prefs.goals = value;
     else if (row.key === 'objective') prefs.objective = value;
   }
   return prefs;
@@ -264,7 +268,8 @@ app.post('/api/intake', async (c) => {
   if (raw.start === 'diagnostic' || raw.start === 'module') clean.push(['start', raw.start]);
   if (typeof raw.time === 'number' && VALID_TIMES.has(raw.time)) clean.push(['time', raw.time]);
   if (Array.isArray(raw.styles)) clean.push(['styles', raw.styles.filter((s) => VALID_STYLES.has(s)).slice(0, 5)]);
-  if (typeof raw.objective === 'string' && raw.objective.trim()) clean.push(['objective', raw.objective.trim().slice(0, 280)]);
+  if (Array.isArray(raw.goals)) clean.push(['goals', raw.goals.filter((g) => VALID_GOALS.has(g)).slice(0, 8)]);
+  if (typeof raw.objective === 'string') clean.push(['objective', raw.objective.trim().slice(0, 280)]);
 
   for (const [key, value] of clean) {
     await db.delete(t.fdPreference).where(and(eq(t.fdPreference.sessionId, session.id), eq(t.fdPreference.key, key)));
@@ -316,7 +321,23 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
     state: progress.activityGraded ? 'done' : 'later',
   };
 
-  const steps = start === 'module' ? [core, read, activity, diagnostic] : [diagnostic, core, read, activity];
+  const micro: PlanStep = {
+    id: 'm1-micro',
+    title: 'Module 1 · the two-minute version',
+    detail: 'The key concepts and the delegation heuristic, cut for a short sitting. The full module keeps.',
+    minutes: 2,
+    route: '/module/1/micro',
+    state: progress.moduleCompleted || progress.sortDone ? 'done' : 'later',
+  };
+
+  const shortSitting = time > 0 && time <= 10;
+  const steps = start === 'module'
+    ? shortSitting
+      ? [micro, core, read, activity, diagnostic]
+      : [core, read, activity, diagnostic]
+    : shortSitting
+      ? [diagnostic, micro, core, read, activity]
+      : [diagnostic, core, read, activity];
 
   // Fit "now" steps to the time they said they had; 0 = exploring, one step at a time.
   let budget = time === 0 ? Infinity : time + 5;
@@ -342,6 +363,17 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
   }
 
   const notes: string[] = [];
+  const goals = prefs.goals ?? [];
+  const GOAL_NOTES: Record<string, string> = {
+    workflows: 'Workflow and automation building is the heart of AI 201 — this course builds the judgment underneath it.',
+    news: 'Staying current is what the volatile content layer is for — examples refresh monthly without touching the concepts.',
+    tools: 'Module 2 is built around telling tools apart; Lesson 1 of Module 1 starts that cut today.',
+    safety: 'What\'s safe to paste — and under what agreement — is Lesson 4 today and all of Module 8.',
+    coach: 'Helping others adopt AI gets its own course (AI 301). This one makes you credible first.',
+  };
+  for (const goal of goals) {
+    if (GOAL_NOTES[goal] && notes.length < 2) notes.push(GOAL_NOTES[goal]);
+  }
   const styles = prefs.styles ?? [];
   if (styles.includes('podcast')) notes.push('Podcast-style audio is live — open Module 1 and make a custom two-host episode from any angle you like.');
   if (styles.includes('assistant_mcp')) notes.push('Taking this course inside Claude or ChatGPT, as an MCP server, is on the roadmap — your interest is logged.');
@@ -360,7 +392,7 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
         : "Here's the shape of it.";
 
   const next = steps.find((s) => s.state === 'now') ?? steps.find((s) => s.state === 'later');
-  return { greeting, steps, notes, objective: prefs.objective ?? null, nextRoute: next?.route ?? '/path' };
+  return { greeting, steps, notes, goals, objective: prefs.objective || null, nextRoute: next?.route ?? '/path' };
 }
 
 app.get('/api/plan', async (c) => {
@@ -614,10 +646,65 @@ app.get('/api/path', async (c) => {
   const db = c.get('db');
   const session = requireSession(c);
   if (!session) return c.json({ error: 'No session.' }, 401);
-  const modules = await db.select().from(t.fdModule).where(eq(t.fdModule.courseId, 'ai101')).orderBy(asc(t.fdModule.ordinal));
+  const rows = await db.select().from(t.fdModule).where(eq(t.fdModule.courseId, 'ai101')).orderBy(asc(t.fdModule.ordinal));
+
+  // A prerequisite is satisfied by completing the module — or by testing out.
+  // Testing out of M1 = a perfect knowledge score on the diagnostic.
+  const completedRows = await db
+    .select()
+    .from(t.fdEvent)
+    .where(and(eq(t.fdEvent.sessionId, session.id), eq(t.fdEvent.type, 'module_completed')));
+  const completed = new Set(
+    completedRows.map((e) => (e.payloadJson ? (JSON.parse(e.payloadJson) as { moduleId?: string }).moduleId : null)).filter(Boolean),
+  );
+  const kResponses = await db
+    .select()
+    .from(t.fdDiagnosticResponse)
+    .where(and(eq(t.fdDiagnosticResponse.sessionId, session.id), sql`${t.fdDiagnosticResponse.correct} IS NOT NULL`));
+  const kTotal = diagItems.filter((i) => i.kind === 'knowledge').length;
+  const testedOutM1 = kResponses.length >= kTotal && kResponses.every((r) => r.correct === 1);
+
+  const titleOf = (id: string) => rows.find((m) => m.id === id)?.title ?? id;
+  const satisfied = (id: string) => completed.has(id) || (id === 'ai101-m1' && testedOutM1);
+
+  const modules: PathModule[] = rows.map((m) => {
+    const prereqs: string[] = m.prereqJson ? JSON.parse(m.prereqJson) : [];
+    const unmet = prereqs.filter((p) => !satisfied(p));
+    let access: PathModule['access'];
+    let unlockHint: string | undefined;
+    if (m.status === 'open') {
+      access = 'open';
+    } else if (unmet.length === 0) {
+      access = 'full_course';
+      if (prereqs.length > 0) unlockHint = 'Prerequisite cleared.';
+    } else {
+      access = 'locked';
+      const names = unmet.map(titleOf).join(' and ');
+      unlockHint =
+        unmet.includes('ai101-m1')
+          ? `Needs ${names} first — finish it, or test out with a perfect knowledge score on the diagnostic.`
+          : `Needs ${names} first.`;
+    }
+    return { ...(m as ModuleCard), access, prereqs, unlockHint, microMinutes: 2 };
+  });
+
   // Courses beyond 101 are locked cards; they live in content, not the DB, until they exist.
   const { courses } = (await import('../../content/modules.json')) as unknown as { courses: unknown };
   return c.json({ modules, courses });
+});
+
+// The two-minute cut of Module 1 — same content system, tighter blocks.
+app.get('/api/module/ai101-m1/micro', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const blockRows = await db
+    .select()
+    .from(t.fdContentBlock)
+    .where(eq(t.fdContentBlock.moduleId, 'ai101-m1-micro'))
+    .orderBy(asc(t.fdContentBlock.ordinal));
+  const blocks = blockRows.map(toBlock);
+  return c.json({ blocks, stamps: stampsFor(blocks) });
 });
 
 function toBlock(row: typeof t.fdContentBlock.$inferSelect): ContentBlock {

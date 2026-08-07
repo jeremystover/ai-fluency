@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import type { PlanResponse } from '../../shared/types';
 import { Screen, Button, ErrorNote } from '../components/ui';
 import { api, ApiError } from '../api';
+import { goalLabel } from '../goals';
 
 const STATE_LABEL: Record<string, string> = { done: 'Done', now: 'This sitting', later: 'Another sitting' };
 
@@ -26,6 +27,15 @@ export default function Plan() {
       <div className="pt-12 sm:pt-16 max-w-xl">
         <p className="label-utility anim-fade">Your plan · built from your answers</p>
         <h1 className="font-display font-bold text-ink-strong text-3xl sm:text-4xl mt-3 leading-tight anim-rise">{plan.greeting}</h1>
+        {plan.goals.length > 0 && (
+          <div className="mt-4 flex flex-wrap gap-1.5 anim-rise" style={{ animationDelay: '60ms' }}>
+            {plan.goals.map((g) => (
+              <span key={g} className="font-utility text-[0.65rem] uppercase tracking-wider px-2.5 py-1 rounded-full border border-line-strong text-ink-strong">
+                {goalLabel(g)}
+              </span>
+            ))}
+          </div>
+        )}
         {plan.objective && (
           <p className="mt-4 border-l-4 border-signal pl-4 text-ink italic anim-rise" style={{ animationDelay: '80ms' }}>
             "{plan.objective}"
@@ -75,10 +85,13 @@ export default function Plan() {
           </ul>
         )}
 
-        <div className="mt-8 flex items-center gap-4">
+        <div className="mt-8 flex items-center gap-5 flex-wrap">
           <Button onClick={() => navigate(plan.nextRoute)}>Start</Button>
-          <Link to="/path" className="text-muted text-sm underline underline-offset-4 hover:text-ink-strong no-underline hover:no-underline">
+          <Link to="/path" className="text-muted text-sm hover:text-ink-strong">
             See the whole path
+          </Link>
+          <Link to="/welcome?edit=1" className="text-muted text-sm hover:text-ink-strong">
+            Customize your path
           </Link>
         </div>
       </div>

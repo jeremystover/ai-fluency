@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import type { CourseCard, ModuleCard } from '../../shared/types';
+import { Link } from 'react-router-dom';
+import type { CourseCard, PathModule } from '../../shared/types';
 import { Screen, ErrorNote } from '../components/ui';
 import { api, ApiError } from '../api';
 import { useApp } from '../brand';
@@ -14,15 +14,65 @@ function Lock() {
   );
 }
 
+function ModuleCard({ m }: { m: PathModule }) {
+  const open = m.access === 'open';
+  return (
+    <div
+      className={`border rounded-brand p-5 bg-surface flex flex-col ${
+        open ? 'border-accent' : m.access === 'locked' ? 'border-line opacity-80' : 'border-line'
+      }`}
+    >
+      <div className="flex items-center justify-between">
+        <span className="label-utility">Module {m.ordinal}</span>
+        {open ? (
+          <span className="font-utility text-[0.65rem] uppercase tracking-wider px-2 py-0.5 rounded-full bg-signal text-on-signal">Open</span>
+        ) : m.access === 'locked' ? (
+          <span className="label-utility flex items-center gap-1"><Lock /> Locked</span>
+        ) : (
+          <span className="font-utility text-[0.65rem] uppercase tracking-wider px-2 py-0.5 rounded-full border border-line-strong text-muted">
+            Your choice · full course
+          </span>
+        )}
+      </div>
+      <h2 className="font-display font-semibold text-ink-strong text-lg mt-2">{m.title}</h2>
+      <p className="text-sm text-ink mt-1.5 leading-relaxed flex-1">{m.blurb}</p>
+
+      <div className="mt-3 pt-3 border-t border-line flex items-center justify-between gap-2 flex-wrap">
+        <span className="font-utility text-[0.65rem] text-muted">
+          Full ~{m.estMinutes} min · Micro {m.microMinutes} min
+        </span>
+        {open && (
+          <span className="flex items-center gap-3">
+            <Link to="/module/1/micro" className="text-accent text-sm font-semibold no-underline hover:underline">
+              Micro
+            </Link>
+            <Link to="/module/1" className="text-accent text-sm font-semibold no-underline hover:underline">
+              Start →
+            </Link>
+          </span>
+        )}
+      </div>
+      {m.access === 'locked' && m.unlockHint && (
+        <p className="text-xs text-ink-strong mt-2 flex gap-1.5">
+          <span aria-hidden="true">🔑</span>
+          {m.unlockHint}
+        </p>
+      )}
+      {m.access === 'full_course' && m.unlockHint && (
+        <p className="text-xs text-success mt-2">✓ {m.unlockHint}</p>
+      )}
+    </div>
+  );
+}
+
 export default function Path() {
-  const navigate = useNavigate();
   const { me } = useApp();
-  const [data, setData] = useState<{ modules: ModuleCard[]; courses: CourseCard[] } | null>(null);
+  const [data, setData] = useState<{ modules: PathModule[]; courses: CourseCard[] } | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     api
-      .get<{ modules: ModuleCard[]; courses: CourseCard[] }>('/api/path')
+      .get<{ modules: PathModule[]; courses: CourseCard[] }>('/api/path')
       .then(setData)
       .catch((e) => setError(e instanceof ApiError ? e.message : 'Could not load the path. Reload to try again.'));
   }, []);
@@ -33,36 +83,25 @@ export default function Path() {
   return (
     <Screen wide>
       <div className="pt-10 sm:pt-14">
-        <p className="label-utility">Your path</p>
-        <h1 className="font-display font-bold text-ink-strong text-3xl sm:text-4xl mt-3">AI 101 · Foundations</h1>
-        <p className="text-muted mt-2 max-w-xl">
-          Eight modules, L1 The Risk → L2 The Novice. Module 1 is open{me?.progress.diagnosticDone ? ' — your diagnostic is done, so it will read faster' : ''}.
-        </p>
+        <div className="flex items-end justify-between gap-4 flex-wrap">
+          <div>
+            <p className="label-utility">Your path</p>
+            <h1 className="font-display font-bold text-ink-strong text-3xl sm:text-4xl mt-3">AI 101 · Foundations</h1>
+            <p className="text-muted mt-2 max-w-xl">
+              Take modules in the order that serves you — each comes as a full module or a two-minute micro dose. A few build
+              on others; those stay locked until the prerequisite is met, and every lock says how to open it
+              {me?.progress.diagnosticDone ? '' : ' — the diagnostic can test you out of Module 1'}.
+            </p>
+          </div>
+          <Link to="/welcome?edit=1" className="text-accent text-sm font-semibold no-underline hover:underline shrink-0">
+            Customize your path
+          </Link>
+        </div>
 
         <div className="mt-8 grid gap-3 sm:grid-cols-2">
-          {data.modules.map((m) => {
-            const open = m.status === 'open';
-            return (
-              <button
-                key={m.id}
-                onClick={() => open && navigate('/module/1')}
-                disabled={!open}
-                className={`text-left border rounded-brand p-5 bg-surface transition-colors
-                  ${open ? 'border-accent hover:bg-accent/[0.03] cursor-pointer' : 'border-line opacity-75'}`}
-              >
-                <div className="flex items-center justify-between">
-                  <span className="label-utility">Module {m.ordinal} · {m.estMinutes} min</span>
-                  {open ? (
-                    <span className="font-utility text-[0.65rem] uppercase tracking-wider px-2 py-0.5 rounded-full bg-signal text-on-signal">Open</span>
-                  ) : (
-                    <span className="label-utility flex items-center gap-1"><Lock /> Locked</span>
-                  )}
-                </div>
-                <h2 className="font-display font-semibold text-ink-strong text-lg mt-2">{m.title}</h2>
-                <p className="text-sm text-ink mt-1.5 leading-relaxed">{m.blurb}</p>
-              </button>
-            );
-          })}
+          {data.modules.map((m) => (
+            <ModuleCard key={m.id} m={m} />
+          ))}
         </div>
 
         <h2 className="label-utility mt-14">After 101</h2>
