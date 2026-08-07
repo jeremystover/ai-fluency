@@ -154,6 +154,24 @@ you what happens to approvals under load: they decay into rubber stamps, and a r
 action on a person is the exact laundering M1 prohibited, now running at machine speed. Person-
 affecting actions stay in human hands. The agent may prepare; it may never touch.
 
+**The decision-laundering test.** The clear cases aren't the hard ones. The hard ones are
+decision-*support* that shades into deciding: no output names a person's outcome, but the
+outcome is in the output. So, for any workflow in the gray zone, ask:
+
+> **If this output's default were accepted unchanged, would a decision about a person have
+> been made?**
+
+Run it on the two cases that slip past the plain rule. A theme table ranked by severity doesn't
+decide anything — but if investigation resources follow the ranking, then accepting the default
+ranking *was* the resourcing decision. A calibration packet presents only evidence — but if its
+framing orders the candidates, then accepting the default framing shaped the rating. When the
+test says yes, the workflow is person-adjacent whatever its name: the ranking or framing step
+caps at draft-only; M4's adversarial read gains a standing question (*what decision does this
+output make if nobody pushes back?*); and the human in the loop must be visibly adding
+judgment — reordering, dissenting, annotating — not just receiving. A reviewer who only ever
+accepts the default is the test failing in real time, and that pattern is checkable in your
+approval log.
+
 ---
 
 ## Lesson 3 · The lab — MCP, and an agent behind a gate **[V]**
@@ -205,7 +223,7 @@ timidity; it's the most senior artifact this course produces.
 - **Person-affecting output or action** — the M1 line and its agent-level extension from
   Lesson 2. The packet informs; the human decides; nothing about that is waiting for better
   models.
-- **Judgment-dense work in repetitive clothes** — the grievance response, the sensitive
+- **Judgment-dense work that happens to recur** — the grievance response, the sensitive
   conversation. M1's sorting exercise flagged these; agent tooling doesn't unflag them.
 - **Low-frequency, high-stakes work** — the RIF communication. No run history can ever
   accumulate, so no rung above 1 can ever be priced. The ladder isn't pessimistic about these;
@@ -290,6 +308,9 @@ reasoning for the rung — ambition earns nothing; evidence does.
   happen isn't representable. "Please don't" is not a control.
 - **An agent must never hold permissions that act on a person.** Approval gates decay under
   load; a rubber-stamped action on a person is laundering at machine speed. Prepare, never touch.
+- **The laundering test for the gray zone:** if this output's default were accepted unchanged,
+  would a decision about a person have been made? Yes means person-adjacent rules apply,
+  whatever the output is called.
 - **The refusal is a senior artifact.** Ceiling, permanence, reason — written before anyone
   asks, reviewed when reasons change, never merely because tools improved.
 
@@ -299,7 +320,10 @@ reasoning for the rung — ambition earns nothing; evidence does.
 
 **1. Extract theme table — rung 3.** Read-only input, structured checkable output, trivially
 reversible (regenerate), and your M3 checkpoint still reviews the artifact downstream. This is
-what rung 3 was made for: mechanical transformation with an audit trail.
+what rung 3 was made for: mechanical transformation with an audit trail. (One caveat that
+previews nothing — it's already in Lesson 2: if the table were *ranked by severity to direct
+investigation resources*, the laundering test applies, and the ranking step is person-adjacent
+even though extraction isn't.)
 
 **2. Draft rejection emails — rung 1, permanent.** Drafting is legitimate (M1's sorting said
 so); anything above draft-only walks toward the person-line. The draft lands in a human's
@@ -369,7 +393,7 @@ items show the tell isn't how routine a step *feels* but what its undo costs.
 - D. Log all agent actions for review
 
 > **B.** An instruction is a sentence competing inside a context window; an unattached tool is
-> a fact. A and C are hopes with better formatting; D is necessary for rung 3 but doesn't
+> a fact. A and C are instructions, not permissions; D is necessary for rung 3 but doesn't
 > *prevent* anything.
 
 **Q5.** An approval you have never once declined across thirty runs is:
@@ -421,5 +445,15 @@ Builds on 101 M1 (the agent definition; the decisions-about-people line) and 201
 discipline extended from data to capabilities; pipelines and artifacts; the budget, sign-off
 decay, and escalation line). The three-rung ladder, per-step autonomy profiles, approval-load-
 as-evidence, reversibility as the master question, and the refusal-as-artifact framing are
-original to this course. Lesson 3 and marked passages are volatile layer — MCP and tool
-mechanics current as of the stamp date, tailored per deployment.
+original to this course — but the human-oversight failure modes they defend against are
+formally studied, and worth citing when the laundering argument is challenged:
+
+1. **Bainbridge, L. — "Ironies of Automation," *Automatica* 19(6) (1983).** The supervisor of
+   an automated system inherits the hardest version of the job — the structural argument under
+   the approval-decay claim.
+2. **Parasuraman, R. & Riley, V. — "Humans and Automation: Use, Misuse, Disuse, Abuse,"
+   *Human Factors* 39(2) (1997).** Automation complacency and misplaced trust — why "a human
+   clicks approve" degrades under load, measured.
+
+Lesson 3 and marked passages are volatile layer — MCP and tool mechanics current as of the
+stamp date, tailored per deployment.

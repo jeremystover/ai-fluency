@@ -110,25 +110,34 @@ firefighting is exactly when the source format shifts.
 You need numbers for exactly two reasons: to know whether the workflow is still earning its
 keep, and to be believed when you say so. Both die if the numbers are theater.
 
-**Three numbers per workflow. Not five. Three.**
+**Four numbers per workflow. Not seven. Four.**
 
 1. **Time: minutes per run, measured occasionally.** Not self-reported "hours saved weekly" —
    time an actual run once a month, shuttling included (your M5 measurement was the first of
    these). Multiply by run count for the monthly figure. Compare to the baseline you're about
    to set — the *before* number, which is the M1-audit cost of doing it by hand.
-2. **Quality: the M4 sample's error rate.** You're already producing this number; the rhythm
-   just graphs it. Direction matters more than level: a stable 4% is a workflow being itself;
-   a drift from 2% to 6% over three months is decay announcing itself politely.
-3. **Use: did the output actually get used?** The debrief opened by the hiring manager, the
+2. **Cost: what the workflow spends to run.** Token or API charges where your deployment
+   meters them, the workflow's share of seat licenses where it doesn't, plus the rhythm's
+   maintenance minutes priced at a loaded rate. 101 M3 gave you the token economics; this is
+   where they get used. A per-run estimate refreshed quarterly is enough precision. Most
+   workflow costs turn out to be small — the point of the number is being able to *say* so:
+   a CFO who hears "saves six hours a month" asks what it costs within one sentence, and
+   "about eleven dollars and forty minutes of maintenance" is the answer that ends the
+   conversation. A savings claim without a cost line doesn't survive its first finance review.
+3. **Quality: the M4 sample's error rate.** You're already producing this number; the rhythm
+   just graphs it. Direction matters more than level: a stable 4% is normal variation; a
+   drift from 2% to 6% over three months is decay announcing itself politely.
+4. **Use: did the output actually get used?** The debrief opened by the hiring manager, the
    FAQ linked in the channel, the narrative that survived into the exec deck. Roughest of the
-   three, gathered lazily ("did anyone use this?" once a month is fine) — and the most honest,
+   four, gathered lazily ("did anyone use this?" once a month is fine) — and the most honest,
    because a workflow whose outputs nobody uses has an error rate of irrelevant.
 
 **Before/after or it didn't happen.** The baseline is recorded once, in the capstone, from
-your M1 audit and first timed runs. Every future "this saves us six hours a month" traces to
-it. This is what makes your numbers different from every AI-enthusiasm anecdote your exec team
-has heard this year — and when a budget conversation eventually asks what the team's AI
-practice is worth, you will be the only person in the room with a before.
+your M1 audit and first timed runs. Every future "this saves us six hours a month, at a cost
+of eleven dollars" traces to it. This is what makes your numbers different from every
+AI-enthusiasm anecdote your exec team has heard this year — and when a budget conversation
+eventually asks what the team's AI practice is worth, you will be the only person in the room
+with a before, an after, and the after's price.
 
 **Theater, so you can spot it** — including in your own reporting: metrics that measure
 activity instead of outcome (runs completed, prompts written, "AI touches"), metrics that
@@ -140,7 +149,7 @@ metric: *what would I do differently if this number moved?* No answer, no metric
 
 *Three minutes. Commit before you look.*
 
-A practitioner proposes six metrics for their debrief workflow. Keep three.
+A practitioner proposes seven metrics for their debrief workflow. Keep four.
 
 1. Cumulative debriefs generated since launch
 2. Minutes per debrief, timed monthly, vs. the by-hand baseline
@@ -148,8 +157,9 @@ A practitioner proposes six metrics for their debrief workflow. Keep three.
 4. Errors per weekly five-debrief sample, classified
 5. Number of prompts in the prompt library
 6. Share of debriefs opened by the hiring manager within 48 hours
+7. Monthly run cost — token or seat share plus maintenance minutes, estimated quarterly
 
-*(Key at the end. One of the six is defensible in either pile — the reasoning is the point.)*
+*(Key at the end. One of the seven is defensible in either pile — the reasoning is the point.)*
 
 ---
 
@@ -157,7 +167,7 @@ A practitioner proposes six metrics for their debrief workflow. Keep three.
 
 **The review, first.** The monthly twenty minutes has a script: walk the volatile pack items
 (one question each: *still true?*), read the month's sample tallies for direction, diff one
-output against the gold standard, check the three numbers against baseline. Fifteen minutes of
+output against the gold standard, check the four numbers against baseline. Fifteen minutes of
 looking, five of acting — a stamp updated, a step prompt tightened, a sample size nudged. Small
 corrections, cheap because they're early. The review's job isn't celebration; it's catching
 the October column-drop in November instead of March.
@@ -196,9 +206,10 @@ about your own work, which way are you wrong?
 
 **Submit:**
 
-1. **The three numbers, chosen and baselined.** Your workflow's time, quality, and use
+1. **The four numbers, chosen and baselined.** Your workflow's time, cost, quality, and use
    metrics: current values, the by-hand *before* from your M1 audit, and one sentence per
-   metric answering "what would I do differently if this moved?"
+   metric answering "what would I do differently if this moved?" The cost line may be a
+   per-run estimate — lazy is fine, absent is not.
 2. **The rhythm, installed.** The per-run checks (named, embedded where), and screenshots or
    equivalents of the weekly and monthly blocks on your actual calendar — with their scripts,
    in your words, short enough to run tired.
@@ -217,7 +228,7 @@ about your own work, which way are you wrong?
 
 | Dimension | 5 points |
 |---|---|
-| **Honest numbers** | Three metrics, each with a baseline and a would-do-differently answer. No theater; the use metric is genuinely about downstream use. |
+| **Honest numbers** | Four metrics, each with a baseline and a would-do-differently answer. No theater; the cost line is present; the use metric is genuinely about downstream use. |
 | **A rhythm that survives** | Blocks exist on a real calendar, sized to the maintenance fraction, with scripts runnable in a bad week. Skips are logged, not hidden. |
 | **The retirement clause has teeth** | Triggers are specific enough that a reluctant future owner couldn't argue past them, and retirement is framed as an outcome, not a failure. |
 | **Calibration** | The M1 reckoning is done with real numbers; the direction paragraph names a systematic bias and a concrete consequence for the next build. |
@@ -229,9 +240,9 @@ about your own work, which way are you wrong?
 - **Workflows die of decay, not drama** — and every decay mode was already predicted by an
   earlier module. The rhythm is what makes those modules' answers actually recur.
 - **Seconds per run, ten a week, twenty a month.** Maintenance sized to a fraction of savings;
-  ambitious rhythms are how maintenance becomes the hobby.
-- **Three numbers: time against a baseline, the sample's error direction, and real downstream
-  use.** Before/after or it didn't happen.
+  oversize the rhythm and it stops surviving bad weeks.
+- **Four numbers: time against a baseline, cost to run, the sample's error direction, and real
+  downstream use.** Before/after or it didn't happen — and the after carries its price.
 - **Every metric must answer "what would I do differently if this moved?"** No answer, no
   metric — that one test deletes most theater on contact.
 - **Write retirement criteria while you're still fond of the thing.** A retired workflow with
@@ -243,13 +254,14 @@ about your own work, which way are you wrong?
 
 ## Exercise key — Signal or theater?
 
-**Keep: 2, 4, 6.** The course's three numbers exactly — time against baseline (2), quality
-direction from the existing sample (4), and real downstream use (6, and the best of the six:
-it measures the *hiring manager's* behavior, not yours).
+**Keep: 2, 4, 6, 7.** The course's four numbers exactly — time against baseline (2), quality
+direction from the existing sample (4), real downstream use (6, and the best of the board: it
+measures the *hiring manager's* behavior, not yours), and cost (7) — estimated lazily, but
+present, because a value claim without a cost line doesn't survive its first CFO.
 
 **Cut: 1 and 5, without ceremony.** Cumulative counts can't go down — they measure elapsed
-time wearing a metric's clothes. Library size measures accumulation, not value; by M2's own
-hygiene rules a *shrinking* library is often the healthier sign.
+time, nothing else. Library size measures accumulation, not value; by M2's own hygiene rules a
+*shrinking* library is often the healthier sign.
 
 **The arguable one: 3.** Sentiment isn't worthless — a team that hates a workflow is
 information. But as proposed it fails the test twice: no denominator, no would-do-differently
@@ -292,14 +304,14 @@ KPI, that's the theater reflex the lesson is after.
 > **B.** The skip isn't the sin; the silent skip is. A visible skip pattern is exactly the
 > M4-style decay signal the rhythm exists to surface — about itself.
 
-**Q4.** Why is "share of debriefs opened by the hiring manager" the strongest of the three kept metrics?
+**Q4.** Why is "share of debriefs opened by the hiring manager" the strongest of the kept metrics?
 - A. It's the easiest to collect
 - B. It measures downstream behavior — whether the work product actually matters to its audience ✓
 - C. It can be tracked automatically
 - D. It correlates with time saved
 
-> **B.** Time and quality can both be excellent on a workflow nobody uses. The use metric is
-> the one that catches an error rate of irrelevant.
+> **B.** Time, cost, and quality can all look excellent on a workflow nobody uses. The use
+> metric is the one that catches the workflow whose quality no longer matters to anyone.
 
 **Q5.** The test that deletes theater metrics on contact:
 - A. Can this number be gathered automatically?
@@ -307,8 +319,8 @@ KPI, that's the theater reflex the lesson is after.
 - C. Does this number always increase?
 - D. Would an executive find this number impressive?
 
-> **B.** No decision downstream, no metric. (C is a good tell — always-up numbers are elapsed
-> time in costume — but B is the test that also catches subtle theater.)
+> **B.** No decision downstream, no metric. (C is a good tell — always-up numbers restate
+> elapsed time — but B is the test that also catches subtle theater.)
 
 **Q6.** Retirement criteria are written at baseline time because:
 - A. Baselines are required for retirement calculations
@@ -343,8 +355,30 @@ KPI, that's the theater reflex the lesson is after.
 ## Sources and attribution
 
 Builds on 201 M1 (the cost prediction now scored), M2 (rot and review cadence), M4 (sampling,
-the decay curve, repricing), M5 (approval-log evidence), M6 (re-verify dates). The three-number
-rule, the would-do-differently test, the maintenance fraction, and retirement-as-success are
-original to this course. Stable layer throughout. The calibration thread across modules draws
-on the same forecasting literature as 101 — rapid, repeatedly scored prediction as the
-mechanism by which judgment improves.
+the decay curve, repricing), M5 (approval-log evidence), M6 (re-verify dates), and 101 M3
+(the token economics the cost number spends). The four-number rule and the maintenance
+fraction are this course's packaging; the measurement-design warnings have a real literature,
+and the theater section in particular is standing on it:
+
+*To be verified against editions and current URLs before publication.*
+
+1. **Goodhart's law, via Strathern, M. — "'Improving Ratings': Audit in the British University
+   System," *European Review* 5(3) (1997).** "When a measure becomes a target, it ceases to be
+   a good measure" — the one-line ancestry of the entire theater section.
+2. **Choi, J., Hecht, G. & Tayler, W. — "Lost in Translation: The Effects of Incentive
+   Compensation on Strategy Surrogation," *The Accounting Review* (2012).** Surrogation:
+   managing the metric instead of the thing it stands for — the failure the
+   would-do-differently test is built to catch.
+3. **Forsgren, N., Humble, J. & Kim, G. — *Accelerate* (2018).** The best-known modern case
+   for outcome-over-activity metrics and small honest metric sets; the nearest published
+   relative of the four-number rule.
+4. **Muller, J. Z. — *The Tyranny of Metrics* (2018).** The costs of measurement theater,
+   surveyed across fields — useful ammunition when someone asks for the fifth, sixth, and
+   seventh number.
+5. **Tetlock, P. & Gardner, D. — *Superforecasting* (2015); Lichtenstein, S., Fischhoff, B. &
+   Phillips, L. — "Calibration of Probabilities" in *Judgment Under Uncertainty* (1982).** The
+   scored-prediction thread that runs through both courses: calibration improves with rapid,
+   repeatedly scored feedback — which is what the module-by-module predictions and this
+   module's reckoning are for.
+
+Stable layer throughout.
