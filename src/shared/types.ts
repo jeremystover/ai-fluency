@@ -105,7 +105,12 @@ export type ChatHistoryResponse = {
   moduleTitle: string;
   messages: ChatMessage[];
   limits: { maxMessageChars: number };
+  // What this deployment's bindings support: mic transcription and spoken replies.
+  voice: VoiceStatus;
 };
+
+export type VoiceStatus = { transcribe: boolean; speech: boolean };
+export type TranscribeResponse = { text: string };
 
 // NDJSON lines streamed from POST /api/module/:id/chat.
 export type ChatStreamLine =

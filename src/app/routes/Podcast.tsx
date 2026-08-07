@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import type { PodcastEpisode, PodcastLength, PodcastListResponse, PodcastSummary } from '../../shared/types';
 import { PODCAST_HOSTS } from '../../shared/types';
 import { Screen, Button, ErrorNote } from '../components/ui';
+import MicButton from '../components/MicButton';
 import { api, ApiError, track } from '../api';
 
 const LENGTH_OPTIONS: { id: PodcastLength; label: string; detail: string }[] = [
@@ -224,15 +225,22 @@ export default function Podcast() {
             <label htmlFor="podcast-focus" className="font-display font-semibold text-ink-strong">
               What should the hosts focus on?
             </label>
-            <textarea
-              id="podcast-focus"
-              value={focus}
-              onChange={(e) => setFocus(e.target.value)}
-              maxLength={400}
-              rows={3}
-              placeholder={FOCUS_PLACEHOLDER}
-              className="mt-2 w-full rounded-brand border border-line bg-bg px-3 py-2 text-[0.95rem] text-ink focus:outline-none focus:border-accent resize-y"
-            />
+            <div className="relative mt-2">
+              <textarea
+                id="podcast-focus"
+                value={focus}
+                onChange={(e) => setFocus(e.target.value)}
+                maxLength={400}
+                rows={3}
+                placeholder={FOCUS_PLACEHOLDER}
+                className="w-full rounded-brand border border-line bg-bg px-3 py-2 pr-14 text-[0.95rem] text-ink focus:outline-none focus:border-accent resize-y"
+              />
+              <MicButton
+                className="absolute right-2.5 bottom-3"
+                onError={setError}
+                onText={(text) => setFocus((prev) => `${prev ? `${prev.trimEnd()} ` : ''}${text}`.slice(0, 400))}
+              />
+            </div>
             <div className="mt-3 flex items-center gap-2 flex-wrap" role="radiogroup" aria-label="Episode length">
               {LENGTH_OPTIONS.map((opt) => (
                 <button

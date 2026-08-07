@@ -6,6 +6,8 @@ import * as t from '../db/schema';
 import { verifyCode, signSessionId, verifySessionCookie, hashIp } from './crypto';
 import { gradeSubmission, PROMPT_VERSION } from './grading';
 import { buildTutorSystem, streamTutorReply, KICKOFF_TURN, type LearnerContext as TutorLearnerContext, type TutorMessage } from './chat';
+import { transcribe, speakable, renderSpeech, TUTOR_VOICE } from './voice';
+import { extractPaths } from '../shared/chat';
 import {
   writeScript,
   renderAudio,
@@ -66,6 +68,8 @@ const MIN_SUBMISSION_CHARS = 700;
 const CHAT_LIMIT_PER_HOUR = 30; // assistant replies per session per hour
 const MAX_CHAT_CHARS = 2000;
 const CHAT_HISTORY_TURNS = 40; // most recent turns sent to the model
+const TRANSCRIBE_LIMIT_PER_HOUR = 60;
+const MAX_AUDIO_BYTES = 8 * 1024 * 1024; // ~2 min hard cap client-side; belt here
 
 // Only these may be posted from the client; everything else is written server-side.
 const CLIENT_EVENT_TYPES = new Set([
@@ -351,7 +355,7 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
   if (styles.includes('interactive')) notes.push('You chose interactive — Module 1 has a live tutor chat that teaches the same material in conversation. Open it from inside the module.');
   if (styles.includes('podcast')) notes.push('Podcast-style audio is live — open Module 1 and make a custom two-host episode from any angle you like.');
   if (styles.includes('assistant_mcp')) notes.push('Taking this course inside Claude or ChatGPT, as an MCP server, is on the roadmap — your interest is logged.');
-  if (styles.includes('voice')) notes.push('Talking instead of typing is on the roadmap — your interest is logged.');
+  if (styles.includes('voice')) notes.push('Talking instead of typing is live — every text box has a mic, and the tutor chat has a voice mode that reads replies aloud.');
   if (time > 0) notes.push(`Sized for the ~${time} minutes you said you have. Anything marked "another sitting" keeps.`);
   else if (prefs.time === 0) notes.push("No clock on this — it's laid out one step at a time.");
 
@@ -668,6 +672,79 @@ app.get('/api/module/:id', async (c) => {
   return c.json(res);
 });
 
+// ---------- voice ----------
+
+const voiceStatus = (env: Env) => ({
+  transcribe: !!env.AI,
+  speech: !!env.AI && !!env.PODCAST_AUDIO,
+});
+
+// Mic availability for any screen with a text input; no session needed since
+// it reveals only deployment configuration.
+app.get('/api/voice/status', async (c) => c.json(voiceStatus(c.env)));
+
+// Raw audio body in (webm/mp4/ogg from MediaRecorder), transcript out.
+// Serves every open text input in the app, not just the tutor chat.
+app.post('/api/voice/transcribe', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  if (!c.env.AI) return c.json({ error: 'Transcription is not configured in this deployment — typing still works.' }, 503);
+
+  const hourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
+  const recent = await db
+    .select({ n: sql<number>`count(*)` })
+    .from(t.fdEvent)
+    .where(and(eq(t.fdEvent.sessionId, session.id), eq(t.fdEvent.type, 'voice_transcribed'), gt(t.fdEvent.createdAt, hourAgo)));
+  if ((recent[0]?.n ?? 0) >= TRANSCRIBE_LIMIT_PER_HOUR) {
+    return c.json({ error: 'Transcription is limited to 60 clips an hour — the keyboard never rate-limits.' }, 429);
+  }
+
+  const buf = await c.req.arrayBuffer();
+  if (buf.byteLength < 1000) return c.json({ error: "That clip was too short to contain speech. Hold the mic a beat longer." }, 400);
+  if (buf.byteLength > MAX_AUDIO_BYTES) return c.json({ error: 'That recording is too long — keep clips under about two minutes.' }, 400);
+
+  const text = await transcribe(c.env.AI, new Uint8Array(buf));
+  if (!text) return c.json({ error: "Couldn't make out any words in that clip. Try again a little closer to the mic." }, 502);
+
+  await logEvent(db, session.id, 'voice_transcribed', { bytes: buf.byteLength, chars: text.length });
+  return c.json({ text: text.slice(0, MAX_CHAT_CHARS * 2) });
+});
+
+// Spoken version of an assistant chat message: rendered with the tutor's voice
+// on first request, cached in R2 keyed by message id, then served from cache.
+app.get('/api/module/:id/chat/audio/:messageId', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  if (!c.env.AI || !c.env.PODCAST_AUDIO) {
+    return c.json({ error: 'Spoken replies are not configured in this deployment.' }, 503);
+  }
+  const moduleId = c.req.param('id');
+  const messageId = c.req.param('messageId');
+  const rows = await db
+    .select()
+    .from(t.fdChatMessage)
+    .where(and(eq(t.fdChatMessage.id, messageId), eq(t.fdChatMessage.sessionId, session.id), eq(t.fdChatMessage.moduleId, moduleId)))
+    .limit(1);
+  const row = rows[0];
+  if (!row || row.role !== 'assistant') return c.json({ error: 'No such message.' }, 404);
+
+  const audioHeaders = { 'content-type': 'audio/mpeg', 'cache-control': 'private, max-age=86400' };
+  const key = `chat-tts/${messageId}.mp3`;
+  const cached = await c.env.PODCAST_AUDIO.get(key);
+  if (cached) return new Response(cached.body, { headers: audioHeaders });
+
+  const text = speakable(extractPaths(row.content).body);
+  if (!text) return c.json({ error: 'Nothing speakable in that message.' }, 400);
+  const audio = await renderSpeech(c.env.AI, text);
+  if (!audio) return c.json({ error: 'Voice rendering hiccuped — the text is right there meanwhile.' }, 503);
+
+  await c.env.PODCAST_AUDIO.put(key, audio, { httpMetadata: { contentType: 'audio/mpeg' } });
+  await logEvent(db, session.id, 'chat_audio_rendered', { messageId, bytes: audio.length, voice: TUTOR_VOICE });
+  return new Response(audio, { headers: audioHeaders });
+});
+
 // ---------- tutor chat ----------
 
 // Everything the tutor should know about this learner, phrased for the prompt.
@@ -755,6 +832,7 @@ app.get('/api/module/:id/chat', async (c) => {
     moduleTitle: loaded.mod.title,
     messages: rows.map((r) => ({ id: r.id, role: r.role as 'user' | 'assistant', content: r.content, createdAt: r.createdAt })),
     limits: { maxMessageChars: MAX_CHAT_CHARS },
+    voice: voiceStatus(c.env),
   });
 });
 
@@ -785,8 +863,9 @@ app.post('/api/module/:id/chat', async (c) => {
   const loaded = await loadChatModule(db, moduleId);
   if (!loaded) return c.json({ error: 'No tutor for this module yet.' }, 404);
 
-  const body = await c.req.json<{ message?: string }>().catch(() => null);
+  const body = await c.req.json<{ message?: string; via?: string }>().catch(() => null);
   const message = body?.message?.trim() || null;
+  const via = body?.via === 'voice' ? 'voice' : 'text';
   if (message && message.length > MAX_CHAT_CHARS) {
     return c.json({ error: `Keep messages under ${MAX_CHAT_CHARS} characters — break a long question into pieces.` }, 400);
   }
@@ -846,7 +925,7 @@ app.post('/api/module/:id/chat', async (c) => {
   const last = turns[turns.length - 1];
   last.content = [{ type: 'text', text: last.content as string, cache_control: { type: 'ephemeral' } }];
 
-  await logEvent(db, session.id, history.length === 0 ? 'chat_started' : 'chat_message', { moduleId, chars: message?.length ?? 0 });
+  await logEvent(db, session.id, history.length === 0 ? 'chat_started' : 'chat_message', { moduleId, chars: message?.length ?? 0, via });
 
   const env = c.env;
   const sessionId = session.id;

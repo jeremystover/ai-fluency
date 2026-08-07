@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { marked } from 'marked';
-import type { ChatHistoryResponse, ChatMessage, ChatStreamLine } from '../../shared/types';
+import type { ChatHistoryResponse, ChatMessage, ChatStreamLine, VoiceStatus } from '../../shared/types';
 import { extractPaths } from '../../shared/chat';
 import { Screen, ErrorNote } from '../components/ui';
+import MicButton from '../components/MicButton';
 import { api, ApiError } from '../api';
 
 const MODULE_ID = 'ai101-m1';
+const VOICE_MODE_KEY = 'fd_chat_voice_mode';
 
 // Unlike seeded module content, chat text comes from the model mid-conversation
 // with a learner — escape raw HTML before markdown parsing so nothing the model
@@ -45,6 +47,37 @@ function TypingDots() {
   );
 }
 
+function ListenButton({
+  state,
+  onClick,
+}: {
+  state: 'idle' | 'loading' | 'playing';
+  onClick: () => void;
+}) {
+  const label = state === 'playing' ? 'Stop' : state === 'loading' ? 'Loading audio…' : 'Listen';
+  return (
+    <button
+      onClick={onClick}
+      disabled={state === 'loading'}
+      aria-label={label}
+      className="mt-2 inline-flex items-center gap-1.5 font-utility text-[0.7rem] uppercase tracking-wider text-muted hover:text-accent transition-colors disabled:opacity-50"
+    >
+      {state === 'loading' ? (
+        <span className="w-3 h-3 border-2 border-muted border-t-transparent rounded-full animate-spin" aria-hidden="true" />
+      ) : state === 'playing' ? (
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true">
+          <rect x="1" y="1" width="8" height="8" rx="1.5" />
+        </svg>
+      ) : (
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true">
+          <path d="M2 1.2v7.6a.5.5 0 0 0 .76.43l6.1-3.8a.5.5 0 0 0 0-.86l-6.1-3.8A.5.5 0 0 0 2 1.2z" />
+        </svg>
+      )}
+      {label}
+    </button>
+  );
+}
+
 export default function Chat() {
   const [title, setTitle] = useState<string | null>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -53,13 +86,77 @@ export default function Chat() {
   const [input, setInput] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [fatal, setFatal] = useState<string | null>(null);
+  const [voice, setVoice] = useState<VoiceStatus>({ transcribe: false, speech: false });
+  const [voiceMode, setVoiceMode] = useState(() => localStorage.getItem(VOICE_MODE_KEY) === '1');
+  const [playingId, setPlayingId] = useState<string | null>(null);
+  const [loadingAudioId, setLoadingAudioId] = useState<string | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
   const kickedOff = useRef(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const urlCache = useRef<Map<string, string>>(new Map());
+  const voiceModeRef = useRef(voiceMode);
+  voiceModeRef.current = voiceMode;
 
   const scrollDown = () => bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
   useEffect(scrollDown, [messages, streaming, busy]);
 
-  async function send(text: string | null) {
+  useEffect(() => {
+    const cache = urlCache.current;
+    return () => {
+      audioRef.current?.pause();
+      for (const url of cache.values()) URL.revokeObjectURL(url);
+    };
+  }, []);
+
+  function toggleVoiceMode() {
+    const next = !voiceMode;
+    setVoiceMode(next);
+    localStorage.setItem(VOICE_MODE_KEY, next ? '1' : '0');
+    if (!next) {
+      audioRef.current?.pause();
+      setPlayingId(null);
+    }
+  }
+
+  // Fetch-once-then-cache playback of an assistant message's spoken rendering.
+  // Calling it for the currently playing message stops it.
+  async function playMessage(id: string) {
+    if (playingId === id) {
+      audioRef.current?.pause();
+      setPlayingId(null);
+      return;
+    }
+    audioRef.current?.pause();
+    setPlayingId(null);
+    let url = urlCache.current.get(id);
+    if (!url) {
+      setLoadingAudioId(id);
+      try {
+        const res = await fetch(`/api/module/${MODULE_ID}/chat/audio/${id}`);
+        if (!res.ok) {
+          const data = (await res.json().catch(() => null)) as { error?: string } | null;
+          setError(data?.error ?? 'Playback is unavailable right now — the text is all there.');
+          return;
+        }
+        url = URL.createObjectURL(await res.blob());
+        urlCache.current.set(id, url);
+      } catch {
+        setError('The audio did not load. The text is all there.');
+        return;
+      } finally {
+        setLoadingAudioId(null);
+      }
+    }
+    const audio = (audioRef.current ??= new Audio());
+    audio.src = url;
+    audio.onended = () => setPlayingId(null);
+    setPlayingId(id);
+    // Autoplay can be blocked before the first user gesture — fail silently,
+    // the Listen button is right there.
+    audio.play().catch(() => setPlayingId(null));
+  }
+
+  async function send(text: string | null, via: 'text' | 'voice' = 'text') {
     if (busy) return;
     setBusy(true);
     setError(null);
@@ -73,7 +170,7 @@ export default function Chat() {
       const res = await fetch(`/api/module/${MODULE_ID}/chat`, {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify(text ? { message: text } : {}),
+        body: JSON.stringify(text ? { message: text, via } : {}),
       });
       if (!res.ok || !res.body) {
         const data = (await res.json().catch(() => null)) as { error?: string } | null;
@@ -102,6 +199,8 @@ export default function Chat() {
           } else if (line.type === 'done') {
             setMessages((m) => [...m, { id: line.messageId, role: 'assistant', content: full, createdAt: new Date().toISOString() }]);
             setStreaming(null);
+            // In voice mode the reply is read aloud as soon as it lands.
+            if (voiceModeRef.current) void playMessage(line.messageId);
           } else if (line.type === 'error') {
             if (full.trim()) {
               setMessages((m) => [...m, { id: `local-${Date.now()}`, role: 'assistant', content: full, createdAt: new Date().toISOString() }]);
@@ -125,6 +224,7 @@ export default function Chat() {
       .then((d) => {
         setTitle(d.moduleTitle);
         setMessages(d.messages);
+        setVoice(d.voice);
         if (d.messages.length === 0 && !kickedOff.current) {
           kickedOff.current = true;
           void send(null);
@@ -136,6 +236,8 @@ export default function Chat() {
 
   async function reset() {
     if (busy) return;
+    audioRef.current?.pause();
+    setPlayingId(null);
     await api.post(`/api/module/${MODULE_ID}/chat/reset`).catch(() => {});
     setMessages([]);
     setError(null);
@@ -159,6 +261,18 @@ export default function Chat() {
             <h1 className="font-display font-bold text-ink-strong text-xl mt-1">{title ?? 'The tutor'}</h1>
           </div>
           <div className="flex items-center gap-4 pb-0.5">
+            {voice.speech && (
+              <button
+                onClick={toggleVoiceMode}
+                aria-pressed={voiceMode}
+                title="Voice mode: replies are read aloud, and the mic sends what you say straight to the tutor"
+                className={`font-utility text-[0.7rem] uppercase tracking-wider px-2.5 py-1 rounded-full border transition-colors ${
+                  voiceMode ? 'border-accent bg-accent/[0.08] text-accent' : 'border-line text-muted hover:text-ink'
+                }`}
+              >
+                {voiceMode ? '● Voice on' : '○ Voice'}
+              </button>
+            )}
             <button onClick={reset} disabled={busy} className="text-xs text-muted hover:text-ink underline disabled:opacity-40">
               Start over
             </button>
@@ -171,7 +285,19 @@ export default function Chat() {
         <div className="flex-1 flex flex-col gap-3 py-5" aria-live="polite">
           {messages.map((m) => (
             <Bubble key={m.id} role={m.role}>
-              {m.role === 'assistant' ? <ChatMarkdown source={extractPaths(m.content).body} /> : <p className="text-[0.95rem] whitespace-pre-wrap">{m.content}</p>}
+              {m.role === 'assistant' ? (
+                <>
+                  <ChatMarkdown source={extractPaths(m.content).body} />
+                  {voice.speech && !m.id.startsWith('local-') && (
+                    <ListenButton
+                      state={playingId === m.id ? 'playing' : loadingAudioId === m.id ? 'loading' : 'idle'}
+                      onClick={() => void playMessage(m.id)}
+                    />
+                  )}
+                </>
+              ) : (
+                <p className="text-[0.95rem] whitespace-pre-wrap">{m.content}</p>
+              )}
             </Bubble>
           ))}
           {streaming !== null && (
@@ -211,6 +337,16 @@ export default function Chat() {
           className="sticky bottom-0 bg-bg pb-5 pt-1"
         >
           <div className="flex gap-2 items-end border border-line-strong rounded-brand bg-surface p-2 focus-within:border-accent transition-colors">
+            <MicButton
+              disabled={busy}
+              onError={setError}
+              onText={(text) => {
+                // Voice mode is a conversation: what you said goes straight to
+                // the tutor. Otherwise the transcript lands in the box to edit.
+                if (voiceModeRef.current) void send(text, 'voice');
+                else setInput((prev) => (prev ? `${prev.trimEnd()} ${text}` : text));
+              }}
+            />
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
@@ -223,7 +359,7 @@ export default function Chat() {
               }}
               rows={Math.min(4, Math.max(1, input.split('\n').length))}
               maxLength={2000}
-              placeholder="Ask, answer, or steer — the tutor follows your lead"
+              placeholder={voiceMode ? 'Tap the mic and talk — or type, both work' : 'Ask, answer, or steer — the tutor follows your lead'}
               aria-label="Message the tutor"
               className="flex-1 resize-none bg-transparent px-2 py-1.5 text-[0.95rem] outline-none placeholder:text-muted"
             />

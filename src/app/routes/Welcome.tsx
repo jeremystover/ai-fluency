@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Screen, Button, ErrorNote } from '../components/ui';
+import MicButton from '../components/MicButton';
 import { api, ApiError, track } from '../api';
 import { useApp } from '../brand';
 import type { IntakePrefs } from '../../shared/types';
@@ -248,15 +249,22 @@ export default function Welcome() {
                 Anything specific you want out of this?
               </h1>
               <p className="text-muted text-sm mt-2">One sentence, your words. It shapes what gets emphasized. Skippable.</p>
-              <textarea
-                value={objective}
-                onChange={(e) => setObjective(e.target.value)}
-                rows={3}
-                maxLength={280}
-                autoFocus
-                placeholder='e.g. "Stop second-guessing what I can safely hand to AI in comp and ER work."'
-                className="mt-5 w-full border border-line-strong bg-surface rounded-brand px-4 py-3 text-ink leading-relaxed focus:border-accent placeholder:text-muted/60 resize-y"
-              />
+              <div className="relative mt-5">
+                <textarea
+                  value={objective}
+                  onChange={(e) => setObjective(e.target.value)}
+                  rows={3}
+                  maxLength={280}
+                  autoFocus
+                  placeholder='e.g. "Stop second-guessing what I can safely hand to AI in comp and ER work."'
+                  className="w-full border border-line-strong bg-surface rounded-brand px-4 py-3 pr-14 text-ink leading-relaxed focus:border-accent placeholder:text-muted/60 resize-y"
+                />
+                <MicButton
+                  className="absolute right-2.5 bottom-3"
+                  onError={setError}
+                  onText={(text) => setObjective((prev) => `${prev ? `${prev.trimEnd()} ` : ''}${text}`.slice(0, 280))}
+                />
+              </div>
               {error && <div className="mt-4"><ErrorNote message={error} /></div>}
               <div className="mt-6 flex items-center gap-4">
                 <Button onClick={finish} disabled={busy}>{busy ? 'Building your plan…' : 'Build my plan'}</Button>

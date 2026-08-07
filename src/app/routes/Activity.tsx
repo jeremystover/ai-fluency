@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { ContentBlock, GradeResult, RubricDimension } from '../../shared/types';
 import { Screen, Markdown, Button, ErrorNote } from '../components/ui';
+import MicButton from '../components/MicButton';
 import { api, ApiError } from '../api';
 import { useApp } from '../brand';
 
@@ -113,12 +114,19 @@ export default function Activity() {
 
           <label className="flex flex-col gap-2 mt-6">
             <span className="label-utility">Three conversations + reflection</span>
-            <textarea
-              value={body}
-              onChange={(e) => setBody(e.target.value)}
-              rows={14}
-              className="border border-line-strong bg-surface rounded-brand px-4 py-3 text-ink leading-relaxed focus:border-accent resize-y"
-            />
+            <div className="relative">
+              <textarea
+                value={body}
+                onChange={(e) => setBody(e.target.value)}
+                rows={14}
+                className="w-full border border-line-strong bg-surface rounded-brand px-4 py-3 pr-14 text-ink leading-relaxed focus:border-accent resize-y"
+              />
+              <MicButton
+                className="absolute right-2.5 bottom-3"
+                onError={setError}
+                onText={(text) => setBody((prev) => (prev ? `${prev.trimEnd()}\n\n${text}` : text))}
+              />
+            </div>
           </label>
           <div className="flex items-center justify-between mt-2">
             <span className={`font-utility text-xs ${ready ? 'text-success' : 'text-muted'}`} aria-live="polite">

@@ -195,7 +195,7 @@ export default function ModuleView() {
             <div className="mt-5 border border-accent/40 rounded-brand bg-accent/[0.04] px-4 py-3 flex flex-col sm:flex-row sm:items-center gap-2 sm:justify-between">
               <p className="text-sm text-ink">
                 <span className="font-display font-semibold text-accent">Prefer to talk it through?</span> The module tutor teaches this same
-                material in conversation — lecturettes, questions, quizzes, your pace.
+                material in conversation — lecturettes, questions, quizzes, your pace. Type or speak; it can read replies aloud.
               </p>
               <Link to="/module/1/chat" className="text-accent font-semibold text-sm no-underline hover:underline whitespace-nowrap">
                 Open the tutor →
