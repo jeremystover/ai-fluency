@@ -55,7 +55,7 @@ for (const { brandSlug, code, label } of codesSpec) {
 
 for (const m of modules) {
   lines.push(
-    `INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes) VALUES (${q(m.id)}, ${q(m.courseId)}, ${m.ordinal}, ${q(m.title)}, ${q(m.blurb)}, ${q(m.status)}, ${m.estMinutes});`,
+    `INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES (${q(m.id)}, ${q(m.courseId)}, ${m.ordinal}, ${q(m.title)}, ${q(m.blurb)}, ${q(m.status)}, ${m.estMinutes}, ${q(m.prereqs?.length ? JSON.stringify(m.prereqs) : null)});`,
   );
 }
 
