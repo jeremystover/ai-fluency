@@ -4,8 +4,8 @@ import { api, ApiError } from '../api';
 import { Button, ErrorNote } from './ui';
 import { usePrefersReducedMotion } from '../brand';
 
-// Fifteen tasks, three buckets. Drag on pointer, tap-to-assign on touch,
-// 1/2/3 on keyboard. Nothing reveals until all fifteen are committed.
+// Any number of tasks, two to four buckets. Drag on pointer, tap-to-assign on
+// touch, 1..N on keyboard. Nothing reveals until every task is committed.
 
 type Assignments = Record<string, string | undefined>;
 
@@ -95,7 +95,7 @@ export default function SortingExercise({ moduleId, intro, title }: { moduleId: 
       aria-pressed={selected === task.id}
       className={`text-left text-sm leading-snug border rounded-brand px-3 py-2 bg-surface cursor-grab active:cursor-grabbing transition-colors w-full
         ${selected === task.id ? 'border-accent ring-2 ring-accent/30' : 'border-line hover:border-line-strong'}`}
-      title={inBucket ? 'Click to return to the tray, or press 1/2/3 to move' : 'Click to select, then pick a bucket — or drag, or press 1/2/3'}
+      title={inBucket ? `Click to return to the tray, or press 1–${buckets.length} to move` : `Click to select, then pick a bucket — or drag, or press 1–${buckets.length}`}
     >
       {task.text}
     </button>
@@ -146,8 +146,8 @@ export default function SortingExercise({ moduleId, intro, title }: { moduleId: 
         <div className="mt-4 transition-opacity duration-700" style={{ opacity: revealStage >= 5 ? 1 : 0 }}>
           <p className="text-sm text-muted">
             For the record: {reveal.score.correct} of {reveal.score.total} matched the key
-            {reveal.overAssigned > 0 && `, ${reveal.overAssigned} placed higher than the field puts them`}
-            {reveal.underAssigned > 0 && `, ${reveal.underAssigned} placed lower`}. {reveal.postscript}
+            {reveal.overAssigned > 0 && `, ${reveal.overAssigned} placed above where the key puts them`}
+            {reveal.underAssigned > 0 && `, ${reveal.underAssigned} placed below`}. {reveal.postscript}
           </p>
         </div>
       </div>
@@ -169,7 +169,7 @@ export default function SortingExercise({ moduleId, intro, title }: { moduleId: 
         </div>
       )}
 
-      <div className="mt-5 grid gap-3 sm:grid-cols-3">
+      <div className={`mt-5 grid gap-3 ${buckets.length === 2 ? 'sm:grid-cols-2' : buckets.length === 4 ? 'sm:grid-cols-2 lg:grid-cols-4' : 'sm:grid-cols-3'}`}>
         {buckets.map((b, i) => {
           const contents = tasks.filter((task) => assignments[task.id] === b.id);
           return (

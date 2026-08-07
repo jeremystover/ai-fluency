@@ -227,12 +227,24 @@ export type ModuleContentResponse = {
 
 export type CalibrationField = { key: string; label: string; hint?: string; placeholder?: string; min?: number; max?: number };
 
+// A human review from the operator's queue, surfaced back to the learner.
+// onLatest is false when the learner resubmitted after the review was written.
+export type OperatorReview = {
+  id: string;
+  reviewer: string;
+  body: string;
+  score: number | null;
+  createdAt: string;
+  onLatest: boolean;
+};
+
 export type ActivityConfig = {
   blocks: ContentBlock[];
   minChars: number;
   intro?: string;
   submitLabel?: string;
   calibration: CalibrationField[];
+  reviews: OperatorReview[];
   lastSubmission: {
     id: string;
     body: string;
@@ -252,4 +264,22 @@ export type KnowledgeCheckPublic = {
 export type KnowledgeCheckResult = {
   score: { correct: number; total: number };
   results: { id: string; chosenIndex: number; correct: boolean; correctIndex: number; explanation: string }[];
+};
+
+// ---------- choice exercise ----------
+
+// Single-answer exercise over a set of stimulus artifacts (M3's find-the-lossy-step).
+// The key never ships until the learner commits.
+export type ChoicePublic = {
+  title: string;
+  intro: string;
+  artifacts: { label: string; body: string }[];
+  options: { id: string; label: string }[];
+};
+
+export type ChoiceResult = {
+  correct: boolean;
+  key: string;
+  reasoning: string;
+  closing: string;
 };

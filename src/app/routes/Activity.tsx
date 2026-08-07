@@ -143,6 +143,31 @@ export default function Activity() {
           </div>
         </div>
 
+        {data.reviews.length > 0 && (
+          <section className="mt-10 border border-accent/40 rounded-brand bg-accent/[0.04] p-5 sm:p-6" aria-label="Reviews from the course operator">
+            <p className="label-utility">From the review desk · a human read this</p>
+            <div className="mt-3 flex flex-col gap-4">
+              {data.reviews.map((r) => (
+                <div key={r.id} className="border-l-2 border-accent pl-4">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="font-display font-semibold text-ink-strong text-sm">
+                      {r.reviewer === 'operator' ? 'Course operator' : r.reviewer}
+                    </span>
+                    {r.score !== null && (
+                      <span className="font-utility text-xs px-1.5 py-0.5 rounded-full bg-signal text-on-signal">{r.score}/5</span>
+                    )}
+                    <span className="font-utility text-[0.65rem] text-muted">{r.createdAt.slice(0, 10)}</span>
+                    {!r.onLatest && (
+                      <span className="font-utility text-[0.65rem] text-muted">· on an earlier draft</span>
+                    )}
+                  </div>
+                  <p className="text-sm text-ink mt-1.5 whitespace-pre-line">{r.body}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
         {result && (
           <div ref={resultRef} className="mt-10 scroll-mt-24">
             {result.status === 'graded' ? (

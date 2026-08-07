@@ -5,7 +5,7 @@
 //
 // Module content seeds from packages under content/modules/<moduleId>/:
 //   blocks.json  activity.json  micro.json      -> fd_content_block
-//   sorting.json rubric.json knowledge-check.json -> fd_exercise (keys stay server-side)
+//   sorting.json choice.json rubric.json knowledge-check.json -> fd_exercise (keys stay server-side)
 import { webcrypto as crypto } from 'node:crypto';
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -85,6 +85,7 @@ for (const moduleId of packages) {
   const exercises = [];
   for (const [file, kind] of [
     ['sorting.json', 'sorting'],
+    ['choice.json', 'choice'],
     ['rubric.json', 'rubric'],
     ['knowledge-check.json', 'knowledge_check'],
   ]) {

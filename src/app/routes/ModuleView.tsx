@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import type { ContentBlock, ModuleContentResponse } from '../../shared/types';
 import { Screen, Markdown, Button, ErrorNote } from '../components/ui';
 import SortingExercise from '../components/SortingExercise';
+import ChoiceExercise from '../components/ChoiceExercise';
 import { api, ApiError, track } from '../api';
 
 const COURSE_LABELS: Record<string, string> = { ai101: 'AI 101', ai201: 'AI 201' };
@@ -159,6 +160,13 @@ function Block({ block, moduleId }: { block: ContentBlock; moduleId: string }) {
       return (
         <div ref={ref} id={block.id}>
           <SortingExercise moduleId={moduleId} title={payload.title ?? 'Exercise'} intro={payload.intro ?? ''} />
+        </div>
+      );
+    }
+    if (payload.type === 'choice') {
+      return (
+        <div ref={ref} id={block.id}>
+          <ChoiceExercise moduleId={moduleId} />
         </div>
       );
     }

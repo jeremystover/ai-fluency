@@ -62,8 +62,9 @@ special cases.
    `calibration_prompt` block feeding `fd_calibration`; M7's reckoning can query the whole trail.
 4. **Locks state their price.** Prereqs and gates always say how to unlock (201's gate is
    *described* in the demo even while unenforced).
-5. **Honest tags.** Shallow modules render draft exercises as static text with `reveal` keys and
-   a "interactive version ships with the full course" line — never a fake button.
+5. **Honest tags.** Nothing pretends to be interactive when it isn't — and as of Phase E,
+   nothing needs to: every 201 exercise runs on a real engine (sorting or choice), commit-first,
+   with keys server-side.
 6. **Instrument everything.** Per-module, per-modality funnel events (`module_opened` carries
    moduleId + modality; knowledge-check and calibration events added).
 7. **Keys stay server-side.** Sorting keys, knowledge-check answers, rubrics: `fd_exercise`,
@@ -91,5 +92,15 @@ special cases.
   and 60%+ on the prerequisite's knowledge check clears the gate (retakes free). All eight
   201 modules now run in every modality — read, chat, podcast, micro — plus checks and graded
   activities.
-- **E · Later:** bespoke engines for M3/M4/M5's exercise types; 201 activity grading tuned
-  per capstone stage; the review queue wired to M8's peer-exchange flow end-to-end.
+- **E · Interactive everywhere + the review loop (done):** every static exercise became a real
+  engine. The sorting engine generalized — two to four buckets, adaptive layout, and an `also`
+  field so deliberately-arguable items score as correct with the reasoning carrying the argument
+  — and now runs M2 (pack sort), M4 (buy the right verification), M5 (assign the rung, four
+  rungs), M6 (tier the inputs, four tiers), M7 (signal or theater, two piles). M3 got a new
+  **choice engine**: artifacts presented as evidence cards, one committed answer, the reveal
+  argues back (key server-side like everything else). And the review loop closed: operator
+  reviews written in the admin queue now surface to the learner on the activity screen — "From
+  the review desk · a human read this" — with score, date, and an earlier-draft marker when the
+  learner has since resubmitted.
+- **Later:** 201 activity grading tuned per capstone stage; M8's peer-exchange flow feeding the
+  same review surface.

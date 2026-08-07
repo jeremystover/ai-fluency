@@ -782,9 +782,23 @@ async function getExercise<T>(db: DrizzleD1Database, moduleId: string, kind: str
 
 type SortingPayload = {
   buckets: { id: string; label: string; hint: string; rank: number; pct: number }[];
-  tasks: { id: string; text: string; key: string; reasoning: string }[];
+  // `also` marks deliberately-arguable placements that score as correct — the
+  // reasoning text carries the argument either way.
+  tasks: { id: string; text: string; key: string; also?: string[]; reasoning: string }[];
   pattern: string;
   postscript: string;
+};
+
+// A single-answer exercise over a set of stimulus artifacts (M3's
+// find-the-lossy-step). Key stays server-side like every other exercise.
+type ChoicePayload = {
+  title: string;
+  intro: string;
+  artifacts: { label: string; body: string }[];
+  options: { id: string; label: string }[];
+  key: string;
+  reasoning: string;
+  closing: string;
 };
 
 type KnowledgeCheckPayload = {
@@ -1211,10 +1225,10 @@ app.post('/api/module/:id/sort', async (c) => {
   let underAssigned = 0;
   const results: SortingReveal['results'] = sorting.tasks.map((task) => {
     const chosen = assignments[task.id];
-    const isCorrect = chosen === task.key;
+    const isCorrect = chosen === task.key || (task.also ?? []).includes(chosen);
     if (isCorrect) correct++;
     else if (rank[chosen] > rank[task.key]) overAssigned++;
-    else underAssigned++;
+    else if (rank[chosen] < rank[task.key]) underAssigned++;
     return { taskId: task.id, text: task.text, chosen, key: task.key, correct: isCorrect, reasoning: task.reasoning };
   });
 
@@ -1242,6 +1256,37 @@ app.post('/api/module/:id/sort', async (c) => {
     postscript: sorting.postscript,
   };
   return c.json(reveal);
+});
+
+// ---------- choice exercise (single answer over stimulus artifacts) ----------
+
+app.get('/api/module/:id/choice', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const choice = await getExercise<ChoicePayload>(db, c.req.param('id'), 'choice');
+  if (!choice) return c.json({ error: 'This module has no choice exercise.' }, 404);
+  return c.json({
+    title: choice.title,
+    intro: choice.intro,
+    artifacts: choice.artifacts,
+    options: choice.options,
+  });
+});
+
+app.post('/api/module/:id/choice', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const moduleId = c.req.param('id');
+  const choice = await getExercise<ChoicePayload>(db, moduleId, 'choice');
+  if (!choice) return c.json({ error: 'This module has no choice exercise.' }, 404);
+  const body = await c.req.json<{ chosen?: string }>().catch(() => null);
+  const chosen = body?.chosen;
+  if (!chosen || !choice.options.some((o) => o.id === chosen)) return c.json({ error: 'Commit to an answer before the reveal.' }, 400);
+  const correct = chosen === choice.key;
+  await logEvent(db, session.id, 'choice_submitted', { moduleId, correct });
+  return c.json({ correct, key: choice.key, reasoning: choice.reasoning, closing: choice.closing });
 });
 
 // ---------- knowledge check ----------
@@ -1307,12 +1352,37 @@ app.get('/api/module/:id/activity', async (c) => {
     .orderBy(desc(t.fdSubmission.createdAt))
     .limit(1);
   const last = latest[0];
+
+  // Human reviews from the operator queue, across all of this session's
+  // submissions to the module — a review of an earlier draft still counts.
+  const reviewRows = await db
+    .select({
+      id: t.fdReview.id,
+      reviewer: t.fdReview.reviewer,
+      body: t.fdReview.body,
+      score: t.fdReview.score,
+      createdAt: t.fdReview.createdAt,
+      submissionId: t.fdReview.submissionId,
+    })
+    .from(t.fdReview)
+    .innerJoin(t.fdSubmission, eq(t.fdReview.submissionId, t.fdSubmission.id))
+    .where(and(eq(t.fdSubmission.sessionId, session.id), eq(t.fdSubmission.moduleId, moduleId)))
+    .orderBy(desc(t.fdReview.createdAt));
+
   return c.json({
     blocks: blockRows.map(toBlock),
     minChars: rubric.minChars ?? MIN_SUBMISSION_CHARS,
     intro: rubric.intro,
     submitLabel: rubric.submitLabel,
     calibration: rubric.calibration ?? [],
+    reviews: reviewRows.map((r) => ({
+      id: r.id,
+      reviewer: r.reviewer,
+      body: r.body,
+      score: r.score,
+      createdAt: r.createdAt,
+      onLatest: r.submissionId === last?.id,
+    })),
     lastSubmission: last
       ? {
           id: last.id,
