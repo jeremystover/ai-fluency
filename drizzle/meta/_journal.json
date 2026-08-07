@@ -36,6 +36,13 @@
       "when": 1786134134836,
       "tag": "0004_reviews",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1786134134836,
+      "tag": "0005_chat",
+      "breakpoints": true
     }
   ]
 }

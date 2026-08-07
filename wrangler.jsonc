@@ -37,10 +37,12 @@
     "BRAND_SLUG": "omnissa",
     // Model used for applied-activity grading; persisted on fd_submission.
     "GRADING_MODEL": "claude-sonnet-5",
+    // Model behind the module tutor chat; persisted on fd_chat_message.
+    "CHAT_MODEL": "claude-opus-5",
     // Model used to write podcast scripts; persisted on fd_podcast.
     "PODCAST_MODEL": "claude-sonnet-5"
   }
   // Secrets (set with `wrangler secret put`):
   //   SESSION_SECRET      — HMAC key for session cookie signing
-  //   ANTHROPIC_API_KEY   — grading + podcast scripts; never exposed to the client
+  //   ANTHROPIC_API_KEY   — grading + tutor chat + podcast scripts; never exposed to the client
 }

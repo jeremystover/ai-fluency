@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Screen, Button, ErrorNote } from '../components/ui';
+import MicButton from '../components/MicButton';
 import { api, ApiError, track } from '../api';
 import { useApp } from '../brand';
 import { GOAL_CHOICES } from '../goals';
@@ -276,14 +277,21 @@ export default function Welcome() {
               </div>
               <label className="flex flex-col gap-1.5 mt-5">
                 <span className="label-utility">Refine it, or add your own — optional</span>
-                <textarea
-                  value={objective}
-                  onChange={(e) => setObjective(e.target.value)}
-                  rows={2}
-                  maxLength={280}
-                  placeholder='e.g. "Specifically: stop second-guessing what I can hand to AI in ER work."'
-                  className="w-full border border-line-strong bg-surface rounded-brand px-4 py-3 text-ink leading-relaxed focus:border-accent placeholder:text-muted/60 resize-y"
-                />
+                <div className="relative">
+                  <textarea
+                    value={objective}
+                    onChange={(e) => setObjective(e.target.value)}
+                    rows={2}
+                    maxLength={280}
+                    placeholder='e.g. "Specifically: stop second-guessing what I can hand to AI in ER work."'
+                    className="w-full border border-line-strong bg-surface rounded-brand px-4 py-3 pr-14 text-ink leading-relaxed focus:border-accent placeholder:text-muted/60 resize-y"
+                  />
+                  <MicButton
+                    className="absolute right-2.5 bottom-3"
+                    onError={setError}
+                    onText={(text) => setObjective((prev) => `${prev ? `${prev.trimEnd()} ` : ''}${text}`.slice(0, 280))}
+                  />
+                </div>
               </label>
               {error && <div className="mt-4"><ErrorNote message={error} /></div>}
               <div className="mt-6 flex items-center gap-4">

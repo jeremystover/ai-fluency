@@ -102,6 +102,33 @@ export type GradeResult = {
   message?: string;
 };
 
+// Tutor chat. Assistant content is raw model output — it may end with a
+// `<paths>a|b|c</paths>` trailer the client parses into next-move chips.
+export type ChatMessage = {
+  id: string;
+  role: 'user' | 'assistant';
+  content: string;
+  createdAt: string;
+};
+
+export type ChatHistoryResponse = {
+  moduleId: string;
+  moduleTitle: string;
+  messages: ChatMessage[];
+  limits: { maxMessageChars: number };
+  // What this deployment's bindings support: mic transcription and spoken replies.
+  voice: VoiceStatus;
+};
+
+export type VoiceStatus = { transcribe: boolean; speech: boolean };
+export type TranscribeResponse = { text: string };
+
+// NDJSON lines streamed from POST /api/module/:id/chat.
+export type ChatStreamLine =
+  | { type: 'delta'; text: string }
+  | { type: 'done'; messageId: string }
+  | { type: 'error'; message: string };
+
 export type IntakePrefs = {
   start?: 'diagnostic' | 'module';
   time?: number; // minutes available this sitting; 0 = just exploring

@@ -180,7 +180,7 @@ async function toBytes(result: unknown): Promise<Uint8Array | null> {
   return null;
 }
 
-async function speakLine(ai: AiBinding, text: string, speaker: string): Promise<Uint8Array | null> {
+export async function speakLine(ai: AiBinding, text: string, speaker: string): Promise<Uint8Array | null> {
   for (let attempt = 0; attempt < 2; attempt++) {
     try {
       const result = await ai.run(TTS_MODEL, { text, speaker, encoding: 'mp3' });

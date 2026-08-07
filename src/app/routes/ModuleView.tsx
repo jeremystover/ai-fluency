@@ -195,9 +195,18 @@ export default function ModuleView() {
               <Link to="/module/1/micro" className="text-accent no-underline hover:underline">Short on time? The two-minute version →</Link>
             </p>
 
+            <div className="mt-5 border border-accent/40 rounded-brand bg-accent/[0.04] px-4 py-3 flex flex-col sm:flex-row sm:items-center gap-2 sm:justify-between">
+              <p className="text-sm text-ink">
+                <span className="font-display font-semibold text-accent">Prefer to talk it through?</span> The module tutor teaches this same
+                material in conversation — lecturettes, questions, quizzes, your pace. Type or speak; it can read replies aloud.
+              </p>
+              <Link to="/module/1/chat" className="text-accent font-semibold text-sm no-underline hover:underline whitespace-nowrap">
+                Open the tutor →
+              </Link>
+            </div>
             <Link
               to="/module/1/podcast"
-              className="mt-5 flex items-center justify-between gap-3 border border-line rounded-brand bg-surface px-4 py-3 no-underline hover:border-ink-strong transition-colors group"
+              className="mt-2 flex items-center justify-between gap-3 border border-line rounded-brand bg-surface px-4 py-3 no-underline hover:border-ink-strong transition-colors group"
             >
               <span>
                 <span className="font-display font-semibold text-ink-strong text-[0.95rem]">Prefer to listen? Make it a podcast.</span>
@@ -216,9 +225,14 @@ export default function ModuleView() {
               <span className="font-utility text-[0.7rem] text-muted">
                 Concepts reviewed {data.stamps.conceptsReviewedAt ?? '—'} · Examples current as of {data.stamps.examplesCurrentAsOf ?? '—'}
               </span>
-              <Link to="/module/1/activity" className="text-accent font-semibold text-sm no-underline hover:underline">
-                Applied activity →
-              </Link>
+              <span className="flex items-center gap-4">
+                <Link to="/module/1/chat" className="text-accent font-semibold text-sm no-underline hover:underline">
+                  Discuss with the tutor →
+                </Link>
+                <Link to="/module/1/activity" className="text-accent font-semibold text-sm no-underline hover:underline">
+                  Applied activity →
+                </Link>
+              </span>
             </footer>
           </article>
         </div>

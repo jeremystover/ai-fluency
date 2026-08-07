@@ -9,6 +9,7 @@ import Diagnostic from './routes/Diagnostic';
 import DiagnosticResult from './routes/DiagnosticResult';
 import Path from './routes/Path';
 import ModuleView from './routes/ModuleView';
+import Chat from './routes/Chat';
 import MicroView from './routes/MicroView';
 import Podcast from './routes/Podcast';
 import Admin from './routes/Admin';
@@ -39,6 +40,7 @@ export default function App() {
           <Route path="/diagnostic/result" element={<RequireSession><DiagnosticResult /></RequireSession>} />
           <Route path="/path" element={<RequireSession><Path /></RequireSession>} />
           <Route path="/module/1" element={<RequireSession><ModuleView /></RequireSession>} />
+          <Route path="/module/1/chat" element={<RequireSession><Chat /></RequireSession>} />
           <Route path="/module/1/micro" element={<RequireSession><MicroView /></RequireSession>} />
           <Route path="/module/1/podcast" element={<RequireSession><Podcast /></RequireSession>} />
           <Route path="/module/1/activity" element={<RequireSession><Activity /></RequireSession>} />

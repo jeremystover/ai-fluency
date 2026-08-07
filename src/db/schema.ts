@@ -114,6 +114,24 @@ export const fdContentBlock = sqliteTable(
   (t) => [index('idx_block_module').on(t.moduleId, t.ordinal)],
 );
 
+// Tutor chat transcript, one row per turn. Ordinal orders turns within a
+// (session, module) thread; content stores the raw model output including the
+// <paths> navigation trailer, which the client strips for display.
+export const fdChatMessage = sqliteTable(
+  'fd_chat_message',
+  {
+    id: text('id').primaryKey(),
+    sessionId: text('session_id').notNull(),
+    moduleId: text('module_id').notNull(),
+    ordinal: integer('ordinal').notNull(),
+    role: text('role').notNull(), // user | assistant
+    content: text('content').notNull(),
+    modelUsed: text('model_used'),
+    createdAt: text('created_at').notNull(),
+  },
+  (t) => [index('idx_chat_session_module').on(t.sessionId, t.moduleId, t.ordinal)],
+);
+
 // Intake answers: how the learner wants this to go. Latest row per key wins.
 export const fdPreference = sqliteTable(
   'fd_preference',

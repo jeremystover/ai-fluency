@@ -6,6 +6,9 @@ import * as t from '../db/schema';
 import { verifyCode, signSessionId, verifySessionCookie, hashIp } from './crypto';
 import { gradeSubmission, PROMPT_VERSION } from './grading';
 import { adminApp } from './admin';
+import { buildTutorSystem, streamTutorReply, KICKOFF_TURN, type LearnerContext as TutorLearnerContext, type TutorMessage } from './chat';
+import { transcribe, speakable, renderSpeech, TUTOR_VOICE } from './voice';
+import { extractPaths } from '../shared/chat';
 import {
   writeScript,
   renderAudio,
@@ -45,6 +48,7 @@ export interface Env {
   ASSETS: Fetcher;
   BRAND_SLUG: string;
   GRADING_MODEL: string;
+  CHAT_MODEL: string;
   PODCAST_MODEL?: string;
   SESSION_SECRET?: string;
   ANTHROPIC_API_KEY?: string;
@@ -64,6 +68,11 @@ const CODE_ATTEMPT_WINDOW_MS = 15 * 60 * 1000;
 const GRADE_LIMIT_PER_HOUR = 5;
 const PODCAST_LIMIT_PER_HOUR = 4;
 const MIN_SUBMISSION_CHARS = 700;
+const CHAT_LIMIT_PER_HOUR = 30; // assistant replies per session per hour
+const MAX_CHAT_CHARS = 2000;
+const CHAT_HISTORY_TURNS = 40; // most recent turns sent to the model
+const TRANSCRIBE_LIMIT_PER_HOUR = 60;
+const MAX_AUDIO_BYTES = 8 * 1024 * 1024; // ~2 min hard cap client-side; belt here
 
 // Only these may be posted from the client; everything else is written server-side.
 const CLIENT_EVENT_TYPES = new Set([
@@ -377,9 +386,10 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
     if (GOAL_NOTES[goal] && notes.length < 2) notes.push(GOAL_NOTES[goal]);
   }
   const styles = prefs.styles ?? [];
+  if (styles.includes('interactive')) notes.push('You chose interactive — Module 1 has a live tutor chat that teaches the same material in conversation. Open it from inside the module.');
   if (styles.includes('podcast')) notes.push('Podcast-style audio is live — open Module 1 and make a custom two-host episode from any angle you like.');
   if (styles.includes('assistant_mcp')) notes.push('Taking this course inside Claude or ChatGPT, as an MCP server, is on the roadmap — your interest is logged.');
-  if (styles.includes('voice')) notes.push('Talking instead of typing is on the roadmap — your interest is logged.');
+  if (styles.includes('voice')) notes.push('Talking instead of typing is live — every text box has a mic, and the tutor chat has a voice mode that reads replies aloud.');
   if (time > 0) notes.push(`Sized for the ~${time} minutes you said you have. Anything marked "another sitting" keeps.`);
   else if (prefs.time === 0) notes.push("No clock on this — it's laid out one step at a time.");
 
@@ -749,6 +759,329 @@ app.get('/api/module/:id', async (c) => {
     estReadMinutes: Math.max(1, Math.round(words / 200)),
   };
   return c.json(res);
+});
+
+// ---------- voice ----------
+
+const voiceStatus = (env: Env) => ({
+  transcribe: !!env.AI,
+  speech: !!env.AI && !!env.PODCAST_AUDIO,
+});
+
+// Mic availability for any screen with a text input; no session needed since
+// it reveals only deployment configuration.
+app.get('/api/voice/status', async (c) => c.json(voiceStatus(c.env)));
+
+// Raw audio body in (webm/mp4/ogg from MediaRecorder), transcript out.
+// Serves every open text input in the app, not just the tutor chat.
+app.post('/api/voice/transcribe', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  if (!c.env.AI) return c.json({ error: 'Transcription is not configured in this deployment — typing still works.' }, 503);
+
+  const hourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
+  const recent = await db
+    .select({ n: sql<number>`count(*)` })
+    .from(t.fdEvent)
+    .where(and(eq(t.fdEvent.sessionId, session.id), eq(t.fdEvent.type, 'voice_transcribed'), gt(t.fdEvent.createdAt, hourAgo)));
+  if ((recent[0]?.n ?? 0) >= TRANSCRIBE_LIMIT_PER_HOUR) {
+    return c.json({ error: 'Transcription is limited to 60 clips an hour — the keyboard never rate-limits.' }, 429);
+  }
+
+  const buf = await c.req.arrayBuffer();
+  if (buf.byteLength < 1000) return c.json({ error: "That clip was too short to contain speech. Hold the mic a beat longer." }, 400);
+  if (buf.byteLength > MAX_AUDIO_BYTES) return c.json({ error: 'That recording is too long — keep clips under about two minutes.' }, 400);
+
+  const text = await transcribe(c.env.AI, new Uint8Array(buf));
+  if (!text) return c.json({ error: "Couldn't make out any words in that clip. Try again a little closer to the mic." }, 502);
+
+  await logEvent(db, session.id, 'voice_transcribed', { bytes: buf.byteLength, chars: text.length });
+  return c.json({ text: text.slice(0, MAX_CHAT_CHARS * 2) });
+});
+
+// Spoken version of an assistant chat message: rendered with the tutor's voice
+// on first request, cached in R2 keyed by message id, then served from cache.
+app.get('/api/module/:id/chat/audio/:messageId', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  if (!c.env.AI || !c.env.PODCAST_AUDIO) {
+    return c.json({ error: 'Spoken replies are not configured in this deployment.' }, 503);
+  }
+  const moduleId = c.req.param('id');
+  const messageId = c.req.param('messageId');
+  const rows = await db
+    .select()
+    .from(t.fdChatMessage)
+    .where(and(eq(t.fdChatMessage.id, messageId), eq(t.fdChatMessage.sessionId, session.id), eq(t.fdChatMessage.moduleId, moduleId)))
+    .limit(1);
+  const row = rows[0];
+  if (!row || row.role !== 'assistant') return c.json({ error: 'No such message.' }, 404);
+
+  const audioHeaders = { 'content-type': 'audio/mpeg', 'cache-control': 'private, max-age=86400' };
+  const key = `chat-tts/${messageId}.mp3`;
+  const cached = await c.env.PODCAST_AUDIO.get(key);
+  if (cached) return new Response(cached.body, { headers: audioHeaders });
+
+  const text = speakable(extractPaths(row.content).body);
+  if (!text) return c.json({ error: 'Nothing speakable in that message.' }, 400);
+  const audio = await renderSpeech(c.env.AI, text);
+  if (!audio) return c.json({ error: 'Voice rendering hiccuped — the text is right there meanwhile.' }, 503);
+
+  await c.env.PODCAST_AUDIO.put(key, audio, { httpMetadata: { contentType: 'audio/mpeg' } });
+  await logEvent(db, session.id, 'chat_audio_rendered', { messageId, bytes: audio.length, voice: TUTOR_VOICE });
+  return new Response(audio, { headers: audioHeaders });
+});
+
+// ---------- tutor chat ----------
+
+// Everything the tutor should know about this learner, phrased for the prompt.
+async function buildLearnerContext(db: DrizzleD1Database, sessionId: string): Promise<TutorLearnerContext> {
+  const participants = await db
+    .select()
+    .from(t.fdParticipant)
+    .where(eq(t.fdParticipant.sessionId, sessionId))
+    .orderBy(desc(t.fdParticipant.createdAt))
+    .limit(1);
+  const prefs = await loadPrefs(db, sessionId);
+
+  const has = async (type: string) => {
+    const rows = await db
+      .select({ n: sql<number>`count(*)` })
+      .from(t.fdEvent)
+      .where(and(eq(t.fdEvent.sessionId, sessionId), eq(t.fdEvent.type, type)));
+    return (rows[0]?.n ?? 0) > 0;
+  };
+
+  let calibration: string | null = null;
+  if (await has('diagnostic_completed')) {
+    const result = await computeDiagnosticResult(db, sessionId);
+    calibration = `${result.calibration.headline} (knowledge ${result.knowledge.correct}/${result.knowledge.total}, mean calibration delta ${result.calibration.meanDelta > 0 ? '+' : ''}${result.calibration.meanDelta} points).`;
+  }
+
+  let sortSummary: string | null = null;
+  const sortEvents = await db
+    .select()
+    .from(t.fdEvent)
+    .where(and(eq(t.fdEvent.sessionId, sessionId), eq(t.fdEvent.type, 'sort_submitted')))
+    .orderBy(desc(t.fdEvent.createdAt))
+    .limit(1);
+  if (sortEvents[0]?.payloadJson) {
+    const p = JSON.parse(sortEvents[0].payloadJson) as { correct?: number; total?: number; overAssigned?: number; underAssigned?: number };
+    if (typeof p.correct === 'number' && typeof p.total === 'number') {
+      sortSummary = `${p.correct}/${p.total} correct — ${p.overAssigned ?? 0} tasks placed too optimistically, ${p.underAssigned ?? 0} too pessimistically.`;
+    }
+  }
+
+  const progress: string[] = [];
+  if (calibration) progress.push('the diagnostic');
+  if (sortSummary) progress.push('the sorting exercise');
+  if (await has('module_completed')) progress.push('the module read');
+  if (await has('activity_graded')) progress.push('the applied activity');
+
+  return {
+    name: participants[0]?.displayName ?? null,
+    roleLabel: participants[0]?.roleLabel ?? null,
+    objective: prefs.objective ?? null,
+    timeBudget: prefs.time ?? null,
+    calibration,
+    sortSummary,
+    progress,
+  };
+}
+
+async function loadChatModule(db: DrizzleD1Database, moduleId: string) {
+  const modRows = await db.select().from(t.fdModule).where(eq(t.fdModule.id, moduleId)).limit(1);
+  const mod = modRows[0];
+  if (!mod || mod.status !== 'open') return null;
+  const blockRows = await db
+    .select()
+    .from(t.fdContentBlock)
+    .where(eq(t.fdContentBlock.moduleId, moduleId))
+    .orderBy(asc(t.fdContentBlock.ordinal));
+  if (blockRows.length === 0) return null;
+  return { mod, blocks: blockRows.map(toBlock) };
+}
+
+app.get('/api/module/:id/chat', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const moduleId = c.req.param('id');
+  const loaded = await loadChatModule(db, moduleId);
+  if (!loaded) return c.json({ error: 'No tutor for this module yet.' }, 404);
+  const rows = await db
+    .select()
+    .from(t.fdChatMessage)
+    .where(and(eq(t.fdChatMessage.sessionId, session.id), eq(t.fdChatMessage.moduleId, moduleId)))
+    .orderBy(asc(t.fdChatMessage.ordinal));
+  return c.json({
+    moduleId,
+    moduleTitle: loaded.mod.title,
+    messages: rows.map((r) => ({ id: r.id, role: r.role as 'user' | 'assistant', content: r.content, createdAt: r.createdAt })),
+    limits: { maxMessageChars: MAX_CHAT_CHARS },
+    voice: voiceStatus(c.env),
+  });
+});
+
+app.post('/api/module/:id/chat/reset', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const moduleId = c.req.param('id');
+  await db
+    .delete(t.fdChatMessage)
+    .where(and(eq(t.fdChatMessage.sessionId, session.id), eq(t.fdChatMessage.moduleId, moduleId)));
+  await logEvent(db, session.id, 'chat_reset', { moduleId });
+  return c.json({ ok: true });
+});
+
+// Streams the tutor's reply as NDJSON lines ({type:'delta'|'done'|'error'}).
+// The user turn is persisted before the model is called; the assistant turn is
+// persisted when the stream ends (including partial text if it errors midway),
+// so a dropped connection never loses the conversation.
+app.post('/api/module/:id/chat', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  if (!c.env.ANTHROPIC_API_KEY) {
+    return c.json({ error: 'The tutor is offline in this deployment — the reading path has everything it covers.' }, 503);
+  }
+  const moduleId = c.req.param('id');
+  const loaded = await loadChatModule(db, moduleId);
+  if (!loaded) return c.json({ error: 'No tutor for this module yet.' }, 404);
+
+  const body = await c.req.json<{ message?: string; via?: string }>().catch(() => null);
+  const message = body?.message?.trim() || null;
+  const via = body?.via === 'voice' ? 'voice' : 'text';
+  if (message && message.length > MAX_CHAT_CHARS) {
+    return c.json({ error: `Keep messages under ${MAX_CHAT_CHARS} characters — break a long question into pieces.` }, 400);
+  }
+
+  const hourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
+  const recent = await db
+    .select({ n: sql<number>`count(*)` })
+    .from(t.fdChatMessage)
+    .where(
+      and(
+        eq(t.fdChatMessage.sessionId, session.id),
+        eq(t.fdChatMessage.role, 'assistant'),
+        gt(t.fdChatMessage.createdAt, hourAgo),
+      ),
+    );
+  if ((recent[0]?.n ?? 0) >= CHAT_LIMIT_PER_HOUR) {
+    return c.json({ error: 'The tutor needs a breather — chat is limited to 30 replies an hour. The module read is always open.' }, 429);
+  }
+
+  const history = await db
+    .select()
+    .from(t.fdChatMessage)
+    .where(and(eq(t.fdChatMessage.sessionId, session.id), eq(t.fdChatMessage.moduleId, moduleId)))
+    .orderBy(asc(t.fdChatMessage.ordinal));
+
+  if (!message && history.length > 0) return c.json({ error: 'Say something first.' }, 400);
+
+  let nextOrdinal = (history[history.length - 1]?.ordinal ?? -1) + 1;
+  if (message) {
+    await db.insert(t.fdChatMessage).values({
+      id: uuid(),
+      sessionId: session.id,
+      moduleId,
+      ordinal: nextOrdinal++,
+      role: 'user',
+      content: message,
+      createdAt: now(),
+    });
+  }
+
+  const courseModules = await db
+    .select()
+    .from(t.fdModule)
+    .where(eq(t.fdModule.courseId, loaded.mod.courseId))
+    .orderBy(asc(t.fdModule.ordinal));
+  const learner = await buildLearnerContext(db, session.id);
+  const system = buildTutorSystem(loaded.mod as ModuleCard, loaded.blocks, courseModules as ModuleCard[], learner);
+
+  // The stored opener starts with an assistant turn; the API requires user-first,
+  // so the deterministic kickoff turn stands in (byte-stable for prompt caching).
+  const turns: TutorMessage[] = history.slice(-CHAT_HISTORY_TURNS).map((r) => ({ role: r.role as 'user' | 'assistant', content: r.content }));
+  if (message) turns.push({ role: 'user', content: message });
+  else turns.push({ role: 'user', content: KICKOFF_TURN });
+  if (turns[0].role !== 'user') turns.unshift({ role: 'user', content: KICKOFF_TURN });
+  // Cache breakpoint on the last turn: next request re-reads the whole
+  // conversation prefix instead of re-processing it.
+  const last = turns[turns.length - 1];
+  last.content = [{ type: 'text', text: last.content as string, cache_control: { type: 'ephemeral' } }];
+
+  await logEvent(db, session.id, history.length === 0 ? 'chat_started' : 'chat_message', { moduleId, chars: message?.length ?? 0, via });
+
+  const env = c.env;
+  const sessionId = session.id;
+  const assistantOrdinal = nextOrdinal;
+  const encoder = new TextEncoder();
+  const stream = new ReadableStream<Uint8Array>({
+    async start(controller) {
+      const send = (line: unknown) => controller.enqueue(encoder.encode(JSON.stringify(line) + '\n'));
+      let full = '';
+      let sent = 0;
+      const HOLD = 12; // never forward a partially-streamed "<paths" tag
+      try {
+        for await (const delta of streamTutorReply(env.ANTHROPIC_API_KEY!, env.CHAT_MODEL, system, turns)) {
+          full += delta;
+          const tagAt = full.indexOf('<paths');
+          const limit = tagAt >= 0 ? tagAt : Math.max(sent, full.length - HOLD);
+          if (limit > sent) {
+            send({ type: 'delta', text: full.slice(sent, limit) });
+            sent = limit;
+          }
+        }
+        const tagAt = full.indexOf('<paths');
+        const visibleEnd = tagAt >= 0 ? tagAt : full.length;
+        if (visibleEnd > sent) send({ type: 'delta', text: full.slice(sent, visibleEnd) });
+        if (!full.trim()) {
+          send({ type: 'error', message: 'The tutor came back empty-handed. Try rephrasing.' });
+        } else {
+          const messageId = uuid();
+          await db.insert(t.fdChatMessage).values({
+            id: messageId,
+            sessionId,
+            moduleId,
+            ordinal: assistantOrdinal,
+            role: 'assistant',
+            content: full,
+            modelUsed: env.CHAT_MODEL,
+            createdAt: now(),
+          });
+          send({ type: 'done', messageId });
+        }
+      } catch {
+        // Keep whatever streamed before the failure so the transcript stays honest.
+        if (full.trim()) {
+          await db
+            .insert(t.fdChatMessage)
+            .values({
+              id: uuid(),
+              sessionId,
+              moduleId,
+              ordinal: assistantOrdinal,
+              role: 'assistant',
+              content: full,
+              modelUsed: env.CHAT_MODEL,
+              createdAt: now(),
+            })
+            .catch(() => {});
+        }
+        send({ type: 'error', message: 'The tutor lost the thread mid-reply. Nothing was lost on your side — send that again.' });
+      } finally {
+        controller.close();
+      }
+    },
+  });
+
+  return new Response(stream, {
+    headers: { 'content-type': 'application/x-ndjson; charset=utf-8', 'cache-control': 'no-store' },
+  });
 });
 
 // ---------- sorting exercise ----------
