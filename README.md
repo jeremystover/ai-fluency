@@ -1,6 +1,6 @@
 # fluency-demo
 
-A shareable AI-fluency demo: landing → passcode → diagnostic → calibration result → course path → Module 1 → applied activity with AI grading. Built as a credibility artifact for a single reviewer, not a product.
+A shareable AI-fluency demo: landing → passcode → intake ("how do you want this to go?") → personalized plan → diagnostic → calibration result → course path → Module 1 → applied activity with AI grading. Built as a credibility artifact for a single reviewer, not a product.
 
 **Stack:** Cloudflare Workers (Hono) · Vite + React + TypeScript SPA served via Workers assets · D1 + Drizzle · Tailwind with all brand values as CSS custom properties · Anthropic API for grading (worker-side only).
 
@@ -44,6 +44,7 @@ npm run deploy
   FROM fd_event GROUP BY type ORDER BY MIN(created_at);
   ```
 
+- **Personalization is the front door.** After the passcode, a five-step intake (name/role, how to start, time available, learning styles, free-text objective) writes to `fd_preference` and composes a deterministic plan (`GET /api/plan`) cut to the learner's time budget, echoing their objective and picking their starting point. Roadmap modalities (chat self-assessment, voice, podcast, course-as-MCP-server inside Claude/ChatGPT) appear as honestly tagged options — selecting one records demand in the funnel rather than faking a feature.
 - **Calibration** (`fd_calibration`) carries the diagnostic baseline (`diagnostic:tN`), the full sorting exercise (`sort:tN`), and the Conversation-2 prediction (`m1:conversation2`). The result screen's signature visual renders from it.
 - **Grading** calls the Anthropic API from the worker (key in `wrangler secret`), rubric dimensions verbatim in the system prompt, strict-JSON response parsed defensively with one retry, then a graceful "saved, grading unavailable" fallback — submissions are persisted *before* grading is attempted, so nothing is ever lost. 5 grading calls per session per hour. `model_used` and `prompt_version` persist on `fd_submission`. Calibration is explicitly graded on honesty and specificity, not accuracy.
 

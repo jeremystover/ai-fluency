@@ -91,12 +91,38 @@ export type GradeResult = {
   message?: string;
 };
 
+export type IntakePrefs = {
+  start?: 'diagnostic' | 'module';
+  time?: number; // minutes available this sitting; 0 = just exploring
+  styles?: string[]; // reading | interactive | podcast | assistant_mcp | voice
+  objective?: string;
+};
+
+export type PlanStep = {
+  id: string;
+  title: string;
+  detail: string;
+  minutes: number;
+  route: string;
+  state: 'done' | 'now' | 'later';
+};
+
+export type PlanResponse = {
+  greeting: string;
+  steps: PlanStep[];
+  notes: string[];
+  objective: string | null;
+  nextRoute: string;
+};
+
 export type MeResponse = {
   authenticated: boolean;
   displayName?: string | null;
   roleLabel?: string | null;
   brandSlug?: string;
+  prefs?: IntakePrefs;
   progress: {
+    intakeDone: boolean;
     diagnosticDone: boolean;
     sortDone: boolean;
     activityGraded: boolean;

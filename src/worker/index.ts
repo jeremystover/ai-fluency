@@ -10,6 +10,9 @@ import sortingData from '../../content/sorting.json';
 import type {
   Brand,
   ContentBlock,
+  IntakePrefs,
+  PlanResponse,
+  PlanStep,
   DiagnosticFeedback,
   DiagnosticItemPublic,
   DiagnosticResult,
@@ -42,6 +45,7 @@ const MIN_SUBMISSION_CHARS = 700;
 // Only these may be posted from the client; everything else is written server-side.
 const CLIENT_EVENT_TYPES = new Set([
   'landed',
+  'intake_started',
   'diagnostic_started',
   'module_opened',
   'block_read',
@@ -194,10 +198,191 @@ app.post('/api/hello', async (c) => {
   return c.json({ ok: true });
 });
 
+const VALID_STYLES = new Set(['reading', 'interactive', 'podcast', 'assistant_mcp', 'voice']);
+const VALID_TIMES = new Set([0, 10, 30, 60]);
+
+async function loadPrefs(db: DrizzleD1Database, sessionId: string): Promise<IntakePrefs> {
+  const rows = await db
+    .select()
+    .from(t.fdPreference)
+    .where(eq(t.fdPreference.sessionId, sessionId))
+    .orderBy(asc(t.fdPreference.createdAt));
+  const prefs: IntakePrefs = {};
+  for (const row of rows) {
+    const value = JSON.parse(row.valueJson);
+    if (row.key === 'start') prefs.start = value;
+    else if (row.key === 'time') prefs.time = value;
+    else if (row.key === 'styles') prefs.styles = value;
+    else if (row.key === 'objective') prefs.objective = value;
+  }
+  return prefs;
+}
+
+app.post('/api/intake', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session. Enter your passcode first.' }, 401);
+  const body = await c.req
+    .json<{ displayName?: string; roleLabel?: string; prefs?: IntakePrefs }>()
+    .catch(() => null);
+  if (!body) return c.json({ error: 'Malformed request.' }, 400);
+
+  if (body.displayName?.trim() || body.roleLabel?.trim()) {
+    await db.insert(t.fdParticipant).values({
+      id: uuid(),
+      sessionId: session.id,
+      displayName: body.displayName?.trim().slice(0, 80) || null,
+      roleLabel: body.roleLabel?.trim().slice(0, 120) || null,
+      orgLabel: null,
+      createdAt: now(),
+    });
+  }
+
+  const raw = body.prefs ?? {};
+  const clean: [string, unknown][] = [];
+  if (raw.start === 'diagnostic' || raw.start === 'module') clean.push(['start', raw.start]);
+  if (typeof raw.time === 'number' && VALID_TIMES.has(raw.time)) clean.push(['time', raw.time]);
+  if (Array.isArray(raw.styles)) clean.push(['styles', raw.styles.filter((s) => VALID_STYLES.has(s)).slice(0, 5)]);
+  if (typeof raw.objective === 'string' && raw.objective.trim()) clean.push(['objective', raw.objective.trim().slice(0, 280)]);
+
+  for (const [key, value] of clean) {
+    await db.delete(t.fdPreference).where(and(eq(t.fdPreference.sessionId, session.id), eq(t.fdPreference.key, key)));
+    await db.insert(t.fdPreference).values({ id: uuid(), sessionId: session.id, key, valueJson: JSON.stringify(value), createdAt: now() });
+  }
+  await logEvent(db, session.id, 'intake_completed', Object.fromEntries(clean));
+  return c.json({ ok: true });
+});
+
+type Progress = { diagnosticDone: boolean; sortDone: boolean; activityGraded: boolean; moduleCompleted: boolean };
+
+function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress): PlanResponse {
+  const time = prefs.time ?? 30;
+  const start = prefs.start ?? 'diagnostic';
+
+  const diagnostic: PlanStep = {
+    id: 'diagnostic',
+    title: start === 'module' ? 'The diagnostic — when you want your read tested' : 'The diagnostic — find your direction of error',
+    detail:
+      start === 'module'
+        ? "You chose to skip diagnosis for now. It'll be here — nine questions, scored against field data."
+        : 'Nine questions. Not a score — a direction: whether you expect too much or too little from these tools.',
+    minutes: 8,
+    route: '/diagnostic',
+    state: progress.diagnosticDone ? 'done' : 'later',
+  };
+  const core: PlanStep = {
+    id: 'm1-core',
+    title: 'Module 1 · Lesson 1 and the sorting exercise',
+    detail: 'The best fifteen minutes in the module: what "AI" means in your stack, then fifteen real tasks sorted into hand-over / verify / don\'t.',
+    minutes: 12,
+    route: '/module/1',
+    state: progress.sortDone ? 'done' : 'later',
+  };
+  const read: PlanStep = {
+    id: 'm1-read',
+    title: 'Module 1 · the rest of the read',
+    detail: 'What an LLM actually does, the vocabulary, and why data decides everything.',
+    minutes: 10,
+    route: '/module/1',
+    state: progress.moduleCompleted ? 'done' : 'later',
+  };
+  const activity: PlanStep = {
+    id: 'activity',
+    title: 'Applied activity — "Testing the Edges", AI-graded',
+    detail: 'Three short conversations with your own AI tool, a reflection, and rubric feedback in seconds. Unlimited resubmission.',
+    minutes: 25,
+    route: '/module/1/activity',
+    state: progress.activityGraded ? 'done' : 'later',
+  };
+
+  const steps = start === 'module' ? [core, read, activity, diagnostic] : [diagnostic, core, read, activity];
+
+  // Fit "now" steps to the time they said they had; 0 = exploring, one step at a time.
+  let budget = time === 0 ? Infinity : time + 5;
+  let marked = 0;
+  for (const step of steps) {
+    if (step.state === 'done') continue;
+    if (time === 0) {
+      if (marked === 0) {
+        step.state = 'now';
+        marked++;
+      }
+      continue;
+    }
+    if (step.minutes <= budget) {
+      step.state = 'now';
+      budget -= step.minutes;
+      marked++;
+    }
+  }
+  if (marked === 0) {
+    const first = steps.find((s) => s.state !== 'done');
+    if (first) first.state = 'now';
+  }
+
+  const notes: string[] = [];
+  const styles = prefs.styles ?? [];
+  if (styles.includes('podcast')) notes.push('Podcast-style audio is on the roadmap — your interest is logged.');
+  if (styles.includes('assistant_mcp')) notes.push('Taking this course inside Claude or ChatGPT, as an MCP server, is on the roadmap — your interest is logged.');
+  if (styles.includes('voice')) notes.push('Talking instead of typing is on the roadmap — your interest is logged.');
+  if (time > 0) notes.push(`Sized for the ~${time} minutes you said you have. Anything marked "another sitting" keeps.`);
+  else if (prefs.time === 0) notes.push("No clock on this — it's laid out one step at a time.");
+
+  const done = steps.filter((s) => s.state === 'done').length;
+  const greeting =
+    done > 0
+      ? name
+        ? `${name}, picking back up where you left off.`
+        : 'Picking back up where you left off.'
+      : name
+        ? `${name}, here's the shape of it.`
+        : "Here's the shape of it.";
+
+  const next = steps.find((s) => s.state === 'now') ?? steps.find((s) => s.state === 'later');
+  return { greeting, steps, notes, objective: prefs.objective ?? null, nextRoute: next?.route ?? '/path' };
+}
+
+app.get('/api/plan', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const participants = await db
+    .select()
+    .from(t.fdParticipant)
+    .where(eq(t.fdParticipant.sessionId, session.id))
+    .orderBy(desc(t.fdParticipant.createdAt))
+    .limit(1);
+  const prefs = await loadPrefs(db, session.id);
+  const has = async (type: string) => {
+    const rows = await db
+      .select({ n: sql<number>`count(*)` })
+      .from(t.fdEvent)
+      .where(and(eq(t.fdEvent.sessionId, session.id), eq(t.fdEvent.type, type)));
+    return (rows[0]?.n ?? 0) > 0;
+  };
+  const gradedRows = await db
+    .select({ n: sql<number>`count(*)` })
+    .from(t.fdSubmission)
+    .where(and(eq(t.fdSubmission.sessionId, session.id), sql`${t.fdSubmission.gradedAt} IS NOT NULL`));
+  const progress: Progress = {
+    diagnosticDone: await has('diagnostic_completed'),
+    sortDone: await has('sort_submitted'),
+    activityGraded: (gradedRows[0]?.n ?? 0) > 0,
+    moduleCompleted: await has('module_completed'),
+  };
+  const plan = composePlan(participants[0]?.displayName ?? null, prefs, progress);
+  await logEvent(db, session.id, 'plan_generated', { nextRoute: plan.nextRoute });
+  return c.json(plan);
+});
+
 app.get('/api/me', async (c) => {
   const db = c.get('db');
   const session = c.get('session');
-  if (!session) return c.json({ authenticated: false, progress: { diagnosticDone: false, sortDone: false, activityGraded: false, moduleCompleted: false } } satisfies MeResponse);
+  if (!session)
+    return c.json({
+      authenticated: false,
+      progress: { intakeDone: false, diagnosticDone: false, sortDone: false, activityGraded: false, moduleCompleted: false },
+    } satisfies MeResponse);
 
   const participants = await db
     .select()
@@ -223,7 +408,9 @@ app.get('/api/me', async (c) => {
     displayName: participants[0]?.displayName ?? null,
     roleLabel: participants[0]?.roleLabel ?? null,
     brandSlug: session.brandSlug,
+    prefs: await loadPrefs(db, session.id),
     progress: {
+      intakeDone: await has('intake_completed'),
       diagnosticDone: await has('diagnostic_completed'),
       sortDone: await has('sort_submitted'),
       activityGraded: (gradedRows[0]?.n ?? 0) > 0,

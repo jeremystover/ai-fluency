@@ -114,6 +114,19 @@ export const fdContentBlock = sqliteTable(
   (t) => [index('idx_block_module').on(t.moduleId, t.ordinal)],
 );
 
+// Intake answers: how the learner wants this to go. Latest row per key wins.
+export const fdPreference = sqliteTable(
+  'fd_preference',
+  {
+    id: text('id').primaryKey(),
+    sessionId: text('session_id').notNull(),
+    key: text('key').notNull(), // start | time | styles | objective
+    valueJson: text('value_json').notNull(),
+    createdAt: text('created_at').notNull(),
+  },
+  (t) => [index('idx_pref_session').on(t.sessionId, t.key)],
+);
+
 export const fdModule = sqliteTable('fd_module', {
   id: text('id').primaryKey(),
   courseId: text('course_id').notNull(),
