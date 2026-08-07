@@ -9,6 +9,7 @@ import Diagnostic from './routes/Diagnostic';
 import DiagnosticResult from './routes/DiagnosticResult';
 import Path from './routes/Path';
 import ModuleView from './routes/ModuleView';
+import Podcast from './routes/Podcast';
 import Activity from './routes/Activity';
 import Complete from './routes/Complete';
 import type { ReactNode } from 'react';
@@ -36,6 +37,7 @@ export default function App() {
           <Route path="/diagnostic/result" element={<RequireSession><DiagnosticResult /></RequireSession>} />
           <Route path="/path" element={<RequireSession><Path /></RequireSession>} />
           <Route path="/module/1" element={<RequireSession><ModuleView /></RequireSession>} />
+          <Route path="/module/1/podcast" element={<RequireSession><Podcast /></RequireSession>} />
           <Route path="/module/1/activity" element={<RequireSession><Activity /></RequireSession>} />
           <Route path="/module/1/complete" element={<RequireSession><Complete /></RequireSession>} />
           <Route path="*" element={<Navigate to="/" replace />} />

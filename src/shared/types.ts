@@ -130,6 +130,40 @@ export type MeResponse = {
   };
 };
 
+// ---------- podcast creator ----------
+
+export type PodcastLength = 'quick' | 'standard' | 'deep';
+
+export type PodcastLine = { speaker: 'a' | 'b'; text: string };
+
+// The two hosts are fixed personas; their voices map to Workers AI Aura speakers.
+export const PODCAST_HOSTS = {
+  a: { name: 'Maya', tagline: 'asks what you would ask' },
+  b: { name: 'Leo', tagline: 'knows the material cold' },
+} as const;
+
+export type PodcastEpisode = {
+  id: string;
+  moduleId: string;
+  title: string;
+  description: string;
+  lengthPref: PodcastLength;
+  promptText: string | null;
+  lines: PodcastLine[];
+  estMinutes: number;
+  audioCached: boolean;
+  createdAt: string;
+};
+
+export type PodcastSummary = Omit<PodcastEpisode, 'lines'>;
+
+export type PodcastListResponse = {
+  episodes: PodcastSummary[];
+  // False when this deployment lacks the binding/key — the UI degrades honestly.
+  scriptEnabled: boolean;
+  audioEnabled: boolean;
+};
+
 export type ModuleContentResponse = {
   module: ModuleCard;
   blocks: ContentBlock[];
