@@ -127,6 +127,32 @@ export const fdPreference = sqliteTable(
   (t) => [index('idx_pref_session').on(t.sessionId, t.key)],
 );
 
+// A generated episode: the script is written once (Anthropic), audio is rendered
+// lazily on first listen (Workers AI TTS) and cached in R2 under audio_key.
+export const fdPodcast = sqliteTable(
+  'fd_podcast',
+  {
+    id: text('id').primaryKey(),
+    sessionId: text('session_id').notNull(),
+    moduleId: text('module_id').notNull(),
+    promptText: text('prompt_text'), // the learner's focus/angle, verbatim
+    lengthPref: text('length_pref').notNull(), // quick | standard | deep
+    title: text('title').notNull(),
+    description: text('description').notNull(),
+    scriptJson: text('script_json').notNull(), // [{speaker:'a'|'b', text}]
+    totalChars: integer('total_chars').notNull(),
+    modelUsed: text('model_used'),
+    promptVersion: text('prompt_version'),
+    voiceA: text('voice_a').notNull(),
+    voiceB: text('voice_b').notNull(),
+    audioKey: text('audio_key'),
+    audioBytes: integer('audio_bytes'),
+    audioAt: text('audio_at'),
+    createdAt: text('created_at').notNull(),
+  },
+  (t) => [index('idx_podcast_session').on(t.sessionId)],
+);
+
 export const fdModule = sqliteTable('fd_module', {
   id: text('id').primaryKey(),
   courseId: text('course_id').notNull(),
