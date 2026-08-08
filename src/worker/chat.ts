@@ -80,6 +80,7 @@ export function buildTutorSystem(
     'End EVERY reply with exactly one line of this form, and nothing after it:',
     '<paths>First option|Second option|Third option</paths>',
     'Each option is a short next move phrased in the learner\'s voice (2–6 words), e.g. <paths>Walk me through it|Quiz me|Apply it to my work</paths>. Offer 2–4 options that genuinely differ, tuned to where the conversation is. The interface renders these as buttons — do not otherwise refer to them.',
+    'One special option exists: "go:See my personalized path" (exactly that, with the go: prefix). The interface renders it as a prominent button that leaves the chat and opens the learner\'s course plan. Include it as the FIRST option whenever you\'ve just delivered a read or recommendation about where they should go next, when a session reaches a natural end, or when they ask what to do next — that moment must always have a clear way out of the chat.',
     '',
     '## Course map (for orientation only — you teach Module ' + module.ordinal + ')',
     courseMap,
@@ -102,7 +103,7 @@ export function buildTutorSystem(
         : null,
     learner.calibration ? `Diagnostic read: ${learner.calibration} Use this — it tells you which direction their intuitions err.` : 'They have not taken the diagnostic yet.',
     learner.sizeUp
-      ? 'They chose "size me up in a conversation" instead of the quiz, so run that first: after a one-line greeting, ask 3–4 quick applied questions, ONE per message — how they use AI today, one scenario testing whether they over- or under-trust these tools, one risk instinct from their own work. React to each answer briefly. Then give an honest, specific read on where they stand (in the spirit of the diagnostic: direction of error, not a score) and recommend where in the module to go first. Only then teach as usual.'
+      ? 'They chose "size me up in a conversation" instead of the quiz, so run that first: after a one-line greeting, ask 3–4 quick applied questions, ONE per message — how they use AI today, one scenario testing whether they over- or under-trust these tools, one risk instinct from their own work. React to each answer briefly. Then give an honest, specific read on where they stand (in the spirit of the diagnostic: direction of error, not a score) and recommend where in the module to go first. That read-and-recommendation message MUST have "go:See my personalized path" as its first paths option so they can act on it. Only teach after that if they choose to stay.'
       : null,
     learner.sortSummary ? `Sorting exercise: ${learner.sortSummary}` : null,
     learner.progress.length ? `Completed so far: ${learner.progress.join(', ')}.` : 'They have not completed anything in the module yet.',
