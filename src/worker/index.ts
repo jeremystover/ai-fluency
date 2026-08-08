@@ -676,8 +676,10 @@ app.get('/api/path', async (c) => {
   if (!session) return c.json({ error: 'No session.' }, 401);
   const rows = await db.select().from(t.fdModule).where(eq(t.fdModule.courseId, 'ai101')).orderBy(asc(t.fdModule.ordinal));
 
-  // A prerequisite is satisfied by completing the module — or by testing out.
-  // Testing out of M1 = a perfect knowledge score on the diagnostic.
+  // Prerequisites are advisory — they shape the recommendation line, never a
+  // hard lock. A prerequisite is satisfied by completing the module or by
+  // testing out. Testing out of M1 = at most one miss across the diagnostic's
+  // knowledge questions (all of them answered).
   const completedRows = await db
     .select()
     .from(t.fdEvent)
@@ -690,7 +692,8 @@ app.get('/api/path', async (c) => {
     .from(t.fdDiagnosticResponse)
     .where(and(eq(t.fdDiagnosticResponse.sessionId, session.id), sql`${t.fdDiagnosticResponse.correct} IS NOT NULL`));
   const kTotal = diagItems.filter((i) => i.kind === 'knowledge').length;
-  const testedOutM1 = kResponses.length >= kTotal && kResponses.every((r) => r.correct === 1);
+  const kCorrect = kResponses.filter((r) => r.correct === 1).length;
+  const testedOutM1 = kResponses.length >= kTotal && kCorrect >= kTotal - 1;
 
   const titleOf = (id: string) => rows.find((m) => m.id === id)?.title ?? id;
   const satisfied = (id: string) => completed.has(id) || (id === 'ai101-m1' && testedOutM1);
@@ -698,22 +701,25 @@ app.get('/api/path', async (c) => {
   const modules: PathModule[] = rows.map((m) => {
     const prereqs: string[] = m.prereqJson ? JSON.parse(m.prereqJson) : [];
     const unmet = prereqs.filter((p) => !satisfied(p));
-    let access: PathModule['access'];
+    const access: PathModule['access'] = m.status === 'open' ? 'open' : 'full_course';
     let unlockHint: string | undefined;
-    if (m.status === 'open') {
-      access = 'open';
-    } else if (unmet.length === 0) {
-      access = 'full_course';
-      if (prereqs.length > 0) unlockHint = 'Prerequisite cleared.';
-    } else {
-      access = 'locked';
+    if (unmet.length > 0) {
       const names = unmet.map(titleOf).join(' and ');
-      unlockHint =
-        unmet.includes('ai101-m1')
-          ? `Needs ${names} first — finish it, or test out with a perfect knowledge score on the diagnostic.`
-          : `Needs ${names} first.`;
+      unlockHint = unmet.includes('ai101-m1')
+        ? `Best after ${names} — or test out via the diagnostic (at most one knowledge miss). Go in any order; nothing locks.`
+        : `Best after ${names}. Go in any order; nothing locks.`;
+    } else if (prereqs.length > 0) {
+      unlockHint = 'Prerequisite cleared.';
     }
-    return { ...(m as ModuleCard), access, prereqs, unlockHint, microMinutes: 2 };
+    return {
+      ...(m as ModuleCard),
+      access,
+      prereqs,
+      unlockHint,
+      microMinutes: 2,
+      completed: completed.has(m.id),
+      testedOut: !completed.has(m.id) && m.id === 'ai101-m1' && testedOutM1,
+    };
   });
 
   // Courses beyond 101 are locked cards; they live in content, not the DB, until they exist.
@@ -764,7 +770,9 @@ app.get('/api/module/:id', async (c) => {
   const modRows = await db.select().from(t.fdModule).where(eq(t.fdModule.id, id)).limit(1);
   const mod = modRows[0];
   if (!mod) return c.json({ error: 'No such module.' }, 404);
-  if (mod.status !== 'open') return c.json({ error: 'This module is not open yet.' }, 403);
+  if (mod.status !== 'open') {
+    return c.json({ error: "This module's content ships in the full course — the demo carries Module 1 end to end." }, 403);
+  }
   const blockRows = await db.select().from(t.fdContentBlock).where(eq(t.fdContentBlock.moduleId, id)).orderBy(asc(t.fdContentBlock.ordinal));
   const blocks = blockRows.map(toBlock);
   const words = blocks.reduce((sum, b) => sum + b.body.split(/\s+/).length, 0);

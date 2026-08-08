@@ -16,23 +16,18 @@ function Lock() {
 
 function ModuleCard({ m }: { m: PathModule }) {
   const open = m.access === 'open';
+  const badge = m.completed
+    ? { text: '✓ Completed', cls: 'bg-success/10 text-success border border-success/40' }
+    : m.testedOut
+      ? { text: '✓ Tested out', cls: 'bg-signal text-on-signal' }
+      : open
+        ? { text: 'Open', cls: 'bg-signal text-on-signal' }
+        : { text: 'Your choice · full course', cls: 'border border-line-strong text-muted' };
   return (
-    <div
-      className={`border rounded-brand p-5 bg-surface flex flex-col ${
-        open ? 'border-accent' : m.access === 'locked' ? 'border-line opacity-80' : 'border-line'
-      }`}
-    >
+    <div className={`border rounded-brand p-5 bg-surface flex flex-col ${open ? 'border-accent' : 'border-line'}`}>
       <div className="flex items-center justify-between">
         <span className="label-utility">Module {m.ordinal}</span>
-        {open ? (
-          <span className="font-utility text-[0.65rem] uppercase tracking-wider px-2 py-0.5 rounded-full bg-signal text-on-signal">Open</span>
-        ) : m.access === 'locked' ? (
-          <span className="label-utility flex items-center gap-1"><Lock /> Locked</span>
-        ) : (
-          <span className="font-utility text-[0.65rem] uppercase tracking-wider px-2 py-0.5 rounded-full border border-line-strong text-muted">
-            Your choice · full course
-          </span>
-        )}
+        <span className={`font-utility text-[0.65rem] uppercase tracking-wider px-2 py-0.5 rounded-full ${badge.cls}`}>{badge.text}</span>
       </div>
       <h2 className="font-display font-semibold text-ink-strong text-lg mt-2">{m.title}</h2>
       <p className="text-sm text-ink mt-1.5 leading-relaxed flex-1">{m.blurb}</p>
@@ -47,19 +42,15 @@ function ModuleCard({ m }: { m: PathModule }) {
               Micro
             </Link>
             <Link to="/module/1" className="text-accent text-sm font-semibold no-underline hover:underline">
-              Start →
+              {m.completed ? 'Revisit →' : 'Start →'}
             </Link>
           </span>
         )}
       </div>
-      {m.access === 'locked' && m.unlockHint && (
-        <p className="text-xs text-ink-strong mt-2 flex gap-1.5">
-          <span aria-hidden="true">🔑</span>
-          {m.unlockHint}
+      {m.unlockHint && !m.completed && (
+        <p className={`text-xs mt-2 ${m.unlockHint === 'Prerequisite cleared.' ? 'text-success' : 'text-muted'}`}>
+          {m.unlockHint === 'Prerequisite cleared.' ? '✓ ' : ''}{m.unlockHint}
         </p>
-      )}
-      {m.access === 'full_course' && m.unlockHint && (
-        <p className="text-xs text-success mt-2">✓ {m.unlockHint}</p>
       )}
     </div>
   );

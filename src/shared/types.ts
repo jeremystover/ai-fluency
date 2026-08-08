@@ -37,15 +37,18 @@ export type ModuleCard = {
   estMinutes: number;
 };
 
-// Computed per session on /api/path:
+// Computed per session on /api/path. Nothing hard-locks: prerequisites are
+// advisory (unlockHint carries the recommendation), and learners go in any
+// order.
 //   open        — content available in this demo, go
-//   full_course — no prerequisites; yours whenever, content ships in the full course
-//   locked      — strong prerequisite unmet; unlockHint says exactly how to unlock
+//   full_course — yours whenever; content ships in the full course
 export type PathModule = ModuleCard & {
-  access: 'open' | 'full_course' | 'locked';
+  access: 'open' | 'full_course';
   prereqs: string[];
   unlockHint?: string;
   microMinutes: number;
+  completed: boolean; // module_completed logged for this module
+  testedOut: boolean; // cleared by assessment instead of completion (M1: diagnostic)
 };
 
 export type CourseCard = {

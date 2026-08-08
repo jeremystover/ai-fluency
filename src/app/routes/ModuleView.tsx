@@ -117,6 +117,7 @@ export default function ModuleView() {
   const [error, setError] = useState<string | null>(null);
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [progress, setProgress] = useState(0);
+  const completedTracked = useRef(false);
   const articleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -137,7 +138,9 @@ export default function ModuleView() {
     [data],
   );
 
-  // Scroll-linked TOC + honest reading progress.
+  // Scroll-linked TOC + honest reading progress. Reaching the end IS
+  // completing the read — that's what unlock hints and the plan key off,
+  // not the separately-graded applied activity.
   useEffect(() => {
     if (!data) return;
     const onScroll = () => {
@@ -146,7 +149,12 @@ export default function ModuleView() {
       const rect = el.getBoundingClientRect();
       const total = rect.height - window.innerHeight;
       const done = Math.min(Math.max(-rect.top, 0), Math.max(total, 1));
-      setProgress(total > 0 ? done / total : 1);
+      const p = total > 0 ? done / total : 1;
+      setProgress(p);
+      if (p >= 0.97 && !completedTracked.current) {
+        completedTracked.current = true;
+        track('module_completed', { moduleId: 'ai101-m1' });
+      }
       let current: string | null = null;
       for (const s of sections) {
         const sec = document.getElementById(s.id);
