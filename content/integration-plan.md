@@ -126,4 +126,21 @@ special cases.
      build-so-far stack, which together are the portfolio; its cold-reader handoff test runs
      through the Phase E review desk. M8's knowledge check grows from six questions to eight,
      matching its siblings.
-- **Later:** org-tailored [V] lab lessons; a second maintenance-agent pass over volatile blocks.
+- **G · The maintenance agent + org-tailored labs (done).** The two standing promises made
+  operational:
+  1. **The maintenance agent** (`npm run maintain`). Walks ONLY the volatile layer — stable
+     blocks are never collected — and reviews each block against the current state of the world
+     (web search, today's date, the block's own reviewedAt stamp). Check mode writes a report
+     with per-block findings and proposed patches; `--write` applies the patches and bumps
+     reviewedAt on everything it confirmed, leaving git diff as the human review gate before
+     `seed:generate` and deploy. Patches change the fewest words that make a block true again;
+     voice, structure, and pedagogy are contractually out of bounds.
+  2. **Org-tailored lab lessons** (`ORG_TOOLING` in wrangler.jsonc, next to BRAND_SLUG). The
+     hands-on [V] labs — M2's build-the-pack, M3's run-the-pipeline, M5's agent-behind-a-gate —
+     now ship in per-tooling variants (migration 0007 adds `variant` to fd_content_block). All
+     variants seed together; the worker serves the one matching the deployment's tooling at
+     read time — reading view, micro, tutor chat, and podcast all inherit it — with 'claude' as
+     the fallback so an unknown tooling never loses a lesson. ChatGPT variants ship now;
+     activating them is a one-line var change and redeploy, no reseed. Adding another stack
+     (Copilot, Gemini) is authoring variant blocks + setting the var.
+- **Later:** a scheduled runner for the maintenance agent (cron → PR with the diff).

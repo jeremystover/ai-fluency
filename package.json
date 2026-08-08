@@ -13,7 +13,9 @@
     "db:seed:local": "wrangler d1 execute fluency-demo --local --file=./seed/seed.sql",
     "db:seed:remote": "wrangler d1 execute fluency-demo --remote --file=./seed/seed.sql",
     "start": "wrangler dev",
-    "deploy": "npm run build && wrangler deploy"
+    "deploy": "npm run build && wrangler deploy",
+    "maintain": "node scripts/maintenance-agent.mjs",
+    "maintain:write": "node scripts/maintenance-agent.mjs --write"
   },
   "dependencies": {
     "drizzle-orm": "^0.44.2",
@@ -24,6 +26,7 @@
     "react-router-dom": "^7.6.3"
   },
   "devDependencies": {
+    "@anthropic-ai/sdk": "^0.116.0",
     "@cloudflare/workers-types": "^5.20260801.1",
     "@fontsource-variable/outfit": "^5.2.5",
     "@fontsource/ibm-plex-mono": "^5.2.5",

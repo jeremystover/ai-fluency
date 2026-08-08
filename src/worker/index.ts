@@ -49,6 +49,10 @@ export interface Env {
   DB: D1Database;
   ASSETS: Fetcher;
   BRAND_SLUG: string;
+  // Which AI tool stack this org provisions ('claude' | 'chatgpt'). Drives
+  // which variant of the [V] lab lessons is served — one tooling per deploy,
+  // same pattern as BRAND_SLUG. Unset = 'claude'.
+  ORG_TOOLING?: string;
   GRADING_MODEL: string;
   CHAT_MODEL: string;
   PODCAST_MODEL?: string;
@@ -747,9 +751,23 @@ app.get('/api/module/:id/micro', async (c) => {
     .where(eq(t.fdContentBlock.moduleId, `${id}-micro`))
     .orderBy(asc(t.fdContentBlock.ordinal));
   if (blockRows.length === 0) return c.json({ error: 'This module has no micro dose yet.' }, 404);
-  const blocks = blockRows.map(toBlock);
+  const blocks = selectVariants(blockRows, toolingOf(c.env)).map(toBlock);
   return c.json({ blocks, stamps: stampsFor(blocks) });
 });
+
+// One deployment teaches one tool stack. Blocks tagged with a variant form a
+// group per ordinal; serve the one matching ORG_TOOLING, falling back to the
+// 'claude' default so an unknown tooling never loses a lesson. Untagged
+// blocks apply to every org.
+const toolingOf = (env: Env) => env.ORG_TOOLING?.trim().toLowerCase() || 'claude';
+
+function selectVariants<T extends { ordinal: number; variant: string | null }>(rows: T[], tooling: string): T[] {
+  return rows.filter((row) => {
+    if (!row.variant) return true;
+    const groupHasMatch = rows.some((r) => r.ordinal === row.ordinal && r.variant === tooling);
+    return groupHasMatch ? row.variant === tooling : row.variant === 'claude';
+  });
+}
 
 function toBlock(row: typeof t.fdContentBlock.$inferSelect): ContentBlock {
   return {
@@ -821,7 +839,7 @@ app.get('/api/module/:id', async (c) => {
   if (!mod) return c.json({ error: 'No such module.' }, 404);
   if (mod.status !== 'open') return c.json({ error: 'This module is not open yet.' }, 403);
   const blockRows = await db.select().from(t.fdContentBlock).where(eq(t.fdContentBlock.moduleId, id)).orderBy(asc(t.fdContentBlock.ordinal));
-  const blocks = blockRows.map(toBlock);
+  const blocks = selectVariants(blockRows, toolingOf(c.env)).map(toBlock);
   const words = blocks.reduce((sum, b) => sum + b.body.split(/\s+/).length, 0);
 
   // Capabilities are discovered from what the package seeded — the modality
@@ -1037,7 +1055,7 @@ async function buildLearnerContext(db: DrizzleD1Database, sessionId: string): Pr
   };
 }
 
-async function loadChatModule(db: DrizzleD1Database, moduleId: string) {
+async function loadChatModule(db: DrizzleD1Database, moduleId: string, tooling: string) {
   const modRows = await db.select().from(t.fdModule).where(eq(t.fdModule.id, moduleId)).limit(1);
   const mod = modRows[0];
   if (!mod || mod.status !== 'open') return null;
@@ -1047,7 +1065,7 @@ async function loadChatModule(db: DrizzleD1Database, moduleId: string) {
     .where(eq(t.fdContentBlock.moduleId, moduleId))
     .orderBy(asc(t.fdContentBlock.ordinal));
   if (blockRows.length === 0) return null;
-  return { mod, blocks: blockRows.map(toBlock) };
+  return { mod, blocks: selectVariants(blockRows, tooling).map(toBlock) };
 }
 
 app.get('/api/module/:id/chat', async (c) => {
@@ -1055,7 +1073,7 @@ app.get('/api/module/:id/chat', async (c) => {
   const session = requireSession(c);
   if (!session) return c.json({ error: 'No session.' }, 401);
   const moduleId = c.req.param('id');
-  const loaded = await loadChatModule(db, moduleId);
+  const loaded = await loadChatModule(db, moduleId, toolingOf(c.env));
   if (!loaded) return c.json({ error: 'No tutor for this module yet.' }, 404);
   const rows = await db
     .select()
@@ -1095,7 +1113,7 @@ app.post('/api/module/:id/chat', async (c) => {
     return c.json({ error: 'The tutor is offline in this deployment — the reading path has everything it covers.' }, 503);
   }
   const moduleId = c.req.param('id');
-  const loaded = await loadChatModule(db, moduleId);
+  const loaded = await loadChatModule(db, moduleId, toolingOf(c.env));
   if (!loaded) return c.json({ error: 'No tutor for this module yet.' }, 404);
 
   const body = await c.req.json<{ message?: string; via?: string }>().catch(() => null);
@@ -1504,7 +1522,7 @@ app.get('/api/module/:id/activity', async (c) => {
   const trail = rubric.includeTrail ? await trailFor(db, session.id) : null;
 
   return c.json({
-    blocks: blockRows.map(toBlock),
+    blocks: selectVariants(blockRows, toolingOf(c.env)).map(toBlock),
     minChars: rubric.minChars ?? MIN_SUBMISSION_CHARS,
     intro: rubric.intro,
     submitLabel: rubric.submitLabel,
@@ -1747,7 +1765,7 @@ app.post('/api/podcast', async (c) => {
     .from(t.fdContentBlock)
     .where(eq(t.fdContentBlock.moduleId, moduleId))
     .orderBy(asc(t.fdContentBlock.ordinal));
-  const contentMd = blockRows
+  const contentMd = selectVariants(blockRows, toolingOf(c.env))
     .filter((b) => b.kind !== 'exercise')
     .map((b) => b.body)
     .join('\n\n');

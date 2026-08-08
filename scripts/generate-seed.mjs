@@ -64,7 +64,7 @@ for (const m of modules) {
 
 const insertBlock = (b) =>
   lines.push(
-    `INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at) VALUES (${q(b.id)}, ${q(b.moduleId)}, ${b.ordinal}, ${q(b.kind)}, ${q(b.layer)}, ${q(b.body)}, ${q(b.dependsOn ? JSON.stringify(b.dependsOn) : null)}, ${q(b.reviewedAt)});`,
+    `INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES (${q(b.id)}, ${q(b.moduleId)}, ${b.ordinal}, ${q(b.kind)}, ${q(b.layer)}, ${q(b.body)}, ${q(b.dependsOn ? JSON.stringify(b.dependsOn) : null)}, ${q(b.reviewedAt)}, ${q(b.variant ?? null)});`,
   );
 
 const packagesDir = join(root, 'content', 'modules');

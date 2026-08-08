@@ -110,6 +110,10 @@ export const fdContentBlock = sqliteTable(
     body: text('body').notNull(), // markdown (exercise blocks carry a JSON payload)
     dependsOn: text('depends_on'), // JSON array — future agent watch topics
     reviewedAt: text('reviewed_at').notNull(),
+    // Org-tooling variant ('claude' | 'chatgpt' | ...). NULL = applies to every
+    // deployment. Blocks sharing an ordinal form a variant group; the worker
+    // serves the one matching ORG_TOOLING, falling back to 'claude'.
+    variant: text('variant'),
   },
   (t) => [index('idx_block_module').on(t.moduleId, t.ordinal)],
 );
