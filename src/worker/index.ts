@@ -464,7 +464,7 @@ app.get('/api/me', async (c) => {
   if (!session)
     return c.json({
       authenticated: false,
-      progress: { intakeDone: false, diagnosticDone: false, sortDone: false, activityGraded: false, moduleCompleted: false },
+      progress: { intakeDone: false, diagnosticDone: false, sortDone: false, activityGraded: false, moduleCompleted: false, chatStarted: false, podcastTried: false },
     } satisfies MeResponse);
 
   const participants = await db
@@ -498,6 +498,8 @@ app.get('/api/me', async (c) => {
       sortDone: await has('sort_submitted'),
       activityGraded: (gradedRows[0]?.n ?? 0) > 0,
       moduleCompleted: await has('module_completed'),
+      chatStarted: await has('chat_started'),
+      podcastTried: await has('podcast_requested'),
     },
   };
   return c.json(res);

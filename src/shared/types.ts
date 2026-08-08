@@ -174,6 +174,8 @@ export type MeResponse = {
     sortDone: boolean;
     activityGraded: boolean;
     moduleCompleted: boolean;
+    chatStarted: boolean;
+    podcastTried: boolean;
   };
 };
 

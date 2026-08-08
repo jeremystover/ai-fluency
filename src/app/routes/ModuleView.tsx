@@ -1,9 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import type { ContentBlock, ModuleContentResponse } from '../../shared/types';
 import { Screen, Markdown, ErrorNote } from '../components/ui';
 import SortingExercise from '../components/SortingExercise';
 import { api, ApiError, track } from '../api';
+import { useApp } from '../brand';
+import { firstVisitRedirect, preferredSurface } from '../modality';
 
 function TryThis({ block }: { block: ContentBlock }) {
   const [open, setOpen] = useState(false);
@@ -118,6 +120,21 @@ export default function ModuleView() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [progress, setProgress] = useState(0);
   const completedTracked = useRef(false);
+  const { me } = useApp();
+  const navigate = useNavigate();
+  const redirected = useRef(false);
+
+  // Honor the stated learning style: a chat- or podcast-first learner's first
+  // visit to the module goes straight to that surface (it greets them there).
+  // Once they've used it — or if they chose reading — this page is home base.
+  useEffect(() => {
+    if (!me || redirected.current) return;
+    const target = firstVisitRedirect(me);
+    if (target) {
+      redirected.current = true;
+      navigate(target, { replace: true });
+    }
+  }, [me, navigate]);
   const articleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -203,25 +220,56 @@ export default function ModuleView() {
               <Link to="/module/1/micro" className="text-accent no-underline hover:underline">Short on time? The two-minute version →</Link>
             </p>
 
-            <div className="mt-5 border border-accent/40 rounded-brand bg-accent/[0.04] px-4 py-3 flex flex-col sm:flex-row sm:items-center gap-2 sm:justify-between">
-              <p className="text-sm text-ink">
-                <span className="font-display font-semibold text-accent">Prefer to talk it through?</span> The module tutor teaches this same
-                material in conversation — lecturettes, questions, quizzes, your pace. Type or speak; it can read replies aloud.
-              </p>
-              <Link to="/module/1/chat" className="text-accent font-semibold text-sm no-underline hover:underline whitespace-nowrap">
-                Open the tutor →
-              </Link>
-            </div>
-            <Link
-              to="/module/1/podcast"
-              className="mt-2 flex items-center justify-between gap-3 border border-line rounded-brand bg-surface px-4 py-3 no-underline hover:border-ink-strong transition-colors group"
-            >
-              <span>
-                <span className="font-display font-semibold text-ink-strong text-[0.95rem]">Prefer to listen? Make it a podcast.</span>
-                <span className="block text-xs text-muted mt-0.5">Two hosts talk through this module from whatever angle you give them.</span>
-              </span>
-              <span className="text-accent font-semibold text-sm shrink-0 group-hover:underline" aria-hidden="true">Open the studio →</span>
-            </Link>
+            {(() => {
+              // The learner told us how they learn — lead with that surface.
+              const surface = preferredSurface(me?.prefs?.styles);
+              const chip = (
+                <span className="font-utility text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded-full bg-signal text-on-signal shrink-0">
+                  Your style
+                </span>
+              );
+              const tutor = (
+                <div
+                  key="tutor"
+                  className={`mt-2 first:mt-5 border rounded-brand px-4 py-3 flex flex-col sm:flex-row sm:items-center gap-2 sm:justify-between ${
+                    surface === 'chat' || surface === 'voice-chat' ? 'border-accent bg-accent/[0.06]' : 'border-accent/40 bg-accent/[0.04]'
+                  }`}
+                >
+                  <p className="text-sm text-ink">
+                    {(surface === 'chat' || surface === 'voice-chat') && <span className="mr-2">{chip}</span>}
+                    <span className="font-display font-semibold text-accent">
+                      {surface === 'voice-chat' ? 'You said you learn by talking.' : surface === 'chat' ? 'You said you learn interactively.' : 'Prefer to talk it through?'}
+                    </span>{' '}
+                    The module tutor teaches this same material in conversation — lecturettes, questions, quizzes, your pace. Type or speak.
+                  </p>
+                  <Link
+                    to={surface === 'voice-chat' ? '/module/1/chat?voice=1' : '/module/1/chat'}
+                    className="text-accent font-semibold text-sm no-underline hover:underline whitespace-nowrap"
+                  >
+                    {surface === 'voice-chat' ? 'Start talking →' : 'Open the tutor →'}
+                  </Link>
+                </div>
+              );
+              const podcast = (
+                <Link
+                  key="podcast"
+                  to="/module/1/podcast"
+                  className={`mt-2 first:mt-5 flex items-center justify-between gap-3 border rounded-brand px-4 py-3 no-underline transition-colors group ${
+                    surface === 'podcast' ? 'border-accent bg-accent/[0.06] hover:border-ink-strong' : 'border-line bg-surface hover:border-ink-strong'
+                  }`}
+                >
+                  <span>
+                    <span className="font-display font-semibold text-ink-strong text-[0.95rem] flex items-center gap-2">
+                      {surface === 'podcast' && chip}
+                      {surface === 'podcast' ? 'You said you learn by listening — make this module a podcast.' : 'Prefer to listen? Make it a podcast.'}
+                    </span>
+                    <span className="block text-xs text-muted mt-0.5">Two hosts talk through this module from whatever angle you give them.</span>
+                  </span>
+                  <span className="text-accent font-semibold text-sm shrink-0 group-hover:underline" aria-hidden="true">Open the studio →</span>
+                </Link>
+              );
+              return surface === 'podcast' ? [podcast, tutor] : [tutor, podcast];
+            })()}
 
             <div className="mt-6 sm:pl-2">
               {data.blocks.filter((b) => b.moduleId === 'ai101-m1').map((b) => (

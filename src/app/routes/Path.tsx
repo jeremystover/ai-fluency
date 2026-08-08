@@ -4,6 +4,7 @@ import type { CourseCard, PathModule } from '../../shared/types';
 import { Screen, ErrorNote } from '../components/ui';
 import { api, ApiError } from '../api';
 import { useApp } from '../brand';
+import { preferredSurface, surfaceRoute, surfaceStartLabel } from '../modality';
 
 function Lock() {
   return (
@@ -14,7 +15,7 @@ function Lock() {
   );
 }
 
-function ModuleCard({ m }: { m: PathModule }) {
+function ModuleCard({ m, startRoute, startLabel }: { m: PathModule; startRoute: string; startLabel: string }) {
   const open = m.access === 'open';
   const badge = m.completed
     ? { text: '✓ Completed', cls: 'bg-success/10 text-success border border-success/40' }
@@ -41,8 +42,8 @@ function ModuleCard({ m }: { m: PathModule }) {
             <Link to="/module/1/micro" className="text-accent text-sm font-semibold no-underline hover:underline">
               Micro
             </Link>
-            <Link to="/module/1" className="text-accent text-sm font-semibold no-underline hover:underline">
-              {m.completed ? 'Revisit →' : 'Start →'}
+            <Link to={m.completed ? '/module/1' : startRoute} className="text-accent text-sm font-semibold no-underline hover:underline">
+              {m.completed ? 'Revisit →' : startLabel}
             </Link>
           </span>
         )}
@@ -63,6 +64,7 @@ function ModuleCard({ m }: { m: PathModule }) {
 
 export default function Path() {
   const { me } = useApp();
+  const surface = preferredSurface(me?.prefs?.styles);
   const [data, setData] = useState<{ modules: PathModule[]; courses: CourseCard[] } | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -84,9 +86,9 @@ export default function Path() {
             <p className="label-utility">Your path</p>
             <h1 className="font-display font-bold text-ink-strong text-3xl sm:text-4xl mt-3">AI 101 · Foundations</h1>
             <p className="text-muted mt-2 max-w-xl">
-              Take modules in the order that serves you — each comes as a full module or a two-minute micro dose. A few build
-              on others; those stay locked until the prerequisite is met, and every lock says how to open it
-              {me?.progress.diagnosticDone ? '' : ' — the diagnostic can test you out of Module 1'}.
+              Take modules in the order that serves you — each comes as a full module or a two-minute micro dose. Nothing locks:
+              a few build on others, and those carry a recommendation, not a gate
+              {me?.progress.diagnosticDone ? '' : ' — and the diagnostic can test you out of Module 1'}.
             </p>
           </div>
           <Link to="/welcome?edit=1" className="text-accent text-sm font-semibold no-underline hover:underline shrink-0">
@@ -96,7 +98,7 @@ export default function Path() {
 
         <div className="mt-8 grid gap-3 sm:grid-cols-2">
           {data.modules.map((m) => (
-            <ModuleCard key={m.id} m={m} />
+            <ModuleCard key={m.id} m={m} startRoute={surfaceRoute(surface)} startLabel={surfaceStartLabel(surface)} />
           ))}
         </div>
 

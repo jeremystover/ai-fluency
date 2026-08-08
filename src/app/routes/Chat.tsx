@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { marked } from 'marked';
 import type { ChatHistoryResponse, ChatMessage, ChatStreamLine, VoiceStatus } from '../../shared/types';
 import { extractPaths } from '../../shared/chat';
@@ -96,6 +96,17 @@ export default function Chat() {
   const urlCache = useRef<Map<string, string>>(new Map());
   const voiceModeRef = useRef(voiceMode);
   voiceModeRef.current = voiceMode;
+  const [searchParams] = useSearchParams();
+
+  // ?voice=1 — the learner said they learn by talking, so arrive with voice
+  // mode already on (the toggle still turns it off).
+  useEffect(() => {
+    if (searchParams.get('voice') === '1') {
+      setVoiceMode(true);
+      localStorage.setItem(VOICE_MODE_KEY, '1');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const scrollDown = () => bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
   useEffect(scrollDown, [messages, streaming, busy]);
