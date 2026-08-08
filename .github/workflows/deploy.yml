@@ -18,9 +18,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Wrangler 4.x requires Node 22+; on Node 20 the wrangler-action falls
+      # back to installing wrangler 3.x, which conflicts with workers-types v5.
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: npm
 
       - name: Install dependencies
