@@ -276,7 +276,7 @@ app.post('/api/intake', async (c) => {
 
   const raw = body.prefs ?? {};
   const clean: [string, unknown][] = [];
-  if (raw.start === 'diagnostic' || raw.start === 'module') clean.push(['start', raw.start]);
+  if (raw.start === 'diagnostic' || raw.start === 'module' || raw.start === 'chat') clean.push(['start', raw.start]);
   if (typeof raw.time === 'number' && VALID_TIMES.has(raw.time)) clean.push(['time', raw.time]);
   if (Array.isArray(raw.styles)) clean.push(['styles', raw.styles.filter((s) => VALID_STYLES.has(s)).slice(0, 5)]);
   if (Array.isArray(raw.goals)) clean.push(['goals', raw.goals.filter((g) => VALID_GOALS.has(g)).slice(0, 8)]);
@@ -290,7 +290,7 @@ app.post('/api/intake', async (c) => {
   return c.json({ ok: true });
 });
 
-type Progress = { diagnosticDone: boolean; sortDone: boolean; activityGraded: boolean; moduleCompleted: boolean };
+type Progress = { diagnosticDone: boolean; sortDone: boolean; activityGraded: boolean; moduleCompleted: boolean; chatStarted: boolean };
 
 function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress): PlanResponse {
   const time = prefs.time ?? 30;
@@ -298,11 +298,11 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
 
   const diagnostic: PlanStep = {
     id: 'diagnostic',
-    title: start === 'module' ? 'The diagnostic — when you want your read tested' : 'The diagnostic — find your direction of error',
+    title: start === 'diagnostic' ? 'The diagnostic — find your direction of error' : 'The diagnostic — when you want your read tested',
     detail:
-      start === 'module'
-        ? "You chose to skip diagnosis for now. It'll be here — nine questions, scored against field data."
-        : 'Nine questions. Not a score — a direction: whether you expect too much or too little from these tools.',
+      start === 'diagnostic'
+        ? 'Nine questions. Not a score — a direction: whether you expect too much or too little from these tools.'
+        : "You chose a different first step. The full diagnostic will be here — nine questions, scored against field data.",
     minutes: 8,
     route: '/diagnostic',
     state: progress.diagnosticDone ? 'done' : 'later',
@@ -341,14 +341,29 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
     state: progress.moduleCompleted || progress.sortDone ? 'done' : 'later',
   };
 
+  // The conversational alternative to the diagnostic: the tutor probes their
+  // level in chat, then teaches from wherever that lands.
+  const sizeUp: PlanStep = {
+    id: 'size-up',
+    title: 'Size-up conversation — the tutor works out your level',
+    detail: 'A few applied questions in chat, one at a time, then an honest read on where you stand and where to go first. Speak or type.',
+    minutes: 8,
+    route: '/module/1/chat',
+    state: progress.chatStarted ? 'done' : 'later',
+  };
+
   const shortSitting = time > 0 && time <= 10;
-  const steps = start === 'module'
+  const steps = start === 'chat'
     ? shortSitting
-      ? [micro, core, read, activity, diagnostic]
-      : [core, read, activity, diagnostic]
-    : shortSitting
-      ? [diagnostic, micro, core, read, activity]
-      : [diagnostic, core, read, activity];
+      ? [sizeUp, micro, core, read, activity, diagnostic]
+      : [sizeUp, core, read, activity, diagnostic]
+    : start === 'module'
+      ? shortSitting
+        ? [micro, core, read, activity, diagnostic]
+        : [core, read, activity, diagnostic]
+      : shortSitting
+        ? [diagnostic, micro, core, read, activity]
+        : [diagnostic, core, read, activity];
 
   // Fit "now" steps to the time they said they had; 0 = exploring, one step at a time.
   let budget = time === 0 ? Infinity : time + 5;
@@ -434,6 +449,7 @@ app.get('/api/plan', async (c) => {
     sortDone: await has('sort_submitted'),
     activityGraded: (gradedRows[0]?.n ?? 0) > 0,
     moduleCompleted: await has('module_completed'),
+    chatStarted: await has('chat_started'),
   };
   const plan = composePlan(participants[0]?.displayName ?? null, prefs, progress);
   await logEvent(db, session.id, 'plan_generated', { nextRoute: plan.nextRoute });
@@ -888,6 +904,7 @@ async function buildLearnerContext(db: DrizzleD1Database, sessionId: string): Pr
     calibration,
     sortSummary,
     progress,
+    sizeUp: prefs.start === 'chat' && !calibration,
   };
 }
 

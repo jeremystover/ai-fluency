@@ -130,7 +130,7 @@ export type ChatStreamLine =
   | { type: 'error'; message: string };
 
 export type IntakePrefs = {
-  start?: 'diagnostic' | 'module';
+  start?: 'diagnostic' | 'module' | 'chat';
   time?: number; // minutes available this sitting; 0 = just exploring
   styles?: string[]; // reading | interactive | podcast | assistant_mcp | voice
   goals?: string[]; // fluency | workflows | apply | news | tools | safety | coach | confidence

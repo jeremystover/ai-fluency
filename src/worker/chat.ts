@@ -15,6 +15,9 @@ export type LearnerContext = {
   calibration: string | null; // one-line read from the diagnostic, if taken
   sortSummary: string | null; // sorting-exercise result, if done
   progress: string[]; // human-readable list of what they've completed
+  // They picked "size me up in a conversation" at intake and haven't taken the
+  // diagnostic — the opening turns should assess before they teach.
+  sizeUp: boolean;
 };
 
 // Exercise blocks store a JSON payload, not markdown — surface them to the
@@ -97,6 +100,9 @@ export function buildTutorSystem(
         ? `They said they have about ${learner.timeBudget} minutes this sitting — pace accordingly.`
         : null,
     learner.calibration ? `Diagnostic read: ${learner.calibration} Use this — it tells you which direction their intuitions err.` : 'They have not taken the diagnostic yet.',
+    learner.sizeUp
+      ? 'They chose "size me up in a conversation" instead of the quiz, so run that first: after a one-line greeting, ask 3–4 quick applied questions, ONE per message — how they use AI today, one scenario testing whether they over- or under-trust these tools, one risk instinct from their own work. React to each answer briefly. Then give an honest, specific read on where they stand (in the spirit of the diagnostic: direction of error, not a score) and recommend where in the module to go first. Only then teach as usual.'
+      : null,
     learner.sortSummary ? `Sorting exercise: ${learner.sortSummary}` : null,
     learner.progress.length ? `Completed so far: ${learner.progress.join(', ')}.` : 'They have not completed anything in the module yet.',
   ]

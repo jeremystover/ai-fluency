@@ -27,9 +27,8 @@ const START_CHOICES: StartChoice[] = [
   {
     id: 'chat',
     label: 'Size me up in a conversation',
-    detail: 'A chat that works out your level by talking with you, no quiz.',
-    tag: 'Full course',
-    disabled: true,
+    detail: 'The module tutor works out your level by talking with you — a few applied questions, an honest read, no quiz.',
+    tag: 'New',
   },
 ];
 
