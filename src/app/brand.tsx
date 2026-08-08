@@ -32,7 +32,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     } catch {
       setMe({
         authenticated: false,
-        progress: { intakeDone: false, diagnosticDone: false, sortDone: false, activityGraded: false, moduleCompleted: false },
+        progress: { intakeDone: false, diagnosticDone: false, sortDone: false, activityGraded: false, moduleCompleted: false, chatStarted: false, podcastTried: false },
       });
     }
   };

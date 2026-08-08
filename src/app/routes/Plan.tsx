@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import type { PlanResponse } from '../../shared/types';
 import { Screen, Button, ErrorNote } from '../components/ui';
 import { api, ApiError } from '../api';
-import { goalLabel } from '../goals';
+import { goalLabel } from '../../shared/goals';
 
 const STATE_LABEL: Record<string, string> = { done: 'Done', now: 'This sitting', later: 'Another sitting' };
 

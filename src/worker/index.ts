@@ -9,6 +9,9 @@ import { adminApp } from './admin';
 import { buildTutorSystem, streamTutorReply, KICKOFF_TURN, type LearnerContext as TutorLearnerContext, type TutorMessage } from './chat';
 import { transcribe, speakable, renderSpeech, TUTOR_VOICE } from './voice';
 import { extractPaths } from '../shared/chat';
+import { GOAL_CHOICES } from '../shared/goals';
+import { DEPTH_IDS, depthOf } from '../shared/depth';
+import { preferredSurface } from '../shared/modality';
 import {
   writeScript,
   renderAudio,
@@ -22,6 +25,7 @@ import {
 import diagnosticData from '../../content/diagnostic.json';
 import sortingData from '../../content/sorting.json';
 import type {
+  CourseCard,
   Brand,
   ContentBlock,
   IntakePrefs,
@@ -140,6 +144,11 @@ app.post('/api/event', async (c) => {
   const payload = body.payload === undefined ? undefined : body.payload;
   if (payload !== undefined && JSON.stringify(payload).length > 4096) return c.json({ error: 'Payload too large.' }, 400);
   await logEvent(db, session?.id ?? null, body.type, payload);
+  // Completing a module is the moment to get the next one's episode waiting
+  // for podcast-first learners; runs after the response, never blocks it.
+  if (body.type === 'module_completed' && session) {
+    c.executionCtx.waitUntil(pregenerateNextPodcast(c.env, session.id));
+  }
   return c.json({ ok: true });
 });
 
@@ -233,8 +242,8 @@ app.post('/api/hello', async (c) => {
 });
 
 const VALID_STYLES = new Set(['reading', 'interactive', 'podcast', 'assistant_mcp', 'voice']);
-const VALID_GOALS = new Set(['fluency', 'workflows', 'apply', 'news', 'tools', 'safety', 'coach', 'confidence']);
-const VALID_TIMES = new Set([0, 10, 30, 60]);
+const VALID_GOALS = new Set(GOAL_CHOICES.map((g) => g.id));
+
 
 async function loadPrefs(db: DrizzleD1Database, sessionId: string): Promise<IntakePrefs> {
   const rows = await db
@@ -246,7 +255,7 @@ async function loadPrefs(db: DrizzleD1Database, sessionId: string): Promise<Inta
   for (const row of rows) {
     const value = JSON.parse(row.valueJson);
     if (row.key === 'start') prefs.start = value;
-    else if (row.key === 'time') prefs.time = value;
+    else if (row.key === 'depth') prefs.depth = value;
     else if (row.key === 'styles') prefs.styles = value;
     else if (row.key === 'goals') prefs.goals = value;
     else if (row.key === 'objective') prefs.objective = value;
@@ -276,8 +285,8 @@ app.post('/api/intake', async (c) => {
 
   const raw = body.prefs ?? {};
   const clean: [string, unknown][] = [];
-  if (raw.start === 'diagnostic' || raw.start === 'module') clean.push(['start', raw.start]);
-  if (typeof raw.time === 'number' && VALID_TIMES.has(raw.time)) clean.push(['time', raw.time]);
+  if (raw.start === 'diagnostic' || raw.start === 'module' || raw.start === 'chat') clean.push(['start', raw.start]);
+  if (typeof raw.depth === 'string' && (DEPTH_IDS as string[]).includes(raw.depth)) clean.push(['depth', raw.depth]);
   if (Array.isArray(raw.styles)) clean.push(['styles', raw.styles.filter((s) => VALID_STYLES.has(s)).slice(0, 5)]);
   if (Array.isArray(raw.goals)) clean.push(['goals', raw.goals.filter((g) => VALID_GOALS.has(g)).slice(0, 8)]);
   if (typeof raw.objective === 'string') clean.push(['objective', raw.objective.trim().slice(0, 280)]);
@@ -287,22 +296,24 @@ app.post('/api/intake', async (c) => {
     await db.insert(t.fdPreference).values({ id: uuid(), sessionId: session.id, key, valueJson: JSON.stringify(value), createdAt: now() });
   }
   await logEvent(db, session.id, 'intake_completed', Object.fromEntries(clean));
+  // A podcast-first learner should find their first episode already waiting.
+  c.executionCtx.waitUntil(pregenerateNextPodcast(c.env, session.id));
   return c.json({ ok: true });
 });
 
-type Progress = { diagnosticDone: boolean; sortDone: boolean; activityGraded: boolean; moduleCompleted: boolean };
+type Progress = { diagnosticDone: boolean; sortDone: boolean; activityGraded: boolean; moduleCompleted: boolean; chatStarted: boolean };
 
 function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress): PlanResponse {
-  const time = prefs.time ?? 30;
+  const depth = depthOf(prefs.depth);
   const start = prefs.start ?? 'diagnostic';
 
   const diagnostic: PlanStep = {
     id: 'diagnostic',
-    title: start === 'module' ? 'The diagnostic — when you want your read tested' : 'The diagnostic — find your direction of error',
+    title: start === 'diagnostic' ? 'The diagnostic — find your direction of error' : 'The diagnostic — when you want your read tested',
     detail:
-      start === 'module'
-        ? "You chose to skip diagnosis for now. It'll be here — nine questions, scored against field data."
-        : 'Nine questions. Not a score — a direction: whether you expect too much or too little from these tools.',
+      start === 'diagnostic'
+        ? 'Nine questions. Not a score — a direction: whether you expect too much or too little from these tools.'
+        : "You chose a different first step. The full diagnostic will be here — nine questions, scored against field data.",
     minutes: 8,
     route: '/diagnostic',
     state: progress.diagnosticDone ? 'done' : 'later',
@@ -341,34 +352,42 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
     state: progress.moduleCompleted || progress.sortDone ? 'done' : 'later',
   };
 
-  const shortSitting = time > 0 && time <= 10;
-  const steps = start === 'module'
-    ? shortSitting
-      ? [micro, core, read, activity, diagnostic]
-      : [core, read, activity, diagnostic]
-    : shortSitting
-      ? [diagnostic, micro, core, read, activity]
-      : [diagnostic, core, read, activity];
+  // The conversational alternative to the diagnostic: the tutor probes their
+  // level in chat, then teaches from wherever that lands.
+  const sizeUp: PlanStep = {
+    id: 'size-up',
+    title: 'Size-up conversation — the tutor works out your level',
+    detail: 'A few applied questions in chat, one at a time, then an honest read on where you stand and where to go first. Speak or type.',
+    minutes: 8,
+    route: '/module/1/chat',
+    state: progress.chatStarted ? 'done' : 'later',
+  };
 
-  // Fit "now" steps to the time they said they had; 0 = exploring, one step at a time.
-  let budget = time === 0 ? Infinity : time + 5;
-  let marked = 0;
+  // Deep-divers get a standing quiz session with the tutor on top of the
+  // full loop; it never reads as "done" — mastery is a practice, not a box.
+  const quiz: PlanStep = {
+    id: 'tutor-quiz',
+    title: 'Quiz sessions with the tutor — make it stick',
+    detail: 'Scenario questions in chat (or out loud), drawn from the module, until your calibration holds under pressure.',
+    minutes: 10,
+    route: '/module/1/chat',
+    state: 'later',
+  };
+
+  // Depth decides the shape: essentials leads with the micro dose and keeps
+  // the full read + graded activity as optional extras; balanced runs the
+  // whole loop; deep runs the whole loop plus tutor quizzing.
+  const body =
+    depth === 'essentials' ? [micro, core, read, activity] : depth === 'deep' ? [core, read, activity, quiz] : [core, read, activity];
+  const steps =
+    start === 'chat' ? [sizeUp, ...body, diagnostic] : start === 'module' ? [...body, diagnostic] : [diagnostic, ...body];
+
   for (const step of steps) {
     if (step.state === 'done') continue;
-    if (time === 0) {
-      if (marked === 0) {
-        step.state = 'now';
-        marked++;
-      }
-      continue;
-    }
-    if (step.minutes <= budget) {
-      step.state = 'now';
-      budget -= step.minutes;
-      marked++;
-    }
+    const optionalExtra = depth === 'essentials' && (step.id === 'm1-read' || step.id === 'activity');
+    step.state = optionalExtra ? 'later' : 'now';
   }
-  if (marked === 0) {
+  if (!steps.some((s) => s.state === 'now')) {
     const first = steps.find((s) => s.state !== 'done');
     if (first) first.state = 'now';
   }
@@ -377,7 +396,7 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
   const goals = prefs.goals ?? [];
   const GOAL_NOTES: Record<string, string> = {
     workflows: 'Workflow and automation building is the heart of AI 201 — this course builds the judgment underneath it.',
-    news: 'Staying current is what the volatile content layer is for — examples refresh monthly without touching the concepts.',
+    strategy: 'Setting direction is Modules 7–8 territory here, and all of AI 401 — the path marks both for you.',
     tools: 'Module 2 is built around telling tools apart; Lesson 1 of Module 1 starts that cut today.',
     safety: 'What\'s safe to paste — and under what agreement — is Lesson 4 today and all of Module 8.',
     coach: 'Helping others adopt AI gets its own course (AI 301). This one makes you credible first.',
@@ -390,8 +409,8 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
   if (styles.includes('podcast')) notes.push('Podcast-style audio is live — open Module 1 and make a custom two-host episode from any angle you like.');
   if (styles.includes('assistant_mcp')) notes.push('Taking this course inside Claude or ChatGPT, as an MCP server, is on the roadmap — your interest is logged.');
   if (styles.includes('voice')) notes.push('Talking instead of typing is live — every text box has a mic, and the tutor chat has a voice mode that reads replies aloud.');
-  if (time > 0) notes.push(`Sized for the ~${time} minutes you said you have. Anything marked "another sitting" keeps.`);
-  else if (prefs.time === 0) notes.push("No clock on this — it's laid out one step at a time.");
+  if (depth === 'essentials') notes.push('Short and sweet, as requested: micro doses and the sorting exercise lead. The full read and graded activity keep for whenever you want more.');
+  else if (depth === 'deep') notes.push('Deep dive: the full loop is on your path, and the tutor is primed to quiz you until it sticks.');
 
   const done = steps.filter((s) => s.state === 'done').length;
   const greeting =
@@ -434,6 +453,7 @@ app.get('/api/plan', async (c) => {
     sortDone: await has('sort_submitted'),
     activityGraded: (gradedRows[0]?.n ?? 0) > 0,
     moduleCompleted: await has('module_completed'),
+    chatStarted: await has('chat_started'),
   };
   const plan = composePlan(participants[0]?.displayName ?? null, prefs, progress);
   await logEvent(db, session.id, 'plan_generated', { nextRoute: plan.nextRoute });
@@ -446,7 +466,7 @@ app.get('/api/me', async (c) => {
   if (!session)
     return c.json({
       authenticated: false,
-      progress: { intakeDone: false, diagnosticDone: false, sortDone: false, activityGraded: false, moduleCompleted: false },
+      progress: { intakeDone: false, diagnosticDone: false, sortDone: false, activityGraded: false, moduleCompleted: false, chatStarted: false, podcastTried: false },
     } satisfies MeResponse);
 
   const participants = await db
@@ -480,6 +500,8 @@ app.get('/api/me', async (c) => {
       sortDone: await has('sort_submitted'),
       activityGraded: (gradedRows[0]?.n ?? 0) > 0,
       moduleCompleted: await has('module_completed'),
+      chatStarted: await has('chat_started'),
+      podcastTried: await has('podcast_requested'),
     },
   };
   return c.json(res);
@@ -660,8 +682,10 @@ app.get('/api/path', async (c) => {
   if (!session) return c.json({ error: 'No session.' }, 401);
   const rows = await db.select().from(t.fdModule).where(eq(t.fdModule.courseId, 'ai101')).orderBy(asc(t.fdModule.ordinal));
 
-  // A prerequisite is satisfied by completing the module — or by testing out.
-  // Testing out of M1 = a perfect knowledge score on the diagnostic.
+  // Prerequisites are advisory — they shape the recommendation line, never a
+  // hard lock. A prerequisite is satisfied by completing the module or by
+  // testing out. Testing out of M1 = at most one miss across the diagnostic's
+  // knowledge questions (all of them answered).
   const completedRows = await db
     .select()
     .from(t.fdEvent)
@@ -674,35 +698,69 @@ app.get('/api/path', async (c) => {
     .from(t.fdDiagnosticResponse)
     .where(and(eq(t.fdDiagnosticResponse.sessionId, session.id), sql`${t.fdDiagnosticResponse.correct} IS NOT NULL`));
   const kTotal = diagItems.filter((i) => i.kind === 'knowledge').length;
-  const testedOutM1 = kResponses.length >= kTotal && kResponses.every((r) => r.correct === 1);
+  const kCorrect = kResponses.filter((r) => r.correct === 1).length;
+  const testedOutM1 = kResponses.length >= kTotal && kCorrect >= kTotal - 1;
 
   const titleOf = (id: string) => rows.find((m) => m.id === id)?.title ?? id;
   const satisfied = (id: string) => completed.has(id) || (id === 'ai101-m1' && testedOutM1);
 
+  // "Recommended for you" reasons, stated in terms of the learner's own
+  // inputs — their goals and their diagnostic — so the personalization is
+  // legible, not a black box.
+  const prefs = await loadPrefs(db, session.id);
+  const selectedGoals = GOAL_CHOICES.filter((g) => (prefs.goals ?? []).includes(g.id));
+  const diagReasons = new Map<string, string>();
+  const diagDoneRows = await db
+    .select({ n: sql<number>`count(*)` })
+    .from(t.fdEvent)
+    .where(and(eq(t.fdEvent.sessionId, session.id), eq(t.fdEvent.type, 'diagnostic_completed')));
+  if ((diagDoneRows[0]?.n ?? 0) > 0) {
+    const diag = await computeDiagnosticResult(db, session.id);
+    const dir = diag.calibration.direction;
+    if (dir === 'over' || dir === 'mixed') diagReasons.set('ai101-m6', 'your diagnostic: you expect too much from these tools');
+    if (dir === 'under' || dir === 'mixed') diagReasons.set('ai101-m5', 'your diagnostic: you expect too little from these tools');
+  }
+  const reasonsFor = (moduleId: string): string[] => {
+    const reasons: string[] = [];
+    if (moduleId === 'ai101-m1') reasons.push('where every path starts');
+    for (const g of selectedGoals) if (g.modules.includes(moduleId)) reasons.push(`your goal: ${g.label}`);
+    const d = diagReasons.get(moduleId);
+    if (d) reasons.push(d);
+    return reasons;
+  };
+
   const modules: PathModule[] = rows.map((m) => {
     const prereqs: string[] = m.prereqJson ? JSON.parse(m.prereqJson) : [];
     const unmet = prereqs.filter((p) => !satisfied(p));
-    let access: PathModule['access'];
+    const access: PathModule['access'] = m.status === 'open' ? 'open' : 'full_course';
     let unlockHint: string | undefined;
-    if (m.status === 'open') {
-      access = 'open';
-    } else if (unmet.length === 0) {
-      access = 'full_course';
-      if (prereqs.length > 0) unlockHint = 'Prerequisite cleared.';
-    } else {
-      access = 'locked';
+    if (unmet.length > 0) {
       const names = unmet.map(titleOf).join(' and ');
-      unlockHint =
-        unmet.includes('ai101-m1')
-          ? `Needs ${names} first — finish it, or test out with a perfect knowledge score on the diagnostic.`
-          : `Needs ${names} first.`;
+      unlockHint = unmet.includes('ai101-m1')
+        ? `Best after ${names} — or test out via the diagnostic (at most one knowledge miss). Go in any order; nothing locks.`
+        : `Best after ${names}. Go in any order; nothing locks.`;
+    } else if (prereqs.length > 0) {
+      unlockHint = 'Prerequisite cleared.';
     }
-    return { ...(m as ModuleCard), access, prereqs, unlockHint, microMinutes: 2 };
+    return {
+      ...(m as ModuleCard),
+      access,
+      prereqs,
+      unlockHint,
+      microMinutes: 2,
+      completed: completed.has(m.id),
+      testedOut: !completed.has(m.id) && m.id === 'ai101-m1' && testedOutM1,
+      recommendedFor: reasonsFor(m.id),
+    };
   });
 
   // Courses beyond 101 are locked cards; they live in content, not the DB, until they exist.
-  const { courses } = (await import('../../content/modules.json')) as unknown as { courses: unknown };
-  return c.json({ modules, courses });
+  const { courses } = (await import('../../content/modules.json')) as unknown as { courses: CourseCard[] };
+  const coursesOut: CourseCard[] = courses.map((course) => ({
+    ...course,
+    recommendedFor: selectedGoals.filter((g) => g.courses.includes(course.id)).map((g) => `your goal: ${g.label}`),
+  }));
+  return c.json({ modules, courses: coursesOut });
 });
 
 // The two-minute cut of Module 1 — same content system, tighter blocks.
@@ -748,7 +806,9 @@ app.get('/api/module/:id', async (c) => {
   const modRows = await db.select().from(t.fdModule).where(eq(t.fdModule.id, id)).limit(1);
   const mod = modRows[0];
   if (!mod) return c.json({ error: 'No such module.' }, 404);
-  if (mod.status !== 'open') return c.json({ error: 'This module is not open yet.' }, 403);
+  if (mod.status !== 'open') {
+    return c.json({ error: "This module's content ships in the full course — the demo carries Module 1 end to end." }, 403);
+  }
   const blockRows = await db.select().from(t.fdContentBlock).where(eq(t.fdContentBlock.moduleId, id)).orderBy(asc(t.fdContentBlock.ordinal));
   const blocks = blockRows.map(toBlock);
   const words = blocks.reduce((sum, b) => sum + b.body.split(/\s+/).length, 0);
@@ -884,10 +944,11 @@ async function buildLearnerContext(db: DrizzleD1Database, sessionId: string): Pr
     name: participants[0]?.displayName ?? null,
     roleLabel: participants[0]?.roleLabel ?? null,
     objective: prefs.objective ?? null,
-    timeBudget: prefs.time ?? null,
+    depth: depthOf(prefs.depth),
     calibration,
     sortSummary,
     progress,
+    sizeUp: prefs.start === 'chat' && !calibration,
   };
 }
 
@@ -1276,6 +1337,7 @@ function toEpisode(row: PodcastRow): PodcastEpisode {
   return {
     id: row.id,
     moduleId: row.moduleId,
+    kind: row.kind === 'qa' ? 'qa' : 'default',
     title: row.title,
     description: row.description,
     lengthPref: row.lengthPref as PodcastLength,
@@ -1300,43 +1362,63 @@ app.get('/api/podcast', async (c) => {
     const { lines: _lines, ...summary } = toEpisode(row);
     return summary;
   });
+  const playedRows = await db
+    .select()
+    .from(t.fdEvent)
+    .where(and(eq(t.fdEvent.sessionId, session.id), eq(t.fdEvent.type, 'podcast_played')));
+  const playedEpisodeIds = [
+    ...new Set(
+      playedRows
+        .map((e) => (e.payloadJson ? (JSON.parse(e.payloadJson) as { podcastId?: string }).podcastId : null))
+        .filter((id): id is string => Boolean(id)),
+    ),
+  ];
   const res: PodcastListResponse = {
     episodes,
+    playedEpisodeIds,
     scriptEnabled: Boolean(c.env.ANTHROPIC_API_KEY),
     audioEnabled: Boolean(c.env.AI),
   };
   return c.json(res);
 });
 
-app.post('/api/podcast', async (c) => {
-  const db = c.get('db');
-  const session = requireSession(c);
-  if (!session) return c.json({ error: 'No session.' }, 401);
-  const body = await c.req.json<{ moduleId?: string; prompt?: string; length?: string }>().catch(() => null);
-  if (!body) return c.json({ error: 'Malformed request.' }, 400);
+// Everything writeScript needs to know about this learner — name, role,
+// goals, depth, diagnostic — so every episode is unmistakably theirs.
+async function podcastLearner(db: DrizzleD1Database, sessionId: string): Promise<LearnerContext> {
+  const participants = await db
+    .select()
+    .from(t.fdParticipant)
+    .where(eq(t.fdParticipant.sessionId, sessionId))
+    .orderBy(desc(t.fdParticipant.createdAt))
+    .limit(1);
+  const prefs = await loadPrefs(db, sessionId);
+  const diag = await computeDiagnosticResult(db, sessionId);
+  return {
+    name: participants[0]?.displayName ?? null,
+    role: participants[0]?.roleLabel ?? null,
+    objective: prefs.objective ?? null,
+    calibrationHeadline: diag.calibration.points.length > 0 ? diag.calibration.headline : null,
+    goals: GOAL_CHOICES.filter((g) => (prefs.goals ?? []).includes(g.id)).map((g) => g.label),
+    depth: depthOf(prefs.depth),
+  };
+}
 
-  const moduleId = body.moduleId ?? 'ai101-m1';
-  const length: PodcastLength = body.length === 'quick' || body.length === 'deep' ? body.length : 'standard';
-  const focus = typeof body.prompt === 'string' && body.prompt.trim() ? body.prompt.trim().slice(0, 400) : null;
-
+// One episode, generated and stored. Shared by the manual button, the Q&A
+// follow-up, and background pregeneration. Null on any failure — callers
+// answer gracefully (or, for pregen, silently).
+async function generateEpisode(
+  env: Env,
+  db: DrizzleD1Database,
+  sessionId: string,
+  moduleId: string,
+  kind: 'default' | 'qa',
+  focus: string | null,
+  length: PodcastLength,
+): Promise<PodcastRow | null> {
+  if (!env.ANTHROPIC_API_KEY) return null;
   const modRows = await db.select().from(t.fdModule).where(eq(t.fdModule.id, moduleId)).limit(1);
   const mod = modRows[0];
-  if (!mod || mod.status !== 'open') return c.json({ error: 'Episodes can only be made from open modules.' }, 400);
-
-  const hourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
-  const recent = await db
-    .select({ n: sql<number>`count(*)` })
-    .from(t.fdPodcast)
-    .where(and(eq(t.fdPodcast.sessionId, session.id), gt(t.fdPodcast.createdAt, hourAgo)));
-  if ((recent[0]?.n ?? 0) >= PODCAST_LIMIT_PER_HOUR) {
-    return c.json({ error: `Episode writing is limited to ${PODCAST_LIMIT_PER_HOUR} an hour. Your earlier episodes are below — or come back shortly.` }, 429);
-  }
-
-  if (!c.env.ANTHROPIC_API_KEY) {
-    return c.json({ error: 'The scriptwriter is not configured in this deployment, so episodes cannot be generated yet.' }, 503);
-  }
-
-  await logEvent(db, session.id, 'podcast_requested', { moduleId, length, hasFocus: focus !== null });
+  if (!mod || mod.status !== 'open') return null;
 
   // Source: the module's readable blocks, in order. Exercise blocks carry JSON
   // payloads, not prose — the hosts can't read those aloud.
@@ -1345,36 +1427,32 @@ app.post('/api/podcast', async (c) => {
     .from(t.fdContentBlock)
     .where(eq(t.fdContentBlock.moduleId, moduleId))
     .orderBy(asc(t.fdContentBlock.ordinal));
+  if (blockRows.length === 0) return null;
   const contentMd = blockRows
     .filter((b) => b.kind !== 'exercise')
     .map((b) => b.body)
     .join('\n\n');
 
-  const participants = await db
-    .select()
-    .from(t.fdParticipant)
-    .where(eq(t.fdParticipant.sessionId, session.id))
-    .orderBy(desc(t.fdParticipant.createdAt))
-    .limit(1);
-  const prefs = await loadPrefs(db, session.id);
-  const diag = await computeDiagnosticResult(db, session.id);
-  const learner: LearnerContext = {
-    name: participants[0]?.displayName ?? null,
-    role: participants[0]?.roleLabel ?? null,
-    objective: prefs.objective ?? null,
-    calibrationHeadline: diag.calibration.points.length > 0 ? diag.calibration.headline : null,
-  };
+  const learner = await podcastLearner(db, sessionId);
+  const model = env.PODCAST_MODEL ?? env.GRADING_MODEL;
+  const script = await writeScript(env.ANTHROPIC_API_KEY, model, mod.title, contentMd, learner, focus, length, kind);
+  if (!script) return null;
 
-  const model = c.env.PODCAST_MODEL ?? c.env.GRADING_MODEL;
-  const script = await writeScript(c.env.ANTHROPIC_API_KEY, model, mod.title, contentMd, learner, focus, length);
-  if (!script) {
-    return c.json({ error: 'The scriptwriter is unavailable right now. Nothing was saved — try again in a minute.' }, 503);
+  // The default episode is one-per-module — re-check just before insert so a
+  // pregen racing a button click doesn't double up.
+  if (kind === 'default') {
+    const existing = await db
+      .select({ n: sql<number>`count(*)` })
+      .from(t.fdPodcast)
+      .where(and(eq(t.fdPodcast.sessionId, sessionId), eq(t.fdPodcast.moduleId, moduleId), eq(t.fdPodcast.kind, 'default')));
+    if ((existing[0]?.n ?? 0) > 0) return null;
   }
 
   const row: PodcastRow = {
     id: uuid(),
-    sessionId: session.id,
+    sessionId,
     moduleId,
+    kind,
     promptText: focus,
     lengthPref: length,
     title: script.title,
@@ -1391,8 +1469,117 @@ app.post('/api/podcast', async (c) => {
     createdAt: now(),
   };
   await db.insert(t.fdPodcast).values(row);
-  await logEvent(db, session.id, 'podcast_script_ready', { podcastId: row.id, turns: script.lines.length, chars: row.totalChars });
+  await logEvent(db, sessionId, 'podcast_script_ready', { podcastId: row.id, kind, turns: script.lines.length, chars: row.totalChars });
+  return row;
+}
 
+async function underPodcastLimit(db: DrizzleD1Database, sessionId: string): Promise<boolean> {
+  const hourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
+  const recent = await db
+    .select({ n: sql<number>`count(*)` })
+    .from(t.fdPodcast)
+    .where(and(eq(t.fdPodcast.sessionId, sessionId), gt(t.fdPodcast.createdAt, hourAgo)));
+  return (recent[0]?.n ?? 0) < PODCAST_LIMIT_PER_HOUR;
+}
+
+const defaultLengthFor = (depth: ReturnType<typeof depthOf>): PodcastLength =>
+  depth === 'essentials' ? 'quick' : depth === 'deep' ? 'deep' : 'standard';
+
+// Background pregeneration for learners who said podcasts are how they learn:
+// the next module they can enter gets its episode written before they arrive.
+// Costs one script call, so it only fires for podcast-first learners, one
+// module at a time, inside the same hourly cap as manual generation.
+async function pregenerateNextPodcast(env: Env, sessionId: string): Promise<void> {
+  try {
+    const db = drizzle(env.DB);
+    const prefs = await loadPrefs(db, sessionId);
+    if (preferredSurface(prefs.styles) !== 'podcast') return;
+    if (!env.ANTHROPIC_API_KEY) return;
+    if (!(await underPodcastLimit(db, sessionId))) return;
+
+    const mods = await db
+      .select()
+      .from(t.fdModule)
+      .where(and(eq(t.fdModule.courseId, 'ai101'), eq(t.fdModule.status, 'open')))
+      .orderBy(asc(t.fdModule.ordinal));
+    for (const mod of mods) {
+      const existing = await db
+        .select({ n: sql<number>`count(*)` })
+        .from(t.fdPodcast)
+        .where(and(eq(t.fdPodcast.sessionId, sessionId), eq(t.fdPodcast.moduleId, mod.id), eq(t.fdPodcast.kind, 'default')));
+      if ((existing[0]?.n ?? 0) > 0) continue;
+      await logEvent(db, sessionId, 'podcast_requested', { moduleId: mod.id, kind: 'default', trigger: 'pregen' });
+      await generateEpisode(env, db, sessionId, mod.id, 'default', null, defaultLengthFor(depthOf(prefs.depth)));
+      return; // one per trigger — the next completion pregenerates the next module
+    }
+  } catch {
+    // Background work: a failure here costs nothing the learner can see —
+    // the podcast page falls back to the one-click generate button.
+  }
+}
+
+app.post('/api/podcast', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const body = await c.req.json<{ moduleId?: string; kind?: string; question?: string }>().catch(() => null);
+  if (!body) return c.json({ error: 'Malformed request.' }, 400);
+
+  const moduleId = body.moduleId ?? 'ai101-m1';
+  const kind: 'default' | 'qa' = body.kind === 'qa' ? 'qa' : 'default';
+
+  const modRows = await db.select().from(t.fdModule).where(eq(t.fdModule.id, moduleId)).limit(1);
+  const mod = modRows[0];
+  if (!mod || mod.status !== 'open') return c.json({ error: 'Episodes can only be made from open modules.' }, 400);
+
+  if (!c.env.ANTHROPIC_API_KEY) {
+    return c.json({ error: 'The scriptwriter is not configured in this deployment, so episodes cannot be generated yet.' }, 503);
+  }
+
+  const defaultRows = await db
+    .select()
+    .from(t.fdPodcast)
+    .where(and(eq(t.fdPodcast.sessionId, session.id), eq(t.fdPodcast.moduleId, moduleId), eq(t.fdPodcast.kind, 'default')))
+    .limit(1);
+  const existingDefault = defaultRows[0] ?? null;
+
+  const prefs = await loadPrefs(db, session.id);
+
+  if (kind === 'default') {
+    // One default episode per module — asking again just returns it.
+    if (existingDefault) return c.json(toEpisode(existingDefault));
+  } else {
+    if (!existingDefault) return c.json({ error: 'Your module episode comes first — the hosts answer questions about something you\'ve heard.' }, 400);
+    const played = await db
+      .select({ n: sql<number>`count(*)` })
+      .from(t.fdEvent)
+      .where(
+        and(
+          eq(t.fdEvent.sessionId, session.id),
+          eq(t.fdEvent.type, 'podcast_played'),
+          sql`json_extract(${t.fdEvent.payloadJson}, '$.podcastId') = ${existingDefault.id}`,
+        ),
+      );
+    if ((played[0]?.n ?? 0) === 0) {
+      return c.json({ error: 'Listen to your episode first — then ask the hosts anything it left you wondering.' }, 400);
+    }
+    if (!body.question?.trim() || body.question.trim().length < 5) {
+      return c.json({ error: 'Ask the hosts a real question — a sentence or two about what you want unpacked.' }, 400);
+    }
+  }
+
+  if (!(await underPodcastLimit(db, session.id))) {
+    return c.json({ error: `Episode writing is limited to ${PODCAST_LIMIT_PER_HOUR} an hour. Your earlier episodes are below — or come back shortly.` }, 429);
+  }
+
+  const question = kind === 'qa' ? body.question!.trim().slice(0, 500) : null;
+  await logEvent(db, session.id, 'podcast_requested', { moduleId, kind, trigger: 'manual' });
+
+  const length = kind === 'qa' ? 'quick' : defaultLengthFor(depthOf(prefs.depth));
+  const row = await generateEpisode(c.env, db, session.id, moduleId, kind, question, length);
+  if (!row) {
+    return c.json({ error: 'The scriptwriter is unavailable right now. Nothing was saved — try again in a minute.' }, 503);
+  }
   return c.json(toEpisode(row));
 });
 
