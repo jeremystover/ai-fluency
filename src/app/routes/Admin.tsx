@@ -1,7 +1,7 @@
 import { useEffect, useState, type FormEvent } from 'react';
 import { Screen, Button, ErrorNote } from '../components/ui';
 import { api, ApiError } from '../api';
-import { goalLabel } from '../goals';
+import { goalLabel } from '../../shared/goals';
 
 // Operator console: review queue (the async backup for the M8 peer exchange),
 // funnel reporting, and access-code management. Deliberately utilitarian —

@@ -48,15 +48,21 @@ export type ModuleCard = {
   estMinutes: number;
 };
 
-// Computed per session on /api/path:
+// Computed per session on /api/path. Nothing hard-locks: prerequisites are
+// advisory (unlockHint carries the recommendation), and learners go in any
+// order.
 //   open        — content available in this demo, go
-//   full_course — no prerequisites; yours whenever, content ships in the full course
-//   locked      — strong prerequisite unmet; unlockHint says exactly how to unlock
+//   full_course — yours whenever; content ships in the full course
 export type PathModule = ModuleCard & {
-  access: 'open' | 'full_course' | 'locked';
+  access: 'open' | 'full_course';
   prereqs: string[];
   unlockHint?: string;
   microMinutes: number;
+  completed: boolean; // module_completed logged for this module
+  testedOut: boolean; // cleared by assessment instead of completion (M1: diagnostic)
+  // Why this module is on THEIR path — goal labels and diagnostic reads, shown
+  // verbatim so the learner can see the machine using their answers.
+  recommendedFor: string[];
 };
 
 export type CourseCard = {
@@ -65,6 +71,7 @@ export type CourseCard = {
   level: string;
   blurb: string;
   status: 'open' | 'locked';
+  recommendedFor?: string[]; // same shape as PathModule.recommendedFor
 };
 
 export type CalibrationOption = { label: string; pct: number };
@@ -141,8 +148,8 @@ export type ChatStreamLine =
   | { type: 'error'; message: string };
 
 export type IntakePrefs = {
-  start?: 'diagnostic' | 'module';
-  time?: number; // minutes available this sitting; 0 = just exploring
+  start?: 'diagnostic' | 'module' | 'chat';
+  depth?: 'essentials' | 'balanced' | 'deep'; // how much they want to invest — see shared/depth.ts
   styles?: string[]; // reading | interactive | podcast | assistant_mcp | voice
   goals?: string[]; // fluency | workflows | apply | news | tools | safety | coach | confidence
   objective?: string; // free-text refinement of the goals
@@ -178,6 +185,8 @@ export type MeResponse = {
     sortDone: boolean;
     activityGraded: boolean;
     moduleCompleted: boolean;
+    chatStarted: boolean;
+    podcastTried: boolean;
   };
 };
 
@@ -196,6 +205,7 @@ export const PODCAST_HOSTS = {
 export type PodcastEpisode = {
   id: string;
   moduleId: string;
+  kind: 'default' | 'qa';
   title: string;
   description: string;
   lengthPref: PodcastLength;
@@ -210,6 +220,8 @@ export type PodcastSummary = Omit<PodcastEpisode, 'lines'>;
 
 export type PodcastListResponse = {
   episodes: PodcastSummary[];
+  // Episode ids this session has pressed play on — the Q&A gate.
+  playedEpisodeIds: string[];
   // False when this deployment lacks the binding/key — the UI degrades honestly.
   scriptEnabled: boolean;
   audioEnabled: boolean;

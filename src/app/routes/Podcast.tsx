@@ -5,15 +5,14 @@ import { PODCAST_HOSTS } from '../../shared/types';
 import { Screen, Button, ErrorNote } from '../components/ui';
 import MicButton from '../components/MicButton';
 import { api, ApiError, track } from '../api';
+import { useApp } from '../brand';
+import { preferredSurface } from '../../shared/modality';
 
 const LENGTH_OPTIONS: { id: PodcastLength; label: string; detail: string }[] = [
   { id: 'quick', label: 'Quick take', detail: '~3 min' },
   { id: 'standard', label: 'Standard', detail: '~6 min' },
   { id: 'deep', label: 'Deep dive', detail: '~10 min' },
 ];
-
-const FOCUS_PLACEHOLDER =
-  'Optional — give the hosts an angle. e.g. "Relate everything to running performance reviews" or "Spend most of the time on where these tools fabricate."';
 
 type AudioState =
   | { phase: 'idle' }
@@ -49,7 +48,7 @@ function Transcript({ episode, activeLine }: { episode: PodcastEpisode; activeLi
   );
 }
 
-function Player({ episode, audioEnabled }: { episode: PodcastEpisode; audioEnabled: boolean }) {
+function Player({ episode, audioEnabled, onFirstPlay }: { episode: PodcastEpisode; audioEnabled: boolean; onFirstPlay?: () => void }) {
   const [audio, setAudio] = useState<AudioState>({ phase: 'idle' });
   const [activeLine, setActiveLine] = useState<number | null>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -104,12 +103,16 @@ function Player({ episode, audioEnabled }: { episode: PodcastEpisode; audioEnabl
     <div>
       <div className="border border-ink-strong rounded-brand bg-surface p-5 mt-6">
         <p className="label-utility">
-          Episode · {LENGTH_OPTIONS.find((o) => o.id === episode.lengthPref)?.label} · ~{episode.estMinutes} min ·{' '}
-          {PODCAST_HOSTS.a.name} &amp; {PODCAST_HOSTS.b.name}
+          {episode.kind === 'qa' ? 'Listener questions' : 'Your episode'} · {LENGTH_OPTIONS.find((o) => o.id === episode.lengthPref)?.label} · ~
+          {episode.estMinutes} min · {PODCAST_HOSTS.a.name} &amp; {PODCAST_HOSTS.b.name}
         </p>
         <h2 className="font-display font-bold text-ink-strong text-2xl mt-2">{episode.title}</h2>
         {episode.description && <p className="text-sm text-ink mt-1">{episode.description}</p>}
-        {episode.promptText && <p className="text-xs text-muted mt-2 italic">Your angle: "{episode.promptText}"</p>}
+        {episode.promptText && (
+          <p className="text-xs text-muted mt-2 italic">
+            {episode.kind === 'qa' ? 'You asked' : 'Your angle'}: "{episode.promptText}"
+          </p>
+        )}
 
         <div className="mt-4">
           {!audioEnabled && (
@@ -145,6 +148,7 @@ function Player({ episode, audioEnabled }: { episode: PodcastEpisode; audioEnabl
                 if (!played.current) {
                   played.current = true;
                   track('podcast_played', { podcastId: episode.id });
+                  onFirstPlay?.();
                 }
               }}
             />
@@ -157,14 +161,26 @@ function Player({ episode, audioEnabled }: { episode: PodcastEpisode; audioEnabl
   );
 }
 
+const PREGEN_POLLS = 8; // × 4s — how long we wait for a pregenerated episode to land
+
 export default function Podcast() {
   const moduleId = useParams().moduleId ?? 'ai101-m1';
+  const { me } = useApp();
   const [list, setList] = useState<PodcastListResponse | null>(null);
   const [episode, setEpisode] = useState<PodcastEpisode | null>(null);
-  const [focus, setFocus] = useState('');
-  const [length, setLength] = useState<PodcastLength>('standard');
+  const [question, setQuestion] = useState('');
   const [writing, setWriting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [localPlayed, setLocalPlayed] = useState<string[]>([]);
+  const pollsLeft = useRef(PREGEN_POLLS);
+
+  const podcastFirst = preferredSurface(me?.prefs?.styles) === 'podcast';
+  const defaultEp = list?.episodes.find((e) => e.moduleId === moduleId && e.kind === 'default') ?? null;
+  const defaultPlayed = Boolean(
+    defaultEp && (list?.playedEpisodeIds.includes(defaultEp.id) || localPlayed.includes(defaultEp.id)),
+  );
+  // Pregeneration may still be writing when a podcast-first learner arrives.
+  const awaitingPregen = Boolean(list?.scriptEnabled && !defaultEp && podcastFirst && pollsLeft.current > 0);
 
   useEffect(() => {
     api
@@ -173,15 +189,32 @@ export default function Podcast() {
       .catch((e) => setError(e instanceof ApiError ? e.message : 'The studio did not load. Reload to try again.'));
   }, []);
 
-  const create = async () => {
+  // Poll briefly while a pregenerated episode is (probably) being written.
+  useEffect(() => {
+    if (!awaitingPregen) return;
+    const timer = setTimeout(() => {
+      pollsLeft.current -= 1;
+      api.get<PodcastListResponse>('/api/podcast').then(setList).catch(() => {});
+    }, 4000);
+    return () => clearTimeout(timer);
+  }, [awaitingPregen, list]);
+
+  // The module's episode is the front door — open it as soon as it exists.
+  useEffect(() => {
+    if (episode || !defaultEp) return;
+    api.get<PodcastEpisode>(`/api/podcast/${defaultEp.id}`).then(setEpisode).catch(() => {});
+  }, [defaultEp, episode]);
+
+  const create = async (kind: 'default' | 'qa', q?: string) => {
     setWriting(true);
     setError(null);
     try {
-      const ep = await api.post<PodcastEpisode>('/api/podcast', { moduleId, prompt: focus.trim() || undefined, length });
+      const ep = await api.post<PodcastEpisode>('/api/podcast', { moduleId, kind, question: q });
       setEpisode(ep);
       const { lines: _lines, ...summary } = ep;
-      setList((prev) => (prev ? { ...prev, episodes: [summary, ...prev.episodes] } : prev));
-      setFocus('');
+      setList((prev) => (prev ? { ...prev, episodes: [summary, ...prev.episodes.filter((e) => e.id !== ep.id)] } : prev));
+      setQuestion('');
+      window.scrollTo({ top: 0 });
     } catch (e) {
       setError(e instanceof ApiError ? e.message : 'The episode did not come back. Try again in a minute.');
     } finally {
@@ -200,81 +233,103 @@ export default function Podcast() {
   };
 
   if (!list && !error) {
-    return <Screen><div className="pt-24 text-center"><p className="label-utility">Opening the studio…</p></div></Screen>;
+    return <Screen><div className="pt-24 text-center"><p className="label-utility">Opening your episode…</p></div></Screen>;
   }
 
-  const previous = (list?.episodes ?? []).filter((e) => e.id !== episode?.id);
+  const others = (list?.episodes ?? []).filter((e) => e.id !== episode?.id && e.id !== defaultEp?.id);
 
   return (
     <Screen>
       <div className="pt-12 sm:pt-16">
-        <p className="label-utility anim-fade">Module 1 · Podcast studio</p>
+        <p className="label-utility anim-fade">Module 1 · Your podcast</p>
         <h1 className="font-display font-bold text-ink-strong text-3xl sm:text-4xl mt-3 leading-tight anim-rise">
-          Turn this module into a conversation.
+          {defaultEp ? 'This episode was made for you.' : 'Hear this module as a conversation.'}
         </h1>
         <p className="text-ink mt-3 max-w-xl anim-rise" style={{ animationDelay: '80ms' }}>
           Two hosts — {PODCAST_HOSTS.a.name}, who {PODCAST_HOSTS.a.tagline}, and {PODCAST_HOSTS.b.name}, who {PODCAST_HOSTS.b.tagline} —
-          talk through Module 1. Give them an angle and it becomes your episode, not a generic one.
+          talk through Module 1 for one listener: you. Your name, your role, your goals shape the episode.
         </p>
 
         {list && !list.scriptEnabled && (
-          <div className="mt-6"><ErrorNote message="The scriptwriter is not configured in this deployment, so new episodes cannot be generated yet." /></div>
+          <div className="mt-6"><ErrorNote message="The scriptwriter is not configured in this deployment, so episodes cannot be generated yet." /></div>
         )}
 
-        {list?.scriptEnabled && (
+        {list?.scriptEnabled && !defaultEp && (
           <div className="border border-line rounded-brand bg-surface p-5 mt-8 anim-rise" style={{ animationDelay: '140ms' }}>
-            <label htmlFor="podcast-focus" className="font-display font-semibold text-ink-strong">
-              What should the hosts focus on?
-            </label>
-            <div className="relative mt-2">
-              <textarea
-                id="podcast-focus"
-                value={focus}
-                onChange={(e) => setFocus(e.target.value)}
-                maxLength={400}
-                rows={3}
-                placeholder={FOCUS_PLACEHOLDER}
-                className="w-full rounded-brand border border-line bg-bg px-3 py-2 pr-14 text-[0.95rem] text-ink focus:outline-none focus:border-accent resize-y"
-              />
-              <MicButton
-                className="absolute right-2.5 bottom-3"
-                onError={setError}
-                onText={(text) => setFocus((prev) => `${prev ? `${prev.trimEnd()} ` : ''}${text}`.slice(0, 400))}
-              />
-            </div>
-            <div className="mt-3 flex items-center gap-2 flex-wrap" role="radiogroup" aria-label="Episode length">
-              {LENGTH_OPTIONS.map((opt) => (
-                <button
-                  key={opt.id}
-                  role="radio"
-                  aria-checked={length === opt.id}
-                  onClick={() => setLength(opt.id)}
-                  className={`px-3.5 py-1.5 rounded-brand border text-sm font-display transition-colors ${
-                    length === opt.id ? 'border-ink-strong bg-accent/[0.08] text-ink-strong font-semibold' : 'border-line text-muted hover:text-ink'
-                  }`}
-                >
-                  {opt.label} <span className="font-utility text-[0.65rem] uppercase tracking-wider">{opt.detail}</span>
-                </button>
-              ))}
-            </div>
-            <div className="mt-4 flex items-center gap-3 flex-wrap">
-              <Button onClick={create} disabled={writing}>
-                {writing ? 'Writing the script…' : 'Make my episode'}
-              </Button>
-              {writing && <span className="text-xs text-muted" aria-live="polite">The hosts are reading the module with your angle in mind — ~20 seconds.</span>}
-            </div>
+            {awaitingPregen && !writing ? (
+              <p className="text-sm text-ink" aria-live="polite">
+                <span className="text-signal" aria-hidden="true">●</span> The hosts are recording your episode — it's being written from your
+                goals and role right now. Usually under a minute.
+              </p>
+            ) : (
+              <div className="flex items-center gap-3 flex-wrap">
+                <Button onClick={() => void create('default')} disabled={writing}>
+                  {writing ? 'Writing your episode…' : 'Make my episode'}
+                </Button>
+                <span className="text-xs text-muted" aria-live="polite">
+                  {writing
+                    ? 'The hosts are reading the module with your goals in mind — ~20 seconds.'
+                    : 'One per module, written for you. Questions unlock after you listen.'}
+                </span>
+              </div>
+            )}
           </div>
         )}
 
         {error && <div className="mt-4"><ErrorNote message={error} /></div>}
 
-        {episode && list && <Player episode={episode} audioEnabled={list.audioEnabled} />}
+        {episode && list && (
+          <Player
+            episode={episode}
+            audioEnabled={list.audioEnabled}
+            onFirstPlay={() => setLocalPlayed((prev) => [...prev, episode.id])}
+          />
+        )}
 
-        {previous.length > 0 && (
+        {defaultEp && list?.scriptEnabled && (
+          <div className="border border-line rounded-brand bg-surface p-5 mt-8">
+            <p className="font-display font-semibold text-ink-strong">Questions after listening?</p>
+            {defaultPlayed ? (
+              <>
+                <p className="text-sm text-muted mt-1">
+                  Ask, and {PODCAST_HOSTS.a.name} and {PODCAST_HOSTS.b.name} will answer in a follow-up segment — grounded in the module,
+                  addressed to you.
+                </p>
+                <div className="relative mt-3">
+                  <textarea
+                    value={question}
+                    onChange={(e) => setQuestion(e.target.value)}
+                    maxLength={500}
+                    rows={2}
+                    placeholder='e.g. "You said scoring models fail differently than language models — what does that mean for our ATS?"'
+                    className="w-full rounded-brand border border-line bg-bg px-3 py-2 pr-14 text-[0.95rem] text-ink focus:outline-none focus:border-accent resize-y"
+                  />
+                  <MicButton
+                    className="absolute right-2.5 bottom-3"
+                    onError={setError}
+                    onText={(text) => setQuestion((prev) => `${prev ? `${prev.trimEnd()} ` : ''}${text}`.slice(0, 500))}
+                  />
+                </div>
+                <div className="mt-3 flex items-center gap-3 flex-wrap">
+                  <Button onClick={() => void create('qa', question.trim())} disabled={writing || question.trim().length < 5}>
+                    {writing ? 'The hosts are on it…' : 'Ask the hosts'}
+                  </Button>
+                  {writing && <span className="text-xs text-muted" aria-live="polite">Writing your follow-up segment — ~20 seconds.</span>}
+                </div>
+              </>
+            ) : (
+              <p className="text-sm text-muted mt-1">
+                Listen to your episode first — then the hosts take your questions in a follow-up segment.
+              </p>
+            )}
+          </div>
+        )}
+
+        {others.length > 0 && (
           <div className="mt-10">
-            <p className="label-utility">Your earlier episodes</p>
+            <p className="label-utility">Your other segments</p>
             <ul className="mt-3 flex flex-col gap-2">
-              {previous.map((ep) => (
+              {others.map((ep) => (
                 <li key={ep.id}>
                   <button
                     onClick={() => open(ep)}
@@ -283,7 +338,7 @@ export default function Podcast() {
                     <span className="flex items-baseline justify-between gap-3 flex-wrap">
                       <span className="font-display font-semibold text-ink-strong">{ep.title}</span>
                       <span className="font-utility text-[0.65rem] uppercase tracking-wider text-muted shrink-0">
-                        {fmtDate(ep.createdAt)} · ~{ep.estMinutes} min{ep.audioCached ? ' · voiced' : ''}
+                        {ep.kind === 'qa' ? 'Q&A · ' : ''}{fmtDate(ep.createdAt)} · ~{ep.estMinutes} min{ep.audioCached ? ' · voiced' : ''}
                       </span>
                     </span>
                     {ep.description && <span className="block text-sm text-muted mt-1">{ep.description}</span>}
