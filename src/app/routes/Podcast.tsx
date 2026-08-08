@@ -5,6 +5,8 @@ import { PODCAST_HOSTS } from '../../shared/types';
 import { Screen, Button, ErrorNote } from '../components/ui';
 import MicButton from '../components/MicButton';
 import { api, ApiError, track } from '../api';
+import { useApp } from '../brand';
+import { depthOf } from '../../shared/depth';
 
 const LENGTH_OPTIONS: { id: PodcastLength; label: string; detail: string }[] = [
   { id: 'quick', label: 'Quick take', detail: '~3 min' },
@@ -162,6 +164,16 @@ export default function Podcast() {
   const [episode, setEpisode] = useState<PodcastEpisode | null>(null);
   const [focus, setFocus] = useState('');
   const [length, setLength] = useState<PodcastLength>('standard');
+  const { me } = useApp();
+  const lengthTouched = useRef(false);
+
+  // Default episode length follows how much they said they want to invest —
+  // until they pick a length themselves, which always wins.
+  useEffect(() => {
+    if (!me?.prefs || lengthTouched.current) return;
+    const depth = depthOf(me.prefs.depth);
+    setLength(depth === 'essentials' ? 'quick' : depth === 'deep' ? 'deep' : 'standard');
+  }, [me]);
   const [writing, setWriting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -247,7 +259,10 @@ export default function Podcast() {
                   key={opt.id}
                   role="radio"
                   aria-checked={length === opt.id}
-                  onClick={() => setLength(opt.id)}
+                  onClick={() => {
+                    lengthTouched.current = true;
+                    setLength(opt.id);
+                  }}
                   className={`px-3.5 py-1.5 rounded-brand border text-sm font-display transition-colors ${
                     length === opt.id ? 'border-ink-strong bg-accent/[0.08] text-ink-strong font-semibold' : 'border-line text-muted hover:text-ink'
                   }`}

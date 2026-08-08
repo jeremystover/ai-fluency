@@ -6,6 +6,7 @@ import SortingExercise from '../components/SortingExercise';
 import { api, ApiError, track } from '../api';
 import { useApp } from '../brand';
 import { firstVisitRedirect, preferredSurface } from '../modality';
+import { depthOf } from '../../shared/depth';
 
 function TryThis({ block }: { block: ContentBlock }) {
   const [open, setOpen] = useState(false);
@@ -220,6 +221,16 @@ export default function ModuleView() {
               <Link to="/module/1/micro" className="text-accent no-underline hover:underline">Short on time? The two-minute version →</Link>
             </p>
 
+            {depthOf(me?.prefs?.depth) === 'essentials' && (
+              <div className="mt-5 border border-signal rounded-brand bg-signal/10 px-4 py-2.5 flex items-center justify-between gap-3">
+                <p className="text-sm text-ink">
+                  <span className="font-display font-semibold">You asked for short and sweet</span> — this module has a two-minute version.
+                </p>
+                <Link to="/module/1/micro" className="text-accent font-semibold text-sm no-underline hover:underline whitespace-nowrap">
+                  Read the micro →
+                </Link>
+              </div>
+            )}
             {(() => {
               // The learner told us how they learn — lead with that surface.
               const surface = preferredSurface(me?.prefs?.styles);

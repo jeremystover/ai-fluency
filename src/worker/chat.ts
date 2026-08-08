@@ -3,6 +3,7 @@
 // blocks exist for the module — drop in a new module's content file, seed it,
 // and this file needs no changes.
 import type { ContentBlock, ModuleCard } from '../shared/types';
+import type { Depth } from '../shared/depth';
 
 export const KICKOFF_TURN =
   '(The learner has just opened the tutor. Greet them and open the session as instructed. Do not mention this message.)';
@@ -11,7 +12,7 @@ export type LearnerContext = {
   name: string | null;
   roleLabel: string | null;
   objective: string | null;
-  timeBudget: number | null; // minutes; 0 = exploring, null = unknown
+  depth: Depth; // how much they want to invest — shapes lecturette length and quiz appetite
   calibration: string | null; // one-line read from the diagnostic, if taken
   sortSummary: string | null; // sorting-exercise result, if done
   progress: string[]; // human-readable list of what they've completed
@@ -94,10 +95,10 @@ export function buildTutorSystem(
     learner.name ? `Name: ${learner.name}` : 'Name: unknown (do not ask for it; just teach)',
     learner.roleLabel ? `Role: ${learner.roleLabel}` : null,
     learner.objective ? `Their stated objective for the course: "${learner.objective}" — connect the material to this when it fits naturally.` : null,
-    learner.timeBudget === 0
-      ? 'They said they are just exploring — no time pressure.'
-      : learner.timeBudget
-        ? `They said they have about ${learner.timeBudget} minutes this sitting — pace accordingly.`
+    learner.depth === 'essentials'
+      ? 'They chose "short and sweet": keep lecturettes to 60–120 words, lead with the essential fifth of each idea, and offer depth as an option rather than the default.'
+      : learner.depth === 'deep'
+        ? 'They chose a deep dive — they are building mastery. Go a level deeper than usual, check understanding often, connect ideas across lessons, and reach for quiz mode liberally.'
         : null,
     learner.calibration ? `Diagnostic read: ${learner.calibration} Use this — it tells you which direction their intuitions err.` : 'They have not taken the diagnostic yet.',
     learner.sizeUp

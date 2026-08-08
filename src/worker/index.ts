@@ -10,6 +10,7 @@ import { buildTutorSystem, streamTutorReply, KICKOFF_TURN, type LearnerContext a
 import { transcribe, speakable, renderSpeech, TUTOR_VOICE } from './voice';
 import { extractPaths } from '../shared/chat';
 import { GOAL_CHOICES } from '../shared/goals';
+import { DEPTH_IDS, depthOf } from '../shared/depth';
 import {
   writeScript,
   renderAudio,
@@ -236,7 +237,7 @@ app.post('/api/hello', async (c) => {
 
 const VALID_STYLES = new Set(['reading', 'interactive', 'podcast', 'assistant_mcp', 'voice']);
 const VALID_GOALS = new Set(GOAL_CHOICES.map((g) => g.id));
-const VALID_TIMES = new Set([0, 10, 30, 60]);
+
 
 async function loadPrefs(db: DrizzleD1Database, sessionId: string): Promise<IntakePrefs> {
   const rows = await db
@@ -248,7 +249,7 @@ async function loadPrefs(db: DrizzleD1Database, sessionId: string): Promise<Inta
   for (const row of rows) {
     const value = JSON.parse(row.valueJson);
     if (row.key === 'start') prefs.start = value;
-    else if (row.key === 'time') prefs.time = value;
+    else if (row.key === 'depth') prefs.depth = value;
     else if (row.key === 'styles') prefs.styles = value;
     else if (row.key === 'goals') prefs.goals = value;
     else if (row.key === 'objective') prefs.objective = value;
@@ -279,7 +280,7 @@ app.post('/api/intake', async (c) => {
   const raw = body.prefs ?? {};
   const clean: [string, unknown][] = [];
   if (raw.start === 'diagnostic' || raw.start === 'module' || raw.start === 'chat') clean.push(['start', raw.start]);
-  if (typeof raw.time === 'number' && VALID_TIMES.has(raw.time)) clean.push(['time', raw.time]);
+  if (typeof raw.depth === 'string' && (DEPTH_IDS as string[]).includes(raw.depth)) clean.push(['depth', raw.depth]);
   if (Array.isArray(raw.styles)) clean.push(['styles', raw.styles.filter((s) => VALID_STYLES.has(s)).slice(0, 5)]);
   if (Array.isArray(raw.goals)) clean.push(['goals', raw.goals.filter((g) => VALID_GOALS.has(g)).slice(0, 8)]);
   if (typeof raw.objective === 'string') clean.push(['objective', raw.objective.trim().slice(0, 280)]);
@@ -295,7 +296,7 @@ app.post('/api/intake', async (c) => {
 type Progress = { diagnosticDone: boolean; sortDone: boolean; activityGraded: boolean; moduleCompleted: boolean; chatStarted: boolean };
 
 function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress): PlanResponse {
-  const time = prefs.time ?? 30;
+  const depth = depthOf(prefs.depth);
   const start = prefs.start ?? 'diagnostic';
 
   const diagnostic: PlanStep = {
@@ -354,38 +355,31 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
     state: progress.chatStarted ? 'done' : 'later',
   };
 
-  const shortSitting = time > 0 && time <= 10;
-  const steps = start === 'chat'
-    ? shortSitting
-      ? [sizeUp, micro, core, read, activity, diagnostic]
-      : [sizeUp, core, read, activity, diagnostic]
-    : start === 'module'
-      ? shortSitting
-        ? [micro, core, read, activity, diagnostic]
-        : [core, read, activity, diagnostic]
-      : shortSitting
-        ? [diagnostic, micro, core, read, activity]
-        : [diagnostic, core, read, activity];
+  // Deep-divers get a standing quiz session with the tutor on top of the
+  // full loop; it never reads as "done" — mastery is a practice, not a box.
+  const quiz: PlanStep = {
+    id: 'tutor-quiz',
+    title: 'Quiz sessions with the tutor — make it stick',
+    detail: 'Scenario questions in chat (or out loud), drawn from the module, until your calibration holds under pressure.',
+    minutes: 10,
+    route: '/module/1/chat',
+    state: 'later',
+  };
 
-  // Fit "now" steps to the time they said they had; 0 = exploring, one step at a time.
-  let budget = time === 0 ? Infinity : time + 5;
-  let marked = 0;
+  // Depth decides the shape: essentials leads with the micro dose and keeps
+  // the full read + graded activity as optional extras; balanced runs the
+  // whole loop; deep runs the whole loop plus tutor quizzing.
+  const body =
+    depth === 'essentials' ? [micro, core, read, activity] : depth === 'deep' ? [core, read, activity, quiz] : [core, read, activity];
+  const steps =
+    start === 'chat' ? [sizeUp, ...body, diagnostic] : start === 'module' ? [...body, diagnostic] : [diagnostic, ...body];
+
   for (const step of steps) {
     if (step.state === 'done') continue;
-    if (time === 0) {
-      if (marked === 0) {
-        step.state = 'now';
-        marked++;
-      }
-      continue;
-    }
-    if (step.minutes <= budget) {
-      step.state = 'now';
-      budget -= step.minutes;
-      marked++;
-    }
+    const optionalExtra = depth === 'essentials' && (step.id === 'm1-read' || step.id === 'activity');
+    step.state = optionalExtra ? 'later' : 'now';
   }
-  if (marked === 0) {
+  if (!steps.some((s) => s.state === 'now')) {
     const first = steps.find((s) => s.state !== 'done');
     if (first) first.state = 'now';
   }
@@ -407,8 +401,8 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
   if (styles.includes('podcast')) notes.push('Podcast-style audio is live — open Module 1 and make a custom two-host episode from any angle you like.');
   if (styles.includes('assistant_mcp')) notes.push('Taking this course inside Claude or ChatGPT, as an MCP server, is on the roadmap — your interest is logged.');
   if (styles.includes('voice')) notes.push('Talking instead of typing is live — every text box has a mic, and the tutor chat has a voice mode that reads replies aloud.');
-  if (time > 0) notes.push(`Sized for the ~${time} minutes you said you have. Anything marked "another sitting" keeps.`);
-  else if (prefs.time === 0) notes.push("No clock on this — it's laid out one step at a time.");
+  if (depth === 'essentials') notes.push('Short and sweet, as requested: micro doses and the sorting exercise lead. The full read and graded activity keep for whenever you want more.');
+  else if (depth === 'deep') notes.push('Deep dive: the full loop is on your path, and the tutor is primed to quiz you until it sticks.');
 
   const done = steps.filter((s) => s.state === 'done').length;
   const greeting =
@@ -942,7 +936,7 @@ async function buildLearnerContext(db: DrizzleD1Database, sessionId: string): Pr
     name: participants[0]?.displayName ?? null,
     roleLabel: participants[0]?.roleLabel ?? null,
     objective: prefs.objective ?? null,
-    timeBudget: prefs.time ?? null,
+    depth: depthOf(prefs.depth),
     calibration,
     sortSummary,
     progress,

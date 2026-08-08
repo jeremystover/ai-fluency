@@ -5,6 +5,7 @@ import { Screen, ErrorNote } from '../components/ui';
 import { api, ApiError } from '../api';
 import { useApp } from '../brand';
 import { preferredSurface, surfaceRoute, surfaceStartLabel } from '../modality';
+import { depthOf } from '../../shared/depth';
 
 function Lock() {
   return (
@@ -65,6 +66,10 @@ function ModuleCard({ m, startRoute, startLabel }: { m: PathModule; startRoute: 
 export default function Path() {
   const { me } = useApp();
   const surface = preferredSurface(me?.prefs?.styles);
+  // Readers who asked for short-and-sweet start at the micro dose.
+  const essentialsReader = surface === 'read' && depthOf(me?.prefs?.depth) === 'essentials';
+  const startRoute = essentialsReader ? '/module/1/micro' : surfaceRoute(surface);
+  const startLabel = essentialsReader ? 'Start micro →' : surfaceStartLabel(surface);
   const [data, setData] = useState<{ modules: PathModule[]; courses: CourseCard[] } | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -98,7 +103,7 @@ export default function Path() {
 
         <div className="mt-8 grid gap-3 sm:grid-cols-2">
           {data.modules.map((m) => (
-            <ModuleCard key={m.id} m={m} startRoute={surfaceRoute(surface)} startLabel={surfaceStartLabel(surface)} />
+            <ModuleCard key={m.id} m={m} startRoute={startRoute} startLabel={startLabel} />
           ))}
         </div>
 

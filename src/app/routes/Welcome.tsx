@@ -5,6 +5,7 @@ import MicButton from '../components/MicButton';
 import { api, ApiError, track } from '../api';
 import { useApp } from '../brand';
 import { GOAL_CHOICES } from '../../shared/goals';
+import { DEPTH_CHOICES } from '../../shared/depth';
 import type { IntakePrefs } from '../../shared/types';
 
 // The orientation: before anything launches at the learner, ask how they
@@ -32,13 +33,6 @@ const START_CHOICES: StartChoice[] = [
   },
 ];
 
-type TimeChoice = { minutes: number; label: string; detail: string };
-const TIME_CHOICES: TimeChoice[] = [
-  { minutes: 10, label: 'About ten minutes', detail: 'The diagnostic plus the two-minute cut of Module 1.' },
-  { minutes: 30, label: 'About half an hour', detail: 'Diagnostic plus the best parts of Module 1.' },
-  { minutes: 60, label: 'An hour or more', detail: 'The full loop, through the AI-graded activity.' },
-  { minutes: 0, label: "No clock — I'll explore", detail: 'One step at a time, no pacing.' },
-];
 
 type StyleChoice = { id: string; label: string; detail: string; tag?: string };
 const STYLE_CHOICES: StyleChoice[] = [
@@ -60,7 +54,7 @@ export default function Welcome() {
   const [name, setName] = useState('');
   const [role, setRole] = useState('');
   const [start, setStart] = useState<IntakePrefs['start']>();
-  const [time, setTime] = useState<number>();
+  const [depth, setDepth] = useState<IntakePrefs['depth']>();
   const [styles, setStyles] = useState<string[]>([]);
   const [goals, setGoals] = useState<string[]>([]);
   const [objective, setObjective] = useState('');
@@ -88,7 +82,7 @@ export default function Welcome() {
     setName(me.displayName ?? '');
     setRole(me.roleLabel ?? '');
     setStart(me.prefs?.start);
-    setTime(me.prefs?.time);
+    setDepth(me.prefs?.depth);
     setStyles(me.prefs?.styles ?? []);
     setGoals(me.prefs?.goals ?? []);
     setObjective(me.prefs?.objective ?? '');
@@ -104,7 +98,7 @@ export default function Welcome() {
       await api.post('/api/intake', {
         displayName: name,
         roleLabel: role,
-        prefs: { start, time, styles, goals, objective: objectiveOverride ?? objective } satisfies IntakePrefs,
+        prefs: { start, depth, styles, goals, objective: objectiveOverride ?? objective } satisfies IntakePrefs,
       });
       await refreshMe();
       navigate('/plan');
@@ -218,20 +212,23 @@ export default function Welcome() {
 
           {step === 2 && (
             <>
-              <h1 className="font-display font-semibold text-ink-strong text-2xl leading-snug">How much time do you have right now?</h1>
-              <p className="text-muted text-sm mt-2">The plan gets cut to fit. Nothing expires.</p>
+              <h1 className="font-display font-semibold text-ink-strong text-2xl leading-snug">How deep do you want to go?</h1>
+              <p className="text-muted text-sm mt-2">
+                This shapes everything — how long the reads run, how deep the tutor goes, how long the podcasts play. Change it anytime.
+              </p>
               <div className="mt-6 flex flex-col gap-2.5">
-                {TIME_CHOICES.map((choice) =>
+                {DEPTH_CHOICES.map((choice) =>
                   card({
-                    key: String(choice.minutes),
+                    key: choice.id,
                     label: choice.label,
                     detail: choice.detail,
-                    selected: time === choice.minutes,
-                    onClick: () => setTime(choice.minutes),
+                    tag: choice.tag,
+                    selected: depth === choice.id,
+                    onClick: () => setDepth(choice.id),
                   }),
                 )}
               </div>
-              <div className="mt-7"><Button onClick={next} disabled={time === undefined}>Continue</Button></div>
+              <div className="mt-7"><Button onClick={next} disabled={depth === undefined}>Continue</Button></div>
             </>
           )}
 
