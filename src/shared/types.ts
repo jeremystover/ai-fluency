@@ -49,6 +49,9 @@ export type PathModule = ModuleCard & {
   microMinutes: number;
   completed: boolean; // module_completed logged for this module
   testedOut: boolean; // cleared by assessment instead of completion (M1: diagnostic)
+  // Why this module is on THEIR path — goal labels and diagnostic reads, shown
+  // verbatim so the learner can see the machine using their answers.
+  recommendedFor: string[];
 };
 
 export type CourseCard = {
@@ -57,6 +60,7 @@ export type CourseCard = {
   level: string;
   blurb: string;
   status: 'open' | 'locked';
+  recommendedFor?: string[]; // same shape as PathModule.recommendedFor
 };
 
 export type CalibrationOption = { label: string; pct: number };

@@ -47,6 +47,11 @@ function ModuleCard({ m }: { m: PathModule }) {
           </span>
         )}
       </div>
+      {m.recommendedFor.length > 0 && !m.completed && (
+        <p className="text-xs text-accent mt-2 font-semibold">
+          <span aria-hidden="true">★ </span>Recommended for you — {m.recommendedFor.join(' · ')}
+        </p>
+      )}
       {m.unlockHint && !m.completed && (
         <p className={`text-xs mt-2 ${m.unlockHint === 'Prerequisite cleared.' ? 'text-success' : 'text-muted'}`}>
           {m.unlockHint === 'Prerequisite cleared.' ? '✓ ' : ''}{m.unlockHint}
@@ -97,16 +102,24 @@ export default function Path() {
 
         <h2 className="label-utility mt-14">After 101</h2>
         <div className="mt-3 grid gap-3 sm:grid-cols-3">
-          {data.courses.filter((c) => c.id !== 'ai101').map((c) => (
-            <div key={c.id} className="border border-line rounded-brand p-5 bg-surface opacity-75">
-              <div className="flex items-center justify-between">
-                <span className="label-utility">{c.level}</span>
-                <span className="label-utility flex items-center gap-1"><Lock /> Locked</span>
+          {data.courses.filter((c) => c.id !== 'ai101').map((c) => {
+            const recommended = c.recommendedFor ?? [];
+            return (
+              <div key={c.id} className={`border rounded-brand p-5 bg-surface ${recommended.length ? 'border-accent/50' : 'border-line opacity-75'}`}>
+                <div className="flex items-center justify-between">
+                  <span className="label-utility">{c.level}</span>
+                  <span className="label-utility flex items-center gap-1"><Lock /> Full course</span>
+                </div>
+                <h3 className="font-display font-semibold text-ink-strong mt-2">{c.title}</h3>
+                <p className="text-sm text-ink mt-1.5 leading-relaxed">{c.blurb}</p>
+                {recommended.length > 0 && (
+                  <p className="text-xs text-accent mt-2 font-semibold">
+                    <span aria-hidden="true">★ </span>Recommended for you — {recommended.join(' · ')}
+                  </p>
+                )}
               </div>
-              <h3 className="font-display font-semibold text-ink-strong mt-2">{c.title}</h3>
-              <p className="text-sm text-ink mt-1.5 leading-relaxed">{c.blurb}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </Screen>

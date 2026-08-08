@@ -9,6 +9,7 @@ import { adminApp } from './admin';
 import { buildTutorSystem, streamTutorReply, KICKOFF_TURN, type LearnerContext as TutorLearnerContext, type TutorMessage } from './chat';
 import { transcribe, speakable, renderSpeech, TUTOR_VOICE } from './voice';
 import { extractPaths } from '../shared/chat';
+import { GOAL_CHOICES } from '../shared/goals';
 import {
   writeScript,
   renderAudio,
@@ -22,6 +23,7 @@ import {
 import diagnosticData from '../../content/diagnostic.json';
 import sortingData from '../../content/sorting.json';
 import type {
+  CourseCard,
   Brand,
   ContentBlock,
   IntakePrefs,
@@ -233,7 +235,7 @@ app.post('/api/hello', async (c) => {
 });
 
 const VALID_STYLES = new Set(['reading', 'interactive', 'podcast', 'assistant_mcp', 'voice']);
-const VALID_GOALS = new Set(['fluency', 'workflows', 'apply', 'news', 'tools', 'safety', 'coach', 'confidence']);
+const VALID_GOALS = new Set(GOAL_CHOICES.map((g) => g.id));
 const VALID_TIMES = new Set([0, 10, 30, 60]);
 
 async function loadPrefs(db: DrizzleD1Database, sessionId: string): Promise<IntakePrefs> {
@@ -392,7 +394,7 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
   const goals = prefs.goals ?? [];
   const GOAL_NOTES: Record<string, string> = {
     workflows: 'Workflow and automation building is the heart of AI 201 — this course builds the judgment underneath it.',
-    news: 'Staying current is what the volatile content layer is for — examples refresh monthly without touching the concepts.',
+    strategy: 'Setting direction is Modules 7–8 territory here, and all of AI 401 — the path marks both for you.',
     tools: 'Module 2 is built around telling tools apart; Lesson 1 of Module 1 starts that cut today.',
     safety: 'What\'s safe to paste — and under what agreement — is Lesson 4 today and all of Module 8.',
     coach: 'Helping others adopt AI gets its own course (AI 301). This one makes you credible first.',
@@ -698,6 +700,31 @@ app.get('/api/path', async (c) => {
   const titleOf = (id: string) => rows.find((m) => m.id === id)?.title ?? id;
   const satisfied = (id: string) => completed.has(id) || (id === 'ai101-m1' && testedOutM1);
 
+  // "Recommended for you" reasons, stated in terms of the learner's own
+  // inputs — their goals and their diagnostic — so the personalization is
+  // legible, not a black box.
+  const prefs = await loadPrefs(db, session.id);
+  const selectedGoals = GOAL_CHOICES.filter((g) => (prefs.goals ?? []).includes(g.id));
+  const diagReasons = new Map<string, string>();
+  const diagDoneRows = await db
+    .select({ n: sql<number>`count(*)` })
+    .from(t.fdEvent)
+    .where(and(eq(t.fdEvent.sessionId, session.id), eq(t.fdEvent.type, 'diagnostic_completed')));
+  if ((diagDoneRows[0]?.n ?? 0) > 0) {
+    const diag = await computeDiagnosticResult(db, session.id);
+    const dir = diag.calibration.direction;
+    if (dir === 'over' || dir === 'mixed') diagReasons.set('ai101-m6', 'your diagnostic: you expect too much from these tools');
+    if (dir === 'under' || dir === 'mixed') diagReasons.set('ai101-m5', 'your diagnostic: you expect too little from these tools');
+  }
+  const reasonsFor = (moduleId: string): string[] => {
+    const reasons: string[] = [];
+    if (moduleId === 'ai101-m1') reasons.push('where every path starts');
+    for (const g of selectedGoals) if (g.modules.includes(moduleId)) reasons.push(`your goal: ${g.label}`);
+    const d = diagReasons.get(moduleId);
+    if (d) reasons.push(d);
+    return reasons;
+  };
+
   const modules: PathModule[] = rows.map((m) => {
     const prereqs: string[] = m.prereqJson ? JSON.parse(m.prereqJson) : [];
     const unmet = prereqs.filter((p) => !satisfied(p));
@@ -719,12 +746,17 @@ app.get('/api/path', async (c) => {
       microMinutes: 2,
       completed: completed.has(m.id),
       testedOut: !completed.has(m.id) && m.id === 'ai101-m1' && testedOutM1,
+      recommendedFor: reasonsFor(m.id),
     };
   });
 
   // Courses beyond 101 are locked cards; they live in content, not the DB, until they exist.
-  const { courses } = (await import('../../content/modules.json')) as unknown as { courses: unknown };
-  return c.json({ modules, courses });
+  const { courses } = (await import('../../content/modules.json')) as unknown as { courses: CourseCard[] };
+  const coursesOut: CourseCard[] = courses.map((course) => ({
+    ...course,
+    recommendedFor: selectedGoals.filter((g) => g.courses.includes(course.id)).map((g) => `your goal: ${g.label}`),
+  }));
+  return c.json({ modules, courses: coursesOut });
 });
 
 // The two-minute cut of Module 1 — same content system, tighter blocks.

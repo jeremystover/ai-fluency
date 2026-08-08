@@ -4,7 +4,7 @@ import { Screen, Button, ErrorNote } from '../components/ui';
 import MicButton from '../components/MicButton';
 import { api, ApiError, track } from '../api';
 import { useApp } from '../brand';
-import { GOAL_CHOICES } from '../goals';
+import { GOAL_CHOICES } from '../../shared/goals';
 import type { IntakePrefs } from '../../shared/types';
 
 // The orientation: before anything launches at the learner, ask how they
@@ -275,7 +275,7 @@ export default function Welcome() {
                 )}
               </div>
               <label className="flex flex-col gap-1.5 mt-5">
-                <span className="label-utility">Refine it, or add your own — optional</span>
+                <span className="label-utility">Anything else? Something specific, or a goal not covered above — type or talk. Optional</span>
                 <div className="relative">
                   <textarea
                     value={objective}
