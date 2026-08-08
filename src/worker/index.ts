@@ -20,6 +20,7 @@ import {
   VOICE_A,
   VOICE_B,
   type AiBinding,
+  type HeardEpisode,
   type LearnerContext,
 } from './podcast';
 import diagnosticData from '../../content/diagnostic.json';
@@ -1433,9 +1434,26 @@ async function generateEpisode(
     .map((b) => b.body)
     .join('\n\n');
 
+  // Q&A hosts remember what this listener actually heard: their module episode
+  // and earlier follow-ups ride along so "like we said…" references land true
+  // and answered questions get built on, not repeated. Capped at the module
+  // episode + the last three follow-ups to keep the prompt bounded.
+  let heard: HeardEpisode[] = [];
+  if (kind === 'qa') {
+    const prior = await db
+      .select()
+      .from(t.fdPodcast)
+      .where(and(eq(t.fdPodcast.sessionId, sessionId), eq(t.fdPodcast.moduleId, moduleId)))
+      .orderBy(asc(t.fdPodcast.createdAt));
+    heard = [...prior.filter((p) => p.kind === 'default'), ...prior.filter((p) => p.kind === 'qa').slice(-3)].map((p) => ({
+      title: p.title,
+      lines: JSON.parse(p.scriptJson) as PodcastLine[],
+    }));
+  }
+
   const learner = await podcastLearner(db, sessionId);
   const model = env.PODCAST_MODEL ?? env.GRADING_MODEL;
-  const script = await writeScript(env.ANTHROPIC_API_KEY, model, mod.title, contentMd, learner, focus, length, kind);
+  const script = await writeScript(env.ANTHROPIC_API_KEY, model, mod.title, contentMd, learner, focus, length, kind, heard);
   if (!script) return null;
 
   // The default episode is one-per-module — re-check just before insert so a
