@@ -1,1 +1,0 @@
-ALTER TABLE `fd_podcast` ADD `kind` text DEFAULT 'default' NOT NULL;
