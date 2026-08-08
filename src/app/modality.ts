@@ -2,20 +2,9 @@
 // the promise of the intake is that answers change the platform, so the first
 // style they picked (that we can serve) decides where a module starts.
 import type { MeResponse } from '../shared/types';
+import { preferredSurface, type Surface } from '../shared/modality';
 
-export type Surface = 'read' | 'chat' | 'voice-chat' | 'podcast';
-
-// Selection order in the intake is preserved in prefs.styles, so the first
-// servable style wins. 'reading' is an explicit vote for the default.
-export function preferredSurface(styles: string[] | undefined): Surface {
-  for (const s of styles ?? []) {
-    if (s === 'reading') return 'read';
-    if (s === 'interactive') return 'chat';
-    if (s === 'voice') return 'voice-chat';
-    if (s === 'podcast') return 'podcast';
-  }
-  return 'read';
-}
+export { preferredSurface, type Surface };
 
 export function surfaceRoute(surface: Surface): string {
   switch (surface) {

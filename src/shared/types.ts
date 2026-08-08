@@ -194,6 +194,7 @@ export const PODCAST_HOSTS = {
 export type PodcastEpisode = {
   id: string;
   moduleId: string;
+  kind: 'default' | 'qa';
   title: string;
   description: string;
   lengthPref: PodcastLength;
@@ -208,6 +209,8 @@ export type PodcastSummary = Omit<PodcastEpisode, 'lines'>;
 
 export type PodcastListResponse = {
   episodes: PodcastSummary[];
+  // Episode ids this session has pressed play on — the Q&A gate.
+  playedEpisodeIds: string[];
   // False when this deployment lacks the binding/key — the UI degrades honestly.
   scriptEnabled: boolean;
   audioEnabled: boolean;

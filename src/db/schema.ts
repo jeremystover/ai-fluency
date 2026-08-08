@@ -153,7 +153,10 @@ export const fdPodcast = sqliteTable(
     id: text('id').primaryKey(),
     sessionId: text('session_id').notNull(),
     moduleId: text('module_id').notNull(),
-    promptText: text('prompt_text'), // the learner's focus/angle, verbatim
+    // 'default' — the one pre-made (or one-click) episode per module;
+    // 'qa' — a follow-up answering the learner's questions after listening.
+    kind: text('kind').notNull().default('default'),
+    promptText: text('prompt_text'), // the learner's focus or questions, verbatim
     lengthPref: text('length_pref').notNull(), // quick | standard | deep
     title: text('title').notNull(),
     description: text('description').notNull(),

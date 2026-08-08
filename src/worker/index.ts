@@ -11,6 +11,7 @@ import { transcribe, speakable, renderSpeech, TUTOR_VOICE } from './voice';
 import { extractPaths } from '../shared/chat';
 import { GOAL_CHOICES } from '../shared/goals';
 import { DEPTH_IDS, depthOf } from '../shared/depth';
+import { preferredSurface } from '../shared/modality';
 import {
   writeScript,
   renderAudio,
@@ -143,6 +144,11 @@ app.post('/api/event', async (c) => {
   const payload = body.payload === undefined ? undefined : body.payload;
   if (payload !== undefined && JSON.stringify(payload).length > 4096) return c.json({ error: 'Payload too large.' }, 400);
   await logEvent(db, session?.id ?? null, body.type, payload);
+  // Completing a module is the moment to get the next one's episode waiting
+  // for podcast-first learners; runs after the response, never blocks it.
+  if (body.type === 'module_completed' && session) {
+    c.executionCtx.waitUntil(pregenerateNextPodcast(c.env, session.id));
+  }
   return c.json({ ok: true });
 });
 
@@ -290,6 +296,8 @@ app.post('/api/intake', async (c) => {
     await db.insert(t.fdPreference).values({ id: uuid(), sessionId: session.id, key, valueJson: JSON.stringify(value), createdAt: now() });
   }
   await logEvent(db, session.id, 'intake_completed', Object.fromEntries(clean));
+  // A podcast-first learner should find their first episode already waiting.
+  c.executionCtx.waitUntil(pregenerateNextPodcast(c.env, session.id));
   return c.json({ ok: true });
 });
 
@@ -1329,6 +1337,7 @@ function toEpisode(row: PodcastRow): PodcastEpisode {
   return {
     id: row.id,
     moduleId: row.moduleId,
+    kind: row.kind === 'qa' ? 'qa' : 'default',
     title: row.title,
     description: row.description,
     lengthPref: row.lengthPref as PodcastLength,
@@ -1353,43 +1362,63 @@ app.get('/api/podcast', async (c) => {
     const { lines: _lines, ...summary } = toEpisode(row);
     return summary;
   });
+  const playedRows = await db
+    .select()
+    .from(t.fdEvent)
+    .where(and(eq(t.fdEvent.sessionId, session.id), eq(t.fdEvent.type, 'podcast_played')));
+  const playedEpisodeIds = [
+    ...new Set(
+      playedRows
+        .map((e) => (e.payloadJson ? (JSON.parse(e.payloadJson) as { podcastId?: string }).podcastId : null))
+        .filter((id): id is string => Boolean(id)),
+    ),
+  ];
   const res: PodcastListResponse = {
     episodes,
+    playedEpisodeIds,
     scriptEnabled: Boolean(c.env.ANTHROPIC_API_KEY),
     audioEnabled: Boolean(c.env.AI),
   };
   return c.json(res);
 });
 
-app.post('/api/podcast', async (c) => {
-  const db = c.get('db');
-  const session = requireSession(c);
-  if (!session) return c.json({ error: 'No session.' }, 401);
-  const body = await c.req.json<{ moduleId?: string; prompt?: string; length?: string }>().catch(() => null);
-  if (!body) return c.json({ error: 'Malformed request.' }, 400);
+// Everything writeScript needs to know about this learner — name, role,
+// goals, depth, diagnostic — so every episode is unmistakably theirs.
+async function podcastLearner(db: DrizzleD1Database, sessionId: string): Promise<LearnerContext> {
+  const participants = await db
+    .select()
+    .from(t.fdParticipant)
+    .where(eq(t.fdParticipant.sessionId, sessionId))
+    .orderBy(desc(t.fdParticipant.createdAt))
+    .limit(1);
+  const prefs = await loadPrefs(db, sessionId);
+  const diag = await computeDiagnosticResult(db, sessionId);
+  return {
+    name: participants[0]?.displayName ?? null,
+    role: participants[0]?.roleLabel ?? null,
+    objective: prefs.objective ?? null,
+    calibrationHeadline: diag.calibration.points.length > 0 ? diag.calibration.headline : null,
+    goals: GOAL_CHOICES.filter((g) => (prefs.goals ?? []).includes(g.id)).map((g) => g.label),
+    depth: depthOf(prefs.depth),
+  };
+}
 
-  const moduleId = body.moduleId ?? 'ai101-m1';
-  const length: PodcastLength = body.length === 'quick' || body.length === 'deep' ? body.length : 'standard';
-  const focus = typeof body.prompt === 'string' && body.prompt.trim() ? body.prompt.trim().slice(0, 400) : null;
-
+// One episode, generated and stored. Shared by the manual button, the Q&A
+// follow-up, and background pregeneration. Null on any failure — callers
+// answer gracefully (or, for pregen, silently).
+async function generateEpisode(
+  env: Env,
+  db: DrizzleD1Database,
+  sessionId: string,
+  moduleId: string,
+  kind: 'default' | 'qa',
+  focus: string | null,
+  length: PodcastLength,
+): Promise<PodcastRow | null> {
+  if (!env.ANTHROPIC_API_KEY) return null;
   const modRows = await db.select().from(t.fdModule).where(eq(t.fdModule.id, moduleId)).limit(1);
   const mod = modRows[0];
-  if (!mod || mod.status !== 'open') return c.json({ error: 'Episodes can only be made from open modules.' }, 400);
-
-  const hourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
-  const recent = await db
-    .select({ n: sql<number>`count(*)` })
-    .from(t.fdPodcast)
-    .where(and(eq(t.fdPodcast.sessionId, session.id), gt(t.fdPodcast.createdAt, hourAgo)));
-  if ((recent[0]?.n ?? 0) >= PODCAST_LIMIT_PER_HOUR) {
-    return c.json({ error: `Episode writing is limited to ${PODCAST_LIMIT_PER_HOUR} an hour. Your earlier episodes are below — or come back shortly.` }, 429);
-  }
-
-  if (!c.env.ANTHROPIC_API_KEY) {
-    return c.json({ error: 'The scriptwriter is not configured in this deployment, so episodes cannot be generated yet.' }, 503);
-  }
-
-  await logEvent(db, session.id, 'podcast_requested', { moduleId, length, hasFocus: focus !== null });
+  if (!mod || mod.status !== 'open') return null;
 
   // Source: the module's readable blocks, in order. Exercise blocks carry JSON
   // payloads, not prose — the hosts can't read those aloud.
@@ -1398,36 +1427,32 @@ app.post('/api/podcast', async (c) => {
     .from(t.fdContentBlock)
     .where(eq(t.fdContentBlock.moduleId, moduleId))
     .orderBy(asc(t.fdContentBlock.ordinal));
+  if (blockRows.length === 0) return null;
   const contentMd = blockRows
     .filter((b) => b.kind !== 'exercise')
     .map((b) => b.body)
     .join('\n\n');
 
-  const participants = await db
-    .select()
-    .from(t.fdParticipant)
-    .where(eq(t.fdParticipant.sessionId, session.id))
-    .orderBy(desc(t.fdParticipant.createdAt))
-    .limit(1);
-  const prefs = await loadPrefs(db, session.id);
-  const diag = await computeDiagnosticResult(db, session.id);
-  const learner: LearnerContext = {
-    name: participants[0]?.displayName ?? null,
-    role: participants[0]?.roleLabel ?? null,
-    objective: prefs.objective ?? null,
-    calibrationHeadline: diag.calibration.points.length > 0 ? diag.calibration.headline : null,
-  };
+  const learner = await podcastLearner(db, sessionId);
+  const model = env.PODCAST_MODEL ?? env.GRADING_MODEL;
+  const script = await writeScript(env.ANTHROPIC_API_KEY, model, mod.title, contentMd, learner, focus, length, kind);
+  if (!script) return null;
 
-  const model = c.env.PODCAST_MODEL ?? c.env.GRADING_MODEL;
-  const script = await writeScript(c.env.ANTHROPIC_API_KEY, model, mod.title, contentMd, learner, focus, length);
-  if (!script) {
-    return c.json({ error: 'The scriptwriter is unavailable right now. Nothing was saved — try again in a minute.' }, 503);
+  // The default episode is one-per-module — re-check just before insert so a
+  // pregen racing a button click doesn't double up.
+  if (kind === 'default') {
+    const existing = await db
+      .select({ n: sql<number>`count(*)` })
+      .from(t.fdPodcast)
+      .where(and(eq(t.fdPodcast.sessionId, sessionId), eq(t.fdPodcast.moduleId, moduleId), eq(t.fdPodcast.kind, 'default')));
+    if ((existing[0]?.n ?? 0) > 0) return null;
   }
 
   const row: PodcastRow = {
     id: uuid(),
-    sessionId: session.id,
+    sessionId,
     moduleId,
+    kind,
     promptText: focus,
     lengthPref: length,
     title: script.title,
@@ -1444,8 +1469,117 @@ app.post('/api/podcast', async (c) => {
     createdAt: now(),
   };
   await db.insert(t.fdPodcast).values(row);
-  await logEvent(db, session.id, 'podcast_script_ready', { podcastId: row.id, turns: script.lines.length, chars: row.totalChars });
+  await logEvent(db, sessionId, 'podcast_script_ready', { podcastId: row.id, kind, turns: script.lines.length, chars: row.totalChars });
+  return row;
+}
 
+async function underPodcastLimit(db: DrizzleD1Database, sessionId: string): Promise<boolean> {
+  const hourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
+  const recent = await db
+    .select({ n: sql<number>`count(*)` })
+    .from(t.fdPodcast)
+    .where(and(eq(t.fdPodcast.sessionId, sessionId), gt(t.fdPodcast.createdAt, hourAgo)));
+  return (recent[0]?.n ?? 0) < PODCAST_LIMIT_PER_HOUR;
+}
+
+const defaultLengthFor = (depth: ReturnType<typeof depthOf>): PodcastLength =>
+  depth === 'essentials' ? 'quick' : depth === 'deep' ? 'deep' : 'standard';
+
+// Background pregeneration for learners who said podcasts are how they learn:
+// the next module they can enter gets its episode written before they arrive.
+// Costs one script call, so it only fires for podcast-first learners, one
+// module at a time, inside the same hourly cap as manual generation.
+async function pregenerateNextPodcast(env: Env, sessionId: string): Promise<void> {
+  try {
+    const db = drizzle(env.DB);
+    const prefs = await loadPrefs(db, sessionId);
+    if (preferredSurface(prefs.styles) !== 'podcast') return;
+    if (!env.ANTHROPIC_API_KEY) return;
+    if (!(await underPodcastLimit(db, sessionId))) return;
+
+    const mods = await db
+      .select()
+      .from(t.fdModule)
+      .where(and(eq(t.fdModule.courseId, 'ai101'), eq(t.fdModule.status, 'open')))
+      .orderBy(asc(t.fdModule.ordinal));
+    for (const mod of mods) {
+      const existing = await db
+        .select({ n: sql<number>`count(*)` })
+        .from(t.fdPodcast)
+        .where(and(eq(t.fdPodcast.sessionId, sessionId), eq(t.fdPodcast.moduleId, mod.id), eq(t.fdPodcast.kind, 'default')));
+      if ((existing[0]?.n ?? 0) > 0) continue;
+      await logEvent(db, sessionId, 'podcast_requested', { moduleId: mod.id, kind: 'default', trigger: 'pregen' });
+      await generateEpisode(env, db, sessionId, mod.id, 'default', null, defaultLengthFor(depthOf(prefs.depth)));
+      return; // one per trigger — the next completion pregenerates the next module
+    }
+  } catch {
+    // Background work: a failure here costs nothing the learner can see —
+    // the podcast page falls back to the one-click generate button.
+  }
+}
+
+app.post('/api/podcast', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const body = await c.req.json<{ moduleId?: string; kind?: string; question?: string }>().catch(() => null);
+  if (!body) return c.json({ error: 'Malformed request.' }, 400);
+
+  const moduleId = body.moduleId ?? 'ai101-m1';
+  const kind: 'default' | 'qa' = body.kind === 'qa' ? 'qa' : 'default';
+
+  const modRows = await db.select().from(t.fdModule).where(eq(t.fdModule.id, moduleId)).limit(1);
+  const mod = modRows[0];
+  if (!mod || mod.status !== 'open') return c.json({ error: 'Episodes can only be made from open modules.' }, 400);
+
+  if (!c.env.ANTHROPIC_API_KEY) {
+    return c.json({ error: 'The scriptwriter is not configured in this deployment, so episodes cannot be generated yet.' }, 503);
+  }
+
+  const defaultRows = await db
+    .select()
+    .from(t.fdPodcast)
+    .where(and(eq(t.fdPodcast.sessionId, session.id), eq(t.fdPodcast.moduleId, moduleId), eq(t.fdPodcast.kind, 'default')))
+    .limit(1);
+  const existingDefault = defaultRows[0] ?? null;
+
+  const prefs = await loadPrefs(db, session.id);
+
+  if (kind === 'default') {
+    // One default episode per module — asking again just returns it.
+    if (existingDefault) return c.json(toEpisode(existingDefault));
+  } else {
+    if (!existingDefault) return c.json({ error: 'Your module episode comes first — the hosts answer questions about something you\'ve heard.' }, 400);
+    const played = await db
+      .select({ n: sql<number>`count(*)` })
+      .from(t.fdEvent)
+      .where(
+        and(
+          eq(t.fdEvent.sessionId, session.id),
+          eq(t.fdEvent.type, 'podcast_played'),
+          sql`json_extract(${t.fdEvent.payloadJson}, '$.podcastId') = ${existingDefault.id}`,
+        ),
+      );
+    if ((played[0]?.n ?? 0) === 0) {
+      return c.json({ error: 'Listen to your episode first — then ask the hosts anything it left you wondering.' }, 400);
+    }
+    if (!body.question?.trim() || body.question.trim().length < 5) {
+      return c.json({ error: 'Ask the hosts a real question — a sentence or two about what you want unpacked.' }, 400);
+    }
+  }
+
+  if (!(await underPodcastLimit(db, session.id))) {
+    return c.json({ error: `Episode writing is limited to ${PODCAST_LIMIT_PER_HOUR} an hour. Your earlier episodes are below — or come back shortly.` }, 429);
+  }
+
+  const question = kind === 'qa' ? body.question!.trim().slice(0, 500) : null;
+  await logEvent(db, session.id, 'podcast_requested', { moduleId, kind, trigger: 'manual' });
+
+  const length = kind === 'qa' ? 'quick' : defaultLengthFor(depthOf(prefs.depth));
+  const row = await generateEpisode(c.env, db, session.id, moduleId, kind, question, length);
+  if (!row) {
+    return c.json({ error: 'The scriptwriter is unavailable right now. Nothing was saved — try again in a minute.' }, 503);
+  }
   return c.json(toEpisode(row));
 });
 
