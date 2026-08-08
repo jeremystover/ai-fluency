@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link, useParams, useSearchParams } from 'react-router-dom';
+import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { marked } from 'marked';
 import type { ChatHistoryResponse, ChatMessage, ChatStreamLine, VoiceStatus } from '../../shared/types';
 import { extractPaths } from '../../shared/chat';
@@ -81,6 +81,7 @@ function ListenButton({
 export default function Chat() {
   const MODULE_ID = useParams().moduleId ?? 'ai101-m1';
   const device = useDevice();
+  const navigate = useNavigate();
   const [title, setTitle] = useState<string | null>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [streaming, setStreaming] = useState<string | null>(null); // assistant text in flight
@@ -329,15 +330,27 @@ export default function Chat() {
 
         {chips.length > 0 && (
           <div className="flex flex-wrap gap-2 pb-3 anim-fade">
-            {chips.map((option) => (
-              <button
-                key={option}
-                onClick={() => void send(option)}
-                className="px-3.5 py-1.5 text-sm font-display font-semibold rounded-full border border-accent text-accent hover:bg-accent/[0.06] transition-colors"
-              >
-                {option}
-              </button>
-            ))}
+            {chips.map((option) =>
+              // "go:" options navigate out of the chat instead of sending —
+              // the tutor uses them when a recommendation needs a next screen.
+              option.startsWith('go:') ? (
+                <button
+                  key={option}
+                  onClick={() => navigate('/plan')}
+                  className="px-4 py-1.5 text-sm font-display font-semibold rounded-full bg-accent text-on-accent hover:brightness-110 transition-all"
+                >
+                  {option.slice(3)} →
+                </button>
+              ) : (
+                <button
+                  key={option}
+                  onClick={() => void send(option)}
+                  className="px-3.5 py-1.5 text-sm font-display font-semibold rounded-full border border-accent text-accent hover:bg-accent/[0.06] transition-colors"
+                >
+                  {option}
+                </button>
+              ),
+            )}
           </div>
         )}
 
