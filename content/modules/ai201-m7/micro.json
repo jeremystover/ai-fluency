@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ai201-m7-micro-core",
+    "moduleId": "ai201-m7-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Module 7 in two minutes\n\n**Workflows die of decay, not drama.** The source format shifts, the sample quietly stops during a crunch, and months later nobody has a number — just a feeling it used to be better. The counter is a rhythm sized to survive bad weeks: seconds per run (embedded checks), ten minutes weekly (the sample, the approval log), twenty monthly (pack review, metrics against baseline). Maintenance must cost a small fraction of what the workflow saves.\n\n**Four numbers per workflow:** time against a measured baseline, cost to run (tokens, seat share, maintenance minutes), the sample's error direction, and real downstream use. Every metric must answer *what would I do differently if this moved?* — no answer, no metric. Before/after or it didn't happen, and the after carries its price.\n\n**Write retirement criteria while you're still fond of the thing.** Inverted economics, a quiet use number, or a world that moved — any one forces the question. A retired workflow with measured savings is a success story with an ending; the zombie workflow is the actual failure."
+  },
+  {
+    "id": "ai201-m7-micro-rule",
+    "moduleId": "ai201-m7-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "### The reckoning\n\nModule 1's cost prediction gets scored here against measured reality. The point was never the estimate — it's learning which direction you systematically miss on your own work, and pricing the next build against it."
+  },
+  {
+    "id": "ai201-m7-micro-close",
+    "moduleId": "ai201-m7-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "**The full module adds** the signal-or-theater exercise, the measurement-design literature behind the four numbers, and capstone stage 7: baselines, an installed rhythm, and the retirement clause."
+  }
+]

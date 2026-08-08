@@ -13,6 +13,7 @@ import Chat from './routes/Chat';
 import MicroView from './routes/MicroView';
 import Podcast from './routes/Podcast';
 import Admin from './routes/Admin';
+import KnowledgeCheck from './routes/KnowledgeCheck';
 import Activity from './routes/Activity';
 import Complete from './routes/Complete';
 import type { ReactNode } from 'react';
@@ -39,12 +40,20 @@ export default function App() {
           <Route path="/diagnostic" element={<RequireSession><Diagnostic /></RequireSession>} />
           <Route path="/diagnostic/result" element={<RequireSession><DiagnosticResult /></RequireSession>} />
           <Route path="/path" element={<RequireSession><Path /></RequireSession>} />
-          <Route path="/module/1" element={<RequireSession><ModuleView /></RequireSession>} />
-          <Route path="/module/1/chat" element={<RequireSession><Chat /></RequireSession>} />
-          <Route path="/module/1/micro" element={<RequireSession><MicroView /></RequireSession>} />
-          <Route path="/module/1/podcast" element={<RequireSession><Podcast /></RequireSession>} />
-          <Route path="/module/1/activity" element={<RequireSession><Activity /></RequireSession>} />
-          <Route path="/module/1/complete" element={<RequireSession><Complete /></RequireSession>} />
+          {/* Legacy /module/1 links (plans, bookmarks) → the canonical module id. */}
+          <Route path="/module/1" element={<Navigate to="/module/ai101-m1" replace />} />
+          <Route path="/module/1/chat" element={<Navigate to="/module/ai101-m1/chat" replace />} />
+          <Route path="/module/1/micro" element={<Navigate to="/module/ai101-m1/micro" replace />} />
+          <Route path="/module/1/podcast" element={<Navigate to="/module/ai101-m1/podcast" replace />} />
+          <Route path="/module/1/activity" element={<Navigate to="/module/ai101-m1/activity" replace />} />
+          <Route path="/module/1/complete" element={<Navigate to="/module/ai101-m1/complete" replace />} />
+          <Route path="/module/:moduleId" element={<RequireSession><ModuleView /></RequireSession>} />
+          <Route path="/module/:moduleId/chat" element={<RequireSession><Chat /></RequireSession>} />
+          <Route path="/module/:moduleId/micro" element={<RequireSession><MicroView /></RequireSession>} />
+          <Route path="/module/:moduleId/podcast" element={<RequireSession><Podcast /></RequireSession>} />
+          <Route path="/module/:moduleId/activity" element={<RequireSession><Activity /></RequireSession>} />
+          <Route path="/module/:moduleId/check" element={<RequireSession><KnowledgeCheck /></RequireSession>} />
+          <Route path="/module/:moduleId/complete" element={<RequireSession><Complete /></RequireSession>} />
           <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

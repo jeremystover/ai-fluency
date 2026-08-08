@@ -1,0 +1,11 @@
+[
+  {
+    "id": "ai201-m5-activity-capstone-stage-5-the-decision-memo-10",
+    "moduleId": "ai201-m5-activity",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Capstone stage 5 · The decision memo\n\nYour workflow's autonomy profile, decided and defended. This memo is graded hardest on the\nreasoning for the rung — ambition earns nothing; evidence does.\n\n**Submit:**\n\n1. **The shuttling measurement.** Time one real run. Report the actual shuttling/judgment\n   split against your calibration prediction from the top of the module, direction of miss\n   named. This is your honest case for (or against) bothering with an agent at all.\n2. **The profile.** Each pipeline step: its rung, priced in your M4 evidence — sampled error\n   rate vs. your escalation line, what the approval would read (rung 2), reversibility and\n   audit cadence (rung 3). A step you're keeping at rung 1 needs a sentence too: \"not yet\" and\n   \"never\" are different answers with different reasons.\n3. **The guardrail spec** — for any step above rung 1: tools granted, tools *deliberately not\n   attached* (name them — the unattached list is the design), approval points and their\n   reading lists, the audit log and who reviews it on what cadence, and the blast-radius\n   sentence: the worst plausible action and what undo looks like.\n4. **The refusal, if it applies** — and for most first workflows it applies somewhere: the\n   ceiling line, written per Lesson 4, review trigger included if one exists.\n\n### Rubric — 20 points\n\n| Dimension | 5 points |\n|---|---|\n| **Rung reasoning** | Every rung priced in verification evidence, not capability enthusiasm. \"Not yet\" distinguished from \"never,\" both defended. |\n| **Guardrails are permissions** | The spec controls what's attached, not what's requested. The not-attached list is present and thoughtful. Blast radius stated honestly. |\n| **Per-step granularity** | The profile treats steps individually; any all-or-nothing answer is argued for, not defaulted to. |\n| **Calibration** | Shuttling prediction recorded first, measured against a real run, direction of miss named. Honesty and specificity graded; accuracy never. |"
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "ai201-m8-calibration-prompt-before-you-start-10",
+    "moduleId": "ai201-m8",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Calibration prompt — before you start\n\n*One prediction, thirty seconds. The peer exchange scores it — and it's the course's last.*\n\nA peer you've never worked with is about to run your workflow's first step from your\ndocumentation alone.\n\n**Where do they stall?** Name the specific spot — the undefined term, the step that assumes a\nfile location only you know, the instruction that quietly requires your judgment. And predict:\ndo they get a usable artifact out of step one, yes or no?\n\nSeven modules of predictions have taught you your lean. This one you should be getting right —\nwhich is exactly why it's worth checking."
+  },
+  {
+    "id": "ai201-m8-module-brief-20",
+    "moduleId": "ai201-m8",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Module brief\n\nEverything so far has been building. This module's verb is different: **ship** — run the thing\nfor real, on real work, produce the numbers, and package it so that it survives contact with\nsomeone who isn't you.\n\nThat last clause is the module's actual subject. A workflow that only its builder can run\nisn't a system yet; it's an artisan with better filing. The proof of the Practitioner level —\nthe thing that separates L3 from a well-organized L2 — is *transferability*: your judgment,\nwritten down so completely that a reasonable colleague could run the build, read its\nboundaries, and trust its guardrails without you in the room. Every module quietly built\ntoward this. The spec was always a document for a stranger. The runbook was always the\ninstructions someone else would follow. The refusal and the boundary sheet were always\nwritten for the successor and the security reviewer. M8 just introduces the stranger.\n\nConcretely, three things happen this module. You assemble the **portfolio** — every artifact\nfrom M1 through M7, current and consistent with each other. You run the **handoff test** — a\nminimal peer exchange where another practitioner runs your first step cold and tells you,\nin a structured way, where your documentation lied to you. And you run the workflow **for\nreal, twice**, producing the before/after numbers that make your work the only\nevidence-backed AI story in most rooms you'll sit in this year.\n\nThen the course tells you what it's been doing behind your back for eight modules — because\nthe skills this build taught you have a name, and it's the next level."
+  },
+  {
+    "id": "ai201-m8-learning-objectives-30",
+    "moduleId": "ai201-m8",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. Assemble a shipping portfolio where every artifact is current and none contradict each other.\n2. Survive the handoff test — and treat every stall your peer hits as documentation debt, not\n   reader error.\n3. Give a structured, useful review of someone else's workflow as its cold-start reader.\n4. State your build's measured result in one sentence a skeptical executive would accept.\n5. Recognize which L4 (Translator) skills this course has already seeded in you."
+  },
+  {
+    "id": "ai201-m8-lesson-1-the-shipping-checklist-40",
+    "moduleId": "ai201-m8",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Lesson 1 · The shipping checklist\n\nShipping is an assembly problem: seven modules produced artifacts at different times, and the\nworkflow evolved while you built it. The checklist's job is coherence — one binder (in\npractice: your project's knowledge, plus one index document) where everything is *current* and\n*consistent*:\n\n- **The spec** (M1) — five parts, as the workflow actually runs today, not as first specced.\n  If the pipeline changed in M3, the spec caught up. Owner line filled (M4).\n- **The pack inventory** (M2) — instructions verbatim, knowledge list with review dates. No\n  Tier 3 anywhere in it (M6 audits M2's promise).\n- **The runbook** (M3) — step prompts as actually used, checkpoints with their\n  what-would-wrong-look-like lines.\n- **The verification plan** (M4) — budget, technique map, sign-off reading list, latest sample\n  tally, escalation line.\n- **The autonomy profile** (M5) — rungs per step, guardrail spec or the refusal, as decided.\n- **The boundary sheet** (M6) — census, mitigations, agreement answers with dates, escalation\n  card.\n- **The rhythm and numbers** (M7) — three metrics with baseline, calendar blocks, retirement\n  clause.\n- **The index** — one page, new in this module: what this workflow is, what it saves, where\n  everything above lives, and who owns it. The page a successor reads first, and the page an\n  exec reads *only*.\n\nThe consistency pass matters more than any single artifact: the spec that says \"weekly\" while\nthe rhythm says \"monthly,\" the runbook step the verification plan doesn't cover, the pack item\nthe boundary census never tiered. Contradictions are where a cold reader stalls and where a\nreviewer stops trusting. Read the binder once, end to end, as the stranger — then let the\nactual stranger in."
+  },
+  {
+    "id": "ai201-m8-lesson-2-the-handoff-test-50",
+    "moduleId": "ai201-m8",
+    "ordinal": 50,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Lesson 2 · The handoff test\n\nThe peer exchange is minimal by design — one pairing, one step, three questions — because its\njob isn't collaboration; it's *calibration of your documentation against reality*, and one\ncold read produces most of that signal.\n\n**The mechanics.** You're paired with one other practitioner. Each of you, separately: read\nyour peer's index and runbook, then run **step one only** of their workflow — their step\nprompt, their pack, sample material they've provided (M6-clean; providing safe sample material\nis part of *their* shipping). No questions allowed during the run — the documentation answers\nor it doesn't. Then each returns the structured review, three questions, one paragraph each:\n\n1. **Could I start?** From the binder alone: did I know what to open, what to paste, what\n   good output looks like?\n2. **Where did I stall?** The specific sentence, gap, or assumption — not \"it was unclear,\"\n   but *where*.\n3. **What did the doc assume I knew?** The tacit knowledge tax: terms, locations, judgment\n   calls the builder no longer notices they're making.\n\n**When there is no peer.** Cohorts don't always pair cleanly, and paired peers don't always\ndeliver. Neither stalls your shipping. If you're running solo, your binder and sample material\ngo to the course's **review queue**, where an experienced reviewer runs the same cold read and\nreturns the same three questions — the reviewer having seen many binders is a feature, not a\ncompromise; their stalls are better-aimed than a peer's. And if your paired peer's review\nhasn't arrived within a week, your submission moves to the queue automatically: their stall is\nnot your debt, and the module completes on your timeline either way. The giving side survives\ntoo — solo learners give their structured review to a queued submission from the course\nlibrary, which is the same skill against a build you've never seen. In every variant, the\nmechanics above hold: cold read, no questions during the run, three structured paragraphs back.\n\n**Receiving the review is the skill being graded.** Every stall is documentation debt —\ninformation about the binder, never about the reader. The reflex you've trained all course\napplies one last time: fix the pack, not the output; fix the doc, not the reader. You'll fix\nthe top stalls, and you'll also score your calibration prompt: did they stall where you\npredicted? Builders are routinely wrong about this in a specific direction — they predict\nstalls at the *complex* parts and get stalled at the *obvious* ones, because obviousness is\nprecisely what expertise can no longer see. That miss, more than any fix, is the lesson.\n\n**Giving the review is a preview.** Reading someone else's build cold — seeing exactly where\ntheir expertise went invisible to them — is the core diagnostic skill of coaching adoption.\nYou're doing L4 work already; Lesson 3 says so out loud."
+  },
+  {
+    "id": "ai201-m8-lesson-3-what-this-course-actually-taugh-60",
+    "moduleId": "ai201-m8",
+    "ordinal": 60,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Lesson 3 · What this course actually taught you\n\nClose the loop, then open the next one.\n\n**The result, stated plainly.** You now own a production workflow with a measured before and\nafter, a verification layer with real sample data, a defensible boundary, an autonomy\ndecision made on evidence, and documentation a stranger has actually run. When someone in\nyour organization asks what AI is worth — and someone will, with a budget line attached —\nyou are the person in the room with a baseline. One sentence, from your M7 numbers: *\"This\nworkflow saves N hours a month against a measured baseline, at a running cost of $X and a\nY% sampled error rate, with a boundary sheet security has seen.\"* Practice saying it. The\ncost clause matters as much as the savings clause: it's the difference between a pitch and\nan accounting, and a CFO hears the difference immediately.\n\n**The skills that came along quietly.** Look at what shipping required, and notice none of\nit was prompting: you priced trust in evidence (M4→M5), wrote boundaries a reviewer could\naudit (M6), measured your own judgment's lean and corrected for it (every module), read a\ncolleague's build and diagnosed where their expertise went invisible (M2 of this module),\nand produced the org's first honest before/after. That skill set has a name in this\ncurriculum: **The Translator** — the person who helps *other* functions adopt AI with\njudgment, evaluates vendors without being sold to, and runs pilots that produce evidence\ninstead of anecdotes. AI 301 starts there, and it starts with an advantage most translators\nnever get: you'll be teaching from a build you shipped, not a deck you read.\n\n**And the course keeps one promise on its way out.** 101 M1 said your two roles — using AI\nwell, and leading others to — were different jobs needing different preparation, and that\nyou couldn't credibly lead a change you can't perform. That debt is now paid. You can\nperform it. The next course is about the leading."
+  },
+  {
+    "id": "ai201-m8-key-takeaways-70",
+    "moduleId": "ai201-m8",
+    "ordinal": 70,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Key takeaways\n\n- **Shipping is transferability.** A workflow only its builder can run isn't a system yet.\n  The stranger is the test.\n- **The consistency pass beats any single artifact.** Contradictions between binder documents\n  are where cold readers stall and reviewers stop trusting.\n- **Every stall is documentation debt.** Fix the doc, not the reader — and expect the stalls\n  at the obvious parts, where your expertise went invisible.\n- **Before/after or it didn't happen, final form:** one sentence with a baseline, an error\n  rate, and a boundary a reviewer has seen. The only AI story in the room with evidence.\n- **Retiring the artisan was the point.** The judgment stays yours; the system now carries\n  it — which is what frees you for the next level's work."
+  },
+  {
+    "id": "ai201-m8-sources-and-attribution-80",
+    "moduleId": "ai201-m8",
+    "ordinal": 80,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Sources and attribution\n\nBuilds on the entire course; the module is deliberately an integration with one new mechanic\n(the peer exchange) and one new artifact (the index). The tacit-knowledge-tax framing of\nhandoff stalls, the consistency pass, and the trustworthy-not-impressive rubric dimension are\noriginal to this course. Stable layer throughout. The Translator framing continues in AI 301."
+  }
+]

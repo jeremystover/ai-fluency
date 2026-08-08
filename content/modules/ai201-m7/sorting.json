@@ -1,0 +1,18 @@
+{
+  "reviewedAt": "2026-08-07",
+  "buckets": [
+    { "id": "keep", "label": "Keep — it's a signal", "hint": "Answers \"what would I do differently if this moved?\"", "rank": 0, "pct": 50 },
+    { "id": "cut", "label": "Cut — it's theater", "hint": "Measures activity, can't go down, or informs no decision", "rank": 0, "pct": 50 }
+  ],
+  "tasks": [
+    { "id": "t1", "text": "Cumulative debriefs generated since launch", "key": "cut", "reasoning": "Cumulative counts can't go down — they measure elapsed time, nothing else." },
+    { "id": "t2", "text": "Minutes per debrief, timed monthly, vs. the by-hand baseline", "key": "keep", "reasoning": "The time number, done right: an actual run timed occasionally against a recorded baseline, not self-reported hours saved." },
+    { "id": "t3", "text": "\"Time saved feels significant\" — team survey, quarterly", "key": "cut", "also": ["keep"], "reasoning": "The arguable one. Sentiment isn't worthless — a team that hates a workflow is information — but as proposed it fails the test twice: no denominator, no would-do-differently answer. The defensible keep is a repurposed version: one question at the monthly review, treated as a smoke detector for the use metric — not a KPI." },
+    { "id": "t4", "text": "Errors per weekly five-debrief sample, classified", "key": "keep", "reasoning": "The quality number — the M4 sample already produces it; the rhythm just graphs it. Direction matters more than level." },
+    { "id": "t5", "text": "Number of prompts in the prompt library", "key": "cut", "reasoning": "Library size measures accumulation, not value; by M2's own hygiene rules a shrinking library is often the healthier sign." },
+    { "id": "t6", "text": "Share of debriefs opened by the hiring manager within 48 hours", "key": "keep", "reasoning": "The best of the board: it measures the hiring manager's behavior, not yours — real downstream use." },
+    { "id": "t7", "text": "Monthly run cost — token or seat share plus maintenance minutes, estimated quarterly", "key": "keep", "reasoning": "Estimated lazily, but present — a value claim without a cost line doesn't survive its first CFO." }
+  ],
+  "pattern": "Every metric must answer: what would I do differently if this number moved? No answer, no metric.",
+  "postscript": "The sentiment survey scores either way — the reasoning is the point. If you kept it as a KPI rather than repurposing it as a smoke detector, that's the theater reflex the lesson is after."
+}

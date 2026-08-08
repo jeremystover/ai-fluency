@@ -52,6 +52,45 @@ html {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
+  /* Mobile browsers must never resize text on rotate or zoom text on inputs. */
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ------------------------------------------------------------------
+   Touch. The app must feel native under a finger: no gray tap flashes,
+   no 300ms double-tap delay, no iOS auto-zoom on focus (triggered by
+   any input under 16px), and targets big enough to hit.
+------------------------------------------------------------------- */
+button,
+a,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+@media (pointer: coarse) {
+  input,
+  select,
+  textarea {
+    font-size: 16px; /* under 16px, iOS Safari zooms the page on focus */
+  }
+  button,
+  [role='radio'],
+  [role='button'] {
+    min-height: 44px; /* Apple HIG minimum touch target */
+  }
+}
+
+/* Safe areas (notches, home indicators) — used by the sticky header,
+   bottom bars, and screen padding via these utilities. */
+.pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 @media (prefers-reduced-motion: reduce) {

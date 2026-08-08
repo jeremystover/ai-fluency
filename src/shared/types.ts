@@ -20,11 +20,22 @@ export type ContentBlock = {
   id: string;
   moduleId: string;
   ordinal: number;
-  kind: 'prose' | 'callout' | 'try_this' | 'exercise' | 'takeaways' | 'table';
+  kind: 'prose' | 'callout' | 'try_this' | 'exercise' | 'takeaways' | 'table' | 'calibration_prompt' | 'reveal';
   layer: 'stable' | 'volatile';
   body: string;
   dependsOn?: string[];
   reviewedAt: string;
+};
+
+// What a module's seeded package supports — the modality hub renders from this.
+export type ModuleCapabilities = {
+  read: boolean;
+  micro: boolean;
+  chat: boolean;
+  podcast: boolean;
+  sorting: boolean;
+  activity: boolean;
+  knowledgeCheck: boolean;
 };
 
 export type ModuleCard = {
@@ -88,7 +99,7 @@ export type DiagnosticResult = {
   };
 };
 
-export type SortingBucket = { id: 'well' | 'partly' | 'badly'; label: string; hint: string };
+export type SortingBucket = { id: string; label: string; hint: string; rank?: number; pct?: number };
 export type SortingTaskPublic = { id: string; text: string };
 export type SortingReveal = {
   results: { taskId: string; text: string; chosen: string; key: string; correct: boolean; reasoning: string }[];
@@ -221,4 +232,106 @@ export type ModuleContentResponse = {
   blocks: ContentBlock[];
   stamps: { conceptsReviewedAt: string | null; examplesCurrentAsOf: string | null };
   estReadMinutes: number;
+  capabilities: ModuleCapabilities;
+  // Numeric prediction fields the module's opening calibration prompt captures
+  // (rubric-declared), with any values this session already recorded.
+  openingFields: CalibrationField[];
+  openingValues: Record<string, number>;
+};
+
+// ---------- generic activity & knowledge check ----------
+
+// `actualFor` marks an activity-time field as the measured outcome for an
+// earlier numeric prediction: same-module key ("items") or cross-module
+// ("ai201-m1:savings"). Submitting it closes that prediction's loop —
+// actual recorded, delta computed — instead of opening a new one.
+export type CalibrationField = { key: string; label: string; hint?: string; placeholder?: string; min?: number; max?: number; actualFor?: string };
+
+// A human review from the operator's queue, surfaced back to the learner.
+// onLatest is false when the learner resubmitted after the review was written.
+export type OperatorReview = {
+  id: string;
+  reviewer: string;
+  body: string;
+  score: number | null;
+  createdAt: string;
+  onLatest: boolean;
+};
+
+// A prior capstone stage's submission, threaded into later stages: shown to
+// the learner above the editor and to the grader in its prompt.
+export type PriorStage = {
+  moduleId: string;
+  ordinal: number;
+  title: string;
+  body: string;
+  gradedAt: string | null;
+  total: number | null;
+};
+
+// One closed (or still-open) prediction loop on the calibration trail.
+export type TrailPoint = {
+  moduleId: string;
+  label: string;
+  predicted: number;
+  actual: number | null;
+  delta: number | null;
+};
+
+// The reckoning data for modules whose rubric sets includeTrail (M7, M8):
+// numeric loops, per-module sorting scores, and the free-text predictions.
+export type CalibrationTrail = {
+  points: TrailPoint[];
+  sorts: { moduleId: string; correct: number; total: number; overAssigned: number; underAssigned: number }[];
+  predictions: { moduleId: string; text: string }[];
+};
+
+export type ActivityConfig = {
+  blocks: ContentBlock[];
+  minChars: number;
+  intro?: string;
+  submitLabel?: string;
+  calibration: CalibrationField[];
+  reviews: OperatorReview[];
+  priorStages: PriorStage[];
+  // The learner's free-text prediction from this module's opening calibration prompt.
+  openingPrediction: string | null;
+  trail: CalibrationTrail | null;
+  lastSubmission: {
+    id: string;
+    body: string;
+    gradedAt: string | null;
+    total: number | null;
+    dimensions: RubricDimension[] | null;
+    summary: string | null;
+  } | null;
+};
+
+export type KnowledgeCheckPublic = {
+  title: string;
+  note: string | null;
+  questions: { id: string; prompt: string; options: string[] }[];
+};
+
+export type KnowledgeCheckResult = {
+  score: { correct: number; total: number };
+  results: { id: string; chosenIndex: number; correct: boolean; correctIndex: number; explanation: string }[];
+};
+
+// ---------- choice exercise ----------
+
+// Single-answer exercise over a set of stimulus artifacts (M3's find-the-lossy-step).
+// The key never ships until the learner commits.
+export type ChoicePublic = {
+  title: string;
+  intro: string;
+  artifacts: { label: string; body: string }[];
+  options: { id: string; label: string }[];
+};
+
+export type ChoiceResult = {
+  correct: boolean;
+  key: string;
+  reasoning: string;
+  closing: string;
 };

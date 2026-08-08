@@ -40,7 +40,7 @@ export function Screen({ children, wide = false }: { children: ReactNode; wide?:
     window.scrollTo(0, 0);
   }, []);
   return (
-    <main ref={ref} tabIndex={-1} className={`outline-none w-full mx-auto px-5 pb-20 ${wide ? 'max-w-5xl' : 'max-w-2xl'}`}>
+    <main ref={ref} tabIndex={-1} className={`outline-none w-full mx-auto px-5 pb-[calc(5rem+env(safe-area-inset-bottom))] ${wide ? 'max-w-5xl' : 'max-w-2xl'}`}>
       {children}
     </main>
   );
@@ -50,17 +50,18 @@ export function Header() {
   const { brand } = useApp();
   const [showDifference, setShowDifference] = useState(false);
   return (
-    <header className="w-full border-b border-line bg-surface/80 backdrop-blur sticky top-0 z-40">
-      <div className="max-w-5xl mx-auto px-5 h-14 flex items-center justify-between gap-4">
+    <header className="w-full border-b border-line bg-surface/80 backdrop-blur sticky top-0 z-40 pt-safe">
+      <div className="max-w-5xl mx-auto px-5 h-14 flex items-center justify-between gap-3">
         <Link to="/" className="flex items-baseline gap-2.5 no-underline min-w-0">
           <span className="font-display font-bold text-ink-strong text-lg tracking-tight whitespace-nowrap">AI Fluency</span>
-          {brand && <span className="label-utility mt-0.5 truncate">for {brand.name}</span>}
+          {brand && <span className="label-utility mt-0.5 truncate hidden min-[420px]:inline">for {brand.name}</span>}
         </Link>
         <button
           onClick={() => setShowDifference(true)}
-          className="font-utility text-[0.7rem] uppercase tracking-wider text-accent hover:text-ink-strong whitespace-nowrap"
+          className="font-utility text-[0.7rem] uppercase tracking-wider text-accent hover:text-ink-strong whitespace-nowrap shrink-0 py-3 -my-3"
         >
-          How is this different?
+          <span className="hidden sm:inline">How is this different?</span>
+          <span className="sm:hidden">Different?</span>
         </button>
       </div>
       <DifferenceModal open={showDifference} onClose={() => setShowDifference(false)} />

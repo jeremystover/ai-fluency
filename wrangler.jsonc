@@ -35,6 +35,11 @@
   "vars": {
     // One brand active per deployment. Change to another fd_brand slug to re-skin.
     "BRAND_SLUG": "omnissa",
+    // Which AI tool stack this org provisions. The [V] lab lessons ship in
+    // variants; this picks which one every surface serves (reading view, micro,
+    // tutor chat, podcast). "claude" (default) | "chatgpt". Change + redeploy —
+    // no reseed needed, all variants are already in the database.
+    "ORG_TOOLING": "claude",
     // Model used for applied-activity grading; persisted on fd_submission.
     "GRADING_MODEL": "claude-sonnet-5",
     // Model behind the module tutor chat; persisted on fd_chat_message.

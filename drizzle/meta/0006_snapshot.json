@@ -1,7 +1,7 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "3d8bc3fd-4f7f-4803-8650-6f6001fd15b2",
+  "id": "5ed42701-6d11-4d7f-91e2-9b0a7a5c59c7",
   "prevId": "b52e553f-9aae-438a-96ed-f3289428710d",
   "tables": {
     "fd_access_code": {
@@ -456,6 +456,60 @@
       "uniqueConstraints": {},
       "checkConstraints": {}
     },
+    "fd_exercise": {
+      "name": "fd_exercise",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "module_id": {
+          "name": "module_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "kind": {
+          "name": "kind",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "payload_json": {
+          "name": "payload_json",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "reviewed_at": {
+          "name": "reviewed_at",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "idx_exercise_module": {
+          "name": "idx_exercise_module",
+          "columns": [
+            "module_id",
+            "kind"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
     "fd_module": {
       "name": "fd_module",
       "columns": {
@@ -597,14 +651,6 @@
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
-        },
-        "kind": {
-          "name": "kind",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false,
-          "default": "'default'"
         },
         "prompt_text": {
           "name": "prompt_text",

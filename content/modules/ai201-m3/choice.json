@@ -1,0 +1,19 @@
+{
+  "reviewedAt": "2026-08-07",
+  "title": "Find the lossy step",
+  "intro": "*Five minutes. Commit before you look.*\n\nA People team ran Pipeline 1 on their Q2 survey. Here are the actual artifacts, abridged. By the final artifact, a localized problem — nine strongly negative comments from one office — has become \"minor concerns.\" **Which step killed the signal?** Commit to an answer, and have one sentence ready on how you'd fix that step's prompt.",
+  "artifacts": [
+    { "label": "Raw comments · step 0", "body": "214 comments. Among them, 41 mention manager communication; 9 of those are strongly negative, and all 9 come from the Denver office." },
+    { "label": "Theme table · after step 1", "body": "\"Manager communication — 41 mentions · 9 strongly negative · negative mentions concentrated in Denver · quotes: [three verbatim quotes].\"" },
+    { "label": "Narrative draft · after step 2", "body": "\"Some employees expressed concerns about manager communication, though sentiment in this area was mixed rather than uniformly negative.\"" },
+    { "label": "Exec summary · after step 3", "body": "\"Overall sentiment remains positive, with minor communication concerns noted.\"" }
+  ],
+  "options": [
+    { "id": "step1", "label": "Step 1 — Extract" },
+    { "id": "step2", "label": "Step 2 — Narrate" },
+    { "id": "step3", "label": "Step 3 — Format" }
+  ],
+  "key": "step2",
+  "reasoning": "**Step 2 killed the signal.** The theme table after step 1 was faithful: 41 mentions, 9 strongly negative, concentrated in Denver, verbatim quotes. The narrative draft dropped the count, the intensity, and — fatally — the concentration, dissolving a localized management problem into \"mixed sentiment.\" Step 3 then did its job honestly on corrupted input: \"minor communication concerns\" is a fair formatting of a false narrative.\n\nTwo fixes, both to step 2, both from Lesson 1: the step prompt requires every claim to carry its number and concentration (\"no theme may be described without its count and where it clusters\"), and the checkpoint compares the narrative against the theme table row by row — which would have caught this in under a minute.",
+  "closing": "Two reflexes to keep. First: when the final output is wrong, walk *backward* through the artifacts to find the last one that was right; the step after it is your culprit. Second: notice that the exec summary read as entirely plausible. Nothing in the final prose looked broken. That's why checkpoints exist — by the time the loss is visible in the output, it isn't visible in the output."
+}

@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the capstone pipeline is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-07",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why does a four-job mega-prompt underperform a short chain, mechanically?",
+      "options": [
+        "Long prompts exceed the context window",
+        "Objectives compete within a single generation, and middle objectives quietly lose",
+        "The model refuses compound instructions",
+        "Chains use more capable models by default"
+      ],
+      "correctIndex": 1,
+      "explanation": "Generation is one fragment at a time, predicted from everything in view; multiple objectives dilute each other, and the loss is silent. A confuses prompt length with window limits; C and D aren't how any of this works."
+    },
+    {
+      "id": "q2",
+      "prompt": "What makes an intermediate artifact a real checkpoint?",
+      "options": [
+        "It's produced between two steps",
+        "It's written in polished prose",
+        "A human glancing at it could catch a real error — you can say what a wrong version would show",
+        "It's saved in the project's knowledge"
+      ],
+      "correctIndex": 2,
+      "explanation": "The design test is naming what failure looks like there. An artifact that reads identically whether the work was faithful or invented checks nothing, wherever it's saved."
+    },
+    {
+      "id": "q3",
+      "prompt": "Steps should hand forward structure (tables, counted lists) rather than prose because:",
+      "options": [
+        "Structure uses fewer tokens",
+        "The next step predicts better from clean material, and structure can be verified — counts check, quotes trace",
+        "Prose is against the pipeline convention",
+        "Structured formats prevent hallucination entirely"
+      ],
+      "correctIndex": 1,
+      "explanation": "Both halves matter: better input for the next step (101's supply-the-material lever) and checkable claims for the human between steps. D overclaims — structure makes errors *catchable*, not impossible."
+    },
+    {
+      "id": "q4",
+      "prompt": "The \"lossy middle\" is:",
+      "options": [
+        "The middle of a long document, which models skip",
+        "The step where structured detail becomes narrative, and counts, intensity, and concentration quietly drop",
+        "A context-window overflow",
+        "The degradation of quality in long conversations"
+      ],
+      "correctIndex": 1,
+      "explanation": "It's the structured-to-prose transformation — the exercise's step 2. The defense is a prompt that requires claims to carry their numbers, and a checkpoint that compares the narrative to the structure it came from."
+    },
+    {
+      "id": "q5",
+      "prompt": "In the survey pipeline, step 2 drafts the narrative from the theme table *only*, with raw comments out of view, because:",
+      "options": [
+        "The comments no longer fit in the window",
+        "It stops the step from quietly re-analyzing — the narrative can only use what the checkpointed table contains",
+        "Raw comments are too sensitive for later steps",
+        "It makes the step run faster"
+      ],
+      "correctIndex": 1,
+      "explanation": "Limiting a step's view is a design tool: what the step can't see, it can't silently reinterpret. Your verified artifact becomes the single source of truth for everything downstream."
+    },
+    {
+      "id": "q6",
+      "prompt": "Which task has *not* earned a pipeline?",
+      "options": [
+        "200 survey verbatims into an exec summary",
+        "A handbook revision into a plain-language change note",
+        "Rewriting one clunky policy paragraph for clarity",
+        "Six candidates' interview notes into a decision packet"
+      ],
+      "correctIndex": 2,
+      "explanation": "One short transformation, low stakes, failure visible on reading — none of the three conditions hold. Chaining it is ceremony. The other three are long, consequential, or fail invisibly — usually two of the three at once."
+    },
+    {
+      "id": "q7",
+      "prompt": "Your pipeline's final output is wrong. The practitioner's first move:",
+      "options": [
+        "Rerun the whole pipeline — randomness may fix it",
+        "Rewrite the final step's prompt",
+        "Walk backward through the artifacts to the last correct one; the step after it is the culprit",
+        "Add a verification step at the end"
+      ],
+      "correctIndex": 2,
+      "explanation": "The artifacts exist precisely so failure has an address. Rerunning (A) discards the diagnosis; B assumes the last step failed, which the exercise shows is often exactly wrong."
+    },
+    {
+      "id": "q8",
+      "prompt": "The interview pipeline's assemble step compares evidence but produces no ranking, because:",
+      "options": [
+        "Rankings exceed what the model can do accurately",
+        "The packet informs a human decision about people; it must not become the decision",
+        "Hiring managers prefer making their own comparisons",
+        "Rankings would require a larger context window"
+      ],
+      "correctIndex": 1,
+      "explanation": "M1's line, unmoved by pipeline sophistication: a workflow may organize the evidence for a people decision; the decision stays human. Capability (A) isn't the reason — the rule holds however good the ranking would be."
+    }
+  ]
+}

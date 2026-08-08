@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { marked } from 'marked';
 import type { ChatHistoryResponse, ChatMessage, ChatStreamLine, VoiceStatus } from '../../shared/types';
 import { extractPaths } from '../../shared/chat';
 import { Screen, ErrorNote } from '../components/ui';
 import MicButton from '../components/MicButton';
 import { api, ApiError } from '../api';
+import { useDevice } from '../brand';
 
-const MODULE_ID = 'ai101-m1';
 const VOICE_MODE_KEY = 'fd_chat_voice_mode';
 
 // Unlike seeded module content, chat text comes from the model mid-conversation
@@ -79,6 +79,8 @@ function ListenButton({
 }
 
 export default function Chat() {
+  const MODULE_ID = useParams().moduleId ?? 'ai101-m1';
+  const device = useDevice();
   const [title, setTitle] = useState<string | null>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [streaming, setStreaming] = useState<string | null>(null); // assistant text in flight
@@ -265,8 +267,8 @@ export default function Chat() {
 
   return (
     <Screen>
-      <div className="pt-6 flex flex-col min-h-[calc(100vh-12rem)]">
-        <div className="flex items-end justify-between gap-3 border-b border-line pb-3">
+      <div className="pt-6 flex flex-col min-h-[calc(100dvh-12rem)]">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 sm:gap-3 border-b border-line pb-3">
           <div>
             <p className="label-utility">Module 1 · Tutor chat</p>
             <h1 className="font-display font-bold text-ink-strong text-xl mt-1">{title ?? 'The tutor'}</h1>
@@ -287,7 +289,7 @@ export default function Chat() {
             <button onClick={reset} disabled={busy} className="text-xs text-muted hover:text-ink underline disabled:opacity-40">
               Start over
             </button>
-            <Link to="/module/1" className="text-accent font-semibold text-sm no-underline hover:underline whitespace-nowrap">
+            <Link to={`/module/${MODULE_ID}`} className="text-accent font-semibold text-sm no-underline hover:underline whitespace-nowrap">
               Back to the read →
             </Link>
           </div>
@@ -345,7 +347,7 @@ export default function Chat() {
             const text = input.trim();
             if (text) void send(text);
           }}
-          className="sticky bottom-0 bg-bg pb-5 pt-1"
+          className="sticky bottom-0 bg-bg pb-[calc(1.25rem+env(safe-area-inset-bottom))] pt-1"
         >
           <div className="flex gap-2 items-end border border-line-strong rounded-brand bg-surface p-2 focus-within:border-accent transition-colors">
             <MicButton
@@ -370,7 +372,11 @@ export default function Chat() {
               }}
               rows={Math.min(4, Math.max(1, input.split('\n').length))}
               maxLength={2000}
-              placeholder={voiceMode ? 'Tap the mic and talk — or type, both work' : 'Ask, answer, or steer — the tutor follows your lead'}
+              placeholder={
+                voiceMode
+                  ? device.small ? 'Tap the mic and talk' : 'Tap the mic and talk — or type, both work'
+                  : device.small ? 'Ask or answer — your lead' : 'Ask, answer, or steer — the tutor follows your lead'
+              }
               aria-label="Message the tutor"
               className="flex-1 resize-none bg-transparent px-2 py-1.5 text-[0.95rem] outline-none placeholder:text-muted"
             />

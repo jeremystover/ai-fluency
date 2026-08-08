@@ -1,0 +1,47 @@
+{
+  "promptVersion": "ai201-m2-capstone-v1",
+  "moduleId": "ai201-m2",
+  "minChars": 600,
+  "submitLabel": "Your capstone-stage submission",
+  "intro": "Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited — the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). Capstone stage 2: the context pack for the workflow specced in stage 1 — a three-bin inventory (pack / fresh / excluded), the standing instructions verbatim, a knowledge list with review dates, and a fresh-run transcript. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.",
+  "calibration": [
+    {
+      "key": "itemsActual",
+      "label": "Measured — items the pack actually needed",
+      "hint": "Count the knowledge list you’re about to paste. The miss is the lesson.",
+      "placeholder": "e.g. 6",
+      "min": 1,
+      "max": 60,
+      "actualFor": "items"
+    }
+  ],
+  "dimensions": [
+    {
+      "name": "Pack design",
+      "criteria": "Instructions are short and behavioral; knowledge is reference, not recitation; a gold-standard example and definition of done are present. The split shows judgment, not just sorting."
+    },
+    {
+      "name": "Boundary discipline",
+      "criteria": "Nothing person-identifying anywhere in pack or instructions; fresh vs. pack placements are defensible; the excluded bin shows they know *why* those items are excluded."
+    },
+    {
+      "name": "Durability design",
+      "criteria": "Every knowledge item carries a review date and a stable/volatile designation; a real review cadence exists somewhere a calendar can enforce it."
+    },
+    {
+      "name": "Calibration",
+      "criteria": "Both predictions recorded before building, scored honestly after, with the direction of error named. Accuracy isn't graded; honesty and specificity are."
+    }
+  ],
+  "opening": [
+    {
+      "key": "items",
+      "label": "Predicted — distinct items your pack will need",
+      "hint": "A voice guide is one item. An example debrief is one item.",
+      "placeholder": "e.g. 8",
+      "min": 1,
+      "max": 60
+    }
+  ]
+}

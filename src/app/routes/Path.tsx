@@ -40,10 +40,10 @@ function ModuleCard({ m, startRoute, startLabel }: { m: PathModule; startRoute: 
         </span>
         {open && (
           <span className="flex items-center gap-3">
-            <Link to="/module/1/micro" className="text-accent text-sm font-semibold no-underline hover:underline">
+            <Link to={`/module/${m.id}/micro`} className="text-accent text-sm font-semibold no-underline hover:underline">
               Micro
             </Link>
-            <Link to={m.completed ? '/module/1' : startRoute} className="text-accent text-sm font-semibold no-underline hover:underline">
+            <Link to={m.completed ? `/module/${m.id}` : startRoute} className="text-accent text-sm font-semibold no-underline hover:underline">
               {m.completed ? 'Revisit →' : startLabel}
             </Link>
           </span>
@@ -68,8 +68,6 @@ export default function Path() {
   const surface = preferredSurface(me?.prefs?.styles);
   // Readers who asked for short-and-sweet start at the micro dose.
   const essentialsReader = surface === 'read' && depthOf(me?.prefs?.depth) === 'essentials';
-  const startRoute = essentialsReader ? '/module/1/micro' : surfaceRoute(surface);
-  const startLabel = essentialsReader ? 'Start micro →' : surfaceStartLabel(surface);
   const [data, setData] = useState<{ modules: PathModule[]; courses: CourseCard[] } | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -83,13 +81,18 @@ export default function Path() {
   if (error) return <Screen><div className="pt-20"><ErrorNote message={error} /></div></Screen>;
   if (!data) return <Screen><div className="pt-24 text-center"><p className="label-utility">Loading the path…</p></div></Screen>;
 
+  const startFor = (m: PathModule) =>
+    essentialsReader
+      ? { route: `/module/${m.id}/micro`, label: 'Start micro →' }
+      : { route: surfaceRoute(surface, m.id), label: surfaceStartLabel(surface) };
+
   return (
     <Screen wide>
       <div className="pt-10 sm:pt-14">
         <div className="flex items-end justify-between gap-4 flex-wrap">
           <div>
             <p className="label-utility">Your path</p>
-            <h1 className="font-display font-bold text-ink-strong text-3xl sm:text-4xl mt-3">AI 101 · Foundations</h1>
+            <h1 className="font-display font-bold text-ink-strong text-3xl sm:text-4xl mt-3">The course ladder</h1>
             <p className="text-muted mt-2 max-w-xl">
               Take modules in the order that serves you — each comes as a full module or a two-minute micro dose. Nothing locks:
               a few build on others, and those carry a recommendation, not a gate
@@ -101,32 +104,48 @@ export default function Path() {
           </Link>
         </div>
 
-        <div className="mt-8 grid gap-3 sm:grid-cols-2">
-          {data.modules.map((m) => (
-            <ModuleCard key={m.id} m={m} startRoute={startRoute} startLabel={startLabel} />
-          ))}
-        </div>
-
-        <h2 className="label-utility mt-14">After 101</h2>
-        <div className="mt-3 grid gap-3 sm:grid-cols-3">
-          {data.courses.filter((c) => c.id !== 'ai101').map((c) => {
-            const recommended = c.recommendedFor ?? [];
-            return (
-              <div key={c.id} className={`border rounded-brand p-5 bg-surface ${recommended.length ? 'border-accent/50' : 'border-line opacity-75'}`}>
-                <div className="flex items-center justify-between">
-                  <span className="label-utility">{c.level}</span>
-                  <span className="label-utility flex items-center gap-1"><Lock /> Full course</span>
-                </div>
-                <h3 className="font-display font-semibold text-ink-strong mt-2">{c.title}</h3>
-                <p className="text-sm text-ink mt-1.5 leading-relaxed">{c.blurb}</p>
-                {recommended.length > 0 && (
-                  <p className="text-xs text-accent mt-2 font-semibold">
-                    <span aria-hidden="true">★ </span>Recommended for you — {recommended.join(' · ')}
-                  </p>
-                )}
+        {data.courses
+          .filter((course) => data.modules.some((m) => m.courseId === course.id))
+          .map((course) => (
+            <section key={course.id} className="mt-10">
+              <div className="flex items-baseline gap-3 flex-wrap">
+                <h2 className="font-display font-bold text-ink-strong text-xl">{course.title}</h2>
+                <span className="label-utility">{course.level}</span>
               </div>
-            );
-          })}
+              <p className="text-sm text-muted mt-1 max-w-xl">{course.blurb}</p>
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                {data.modules
+                  .filter((m) => m.courseId === course.id)
+                  .map((m) => {
+                    const start = startFor(m);
+                    return <ModuleCard key={m.id} m={m} startRoute={start.route} startLabel={start.label} />;
+                  })}
+              </div>
+            </section>
+          ))}
+
+        <h2 className="label-utility mt-14">Further up the ladder</h2>
+        <div className="mt-3 grid gap-3 sm:grid-cols-3">
+          {data.courses
+            .filter((c) => !data.modules.some((m) => m.courseId === c.id))
+            .map((c) => {
+              const recommended = c.recommendedFor ?? [];
+              return (
+                <div key={c.id} className={`border rounded-brand p-5 bg-surface ${recommended.length ? 'border-accent/50' : 'border-line opacity-75'}`}>
+                  <div className="flex items-center justify-between">
+                    <span className="label-utility">{c.level}</span>
+                    <span className="label-utility flex items-center gap-1"><Lock /> Full course</span>
+                  </div>
+                  <h3 className="font-display font-semibold text-ink-strong mt-2">{c.title}</h3>
+                  <p className="text-sm text-ink mt-1.5 leading-relaxed">{c.blurb}</p>
+                  {recommended.length > 0 && (
+                    <p className="text-xs text-accent mt-2 font-semibold">
+                      <span aria-hidden="true">★ </span>Recommended for you — {recommended.join(' · ')}
+                    </p>
+                  )}
+                </div>
+              );
+            })}
         </div>
       </div>
     </Screen>
