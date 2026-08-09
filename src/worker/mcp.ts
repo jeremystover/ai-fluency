@@ -19,24 +19,50 @@ import { and, asc, desc, eq, sql } from 'drizzle-orm';
 import * as t from '../db/schema';
 import { verifyMcpKey } from './crypto';
 import { moduleSnapshot, witnessContent } from './audit';
-import { getExercise, selectVariants, toBlock, toolingOf, type KnowledgeCheckPayload } from './content';
+import { getExercise, scoreSortingSubmission, selectVariants, toBlock, toolingOf, type KnowledgeCheckPayload, type SortingPayload } from './content';
+import { gradeSubmission, type RubricPayload } from './grading';
 import { GOAL_CHOICES } from '../shared/goals';
 import diagnosticData from '../../content/diagnostic.json';
 import contentCatalog from '../../content/modules.json';
-import type { ContentBlock, CourseCard, DiagnosticResult, IntakePrefs, PodcastVisual } from '../shared/types';
+import { PODCAST_HOSTS, type CalibrationTrail, type ContentBlock, type CourseCard, type DiagnosticResult, type GradeResult, type IntakePrefs, type PodcastLine, type PodcastVisual, type PriorStage } from '../shared/types';
 import type { Env } from './index';
 
 type SessionRow = typeof t.fdSession.$inferSelect;
 type ModuleRow = typeof t.fdModule.$inferSelect;
+type PodcastRow = typeof t.fdPodcast.$inferSelect;
 type McpCtx = { Bindings: Env; Variables: { session: SessionRow | null; db: DrizzleD1Database } };
 
 // Functions that live in index.ts (and are entangled with the rest of the API)
-// are injected at mount time rather than re-implemented here.
+// are injected at mount time rather than re-implemented here. submitActivity
+// and askTheHosts are the extracted cores of the app's own endpoints, so both
+// surfaces share one set of gates, limits, and audit writes.
 export type McpDeps = {
   loadPrefs: (db: DrizzleD1Database, sessionId: string) => Promise<IntakePrefs>;
   computeDiagnosticResult: (db: DrizzleD1Database, sessionId: string) => Promise<DiagnosticResult>;
   pregenerateNextPodcast: (env: Env, sessionId: string) => Promise<void>;
+  trailFor: (db: DrizzleD1Database, sessionId: string) => Promise<CalibrationTrail>;
+  priorStagesFor: (db: DrizzleD1Database, sessionId: string, moduleId: string) => Promise<PriorStage[]>;
+  openingPredictionFor: (db: DrizzleD1Database, sessionId: string, moduleId: string) => Promise<string | null>;
+  submitActivity: (
+    env: Env,
+    db: DrizzleD1Database,
+    sessionId: string,
+    moduleId: string,
+    rawText: string | undefined,
+    calibrationValues: Record<string, number> | undefined,
+  ) => Promise<{ ok: false; status: number; error: string } | { ok: true; result: GradeResult }>;
+  askTheHosts: (
+    env: Env,
+    db: DrizzleD1Database,
+    sessionId: string,
+    moduleId: string,
+    rawQuestion: string | undefined,
+    trigger: 'manual' | 'mcp',
+    waitUntil: (p: Promise<unknown>) => void,
+  ) => Promise<{ ok: false; status: number; error: string } | { ok: true; row: PodcastRow }>;
 };
+
+const TEACH_BACK_LIMIT_PER_HOUR = 5; // grading calls, mirroring the activity grader's budget
 
 const now = () => new Date().toISOString();
 const uuid = () => crypto.randomUUID();
@@ -56,6 +82,12 @@ How to run a session:
 - If the learner brings a real task from their own work, use it as the teaching example — that is the best possible material.
 - Quizzing: get_knowledge_check gives you questions WITHOUT answers (keys stay server-side). Run it one question at a time; the learner commits a choice before any discussion of correctness; you learn the key only from submit_knowledge_check. Never present your own guess as the official answer.
 - Completion is earned, not claimed: only a successful complete_module call records a module as done, and it verifies the knowledge-check pass server-side. Never tell a learner a module is complete unless that call succeeded.
+- Your unfair advantage over the course app: the learner's real work is in this conversation. When they mention an actual task, document, or decision, offer apply_to_my_work — working the module's frameworks on their live material beats any canned example.
+- Predictions before lessons: when a module has opening prediction fields (get_module says so), ask for the learner's honest numbers BEFORE teaching and save them with record_prediction. The course closes these loops later — a recorded prediction is a gift to their future self; never skip it to save time, and never suggest a "safe" number.
+- Retention: after teaching, offer a teach-back — the learner explains the ideas in their own words, submit_teach_back grades it honestly. Frame it as the fastest way to find gaps, not a test.
+- The scenario challenge (get_scenario_challenge / submit_scenario) is a game: stage each situation as a live workplace moment and play it straight — the learner commits every call before the reveal, and some placements are deliberately arguable, so treat the reveal's reasoning as the point, not the score.
+- Applied activities (get_activity / submit_activity) are the real graded work: coach drafting, but the submission must be the learner's own thinking — you may sharpen structure and ask hard questions, never write their answer. Submissions land on the same record the human review desk reads.
+- ask_the_hosts sends a question to Maya and Leo, the course's podcast hosts — offer it when a learner wants a different voice on something, and hand over the transcript plus the listen link it returns.
 - End tutoring replies by offering two or three labeled next moves (e.g. "keep going · quiz me · try it on something from my week"). Let the learner steer.
 - Celebrate real milestones in one warm, specific sentence — then point at what's next.
 - Off-course requests: help briefly if quick, then steer back to the session.`;
@@ -312,6 +344,29 @@ const TOOLS: ToolDef[] = [
       if (who.length) out.push(who.join('  \n'), '');
       out.push(`**Progress:** ${doneCount} of ${open.length} open modules completed.`, '');
 
+      // Honest momentum: real activity from the funnel, never invented streaks.
+      const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
+      const dayRows = await db
+        .select({ day: sql<string>`DISTINCT substr(${t.fdEvent.createdAt}, 1, 10)` })
+        .from(t.fdEvent)
+        .where(and(eq(t.fdEvent.sessionId, session.id), sql`${t.fdEvent.createdAt} > ${weekAgo}`));
+      const lastOpened = await db
+        .select({ payloadJson: t.fdEvent.payloadJson })
+        .from(t.fdEvent)
+        .where(and(eq(t.fdEvent.sessionId, session.id), eq(t.fdEvent.type, 'module_opened')))
+        .orderBy(desc(t.fdEvent.createdAt))
+        .limit(1);
+      const lastId = lastOpened[0]?.payloadJson ? (JSON.parse(lastOpened[0].payloadJson) as { moduleId?: string }).moduleId : undefined;
+      const lastTitle = lastId ? rows.find((m) => m.id === lastId)?.title : undefined;
+      const trail = await deps.trailFor(db, session.id);
+      const closed = trail.points.filter((p) => p.actual !== null).length;
+      const momentum: string[] = [`active ${dayRows.length} of the last 7 days`];
+      if (lastTitle) momentum.push(`last worked on: ${lastTitle}`);
+      if (progress.checkScores.size) momentum.push(`knowledge checks attempted: ${progress.checkScores.size}`);
+      if (trail.points.length) momentum.push(`predictions on record: ${trail.points.length}${closed ? ` (${closed} closed — the reckoning is real)` : ''}`);
+      if (trail.sorts.length) momentum.push(`scenario/sorting rounds: ${trail.sorts.length}`);
+      out.push(`**Momentum:** ${momentum.join(' · ')}.`, '');
+
       for (const course of courses) {
         const mods = rows.filter((m) => m.courseId === course.id);
         out.push(`## ${course.title} (${course.level})`);
@@ -396,6 +451,8 @@ const TOOLS: ToolDef[] = [
       const visual: PodcastVisual | null = stock[0]?.visualJson ? JSON.parse(stock[0].visualJson) : null;
 
       const kc = await getExercise<KnowledgeCheckPayload>(db, moduleId, 'knowledge_check');
+      const rubric = await getExercise<RubricPayload>(db, moduleId, 'rubric');
+      const sorting = await getExercise<SortingPayload>(db, moduleId, 'sorting');
       const learner = await learnerFor(db, deps, session.id);
       const progress = await progressFor(db, session.id);
 
@@ -428,6 +485,24 @@ const TOOLS: ToolDef[] = [
       } else {
         coach.push('- This module has no knowledge check; when the learner has worked the material with you, call complete_module to record it.');
       }
+      if (rubric?.opening?.length) {
+        const calRows = await db
+          .select({ context: t.fdCalibration.context })
+          .from(t.fdCalibration)
+          .where(and(eq(t.fdCalibration.sessionId, session.id), sql`${t.fdCalibration.context} LIKE ${`${moduleId}:cal:%`}`));
+        const recorded = new Set(calRows.map((r) => r.context.split(':cal:')[1]));
+        const missing = rubric.opening.filter((f) => !recorded.has(f.key));
+        if (missing.length) {
+          coach.push(
+            `- BEFORE teaching: ask for the learner's honest predictions and save them with record_prediction — ${missing.map((f) => `"${f.label}" (key: ${f.key})`).join('; ')}. The module closes these loops later; a skipped prediction is a lost reckoning.`,
+          );
+        } else {
+          coach.push('- Opening predictions are already on record for this module — the activity will close the loop.');
+        }
+      }
+      if (sorting) coach.push(`- This module has a ${sorting.tasks.length}-scenario challenge (get_scenario_challenge) — a strong mid-session change of pace, staged as live workplace moments.`);
+      if (rubric) coach.push('- The graded applied activity (get_activity → submit_activity) is where this module becomes real work product; a human review desk reads submissions too.');
+      coach.push('- If the learner mentions a real task from their week, offer apply_to_my_work on it — live material beats every canned example.');
       if (view === 'summary') coach.push('- This was the summary view — call get_module with view "full" before teaching in depth.');
       out.push(...coach);
       return out.join('\n');
@@ -640,6 +715,431 @@ const TOOLS: ToolDef[] = [
       return out.join('\n');
     },
   },
+  {
+    name: 'apply_to_my_work',
+    title: "Apply a module to the learner's real task",
+    description:
+      "The module's working frameworks (takeaways, try-this exercises, the two-minute cut) packaged for applying to a real task the learner brought — a document, a decision, a workflow from their actual week. This is the connected assistant's superpower over any course portal: use it whenever real material shows up in the conversation.",
+    inputSchema: {
+      type: 'object',
+      properties: {
+        moduleId: moduleIdProp,
+        task: { type: 'string', description: "The learner's real task in a sentence or two, e.g. 'drafting an ER investigation summary from six interview notes'." },
+      },
+      required: ['moduleId', 'task'],
+    },
+    readOnly: false,
+    handler: async (args, ctx) => {
+      const { db, env, session } = ctx;
+      const moduleId = String(args.moduleId ?? '');
+      const task = String(args.task ?? '').trim();
+      if (!task) throw new ToolError('Describe the task first — a sentence or two of what the learner is actually doing.');
+      const mod = await requireOpenModule(db, moduleId);
+      const tooling = toolingOf(env);
+
+      const blockRows = await db.select().from(t.fdContentBlock).where(eq(t.fdContentBlock.moduleId, moduleId)).orderBy(asc(t.fdContentBlock.ordinal));
+      const blocks = selectVariants(blockRows, tooling).map(toBlock);
+      if (!blocks.length) throw new ToolError(`"${mod.title}" has no content seeded yet.`);
+      const microRows = await db.select().from(t.fdContentBlock).where(eq(t.fdContentBlock.moduleId, `${moduleId}-micro`)).orderBy(asc(t.fdContentBlock.ordinal));
+      const micro = selectVariants(microRows, tooling).map(toBlock);
+      const stock = await db
+        .select()
+        .from(t.fdPodcastStock)
+        .where(and(eq(t.fdPodcastStock.moduleId, moduleId), eq(t.fdPodcastStock.variant, 'generic')))
+        .orderBy(desc(t.fdPodcastStock.bakedAt))
+        .limit(1);
+      const takeaways: string[] = stock[0]?.takeawaysJson ? JSON.parse(stock[0].takeawaysJson) : [];
+
+      await logEvent(db, session.id, 'mcp_apply_to_work', { moduleId, task: task.slice(0, 500) });
+
+      const tools = [
+        ...blocks.filter((b) => b.kind === 'takeaways' || b.kind === 'try_this'),
+        ...micro.filter((b) => b.kind === 'prose'),
+      ];
+      const out: string[] = [
+        `# Applying "${mod.title}" to: ${task.slice(0, 300)}`,
+        '',
+        '## The module\'s working frameworks',
+        '',
+        takeaways.length ? ['**Key takeaways:**', ...takeaways.map((k) => `- ${k}`), ''].join('\n') : '',
+        tools.length ? tools.map(blockToText).join('\n\n---\n\n') : blocks.slice(0, 4).map(blockToText).join('\n\n---\n\n'),
+        '',
+        '## How to run the application session (for the assistant)',
+        '- Restate the task in one sentence and pick the one or two frameworks above that actually bite on it — say why.',
+        '- Work it step by step WITH the learner: they make every call, you ask the framework\'s questions. Do not just do the task for them — the point is that they leave able to do it alone next time.',
+        '- Keep the module\'s boundaries: where it says verify, verify; where it flags regulatory or people-data lines, repeat them.',
+        '- End with: what they produced, which module idea did the work, and one thing to watch for when they do this without you.',
+        '- If this went well, it counts as real engagement — worth suggesting the knowledge check afterwards while the material is warm.',
+      ];
+      return out.filter(Boolean).join('\n');
+    },
+  },
+  {
+    name: 'record_prediction',
+    title: "Record the learner's opening prediction",
+    description:
+      "Save the learner's honest prediction before a module teaches them better — free text always, numeric values where the module declares opening fields (get_module lists them). The course closes these loops later: the applied activity records actuals against them, and the Module 7 reckoning renders the whole trail. Ask for the number BEFORE teaching; never suggest a safe answer.",
+    inputSchema: {
+      type: 'object',
+      properties: {
+        moduleId: moduleIdProp,
+        prediction: { type: 'string', description: "The learner's free-text prediction, in their words." },
+        values: {
+          type: 'object',
+          description: 'Numeric predictions keyed by the module\'s declared opening-field keys, e.g. {"packItems": 7}.',
+          additionalProperties: { type: 'number' },
+        },
+      },
+      required: ['moduleId'],
+    },
+    readOnly: false,
+    handler: async (args, ctx) => {
+      const { db, session } = ctx;
+      const moduleId = String(args.moduleId ?? '');
+      const mod = await requireOpenModule(db, moduleId);
+      const text = typeof args.prediction === 'string' ? args.prediction.trim() : '';
+      const values = (args.values ?? {}) as Record<string, unknown>;
+      const rubric = await getExercise<RubricPayload>(db, moduleId, 'rubric');
+      const fields = rubric?.opening ?? [];
+
+      const saved: string[] = [];
+      for (const field of fields) {
+        const value = Number(values[field.key]);
+        if (!Number.isFinite(value)) continue;
+        const clamped = Math.max(field.min ?? 0, Math.min(field.max ?? 1_000_000, Math.round(value)));
+        const context = `${moduleId}:cal:${field.key}`;
+        await db.delete(t.fdCalibration).where(and(eq(t.fdCalibration.sessionId, session.id), eq(t.fdCalibration.context, context)));
+        await db.insert(t.fdCalibration).values({
+          id: uuid(),
+          sessionId: session.id,
+          context,
+          predictedPct: clamped,
+          actualOutcome: null,
+          delta: null,
+          createdAt: now(),
+        });
+        saved.push(`${field.label}: ${clamped}`);
+      }
+      if (!text && !saved.length) {
+        throw new ToolError(
+          fields.length
+            ? `Nothing to record. This module's numeric fields: ${fields.map((f) => `"${f.label}" (key: ${f.key}${f.min !== undefined || f.max !== undefined ? `, ${f.min ?? 0}–${f.max ?? '∞'}` : ''})`).join('; ')} — or pass free text as "prediction".`
+            : 'Nothing to record — pass the learner\'s prediction as free text in "prediction".',
+        );
+      }
+      if (text) await logEvent(db, session.id, 'module_calibration_recorded', { moduleId, text: text.slice(0, 1000), via: 'mcp' });
+
+      const out: string[] = [`Recorded for "${mod.title}":`];
+      if (saved.length) out.push(...saved.map((s) => `- ${s}`));
+      if (text) out.push(`- In their words: "${text.slice(0, 300)}"`);
+      out.push('', "On the record — no takebacks, that's the game. The module's applied activity records the actual and computes the miss; being wrong in a known direction is the product. Now teach.");
+      return out.join('\n');
+    },
+  },
+  {
+    name: 'submit_teach_back',
+    title: "Grade the learner's teach-back",
+    description:
+      "The Feynman move: the learner explains the module in their own words (150+ characters, ideally with an example from their work) and the course grades it server-side against the module's actual key points — accuracy, coverage, own-words application. Honest scores, specific comments. Frame it as the fastest way to find gaps, not a test.",
+    inputSchema: {
+      type: 'object',
+      properties: {
+        moduleId: moduleIdProp,
+        explanation: { type: 'string', description: "The learner's explanation, verbatim — their words, not yours." },
+      },
+      required: ['moduleId', 'explanation'],
+    },
+    readOnly: false,
+    handler: async (args, ctx) => {
+      const { db, env, session } = ctx;
+      const moduleId = String(args.moduleId ?? '');
+      const explanation = String(args.explanation ?? '').trim();
+      const mod = await requireOpenModule(db, moduleId);
+      if (explanation.length < 150) {
+        throw new ToolError('Too short to grade fairly — ask the learner to explain it as if to a colleague who missed the module: a paragraph or two, with one example from their own work.');
+      }
+      if (!env.ANTHROPIC_API_KEY) {
+        throw new ToolError('The grader is not configured in this deployment — discuss the explanation yourself against the module content instead.');
+      }
+      const hourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
+      const recent = await db
+        .select({ n: sql<number>`count(*)` })
+        .from(t.fdEvent)
+        .where(and(eq(t.fdEvent.sessionId, session.id), eq(t.fdEvent.type, 'mcp_teach_back'), sql`${t.fdEvent.createdAt} > ${hourAgo}`));
+      if ((recent[0]?.n ?? 0) >= TEACH_BACK_LIMIT_PER_HOUR) {
+        throw new ToolError('Teach-back grading is limited to five an hour. Discuss the explanation together meanwhile — the grader will be back shortly.');
+      }
+
+      // The module's real key points ground the grader, same content the
+      // learner was taught from.
+      const tooling = toolingOf(env);
+      const stock = await db
+        .select()
+        .from(t.fdPodcastStock)
+        .where(and(eq(t.fdPodcastStock.moduleId, moduleId), eq(t.fdPodcastStock.variant, 'generic')))
+        .orderBy(desc(t.fdPodcastStock.bakedAt))
+        .limit(1);
+      const takeaways: string[] = stock[0]?.takeawaysJson ? JSON.parse(stock[0].takeawaysJson) : [];
+      let keyPoints = takeaways.map((k) => `- ${k}`).join('\n');
+      if (!keyPoints) {
+        const microRows = await db.select().from(t.fdContentBlock).where(eq(t.fdContentBlock.moduleId, `${moduleId}-micro`)).orderBy(asc(t.fdContentBlock.ordinal));
+        keyPoints = selectVariants(microRows, tooling).map(toBlock).map((b) => b.body).join('\n\n').slice(0, 3000);
+      }
+      if (!keyPoints) {
+        const blockRows = await db.select().from(t.fdContentBlock).where(eq(t.fdContentBlock.moduleId, moduleId)).orderBy(asc(t.fdContentBlock.ordinal));
+        keyPoints = selectVariants(blockRows, tooling).map(toBlock).filter((b) => b.kind !== 'exercise').map((b) => b.body).join('\n\n').slice(0, 3000);
+      }
+
+      const rubric: RubricPayload = {
+        promptVersion: 'mcp-teachback-v1',
+        moduleId,
+        activityContext: `You are grading a teach-back in an AI fluency course: the learner explains the module "${mod.title}" in their own words, as if to a colleague who missed it. The module's actual key points:\n${keyPoints}`,
+        dimensions: [
+          { name: 'Accuracy', criteria: 'What they say matches what the module actually teaches. Invented claims, reversed logic, or confident errors score low; honest "I\'m not sure about X" does not.' },
+          { name: 'Coverage', criteria: 'They touch the module\'s central ideas (the key points above), not just one corner of it. Missing the module\'s main move caps this at 2.' },
+          { name: 'Own words & application', criteria: 'Explained in their own words with at least one concrete example from their own work or context. Paraphrased course prose without application scores low.' },
+        ],
+      };
+      const grade = await gradeSubmission(env.ANTHROPIC_API_KEY, env.GRADING_MODEL, rubric, explanation, null, null);
+      if (!grade) throw new ToolError('The grader hiccuped — nothing was lost; try once more, or discuss the explanation yourselves.');
+      await logEvent(db, session.id, 'mcp_teach_back', { moduleId, total: grade.total });
+
+      const max = rubric.dimensions.length * 5;
+      const out: string[] = [`# Teach-back graded: ${grade.total}/${max} — "${mod.title}"`, ''];
+      for (const d of grade.dimensions) out.push(`- **${d.name}: ${d.score}/5** — ${d.comment}`);
+      out.push('', grade.summary, '');
+      out.push(
+        grade.total >= max * 0.75
+          ? '**Next:** that explanation would survive a colleague\'s questions. Strike now — run the knowledge check while it\'s warm.'
+          : '**Next:** reteach the weakest dimension above in one lecturette, then invite a second pass at just that part — not the whole thing again.',
+      );
+      return out.join('\n');
+    },
+  },
+  {
+    name: 'get_scenario_challenge',
+    title: 'Start a scenario challenge (sorting game)',
+    description:
+      "The module's sorting exercise staged as a conversational game: real workplace scenarios the learner must call, one at a time, committing every answer before any reveal. Buckets and scenarios come without keys — some placements are deliberately arguable, and the graded reveal (submit_scenario) carries the reasoning. A strong change of pace mid-session.",
+    inputSchema: { type: 'object', properties: { moduleId: moduleIdProp }, required: ['moduleId'] },
+    readOnly: true,
+    handler: async (args, ctx) => {
+      const { db, session } = ctx;
+      const moduleId = String(args.moduleId ?? '');
+      const mod = await requireOpenModule(db, moduleId);
+      const sorting = await getExercise<SortingPayload>(db, moduleId, 'sorting');
+      if (!sorting) {
+        const withSorting = await db.select({ moduleId: t.fdExercise.moduleId }).from(t.fdExercise).where(eq(t.fdExercise.kind, 'sorting'));
+        throw new ToolError(`"${mod.title}" has no scenario challenge. Modules that do: ${withSorting.map((r) => r.moduleId).join(', ') || 'none seeded yet'}.`);
+      }
+      await logEvent(db, session.id, 'mcp_scenario_started', { moduleId });
+
+      const out: string[] = [
+        `# Scenario challenge — ${mod.title}`,
+        '',
+        '## The calls the learner can make (present these up front)',
+        ...sorting.buckets.map((b) => `- **${b.label}** (\`${b.id}\`) — ${b.hint}`),
+        '',
+        '## How to run it (for the assistant)',
+        '- One scenario at a time. Stage each as a live moment in the learner\'s actual role — someone walks over, an email lands — but keep the scenario\'s substance intact; do not change what the task IS.',
+        '- The learner commits a bucket for every scenario before ANY reveal. No confirmations, no hints, no "are you sure". Track their assignments by scenario id.',
+        '- Play it as a game: keep a light running count of commitments (never of correctness — you don\'t have the key), and keep the pace brisk.',
+        '- Some placements are deliberately arguable — if the learner argues a genuinely defensible case, note their reasoning; the reveal scores arguable calls fairly.',
+        `- After all ${sorting.tasks.length} are committed, call submit_scenario with {"assignments": {"<scenarioId>": "<bucketId>", …}} — the graded reveal comes back with per-scenario reasoning, the overall pattern, and whether the learner over- or under-trusts the tools.`,
+        '',
+        '## Scenarios',
+        ...sorting.tasks.map((task, i) => `${i + 1}. (\`${task.id}\`) ${task.text}`),
+      ];
+      return out.join('\n');
+    },
+  },
+  {
+    name: 'submit_scenario',
+    title: 'Reveal the scenario challenge (graded server-side)',
+    description:
+      "Score the learner's committed scenario calls against the key (server-side, with deliberately-arguable placements honored), write the same calibration and funnel records the in-app exercise writes, and return the full reveal: per-scenario verdicts with reasoning, the overall pattern, and the over-/under-trust read.",
+    inputSchema: {
+      type: 'object',
+      properties: {
+        moduleId: moduleIdProp,
+        assignments: {
+          type: 'object',
+          description: 'Scenario id → committed bucket id, all scenarios present.',
+          additionalProperties: { type: 'string' },
+        },
+      },
+      required: ['moduleId', 'assignments'],
+    },
+    readOnly: false,
+    handler: async (args, ctx) => {
+      const { db, session } = ctx;
+      const moduleId = String(args.moduleId ?? '');
+      const mod = await requireOpenModule(db, moduleId);
+      const sorting = await getExercise<SortingPayload>(db, moduleId, 'sorting');
+      if (!sorting) throw new ToolError(`"${mod.title}" has no scenario challenge.`);
+      const assignments = (args.assignments ?? {}) as Record<string, string>;
+      const reveal = await scoreSortingSubmission(db, session.id, moduleId, sorting, assignments);
+      if (!reveal) {
+        throw new ToolError(`Commit all ${sorting.tasks.length} before the reveal — an unscored guess teaches nothing. Valid bucket ids: ${sorting.buckets.map((b) => b.id).join(', ')}.`);
+      }
+      await logEvent(db, session.id, 'sort_submitted', { moduleId, correct: reveal.score.correct, total: reveal.score.total, overAssigned: reveal.overAssigned, underAssigned: reveal.underAssigned, via: 'mcp' });
+      await witnessContent(db, { sessionId: session.id, moduleId, activity: 'sort_submitted', kind: 'exercise', content: { kind: 'sorting', payload: sorting } });
+
+      const bucketLabel = (id: string) => sorting.buckets.find((b) => b.id === id)?.label ?? id;
+      const out: string[] = [
+        `# Reveal: ${reveal.score.correct}/${reveal.score.total} — ${mod.title}`,
+        reveal.overAssigned || reveal.underAssigned
+          ? `Trust read: ${reveal.overAssigned} call${reveal.overAssigned === 1 ? '' : 's'} gave the tools too much, ${reveal.underAssigned} too little.`
+          : 'Trust read: every miss was sideways, not a trust error.',
+        '',
+        ...reveal.results.map(
+          (r, i) =>
+            `${i + 1}. ${r.correct ? '✓' : '✗'} ${r.text.slice(0, 120)}${r.text.length > 120 ? '…' : ''}\n   Their call: ${bucketLabel(r.chosen)}${r.correct ? '' : ` · key: ${bucketLabel(r.key)}`}\n   ${r.reasoning}`,
+        ),
+        '',
+        `**The pattern:** ${reveal.pattern}`,
+        '',
+        reveal.postscript,
+        '',
+        '(For the assistant: walk the misses in order of how much they matter for this learner\'s actual role, connect each to the module idea it tests, and where they argued an arguable call well, say so — the reasoning was the point.)',
+      ];
+      return out.join('\n');
+    },
+  },
+  {
+    name: 'get_activity',
+    title: "Get a module's graded applied activity",
+    description:
+      "The module's real graded work: the activity brief, submission requirements, any calibration fields to collect at submission, the learner's capstone build so far (AI 201), their opening prediction, past submissions, and any notes from the human review desk. Coach the draft — but the submission must be the learner's own thinking.",
+    inputSchema: { type: 'object', properties: { moduleId: moduleIdProp }, required: ['moduleId'] },
+    readOnly: true,
+    handler: async (args, ctx) => {
+      const { db, env, deps, session } = ctx;
+      const moduleId = String(args.moduleId ?? '');
+      const mod = await requireOpenModule(db, moduleId);
+      const rubric = await getExercise<RubricPayload>(db, moduleId, 'rubric');
+      if (!rubric) throw new ToolError(`"${mod.title}" has no graded activity.`);
+
+      const blockRows = await db.select().from(t.fdContentBlock).where(eq(t.fdContentBlock.moduleId, `${moduleId}-activity`)).orderBy(asc(t.fdContentBlock.ordinal));
+      const brief = selectVariants(blockRows, toolingOf(env)).map(toBlock);
+      const stages = await deps.priorStagesFor(db, session.id, moduleId);
+      const opening = await deps.openingPredictionFor(db, session.id, moduleId);
+      const latest = await db
+        .select()
+        .from(t.fdSubmission)
+        .where(and(eq(t.fdSubmission.sessionId, session.id), eq(t.fdSubmission.moduleId, moduleId)))
+        .orderBy(desc(t.fdSubmission.createdAt))
+        .limit(1);
+      const last = latest[0];
+      const reviews = await db
+        .select({ body: t.fdReview.body, score: t.fdReview.score, createdAt: t.fdReview.createdAt, submissionId: t.fdReview.submissionId })
+        .from(t.fdReview)
+        .innerJoin(t.fdSubmission, eq(t.fdReview.submissionId, t.fdSubmission.id))
+        .where(and(eq(t.fdSubmission.sessionId, session.id), eq(t.fdSubmission.moduleId, moduleId)))
+        .orderBy(desc(t.fdReview.createdAt));
+
+      const out: string[] = [`# Applied activity — ${mod.title}`, ''];
+      if (rubric.intro) out.push(`*${rubric.intro}*`, '');
+      if (brief.length) out.push('## The brief', '', brief.map(blockToText).join('\n\n---\n\n'), '');
+      out.push('## Requirements');
+      out.push(`- At least ${rubric.minChars ?? 700} characters of the learner's own thinking; graded on ${rubric.dimensions.length} dimensions (${rubric.dimensions.map((d) => d.name).join(', ')}).`);
+      if (rubric.calibration?.length) {
+        out.push(`- Collect these numbers at submission time and pass them as "calibration": ${rubric.calibration.map((f) => `"${f.label}" (key: ${f.key})`).join('; ')}. Fields that measure an earlier prediction close that loop — honesty scores, accuracy doesn't.`);
+      }
+      if (opening) out.push('', `**Their opening prediction, echoed back:** "${opening.slice(0, 500)}"`);
+      if (stages.length) {
+        out.push('', '## The build so far (AI 201 capstone thread)');
+        for (const s of stages) out.push(`- Stage ${s.ordinal} — ${s.title}${s.total !== null ? ` (graded ${s.total})` : ' (ungraded)'}`);
+        out.push('The grader sees this trail too — the new stage must genuinely advance the same build.');
+      }
+      if (last) {
+        out.push('', `**Previous submission:** ${last.gradedAt ? `graded ${last.totalScore} on ${last.gradedAt.slice(0, 10)}` : 'saved, not yet graded'} — resubmitting replaces nothing; every draft is kept.`);
+      }
+      if (reviews.length) {
+        out.push('', '## From the review desk (a human read this)');
+        for (const r of reviews) out.push(`- ${r.createdAt.slice(0, 10)}${r.score !== null ? ` · ${r.score}/20` : ''}${r.submissionId === last?.id ? '' : ' · on an earlier draft'}: ${r.body}`);
+      }
+      out.push(
+        '',
+        '## Coaching rules (for the assistant)',
+        '- Coach structure, ask hard questions, point at module ideas — never write the submission. The grader reads for the learner\'s own mental model; ghost-written work defeats the entire course.',
+        '- When the draft is ready, call submit_activity with the learner\'s text verbatim. Grading takes a few seconds and lands on their permanent course record, where the human review desk also reads.',
+      );
+      return out.join('\n');
+    },
+  },
+  {
+    name: 'submit_activity',
+    title: "Submit the learner's activity for real grading",
+    description:
+      "Submit the learner's applied-activity text — their words, verbatim — to the course's AI grader. Saved before grading (nothing is ever lost), graded against the module's rubric with the capstone build-so-far in context, written to the same record the app and the human review desk read. Include any calibration numbers the activity asked for.",
+    inputSchema: {
+      type: 'object',
+      properties: {
+        moduleId: moduleIdProp,
+        body: { type: 'string', description: "The learner's submission, verbatim. Their thinking, not yours." },
+        calibration: {
+          type: 'object',
+          description: 'Numeric calibration fields the activity declares (get_activity lists them), keyed by field key.',
+          additionalProperties: { type: 'number' },
+        },
+      },
+      required: ['moduleId', 'body'],
+    },
+    readOnly: false,
+    handler: async (args, ctx) => {
+      const { db, env, deps, session } = ctx;
+      const moduleId = String(args.moduleId ?? '');
+      await requireOpenModule(db, moduleId);
+      const outcome = await deps.submitActivity(env, db, session.id, moduleId, typeof args.body === 'string' ? args.body : undefined, (args.calibration ?? undefined) as Record<string, number> | undefined);
+      if (!outcome.ok) throw new ToolError(outcome.error);
+      const r = outcome.result;
+      if (r.status === 'graded') {
+        const out: string[] = [`# Graded: ${r.total} — on the record`, ''];
+        for (const d of r.dimensions ?? []) out.push(`- **${d.name}: ${d.score}/5** — ${d.comment}`);
+        out.push('', r.summary ?? '', '');
+        out.push('Walk the learner through the two comments that matter most for their next move — not all of them at once. A human from the review desk may add notes later; get_activity surfaces those. Resubmissions are welcome; every draft is kept.');
+        return out.join('\n');
+      }
+      return `${r.message ?? 'Your submission is saved.'}\n\n(For the assistant: the submission is safely on the learner's record — nothing was lost. Continue the session and suggest resubmitting later to get the rubric feedback.)`;
+    },
+  },
+  {
+    name: 'ask_the_hosts',
+    title: 'Ask Maya and Leo (the podcast hosts)',
+    description:
+      "Send the learner's question to Fluent, the course's two-host podcast: Maya knows the material cold, Leo asks what you would ask. Returns the new follow-up segment's transcript immediately while the audio renders for the app. Gated the honest way: the learner must have actually listened to their module episode first. Offer it when they want a different voice on something.",
+    inputSchema: {
+      type: 'object',
+      properties: {
+        moduleId: moduleIdProp,
+        question: { type: 'string', description: "The learner's question, in their words — a sentence or two." },
+      },
+      required: ['moduleId', 'question'],
+    },
+    readOnly: false,
+    handler: async (args, ctx) => {
+      const { db, env, deps, session, origin, waitUntil } = ctx;
+      const moduleId = String(args.moduleId ?? '');
+      await requireOpenModule(db, moduleId);
+      const outcome = await deps.askTheHosts(env, db, session.id, moduleId, typeof args.question === 'string' ? args.question : undefined, 'mcp', waitUntil);
+      if (!outcome.ok) {
+        // The listen-first gate deserves a helpful hand-off, not a dead end.
+        throw new ToolError(`${outcome.error}${outcome.status === 400 ? ` The episode lives at ${origin}/module/${moduleId}/podcast.` : ''}`);
+      }
+      const row = outcome.row;
+      const lines = JSON.parse(row.scriptJson) as PodcastLine[];
+      const out: string[] = [
+        `# ${row.title}`,
+        `*${row.description}*`,
+        '',
+        ...lines.map((l) => `**${PODCAST_HOSTS[l.speaker].name}:** ${l.text}`),
+        '',
+        `🎧 The voiced version is rendering now — it'll be in the learner's feed at ${origin}/module/${moduleId}/podcast. Hand over the transcript highlights, not a summary of a summary: quote the hosts where they said it well.`,
+      ];
+      return out.join('\n');
+    },
+  },
 ];
 
 // ---------- prompts ----------
@@ -660,6 +1160,22 @@ const PROMPTS = [
     arguments: [{ name: 'module', description: 'Module id like ai101-m1 — leave blank to quiz the module I most recently worked on', required: false }],
     text: (args: Record<string, string>) =>
       `Run the AI Fluency knowledge check for ${args.module ? `module "${args.module}"` : 'the module I most recently worked on (check get_course_overview)'} — get_knowledge_check, then one question at a time. I commit an answer before we discuss anything. No hints unless I ask. Submit my answers at the end with submit_knowledge_check, walk me through what I missed, and if I passed, record the module complete.`,
+  },
+  {
+    name: 'challenge',
+    title: 'Scenario challenge',
+    description: 'Play a module’s sorting exercise as a rapid-fire workplace scenario game with a graded reveal.',
+    arguments: [{ name: 'module', description: 'Module id like ai101-m1 — leave blank to pick one with a challenge', required: false }],
+    text: (args: Record<string, string>) =>
+      `Run the AI Fluency scenario challenge ${args.module ? `for module "${args.module}"` : 'for a module I\'ve been working on that has one (get_scenario_challenge will tell you which do)'}: stage each scenario as a live moment in my actual workday, make me commit a call on every one before any reveal, keep the pace brisk, then submit my calls with submit_scenario and walk me through the reveal — worst miss first.`,
+  },
+  {
+    name: 'apply',
+    title: 'Apply the course to my real work',
+    description: 'Work a module’s frameworks on a real task from the learner’s week.',
+    arguments: [{ name: 'task', description: 'The real task, in a sentence — e.g. "summarizing exit-interview notes for the exec team"', required: false }],
+    text: (args: Record<string, string>) =>
+      `I want to use the AI Fluency course on real work${args.task ? `: ${args.task}` : ''}. ${args.task ? '' : 'First ask me what I\'m actually working on this week. '}Then check get_course_overview for which module speaks to it, call apply_to_my_work, and coach me through applying the module's frameworks to my task — I make the calls, you ask the questions. End with what I produced and the one thing to watch next time.`,
   },
   {
     name: 'whats-next',

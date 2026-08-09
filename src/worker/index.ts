@@ -4,7 +4,7 @@ import { drizzle, type DrizzleD1Database } from 'drizzle-orm/d1';
 import { and, asc, desc, eq, gt, lt, sql } from 'drizzle-orm';
 import * as t from '../db/schema';
 import { verifyCode, signSessionId, verifySessionCookie, hashIp, signMcpKey } from './crypto';
-import { toolingOf, selectVariants, toBlock, stampsFor, getExercise, type KnowledgeCheckPayload } from './content';
+import { toolingOf, selectVariants, toBlock, stampsFor, getExercise, scoreSortingSubmission, type KnowledgeCheckPayload, type SortingPayload } from './content';
 import { createMcpApp } from './mcp';
 import { gradeSubmission, type RubricPayload } from './grading';
 import { adminApp } from './admin';
@@ -59,7 +59,6 @@ import type {
   TrailPoint,
   CalibrationTrail,
   PathModule,
-  SortingReveal,
 } from '../shared/types';
 
 export interface Env {
@@ -900,16 +899,7 @@ app.get('/api/module/:id/micro', async (c) => {
 });
 
 // Content plumbing (variant selection, block projection, stamps, fd_exercise
-// access) lives in content.ts, shared with the MCP server.
-
-type SortingPayload = {
-  buckets: { id: string; label: string; hint: string; rank: number; pct: number }[];
-  // `also` marks deliberately-arguable placements that score as correct — the
-  // reasoning text carries the argument either way.
-  tasks: { id: string; text: string; key: string; also?: string[]; reasoning: string }[];
-  pattern: string;
-  postscript: string;
-};
+// access, sorting scoring) lives in content.ts, shared with the MCP server.
 
 // A single-answer exercise over a set of stimulus artifacts (M3's
 // find-the-lossy-step). Key stays server-side like every other exercise.
@@ -1385,51 +1375,12 @@ app.post('/api/module/:id/sort', async (c) => {
 
   const body = await c.req.json<{ assignments?: Record<string, string> }>().catch(() => null);
   const assignments = body?.assignments ?? {};
-  const valid = new Set(sorting.buckets.map((b) => b.id));
-  for (const task of sorting.tasks) {
-    if (!valid.has(assignments[task.id])) {
-      return c.json({ error: `Commit all ${sorting.tasks.length} before the reveal — an unscored guess teaches nothing.` }, 400);
-    }
+  const reveal = await scoreSortingSubmission(db, session.id, moduleId, sorting, assignments);
+  if (!reveal) {
+    return c.json({ error: `Commit all ${sorting.tasks.length} before the reveal — an unscored guess teaches nothing.` }, 400);
   }
-
-  const rank = Object.fromEntries(sorting.buckets.map((b) => [b.id, b.rank]));
-  const pct = Object.fromEntries(sorting.buckets.map((b) => [b.id, b.pct]));
-  let correct = 0;
-  let overAssigned = 0;
-  let underAssigned = 0;
-  const results: SortingReveal['results'] = sorting.tasks.map((task) => {
-    const chosen = assignments[task.id];
-    const isCorrect = chosen === task.key || (task.also ?? []).includes(chosen);
-    if (isCorrect) correct++;
-    else if (rank[chosen] > rank[task.key]) overAssigned++;
-    else if (rank[chosen] < rank[task.key]) underAssigned++;
-    return { taskId: task.id, text: task.text, chosen, key: task.key, correct: isCorrect, reasoning: task.reasoning };
-  });
-
-  for (const task of sorting.tasks) {
-    const context = `sort:${moduleId}:${task.id}`;
-    await db.delete(t.fdCalibration).where(and(eq(t.fdCalibration.sessionId, session.id), eq(t.fdCalibration.context, context)));
-    await db.insert(t.fdCalibration).values({
-      id: uuid(),
-      sessionId: session.id,
-      context,
-      predictedPct: pct[assignments[task.id]],
-      actualOutcome: pct[task.key],
-      delta: pct[assignments[task.id]] - pct[task.key],
-      createdAt: now(),
-    });
-  }
-  await logEvent(db, session.id, 'sort_submitted', { moduleId, correct, total: sorting.tasks.length, overAssigned, underAssigned });
+  await logEvent(db, session.id, 'sort_submitted', { moduleId, correct: reveal.score.correct, total: reveal.score.total, overAssigned: reveal.overAssigned, underAssigned: reveal.underAssigned });
   await witnessContent(db, { sessionId: session.id, moduleId, activity: 'sort_submitted', kind: 'exercise', content: { kind: 'sorting', payload: sorting } });
-
-  const reveal: SortingReveal = {
-    results,
-    score: { correct, total: sorting.tasks.length },
-    overAssigned,
-    underAssigned,
-    pattern: sorting.pattern,
-    postscript: sorting.postscript,
-  };
   return c.json(reveal);
 });
 
@@ -1668,32 +1619,40 @@ app.get('/api/module/:id/activity', async (c) => {
   });
 });
 
-app.post('/api/module/:id/activity', async (c) => {
-  const db = c.get('db');
-  const session = requireSession(c);
-  if (!session) return c.json({ error: 'No session.' }, 401);
-  const moduleId = c.req.param('id');
+// The whole submission path — save-first, audit pack, calibration fields,
+// rate limit, grading — shared verbatim by the app endpoint and the MCP
+// submit_activity tool, so a submission from inside Claude is graded, audited,
+// and review-desk-visible exactly like one from the activity screen.
+export type ActivityOutcome = { ok: false; status: 400 | 404; error: string } | { ok: true; result: GradeResult };
+
+async function submitActivityCore(
+  env: Env,
+  db: DrizzleD1Database,
+  sessionId: string,
+  moduleId: string,
+  rawText: string | undefined,
+  calibrationValues: Record<string, number> | undefined,
+): Promise<ActivityOutcome> {
   const rubric = await getExercise<RubricPayload>(db, moduleId, 'rubric');
-  if (!rubric) return c.json({ error: 'This module has no graded activity.' }, 404);
+  if (!rubric) return { ok: false, status: 404, error: 'This module has no graded activity.' };
   const minChars = rubric.minChars ?? MIN_SUBMISSION_CHARS;
 
-  const body = await c.req.json<{ body?: string; calibration?: Record<string, number> }>().catch(() => null);
-  const text = body?.body?.trim();
+  const text = rawText?.trim();
   if (!text || text.length < minChars) {
-    return c.json({ error: `Keep going — the activity needs at least ${minChars} characters to be gradeable.` }, 400);
+    return { ok: false, status: 400, error: `Keep going — the activity needs at least ${minChars} characters to be gradeable.` };
   }
-  if (text.length > 40_000) return c.json({ error: 'That’s beyond what the grader will read. Trim to what the activity asks for.' }, 400);
+  if (text.length > 40_000) return { ok: false, status: 400, error: 'That’s beyond what the grader will read. Trim to what the activity asks for.' };
 
   // Save first — grading can fail or be limited, the submission never gets lost.
   const submissionId = uuid();
   await db.insert(t.fdSubmission).values({
     id: submissionId,
-    sessionId: session.id,
+    sessionId: sessionId,
     moduleId,
     body: text,
     createdAt: now(),
   });
-  await logEvent(db, session.id, 'activity_submitted', { moduleId, submissionId, chars: text.length });
+  await logEvent(db, sessionId, 'activity_submitted', { moduleId, submissionId, chars: text.length });
 
   // The audit pack: the activity brief the learner wrote against plus the
   // rubric that grades it, exactly as both stood at submission time.
@@ -1703,12 +1662,12 @@ app.post('/api/module/:id/activity', async (c) => {
     .where(eq(t.fdContentBlock.moduleId, `${moduleId}-activity`))
     .orderBy(asc(t.fdContentBlock.ordinal));
   await witnessContent(db, {
-    sessionId: session.id,
+    sessionId: sessionId,
     moduleId,
     activity: 'activity_submitted',
     kind: 'activity_pack',
     refId: submissionId,
-    content: { ...moduleSnapshot(toolingOf(c.env), selectVariants(activityBlockRows, toolingOf(c.env)).map(toBlock)), rubric },
+    content: { ...moduleSnapshot(toolingOf(env), selectVariants(activityBlockRows, toolingOf(env)).map(toBlock)), rubric },
   });
 
   // Rubric-declared calibration fields → fd_calibration, before grading.
@@ -1716,7 +1675,7 @@ app.post('/api/module/:id/activity', async (c) => {
   // measured value lands on the earlier prediction's row with its delta.
   const calibrationNotes: string[] = [];
   for (const field of rubric.calibration ?? []) {
-    const value = Number(body?.calibration?.[field.key]);
+    const value = Number(calibrationValues?.[field.key]);
     if (!Number.isFinite(value)) continue;
     const clamped = Math.max(field.min ?? 0, Math.min(field.max ?? 1_000_000, Math.round(value)));
     if (field.actualFor) {
@@ -1725,7 +1684,7 @@ app.post('/api/module/:id/activity', async (c) => {
       const rows = await db
         .select()
         .from(t.fdCalibration)
-        .where(and(eq(t.fdCalibration.sessionId, session.id), eq(t.fdCalibration.context, context)))
+        .where(and(eq(t.fdCalibration.sessionId, sessionId), eq(t.fdCalibration.context, context)))
         .limit(1);
       const prior = rows[0];
       if (prior) {
@@ -1737,10 +1696,10 @@ app.post('/api/module/:id/activity', async (c) => {
       continue;
     }
     const context = `${moduleId}:cal:${field.key}`;
-    await db.delete(t.fdCalibration).where(and(eq(t.fdCalibration.sessionId, session.id), eq(t.fdCalibration.context, context)));
+    await db.delete(t.fdCalibration).where(and(eq(t.fdCalibration.sessionId, sessionId), eq(t.fdCalibration.context, context)));
     await db.insert(t.fdCalibration).values({
       id: uuid(),
-      sessionId: session.id,
+      sessionId: sessionId,
       context,
       predictedPct: clamped,
       actualOutcome: null,
@@ -1754,28 +1713,28 @@ app.post('/api/module/:id/activity', async (c) => {
   const recent = await db
     .select({ n: sql<number>`count(*)` })
     .from(t.fdSubmission)
-    .where(and(eq(t.fdSubmission.sessionId, session.id), gt(t.fdSubmission.createdAt, hourAgo)));
+    .where(and(eq(t.fdSubmission.sessionId, sessionId), gt(t.fdSubmission.createdAt, hourAgo)));
   if ((recent[0]?.n ?? 0) > GRADE_LIMIT_PER_HOUR) {
     const res: GradeResult = {
       status: 'rate_limited',
       submissionId,
       message: 'Your submission is saved. Grading is limited to five passes an hour — come back shortly and resubmit to grade this version.',
     };
-    return c.json(res);
+    return { ok: true, result: res };
   }
 
-  if (!c.env.ANTHROPIC_API_KEY) {
+  if (!env.ANTHROPIC_API_KEY) {
     const res: GradeResult = {
       status: 'saved_ungraded',
       submissionId,
       message: 'Your submission is saved. Grading is unavailable right now — resubmit later to get rubric feedback.',
     };
-    return c.json(res);
+    return { ok: true, result: res };
   }
 
   // The grader sees the build so far and the module-opening prediction, so
   // stage feedback can reference the actual spec and score honesty on record.
-  const stages = await priorStagesFor(db, session.id, moduleId);
+  const stages = await priorStagesFor(db, sessionId, moduleId);
   const priorContext = stages.length
     ? stages
         .map((s) => {
@@ -1785,12 +1744,12 @@ app.post('/api/module/:id/activity', async (c) => {
         })
         .join('\n\n')
     : null;
-  const opening = await openingPredictionFor(db, session.id, moduleId);
+  const opening = await openingPredictionFor(db, sessionId, moduleId);
   if (opening) calibrationNotes.unshift(`Opening prediction, recorded at the top of the module: "${opening.slice(0, 500)}"`);
 
   const grade = await gradeSubmission(
-    c.env.ANTHROPIC_API_KEY,
-    c.env.GRADING_MODEL,
+    env.ANTHROPIC_API_KEY,
+    env.GRADING_MODEL,
     rubric,
     text,
     calibrationNotes.length ? calibrationNotes.join(' · ') : null,
@@ -1802,7 +1761,7 @@ app.post('/api/module/:id/activity', async (c) => {
       submissionId,
       message: 'Your submission is saved. Grading is unavailable right now — nothing was lost, and you can resubmit to grade this version.',
     };
-    return c.json(res);
+    return { ok: true, result: res };
   }
 
   await db
@@ -1810,15 +1769,25 @@ app.post('/api/module/:id/activity', async (c) => {
     .set({
       rubricJson: JSON.stringify({ dimensions: grade.dimensions, summary: grade.summary }),
       totalScore: grade.total,
-      modelUsed: c.env.GRADING_MODEL,
+      modelUsed: env.GRADING_MODEL,
       promptVersion: rubric.promptVersion,
       gradedAt: now(),
     })
     .where(eq(t.fdSubmission.id, submissionId));
-  await logEvent(db, session.id, 'activity_graded', { moduleId, submissionId, total: grade.total });
+  await logEvent(db, sessionId, 'activity_graded', { moduleId, submissionId, total: grade.total });
 
   const res: GradeResult = { status: 'graded', submissionId, dimensions: grade.dimensions, total: grade.total, summary: grade.summary };
-  return c.json(res);
+  return { ok: true, result: res };
+}
+
+app.post('/api/module/:id/activity', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const body = await c.req.json<{ body?: string; calibration?: Record<string, number> }>().catch(() => null);
+  const out = await submitActivityCore(c.env, db, session.id, c.req.param('id'), body?.body, body?.calibration);
+  if (!out.ok) return c.json({ error: out.error }, out.status);
+  return c.json(out.result);
 });
 
 // ---------- podcast creator ----------
@@ -2581,6 +2550,67 @@ async function pregenerateNextPodcast(env: Env, sessionId: string): Promise<void
   }
 }
 
+// The Q&A path — gates (episode exists, actually listened, real question,
+// hourly limit), script generation, and background voicing — shared by the
+// app's podcast page and the MCP ask_the_hosts tool. The `trigger` marker
+// keeps the funnel honest about where the request came from.
+export type QaEpisodeOutcome = { ok: false; status: 400 | 429 | 503; error: string } | { ok: true; row: PodcastRow };
+
+async function createQaEpisodeCore(
+  env: Env,
+  db: DrizzleD1Database,
+  sessionId: string,
+  moduleId: string,
+  rawQuestion: string | undefined,
+  trigger: 'manual' | 'mcp',
+  waitUntil: (p: Promise<unknown>) => void,
+): Promise<QaEpisodeOutcome> {
+  const modRows = await db.select().from(t.fdModule).where(eq(t.fdModule.id, moduleId)).limit(1);
+  const mod = modRows[0];
+  if (!mod || mod.status !== 'open') return { ok: false, status: 400, error: 'Episodes can only be made from open modules.' };
+  if (!env.ANTHROPIC_API_KEY) {
+    return { ok: false, status: 503, error: 'The scriptwriter is not configured in this deployment, so episodes cannot be generated yet.' };
+  }
+
+  const defaultRows = await db
+    .select()
+    .from(t.fdPodcast)
+    .where(and(eq(t.fdPodcast.sessionId, sessionId), eq(t.fdPodcast.moduleId, moduleId), eq(t.fdPodcast.kind, 'default')))
+    .limit(1);
+  const existingDefault = defaultRows[0] ?? null;
+  if (!existingDefault) {
+    return { ok: false, status: 400, error: "Your module episode comes first — the hosts answer questions about something you've heard." };
+  }
+  const played = await db
+    .select({ n: sql<number>`count(*)` })
+    .from(t.fdEvent)
+    .where(
+      and(
+        eq(t.fdEvent.sessionId, sessionId),
+        eq(t.fdEvent.type, 'podcast_played'),
+        sql`json_extract(${t.fdEvent.payloadJson}, '$.podcastId') = ${existingDefault.id}`,
+      ),
+    );
+  if ((played[0]?.n ?? 0) === 0) {
+    return { ok: false, status: 400, error: 'Listen to your episode first — then ask the hosts anything it left you wondering.' };
+  }
+  const question = rawQuestion?.trim();
+  if (!question || question.length < 5) {
+    return { ok: false, status: 400, error: 'Ask the hosts a real question — a sentence or two about what you want unpacked.' };
+  }
+  if (!(await underPodcastLimit(db, sessionId, env))) {
+    return { ok: false, status: 429, error: `Episode writing is limited to ${podcastHourlyLimit(env)} an hour. Your earlier episodes are below — or come back shortly.` };
+  }
+
+  await logEvent(db, sessionId, 'podcast_requested', { moduleId, kind: 'qa', trigger });
+  const row = await generateEpisode(env, db, sessionId, moduleId, 'qa', question.slice(0, 500), 'quick');
+  if (!row) {
+    return { ok: false, status: 503, error: 'The scriptwriter is unavailable right now. Nothing was saved — try again in a minute.' };
+  }
+  waitUntil(renderVoicesToCache(env, row, 'create'));
+  return { ok: true, row };
+}
+
 app.post('/api/podcast', async (c) => {
   const db = c.get('db');
   const session = requireSession(c);
@@ -2589,7 +2619,12 @@ app.post('/api/podcast', async (c) => {
   if (!body) return c.json({ error: 'Malformed request.' }, 400);
 
   const moduleId = body.moduleId ?? 'ai101-m1';
-  const kind: 'default' | 'qa' = body.kind === 'qa' ? 'qa' : 'default';
+
+  if (body.kind === 'qa') {
+    const out = await createQaEpisodeCore(c.env, db, session.id, moduleId, body.question, 'manual', (p) => c.executionCtx.waitUntil(p as Promise<void>));
+    if (!out.ok) return c.json({ error: out.error }, out.status);
+    return c.json(toEpisode(out.row));
+  }
 
   const modRows = await db.select().from(t.fdModule).where(eq(t.fdModule.id, moduleId)).limit(1);
   const mod = modRows[0];
@@ -2605,56 +2640,32 @@ app.post('/api/podcast', async (c) => {
     .where(and(eq(t.fdPodcast.sessionId, session.id), eq(t.fdPodcast.moduleId, moduleId), eq(t.fdPodcast.kind, 'default')))
     .limit(1);
   const existingDefault = defaultRows[0] ?? null;
+  // One default episode per module — asking again just returns it.
+  if (existingDefault) return c.json(toEpisode(existingDefault));
 
   const prefs = await loadPrefs(db, session.id);
-
-  if (kind === 'default') {
-    // One default episode per module — asking again just returns it.
-    if (existingDefault) return c.json(toEpisode(existingDefault));
-  } else {
-    if (!existingDefault) return c.json({ error: 'Your module episode comes first — the hosts answer questions about something you\'ve heard.' }, 400);
-    const played = await db
-      .select({ n: sql<number>`count(*)` })
-      .from(t.fdEvent)
-      .where(
-        and(
-          eq(t.fdEvent.sessionId, session.id),
-          eq(t.fdEvent.type, 'podcast_played'),
-          sql`json_extract(${t.fdEvent.payloadJson}, '$.podcastId') = ${existingDefault.id}`,
-        ),
-      );
-    if ((played[0]?.n ?? 0) === 0) {
-      return c.json({ error: 'Listen to your episode first — then ask the hosts anything it left you wondering.' }, 400);
-    }
-    if (!body.question?.trim() || body.question.trim().length < 5) {
-      return c.json({ error: 'Ask the hosts a real question — a sentence or two about what you want unpacked.' }, 400);
-    }
-  }
 
   if (!(await underPodcastLimit(db, session.id, c.env))) {
     return c.json({ error: `Episode writing is limited to ${podcastHourlyLimit(c.env)} an hour. Your earlier episodes are below — or come back shortly.` }, 429);
   }
 
-  const question = kind === 'qa' ? body.question!.trim().slice(0, 500) : null;
-  await logEvent(db, session.id, 'podcast_requested', { moduleId, kind, trigger: 'manual' });
+  await logEvent(db, session.id, 'podcast_requested', { moduleId, kind: 'default', trigger: 'manual' });
 
-  const length = kind === 'qa' ? 'quick' : defaultLengthFor(depthOf(prefs.depth));
+  const length = defaultLengthFor(depthOf(prefs.depth));
 
-  if (kind === 'default') {
-    // Assembled path: a pre-voiced intro (personal > goal > generic stock)
-    // returns instantly and plays while the custom body writes in the
-    // background. Stock study assets ride along, so the cards are instant too.
-    const assembled = await createAssembledEpisode(c.env, db, session.id, moduleId, length);
-    if (assembled) {
-      c.executionCtx.waitUntil(completeAssembledBody(c.env, assembled));
-      return c.json(toEpisode(assembled));
-    }
-    // No stock baked yet (first visitor to this module): legacy full-script
-    // path today, and bake the stock in the background for everyone after.
-    c.executionCtx.waitUntil(bakeStock(c.env, moduleId));
+  // Assembled path: a pre-voiced intro (personal > goal > generic stock)
+  // returns instantly and plays while the custom body writes in the
+  // background. Stock study assets ride along, so the cards are instant too.
+  const assembled = await createAssembledEpisode(c.env, db, session.id, moduleId, length);
+  if (assembled) {
+    c.executionCtx.waitUntil(completeAssembledBody(c.env, assembled));
+    return c.json(toEpisode(assembled));
   }
+  // No stock baked yet (first visitor to this module): legacy full-script
+  // path today, and bake the stock in the background for everyone after.
+  c.executionCtx.waitUntil(bakeStock(c.env, moduleId));
 
-  const row = await generateEpisode(c.env, db, session.id, moduleId, kind, question, length);
+  const row = await generateEpisode(c.env, db, session.id, moduleId, 'default', null, length);
   if (!row) {
     return c.json({ error: 'The scriptwriter is unavailable right now. Nothing was saved — try again in a minute.' }, 503);
   }
@@ -2930,8 +2941,21 @@ app.get('/api/mcp/connection', async (c) => {
 });
 
 // The MCP endpoint itself: tools, prompts, and the tutor persona. Functions
-// entangled with the rest of this file are injected rather than re-exported.
-app.route('/api/mcp', createMcpApp({ loadPrefs, computeDiagnosticResult, pregenerateNextPodcast }));
+// entangled with the rest of this file are injected rather than re-exported;
+// submitActivity and askTheHosts are the same cores the app endpoints run.
+app.route(
+  '/api/mcp',
+  createMcpApp({
+    loadPrefs,
+    computeDiagnosticResult,
+    pregenerateNextPodcast,
+    trailFor,
+    priorStagesFor,
+    openingPredictionFor,
+    submitActivity: submitActivityCore,
+    askTheHosts: createQaEpisodeCore,
+  }),
+);
 
 // ---------- fallthrough ----------
 

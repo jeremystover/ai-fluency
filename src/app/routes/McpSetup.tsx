@@ -11,8 +11,10 @@ import { Screen, ErrorNote } from '../components/ui';
 const ASK_EXAMPLES = [
   '"Teach me the next module of the AI fluency course."',
   '"Quiz me on ai101-m1 — one question at a time."',
+  '"Run the scenario challenge — make me commit before the reveal."',
+  '"I\'m drafting an ER summary right now — apply the course to it."',
+  '"Grade my explanation: let me teach the module back to you."',
   '"Where am I in the course, and what should I do in 20 minutes?"',
-  '"Explain the module\'s concept map using an example from my own week."',
 ];
 
 export default function McpSetup() {
@@ -120,8 +122,9 @@ export default function McpSetup() {
             ))}
           </ul>
           <p className="text-sm text-muted mt-3">
-            Completions earned there count here — the tutor can only mark a module complete after you pass its knowledge check,
-            same bar as this app.
+            Everything you earn there counts here — knowledge checks, scenario rounds, graded activities, completions. The tutor
+            can only mark a module complete after you pass its check, same bar as this app; your predictions, your capstone build,
+            and notes from the human review desk all travel with you.
           </p>
         </div>
 
