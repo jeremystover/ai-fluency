@@ -153,6 +153,8 @@ export type IntakePrefs = {
   styles?: string[]; // reading | interactive | podcast | assistant_mcp | voice
   goals?: string[]; // fluency | workflows | apply | news | tools | safety | coach | confidence
   objective?: string; // free-text refinement of the goals
+  aiUsage?: string; // free-text: how they use AI in their job today
+  selfLevel?: string; // self-assessed fluency level — see shared/levels.ts
 };
 
 export type PlanStep = {
