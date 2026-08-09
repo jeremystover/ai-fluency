@@ -176,9 +176,59 @@ export const fdPodcast = sqliteTable(
     audioKey: text('audio_key'),
     audioBytes: integer('audio_bytes'),
     audioAt: text('audio_at'),
+    // Assembled episodes: a pre-voiced intro (personal, goal-flavored stock, or
+    // generic stock) plays instantly while the custom body generates. Legacy
+    // and Q&A episodes leave these null.
+    introJson: text('intro_json'), // the intro lines actually used
+    introAudioKey: text('intro_audio_key'), // R2 key of the pre-voiced intro
+    introSource: text('intro_source'), // personal | goal:<id> | generic
     createdAt: text('created_at').notNull(),
   },
   (t) => [index('idx_podcast_session').on(t.sessionId)],
+);
+
+// Baked stock assets per module: the instant layer. 'generic' variant carries
+// the full fallback body plus the study assets; goal variants carry an intro
+// flavored for that goal. Baked lazily (arrival/intake) and self-healing —
+// content_reviewed_at vs the module's blocks detects staleness.
+export const fdPodcastStock = sqliteTable(
+  'fd_podcast_stock',
+  {
+    id: text('id').primaryKey(),
+    moduleId: text('module_id').notNull(),
+    variant: text('variant').notNull(), // 'generic' | goal id
+    beatsJson: text('beats_json').notNull(), // the fixed beats every intro previews
+    introJson: text('intro_json').notNull(),
+    bodyJson: text('body_json'), // generic variant only
+    outlineJson: text('outline_json'),
+    takeawaysJson: text('takeaways_json'),
+    visualJson: text('visual_json'),
+    introAudioKey: text('intro_audio_key'),
+    title: text('title'),
+    description: text('description'),
+    modelUsed: text('model_used'),
+    promptVersion: text('prompt_version'),
+    contentReviewedAt: text('content_reviewed_at'),
+    bakedAt: text('baked_at').notNull(),
+  },
+  (t) => [index('idx_podcast_stock_module').on(t.moduleId, t.variant)],
+);
+
+// A personal intro (name, role, goals woven into natural speech), generated in
+// the background at intake / module completion so it's waiting before the
+// learner reaches the podcast page.
+export const fdPodcastIntro = sqliteTable(
+  'fd_podcast_intro',
+  {
+    id: text('id').primaryKey(),
+    sessionId: text('session_id').notNull(),
+    moduleId: text('module_id').notNull(),
+    introJson: text('intro_json').notNull(),
+    audioKey: text('audio_key'),
+    promptVersion: text('prompt_version'),
+    createdAt: text('created_at').notNull(),
+  },
+  (t) => [index('idx_podcast_intro_session').on(t.sessionId, t.moduleId)],
 );
 
 // Per-module exercise data whose answer keys must never reach the client
