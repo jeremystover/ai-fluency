@@ -45,9 +45,15 @@
     // Model behind the module tutor chat; persisted on fd_chat_message.
     "CHAT_MODEL": "claude-opus-5",
     // Model used to write podcast scripts; persisted on fd_podcast.
-    "PODCAST_MODEL": "claude-sonnet-5"
+    "PODCAST_MODEL": "claude-sonnet-5",
+    // Episode scripts per session per hour (default 4 if unset). Raised for demo/testing.
+    "PODCAST_LIMIT_PER_HOUR": "12",
+    // Gemini TTS model used when the GEMINI_API_KEY secret is set (multi-speaker).
+    "GEMINI_TTS_MODEL": "gemini-3.1-flash-tts-preview"
   }
   // Secrets (set with `wrangler secret put`):
   //   SESSION_SECRET      — HMAC key for session cookie signing
   //   ANTHROPIC_API_KEY   — grading + tutor chat + podcast scripts; never exposed to the client
+  //   GEMINI_API_KEY      — optional: voices podcast chunks with Gemini's native
+  //                         multi-speaker TTS instead of Aura (Aura stays the fallback)
 }

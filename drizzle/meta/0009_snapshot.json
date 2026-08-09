@@ -1,8 +1,8 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "735b3904-dfe6-45e2-94d7-600572ad56f6",
-  "prevId": "bd604c3e-5188-4000-8ca6-ea0c74ff55f6",
+  "id": "ccd47be4-35bb-43a3-b027-ee5e983c16b2",
+  "prevId": "735b3904-dfe6-45e2-94d7-600572ad56f6",
   "tables": {
     "fd_access_code": {
       "name": "fd_access_code",
@@ -696,6 +696,20 @@
         },
         "outline_json": {
           "name": "outline_json",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "takeaways_json": {
+          "name": "takeaways_json",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "visual_json": {
+          "name": "visual_json",
           "type": "text",
           "primaryKey": false,
           "notNull": false,

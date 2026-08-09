@@ -18,6 +18,7 @@
     "maintain:write": "node scripts/maintenance-agent.mjs --write"
   },
   "dependencies": {
+    "@fontsource/caveat": "^5.3.0",
     "drizzle-orm": "^0.44.2",
     "hono": "^4.8.3",
     "marked": "^16.0.0",

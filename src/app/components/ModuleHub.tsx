@@ -1,16 +1,16 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import type { ModuleCapabilities, ModuleCard, PathModule } from '../../shared/types';
-import PodcastPanel from './PodcastPanel';
+import { PODCAST_SHOW } from '../../shared/types';
 import { api } from '../api';
 import { useApp } from '../brand';
 
 // The modality-aware top of every module page. One module, many ways in —
 // arranged around the learner's first-choice style: podcast-first learners
-// get a podcast home with the rest of the course as a playlist, hands-on
-// learners get a tile grid, in-your-AI-tool learners get setup + starter
-// prompts, and readers get a quiet row above the read. The knowledge check
-// is on every variant: it is how a module is finished — or tested out of.
+// get an episode-oriented home with the rest of the course as a playlist,
+// hands-on learners get a tile grid, in-your-AI-tool learners get setup +
+// starter prompts, and readers get a quiet row above the read. The knowledge
+// check is on every variant: it is how a module is finished — or tested out.
 
 type Tile = {
   key: string;
@@ -92,7 +92,8 @@ function StarterPrompts({ module }: { module: ModuleCard }) {
 }
 
 // The rest of the course, framed as a playlist — the podcast-first learner's
-// module page is their podcast home, and other modules are other episodes.
+// module page is their episode hub, and other modules are other episodes.
+// Rows link straight into each module's episode page.
 function EpisodePlaylist({ currentId }: { currentId: string }) {
   const [modules, setModules] = useState<PathModule[] | null>(null);
   useEffect(() => {
@@ -108,7 +109,7 @@ function EpisodePlaylist({ currentId }: { currentId: string }) {
             <span className="flex items-baseline justify-between gap-3">
               <span className={`font-display font-semibold text-[0.95rem] ${current ? 'text-accent' : 'text-ink-strong'}`}>
                 {m.ordinal}. {m.title}
-                {current && <span className="font-utility text-[0.6rem] uppercase tracking-wider ml-2">● Now playing</span>}
+                {current && <span className="font-utility text-[0.6rem] uppercase tracking-wider ml-2">● This module</span>}
               </span>
               <span className="font-utility text-[0.65rem] uppercase tracking-wider text-muted shrink-0">
                 {m.completed ? 'Done · ' : ''}{m.access === 'open' ? `~${m.estMinutes} min` : 'Full course'}
@@ -118,7 +119,7 @@ function EpisodePlaylist({ currentId }: { currentId: string }) {
           return (
             <li key={m.id}>
               {m.access === 'open' && !current ? (
-                <Link to={`/module/${m.id}`} className="block border border-line rounded-brand bg-surface px-4 py-2.5 no-underline hover:border-ink-strong transition-colors">
+                <Link to={`/module/${m.id}/podcast`} className="block border border-line rounded-brand bg-surface px-4 py-2.5 no-underline hover:border-ink-strong transition-colors">
                   {row}
                 </Link>
               ) : (
@@ -144,16 +145,15 @@ export default function ModuleHub({
   sortingAnchorId?: string;
 }) {
   const { me } = useApp();
-  const [listenOpen, setListenOpen] = useState(false);
   const primary = me?.prefs?.styles?.[0] ?? 'reading';
   const moduleId = module.id;
 
   const listenTile: Tile | null = capabilities.podcast
     ? {
         key: 'listen',
-        title: listenOpen ? 'Listening —' : 'Listen to this module',
-        detail: 'Two hosts talk it through as a podcast episode, made for you.',
-        onClick: () => setListenOpen((open) => !open),
+        title: 'Listen to this module',
+        detail: `${PODCAST_SHOW.name}: two hosts talk it through as an episode made for you — outline, takeaways, and all.`,
+        to: `/module/${moduleId}/podcast`,
         tag: primary === 'podcast' ? 'Your style' : undefined,
       }
     : null;
@@ -213,12 +213,22 @@ export default function ModuleHub({
     );
   };
 
-  if (primary === 'podcast') {
+  if (primary === 'podcast' && capabilities.podcast) {
     return (
       <div className="mt-6">
-        <div className="border border-ink-strong rounded-brand bg-surface p-5">
-          <p className="label-utility">Your podcast home · {module.title}</p>
-          <PodcastPanel moduleId={moduleId} />
+        <div className="border border-accent rounded-brand bg-accent/[0.04] p-5">
+          <p className="label-utility">Your style · learning by listening</p>
+          <h2 className="font-display font-semibold text-ink-strong text-xl mt-2">This module is an episode of {PODCAST_SHOW.name}.</h2>
+          <p className="text-sm text-ink mt-2">
+            Made for one listener — you. Playback starts in seconds, the outline follows along, and the hosts take your
+            questions after you listen.
+          </p>
+          <Link
+            to={`/module/${moduleId}/podcast`}
+            className="inline-flex mt-4 items-center px-5 py-2.5 font-display font-semibold text-[0.95rem] rounded-brand bg-accent text-on-accent hover:brightness-110 no-underline"
+          >
+            Play this module →
+          </Link>
         </div>
         <EpisodePlaylist currentId={moduleId} />
         <Section label="Other ways into this module">
@@ -249,9 +259,6 @@ export default function ModuleHub({
         <Section label="When you want the material itself">
           {compactTiles([tutorTile, listenTile, microTile, activityTile])}
         </Section>
-        {listenOpen && capabilities.podcast && (
-          <div className="mt-4 border border-line rounded-brand bg-bg p-5 anim-fade"><PodcastPanel moduleId={moduleId} /></div>
-        )}
         <p className="text-sm text-muted mt-4">The full read is below — your study links from the quiz land there.</p>
       </div>
     );
@@ -273,9 +280,6 @@ export default function ModuleHub({
         <Section label="Also here whenever you want them">
           {compactTiles([checkTile, listenTile, tutorTile, microTile])}
         </Section>
-        {listenOpen && capabilities.podcast && (
-          <div className="mt-4 border border-line rounded-brand bg-bg p-5 anim-fade"><PodcastPanel moduleId={moduleId} /></div>
-        )}
         <p className="text-sm text-muted mt-4">The full module read is below — the source your assistant should agree with.</p>
       </div>
     );
@@ -289,9 +293,6 @@ export default function ModuleHub({
         <div className="grid gap-2.5 sm:grid-cols-2 mt-3">
           {list.map((tile) => <TileCard key={tile.key} tile={tile} big />)}
         </div>
-        {listenOpen && capabilities.podcast && (
-          <div className="mt-4 border border-line rounded-brand bg-bg p-5 anim-fade"><PodcastPanel moduleId={moduleId} /></div>
-        )}
         <p className="text-sm text-muted mt-4">The full read backs all of it, right below.</p>
       </div>
     );
@@ -302,9 +303,6 @@ export default function ModuleHub({
   return (
     <div className="mt-6">
       {compactTiles([listenTile, tutorTile, checkTile])}
-      {listenOpen && capabilities.podcast && (
-        <div className="mt-4 border border-line rounded-brand bg-bg p-5 anim-fade"><PodcastPanel moduleId={moduleId} /></div>
-      )}
     </div>
   );
 }

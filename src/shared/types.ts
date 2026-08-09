@@ -204,10 +204,43 @@ export type PodcastLength = 'quick' | 'standard' | 'deep';
 export type PodcastLine = { speaker: 'a' | 'b'; text: string };
 
 // The two hosts are fixed personas; their voices map to Workers AI Aura speakers.
+// Maya is the expert, Leo asks the questions — deliberately against the
+// familiar-trope grain of curious-woman/expert-man.
 export const PODCAST_HOSTS = {
-  a: { name: 'Maya', tagline: 'asks what you would ask' },
-  b: { name: 'Leo', tagline: 'knows the material cold' },
+  a: { name: 'Maya', tagline: 'knows the material cold' },
+  b: { name: 'Leo', tagline: 'asks what you would ask' },
 } as const;
+
+// The show's identity: every episode opens on the call sign and ends with
+// Maya delivering the sign-off line verbatim — the ritual is what makes
+// episodes feel like episodes instead of conversations that stop.
+export const PODCAST_SHOW = {
+  name: 'Fluent',
+  signoff: 'Stay curious — and check the work.',
+} as const;
+
+// A waypoint the listener can follow while the episode plays: a short label
+// anchored to the line where that beat of the conversation starts.
+export type PodcastOutlinePoint = { point: string; startLine: number };
+
+// A small concept map of the episode's core idea: one hub, labeled spokes,
+// and optional cross-links between spokes. Laid out deterministically
+// client-side (hub center, spokes on an ellipse) — no graph library.
+export type PodcastVisual = {
+  shape?: 'hub' | 'flow' | 'ladder' | 'quad' | 'venn'; // absent on pre-v9 rows = hub
+  title: string;
+  insight?: string; // the one sentence that tells the learner what to see
+  hub?: string;
+  spokes?: { label: string; relation: string }[];
+  links?: { from: number; to: number; label: string }[]; // spoke indexes
+  steps?: { label: string; arrow?: string }[]; // flow
+  rungs?: { label: string; note?: string }[]; // ladder, bottom to top
+  axes?: { xLow: string; xHigh: string; yLow: string; yHigh: string }; // quad
+  quadrants?: string[]; // quad: TL, TR, BL, BR
+  star?: number; // quad: the quadrant to aim for
+  circles?: { label: string }[]; // venn, exactly two
+  overlap?: string; // venn
+};
 
 export type PodcastEpisode = {
   id: string;
@@ -218,12 +251,26 @@ export type PodcastEpisode = {
   lengthPref: PodcastLength;
   promptText: string | null;
   lines: PodcastLine[];
+  outline: PodcastOutlinePoint[] | null; // null on episodes written before podcast-v4
+  takeaways: string[] | null; // null before podcast-v5
+  visual: PodcastVisual | null; // null before podcast-v5, and on Q&A segments where a map adds nothing
   estMinutes: number;
   audioCached: boolean;
+  // 'assembled' — a pre-voiced intro plays instantly while the custom body
+  //   generates (chunk 0 = intro, later chunks = body);
+  // 'chunked' — audio streams in parts, all custom (Q&A and legacy default);
+  // 'single' — one legacy pre-chunking MP3 already sits in the cache.
+  audioMode: 'single' | 'chunked' | 'assembled';
+  chunkCount: number;
+  // Assembled episodes: how many of `lines` belong to the intro (0 otherwise),
+  // and whether the custom body is still being written (lines end at the intro
+  // until it lands — the player keeps rolling and the transcript grows).
+  introLineCount: number;
+  bodyPending: boolean;
   createdAt: string;
 };
 
-export type PodcastSummary = Omit<PodcastEpisode, 'lines'>;
+export type PodcastSummary = Omit<PodcastEpisode, 'lines' | 'outline' | 'takeaways' | 'visual'>;
 
 export type PodcastListResponse = {
   episodes: PodcastSummary[];
@@ -232,6 +279,9 @@ export type PodcastListResponse = {
   // False when this deployment lacks the binding/key — the UI degrades honestly.
   scriptEnabled: boolean;
   audioEnabled: boolean;
+  // True when voices render in the background after each script (needs AI + R2);
+  // false means the client should fetch audio directly and wait on a live render.
+  audioPrerenders: boolean;
 };
 
 export type ModuleContentResponse = {
