@@ -12,6 +12,7 @@ import { extractPaths } from '../shared/chat';
 import { GOAL_CHOICES } from '../shared/goals';
 import { DEPTH_IDS, depthOf } from '../shared/depth';
 import { SELF_LEVEL_IDS } from '../shared/levels';
+import { chunkPlan } from '../shared/audioChunks';
 import {
   writeScript,
   renderAudio,
@@ -1758,15 +1759,21 @@ app.post('/api/module/:id/activity', async (c) => {
 type PodcastRow = typeof t.fdPodcast.$inferSelect;
 
 function toEpisode(row: PodcastRow): PodcastEpisode {
+  const lines = JSON.parse(row.scriptJson) as PodcastLine[];
+  // Episodes voiced before chunked playback have one whole-episode MP3 in the
+  // cache; everything else streams in chunks (cached or rendered on demand).
+  const legacySingle = row.audioKey !== null && row.audioKey.endsWith('.mp3');
   return {
     id: row.id,
     moduleId: row.moduleId,
     kind: row.kind === 'qa' ? 'qa' : 'default',
+    audioMode: legacySingle ? 'single' : 'chunked',
+    chunkCount: legacySingle ? 1 : chunkPlan(lines).length,
     title: row.title,
     description: row.description,
     lengthPref: row.lengthPref as PodcastLength,
     promptText: row.promptText,
-    lines: JSON.parse(row.scriptJson) as PodcastLine[],
+    lines,
     outline: row.outlineJson ? (JSON.parse(row.outlineJson) as PodcastOutlinePoint[]) : null,
     estMinutes: estMinutes(row.totalChars),
     audioCached: row.audioKey !== null,
@@ -1917,26 +1924,41 @@ async function generateEpisode(
   return row;
 }
 
-// Voice an episode into the R2 cache so the learner never sits through a live
-// render. Runs in the background (waitUntil) after every script — manual or
+const chunkKey = (podcastId: string, i: number) => `podcast/${podcastId}/c${i}.mp3`;
+
+// Voice an episode into the R2 cache, chunk by chunk in playback order, so the
+// player can start on the first chunk while later ones are still recording.
+// Runs in the background (waitUntil) after every script — manual or
 // pregenerated. Needs both bindings: without R2 there is nowhere to put the
-// result, and the lazy render on the audio route still covers first listen.
-// Failures are silent for the same reason.
+// result, and the chunk route's live render still covers first listen.
+// Failures are silent for the same reason. Skips chunks another path (a live
+// listen racing ahead of this task) already rendered.
 async function renderVoicesToCache(env: Env, row: PodcastRow, trigger: 'create' | 'pregen'): Promise<void> {
   if (!env.AI || !env.PODCAST_AUDIO) return;
   try {
     const db = drizzle(env.DB);
-    // Another path (a lazy listen racing this task) may have rendered already.
-    const fresh = await db.select().from(t.fdPodcast).where(eq(t.fdPodcast.id, row.id)).limit(1);
-    if (!fresh[0] || fresh[0].audioKey) return;
-    const audio = await renderAudio(env.AI, JSON.parse(row.scriptJson) as PodcastLine[]);
-    if (!audio) return;
-    const key = `podcast/${row.id}.mp3`;
-    await env.PODCAST_AUDIO.put(key, audio);
-    await db.update(t.fdPodcast).set({ audioKey: key, audioBytes: audio.length, audioAt: now() }).where(eq(t.fdPodcast.id, row.id));
-    await logEvent(db, row.sessionId, 'podcast_audio_rendered', { podcastId: row.id, bytes: audio.length, cached: true, trigger });
+    const lines = JSON.parse(row.scriptJson) as PodcastLine[];
+    const plan = chunkPlan(lines);
+    let bytesTotal = 0;
+    for (let i = 0; i < plan.length; i++) {
+      const key = chunkKey(row.id, i);
+      const existing = await env.PODCAST_AUDIO.head(key);
+      if (existing) {
+        bytesTotal += existing.size;
+        continue;
+      }
+      const audio = await renderAudio(env.AI, lines.slice(plan[i].start, plan[i].end));
+      if (!audio) return;
+      await env.PODCAST_AUDIO.put(key, audio);
+      bytesTotal += audio.length;
+    }
+    await db
+      .update(t.fdPodcast)
+      .set({ audioKey: `podcast/${row.id}/`, audioBytes: bytesTotal, audioAt: now() })
+      .where(and(eq(t.fdPodcast.id, row.id), sql`${t.fdPodcast.audioKey} IS NULL`));
+    await logEvent(db, row.sessionId, 'podcast_audio_rendered', { podcastId: row.id, bytes: bytesTotal, chunks: plan.length, cached: true, trigger });
   } catch {
-    // Background work — the audio route's lazy render remains the safety net.
+    // Background work — the chunk route's live render remains the safety net.
   }
 }
 
@@ -2071,9 +2093,70 @@ app.get('/api/podcast/:id', async (c) => {
   return c.json(toEpisode(rows[0]));
 });
 
-// Audio renders lazily on first listen, then serves from the R2 cache. The first
-// request voices every turn (~30–60s) — the client fetches to a blob and shows a
-// rendering state rather than pointing an <audio> tag here cold.
+// One chunk of an episode's audio. Serves the R2 cache when the background
+// render has gotten there; otherwise voices just this chunk live (~10–20s) —
+// so the first chunk is always seconds away, whatever the background is doing.
+app.get('/api/podcast/:id/audio/:chunk', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const rows = await db
+    .select()
+    .from(t.fdPodcast)
+    .where(and(eq(t.fdPodcast.id, c.req.param('id')), eq(t.fdPodcast.sessionId, session.id)))
+    .limit(1);
+  const row = rows[0];
+  if (!row) return c.json({ error: 'No such episode.' }, 404);
+
+  const lines = JSON.parse(row.scriptJson) as PodcastLine[];
+  const plan = chunkPlan(lines);
+  const idx = Number(c.req.param('chunk'));
+  if (!Number.isInteger(idx) || idx < 0 || idx >= plan.length) return c.json({ error: 'No such chunk.' }, 404);
+
+  const audioHeaders = { 'content-type': 'audio/mpeg', 'cache-control': 'private, max-age=86400' };
+  const key = chunkKey(row.id, idx);
+
+  if (c.env.PODCAST_AUDIO) {
+    const cached = await c.env.PODCAST_AUDIO.get(key);
+    if (cached) return new Response(cached.body, { headers: audioHeaders });
+  }
+
+  if (!c.env.AI) {
+    return c.json({ error: 'Audio rendering is not configured in this deployment — the full transcript is the episode for now.' }, 503);
+  }
+
+  const audio = await renderAudio(c.env.AI, lines.slice(plan[idx].start, plan[idx].end));
+  if (!audio) {
+    return c.json({ error: 'The voices are unavailable right now. The script is safe — try the audio again in a minute.' }, 503);
+  }
+
+  if (c.env.PODCAST_AUDIO) {
+    await c.env.PODCAST_AUDIO.put(key, audio);
+    // If this listen just completed the set, mark the episode fully voiced.
+    if (row.audioKey === null) {
+      let all = true;
+      for (let i = 0; i < plan.length; i++) {
+        if (i !== idx && !(await c.env.PODCAST_AUDIO.head(chunkKey(row.id, i)))) {
+          all = false;
+          break;
+        }
+      }
+      if (all) {
+        await db
+          .update(t.fdPodcast)
+          .set({ audioKey: `podcast/${row.id}/`, audioAt: now() })
+          .where(and(eq(t.fdPodcast.id, row.id), sql`${t.fdPodcast.audioKey} IS NULL`));
+      }
+    }
+  }
+  await logEvent(db, session.id, 'podcast_audio_rendered', { podcastId: row.id, chunk: idx, bytes: audio.length, trigger: 'listen' });
+
+  return new Response(audio, { headers: { ...audioHeaders, 'content-length': String(audio.length) } });
+});
+
+// Legacy whole-episode audio: episodes voiced before chunked playback keep
+// their single cached MP3, and this route serves it (or live-renders the whole
+// thing as a last resort).
 app.get('/api/podcast/:id/audio', async (c) => {
   const db = c.get('db');
   const session = requireSession(c);

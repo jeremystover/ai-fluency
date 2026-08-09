@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import type { PodcastEpisode, PodcastLength, PodcastListResponse, PodcastOutlinePoint, PodcastSummary } from '../../shared/types';
 import { PODCAST_HOSTS } from '../../shared/types';
@@ -6,6 +6,7 @@ import { Screen, Button, ErrorNote } from '../components/ui';
 import MicButton from '../components/MicButton';
 import { api, ApiError, track } from '../api';
 import { useApp } from '../brand';
+import { chunkPlan, type AudioChunk } from '../../shared/audioChunks';
 
 const LENGTH_OPTIONS: { id: PodcastLength; label: string; detail: string }[] = [
   { id: 'quick', label: 'Quick take', detail: '~3 min' },
@@ -13,24 +14,17 @@ const LENGTH_OPTIONS: { id: PodcastLength; label: string; detail: string }[] = [
   { id: 'deep', label: 'Deep dive', detail: '~10 min' },
 ];
 
-// Voices render server-side right after the script; the client just waits for
-// audioCached to flip, then plays from the R2 cache. 3s × 40 ≈ 2 minutes of
-// patience before falling back to a live render.
-const AUDIO_POLL_MS = 3000;
-const AUDIO_POLLS = 40;
-
-type AudioState =
-  | { phase: 'waiting' } // voices rendering in the background
-  | { phase: 'fetching' } // downloading (or live-rendering, on the fallback path)
-  | { phase: 'ready'; url: string }
-  | { phase: 'failed'; message: string };
+const PLAYBACK_RATES = [1, 1.25, 1.5, 2];
+const RATE_STORAGE_KEY = 'fd-podcast-rate';
 
 function fmtDate(iso: string) {
   return new Date(iso).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
 }
 
-const charsBefore = (episode: PodcastEpisode, lineIdx: number) =>
-  episode.lines.slice(0, lineIdx).reduce((sum, l) => sum + l.text.length, 0);
+function fmtTime(sec: number) {
+  const s = Math.max(0, Math.round(sec));
+  return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+}
 
 // The listener's map: the episode's main beats, lit up as playback passes them.
 // Clicking a beat jumps the audio there (by the same character-proportion
@@ -109,88 +103,149 @@ function Transcript({ episode, activeLine }: { episode: PodcastEpisode; activeLi
 function Player({
   episode,
   audioEnabled,
-  audioPrerenders,
-  onRefresh,
   onFirstPlay,
 }: {
   episode: PodcastEpisode;
   audioEnabled: boolean;
-  audioPrerenders: boolean;
-  onRefresh: (ep: PodcastEpisode) => void;
   onFirstPlay?: () => void;
 }) {
-  const [audio, setAudio] = useState<AudioState>({ phase: 'waiting' });
-  const [activeLine, setActiveLine] = useState<number | null>(null);
+  // Audio arrives in chunks cut at speaker-turn boundaries: chunk 0 is small so
+  // playback starts in seconds, and the player always fetches one chunk ahead
+  // while the current one plays. Legacy single-file episodes are a one-chunk plan.
+  const plan = useMemo<AudioChunk[]>(
+    () => (episode.audioMode === 'single' ? [{ start: 0, end: episode.lines.length }] : chunkPlan(episode.lines)),
+    [episode],
+  );
+  const chunkChars = useMemo(
+    () => plan.map((ch) => episode.lines.slice(ch.start, ch.end).reduce((s, l) => s + l.text.length, 0)),
+    [plan, episode],
+  );
+  const charsBeforeChunk = useMemo(() => {
+    const out: number[] = [];
+    let acc = 0;
+    for (const n of chunkChars) {
+      out.push(acc);
+      acc += n;
+    }
+    return out;
+  }, [chunkChars]);
+  const totalChars = chunkChars.reduce((a, b) => a + b, 0);
+
   const audioRef = useRef<HTMLAudioElement>(null);
+  const urls = useRef<(string | undefined)[]>([]);
+  const durations = useRef<(number | undefined)[]>([]);
+  const inFlight = useRef<Set<number>>(new Set());
   const played = useRef(false);
-  const pollsLeft = useRef(AUDIO_POLLS);
-  const started = useRef<string | null>(null);
+  const episodeKey = useRef<string | null>(null);
 
-  const totalChars = episode.lines.reduce((sum, l) => sum + l.text.length, 0);
+  const [chunkIdx, setChunkIdx] = useState(0);
+  const [status, setStatus] = useState<'loading' | 'buffering' | 'ready' | 'failed'>('loading');
+  const [failMessage, setFailMessage] = useState('');
+  const [playing, setPlaying] = useState(false);
+  const [rate, setRate] = useState(() => {
+    const stored = Number(localStorage.getItem(RATE_STORAGE_KEY));
+    return PLAYBACK_RATES.includes(stored) ? stored : 1;
+  });
+  const [activeLine, setActiveLine] = useState<number | null>(null);
+  const [, setTick] = useState(0); // re-render on timeupdate so the bar moves
 
-  const fetchAudio = async () => {
-    setAudio({ phase: 'fetching' });
+  const chunkUrl = (i: number) =>
+    episode.audioMode === 'single' ? `/api/podcast/${episode.id}/audio` : `/api/podcast/${episode.id}/audio/${i}`;
+
+  const ensureChunk = async (i: number): Promise<string> => {
+    if (i < 0 || i >= plan.length) throw new Error('out of range');
+    const existing = urls.current[i];
+    if (existing) return existing;
+    if (inFlight.current.has(i)) {
+      while (inFlight.current.has(i)) await new Promise((r) => setTimeout(r, 250));
+      const settled = urls.current[i];
+      if (settled) return settled;
+      throw new Error('The audio did not come back. Try again in a minute.');
+    }
+    inFlight.current.add(i);
     try {
-      const res = await fetch(`/api/podcast/${episode.id}/audio`);
+      const res = await fetch(chunkUrl(i));
       if (!res.ok) {
         const data = (await res.json().catch(() => null)) as { error?: string } | null;
-        setAudio({ phase: 'failed', message: data?.error ?? 'The audio did not come back. Try again in a minute.' });
-        return;
+        throw new Error(data?.error ?? 'The audio did not come back. Try again in a minute.');
       }
-      const blob = await res.blob();
-      setAudio({ phase: 'ready', url: URL.createObjectURL(blob) });
-    } catch {
-      setAudio({ phase: 'failed', message: 'The network dropped while fetching the audio. The episode is safe — try again.' });
+      const url = URL.createObjectURL(await res.blob());
+      urls.current[i] = url;
+      return url;
+    } finally {
+      inFlight.current.delete(i);
     }
   };
 
-  // One flow, no buttons: cached → fetch now; rendering in background → wait
-  // for audioCached to flip; no background rendering on this deployment → go
-  // straight to the live-render fetch.
+  // Load chunk i into the element, optionally seek within it, then play.
+  const startChunk = async (i: number, withinFraction = 0, autoplay = true) => {
+    const el = audioRef.current;
+    if (!el) return;
+    setStatus(urls.current[i] ? 'ready' : i === 0 ? 'loading' : 'buffering');
+    try {
+      const url = await ensureChunk(i);
+      setChunkIdx(i);
+      if (el.src !== url) {
+        el.src = url;
+        await new Promise<void>((resolve, reject) => {
+          const ok = () => {
+            cleanup();
+            resolve();
+          };
+          const bad = () => {
+            cleanup();
+            reject(new Error('The audio would not load. Try again.'));
+          };
+          const cleanup = () => {
+            el.removeEventListener('loadedmetadata', ok);
+            el.removeEventListener('error', bad);
+          };
+          el.addEventListener('loadedmetadata', ok);
+          el.addEventListener('error', bad);
+        });
+      }
+      durations.current[i] = el.duration;
+      el.currentTime = withinFraction > 0 ? withinFraction * el.duration : 0;
+      el.playbackRate = rate;
+      setStatus('ready');
+      if (autoplay) await el.play().catch(() => {}); // autoplay may need a tap — the button is right there
+      void ensureChunk(i + 1).catch(() => {}); // stay one chunk ahead
+    } catch (e) {
+      setFailMessage(e instanceof Error && e.message !== 'out of range' ? e.message : 'The audio did not come back. Try again in a minute.');
+      setStatus('failed');
+    }
+  };
+
+  // Fresh episode: reset the engine and start on chunk 0.
   useEffect(() => {
-    if (!audioEnabled || started.current === episode.id) return;
-    started.current = episode.id;
-    setActiveLine(null);
+    if (!audioEnabled || episodeKey.current === episode.id) return;
+    episodeKey.current = episode.id;
+    for (const url of urls.current) if (url) URL.revokeObjectURL(url);
+    urls.current = [];
+    durations.current = [];
+    inFlight.current.clear();
     played.current = false;
-    pollsLeft.current = AUDIO_POLLS;
-    if (episode.audioCached || !audioPrerenders) void fetchAudio();
-    else setAudio({ phase: 'waiting' });
-    return () => {
-      setAudio((prev) => {
-        if (prev.phase === 'ready') URL.revokeObjectURL(prev.url);
-        return prev;
-      });
-    };
+    setActiveLine(null);
+    setPlaying(false);
+    void startChunk(0, 0, true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [episode.id, audioEnabled]);
 
-  // Waiting phase: poll the episode until the background render lands.
-  useEffect(() => {
-    if (audio.phase !== 'waiting') return;
-    if (episode.audioCached) {
-      void fetchAudio();
-      return;
-    }
-    if (pollsLeft.current <= 0) {
-      void fetchAudio(); // fallback: live render on the audio route
-      return;
-    }
-    const timer = setTimeout(() => {
-      pollsLeft.current -= 1;
-      api.get<PodcastEpisode>(`/api/podcast/${episode.id}`).then(onRefresh).catch(() => {});
-    }, AUDIO_POLL_MS);
-    return () => clearTimeout(timer);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [audio.phase, episode]);
+  // Position in the whole episode, in transcript characters — the shared
+  // currency between audio time, the highlight, the outline, and the bar.
+  const globalChar = () => {
+    const el = audioRef.current;
+    if (!el || !el.duration) return charsBeforeChunk[chunkIdx] ?? 0;
+    return (charsBeforeChunk[chunkIdx] ?? 0) + (el.currentTime / el.duration) * (chunkChars[chunkIdx] ?? 0);
+  };
 
   const onTimeUpdate = () => {
-    const el = audioRef.current;
-    if (!el || !el.duration) return;
-    const targetChars = (el.currentTime / el.duration) * totalChars;
+    setTick((n) => n + 1);
+    const target = globalChar();
     let acc = 0;
     for (let i = 0; i < episode.lines.length; i++) {
       acc += episode.lines[i].text.length;
-      if (acc >= targetChars) {
+      if (acc >= target) {
         setActiveLine(i);
         return;
       }
@@ -198,11 +253,64 @@ function Player({
     setActiveLine(episode.lines.length - 1);
   };
 
+  const onEnded = () => {
+    if (chunkIdx + 1 < plan.length) void startChunk(chunkIdx + 1, 0, true);
+    else {
+      setPlaying(false);
+      setActiveLine(null);
+    }
+  };
+
   const seekToLine = (lineIdx: number) => {
+    const c = plan.findIndex((ch) => lineIdx >= ch.start && lineIdx < ch.end);
+    if (c === -1) return;
+    const within =
+      chunkChars[c] > 0
+        ? episode.lines.slice(plan[c].start, lineIdx).reduce((s, l) => s + l.text.length, 0) / chunkChars[c]
+        : 0;
     const el = audioRef.current;
-    if (!el || !el.duration || totalChars === 0) return;
-    el.currentTime = (charsBefore(episode, lineIdx) / totalChars) * el.duration;
-    void el.play().catch(() => {});
+    if (c === chunkIdx && el && el.duration) {
+      el.currentTime = within * el.duration;
+      void el.play().catch(() => {});
+    } else {
+      void startChunk(c, within, true);
+    }
+  };
+
+  const seekToFraction = (f: number) => {
+    const target = Math.max(0, Math.min(1, f)) * totalChars;
+    let acc = 0;
+    for (let i = 0; i < episode.lines.length; i++) {
+      acc += episode.lines[i].text.length;
+      if (acc >= target) {
+        seekToLine(i);
+        return;
+      }
+    }
+  };
+
+  // Elapsed/total from real durations where chunks have loaded, estimated
+  // (~14 chars/sec — the server's own estimate) where they haven't.
+  const chunkSeconds = (i: number) => durations.current[i] ?? chunkChars[i] / 14;
+  const elapsedSec =
+    plan.reduce((sum, _ch, i) => (i < chunkIdx ? sum + chunkSeconds(i) : sum), 0) + (audioRef.current?.currentTime ?? 0);
+  const totalSec = plan.reduce((sum, _ch, i) => sum + chunkSeconds(i), 0);
+  const progress = totalChars > 0 ? Math.min(1, globalChar() / totalChars) : 0;
+  const allLoaded = plan.every((_, i) => durations.current[i] !== undefined);
+
+  const togglePlay = () => {
+    const el = audioRef.current;
+    if (!el || status === 'failed' || status === 'loading') return;
+    if (el.paused) void el.play().catch(() => {});
+    else el.pause();
+  };
+
+  const cycleRate = () => {
+    const next = PLAYBACK_RATES[(PLAYBACK_RATES.indexOf(rate) + 1) % PLAYBACK_RATES.length];
+    setRate(next);
+    localStorage.setItem(RATE_STORAGE_KEY, String(next));
+    const el = audioRef.current;
+    if (el) el.playbackRate = next;
   };
 
   const body = (
@@ -224,40 +332,79 @@ function Player({
           {!audioEnabled && (
             <p className="text-sm text-muted">Audio rendering isn't configured in this deployment — the transcript below is the episode.</p>
           )}
-          {audioEnabled && (audio.phase === 'waiting' || audio.phase === 'fetching') && (
-            <p className="text-sm text-ink" aria-live="polite">
-              <span className="text-signal" aria-hidden="true">●</span>{' '}
-              {audio.phase === 'waiting'
-                ? 'Script done — the hosts are in the booth recording your audio. Read along below; it starts on its own.'
-                : episode.audioCached
-                  ? 'Fetching your audio…'
-                  : `Recording ${episode.lines.length} turns in the booth — about a minute…`}
-            </p>
-          )}
-          {audio.phase === 'failed' && (
+          {audioEnabled && status === 'failed' && (
             <div className="flex flex-col gap-2">
-              <ErrorNote message={audio.message} />
-              <Button variant="quiet" onClick={() => void fetchAudio()}>Try the audio again</Button>
+              <ErrorNote message={failMessage} />
+              <div>
+                <Button variant="quiet" onClick={() => void startChunk(chunkIdx)}>Try the audio again</Button>
+              </div>
             </div>
           )}
-          {audio.phase === 'ready' && (
-            <audio
-              ref={audioRef}
-              src={audio.url}
-              controls
-              autoPlay
-              className="w-full"
-              onTimeUpdate={onTimeUpdate}
-              onEnded={() => setActiveLine(null)}
-              onPlay={() => {
-                if (!played.current) {
-                  played.current = true;
-                  track('podcast_played', { podcastId: episode.id });
-                  onFirstPlay?.();
-                }
-              }}
-            />
+          {audioEnabled && status !== 'failed' && (
+            <>
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={togglePlay}
+                  disabled={status === 'loading'}
+                  aria-label={playing ? 'Pause' : 'Play'}
+                  className="w-11 h-11 shrink-0 rounded-full bg-accent text-on-accent flex items-center justify-center hover:brightness-110 active:brightness-95 disabled:opacity-40 transition-all"
+                >
+                  {playing ? (
+                    <span className="flex gap-1" aria-hidden="true"><span className="w-1 h-3.5 bg-current rounded-sm" /><span className="w-1 h-3.5 bg-current rounded-sm" /></span>
+                  ) : (
+                    <span className="ml-0.5 border-l-[12px] border-l-current border-y-[7px] border-y-transparent" aria-hidden="true" />
+                  )}
+                </button>
+                <div
+                  className="flex-1 h-2 rounded-full bg-line cursor-pointer"
+                  role="slider"
+                  aria-label="Seek"
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                  aria-valuenow={Math.round(progress * 100)}
+                  onClick={(e) => {
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    seekToFraction((e.clientX - rect.left) / rect.width);
+                  }}
+                >
+                  <div className="h-full rounded-full bg-accent transition-[width] duration-150" style={{ width: `${progress * 100}%` }} />
+                </div>
+                <span className="font-utility text-[0.7rem] text-muted tabular-nums shrink-0">
+                  {fmtTime(elapsedSec)} / {allLoaded ? '' : '~'}{fmtTime(totalSec)}
+                </span>
+                <button
+                  onClick={cycleRate}
+                  aria-label={`Playback speed ${rate}x — click to change`}
+                  className="shrink-0 border border-line-strong rounded-brand px-2 py-1 font-utility text-xs text-ink-strong hover:border-ink-strong"
+                >
+                  {rate}×
+                </button>
+              </div>
+              {(status === 'loading' || status === 'buffering') && (
+                <p className="text-sm text-ink mt-3" aria-live="polite">
+                  <span className="text-signal" aria-hidden="true">●</span>{' '}
+                  {status === 'loading'
+                    ? 'The hosts are recording the opening — playback starts in a few seconds.'
+                    : 'Recording the next part — it picks right back up.'}
+                </p>
+              )}
+            </>
           )}
+          <audio
+            ref={audioRef}
+            className="hidden"
+            onTimeUpdate={onTimeUpdate}
+            onEnded={onEnded}
+            onPlay={() => {
+              setPlaying(true);
+              if (!played.current) {
+                played.current = true;
+                track('podcast_played', { podcastId: episode.id });
+                onFirstPlay?.();
+              }
+            }}
+            onPause={() => setPlaying(false)}
+          />
         </div>
       </div>
 
@@ -271,7 +418,7 @@ function Player({
       <OutlineRail
         outline={episode.outline}
         activeLine={activeLine}
-        canSeek={audio.phase === 'ready'}
+        canSeek={audioEnabled && status !== 'failed'}
         onSeek={seekToLine}
       />
       {body}
@@ -351,15 +498,6 @@ export default function Podcast() {
     api.get<PodcastEpisode>(`/api/podcast/${defaultEp.id}`).then(setEpisode).catch(() => {});
   }, [defaultEp, episode]);
 
-  const onRefresh = (ep: PodcastEpisode) => {
-    setEpisode((prev) => (prev && prev.id === ep.id ? ep : prev));
-    if (ep.audioCached) {
-      setList((prev) =>
-        prev ? { ...prev, episodes: prev.episodes.map((e) => (e.id === ep.id ? { ...e, audioCached: true } : e)) } : prev,
-      );
-    }
-  };
-
   const open = async (summary: PodcastSummary) => {
     setError(null);
     try {
@@ -418,8 +556,6 @@ export default function Podcast() {
           <Player
             episode={episode}
             audioEnabled={list.audioEnabled}
-            audioPrerenders={list.audioPrerenders}
-            onRefresh={onRefresh}
             onFirstPlay={() => setLocalPlayed((prev) => [...prev, episode.id])}
           />
         )}
