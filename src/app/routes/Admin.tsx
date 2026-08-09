@@ -4,10 +4,11 @@ import { api, ApiError } from '../api';
 import { goalLabel } from '../../shared/goals';
 
 // Operator console: review queue (the async backup for the M8 peer exchange),
-// funnel reporting, and access-code management. Deliberately utilitarian —
-// this is a tool for one operator, not a learner surface.
+// funnel reporting, access-code management, and the completion audit trail.
+// Deliberately utilitarian — this is a tool for one operator, not a learner
+// surface.
 
-type Tab = 'queue' | 'report' | 'codes';
+type Tab = 'queue' | 'report' | 'codes' | 'audit';
 
 type SubmissionRow = {
   id: string;
@@ -44,6 +45,27 @@ type Report = {
 };
 
 type CodeRow = { id: string; brandSlug: string; label: string; uses: number; maxUses: number | null; active: boolean };
+
+type AuditRow = {
+  id: string;
+  session_id: string;
+  module_id: string;
+  activity: string;
+  ref_id: string | null;
+  content_hash: string;
+  created_at: string;
+  snapshot_kind: string | null;
+  display_name: string | null;
+};
+
+type SnapshotDetail = {
+  hash: string;
+  kind: string;
+  moduleId: string;
+  firstWitnessedAt: string;
+  witnesses: number;
+  content: unknown;
+};
 
 const fmtDate = (iso: string | null) => (iso ? iso.slice(0, 16).replace('T', ' ') : '—');
 
@@ -387,6 +409,101 @@ function Codes() {
   );
 }
 
+function Audit() {
+  const [rows, setRows] = useState<AuditRow[] | null>(null);
+  const [filter, setFilter] = useState('');
+  const [selected, setSelected] = useState<AuditRow | null>(null);
+  const [snapshot, setSnapshot] = useState<SnapshotDetail | null>(null);
+
+  useEffect(() => {
+    api.get<{ audits: AuditRow[] }>('/api/admin/audit').then((d) => setRows(d.audits));
+  }, []);
+
+  const open = async (row: AuditRow) => {
+    setSelected(row);
+    setSnapshot(null);
+    setSnapshot(await api.get<SnapshotDetail>(`/api/admin/audit/snapshot/${row.content_hash}`));
+  };
+
+  if (!rows) return <p className="label-utility mt-8">Loading audit trail…</p>;
+  const q = filter.trim().toLowerCase();
+  const shown = q
+    ? rows.filter((r) => [r.display_name ?? '', r.module_id, r.activity, r.session_id].some((v) => v.toLowerCase().includes(q)))
+    : rows;
+  return (
+    <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,6fr)_minmax(0,6fr)]">
+      <div>
+        <input
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+          placeholder="Filter by learner, module, or activity…"
+          className="w-full border border-line-strong bg-surface rounded-brand px-3 py-2 text-sm focus:border-accent placeholder:text-muted/60"
+          aria-label="Filter audit rows"
+        />
+        <div className="overflow-x-auto mt-3">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="text-left">
+                {['When', 'Who', 'Module', 'Activity', 'Version'].map((h) => (
+                  <th key={h} className="label-utility font-normal pb-2 pr-3">{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {shown.map((r) => (
+                <tr
+                  key={r.id}
+                  onClick={() => open(r)}
+                  className={`border-t border-line cursor-pointer hover:bg-accent/5 ${selected?.id === r.id ? 'bg-accent/10' : ''}`}
+                >
+                  <td className="py-2 pr-3 font-utility text-xs text-muted whitespace-nowrap">{fmtDate(r.created_at)}</td>
+                  <td className="py-2 pr-3">{r.display_name ?? '—'}</td>
+                  <td className="py-2 pr-3 font-utility text-xs">{r.module_id}</td>
+                  <td className="py-2 pr-3 font-utility text-xs">{r.activity.replaceAll('_', ' ')}</td>
+                  <td className="py-2 pr-3 font-utility text-xs" title={r.content_hash}>{r.content_hash.slice(0, 10)}</td>
+                </tr>
+              ))}
+              {shown.length === 0 && (
+                <tr><td colSpan={5} className="py-6 text-muted text-sm">No completions witnessed yet{q ? ' matching the filter' : ''}. Rows appear as learners view and complete content.</td></tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        {selected ? (
+          <div className="border border-line rounded-brand bg-surface p-5">
+            <div className="flex items-baseline justify-between gap-3 flex-wrap">
+              <h2 className="font-display font-semibold text-ink-strong">
+                {selected.display_name ?? 'Anonymous'} · {selected.activity.replaceAll('_', ' ')}
+              </h2>
+              <span className="font-utility text-xs text-muted">{fmtDate(selected.created_at)}</span>
+            </div>
+            {snapshot ? (
+              <>
+                <p className="mt-2 text-xs text-muted">
+                  {snapshot.kind} · {snapshot.moduleId} · version <span className="font-utility" title={snapshot.hash}>{snapshot.hash.slice(0, 16)}</span>
+                  <br />
+                  first witnessed {fmtDate(snapshot.firstWitnessedAt)} · {snapshot.witnesses} completion{snapshot.witnesses === 1 ? '' : 's'} saw this exact version
+                </p>
+                <pre className="mt-3 whitespace-pre-wrap text-xs text-ink font-utility max-h-[32rem] overflow-y-auto border border-line rounded-brand p-3 bg-bg/50">
+                  {JSON.stringify(snapshot.content, null, 2)}
+                </pre>
+              </>
+            ) : (
+              <p className="label-utility mt-4">Loading snapshot…</p>
+            )}
+          </div>
+        ) : (
+          <p className="text-muted text-sm mt-2">
+            Select a row to open the exact content that learner saw at that moment — as it stood then, regardless of what it says now.
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function Admin() {
   const [state, setState] = useState<'loading' | 'login' | 'in'>('loading');
   const [tab, setTab] = useState<Tab>('queue');
@@ -412,7 +529,7 @@ export default function Admin() {
             <h1 className="font-display font-bold text-ink-strong text-2xl mt-1">Admin</h1>
           </div>
           <div className="flex items-center gap-1">
-            {(['queue', 'report', 'codes'] as Tab[]).map((tabId) => (
+            {(['queue', 'report', 'codes', 'audit'] as Tab[]).map((tabId) => (
               <button
                 key={tabId}
                 onClick={() => setTab(tabId)}
@@ -421,7 +538,7 @@ export default function Admin() {
                   tab === tabId ? 'bg-ink-strong text-surface' : 'text-muted hover:text-ink-strong'
                 }`}
               >
-                {tabId === 'queue' ? 'Review queue' : tabId === 'report' ? 'Reporting' : 'Access codes'}
+                {tabId === 'queue' ? 'Review queue' : tabId === 'report' ? 'Reporting' : tabId === 'codes' ? 'Access codes' : 'Content audit'}
               </button>
             ))}
             <button
@@ -438,6 +555,7 @@ export default function Admin() {
         {tab === 'queue' && <Queue />}
         {tab === 'report' && <Reporting />}
         {tab === 'codes' && <Codes />}
+        {tab === 'audit' && <Audit />}
       </div>
     </Screen>
   );

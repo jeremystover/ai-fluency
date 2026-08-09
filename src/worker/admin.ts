@@ -144,6 +144,46 @@ adminApp.get('/report', async (c) => {
   return c.json({ totals, funnel, demand, calibration, devices });
 });
 
+// ---------- completion audit ----------
+
+// Who completed what, against which content version. Each row points at a
+// content-addressed snapshot; the snapshot endpoint below opens the exact
+// content as the learner saw it, even after the live version has changed.
+adminApp.get('/audit', async (c) => {
+  const db = c.get('db');
+  const session = c.req.query('session')?.trim();
+  const where = session ? sql`WHERE a.session_id = ${session}` : sql``;
+  const rows = await db.all<Record<string, unknown>>(sql`
+    SELECT a.id, a.session_id, a.module_id, a.activity, a.ref_id, a.content_hash, a.created_at,
+           s.kind AS snapshot_kind,
+           (SELECT display_name FROM fd_participant p WHERE p.session_id = a.session_id ORDER BY p.created_at DESC LIMIT 1) AS display_name
+    FROM fd_completion_audit a
+    LEFT JOIN fd_content_snapshot s ON s.hash = a.content_hash
+    ${where}
+    ORDER BY a.created_at DESC LIMIT 200`);
+  return c.json({ audits: rows });
+});
+
+adminApp.get('/audit/snapshot/:hash', async (c) => {
+  const db = c.get('db');
+  const hash = c.req.param('hash');
+  const rows = await db.select().from(t.fdContentSnapshot).where(eq(t.fdContentSnapshot.hash, hash)).limit(1);
+  const snapshot = rows[0];
+  if (!snapshot) return c.json({ error: 'No such snapshot.' }, 404);
+  const witnesses = await db
+    .select({ n: sql<number>`count(*)` })
+    .from(t.fdCompletionAudit)
+    .where(eq(t.fdCompletionAudit.contentHash, hash));
+  return c.json({
+    hash: snapshot.hash,
+    kind: snapshot.kind,
+    moduleId: snapshot.moduleId,
+    firstWitnessedAt: snapshot.createdAt,
+    witnesses: witnesses[0]?.n ?? 0,
+    content: JSON.parse(snapshot.contentJson),
+  });
+});
+
 // ---------- review queue ----------
 
 adminApp.get('/submissions', async (c) => {
