@@ -264,6 +264,22 @@ export const fdReview = sqliteTable(
   (t) => [index('idx_review_submission').on(t.submissionId)],
 );
 
+// Admin-authored steering text: what the company wants emphasized, overall
+// ('global'), per course ('course:<id>'), or per module ('module:<id>').
+// One row per (brand, scope); the text rides into every LLM personalization
+// prompt (tutor chat, podcast) alongside the module content.
+export const fdBrandGuidance = sqliteTable(
+  'fd_brand_guidance',
+  {
+    id: text('id').primaryKey(),
+    brandSlug: text('brand_slug').notNull(),
+    scope: text('scope').notNull(), // global | course:<id> | module:<id>
+    body: text('body').notNull(),
+    updatedAt: text('updated_at').notNull(),
+  },
+  (t) => [index('idx_guidance_brand').on(t.brandSlug, t.scope)],
+);
+
 // What a learner actually saw, content-addressed: one row per distinct
 // version (hash of the serialized content), shared by every completion that
 // witnessed that version. Unchanged content costs one row no matter how many
