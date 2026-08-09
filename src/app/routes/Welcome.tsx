@@ -4,7 +4,7 @@ import { Screen, Button, ErrorNote } from '../components/ui';
 import MicButton from '../components/MicButton';
 import { api, ApiError, track } from '../api';
 import { useApp } from '../brand';
-import { GOAL_CHOICES } from '../../shared/goals';
+import { GOAL_CHOICES, type GoalChoice } from '../../shared/goals';
 import { DEPTH_CHOICES } from '../../shared/depth';
 import { SELF_LEVEL_CHOICES } from '../../shared/levels';
 import type { IntakePrefs } from '../../shared/types';
@@ -60,6 +60,16 @@ const TOOL_CHOICES: { id: string; label: string }[] = [
   { id: 'gemini', label: 'Gemini' },
   { id: 'other', label: 'Something else' },
 ];
+
+// Which goals fit each self-assessed level best — the goals screen marks
+// these so the opening screen's answer visibly shapes what comes next.
+const LEVEL_GOALS: Record<string, string[]> = {
+  l1: ['fluency', 'confidence'],
+  l2: ['fluency', 'apply'],
+  l3: ['apply', 'workflows'],
+  l4: ['coach', 'strategy'],
+  l5: ['strategy', 'safety'],
+};
 
 const TOTAL_STEPS = 5;
 
@@ -118,6 +128,31 @@ export default function Welcome() {
   }, [editing, me]);
 
   const next = () => setStep((s) => Math.min(s + 1, TOTAL_STEPS - 1));
+
+  // The goals screen reuses what the opening screen just taught us: their
+  // role personalizes the apply goal, their tools personalize the tools
+  // goal, and their self-assessed level marks the goals that fit it best.
+  // Display-only — the stored goal ids stay the shared ones.
+  const toolNames = aiTools
+    .filter((id) => id !== 'other')
+    .map((id) => TOOL_CHOICES.find((t) => t.id === id)?.label ?? id);
+  if (aiTools.includes('other') && aiToolOther.trim()) toolNames.push(aiToolOther.trim().slice(0, 40));
+  const toolList =
+    toolNames.length > 1 ? `${toolNames.slice(0, -1).join(', ')} and ${toolNames[toolNames.length - 1]}` : toolNames[0];
+
+  const adaptGoal = (choice: GoalChoice): { label: string; detail: string; tag?: string } => {
+    let { label, detail } = choice;
+    const roleTrim = role.trim();
+    if (choice.id === 'apply' && roleTrim && roleTrim.length <= 40) {
+      label = `Put AI to work in my ${roleTrim} role`;
+      detail = 'Real tasks from your week — job descriptions, ER write-ups, policy drafts, survey summaries — done in minutes, checked by you.';
+    }
+    if (choice.id === 'tools' && toolList) {
+      detail = `Go deeper with ${toolList} — and the AI already embedded in your HR stack: which is which, and what each is actually for.`;
+    }
+    const tag = selfLevel && LEVEL_GOALS[selfLevel]?.includes(choice.id) ? 'For your level' : undefined;
+    return { label, detail, tag };
+  };
 
   const finish = async () => {
     if (busy) return;
@@ -263,7 +298,7 @@ export default function Welcome() {
                   </div>
                 )}
                 <div className="flex flex-col gap-1.5">
-                  <span className="label-utility">Where would you place yourself today? The course uses these levels throughout</span>
+                  <span className="label-utility">Where would you place yourself today?</span>
                   <div className="flex flex-col gap-2">
                     {SELF_LEVEL_CHOICES.map((choice) =>
                       card({
@@ -285,19 +320,21 @@ export default function Welcome() {
 
           {step === 1 && (
             <>
-              <h1 className="font-display font-semibold text-ink-strong text-2xl leading-snug">What do you want out of this?</h1>
+              <h1 className="font-display font-semibold text-ink-strong text-2xl leading-snug">How do you want to level up?</h1>
               <p className="text-muted text-sm mt-2">Pick everything that's true. The plan leans toward what you choose.</p>
               <div className="mt-6 grid gap-2 sm:grid-cols-2">
-                {GOAL_CHOICES.map((choice) =>
-                  card({
+                {GOAL_CHOICES.map((choice) => {
+                  const adapted = adaptGoal(choice);
+                  return card({
                     key: choice.id,
-                    label: choice.label,
-                    detail: choice.detail,
+                    label: adapted.label,
+                    detail: adapted.detail,
+                    tag: adapted.tag,
                     compact: true,
                     selected: goals.includes(choice.id),
                     onClick: () => setGoals((g) => (g.includes(choice.id) ? g.filter((x) => x !== choice.id) : [...g, choice.id])),
-                  }),
-                )}
+                  });
+                })}
               </div>
               <label className="flex flex-col gap-1.5 mt-5">
                 <span className="label-utility">Anything else? Something specific, or a goal not covered above — type or talk. Optional</span>

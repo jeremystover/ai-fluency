@@ -7,9 +7,11 @@ export type SelfLevelChoice = { id: string; label: string; detail: string };
 
 export const SELF_LEVEL_CHOICES: SelfLevelChoice[] = [
   {
+    // The course material calls L1 "The Risk"; at intake we use a gentler
+    // name — plenty of avoiders stay away deliberately, not from ignorance.
     id: 'l1',
-    label: 'L1 · The Risk',
-    detail: "AI mostly happens around me. I avoid it, or use it without knowing when to trust what comes back.",
+    label: 'L1 · The Avoider',
+    detail: "I've stayed away so far — out of caution, principle, or just no time to start — and AI mostly happens around me.",
   },
   {
     id: 'l2',
