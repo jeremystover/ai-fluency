@@ -5,7 +5,7 @@
 import { PODCAST_HOSTS, PODCAST_SHOW, type PodcastLength, type PodcastLine } from '../shared/types';
 import type { Depth } from '../shared/depth';
 
-export const PODCAST_PROMPT_VERSION = 'podcast-v10';
+export const PODCAST_PROMPT_VERSION = 'podcast-v11';
 
 export type PodcastKind = 'default' | 'qa';
 
@@ -528,7 +528,7 @@ export type PodcastBodyDraft = {
 };
 
 const INTRO_RULES = [
-  `- The intro is the show ritual, nothing more: ${PODCAST_HOSTS.b.name} delivers the call sign — "Welcome to ${PODCAST_SHOW.name}" or a natural variant naming the show — the hosts trade one beat of genuine banter, and the episode's beats are previewed in one breath. 4–7 turns, 120–180 words.`,
+  `- The intro is the show ritual with room to breathe: ${PODCAST_HOSTS.b.name} delivers the call sign — "Welcome to ${PODCAST_SHOW.name}" or a natural variant naming the show — the hosts trade a couple of beats of genuine banter, and the episode's beats are previewed with a line on why they matter today. 6–10 turns, 190–260 words. This opening is a quarter of the episode; let it be unhurried without padding it.`,
   `- The intro's LAST turn is ${PODCAST_HOSTS.b.name} teeing up the first beat as a direct question to ${PODCAST_HOSTS.a.name}. It must end on that question — the body of the show picks up from exactly there.`,
   '- Sound like people talking: contractions, short sentences, warmth, a little wry. No radio-voice clichés beyond the call sign.',
   '- Write for the ear: no markdown, no lists, no URLs, no parentheticals. Spell out numbers.',
@@ -592,7 +592,7 @@ export async function writeStock(
       const beats = Array.isArray(obj.beats)
         ? obj.beats.filter((b): b is string => typeof b === 'string' && b.trim().length > 0).map((b) => b.trim().slice(0, 60)).slice(0, 5)
         : [];
-      const intro = extractLines(obj.intro, 3, 10, 1600);
+      const intro = extractLines(obj.intro, 4, 12, 2400);
       const body = extractLines(obj.body, 10, 60, 8000);
       if (beats.length < 3 || !intro || !body) continue;
       const outline = parseOutlinePoints(obj.outline, intro.length + body.length);
@@ -679,7 +679,7 @@ async function writeIntroVariant(
     try {
       const text = await callOnce(apiKey, model, system, 'Write the intro now.');
       const obj = text ? parseJsonObject(text) : null;
-      const lines = obj ? extractLines(obj.lines, 3, 10, 1600) : null;
+      const lines = obj ? extractLines(obj.lines, 4, 12, 2400) : null;
       if (lines) return lines;
     } catch {
       // retry
