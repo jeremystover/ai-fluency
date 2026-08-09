@@ -859,10 +859,15 @@ async function geminiSpeakOnce(apiKey: string, model: string, lines: PodcastLine
 // Gemini multi-speaker first when configured (retried once — the docs note
 // occasional 500s are expected), Aura as the fallback. Callers store and serve
 // by the returned content type; the player is format-agnostic per chunk.
-export async function renderChunkAudio(env: TtsEnv, lines: PodcastLine[]): Promise<RenderedAudio | null> {
-  if (env.GEMINI_API_KEY) {
+// Pinning: an episode must keep one set of voices, so callers pin every render
+// after the first to the engine that voiced the intro. A Gemini pin retries
+// harder before conceding; Aura stays the last resort even then, because a
+// mid-episode voice shift beats a silent hole.
+export type TtsEngine = 'gemini' | 'aura';
+export async function renderChunkAudio(env: TtsEnv, lines: PodcastLine[], pin?: TtsEngine): Promise<RenderedAudio | null> {
+  if (env.GEMINI_API_KEY && pin !== 'aura') {
     const model = env.GEMINI_TTS_MODEL ?? GEMINI_TTS_DEFAULT_MODEL;
-    for (let attempt = 0; attempt < 2; attempt++) {
+    for (let attempt = 0; attempt < (pin === 'gemini' ? 4 : 2); attempt++) {
       try {
         const pcm = await geminiSpeakOnce(env.GEMINI_API_KEY, model, lines);
         if (pcm && pcm.length > 0) return { bytes: pcmToWav(pcm), contentType: 'audio/wav' };
