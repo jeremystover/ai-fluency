@@ -4,6 +4,7 @@ import type { PodcastEpisode, PodcastLength, PodcastListResponse, PodcastOutline
 import { PODCAST_HOSTS, PODCAST_SHOW } from '../../shared/types';
 import { Screen, Button, ErrorNote } from '../components/ui';
 import MicButton from '../components/MicButton';
+import VisualCard from '../components/EpisodeVisual';
 import { api, ApiError, track } from '../api';
 import { useApp } from '../brand';
 import { chunkPlan, type AudioChunk } from '../../shared/audioChunks';
@@ -112,143 +113,6 @@ function KeyTakeaways({ items }: { items: string[] }) {
           </li>
         ))}
       </ul>
-    </div>
-  );
-}
-
-// Split a short label into at most two SVG text lines.
-function splitLabel(label: string, max = 15): string[] {
-  if (label.length <= max) return [label];
-  const words = label.split(' ');
-  let first = '';
-  let i = 0;
-  while (i < words.length && (first ? `${first} ${words[i]}` : words[i]).length <= max) {
-    first = first ? `${first} ${words[i]}` : words[i];
-    i++;
-  }
-  if (!first) return [label.slice(0, max), label.slice(max)];
-  return [first, words.slice(i).join(' ')].filter(Boolean);
-}
-
-// The episode's core idea as hub-and-spokes, laid out deterministically on an
-// ellipse — brand colors via CSS custom properties, no graph library. Edge
-// labels get a surface-colored halo (paint-order) so they stay legible where
-// they cross lines.
-function ConceptMap({ visual }: { visual: PodcastVisual }) {
-  const W = 660;
-  const H = 430;
-  const cx = W / 2;
-  const cy = H / 2;
-  const n = visual.spokes.length;
-  const pos = visual.spokes.map((_, i) => {
-    const angle = -Math.PI / 2 + (i * 2 * Math.PI) / n;
-    return { x: cx + Math.cos(angle) * 245, y: cy + Math.sin(angle) * 155 };
-  });
-  const mid = (a: { x: number; y: number }, b: { x: number; y: number }) => ({ x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 });
-  const hubLines = splitLabel(visual.hub, 14);
-
-  return (
-    <div className="border border-line rounded-brand bg-surface p-5 mt-5">
-      <p className="label-utility">The map{visual.title ? ` · ${visual.title}` : ''}</p>
-      <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto mt-2" role="img" aria-label={`Concept map: ${visual.hub}`}>
-        {/* cross-links first, dashed, under everything */}
-        {visual.links.map((link, i) => {
-          const a = pos[link.from];
-          const b = pos[link.to];
-          const m = mid(a, b);
-          return (
-            <g key={`l${i}`}>
-              <line x1={a.x} y1={a.y} x2={b.x} y2={b.y} stroke="var(--c-line-strong)" strokeWidth={1} strokeDasharray="4 4" />
-              {link.label && (
-                <text
-                  x={m.x}
-                  y={m.y}
-                  textAnchor="middle"
-                  dominantBaseline="middle"
-                  fontSize={11}
-                  fontStyle="italic"
-                  fill="var(--c-muted)"
-                  stroke="var(--c-surface)"
-                  strokeWidth={4}
-                  paintOrder="stroke"
-                >
-                  {link.label}
-                </text>
-              )}
-            </g>
-          );
-        })}
-        {/* hub→spoke edges with relation labels */}
-        {pos.map((p, i) => {
-          const m = mid({ x: cx, y: cy }, p);
-          return (
-            <g key={`e${i}`}>
-              <line x1={cx} y1={cy} x2={p.x} y2={p.y} stroke="var(--c-line-strong)" strokeWidth={1.5} />
-              {visual.spokes[i].relation && (
-                <text
-                  x={m.x}
-                  y={m.y}
-                  textAnchor="middle"
-                  dominantBaseline="middle"
-                  fontSize={11}
-                  fill="var(--c-muted)"
-                  stroke="var(--c-surface)"
-                  strokeWidth={4}
-                  paintOrder="stroke"
-                >
-                  {visual.spokes[i].relation}
-                </text>
-              )}
-            </g>
-          );
-        })}
-        {/* spoke nodes */}
-        {pos.map((p, i) => {
-          const lines = splitLabel(visual.spokes[i].label);
-          const h = lines.length > 1 ? 46 : 32;
-          return (
-            <g key={`n${i}`}>
-              <rect x={p.x - 66} y={p.y - h / 2} width={132} height={h} rx={8} fill="var(--c-bg)" stroke="var(--c-line-strong)" />
-              {lines.map((ln, j) => (
-                <text
-                  key={j}
-                  x={p.x}
-                  y={p.y + (lines.length > 1 ? (j === 0 ? -7 : 8) : 0)}
-                  textAnchor="middle"
-                  dominantBaseline="middle"
-                  fontSize={12.5}
-                  fontWeight={600}
-                  fill="var(--c-ink-strong)"
-                >
-                  {ln}
-                </text>
-              ))}
-            </g>
-          );
-        })}
-        {/* hub on top */}
-        <ellipse cx={cx} cy={cy} rx={82} ry={hubLines.length > 1 ? 42 : 34} fill="var(--c-accent)" />
-        {hubLines.map((ln, j) => (
-          <text
-            key={j}
-            x={cx}
-            y={cy + (hubLines.length > 1 ? (j === 0 ? -8 : 9) : 0)}
-            textAnchor="middle"
-            dominantBaseline="middle"
-            fontSize={14}
-            fontWeight={700}
-            fill="var(--c-on-accent)"
-          >
-            {ln}
-          </text>
-        ))}
-      </svg>
-      {visual.insight && (
-        <p className="text-sm text-ink mt-2 border-l-4 border-signal pl-3">
-          <span className="font-display font-semibold text-ink-strong">What to see: </span>
-          {visual.insight}
-        </p>
-      )}
     </div>
   );
 }
@@ -362,7 +226,10 @@ function Player({
       el.playbackRate = rate;
       setStatus('ready');
       if (autoplay) await el.play().catch(() => {}); // autoplay may need a tap — the button is right there
-      void ensureChunk(i + 1).catch(() => {}); // stay one chunk ahead
+      // Stay two chunks ahead — Gemini renders roughly in real time, so one
+      // chunk of runway isn't always enough.
+      void ensureChunk(i + 1).catch(() => {});
+      void ensureChunk(i + 2).catch(() => {});
     } catch (e) {
       setFailMessage(e instanceof Error && e.message !== 'out of range' ? e.message : 'The audio did not come back. Try again in a minute.');
       setStatus('failed');
@@ -562,7 +429,7 @@ function Player({
       </div>
 
       {episode.takeaways && <KeyTakeaways items={episode.takeaways} />}
-      {episode.visual && <ConceptMap visual={episode.visual} />}
+      {episode.visual && <VisualCard visual={episode.visual} />}
 
       <Transcript episode={episode} activeLine={activeLine} />
     </div>
@@ -654,29 +521,24 @@ export default function Podcast() {
     api.get<PodcastEpisode>(`/api/podcast/${defaultEp.id}`).then(setEpisode).catch(() => {});
   }, [defaultEp, episode]);
 
-  // Takeaways and the concept model generate in the background after the
-  // script; poll briefly on young episodes and slot the cards in as they land.
-  const studyPolls = useRef(0);
+  // The study companion is a deterministic parallel request, not a poll: fire
+  // it the moment an episode without extras is open (in parallel with the
+  // audio fetch), merge the result when it returns. The server returns stored
+  // extras instantly when pregen already wrote them.
+  const studyRequested = useRef<string | null>(null);
   useEffect(() => {
-    if (!episode || episode.takeaways) {
-      studyPolls.current = 0;
-      return;
-    }
-    const ageMs = Date.now() - new Date(episode.createdAt).getTime();
-    if (ageMs > 5 * 60 * 1000 || studyPolls.current >= 15) return;
-    const timer = setTimeout(() => {
-      studyPolls.current += 1;
-      api
-        .get<PodcastEpisode>(`/api/podcast/${episode.id}`)
-        .then((fresh) => {
-          if (fresh.takeaways || fresh.visual) {
-            setEpisode((prev) => (prev && prev.id === fresh.id ? { ...prev, takeaways: fresh.takeaways, visual: fresh.visual } : prev));
-          }
-        })
-        .catch(() => {});
-    }, 4000);
-    return () => clearTimeout(timer);
-  }, [episode]);
+    if (!episode || episode.takeaways || episode.visual) return;
+    if (!list?.scriptEnabled || studyRequested.current === episode.id) return;
+    studyRequested.current = episode.id;
+    api
+      .post<{ takeaways: string[] | null; visual: PodcastVisual | null }>(`/api/podcast/${episode.id}/study`)
+      .then((study) => {
+        if (study.takeaways || study.visual) {
+          setEpisode((prev) => (prev && prev.id === episode.id ? { ...prev, takeaways: study.takeaways, visual: study.visual } : prev));
+        }
+      })
+      .catch(() => {});
+  }, [episode, list]);
 
   const open = async (summary: PodcastSummary) => {
     setError(null);

@@ -66,6 +66,9 @@ export interface Env {
   GRADING_MODEL: string;
   CHAT_MODEL: string;
   PODCAST_MODEL?: string;
+  // Optional override for the study-companion call (takeaways + visual) —
+  // set a stronger model here to experiment without touching script quality.
+  STUDY_MODEL?: string;
   // Optional Gemini TTS engine: set the secret to voice episodes with Gemini's
   // native multi-speaker model instead of Aura (which remains the fallback).
   GEMINI_API_KEY?: string;
@@ -1951,19 +1954,22 @@ async function renderVoicesToCache(env: Env, row: PodcastRow, trigger: 'create' 
     const db = drizzle(env.DB);
     const lines = JSON.parse(row.scriptJson) as PodcastLine[];
     const plan = chunkPlan(lines);
-    let bytesTotal = 0;
-    for (let i = 0; i < plan.length; i++) {
-      const key = chunkKey(row.id, i);
-      const existing = await env.PODCAST_AUDIO.head(key);
-      if (existing) {
-        bytesTotal += existing.size;
-        continue;
-      }
-      const audio = await renderChunkAudio(env, lines.slice(plan[i].start, plan[i].end));
-      if (!audio) return;
-      await env.PODCAST_AUDIO.put(key, audio.bytes, { httpMetadata: { contentType: audio.contentType } });
-      bytesTotal += audio.bytes.length;
-    }
+    // All chunks render concurrently — wall time collapses to the slowest
+    // single chunk instead of the sum, which is what keeps playback (already
+    // running on chunk 0) from ever catching up to the render.
+    const sizes = await Promise.all(
+      plan.map(async (ch, i) => {
+        const key = chunkKey(row.id, i);
+        const existing = await env.PODCAST_AUDIO!.head(key);
+        if (existing) return existing.size;
+        const audio = await renderChunkAudio(env, lines.slice(ch.start, ch.end));
+        if (!audio) return null;
+        await env.PODCAST_AUDIO!.put(key, audio.bytes, { httpMetadata: { contentType: audio.contentType } });
+        return audio.bytes.length;
+      }),
+    );
+    if (sizes.some((size) => size === null)) return; // a failed chunk → lazy render covers it
+    const bytesTotal = sizes.reduce((sum: number, size) => sum + (size ?? 0), 0);
     await db
       .update(t.fdPodcast)
       .set({ audioKey: `podcast/${row.id}/`, audioBytes: bytesTotal, audioAt: now() })
@@ -2012,7 +2018,7 @@ async function attachStudy(env: Env, row: PodcastRow): Promise<void> {
       .filter((b) => b.kind !== 'exercise')
       .map((b) => b.body)
       .join('\n\n');
-    const model = env.PODCAST_MODEL ?? env.GRADING_MODEL;
+    const model = env.STUDY_MODEL ?? env.PODCAST_MODEL ?? env.GRADING_MODEL;
     const study = await writeStudy(
       env.ANTHROPIC_API_KEY,
       model,
@@ -2139,10 +2145,10 @@ app.post('/api/podcast', async (c) => {
   if (!row) {
     return c.json({ error: 'The scriptwriter is unavailable right now. Nothing was saved — try again in a minute.' }, 503);
   }
-  // Voices start rendering before the learner has finished reading the title,
-  // and the study companion (takeaways + concept model) generates alongside —
-  // the page picks both up as they land.
-  c.executionCtx.waitUntil(Promise.all([renderVoicesToCache(c.env, row, 'create'), attachStudy(c.env, row)]));
+  // Voices start rendering before the learner has finished reading the title.
+  // The study companion is client-driven (POST /api/podcast/:id/study) so it
+  // runs in parallel from the browser and lands deterministically.
+  c.executionCtx.waitUntil(renderVoicesToCache(c.env, row, 'create'));
   return c.json(toEpisode(row));
 });
 
@@ -2157,6 +2163,38 @@ app.get('/api/podcast/:id', async (c) => {
     .limit(1);
   if (!rows[0]) return c.json({ error: 'No such episode.' }, 404);
   return c.json(toEpisode(rows[0]));
+});
+
+// The study companion, client-driven: the page calls this right after the
+// episode arrives, in parallel with the audio — one deterministic request
+// instead of a background task plus polling. Returns the stored companion
+// when it already exists (pregen fills it server-side).
+app.post('/api/podcast/:id/study', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const rows = await db
+    .select()
+    .from(t.fdPodcast)
+    .where(and(eq(t.fdPodcast.id, c.req.param('id')), eq(t.fdPodcast.sessionId, session.id)))
+    .limit(1);
+  const row = rows[0];
+  if (!row) return c.json({ error: 'No such episode.' }, 404);
+
+  if (row.takeawaysJson || row.visualJson) {
+    return c.json({
+      takeaways: row.takeawaysJson ? (JSON.parse(row.takeawaysJson) as string[]) : null,
+      visual: row.visualJson ? (JSON.parse(row.visualJson) as PodcastVisual) : null,
+    });
+  }
+  if (!c.env.ANTHROPIC_API_KEY) return c.json({ error: 'The scriptwriter is not configured in this deployment.' }, 503);
+
+  await attachStudy(c.env, row);
+  const fresh = await db.select().from(t.fdPodcast).where(eq(t.fdPodcast.id, row.id)).limit(1);
+  return c.json({
+    takeaways: fresh[0]?.takeawaysJson ? (JSON.parse(fresh[0].takeawaysJson) as string[]) : null,
+    visual: fresh[0]?.visualJson ? (JSON.parse(fresh[0].visualJson) as PodcastVisual) : null,
+  });
 });
 
 // One chunk of an episode's audio. Serves the R2 cache when the background
@@ -2190,6 +2228,20 @@ app.get('/api/podcast/:id/audio/:chunk', async (c) => {
     if (cached) {
       const bytes = new Uint8Array(await cached.arrayBuffer());
       return new Response(bytes, { headers: headersFor(cached.httpMetadata?.contentType ?? sniff(bytes)) });
+    }
+    // On a young episode the background render is almost certainly working on
+    // this chunk right now — wait briefly for it to land instead of kicking a
+    // duplicate render (slower AND double-spend).
+    const ageMs = Date.now() - new Date(row.createdAt).getTime();
+    if (row.audioAt === null && ageMs < 10 * 60 * 1000) {
+      for (let i = 0; i < 8; i++) {
+        await new Promise((resolve) => setTimeout(resolve, 2500));
+        const landed = await c.env.PODCAST_AUDIO.get(key);
+        if (landed) {
+          const bytes = new Uint8Array(await landed.arrayBuffer());
+          return new Response(bytes, { headers: headersFor(landed.httpMetadata?.contentType ?? sniff(bytes)) });
+        }
+      }
     }
   }
 

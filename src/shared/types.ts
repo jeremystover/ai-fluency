@@ -222,11 +222,19 @@ export type PodcastOutlinePoint = { point: string; startLine: number };
 // and optional cross-links between spokes. Laid out deterministically
 // client-side (hub center, spokes on an ellipse) — no graph library.
 export type PodcastVisual = {
+  shape?: 'hub' | 'flow' | 'ladder' | 'quad' | 'venn'; // absent on pre-v9 rows = hub
   title: string;
-  hub: string;
-  spokes: { label: string; relation: string }[];
-  links: { from: number; to: number; label: string }[]; // spoke indexes
   insight?: string; // the one sentence that tells the learner what to see
+  hub?: string;
+  spokes?: { label: string; relation: string }[];
+  links?: { from: number; to: number; label: string }[]; // spoke indexes
+  steps?: { label: string; arrow?: string }[]; // flow
+  rungs?: { label: string; note?: string }[]; // ladder, bottom to top
+  axes?: { xLow: string; xHigh: string; yLow: string; yHigh: string }; // quad
+  quadrants?: string[]; // quad: TL, TR, BL, BR
+  star?: number; // quad: the quadrant to aim for
+  circles?: { label: string }[]; // venn, exactly two
+  overlap?: string; // venn
 };
 
 export type PodcastEpisode = {

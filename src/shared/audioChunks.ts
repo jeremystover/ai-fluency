@@ -5,10 +5,11 @@ import type { PodcastLine } from './types';
 
 export type AudioChunk = { start: number; end: number }; // line indexes, end exclusive
 
-// The first cut lands early (~10% of the speech) so playback starts in seconds;
-// the rest split the remainder evenly. Cuts happen at speaker-turn boundaries,
-// so the hand-off between chunks sounds like a natural beat, not a splice.
-const CUTS = [0.1, 0.325, 0.55, 0.775];
+// The first cut lands at ~15% of the speech: still a fast start, with enough
+// runway (about a minute of audio) for the next chunk to render before it's
+// needed. The rest split the remainder evenly. Cuts happen at speaker-turn
+// boundaries, so the hand-off between chunks sounds like a beat, not a splice.
+const CUTS = [0.15, 0.3625, 0.575, 0.7875];
 const MIN_LINES_PER_CHUNK = 2;
 
 export function chunkPlan(lines: PodcastLine[]): AudioChunk[] {

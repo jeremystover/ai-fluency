@@ -5,7 +5,7 @@
 import { PODCAST_HOSTS, PODCAST_SHOW, type PodcastLength, type PodcastLine } from '../shared/types';
 import type { Depth } from '../shared/depth';
 
-export const PODCAST_PROMPT_VERSION = 'podcast-v8';
+export const PODCAST_PROMPT_VERSION = 'podcast-v9';
 
 export type PodcastKind = 'default' | 'qa';
 
@@ -40,11 +40,19 @@ export type LearnerContext = {
 };
 
 export type PodcastVisualDraft = {
+  shape: 'hub' | 'flow' | 'ladder' | 'quad' | 'venn';
   title: string;
-  hub: string;
-  spokes: { label: string; relation: string }[];
-  links: { from: number; to: number; label: string }[];
   insight?: string; // the one sentence that tells the learner what to see
+  hub?: string;
+  spokes?: { label: string; relation: string }[];
+  links?: { from: number; to: number; label: string }[];
+  steps?: { label: string; arrow?: string }[]; // flow: arrow labels the hand-off to the next step
+  rungs?: { label: string; note?: string }[]; // ladder: bottom to top, note says what earns the rung
+  axes?: { xLow: string; xHigh: string; yLow: string; yHigh: string }; // quad
+  quadrants?: string[]; // quad: top-left, top-right, bottom-left, bottom-right
+  star?: number; // quad: the quadrant worth aiming for
+  circles?: { label: string }[]; // venn: exactly two
+  overlap?: string; // venn: what lives in the middle
 };
 
 // The study companion generated in a second, background call — so the script
@@ -99,8 +107,6 @@ function buildSystemPrompt(length: PodcastLength, kind: PodcastKind): string {
 }
 
 function buildUserContent(
-  moduleTitle: string,
-  contentMd: string,
   learner: LearnerContext,
   focus: string | null,
   kind: PodcastKind,
@@ -121,12 +127,7 @@ function buildUserContent(
     learner.calibrationHeadline ? `Their diagnostic read: ${learner.calibrationHeadline}` : null,
   ].filter(Boolean);
   return [
-    `Module: "${moduleTitle}"`,
-    '',
-    '<module_content>',
-    contentMd,
-    '</module_content>',
-    ...heard.map((ep) => `\n<heard_episode title=${JSON.stringify(ep.title)}>\n${asDialogue(ep.lines)}\n</heard_episode>`),
+    ...heard.map((ep) => `<heard_episode title=${JSON.stringify(ep.title)}>\n${asDialogue(ep.lines)}\n</heard_episode>`),
     listener.length ? `\n<listener>\n${listener.join('\n')}\n</listener>` : null,
     focus ? `\n<${kind === 'qa' ? 'listener_questions' : 'listener_request'}>\n${focus}\n</${kind === 'qa' ? 'listener_questions' : 'listener_request'}>` : null,
     '',
@@ -229,12 +230,20 @@ function parseJsonObject(text: string): Record<string, unknown> | null {
 function buildStudySystemPrompt(kind: PodcastKind): string {
   return [
     'You produce the on-page study companion for a finished episode of a two-host audio show about a course module. You are given the module content and the episode script. Respond with strict JSON only — no markdown, no code fences, no text outside the JSON. Shape:',
-    '{"takeaways":["<one concrete sentence>"],"visual":{"title":"<what this model shows, under 60 chars>","hub":"<the one thing being modeled, 1–4 words>","spokes":[{"label":"<part or factor, 1–4 words>","relation":"<how it relates, 1–3 plain English words>"}],"links":[{"from":<spoke index>,"to":<spoke index>,"label":"<1–3 words>"}],"insight":"<the one sentence that tells the learner what to see, under 120 chars>"}}',
+    '{"takeaways":["<one concrete sentence>"],"candidates":["<structural idea>"],"visual":{"shape":"flow" | "ladder" | "hub" | "quad" | "venn","title":"<what this shows, under 60 chars>","insight":"<the one sentence that tells the learner what to see, under 120 chars>","steps":[{"label":"","arrow":""}],"rungs":[{"label":"","note":""}],"hub":"","spokes":[{"label":"","relation":""}],"links":[{"from":0,"to":1,"label":""}],"axes":{"xLow":"","xHigh":"","yLow":"","yHigh":""},"quadrants":["","","",""],"star":0,"circles":[{"label":""},{"label":""}],"overlap":""} — include ONLY the fields for the chosen shape, or "visual": null}',
     '',
     '"takeaways": 3–5 complete sentences, each under 140 characters, grounded in the episode — what the listener should still know a week later. Match the substance of the episode\'s own closing recap. If the script addresses the listener\'s role, make at least one takeaway specific to it.',
     kind === 'qa'
-      ? '"visual": for a listener-questions segment, set it to null unless one of the answers genuinely becomes clearer as a small diagram — most don\'t.'
-      : '"visual" is NOT a map of the whole episode. Pick ONE specific mechanism, process, or relationship from the content — the single idea where seeing the structure teaches something a sentence can\'t (how a prompt becomes a prediction; where verification catches fabrication). Model just that: a hub naming the one thing, 3–5 spokes, relations in 1–3 plain English words (no abbreviations, no symbols), at most 1 cross-link and only if that connection itself teaches. "insight" is required: one sentence telling the learner exactly what to see ("Everything routes through the weekly check"). If no single idea merits a diagram, set "visual" to null — an honest null beats a decorative map.',
+      ? '"candidates": []. "visual": for a listener-questions segment, set it to null unless one of the answers genuinely becomes clearer as a small diagram — most don\'t.'
+      : [
+          '"visual" is NOT a map of the whole episode. Before drawing anything, ask which ideas in this episode are inherently structural — a process with stages, levels that build, several factors feeding one decision, a cycle, a tradeoff. Put up to 3 in "candidates" (short strings — your scratchpad, discarded). Then pick the ONE where a picture teaches what a sentence cannot, and give it the shape that matches its actual structure:',
+          '- "flow": a process or pipeline. 3–5 "steps" in order; each step\'s "arrow" (1–3 words) names what carries you to the next.',
+          '- "ladder": levels, maturity, escalation. 3–5 "rungs" from bottom to top; each rung\'s "note" (2–6 words) says what earns it.',
+          '- "hub": several factors feeding one thing. A "hub" plus 3–5 "spokes" with plain-verb "relation"s; at most 1 cross-link, only if that connection itself teaches.',
+          '- "quad": a two-by-two, for tradeoffs between two dimensions. "axes":{"xLow","xHigh","yLow","yHigh"} and "quadrants": exactly 4 labels in order top-left, top-right, bottom-left, bottom-right; optional "star": index 0–3 of the quadrant to aim for.',
+          '- "venn": two overlapping circles, for when the interesting thing IS the intersection. "circles": exactly 2 labels, "overlap": what lives in the middle.',
+          'These render as hand-drawn charts in the spirit of witty workplace comics: label like a human, keep it warm and a little wry, let the chart make the listener smile while it makes the point — never at their expense. All labels 1–4 words, plain English, no abbreviations or symbols. "insight" is required: one sentence telling the learner exactly what to see ("A person-affecting step always drops you back to rung one"). If no candidate is genuinely structural, set "visual" to null — an honest null beats a decorative diagram.',
+        ].join('\n'),
   ].join('\n');
 }
 
@@ -254,43 +263,64 @@ function parseStudy(text: string): PodcastStudy | null {
   let visual: PodcastVisualDraft | null = null;
   if (typeof obj.visual === 'object' && obj.visual !== null) {
     const v = obj.visual as Record<string, unknown>;
-    const hub = typeof v.hub === 'string' ? v.hub.trim().slice(0, 50) : '';
-    const spokes = Array.isArray(v.spokes)
-      ? v.spokes
-          .filter((entry): entry is Record<string, unknown> => typeof entry === 'object' && entry !== null)
-          .map((entry) => ({
-            label: typeof entry.label === 'string' ? entry.label.trim().slice(0, 50) : '',
-            relation: typeof entry.relation === 'string' ? entry.relation.trim().slice(0, 40) : '',
-          }))
-          .filter((spoke) => spoke.label)
-          .slice(0, 5)
-      : [];
-    if (hub && spokes.length >= 3) {
-      const links = (Array.isArray(v.links) ? v.links : [])
-        .filter((entry): entry is Record<string, unknown> => typeof entry === 'object' && entry !== null)
-        .map((entry) => ({
-          from: Number(entry.from),
-          to: Number(entry.to),
-          label: typeof entry.label === 'string' ? entry.label.trim().slice(0, 40) : '',
-        }))
-        .filter(
-          (link) =>
-            Number.isInteger(link.from) &&
-            Number.isInteger(link.to) &&
-            link.from !== link.to &&
-            link.from >= 0 &&
-            link.from < spokes.length &&
-            link.to >= 0 &&
-            link.to < spokes.length,
-        )
-        .slice(0, 1);
-      visual = {
-        title: typeof v.title === 'string' ? v.title.trim().slice(0, 80) : '',
-        hub,
-        spokes,
-        links,
-        insight: typeof v.insight === 'string' && v.insight.trim() ? v.insight.trim().slice(0, 160) : undefined,
-      };
+    const str = (x: unknown, max: number) => (typeof x === 'string' && x.trim() ? x.trim().slice(0, max) : '');
+    const objs = (x: unknown) => (Array.isArray(x) ? x.filter((e): e is Record<string, unknown> => typeof e === 'object' && e !== null) : []);
+    const title = str(v.title, 80);
+    const insight = str(v.insight, 160) || undefined;
+
+    if (v.shape === 'flow') {
+      const steps = objs(v.steps)
+        .map((e) => ({ label: str(e.label, 50), arrow: str(e.arrow, 40) || undefined }))
+        .filter((st) => st.label)
+        .slice(0, 5);
+      if (steps.length >= 3) visual = { shape: 'flow', title, insight, steps };
+    } else if (v.shape === 'ladder') {
+      const rungs = objs(v.rungs)
+        .map((e) => ({ label: str(e.label, 50), note: str(e.note, 60) || undefined }))
+        .filter((r) => r.label)
+        .slice(0, 5);
+      if (rungs.length >= 3) visual = { shape: 'ladder', title, insight, rungs };
+    } else if (v.shape === 'quad') {
+      const ax = typeof v.axes === 'object' && v.axes !== null ? (v.axes as Record<string, unknown>) : {};
+      const axes = { xLow: str(ax.xLow, 30), xHigh: str(ax.xHigh, 30), yLow: str(ax.yLow, 30), yHigh: str(ax.yHigh, 30) };
+      const quadrants = (Array.isArray(v.quadrants) ? v.quadrants : []).map((q) => str(q, 40)).filter(Boolean);
+      const starN = Number(v.star);
+      const star = Number.isInteger(starN) && starN >= 0 && starN <= 3 ? starN : undefined;
+      if (axes.xLow && axes.xHigh && axes.yLow && axes.yHigh && quadrants.length === 4) {
+        visual = { shape: 'quad', title, insight, axes, quadrants, star };
+      }
+    } else if (v.shape === 'venn') {
+      // accept [{label}] or plain strings
+      const fromObjs = objs(v.circles).map((e) => ({ label: str(e.label, 40) }));
+      const fromStrs = (Array.isArray(v.circles) ? v.circles : [])
+        .filter((e): e is string => typeof e === 'string')
+        .map((e) => ({ label: str(e, 40) }));
+      const circles = [...fromObjs, ...fromStrs].filter((cc) => cc.label).slice(0, 2);
+      const overlap = str(v.overlap, 40);
+      if (circles.length === 2 && overlap) visual = { shape: 'venn', title, insight, circles, overlap };
+    } else {
+      // hub — also the shape of every pre-v9 stored visual
+      const hub = str(v.hub, 50);
+      const spokes = objs(v.spokes)
+        .map((e) => ({ label: str(e.label, 50), relation: str(e.relation, 40) }))
+        .filter((spoke) => spoke.label)
+        .slice(0, 5);
+      if (hub && spokes.length >= 3) {
+        const links = objs(v.links)
+          .map((e) => ({ from: Number(e.from), to: Number(e.to), label: str(e.label, 40) }))
+          .filter(
+            (link) =>
+              Number.isInteger(link.from) &&
+              Number.isInteger(link.to) &&
+              link.from !== link.to &&
+              link.from >= 0 &&
+              link.from < spokes.length &&
+              link.to >= 0 &&
+              link.to < spokes.length,
+          )
+          .slice(0, 1);
+        visual = { shape: 'hub', title, insight, hub, spokes, links };
+      }
     }
   }
 
@@ -307,14 +337,11 @@ export async function writeStudy(
   lines: PodcastLine[],
   kind: PodcastKind,
 ): Promise<PodcastStudy | null> {
-  const system = buildStudySystemPrompt(kind);
+  const system: SystemBlock[] = [
+    { type: 'text', text: buildStudySystemPrompt(kind) },
+    moduleBlock(moduleTitle, contentMd),
+  ];
   const user = [
-    `Module: "${moduleTitle}"`,
-    '',
-    '<module_content>',
-    contentMd,
-    '</module_content>',
-    '',
     '<episode_script>',
     lines.map((l) => `${PODCAST_HOSTS[l.speaker].name.toUpperCase()}: ${l.text}`).join('\n'),
     '</episode_script>',
@@ -335,7 +362,18 @@ export async function writeStudy(
   return null;
 }
 
-async function callOnce(apiKey: string, model: string, system: string, user: string): Promise<string | null> {
+type SystemBlock = { type: 'text'; text: string; cache_control?: { type: 'ephemeral' } };
+
+// The module content rides as a cache-controlled system block: it is identical
+// across every script and study call for a module, so the prompt cache carries
+// it across sessions — cheaper, and shaves time off input processing.
+const moduleBlock = (moduleTitle: string, contentMd: string): SystemBlock => ({
+  type: 'text',
+  text: `Module: "${moduleTitle}"\n\n<module_content>\n${contentMd}\n</module_content>`,
+  cache_control: { type: 'ephemeral' },
+});
+
+async function callOnce(apiKey: string, model: string, system: SystemBlock[], user: string): Promise<string | null> {
   const res = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: {
@@ -393,8 +431,11 @@ export async function writeScript(
   kind: PodcastKind = 'default',
   heard: HeardEpisode[] = [],
 ): Promise<PodcastScript | null> {
-  const system = buildSystemPrompt(length, kind);
-  const user = buildUserContent(moduleTitle, contentMd, learner, focus, kind, heard);
+  const system: SystemBlock[] = [
+    { type: 'text', text: buildSystemPrompt(length, kind) },
+    moduleBlock(moduleTitle, contentMd),
+  ];
+  const user = buildUserContent(learner, focus, kind, heard);
   for (let attempt = 0; attempt < 2; attempt++) {
     try {
       const text = await callOnce(apiKey, model, system, user);
