@@ -129,10 +129,19 @@ function Player({
   // Audio arrives in chunks cut at speaker-turn boundaries: chunk 0 is small so
   // playback starts in seconds, and the player always fetches one chunk ahead
   // while the current one plays. Legacy single-file episodes are a one-chunk plan.
-  const plan = useMemo<AudioChunk[]>(
-    () => (episode.audioMode === 'single' ? [{ start: 0, end: episode.lines.length }] : chunkPlan(episode.lines)),
-    [episode],
-  );
+  const plan = useMemo<AudioChunk[]>(() => {
+    if (episode.audioMode === 'single') return [{ start: 0, end: episode.lines.length }];
+    if (episode.audioMode === 'assembled') {
+      const intro: AudioChunk[] = [{ start: 0, end: episode.introLineCount }];
+      const bodyLines = episode.lines.slice(episode.introLineCount);
+      if (bodyLines.length === 0) return intro; // body still writing — grows in place
+      return [
+        ...intro,
+        ...chunkPlan(bodyLines).map((ch) => ({ start: ch.start + episode.introLineCount, end: ch.end + episode.introLineCount })),
+      ];
+    }
+    return chunkPlan(episode.lines);
+  }, [episode]);
   const chunkChars = useMemo(
     () => plan.map((ch) => episode.lines.slice(ch.start, ch.end).reduce((s, l) => s + l.text.length, 0)),
     [plan, episode],
@@ -149,6 +158,7 @@ function Player({
   const totalChars = chunkChars.reduce((a, b) => a + b, 0);
 
   const audioRef = useRef<HTMLAudioElement>(null);
+  const openedAt = useRef(Date.now());
   const urls = useRef<(string | undefined)[]>([]);
   const durations = useRef<(number | undefined)[]>([]);
   const inFlight = useRef<Set<number>>(new Set());
@@ -167,7 +177,13 @@ function Player({
   const [, setTick] = useState(0); // re-render on timeupdate so the bar moves
 
   const chunkUrl = (i: number) =>
-    episode.audioMode === 'single' ? `/api/podcast/${episode.id}/audio` : `/api/podcast/${episode.id}/audio/${i}`;
+    episode.audioMode === 'single'
+      ? `/api/podcast/${episode.id}/audio`
+      : episode.audioMode === 'assembled'
+        ? i === 0
+          ? `/api/podcast/${episode.id}/audio/intro`
+          : `/api/podcast/${episode.id}/audio/${i - 1}`
+        : `/api/podcast/${episode.id}/audio/${i}`;
 
   const ensureChunk = async (i: number): Promise<string> => {
     if (i < 0 || i >= plan.length) throw new Error('out of range');
@@ -240,6 +256,7 @@ function Player({
   useEffect(() => {
     if (!audioEnabled || episodeKey.current === episode.id) return;
     episodeKey.current = episode.id;
+    openedAt.current = Date.now();
     for (const url of urls.current) if (url) URL.revokeObjectURL(url);
     urls.current = [];
     durations.current = [];
@@ -273,13 +290,28 @@ function Player({
     setActiveLine(episode.lines.length - 1);
   };
 
+  const endedAtEnd = useRef(false);
   const onEnded = () => {
-    if (chunkIdx + 1 < plan.length) void startChunk(chunkIdx + 1, 0, true);
-    else {
+    if (chunkIdx + 1 < plan.length) {
+      void startChunk(chunkIdx + 1, 0, true);
+    } else if (episode.bodyPending) {
+      endedAtEnd.current = true; // body outran us — resume the moment it lands
+      setPlaying(false);
+    } else {
       setPlaying(false);
       setActiveLine(null);
     }
   };
+
+  // When the custom body lands mid-listen, the plan grows in place; if the
+  // intro had already finished, pick right back up on the first body chunk.
+  useEffect(() => {
+    if (endedAtEnd.current && chunkIdx + 1 < plan.length) {
+      endedAtEnd.current = false;
+      void startChunk(chunkIdx + 1, 0, true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [plan.length]);
 
   const seekToLine = (lineIdx: number) => {
     const c = plan.findIndex((ch) => lineIdx >= ch.start && lineIdx < ch.end);
@@ -420,6 +452,7 @@ function Player({
               if (!played.current) {
                 played.current = true;
                 track('podcast_played', { podcastId: episode.id });
+                track('podcast_first_audio', { podcastId: episode.id, ms: Date.now() - openedAt.current });
                 onFirstPlay?.();
               }
             }}
@@ -520,6 +553,26 @@ export default function Podcast() {
     if (episode || !defaultEp) return;
     api.get<PodcastEpisode>(`/api/podcast/${defaultEp.id}`).then(setEpisode).catch(() => {});
   }, [defaultEp, episode]);
+
+  // While an assembled episode's custom body is still being written, refetch
+  // quietly and let the transcript (and the player's plan) grow in place —
+  // same id, so playback never resets.
+  const bodyPolls = useRef(0);
+  useEffect(() => {
+    if (!episode?.bodyPending) {
+      bodyPolls.current = 0;
+      return;
+    }
+    if (bodyPolls.current >= 50) return;
+    const timer = setTimeout(() => {
+      bodyPolls.current += 1;
+      api
+        .get<PodcastEpisode>(`/api/podcast/${episode.id}`)
+        .then((fresh) => setEpisode((prev) => (prev && prev.id === fresh.id ? fresh : prev)))
+        .catch(() => {});
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, [episode]);
 
   // The study companion is a deterministic parallel request, not a poll: fire
   // it the moment an episode without extras is open (in parallel with the

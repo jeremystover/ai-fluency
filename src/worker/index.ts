@@ -9,13 +9,17 @@ import { adminApp } from './admin';
 import { buildTutorSystem, streamTutorReply, KICKOFF_TURN, type LearnerContext as TutorLearnerContext, type TutorMessage } from './chat';
 import { transcribe, speakable, renderSpeech, TUTOR_VOICE } from './voice';
 import { extractPaths } from '../shared/chat';
-import { GOAL_CHOICES } from '../shared/goals';
+import { GOAL_CHOICES, goalLabel } from '../shared/goals';
 import { DEPTH_IDS, depthOf } from '../shared/depth';
 import { SELF_LEVEL_IDS } from '../shared/levels';
 import { chunkPlan } from '../shared/audioChunks';
 import {
   writeScript,
   writeStudy,
+  writeStock,
+  writeStockIntro,
+  writePersonalIntro,
+  writeCustomBody,
   renderAudio,
   renderChunkAudio,
   estMinutes,
@@ -109,6 +113,7 @@ const CLIENT_EVENT_TYPES = new Set([
   'try_this_opened',
   'module_completed',
   'podcast_played',
+  'podcast_first_audio',
 ]);
 
 const now = () => new Date().toISOString();
@@ -1770,16 +1775,23 @@ app.post('/api/module/:id/activity', async (c) => {
 type PodcastRow = typeof t.fdPodcast.$inferSelect;
 
 function toEpisode(row: PodcastRow): PodcastEpisode {
-  const lines = JSON.parse(row.scriptJson) as PodcastLine[];
+  const body = JSON.parse(row.scriptJson) as PodcastLine[];
+  const intro = row.introJson ? (JSON.parse(row.introJson) as PodcastLine[]) : [];
+  const assembled = intro.length > 0;
+  const lines = assembled ? [...intro, ...body] : body;
   // Episodes voiced before chunked playback have one whole-episode MP3 in the
-  // cache; everything else streams in chunks (cached or rendered on demand).
-  const legacySingle = row.audioKey !== null && row.audioKey.endsWith('.mp3');
+  // cache; assembled episodes play a pre-voiced intro chunk then body chunks;
+  // everything else streams custom chunks.
+  const legacySingle = !assembled && row.audioKey !== null && row.audioKey.endsWith('.mp3');
+  const totalChars = lines.reduce((sum, l) => sum + l.text.length, 0) || row.totalChars;
   return {
     id: row.id,
     moduleId: row.moduleId,
     kind: row.kind === 'qa' ? 'qa' : 'default',
-    audioMode: legacySingle ? 'single' : 'chunked',
-    chunkCount: legacySingle ? 1 : chunkPlan(lines).length,
+    audioMode: assembled ? 'assembled' : legacySingle ? 'single' : 'chunked',
+    chunkCount: assembled ? 1 + (body.length ? chunkPlan(body).length : 0) : legacySingle ? 1 : chunkPlan(lines).length,
+    introLineCount: intro.length,
+    bodyPending: assembled && body.length === 0,
     title: row.title,
     description: row.description,
     lengthPref: row.lengthPref as PodcastLength,
@@ -1788,7 +1800,7 @@ function toEpisode(row: PodcastRow): PodcastEpisode {
     outline: row.outlineJson ? (JSON.parse(row.outlineJson) as PodcastOutlinePoint[]) : null,
     takeaways: row.takeawaysJson ? (JSON.parse(row.takeawaysJson) as string[]) : null,
     visual: row.visualJson ? (JSON.parse(row.visualJson) as PodcastVisual) : null,
-    estMinutes: estMinutes(row.totalChars),
+    estMinutes: estMinutes(totalChars),
     audioCached: row.audioKey !== null,
     createdAt: row.createdAt,
   };
@@ -1849,6 +1861,391 @@ async function podcastLearner(db: DrizzleD1Database, sessionId: string): Promise
   };
 }
 
+// ---------- the instant layer ----------
+//
+// Personalization moved earlier in time. Baked per module: a stock episode
+// (intro previewing fixed beats + full fallback body) and study assets. Baked
+// per goal: a flavored intro. Generated per learner at intake: a personal
+// intro. At request time only the custom body generates — while a pre-voiced
+// intro is already playing.
+
+type StockRow = typeof t.fdPodcastStock.$inferSelect;
+
+const stockIntroKey = (moduleId: string, variant: string) => `podcast-stock/${moduleId}/${variant}/intro.mp3`;
+const stockBodyChunkKey = (moduleId: string, i: number) => `podcast-stock/${moduleId}/generic/body-c${i}.mp3`;
+const personalIntroKey = (sessionId: string, moduleId: string) => `podcast-intro/${sessionId}/${moduleId}.mp3`;
+
+async function moduleContent(db: DrizzleD1Database, env: Env, moduleId: string) {
+  const modRows = await db.select().from(t.fdModule).where(eq(t.fdModule.id, moduleId)).limit(1);
+  const mod = modRows[0];
+  if (!mod || mod.status !== 'open') return null;
+  const blockRows = await db
+    .select()
+    .from(t.fdContentBlock)
+    .where(eq(t.fdContentBlock.moduleId, moduleId))
+    .orderBy(asc(t.fdContentBlock.ordinal));
+  if (blockRows.length === 0) return null;
+  const blocks = selectVariants(blockRows, toolingOf(env)).filter((b) => b.kind !== 'exercise');
+  const contentMd = blocks.map((b) => b.body).join('\n\n');
+  const reviewedAt = blocks.reduce((max, b) => (b.reviewedAt > max ? b.reviewedAt : max), '');
+  return { mod, contentMd, reviewedAt };
+}
+
+const loadStock = async (db: DrizzleD1Database, moduleId: string, variant: string): Promise<StockRow | null> => {
+  const rows = await db
+    .select()
+    .from(t.fdPodcastStock)
+    .where(and(eq(t.fdPodcastStock.moduleId, moduleId), eq(t.fdPodcastStock.variant, variant)))
+    .orderBy(desc(t.fdPodcastStock.bakedAt))
+    .limit(1);
+  return rows[0] ?? null;
+};
+
+async function voiceIntroToR2(env: Env, lines: PodcastLine[], key: string): Promise<string | null> {
+  if ((!env.AI && !env.GEMINI_API_KEY) || !env.PODCAST_AUDIO) return null;
+  const rendered = await renderChunkAudio(env, lines);
+  if (!rendered) return null;
+  await env.PODCAST_AUDIO.put(key, rendered.bytes, { httpMetadata: { contentType: rendered.contentType } });
+  return key;
+}
+
+// Bake the generic stock episode for a module: one stock-script call, one study
+// call, intro + body voiced into R2. Self-healing — re-bakes when module
+// content's reviewedAt moves. Silent on failure; the legacy path still works.
+async function bakeStock(env: Env, moduleId: string): Promise<void> {
+  if (!env.ANTHROPIC_API_KEY) return;
+  try {
+    const db = drizzle(env.DB);
+    const content = await moduleContent(db, env, moduleId);
+    if (!content) return;
+    const existing = await loadStock(db, moduleId, 'generic');
+    if (existing && existing.contentReviewedAt === content.reviewedAt && existing.promptVersion === PODCAST_PROMPT_VERSION) return;
+    const model = env.PODCAST_MODEL ?? env.GRADING_MODEL;
+    const draft = await writeStock(env.ANTHROPIC_API_KEY, model, content.mod.title, content.contentMd);
+    if (!draft) return;
+    const study = await writeStudy(
+      env.ANTHROPIC_API_KEY,
+      env.STUDY_MODEL ?? model,
+      content.mod.title,
+      content.contentMd,
+      [...draft.intro, ...draft.body],
+      'default',
+    ).catch(() => null);
+    const introAudioKey = await voiceIntroToR2(env, draft.intro, stockIntroKey(moduleId, 'generic'));
+    if ((env.AI || env.GEMINI_API_KEY) && env.PODCAST_AUDIO) {
+      const bodyChunks = chunkPlan(draft.body);
+      await Promise.all(
+        bodyChunks.map(async (ch, i) => {
+          const rendered = await renderChunkAudio(env, draft.body.slice(ch.start, ch.end));
+          if (rendered) {
+            await env.PODCAST_AUDIO!.put(stockBodyChunkKey(moduleId, i), rendered.bytes, { httpMetadata: { contentType: rendered.contentType } });
+          }
+        }),
+      );
+    }
+    await db.delete(t.fdPodcastStock).where(and(eq(t.fdPodcastStock.moduleId, moduleId), eq(t.fdPodcastStock.variant, 'generic')));
+    await db.insert(t.fdPodcastStock).values({
+      id: uuid(),
+      moduleId,
+      variant: 'generic',
+      beatsJson: JSON.stringify(draft.beats),
+      introJson: JSON.stringify(draft.intro),
+      bodyJson: JSON.stringify(draft.body),
+      outlineJson: draft.outline ? JSON.stringify(draft.outline) : null,
+      takeawaysJson: study?.takeaways ? JSON.stringify(study.takeaways) : null,
+      visualJson: study?.visual ? JSON.stringify(study.visual) : null,
+      introAudioKey,
+      title: draft.title,
+      description: draft.description,
+      modelUsed: model,
+      promptVersion: PODCAST_PROMPT_VERSION,
+      contentReviewedAt: content.reviewedAt,
+      bakedAt: now(),
+    });
+    await logEvent(db, null, 'podcast_stock_baked', { moduleId, variant: 'generic' });
+  } catch {
+    // Background work — cold arrivals fall back to the legacy path.
+  }
+}
+
+// Bake a goal-flavored intro over the generic beats. Lazy: only for goals a
+// real learner actually holds.
+async function bakeGoalIntro(env: Env, moduleId: string, goalId: string): Promise<void> {
+  if (!env.ANTHROPIC_API_KEY) return;
+  try {
+    const db = drizzle(env.DB);
+    const generic = await loadStock(db, moduleId, 'generic');
+    if (!generic) return;
+    const existing = await loadStock(db, moduleId, goalId);
+    if (existing && existing.contentReviewedAt === generic.contentReviewedAt && existing.promptVersion === PODCAST_PROMPT_VERSION) return;
+    const content = await moduleContent(db, env, moduleId);
+    if (!content) return;
+    const model = env.PODCAST_MODEL ?? env.GRADING_MODEL;
+    const lines = await writeStockIntro(
+      env.ANTHROPIC_API_KEY,
+      model,
+      content.mod.title,
+      content.contentMd,
+      JSON.parse(generic.beatsJson) as string[],
+      goalLabel(goalId),
+    );
+    if (!lines) return;
+    const introAudioKey = await voiceIntroToR2(env, lines, stockIntroKey(moduleId, goalId));
+    await db.delete(t.fdPodcastStock).where(and(eq(t.fdPodcastStock.moduleId, moduleId), eq(t.fdPodcastStock.variant, goalId)));
+    await db.insert(t.fdPodcastStock).values({
+      id: uuid(),
+      moduleId,
+      variant: goalId,
+      beatsJson: generic.beatsJson,
+      introJson: JSON.stringify(lines),
+      bodyJson: null,
+      outlineJson: null,
+      takeawaysJson: null,
+      visualJson: null,
+      introAudioKey,
+      title: generic.title,
+      description: generic.description,
+      modelUsed: model,
+      promptVersion: PODCAST_PROMPT_VERSION,
+      contentReviewedAt: generic.contentReviewedAt,
+      bakedAt: now(),
+    });
+    await logEvent(db, null, 'podcast_stock_baked', { moduleId, variant: goalId });
+  } catch {
+    // Background work.
+  }
+}
+
+// The learner's next podcast-less open module — where pre-warming aims.
+async function nextPodcastModule(db: DrizzleD1Database, sessionId: string) {
+  const mods = await db
+    .select()
+    .from(t.fdModule)
+    .where(and(eq(t.fdModule.courseId, 'ai101'), eq(t.fdModule.status, 'open')))
+    .orderBy(asc(t.fdModule.ordinal));
+  for (const mod of mods) {
+    const existing = await db
+      .select({ n: sql<number>`count(*)` })
+      .from(t.fdPodcast)
+      .where(and(eq(t.fdPodcast.sessionId, sessionId), eq(t.fdPodcast.moduleId, mod.id), eq(t.fdPodcast.kind, 'default')));
+    if ((existing[0]?.n ?? 0) === 0) return mod;
+  }
+  return null;
+}
+
+// The personal intro: generated in the background at intake / module
+// completion, so the hook — their name, in natural speech — is waiting before
+// they reach the podcast page.
+async function preparePersonalIntro(env: Env, sessionId: string, moduleId: string): Promise<void> {
+  if (!env.ANTHROPIC_API_KEY) return;
+  try {
+    const db = drizzle(env.DB);
+    const existing = await db
+      .select()
+      .from(t.fdPodcastIntro)
+      .where(and(eq(t.fdPodcastIntro.sessionId, sessionId), eq(t.fdPodcastIntro.moduleId, moduleId)))
+      .limit(1);
+    if (existing[0]) return;
+    let generic = await loadStock(db, moduleId, 'generic');
+    if (!generic) {
+      await bakeStock(env, moduleId);
+      generic = await loadStock(db, moduleId, 'generic');
+      if (!generic) return;
+    }
+    const content = await moduleContent(db, env, moduleId);
+    if (!content) return;
+    const learner = await podcastLearner(db, sessionId);
+    const model = env.PODCAST_MODEL ?? env.GRADING_MODEL;
+    const lines = await writePersonalIntro(
+      env.ANTHROPIC_API_KEY,
+      model,
+      content.mod.title,
+      content.contentMd,
+      JSON.parse(generic.beatsJson) as string[],
+      learner,
+    );
+    if (!lines) return;
+    const audioKey = await voiceIntroToR2(env, lines, personalIntroKey(sessionId, moduleId));
+    await db.insert(t.fdPodcastIntro).values({
+      id: uuid(),
+      sessionId,
+      moduleId,
+      introJson: JSON.stringify(lines),
+      audioKey,
+      promptVersion: PODCAST_PROMPT_VERSION,
+      createdAt: now(),
+    });
+    await logEvent(db, sessionId, 'podcast_intro_ready', { moduleId });
+  } catch {
+    // Background work.
+  }
+}
+
+// Create an assembled episode instantly: pick the best pre-voiced intro
+// (personal > goal-flavored > generic), copy the stock study assets in, and
+// return with the body still to come. Null when no voiced intro exists yet —
+// the caller falls back to the legacy full-script path.
+async function createAssembledEpisode(
+  env: Env,
+  db: DrizzleD1Database,
+  sessionId: string,
+  moduleId: string,
+  length: PodcastLength,
+): Promise<PodcastRow | null> {
+  const generic = await loadStock(db, moduleId, 'generic');
+  if (!generic) return null;
+  const prefs = await loadPrefs(db, sessionId);
+  const goalId = (prefs.goals ?? [])[0] ?? null;
+
+  const personal = await db
+    .select()
+    .from(t.fdPodcastIntro)
+    .where(and(eq(t.fdPodcastIntro.sessionId, sessionId), eq(t.fdPodcastIntro.moduleId, moduleId)))
+    .limit(1);
+  const goalStock = goalId ? await loadStock(db, moduleId, goalId) : null;
+
+  let introJson: string;
+  let introAudioKey: string;
+  let introSource: string;
+  if (personal[0]?.audioKey) {
+    introJson = personal[0].introJson;
+    introAudioKey = personal[0].audioKey;
+    introSource = 'personal';
+  } else if (goalStock?.introAudioKey) {
+    introJson = goalStock.introJson;
+    introAudioKey = goalStock.introAudioKey;
+    introSource = `goal:${goalId}`;
+  } else if (generic.introAudioKey) {
+    introJson = generic.introJson;
+    introAudioKey = generic.introAudioKey;
+    introSource = 'generic';
+  } else {
+    return null;
+  }
+
+  const introLines = JSON.parse(introJson) as PodcastLine[];
+  const row: PodcastRow = {
+    id: uuid(),
+    sessionId,
+    moduleId,
+    kind: 'default',
+    promptText: null,
+    lengthPref: length,
+    title: generic.title ?? 'Your episode',
+    description: generic.description ?? '',
+    scriptJson: '[]',
+    outlineJson: null,
+    takeawaysJson: generic.takeawaysJson,
+    visualJson: generic.visualJson,
+    totalChars: introLines.reduce((sum, l) => sum + l.text.length, 0),
+    modelUsed: env.PODCAST_MODEL ?? env.GRADING_MODEL,
+    promptVersion: PODCAST_PROMPT_VERSION,
+    voiceA: VOICE_A,
+    voiceB: VOICE_B,
+    audioKey: null,
+    audioBytes: null,
+    audioAt: null,
+    introJson,
+    introAudioKey,
+    introSource,
+    createdAt: now(),
+  };
+  await db.insert(t.fdPodcast).values(row);
+  await logEvent(db, sessionId, 'podcast_started', { podcastId: row.id, moduleId, introSource });
+  return row;
+}
+
+// Write and voice the custom body while the intro plays. On failure, adopt the
+// stock body (lines + copied audio) so the episode always completes.
+async function completeAssembledBody(env: Env, row: PodcastRow): Promise<void> {
+  try {
+    const db = drizzle(env.DB);
+    const generic = await loadStock(db, row.moduleId, 'generic');
+    const content = await moduleContent(db, env, row.moduleId);
+    const introLines = JSON.parse(row.introJson ?? '[]') as PodcastLine[];
+    const beats = generic ? (JSON.parse(generic.beatsJson) as string[]) : [];
+
+    let bodyLines: PodcastLine[] | null = null;
+    let outline: PodcastOutlinePoint[] | null = null;
+    let title = row.title;
+    let description = row.description;
+    let fallback = false;
+
+    if (env.ANTHROPIC_API_KEY && content && beats.length > 0) {
+      const learner = await podcastLearner(db, row.sessionId);
+      const model = env.PODCAST_MODEL ?? env.GRADING_MODEL;
+      const draft = await writeCustomBody(
+        env.ANTHROPIC_API_KEY,
+        model,
+        content.mod.title,
+        content.contentMd,
+        learner,
+        row.promptText,
+        introLines,
+        beats,
+        row.lengthPref as PodcastLength,
+      );
+      if (draft) {
+        bodyLines = draft.lines;
+        if (draft.title) title = draft.title;
+        if (draft.description) description = draft.description;
+        outline = [
+          { point: 'The welcome', startLine: 0 },
+          ...(draft.outline ?? []).map((o) => ({ ...o, startLine: o.startLine + introLines.length })),
+        ];
+      }
+    }
+
+    if (!bodyLines && generic?.bodyJson) {
+      // Stock body fallback: adopt the lines and copy the baked audio chunks
+      // into this episode's key space so the ordinary chunk route serves them.
+      fallback = true;
+      bodyLines = JSON.parse(generic.bodyJson) as PodcastLine[];
+      outline = generic.outlineJson ? (JSON.parse(generic.outlineJson) as PodcastOutlinePoint[]) : null;
+      if (env.PODCAST_AUDIO) {
+        const bodyChunks = chunkPlan(bodyLines);
+        await Promise.all(
+          bodyChunks.map(async (_ch, i) => {
+            const src = await env.PODCAST_AUDIO!.get(stockBodyChunkKey(row.moduleId, i));
+            if (src) {
+              const bytes = new Uint8Array(await src.arrayBuffer());
+              await env.PODCAST_AUDIO!.put(chunkKey(row.id, i), bytes, {
+                httpMetadata: { contentType: src.httpMetadata?.contentType ?? 'audio/mpeg' },
+              });
+            }
+          }),
+        );
+      }
+    }
+    if (!bodyLines) return;
+
+    const totalChars = [...introLines, ...bodyLines].reduce((sum, l) => sum + l.text.length, 0);
+    await db
+      .update(t.fdPodcast)
+      .set({
+        scriptJson: JSON.stringify(bodyLines),
+        outlineJson: outline ? JSON.stringify(outline) : null,
+        title,
+        description,
+        totalChars,
+      })
+      .where(eq(t.fdPodcast.id, row.id));
+    const elapsed = Date.now() - new Date(row.createdAt).getTime();
+    await logEvent(db, row.sessionId, 'podcast_body_ready', { podcastId: row.id, ms: elapsed, fallback });
+
+    if (!fallback) {
+      await renderVoicesToCache(env, { ...row, scriptJson: JSON.stringify(bodyLines) }, 'create');
+    } else {
+      await db
+        .update(t.fdPodcast)
+        .set({ audioKey: `podcast/${row.id}/`, audioAt: now() })
+        .where(and(eq(t.fdPodcast.id, row.id), sql`${t.fdPodcast.audioKey} IS NULL`));
+    }
+  } catch {
+    // The chunk route's wait-and-render path remains the safety net.
+  }
+}
+
 // One episode, generated and stored. Shared by the manual button, the Q&A
 // follow-up, and background pregeneration. Null on any failure — callers
 // answer gracefully (or, for pregen, silently).
@@ -1892,7 +2289,10 @@ async function generateEpisode(
       .orderBy(asc(t.fdPodcast.createdAt));
     heard = [...prior.filter((p) => p.kind === 'default'), ...prior.filter((p) => p.kind === 'qa').slice(-3)].map((p) => ({
       title: p.title,
-      lines: JSON.parse(p.scriptJson) as PodcastLine[],
+      lines: [
+        ...(p.introJson ? (JSON.parse(p.introJson) as PodcastLine[]) : []),
+        ...(JSON.parse(p.scriptJson) as PodcastLine[]),
+      ],
     }));
   }
 
@@ -1932,6 +2332,9 @@ async function generateEpisode(
     audioKey: null,
     audioBytes: null,
     audioAt: null,
+    introJson: null,
+    introAudioKey: null,
+    introSource: null,
     createdAt: now(),
   };
   await db.insert(t.fdPodcast).values(row);
@@ -2052,34 +2455,34 @@ async function attachStudy(env: Env, row: PodcastRow): Promise<void> {
 async function pregenerateNextPodcast(env: Env, sessionId: string): Promise<void> {
   try {
     const db = drizzle(env.DB);
+    const mod = await nextPodcastModule(db, sessionId);
+    if (!mod) return;
+
+    // Everyone gets the pre-warm: stock baked, goal intro flavored, personal
+    // intro voiced — so arrival is instant whatever their learning style.
+    await bakeStock(env, mod.id);
     const prefs = await loadPrefs(db, sessionId);
-    // Anyone who picked podcast as a learning style gets the next module's
-    // episode (script AND voices) waiting before they arrive — not only
-    // learners who ranked it first.
+    const goalId = (prefs.goals ?? [])[0];
+    if (goalId) await bakeGoalIntro(env, mod.id, goalId);
+    await preparePersonalIntro(env, sessionId, mod.id);
+
+    // Podcast-pickers additionally get the whole episode — body written and
+    // voiced — waiting before they arrive.
     if (!(prefs.styles ?? []).includes('podcast')) return;
     if (!env.ANTHROPIC_API_KEY) return;
     if (!(await underPodcastLimit(db, sessionId, env))) return;
-
-    const mods = await db
-      .select()
-      .from(t.fdModule)
-      .where(and(eq(t.fdModule.courseId, 'ai101'), eq(t.fdModule.status, 'open')))
-      .orderBy(asc(t.fdModule.ordinal));
-    for (const mod of mods) {
-      const existing = await db
-        .select({ n: sql<number>`count(*)` })
-        .from(t.fdPodcast)
-        .where(and(eq(t.fdPodcast.sessionId, sessionId), eq(t.fdPodcast.moduleId, mod.id), eq(t.fdPodcast.kind, 'default')));
-      if ((existing[0]?.n ?? 0) > 0) continue;
-      await logEvent(db, sessionId, 'podcast_requested', { moduleId: mod.id, kind: 'default', trigger: 'pregen' });
-      const row = await generateEpisode(env, db, sessionId, mod.id, 'default', null, defaultLengthFor(depthOf(prefs.depth)));
-      // Voices and study extras too — play-on-arrival ready, cards included.
-      if (row) await Promise.all([renderVoicesToCache(env, row, 'pregen'), attachStudy(env, row)]);
-      return; // one per trigger — the next completion pregenerates the next module
+    await logEvent(db, sessionId, 'podcast_requested', { moduleId: mod.id, kind: 'default', trigger: 'pregen' });
+    const length = defaultLengthFor(depthOf(prefs.depth));
+    const row = await createAssembledEpisode(env, db, sessionId, mod.id, length);
+    if (row) {
+      await completeAssembledBody(env, row);
+    } else {
+      const legacy = await generateEpisode(env, db, sessionId, mod.id, 'default', null, length);
+      if (legacy) await Promise.all([renderVoicesToCache(env, legacy, 'pregen'), attachStudy(env, legacy)]);
     }
   } catch {
     // Background work: a failure here costs nothing the learner can see —
-    // the podcast page falls back to the one-click generate button.
+    // the podcast page falls back to on-demand generation.
   }
 }
 
@@ -2141,6 +2544,21 @@ app.post('/api/podcast', async (c) => {
   await logEvent(db, session.id, 'podcast_requested', { moduleId, kind, trigger: 'manual' });
 
   const length = kind === 'qa' ? 'quick' : defaultLengthFor(depthOf(prefs.depth));
+
+  if (kind === 'default') {
+    // Assembled path: a pre-voiced intro (personal > goal > generic stock)
+    // returns instantly and plays while the custom body writes in the
+    // background. Stock study assets ride along, so the cards are instant too.
+    const assembled = await createAssembledEpisode(c.env, db, session.id, moduleId, length);
+    if (assembled) {
+      c.executionCtx.waitUntil(completeAssembledBody(c.env, assembled));
+      return c.json(toEpisode(assembled));
+    }
+    // No stock baked yet (first visitor to this module): legacy full-script
+    // path today, and bake the stock in the background for everyone after.
+    c.executionCtx.waitUntil(bakeStock(c.env, moduleId));
+  }
+
   const row = await generateEpisode(c.env, db, session.id, moduleId, kind, question, length);
   if (!row) {
     return c.json({ error: 'The scriptwriter is unavailable right now. Nothing was saved — try again in a minute.' }, 503);
@@ -2197,6 +2615,28 @@ app.post('/api/podcast/:id/study', async (c) => {
   });
 });
 
+// The pre-voiced intro of an assembled episode — always a straight R2 read,
+// which is what makes arrival instant.
+app.get('/api/podcast/:id/audio/intro', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const rows = await db
+    .select()
+    .from(t.fdPodcast)
+    .where(and(eq(t.fdPodcast.id, c.req.param('id')), eq(t.fdPodcast.sessionId, session.id)))
+    .limit(1);
+  const row = rows[0];
+  if (!row || !row.introAudioKey || !c.env.PODCAST_AUDIO) return c.json({ error: 'No intro audio for this episode.' }, 404);
+  const cached = await c.env.PODCAST_AUDIO.get(row.introAudioKey);
+  if (!cached) return c.json({ error: 'No intro audio for this episode.' }, 404);
+  const bytes = new Uint8Array(await cached.arrayBuffer());
+  const sniffed = bytes[0] === 0x52 && bytes[1] === 0x49 && bytes[2] === 0x46 && bytes[3] === 0x46 ? 'audio/wav' : 'audio/mpeg';
+  return new Response(bytes, {
+    headers: { 'content-type': cached.httpMetadata?.contentType ?? sniffed, 'cache-control': 'private, max-age=86400' },
+  });
+});
+
 // One chunk of an episode's audio. Serves the R2 cache when the background
 // render has gotten there; otherwise voices just this chunk live (~10–20s) —
 // so the first chunk is always seconds away, whatever the background is doing.
@@ -2209,8 +2649,23 @@ app.get('/api/podcast/:id/audio/:chunk', async (c) => {
     .from(t.fdPodcast)
     .where(and(eq(t.fdPodcast.id, c.req.param('id')), eq(t.fdPodcast.sessionId, session.id)))
     .limit(1);
-  const row = rows[0];
+  let row = rows[0];
   if (!row) return c.json({ error: 'No such episode.' }, 404);
+
+  // Assembled episode whose custom body is still being written: give the
+  // background writer a moment before falling back — the intro buys ~a minute
+  // of runway, so a short wait here is invisible to the listener.
+  if (row.introJson && row.scriptJson === '[]') {
+    const ageMs = Date.now() - new Date(row.createdAt).getTime();
+    if (ageMs < 10 * 60 * 1000) {
+      for (let i = 0; i < 16 && row.scriptJson === '[]'; i++) {
+        await new Promise((resolve) => setTimeout(resolve, 2500));
+        const fresh = await db.select().from(t.fdPodcast).where(eq(t.fdPodcast.id, row.id)).limit(1);
+        if (fresh[0]) row = fresh[0];
+      }
+    }
+    if (row.scriptJson === '[]') return c.json({ error: 'The rest of the episode is still being written — try again in a moment.' }, 503);
+  }
 
   const lines = JSON.parse(row.scriptJson) as PodcastLine[];
   const plan = chunkPlan(lines);
@@ -2231,9 +2686,10 @@ app.get('/api/podcast/:id/audio/:chunk', async (c) => {
     }
     // On a young episode the background render is almost certainly working on
     // this chunk right now — wait briefly for it to land instead of kicking a
-    // duplicate render (slower AND double-spend).
+    // duplicate render (slower AND double-spend). Only worth waiting when an
+    // engine exists to be doing the rendering.
     const ageMs = Date.now() - new Date(row.createdAt).getTime();
-    if (row.audioAt === null && ageMs < 10 * 60 * 1000) {
+    if ((c.env.AI || c.env.GEMINI_API_KEY) && row.audioAt === null && ageMs < 10 * 60 * 1000) {
       for (let i = 0; i < 8; i++) {
         await new Promise((resolve) => setTimeout(resolve, 2500));
         const landed = await c.env.PODCAST_AUDIO.get(key);

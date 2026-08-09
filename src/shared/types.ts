@@ -251,10 +251,17 @@ export type PodcastEpisode = {
   visual: PodcastVisual | null; // null before podcast-v5, and on Q&A segments where a map adds nothing
   estMinutes: number;
   audioCached: boolean;
-  // 'chunked' — audio streams in parts for fast starts (the normal case);
+  // 'assembled' — a pre-voiced intro plays instantly while the custom body
+  //   generates (chunk 0 = intro, later chunks = body);
+  // 'chunked' — audio streams in parts, all custom (Q&A and legacy default);
   // 'single' — one legacy pre-chunking MP3 already sits in the cache.
-  audioMode: 'single' | 'chunked';
+  audioMode: 'single' | 'chunked' | 'assembled';
   chunkCount: number;
+  // Assembled episodes: how many of `lines` belong to the intro (0 otherwise),
+  // and whether the custom body is still being written (lines end at the intro
+  // until it lands — the player keeps rolling and the transcript grows).
+  introLineCount: number;
+  bodyPending: boolean;
   createdAt: string;
 };
 
