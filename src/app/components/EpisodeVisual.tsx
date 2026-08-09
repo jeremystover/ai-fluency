@@ -124,7 +124,7 @@ function HubSketch({ visual }: { visual: PodcastVisual }) {
       )}
       {pos.map((p, i) =>
         spokes[i].relation ? (
-          <Label key={`r${i}`} x={(cx + p.x) / 2} y={(cy + p.y) / 2} lines={[spokes[i].relation]} size={16} weight={400} fill="var(--c-muted)" halo />
+          <Label key={`r${i}`} x={cx + (p.x - cx) * 0.6} y={cy + (p.y - cy) * 0.6} lines={[spokes[i].relation]} size={16} weight={400} fill="var(--c-muted)" halo />
         ) : null,
       )}
       {pos.map((p, i) => (
@@ -140,19 +140,40 @@ function FlowSketch({ visual }: { visual: PodcastVisual }) {
   const steps = visual.steps ?? [];
   const n = steps.length;
   const BOX_W = 128;
-  const GAP = 62;
+  const GAP = 74;
   const W = n * BOX_W + (n - 1) * GAP + 24;
-  const H = 150;
-  const y = H / 2 + 8;
+  // Arrow labels are wider than the gaps, so they get their own clear lanes —
+  // alternating above and below the row of boxes — instead of sitting on the
+  // box tops where they overlap (learned the hard way).
+  const H = 210;
+  const y = H / 2 + 2;
+  const bandTop = 32;
+  const bandBottom = H - 26;
   return (
     <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto mt-2" role="img" aria-label="Process diagram">
       {defs}
       <g filter={hand}>
         {steps.map((_, i) => {
           const x = 12 + i * (BOX_W + GAP);
-          return i < n - 1 ? (
-            <line key={`a${i}`} x1={x + BOX_W + 3} y1={y} x2={x + BOX_W + GAP - 6} y2={y} stroke={STROKE} strokeWidth={1.6} markerEnd={arrow} />
-          ) : null;
+          if (i >= n - 1) return null;
+          const labelY = i % 2 === 0 ? bandTop : bandBottom;
+          const gapMid = x + BOX_W + GAP / 2;
+          return (
+            <g key={`a${i}`}>
+              <line x1={x + BOX_W + 3} y1={y} x2={x + BOX_W + GAP - 6} y2={y} stroke={STROKE} strokeWidth={1.6} markerEnd={arrow} />
+              {steps[i].arrow && (
+                <line
+                  x1={gapMid}
+                  y1={y + (i % 2 === 0 ? -6 : 6)}
+                  x2={gapMid}
+                  y2={labelY + (i % 2 === 0 ? 16 : -20)}
+                  stroke={STROKE}
+                  strokeWidth={1}
+                  strokeDasharray="2 4"
+                />
+              )}
+            </g>
+          );
         })}
         {steps.map((_, i) => {
           const x = 12 + i * (BOX_W + GAP);
@@ -176,7 +197,16 @@ function FlowSketch({ visual }: { visual: PodcastVisual }) {
       {steps.map((st, i) => {
         const x = 12 + i * (BOX_W + GAP);
         return i < n - 1 && st.arrow ? (
-          <Label key={`al${i}`} x={x + BOX_W + GAP / 2} y={y - 26} lines={[st.arrow]} size={16} weight={400} fill="var(--c-muted)" halo />
+          <Label
+            key={`al${i}`}
+            x={x + BOX_W + GAP / 2}
+            y={i % 2 === 0 ? bandTop : bandBottom}
+            lines={splitLabel(st.arrow, 22)}
+            size={15}
+            weight={400}
+            fill="var(--c-muted)"
+            halo
+          />
         ) : null;
       })}
       {steps.map((st, i) => {
