@@ -1,9 +1,9 @@
-import { Hono } from 'hono';
+import { Hono, type Context } from 'hono';
 import { getCookie, setCookie } from 'hono/cookie';
 import { drizzle, type DrizzleD1Database } from 'drizzle-orm/d1';
 import { and, asc, desc, eq, gt, inArray, lt, sql } from 'drizzle-orm';
 import * as t from '../db/schema';
-import { verifyCode, signSessionId, verifySessionCookie, hashIp } from './crypto';
+import { verifyCode, hashCode, signSessionId, verifySessionCookie, hashIp } from './crypto';
 import { gradeSubmission, type RubricPayload } from './grading';
 import { adminApp } from './admin';
 import { buildTutorSystem, streamTutorReply, KICKOFF_TURN, type LearnerContext as TutorLearnerContext, type TutorMessage } from './chat';
@@ -69,6 +69,10 @@ export interface Env {
   // which variant of the [V] lab lessons is served — one tooling per deploy,
   // same pattern as BRAND_SLUG. Unset = 'claude'.
   ORG_TOOLING?: string;
+  // How learners get in. 'passcode' (default): the demo door — shared codes,
+  // no accounts. 'accounts': the product door — census-gated sign-up with
+  // email + password, passcode entry disabled. One mode per deployment.
+  AUTH_MODE?: string;
   GRADING_MODEL: string;
   CHAT_MODEL: string;
   PODCAST_MODEL?: string;
@@ -161,6 +165,7 @@ app.get('/api/brand', async (c) => {
   const brand: Brand = {
     slug: row.slug,
     name: row.name,
+    authMode: authModeOf(c.env),
     tokens: JSON.parse(row.tokensJson),
     voice: JSON.parse(row.voiceJson),
     ...(Array.isArray(profile?.aiTools) && profile.aiTools.length ? { aiTools: profile.aiTools } : {}),
@@ -230,6 +235,9 @@ app.post('/api/event', async (c) => {
 
 app.post('/api/enter', async (c) => {
   const db = c.get('db');
+  if (authModeOf(c.env) === 'accounts') {
+    return c.json({ error: 'Passcode entry is the demo door — this deployment uses accounts. Sign in instead.' }, 403);
+  }
   const body = await c.req.json<{ code?: string }>().catch(() => null);
   const code = body?.code?.trim();
   if (!code) return c.json({ error: 'Enter the passcode you were given.' }, 400);
@@ -296,6 +304,208 @@ app.post('/api/enter', async (c) => {
     path: '/',
     maxAge: COOKIE_MAX_AGE,
   });
+  return c.json({ ok: true });
+});
+
+// ---------- accounts (the product door; passcodes are the demo door) ----------
+
+const authModeOf = (env: Env) => (env.AUTH_MODE?.trim().toLowerCase() === 'accounts' ? 'accounts' : 'passcode');
+const normalizeEmail = (raw: unknown) => (typeof raw === 'string' ? raw.trim().toLowerCase() : '');
+const MIN_PASSWORD_CHARS = 10;
+
+async function setSessionCookie(c: Context<Ctx>, sessionId: string) {
+  setCookie(c, COOKIE_NAME, await signSessionId(sessionId, secret(c.env)), {
+    httpOnly: true,
+    secure: true,
+    sameSite: 'Lax',
+    path: '/',
+    maxAge: COOKIE_MAX_AGE,
+  });
+}
+
+// Shared limiter for signup and sign-in, same shape as passcode attempts.
+async function authAttemptsExceeded(db: DrizzleD1Database, ipHashed: string): Promise<boolean> {
+  const windowStart = new Date(Date.now() - CODE_ATTEMPT_WINDOW_MS).toISOString();
+  const attempts = await db
+    .select({ n: sql<number>`count(*)` })
+    .from(t.fdEvent)
+    .where(
+      and(
+        eq(t.fdEvent.type, 'auth_attempt_failed'),
+        gt(t.fdEvent.createdAt, windowStart),
+        sql`json_extract(${t.fdEvent.payloadJson}, '$.ipHash') = ${ipHashed}`,
+      ),
+    );
+  return (attempts[0]?.n ?? 0) >= CODE_ATTEMPT_LIMIT;
+}
+
+const clientIpHash = async (c: { req: { header: (n: string) => string | undefined } }, env: Env) => {
+  const ip = c.req.header('cf-connecting-ip') ?? c.req.header('x-forwarded-for')?.split(',')[0]?.trim() ?? 'local';
+  return hashIp(ip, secret(env));
+};
+
+// Sign-up is census-gated: the email must be on the imported employee roster.
+// The census is the allowlist — there is no open registration.
+app.post('/api/auth/signup', async (c) => {
+  const db = c.get('db');
+  const body = await c.req.json<{ name?: string; email?: string; password?: string }>().catch(() => null);
+  const name = body?.name?.trim();
+  const email = normalizeEmail(body?.email);
+  const password = body?.password ?? '';
+  if (!name) return c.json({ error: 'Tell us your name — it goes on your work.' }, 400);
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return c.json({ error: 'That email doesn’t look right.' }, 400);
+  if (password.length < MIN_PASSWORD_CHARS) return c.json({ error: `Passwords need at least ${MIN_PASSWORD_CHARS} characters.` }, 400);
+
+  const ipHashed = await clientIpHash(c, c.env);
+  if (await authAttemptsExceeded(db, ipHashed)) {
+    return c.json({ error: 'Too many attempts from this connection. Wait 15 minutes.' }, 429);
+  }
+
+  const roster = await db
+    .select({ n: sql<number>`count(*)` })
+    .from(t.fdEmployee)
+    .where(eq(t.fdEmployee.brandSlug, c.env.BRAND_SLUG));
+  if ((roster[0]?.n ?? 0) === 0) {
+    return c.json({ error: 'No employee roster has been imported yet — your admin needs to set up the census before accounts can be created.' }, 403);
+  }
+  const employees = await db
+    .select()
+    .from(t.fdEmployee)
+    .where(and(eq(t.fdEmployee.brandSlug, c.env.BRAND_SLUG), sql`LOWER(${t.fdEmployee.email}) = ${email}`))
+    .limit(1);
+  const employee = employees[0];
+  if (!employee) {
+    await logEvent(db, null, 'auth_attempt_failed', { ipHash: ipHashed, reason: 'not_on_roster' });
+    return c.json({ error: 'That email isn’t on the employee roster. Check for typos, or ask your admin to add you.' }, 403);
+  }
+
+  const existing = await db
+    .select({ id: t.fdAccount.id })
+    .from(t.fdAccount)
+    .where(and(eq(t.fdAccount.brandSlug, c.env.BRAND_SLUG), eq(t.fdAccount.email, email)))
+    .limit(1);
+  if (existing[0]) return c.json({ error: 'An account with that email already exists — sign in instead.' }, 409);
+
+  const accountId = uuid();
+  await db.insert(t.fdAccount).values({
+    id: accountId,
+    brandSlug: c.env.BRAND_SLUG,
+    email,
+    passwordHash: await hashCode(password),
+    name: name.slice(0, 80),
+    createdAt: now(),
+    lastLoginAt: now(),
+  });
+
+  const sessionId = uuid();
+  await db.insert(t.fdSession).values({
+    id: sessionId,
+    codeId: `account:${accountId}`,
+    accountId,
+    brandSlug: c.env.BRAND_SLUG,
+    createdAt: now(),
+    lastSeenAt: now(),
+    userAgent: c.req.header('user-agent') ?? null,
+    ipHash: ipHashed,
+  });
+  // The account name doubles as the participant identity, so the Learners
+  // roster and census matching see the real name without waiting on intake.
+  await db.insert(t.fdParticipant).values({
+    id: uuid(),
+    sessionId,
+    displayName: name.slice(0, 80),
+    roleLabel: employee.roleTitle,
+    orgLabel: null,
+    createdAt: now(),
+  });
+  await logEvent(db, sessionId, 'account_created', { emailDomain: email.split('@')[1] });
+  await logEvent(db, sessionId, 'signed_in', {});
+  await setSessionCookie(c, sessionId);
+  return c.json({ ok: true });
+});
+
+app.post('/api/auth/signin', async (c) => {
+  const db = c.get('db');
+  const body = await c.req.json<{ email?: string; password?: string }>().catch(() => null);
+  const email = normalizeEmail(body?.email);
+  const password = body?.password ?? '';
+  if (!email || !password) return c.json({ error: 'Email and password, both.' }, 400);
+
+  const ipHashed = await clientIpHash(c, c.env);
+  if (await authAttemptsExceeded(db, ipHashed)) {
+    return c.json({ error: 'Too many attempts from this connection. Wait 15 minutes.' }, 429);
+  }
+
+  const accounts = await db
+    .select()
+    .from(t.fdAccount)
+    .where(and(eq(t.fdAccount.brandSlug, c.env.BRAND_SLUG), eq(t.fdAccount.email, email)))
+    .limit(1);
+  const account = accounts[0];
+  const valid = account ? await verifyCode(password, account.passwordHash) : false;
+  if (!account || !valid) {
+    await logEvent(db, null, 'auth_attempt_failed', { ipHash: ipHashed, reason: 'bad_credentials' });
+    return c.json({ error: 'Email or password didn’t match.' }, 401);
+  }
+
+  // Progress follows the account: reuse its canonical session, so a new
+  // device picks up exactly where the last one left off.
+  const sessions = await db
+    .select()
+    .from(t.fdSession)
+    .where(eq(t.fdSession.accountId, account.id))
+    .orderBy(desc(t.fdSession.lastSeenAt))
+    .limit(1);
+  let sessionId = sessions[0]?.id;
+  if (!sessionId) {
+    sessionId = uuid();
+    await db.insert(t.fdSession).values({
+      id: sessionId,
+      codeId: `account:${account.id}`,
+      accountId: account.id,
+      brandSlug: c.env.BRAND_SLUG,
+      createdAt: now(),
+      lastSeenAt: now(),
+      userAgent: c.req.header('user-agent') ?? null,
+      ipHash: ipHashed,
+    });
+    await db.insert(t.fdParticipant).values({
+      id: uuid(),
+      sessionId,
+      displayName: account.name,
+      roleLabel: null,
+      orgLabel: null,
+      createdAt: now(),
+    });
+  } else {
+    await db.update(t.fdSession).set({ lastSeenAt: now(), userAgent: c.req.header('user-agent') ?? null }).where(eq(t.fdSession.id, sessionId));
+  }
+  await db.update(t.fdAccount).set({ lastLoginAt: now() }).where(eq(t.fdAccount.id, account.id));
+  await logEvent(db, sessionId, 'signed_in', {});
+  await setSessionCookie(c, sessionId);
+  return c.json({ ok: true });
+});
+
+app.post('/api/auth/signout', async (c) => {
+  setCookie(c, COOKIE_NAME, '', { httpOnly: true, secure: true, sameSite: 'Lax', path: '/', maxAge: 0 });
+  return c.json({ ok: true });
+});
+
+app.post('/api/auth/password', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session?.accountId) return c.json({ error: 'Sign in with an account first.' }, 401);
+  const body = await c.req.json<{ current?: string; next?: string }>().catch(() => null);
+  const current = body?.current ?? '';
+  const next = body?.next ?? '';
+  if (next.length < MIN_PASSWORD_CHARS) return c.json({ error: `Passwords need at least ${MIN_PASSWORD_CHARS} characters.` }, 400);
+  const accounts = await db.select().from(t.fdAccount).where(eq(t.fdAccount.id, session.accountId)).limit(1);
+  const account = accounts[0];
+  if (!account || !(await verifyCode(current, account.passwordHash))) {
+    return c.json({ error: 'Your current password didn’t match.' }, 401);
+  }
+  await db.update(t.fdAccount).set({ passwordHash: await hashCode(next) }).where(eq(t.fdAccount.id, account.id));
+  await logEvent(db, session.id, 'password_changed', {});
   return c.json({ ok: true });
 });
 
@@ -585,10 +795,17 @@ app.get('/api/me', async (c) => {
     .from(t.fdSubmission)
     .where(and(eq(t.fdSubmission.sessionId, session.id), sql`${t.fdSubmission.gradedAt} IS NOT NULL`));
 
+  let account: MeResponse['account'] = null;
+  if (session.accountId) {
+    const accounts = await db.select().from(t.fdAccount).where(eq(t.fdAccount.id, session.accountId)).limit(1);
+    if (accounts[0]) account = { email: accounts[0].email, name: accounts[0].name };
+  }
+
   const res: MeResponse = {
     authenticated: true,
     displayName: participants[0]?.displayName ?? null,
     roleLabel: participants[0]?.roleLabel ?? null,
+    account,
     brandSlug: session.brandSlug,
     prefs: await loadPrefs(db, session.id),
     progress: {

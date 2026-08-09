@@ -45,6 +45,10 @@
     // tutor chat, podcast). "claude" (default) | "chatgpt". Change + redeploy —
     // no reseed needed, all variants are already in the database.
     "ORG_TOOLING": "claude",
+    // How learners get in. "passcode": the demo door — shared codes, no
+    // accounts (this deployment). "accounts": the product door — census-gated
+    // email + password sign-up; passcode entry is disabled.
+    "AUTH_MODE": "passcode",
     // Model used for applied-activity grading; persisted on fd_submission.
     "GRADING_MODEL": "claude-sonnet-5",
     // Model behind the module tutor chat; persisted on fd_chat_message.

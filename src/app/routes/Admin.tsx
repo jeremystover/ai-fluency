@@ -934,6 +934,8 @@ type EmployeeRow = {
   matchedSessionId: string | null;
   lastSeenAt: string | null;
   modulesCompleted: number;
+  hasAccount: boolean;
+  accountLastLoginAt: string | null;
 };
 
 function Census() {
@@ -968,6 +970,16 @@ function Census() {
     await load();
   };
 
+  const resetPassword = async (e: EmployeeRow) => {
+    setNote(null);
+    try {
+      const r = await api.post<{ tempPassword: string }>(`/api/admin/census/${e.id}/reset-password`);
+      setNote(`Temporary password for ${e.name}: ${r.tempPassword} — shown once, share it securely. They should change it after signing in.`);
+    } catch (err) {
+      setNote(err instanceof ApiError ? err.message : 'Reset failed.');
+    }
+  };
+
   if (!employees) return <p className="label-utility mt-8">Loading census…</p>;
   const matched = employees.filter((e) => e.matchedSessionId).length;
   return (
@@ -980,7 +992,7 @@ function Census() {
           <table className="w-full text-sm">
             <thead>
               <tr className="text-left">
-                {['Name', 'Role', 'Manager', 'Level', 'Location', 'Started', 'Course status', ''].map((h, i) => (
+                {['Name', 'Role', 'Manager', 'Level', 'Location', 'Started', 'Course status', 'Account', ''].map((h, i) => (
                   <th key={i} className="label-utility font-normal pb-2 pr-3">{h}</th>
                 ))}
               </tr>
@@ -1007,13 +1019,23 @@ function Census() {
                       <span className="text-muted">not started</span>
                     )}
                   </td>
+                  <td className="py-2 pr-3 text-xs">
+                    {e.hasAccount ? (
+                      <span>
+                        ✓<span className="block font-utility text-[0.65rem] text-muted">login {fmtDate(e.accountLastLoginAt)}</span>
+                        <button onClick={() => resetPassword(e)} className="text-accent text-[0.65rem] font-semibold hover:underline">Reset password</button>
+                      </span>
+                    ) : (
+                      <span className="text-muted">none</span>
+                    )}
+                  </td>
                   <td className="py-2">
                     <button onClick={() => remove(e.id)} className="text-muted text-xs hover:text-ink-strong">Remove</button>
                   </td>
                 </tr>
               ))}
               {employees.length === 0 && (
-                <tr><td colSpan={8} className="py-6 text-muted text-sm">No employees yet — import a CSV to start the census.</td></tr>
+                <tr><td colSpan={9} className="py-6 text-muted text-sm">No employees yet — import a CSV to start the census.</td></tr>
               )}
             </tbody>
           </table>
