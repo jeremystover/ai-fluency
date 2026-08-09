@@ -13,7 +13,8 @@ export function surfaceRoute(surface: Surface, moduleId = 'ai101-m1'): string {
     case 'voice-chat':
       return `/module/${moduleId}/chat?voice=1`;
     case 'podcast':
-      return `/module/${moduleId}/podcast`;
+      // The module page IS the podcast home for podcast-first learners.
+      return `/module/${moduleId}`;
     default:
       return `/module/${moduleId}`;
   }
@@ -32,13 +33,12 @@ export function surfaceStartLabel(surface: Surface): string {
   }
 }
 
-// First visit to a module with a non-reading preference and that surface
-// untouched → take them straight there. Once they've used it (or if they
-// chose reading) the module view is home base and never bounces them.
+// First visit to a module with a chat preference and that surface untouched →
+// take them straight to the tutor. Podcast-first learners stay: the module
+// page is their podcast home. Once used (or for readers), it never bounces.
 export function firstVisitRedirect(me: MeResponse | null, moduleId = 'ai101-m1'): string | null {
   if (!me?.authenticated) return null;
   const surface = preferredSurface(me.prefs?.styles);
   if ((surface === 'chat' || surface === 'voice-chat') && !me.progress.chatStarted) return surfaceRoute(surface, moduleId);
-  if (surface === 'podcast' && !me.progress.podcastTried) return surfaceRoute(surface, moduleId);
   return null;
 }
