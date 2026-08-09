@@ -220,6 +220,10 @@ export type PodcastEpisode = {
   outline: PodcastOutlinePoint[] | null; // null on episodes written before podcast-v4
   estMinutes: number;
   audioCached: boolean;
+  // 'chunked' — audio streams in parts for fast starts (the normal case);
+  // 'single' — one legacy pre-chunking MP3 already sits in the cache.
+  audioMode: 'single' | 'chunked';
+  chunkCount: number;
   createdAt: string;
 };
 

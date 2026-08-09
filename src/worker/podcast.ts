@@ -11,10 +11,11 @@ export type PodcastKind = 'default' | 'qa';
 
 export const TTS_MODEL = '@cf/deepgram/aura-2-en';
 // Two clearly distinct Aura-2 speakers — the contrast is what makes the format
-// work. Thalia is energetic and bright (Maya asks); Apollo is comfortable and
-// casual (Leo explains). Full roster: developers.cloudflare.com/workers-ai/models/aura-2-en/
+// work. Thalia is energetic and bright (Maya asks); Orpheus is professional,
+// clear, and confident (Leo explains) — a steadier foil than the more casual
+// apollo. Full roster: developers.cloudflare.com/workers-ai/models/aura-2-en/
 export const VOICE_A = 'thalia';
-export const VOICE_B = 'apollo';
+export const VOICE_B = 'orpheus';
 
 // Structural type for the AI binding so we don't depend on workers-types
 // carrying every partner model name.
