@@ -470,11 +470,18 @@ const CENSUS_FIELDS: Record<string, string[]> = {
   startDate: ['start_date', 'start', 'hire_date', 'startdate'],
 };
 
-// Sessions are anonymous passcode entries; the census matches to them by
-// self-reported intake name (case-insensitive) until SSO/Okta provides
-// real identity. Latest matching session wins.
+// Matching census rows to learner sessions, strongest identity first:
+// account email (exact — accounts mode) then self-reported intake name
+// (case-insensitive — passcode/demo sessions). Latest session wins.
+type CensusMatch = { session_id: string; last_seen_at: string; modules: number };
+
+function unwrapAll<T>(rows: { results?: T[] } | T[]): T[] {
+  return Array.isArray(rows) ? rows : (rows.results ?? []);
+}
+
 async function censusMatches(db: DrizzleD1Database) {
-  const rows = await db.all<{ name: string; session_id: string; last_seen_at: string; modules: number }>(sql`
+  const named = unwrapAll(
+    await db.all<CensusMatch & { name: string }>(sql`
     WITH named AS (
       SELECT LOWER(TRIM(p.display_name)) AS name, p.session_id, s.last_seen_at,
              ROW_NUMBER() OVER (PARTITION BY LOWER(TRIM(p.display_name)) ORDER BY p.created_at DESC) AS rn
@@ -484,9 +491,27 @@ async function censusMatches(db: DrizzleD1Database) {
     SELECT name, session_id, last_seen_at,
            (SELECT COUNT(DISTINCT json_extract(e.payload_json, '$.moduleId')) FROM fd_event e
              WHERE e.session_id = named.session_id AND e.type = 'module_completed') AS modules
-    FROM named WHERE rn = 1`);
-  const list = Array.isArray(rows) ? rows : ((rows as { results?: typeof rows }).results ?? rows);
-  return new Map((list as { name: string; session_id: string; last_seen_at: string; modules: number }[]).map((r) => [r.name, r]));
+    FROM named WHERE rn = 1`),
+  );
+  const byAccount = unwrapAll(
+    await db.all<CensusMatch & { email: string }>(sql`
+    WITH latest AS (
+      SELECT LOWER(a.email) AS email, s.id AS session_id, s.last_seen_at,
+             ROW_NUMBER() OVER (PARTITION BY a.id ORDER BY s.last_seen_at DESC) AS rn
+      FROM fd_account a JOIN fd_session s ON s.account_id = a.id
+    )
+    SELECT email, session_id, last_seen_at,
+           (SELECT COUNT(DISTINCT json_extract(e.payload_json, '$.moduleId')) FROM fd_event e
+             WHERE e.session_id = latest.session_id AND e.type = 'module_completed') AS modules
+    FROM latest WHERE rn = 1`),
+  );
+  const byName = new Map(named.map((r) => [r.name, r as CensusMatch]));
+  const byEmail = new Map(byAccount.map((r) => [r.email, r as CensusMatch]));
+  return {
+    forEmployee(e: { name: string; email: string | null }): CensusMatch | undefined {
+      return (e.email ? byEmail.get(e.email.toLowerCase()) : undefined) ?? byName.get(e.name.trim().toLowerCase());
+    },
+  };
 }
 
 adminApp.get('/census', async (c) => {
@@ -497,9 +522,12 @@ adminApp.get('/census', async (c) => {
     .where(eq(t.fdEmployee.brandSlug, c.env.BRAND_SLUG))
     .orderBy(asc(t.fdEmployee.name));
   const matches = await censusMatches(db);
+  const accounts = await db.select().from(t.fdAccount).where(eq(t.fdAccount.brandSlug, c.env.BRAND_SLUG));
+  const accountByEmail = new Map(accounts.map((a) => [a.email, a]));
   return c.json({
     employees: employees.map((e) => {
-      const m = matches.get(e.name.trim().toLowerCase());
+      const m = matches.forEmployee(e);
+      const account = e.email ? accountByEmail.get(e.email.toLowerCase()) : undefined;
       return {
         id: e.id,
         name: e.name,
@@ -514,9 +542,46 @@ adminApp.get('/census', async (c) => {
         matchedSessionId: m?.session_id ?? null,
         lastSeenAt: m?.last_seen_at ?? null,
         modulesCompleted: m?.modules ?? 0,
+        hasAccount: !!account,
+        accountLastLoginAt: account?.lastLoginAt ?? null,
       };
     }),
   });
+});
+
+// Password reset for an employee's account. There is no email provider yet,
+// so the reset is admin-mediated: a one-time temp password is generated,
+// shown to the admin exactly once, and never stored in plaintext. The
+// employee should change it after signing in.
+adminApp.post('/census/:id/reset-password', async (c) => {
+  const db = c.get('db');
+  const rows = await db
+    .select()
+    .from(t.fdEmployee)
+    .where(and(eq(t.fdEmployee.id, c.req.param('id')), eq(t.fdEmployee.brandSlug, c.env.BRAND_SLUG)))
+    .limit(1);
+  const employee = rows[0];
+  if (!employee) return c.json({ error: 'No such employee.' }, 404);
+  if (!employee.email) return c.json({ error: 'This employee has no email on file.' }, 400);
+  const accounts = await db
+    .select()
+    .from(t.fdAccount)
+    .where(and(eq(t.fdAccount.brandSlug, c.env.BRAND_SLUG), eq(t.fdAccount.email, employee.email.toLowerCase())))
+    .limit(1);
+  if (!accounts[0]) return c.json({ error: 'They haven’t created an account yet — nothing to reset.' }, 404);
+
+  const alphabet = 'abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ23456789';
+  const bytes = crypto.getRandomValues(new Uint8Array(14));
+  const tempPassword = [...bytes].map((b) => alphabet[b % alphabet.length]).join('');
+  await db.update(t.fdAccount).set({ passwordHash: await hashCode(tempPassword) }).where(eq(t.fdAccount.id, accounts[0].id));
+  await db.insert(t.fdEvent).values({
+    id: uuid(),
+    sessionId: null,
+    type: 'password_reset_by_admin',
+    payloadJson: JSON.stringify({ employeeId: employee.id }),
+    createdAt: now(),
+  });
+  return c.json({ tempPassword });
 });
 
 adminApp.post('/census/import', async (c) => {
@@ -673,7 +738,7 @@ adminApp.get('/reminders/preview', async (c) => {
 
   const previews = rules.map((rule) => {
     const due = employees.filter((e) => {
-      const m = matches.get(e.name.trim().toLowerCase());
+      const m = matches.forEmployee(e);
       if (rule.trigger === 'not_started') {
         if (m) return false;
         const sinceStart = daysAgo(e.startDate);

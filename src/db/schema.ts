@@ -1,4 +1,4 @@
-import { sqliteTable, text, integer, real, index } from 'drizzle-orm/sqlite-core';
+import { sqliteTable, text, integer, real, index, uniqueIndex } from 'drizzle-orm/sqlite-core';
 
 export const fdBrand = sqliteTable('fd_brand', {
   slug: text('slug').primaryKey(),
@@ -22,11 +22,33 @@ export const fdAccessCode = sqliteTable('fd_access_code', {
   active: integer('active').notNull().default(1),
 });
 
+// A real login identity (AUTH_MODE=accounts deployments). Passcode entry is
+// the demo door; accounts are the product door. Sign-up is census-gated: the
+// email must be on the imported fd_employee roster, so the census is the
+// allowlist. Passwords use the same PBKDF2 format as access codes.
+export const fdAccount = sqliteTable(
+  'fd_account',
+  {
+    id: text('id').primaryKey(),
+    brandSlug: text('brand_slug').notNull(),
+    email: text('email').notNull(), // stored lowercase
+    passwordHash: text('password_hash').notNull(), // pbkdf2$<iter>$<salt>$<hash>
+    name: text('name').notNull(),
+    createdAt: text('created_at').notNull(),
+    lastLoginAt: text('last_login_at'),
+  },
+  (t) => [uniqueIndex('idx_account_email').on(t.brandSlug, t.email)],
+);
+
 export const fdSession = sqliteTable(
   'fd_session',
   {
     id: text('id').primaryKey(),
+    // Demo sessions come from a shared passcode (code_id); account sessions
+    // carry account_id and are reused across sign-ins, so progress follows
+    // the account rather than the browser.
     codeId: text('code_id').notNull(),
+    accountId: text('account_id'),
     brandSlug: text('brand_slug').notNull(),
     createdAt: text('created_at').notNull(),
     lastSeenAt: text('last_seen_at').notNull(),
