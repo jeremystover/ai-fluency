@@ -199,9 +199,11 @@ export type PodcastLength = 'quick' | 'standard' | 'deep';
 export type PodcastLine = { speaker: 'a' | 'b'; text: string };
 
 // The two hosts are fixed personas; their voices map to Workers AI Aura speakers.
+// Maya is the expert, Leo asks the questions — deliberately against the
+// familiar-trope grain of curious-woman/expert-man.
 export const PODCAST_HOSTS = {
-  a: { name: 'Maya', tagline: 'asks what you would ask' },
-  b: { name: 'Leo', tagline: 'knows the material cold' },
+  a: { name: 'Maya', tagline: 'knows the material cold' },
+  b: { name: 'Leo', tagline: 'asks what you would ask' },
 } as const;
 
 // A waypoint the listener can follow while the episode plays: a short label

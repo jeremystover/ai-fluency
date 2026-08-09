@@ -5,15 +5,15 @@
 import { PODCAST_HOSTS, type PodcastLength, type PodcastLine } from '../shared/types';
 import type { Depth } from '../shared/depth';
 
-export const PODCAST_PROMPT_VERSION = 'podcast-v5';
+export const PODCAST_PROMPT_VERSION = 'podcast-v6';
 
 export type PodcastKind = 'default' | 'qa';
 
 export const TTS_MODEL = '@cf/deepgram/aura-2-en';
 // Two clearly distinct Aura-2 speakers — the contrast is what makes the format
-// work. Thalia is energetic and bright (Maya asks); Orpheus is professional,
-// clear, and confident (Leo explains) — a steadier foil than the more casual
-// apollo. Full roster: developers.cloudflare.com/workers-ai/models/aura-2-en/
+// work. Thalia is energetic and bright (Maya, the expert); Orpheus is
+// professional, clear, and confident (Leo, who asks). Full roster:
+// developers.cloudflare.com/workers-ai/models/aura-2-en/
 export const VOICE_A = 'thalia';
 export const VOICE_B = 'orpheus';
 
@@ -76,8 +76,8 @@ function buildSystemPrompt(length: PodcastLength, kind: PodcastKind): string {
   const l = LENGTHS[length];
   return [
     `You write scripts for a two-host audio show that turns course modules into conversation, in the style of an engaging podcast. The hosts:`,
-    `- HOST_A — ${PODCAST_HOSTS.a.name}: sharp, curious, ${PODCAST_HOSTS.a.tagline}. She opens the show, steers it, pushes back when something sounds too neat, and lands the closing thought.`,
-    `- HOST_B — ${PODCAST_HOSTS.b.name}: ${PODCAST_HOSTS.b.tagline}. He explains with concrete examples and plain verbs, never lectures, and is happy to say what the material does NOT claim.`,
+    `- HOST_A — ${PODCAST_HOSTS.a.name}: ${PODCAST_HOSTS.a.tagline}. She explains with concrete examples and plain verbs, never lectures, and is happy to say what the material does NOT claim.`,
+    `- HOST_B — ${PODCAST_HOSTS.b.name}: sharp, curious, ${PODCAST_HOSTS.b.tagline}. He opens the show, steers it, pushes back when something sounds too neat, and lands the closing thought.`,
     '',
     'Rules:',
     `- Roughly ${l.targetWords} words of dialogue total, in ${l.turns} alternating turns. A turn is 1–3 sentences; no monologues.`,
@@ -280,8 +280,8 @@ function buildQaSystemPrompt(length: PodcastLength): string {
   const l = LENGTHS[length];
   return [
     `You write follow-up "listener questions" segments for a two-host audio show about a course module the listener has already heard an episode on. The hosts:`,
-    `- HOST_A — ${PODCAST_HOSTS.a.name}: sharp, curious, ${PODCAST_HOSTS.a.tagline}. She reads out and sharpens the listener's questions, and pushes back if an answer sounds too neat.`,
-    `- HOST_B — ${PODCAST_HOSTS.b.name}: ${PODCAST_HOSTS.b.tagline}. He answers with concrete examples and plain verbs, and says plainly when something is outside what the module covers.`,
+    `- HOST_A — ${PODCAST_HOSTS.a.name}: ${PODCAST_HOSTS.a.tagline}. She answers with concrete examples and plain verbs, and says plainly when something is outside what the module covers.`,
+    `- HOST_B — ${PODCAST_HOSTS.b.name}: sharp, curious, ${PODCAST_HOSTS.b.tagline}. He reads out and sharpens the listener's questions, and pushes back if an answer sounds too neat.`,
     '',
     'Rules:',
     `- Roughly ${l.targetWords} words of dialogue total, in ${l.turns} alternating turns. A turn is 1–3 sentences; no monologues.`,
