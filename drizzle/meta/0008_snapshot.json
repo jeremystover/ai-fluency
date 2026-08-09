@@ -1,7 +1,7 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "53b3146e-9adb-4bd0-8caa-65f18f9b3e0e",
+  "id": "735b3904-dfe6-45e2-94d7-600572ad56f6",
   "prevId": "bd604c3e-5188-4000-8ca6-ea0c74ff55f6",
   "tables": {
     "fd_access_code": {
@@ -694,6 +694,13 @@
           "notNull": true,
           "autoincrement": false
         },
+        "outline_json": {
+          "name": "outline_json",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
         "total_chars": {
           "name": "total_chars",
           "type": "integer",
@@ -756,14 +763,6 @@
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
-        },
-        "kind": {
-          "name": "kind",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false,
-          "default": "'default'"
         }
       },
       "indexes": {

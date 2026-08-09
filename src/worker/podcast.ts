@@ -5,7 +5,7 @@
 import { PODCAST_HOSTS, type PodcastLength, type PodcastLine } from '../shared/types';
 import type { Depth } from '../shared/depth';
 
-export const PODCAST_PROMPT_VERSION = 'podcast-v3';
+export const PODCAST_PROMPT_VERSION = 'podcast-v4';
 
 export type PodcastKind = 'default' | 'qa';
 
@@ -38,7 +38,21 @@ export type LearnerContext = {
   depth: Depth | null; // how much they want to invest
 };
 
-export type PodcastScript = { title: string; description: string; lines: PodcastLine[] };
+export type PodcastScript = {
+  title: string;
+  description: string;
+  lines: PodcastLine[];
+  outline: { point: string; startLine: number }[] | null;
+};
+
+// The JSON-shape instruction shared by both episode prompts. The outline is the
+// listener's follow-along map: a few concrete beats, each anchored to a line.
+const SCRIPT_SHAPE = [
+  'Respond with strict JSON only — no markdown, no code fences, no text outside the JSON. Shape:',
+  '{"title":"<episode title, under 80 chars>","description":"<one sentence, under 200 chars>","lines":[{"speaker":"a","text":"<what HOST_A says>"},{"speaker":"b","text":"<what HOST_B says>"}],"outline":[{"point":"<the beat, 3–8 plain words>","startLine":<0-based index into lines where this beat starts>}]}',
+  '"speaker" is exactly "a" for HOST_A and "b" for HOST_B.',
+  'The outline is a listener\'s map of the conversation: 3–6 beats in order, concrete not clever ("What AI means in your stack", not "The big reveal"). startLine values must be valid line indexes, strictly increasing, with the first at 0.',
+].join('\n');
 
 // An episode the listener has already heard, riding along on Q&A generation so
 // the hosts can say "like we said about…" and mean it.
@@ -61,9 +75,7 @@ function buildSystemPrompt(length: PodcastLength, kind: PodcastKind): string {
     '- Open cold with a hook from the material (never "welcome to"), name the module naturally once, and close with one concrete thing the listener should try today, drawn from the content.',
     '- This episode is made for ONE listener, and the listener block tells you who they are. Make it unmistakably theirs: greet them by name early and use it once more at most; pick every example to fit their role; connect the material to their stated goals somewhere in the middle ("since you want to..."); if a diagnostic read is present, speak to their direction of error directly. If they chose "short and sweet", stay brisk and ruthlessly prioritized; if they chose a deep dive, let the hosts go a level deeper and push on nuance. Warm and specific, never sycophantic — one tailored example beats three name-drops.',
     '',
-    'Respond with strict JSON only — no markdown, no code fences, no text outside the JSON. Shape:',
-    '{"title":"<episode title, under 80 chars, no quotes-around-quotes>","description":"<one sentence, under 200 chars>","lines":[{"speaker":"a","text":"<what HOST_A says>"},{"speaker":"b","text":"<what HOST_B says>"}]}',
-    '"speaker" is exactly "a" for HOST_A and "b" for HOST_B.',
+    SCRIPT_SHAPE,
   ].join('\n');
 }
 
@@ -147,10 +159,30 @@ function parseScript(text: string, length: PodcastLength): PodcastScript | null 
     capped.push(line);
   }
 
+  // The outline is best-effort: a malformed one degrades to null (no rail in
+  // the UI), never to a rejected episode.
+  let outline: PodcastScript['outline'] = null;
+  if (Array.isArray(obj.outline)) {
+    const points: { point: string; startLine: number }[] = [];
+    for (const entry of obj.outline.slice(0, 8)) {
+      if (typeof entry !== 'object' || entry === null) continue;
+      const e = entry as Record<string, unknown>;
+      const point = typeof e.point === 'string' ? e.point.trim().slice(0, 90) : '';
+      const startLine = Number(e.startLine);
+      if (!point || !Number.isInteger(startLine)) continue;
+      // Line-capping above may have shortened the script — clamp, keep ascending.
+      const clamped = Math.max(0, Math.min(startLine, capped.length - 1));
+      if (points.length > 0 && clamped <= points[points.length - 1].startLine) continue;
+      points.push({ point, startLine: clamped });
+    }
+    if (points.length >= 2) outline = points;
+  }
+
   return {
     title: obj.title.trim().slice(0, 120),
     description: typeof obj.description === 'string' ? obj.description.trim().slice(0, 300) : '',
     lines: capped,
+    outline,
   };
 }
 
@@ -193,9 +225,8 @@ function buildQaSystemPrompt(length: PodcastLength): string {
     '- Open cold by taking up the first question (never "welcome back"), and close with one concrete thing the listener should try, tied to what they asked.',
     '- Use the listener block the same way as the main show: examples fit their role, connections fit their goals. Specific, never sycophantic.',
     '',
-    'Respond with strict JSON only — no markdown, no code fences, no text outside the JSON. Shape:',
-    '{"title":"<episode title, under 80 chars>","description":"<one sentence, under 200 chars>","lines":[{"speaker":"a","text":"<what HOST_A says>"},{"speaker":"b","text":"<what HOST_B says>"}]}',
-    '"speaker" is exactly "a" for HOST_A and "b" for HOST_B.',
+    SCRIPT_SHAPE,
+    'For a listener-questions segment, the outline beats are the questions being taken up, in the order the hosts answer them.',
   ].join('\n');
 }
 

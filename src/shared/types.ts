@@ -204,6 +204,10 @@ export const PODCAST_HOSTS = {
   b: { name: 'Leo', tagline: 'knows the material cold' },
 } as const;
 
+// A waypoint the listener can follow while the episode plays: a short label
+// anchored to the line where that beat of the conversation starts.
+export type PodcastOutlinePoint = { point: string; startLine: number };
+
 export type PodcastEpisode = {
   id: string;
   moduleId: string;
@@ -213,12 +217,13 @@ export type PodcastEpisode = {
   lengthPref: PodcastLength;
   promptText: string | null;
   lines: PodcastLine[];
+  outline: PodcastOutlinePoint[] | null; // null on episodes written before podcast-v4
   estMinutes: number;
   audioCached: boolean;
   createdAt: string;
 };
 
-export type PodcastSummary = Omit<PodcastEpisode, 'lines'>;
+export type PodcastSummary = Omit<PodcastEpisode, 'lines' | 'outline'>;
 
 export type PodcastListResponse = {
   episodes: PodcastSummary[];
@@ -227,6 +232,9 @@ export type PodcastListResponse = {
   // False when this deployment lacks the binding/key — the UI degrades honestly.
   scriptEnabled: boolean;
   audioEnabled: boolean;
+  // True when voices render in the background after each script (needs AI + R2);
+  // false means the client should fetch audio directly and wait on a live render.
+  audioPrerenders: boolean;
 };
 
 export type ModuleContentResponse = {
