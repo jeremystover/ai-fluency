@@ -11,7 +11,6 @@ import { transcribe, speakable, renderSpeech, TUTOR_VOICE } from './voice';
 import { extractPaths } from '../shared/chat';
 import { GOAL_CHOICES } from '../shared/goals';
 import { DEPTH_IDS, depthOf } from '../shared/depth';
-import { preferredSurface } from '../shared/modality';
 import {
   writeScript,
   renderAudio,
@@ -39,6 +38,7 @@ import type {
   PodcastLength,
   PodcastLine,
   PodcastListResponse,
+  PodcastOutlinePoint,
   PodcastSummary,
   GradeResult,
   MeResponse,
@@ -1344,6 +1344,7 @@ function toEpisode(row: PodcastRow): PodcastEpisode {
     lengthPref: row.lengthPref as PodcastLength,
     promptText: row.promptText,
     lines: JSON.parse(row.scriptJson) as PodcastLine[],
+    outline: row.outlineJson ? (JSON.parse(row.outlineJson) as PodcastOutlinePoint[]) : null,
     estMinutes: estMinutes(row.totalChars),
     audioCached: row.audioKey !== null,
     createdAt: row.createdAt,
@@ -1360,7 +1361,7 @@ app.get('/api/podcast', async (c) => {
     .where(eq(t.fdPodcast.sessionId, session.id))
     .orderBy(desc(t.fdPodcast.createdAt));
   const episodes: PodcastSummary[] = rows.map((row) => {
-    const { lines: _lines, ...summary } = toEpisode(row);
+    const { lines: _lines, outline: _outline, ...summary } = toEpisode(row);
     return summary;
   });
   const playedRows = await db
@@ -1379,6 +1380,7 @@ app.get('/api/podcast', async (c) => {
     playedEpisodeIds,
     scriptEnabled: Boolean(c.env.ANTHROPIC_API_KEY),
     audioEnabled: Boolean(c.env.AI),
+    audioPrerenders: Boolean(c.env.AI && c.env.PODCAST_AUDIO),
   };
   return c.json(res);
 });
@@ -1476,6 +1478,7 @@ async function generateEpisode(
     title: script.title,
     description: script.description,
     scriptJson: JSON.stringify(script.lines),
+    outlineJson: script.outline ? JSON.stringify(script.outline) : null,
     totalChars: script.lines.reduce((sum, l) => sum + l.text.length, 0),
     modelUsed: model,
     promptVersion: PODCAST_PROMPT_VERSION,
@@ -1489,6 +1492,29 @@ async function generateEpisode(
   await db.insert(t.fdPodcast).values(row);
   await logEvent(db, sessionId, 'podcast_script_ready', { podcastId: row.id, kind, turns: script.lines.length, chars: row.totalChars });
   return row;
+}
+
+// Voice an episode into the R2 cache so the learner never sits through a live
+// render. Runs in the background (waitUntil) after every script — manual or
+// pregenerated. Needs both bindings: without R2 there is nowhere to put the
+// result, and the lazy render on the audio route still covers first listen.
+// Failures are silent for the same reason.
+async function renderVoicesToCache(env: Env, row: PodcastRow, trigger: 'create' | 'pregen'): Promise<void> {
+  if (!env.AI || !env.PODCAST_AUDIO) return;
+  try {
+    const db = drizzle(env.DB);
+    // Another path (a lazy listen racing this task) may have rendered already.
+    const fresh = await db.select().from(t.fdPodcast).where(eq(t.fdPodcast.id, row.id)).limit(1);
+    if (!fresh[0] || fresh[0].audioKey) return;
+    const audio = await renderAudio(env.AI, JSON.parse(row.scriptJson) as PodcastLine[]);
+    if (!audio) return;
+    const key = `podcast/${row.id}.mp3`;
+    await env.PODCAST_AUDIO.put(key, audio);
+    await db.update(t.fdPodcast).set({ audioKey: key, audioBytes: audio.length, audioAt: now() }).where(eq(t.fdPodcast.id, row.id));
+    await logEvent(db, row.sessionId, 'podcast_audio_rendered', { podcastId: row.id, bytes: audio.length, cached: true, trigger });
+  } catch {
+    // Background work — the audio route's lazy render remains the safety net.
+  }
 }
 
 async function underPodcastLimit(db: DrizzleD1Database, sessionId: string): Promise<boolean> {
@@ -1511,7 +1537,10 @@ async function pregenerateNextPodcast(env: Env, sessionId: string): Promise<void
   try {
     const db = drizzle(env.DB);
     const prefs = await loadPrefs(db, sessionId);
-    if (preferredSurface(prefs.styles) !== 'podcast') return;
+    // Anyone who picked podcast as a learning style gets the next module's
+    // episode (script AND voices) waiting before they arrive — not only
+    // learners who ranked it first.
+    if (!(prefs.styles ?? []).includes('podcast')) return;
     if (!env.ANTHROPIC_API_KEY) return;
     if (!(await underPodcastLimit(db, sessionId))) return;
 
@@ -1527,7 +1556,9 @@ async function pregenerateNextPodcast(env: Env, sessionId: string): Promise<void
         .where(and(eq(t.fdPodcast.sessionId, sessionId), eq(t.fdPodcast.moduleId, mod.id), eq(t.fdPodcast.kind, 'default')));
       if ((existing[0]?.n ?? 0) > 0) continue;
       await logEvent(db, sessionId, 'podcast_requested', { moduleId: mod.id, kind: 'default', trigger: 'pregen' });
-      await generateEpisode(env, db, sessionId, mod.id, 'default', null, defaultLengthFor(depthOf(prefs.depth)));
+      const row = await generateEpisode(env, db, sessionId, mod.id, 'default', null, defaultLengthFor(depthOf(prefs.depth)));
+      // Voices too — the next module's episode should be play-on-arrival ready.
+      if (row) await renderVoicesToCache(env, row, 'pregen');
       return; // one per trigger — the next completion pregenerates the next module
     }
   } catch {
@@ -1598,6 +1629,9 @@ app.post('/api/podcast', async (c) => {
   if (!row) {
     return c.json({ error: 'The scriptwriter is unavailable right now. Nothing was saved — try again in a minute.' }, 503);
   }
+  // Voices start rendering before the learner has finished reading the title —
+  // the client polls the episode until audioCached flips, then plays from R2.
+  c.executionCtx.waitUntil(renderVoicesToCache(c.env, row, 'create'));
   return c.json(toEpisode(row));
 });
 
