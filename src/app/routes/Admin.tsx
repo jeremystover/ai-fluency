@@ -3,12 +3,12 @@ import { Screen, Button, ErrorNote } from '../components/ui';
 import { api, ApiError } from '../api';
 import { goalLabel } from '../../shared/goals';
 
-// Operator console: review queue (the async backup for the M8 peer exchange),
-// funnel reporting, access-code management, and the completion audit trail.
-// Deliberately utilitarian — this is a tool for one operator, not a learner
-// surface.
+// Operator console: the LMS completion log (learners), content management,
+// review queue (the async backup for the M8 peer exchange), funnel reporting,
+// access-code management, and the completion audit trail. Deliberately
+// utilitarian — this is a tool for one company admin, not a learner surface.
 
-type Tab = 'queue' | 'report' | 'codes' | 'audit';
+type Tab = 'learners' | 'content' | 'queue' | 'report' | 'codes' | 'audit';
 
 type SubmissionRow = {
   id: string;
@@ -56,6 +56,59 @@ type AuditRow = {
   created_at: string;
   snapshot_kind: string | null;
   display_name: string | null;
+};
+
+type LearnerRow = {
+  session_id: string;
+  created_at: string;
+  last_seen_at: string;
+  display_name: string | null;
+  role_label: string | null;
+  code_label: string | null;
+  active_min: number;
+  modules_completed: number;
+  last_completed_at: string | null;
+  quiz_avg_pct: number | null;
+  quiz_attempts: number;
+  best_activity_score: number | null;
+  submissions: number;
+  podcast_listens: number;
+};
+
+type LearnerDetail = {
+  session: { id: string; createdAt: string; lastSeenAt: string };
+  participant: { displayName: string | null; roleLabel: string | null; orgLabel: string | null } | null;
+  preferences: Record<string, unknown>;
+  activeMinutes: number;
+  timeline: { type: string; payload_json: string | null; created_at: string }[];
+  submissions: { id: string; module_id: string; created_at: string; graded_at: string | null; total_score: number | null; chars: number }[];
+  audits: { id: string; module_id: string; activity: string; ref_id: string | null; content_hash: string; created_at: string; snapshot_kind: string | null }[];
+};
+
+type ContentModuleRow = {
+  id: string;
+  course_id: string;
+  ordinal: number;
+  title: string;
+  status: string;
+  est_minutes: number;
+  blocks: number;
+  micro_blocks: number;
+  activity_blocks: number;
+  exercise_kinds: string | null;
+  oldest_reviewed_at: string | null;
+  versions_witnessed: number;
+};
+
+type ContentBlockRow = {
+  id: string;
+  moduleId: string;
+  ordinal: number;
+  kind: string;
+  layer: string;
+  body: string;
+  variant: string | null;
+  reviewedAt: string;
 };
 
 type SnapshotDetail = {
@@ -409,6 +462,295 @@ function Codes() {
   );
 }
 
+const fmtMin = (m: number) => (m >= 60 ? `${Math.floor(m / 60)}h ${Math.round(m % 60)}m` : `${Math.round(m)}m`);
+
+// One-line human description of a timeline event from its payload.
+function describeEvent(type: string, payloadJson: string | null): string {
+  const p = payloadJson ? (JSON.parse(payloadJson) as Record<string, unknown>) : {};
+  const mod = typeof p.moduleId === 'string' ? p.moduleId : '';
+  switch (type) {
+    case 'code_entered': return `entered with code "${p.codeLabel ?? '?'}"`;
+    case 'intake_completed': return 'completed intake';
+    case 'diagnostic_completed': return `finished the diagnostic${typeof p.correct === 'number' ? ` · ${p.correct}/${p.total}` : ''}`;
+    case 'module_opened': return `opened ${mod}`;
+    case 'module_completed': return `completed ${mod}`;
+    case 'knowledge_check_submitted': return `knowledge check ${mod} · ${p.correct}/${p.total}`;
+    case 'sort_submitted': return `sorting exercise ${mod} · ${p.correct}/${p.total}`;
+    case 'choice_submitted': return `choice exercise ${mod} · ${p.correct ? 'correct' : 'incorrect'}`;
+    case 'activity_submitted': return `submitted activity ${mod} (${p.chars} chars)`;
+    case 'activity_graded': return `activity graded ${mod} · ${p.total}/20`;
+    case 'chat_started': return `started tutor chat${mod ? ` ${mod}` : ''}`;
+    case 'podcast_played': return 'listened to a podcast episode';
+    default: return type.replaceAll('_', ' ');
+  }
+}
+
+function Learners() {
+  const [rows, setRows] = useState<LearnerRow[] | null>(null);
+  const [filter, setFilter] = useState('');
+  const [detail, setDetail] = useState<LearnerDetail | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+
+  useEffect(() => {
+    api.get<{ learners: LearnerRow[] }>('/api/admin/learners').then((d) => setRows(d.learners));
+  }, []);
+
+  const open = async (id: string) => {
+    setSelectedId(id);
+    setDetail(null);
+    setDetail(await api.get<LearnerDetail>(`/api/admin/learners/${id}`));
+  };
+
+  if (!rows) return <p className="label-utility mt-8">Loading learners…</p>;
+  const q = filter.trim().toLowerCase();
+  const shown = q
+    ? rows.filter((r) => [r.display_name ?? '', r.role_label ?? '', r.code_label ?? '', r.session_id].some((v) => v.toLowerCase().includes(q)))
+    : rows;
+  const prefs = detail?.preferences as { objective?: unknown } | undefined;
+  return (
+    <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
+      <div>
+        <input
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+          placeholder="Filter by name, role, or access code…"
+          className="w-full border border-line-strong bg-surface rounded-brand px-3 py-2 text-sm focus:border-accent placeholder:text-muted/60"
+          aria-label="Filter learners"
+        />
+        <div className="overflow-x-auto mt-3">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="text-left">
+                {['Who', 'First seen', 'Last seen', 'Time', 'Modules', 'Quiz', 'Activity', 'Pods'].map((h) => (
+                  <th key={h} className="label-utility font-normal pb-2 pr-3">{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {shown.map((r) => (
+                <tr
+                  key={r.session_id}
+                  onClick={() => open(r.session_id)}
+                  className={`border-t border-line cursor-pointer hover:bg-accent/5 ${selectedId === r.session_id ? 'bg-accent/10' : ''}`}
+                >
+                  <td className="py-2 pr-3">
+                    {r.display_name ?? 'Anonymous'}
+                    {r.role_label && <span className="text-muted text-xs"> · {r.role_label}</span>}
+                  </td>
+                  <td className="py-2 pr-3 font-utility text-xs text-muted whitespace-nowrap">{fmtDate(r.created_at)}</td>
+                  <td className="py-2 pr-3 font-utility text-xs text-muted whitespace-nowrap">{fmtDate(r.last_seen_at)}</td>
+                  <td className="py-2 pr-3 font-utility text-xs">{fmtMin(r.active_min)}</td>
+                  <td className="py-2 pr-3 font-utility text-xs">{r.modules_completed}</td>
+                  <td className="py-2 pr-3 font-utility text-xs">{r.quiz_avg_pct !== null ? `${r.quiz_avg_pct}%` : '—'}</td>
+                  <td className="py-2 pr-3 font-utility text-xs">{r.best_activity_score !== null ? `${r.best_activity_score}/20` : r.submissions > 0 ? 'ungraded' : '—'}</td>
+                  <td className="py-2 pr-3 font-utility text-xs">{r.podcast_listens || '—'}</td>
+                </tr>
+              ))}
+              {shown.length === 0 && (
+                <tr><td colSpan={8} className="py-6 text-muted text-sm">No learner sessions{q ? ' matching the filter' : ' yet'}.</td></tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-muted mt-2">
+          Time is estimated active time: gaps between recorded interactions, counting only gaps under 10 minutes. Quiz is the average of each module's latest knowledge-check attempt.
+        </p>
+      </div>
+      <div>
+        {selectedId ? (
+          detail ? (
+            <div className="border border-line rounded-brand bg-surface p-5">
+              <h2 className="font-display font-semibold text-ink-strong">
+                {detail.participant?.displayName ?? 'Anonymous'}
+                {detail.participant?.roleLabel ? ` · ${detail.participant.roleLabel}` : ''}
+              </h2>
+              <p className="text-xs text-muted mt-1">
+                {fmtDate(detail.session.createdAt)} → {fmtDate(detail.session.lastSeenAt)} · ~{fmtMin(detail.activeMinutes)} active
+              </p>
+              {typeof prefs?.objective === 'string' && (
+                <p className="text-xs text-ink mt-2 border-l-2 border-accent pl-2">Objective: “{prefs.objective}”</p>
+              )}
+              <span className="label-utility block mt-4">Timeline</span>
+              <div className="mt-1 max-h-56 overflow-y-auto flex flex-col gap-0.5">
+                {detail.timeline.map((e, i) => (
+                  <p key={i} className="text-xs text-ink">
+                    <span className="font-utility text-muted">{fmtDate(e.created_at)}</span> · {describeEvent(e.type, e.payload_json)}
+                  </p>
+                ))}
+                {detail.timeline.length === 0 && <p className="text-xs text-muted">No recorded activity.</p>}
+              </div>
+              {detail.submissions.length > 0 && (
+                <>
+                  <span className="label-utility block mt-4">Submissions</span>
+                  {detail.submissions.map((s) => (
+                    <p key={s.id} className="text-xs text-ink mt-1">
+                      <span className="font-utility text-muted">{fmtDate(s.created_at)}</span> · {s.module_id} · {s.chars} chars ·{' '}
+                      {s.graded_at ? `${s.total_score}/20` : 'ungraded'}
+                    </p>
+                  ))}
+                </>
+              )}
+              <span className="label-utility block mt-4">Content versions witnessed</span>
+              <div className="mt-1 max-h-40 overflow-y-auto flex flex-col gap-0.5">
+                {detail.audits.map((a) => (
+                  <p key={a.id} className="text-xs text-ink">
+                    <span className="font-utility text-muted">{fmtDate(a.created_at)}</span> · {a.activity.replaceAll('_', ' ')} · {a.module_id} ·{' '}
+                    <span className="font-utility" title={a.content_hash}>{a.content_hash.slice(0, 10)}</span>
+                  </p>
+                ))}
+                {detail.audits.length === 0 && <p className="text-xs text-muted">Nothing witnessed yet.</p>}
+              </div>
+              <p className="text-[0.65rem] text-muted mt-2">Open any version hash in the Content audit tab to read the exact content as this learner saw it.</p>
+            </div>
+          ) : (
+            <p className="label-utility mt-4">Loading learner…</p>
+          )
+        ) : (
+          <p className="text-muted text-sm mt-2">Select a learner to see their full history: timeline, quiz results, submissions, and the content versions they witnessed.</p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function Content() {
+  const [modules, setModules] = useState<ContentModuleRow[] | null>(null);
+  const [moduleId, setModuleId] = useState<string | null>(null);
+  const [segment, setSegment] = useState<'read' | 'micro' | 'activity'>('read');
+  const [blocks, setBlocks] = useState<ContentBlockRow[] | null>(null);
+  const [editing, setEditing] = useState<string | null>(null);
+  const [draft, setDraft] = useState('');
+  const [busy, setBusy] = useState(false);
+  const [note, setNote] = useState<string | null>(null);
+
+  useEffect(() => {
+    api.get<{ modules: ContentModuleRow[] }>('/api/admin/content/modules').then((d) => setModules(d.modules));
+  }, []);
+
+  const contentId = moduleId ? (segment === 'read' ? moduleId : `${moduleId}-${segment}`) : null;
+  useEffect(() => {
+    if (!contentId) return;
+    setBlocks(null);
+    setEditing(null);
+    api.get<{ blocks: ContentBlockRow[] }>(`/api/admin/content/blocks?module=${encodeURIComponent(contentId)}`).then((d) => setBlocks(d.blocks));
+  }, [contentId]);
+
+  const save = async (blockId: string) => {
+    if (busy) return;
+    setBusy(true);
+    setNote(null);
+    try {
+      const r = await api.put<{ ok: boolean; reviewedAt: string }>(`/api/admin/content/blocks/${blockId}`, { body: draft });
+      setBlocks((prev) => prev?.map((b) => (b.id === blockId ? { ...b, body: draft, reviewedAt: r.reviewedAt } : b)) ?? null);
+      setEditing(null);
+      setNote('Saved. The change is live for new views; earlier learners keep their audited version.');
+    } catch (e) {
+      setNote(e instanceof ApiError ? e.message : 'Failed to save.');
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  if (!modules) return <p className="label-utility mt-8">Loading content…</p>;
+  const selected = modules.find((m) => m.id === moduleId) ?? null;
+  return (
+    <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]">
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="text-left">
+              {['Module', 'Status', 'Blocks', 'Versions'].map((h) => (
+                <th key={h} className="label-utility font-normal pb-2 pr-3">{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {modules.map((m) => (
+              <tr
+                key={m.id}
+                onClick={() => { setModuleId(m.id); setSegment('read'); }}
+                className={`border-t border-line cursor-pointer hover:bg-accent/5 ${moduleId === m.id ? 'bg-accent/10' : ''}`}
+              >
+                <td className="py-2 pr-3">
+                  <span className="font-utility text-xs">{m.id}</span>
+                  <span className="block text-xs text-muted">{m.title}</span>
+                </td>
+                <td className="py-2 pr-3 font-utility text-xs">{m.status}</td>
+                <td className="py-2 pr-3 font-utility text-xs">{m.blocks}{m.micro_blocks ? ` +${m.micro_blocks}µ` : ''}{m.activity_blocks ? ` +${m.activity_blocks}a` : ''}</td>
+                <td className="py-2 pr-3 font-utility text-xs">{m.versions_witnessed || '—'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div>
+        {selected && contentId ? (
+          <div>
+            <div className="flex items-center justify-between flex-wrap gap-2">
+              <h2 className="font-display font-semibold text-ink-strong">{selected.title}</h2>
+              <div className="flex gap-1">
+                {(['read', 'micro', 'activity'] as const).map((s) => (
+                  <button
+                    key={s}
+                    onClick={() => setSegment(s)}
+                    aria-pressed={segment === s}
+                    className={`px-2 py-1 rounded-brand font-utility text-[0.65rem] uppercase tracking-wider ${segment === s ? 'bg-ink-strong text-surface' : 'text-muted hover:text-ink-strong'}`}
+                  >
+                    {s === 'read' ? `Reading (${selected.blocks})` : s === 'micro' ? `Micro (${selected.micro_blocks})` : `Activity (${selected.activity_blocks})`}
+                  </button>
+                ))}
+              </div>
+            </div>
+            {selected.exercise_kinds && (
+              <p className="text-xs text-muted mt-1">Exercises: {selected.exercise_kinds.replaceAll(',', ' · ')} (edit via seed packages — answer keys never render here)</p>
+            )}
+            {note && <p className="text-xs text-accent mt-2">{note}</p>}
+            {!blocks ? (
+              <p className="label-utility mt-4">Loading blocks…</p>
+            ) : blocks.length === 0 ? (
+              <p className="text-muted text-sm mt-4">No blocks in this segment.</p>
+            ) : (
+              <div className="mt-3 flex flex-col gap-3">
+                {blocks.map((b) => (
+                  <div key={b.id} className="border border-line rounded-brand bg-surface p-4">
+                    <div className="flex items-center justify-between flex-wrap gap-2">
+                      <span className="font-utility text-[0.65rem] uppercase tracking-wider text-muted">
+                        #{b.ordinal} · {b.kind} · {b.layer}{b.variant ? ` · ${b.variant}` : ''} · reviewed {b.reviewedAt}
+                      </span>
+                      {editing === b.id ? (
+                        <span className="flex gap-2">
+                          <Button onClick={() => save(b.id)} disabled={busy || !draft.trim()}>{busy ? 'Saving…' : 'Save'}</Button>
+                          <button onClick={() => setEditing(null)} className="text-muted text-xs hover:text-ink-strong">Cancel</button>
+                        </span>
+                      ) : (
+                        <button onClick={() => { setEditing(b.id); setDraft(b.body); }} className="text-accent text-xs font-semibold hover:underline">Edit</button>
+                      )}
+                    </div>
+                    {editing === b.id ? (
+                      <textarea
+                        value={draft}
+                        onChange={(e) => setDraft(e.target.value)}
+                        rows={Math.min(24, Math.max(6, draft.split('\n').length + 2))}
+                        className="mt-2 w-full border border-line-strong bg-surface rounded-brand px-3 py-2 text-sm font-utility text-ink focus:border-accent"
+                      />
+                    ) : (
+                      <pre className="mt-2 whitespace-pre-wrap text-xs text-ink font-body max-h-48 overflow-y-auto">{b.body}</pre>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        ) : (
+          <p className="text-muted text-sm mt-2">
+            Select a module to read and edit its content. Edits go live immediately for new views — learners who already saw the old version keep their audited snapshot, and the next view mints a new version in the audit trail.
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function Audit() {
   const [rows, setRows] = useState<AuditRow[] | null>(null);
   const [filter, setFilter] = useState('');
@@ -506,7 +848,7 @@ function Audit() {
 
 export default function Admin() {
   const [state, setState] = useState<'loading' | 'login' | 'in'>('loading');
-  const [tab, setTab] = useState<Tab>('queue');
+  const [tab, setTab] = useState<Tab>('learners');
 
   const check = () =>
     api
@@ -529,7 +871,7 @@ export default function Admin() {
             <h1 className="font-display font-bold text-ink-strong text-2xl mt-1">Admin</h1>
           </div>
           <div className="flex items-center gap-1">
-            {(['queue', 'report', 'codes', 'audit'] as Tab[]).map((tabId) => (
+            {(['learners', 'content', 'queue', 'report', 'codes', 'audit'] as Tab[]).map((tabId) => (
               <button
                 key={tabId}
                 onClick={() => setTab(tabId)}
@@ -538,7 +880,7 @@ export default function Admin() {
                   tab === tabId ? 'bg-ink-strong text-surface' : 'text-muted hover:text-ink-strong'
                 }`}
               >
-                {tabId === 'queue' ? 'Review queue' : tabId === 'report' ? 'Reporting' : tabId === 'codes' ? 'Access codes' : 'Content audit'}
+                {tabId === 'learners' ? 'Learners' : tabId === 'content' ? 'Content' : tabId === 'queue' ? 'Review queue' : tabId === 'report' ? 'Reporting' : tabId === 'codes' ? 'Access codes' : 'Content audit'}
               </button>
             ))}
             <button
@@ -552,6 +894,8 @@ export default function Admin() {
             </button>
           </div>
         </div>
+        {tab === 'learners' && <Learners />}
+        {tab === 'content' && <Content />}
         {tab === 'queue' && <Queue />}
         {tab === 'report' && <Reporting />}
         {tab === 'codes' && <Codes />}
