@@ -8,6 +8,7 @@ import { gradeSubmission, type RubricPayload } from './grading';
 import { adminApp } from './admin';
 import { buildTutorSystem, streamTutorReply, KICKOFF_TURN, type LearnerContext as TutorLearnerContext, type TutorMessage } from './chat';
 import { transcribe, speakable, renderSpeech, TUTOR_VOICE } from './voice';
+import { moduleSnapshot, witnessContent } from './audit';
 import { extractPaths } from '../shared/chat';
 import { GOAL_CHOICES, goalLabel } from '../shared/goals';
 import { DEPTH_IDS, depthOf } from '../shared/depth';
@@ -177,10 +178,50 @@ app.post('/api/event', async (c) => {
   const payload = body.payload === undefined ? undefined : body.payload;
   if (payload !== undefined && JSON.stringify(payload).length > 4096) return c.json({ error: 'Payload too large.' }, 400);
   await logEvent(db, session?.id ?? null, body.type, payload);
-  // Completing a module is the moment to get the next one's episode waiting
-  // for podcast-first learners; runs after the response, never blocks it.
+  // Completion moments are client-reported, but what the content *was* is
+  // captured server-side at that instant — see audit.ts.
   if (body.type === 'module_completed' && session) {
+    const moduleId = (payload as { moduleId?: unknown } | undefined)?.moduleId;
+    if (typeof moduleId === 'string') {
+      const blockRows = await db.select().from(t.fdContentBlock).where(eq(t.fdContentBlock.moduleId, moduleId)).orderBy(asc(t.fdContentBlock.ordinal));
+      const blocks = selectVariants(blockRows, toolingOf(c.env)).map(toBlock);
+      if (blocks.length) {
+        await witnessContent(db, {
+          sessionId: session.id,
+          moduleId,
+          activity: 'module_completed',
+          kind: 'module_blocks',
+          content: moduleSnapshot(toolingOf(c.env), blocks),
+          dedupe: true,
+        });
+      }
+    }
+    // Completing a module is the moment to get the next one's episode waiting
+    // for podcast-first learners; runs after the response, never blocks it.
     c.executionCtx.waitUntil(pregenerateNextPodcast(c.env, session.id));
+  }
+  if (body.type === 'podcast_played' && session) {
+    const podcastId = (payload as { podcastId?: unknown } | undefined)?.podcastId;
+    if (typeof podcastId === 'string') {
+      const rows = await db
+        .select()
+        .from(t.fdPodcast)
+        .where(and(eq(t.fdPodcast.id, podcastId), eq(t.fdPodcast.sessionId, session.id)))
+        .limit(1);
+      const row = rows[0];
+      if (row) {
+        const ep = toEpisode(row);
+        await witnessContent(db, {
+          sessionId: session.id,
+          moduleId: row.moduleId,
+          activity: 'podcast_listened',
+          kind: 'podcast_episode',
+          refId: row.id,
+          content: { kind: ep.kind, title: ep.title, description: ep.description, lines: ep.lines, outline: ep.outline, takeaways: ep.takeaways, visual: ep.visual },
+          dedupe: true,
+        });
+      }
+    }
   }
   return c.json({ ok: true });
 });
@@ -846,6 +887,14 @@ app.get('/api/module/:id/micro', async (c) => {
     .orderBy(asc(t.fdContentBlock.ordinal));
   if (blockRows.length === 0) return c.json({ error: 'This module has no micro dose yet.' }, 404);
   const blocks = selectVariants(blockRows, toolingOf(c.env)).map(toBlock);
+  await witnessContent(db, {
+    sessionId: session.id,
+    moduleId: `${id}-micro`,
+    activity: 'micro_viewed',
+    kind: 'module_blocks',
+    content: moduleSnapshot(toolingOf(c.env), blocks),
+    dedupe: true,
+  });
   return c.json({ blocks, stamps: stampsFor(blocks) });
 });
 
@@ -947,6 +996,19 @@ app.get('/api/module/:id', async (c) => {
   const blockRows = await db.select().from(t.fdContentBlock).where(eq(t.fdContentBlock.moduleId, id)).orderBy(asc(t.fdContentBlock.ordinal));
   const blocks = selectVariants(blockRows, toolingOf(c.env)).map(toBlock);
   const words = blocks.reduce((sum, b) => sum + b.body.split(/\s+/).length, 0);
+
+  // Witness what this session was shown: one audit row per content version
+  // per session, so later completions can be checked against what was seen.
+  if (blocks.length) {
+    await witnessContent(db, {
+      sessionId: session.id,
+      moduleId: id,
+      activity: 'module_viewed',
+      kind: 'module_blocks',
+      content: moduleSnapshot(toolingOf(c.env), blocks),
+      dedupe: true,
+    });
+  }
 
   // Capabilities are discovered from what the package seeded — the modality
   // hub and every feature route render from this, not from hardcoded module ids.
@@ -1414,6 +1476,7 @@ app.post('/api/module/:id/sort', async (c) => {
     });
   }
   await logEvent(db, session.id, 'sort_submitted', { moduleId, correct, total: sorting.tasks.length, overAssigned, underAssigned });
+  await witnessContent(db, { sessionId: session.id, moduleId, activity: 'sort_submitted', kind: 'exercise', content: { kind: 'sorting', payload: sorting } });
 
   const reveal: SortingReveal = {
     results,
@@ -1454,6 +1517,7 @@ app.post('/api/module/:id/choice', async (c) => {
   if (!chosen || !choice.options.some((o) => o.id === chosen)) return c.json({ error: 'Commit to an answer before the reveal.' }, 400);
   const correct = chosen === choice.key;
   await logEvent(db, session.id, 'choice_submitted', { moduleId, correct });
+  await witnessContent(db, { sessionId: session.id, moduleId, activity: 'choice_submitted', kind: 'exercise', content: { kind: 'choice', payload: choice } });
   return c.json({ correct, key: choice.key, reasoning: choice.reasoning, closing: choice.closing });
 });
 
@@ -1497,6 +1561,7 @@ app.post('/api/module/:id/knowledge-check', async (c) => {
     };
   });
   await logEvent(db, session.id, 'knowledge_check_submitted', { moduleId, correct, total: kc.questions.length });
+  await witnessContent(db, { sessionId: session.id, moduleId, activity: 'knowledge_check_submitted', kind: 'exercise', content: { kind: 'knowledge_check', payload: kc } });
   return c.json({ score: { correct, total: kc.questions.length }, results });
 });
 
@@ -1685,6 +1750,22 @@ app.post('/api/module/:id/activity', async (c) => {
     createdAt: now(),
   });
   await logEvent(db, session.id, 'activity_submitted', { moduleId, submissionId, chars: text.length });
+
+  // The audit pack: the activity brief the learner wrote against plus the
+  // rubric that grades it, exactly as both stood at submission time.
+  const activityBlockRows = await db
+    .select()
+    .from(t.fdContentBlock)
+    .where(eq(t.fdContentBlock.moduleId, `${moduleId}-activity`))
+    .orderBy(asc(t.fdContentBlock.ordinal));
+  await witnessContent(db, {
+    sessionId: session.id,
+    moduleId,
+    activity: 'activity_submitted',
+    kind: 'activity_pack',
+    refId: submissionId,
+    content: { ...moduleSnapshot(toolingOf(c.env), selectVariants(activityBlockRows, toolingOf(c.env)).map(toBlock)), rubric },
+  });
 
   // Rubric-declared calibration fields → fd_calibration, before grading.
   // A plain field opens a prediction; an actualFor field closes one — the

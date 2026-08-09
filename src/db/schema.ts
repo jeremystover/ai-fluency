@@ -264,6 +264,46 @@ export const fdReview = sqliteTable(
   (t) => [index('idx_review_submission').on(t.submissionId)],
 );
 
+// What a learner actually saw, content-addressed: one row per distinct
+// version (hash of the serialized content), shared by every completion that
+// witnessed that version. Unchanged content costs one row no matter how many
+// learners see it; a patched block or regenerated exercise mints a new hash.
+export const fdContentSnapshot = sqliteTable(
+  'fd_content_snapshot',
+  {
+    hash: text('hash').primaryKey(), // sha256 hex of content_json
+    kind: text('kind').notNull(), // module_blocks | exercise | activity_pack | podcast_episode
+    moduleId: text('module_id').notNull(),
+    contentJson: text('content_json').notNull(), // exactly the bytes that were hashed
+    createdAt: text('created_at').notNull(), // first time this version was witnessed
+  },
+  (t) => [index('idx_snapshot_module').on(t.moduleId)],
+);
+
+// Append-only: one row per completion moment, pointing at the exact content
+// version. fd_event says it happened; this says what it was — so "what did
+// this learner see when they completed it?" stays answerable after the
+// maintenance agent (or anyone) changes the content.
+export const fdCompletionAudit = sqliteTable(
+  'fd_completion_audit',
+  {
+    id: text('id').primaryKey(),
+    sessionId: text('session_id').notNull(),
+    moduleId: text('module_id').notNull(),
+    // module_viewed | micro_viewed | module_completed | knowledge_check_submitted
+    // | sort_submitted | choice_submitted | activity_submitted | podcast_listened
+    activity: text('activity').notNull(),
+    refId: text('ref_id'), // submission / podcast id when one exists
+    contentHash: text('content_hash').notNull(),
+    createdAt: text('created_at').notNull(),
+  },
+  (t) => [
+    index('idx_audit_session').on(t.sessionId),
+    index('idx_audit_module').on(t.moduleId, t.activity),
+    index('idx_audit_hash').on(t.contentHash),
+  ],
+);
+
 export const fdModule = sqliteTable('fd_module', {
   id: text('id').primaryKey(),
   courseId: text('course_id').notNull(),
