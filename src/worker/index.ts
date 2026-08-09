@@ -2067,7 +2067,7 @@ async function preparePersonalIntro(env: Env, sessionId: string, moduleId: strin
       .from(t.fdPodcastIntro)
       .where(and(eq(t.fdPodcastIntro.sessionId, sessionId), eq(t.fdPodcastIntro.moduleId, moduleId)))
       .limit(1);
-    if (existing[0]) return;
+    if (existing[0]?.promptVersion === PODCAST_PROMPT_VERSION) return;
     let generic = await loadStock(db, moduleId, 'generic');
     if (!generic) {
       await bakeStock(env, moduleId);
@@ -2088,6 +2088,7 @@ async function preparePersonalIntro(env: Env, sessionId: string, moduleId: strin
     );
     if (!lines) return;
     const audioKey = await voiceIntroToR2(env, lines, personalIntroKey(sessionId, moduleId));
+    if (existing[0]) await db.delete(t.fdPodcastIntro).where(eq(t.fdPodcastIntro.id, existing[0].id));
     await db.insert(t.fdPodcastIntro).values({
       id: uuid(),
       sessionId,
