@@ -15,6 +15,7 @@ import { SELF_LEVEL_IDS } from '../shared/levels';
 import { chunkPlan } from '../shared/audioChunks';
 import {
   writeScript,
+  writeStudy,
   renderAudio,
   renderChunkAudio,
   estMinutes,
@@ -1918,8 +1919,8 @@ async function generateEpisode(
     description: script.description,
     scriptJson: JSON.stringify(script.lines),
     outlineJson: script.outline ? JSON.stringify(script.outline) : null,
-    takeawaysJson: script.takeaways ? JSON.stringify(script.takeaways) : null,
-    visualJson: script.visual ? JSON.stringify(script.visual) : null,
+    takeawaysJson: null, // filled by the background study call
+    visualJson: null,
     totalChars: script.lines.reduce((sum, l) => sum + l.text.length, 0),
     modelUsed: model,
     promptVersion: PODCAST_PROMPT_VERSION,
@@ -1994,6 +1995,50 @@ async function underPodcastLimit(db: DrizzleD1Database, sessionId: string, env: 
 const defaultLengthFor = (depth: ReturnType<typeof depthOf>): PodcastLength =>
   depth === 'essentials' ? 'quick' : depth === 'deep' ? 'deep' : 'standard';
 
+// Generate the study companion (takeaways + one focused concept model) in the
+// background and attach it to the row. Playback never waits on this; the page
+// shows the cards when they land. Silent failure = no study card, not an error.
+async function attachStudy(env: Env, row: PodcastRow): Promise<void> {
+  if (!env.ANTHROPIC_API_KEY) return;
+  try {
+    const db = drizzle(env.DB);
+    const modRows = await db.select().from(t.fdModule).where(eq(t.fdModule.id, row.moduleId)).limit(1);
+    const blockRows = await db
+      .select()
+      .from(t.fdContentBlock)
+      .where(eq(t.fdContentBlock.moduleId, row.moduleId))
+      .orderBy(asc(t.fdContentBlock.ordinal));
+    const contentMd = blockRows
+      .filter((b) => b.kind !== 'exercise')
+      .map((b) => b.body)
+      .join('\n\n');
+    const model = env.PODCAST_MODEL ?? env.GRADING_MODEL;
+    const study = await writeStudy(
+      env.ANTHROPIC_API_KEY,
+      model,
+      modRows[0]?.title ?? row.moduleId,
+      contentMd,
+      JSON.parse(row.scriptJson) as PodcastLine[],
+      row.kind === 'qa' ? 'qa' : 'default',
+    );
+    if (!study) return;
+    await db
+      .update(t.fdPodcast)
+      .set({
+        takeawaysJson: study.takeaways ? JSON.stringify(study.takeaways) : null,
+        visualJson: study.visual ? JSON.stringify(study.visual) : null,
+      })
+      .where(eq(t.fdPodcast.id, row.id));
+    await logEvent(db, row.sessionId, 'podcast_study_ready', {
+      podcastId: row.id,
+      takeaways: study.takeaways?.length ?? 0,
+      hasVisual: Boolean(study.visual),
+    });
+  } catch {
+    // Background work — the episode simply has no study card.
+  }
+}
+
 // Background pregeneration for learners who said podcasts are how they learn:
 // the next module they can enter gets its episode written before they arrive.
 // Costs one script call, so it only fires for podcast-first learners, one
@@ -2022,8 +2067,8 @@ async function pregenerateNextPodcast(env: Env, sessionId: string): Promise<void
       if ((existing[0]?.n ?? 0) > 0) continue;
       await logEvent(db, sessionId, 'podcast_requested', { moduleId: mod.id, kind: 'default', trigger: 'pregen' });
       const row = await generateEpisode(env, db, sessionId, mod.id, 'default', null, defaultLengthFor(depthOf(prefs.depth)));
-      // Voices too — the next module's episode should be play-on-arrival ready.
-      if (row) await renderVoicesToCache(env, row, 'pregen');
+      // Voices and study extras too — play-on-arrival ready, cards included.
+      if (row) await Promise.all([renderVoicesToCache(env, row, 'pregen'), attachStudy(env, row)]);
       return; // one per trigger — the next completion pregenerates the next module
     }
   } catch {
@@ -2094,9 +2139,10 @@ app.post('/api/podcast', async (c) => {
   if (!row) {
     return c.json({ error: 'The scriptwriter is unavailable right now. Nothing was saved — try again in a minute.' }, 503);
   }
-  // Voices start rendering before the learner has finished reading the title —
-  // the client polls the episode until audioCached flips, then plays from R2.
-  c.executionCtx.waitUntil(renderVoicesToCache(c.env, row, 'create'));
+  // Voices start rendering before the learner has finished reading the title,
+  // and the study companion (takeaways + concept model) generates alongside —
+  // the page picks both up as they land.
+  c.executionCtx.waitUntil(Promise.all([renderVoicesToCache(c.env, row, 'create'), attachStudy(c.env, row)]));
   return c.json(toEpisode(row));
 });
 

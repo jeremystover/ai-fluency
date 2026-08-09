@@ -243,6 +243,12 @@ function ConceptMap({ visual }: { visual: PodcastVisual }) {
           </text>
         ))}
       </svg>
+      {visual.insight && (
+        <p className="text-sm text-ink mt-2 border-l-4 border-signal pl-3">
+          <span className="font-display font-semibold text-ink-strong">What to see: </span>
+          {visual.insight}
+        </p>
+      )}
     </div>
   );
 }
@@ -647,6 +653,30 @@ export default function Podcast() {
     if (episode || !defaultEp) return;
     api.get<PodcastEpisode>(`/api/podcast/${defaultEp.id}`).then(setEpisode).catch(() => {});
   }, [defaultEp, episode]);
+
+  // Takeaways and the concept model generate in the background after the
+  // script; poll briefly on young episodes and slot the cards in as they land.
+  const studyPolls = useRef(0);
+  useEffect(() => {
+    if (!episode || episode.takeaways) {
+      studyPolls.current = 0;
+      return;
+    }
+    const ageMs = Date.now() - new Date(episode.createdAt).getTime();
+    if (ageMs > 5 * 60 * 1000 || studyPolls.current >= 15) return;
+    const timer = setTimeout(() => {
+      studyPolls.current += 1;
+      api
+        .get<PodcastEpisode>(`/api/podcast/${episode.id}`)
+        .then((fresh) => {
+          if (fresh.takeaways || fresh.visual) {
+            setEpisode((prev) => (prev && prev.id === fresh.id ? { ...prev, takeaways: fresh.takeaways, visual: fresh.visual } : prev));
+          }
+        })
+        .catch(() => {});
+    }, 4000);
+    return () => clearTimeout(timer);
+  }, [episode]);
 
   const open = async (summary: PodcastSummary) => {
     setError(null);
