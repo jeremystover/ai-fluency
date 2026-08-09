@@ -4,7 +4,7 @@
 import { Hono } from 'hono';
 import { getCookie, setCookie } from 'hono/cookie';
 import { drizzle, type DrizzleD1Database } from 'drizzle-orm/d1';
-import { and, desc, eq, gt, sql } from 'drizzle-orm';
+import { and, asc, desc, eq, gt, sql } from 'drizzle-orm';
 import * as t from '../db/schema';
 import { constantTimeEqual, hashCode, signSessionId, verifySessionCookie, hashIp } from './crypto';
 
@@ -142,6 +142,182 @@ adminApp.get('/report', async (c) => {
         GROUP BY platform, browser, pointer ORDER BY sessions DESC`,
   );
   return c.json({ totals, funnel, demand, calibration, devices });
+});
+
+// ---------- learners (the LMS completion log) ----------
+
+// Who did what, when, and how it went — one row per session, aggregated from
+// the append-only funnel. "Active minutes" is an estimate: the sum of gaps
+// between consecutive events, counting only gaps under 10 minutes, so idle
+// tabs don't inflate it.
+adminApp.get('/learners', async (c) => {
+  const db = c.get('db');
+  const sessions = await db.all<Record<string, unknown>>(sql`
+    SELECT s.id AS session_id, s.created_at, s.last_seen_at,
+           (SELECT display_name FROM fd_participant p WHERE p.session_id = s.id ORDER BY p.created_at DESC LIMIT 1) AS display_name,
+           (SELECT role_label FROM fd_participant p WHERE p.session_id = s.id ORDER BY p.created_at DESC LIMIT 1) AS role_label,
+           (SELECT label FROM fd_access_code a WHERE a.id = s.code_id) AS code_label
+    FROM fd_session s ORDER BY s.created_at DESC LIMIT 500`);
+  const active = await db.all<{ session_id: string; active_min: number }>(sql`
+    WITH gaps AS (
+      SELECT session_id,
+             (julianday(created_at) - julianday(LAG(created_at) OVER (PARTITION BY session_id ORDER BY created_at))) * 1440.0 AS gap_min
+      FROM fd_event WHERE session_id IS NOT NULL
+    )
+    SELECT session_id, ROUND(SUM(CASE WHEN gap_min <= 10 THEN gap_min ELSE 0 END)) AS active_min
+    FROM gaps GROUP BY session_id`);
+  const completions = await db.all<{ session_id: string; modules: number; last_at: string }>(sql`
+    SELECT session_id, COUNT(DISTINCT json_extract(payload_json, '$.moduleId')) AS modules, MAX(created_at) AS last_at
+    FROM fd_event WHERE type = 'module_completed' AND session_id IS NOT NULL GROUP BY session_id`);
+  // Latest knowledge-check attempt per (session, module), averaged per session.
+  const quizzes = await db.all<{ session_id: string; avg_pct: number; attempts: number }>(sql`
+    WITH latest AS (
+      SELECT session_id,
+             CAST(json_extract(payload_json, '$.correct') AS REAL) / NULLIF(CAST(json_extract(payload_json, '$.total') AS REAL), 0) AS pct,
+             ROW_NUMBER() OVER (PARTITION BY session_id, json_extract(payload_json, '$.moduleId') ORDER BY created_at DESC) AS rn,
+             COUNT(*) OVER (PARTITION BY session_id) AS attempts
+      FROM fd_event WHERE type = 'knowledge_check_submitted' AND session_id IS NOT NULL
+    )
+    SELECT session_id, ROUND(AVG(pct) * 100) AS avg_pct, MAX(attempts) AS attempts
+    FROM latest WHERE rn = 1 GROUP BY session_id`);
+  const activities = await db.all<{ session_id: string; best_score: number | null; submissions: number }>(sql`
+    SELECT session_id, MAX(total_score) AS best_score, COUNT(*) AS submissions
+    FROM fd_submission GROUP BY session_id`);
+  const podcasts = await db.all<{ session_id: string; listens: number }>(sql`
+    SELECT session_id, COUNT(DISTINCT json_extract(payload_json, '$.podcastId')) AS listens
+    FROM fd_event WHERE type = 'podcast_played' AND session_id IS NOT NULL GROUP BY session_id`);
+
+  const by = <T extends { session_id: string }>(rows: { results?: T[] } | T[]) => {
+    const list = Array.isArray(rows) ? rows : (rows.results ?? []);
+    return new Map(list.map((r) => [r.session_id, r]));
+  };
+  const activeBy = by(active);
+  const complBy = by(completions);
+  const quizBy = by(quizzes);
+  const actBy = by(activities);
+  const podBy = by(podcasts);
+  const list = (Array.isArray(sessions) ? sessions : ((sessions as { results?: Record<string, unknown>[] }).results ?? [])).map((s) => {
+    const id = s.session_id as string;
+    return {
+      ...s,
+      active_min: activeBy.get(id)?.active_min ?? 0,
+      modules_completed: complBy.get(id)?.modules ?? 0,
+      last_completed_at: complBy.get(id)?.last_at ?? null,
+      quiz_avg_pct: quizBy.get(id)?.avg_pct ?? null,
+      quiz_attempts: quizBy.get(id)?.attempts ?? 0,
+      best_activity_score: actBy.get(id)?.best_score ?? null,
+      submissions: actBy.get(id)?.submissions ?? 0,
+      podcast_listens: podBy.get(id)?.listens ?? 0,
+    };
+  });
+  return c.json({ learners: list });
+});
+
+// Everything one learner did: profile + preferences, the event timeline,
+// quiz attempts, submissions, and the content versions they witnessed
+// (each hash opens in the Content audit tab's snapshot view).
+adminApp.get('/learners/:sessionId', async (c) => {
+  const db = c.get('db');
+  const sessionId = c.req.param('sessionId');
+  const sessions = await db.select().from(t.fdSession).where(eq(t.fdSession.id, sessionId)).limit(1);
+  if (!sessions[0]) return c.json({ error: 'No such session.' }, 404);
+  const participants = await db
+    .select()
+    .from(t.fdParticipant)
+    .where(eq(t.fdParticipant.sessionId, sessionId))
+    .orderBy(desc(t.fdParticipant.createdAt))
+    .limit(1);
+  const prefs = await db.all<{ key: string; value_json: string }>(sql`
+    SELECT key, value_json FROM (
+      SELECT key, value_json, ROW_NUMBER() OVER (PARTITION BY key ORDER BY created_at DESC) AS rn
+      FROM fd_preference WHERE session_id = ${sessionId}
+    ) WHERE rn = 1`);
+  const timeline = await db.all<Record<string, unknown>>(sql`
+    SELECT type, payload_json, created_at FROM fd_event
+    WHERE session_id = ${sessionId} AND type IN (
+      'code_entered', 'intake_completed', 'diagnostic_completed', 'module_opened', 'module_completed',
+      'knowledge_check_submitted', 'sort_submitted', 'choice_submitted', 'activity_submitted',
+      'activity_graded', 'chat_started', 'podcast_played'
+    ) ORDER BY created_at ASC LIMIT 500`);
+  const submissions = await db.all<Record<string, unknown>>(sql`
+    SELECT id, module_id, created_at, graded_at, total_score, LENGTH(body) AS chars
+    FROM fd_submission WHERE session_id = ${sessionId} ORDER BY created_at DESC`);
+  const audits = await db.all<Record<string, unknown>>(sql`
+    SELECT a.id, a.module_id, a.activity, a.ref_id, a.content_hash, a.created_at, s.kind AS snapshot_kind
+    FROM fd_completion_audit a LEFT JOIN fd_content_snapshot s ON s.hash = a.content_hash
+    WHERE a.session_id = ${sessionId} ORDER BY a.created_at DESC LIMIT 200`);
+  const active = await db.all<{ active_min: number }>(sql`
+    WITH gaps AS (
+      SELECT (julianday(created_at) - julianday(LAG(created_at) OVER (ORDER BY created_at))) * 1440.0 AS gap_min
+      FROM fd_event WHERE session_id = ${sessionId}
+    )
+    SELECT ROUND(SUM(CASE WHEN gap_min <= 10 THEN gap_min ELSE 0 END)) AS active_min FROM gaps`);
+  const unwrap = <T,>(rows: { results?: T[] } | T[]): T[] => (Array.isArray(rows) ? rows : (rows.results ?? []));
+  return c.json({
+    session: { id: sessions[0].id, createdAt: sessions[0].createdAt, lastSeenAt: sessions[0].lastSeenAt },
+    participant: participants[0]
+      ? { displayName: participants[0].displayName, roleLabel: participants[0].roleLabel, orgLabel: participants[0].orgLabel }
+      : null,
+    preferences: Object.fromEntries(unwrap(prefs).map((p) => [p.key, JSON.parse(p.value_json)])),
+    activeMinutes: unwrap(active)[0]?.active_min ?? 0,
+    timeline: unwrap(timeline),
+    submissions: unwrap(submissions),
+    audits: unwrap(audits),
+  });
+});
+
+// ---------- content management ----------
+
+adminApp.get('/content/modules', async (c) => {
+  const db = c.get('db');
+  const rows = await db.all<Record<string, unknown>>(sql`
+    SELECT m.id, m.course_id, m.ordinal, m.title, m.status, m.est_minutes,
+           (SELECT COUNT(*) FROM fd_content_block b WHERE b.module_id = m.id) AS blocks,
+           (SELECT COUNT(*) FROM fd_content_block b WHERE b.module_id = m.id || '-micro') AS micro_blocks,
+           (SELECT COUNT(*) FROM fd_content_block b WHERE b.module_id = m.id || '-activity') AS activity_blocks,
+           (SELECT GROUP_CONCAT(kind) FROM fd_exercise e WHERE e.module_id = m.id) AS exercise_kinds,
+           (SELECT MIN(reviewed_at) FROM fd_content_block b WHERE b.module_id = m.id) AS oldest_reviewed_at,
+           (SELECT COUNT(*) FROM fd_content_snapshot s WHERE s.module_id = m.id OR s.module_id LIKE m.id || '-%') AS versions_witnessed
+    FROM fd_module m ORDER BY m.course_id, m.ordinal`);
+  return c.json({ modules: rows });
+});
+
+// All blocks for an exact content module id (base, -micro, or -activity),
+// every variant included — this is the editor's view, not the learner's.
+adminApp.get('/content/blocks', async (c) => {
+  const db = c.get('db');
+  const moduleId = c.req.query('module')?.trim();
+  if (!moduleId) return c.json({ error: 'Pass ?module=<content module id>.' }, 400);
+  const rows = await db
+    .select()
+    .from(t.fdContentBlock)
+    .where(eq(t.fdContentBlock.moduleId, moduleId))
+    .orderBy(asc(t.fdContentBlock.ordinal));
+  return c.json({ blocks: rows });
+});
+
+// Operator content edit. Goes live immediately for new views; learners who
+// saw the old version keep their audited snapshot (the next witness mints a
+// new content hash automatically).
+adminApp.put('/content/blocks/:id', async (c) => {
+  const db = c.get('db');
+  const id = c.req.param('id');
+  const body = await c.req.json<{ body?: string }>().catch(() => null);
+  const text = body?.body;
+  if (typeof text !== 'string' || !text.trim()) return c.json({ error: 'The block body cannot be empty.' }, 400);
+  const rows = await db.select().from(t.fdContentBlock).where(eq(t.fdContentBlock.id, id)).limit(1);
+  const block = rows[0];
+  if (!block) return c.json({ error: 'No such block.' }, 404);
+  const today = now().slice(0, 10);
+  await db.update(t.fdContentBlock).set({ body: text, reviewedAt: today }).where(eq(t.fdContentBlock.id, id));
+  await db.insert(t.fdEvent).values({
+    id: uuid(),
+    sessionId: null,
+    type: 'content_block_edited',
+    payloadJson: JSON.stringify({ blockId: id, moduleId: block.moduleId, chars: text.length }),
+    createdAt: now(),
+  });
+  return c.json({ ok: true, reviewedAt: today });
 });
 
 // ---------- completion audit ----------
