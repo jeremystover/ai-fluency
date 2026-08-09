@@ -256,7 +256,8 @@ app.post('/api/hello', async (c) => {
   return c.json({ ok: true });
 });
 
-const VALID_STYLES = new Set(['reading', 'interactive', 'podcast', 'assistant_mcp', 'voice']);
+// 'voice' is no longer offered at intake but stays valid for stored prefs.
+const VALID_STYLES = new Set(['reading', 'interactive', 'podcast', 'assistant_mcp', 'voice', 'quiz_first']);
 const VALID_GOALS = new Set(GOAL_CHOICES.map((g) => g.id));
 const VALID_AI_TOOLS = new Set(['claude', 'chatgpt', 'gemini', 'other']);
 
@@ -445,6 +446,7 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
   if (styles.includes('podcast')) notes.push('Learning by listening is live — open Module 1 and make a custom two-host podcast episode from any angle you like.');
   if (styles.includes('assistant_mcp')) notes.push('Taking this course embedded right in your AI tools is on the roadmap — your interest is logged.');
   if (styles.includes('voice')) notes.push('Talking instead of typing is live — every text box has a mic, and the tutor chat has a voice mode that reads replies aloud.');
+  if (styles.includes('quiz_first')) notes.push('Test-first, as requested: every module leads with its knowledge check — 60%+ finishes it, and misses point you at exactly what to study.');
   if (depth === 'essentials') notes.push('Short and sweet, as requested: micro doses and the sorting exercise lead. The full read and graded activity keep for whenever you want more.');
   else if (depth === 'deep') notes.push('Deep dive: the full loop is on your path, and the tutor is primed to quiz you until it sticks.');
 
@@ -899,7 +901,14 @@ type ChoicePayload = {
 type KnowledgeCheckPayload = {
   title: string;
   note: string | null;
-  questions: { id: string; prompt: string; options: string[]; correctIndex: number; explanation: string }[];
+  questions: {
+    id: string;
+    prompt: string;
+    options: string[];
+    correctIndex: number;
+    explanation: string;
+    study?: { blockId: string; label: string };
+  }[];
 };
 
 
@@ -1463,6 +1472,7 @@ app.post('/api/module/:id/knowledge-check', async (c) => {
       correct: ok,
       correctIndex: q.correctIndex,
       explanation: q.explanation,
+      study: q.study,
     };
   });
   await logEvent(db, session.id, 'knowledge_check_submitted', { moduleId, correct, total: kc.questions.length });

@@ -53,6 +53,12 @@ export default function KnowledgeCheck() {
 
   if (result) {
     const byId = new Map(result.results.map((r) => [r.id, r]));
+    // Misses become a study list: unique lesson pointers, in module order of
+    // first appearance. This is the quiz teaching, not just scoring.
+    const studyList = result.results
+      .filter((r) => !r.correct && r.study)
+      .map((r) => r.study!)
+      .filter((s, i, arr) => arr.findIndex((x) => x.blockId === s.blockId) === i);
     return (
       <Screen>
         <div className="pt-10 sm:pt-14">
@@ -72,6 +78,25 @@ export default function KnowledgeCheck() {
               <p className="text-sm text-muted mt-1">Retakes are free and unlimited; previous answers are cleared.</p>
             </div>
           </div>
+
+          {studyList.length > 0 && (
+            <div className="mt-6 border border-signal rounded-brand bg-signal/10 p-5 anim-rise">
+              <p className="font-display font-semibold text-ink-strong">Your study list, from the misses:</p>
+              <ul className="mt-2 flex flex-col gap-1.5">
+                {studyList.map((s) => (
+                  <li key={s.blockId}>
+                    <Link
+                      to={`/module/${moduleId}#${s.blockId}`}
+                      className="text-accent font-semibold text-sm no-underline hover:underline"
+                    >
+                      {s.label} →
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-xs text-muted mt-2">Read those, then retake — 60%+ finishes the module and clears anything it unlocks.</p>
+            </div>
+          )}
 
           <ol className="mt-8 flex flex-col gap-5">
             {check.questions.map((q, i) => {
@@ -101,6 +126,13 @@ export default function KnowledgeCheck() {
                     ))}
                   </div>
                   <p className="text-sm text-ink mt-3 border-t border-line pt-3">{r.explanation}</p>
+                  {!r.correct && r.study && (
+                    <p className="text-sm mt-2">
+                      <Link to={`/module/${moduleId}#${r.study.blockId}`} className="text-accent font-semibold no-underline hover:underline">
+                        Go study: {r.study.label} →
+                      </Link>
+                    </p>
+                  )}
                 </li>
               );
             })}

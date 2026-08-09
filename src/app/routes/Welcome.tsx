@@ -40,6 +40,11 @@ const STYLE_CHOICES: StyleChoice[] = [
   { id: 'reading', label: 'Reading, at my own pace', detail: 'A proper reading view with honest time estimates.' },
   { id: 'interactive', label: 'Interactive, hands-on', detail: 'Sorting exercises, live feedback, graded practice.' },
   {
+    id: 'quiz_first',
+    label: 'Test me first',
+    detail: "Lead with the quiz. Take each module's knowledge check up front — pass and move on; miss and we point you at exactly what to study.",
+  },
+  {
     id: 'podcast',
     label: 'Learning by listening',
     detail: 'Your course as a podcast — on the commute, walking the dog, at the gym, or any time your ears are free and your hands aren\'t.',
@@ -49,7 +54,6 @@ const STYLE_CHOICES: StyleChoice[] = [
     label: 'Inside Claude or ChatGPT',
     detail: "We'll show you how to embed this course right in your AI tools.",
   },
-  { id: 'voice', label: 'Talking instead of typing', detail: 'Voice in, voice out.' },
 ];
 
 // What the learner uses today — asked at intake unless the company profile
@@ -391,7 +395,7 @@ export default function Welcome() {
           {step === 3 && (
             <>
               <h1 className="font-display font-semibold text-ink-strong text-2xl leading-snug">How do you like to learn?</h1>
-              <p className="text-muted text-sm mt-2">Pick all that appeal.</p>
+              <p className="text-muted text-sm mt-2">Pick the one that fits best — every module keeps the others a click away.</p>
               <div className="mt-6 flex flex-col gap-2.5">
                 {STYLE_CHOICES.map((choice) =>
                   card({
@@ -399,8 +403,8 @@ export default function Welcome() {
                     label: choice.label,
                     detail: choice.detail,
                     tag: choice.tag,
-                    selected: styles.includes(choice.id),
-                    onClick: () => setStyles((s) => (s.includes(choice.id) ? s.filter((x) => x !== choice.id) : [...s, choice.id])),
+                    selected: styles[0] === choice.id,
+                    onClick: () => setStyles((s) => (s[0] === choice.id ? [] : [choice.id])),
                   }),
                 )}
               </div>

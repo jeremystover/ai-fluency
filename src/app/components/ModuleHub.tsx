@@ -229,6 +229,34 @@ export default function ModuleHub({
     );
   }
 
+  if (primary === 'quiz_first' && capabilities.knowledgeCheck) {
+    return (
+      <div className="mt-6">
+        <div className="border border-accent rounded-brand bg-accent/[0.04] p-5">
+          <p className="label-utility">Your style · test me first</p>
+          <h2 className="font-display font-semibold text-ink-strong text-xl mt-2">Start with the quiz.</h2>
+          <p className="text-sm text-ink mt-2">
+            Score 60%+ and this module is finished — anything it unlocks, unlocked. Miss questions and the results point you at
+            exactly which lesson to study. Retakes are free and unlimited.
+          </p>
+          <Link
+            to={`/module/${moduleId}/check`}
+            className="inline-flex mt-4 items-center px-5 py-2.5 font-display font-semibold text-[0.95rem] rounded-brand bg-accent text-on-accent hover:brightness-110 no-underline"
+          >
+            Take the knowledge check →
+          </Link>
+        </div>
+        <Section label="When you want the material itself">
+          {compactTiles([tutorTile, listenTile, microTile, activityTile])}
+        </Section>
+        {listenOpen && capabilities.podcast && (
+          <div className="mt-4 border border-line rounded-brand bg-bg p-5 anim-fade"><PodcastPanel moduleId={moduleId} /></div>
+        )}
+        <p className="text-sm text-muted mt-4">The full read is below — your study links from the quiz land there.</p>
+      </div>
+    );
+  }
+
   if (primary === 'assistant_mcp') {
     return (
       <div className="mt-6">

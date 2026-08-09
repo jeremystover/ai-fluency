@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import type { CalibrationField, ContentBlock, ModuleContentResponse } from '../../shared/types';
 import { Screen, Markdown, Button, ErrorNote } from '../components/ui';
 import SortingExercise from '../components/SortingExercise';
@@ -299,6 +299,17 @@ export default function ModuleView() {
         .map((b) => ({ id: b.id, title: b.body.split('\n')[0].replace(/^##\s*/, '') })),
     [data],
   );
+
+  // Study links from the knowledge check land on a specific lesson block —
+  // scroll there once the content has rendered (Screen resets to top on mount).
+  const { hash } = useLocation();
+  useEffect(() => {
+    if (!data || !hash) return;
+    const el = document.getElementById(hash.slice(1));
+    if (!el) return;
+    const timer = setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 120);
+    return () => clearTimeout(timer);
+  }, [data, hash]);
 
   // The hub's "sorting exercise" tile scrolls to the live exercise embedded
   // in the read, if this module ships one.

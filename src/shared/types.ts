@@ -153,7 +153,7 @@ export type ChatStreamLine =
 export type IntakePrefs = {
   start?: 'diagnostic' | 'module' | 'chat';
   depth?: 'essentials' | 'balanced' | 'deep'; // how much they want to invest — see shared/depth.ts
-  styles?: string[]; // reading | interactive | podcast | assistant_mcp | voice
+  styles?: string[]; // single pick at intake: reading | interactive | quiz_first | podcast | assistant_mcp ('voice' survives from older sessions)
   goals?: string[]; // fluency | workflows | apply | news | tools | safety | coach | confidence
   objective?: string; // free-text refinement of the goals
   aiUsage?: string; // free-text: how they use AI in their job today
@@ -322,7 +322,16 @@ export type KnowledgeCheckPublic = {
 
 export type KnowledgeCheckResult = {
   score: { correct: number; total: number };
-  results: { id: string; chosenIndex: number; correct: boolean; correctIndex: number; explanation: string }[];
+  // `study` points a missed question back at the lesson block that teaches
+  // it — the results screen turns misses into a study list.
+  results: {
+    id: string;
+    chosenIndex: number;
+    correct: boolean;
+    correctIndex: number;
+    explanation: string;
+    study?: { blockId: string; label: string };
+  }[];
 };
 
 // ---------- choice exercise ----------

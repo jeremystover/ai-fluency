@@ -12,6 +12,8 @@ export function surfaceRoute(surface: Surface, moduleId = 'ai101-m1'): string {
       return `/module/${moduleId}/chat`;
     case 'voice-chat':
       return `/module/${moduleId}/chat?voice=1`;
+    case 'quiz':
+      return `/module/${moduleId}/check`;
     case 'podcast':
       // The module page IS the podcast home for podcast-first learners.
       return `/module/${moduleId}`;
@@ -28,6 +30,8 @@ export function surfaceStartLabel(surface: Surface): string {
       return 'Start talking →';
     case 'podcast':
       return 'Start with a podcast →';
+    case 'quiz':
+      return 'Take the quiz →';
     default:
       return 'Start →';
   }
