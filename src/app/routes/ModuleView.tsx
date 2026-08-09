@@ -1,12 +1,13 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import type { CalibrationField, ContentBlock, ModuleContentResponse } from '../../shared/types';
 import { Screen, Markdown, Button, ErrorNote } from '../components/ui';
 import SortingExercise from '../components/SortingExercise';
 import ChoiceExercise from '../components/ChoiceExercise';
+import ModuleHub from '../components/ModuleHub';
 import { api, ApiError, track } from '../api';
 import { useApp } from '../brand';
-import { firstVisitRedirect, preferredSurface } from '../modality';
+import { firstVisitRedirect } from '../modality';
 import { depthOf } from '../../shared/depth';
 
 const COURSE_LABELS: Record<string, string> = { ai101: 'AI 101', ai201: 'AI 201' };
@@ -299,6 +300,31 @@ export default function ModuleView() {
     [data],
   );
 
+  // Study links from the knowledge check land on a specific lesson block —
+  // scroll there once the content has rendered (Screen resets to top on mount).
+  const { hash } = useLocation();
+  useEffect(() => {
+    if (!data || !hash) return;
+    const el = document.getElementById(hash.slice(1));
+    if (!el) return;
+    const timer = setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 120);
+    return () => clearTimeout(timer);
+  }, [data, hash]);
+
+  // The hub's "sorting exercise" tile scrolls to the live exercise embedded
+  // in the read, if this module ships one.
+  const sortingAnchorId = useMemo(() => {
+    for (const b of data?.blocks ?? []) {
+      if (b.kind !== 'exercise') continue;
+      try {
+        if ((JSON.parse(b.body) as { type?: string }).type === 'sorting') return b.id;
+      } catch {
+        // Malformed payload — no anchor for this one.
+      }
+    }
+    return undefined;
+  }, [data]);
+
   // Scroll-linked TOC + honest reading progress. Reaching the end IS
   // completing the read — that's what unlock hints and the plan key off,
   // not the separately-graded applied activity.
@@ -378,57 +404,7 @@ export default function ModuleView() {
                 </Link>
               </div>
             )}
-            {(() => {
-              // The learner told us how they learn — lead with that surface,
-              // offering only what this module's package actually supports.
-              const surface = preferredSurface(me?.prefs?.styles);
-              const chip = (
-                <span className="font-utility text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded-full bg-signal text-on-signal shrink-0">
-                  Your style
-                </span>
-              );
-              const tutor = data.capabilities.chat ? (
-                <div
-                  key="tutor"
-                  className={`mt-2 first:mt-5 border rounded-brand px-4 py-3 flex flex-col sm:flex-row sm:items-center gap-2 sm:justify-between ${
-                    surface === 'chat' || surface === 'voice-chat' ? 'border-accent bg-accent/[0.06]' : 'border-accent/40 bg-accent/[0.04]'
-                  }`}
-                >
-                  <p className="text-sm text-ink">
-                    {(surface === 'chat' || surface === 'voice-chat') && <span className="mr-2">{chip}</span>}
-                    <span className="font-display font-semibold text-accent">
-                      {surface === 'voice-chat' ? 'You said you learn by talking.' : surface === 'chat' ? 'You said you learn interactively.' : 'Prefer to talk it through?'}
-                    </span>{' '}
-                    The module tutor teaches this same material in conversation — lecturettes, questions, quizzes, your pace. Type or speak.
-                  </p>
-                  <Link
-                    to={surface === 'voice-chat' ? `/module/${moduleId}/chat?voice=1` : `/module/${moduleId}/chat`}
-                    className="text-accent font-semibold text-sm no-underline hover:underline whitespace-nowrap"
-                  >
-                    {surface === 'voice-chat' ? 'Start talking →' : 'Open the tutor →'}
-                  </Link>
-                </div>
-              ) : null;
-              const podcast = data.capabilities.podcast ? (
-                <Link
-                  key="podcast"
-                  to={`/module/${moduleId}/podcast`}
-                  className={`mt-2 first:mt-5 flex items-center justify-between gap-3 border rounded-brand px-4 py-3 no-underline transition-colors group ${
-                    surface === 'podcast' ? 'border-accent bg-accent/[0.06] hover:border-ink-strong' : 'border-line bg-surface hover:border-ink-strong'
-                  }`}
-                >
-                  <span>
-                    <span className="font-display font-semibold text-ink-strong text-[0.95rem] flex items-center gap-2">
-                      {surface === 'podcast' && chip}
-                      {surface === 'podcast' ? 'You said you learn by listening — make this module a podcast.' : 'Prefer to listen? Make it a podcast.'}
-                    </span>
-                    <span className="block text-xs text-muted mt-0.5">Two hosts talk through this module from whatever angle you give them.</span>
-                  </span>
-                  <span className="text-accent font-semibold text-sm shrink-0 group-hover:underline" aria-hidden="true">Open the studio →</span>
-                </Link>
-              ) : null;
-              return surface === 'podcast' ? [podcast, tutor] : [tutor, podcast];
-            })()}
+            <ModuleHub module={data.module} capabilities={data.capabilities} sortingAnchorId={sortingAnchorId} />
 
             <div className="mt-6 sm:pl-2">
               {data.blocks.filter((b) => b.moduleId === moduleId).map((b) => (

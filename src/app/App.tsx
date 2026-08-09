@@ -13,6 +13,7 @@ import Chat from './routes/Chat';
 import MicroView from './routes/MicroView';
 import Podcast from './routes/Podcast';
 import Admin from './routes/Admin';
+import McpSetup from './routes/McpSetup';
 import KnowledgeCheck from './routes/KnowledgeCheck';
 import Activity from './routes/Activity';
 import Complete from './routes/Complete';
@@ -54,6 +55,7 @@ export default function App() {
           <Route path="/module/:moduleId/activity" element={<RequireSession><Activity /></RequireSession>} />
           <Route path="/module/:moduleId/check" element={<RequireSession><KnowledgeCheck /></RequireSession>} />
           <Route path="/module/:moduleId/complete" element={<RequireSession><Complete /></RequireSession>} />
+          <Route path="/mcp" element={<RequireSession><McpSetup /></RequireSession>} />
           <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

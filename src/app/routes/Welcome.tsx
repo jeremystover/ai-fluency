@@ -4,7 +4,7 @@ import { Screen, Button, ErrorNote } from '../components/ui';
 import MicButton from '../components/MicButton';
 import { api, ApiError, track } from '../api';
 import { useApp } from '../brand';
-import { GOAL_CHOICES } from '../../shared/goals';
+import { GOAL_CHOICES, type GoalChoice } from '../../shared/goals';
 import { DEPTH_CHOICES } from '../../shared/depth';
 import { SELF_LEVEL_CHOICES } from '../../shared/levels';
 import type { IntakePrefs } from '../../shared/types';
@@ -39,10 +39,41 @@ type StyleChoice = { id: string; label: string; detail: string; tag?: string };
 const STYLE_CHOICES: StyleChoice[] = [
   { id: 'reading', label: 'Reading, at my own pace', detail: 'A proper reading view with honest time estimates.' },
   { id: 'interactive', label: 'Interactive, hands-on', detail: 'Sorting exercises, live feedback, graded practice.' },
-  { id: 'podcast', label: 'Podcast-style audio', detail: 'Listen on a commute.', tag: 'Full course · noted' },
-  { id: 'assistant_mcp', label: 'Inside Claude or ChatGPT', detail: 'The course as an MCP server your assistant can teach from.', tag: 'Full course · noted' },
-  { id: 'voice', label: 'Talking instead of typing', detail: 'Voice in, voice out.', tag: 'Full course · noted' },
+  {
+    id: 'quiz_first',
+    label: 'Test me first',
+    detail: "Lead with the quiz. Take each module's knowledge check up front — pass and move on; miss and we point you at exactly what to study.",
+  },
+  {
+    id: 'podcast',
+    label: 'Learning by listening',
+    detail: 'Your course as a podcast — on the commute, walking the dog, at the gym, or any time your ears are free and your hands aren\'t.',
+  },
+  {
+    id: 'assistant_mcp',
+    label: 'Inside Claude or ChatGPT',
+    detail: "We'll show you how to embed this course right in your AI tools.",
+  },
 ];
+
+// What the learner uses today — asked at intake unless the company profile
+// already declares the provisioned tools (brand.aiTools).
+const TOOL_CHOICES: { id: string; label: string }[] = [
+  { id: 'claude', label: 'Claude' },
+  { id: 'chatgpt', label: 'ChatGPT' },
+  { id: 'gemini', label: 'Gemini' },
+  { id: 'other', label: 'Something else' },
+];
+
+// Which goals fit each self-assessed level best — the goals screen marks
+// these so the opening screen's answer visibly shapes what comes next.
+const LEVEL_GOALS: Record<string, string[]> = {
+  l1: ['fluency', 'confidence'],
+  l2: ['fluency', 'apply'],
+  l3: ['apply', 'workflows'],
+  l4: ['coach', 'strategy'],
+  l5: ['strategy', 'safety'],
+};
 
 const TOTAL_STEPS = 5;
 
@@ -50,7 +81,7 @@ export default function Welcome() {
   const navigate = useNavigate();
   const [params] = useSearchParams();
   const editing = params.get('edit') === '1';
-  const { me, refreshMe } = useApp();
+  const { me, brand, refreshMe } = useApp();
   const [step, setStep] = useState(0);
   const [name, setName] = useState('');
   const [role, setRole] = useState('');
@@ -60,7 +91,12 @@ export default function Welcome() {
   const [goals, setGoals] = useState<string[]>([]);
   const [objective, setObjective] = useState('');
   const [aiUsage, setAiUsage] = useState('');
+  const [aiTools, setAiTools] = useState<string[]>([]);
+  const [aiToolOther, setAiToolOther] = useState('');
   const [selfLevel, setSelfLevel] = useState<string>();
+  // The company profile can already say which tools the org provisions — no
+  // point asking what we know.
+  const askTools = !brand?.aiTools?.length;
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const tracked = useRef(false);
@@ -90,10 +126,37 @@ export default function Welcome() {
     setGoals(me.prefs?.goals ?? []);
     setObjective(me.prefs?.objective ?? '');
     setAiUsage(me.prefs?.aiUsage ?? '');
+    setAiTools(me.prefs?.aiTools ?? []);
+    setAiToolOther(me.prefs?.aiToolOther ?? '');
     setSelfLevel(me.prefs?.selfLevel);
   }, [editing, me]);
 
   const next = () => setStep((s) => Math.min(s + 1, TOTAL_STEPS - 1));
+
+  // The goals screen reuses what the opening screen just taught us: their
+  // role personalizes the apply goal, their tools personalize the tools
+  // goal, and their self-assessed level marks the goals that fit it best.
+  // Display-only — the stored goal ids stay the shared ones.
+  const toolNames = aiTools
+    .filter((id) => id !== 'other')
+    .map((id) => TOOL_CHOICES.find((t) => t.id === id)?.label ?? id);
+  if (aiTools.includes('other') && aiToolOther.trim()) toolNames.push(aiToolOther.trim().slice(0, 40));
+  const toolList =
+    toolNames.length > 1 ? `${toolNames.slice(0, -1).join(', ')} and ${toolNames[toolNames.length - 1]}` : toolNames[0];
+
+  const adaptGoal = (choice: GoalChoice): { label: string; detail: string; tag?: string } => {
+    let { label, detail } = choice;
+    const roleTrim = role.trim();
+    if (choice.id === 'apply' && roleTrim && roleTrim.length <= 40) {
+      label = `Put AI to work in my ${roleTrim} role`;
+      detail = 'Real tasks from your week — job descriptions, ER write-ups, policy drafts, survey summaries — done in minutes, checked by you.';
+    }
+    if (choice.id === 'tools' && toolList) {
+      detail = `Go deeper with ${toolList} — and the AI already embedded in your HR stack: which is which, and what each is actually for.`;
+    }
+    const tag = selfLevel && LEVEL_GOALS[selfLevel]?.includes(choice.id) ? 'For your level' : undefined;
+    return { label, detail, tag };
+  };
 
   const finish = async () => {
     if (busy) return;
@@ -103,10 +166,16 @@ export default function Welcome() {
       await api.post('/api/intake', {
         displayName: name,
         roleLabel: role,
-        prefs: { start, depth, styles, goals, objective, aiUsage, selfLevel } satisfies IntakePrefs,
+        prefs: { start, depth, styles, goals, objective, aiUsage, aiTools, aiToolOther, selfLevel } satisfies IntakePrefs,
       });
       await refreshMe();
-      navigate('/plan');
+      // Assessment-first: the course is crafted from what the assessment
+      // finds, so the diagnostic or size-up chat runs before the path
+      // reveal. Skippers go straight to the module library — the menu.
+      if (editing) navigate('/plan');
+      else if (start === 'diagnostic') navigate('/diagnostic');
+      else if (start === 'chat') navigate('/module/ai101-m1/chat');
+      else navigate('/path');
     } catch (e) {
       setError(e instanceof ApiError ? e.message : 'That didn’t save. Your answers are still here — try again.');
       setBusy(false);
@@ -208,8 +277,38 @@ export default function Welcome() {
                     />
                   </div>
                 </label>
+                {askTools && (
+                  <div className="flex flex-col gap-1.5">
+                    <span className="label-utility">Which AI tools are you using? Pick all that apply</span>
+                    <div className="flex flex-wrap gap-2">
+                      {TOOL_CHOICES.map((tool) => {
+                        const selected = aiTools.includes(tool.id);
+                        return (
+                          <button
+                            key={tool.id}
+                            onClick={() => setAiTools((cur) => (cur.includes(tool.id) ? cur.filter((x) => x !== tool.id) : [...cur, tool.id]))}
+                            aria-pressed={selected}
+                            className={`border rounded-brand px-3.5 py-2 bg-surface font-display font-semibold text-sm text-ink-strong transition-colors cursor-pointer
+                              ${selected ? 'border-accent ring-2 ring-accent/25' : 'border-line hover:border-line-strong'}`}
+                          >
+                            {tool.label}
+                          </button>
+                        );
+                      })}
+                    </div>
+                    {aiTools.includes('other') && (
+                      <input
+                        value={aiToolOther}
+                        onChange={(e) => setAiToolOther(e.target.value)}
+                        maxLength={120}
+                        placeholder="Which one(s)?"
+                        className="border border-line-strong bg-surface rounded-brand px-4 py-2.5 text-ink-strong focus:border-accent placeholder:text-muted/60"
+                      />
+                    )}
+                  </div>
+                )}
                 <div className="flex flex-col gap-1.5">
-                  <span className="label-utility">Where would you place yourself today? The course uses these levels throughout</span>
+                  <span className="label-utility">Where would you place yourself today?</span>
                   <div className="flex flex-col gap-2">
                     {SELF_LEVEL_CHOICES.map((choice) =>
                       card({
@@ -231,19 +330,21 @@ export default function Welcome() {
 
           {step === 1 && (
             <>
-              <h1 className="font-display font-semibold text-ink-strong text-2xl leading-snug">What do you want out of this?</h1>
+              <h1 className="font-display font-semibold text-ink-strong text-2xl leading-snug">How do you want to level up?</h1>
               <p className="text-muted text-sm mt-2">Pick everything that's true. The plan leans toward what you choose.</p>
               <div className="mt-6 grid gap-2 sm:grid-cols-2">
-                {GOAL_CHOICES.map((choice) =>
-                  card({
+                {GOAL_CHOICES.map((choice) => {
+                  const adapted = adaptGoal(choice);
+                  return card({
                     key: choice.id,
-                    label: choice.label,
-                    detail: choice.detail,
+                    label: adapted.label,
+                    detail: adapted.detail,
+                    tag: adapted.tag,
                     compact: true,
                     selected: goals.includes(choice.id),
                     onClick: () => setGoals((g) => (g.includes(choice.id) ? g.filter((x) => x !== choice.id) : [...g, choice.id])),
-                  }),
-                )}
+                  });
+                })}
               </div>
               <label className="flex flex-col gap-1.5 mt-5">
                 <span className="label-utility">Anything else? Something specific, or a goal not covered above — type or talk. Optional</span>
@@ -272,7 +373,8 @@ export default function Welcome() {
             <>
               <h1 className="font-display font-semibold text-ink-strong text-2xl leading-snug">How deep do you want to go?</h1>
               <p className="text-muted text-sm mt-2">
-                This shapes everything — how long the reads run, how deep the tutor goes, how long the podcasts play. Change it anytime.
+                How much do you want to invest in learning about AI Fluency? You can always change it later, but let us know how much
+                time you're ready to spend with us and we'll craft a course that fits.
               </p>
               <div className="mt-6 flex flex-col gap-2.5">
                 {DEPTH_CHOICES.map((choice) =>
@@ -293,10 +395,7 @@ export default function Welcome() {
           {step === 3 && (
             <>
               <h1 className="font-display font-semibold text-ink-strong text-2xl leading-snug">How do you like to learn?</h1>
-              <p className="text-muted text-sm mt-2">
-                Pick any that appeal. Reading and interactive run in this demo today; the rest tells us what to build next —
-                picking one logs real interest, not a fake button.
-              </p>
+              <p className="text-muted text-sm mt-2">Pick the one that fits best — every module keeps the others a click away.</p>
               <div className="mt-6 flex flex-col gap-2.5">
                 {STYLE_CHOICES.map((choice) =>
                   card({
@@ -304,8 +403,8 @@ export default function Welcome() {
                     label: choice.label,
                     detail: choice.detail,
                     tag: choice.tag,
-                    selected: styles.includes(choice.id),
-                    onClick: () => setStyles((s) => (s.includes(choice.id) ? s.filter((x) => x !== choice.id) : [...s, choice.id])),
+                    selected: styles[0] === choice.id,
+                    onClick: () => setStyles((s) => (s[0] === choice.id ? [] : [choice.id])),
                   }),
                 )}
               </div>
@@ -332,7 +431,7 @@ export default function Welcome() {
               {error && <div className="mt-4"><ErrorNote message={error} /></div>}
               <div className="mt-6">
                 <Button onClick={finish} disabled={busy || !start}>
-                  {busy ? 'Building your plan…' : editing ? 'Rebuild my plan' : 'Build my plan'}
+                  {busy ? 'Crafting your course…' : editing ? 'Recraft my course' : 'Craft my course'}
                 </Button>
               </div>
             </>

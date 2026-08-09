@@ -9,7 +9,7 @@ export const DEPTH_CHOICES: DepthChoice[] = [
   {
     id: 'essentials',
     label: 'Short and sweet',
-    detail: 'Just the essentials: micro doses, quick takes, the judgment calls without the footnotes. Depth stays a click away.',
+    detail: 'Just the essentials: micro doses, quick takes, the judgment calls without the footnotes.',
   },
   {
     id: 'balanced',

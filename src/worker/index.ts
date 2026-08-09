@@ -155,7 +155,14 @@ app.get('/api/brand', async (c) => {
   const rows = await db.select().from(t.fdBrand).where(eq(t.fdBrand.slug, c.env.BRAND_SLUG)).limit(1);
   const row = rows[0];
   if (!row) return c.json({ error: 'No brand seeded for this deployment. Run the seed migration.' }, 500);
-  const brand: Brand = { slug: row.slug, name: row.name, tokens: JSON.parse(row.tokensJson), voice: JSON.parse(row.voiceJson) };
+  const profile = row.profileJson ? JSON.parse(row.profileJson) : null;
+  const brand: Brand = {
+    slug: row.slug,
+    name: row.name,
+    tokens: JSON.parse(row.tokensJson),
+    voice: JSON.parse(row.voiceJson),
+    ...(Array.isArray(profile?.aiTools) && profile.aiTools.length ? { aiTools: profile.aiTools } : {}),
+  };
   return c.json(brand);
 });
 
@@ -266,8 +273,10 @@ app.post('/api/hello', async (c) => {
   return c.json({ ok: true });
 });
 
-const VALID_STYLES = new Set(['reading', 'interactive', 'podcast', 'assistant_mcp', 'voice']);
+// 'voice' is no longer offered at intake but stays valid for stored prefs.
+const VALID_STYLES = new Set(['reading', 'interactive', 'podcast', 'assistant_mcp', 'voice', 'quiz_first']);
 const VALID_GOALS = new Set(GOAL_CHOICES.map((g) => g.id));
+const VALID_AI_TOOLS = new Set(['claude', 'chatgpt', 'gemini', 'other']);
 
 
 async function loadPrefs(db: DrizzleD1Database, sessionId: string): Promise<IntakePrefs> {
@@ -285,6 +294,8 @@ async function loadPrefs(db: DrizzleD1Database, sessionId: string): Promise<Inta
     else if (row.key === 'goals') prefs.goals = value;
     else if (row.key === 'objective') prefs.objective = value;
     else if (row.key === 'aiUsage') prefs.aiUsage = value;
+    else if (row.key === 'aiTools') prefs.aiTools = value;
+    else if (row.key === 'aiToolOther') prefs.aiToolOther = value;
     else if (row.key === 'selfLevel') prefs.selfLevel = value;
   }
   return prefs;
@@ -318,6 +329,8 @@ app.post('/api/intake', async (c) => {
   if (Array.isArray(raw.goals)) clean.push(['goals', raw.goals.filter((g) => VALID_GOALS.has(g)).slice(0, 8)]);
   if (typeof raw.objective === 'string') clean.push(['objective', raw.objective.trim().slice(0, 280)]);
   if (typeof raw.aiUsage === 'string') clean.push(['aiUsage', raw.aiUsage.trim().slice(0, 280)]);
+  if (Array.isArray(raw.aiTools)) clean.push(['aiTools', raw.aiTools.filter((t) => VALID_AI_TOOLS.has(t)).slice(0, 4)]);
+  if (typeof raw.aiToolOther === 'string') clean.push(['aiToolOther', raw.aiToolOther.trim().slice(0, 120)]);
   if (typeof raw.selfLevel === 'string' && SELF_LEVEL_IDS.includes(raw.selfLevel)) clean.push(['selfLevel', raw.selfLevel]);
 
   for (const [key, value] of clean) {
@@ -447,9 +460,10 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
   }
   const styles = prefs.styles ?? [];
   if (styles.includes('interactive')) notes.push('You chose interactive — Module 1 has a live tutor chat that teaches the same material in conversation. Open it from inside the module.');
-  if (styles.includes('podcast')) notes.push('Podcast-style audio is live — open Module 1 and make a custom two-host episode from any angle you like.');
-  if (styles.includes('assistant_mcp')) notes.push('Taking this course inside Claude or ChatGPT, as an MCP server, is on the roadmap — your interest is logged.');
+  if (styles.includes('podcast')) notes.push('Learning by listening is live — open Module 1 and make a custom two-host podcast episode from any angle you like.');
+  if (styles.includes('assistant_mcp')) notes.push('Taking this course embedded right in your AI tools is on the roadmap — your interest is logged.');
   if (styles.includes('voice')) notes.push('Talking instead of typing is live — every text box has a mic, and the tutor chat has a voice mode that reads replies aloud.');
+  if (styles.includes('quiz_first')) notes.push('Test-first, as requested: every module leads with its knowledge check — 60%+ finishes it, and misses point you at exactly what to study.');
   if (depth === 'essentials') notes.push('Short and sweet, as requested: micro doses and the sorting exercise lead. The full read and graded activity keep for whenever you want more.');
   else if (depth === 'deep') notes.push('Deep dive: the full loop is on your path, and the tutor is primed to quiz you until it sticks.');
 
@@ -460,8 +474,8 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
         ? `${name}, picking back up where you left off.`
         : 'Picking back up where you left off.'
       : name
-        ? `${name}, here's the shape of it.`
-        : "Here's the shape of it.";
+        ? `${name}, here's your path.`
+        : "Here's your path.";
 
   const next = steps.find((s) => s.state === 'now') ?? steps.find((s) => s.state === 'later');
   return { greeting, steps, notes, goals, objective: prefs.objective || null, nextRoute: next?.route ?? '/path' };
@@ -904,7 +918,14 @@ type ChoicePayload = {
 type KnowledgeCheckPayload = {
   title: string;
   note: string | null;
-  questions: { id: string; prompt: string; options: string[]; correctIndex: number; explanation: string }[];
+  questions: {
+    id: string;
+    prompt: string;
+    options: string[];
+    correctIndex: number;
+    explanation: string;
+    study?: { blockId: string; label: string };
+  }[];
 };
 
 
@@ -1468,6 +1489,7 @@ app.post('/api/module/:id/knowledge-check', async (c) => {
       correct: ok,
       correctIndex: q.correctIndex,
       explanation: q.explanation,
+      study: q.study,
     };
   });
   await logEvent(db, session.id, 'knowledge_check_submitted', { moduleId, correct, total: kc.questions.length });

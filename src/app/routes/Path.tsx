@@ -79,7 +79,7 @@ export default function Path() {
   }, []);
 
   if (error) return <Screen><div className="pt-20"><ErrorNote message={error} /></div></Screen>;
-  if (!data) return <Screen><div className="pt-24 text-center"><p className="label-utility">Loading the path…</p></div></Screen>;
+  if (!data) return <Screen><div className="pt-24 text-center"><p className="label-utility">Opening the library…</p></div></Screen>;
 
   const startFor = (m: PathModule) =>
     essentialsReader
@@ -91,8 +91,8 @@ export default function Path() {
       <div className="pt-10 sm:pt-14">
         <div className="flex items-end justify-between gap-4 flex-wrap">
           <div>
-            <p className="label-utility">Your path</p>
-            <h1 className="font-display font-bold text-ink-strong text-3xl sm:text-4xl mt-3">The course ladder</h1>
+            <p className="label-utility">The module library</p>
+            <h1 className="font-display font-bold text-ink-strong text-3xl sm:text-4xl mt-3">Choose your own adventure</h1>
             <p className="text-muted mt-2 max-w-xl">
               Take modules in the order that serves you — each comes as a full module or a two-minute micro dose. Nothing locks:
               a few build on others, and those carry a recommendation, not a gate

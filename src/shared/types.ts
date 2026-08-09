@@ -14,6 +14,9 @@ export type Brand = {
   name: string;
   tokens: BrandTokens;
   voice: { greeting: string; signoff: string };
+  // Assistants the company provisions (e.g. ["Claude"]). When the profile
+  // declares this, the intake skips its "which AI tools?" question.
+  aiTools?: string[];
 };
 
 export type ContentBlock = {
@@ -150,10 +153,12 @@ export type ChatStreamLine =
 export type IntakePrefs = {
   start?: 'diagnostic' | 'module' | 'chat';
   depth?: 'essentials' | 'balanced' | 'deep'; // how much they want to invest — see shared/depth.ts
-  styles?: string[]; // reading | interactive | podcast | assistant_mcp | voice
+  styles?: string[]; // single pick at intake: reading | interactive | quiz_first | podcast | assistant_mcp ('voice' survives from older sessions)
   goals?: string[]; // fluency | workflows | apply | news | tools | safety | coach | confidence
   objective?: string; // free-text refinement of the goals
   aiUsage?: string; // free-text: how they use AI in their job today
+  aiTools?: string[]; // claude | chatgpt | gemini | other — asked unless the company profile already says
+  aiToolOther?: string; // free-text fill-in when 'other' is picked
   selfLevel?: string; // self-assessed fluency level — see shared/levels.ts
 };
 
@@ -367,7 +372,16 @@ export type KnowledgeCheckPublic = {
 
 export type KnowledgeCheckResult = {
   score: { correct: number; total: number };
-  results: { id: string; chosenIndex: number; correct: boolean; correctIndex: number; explanation: string }[];
+  // `study` points a missed question back at the lesson block that teaches
+  // it — the results screen turns misses into a study list.
+  results: {
+    id: string;
+    chosenIndex: number;
+    correct: boolean;
+    correctIndex: number;
+    explanation: string;
+    study?: { blockId: string; label: string };
+  }[];
 };
 
 // ---------- choice exercise ----------
