@@ -6,7 +6,7 @@ import { extractPaths } from '../../shared/chat';
 import { Screen, ErrorNote } from '../components/ui';
 import MicButton from '../components/MicButton';
 import { api, ApiError } from '../api';
-import { useDevice } from '../brand';
+import { useApp, useDevice } from '../brand';
 
 const VOICE_MODE_KEY = 'fd_chat_voice_mode';
 
@@ -81,6 +81,11 @@ function ListenButton({
 export default function Chat() {
   const MODULE_ID = useParams().moduleId ?? 'ai101-m1';
   const device = useDevice();
+  const { me } = useApp();
+  // Mirrors the worker's size-up condition: they chose the conversational
+  // assessment and haven't taken the diagnostic — frame the screen as the
+  // assessment, not as module teaching.
+  const sizeUp = MODULE_ID === 'ai101-m1' && me?.prefs?.start === 'chat' && !me?.progress.diagnosticDone;
   const navigate = useNavigate();
   const [title, setTitle] = useState<string | null>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -271,8 +276,10 @@ export default function Chat() {
       <div className="pt-6 flex flex-col min-h-[calc(100dvh-12rem)]">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 sm:gap-3 border-b border-line pb-3">
           <div>
-            <p className="label-utility">Module 1 · Tutor chat</p>
-            <h1 className="font-display font-bold text-ink-strong text-xl mt-1">{title ?? 'The tutor'}</h1>
+            <p className="label-utility">{sizeUp ? 'Sizing you up' : 'Module 1 · Tutor chat'}</p>
+            <h1 className="font-display font-bold text-ink-strong text-xl mt-1">
+              {sizeUp ? "Let's see where you stand" : (title ?? 'The tutor')}
+            </h1>
           </div>
           <div className="flex items-center gap-4 pb-0.5">
             {voice.speech && (

@@ -165,7 +165,13 @@ export default function Welcome() {
         prefs: { start, depth, styles, goals, objective, aiUsage, aiTools, aiToolOther, selfLevel } satisfies IntakePrefs,
       });
       await refreshMe();
-      navigate('/plan');
+      // Assessment-first: the course is crafted from what the assessment
+      // finds, so the diagnostic or size-up chat runs before the path
+      // reveal. Skippers go straight to the module library — the menu.
+      if (editing) navigate('/plan');
+      else if (start === 'diagnostic') navigate('/diagnostic');
+      else if (start === 'chat') navigate('/module/ai101-m1/chat');
+      else navigate('/path');
     } catch (e) {
       setError(e instanceof ApiError ? e.message : 'That didn’t save. Your answers are still here — try again.');
       setBusy(false);

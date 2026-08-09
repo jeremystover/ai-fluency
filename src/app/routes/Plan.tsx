@@ -20,12 +20,12 @@ export default function Plan() {
   }, []);
 
   if (error) return <Screen><div className="pt-20"><ErrorNote message={error} /></div></Screen>;
-  if (!plan) return <Screen><div className="pt-24 text-center"><p className="label-utility">Composing your plan…</p></div></Screen>;
+  if (!plan) return <Screen><div className="pt-24 text-center"><p className="label-utility">Crafting your course…</p></div></Screen>;
 
   return (
     <Screen>
       <div className="pt-12 sm:pt-16 max-w-xl">
-        <p className="label-utility anim-fade">Your plan · built from your answers</p>
+        <p className="label-utility anim-fade">Your course</p>
         <h1 className="font-display font-bold text-ink-strong text-3xl sm:text-4xl mt-3 leading-tight anim-rise">{plan.greeting}</h1>
         {plan.goals.length > 0 && (
           <div className="mt-4 flex flex-wrap gap-1.5 anim-rise" style={{ animationDelay: '60ms' }}>
@@ -88,7 +88,7 @@ export default function Plan() {
         <div className="mt-8 flex items-center gap-5 flex-wrap">
           <Button onClick={() => navigate(plan.nextRoute)}>Start</Button>
           <Link to="/path" className="text-muted text-sm hover:text-ink-strong">
-            See the whole path
+            Explore the module library
           </Link>
           <Link to="/welcome?edit=1" className="text-muted text-sm hover:text-ink-strong">
             Customize your path

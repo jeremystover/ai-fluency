@@ -455,8 +455,8 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
         ? `${name}, picking back up where you left off.`
         : 'Picking back up where you left off.'
       : name
-        ? `${name}, here's the shape of it.`
-        : "Here's the shape of it.";
+        ? `${name}, here's your path.`
+        : "Here's your path.";
 
   const next = steps.find((s) => s.state === 'now') ?? steps.find((s) => s.state === 'later');
   return { greeting, steps, notes, goals, objective: prefs.objective || null, nextRoute: next?.route ?? '/path' };
