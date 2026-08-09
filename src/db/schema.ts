@@ -320,6 +320,49 @@ export const fdCompletionAudit = sqliteTable(
   ],
 );
 
+// The employee census: who should be taking the course. Imported via CSV in
+// the admin (Workday/Okta sync will land on the same rows — the source column
+// says where each row came from). Learner sessions are anonymous passcode
+// entries, so matching to sessions is by self-reported name until SSO exists.
+export const fdEmployee = sqliteTable(
+  'fd_employee',
+  {
+    id: text('id').primaryKey(),
+    brandSlug: text('brand_slug').notNull(),
+    name: text('name').notNull(),
+    email: text('email'),
+    roleTitle: text('role_title'),
+    managerName: text('manager_name'),
+    managerEmail: text('manager_email'),
+    level: text('level'),
+    location: text('location'),
+    startDate: text('start_date'),
+    source: text('source').notNull().default('csv'), // csv | workday | okta
+    createdAt: text('created_at').notNull(),
+    updatedAt: text('updated_at').notNull(),
+  },
+  (t) => [index('idx_employee_brand').on(t.brandSlug)],
+);
+
+// Configurable nudges. Rules are evaluated against the census + funnel; the
+// preview endpoint shows exactly who each rule would notify today. Delivery
+// requires an email provider — rules and previews work without one.
+export const fdReminderRule = sqliteTable(
+  'fd_reminder_rule',
+  {
+    id: text('id').primaryKey(),
+    brandSlug: text('brand_slug').notNull(),
+    audience: text('audience').notNull(), // employee | manager
+    trigger: text('trigger').notNull(), // not_started | inactive | incomplete
+    days: integer('days').notNull(), // trigger-specific threshold in days
+    template: text('template').notNull(), // {name} {first_name} {manager_name} {days} placeholders
+    active: integer('active').notNull().default(1),
+    createdAt: text('created_at').notNull(),
+    updatedAt: text('updated_at').notNull(),
+  },
+  (t) => [index('idx_reminder_brand').on(t.brandSlug)],
+);
+
 export const fdModule = sqliteTable('fd_module', {
   id: text('id').primaryKey(),
   courseId: text('course_id').notNull(),

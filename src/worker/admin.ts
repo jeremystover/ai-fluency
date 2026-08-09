@@ -430,6 +430,286 @@ adminApp.put('/content/blocks/:id', async (c) => {
   return c.json({ ok: true, reviewedAt: today });
 });
 
+// ---------- employee census ----------
+
+// Minimal CSV parser: quoted fields, commas, CRLF. Returns rows of cells.
+function parseCsv(text: string): string[][] {
+  const rows: string[][] = [];
+  let row: string[] = [];
+  let cell = '';
+  let inQuotes = false;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (inQuotes) {
+      if (ch === '"' && text[i + 1] === '"') { cell += '"'; i++; }
+      else if (ch === '"') inQuotes = false;
+      else cell += ch;
+    } else if (ch === '"') inQuotes = true;
+    else if (ch === ',') { row.push(cell); cell = ''; }
+    else if (ch === '\n' || ch === '\r') {
+      if (ch === '\r' && text[i + 1] === '\n') i++;
+      row.push(cell); cell = '';
+      if (row.some((c) => c.trim())) rows.push(row);
+      row = [];
+    } else cell += ch;
+  }
+  row.push(cell);
+  if (row.some((c) => c.trim())) rows.push(row);
+  return rows;
+}
+
+// Tolerant header mapping: "Manager Name", "manager_name", "manager" all land.
+const CENSUS_FIELDS: Record<string, string[]> = {
+  name: ['name', 'employee', 'employee_name', 'full_name'],
+  email: ['email', 'employee_email', 'work_email'],
+  roleTitle: ['role', 'title', 'role_title', 'job_title'],
+  managerName: ['manager', 'manager_name'],
+  managerEmail: ['manager_email'],
+  level: ['level', 'grade', 'band'],
+  location: ['location', 'office', 'site'],
+  startDate: ['start_date', 'start', 'hire_date', 'startdate'],
+};
+
+// Sessions are anonymous passcode entries; the census matches to them by
+// self-reported intake name (case-insensitive) until SSO/Okta provides
+// real identity. Latest matching session wins.
+async function censusMatches(db: DrizzleD1Database) {
+  const rows = await db.all<{ name: string; session_id: string; last_seen_at: string; modules: number }>(sql`
+    WITH named AS (
+      SELECT LOWER(TRIM(p.display_name)) AS name, p.session_id, s.last_seen_at,
+             ROW_NUMBER() OVER (PARTITION BY LOWER(TRIM(p.display_name)) ORDER BY p.created_at DESC) AS rn
+      FROM fd_participant p JOIN fd_session s ON s.id = p.session_id
+      WHERE p.display_name IS NOT NULL AND TRIM(p.display_name) != ''
+    )
+    SELECT name, session_id, last_seen_at,
+           (SELECT COUNT(DISTINCT json_extract(e.payload_json, '$.moduleId')) FROM fd_event e
+             WHERE e.session_id = named.session_id AND e.type = 'module_completed') AS modules
+    FROM named WHERE rn = 1`);
+  const list = Array.isArray(rows) ? rows : ((rows as { results?: typeof rows }).results ?? rows);
+  return new Map((list as { name: string; session_id: string; last_seen_at: string; modules: number }[]).map((r) => [r.name, r]));
+}
+
+adminApp.get('/census', async (c) => {
+  const db = c.get('db');
+  const employees = await db
+    .select()
+    .from(t.fdEmployee)
+    .where(eq(t.fdEmployee.brandSlug, c.env.BRAND_SLUG))
+    .orderBy(asc(t.fdEmployee.name));
+  const matches = await censusMatches(db);
+  return c.json({
+    employees: employees.map((e) => {
+      const m = matches.get(e.name.trim().toLowerCase());
+      return {
+        id: e.id,
+        name: e.name,
+        email: e.email,
+        roleTitle: e.roleTitle,
+        managerName: e.managerName,
+        managerEmail: e.managerEmail,
+        level: e.level,
+        location: e.location,
+        startDate: e.startDate,
+        source: e.source,
+        matchedSessionId: m?.session_id ?? null,
+        lastSeenAt: m?.last_seen_at ?? null,
+        modulesCompleted: m?.modules ?? 0,
+      };
+    }),
+  });
+});
+
+adminApp.post('/census/import', async (c) => {
+  const db = c.get('db');
+  const body = await c.req.json<{ csv?: string }>().catch(() => null);
+  const csv = body?.csv?.trim();
+  if (!csv) return c.json({ error: 'Paste the CSV to import.' }, 400);
+  if (csv.length > 2_000_000) return c.json({ error: 'That CSV is too large — import in batches under 2 MB.' }, 400);
+  const rows = parseCsv(csv);
+  if (rows.length < 2) return c.json({ error: 'Need a header row and at least one employee row.' }, 400);
+
+  const header = rows[0].map((h) => h.trim().toLowerCase().replace(/[\s-]+/g, '_'));
+  const columnOf: Record<string, number> = {};
+  for (const [field, aliases] of Object.entries(CENSUS_FIELDS)) {
+    const idx = header.findIndex((h) => aliases.includes(h));
+    if (idx >= 0) columnOf[field] = idx;
+  }
+  if (columnOf.name === undefined) return c.json({ error: 'The CSV needs a "name" column (or employee/full_name).' }, 400);
+
+  const existing = await db.select().from(t.fdEmployee).where(eq(t.fdEmployee.brandSlug, c.env.BRAND_SLUG));
+  const byEmail = new Map(existing.filter((e) => e.email).map((e) => [e.email!.toLowerCase(), e]));
+  const byName = new Map(existing.map((e) => [e.name.trim().toLowerCase(), e]));
+
+  let imported = 0;
+  let updated = 0;
+  let skipped = 0;
+  for (const cells of rows.slice(1)) {
+    const get = (field: string) => {
+      const idx = columnOf[field];
+      const v = idx === undefined ? '' : (cells[idx] ?? '').trim();
+      return v || null;
+    };
+    const name = get('name');
+    if (!name) { skipped++; continue; }
+    const email = get('email');
+    const values = {
+      name,
+      email,
+      roleTitle: get('roleTitle'),
+      managerName: get('managerName'),
+      managerEmail: get('managerEmail'),
+      level: get('level'),
+      location: get('location'),
+      startDate: get('startDate'),
+      source: 'csv',
+      updatedAt: now(),
+    };
+    const prior = (email && byEmail.get(email.toLowerCase())) || byName.get(name.trim().toLowerCase());
+    if (prior) {
+      await db.update(t.fdEmployee).set(values).where(eq(t.fdEmployee.id, prior.id));
+      updated++;
+    } else {
+      await db.insert(t.fdEmployee).values({ id: uuid(), brandSlug: c.env.BRAND_SLUG, createdAt: now(), ...values });
+      imported++;
+    }
+  }
+  await db.insert(t.fdEvent).values({
+    id: uuid(),
+    sessionId: null,
+    type: 'census_imported',
+    payloadJson: JSON.stringify({ imported, updated, skipped }),
+    createdAt: now(),
+  });
+  return c.json({ imported, updated, skipped });
+});
+
+adminApp.delete('/census/:id', async (c) => {
+  const db = c.get('db');
+  await db
+    .delete(t.fdEmployee)
+    .where(and(eq(t.fdEmployee.id, c.req.param('id')), eq(t.fdEmployee.brandSlug, c.env.BRAND_SLUG)));
+  return c.json({ ok: true });
+});
+
+// ---------- reminders ----------
+
+const REMINDER_AUDIENCES = new Set(['employee', 'manager']);
+const REMINDER_TRIGGERS = new Set(['not_started', 'inactive', 'incomplete']);
+
+adminApp.get('/reminders', async (c) => {
+  const db = c.get('db');
+  const rules = await db
+    .select()
+    .from(t.fdReminderRule)
+    .where(eq(t.fdReminderRule.brandSlug, c.env.BRAND_SLUG))
+    .orderBy(asc(t.fdReminderRule.createdAt));
+  return c.json({ rules: rules.map((r) => ({ ...r, active: r.active === 1 })) });
+});
+
+adminApp.post('/reminders', async (c) => {
+  const db = c.get('db');
+  const body = await c.req.json<{ audience?: string; trigger?: string; days?: number; template?: string }>().catch(() => null);
+  const audience = body?.audience ?? '';
+  const trigger = body?.trigger ?? '';
+  const days = Number(body?.days);
+  const template = body?.template?.trim();
+  if (!REMINDER_AUDIENCES.has(audience)) return c.json({ error: 'Audience must be employee or manager.' }, 400);
+  if (!REMINDER_TRIGGERS.has(trigger)) return c.json({ error: 'Trigger must be not_started, inactive, or incomplete.' }, 400);
+  if (!Number.isInteger(days) || days < 1 || days > 365) return c.json({ error: 'Days must be between 1 and 365.' }, 400);
+  if (!template) return c.json({ error: 'Write the reminder template.' }, 400);
+  await db.insert(t.fdReminderRule).values({
+    id: uuid(),
+    brandSlug: c.env.BRAND_SLUG,
+    audience,
+    trigger,
+    days,
+    template: template.slice(0, 4000),
+    active: 1,
+    createdAt: now(),
+    updatedAt: now(),
+  });
+  return c.json({ ok: true });
+});
+
+adminApp.post('/reminders/:id/toggle', async (c) => {
+  const db = c.get('db');
+  const rows = await db
+    .select()
+    .from(t.fdReminderRule)
+    .where(and(eq(t.fdReminderRule.id, c.req.param('id')), eq(t.fdReminderRule.brandSlug, c.env.BRAND_SLUG)))
+    .limit(1);
+  if (!rows[0]) return c.json({ error: 'No such rule.' }, 404);
+  await db
+    .update(t.fdReminderRule)
+    .set({ active: rows[0].active === 1 ? 0 : 1, updatedAt: now() })
+    .where(eq(t.fdReminderRule.id, rows[0].id));
+  return c.json({ ok: true, active: rows[0].active !== 1 });
+});
+
+adminApp.delete('/reminders/:id', async (c) => {
+  const db = c.get('db');
+  await db
+    .delete(t.fdReminderRule)
+    .where(and(eq(t.fdReminderRule.id, c.req.param('id')), eq(t.fdReminderRule.brandSlug, c.env.BRAND_SLUG)));
+  return c.json({ ok: true });
+});
+
+const fillTemplate = (template: string, vars: Record<string, string>) =>
+  template.replace(/\{(\w+)\}/g, (_, key: string) => vars[key] ?? `{${key}}`);
+
+// Dry run: exactly who each active rule would notify right now, with the
+// rendered message. This is the whole evaluation path — a delivery layer
+// (email provider + cron) would iterate the same result and send.
+adminApp.get('/reminders/preview', async (c) => {
+  const db = c.get('db');
+  const rules = await db
+    .select()
+    .from(t.fdReminderRule)
+    .where(and(eq(t.fdReminderRule.brandSlug, c.env.BRAND_SLUG), eq(t.fdReminderRule.active, 1)));
+  const employees = await db.select().from(t.fdEmployee).where(eq(t.fdEmployee.brandSlug, c.env.BRAND_SLUG));
+  const matches = await censusMatches(db);
+  const nowMs = Date.now();
+  const daysAgo = (iso: string | null) => (iso ? (nowMs - Date.parse(iso)) / 86_400_000 : null);
+
+  const previews = rules.map((rule) => {
+    const due = employees.filter((e) => {
+      const m = matches.get(e.name.trim().toLowerCase());
+      if (rule.trigger === 'not_started') {
+        if (m) return false;
+        const sinceStart = daysAgo(e.startDate);
+        return sinceStart === null || sinceStart >= rule.days;
+      }
+      if (rule.trigger === 'inactive') {
+        const idle = m ? daysAgo(m.last_seen_at) : null;
+        return idle !== null && idle >= rule.days;
+      }
+      // incomplete: started, no module completed, and idle long enough to nudge
+      return m !== undefined && m.modules === 0 && (daysAgo(m.last_seen_at) ?? 0) >= rule.days;
+    });
+    return {
+      ruleId: rule.id,
+      audience: rule.audience,
+      trigger: rule.trigger,
+      days: rule.days,
+      recipients: due.map((e) => {
+        const vars = {
+          name: e.name,
+          first_name: e.name.split(/\s+/)[0],
+          manager_name: e.managerName ?? 'their manager',
+          days: String(rule.days),
+        };
+        return {
+          employee: e.name,
+          to: rule.audience === 'manager' ? (e.managerEmail ?? e.managerName ?? '(no manager on file)') : (e.email ?? '(no email on file)'),
+          message: fillTemplate(rule.template, vars),
+          deliverable: rule.audience === 'manager' ? !!e.managerEmail : !!e.email,
+        };
+      }),
+    };
+  });
+  return c.json({ previews });
+});
+
 // ---------- completion audit ----------
 
 // Who completed what, against which content version. Each row points at a

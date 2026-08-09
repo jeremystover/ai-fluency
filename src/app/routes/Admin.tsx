@@ -8,7 +8,19 @@ import { goalLabel } from '../../shared/goals';
 // access-code management, and the completion audit trail. Deliberately
 // utilitarian — this is a tool for one company admin, not a learner surface.
 
-type Tab = 'learners' | 'content' | 'brand' | 'queue' | 'report' | 'codes' | 'audit';
+type Tab = 'learners' | 'content' | 'brand' | 'census' | 'reminders' | 'queue' | 'report' | 'codes' | 'audit';
+
+const TAB_LABELS: Record<Tab, string> = {
+  learners: 'Learners',
+  content: 'Content',
+  brand: 'Brand',
+  census: 'Census',
+  reminders: 'Reminders',
+  queue: 'Review queue',
+  report: 'Reporting',
+  codes: 'Access codes',
+  audit: 'Content audit',
+};
 
 type SubmissionRow = {
   id: string;
@@ -908,6 +920,281 @@ function BrandTab() {
   );
 }
 
+type EmployeeRow = {
+  id: string;
+  name: string;
+  email: string | null;
+  roleTitle: string | null;
+  managerName: string | null;
+  managerEmail: string | null;
+  level: string | null;
+  location: string | null;
+  startDate: string | null;
+  source: string;
+  matchedSessionId: string | null;
+  lastSeenAt: string | null;
+  modulesCompleted: number;
+};
+
+function Census() {
+  const [employees, setEmployees] = useState<EmployeeRow[] | null>(null);
+  const [csv, setCsv] = useState('');
+  const [busy, setBusy] = useState(false);
+  const [note, setNote] = useState<string | null>(null);
+
+  const load = () => api.get<{ employees: EmployeeRow[] }>('/api/admin/census').then((d) => setEmployees(d.employees));
+  useEffect(() => {
+    load();
+  }, []);
+
+  const runImport = async () => {
+    if (busy || !csv.trim()) return;
+    setBusy(true);
+    setNote(null);
+    try {
+      const r = await api.post<{ imported: number; updated: number; skipped: number }>('/api/admin/census/import', { csv });
+      setNote(`Imported ${r.imported}, updated ${r.updated}${r.skipped ? `, skipped ${r.skipped} rows without a name` : ''}.`);
+      setCsv('');
+      await load();
+    } catch (e) {
+      setNote(e instanceof ApiError ? e.message : 'Import failed.');
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const remove = async (id: string) => {
+    await api.del(`/api/admin/census/${id}`);
+    await load();
+  };
+
+  if (!employees) return <p className="label-utility mt-8">Loading census…</p>;
+  const matched = employees.filter((e) => e.matchedSessionId).length;
+  return (
+    <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,8fr)_minmax(0,4fr)]">
+      <div>
+        <p className="text-xs text-muted mb-2">
+          {employees.length} employees on file · {matched} matched to a learner session. Matching is by intake name (case-insensitive) until SSO provides real identity — unmatched rows may simply have entered a different name.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="text-left">
+                {['Name', 'Role', 'Manager', 'Level', 'Location', 'Started', 'Course status', ''].map((h, i) => (
+                  <th key={i} className="label-utility font-normal pb-2 pr-3">{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {employees.map((e) => (
+                <tr key={e.id} className="border-t border-line">
+                  <td className="py-2 pr-3">
+                    {e.name}
+                    {e.email && <span className="block font-utility text-[0.65rem] text-muted">{e.email}</span>}
+                  </td>
+                  <td className="py-2 pr-3 text-xs">{e.roleTitle ?? '—'}</td>
+                  <td className="py-2 pr-3 text-xs">{e.managerName ?? '—'}</td>
+                  <td className="py-2 pr-3 font-utility text-xs">{e.level ?? '—'}</td>
+                  <td className="py-2 pr-3 text-xs">{e.location ?? '—'}</td>
+                  <td className="py-2 pr-3 font-utility text-xs">{e.startDate ?? '—'}</td>
+                  <td className="py-2 pr-3 text-xs">
+                    {e.matchedSessionId ? (
+                      <span>
+                        {e.modulesCompleted > 0 ? `${e.modulesCompleted} module${e.modulesCompleted === 1 ? '' : 's'} done` : 'started'}
+                        <span className="block font-utility text-[0.65rem] text-muted">seen {fmtDate(e.lastSeenAt)}</span>
+                      </span>
+                    ) : (
+                      <span className="text-muted">not started</span>
+                    )}
+                  </td>
+                  <td className="py-2">
+                    <button onClick={() => remove(e.id)} className="text-muted text-xs hover:text-ink-strong">Remove</button>
+                  </td>
+                </tr>
+              ))}
+              {employees.length === 0 && (
+                <tr><td colSpan={8} className="py-6 text-muted text-sm">No employees yet — import a CSV to start the census.</td></tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div className="flex flex-col gap-4">
+        <div className="border border-line rounded-brand bg-surface p-4">
+          <span className="label-utility">CSV import</span>
+          <p className="text-xs text-muted mt-1">
+            Header row + one employee per row. Recognized columns: name (required), email, role/title, manager, manager_email, level, location, start_date. Re-importing updates existing rows by email, then name.
+          </p>
+          <textarea
+            value={csv}
+            onChange={(e) => setCsv(e.target.value)}
+            rows={7}
+            spellCheck={false}
+            placeholder={'name,email,role,manager,manager_email,level,location,start_date\nJane Doe,jane@acme.com,HRBP,Sam Lee,sam@acme.com,L5,Austin,2024-03-01'}
+            className="mt-2 w-full border border-line-strong bg-surface rounded-brand px-3 py-2 text-xs font-utility focus:border-accent placeholder:text-muted/60"
+          />
+          <div className="mt-2 flex items-center gap-3">
+            <Button onClick={runImport} disabled={busy || !csv.trim()}>{busy ? 'Importing…' : 'Import'}</Button>
+            {note && <span className="text-xs text-muted">{note}</span>}
+          </div>
+        </div>
+        <div className="border border-line rounded-brand bg-surface p-4">
+          <span className="label-utility">Workday · Okta</span>
+          <p className="text-xs text-muted mt-1">
+            Directory sync lands on these same rows (names, roles, managers, level, location, start date), with the source column marking where each record came from. Not yet connected — CSV import is the path today.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+type ReminderRule = {
+  id: string;
+  audience: string;
+  trigger: string;
+  days: number;
+  template: string;
+  active: boolean;
+};
+
+type ReminderPreview = {
+  ruleId: string;
+  audience: string;
+  trigger: string;
+  days: number;
+  recipients: { employee: string; to: string; message: string; deliverable: boolean }[];
+};
+
+const TRIGGER_LABELS: Record<string, string> = {
+  not_started: 'has not started',
+  inactive: 'inactive for',
+  incomplete: 'started but no module completed for',
+};
+
+function Reminders() {
+  const [rules, setRules] = useState<ReminderRule[] | null>(null);
+  const [previews, setPreviews] = useState<ReminderPreview[] | null>(null);
+  const [audience, setAudience] = useState('employee');
+  const [trigger, setTrigger] = useState('not_started');
+  const [days, setDays] = useState('7');
+  const [template, setTemplate] = useState('');
+  const [busy, setBusy] = useState(false);
+  const [note, setNote] = useState<string | null>(null);
+
+  const load = async () => {
+    const r = await api.get<{ rules: ReminderRule[] }>('/api/admin/reminders');
+    setRules(r.rules);
+    setPreviews((await api.get<{ previews: ReminderPreview[] }>('/api/admin/reminders/preview')).previews);
+  };
+  useEffect(() => {
+    load();
+  }, []);
+
+  const create = async (e: FormEvent) => {
+    e.preventDefault();
+    if (busy) return;
+    setBusy(true);
+    setNote(null);
+    try {
+      await api.post('/api/admin/reminders', { audience, trigger, days: Number(days), template });
+      setTemplate('');
+      await load();
+    } catch (err) {
+      setNote(err instanceof ApiError ? err.message : 'Failed to create rule.');
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  if (!rules) return <p className="label-utility mt-8">Loading reminders…</p>;
+  return (
+    <div className="mt-6 grid gap-6 lg:grid-cols-2">
+      <div>
+        <p className="text-xs text-muted mb-3">
+          Rules are evaluated against the census and the funnel. The preview shows exactly who each active rule would notify today, with the rendered message. Delivery needs an email provider connected — rules and previews are live now; nothing sends yet.
+        </p>
+        {rules.map((r) => {
+          const preview = previews?.find((p) => p.ruleId === r.id);
+          return (
+            <div key={r.id} className={`border border-line rounded-brand bg-surface p-4 mb-3 ${r.active ? '' : 'opacity-60'}`}>
+              <div className="flex items-center justify-between flex-wrap gap-2">
+                <span className="text-sm text-ink-strong">
+                  To the <strong>{r.audience}</strong> when the employee {TRIGGER_LABELS[r.trigger] ?? r.trigger} <strong>{r.days} days</strong>
+                </span>
+                <span className="flex gap-3">
+                  <button onClick={async () => { await api.post(`/api/admin/reminders/${r.id}/toggle`); await load(); }} className="text-accent text-xs font-semibold hover:underline">
+                    {r.active ? 'Pause' : 'Resume'}
+                  </button>
+                  <button onClick={async () => { await api.del(`/api/admin/reminders/${r.id}`); await load(); }} className="text-muted text-xs hover:text-ink-strong">
+                    Delete
+                  </button>
+                </span>
+              </div>
+              <p className="text-xs text-ink mt-2 whitespace-pre-wrap border-l-2 border-line pl-2">{r.template}</p>
+              {r.active && preview && (
+                <div className="mt-3 border-t border-line pt-2">
+                  <span className="label-utility">Would notify today · {preview.recipients.length}</span>
+                  <div className="mt-1 max-h-36 overflow-y-auto flex flex-col gap-1">
+                    {preview.recipients.map((rec, i) => (
+                      <details key={i} className="text-xs text-ink">
+                        <summary className="cursor-pointer">
+                          {rec.employee} → <span className={rec.deliverable ? 'font-utility' : 'text-muted'}>{rec.to}</span>
+                        </summary>
+                        <p className="whitespace-pre-wrap border-l-2 border-accent pl-2 mt-1 text-muted">{rec.message}</p>
+                      </details>
+                    ))}
+                    {preview.recipients.length === 0 && <p className="text-xs text-muted">Nobody matches right now.</p>}
+                  </div>
+                </div>
+              )}
+            </div>
+          );
+        })}
+        {rules.length === 0 && <p className="text-muted text-sm">No reminder rules yet — create the first one.</p>}
+      </div>
+      <form onSubmit={create} className="border border-line rounded-brand bg-surface p-5 h-fit">
+        <span className="label-utility">New reminder rule</span>
+        <div className="mt-3 flex flex-col gap-3">
+          <label className="flex flex-col gap-1">
+            <span className="label-utility">Send to</span>
+            <select value={audience} onChange={(e) => setAudience(e.target.value)} className="border border-line-strong bg-surface rounded-brand px-3 py-2 text-sm focus:border-accent">
+              <option value="employee">The employee</option>
+              <option value="manager">Their manager</option>
+            </select>
+          </label>
+          <label className="flex flex-col gap-1">
+            <span className="label-utility">When the employee</span>
+            <select value={trigger} onChange={(e) => setTrigger(e.target.value)} className="border border-line-strong bg-surface rounded-brand px-3 py-2 text-sm focus:border-accent">
+              <option value="not_started">Has not started the course</option>
+              <option value="inactive">Has gone inactive</option>
+              <option value="incomplete">Started but completed no module</option>
+            </select>
+          </label>
+          <label className="flex flex-col gap-1">
+            <span className="label-utility">After this many days</span>
+            <input type="number" min={1} max={365} value={days} onChange={(e) => setDays(e.target.value)} className="border border-line-strong rounded-brand px-3 py-2 w-24 font-utility text-sm focus:border-accent" />
+          </label>
+          <label className="flex flex-col gap-1">
+            <span className="label-utility">Message — placeholders: {'{name} {first_name} {manager_name} {days}'}</span>
+            <textarea
+              value={template}
+              onChange={(e) => setTemplate(e.target.value)}
+              rows={5}
+              placeholder={'Hi {first_name} — your AI fluency course is waiting. It takes about an hour to get through Module 1, and {days} days have gone by. Jump back in when you have a moment.'}
+              className="border border-line-strong bg-surface rounded-brand px-3 py-2 text-sm focus:border-accent placeholder:text-muted/60"
+            />
+          </label>
+          <div className="flex items-center gap-3">
+            <Button type="submit" disabled={busy || !template.trim()}>{busy ? 'Creating…' : 'Create rule'}</Button>
+            {note && <span className="text-xs text-muted">{note}</span>}
+          </div>
+        </div>
+      </form>
+    </div>
+  );
+}
+
 function Audit() {
   const [rows, setRows] = useState<AuditRow[] | null>(null);
   const [filter, setFilter] = useState('');
@@ -1028,7 +1315,7 @@ export default function Admin() {
             <h1 className="font-display font-bold text-ink-strong text-2xl mt-1">Admin</h1>
           </div>
           <div className="flex items-center gap-1">
-            {(['learners', 'content', 'brand', 'queue', 'report', 'codes', 'audit'] as Tab[]).map((tabId) => (
+            {(Object.keys(TAB_LABELS) as Tab[]).map((tabId) => (
               <button
                 key={tabId}
                 onClick={() => setTab(tabId)}
@@ -1037,7 +1324,7 @@ export default function Admin() {
                   tab === tabId ? 'bg-ink-strong text-surface' : 'text-muted hover:text-ink-strong'
                 }`}
               >
-                {tabId === 'learners' ? 'Learners' : tabId === 'content' ? 'Content' : tabId === 'brand' ? 'Brand' : tabId === 'queue' ? 'Review queue' : tabId === 'report' ? 'Reporting' : tabId === 'codes' ? 'Access codes' : 'Content audit'}
+                {TAB_LABELS[tabId]}
               </button>
             ))}
             <button
@@ -1054,6 +1341,8 @@ export default function Admin() {
         {tab === 'learners' && <Learners />}
         {tab === 'content' && <Content />}
         {tab === 'brand' && <BrandTab />}
+        {tab === 'census' && <Census />}
+        {tab === 'reminders' && <Reminders />}
         {tab === 'queue' && <Queue />}
         {tab === 'report' && <Reporting />}
         {tab === 'codes' && <Codes />}
