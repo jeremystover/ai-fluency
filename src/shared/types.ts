@@ -226,6 +226,7 @@ export type PodcastVisual = {
   hub: string;
   spokes: { label: string; relation: string }[];
   links: { from: number; to: number; label: string }[]; // spoke indexes
+  insight?: string; // the one sentence that tells the learner what to see
 };
 
 export type PodcastEpisode = {
