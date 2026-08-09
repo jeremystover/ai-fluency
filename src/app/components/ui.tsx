@@ -60,8 +60,7 @@ export function Header() {
           onClick={() => setShowDifference(true)}
           className="font-utility text-[0.7rem] uppercase tracking-wider text-accent hover:text-ink-strong whitespace-nowrap shrink-0 py-3 -my-3"
         >
-          <span className="hidden sm:inline">How is this different?</span>
-          <span className="sm:hidden">Different?</span>
+          Learn Better
         </button>
       </div>
       <DifferenceModal open={showDifference} onClose={() => setShowDifference(false)} />

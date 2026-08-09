@@ -11,6 +11,7 @@ import { transcribe, speakable, renderSpeech, TUTOR_VOICE } from './voice';
 import { extractPaths } from '../shared/chat';
 import { GOAL_CHOICES } from '../shared/goals';
 import { DEPTH_IDS, depthOf } from '../shared/depth';
+import { SELF_LEVEL_IDS } from '../shared/levels';
 import { preferredSurface } from '../shared/modality';
 import {
   writeScript,
@@ -266,6 +267,8 @@ async function loadPrefs(db: DrizzleD1Database, sessionId: string): Promise<Inta
     else if (row.key === 'styles') prefs.styles = value;
     else if (row.key === 'goals') prefs.goals = value;
     else if (row.key === 'objective') prefs.objective = value;
+    else if (row.key === 'aiUsage') prefs.aiUsage = value;
+    else if (row.key === 'selfLevel') prefs.selfLevel = value;
   }
   return prefs;
 }
@@ -297,6 +300,8 @@ app.post('/api/intake', async (c) => {
   if (Array.isArray(raw.styles)) clean.push(['styles', raw.styles.filter((s) => VALID_STYLES.has(s)).slice(0, 5)]);
   if (Array.isArray(raw.goals)) clean.push(['goals', raw.goals.filter((g) => VALID_GOALS.has(g)).slice(0, 8)]);
   if (typeof raw.objective === 'string') clean.push(['objective', raw.objective.trim().slice(0, 280)]);
+  if (typeof raw.aiUsage === 'string') clean.push(['aiUsage', raw.aiUsage.trim().slice(0, 280)]);
+  if (typeof raw.selfLevel === 'string' && SELF_LEVEL_IDS.includes(raw.selfLevel)) clean.push(['selfLevel', raw.selfLevel]);
 
   for (const [key, value] of clean) {
     await db.delete(t.fdPreference).where(and(eq(t.fdPreference.sessionId, session.id), eq(t.fdPreference.key, key)));
