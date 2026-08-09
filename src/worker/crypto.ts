@@ -67,6 +67,24 @@ export async function verifySessionCookie(value: string | undefined, secret: str
   return sessionId;
 }
 
+// Personal MCP keys ride in the connector URL instead of a cookie. Same HMAC
+// secret, distinct message domain — a leaked MCP key can never pass as a
+// session cookie, and a stolen cookie value can never open the MCP endpoint.
+export async function signMcpKey(sessionId: string, secret: string): Promise<string> {
+  const sig = await hmac(secret, `mcp:${sessionId}`);
+  return `${sessionId}.${b64url(sig)}`;
+}
+
+export async function verifyMcpKey(key: string | undefined, secret: string): Promise<string | null> {
+  if (!key) return null;
+  const dot = key.lastIndexOf('.');
+  if (dot <= 0) return null;
+  const sessionId = key.slice(0, dot);
+  const expected = await signMcpKey(sessionId, secret);
+  if (!constantTimeEqual(enc.encode(key), enc.encode(expected))) return null;
+  return sessionId;
+}
+
 export async function hashIp(ip: string, salt: string): Promise<string> {
   const digest = await crypto.subtle.digest('SHA-256', enc.encode(`${salt}:${ip}`));
   return b64url(digest);

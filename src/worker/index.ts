@@ -3,7 +3,9 @@ import { getCookie, setCookie } from 'hono/cookie';
 import { drizzle, type DrizzleD1Database } from 'drizzle-orm/d1';
 import { and, asc, desc, eq, gt, lt, sql } from 'drizzle-orm';
 import * as t from '../db/schema';
-import { verifyCode, signSessionId, verifySessionCookie, hashIp } from './crypto';
+import { verifyCode, signSessionId, verifySessionCookie, hashIp, signMcpKey } from './crypto';
+import { toolingOf, selectVariants, toBlock, stampsFor, getExercise, type KnowledgeCheckPayload } from './content';
+import { createMcpApp } from './mcp';
 import { gradeSubmission, type RubricPayload } from './grading';
 import { adminApp } from './admin';
 import { buildTutorSystem, streamTutorReply, KICKOFF_TURN, type LearnerContext as TutorLearnerContext, type TutorMessage } from './chat';
@@ -36,7 +38,6 @@ import diagnosticData from '../../content/diagnostic.json';
 import type {
   CourseCard,
   Brand,
-  ContentBlock,
   IntakePrefs,
   PlanResponse,
   PlanStep,
@@ -898,51 +899,8 @@ app.get('/api/module/:id/micro', async (c) => {
   return c.json({ blocks, stamps: stampsFor(blocks) });
 });
 
-// One deployment teaches one tool stack. Blocks tagged with a variant form a
-// group per ordinal; serve the one matching ORG_TOOLING, falling back to the
-// 'claude' default so an unknown tooling never loses a lesson. Untagged
-// blocks apply to every org.
-const toolingOf = (env: Env) => env.ORG_TOOLING?.trim().toLowerCase() || 'claude';
-
-function selectVariants<T extends { ordinal: number; variant: string | null }>(rows: T[], tooling: string): T[] {
-  return rows.filter((row) => {
-    if (!row.variant) return true;
-    const groupHasMatch = rows.some((r) => r.ordinal === row.ordinal && r.variant === tooling);
-    return groupHasMatch ? row.variant === tooling : row.variant === 'claude';
-  });
-}
-
-function toBlock(row: typeof t.fdContentBlock.$inferSelect): ContentBlock {
-  return {
-    id: row.id,
-    moduleId: row.moduleId,
-    ordinal: row.ordinal,
-    kind: row.kind as ContentBlock['kind'],
-    layer: row.layer as ContentBlock['layer'],
-    body: row.body,
-    dependsOn: row.dependsOn ? JSON.parse(row.dependsOn) : undefined,
-    reviewedAt: row.reviewedAt,
-  };
-}
-
-function stampsFor(blocks: ContentBlock[]) {
-  const min = (layer: string) => {
-    const dates = blocks.filter((b) => b.layer === layer).map((b) => b.reviewedAt);
-    return dates.length ? dates.sort()[0] : null;
-  };
-  return { conceptsReviewedAt: min('stable'), examplesCurrentAsOf: min('volatile') };
-}
-
-// Exercise payloads (sorting keys, rubrics, knowledge checks) live in
-// fd_exercise; the client only ever sees a public projection.
-async function getExercise<T>(db: DrizzleD1Database, moduleId: string, kind: string): Promise<T | null> {
-  const rows = await db
-    .select()
-    .from(t.fdExercise)
-    .where(and(eq(t.fdExercise.moduleId, moduleId), eq(t.fdExercise.kind, kind)))
-    .limit(1);
-  return rows[0] ? (JSON.parse(rows[0].payloadJson) as T) : null;
-}
+// Content plumbing (variant selection, block projection, stamps, fd_exercise
+// access) lives in content.ts, shared with the MCP server.
 
 type SortingPayload = {
   buckets: { id: string; label: string; hint: string; rank: number; pct: number }[];
@@ -964,20 +922,6 @@ type ChoicePayload = {
   reasoning: string;
   closing: string;
 };
-
-type KnowledgeCheckPayload = {
-  title: string;
-  note: string | null;
-  questions: {
-    id: string;
-    prompt: string;
-    options: string[];
-    correctIndex: number;
-    explanation: string;
-    study?: { blockId: string; label: string };
-  }[];
-};
-
 
 app.get('/api/module/:id', async (c) => {
   const db = c.get('db');
@@ -2970,6 +2914,24 @@ app.get('/api/module/ai101-m1/complete', async (c) => {
     diagnosticMeanDelta: meanDelta === null ? null : Math.round(meanDelta),
   });
 });
+
+// ---------- the course as an MCP server ----------
+
+// Mint this learner's personal connector URL. The key is their session id
+// signed under a distinct HMAC domain (crypto.ts), so MCP progress and app
+// progress are one record — and a leaked key can't be replayed as a cookie.
+// Registered before the /api/mcp mount so it wins over the sub-app's routes.
+app.get('/api/mcp/connection', async (c) => {
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const key = await signMcpKey(session.id, secret(c.env));
+  const origin = new URL(c.req.url).origin;
+  return c.json({ url: `${origin}/api/mcp/${key}` });
+});
+
+// The MCP endpoint itself: tools, prompts, and the tutor persona. Functions
+// entangled with the rest of this file are injected rather than re-exported.
+app.route('/api/mcp', createMcpApp({ loadPrefs, computeDiagnosticResult, pregenerateNextPodcast }));
 
 // ---------- fallthrough ----------
 

@@ -1,33 +1,67 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Screen } from '../components/ui';
+import { api } from '../api';
+import { Screen, ErrorNote } from '../components/ui';
 
-// Setup instructions for learners who want the course inside Claude or
-// ChatGPT. The MCP server itself is rolling out; the steps below are the
-// honest shape of the connection, and the starter prompts on every module
-// page work today with no setup at all.
+// The course as an MCP server, live. Each learner gets a personal connector
+// URL (their signed session key in the path) minted by /api/mcp/connection —
+// progress made inside Claude or ChatGPT and progress made here are the same
+// record, so the page's main job is handing over that URL plus honest steps.
 
-const STEPS: { tool: string; steps: string[] }[] = [
-  {
-    tool: 'Claude',
-    steps: [
-      'Open Settings → Connectors.',
-      'Choose "Add custom connector" and paste your organization\'s course server URL (your program admin has it).',
-      'Approve the connection. The course appears as a tool Claude can call.',
-      'Start a chat: "Teach me Module 1 of the AI fluency course." Claude pulls the real module content and teaches from it.',
-    ],
-  },
-  {
-    tool: 'ChatGPT',
-    steps: [
-      'Open Settings → Connectors and enable Developer Mode if your workspace requires it for custom connectors.',
-      'Add a new connector with your organization\'s course server URL.',
-      'Approve the connection for your chats.',
-      'Ask: "Quiz me on Module 1 of the AI fluency course." ChatGPT pulls the module and runs the session.',
-    ],
-  },
+const ASK_EXAMPLES = [
+  '"Teach me the next module of the AI fluency course."',
+  '"Quiz me on ai101-m1 — one question at a time."',
+  '"Where am I in the course, and what should I do in 20 minutes?"',
+  '"Explain the module\'s concept map using an example from my own week."',
 ];
 
 export default function McpSetup() {
+  const [url, setUrl] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    api
+      .get<{ url: string }>('/api/mcp/connection')
+      .then((r) => setUrl(r.url))
+      .catch((e: Error) => setError(e.message));
+  }, []);
+
+  const copy = () => {
+    if (!url) return;
+    navigator.clipboard?.writeText(url).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
+  const steps: { tool: string; steps: string[] }[] = [
+    {
+      tool: 'Claude (claude.ai or desktop)',
+      steps: [
+        'Open Settings → Connectors → "Add custom connector".',
+        'Paste your personal course URL from above; no extra auth step — the key is in the URL.',
+        'Approve the connection. The course appears as tools Claude can call, and /learn, /quiz, and /whats-next show up as prompts.',
+        'Start a chat: "Teach me the next module of the AI fluency course." Claude pulls your real progress and teaches from the live content.',
+      ],
+    },
+    {
+      tool: 'Claude Code',
+      steps: [
+        'Run: claude mcp add --transport http ai-fluency <your personal URL>',
+        'Then in any session: "Quiz me on module ai101-m1" — or use the /learn prompt.',
+      ],
+    },
+    {
+      tool: 'ChatGPT',
+      steps: [
+        'Open Settings → Connectors and enable Developer Mode if your workspace requires it for custom connectors.',
+        'Add a new connector with your personal course URL.',
+        'Approve it for your chats, then ask: "Quiz me on Module 1 of the AI fluency course."',
+      ],
+    },
+  ];
+
   return (
     <Screen>
       <div className="pt-12 sm:pt-16 max-w-xl">
@@ -36,19 +70,35 @@ export default function McpSetup() {
           The course, right in Claude or ChatGPT.
         </h1>
         <p className="text-ink mt-4 anim-rise" style={{ animationDelay: '60ms' }}>
-          The course ships as an MCP server — a connection your assistant can teach from. That means a two-minute concept exactly
-          when a real task needs it, inside the tool where the task lives, instead of a training portal you have to remember to visit.
+          The course ships as an MCP server — a connection that turns your assistant into this course's tutor. It pulls the real
+          module content, quizzes you against the actual answer keys (held server-side), records completions to the same progress
+          you see here, and recommends what's next. A two-minute concept exactly when a real task needs it, inside the tool where
+          the task lives.
         </p>
 
-        <div className="mt-5 border border-signal rounded-brand bg-signal/10 px-4 py-3 anim-rise" style={{ animationDelay: '90ms' }}>
-          <p className="text-sm text-ink">
-            <span className="font-display font-semibold">Rolling out.</span> The connection is being enabled per organization — your
-            program admin will share your course server URL. Until yours is live, the starter prompts on every module page work in
-            any assistant today, no setup needed.
+        <div className="mt-6 anim-rise" style={{ animationDelay: '90ms' }}>
+          <h2 className="font-display font-semibold text-ink-strong text-xl">Your personal course URL</h2>
+          {error && <div className="mt-3"><ErrorNote message={error} /></div>}
+          {!error && (
+            <div className="mt-3 border border-line rounded-brand bg-surface px-4 py-3">
+              <code className="font-utility text-xs text-ink break-all block">{url ?? 'Minting your key…'}</code>
+              <button
+                type="button"
+                onClick={copy}
+                disabled={!url}
+                className="mt-3 text-sm font-display font-semibold text-accent hover:underline disabled:opacity-50"
+              >
+                {copied ? 'Copied ✓' : 'Copy URL'}
+              </button>
+            </div>
+          )}
+          <p className="text-sm text-muted mt-2">
+            This link is yours: it carries a signed key to your course record, so anyone holding it learns as you. Treat it like a
+            password; re-entering the course with your passcode mints a fresh one.
           </p>
         </div>
 
-        {STEPS.map((s, i) => (
+        {steps.map((s, i) => (
           <div key={s.tool} className="mt-7 anim-rise" style={{ animationDelay: `${140 + i * 60}ms` }}>
             <h2 className="font-display font-semibold text-ink-strong text-xl">In {s.tool}</h2>
             <ol className="mt-3 flex flex-col gap-2">
@@ -62,8 +112,21 @@ export default function McpSetup() {
           </div>
         ))}
 
+        <div className="mt-8">
+          <h2 className="font-display font-semibold text-ink-strong text-xl">Things worth saying to it</h2>
+          <ul className="mt-3 flex flex-col gap-2">
+            {ASK_EXAMPLES.map((ex) => (
+              <li key={ex} className="text-sm text-ink">{ex}</li>
+            ))}
+          </ul>
+          <p className="text-sm text-muted mt-3">
+            Completions earned there count here — the tutor can only mark a module complete after you pass its knowledge check,
+            same bar as this app.
+          </p>
+        </div>
+
         <p className="text-sm text-muted mt-8">
-          Connector menus move around as these products evolve — the shape of the steps holds: add a custom connector, paste the
+          Connector menus move around as these products evolve — the shape of the steps holds: add a custom connector, paste your
           course URL, approve it, ask for a module.
         </p>
 
