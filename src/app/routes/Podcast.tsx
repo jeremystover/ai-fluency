@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import type { PodcastEpisode, PodcastLength, PodcastListResponse, PodcastOutlinePoint, PodcastSummary, PodcastVisual } from '../../shared/types';
-import { PODCAST_HOSTS } from '../../shared/types';
+import { PODCAST_HOSTS, PODCAST_SHOW } from '../../shared/types';
 import { Screen, Button, ErrorNote } from '../components/ui';
 import MicButton from '../components/MicButton';
 import { api, ApiError, track } from '../api';
@@ -464,7 +464,7 @@ function Player({
     <div>
       <div className="border border-ink-strong rounded-brand bg-surface p-5">
         <p className="label-utility">
-          {episode.kind === 'qa' ? 'Listener questions' : 'Your episode'} · {LENGTH_OPTIONS.find((o) => o.id === episode.lengthPref)?.label} · ~
+          {PODCAST_SHOW.name} · {episode.kind === 'qa' ? 'Listener questions' : 'Your episode'} · {LENGTH_OPTIONS.find((o) => o.id === episode.lengthPref)?.label} · ~
           {episode.estMinutes} min · {PODCAST_HOSTS.a.name} &amp; {PODCAST_HOSTS.b.name}
         </p>
         <h2 className="font-display font-bold text-ink-strong text-2xl mt-2">{episode.title}</h2>

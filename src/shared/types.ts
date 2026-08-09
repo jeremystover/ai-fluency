@@ -206,6 +206,14 @@ export const PODCAST_HOSTS = {
   b: { name: 'Leo', tagline: 'asks what you would ask' },
 } as const;
 
+// The show's identity: every episode opens on the call sign and ends with
+// Maya delivering the sign-off line verbatim — the ritual is what makes
+// episodes feel like episodes instead of conversations that stop.
+export const PODCAST_SHOW = {
+  name: 'Fluent',
+  signoff: 'Stay curious — and check the work.',
+} as const;
+
 // A waypoint the listener can follow while the episode plays: a short label
 // anchored to the line where that beat of the conversation starts.
 export type PodcastOutlinePoint = { point: string; startLine: number };
