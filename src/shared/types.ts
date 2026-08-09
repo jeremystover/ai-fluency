@@ -14,6 +14,9 @@ export type Brand = {
   name: string;
   tokens: BrandTokens;
   voice: { greeting: string; signoff: string };
+  // Assistants the company provisions (e.g. ["Claude"]). When the profile
+  // declares this, the intake skips its "which AI tools?" question.
+  aiTools?: string[];
 };
 
 export type ContentBlock = {
@@ -154,6 +157,8 @@ export type IntakePrefs = {
   goals?: string[]; // fluency | workflows | apply | news | tools | safety | coach | confidence
   objective?: string; // free-text refinement of the goals
   aiUsage?: string; // free-text: how they use AI in their job today
+  aiTools?: string[]; // claude | chatgpt | gemini | other — asked unless the company profile already says
+  aiToolOther?: string; // free-text fill-in when 'other' is picked
   selfLevel?: string; // self-assessed fluency level — see shared/levels.ts
 };
 

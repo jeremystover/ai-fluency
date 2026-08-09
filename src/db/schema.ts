@@ -5,6 +5,8 @@ export const fdBrand = sqliteTable('fd_brand', {
   name: text('name').notNull(),
   tokensJson: text('tokens_json').notNull(),
   voiceJson: text('voice_json').notNull(),
+  // Optional company profile: { aiTools?: string[] } — what the org provisions.
+  profileJson: text('profile_json'),
   createdAt: text('created_at').notNull(),
 });
 

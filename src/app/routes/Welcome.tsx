@@ -39,9 +39,26 @@ type StyleChoice = { id: string; label: string; detail: string; tag?: string };
 const STYLE_CHOICES: StyleChoice[] = [
   { id: 'reading', label: 'Reading, at my own pace', detail: 'A proper reading view with honest time estimates.' },
   { id: 'interactive', label: 'Interactive, hands-on', detail: 'Sorting exercises, live feedback, graded practice.' },
-  { id: 'podcast', label: 'Podcast-style audio', detail: 'Listen on a commute.', tag: 'Full course · noted' },
-  { id: 'assistant_mcp', label: 'Inside Claude or ChatGPT', detail: 'The course as an MCP server your assistant can teach from.', tag: 'Full course · noted' },
-  { id: 'voice', label: 'Talking instead of typing', detail: 'Voice in, voice out.', tag: 'Full course · noted' },
+  {
+    id: 'podcast',
+    label: 'Learning by listening',
+    detail: 'Your course as a podcast — on the commute, walking the dog, at the gym, or any time your ears are free and your hands aren\'t.',
+  },
+  {
+    id: 'assistant_mcp',
+    label: 'Inside Claude or ChatGPT',
+    detail: "We'll show you how to embed this course right in your AI tools.",
+  },
+  { id: 'voice', label: 'Talking instead of typing', detail: 'Voice in, voice out.' },
+];
+
+// What the learner uses today — asked at intake unless the company profile
+// already declares the provisioned tools (brand.aiTools).
+const TOOL_CHOICES: { id: string; label: string }[] = [
+  { id: 'claude', label: 'Claude' },
+  { id: 'chatgpt', label: 'ChatGPT' },
+  { id: 'gemini', label: 'Gemini' },
+  { id: 'other', label: 'Something else' },
 ];
 
 const TOTAL_STEPS = 5;
@@ -50,7 +67,7 @@ export default function Welcome() {
   const navigate = useNavigate();
   const [params] = useSearchParams();
   const editing = params.get('edit') === '1';
-  const { me, refreshMe } = useApp();
+  const { me, brand, refreshMe } = useApp();
   const [step, setStep] = useState(0);
   const [name, setName] = useState('');
   const [role, setRole] = useState('');
@@ -60,7 +77,12 @@ export default function Welcome() {
   const [goals, setGoals] = useState<string[]>([]);
   const [objective, setObjective] = useState('');
   const [aiUsage, setAiUsage] = useState('');
+  const [aiTools, setAiTools] = useState<string[]>([]);
+  const [aiToolOther, setAiToolOther] = useState('');
   const [selfLevel, setSelfLevel] = useState<string>();
+  // The company profile can already say which tools the org provisions — no
+  // point asking what we know.
+  const askTools = !brand?.aiTools?.length;
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const tracked = useRef(false);
@@ -90,6 +112,8 @@ export default function Welcome() {
     setGoals(me.prefs?.goals ?? []);
     setObjective(me.prefs?.objective ?? '');
     setAiUsage(me.prefs?.aiUsage ?? '');
+    setAiTools(me.prefs?.aiTools ?? []);
+    setAiToolOther(me.prefs?.aiToolOther ?? '');
     setSelfLevel(me.prefs?.selfLevel);
   }, [editing, me]);
 
@@ -103,7 +127,7 @@ export default function Welcome() {
       await api.post('/api/intake', {
         displayName: name,
         roleLabel: role,
-        prefs: { start, depth, styles, goals, objective, aiUsage, selfLevel } satisfies IntakePrefs,
+        prefs: { start, depth, styles, goals, objective, aiUsage, aiTools, aiToolOther, selfLevel } satisfies IntakePrefs,
       });
       await refreshMe();
       navigate('/plan');
@@ -208,6 +232,36 @@ export default function Welcome() {
                     />
                   </div>
                 </label>
+                {askTools && (
+                  <div className="flex flex-col gap-1.5">
+                    <span className="label-utility">Which AI tools are you using? Pick all that apply</span>
+                    <div className="flex flex-wrap gap-2">
+                      {TOOL_CHOICES.map((tool) => {
+                        const selected = aiTools.includes(tool.id);
+                        return (
+                          <button
+                            key={tool.id}
+                            onClick={() => setAiTools((cur) => (cur.includes(tool.id) ? cur.filter((x) => x !== tool.id) : [...cur, tool.id]))}
+                            aria-pressed={selected}
+                            className={`border rounded-brand px-3.5 py-2 bg-surface font-display font-semibold text-sm text-ink-strong transition-colors cursor-pointer
+                              ${selected ? 'border-accent ring-2 ring-accent/25' : 'border-line hover:border-line-strong'}`}
+                          >
+                            {tool.label}
+                          </button>
+                        );
+                      })}
+                    </div>
+                    {aiTools.includes('other') && (
+                      <input
+                        value={aiToolOther}
+                        onChange={(e) => setAiToolOther(e.target.value)}
+                        maxLength={120}
+                        placeholder="Which one(s)?"
+                        className="border border-line-strong bg-surface rounded-brand px-4 py-2.5 text-ink-strong focus:border-accent placeholder:text-muted/60"
+                      />
+                    )}
+                  </div>
+                )}
                 <div className="flex flex-col gap-1.5">
                   <span className="label-utility">Where would you place yourself today? The course uses these levels throughout</span>
                   <div className="flex flex-col gap-2">
@@ -272,7 +326,8 @@ export default function Welcome() {
             <>
               <h1 className="font-display font-semibold text-ink-strong text-2xl leading-snug">How deep do you want to go?</h1>
               <p className="text-muted text-sm mt-2">
-                This shapes everything — how long the reads run, how deep the tutor goes, how long the podcasts play. Change it anytime.
+                How much do you want to invest in learning about AI Fluency? You can always change it later, but let us know how much
+                time you're ready to spend with us and we'll craft a course that fits.
               </p>
               <div className="mt-6 flex flex-col gap-2.5">
                 {DEPTH_CHOICES.map((choice) =>
@@ -293,10 +348,7 @@ export default function Welcome() {
           {step === 3 && (
             <>
               <h1 className="font-display font-semibold text-ink-strong text-2xl leading-snug">How do you like to learn?</h1>
-              <p className="text-muted text-sm mt-2">
-                Pick any that appeal. Reading and interactive run in this demo today; the rest tells us what to build next —
-                picking one logs real interest, not a fake button.
-              </p>
+              <p className="text-muted text-sm mt-2">Pick all that appeal.</p>
               <div className="mt-6 flex flex-col gap-2.5">
                 {STYLE_CHOICES.map((choice) =>
                   card({
@@ -332,7 +384,7 @@ export default function Welcome() {
               {error && <div className="mt-4"><ErrorNote message={error} /></div>}
               <div className="mt-6">
                 <Button onClick={finish} disabled={busy || !start}>
-                  {busy ? 'Building your plan…' : editing ? 'Rebuild my plan' : 'Build my plan'}
+                  {busy ? 'Crafting your course…' : editing ? 'Recraft my course' : 'Craft my course'}
                 </Button>
               </div>
             </>

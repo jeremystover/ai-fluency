@@ -64,6 +64,13 @@
       "when": 1786240000000,
       "tag": "0006_podcast_kind",
       "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "6",
+      "when": 1786250000000,
+      "tag": "0008_brand_profile",
+      "breakpoints": true
     }
   ]
 }
