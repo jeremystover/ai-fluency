@@ -29,6 +29,7 @@ import {
   type AiBinding,
   type HeardEpisode,
   type LearnerContext,
+  type TtsEngine,
 } from './podcast';
 import diagnosticData from '../../content/diagnostic.json';
 import type {
@@ -940,6 +941,9 @@ app.get('/api/module/:id', async (c) => {
   if (mod.status !== 'open') {
     return c.json({ error: "This module's content ships in the full course — the demo carries Module 1 end to end." }, 403);
   }
+  // Seeing the module page warms its stock episode — by the time the learner
+  // clicks Listen, the instant path is usually ready. Skips in one query when fresh.
+  c.executionCtx.waitUntil(bakeStock(c.env, id));
   const blockRows = await db.select().from(t.fdContentBlock).where(eq(t.fdContentBlock.moduleId, id)).orderBy(asc(t.fdContentBlock.ordinal));
   const blocks = selectVariants(blockRows, toolingOf(c.env)).map(toBlock);
   const words = blocks.reduce((sum, b) => sum + b.body.split(/\s+/).length, 0);
@@ -1923,12 +1927,22 @@ const loadStock = async (db: DrizzleD1Database, moduleId: string, variant: strin
   return rows[0] ?? null;
 };
 
-async function voiceIntroToR2(env: Env, lines: PodcastLine[], key: string): Promise<string | null> {
+async function voiceIntroToR2(env: Env, lines: PodcastLine[], key: string): Promise<{ key: string; engine: TtsEngine } | null> {
   if ((!env.AI && !env.GEMINI_API_KEY) || !env.PODCAST_AUDIO) return null;
   const rendered = await renderChunkAudio(env, lines);
   if (!rendered) return null;
   await env.PODCAST_AUDIO.put(key, rendered.bytes, { httpMetadata: { contentType: rendered.contentType } });
-  return key;
+  return { key, engine: rendered.contentType === 'audio/wav' ? 'gemini' : 'aura' };
+}
+
+// Which engine voiced an already-stored intro, read off the R2 object's content
+// type (Gemini renders WAV, Aura MP3) — the pin for every later render in that
+// episode, so the hosts keep the same voices across the intro/body seam.
+async function introEngine(env: Env, introAudioKey: string | null): Promise<TtsEngine | undefined> {
+  if (!introAudioKey || !env.PODCAST_AUDIO) return undefined;
+  const head = await env.PODCAST_AUDIO.head(introAudioKey).catch(() => null);
+  const ct = head?.httpMetadata?.contentType;
+  return ct === 'audio/wav' ? 'gemini' : ct === 'audio/mpeg' ? 'aura' : undefined;
 }
 
 // Bake the generic stock episode for a module: one stock-script call, one study
@@ -1953,12 +1967,13 @@ async function bakeStock(env: Env, moduleId: string): Promise<void> {
       [...draft.intro, ...draft.body],
       'default',
     ).catch(() => null);
-    const introAudioKey = await voiceIntroToR2(env, draft.intro, stockIntroKey(moduleId, 'generic'));
+    const introVoiced = await voiceIntroToR2(env, draft.intro, stockIntroKey(moduleId, 'generic'));
+    const introAudioKey = introVoiced?.key ?? null;
     if ((env.AI || env.GEMINI_API_KEY) && env.PODCAST_AUDIO) {
       const bodyChunks = chunkPlan(draft.body);
       await Promise.all(
         bodyChunks.map(async (ch, i) => {
-          const rendered = await renderChunkAudio(env, draft.body.slice(ch.start, ch.end));
+          const rendered = await renderChunkAudio(env, draft.body.slice(ch.start, ch.end), introVoiced?.engine);
           if (rendered) {
             await env.PODCAST_AUDIO!.put(stockBodyChunkKey(moduleId, i), rendered.bytes, { httpMetadata: { contentType: rendered.contentType } });
           }
@@ -2012,7 +2027,7 @@ async function bakeGoalIntro(env: Env, moduleId: string, goalId: string): Promis
       goalLabel(goalId),
     );
     if (!lines) return;
-    const introAudioKey = await voiceIntroToR2(env, lines, stockIntroKey(moduleId, goalId));
+    const introAudioKey = (await voiceIntroToR2(env, lines, stockIntroKey(moduleId, goalId)))?.key ?? null;
     await db.delete(t.fdPodcastStock).where(and(eq(t.fdPodcastStock.moduleId, moduleId), eq(t.fdPodcastStock.variant, goalId)));
     await db.insert(t.fdPodcastStock).values({
       id: uuid(),
@@ -2039,12 +2054,41 @@ async function bakeGoalIntro(env: Env, moduleId: string, goalId: string): Promis
 }
 
 // The learner's next podcast-less open module — where pre-warming aims.
+// Keep every open module's stock episode fresh — runs on the cron trigger, so
+// no learner ever pays the cold-bake toll. Steady-state runs find everything
+// fresh and bake nothing; after a content edit or prompt-version bump, each
+// run bakes up to a few modules until the catalog is warm again.
+async function warmAllStock(env: Env): Promise<void> {
+  if (!env.ANTHROPIC_API_KEY) return;
+  try {
+    const db = drizzle(env.DB);
+    const mods = await db
+      .select()
+      .from(t.fdModule)
+      .where(eq(t.fdModule.status, 'open'))
+      .orderBy(asc(t.fdModule.courseId), asc(t.fdModule.ordinal));
+    let budget = 3; // stale bakes per run — keeps a single run's work bounded
+    for (const mod of mods) {
+      if (budget <= 0) break;
+      const existing = await loadStock(db, mod.id, 'generic');
+      if (existing && existing.promptVersion === PODCAST_PROMPT_VERSION) {
+        const content = await moduleContent(db, env, mod.id);
+        if (!content || existing.contentReviewedAt === content.reviewedAt) continue;
+      }
+      await bakeStock(env, mod.id);
+      budget -= 1;
+    }
+  } catch {
+    // Cron work — the next tick tries again.
+  }
+}
+
 async function nextPodcastModule(db: DrizzleD1Database, sessionId: string) {
   const mods = await db
     .select()
     .from(t.fdModule)
-    .where(and(eq(t.fdModule.courseId, 'ai101'), eq(t.fdModule.status, 'open')))
-    .orderBy(asc(t.fdModule.ordinal));
+    .where(eq(t.fdModule.status, 'open'))
+    .orderBy(asc(t.fdModule.courseId), asc(t.fdModule.ordinal));
   for (const mod of mods) {
     const existing = await db
       .select({ n: sql<number>`count(*)` })
@@ -2087,7 +2131,7 @@ async function preparePersonalIntro(env: Env, sessionId: string, moduleId: strin
       learner,
     );
     if (!lines) return;
-    const audioKey = await voiceIntroToR2(env, lines, personalIntroKey(sessionId, moduleId));
+    const audioKey = (await voiceIntroToR2(env, lines, personalIntroKey(sessionId, moduleId)))?.key ?? null;
     if (existing[0]) await db.delete(t.fdPodcastIntro).where(eq(t.fdPodcastIntro.id, existing[0].id));
     await db.insert(t.fdPodcastIntro).values({
       id: uuid(),
@@ -2257,7 +2301,10 @@ async function completeAssembledBody(env: Env, row: PodcastRow): Promise<void> {
     await logEvent(db, row.sessionId, 'podcast_body_ready', { podcastId: row.id, ms: elapsed, fallback });
 
     if (!fallback) {
-      await renderVoicesToCache(env, { ...row, scriptJson: JSON.stringify(bodyLines) }, 'create');
+      // Pin the body to whichever engine voiced this episode's intro — the
+      // hosts must not change voices at the seam.
+      const pin = await introEngine(env, row.introAudioKey);
+      await renderVoicesToCache(env, { ...row, scriptJson: JSON.stringify(bodyLines) }, 'create', pin);
     } else {
       await db
         .update(t.fdPodcast)
@@ -2374,7 +2421,7 @@ const chunkKey = (podcastId: string, i: number) => `podcast/${podcastId}/c${i}.m
 // result, and the chunk route's live render still covers first listen.
 // Failures are silent for the same reason. Skips chunks another path (a live
 // listen racing ahead of this task) already rendered.
-async function renderVoicesToCache(env: Env, row: PodcastRow, trigger: 'create' | 'pregen'): Promise<void> {
+async function renderVoicesToCache(env: Env, row: PodcastRow, trigger: 'create' | 'pregen', pin?: TtsEngine): Promise<void> {
   if ((!env.AI && !env.GEMINI_API_KEY) || !env.PODCAST_AUDIO) return;
   try {
     const db = drizzle(env.DB);
@@ -2388,7 +2435,7 @@ async function renderVoicesToCache(env: Env, row: PodcastRow, trigger: 'create' 
         const key = chunkKey(row.id, i);
         const existing = await env.PODCAST_AUDIO!.head(key);
         if (existing) return existing.size;
-        const audio = await renderChunkAudio(env, lines.slice(ch.start, ch.end));
+        const audio = await renderChunkAudio(env, lines.slice(ch.start, ch.end), pin);
         if (!audio) return null;
         await env.PODCAST_AUDIO!.put(key, audio.bytes, { httpMetadata: { contentType: audio.contentType } });
         return audio.bytes.length;
@@ -2728,7 +2775,7 @@ app.get('/api/podcast/:id/audio/:chunk', async (c) => {
     return c.json({ error: 'Audio rendering is not configured in this deployment — the full transcript is the episode for now.' }, 503);
   }
 
-  const rendered = await renderChunkAudio(c.env, lines.slice(plan[idx].start, plan[idx].end));
+  const rendered = await renderChunkAudio(c.env, lines.slice(plan[idx].start, plan[idx].end), await introEngine(c.env, row.introAudioKey));
   if (!rendered) {
     return c.json({ error: 'The voices are unavailable right now. The script is safe — try the audio again in a minute.' }, 503);
   }
@@ -2758,7 +2805,7 @@ app.get('/api/podcast/:id/audio/:chunk', async (c) => {
     chunk: idx,
     bytes: audio.length,
     trigger: 'listen',
-    engine: c.env.GEMINI_API_KEY ? 'gemini' : 'aura',
+    engine: rendered.contentType === 'audio/wav' ? 'gemini' : 'aura',
   });
 
   return new Response(audio, { headers: { ...headersFor(rendered.contentType), 'content-length': String(audio.length) } });
@@ -2852,4 +2899,11 @@ app.notFound(async (c) => {
   return c.env.ASSETS.fetch(c.req.raw);
 });
 
-export default app;
+export default {
+  fetch: app.fetch,
+  // Cron trigger (see wrangler.jsonc): keeps stock episodes baked for every
+  // open module, so podcast arrival is instant even on a never-visited module.
+  scheduled(_controller: ScheduledController, env: Env, ctx: ExecutionContext) {
+    ctx.waitUntil(warmAllStock(env));
+  },
+};

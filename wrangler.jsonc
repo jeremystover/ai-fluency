@@ -25,6 +25,11 @@
   "ai": {
     "binding": "AI"
   },
+  // Keeps every open module's stock podcast episode baked ahead of arrival —
+  // steady-state runs are a handful of D1 reads and bake nothing.
+  "triggers": {
+    "crons": ["*/10 * * * *"]
+  },
   // Rendered episode audio cache. Create with `wrangler r2 bucket create fluency-demo-audio`.
   "r2_buckets": [
     {
