@@ -208,6 +208,16 @@ export const PODCAST_HOSTS = {
 // anchored to the line where that beat of the conversation starts.
 export type PodcastOutlinePoint = { point: string; startLine: number };
 
+// A small concept map of the episode's core idea: one hub, labeled spokes,
+// and optional cross-links between spokes. Laid out deterministically
+// client-side (hub center, spokes on an ellipse) — no graph library.
+export type PodcastVisual = {
+  title: string;
+  hub: string;
+  spokes: { label: string; relation: string }[];
+  links: { from: number; to: number; label: string }[]; // spoke indexes
+};
+
 export type PodcastEpisode = {
   id: string;
   moduleId: string;
@@ -218,6 +228,8 @@ export type PodcastEpisode = {
   promptText: string | null;
   lines: PodcastLine[];
   outline: PodcastOutlinePoint[] | null; // null on episodes written before podcast-v4
+  takeaways: string[] | null; // null before podcast-v5
+  visual: PodcastVisual | null; // null before podcast-v5, and on Q&A segments where a map adds nothing
   estMinutes: number;
   audioCached: boolean;
   // 'chunked' — audio streams in parts for fast starts (the normal case);
@@ -227,7 +239,7 @@ export type PodcastEpisode = {
   createdAt: string;
 };
 
-export type PodcastSummary = Omit<PodcastEpisode, 'lines' | 'outline'>;
+export type PodcastSummary = Omit<PodcastEpisode, 'lines' | 'outline' | 'takeaways' | 'visual'>;
 
 export type PodcastListResponse = {
   episodes: PodcastSummary[];

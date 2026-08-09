@@ -41,6 +41,7 @@ import type {
   PodcastListResponse,
   PodcastOutlinePoint,
   PodcastSummary,
+  PodcastVisual,
   GradeResult,
   MeResponse,
   ModuleCard,
@@ -1775,6 +1776,8 @@ function toEpisode(row: PodcastRow): PodcastEpisode {
     promptText: row.promptText,
     lines,
     outline: row.outlineJson ? (JSON.parse(row.outlineJson) as PodcastOutlinePoint[]) : null,
+    takeaways: row.takeawaysJson ? (JSON.parse(row.takeawaysJson) as string[]) : null,
+    visual: row.visualJson ? (JSON.parse(row.visualJson) as PodcastVisual) : null,
     estMinutes: estMinutes(row.totalChars),
     audioCached: row.audioKey !== null,
     createdAt: row.createdAt,
@@ -1791,7 +1794,7 @@ app.get('/api/podcast', async (c) => {
     .where(eq(t.fdPodcast.sessionId, session.id))
     .orderBy(desc(t.fdPodcast.createdAt));
   const episodes: PodcastSummary[] = rows.map((row) => {
-    const { lines: _lines, outline: _outline, ...summary } = toEpisode(row);
+    const { lines: _lines, outline: _outline, takeaways: _takeaways, visual: _visual, ...summary } = toEpisode(row);
     return summary;
   });
   const playedRows = await db
@@ -1909,6 +1912,8 @@ async function generateEpisode(
     description: script.description,
     scriptJson: JSON.stringify(script.lines),
     outlineJson: script.outline ? JSON.stringify(script.outline) : null,
+    takeawaysJson: script.takeaways ? JSON.stringify(script.takeaways) : null,
+    visualJson: script.visual ? JSON.stringify(script.visual) : null,
     totalChars: script.lines.reduce((sum, l) => sum + l.text.length, 0),
     modelUsed: model,
     promptVersion: PODCAST_PROMPT_VERSION,
