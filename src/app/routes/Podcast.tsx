@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import type { PodcastEpisode, PodcastLength, PodcastListResponse, PodcastOutlinePoint, PodcastSummary } from '../../shared/types';
+import type { PodcastEpisode, PodcastLength, PodcastListResponse, PodcastOutlinePoint, PodcastSummary, PodcastVisual } from '../../shared/types';
 import { PODCAST_HOSTS } from '../../shared/types';
 import { Screen, Button, ErrorNote } from '../components/ui';
 import MicButton from '../components/MicButton';
@@ -97,6 +97,153 @@ function Transcript({ episode, activeLine }: { episode: PodcastEpisode; activeLi
         );
       })}
     </ol>
+  );
+}
+
+function KeyTakeaways({ items }: { items: string[] }) {
+  return (
+    <div className="border border-line rounded-brand bg-surface p-5 mt-5">
+      <p className="label-utility">Key takeaways</p>
+      <ul className="mt-3 flex flex-col gap-2">
+        {items.map((item, i) => (
+          <li key={i} className="flex gap-2.5 text-sm text-ink leading-relaxed">
+            <span className="text-signal mt-0.5 shrink-0" aria-hidden="true">●</span>
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+// Split a short label into at most two SVG text lines.
+function splitLabel(label: string, max = 15): string[] {
+  if (label.length <= max) return [label];
+  const words = label.split(' ');
+  let first = '';
+  let i = 0;
+  while (i < words.length && (first ? `${first} ${words[i]}` : words[i]).length <= max) {
+    first = first ? `${first} ${words[i]}` : words[i];
+    i++;
+  }
+  if (!first) return [label.slice(0, max), label.slice(max)];
+  return [first, words.slice(i).join(' ')].filter(Boolean);
+}
+
+// The episode's core idea as hub-and-spokes, laid out deterministically on an
+// ellipse — brand colors via CSS custom properties, no graph library. Edge
+// labels get a surface-colored halo (paint-order) so they stay legible where
+// they cross lines.
+function ConceptMap({ visual }: { visual: PodcastVisual }) {
+  const W = 660;
+  const H = 430;
+  const cx = W / 2;
+  const cy = H / 2;
+  const n = visual.spokes.length;
+  const pos = visual.spokes.map((_, i) => {
+    const angle = -Math.PI / 2 + (i * 2 * Math.PI) / n;
+    return { x: cx + Math.cos(angle) * 245, y: cy + Math.sin(angle) * 155 };
+  });
+  const mid = (a: { x: number; y: number }, b: { x: number; y: number }) => ({ x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 });
+  const hubLines = splitLabel(visual.hub, 14);
+
+  return (
+    <div className="border border-line rounded-brand bg-surface p-5 mt-5">
+      <p className="label-utility">The map{visual.title ? ` · ${visual.title}` : ''}</p>
+      <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto mt-2" role="img" aria-label={`Concept map: ${visual.hub}`}>
+        {/* cross-links first, dashed, under everything */}
+        {visual.links.map((link, i) => {
+          const a = pos[link.from];
+          const b = pos[link.to];
+          const m = mid(a, b);
+          return (
+            <g key={`l${i}`}>
+              <line x1={a.x} y1={a.y} x2={b.x} y2={b.y} stroke="var(--c-line-strong)" strokeWidth={1} strokeDasharray="4 4" />
+              {link.label && (
+                <text
+                  x={m.x}
+                  y={m.y}
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  fontSize={11}
+                  fontStyle="italic"
+                  fill="var(--c-muted)"
+                  stroke="var(--c-surface)"
+                  strokeWidth={4}
+                  paintOrder="stroke"
+                >
+                  {link.label}
+                </text>
+              )}
+            </g>
+          );
+        })}
+        {/* hub→spoke edges with relation labels */}
+        {pos.map((p, i) => {
+          const m = mid({ x: cx, y: cy }, p);
+          return (
+            <g key={`e${i}`}>
+              <line x1={cx} y1={cy} x2={p.x} y2={p.y} stroke="var(--c-line-strong)" strokeWidth={1.5} />
+              {visual.spokes[i].relation && (
+                <text
+                  x={m.x}
+                  y={m.y}
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  fontSize={11}
+                  fill="var(--c-muted)"
+                  stroke="var(--c-surface)"
+                  strokeWidth={4}
+                  paintOrder="stroke"
+                >
+                  {visual.spokes[i].relation}
+                </text>
+              )}
+            </g>
+          );
+        })}
+        {/* spoke nodes */}
+        {pos.map((p, i) => {
+          const lines = splitLabel(visual.spokes[i].label);
+          const h = lines.length > 1 ? 46 : 32;
+          return (
+            <g key={`n${i}`}>
+              <rect x={p.x - 66} y={p.y - h / 2} width={132} height={h} rx={8} fill="var(--c-bg)" stroke="var(--c-line-strong)" />
+              {lines.map((ln, j) => (
+                <text
+                  key={j}
+                  x={p.x}
+                  y={p.y + (lines.length > 1 ? (j === 0 ? -7 : 8) : 0)}
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  fontSize={12.5}
+                  fontWeight={600}
+                  fill="var(--c-ink-strong)"
+                >
+                  {ln}
+                </text>
+              ))}
+            </g>
+          );
+        })}
+        {/* hub on top */}
+        <ellipse cx={cx} cy={cy} rx={82} ry={hubLines.length > 1 ? 42 : 34} fill="var(--c-accent)" />
+        {hubLines.map((ln, j) => (
+          <text
+            key={j}
+            x={cx}
+            y={cy + (hubLines.length > 1 ? (j === 0 ? -8 : 9) : 0)}
+            textAnchor="middle"
+            dominantBaseline="middle"
+            fontSize={14}
+            fontWeight={700}
+            fill="var(--c-on-accent)"
+          >
+            {ln}
+          </text>
+        ))}
+      </svg>
+    </div>
   );
 }
 
@@ -408,6 +555,9 @@ function Player({
         </div>
       </div>
 
+      {episode.takeaways && <KeyTakeaways items={episode.takeaways} />}
+      {episode.visual && <ConceptMap visual={episode.visual} />}
+
       <Transcript episode={episode} activeLine={activeLine} />
     </div>
   );
@@ -471,7 +621,7 @@ export default function Podcast() {
     try {
       const ep = await api.post<PodcastEpisode>('/api/podcast', { moduleId, kind, question: q });
       setEpisode(ep);
-      const { lines: _lines, outline: _outline, ...summary } = ep;
+      const { lines: _lines, outline: _outline, takeaways: _takeaways, visual: _visual, ...summary } = ep;
       setList((prev) => (prev ? { ...prev, episodes: [summary, ...prev.episodes.filter((e) => e.id !== ep.id)] } : prev));
       setQuestion('');
       window.scrollTo({ top: 0 });

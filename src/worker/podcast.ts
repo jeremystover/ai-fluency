@@ -5,7 +5,7 @@
 import { PODCAST_HOSTS, type PodcastLength, type PodcastLine } from '../shared/types';
 import type { Depth } from '../shared/depth';
 
-export const PODCAST_PROMPT_VERSION = 'podcast-v4';
+export const PODCAST_PROMPT_VERSION = 'podcast-v5';
 
 export type PodcastKind = 'default' | 'qa';
 
@@ -39,20 +39,32 @@ export type LearnerContext = {
   depth: Depth | null; // how much they want to invest
 };
 
+export type PodcastVisualDraft = {
+  title: string;
+  hub: string;
+  spokes: { label: string; relation: string }[];
+  links: { from: number; to: number; label: string }[];
+};
+
 export type PodcastScript = {
   title: string;
   description: string;
   lines: PodcastLine[];
   outline: { point: string; startLine: number }[] | null;
+  takeaways: string[] | null;
+  visual: PodcastVisualDraft | null;
 };
 
-// The JSON-shape instruction shared by both episode prompts. The outline is the
-// listener's follow-along map: a few concrete beats, each anchored to a line.
+// The JSON-shape instruction shared by both episode prompts. Alongside the
+// script itself: an outline (follow-along beats), key takeaways, and a small
+// concept map the UI renders as hub-and-spokes.
 const SCRIPT_SHAPE = [
   'Respond with strict JSON only — no markdown, no code fences, no text outside the JSON. Shape:',
-  '{"title":"<episode title, under 80 chars>","description":"<one sentence, under 200 chars>","lines":[{"speaker":"a","text":"<what HOST_A says>"},{"speaker":"b","text":"<what HOST_B says>"}],"outline":[{"point":"<the beat, 3–8 plain words>","startLine":<0-based index into lines where this beat starts>}]}',
+  '{"title":"<episode title, under 80 chars>","description":"<one sentence, under 200 chars>","lines":[{"speaker":"a","text":"<what HOST_A says>"},{"speaker":"b","text":"<what HOST_B says>"}],"outline":[{"point":"<the beat, 3–8 plain words>","startLine":<0-based index into lines where this beat starts>}],"takeaways":["<one concrete sentence the listener should retain>"],"visual":{"title":"<what the map shows, under 60 chars>","hub":"<the central concept, 1–4 words>","spokes":[{"label":"<related concept, 1–4 words>","relation":"<how it connects to the hub, 1–3 words>"}],"links":[{"from":<spoke index>,"to":<spoke index>,"label":"<1–3 words>"}]}}',
   '"speaker" is exactly "a" for HOST_A and "b" for HOST_B.',
   'The outline is a listener\'s map of the conversation: 3–6 beats in order, concrete not clever ("What AI means in your stack", not "The big reveal"). startLine values must be valid line indexes, strictly increasing, with the first at 0.',
+  '"takeaways": 3–5 complete sentences, each under 140 characters, grounded in the episode — what the listener should still know a week later. If their role is known, make at least one takeaway specific to it.',
+  '"visual" is a concept map of the episode\'s core idea, grounded in the module: one hub, 4–7 spokes, and 0–3 cross-links between spokes where the relationship itself teaches something. Keep every label short enough to sit in a small box; relations are plain verbs ("learned from", "limits", "predicts"). Pick the one concept where seeing the connections helps most.',
 ].join('\n');
 
 // An episode the listener has already heard, riding along on Q&A generation so
@@ -179,11 +191,66 @@ function parseScript(text: string, length: PodcastLength): PodcastScript | null 
     if (points.length >= 2) outline = points;
   }
 
+  // Takeaways and the concept map are best-effort like the outline: malformed
+  // input degrades to null, never to a rejected episode.
+  let takeaways: string[] | null = null;
+  if (Array.isArray(obj.takeaways)) {
+    const items = obj.takeaways
+      .filter((entry): entry is string => typeof entry === 'string' && entry.trim().length > 0)
+      .map((entry) => entry.trim().slice(0, 200))
+      .slice(0, 6);
+    if (items.length >= 2) takeaways = items;
+  }
+
+  let visual: PodcastVisualDraft | null = null;
+  if (typeof obj.visual === 'object' && obj.visual !== null) {
+    const v = obj.visual as Record<string, unknown>;
+    const hub = typeof v.hub === 'string' ? v.hub.trim().slice(0, 50) : '';
+    const spokes = Array.isArray(v.spokes)
+      ? v.spokes
+          .filter((entry): entry is Record<string, unknown> => typeof entry === 'object' && entry !== null)
+          .map((entry) => ({
+            label: typeof entry.label === 'string' ? entry.label.trim().slice(0, 50) : '',
+            relation: typeof entry.relation === 'string' ? entry.relation.trim().slice(0, 40) : '',
+          }))
+          .filter((spoke) => spoke.label)
+          .slice(0, 8)
+      : [];
+    if (hub && spokes.length >= 3) {
+      const links = (Array.isArray(v.links) ? v.links : [])
+        .filter((entry): entry is Record<string, unknown> => typeof entry === 'object' && entry !== null)
+        .map((entry) => ({
+          from: Number(entry.from),
+          to: Number(entry.to),
+          label: typeof entry.label === 'string' ? entry.label.trim().slice(0, 40) : '',
+        }))
+        .filter(
+          (link) =>
+            Number.isInteger(link.from) &&
+            Number.isInteger(link.to) &&
+            link.from !== link.to &&
+            link.from >= 0 &&
+            link.from < spokes.length &&
+            link.to >= 0 &&
+            link.to < spokes.length,
+        )
+        .slice(0, 4);
+      visual = {
+        title: typeof v.title === 'string' ? v.title.trim().slice(0, 80) : '',
+        hub,
+        spokes,
+        links,
+      };
+    }
+  }
+
   return {
     title: obj.title.trim().slice(0, 120),
     description: typeof obj.description === 'string' ? obj.description.trim().slice(0, 300) : '',
     lines: capped,
     outline,
+    takeaways,
+    visual,
   };
 }
 
@@ -227,7 +294,7 @@ function buildQaSystemPrompt(length: PodcastLength): string {
     '- Use the listener block the same way as the main show: examples fit their role, connections fit their goals. Specific, never sycophantic.',
     '',
     SCRIPT_SHAPE,
-    'For a listener-questions segment, the outline beats are the questions being taken up, in the order the hosts answer them.',
+    'For a listener-questions segment: the outline beats are the questions being taken up, in the order the hosts answer them; takeaways distill the answers; and set "visual" to null unless a map genuinely clarifies one of the answers.',
   ].join('\n');
 }
 

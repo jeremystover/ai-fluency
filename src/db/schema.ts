@@ -166,6 +166,8 @@ export const fdPodcast = sqliteTable(
     description: text('description').notNull(),
     scriptJson: text('script_json').notNull(), // [{speaker:'a'|'b', text}]
     outlineJson: text('outline_json'), // [{point, startLine}] — null before podcast-v4
+    takeawaysJson: text('takeaways_json'), // ["…"] — null before podcast-v5
+    visualJson: text('visual_json'), // concept map — null before podcast-v5
     totalChars: integer('total_chars').notNull(),
     modelUsed: text('model_used'),
     promptVersion: text('prompt_version'),
