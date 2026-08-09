@@ -1,0 +1,40 @@
+name: DB maintenance
+
+# Manually-dispatched maintenance tasks against the remote D1, using the same
+# Cloudflare secrets as the deploy workflow. Tasks are a fixed menu on purpose —
+# no free-form SQL rides in through a dispatch input.
+on:
+  workflow_dispatch:
+    inputs:
+      task:
+        description: 'Maintenance task to run'
+        required: true
+        type: choice
+        options:
+          - reset-podcasts
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Deletes every generated episode so fresh ones can be made (the studio
+      # allows one default episode per module per session). Cached audio in R2
+      # is left behind — new episodes get new ids, so orphans never collide,
+      # and they age out with the bucket.
+      - name: reset-podcasts
+        if: ${{ inputs.task == 'reset-podcasts' }}
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: d1 execute fluency-demo --remote --command "DELETE FROM fd_podcast"
