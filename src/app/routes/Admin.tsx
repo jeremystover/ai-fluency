@@ -8,7 +8,7 @@ import { goalLabel } from '../../shared/goals';
 // access-code management, and the completion audit trail. Deliberately
 // utilitarian — this is a tool for one company admin, not a learner surface.
 
-type Tab = 'learners' | 'content' | 'queue' | 'report' | 'codes' | 'audit';
+type Tab = 'learners' | 'content' | 'brand' | 'queue' | 'report' | 'codes' | 'audit';
 
 type SubmissionRow = {
   id: string;
@@ -109,6 +109,19 @@ type ContentBlockRow = {
   body: string;
   variant: string | null;
   reviewedAt: string;
+};
+
+type BrandConfig = {
+  slug: string;
+  name: string;
+  tokens: Record<string, unknown>;
+  voice: Record<string, unknown>;
+  profile: { aiTools?: string[] } & Record<string, unknown>;
+};
+
+type GuidanceData = {
+  guidance: { scope: string; body: string; updatedAt: string }[];
+  scopes: { courses: string[]; modules: { id: string; title: string; status: string }[] };
 };
 
 type SnapshotDetail = {
@@ -751,6 +764,150 @@ function Content() {
   );
 }
 
+// One guidance editor: a textarea bound to a scope, saved on demand.
+function GuidanceEditor({ scope, label, hint, initial, onSaved }: { scope: string; label: string; hint?: string; initial: string; onSaved: () => void }) {
+  const [text, setText] = useState(initial);
+  const [busy, setBusy] = useState(false);
+  const [note, setNote] = useState<string | null>(null);
+  const dirty = text.trim() !== initial.trim();
+  const save = async () => {
+    if (busy) return;
+    setBusy(true);
+    setNote(null);
+    try {
+      await api.put('/api/admin/guidance', { scope, body: text });
+      setNote(text.trim() ? 'Saved — future tutor and podcast sessions carry it.' : 'Cleared.');
+      onSaved();
+    } catch (e) {
+      setNote(e instanceof ApiError ? e.message : 'Failed to save.');
+    } finally {
+      setBusy(false);
+    }
+  };
+  return (
+    <div className="border border-line rounded-brand bg-surface p-4">
+      <div className="flex items-center justify-between flex-wrap gap-2">
+        <span className="label-utility">{label}</span>
+        <span className="flex items-center gap-2">
+          {note && <span className="text-xs text-muted">{note}</span>}
+          <Button onClick={save} disabled={busy || !dirty}>{busy ? 'Saving…' : 'Save'}</Button>
+        </span>
+      </div>
+      {hint && <p className="text-xs text-muted mt-1">{hint}</p>}
+      <textarea
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        rows={4}
+        placeholder="Key takeaways, points to reinforce, company-specific framing… Leave empty for none."
+        className="mt-2 w-full border border-line-strong bg-surface rounded-brand px-3 py-2 text-sm text-ink focus:border-accent placeholder:text-muted/60"
+      />
+    </div>
+  );
+}
+
+function BrandTab() {
+  const [brand, setBrand] = useState<BrandConfig | null>(null);
+  const [guidance, setGuidance] = useState<GuidanceData | null>(null);
+  const [name, setName] = useState('');
+  const [aiTools, setAiTools] = useState('');
+  const [tokensDraft, setTokensDraft] = useState('');
+  const [voiceDraft, setVoiceDraft] = useState('');
+  const [busy, setBusy] = useState(false);
+  const [note, setNote] = useState<string | null>(null);
+
+  const load = async () => {
+    const b = await api.get<BrandConfig>('/api/admin/brand');
+    setBrand(b);
+    setName(b.name);
+    setAiTools((b.profile.aiTools ?? []).join(', '));
+    setTokensDraft(JSON.stringify(b.tokens, null, 2));
+    setVoiceDraft(JSON.stringify(b.voice, null, 2));
+    setGuidance(await api.get<GuidanceData>('/api/admin/guidance'));
+  };
+  useEffect(() => {
+    load();
+  }, []);
+
+  const saveIdentity = async () => {
+    if (busy || !brand) return;
+    setBusy(true);
+    setNote(null);
+    try {
+      let tokens: unknown;
+      let voice: unknown;
+      try {
+        tokens = JSON.parse(tokensDraft);
+        voice = JSON.parse(voiceDraft);
+      } catch {
+        setNote('Design tokens and voice must be valid JSON.');
+        setBusy(false);
+        return;
+      }
+      const tools = aiTools.split(',').map((s) => s.trim()).filter(Boolean);
+      await api.put('/api/admin/brand', {
+        name,
+        tokens,
+        voice,
+        profile: { ...brand.profile, aiTools: tools },
+      });
+      setNote('Saved. Learners see the new identity on their next page load.');
+    } catch (e) {
+      setNote(e instanceof ApiError ? e.message : 'Failed to save.');
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  if (!brand || !guidance) return <p className="label-utility mt-8">Loading brand…</p>;
+  const bodyFor = (scope: string) => guidance.guidance.find((g) => g.scope === scope)?.body ?? '';
+  const openModules = guidance.scopes.modules.filter((m) => m.status === 'open');
+  const refresh = () => api.get<GuidanceData>('/api/admin/guidance').then(setGuidance);
+  return (
+    <div className="mt-6 grid gap-6 lg:grid-cols-2">
+      <div>
+        <span className="label-utility">Content guidance</span>
+        <p className="text-xs text-muted mt-1 mb-3">
+          What you write here is passed to the AI whenever it personalizes content — the module tutor and the podcast hosts weave it in. Use it for key takeaways you want reinforced, company framing, or additions the base content doesn't carry. Changes apply to new sessions and re-bake stock episodes automatically.
+        </p>
+        <div className="flex flex-col gap-3">
+          <GuidanceEditor scope="global" label="Overall — every course and module" initial={bodyFor('global')} onSaved={refresh} />
+          {guidance.scopes.courses.map((courseId) => (
+            <GuidanceEditor key={courseId} scope={`course:${courseId}`} label={`Course · ${courseId}`} initial={bodyFor(`course:${courseId}`)} onSaved={refresh} />
+          ))}
+          {openModules.map((m) => (
+            <GuidanceEditor key={m.id} scope={`module:${m.id}`} label={`Module · ${m.id}`} hint={m.title} initial={bodyFor(`module:${m.id}`)} onSaved={refresh} />
+          ))}
+        </div>
+      </div>
+      <div>
+        <span className="label-utility">Brand identity · {brand.slug}</span>
+        <div className="mt-3 border border-line rounded-brand bg-surface p-4 flex flex-col gap-3">
+          <label className="flex flex-col gap-1">
+            <span className="label-utility">Company name</span>
+            <input value={name} onChange={(e) => setName(e.target.value)} className="border border-line-strong rounded-brand px-3 py-2 text-sm focus:border-accent" />
+          </label>
+          <label className="flex flex-col gap-1">
+            <span className="label-utility">Provisioned AI tools (comma-separated)</span>
+            <input value={aiTools} onChange={(e) => setAiTools(e.target.value)} placeholder="Claude, Claude Code" className="border border-line-strong rounded-brand px-3 py-2 text-sm focus:border-accent placeholder:text-muted/60" />
+          </label>
+          <label className="flex flex-col gap-1">
+            <span className="label-utility">Design tokens (colors, fonts, radius — JSON)</span>
+            <textarea value={tokensDraft} onChange={(e) => setTokensDraft(e.target.value)} rows={10} spellCheck={false} className="border border-line-strong rounded-brand px-3 py-2 text-xs font-utility focus:border-accent" />
+          </label>
+          <label className="flex flex-col gap-1">
+            <span className="label-utility">Voice (copy register — JSON)</span>
+            <textarea value={voiceDraft} onChange={(e) => setVoiceDraft(e.target.value)} rows={5} spellCheck={false} className="border border-line-strong rounded-brand px-3 py-2 text-xs font-utility focus:border-accent" />
+          </label>
+          <div className="flex items-center gap-3">
+            <Button onClick={saveIdentity} disabled={busy}>{busy ? 'Saving…' : 'Save identity'}</Button>
+            {note && <span className="text-xs text-muted">{note}</span>}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Audit() {
   const [rows, setRows] = useState<AuditRow[] | null>(null);
   const [filter, setFilter] = useState('');
@@ -871,7 +1028,7 @@ export default function Admin() {
             <h1 className="font-display font-bold text-ink-strong text-2xl mt-1">Admin</h1>
           </div>
           <div className="flex items-center gap-1">
-            {(['learners', 'content', 'queue', 'report', 'codes', 'audit'] as Tab[]).map((tabId) => (
+            {(['learners', 'content', 'brand', 'queue', 'report', 'codes', 'audit'] as Tab[]).map((tabId) => (
               <button
                 key={tabId}
                 onClick={() => setTab(tabId)}
@@ -880,7 +1037,7 @@ export default function Admin() {
                   tab === tabId ? 'bg-ink-strong text-surface' : 'text-muted hover:text-ink-strong'
                 }`}
               >
-                {tabId === 'learners' ? 'Learners' : tabId === 'content' ? 'Content' : tabId === 'queue' ? 'Review queue' : tabId === 'report' ? 'Reporting' : tabId === 'codes' ? 'Access codes' : 'Content audit'}
+                {tabId === 'learners' ? 'Learners' : tabId === 'content' ? 'Content' : tabId === 'brand' ? 'Brand' : tabId === 'queue' ? 'Review queue' : tabId === 'report' ? 'Reporting' : tabId === 'codes' ? 'Access codes' : 'Content audit'}
               </button>
             ))}
             <button
@@ -896,6 +1053,7 @@ export default function Admin() {
         </div>
         {tab === 'learners' && <Learners />}
         {tab === 'content' && <Content />}
+        {tab === 'brand' && <BrandTab />}
         {tab === 'queue' && <Queue />}
         {tab === 'report' && <Reporting />}
         {tab === 'codes' && <Codes />}

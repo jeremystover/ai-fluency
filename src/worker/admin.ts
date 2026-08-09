@@ -10,6 +10,7 @@ import { constantTimeEqual, hashCode, signSessionId, verifySessionCookie, hashIp
 
 export interface AdminEnv {
   DB: D1Database;
+  BRAND_SLUG: string;
   SESSION_SECRET?: string;
   ADMIN_PASSCODE?: string;
 }
@@ -142,6 +143,115 @@ adminApp.get('/report', async (c) => {
         GROUP BY platform, browser, pointer ORDER BY sessions DESC`,
   );
   return c.json({ totals, funnel, demand, calibration, devices });
+});
+
+// ---------- brand (identity + steering guidance) ----------
+
+// The admin is brand-scoped by construction: one brand active per deployment
+// (BRAND_SLUG), and this console configures that brand.
+
+adminApp.get('/brand', async (c) => {
+  const db = c.get('db');
+  const rows = await db.select().from(t.fdBrand).where(eq(t.fdBrand.slug, c.env.BRAND_SLUG)).limit(1);
+  const row = rows[0];
+  if (!row) return c.json({ error: 'No brand seeded for this deployment.' }, 500);
+  return c.json({
+    slug: row.slug,
+    name: row.name,
+    tokens: JSON.parse(row.tokensJson),
+    voice: JSON.parse(row.voiceJson),
+    profile: row.profileJson ? JSON.parse(row.profileJson) : {},
+  });
+});
+
+adminApp.put('/brand', async (c) => {
+  const db = c.get('db');
+  const body = await c.req.json<{ name?: unknown; tokens?: unknown; voice?: unknown; profile?: unknown }>().catch(() => null);
+  if (!body) return c.json({ error: 'Send the fields to update.' }, 400);
+  const rows = await db.select().from(t.fdBrand).where(eq(t.fdBrand.slug, c.env.BRAND_SLUG)).limit(1);
+  if (!rows[0]) return c.json({ error: 'No brand seeded for this deployment.' }, 500);
+  const patch: Partial<typeof t.fdBrand.$inferInsert> = {};
+  if (body.name !== undefined) {
+    if (typeof body.name !== 'string' || !body.name.trim()) return c.json({ error: 'The brand name cannot be empty.' }, 400);
+    patch.name = body.name.trim().slice(0, 120);
+  }
+  for (const [key, col] of [['tokens', 'tokensJson'], ['voice', 'voiceJson'], ['profile', 'profileJson']] as const) {
+    const value = body[key];
+    if (value === undefined) continue;
+    if (typeof value !== 'object' || value === null || Array.isArray(value)) {
+      return c.json({ error: `"${key}" must be a JSON object.` }, 400);
+    }
+    patch[col] = JSON.stringify(value);
+  }
+  if (Object.keys(patch).length === 0) return c.json({ error: 'Nothing to update.' }, 400);
+  await db.update(t.fdBrand).set(patch).where(eq(t.fdBrand.slug, c.env.BRAND_SLUG));
+  await db.insert(t.fdEvent).values({
+    id: uuid(),
+    sessionId: null,
+    type: 'brand_updated',
+    payloadJson: JSON.stringify({ fields: Object.keys(patch) }),
+    createdAt: now(),
+  });
+  return c.json({ ok: true });
+});
+
+// Steering guidance: text the LLM receives alongside the module content when
+// personalizing (tutor chat, podcast). One row per scope; empty body deletes.
+adminApp.get('/guidance', async (c) => {
+  const db = c.get('db');
+  const rows = await db
+    .select()
+    .from(t.fdBrandGuidance)
+    .where(eq(t.fdBrandGuidance.brandSlug, c.env.BRAND_SLUG));
+  const modules = await db.select({ id: t.fdModule.id, courseId: t.fdModule.courseId, title: t.fdModule.title, status: t.fdModule.status }).from(t.fdModule).orderBy(asc(t.fdModule.courseId), asc(t.fdModule.ordinal));
+  const courses = [...new Set(modules.map((m) => m.courseId))];
+  return c.json({
+    guidance: rows.map((r) => ({ scope: r.scope, body: r.body, updatedAt: r.updatedAt })),
+    scopes: {
+      courses,
+      modules: modules.map((m) => ({ id: m.id, title: m.title, status: m.status })),
+    },
+  });
+});
+
+adminApp.put('/guidance', async (c) => {
+  const db = c.get('db');
+  const body = await c.req.json<{ scope?: string; body?: string }>().catch(() => null);
+  const scope = body?.scope?.trim();
+  const text = typeof body?.body === 'string' ? body.body.trim() : null;
+  if (!scope || text === null) return c.json({ error: 'Send { scope, body }.' }, 400);
+  if (scope !== 'global') {
+    const [kind, id] = scope.split(':');
+    if (kind === 'course') {
+      const hit = await db.select({ id: t.fdModule.id }).from(t.fdModule).where(eq(t.fdModule.courseId, id ?? '')).limit(1);
+      if (!hit[0]) return c.json({ error: `No course "${id}".` }, 400);
+    } else if (kind === 'module') {
+      const hit = await db.select({ id: t.fdModule.id }).from(t.fdModule).where(eq(t.fdModule.id, id ?? '')).limit(1);
+      if (!hit[0]) return c.json({ error: `No module "${id}".` }, 400);
+    } else {
+      return c.json({ error: 'Scope must be "global", "course:<id>", or "module:<id>".' }, 400);
+    }
+  }
+  await db
+    .delete(t.fdBrandGuidance)
+    .where(and(eq(t.fdBrandGuidance.brandSlug, c.env.BRAND_SLUG), eq(t.fdBrandGuidance.scope, scope)));
+  if (text) {
+    await db.insert(t.fdBrandGuidance).values({
+      id: uuid(),
+      brandSlug: c.env.BRAND_SLUG,
+      scope,
+      body: text.slice(0, 8000),
+      updatedAt: now(),
+    });
+  }
+  await db.insert(t.fdEvent).values({
+    id: uuid(),
+    sessionId: null,
+    type: 'guidance_updated',
+    payloadJson: JSON.stringify({ scope, chars: text.length }),
+    createdAt: now(),
+  });
+  return c.json({ ok: true, cleared: !text });
 });
 
 // ---------- learners (the LMS completion log) ----------

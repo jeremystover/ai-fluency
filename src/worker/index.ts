@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import { getCookie, setCookie } from 'hono/cookie';
 import { drizzle, type DrizzleD1Database } from 'drizzle-orm/d1';
-import { and, asc, desc, eq, gt, lt, sql } from 'drizzle-orm';
+import { and, asc, desc, eq, gt, inArray, lt, sql } from 'drizzle-orm';
 import * as t from '../db/schema';
 import { verifyCode, signSessionId, verifySessionCookie, hashIp } from './crypto';
 import { gradeSubmission, type RubricPayload } from './grading';
@@ -1334,7 +1334,8 @@ app.post('/api/module/:id/chat', async (c) => {
     .where(eq(t.fdModule.courseId, loaded.mod.courseId))
     .orderBy(asc(t.fdModule.ordinal));
   const learner = await buildLearnerContext(db, session.id);
-  const system = buildTutorSystem(loaded.mod as ModuleCard, loaded.blocks, courseModules as ModuleCard[], learner);
+  const guidance = await guidanceFor(db, c.env, moduleId, loaded.mod.courseId);
+  const system = buildTutorSystem(loaded.mod as ModuleCard, loaded.blocks, courseModules as ModuleCard[], learner, guidance?.text ?? null);
 
   // The stored opener starts with an assistant turn; the API requires user-first,
   // so the deterministic kickoff turn stands in (byte-stable for prompt caching).
@@ -1982,6 +1983,38 @@ const stockIntroKey = (moduleId: string, variant: string) => `podcast-stock/${mo
 const stockBodyChunkKey = (moduleId: string, i: number) => `podcast-stock/${moduleId}/generic/body-c${i}.mp3`;
 const personalIntroKey = (sessionId: string, moduleId: string) => `podcast-intro/${sessionId}/${moduleId}.mp3`;
 
+// Admin-authored steering from the Brand tab: what the company wants
+// emphasized, overall and for this course/module. It varies only by
+// deployment (one brand) and module — the same axes as the content itself —
+// so it is safe to ride inside the prompt-cached module block.
+async function guidanceFor(
+  db: DrizzleD1Database,
+  env: Env,
+  moduleId: string,
+  courseId: string | null,
+): Promise<{ text: string; updatedAt: string } | null> {
+  const scopes = ['global', ...(courseId ? [`course:${courseId}`] : []), `module:${moduleId}`];
+  const rows = await db
+    .select()
+    .from(t.fdBrandGuidance)
+    .where(and(eq(t.fdBrandGuidance.brandSlug, env.BRAND_SLUG), inArray(t.fdBrandGuidance.scope, scopes)));
+  const order = new Map(scopes.map((s, i) => [s, i]));
+  const parts = rows
+    .filter((r) => r.body.trim())
+    .sort((a, b) => (order.get(a.scope) ?? 9) - (order.get(b.scope) ?? 9));
+  if (!parts.length) return null;
+  return {
+    text: parts.map((r) => r.body.trim()).join('\n\n'),
+    updatedAt: parts.reduce((max, r) => (r.updatedAt > max ? r.updatedAt : max), ''),
+  };
+}
+
+const GUIDANCE_PREFACE =
+  "Company guidance — the sponsoring company's admin asked that the following be emphasized and reinforced when teaching this material. Weave it in where it fits naturally; it complements the module content, never replaces it.";
+
+const withGuidance = (contentMd: string, guidance: { text: string } | null) =>
+  guidance ? `${contentMd}\n\n<company_guidance>\n${GUIDANCE_PREFACE}\n\n${guidance.text}\n</company_guidance>` : contentMd;
+
 async function moduleContent(db: DrizzleD1Database, env: Env, moduleId: string) {
   const modRows = await db.select().from(t.fdModule).where(eq(t.fdModule.id, moduleId)).limit(1);
   const mod = modRows[0];
@@ -1993,8 +2026,10 @@ async function moduleContent(db: DrizzleD1Database, env: Env, moduleId: string) 
     .orderBy(asc(t.fdContentBlock.ordinal));
   if (blockRows.length === 0) return null;
   const blocks = selectVariants(blockRows, toolingOf(env)).filter((b) => b.kind !== 'exercise');
-  const contentMd = blocks.map((b) => b.body).join('\n\n');
-  const reviewedAt = blocks.reduce((max, b) => (b.reviewedAt > max ? b.reviewedAt : max), '');
+  const guidance = await guidanceFor(db, env, moduleId, mod.courseId);
+  const contentMd = withGuidance(blocks.map((b) => b.body).join('\n\n'), guidance);
+  // Guidance edits count as content changes, so stale stock episodes rebake.
+  const reviewedAt = [...blocks.map((b) => b.reviewedAt), guidance?.updatedAt ?? ''].reduce((max, d) => (d > max ? d : max), '');
   return { mod, contentMd, reviewedAt };
 }
 
@@ -2422,10 +2457,13 @@ async function generateEpisode(
     .where(eq(t.fdContentBlock.moduleId, moduleId))
     .orderBy(asc(t.fdContentBlock.ordinal));
   if (blockRows.length === 0) return null;
-  const contentMd = selectVariants(blockRows, toolingOf(env))
-    .filter((b) => b.kind !== 'exercise')
-    .map((b) => b.body)
-    .join('\n\n');
+  const contentMd = withGuidance(
+    selectVariants(blockRows, toolingOf(env))
+      .filter((b) => b.kind !== 'exercise')
+      .map((b) => b.body)
+      .join('\n\n'),
+    await guidanceFor(db, env, moduleId, mod.courseId),
+  );
 
   // Q&A hosts remember what this listener actually heard: their module episode
   // and earlier follow-ups ride along so "like we said…" references land true
