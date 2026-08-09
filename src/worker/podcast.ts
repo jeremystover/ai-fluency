@@ -9,10 +9,12 @@ export const PODCAST_PROMPT_VERSION = 'podcast-v3';
 
 export type PodcastKind = 'default' | 'qa';
 
-export const TTS_MODEL = '@cf/deepgram/aura-1';
-// Two clearly distinct Aura speakers — the contrast is what makes the format work.
-export const VOICE_A = 'asteria';
-export const VOICE_B = 'orion';
+export const TTS_MODEL = '@cf/deepgram/aura-2-en';
+// Two clearly distinct Aura-2 speakers — the contrast is what makes the format
+// work. Thalia is energetic and bright (Maya asks); Apollo is comfortable and
+// casual (Leo explains). Full roster: developers.cloudflare.com/workers-ai/models/aura-2-en/
+export const VOICE_A = 'thalia';
+export const VOICE_B = 'apollo';
 
 // Structural type for the AI binding so we don't depend on workers-types
 // carrying every partner model name.

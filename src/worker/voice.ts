@@ -4,7 +4,7 @@
 // a deployment without the binding loses voice, not the app.
 import { TTS_MODEL, speakLine, type AiBinding } from './podcast';
 
-// Distinct from the podcast hosts (asteria/orion) so the tutor sounds like a
+// Distinct from the podcast hosts (thalia/apollo) so the tutor sounds like a
 // third person, not one of Maya and Leo moonlighting.
 export const TUTOR_VOICE = 'athena';
 export const STT_MODEL = '@cf/openai/whisper-large-v3-turbo';
