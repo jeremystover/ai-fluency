@@ -16,6 +16,7 @@ import { chunkPlan } from '../shared/audioChunks';
 import {
   writeScript,
   renderAudio,
+  renderChunkAudio,
   estMinutes,
   PODCAST_PROMPT_VERSION,
   VOICE_A,
@@ -64,6 +65,12 @@ export interface Env {
   GRADING_MODEL: string;
   CHAT_MODEL: string;
   PODCAST_MODEL?: string;
+  // Optional Gemini TTS engine: set the secret to voice episodes with Gemini's
+  // native multi-speaker model instead of Aura (which remains the fallback).
+  GEMINI_API_KEY?: string;
+  GEMINI_TTS_MODEL?: string;
+  // Episode scripts per session per hour; default 4. Raise for demo/testing.
+  PODCAST_LIMIT_PER_HOUR?: string;
   SESSION_SECRET?: string;
   ANTHROPIC_API_KEY?: string;
   ADMIN_PASSCODE?: string;
@@ -80,7 +87,6 @@ const COOKIE_MAX_AGE = 60 * 60 * 24 * 30; // 30 days
 const CODE_ATTEMPT_LIMIT = 10;
 const CODE_ATTEMPT_WINDOW_MS = 15 * 60 * 1000;
 const GRADE_LIMIT_PER_HOUR = 5;
-const PODCAST_LIMIT_PER_HOUR = 4;
 const MIN_SUBMISSION_CHARS = 700;
 const CHAT_LIMIT_PER_HOUR = 30; // assistant replies per session per hour
 const MAX_CHAT_CHARS = 2000;
@@ -1812,8 +1818,8 @@ app.get('/api/podcast', async (c) => {
     episodes,
     playedEpisodeIds,
     scriptEnabled: Boolean(c.env.ANTHROPIC_API_KEY),
-    audioEnabled: Boolean(c.env.AI),
-    audioPrerenders: Boolean(c.env.AI && c.env.PODCAST_AUDIO),
+    audioEnabled: Boolean(c.env.AI || c.env.GEMINI_API_KEY),
+    audioPrerenders: Boolean((c.env.AI || c.env.GEMINI_API_KEY) && c.env.PODCAST_AUDIO),
   };
   return c.json(res);
 });
@@ -1939,7 +1945,7 @@ const chunkKey = (podcastId: string, i: number) => `podcast/${podcastId}/c${i}.m
 // Failures are silent for the same reason. Skips chunks another path (a live
 // listen racing ahead of this task) already rendered.
 async function renderVoicesToCache(env: Env, row: PodcastRow, trigger: 'create' | 'pregen'): Promise<void> {
-  if (!env.AI || !env.PODCAST_AUDIO) return;
+  if ((!env.AI && !env.GEMINI_API_KEY) || !env.PODCAST_AUDIO) return;
   try {
     const db = drizzle(env.DB);
     const lines = JSON.parse(row.scriptJson) as PodcastLine[];
@@ -1952,28 +1958,37 @@ async function renderVoicesToCache(env: Env, row: PodcastRow, trigger: 'create' 
         bytesTotal += existing.size;
         continue;
       }
-      const audio = await renderAudio(env.AI, lines.slice(plan[i].start, plan[i].end));
+      const audio = await renderChunkAudio(env, lines.slice(plan[i].start, plan[i].end));
       if (!audio) return;
-      await env.PODCAST_AUDIO.put(key, audio);
-      bytesTotal += audio.length;
+      await env.PODCAST_AUDIO.put(key, audio.bytes, { httpMetadata: { contentType: audio.contentType } });
+      bytesTotal += audio.bytes.length;
     }
     await db
       .update(t.fdPodcast)
       .set({ audioKey: `podcast/${row.id}/`, audioBytes: bytesTotal, audioAt: now() })
       .where(and(eq(t.fdPodcast.id, row.id), sql`${t.fdPodcast.audioKey} IS NULL`));
-    await logEvent(db, row.sessionId, 'podcast_audio_rendered', { podcastId: row.id, bytes: bytesTotal, chunks: plan.length, cached: true, trigger });
+    await logEvent(db, row.sessionId, 'podcast_audio_rendered', {
+      podcastId: row.id,
+      bytes: bytesTotal,
+      chunks: plan.length,
+      cached: true,
+      trigger,
+      engine: env.GEMINI_API_KEY ? 'gemini' : 'aura',
+    });
   } catch {
     // Background work — the chunk route's live render remains the safety net.
   }
 }
 
-async function underPodcastLimit(db: DrizzleD1Database, sessionId: string): Promise<boolean> {
+const podcastHourlyLimit = (env: Env) => Math.max(1, Number(env.PODCAST_LIMIT_PER_HOUR) || 4);
+
+async function underPodcastLimit(db: DrizzleD1Database, sessionId: string, env: Env): Promise<boolean> {
   const hourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
   const recent = await db
     .select({ n: sql<number>`count(*)` })
     .from(t.fdPodcast)
     .where(and(eq(t.fdPodcast.sessionId, sessionId), gt(t.fdPodcast.createdAt, hourAgo)));
-  return (recent[0]?.n ?? 0) < PODCAST_LIMIT_PER_HOUR;
+  return (recent[0]?.n ?? 0) < podcastHourlyLimit(env);
 }
 
 const defaultLengthFor = (depth: ReturnType<typeof depthOf>): PodcastLength =>
@@ -1992,7 +2007,7 @@ async function pregenerateNextPodcast(env: Env, sessionId: string): Promise<void
     // learners who ranked it first.
     if (!(prefs.styles ?? []).includes('podcast')) return;
     if (!env.ANTHROPIC_API_KEY) return;
-    if (!(await underPodcastLimit(db, sessionId))) return;
+    if (!(await underPodcastLimit(db, sessionId, env))) return;
 
     const mods = await db
       .select()
@@ -2067,8 +2082,8 @@ app.post('/api/podcast', async (c) => {
     }
   }
 
-  if (!(await underPodcastLimit(db, session.id))) {
-    return c.json({ error: `Episode writing is limited to ${PODCAST_LIMIT_PER_HOUR} an hour. Your earlier episodes are below — or come back shortly.` }, 429);
+  if (!(await underPodcastLimit(db, session.id, c.env))) {
+    return c.json({ error: `Episode writing is limited to ${podcastHourlyLimit(c.env)} an hour. Your earlier episodes are below — or come back shortly.` }, 429);
   }
 
   const question = kind === 'qa' ? body.question!.trim().slice(0, 500) : null;
@@ -2118,25 +2133,32 @@ app.get('/api/podcast/:id/audio/:chunk', async (c) => {
   const idx = Number(c.req.param('chunk'));
   if (!Number.isInteger(idx) || idx < 0 || idx >= plan.length) return c.json({ error: 'No such chunk.' }, 404);
 
-  const audioHeaders = { 'content-type': 'audio/mpeg', 'cache-control': 'private, max-age=86400' };
   const key = chunkKey(row.id, idx);
+  const headersFor = (contentType: string) => ({ 'content-type': contentType, 'cache-control': 'private, max-age=86400' });
+  // Chunks may be MP3 (Aura) or WAV (Gemini) — trust stored metadata, sniff RIFF as backup.
+  const sniff = (bytes: Uint8Array | null) =>
+    bytes && bytes[0] === 0x52 && bytes[1] === 0x49 && bytes[2] === 0x46 && bytes[3] === 0x46 ? 'audio/wav' : 'audio/mpeg';
 
   if (c.env.PODCAST_AUDIO) {
     const cached = await c.env.PODCAST_AUDIO.get(key);
-    if (cached) return new Response(cached.body, { headers: audioHeaders });
+    if (cached) {
+      const bytes = new Uint8Array(await cached.arrayBuffer());
+      return new Response(bytes, { headers: headersFor(cached.httpMetadata?.contentType ?? sniff(bytes)) });
+    }
   }
 
-  if (!c.env.AI) {
+  if (!c.env.AI && !c.env.GEMINI_API_KEY) {
     return c.json({ error: 'Audio rendering is not configured in this deployment — the full transcript is the episode for now.' }, 503);
   }
 
-  const audio = await renderAudio(c.env.AI, lines.slice(plan[idx].start, plan[idx].end));
-  if (!audio) {
+  const rendered = await renderChunkAudio(c.env, lines.slice(plan[idx].start, plan[idx].end));
+  if (!rendered) {
     return c.json({ error: 'The voices are unavailable right now. The script is safe — try the audio again in a minute.' }, 503);
   }
+  const audio = rendered.bytes;
 
   if (c.env.PODCAST_AUDIO) {
-    await c.env.PODCAST_AUDIO.put(key, audio);
+    await c.env.PODCAST_AUDIO.put(key, audio, { httpMetadata: { contentType: rendered.contentType } });
     // If this listen just completed the set, mark the episode fully voiced.
     if (row.audioKey === null) {
       let all = true;
@@ -2154,9 +2176,15 @@ app.get('/api/podcast/:id/audio/:chunk', async (c) => {
       }
     }
   }
-  await logEvent(db, session.id, 'podcast_audio_rendered', { podcastId: row.id, chunk: idx, bytes: audio.length, trigger: 'listen' });
+  await logEvent(db, session.id, 'podcast_audio_rendered', {
+    podcastId: row.id,
+    chunk: idx,
+    bytes: audio.length,
+    trigger: 'listen',
+    engine: c.env.GEMINI_API_KEY ? 'gemini' : 'aura',
+  });
 
-  return new Response(audio, { headers: { ...audioHeaders, 'content-length': String(audio.length) } });
+  return new Response(audio, { headers: { ...headersFor(rendered.contentType), 'content-length': String(audio.length) } });
 });
 
 // Legacy whole-episode audio: episodes voiced before chunked playback keep

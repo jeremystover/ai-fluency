@@ -351,6 +351,117 @@ export async function speakLine(ai: AiBinding, text: string, speaker: string): P
   return null;
 }
 
+// ---------- Gemini TTS engine (optional, NotebookLM-family) ----------
+//
+// When GEMINI_API_KEY is configured, chunks are voiced by Gemini's native
+// multi-speaker TTS: the whole chunk's dialogue goes in one call and both
+// voices come back sharing prosody — no per-line stitching seams. Output is
+// raw PCM (24kHz mono 16-bit), wrapped in a WAV header here. Aura stays as
+// the fallback engine, per-call and per-deployment.
+
+export const GEMINI_TTS_DEFAULT_MODEL = 'gemini-3.1-flash-tts-preview';
+// Kore (firm) fits Maya the expert; Puck (upbeat) fits Leo, who asks.
+export const GEMINI_VOICE_A = 'Kore';
+export const GEMINI_VOICE_B = 'Puck';
+
+export type TtsEnv = { AI?: AiBinding; GEMINI_API_KEY?: string; GEMINI_TTS_MODEL?: string };
+export type RenderedAudio = { bytes: Uint8Array; contentType: string };
+
+function b64ToBytes(b64: string): Uint8Array {
+  const bin = atob(b64);
+  const out = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+  return out;
+}
+
+function pcmToWav(pcm: Uint8Array, sampleRate = 24000, channels = 1, bitsPerSample = 16): Uint8Array {
+  const header = new ArrayBuffer(44);
+  const v = new DataView(header);
+  const writeStr = (offset: number, s: string) => {
+    for (let i = 0; i < s.length; i++) v.setUint8(offset + i, s.charCodeAt(i));
+  };
+  const byteRate = (sampleRate * channels * bitsPerSample) / 8;
+  writeStr(0, 'RIFF');
+  v.setUint32(4, 36 + pcm.length, true);
+  writeStr(8, 'WAVE');
+  writeStr(12, 'fmt ');
+  v.setUint32(16, 16, true);
+  v.setUint16(20, 1, true); // PCM
+  v.setUint16(22, channels, true);
+  v.setUint32(24, sampleRate, true);
+  v.setUint32(28, byteRate, true);
+  v.setUint16(32, (channels * bitsPerSample) / 8, true);
+  v.setUint16(34, bitsPerSample, true);
+  writeStr(36, 'data');
+  v.setUint32(40, pcm.length, true);
+  const out = new Uint8Array(44 + pcm.length);
+  out.set(new Uint8Array(header), 0);
+  out.set(pcm, 44);
+  return out;
+}
+
+// The Interactions API response nests the audio differently across SDK/REST
+// surfaces; find the base64 payload wherever it lives (largest 'data' string).
+function findAudioB64(value: unknown, depth = 0): string | null {
+  if (depth > 8 || typeof value !== 'object' || value === null) return null;
+  let best: string | null = null;
+  for (const [key, v] of Object.entries(value as Record<string, unknown>)) {
+    if (key === 'data' && typeof v === 'string' && v.length > 200) {
+      if (!best || v.length > best.length) best = v;
+    } else {
+      const nested = findAudioB64(v, depth + 1);
+      if (nested && (!best || nested.length > best.length)) best = nested;
+    }
+  }
+  return best;
+}
+
+async function geminiSpeakOnce(apiKey: string, model: string, lines: PodcastLine[]): Promise<Uint8Array | null> {
+  const dialogue = lines.map((l) => `${PODCAST_HOSTS[l.speaker].name}: ${l.text}`).join('\n');
+  const res = await fetch('https://generativelanguage.googleapis.com/v1beta/interactions', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', 'x-goog-api-key': apiKey },
+    body: JSON.stringify({
+      model,
+      input: `TTS the following podcast conversation between ${PODCAST_HOSTS.a.name} and ${PODCAST_HOSTS.b.name}. Natural, warm, engaged podcast delivery — two hosts who enjoy each other's company. The transcript:\n\n${dialogue}`,
+      response_format: { type: 'audio' },
+      generation_config: {
+        speech_config: [
+          { speaker: PODCAST_HOSTS.a.name, voice: GEMINI_VOICE_A },
+          { speaker: PODCAST_HOSTS.b.name, voice: GEMINI_VOICE_B },
+        ],
+      },
+    }),
+  });
+  if (!res.ok) return null;
+  const b64 = findAudioB64(await res.json());
+  return b64 ? b64ToBytes(b64) : null;
+}
+
+// One chunk of episode audio through whichever engine this deployment has:
+// Gemini multi-speaker first when configured (retried once — the docs note
+// occasional 500s are expected), Aura as the fallback. Callers store and serve
+// by the returned content type; the player is format-agnostic per chunk.
+export async function renderChunkAudio(env: TtsEnv, lines: PodcastLine[]): Promise<RenderedAudio | null> {
+  if (env.GEMINI_API_KEY) {
+    const model = env.GEMINI_TTS_MODEL ?? GEMINI_TTS_DEFAULT_MODEL;
+    for (let attempt = 0; attempt < 2; attempt++) {
+      try {
+        const pcm = await geminiSpeakOnce(env.GEMINI_API_KEY, model, lines);
+        if (pcm && pcm.length > 0) return { bytes: pcmToWav(pcm), contentType: 'audio/wav' };
+      } catch {
+        // fall through to retry
+      }
+    }
+    // Gemini down or rejecting — Aura carries the episode if it's bound.
+  }
+  if (env.AI) {
+    const audio = await renderAudio(env.AI, lines);
+    if (audio) return { bytes: audio, contentType: 'audio/mpeg' };
+  }
+  return null;
+}
+
 // Voices every turn sequentially and concatenates the MP3 frames — same encoder,
 // same settings, so players treat the stitched stream as one file. Null on any
 // unrecoverable segment: a podcast with silent holes is worse than a clean retry.
