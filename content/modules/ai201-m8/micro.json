@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ai201-m8-micro-core",
+    "moduleId": "ai201-m8-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Module 8 in two minutes\n\n**Shipping is transferability.** A workflow only its builder can run isn't a system yet — the proof of the Practitioner level is that a stranger can run the build, read its boundaries, and trust its guardrails from the documentation alone. The binder gets a consistency pass first: contradictions between the spec, runbook, and rhythm are where cold readers stall and reviewers stop trusting.\n\n**The handoff test makes the stranger real:** a peer (or the course's review queue) runs your first step cold and answers three questions — Could I start? Where did I stall? What did the doc assume I knew? Every stall is documentation debt, and builders miss in a known direction: they predict stalls at the complex parts and get stalled at the obvious ones, where their expertise went invisible.\n\n**Then say it in one sentence with receipts:** saves N hours a month against a measured baseline, at a running cost of $X and a Y% sampled error rate, with a boundary sheet security has seen. Every clause is backed by an artifact that exists. That's a different kind of sentence than this conversation usually gets."
+  },
+  {
+    "id": "ai201-m8-micro-rule",
+    "moduleId": "ai201-m8-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "### The course's test\n\nWould a reasonable colleague trust it? Not \"is it impressive\" — verification real, boundary defensible, autonomy evidenced, documentation a stranger has run. Trust is what the whole system either earns or doesn't."
+  },
+  {
+    "id": "ai201-m8-micro-close",
+    "moduleId": "ai201-m8-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "**The full module adds** the shipping checklist, the peer-exchange mechanics, the manager one-pager — and the quiet news that the skills this build taught you have a name: the Translator. AI 301 starts there."
+  }
+]

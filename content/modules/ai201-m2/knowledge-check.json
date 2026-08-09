@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the capstone pack is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-07",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is the \"artisan tax\"?",
+      "options": [
+        "The subscription cost of professional AI tools",
+        "The recurring cost of re-briefing unchanged context in every conversation",
+        "The time spent verifying AI output",
+        "The premium for larger context windows"
+      ],
+      "correctIndex": 1,
+      "explanation": "It's the per-conversation cost of re-supplying material that barely changes between runs. Verification (C) is a cost worth keeping — M4 designs it rather than eliminating it."
+    },
+    {
+      "id": "q2",
+      "prompt": "The two-question test for whether material belongs in the pack:",
+      "options": [
+        "Is it useful? Is it well-written?",
+        "Will it still be right in ninety days? Does it identify a person?",
+        "Is it shorter than a page? Is it approved by legal?",
+        "Has it been used more than twice? Is it confidential?"
+      ],
+      "correctIndex": 1,
+      "explanation": "Durable *and* impersonal — yes to the first, no to the second. Everything else in the module's three-bin sorting follows from those two questions."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why does putting this quarter's survey verbatims in the pack cause trouble?",
+      "options": [
+        "Verbatims are too long for knowledge files",
+        "Survey data is always too sensitive to use",
+        "Fresh material packed as durable gets confidently cited long after it's stale",
+        "It doesn't — verbatims are ideal pack content"
+      ],
+      "correctIndex": 2,
+      "explanation": "That's the quiet rot: June's run cites March's themes, fluently, with no signal anything is wrong. Verbatims are legitimate *fresh* input (B overshoots); they just must leave with the run."
+    },
+    {
+      "id": "q4",
+      "prompt": "Instructions versus knowledge, in one rule: **[V]**",
+      "options": [
+        "Instructions are what it must always do; knowledge is what it may need to look at",
+        "Instructions are for formatting; knowledge is for facts",
+        "Instructions are temporary; knowledge is permanent",
+        "They're interchangeable — use whichever has space"
+      ],
+      "correctIndex": 0,
+      "explanation": "The standing brief stays short and behavioral; the shelf holds reference consulted as needed. Three pages of instructions is knowledge in the wrong house."
+    },
+    {
+      "id": "q5",
+      "prompt": "\"People data must never become infrastructure\" means:",
+      "options": [
+        "People data may never be used with AI at all",
+        "Sensitive material may enter a run as fresh input under that run's judgment, but never live in packs or instructions",
+        "People data belongs in knowledge files, not instructions",
+        "Only aggregated people data may go in the pack"
+      ],
+      "correctIndex": 1,
+      "explanation": "The rule targets *standing* exposure — material written once and present in every future conversation, with nobody re-deciding. A is broader than the course teaches (M6 governs per-run use); C is precisely the violation."
+    },
+    {
+      "id": "q6",
+      "prompt": "A conversation inside a Claude Project produces a much better debrief format than your pack specifies. Next week's runs will: **[V]**",
+      "options": [
+        "Use the improved format — the project learns from its conversations",
+        "Use the old format, until you deliberately edit the instructions or knowledge",
+        "Alternate between formats",
+        "Ask which format you prefer"
+      ],
+      "correctIndex": 1,
+      "explanation": "Conversations don't teach the project — 101's \"you're not training it\" lesson, now operational. That's a feature: the pack changes only when you change it, which is what makes it auditable. Fix the pack, not the output."
+    },
+    {
+      "id": "q7",
+      "prompt": "The stable/volatile split applied to your own pack means:",
+      "options": [
+        "Keeping two separate packs per workflow",
+        "Reviewing fast-aging items (org brief, anything touching money or structure) on a short cadence, and slow-aging items on a long one",
+        "Marking which items the model may quote directly",
+        "Storing volatile items as instructions and stable items as knowledge"
+      ],
+      "correctIndex": 1,
+      "explanation": "Different material ages at different speeds, so it gets reviewed at different speeds — the same discipline this course's own content runs on, applied to your infrastructure."
+    },
+    {
+      "id": "q8",
+      "prompt": "A run produces a wrong output because the org brief in your pack predates the reorg. The practitioner's move:",
+      "options": [
+        "Correct the output and ship it",
+        "Correct the output, then update the pack and its review cadence",
+        "Delete the org brief — packs shouldn't contain anything that changes",
+        "Add a disclaimer to the output"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ship the corrected work, then fix the system that drafted it — otherwise next week pays the same cost. C throws away the pack's value; the answer to aging content is a cadence, not exclusion."
+    }
+  ]
+}

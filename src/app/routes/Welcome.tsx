@@ -6,9 +6,10 @@ import { api, ApiError, track } from '../api';
 import { useApp } from '../brand';
 import { GOAL_CHOICES } from '../../shared/goals';
 import { DEPTH_CHOICES } from '../../shared/depth';
+import { SELF_LEVEL_CHOICES } from '../../shared/levels';
 import type { IntakePrefs } from '../../shared/types';
 
-// The orientation: before anything launches at the learner, ask how they
+// Course Crafting: before anything launches at the learner, ask how they
 // want this to go. Same visual grammar as the diagnostic — one question
 // per screen. Reachable again later via "Customize your path" (?edit=1).
 
@@ -17,19 +18,19 @@ const START_CHOICES: StartChoice[] = [
   {
     id: 'diagnostic',
     label: 'Quiz me first',
-    detail: 'Nine questions, ~8 minutes. You get a direction of error, not a score — and permission to skip what you already know.',
+    detail: 'Put your skills to the test. 9 questions, 8 minutes. Fastest path to discover what you know and what you need to know, crafting the course to meet you where you are today.',
     tag: 'Recommended',
   },
   {
-    id: 'module',
-    label: 'Skip diagnosis — take me into the course',
-    detail: "You know your gaps. Module 1 opens directly; the diagnostic will still be there when you want your read tested.",
+    id: 'chat',
+    label: 'Size me up in conversation',
+    detail: "Let's chat! The GPT tutor is in and ready for a conversation designed to assess and expand on what you know and are doing with AI today.",
+    tag: 'New',
   },
   {
-    id: 'chat',
-    label: 'Size me up in a conversation',
-    detail: 'The module tutor works out your level by talking with you — a few applied questions, an honest read, no quiz.',
-    tag: 'New',
+    id: 'module',
+    label: 'Skip diagnosis',
+    detail: "Dive right in. Let's skip the diagnosis; you know your gaps. We'll take you to the menu and you can choose your own adventure.",
   },
 ];
 
@@ -58,6 +59,8 @@ export default function Welcome() {
   const [styles, setStyles] = useState<string[]>([]);
   const [goals, setGoals] = useState<string[]>([]);
   const [objective, setObjective] = useState('');
+  const [aiUsage, setAiUsage] = useState('');
+  const [selfLevel, setSelfLevel] = useState<string>();
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const tracked = useRef(false);
@@ -86,11 +89,13 @@ export default function Welcome() {
     setStyles(me.prefs?.styles ?? []);
     setGoals(me.prefs?.goals ?? []);
     setObjective(me.prefs?.objective ?? '');
+    setAiUsage(me.prefs?.aiUsage ?? '');
+    setSelfLevel(me.prefs?.selfLevel);
   }, [editing, me]);
 
   const next = () => setStep((s) => Math.min(s + 1, TOTAL_STEPS - 1));
 
-  const finish = async (objectiveOverride?: string) => {
+  const finish = async () => {
     if (busy) return;
     setBusy(true);
     setError(null);
@@ -98,7 +103,7 @@ export default function Welcome() {
       await api.post('/api/intake', {
         displayName: name,
         roleLabel: role,
-        prefs: { start, depth, styles, goals, objective: objectiveOverride ?? objective } satisfies IntakePrefs,
+        prefs: { start, depth, styles, goals, objective, aiUsage, selfLevel } satisfies IntakePrefs,
       });
       await refreshMe();
       navigate('/plan');
@@ -147,7 +152,7 @@ export default function Welcome() {
     <Screen>
       <div className="pt-10 sm:pt-16 max-w-xl">
         <div className="flex items-center justify-between">
-          <span className="label-utility">{editing ? 'Customize your path' : 'How you want this to go'} · {step + 1} of {TOTAL_STEPS}</span>
+          <span className="label-utility">{editing ? 'Customize your path' : 'Course Crafting'} · {step + 1} of {TOTAL_STEPS}</span>
           <div className="flex gap-1" aria-hidden="true">
             {Array.from({ length: TOTAL_STEPS }, (_, i) => (
               <span key={i} className={`h-1 w-5 rounded-full ${i < step ? 'bg-accent' : i === step ? 'bg-ink-strong' : 'bg-line'}`} />
@@ -163,9 +168,9 @@ export default function Welcome() {
               <p className="text-ink mt-4">
                 {editing
                   ? 'Your plan rebuilds from whatever you change. Walk through the same five questions — your current answers are already filled in.'
-                  : 'This is an AI fluency course that practices what it teaches: it measures your judgment before it feeds you content, and it bends to how you want to learn. Nothing launches at you until you\'ve told it how to go.'}
+                  : 'This is an AI fluency course that adapts to you, measuring your skill, judgement, and knowledge to tailor the content, personalized for you and your goals. To do that, we need to know a bit about you and how you use AI today.'}
               </p>
-              <p className="text-muted text-sm mt-3">First — both optional, both skippable:</p>
+              <p className="text-muted text-sm mt-3">First — all of this is optional, all of it skippable:</p>
               <div className="mt-5 flex flex-col gap-4">
                 <label className="flex flex-col gap-1.5">
                   <span className="label-utility">First name</span>
@@ -185,28 +190,81 @@ export default function Welcome() {
                     className="border border-line-strong bg-surface rounded-brand px-4 py-2.5 text-ink-strong focus:border-accent placeholder:text-muted/60"
                   />
                 </label>
+                <label className="flex flex-col gap-1.5">
+                  <span className="label-utility">How do you use AI in your job today?</span>
+                  <div className="relative">
+                    <textarea
+                      value={aiUsage}
+                      onChange={(e) => setAiUsage(e.target.value)}
+                      rows={2}
+                      maxLength={280}
+                      placeholder='e.g. "Drafting job descriptions in ChatGPT, summarizing survey comments — nothing that runs on its own yet."'
+                      className="w-full border border-line-strong bg-surface rounded-brand px-4 py-3 pr-14 text-ink leading-relaxed focus:border-accent placeholder:text-muted/60 resize-y"
+                    />
+                    <MicButton
+                      className="absolute right-2.5 bottom-3"
+                      onError={setError}
+                      onText={(text) => setAiUsage((prev) => `${prev ? `${prev.trimEnd()} ` : ''}${text}`.slice(0, 280))}
+                    />
+                  </div>
+                </label>
+                <div className="flex flex-col gap-1.5">
+                  <span className="label-utility">Where would you place yourself today? The course uses these levels throughout</span>
+                  <div className="flex flex-col gap-2">
+                    {SELF_LEVEL_CHOICES.map((choice) =>
+                      card({
+                        key: choice.id,
+                        label: choice.label,
+                        detail: choice.detail,
+                        compact: true,
+                        selected: selfLevel === choice.id,
+                        onClick: () => setSelfLevel((cur) => (cur === choice.id ? undefined : choice.id)),
+                      }),
+                    )}
+                  </div>
+                </div>
               </div>
+              {error && <div className="mt-4"><ErrorNote message={error} /></div>}
               <div className="mt-7"><Button onClick={next}>Continue</Button></div>
             </>
           )}
 
           {step === 1 && (
             <>
-              <h1 className="font-display font-semibold text-ink-strong text-2xl leading-snug">How do you want to start?</h1>
-              <div className="mt-6 flex flex-col gap-2.5">
-                {START_CHOICES.map((choice) =>
+              <h1 className="font-display font-semibold text-ink-strong text-2xl leading-snug">What do you want out of this?</h1>
+              <p className="text-muted text-sm mt-2">Pick everything that's true. The plan leans toward what you choose.</p>
+              <div className="mt-6 grid gap-2 sm:grid-cols-2">
+                {GOAL_CHOICES.map((choice) =>
                   card({
                     key: choice.id,
                     label: choice.label,
                     detail: choice.detail,
-                    tag: choice.tag,
-                    disabled: choice.disabled,
-                    selected: start === choice.id,
-                    onClick: () => setStart(choice.id as IntakePrefs['start']),
+                    compact: true,
+                    selected: goals.includes(choice.id),
+                    onClick: () => setGoals((g) => (g.includes(choice.id) ? g.filter((x) => x !== choice.id) : [...g, choice.id])),
                   }),
                 )}
               </div>
-              <div className="mt-7"><Button onClick={next} disabled={!start}>Continue</Button></div>
+              <label className="flex flex-col gap-1.5 mt-5">
+                <span className="label-utility">Anything else? Something specific, or a goal not covered above — type or talk. Optional</span>
+                <div className="relative">
+                  <textarea
+                    value={objective}
+                    onChange={(e) => setObjective(e.target.value)}
+                    rows={2}
+                    maxLength={280}
+                    placeholder='e.g. "Specifically: stop second-guessing what I can hand to AI in ER work."'
+                    className="w-full border border-line-strong bg-surface rounded-brand px-4 py-3 pr-14 text-ink leading-relaxed focus:border-accent placeholder:text-muted/60 resize-y"
+                  />
+                  <MicButton
+                    className="absolute right-2.5 bottom-3"
+                    onError={setError}
+                    onText={(text) => setObjective((prev) => `${prev ? `${prev.trimEnd()} ` : ''}${text}`.slice(0, 280))}
+                  />
+                </div>
+              </label>
+              {error && <div className="mt-4"><ErrorNote message={error} /></div>}
+              <div className="mt-7"><Button onClick={next}>Continue</Button></div>
             </>
           )}
 
@@ -257,52 +315,25 @@ export default function Welcome() {
 
           {step === 4 && (
             <>
-              <h1 className="font-display font-semibold text-ink-strong text-2xl leading-snug">What do you want out of this?</h1>
-              <p className="text-muted text-sm mt-2">Pick everything that's true. The plan leans toward what you choose.</p>
-              <div className="mt-6 grid gap-2 sm:grid-cols-2">
-                {GOAL_CHOICES.map((choice) =>
+              <h1 className="font-display font-semibold text-ink-strong text-2xl leading-snug">How do you want to start?</h1>
+              <div className="mt-6 flex flex-col gap-2.5">
+                {START_CHOICES.map((choice) =>
                   card({
                     key: choice.id,
                     label: choice.label,
                     detail: choice.detail,
-                    compact: true,
-                    selected: goals.includes(choice.id),
-                    onClick: () => setGoals((g) => (g.includes(choice.id) ? g.filter((x) => x !== choice.id) : [...g, choice.id])),
+                    tag: choice.tag,
+                    disabled: choice.disabled,
+                    selected: start === choice.id,
+                    onClick: () => setStart(choice.id as IntakePrefs['start']),
                   }),
                 )}
               </div>
-              <label className="flex flex-col gap-1.5 mt-5">
-                <span className="label-utility">Anything else? Something specific, or a goal not covered above — type or talk. Optional</span>
-                <div className="relative">
-                  <textarea
-                    value={objective}
-                    onChange={(e) => setObjective(e.target.value)}
-                    rows={2}
-                    maxLength={280}
-                    placeholder='e.g. "Specifically: stop second-guessing what I can hand to AI in ER work."'
-                    className="w-full border border-line-strong bg-surface rounded-brand px-4 py-3 pr-14 text-ink leading-relaxed focus:border-accent placeholder:text-muted/60 resize-y"
-                  />
-                  <MicButton
-                    className="absolute right-2.5 bottom-3"
-                    onError={setError}
-                    onText={(text) => setObjective((prev) => `${prev ? `${prev.trimEnd()} ` : ''}${text}`.slice(0, 280))}
-                  />
-                </div>
-              </label>
               {error && <div className="mt-4"><ErrorNote message={error} /></div>}
-              <div className="mt-6 flex items-center gap-4">
-                <Button onClick={() => finish()} disabled={busy}>
+              <div className="mt-6">
+                <Button onClick={finish} disabled={busy || !start}>
                   {busy ? 'Building your plan…' : editing ? 'Rebuild my plan' : 'Build my plan'}
                 </Button>
-                {!editing && (
-                  <button
-                    onClick={() => finish('')}
-                    className="text-muted text-sm underline underline-offset-4 hover:text-ink-strong"
-                    disabled={busy}
-                  >
-                    Skip this
-                  </button>
-                )}
               </div>
             </>
           )}

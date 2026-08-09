@@ -1,0 +1,38 @@
+{
+  "promptVersion": "ai201-m7-capstone-v1",
+  "moduleId": "ai201-m7",
+  "minChars": 600,
+  "submitLabel": "Your capstone-stage submission",
+  "intro": "Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited — the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). Capstone stage 7: the four numbers baselined with would-do-differently answers, the rhythm installed on a real calendar, the retirement clause with quantified triggers, and the reckoning against the Module 1 prediction. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.",
+  "calibration": [
+    {
+      "key": "savingsActual",
+      "label": "Measured — % of the by-hand baseline the workflow actually saves",
+      "hint": "From your timed runs against the baseline. Closes the prediction you made in Module 1.",
+      "placeholder": "e.g. 40",
+      "min": 0,
+      "max": 100,
+      "actualFor": "ai201-m1:savings"
+    }
+  ],
+  "dimensions": [
+    {
+      "name": "Honest numbers",
+      "criteria": "Four metrics, each with a baseline and a would-do-differently answer. No theater; the cost line is present; the use metric is genuinely about downstream use."
+    },
+    {
+      "name": "A rhythm that survives",
+      "criteria": "Blocks exist on a real calendar, sized to the maintenance fraction, with scripts runnable in a bad week. Skips are logged, not hidden."
+    },
+    {
+      "name": "The retirement clause has teeth",
+      "criteria": "Triggers are specific enough that a reluctant future owner couldn't argue past them, and retirement is framed as an outcome, not a failure."
+    },
+    {
+      "name": "Calibration",
+      "criteria": "The M1 reckoning is done with real numbers; the direction paragraph names a systematic bias and a concrete consequence for the next build."
+    }
+  ],
+  "includeTrail": true
+}

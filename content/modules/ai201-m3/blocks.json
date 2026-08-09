@@ -1,0 +1,103 @@
+[
+  {
+    "id": "ai201-m3-calibration-prompt-before-you-start-10",
+    "moduleId": "ai201-m3",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Calibration prompt — before you start\n\n*One prediction, thirty seconds. You'll score it during the capstone run.*\n\nBy the end of this module you'll have designed your workflow as a pipeline — a chain of small\nsteps — and run it on real material.\n\n**Which step do you expect to degrade quality most?** Not fail loudly — degrade: lose detail,\nflatten nuance, drop the thing that mattered. Name the step and write one sentence on why.\n\nAlmost nobody guesses right the first time, and the miss teaches you where your verification\nbudget should go. That's M4's opening move."
+  },
+  {
+    "id": "ai201-m3-module-brief-20",
+    "moduleId": "ai201-m3",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Module brief\n\nHere is a prompt a smart, 101-fluent person writes every quarter:\n\n> \"Here are 200 survey comments. Summarize the themes, pull representative quotes, note anything\n> concerning, and draft a summary for the exec team in our company voice.\"\n\nOne prompt, four jobs. The output arrives fluent and confident, and it is quietly worse than it\nlooks — themes flattened, one office's problem averaged into \"minor concerns,\" a quote that's\nalmost-but-not-quite what anyone wrote. Worst of all, there's nothing to check: when the final\nprose is wrong, you can't see *where* it went wrong, because everything happened in one\ninvisible leap.\n\nYou know from 101 why this happens. The model generates one fragment at a time, each predicted\nfrom everything in view; ask it to juggle four objectives across two hundred comments and the\nmiddle objectives lose the tug-of-war quietly. More instructions in one prompt doesn't mean more\ngets done — it means everything competes.\n\nThe practitioner's move is the same one every other discipline made when work got serious:\n**break the leap into steps with inspectable states in between.** Summarize → extract →\ntransform → format, each step doing one job, each producing an artifact you can read before the\nnext step consumes it. This is a pipeline, it is the transformation line of your M1 spec grown\nup, and designing one well is mostly about knowing where chains break: long documents, lossy\nmiddles, and formats that drift.\n\nOne promise before we start: this is not about making everything elaborate. Most tasks still\ndeserve a single prompt. The skill is knowing which tasks don't — and building the smallest\nchain that fixes them."
+  },
+  {
+    "id": "ai201-m3-learning-objectives-30",
+    "moduleId": "ai201-m3",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. Explain why one mega-prompt loses to a short chain — in the mechanism vocabulary of 101, not\n   as folklore.\n2. Design a checkpoint: an intermediate artifact a human could actually catch an error in.\n3. Recognize the lossy middle — the step where structure becomes prose and detail dies — and\n   defend against it.\n4. Run a multi-step pipeline in your organization's tool, carrying artifacts forward cleanly. **[V]**\n5. Know when *not* to chain: the single-prompt tasks that chains only slow down."
+  },
+  {
+    "id": "ai201-m3-lesson-1-chain-thinking-40",
+    "moduleId": "ai201-m3",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Lesson 1 · Chain thinking\n\nA pipeline is three design decisions, repeated: what each step does, what it hands to the next\nstep, and what you look at in between.\n\n**One transformation per step.** M1's rule, now load-bearing. \"Extract the themes\" is a step.\n\"Extract the themes and draft the summary\" is two steps written as one prompt, and the model\nwill do the first at half attention while performing the second. If your step prompt contains \"and\nthen also,\" split it.\n\n**Structured intermediates.** What a step hands forward should be *more* structured than what\nit received: a table, a list with counts, sections with headings — not polished prose. Two\nreasons. The next step predicts better from structure than from narrative (you're supplying\ncleaner material — 101's central lever). And structure is checkable: a count can be verified, a\nquote can be traced. Prose can only be believed.\n\n**Checkpoints, honestly defined.** An intermediate artifact is only a checkpoint if a human\nglancing at it could catch a real error. \"Themes: communication, workload, recognition\" checks\nnothing — it would look identical whether the analysis was faithful or invented. \"Communication:\n41 mentions, 9 strongly negative, concentrated in the Denver office, sample quotes below\" is a\ncheckpoint: every claim in it can be spot-checked against the raw comments in two minutes. When\nyou design a step, design what failure would look like at its checkpoint — if you can't say what\na wrong version would show, the checkpoint is decoration.\n\n**Fresh context per step.** Each step should see its input artifact, the relevant pack material,\nand nothing else. Don't run a whole pipeline down one endless conversation out of convenience:\n101 told you what happens when the window fills — early material drops out of view, and your\nstep 3 quietly stops seeing the instructions from step 1. (Lesson 3 shows the clean mechanics.)\n\n**And the counterweight: don't chain what doesn't need it.** A chain earns its friction under\nthree conditions — the input is long, the stakes are real, or a failure would be invisible in\nfinal prose. \"Rewrite this paragraph plainly\" meets none of them; one prompt, done. The\npractitioner's tell isn't elaborate pipelines everywhere; it's *small* pipelines exactly where\nthe three conditions hold, and single prompts everywhere else."
+  },
+  {
+    "id": "ai201-m3-try-50",
+    "moduleId": "ai201-m3",
+    "ordinal": 50,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "### Try this — 2 minutes\nTake the most complex prompt you've written this month — the one with several jobs in it.\n\n1. Count the distinct transformations it asks for. (Verbs are the tell: summarize, pull,\n   note, draft — that's four.)\n2. For each, ask: if this part came back subtly wrong, would I be able to see that in the\n   final output?\n3. Every \"no\" is a place a checkpoint would have caught what you currently can't."
+  },
+  {
+    "id": "ai201-m3-lesson-2-the-people-work-gallery-60",
+    "moduleId": "ai201-m3",
+    "ordinal": 60,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Lesson 2 · The People-work gallery\n\nThree pipelines that cover most of what a People team feeds to a model. Learn the shapes — your\nown workflows will mostly be one of these wearing different clothes.\n\n### Pipeline 1 · Survey verbatims → themes → exec summary\n\n- **Step 1 — Extract** (comments in → theme table out): themes with counts, intensity,\n  *concentration* (which office, which function), representative quotes verbatim, and an\n  explicit section for minority and dissenting signals. The prompt says: preserve counts, quote\n  exactly, never average away a concentrated problem.\n  **Checkpoint:** pick two themes, spot-check counts and quotes against the raw comments. 101's\n  survey caveat — the model flattens minority views — is *engineered against* here, not hoped\n  against.\n- **Step 2 — Narrate** (theme table in → analysis draft out): draft the narrative *from the\n  theme table only* — the raw comments are deliberately out of view, so the narrative can't\n  quietly re-analyze. The prompt requires every claim to carry its number and concentration.\n  **Checkpoint:** every sentence traceable to a table row.\n- **Step 3 — Format** (draft in → exec-pack section out): voice, length, layout from your pack.\n  No new facts may enter. **Checkpoint:** diff-read — formatting changed, claims didn't.\n\n### Pipeline 2 · Policy update → change list → plain-language note\n\n- **Step 1 — Enumerate** (old + new text in → change table out): every changed clause, old\n  wording, new wording, one line each. The prompt's key instruction: *enumerate, don't\n  summarize* — a \"summary of changes\" is exactly the lossy move that lets a changed clause slip\n  through unannounced. **Checkpoint:** mechanical — walk the table against the documents; it's\n  complete or it isn't.\n- **Step 2 — Explain** (change table in → plain-language explanations out): what each change\n  means for an employee, in the register your pack defines, flagged where a change might be\n  contentious. **Checkpoint:** explanations match clauses; the flags look right to someone who\n  knows the org.\n- **Step 3 — Draft** (explanations in → comms note out): the note itself, pack voice, standard\n  disclaimers. This step also gets a standing reminder from 101: general statutory framing may\n  ride along, but *your jurisdiction's specifics get verified by a human, every time*.\n\n### Pipeline 3 · Interview notes → debriefs → decision packet\n\n- **Step 1 — Structure per candidate** (your notes in → structured debrief out): evidence\n  organized under your competency headings — from the notes only, gaps flagged as gaps (\"notes\n  don't cover competency X\"), never filled. One run per candidate, so no cross-contamination.\n  **Checkpoint:** every claim traceable to something you actually wrote down.\n- **Step 2 — Assemble** (debriefs in → packet out): side-by-side *evidence* — where each\n  candidate showed what, where the gaps are. The prompt explicitly does not ask for a ranking or\n  recommendation, because M1's line hasn't moved: the packet informs a human decision; it is not\n  the decision. **Checkpoint:** the packet contains comparisons of evidence and zero verdicts.\n- **Step 3 — Format** for the debrief meeting, pack template.\n\n**The shape underneath all three:** the first step turns raw material into structure and\npreserves traceability (counts, quotes, clauses, sources). Middle steps transform structure\n*into* structure. The last step — and only the last — is allowed to make prose. Hold that shape\nand notice where the danger concentrates: the step where structured detail becomes readable\nnarrative. That's the lossy middle, and it's where the exercise below takes you.\n"
+  },
+  {
+    "id": "ai201-m3-exercise",
+    "moduleId": "ai201-m3",
+    "ordinal": 65,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "{\"type\": \"choice\"}"
+  },
+  {
+    "id": "ai201-m3-lesson-3-the-lab-running-a-pipeline-in-c-70",
+    "moduleId": "ai201-m3",
+    "ordinal": 70,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-07",
+    "body": "## Lesson 3 · The lab — running a pipeline in Claude [V]\n\n*Volatile layer: specific tool, current mechanics, tailored to your organization's provisioned\ntools.*\n\nYour pipeline lives in the same Project as its pack (M2). Two additions make it runnable.\n\n**The runbook.** One knowledge document — \"Pipeline: [workflow name]\" — holding each step's\nprompt, numbered, with its expected input and output format. Step prompts are pack content by\nM2's own test: durable, impersonal, reviewed on a cadence. When you improve a step prompt after\na bad run, you improve it *in the runbook* — fix the pack, not the output.\n\n**One conversation per step.** Start a fresh conversation in the project for each step; give it\nthe step prompt and the incoming artifact; take the outgoing artifact and move on. This buys\nyou clean context per step (nothing stale in view, nothing crowded out), a natural checkpoint\npause where you actually look at the artifact — and an audit trail: each step's conversation\n*is* its record, which M4 will sample and M8 will show a colleague.\n\n**Artifacts, concretely.** Ask each step to produce its output as a single well-formed document\n— a markdown table, a structured file — not scattered through chat replies. Claude can produce\nthese as discrete artifacts you can carry forward, save alongside the runbook, and diff between\nruns. Boring formats win: a table you can scan beats an eloquent essay at every checkpoint.\n\n**When one long conversation is fine.** Short chain, small documents, you refining\ninteractively — a single conversation is less friction and works. Know what you're trading:\naround the point where the material stops fitting comfortably in view, earlier instructions\nstart dropping out of it, and the failure is silent. If a late step seems to have \"forgotten\"\nan early rule, you didn't hit a mood; you hit the window. Split the steps.\n\n**[V]** *Parity note:* in ChatGPT the same shape holds — a Project holding the runbook,\nconversations per step, files carried forward. The design (structure forward, checkpoints\nbetween, prose last) transfers untouched.",
+    "variant": "claude"
+  },
+  {
+    "id": "ai201-m3-lesson-3-the-lab-running-a-pipeline-in-c-70-chatgpt",
+    "moduleId": "ai201-m3",
+    "ordinal": 70,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-08",
+    "variant": "chatgpt",
+    "body": "## Lesson 3 · The lab — running a pipeline in ChatGPT [V]\n\n*Volatile layer: specific tool, current mechanics, tailored to your organization's provisioned\ntools.*\n\nYour pipeline lives in the same Project as its pack (M2). Two additions make it runnable.\n\n**The runbook.** One project file — \"Pipeline: [workflow name]\" — holding each step's prompt,\nnumbered, with its expected input and output format. Step prompts are pack content by M2's own\ntest: durable, impersonal, reviewed on a cadence. When you improve a step prompt after a bad\nrun, you improve it *in the runbook* — fix the pack, not the output.\n\n**One conversation per step.** Start a fresh conversation in the project for each step; give it\nthe step prompt and the incoming artifact; take the outgoing artifact and move on. This buys\nyou clean context per step (nothing stale in view, nothing crowded out), a natural checkpoint\npause where you actually look at the artifact — and an audit trail: each step's conversation\n*is* its record, which M4 will sample and M8 will show a colleague.\n\n**Artifacts, concretely.** Ask each step to produce its output as a single well-formed document\n— a markdown table, a structured file — not scattered through chat replies. ChatGPT can draft\nthese in a canvas or as a downloadable file you can carry forward, save alongside the runbook,\nand diff between runs. Boring formats win: a table you can scan beats an eloquent essay at\nevery checkpoint.\n\n**When one long conversation is fine.** Short chain, small documents, you refining\ninteractively — a single conversation is less friction and works. Know what you're trading:\naround the point where the material stops fitting comfortably in view, earlier instructions\nstart dropping out of it, and the failure is silent. If a late step seems to have \"forgotten\"\nan early rule, you didn't hit a mood; you hit the window. Split the steps.\n\n**[V]** *Parity note:* in Claude the same shape holds — a Project holding the runbook,\nconversations per step, artifacts carried forward. The design (structure forward, checkpoints\nbetween, prose last) transfers untouched."
+  },
+  {
+    "id": "ai201-m3-key-takeaways-80",
+    "moduleId": "ai201-m3",
+    "ordinal": 80,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Key takeaways\n\n- **One prompt, four jobs is how good work goes quietly wrong.** Objectives compete inside a\n  single generation; the middle ones lose without a sound.\n- **Structure forward, prose last.** Steps hand forward tables and lists with counts and\n  traceable quotes; only the final step is allowed to make narrative.\n- **A checkpoint is only real if you can say what a wrong version would show.** Otherwise it's\n  decoration between steps.\n- **The lossy middle is where detail dies** — the structured-to-prose transformation. Engineer\n  it: require claims to carry their numbers, and check the artifact against the one before it.\n- **Chain only under the three conditions** — long input, real stakes, invisible failure.\n  Everything else stays a single prompt. Small pipelines, exactly where they're needed, are the\n  practitioner's signature."
+  },
+  {
+    "id": "ai201-m3-sources-and-attribution-100",
+    "moduleId": "ai201-m3",
+    "ordinal": 100,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Sources and attribution\n\nBuilds on 101 M1 (generation mechanics, context window, the survey-flattening caveat in the\nsorting key) and 201 M1–M2 (one transformation per step; the pack; fix-the-pack-not-the-output,\nhere extended to runbooks). The checkpoint test (\"name what a wrong version would show\"), the\nlossy-middle framing, and the structure-forward/prose-last rule are original to this course.\nLesson 3 and marked passages are volatile layer, tailored per deployment."
+  }
+]

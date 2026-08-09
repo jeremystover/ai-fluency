@@ -2,15 +2,19 @@ import { useEffect, useRef, useState } from 'react';
 import type { SortingBucket, SortingReveal, SortingTaskPublic } from '../../shared/types';
 import { api, ApiError } from '../api';
 import { Button, ErrorNote } from './ui';
-import { usePrefersReducedMotion } from '../brand';
+import { usePrefersReducedMotion, useDevice } from '../brand';
 
-// Fifteen tasks, three buckets. Drag on pointer, tap-to-assign on touch,
-// 1/2/3 on keyboard. Nothing reveals until all fifteen are committed.
+// Any number of tasks, two to four buckets. The interaction reshapes to the
+// device: mouse users drag (or use 1..N on the keyboard); touch users tap a
+// card and a bottom bar rises with the buckets — no dragging, no scrolling
+// back and forth, no keyboard hints they can't use. Nothing reveals until
+// every task is committed.
 
 type Assignments = Record<string, string | undefined>;
 
-export default function SortingExercise({ intro, title }: { intro: string; title: string }) {
+export default function SortingExercise({ moduleId, intro, title }: { moduleId: string; intro: string; title: string }) {
   const reduced = usePrefersReducedMotion();
+  const { coarse } = useDevice();
   const [buckets, setBuckets] = useState<SortingBucket[]>([]);
   const [tasks, setTasks] = useState<SortingTaskPublic[]>([]);
   const [assignments, setAssignments] = useState<Assignments>({});
@@ -23,13 +27,13 @@ export default function SortingExercise({ intro, title }: { intro: string; title
 
   useEffect(() => {
     api
-      .get<{ buckets: SortingBucket[]; tasks: SortingTaskPublic[] }>('/api/module/ai101-m1/sorting')
+      .get<{ buckets: SortingBucket[]; tasks: SortingTaskPublic[] }>(`/api/module/${moduleId}/sorting`)
       .then((d) => {
         setBuckets(d.buckets);
         setTasks(d.tasks);
       })
       .catch((e) => setError(e instanceof ApiError ? e.message : 'The exercise did not load. Reload the page to try again.'));
-  }, []);
+  }, [moduleId]);
 
   const announce = (msg: string) => {
     if (liveRef.current) liveRef.current.textContent = msg;
@@ -51,7 +55,7 @@ export default function SortingExercise({ intro, title }: { intro: string; title
   const unassigned = tasks.filter((t) => !assignments[t.id]);
 
   const onChipKey = (e: React.KeyboardEvent, taskId: string) => {
-    const i = ['1', '2', '3'].indexOf(e.key);
+    const i = buckets.map((_, idx) => String(idx + 1)).indexOf(e.key);
     if (i >= 0 && buckets[i]) {
       e.preventDefault();
       assign(taskId, buckets[i].id);
@@ -66,7 +70,7 @@ export default function SortingExercise({ intro, title }: { intro: string; title
     setBusy(true);
     setError(null);
     try {
-      const res = await api.post<SortingReveal>('/api/module/ai101-m1/sort', { assignments });
+      const res = await api.post<SortingReveal>(`/api/module/${moduleId}/sort`, { assignments });
       setReveal(res);
       if (reduced) setRevealStage(5);
     } catch (e) {
@@ -85,7 +89,7 @@ export default function SortingExercise({ intro, title }: { intro: string; title
   const chip = (task: SortingTaskPublic, inBucket: boolean) => (
     <button
       key={task.id}
-      draggable={!reveal}
+      draggable={!reveal && !coarse}
       onDragStart={(e) => e.dataTransfer.setData('text/plain', task.id)}
       onClick={() => {
         if (inBucket) assign(task.id, undefined);
@@ -93,13 +97,22 @@ export default function SortingExercise({ intro, title }: { intro: string; title
       }}
       onKeyDown={(e) => onChipKey(e, task.id)}
       aria-pressed={selected === task.id}
-      className={`text-left text-sm leading-snug border rounded-brand px-3 py-2 bg-surface cursor-grab active:cursor-grabbing transition-colors w-full
+      className={`text-left text-sm leading-snug border rounded-brand px-3 py-2 bg-surface transition-colors w-full
+        ${coarse ? '' : 'cursor-grab active:cursor-grabbing'}
         ${selected === task.id ? 'border-accent ring-2 ring-accent/30' : 'border-line hover:border-line-strong'}`}
-      title={inBucket ? 'Click to return to the tray, or press 1/2/3 to move' : 'Click to select, then pick a bucket — or drag, or press 1/2/3'}
+      title={
+        coarse
+          ? undefined
+          : inBucket
+            ? `Click to return to the tray, or press 1–${buckets.length} to move`
+            : `Click to select, then pick a bucket — or drag, or press 1–${buckets.length}`
+      }
     >
       {task.text}
     </button>
   );
+
+  const selectedTask = selected ? tasks.find((task) => task.id === selected) : null;
 
   if (reveal) {
     const groups = buckets.map((b) => ({ bucket: b, rows: reveal.results.filter((r) => r.key === b.id) }));
@@ -146,8 +159,8 @@ export default function SortingExercise({ intro, title }: { intro: string; title
         <div className="mt-4 transition-opacity duration-700" style={{ opacity: revealStage >= 5 ? 1 : 0 }}>
           <p className="text-sm text-muted">
             For the record: {reveal.score.correct} of {reveal.score.total} matched the key
-            {reveal.overAssigned > 0 && `, ${reveal.overAssigned} placed higher than the field puts them`}
-            {reveal.underAssigned > 0 && `, ${reveal.underAssigned} placed lower`}. {reveal.postscript}
+            {reveal.overAssigned > 0 && `, ${reveal.overAssigned} placed above where the key puts them`}
+            {reveal.underAssigned > 0 && `, ${reveal.underAssigned} placed below`}. {reveal.postscript}
           </p>
         </div>
       </div>
@@ -162,6 +175,10 @@ export default function SortingExercise({ intro, title }: { intro: string; title
       <p ref={liveRef} className="sr-only" aria-live="polite" />
       {error && <div className="mt-4"><ErrorNote message={error} /></div>}
 
+      {coarse && tasks.length > 0 && (
+        <p className="text-xs text-muted mt-3">Tap a card to pick it up, then tap where it belongs.</p>
+      )}
+
       {unassigned.length > 0 && (
         <div className="mt-5">
           <p className="label-utility mb-2">Tray · {unassigned.length} to sort</p>
@@ -169,7 +186,7 @@ export default function SortingExercise({ intro, title }: { intro: string; title
         </div>
       )}
 
-      <div className="mt-5 grid gap-3 sm:grid-cols-3">
+      <div className={`mt-5 grid gap-3 ${buckets.length === 2 ? 'sm:grid-cols-2' : buckets.length === 4 ? 'sm:grid-cols-2 lg:grid-cols-4' : 'sm:grid-cols-3'}`}>
         {buckets.map((b, i) => {
           const contents = tasks.filter((task) => assignments[task.id] === b.id);
           return (
@@ -190,7 +207,7 @@ export default function SortingExercise({ intro, title }: { intro: string; title
                 aria-label={`Assign selected task to ${b.label}`}
               >
                 <span className="font-utility text-xs uppercase tracking-wider text-ink-strong">
-                  <span className="text-muted mr-1">{i + 1}</span>
+                  {!coarse && <span className="text-muted mr-1">{i + 1}</span>}
                   {b.label}
                 </span>
                 <span className="block text-[0.7rem] text-muted mt-0.5">{b.hint}</span>
@@ -204,9 +221,39 @@ export default function SortingExercise({ intro, title }: { intro: string; title
       <div className="mt-6 flex items-center justify-between flex-wrap gap-3">
         <span className="font-utility text-xs text-muted">{committed} of {tasks.length} committed</span>
         <Button onClick={submit} disabled={!allCommitted || busy}>
-          {busy ? 'Scoring…' : allCommitted ? 'Reveal' : 'Commit all fifteen to reveal'}
+          {busy ? 'Scoring…' : allCommitted ? 'Reveal' : `Commit all ${tasks.length} to reveal`}
         </Button>
       </div>
+
+      {/* Touch flow: the picked-up card's destinations rise to the thumb —
+          no scrolling between the tray and the buckets. */}
+      {coarse && selectedTask && (
+        <div className="fixed inset-x-0 bottom-0 z-40 border-t border-line-strong bg-surface shadow-[0_-8px_24px_rgba(0,0,0,0.08)] pb-safe anim-fade">
+          <div className="max-w-2xl mx-auto px-4 py-3">
+            <div className="flex items-start justify-between gap-3">
+              <p className="text-xs text-ink leading-snug line-clamp-2">
+                <span className="label-utility mr-1.5">Placing</span>
+                {selectedTask.text}
+              </p>
+              <button onClick={() => setSelected(null)} className="text-xs text-muted underline shrink-0 py-1" aria-label="Put the card back">
+                Cancel
+              </button>
+            </div>
+            <div className="mt-2.5 grid gap-2 grid-cols-2">
+              {buckets.map((b) => (
+                <button
+                  key={b.id}
+                  onClick={() => assign(selectedTask.id, b.id)}
+                  className="text-left border border-line-strong rounded-brand px-3 py-2.5 bg-bg active:bg-accent/10 transition-colors"
+                >
+                  <span className="font-utility text-[0.65rem] uppercase tracking-wider text-ink-strong block">{b.label}</span>
+                  <span className="text-[0.7rem] text-muted leading-snug block mt-0.5">{b.hint}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

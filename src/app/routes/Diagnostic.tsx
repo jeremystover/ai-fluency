@@ -3,11 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import type { DiagnosticFeedback, DiagnosticItemPublic } from '../../shared/types';
 import { Screen, Button, ErrorNote } from '../components/ui';
 import { api, ApiError, track } from '../api';
+import { useDevice } from '../brand';
 
 type Phase = 'intro' | 'items' | 'finishing';
 
 export default function Diagnostic() {
   const navigate = useNavigate();
+  const device = useDevice();
   const [items, setItems] = useState<DiagnosticItemPublic[] | null>(null);
   const [phase, setPhase] = useState<Phase>('intro');
   const [idx, setIdx] = useState(0);
@@ -109,7 +111,8 @@ export default function Diagnostic() {
             </p>
             <p className="text-muted text-sm">
               One question per screen. You'll see how each answer landed immediately; the full picture waits until the end.
-              Keyboard works throughout — arrows or number keys, Enter to continue. About eight minutes.
+              {device.coarse ? ' Tap an answer, tap Next — it moves quickly.' : ' Keyboard works throughout — arrows or number keys, Enter to continue.'}
+              {' '}About eight minutes.
             </p>
           </div>
           <div className="mt-8">

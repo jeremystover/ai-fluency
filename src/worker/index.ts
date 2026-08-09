@@ -1,16 +1,17 @@
 import { Hono } from 'hono';
 import { getCookie, setCookie } from 'hono/cookie';
 import { drizzle, type DrizzleD1Database } from 'drizzle-orm/d1';
-import { and, asc, desc, eq, gt, sql } from 'drizzle-orm';
+import { and, asc, desc, eq, gt, lt, sql } from 'drizzle-orm';
 import * as t from '../db/schema';
 import { verifyCode, signSessionId, verifySessionCookie, hashIp } from './crypto';
-import { gradeSubmission, PROMPT_VERSION } from './grading';
+import { gradeSubmission, type RubricPayload } from './grading';
 import { adminApp } from './admin';
 import { buildTutorSystem, streamTutorReply, KICKOFF_TURN, type LearnerContext as TutorLearnerContext, type TutorMessage } from './chat';
 import { transcribe, speakable, renderSpeech, TUTOR_VOICE } from './voice';
 import { extractPaths } from '../shared/chat';
 import { GOAL_CHOICES } from '../shared/goals';
 import { DEPTH_IDS, depthOf } from '../shared/depth';
+import { SELF_LEVEL_IDS } from '../shared/levels';
 import {
   writeScript,
   renderAudio,
@@ -23,7 +24,6 @@ import {
   type LearnerContext,
 } from './podcast';
 import diagnosticData from '../../content/diagnostic.json';
-import sortingData from '../../content/sorting.json';
 import type {
   CourseCard,
   Brand,
@@ -44,6 +44,9 @@ import type {
   MeResponse,
   ModuleCard,
   ModuleContentResponse,
+  PriorStage,
+  TrailPoint,
+  CalibrationTrail,
   PathModule,
   SortingReveal,
 } from '../shared/types';
@@ -52,6 +55,10 @@ export interface Env {
   DB: D1Database;
   ASSETS: Fetcher;
   BRAND_SLUG: string;
+  // Which AI tool stack this org provisions ('claude' | 'chatgpt'). Drives
+  // which variant of the [V] lab lessons is served — one tooling per deploy,
+  // same pattern as BRAND_SLUG. Unset = 'claude'.
+  ORG_TOOLING?: string;
   GRADING_MODEL: string;
   CHAT_MODEL: string;
   PODCAST_MODEL?: string;
@@ -260,6 +267,8 @@ async function loadPrefs(db: DrizzleD1Database, sessionId: string): Promise<Inta
     else if (row.key === 'styles') prefs.styles = value;
     else if (row.key === 'goals') prefs.goals = value;
     else if (row.key === 'objective') prefs.objective = value;
+    else if (row.key === 'aiUsage') prefs.aiUsage = value;
+    else if (row.key === 'selfLevel') prefs.selfLevel = value;
   }
   return prefs;
 }
@@ -291,6 +300,8 @@ app.post('/api/intake', async (c) => {
   if (Array.isArray(raw.styles)) clean.push(['styles', raw.styles.filter((s) => VALID_STYLES.has(s)).slice(0, 5)]);
   if (Array.isArray(raw.goals)) clean.push(['goals', raw.goals.filter((g) => VALID_GOALS.has(g)).slice(0, 8)]);
   if (typeof raw.objective === 'string') clean.push(['objective', raw.objective.trim().slice(0, 280)]);
+  if (typeof raw.aiUsage === 'string') clean.push(['aiUsage', raw.aiUsage.trim().slice(0, 280)]);
+  if (typeof raw.selfLevel === 'string' && SELF_LEVEL_IDS.includes(raw.selfLevel)) clean.push(['selfLevel', raw.selfLevel]);
 
   for (const [key, value] of clean) {
     await db.delete(t.fdPreference).where(and(eq(t.fdPreference.sessionId, session.id), eq(t.fdPreference.key, key)));
@@ -324,7 +335,7 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
     title: 'Module 1 · Lesson 1 and the sorting exercise',
     detail: 'The best fifteen minutes in the module: what "AI" means in your stack, then fifteen real tasks sorted into hand-over / verify / don\'t.',
     minutes: 12,
-    route: '/module/1',
+    route: '/module/ai101-m1',
     state: progress.sortDone ? 'done' : 'later',
   };
   const read: PlanStep = {
@@ -332,7 +343,7 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
     title: 'Module 1 · the rest of the read',
     detail: 'What an LLM actually does, the vocabulary, and why data decides everything.',
     minutes: 10,
-    route: '/module/1',
+    route: '/module/ai101-m1',
     state: progress.moduleCompleted ? 'done' : 'later',
   };
   const activity: PlanStep = {
@@ -340,7 +351,7 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
     title: 'Applied activity — "Testing the Edges", AI-graded',
     detail: 'Three short conversations with your own AI tool, a reflection, and rubric feedback in seconds. Unlimited resubmission.',
     minutes: 25,
-    route: '/module/1/activity',
+    route: '/module/ai101-m1/activity',
     state: progress.activityGraded ? 'done' : 'later',
   };
 
@@ -349,7 +360,7 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
     title: 'Module 1 · the two-minute version',
     detail: 'The key concepts and the delegation heuristic, cut for a short sitting. The full module keeps.',
     minutes: 2,
-    route: '/module/1/micro',
+    route: '/module/ai101-m1/micro',
     state: progress.moduleCompleted || progress.sortDone ? 'done' : 'later',
   };
 
@@ -360,7 +371,7 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
     title: 'Size-up conversation — the tutor works out your level',
     detail: 'A few applied questions in chat, one at a time, then an honest read on where you stand and where to go first. Speak or type.',
     minutes: 8,
-    route: '/module/1/chat',
+    route: '/module/ai101-m1/chat',
     state: progress.chatStarted ? 'done' : 'later',
   };
 
@@ -371,7 +382,7 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
     title: 'Quiz sessions with the tutor — make it stick',
     detail: 'Scenario questions in chat (or out loud), drawn from the module, until your calibration holds under pressure.',
     minutes: 10,
-    route: '/module/1/chat',
+    route: '/module/ai101-m1/chat',
     state: 'later',
   };
 
@@ -382,6 +393,18 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
     depth === 'essentials' ? [micro, core, read, activity] : depth === 'deep' ? [core, read, activity, quiz] : [core, read, activity];
   const steps =
     start === 'chat' ? [sizeUp, ...body, diagnostic] : start === 'module' ? [...body, diagnostic] : [diagnostic, ...body];
+
+  // Once the 101 capstone is graded, the ladder continues into AI 201.
+  if (progress.activityGraded) {
+    steps.push({
+      id: 'ai201-m1',
+      title: 'AI 201 · From one-offs to workflows',
+      detail: 'The Practitioner course opens: the workflow lens, the audit, the selection rules — and the capstone build that runs through all eight modules.',
+      minutes: 30,
+      route: '/module/ai201-m1',
+      state: 'later',
+    });
+  }
 
   for (const step of steps) {
     if (step.state === 'done') continue;
@@ -681,18 +704,32 @@ app.get('/api/path', async (c) => {
   const db = c.get('db');
   const session = requireSession(c);
   if (!session) return c.json({ error: 'No session.' }, 401);
-  const rows = await db.select().from(t.fdModule).where(eq(t.fdModule.courseId, 'ai101')).orderBy(asc(t.fdModule.ordinal));
+  const rows = await db.select().from(t.fdModule).orderBy(asc(t.fdModule.courseId), asc(t.fdModule.ordinal));
 
   // Prerequisites are advisory — they shape the recommendation line, never a
-  // hard lock. A prerequisite is satisfied by completing the module or by
-  // testing out. Testing out of M1 = at most one miss across the diagnostic's
-  // knowledge questions (all of them answered).
-  const completedRows = await db
+  // hard lock. One is satisfied by completing the module, passing its
+  // knowledge check at 60%+, or — for 101-M1 — testing out on the diagnostic
+  // (at most one knowledge miss, all questions answered).
+  const doneRows = await db
     .select()
     .from(t.fdEvent)
-    .where(and(eq(t.fdEvent.sessionId, session.id), eq(t.fdEvent.type, 'module_completed')));
+    .where(
+      and(
+        eq(t.fdEvent.sessionId, session.id),
+        sql`${t.fdEvent.type} IN ('module_completed', 'knowledge_check_submitted')`,
+      ),
+    );
   const completed = new Set(
-    completedRows.map((e) => (e.payloadJson ? (JSON.parse(e.payloadJson) as { moduleId?: string }).moduleId : null)).filter(Boolean),
+    doneRows
+      .map((e) => {
+        if (!e.payloadJson) return null;
+        const p = JSON.parse(e.payloadJson) as { moduleId?: string; correct?: number; total?: number };
+        // A knowledge check clears a prerequisite at 60%+ — retakes are free,
+        // so the gate asks for understanding, not mere submission.
+        if (e.type === 'knowledge_check_submitted' && p.total && (p.correct ?? 0) / p.total < 0.6) return null;
+        return p.moduleId;
+      })
+      .filter(Boolean),
   );
   const kResponses = await db
     .select()
@@ -739,7 +776,7 @@ app.get('/api/path', async (c) => {
       const names = unmet.map(titleOf).join(' and ');
       unlockHint = unmet.includes('ai101-m1')
         ? `Best after ${names} — or test out via the diagnostic (at most one knowledge miss). Go in any order; nothing locks.`
-        : `Best after ${names}. Go in any order; nothing locks.`;
+        : `Best after ${names} — 60%+ on its knowledge check clears the recommendation, retakes free. Go in any order; nothing locks.`;
     } else if (prereqs.length > 0) {
       unlockHint = 'Prerequisite cleared.';
     }
@@ -764,19 +801,35 @@ app.get('/api/path', async (c) => {
   return c.json({ modules, courses: coursesOut });
 });
 
-// The two-minute cut of Module 1 — same content system, tighter blocks.
-app.get('/api/module/ai101-m1/micro', async (c) => {
+// The two-minute cut of any module — same content system, tighter blocks.
+app.get('/api/module/:id/micro', async (c) => {
   const db = c.get('db');
   const session = requireSession(c);
   if (!session) return c.json({ error: 'No session.' }, 401);
+  const id = c.req.param('id');
   const blockRows = await db
     .select()
     .from(t.fdContentBlock)
-    .where(eq(t.fdContentBlock.moduleId, 'ai101-m1-micro'))
+    .where(eq(t.fdContentBlock.moduleId, `${id}-micro`))
     .orderBy(asc(t.fdContentBlock.ordinal));
-  const blocks = blockRows.map(toBlock);
+  if (blockRows.length === 0) return c.json({ error: 'This module has no micro dose yet.' }, 404);
+  const blocks = selectVariants(blockRows, toolingOf(c.env)).map(toBlock);
   return c.json({ blocks, stamps: stampsFor(blocks) });
 });
+
+// One deployment teaches one tool stack. Blocks tagged with a variant form a
+// group per ordinal; serve the one matching ORG_TOOLING, falling back to the
+// 'claude' default so an unknown tooling never loses a lesson. Untagged
+// blocks apply to every org.
+const toolingOf = (env: Env) => env.ORG_TOOLING?.trim().toLowerCase() || 'claude';
+
+function selectVariants<T extends { ordinal: number; variant: string | null }>(rows: T[], tooling: string): T[] {
+  return rows.filter((row) => {
+    if (!row.variant) return true;
+    const groupHasMatch = rows.some((r) => r.ordinal === row.ordinal && r.variant === tooling);
+    return groupHasMatch ? row.variant === tooling : row.variant === 'claude';
+  });
+}
 
 function toBlock(row: typeof t.fdContentBlock.$inferSelect): ContentBlock {
   return {
@@ -799,6 +852,45 @@ function stampsFor(blocks: ContentBlock[]) {
   return { conceptsReviewedAt: min('stable'), examplesCurrentAsOf: min('volatile') };
 }
 
+// Exercise payloads (sorting keys, rubrics, knowledge checks) live in
+// fd_exercise; the client only ever sees a public projection.
+async function getExercise<T>(db: DrizzleD1Database, moduleId: string, kind: string): Promise<T | null> {
+  const rows = await db
+    .select()
+    .from(t.fdExercise)
+    .where(and(eq(t.fdExercise.moduleId, moduleId), eq(t.fdExercise.kind, kind)))
+    .limit(1);
+  return rows[0] ? (JSON.parse(rows[0].payloadJson) as T) : null;
+}
+
+type SortingPayload = {
+  buckets: { id: string; label: string; hint: string; rank: number; pct: number }[];
+  // `also` marks deliberately-arguable placements that score as correct — the
+  // reasoning text carries the argument either way.
+  tasks: { id: string; text: string; key: string; also?: string[]; reasoning: string }[];
+  pattern: string;
+  postscript: string;
+};
+
+// A single-answer exercise over a set of stimulus artifacts (M3's
+// find-the-lossy-step). Key stays server-side like every other exercise.
+type ChoicePayload = {
+  title: string;
+  intro: string;
+  artifacts: { label: string; body: string }[];
+  options: { id: string; label: string }[];
+  key: string;
+  reasoning: string;
+  closing: string;
+};
+
+type KnowledgeCheckPayload = {
+  title: string;
+  note: string | null;
+  questions: { id: string; prompt: string; options: string[]; correctIndex: number; explanation: string }[];
+};
+
+
 app.get('/api/module/:id', async (c) => {
   const db = c.get('db');
   const session = requireSession(c);
@@ -811,15 +903,90 @@ app.get('/api/module/:id', async (c) => {
     return c.json({ error: "This module's content ships in the full course — the demo carries Module 1 end to end." }, 403);
   }
   const blockRows = await db.select().from(t.fdContentBlock).where(eq(t.fdContentBlock.moduleId, id)).orderBy(asc(t.fdContentBlock.ordinal));
-  const blocks = blockRows.map(toBlock);
+  const blocks = selectVariants(blockRows, toolingOf(c.env)).map(toBlock);
   const words = blocks.reduce((sum, b) => sum + b.body.split(/\s+/).length, 0);
+
+  // Capabilities are discovered from what the package seeded — the modality
+  // hub and every feature route render from this, not from hardcoded module ids.
+  const microCount = await db
+    .select({ n: sql<number>`count(*)` })
+    .from(t.fdContentBlock)
+    .where(eq(t.fdContentBlock.moduleId, `${id}-micro`));
+  const exerciseRows = await db
+    .select({ kind: t.fdExercise.kind })
+    .from(t.fdExercise)
+    .where(eq(t.fdExercise.moduleId, id));
+  const kinds = new Set(exerciseRows.map((r) => r.kind));
+
+  // Numeric prediction fields the opening calibration prompt captures, with
+  // whatever this session already recorded — so the prompt renders as saved.
+  const rubric = kinds.has('rubric') ? await getExercise<RubricPayload>(db, id, 'rubric') : null;
+  const openingFields = rubric?.opening ?? [];
+  const openingValues: Record<string, number> = {};
+  if (openingFields.length) {
+    const rows = await db
+      .select({ context: t.fdCalibration.context, predictedPct: t.fdCalibration.predictedPct })
+      .from(t.fdCalibration)
+      .where(eq(t.fdCalibration.sessionId, session.id));
+    for (const field of openingFields) {
+      const row = rows.find((r) => r.context === `${id}:cal:${field.key}`);
+      if (row) openingValues[field.key] = row.predictedPct;
+    }
+  }
+
   const res: ModuleContentResponse = {
     module: mod as ModuleCard,
     blocks,
     stamps: stampsFor(blocks),
     estReadMinutes: Math.max(1, Math.round(words / 200)),
+    capabilities: {
+      read: blocks.length > 0,
+      micro: (microCount[0]?.n ?? 0) > 0,
+      chat: blocks.length > 0,
+      podcast: blocks.length > 0,
+      sorting: kinds.has('sorting'),
+      activity: kinds.has('rubric'),
+      knowledgeCheck: kinds.has('knowledge_check'),
+    },
+    openingFields,
+    openingValues,
   };
   return c.json(res);
+});
+
+// A module's opening calibration prompt: free text always; numeric fields when
+// the rubric declares them. Numbers land in fd_calibration as open predictions
+// — the matching activity field (actualFor) closes the loop at submission time.
+app.post('/api/module/:id/calibration', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const moduleId = c.req.param('id');
+  const body = await c.req.json<{ text?: string; values?: Record<string, number> }>().catch(() => null);
+  const text = body?.text?.trim();
+  const rubric = await getExercise<RubricPayload>(db, moduleId, 'rubric');
+  const fields = rubric?.opening ?? [];
+  const saved: string[] = [];
+  for (const field of fields) {
+    const value = Number(body?.values?.[field.key]);
+    if (!Number.isFinite(value)) continue;
+    const clamped = Math.max(field.min ?? 0, Math.min(field.max ?? 1_000_000, Math.round(value)));
+    const context = `${moduleId}:cal:${field.key}`;
+    await db.delete(t.fdCalibration).where(and(eq(t.fdCalibration.sessionId, session.id), eq(t.fdCalibration.context, context)));
+    await db.insert(t.fdCalibration).values({
+      id: uuid(),
+      sessionId: session.id,
+      context,
+      predictedPct: clamped,
+      actualOutcome: null,
+      delta: null,
+      createdAt: now(),
+    });
+    saved.push(field.key);
+  }
+  if (!text && !saved.length) return c.json({ error: 'Write the prediction before saving it.' }, 400);
+  if (text) await logEvent(db, session.id, 'module_calibration_recorded', { moduleId, text: text.slice(0, 1000) });
+  return c.json({ ok: true, saved });
 });
 
 // ---------- voice ----------
@@ -953,7 +1120,7 @@ async function buildLearnerContext(db: DrizzleD1Database, sessionId: string): Pr
   };
 }
 
-async function loadChatModule(db: DrizzleD1Database, moduleId: string) {
+async function loadChatModule(db: DrizzleD1Database, moduleId: string, tooling: string) {
   const modRows = await db.select().from(t.fdModule).where(eq(t.fdModule.id, moduleId)).limit(1);
   const mod = modRows[0];
   if (!mod || mod.status !== 'open') return null;
@@ -963,7 +1130,7 @@ async function loadChatModule(db: DrizzleD1Database, moduleId: string) {
     .where(eq(t.fdContentBlock.moduleId, moduleId))
     .orderBy(asc(t.fdContentBlock.ordinal));
   if (blockRows.length === 0) return null;
-  return { mod, blocks: blockRows.map(toBlock) };
+  return { mod, blocks: selectVariants(blockRows, tooling).map(toBlock) };
 }
 
 app.get('/api/module/:id/chat', async (c) => {
@@ -971,7 +1138,7 @@ app.get('/api/module/:id/chat', async (c) => {
   const session = requireSession(c);
   if (!session) return c.json({ error: 'No session.' }, 401);
   const moduleId = c.req.param('id');
-  const loaded = await loadChatModule(db, moduleId);
+  const loaded = await loadChatModule(db, moduleId, toolingOf(c.env));
   if (!loaded) return c.json({ error: 'No tutor for this module yet.' }, 404);
   const rows = await db
     .select()
@@ -1011,7 +1178,7 @@ app.post('/api/module/:id/chat', async (c) => {
     return c.json({ error: 'The tutor is offline in this deployment — the reading path has everything it covers.' }, 503);
   }
   const moduleId = c.req.param('id');
-  const loaded = await loadChatModule(db, moduleId);
+  const loaded = await loadChatModule(db, moduleId, toolingOf(c.env));
   if (!loaded) return c.json({ error: 'No tutor for this module yet.' }, 404);
 
   const body = await c.req.json<{ message?: string; via?: string }>().catch(() => null);
@@ -1148,89 +1315,294 @@ app.post('/api/module/:id/chat', async (c) => {
 
 // ---------- sorting exercise ----------
 
-app.get('/api/module/ai101-m1/sorting', async (c) => {
-  const session = requireSession(c);
-  if (!session) return c.json({ error: 'No session.' }, 401);
-  return c.json({
-    buckets: sortingData.buckets,
-    tasks: sortingData.tasks.map((task) => ({ id: task.id, text: task.text })),
-  });
-});
-
-const BUCKET_PCT: Record<string, number> = { well: 85, partly: 50, badly: 15 };
-
-app.post('/api/module/ai101-m1/sort', async (c) => {
+app.get('/api/module/:id/sorting', async (c) => {
   const db = c.get('db');
   const session = requireSession(c);
   if (!session) return c.json({ error: 'No session.' }, 401);
+  const sorting = await getExercise<SortingPayload>(db, c.req.param('id'), 'sorting');
+  if (!sorting) return c.json({ error: 'This module has no sorting exercise.' }, 404);
+  return c.json({
+    buckets: sorting.buckets.map(({ id, label, hint }) => ({ id, label, hint })),
+    tasks: sorting.tasks.map((task) => ({ id: task.id, text: task.text })),
+  });
+});
+
+app.post('/api/module/:id/sort', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const moduleId = c.req.param('id');
+  const sorting = await getExercise<SortingPayload>(db, moduleId, 'sorting');
+  if (!sorting) return c.json({ error: 'This module has no sorting exercise.' }, 404);
+
   const body = await c.req.json<{ assignments?: Record<string, string> }>().catch(() => null);
   const assignments = body?.assignments ?? {};
-  const valid = new Set(['well', 'partly', 'badly']);
-  for (const task of sortingData.tasks) {
-    if (!valid.has(assignments[task.id])) return c.json({ error: 'Commit all fifteen before the reveal — an unscored guess teaches nothing.' }, 400);
+  const valid = new Set(sorting.buckets.map((b) => b.id));
+  for (const task of sorting.tasks) {
+    if (!valid.has(assignments[task.id])) {
+      return c.json({ error: `Commit all ${sorting.tasks.length} before the reveal — an unscored guess teaches nothing.` }, 400);
+    }
   }
 
-  const rank: Record<string, number> = { badly: 0, partly: 1, well: 2 };
+  const rank = Object.fromEntries(sorting.buckets.map((b) => [b.id, b.rank]));
+  const pct = Object.fromEntries(sorting.buckets.map((b) => [b.id, b.pct]));
   let correct = 0;
   let overAssigned = 0;
   let underAssigned = 0;
-  const results: SortingReveal['results'] = sortingData.tasks.map((task) => {
+  const results: SortingReveal['results'] = sorting.tasks.map((task) => {
     const chosen = assignments[task.id];
-    const isCorrect = chosen === task.key;
+    const isCorrect = chosen === task.key || (task.also ?? []).includes(chosen);
     if (isCorrect) correct++;
     else if (rank[chosen] > rank[task.key]) overAssigned++;
-    else underAssigned++;
+    else if (rank[chosen] < rank[task.key]) underAssigned++;
     return { taskId: task.id, text: task.text, chosen, key: task.key, correct: isCorrect, reasoning: task.reasoning };
   });
 
-  for (const task of sortingData.tasks) {
-    await db.delete(t.fdCalibration).where(and(eq(t.fdCalibration.sessionId, session.id), eq(t.fdCalibration.context, `sort:${task.id}`)));
-    const predicted = BUCKET_PCT[assignments[task.id]];
-    const actual = BUCKET_PCT[task.key];
+  for (const task of sorting.tasks) {
+    const context = `sort:${moduleId}:${task.id}`;
+    await db.delete(t.fdCalibration).where(and(eq(t.fdCalibration.sessionId, session.id), eq(t.fdCalibration.context, context)));
     await db.insert(t.fdCalibration).values({
       id: uuid(),
       sessionId: session.id,
-      context: `sort:${task.id}`,
-      predictedPct: predicted,
-      actualOutcome: actual,
-      delta: predicted - actual,
+      context,
+      predictedPct: pct[assignments[task.id]],
+      actualOutcome: pct[task.key],
+      delta: pct[assignments[task.id]] - pct[task.key],
       createdAt: now(),
     });
   }
-  await logEvent(db, session.id, 'sort_submitted', { correct, total: sortingData.tasks.length, overAssigned, underAssigned });
+  await logEvent(db, session.id, 'sort_submitted', { moduleId, correct, total: sorting.tasks.length, overAssigned, underAssigned });
 
   const reveal: SortingReveal = {
     results,
-    score: { correct, total: sortingData.tasks.length },
+    score: { correct, total: sorting.tasks.length },
     overAssigned,
     underAssigned,
-    pattern: sortingData.pattern,
-    postscript: sortingData.postscript,
+    pattern: sorting.pattern,
+    postscript: sorting.postscript,
   };
   return c.json(reveal);
 });
 
-// ---------- applied activity & grading ----------
+// ---------- choice exercise (single answer over stimulus artifacts) ----------
 
-app.get('/api/module/ai101-m1/activity', async (c) => {
+app.get('/api/module/:id/choice', async (c) => {
   const db = c.get('db');
   const session = requireSession(c);
   if (!session) return c.json({ error: 'No session.' }, 401);
+  const choice = await getExercise<ChoicePayload>(db, c.req.param('id'), 'choice');
+  if (!choice) return c.json({ error: 'This module has no choice exercise.' }, 404);
+  return c.json({
+    title: choice.title,
+    intro: choice.intro,
+    artifacts: choice.artifacts,
+    options: choice.options,
+  });
+});
+
+app.post('/api/module/:id/choice', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const moduleId = c.req.param('id');
+  const choice = await getExercise<ChoicePayload>(db, moduleId, 'choice');
+  if (!choice) return c.json({ error: 'This module has no choice exercise.' }, 404);
+  const body = await c.req.json<{ chosen?: string }>().catch(() => null);
+  const chosen = body?.chosen;
+  if (!chosen || !choice.options.some((o) => o.id === chosen)) return c.json({ error: 'Commit to an answer before the reveal.' }, 400);
+  const correct = chosen === choice.key;
+  await logEvent(db, session.id, 'choice_submitted', { moduleId, correct });
+  return c.json({ correct, key: choice.key, reasoning: choice.reasoning, closing: choice.closing });
+});
+
+// ---------- knowledge check ----------
+
+app.get('/api/module/:id/knowledge-check', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const kc = await getExercise<KnowledgeCheckPayload>(db, c.req.param('id'), 'knowledge_check');
+  if (!kc) return c.json({ error: 'This module has no knowledge check.' }, 404);
+  return c.json({
+    title: kc.title,
+    note: kc.note,
+    questions: kc.questions.map((q) => ({ id: q.id, prompt: q.prompt, options: q.options })),
+  });
+});
+
+app.post('/api/module/:id/knowledge-check', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const moduleId = c.req.param('id');
+  const kc = await getExercise<KnowledgeCheckPayload>(db, moduleId, 'knowledge_check');
+  if (!kc) return c.json({ error: 'This module has no knowledge check.' }, 404);
+  const body = await c.req.json<{ answers?: Record<string, number> }>().catch(() => null);
+  const answers = body?.answers ?? {};
+
+  let correct = 0;
+  const results = kc.questions.map((q) => {
+    const chosen = Number(answers[q.id]);
+    const ok = Number.isInteger(chosen) && chosen === q.correctIndex;
+    if (ok) correct++;
+    return {
+      id: q.id,
+      chosenIndex: Number.isInteger(chosen) ? chosen : -1,
+      correct: ok,
+      correctIndex: q.correctIndex,
+      explanation: q.explanation,
+    };
+  });
+  await logEvent(db, session.id, 'knowledge_check_submitted', { moduleId, correct, total: kc.questions.length });
+  return c.json({ score: { correct, total: kc.questions.length }, results });
+});
+
+// ---------- capstone threading & the calibration trail ----------
+
+// 201's premise is one build advanced across eight modules — so later stages
+// see the earlier ones: the learner above the editor, the grader in its prompt.
+async function priorStagesFor(db: DrizzleD1Database, sessionId: string, moduleId: string): Promise<PriorStage[]> {
+  const modRows = await db.select().from(t.fdModule).where(eq(t.fdModule.id, moduleId)).limit(1);
+  const mod = modRows[0];
+  if (!mod || mod.courseId !== 'ai201' || mod.ordinal <= 1) return [];
+  const priors = await db
+    .select()
+    .from(t.fdModule)
+    .where(and(eq(t.fdModule.courseId, mod.courseId), lt(t.fdModule.ordinal, mod.ordinal)))
+    .orderBy(asc(t.fdModule.ordinal));
+  const stages: PriorStage[] = [];
+  for (const p of priors) {
+    const latest = await db
+      .select()
+      .from(t.fdSubmission)
+      .where(and(eq(t.fdSubmission.sessionId, sessionId), eq(t.fdSubmission.moduleId, p.id)))
+      .orderBy(desc(t.fdSubmission.createdAt))
+      .limit(1);
+    const s = latest[0];
+    if (!s) continue;
+    stages.push({ moduleId: p.id, ordinal: p.ordinal, title: p.title, body: s.body.slice(0, 6000), gradedAt: s.gradedAt, total: s.totalScore });
+  }
+  return stages;
+}
+
+// The learner's free-text prediction from a module's opening prompt, latest wins.
+async function openingPredictionFor(db: DrizzleD1Database, sessionId: string, moduleId: string): Promise<string | null> {
+  const events = await db
+    .select({ payloadJson: t.fdEvent.payloadJson })
+    .from(t.fdEvent)
+    .where(and(eq(t.fdEvent.sessionId, sessionId), eq(t.fdEvent.type, 'module_calibration_recorded')))
+    .orderBy(desc(t.fdEvent.createdAt));
+  for (const e of events) {
+    const p = JSON.parse(e.payloadJson ?? '{}') as { moduleId?: string; text?: string };
+    if (p.moduleId === moduleId && p.text) return p.text;
+  }
+  return null;
+}
+
+// Everything the learner has predicted and what came of it — M7's reckoning
+// and M8's portfolio render from this. Labels come from the seeded rubrics, so
+// the trail needs no per-module code.
+async function trailFor(db: DrizzleD1Database, sessionId: string): Promise<CalibrationTrail> {
+  const rubricRows = await db.select().from(t.fdExercise).where(eq(t.fdExercise.kind, 'rubric'));
+  const labels = new Map<string, string>();
+  for (const row of rubricRows) {
+    const r = JSON.parse(row.payloadJson) as RubricPayload;
+    for (const f of [...(r.opening ?? []), ...(r.calibration ?? [])]) {
+      // Fields with actualFor close another field's loop; they aren't loops themselves.
+      if (!f.actualFor) labels.set(`${row.moduleId}:cal:${f.key}`, f.label);
+    }
+  }
+  const calRows = await db.select().from(t.fdCalibration).where(eq(t.fdCalibration.sessionId, sessionId));
+  const points: TrailPoint[] = [];
+  for (const row of calRows) {
+    const label = labels.get(row.context);
+    if (!label) continue; // sorting and diagnostic calibration are summarized separately
+    points.push({ moduleId: row.context.split(':')[0], label, predicted: row.predictedPct, actual: row.actualOutcome, delta: row.delta });
+  }
+  points.sort((a, b) => a.moduleId.localeCompare(b.moduleId));
+
+  const events = await db
+    .select({ type: t.fdEvent.type, payloadJson: t.fdEvent.payloadJson })
+    .from(t.fdEvent)
+    .where(and(eq(t.fdEvent.sessionId, sessionId), sql`${t.fdEvent.type} IN ('sort_submitted', 'module_calibration_recorded')`))
+    .orderBy(asc(t.fdEvent.createdAt));
+  const sorts = new Map<string, CalibrationTrail['sorts'][number]>();
+  const predictions = new Map<string, string>();
+  for (const e of events) {
+    const p = JSON.parse(e.payloadJson ?? '{}') as { moduleId?: string; text?: string; correct?: number; total?: number; overAssigned?: number; underAssigned?: number };
+    if (!p.moduleId) continue;
+    if (e.type === 'sort_submitted' && typeof p.total === 'number') {
+      sorts.set(p.moduleId, { moduleId: p.moduleId, correct: p.correct ?? 0, total: p.total, overAssigned: p.overAssigned ?? 0, underAssigned: p.underAssigned ?? 0 });
+    } else if (e.type === 'module_calibration_recorded' && p.text) {
+      predictions.set(p.moduleId, p.text);
+    }
+  }
+  return {
+    points,
+    sorts: [...sorts.values()].sort((a, b) => a.moduleId.localeCompare(b.moduleId)),
+    predictions: [...predictions.entries()].map(([moduleId, text]) => ({ moduleId, text })).sort((a, b) => a.moduleId.localeCompare(b.moduleId)),
+  };
+}
+
+// ---------- applied activity & grading ----------
+
+app.get('/api/module/:id/activity', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const moduleId = c.req.param('id');
+  const rubric = await getExercise<RubricPayload>(db, moduleId, 'rubric');
+  if (!rubric) return c.json({ error: 'This module has no graded activity.' }, 404);
   const blockRows = await db
     .select()
     .from(t.fdContentBlock)
-    .where(eq(t.fdContentBlock.moduleId, 'ai101-m1-activity'))
+    .where(eq(t.fdContentBlock.moduleId, `${moduleId}-activity`))
     .orderBy(asc(t.fdContentBlock.ordinal));
   const latest = await db
     .select()
     .from(t.fdSubmission)
-    .where(eq(t.fdSubmission.sessionId, session.id))
+    .where(and(eq(t.fdSubmission.sessionId, session.id), eq(t.fdSubmission.moduleId, moduleId)))
     .orderBy(desc(t.fdSubmission.createdAt))
     .limit(1);
   const last = latest[0];
+
+  // Human reviews from the operator queue, across all of this session's
+  // submissions to the module — a review of an earlier draft still counts.
+  const reviewRows = await db
+    .select({
+      id: t.fdReview.id,
+      reviewer: t.fdReview.reviewer,
+      body: t.fdReview.body,
+      score: t.fdReview.score,
+      createdAt: t.fdReview.createdAt,
+      submissionId: t.fdReview.submissionId,
+    })
+    .from(t.fdReview)
+    .innerJoin(t.fdSubmission, eq(t.fdReview.submissionId, t.fdSubmission.id))
+    .where(and(eq(t.fdSubmission.sessionId, session.id), eq(t.fdSubmission.moduleId, moduleId)))
+    .orderBy(desc(t.fdReview.createdAt));
+
+  const priorStages = await priorStagesFor(db, session.id, moduleId);
+  const openingPrediction = await openingPredictionFor(db, session.id, moduleId);
+  const trail = rubric.includeTrail ? await trailFor(db, session.id) : null;
+
   return c.json({
-    blocks: blockRows.map(toBlock),
-    minChars: MIN_SUBMISSION_CHARS,
+    blocks: selectVariants(blockRows, toolingOf(c.env)).map(toBlock),
+    minChars: rubric.minChars ?? MIN_SUBMISSION_CHARS,
+    intro: rubric.intro,
+    submitLabel: rubric.submitLabel,
+    calibration: rubric.calibration ?? [],
+    priorStages,
+    openingPrediction,
+    trail,
+    reviews: reviewRows.map((r) => ({
+      id: r.id,
+      reviewer: r.reviewer,
+      body: r.body,
+      score: r.score,
+      createdAt: r.createdAt,
+      onLatest: r.submissionId === last?.id,
+    })),
     lastSubmission: last
       ? {
           id: last.id,
@@ -1244,41 +1616,70 @@ app.get('/api/module/ai101-m1/activity', async (c) => {
   });
 });
 
-app.post('/api/module/ai101-m1/activity', async (c) => {
+app.post('/api/module/:id/activity', async (c) => {
   const db = c.get('db');
   const session = requireSession(c);
   if (!session) return c.json({ error: 'No session.' }, 401);
-  const body = await c.req.json<{ body?: string; predictedPct?: number }>().catch(() => null);
-  const text = body?.body?.trim();
-  if (!text || text.length < MIN_SUBMISSION_CHARS) {
-    return c.json({ error: `Keep going — the activity needs at least ${MIN_SUBMISSION_CHARS} characters to be gradeable.` }, 400);
-  }
-  if (text.length > 40_000) return c.json({ error: 'That’s beyond what the grader will read. Trim to the three conversations and the reflection.' }, 400);
+  const moduleId = c.req.param('id');
+  const rubric = await getExercise<RubricPayload>(db, moduleId, 'rubric');
+  if (!rubric) return c.json({ error: 'This module has no graded activity.' }, 404);
+  const minChars = rubric.minChars ?? MIN_SUBMISSION_CHARS;
 
-  const predictedPct = Number.isFinite(body?.predictedPct) ? Math.max(0, Math.min(100, Math.round(body!.predictedPct!))) : null;
+  const body = await c.req.json<{ body?: string; calibration?: Record<string, number> }>().catch(() => null);
+  const text = body?.body?.trim();
+  if (!text || text.length < minChars) {
+    return c.json({ error: `Keep going — the activity needs at least ${minChars} characters to be gradeable.` }, 400);
+  }
+  if (text.length > 40_000) return c.json({ error: 'That’s beyond what the grader will read. Trim to what the activity asks for.' }, 400);
 
   // Save first — grading can fail or be limited, the submission never gets lost.
   const submissionId = uuid();
   await db.insert(t.fdSubmission).values({
     id: submissionId,
     sessionId: session.id,
-    moduleId: 'ai101-m1',
+    moduleId,
     body: text,
     createdAt: now(),
   });
-  await logEvent(db, session.id, 'activity_submitted', { submissionId, chars: text.length });
+  await logEvent(db, session.id, 'activity_submitted', { moduleId, submissionId, chars: text.length });
 
-  if (predictedPct !== null) {
-    await db.delete(t.fdCalibration).where(and(eq(t.fdCalibration.sessionId, session.id), eq(t.fdCalibration.context, 'm1:conversation2')));
+  // Rubric-declared calibration fields → fd_calibration, before grading.
+  // A plain field opens a prediction; an actualFor field closes one — the
+  // measured value lands on the earlier prediction's row with its delta.
+  const calibrationNotes: string[] = [];
+  for (const field of rubric.calibration ?? []) {
+    const value = Number(body?.calibration?.[field.key]);
+    if (!Number.isFinite(value)) continue;
+    const clamped = Math.max(field.min ?? 0, Math.min(field.max ?? 1_000_000, Math.round(value)));
+    if (field.actualFor) {
+      const [mod, key] = field.actualFor.includes(':') ? field.actualFor.split(':') : [moduleId, field.actualFor];
+      const context = `${mod}:cal:${key}`;
+      const rows = await db
+        .select()
+        .from(t.fdCalibration)
+        .where(and(eq(t.fdCalibration.sessionId, session.id), eq(t.fdCalibration.context, context)))
+        .limit(1);
+      const prior = rows[0];
+      if (prior) {
+        await db.update(t.fdCalibration).set({ actualOutcome: clamped, delta: clamped - prior.predictedPct }).where(eq(t.fdCalibration.id, prior.id));
+        calibrationNotes.push(`${field.label}: ${clamped} (they predicted ${prior.predictedPct}; miss of ${clamped - prior.predictedPct})`);
+      } else {
+        calibrationNotes.push(`${field.label}: ${clamped} (no earlier prediction on record to score against)`);
+      }
+      continue;
+    }
+    const context = `${moduleId}:cal:${field.key}`;
+    await db.delete(t.fdCalibration).where(and(eq(t.fdCalibration.sessionId, session.id), eq(t.fdCalibration.context, context)));
     await db.insert(t.fdCalibration).values({
       id: uuid(),
       sessionId: session.id,
-      context: 'm1:conversation2',
-      predictedPct,
+      context,
+      predictedPct: clamped,
       actualOutcome: null,
       delta: null,
       createdAt: now(),
     });
+    calibrationNotes.push(`${field.label}: ${clamped}`);
   }
 
   const hourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
@@ -1304,7 +1705,29 @@ app.post('/api/module/ai101-m1/activity', async (c) => {
     return c.json(res);
   }
 
-  const grade = await gradeSubmission(c.env.ANTHROPIC_API_KEY, c.env.GRADING_MODEL, text, predictedPct);
+  // The grader sees the build so far and the module-opening prediction, so
+  // stage feedback can reference the actual spec and score honesty on record.
+  const stages = await priorStagesFor(db, session.id, moduleId);
+  const priorContext = stages.length
+    ? stages
+        .map((s) => {
+          const graded = s.total !== null ? ` (graded ${s.total})` : ' (ungraded)';
+          const bodyText = s.body.length > 2500 ? `${s.body.slice(0, 2500)}\n[truncated]` : s.body;
+          return `Stage ${s.ordinal} — ${s.title}${graded}:\n${bodyText}`;
+        })
+        .join('\n\n')
+    : null;
+  const opening = await openingPredictionFor(db, session.id, moduleId);
+  if (opening) calibrationNotes.unshift(`Opening prediction, recorded at the top of the module: "${opening.slice(0, 500)}"`);
+
+  const grade = await gradeSubmission(
+    c.env.ANTHROPIC_API_KEY,
+    c.env.GRADING_MODEL,
+    rubric,
+    text,
+    calibrationNotes.length ? calibrationNotes.join(' · ') : null,
+    priorContext,
+  );
   if (!grade) {
     const res: GradeResult = {
       status: 'saved_ungraded',
@@ -1320,11 +1743,11 @@ app.post('/api/module/ai101-m1/activity', async (c) => {
       rubricJson: JSON.stringify({ dimensions: grade.dimensions, summary: grade.summary }),
       totalScore: grade.total,
       modelUsed: c.env.GRADING_MODEL,
-      promptVersion: PROMPT_VERSION,
+      promptVersion: rubric.promptVersion,
       gradedAt: now(),
     })
     .where(eq(t.fdSubmission.id, submissionId));
-  await logEvent(db, session.id, 'activity_graded', { submissionId, total: grade.total });
+  await logEvent(db, session.id, 'activity_graded', { moduleId, submissionId, total: grade.total });
 
   const res: GradeResult = { status: 'graded', submissionId, dimensions: grade.dimensions, total: grade.total, summary: grade.summary };
   return c.json(res);
@@ -1431,7 +1854,7 @@ async function generateEpisode(
     .where(eq(t.fdContentBlock.moduleId, moduleId))
     .orderBy(asc(t.fdContentBlock.ordinal));
   if (blockRows.length === 0) return null;
-  const contentMd = blockRows
+  const contentMd = selectVariants(blockRows, toolingOf(env))
     .filter((b) => b.kind !== 'exercise')
     .map((b) => b.body)
     .join('\n\n');

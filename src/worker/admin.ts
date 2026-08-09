@@ -127,7 +127,21 @@ adminApp.get('/report', async (c) => {
     sql`SELECT ROUND(AVG(delta), 1) AS mean_delta, ROUND(AVG(ABS(delta)), 1) AS mean_abs_delta, COUNT(*) AS n
         FROM fd_calibration WHERE context LIKE 'diagnostic:%' AND delta IS NOT NULL`,
   );
-  return c.json({ totals, funnel, demand, calibration });
+  // What reviewers actually open this on — from client_context events, one
+  // per session (latest wins) so a reviewer reloading doesn't skew the mix.
+  const devices = await db.all<{ platform: string; browser: string; pointer: string; sessions: number }>(
+    sql`WITH latest AS (
+          SELECT session_id, payload_json, ROW_NUMBER() OVER (PARTITION BY session_id ORDER BY created_at DESC) AS rn
+          FROM fd_event WHERE type = 'client_context'
+        )
+        SELECT json_extract(payload_json, '$.platform') AS platform,
+               json_extract(payload_json, '$.browser') AS browser,
+               json_extract(payload_json, '$.pointer') AS pointer,
+               COUNT(*) AS sessions
+        FROM latest WHERE rn = 1
+        GROUP BY platform, browser, pointer ORDER BY sessions DESC`,
+  );
+  return c.json({ totals, funnel, demand, calibration, devices });
 });
 
 // ---------- review queue ----------

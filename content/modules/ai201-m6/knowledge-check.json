@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the boundary sheet is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-07",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why does a workflow change the \"what can I paste?\" question from 101?",
+      "options": [
+        "Workflows process larger volumes of data",
+        "The question now gets asked every run, forever — eventually by an agent — so the answer must live in design, not per-moment judgment",
+        "Workflows are subject to different regulations than conversations",
+        "It doesn't — the question is identical"
+      ],
+      "correctIndex": 1,
+      "explanation": "One conversation gets your full judgment; a scheduled pipeline gets whatever the design encoded. That's the entire case for tiers, step zero, and the boundary sheet."
+    },
+    {
+      "id": "q2",
+      "prompt": "\"The only woman on the Denver sales team said…\" is Tier 3 because:",
+      "options": [
+        "Survey comments are always person-identifying",
+        "Identification doesn't require a name — a description a colleague could resolve to one person identifies them",
+        "Denver is a small office",
+        "It isn't — no name appears, so it's Tier 2"
+      ],
+      "correctIndex": 1,
+      "explanation": "The tier turns on what a reader could learn, not on whether a name-shaped string is present. Small-n and distinctive detail are how \"anonymous\" material stays identifying."
+    },
+    {
+      "id": "q3",
+      "prompt": "The person-test runs on the whole run rather than each artifact because:",
+      "options": [
+        "Testing artifacts individually takes too long",
+        "Individually clean artifacts can converge — assembled, they point at one person",
+        "Only final outputs matter for privacy",
+        "The test requires seeing the original inputs"
+      ],
+      "correctIndex": 1,
+      "explanation": "The convergence trap: theme table + quote + narrative, each fine alone, jointly identifying. Run-level review is the only place that failure is visible."
+    },
+    {
+      "id": "q4",
+      "prompt": "Minimization beats redaction as the primary move because:",
+      "options": [
+        "Redaction tools are unreliable",
+        "Material you never carry can't leak, converge, or be re-identified — the transformation should receive only what it needs",
+        "Minimized documents use fewer tokens",
+        "Redaction is only required for Tier 4"
+      ],
+      "correctIndex": 1,
+      "explanation": "Masking what remains is the second line; not carrying it is the first. It's the M1 what-does-this-need question, pointed at data instead of capability."
+    },
+    {
+      "id": "q5",
+      "prompt": "Your workflow turns out to routinely need investigation files to function. The module's conclusion:",
+      "options": [
+        "Get a standing legal clearance for the workflow",
+        "Add a stronger redaction step",
+        "This shouldn't be a workflow — routine Tier 4 need is M1's should-this-exist finding, reached from the data side",
+        "Run it only in the enterprise deployment"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tier 4's default is \"doesn't go in,\" and a *routine* need isn't a mitigation problem. A and B engineer around a finding; the finding is about the workflow's existence."
+    },
+    {
+      "id": "q6",
+      "prompt": "The four agreement-layer questions establish: **[V]**",
+      "options": [
+        "Whether AI use is permitted at your organization at all",
+        "Which tools are sanctioned, whether data trains models, what retention applies, and who owns the contract",
+        "The price tier of your organization's deployment",
+        "Which model versions are approved"
+      ],
+      "correctIndex": 1,
+      "explanation": "Those four answers, sourced and dated, are what \"sanctioned deployment\" concretely means — and question four's name is the escalation path's third step."
+    },
+    {
+      "id": "q7",
+      "prompt": "The strongest reason the escalation path must be blame-safe:",
+      "options": [
+        "Blame slows down incident response",
+        "Hidden incidents are the only truly unmanageable kind — shame produces hiding",
+        "Most incidents turn out to be harmless",
+        "Legal requires no-fault reporting"
+      ],
+      "correctIndex": 1,
+      "explanation": "Every other property of the path — speed, facts, the right name — depends on the incident being surfaced at all. A People leader already knows this pattern; this is it, again."
+    },
+    {
+      "id": "q8",
+      "prompt": "After a wrong paste, the fourth step — \"fix the system, not just the moment\" — means:",
+      "options": [
+        "Retrain everyone on data handling",
+        "Trace how the material reached the model (missing step zero, raw file, accumulating pack) and change that design",
+        "Add an approval gate to every step",
+        "Retire the workflow"
+      ],
+      "correctIndex": 1,
+      "explanation": "M4's reflex applied to boundaries: the incident is diagnostic data about a specific design gap. A, C, and D are moods — broad, expensive, and unaimed."
+    }
+  ]
+}

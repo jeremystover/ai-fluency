@@ -1,0 +1,56 @@
+[
+  {
+    "id": "m1a-intro",
+    "moduleId": "ai101-m1-activity",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-07-28",
+    "body": "## Applied activity — \"Testing the Edges\"\n\n**Time:** 20–25 minutes · **Submit:** a record of three conversations plus a 250–350 word reflection · **Graded against the rubric below.** Score doesn't matter. Doing the work is where the learning lands.\n\nHave three short conversations with your AI tool. Each is built to expose a different property of the system. Then write a short reflection on what you noticed.\n\nThis is not about getting good answers. It's about watching the thing behave so you build real intuition for what it is."
+  },
+  {
+    "id": "m1a-conv1",
+    "moduleId": "ai101-m1-activity",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-07-28",
+    "body": "### Conversation 1 — Where it's strong\n\nPick a subject you know well: an area of People practice you've worked in for years, a policy you wrote, a process you own. Ask a substantive question. Read the answer critically — you're one of the few people who can actually judge it. Then ask one follow-up that pushes deeper.\n\n*Notice:* What does it handle well? Where does it sound like it genuinely understands? Where does it produce something that reads correctly but that you know is thin?"
+  },
+  {
+    "id": "m1a-conv2",
+    "moduleId": "ai101-m1-activity",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-07-28",
+    "body": "### Conversation 2 — Where it might fabricate\n\n**Predict first.** Before you send anything, write down: *how likely is it that this answer contains something invented?* Give a percentage — there's a field for it below.\n\nThen ask for something specific and hard to verify. Options that work:\n\n- A statistic about employment practice with a source citation\n- What a specific named regulation requires in a specific jurisdiction\n- Details about a small organization you know well\n- A quotation from a specific page of a specific book\n\nNow check it. Actually check it — follow the citation, look up the regulation, verify the number.\n\n*Record:* your prediction, what actually happened, and how far off you were."
+  },
+  {
+    "id": "m1a-conv3",
+    "moduleId": "ai101-m1-activity",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-07-28",
+    "body": "### Conversation 3 — Where it can't know\n\nAsk something about your own organization that the model was never given. Your parental leave provision. Why your last engagement survey moved. Which of your roles takes longest to fill.\n\nWatch carefully. Does it refuse? Hedge? Ask you for context? Or does it produce something fluent, specific, and fabricated? Then paste in the actual material and ask again.\n\n*Notice:* the difference between the two answers is the entire lesson of Lesson 4."
+  },
+  {
+    "id": "m1a-reflection",
+    "moduleId": "ai101-m1-activity",
+    "ordinal": 50,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-07-28",
+    "body": "### The reflection — 250–350 words\n\nAddress all of:\n\n- One thing the model did better than you expected\n- One thing it did worse\n- Your calibration: what you predicted in Conversation 2, what happened, and which direction you were wrong in\n- One habit you'll change on Monday, stated concretely enough that someone could check whether you did it"
+  },
+  {
+    "id": "m1a-rubric",
+    "moduleId": "ai101-m1-activity",
+    "ordinal": 60,
+    "kind": "table",
+    "layer": "stable",
+    "reviewedAt": "2026-07-28",
+    "body": "### Rubric — 20 points\n\n| Dimension | 5 points |\n|---|---|\n| **Engagement with all three conversations** | All three run, with actual transcripts or faithful accounts. Follow-ups asked. Real subject matter, not placeholder queries. |\n| **Observation of mechanics** | The reflection connects what was observed to how the system works — prediction, training data, context — rather than only reporting what it said. |\n| **Calibration** | A prediction was made *before* Conversation 2, compared honestly afterward, and the direction of error is named. Accuracy isn't scored; honesty and specificity are. |\n| **Practical insight** | The habit named is concrete, tied to actual work, and checkable. Not \"I'll be more careful.\" |"
+  }
+]

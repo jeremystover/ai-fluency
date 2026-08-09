@@ -6,16 +6,16 @@ import { preferredSurface, type Surface } from '../shared/modality';
 
 export { preferredSurface, type Surface };
 
-export function surfaceRoute(surface: Surface): string {
+export function surfaceRoute(surface: Surface, moduleId = 'ai101-m1'): string {
   switch (surface) {
     case 'chat':
-      return '/module/1/chat';
+      return `/module/${moduleId}/chat`;
     case 'voice-chat':
-      return '/module/1/chat?voice=1';
+      return `/module/${moduleId}/chat?voice=1`;
     case 'podcast':
-      return '/module/1/podcast';
+      return `/module/${moduleId}/podcast`;
     default:
-      return '/module/1';
+      return `/module/${moduleId}`;
   }
 }
 
@@ -35,10 +35,10 @@ export function surfaceStartLabel(surface: Surface): string {
 // First visit to a module with a non-reading preference and that surface
 // untouched → take them straight there. Once they've used it (or if they
 // chose reading) the module view is home base and never bounces them.
-export function firstVisitRedirect(me: MeResponse | null): string | null {
+export function firstVisitRedirect(me: MeResponse | null, moduleId = 'ai101-m1'): string | null {
   if (!me?.authenticated) return null;
   const surface = preferredSurface(me.prefs?.styles);
-  if ((surface === 'chat' || surface === 'voice-chat') && !me.progress.chatStarted) return surfaceRoute(surface);
-  if (surface === 'podcast' && !me.progress.podcastTried) return surfaceRoute(surface);
+  if ((surface === 'chat' || surface === 'voice-chat') && !me.progress.chatStarted) return surfaceRoute(surface, moduleId);
+  if (surface === 'podcast' && !me.progress.podcastTried) return surfaceRoute(surface, moduleId);
   return null;
 }

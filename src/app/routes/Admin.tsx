@@ -40,6 +40,7 @@ type Report = {
   funnel: { type: string; events: number; sessions: number }[];
   demand: { goals: { v: string; n: number }[]; styles: { v: string; n: number }[] };
   calibration: { mean_delta: number | null; mean_abs_delta: number | null; n: number };
+  devices: { platform: string | null; browser: string | null; pointer: string | null; sessions: number }[];
 };
 
 type CodeRow = { id: string; brandSlug: string; label: string; uses: number; maxUses: number | null; active: boolean };
@@ -253,6 +254,21 @@ function Reporting() {
             </div>
           ))}
         </div>
+        {report.devices.length > 0 && (
+          <>
+            <span className="label-utility block mt-6">Devices</span>
+            <div className="mt-2 text-sm text-ink flex flex-col gap-1">
+              {report.devices.map((d, i) => (
+                <div key={i} className="flex justify-between border-b border-line py-1">
+                  <span>
+                    {d.platform ?? '?'} · {d.browser ?? '?'} · {d.pointer === 'coarse' ? 'touch' : 'mouse'}
+                  </span>
+                  <span className="font-utility text-xs">{d.sessions}</span>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
       </div>
       <div>
         <span className="label-utility">Funnel</span>

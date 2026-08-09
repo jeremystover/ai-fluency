@@ -110,6 +110,10 @@ export const fdContentBlock = sqliteTable(
     body: text('body').notNull(), // markdown (exercise blocks carry a JSON payload)
     dependsOn: text('depends_on'), // JSON array — future agent watch topics
     reviewedAt: text('reviewed_at').notNull(),
+    // Org-tooling variant ('claude' | 'chatgpt' | ...). NULL = applies to every
+    // deployment. Blocks sharing an ordinal form a variant group; the worker
+    // serves the one matching ORG_TOOLING, falling back to 'claude'.
+    variant: text('variant'),
   },
   (t) => [index('idx_block_module').on(t.moduleId, t.ordinal)],
 );
@@ -173,6 +177,22 @@ export const fdPodcast = sqliteTable(
     createdAt: text('created_at').notNull(),
   },
   (t) => [index('idx_podcast_session').on(t.sessionId)],
+);
+
+// Per-module exercise data whose answer keys must never reach the client
+// bundle: sorting exercises, activity rubrics, knowledge checks. One row per
+// (module, kind); payload_json holds the full definition including keys, and
+// the worker serves only the public projection.
+export const fdExercise = sqliteTable(
+  'fd_exercise',
+  {
+    id: text('id').primaryKey(),
+    moduleId: text('module_id').notNull(),
+    kind: text('kind').notNull(), // sorting | rubric | knowledge_check
+    payloadJson: text('payload_json').notNull(),
+    reviewedAt: text('reviewed_at').notNull(),
+  },
+  (t) => [index('idx_exercise_module').on(t.moduleId, t.kind)],
 );
 
 // Operator reviews from the admin console — the async backup path for the

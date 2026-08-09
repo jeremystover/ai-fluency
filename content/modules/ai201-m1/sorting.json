@@ -1,0 +1,101 @@
+{
+  "buckets": [
+    {
+      "id": "workflow",
+      "label": "Workflow it",
+      "hint": "Recurring transformation of material you own",
+      "rank": 2,
+      "pct": 85
+    },
+    {
+      "id": "manual",
+      "label": "Keep it manual",
+      "hint": "Judgment-heavy, or a true one-off",
+      "rank": 1,
+      "pct": 50
+    },
+    {
+      "id": "never",
+      "label": "Never systematize",
+      "hint": "Decisions about people",
+      "rank": 0,
+      "pct": 15
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "text": "Turning each week's interview notes into structured debriefs",
+      "key": "workflow",
+      "reasoning": "The canonical first build: weekly, structured, your notes."
+    },
+    {
+      "id": "t2",
+      "text": "Drafting the monthly people-metrics narrative from a data export you own",
+      "key": "workflow",
+      "reasoning": "Your export, same shape monthly; verification catches the numbers."
+    },
+    {
+      "id": "t3",
+      "text": "Deciding which of two finalists receives the offer",
+      "key": "never",
+      "reasoning": "A decision about a person. It isn't about capability, and it doesn't move for better models."
+    },
+    {
+      "id": "t4",
+      "text": "Refreshing job postings each quarter to strip jargon and drift",
+      "key": "workflow",
+      "reasoning": "Quarterly but perfectly structured — pure transformation."
+    },
+    {
+      "id": "t5",
+      "text": "Responding to an employee's grievance email",
+      "key": "manual",
+      "reasoning": "Arrives on a rhythm, but each one is a distinct human situation carrying legal weight. AI can help you understand a policy; the response is authored, not generated."
+    },
+    {
+      "id": "t6",
+      "text": "Summarizing exit-interview verbatims at quarter end",
+      "key": "workflow",
+      "reasoning": "Same pattern as engagement summaries — with the same caveat: read the raw comments too."
+    },
+    {
+      "id": "t7",
+      "text": "Setting performance ratings ahead of calibration",
+      "key": "never",
+      "reasoning": "The decision where bias stops being abstract: automation reproduces patterns at scale and speed, and adverse impact is the mechanism."
+    },
+    {
+      "id": "t8",
+      "text": "Drafting the weekly HR newsletter from bullet points you supply",
+      "key": "workflow",
+      "reasoning": "Low stakes, weekly, you supply every bullet."
+    },
+    {
+      "id": "t9",
+      "text": "Writing this year's reduction-in-force communication",
+      "key": "manual",
+      "reasoning": "A one-off, and one of the highest-stakes documents you'll ever write. Fails the 'recurs' test before stakes even enter it."
+    },
+    {
+      "id": "t10",
+      "text": "Translating policy updates into plain-language change notes",
+      "key": "workflow",
+      "reasoning": "Text in, plainer text out."
+    },
+    {
+      "id": "t11",
+      "text": "Screening résumés for a hard-to-fill role",
+      "key": "never",
+      "reasoning": "A decision about people — and the place your vendors quietly systematize it for you. You wrote the questions to ask them in 101."
+    },
+    {
+      "id": "t12",
+      "text": "Preparing talking points for a sensitive conversation with a specific employee",
+      "key": "manual",
+      "reasoning": "The material that matters — history, relationship, what you know that isn't written down — is exactly what no system holds."
+    }
+  ],
+  "pattern": "Workflow the recurring transformations of material you own. Keep manual the judgment calls that happen to recur — and anything that happens once. Never systematize decisions about people.",
+  "postscript": "If you missed several, look at which kind. Putting judgment calls in 'workflow it' means you'll build something that launders discretion through a template. Putting good transformations in 'keep it manual' means the artisan tax continues for no reason. Both are fixable; that's what the selection rules are for."
+}

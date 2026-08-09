@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the decision memo is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-07",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "The three rungs of the autonomy ladder, in order of extended trust:",
+      "options": [
+        "Read-only → read-write → admin",
+        "Draft-only → propose-then-approve → act-with-audit-trail",
+        "Manual → assisted → autonomous",
+        "Chat → project → agent"
+      ],
+      "correctIndex": 1,
+      "explanation": "Each rung is an answer to \"what may the system do without waiting for you?\" — and each is priced in verification evidence, not capability."
+    },
+    {
+      "id": "q2",
+      "prompt": "What is the \"price\" of rung 2 (propose-then-approve)?",
+      "options": [
+        "An enterprise license for agent features",
+        "A sampled error rate below your M4 escalation line, plus an approval that's inspectable in seconds with a defined reading list",
+        "Manager authorization",
+        "A successful demo of the agent completing the workflow"
+      ],
+      "correctIndex": 1,
+      "explanation": "The ladder is priced in M4 currency. A demo (D) is capability evidence; the ladder runs on *verification* evidence — your error history, your escalation line, your reading list."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why does reversibility, not stakes, cap the newsletter-send at rung 2?",
+      "options": [
+        "Newsletters are high-stakes communications",
+        "Sending to all-staff cannot be undone, and irreversible actions keep a human at the boundary regardless of how low the stakes are",
+        "Email tools cannot be connected to agents",
+        "It doesn't — low stakes justify rung 3"
+      ],
+      "correctIndex": 1,
+      "explanation": "The master question is what undo costs. Low stakes shrink the *harm*; they don't restore the *option*. The three-second human click is the cheapest control in the module."
+    },
+    {
+      "id": "q4",
+      "prompt": "\"Guardrails are permissions, not hopes\" means:",
+      "options": [
+        "Write guardrail instructions in the system prompt, prominently",
+        "Control what tools are attached — what must not happen shouldn't be representable",
+        "Require the agent to confirm it understands its restrictions",
+        "Log all agent actions for review"
+      ],
+      "correctIndex": 1,
+      "explanation": "An instruction is a sentence competing inside a context window; an unattached tool is a fact. A and C are instructions, not permissions; D is necessary for rung 3 but doesn't *prevent* anything."
+    },
+    {
+      "id": "q5",
+      "prompt": "An approval you have never once declined across thirty runs is:",
+      "options": [
+        "Proof the approval step is unnecessary bureaucracy",
+        "Evidence for a rung-3 conversation about that step — the approval load data the ladder asks for",
+        "Evidence the approver isn't reading carefully",
+        "Normal, and means nothing"
+      ],
+      "correctIndex": 1,
+      "explanation": "Rung 2 generates exactly this data: how often the human actually says no. A clean approval history is the evidence-based case for climbing; a decline-heavy one is the case the workflow isn't ready. (C is possible — which is why the approval's reading list is defined; an approver who stopped reading is M4's repricing signal.)"
+    },
+    {
+      "id": "q6",
+      "prompt": "Why does the module bar agents from holding person-affecting permissions even behind approval gates?",
+      "options": [
+        "Regulations prohibit all agent actions in HR systems",
+        "Models aren't accurate enough yet for personnel actions",
+        "Approvals decay into rubber stamps under load, and a rubber-stamped action on a person is decision-laundering at machine speed",
+        "Person-affecting actions are too slow to automate profitably"
+      ],
+      "correctIndex": 2,
+      "explanation": "The argument is structural, not statistical: M4 showed what load does to approvals, and M1's line — the human must genuinely decide — can't survive that decay when actions fire at agent speed. B implies better models change the answer; they don't."
+    },
+    {
+      "id": "q7",
+      "prompt": "The RIF communication can never climb above rung 1 because:",
+      "options": [
+        "It's too emotionally sensitive for a model to draft",
+        "As low-frequency, high-stakes work, no run history can accumulate — so no higher rung can ever be priced",
+        "Legal review is required for RIF communications",
+        "It can, once error rates on other workflows are established"
+      ],
+      "correctIndex": 1,
+      "explanation": "The ladder's currency is run history for *this* work; other workflows' evidence (D) doesn't transfer. \"Unpriceable\" is the ladder's own vocabulary for why some ceilings are permanent — better reasoning than \"too risky,\" same conclusion."
+    },
+    {
+      "id": "q8",
+      "prompt": "A well-written refusal contains:",
+      "options": [
+        "The ceiling, its permanence, the reason — and a review trigger tied to changed reasons, not improved tools",
+        "A list of the agent features evaluated and rejected",
+        "The date after which automation will be reconsidered",
+        "Sign-off from IT and Legal"
+      ],
+      "correctIndex": 0,
+      "explanation": "The refusal is a decision artifact: it shows the automation decision was *made*, with reasoning a successor and a curious executive can both read. C reconsiders on a calendar; the module reconsiders when reasons change — \"the model got better\" isn't one."
+    }
+  ]
+}

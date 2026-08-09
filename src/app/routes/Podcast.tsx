@@ -1,13 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import type { PodcastEpisode, PodcastLength, PodcastListResponse, PodcastOutlinePoint, PodcastSummary } from '../../shared/types';
 import { PODCAST_HOSTS } from '../../shared/types';
 import { Screen, Button, ErrorNote } from '../components/ui';
 import MicButton from '../components/MicButton';
 import { api, ApiError, track } from '../api';
 import { useApp } from '../brand';
-
-const MODULE_ID = 'ai101-m1';
 
 const LENGTH_OPTIONS: { id: PodcastLength; label: string; detail: string }[] = [
   { id: 'quick', label: 'Quick take', detail: '~3 min' },
@@ -284,6 +282,7 @@ function Player({
 const PREGEN_POLLS = 8; // × 4s — how long we wait for a pregenerated episode to land
 
 export default function Podcast() {
+  const moduleId = useParams().moduleId ?? 'ai101-m1';
   const { me } = useApp();
   const [list, setList] = useState<PodcastListResponse | null>(null);
   const [episode, setEpisode] = useState<PodcastEpisode | null>(null);
@@ -295,7 +294,7 @@ export default function Podcast() {
   const autoCreated = useRef(false);
 
   const podcastPicked = Boolean(me?.prefs?.styles?.includes('podcast'));
-  const defaultEp = list?.episodes.find((e) => e.moduleId === MODULE_ID && e.kind === 'default') ?? null;
+  const defaultEp = list?.episodes.find((e) => e.moduleId === moduleId && e.kind === 'default') ?? null;
   const defaultPlayed = Boolean(
     defaultEp && (list?.playedEpisodeIds.includes(defaultEp.id) || localPlayed.includes(defaultEp.id)),
   );
@@ -323,7 +322,7 @@ export default function Podcast() {
     setWriting(true);
     setError(null);
     try {
-      const ep = await api.post<PodcastEpisode>('/api/podcast', { moduleId: MODULE_ID, kind, question: q });
+      const ep = await api.post<PodcastEpisode>('/api/podcast', { moduleId, kind, question: q });
       setEpisode(ep);
       const { lines: _lines, outline: _outline, ...summary } = ep;
       setList((prev) => (prev ? { ...prev, episodes: [summary, ...prev.episodes.filter((e) => e.id !== ep.id)] } : prev));
@@ -493,7 +492,7 @@ export default function Podcast() {
         )}
 
         <p className="mt-10 text-sm">
-          <Link to="/module/1" className="text-accent font-semibold no-underline hover:underline">← Back to Module 1</Link>
+          <Link to={`/module/${moduleId}`} className="text-accent font-semibold no-underline hover:underline">← Back to the module</Link>
         </p>
       </div>
     </Screen>

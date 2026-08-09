@@ -1,0 +1,121 @@
+[
+  {
+    "id": "ai201-m2-calibration-prompt-before-you-start-10",
+    "moduleId": "ai201-m2",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Calibration prompt — before you start\n\n*Two predictions, thirty seconds. You'll score them at the end of the module.*\n\nBy the end of this module you'll have built a context pack for the workflow you specced in M1.\n\n1. **How many distinct items will it need?** (A voice guide is one item. An example debrief is\n   one item.) Write down a number.\n2. **Which item will be hardest to write?** Name it.\n\nMost people guess high on the first and wrong on the second. The miss is the lesson."
+  },
+  {
+    "id": "ai201-m2-module-brief-20",
+    "moduleId": "ai201-m2",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Module brief\n\nIn 101 you learned the single most important fact about these systems: output quality is mostly\ndetermined by the material you supply. Then you spent every week since re-supplying it.\n\nThink about what you actually did the last time you asked AI to draft something in your\ncompany's voice. You explained the voice. Again. You described what a good version looks like.\nAgain. You pasted the same three paragraphs of background that you pasted last Tuesday, from the\nsame document, with the same typo. Practitioners call this the **artisan tax**: the cost of\nre-briefing a capable stranger who forgets you the moment you close the tab — paid per\nconversation, forever.\n\n101 told you why the tax exists: the model has no memory of you, and each conversation starts\nfrom nothing but its training plus what you hand it. The Novice pays the tax every time. The\nPractitioner notices that *the material barely changes between payments* — and writes it down\nonce, somewhere the tool can always see.\n\nThat once-written material is the **context pack**: the stable briefing for one workflow,\nseparated from the material that genuinely changes each run. Building the distinction between\nthose two — what keeps, what arrives fresh, and what must never be written into infrastructure at\nall — is this module. It is the highest-leverage hour in this course: everything M3 through M8\nbuilds runs on the packs you learn to make here."
+  },
+  {
+    "id": "ai201-m2-learning-objectives-30",
+    "moduleId": "ai201-m2",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. Explain the artisan tax and identify where you're currently paying it.\n2. Split any workflow's material into pack (durable), fresh (per-run), and excluded (never\n   infrastructure) — and defend each placement.\n3. Build a working context pack in your organization's provisioned tool, using instructions and\n   knowledge for what each does best. **[V]**\n4. Date-stamp pack content and set a review cadence, so your context doesn't rot into confident\n   misinformation.\n5. State the boundary rule: people data must never become infrastructure."
+  },
+  {
+    "id": "ai201-m2-lesson-1-from-prompt-to-pack-40",
+    "moduleId": "ai201-m2",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Lesson 1 · From prompt to pack\n\nA prompt is what you say once. A pack is what stays true between runs.\n\nThe distinction sounds trivial until you inventory a real task. Take the interview-debrief\nworkflow — the canonical first build from M1. Every Thursday, some of what you give the model is\nnew: this week's notes, these candidates, this role. But most of it is *identical week to week*:\n\n- What a good debrief looks like (structure, length, what a hiring manager actually reads)\n- Your company's voice — direct, warm, no exclamation points, whatever yours is\n- The competency language your org uses, and what each term means\n- What the model should do when the notes are thin (\"flag the gap; never fill it\")\n- The output format the ATS or the hiring team expects\n\nThat second list is the pack. It's the part of every prompt you were retyping — or worse,\nhalf-retyping, differently each time, which is why Tuesday's output and Thursday's output had\ndifferent personalities.\n\nNotice what the pack really is: **your M1 spec's \"inputs\" line, split by rate of change.** Fast\nmaterial stays per-run. Slow material gets written once, well, and attached always. In 101's\nvocabulary: you're not teaching the model anything (you can't — training already happened).\nYou're arranging for the briefing to be permanently in view instead of re-performed.\n\nThe payoff compounds in three directions at once. Consistency: outputs stop depending on how\ncompletely you briefed today. Speed: the per-run prompt shrinks to just what's new. And\ntransfer — the sleeper benefit that pays off in M8: a colleague who can see your pack can run\nyour workflow. The artisan's skill was trapped in the artisan. The practitioner's is written down."
+  },
+  {
+    "id": "ai201-m2-try-50",
+    "moduleId": "ai201-m2",
+    "ordinal": 50,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "### Try this — 3 minutes\nFind the last three prompts you wrote for the same kind of task (sent mail to yourself, chat\nhistory, wherever they live).\n\n1. Highlight every sentence that appears, in some form, in more than one of them.\n2. That highlighted material is pack content you've been paying the artisan tax on.\n3. Notice whether the *unhighlighted* parts are genuinely per-run material — or briefing you\n   forgot to repeat, which explains the run that came out worse."
+  },
+  {
+    "id": "ai201-m2-lesson-2-what-goes-in-and-what-stays-out-60",
+    "moduleId": "ai201-m2",
+    "ordinal": 60,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Lesson 2 · What goes in — and what stays out\n\nThree bins, and the discipline to keep them separate. This sorting is the module's core skill.\n\n**The pack: durable and impersonal.** Material that's true for months and identifies nobody.\nThe test is two questions: *Will this still be right in ninety days?* and *Does it name or\ndescribe an identifiable person?* Only yes-and-no earns a place. Typical residents:\n\n- **A gold-standard example.** The single best output you've ever produced for this workflow,\n  lightly annotated. One great example outworks three paragraphs of description — 101 M5 taught\n  you why: you're narrowing the prediction toward a target you've actually shown.\n- **The definition of done.** A checklist the output must pass. This becomes load-bearing in M4,\n  when verification needs something to verify *against*.\n- **Voice and register.** Not \"professional but friendly\" — actual rules, with a before/after\n  pair.\n- **The glossary.** Your org's acronyms, level names, competency terms. The model has never seen\n  your org (101, Lesson 4); this is the piece of your org it may safely see.\n- **The org context brief.** What the company does, roughly how big, how the team is shaped — no\n  names, no numbers you'd redact from a conference talk.\n\n**Fresh: this run's material.** The reason the workflow runs at all — this week's notes, this\nquarter's verbatims, the policy paragraph being rewritten today. It arrives, gets transformed,\nand leaves. Putting fresh material in the pack is how you get March's survey themes confidently\ncited in June: the second way context rots, and the quieter one.\n\n**Excluded: people data.** Here the module plants a flag, and M6 will build the full fence:\n\n> **People data must never become infrastructure.**\n\nA named employee's performance history. Grievance details. A raw HRIS export with IDs. The\nmoment material like this is written into a pack, you've turned a one-time judgment call (\"may I\npaste this, here, today, under this agreement?\") into a standing condition nobody re-decides —\nsitting in every future conversation, visible to every future run, long after you've forgotten\nit's there. Even when a single run may legitimately touch sensitive material (M6 covers when and\nhow), it enters as fresh input, under that run's judgment, and leaves with it. Infrastructure is\nforever; people data must not be.\n"
+  },
+  {
+    "id": "ai201-m2-exercise",
+    "moduleId": "ai201-m2",
+    "ordinal": 65,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "{\"type\": \"sorting\", \"title\": \"Sorting exercise — Pack it, fresh, or keep it out?\", \"intro\": \"Ten minutes. Twelve pieces of material from a People leader's workflows. Sort each into **lives in the pack**, **supplied fresh each run**, or **never enters the system**.\\n\\nThe pattern, stated in advance so you can test it as you sort: durable and impersonal lives in the pack; run-specific material arrives fresh and leaves with the run; anything identifying a person never becomes infrastructure.\\n\\nNothing reveals until all twelve are committed.\"}"
+  },
+  {
+    "id": "ai201-m2-lesson-3-the-lab-building-it-in-claude-70",
+    "moduleId": "ai201-m2",
+    "ordinal": 70,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-07",
+    "body": "## Lesson 3 · The lab — building it in Claude [V]\n\n*This lesson is volatile layer: it describes a specific tool as it currently works. If your\norganization provisions a different tool, your lab track shows the equivalent steps there.*\n\nClaude's home for a context pack is a **Project**: a workspace where instructions and reference\nfiles persist across every conversation started inside it. The mechanics take ten minutes; the\ndesign judgment is what you brought from Lessons 1 and 2.\n\n**Step 1 — Create the Project.** One project per workflow, named after the workflow, not the\ntool (\"Interview debriefs,\" not \"Claude experiments\"). Your capstone build gets its own; you\nstarted it in M1 if you followed the pointer.\n\n**Step 2 — Instructions: the standing brief.** Project instructions are applied to every\nconversation in the project — they are the part of the briefing that should always be in force.\nKeep them short and behavioral: the role (\"You turn my raw interview notes into structured\ndebriefs for hiring managers\"), the definition of done, the voice rules, and the failure\ninstruction (\"When the notes don't cover a competency, say so — never fill the gap\"). If it\nreads like a job description for the workflow, it's right. If it's three pages, you've pasted\nknowledge into instructions — move it.\n\n**Step 3 — Knowledge: the reference shelf.** Upload the pack's reference documents: the\ngold-standard example, the glossary, the org brief, the style guide. Knowledge is consulted as\nneeded rather than recited every turn — the right home for material that's *sometimes* relevant.\nThe rule of thumb: **instructions are what it must always do; knowledge is what it may need to\nlook at.**\n\n**Step 4 — Run it fresh.** Start a new conversation in the project and give it only fresh\nmaterial — this week's notes, nothing else. Watch what you didn't have to say. That silence is\nthe artisan tax, refunded.\n\n**Two cautions from 101, now operational.** First: conversations inside a project do not teach\nthe project — nothing you say in a chat updates instructions or knowledge unless you edit them\ndeliberately. The pack changes when you change it, which is exactly what makes it auditable.\nSecond: the context window is still finite. Knowledge is not unlimited storage; every stale\ndocument you leave in it crowds something current out of view.\n\n**[V]** *Parity note:* in ChatGPT, the equivalent shape is a Project (or a custom GPT) —\ninstructions map to instructions, knowledge to attached files, with the same design judgment\napplying. The concepts in this module do not care which tool you're in; only this lesson does.",
+    "variant": "claude"
+  },
+  {
+    "id": "ai201-m2-lesson-3-the-lab-building-it-in-claude-70-chatgpt",
+    "moduleId": "ai201-m2",
+    "ordinal": 70,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-08",
+    "variant": "chatgpt",
+    "body": "## Lesson 3 · The lab — building it in ChatGPT [V]\n\n*This lesson is volatile layer: it describes a specific tool as it currently works. Your\norganization provisions ChatGPT, so your lab track shows the steps there.*\n\nChatGPT's home for a context pack is a **Project**: a workspace where instructions and files\npersist across every conversation started inside it. (A custom GPT is the shareable cousin —\nsame design judgment, packaged for other people to use; start with a Project for your own\nworkflow.) The mechanics take ten minutes; the design judgment is what you brought from\nLessons 1 and 2.\n\n**Step 1 — Create the Project.** One project per workflow, named after the workflow, not the\ntool (\"Interview debriefs,\" not \"ChatGPT experiments\"). Your capstone build gets its own; you\nstarted it in M1 if you followed the pointer.\n\n**Step 2 — Instructions: the standing brief.** Project instructions apply to every conversation\nin the project — they are the part of the briefing that should always be in force. Keep them\nshort and behavioral: the role (\"You turn my raw interview notes into structured debriefs for\nhiring managers\"), the definition of done, the voice rules, and the failure instruction (\"When\nthe notes don't cover a competency, say so — never fill the gap\"). If it reads like a job\ndescription for the workflow, it's right. If it's three pages, you've pasted knowledge into\ninstructions — move it.\n\n**Step 3 — Files: the reference shelf.** Upload the pack's reference documents to the project:\nthe gold-standard example, the glossary, the org brief, the style guide. Files are consulted as\nneeded rather than recited every turn — the right home for material that's *sometimes* relevant.\nThe rule of thumb: **instructions are what it must always do; files are what it may need to\nlook at.**\n\n**Step 4 — Run it fresh.** Start a new conversation in the project and give it only fresh\nmaterial — this week's notes, nothing else. Watch what you didn't have to say. That silence is\nthe artisan tax, refunded.\n\n**Three cautions, one of them ChatGPT-specific.** First: conversations inside a project do not\nteach the project — nothing you say in a chat updates instructions or files unless you edit\nthem deliberately. Second: **ChatGPT's account-level Memory is a different mechanism entirely**\n— it quietly accumulates details across your chats, which is the opposite of the auditable pack\nyou just built. For workflow work, check what Memory holds (and consider excluding your\nworkflow projects from it): a pack should change only when you change it, and M6 will have\nsharper words about people-details accumulating in places nobody reviews. Third: the context\nwindow is still finite — every stale file crowds something current out of view.\n\n**[V]** *Parity note:* in Claude, the equivalent shape is a Project — instructions map to\ninstructions, files to project knowledge, with the same design judgment applying. The concepts\nin this module do not care which tool you're in; only this lesson does."
+  },
+  {
+    "id": "ai201-m2-try-80",
+    "moduleId": "ai201-m2",
+    "ordinal": 80,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "### Try this — the ten-minute version\nEven if your capstone lab comes later, feel the mechanics now:\n\n1. Create a project for any recurring task. Write three sentences of instructions: role,\n   definition of done, one failure rule.\n2. Upload one gold-standard example as knowledge.\n3. Run the task fresh, supplying only today's material.\n4. Compare against your last unpacked attempt. The difference is what you've been retyping."
+  },
+  {
+    "id": "ai201-m2-lesson-4-context-rots-90",
+    "moduleId": "ai201-m2",
+    "ordinal": 90,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Lesson 4 · Context rots\n\nThe pack you built today is correct today. That sentence has an expiry date, and nobody will\ntell you when it passes.\n\nThe org chart brief goes stale at the next reorg. The comp philosophy one-pager survives until\nthe cycle changes it. The voice guide outlives both — until a rebrand. Pack content doesn't fail\nloudly like a broken link; it fails the way 101 taught you fluent output fails: the model keeps\nproducing confident, well-formed answers built on last quarter's truth. **Stale context is a\nhallucination you installed yourself.**\n\nThe fix is a discipline you've already seen working — this course runs on it. Every module page\ncarries two stamps: concepts reviewed on one date, examples current as of another, because the\ntwo layers age at different speeds. Your pack deserves the same split:\n\n- **Date-stamp every item.** A line at the top: `Reviewed: 2026-08-07`. Thirty seconds at\n  creation; the difference between \"I think this is current\" and knowing.\n- **Sort your pack by rate of change.** The glossary and voice guide are your stable layer —\n  check twice a year. The org brief and anything touching money or structure are your volatile\n  layer — check monthly, and always after a reorg, a cycle, or a policy change.\n- **Put the review on your calendar.** Ten minutes monthly, all packs, or it will not happen.\n  (In M7 this slot joins your operating rhythm; for now, one recurring invite.)\n- **Prune as ruthlessly as you add.** An item nobody's needed in two review cycles comes out.\n  The context window you free is worth more than the \"just in case.\"\n\nOne more habit that pays forward: when a run produces a wrong output *because the pack was\nwrong*, fix the pack before you fix the output. Artisans correct the draft; practitioners\ncorrect the system that drafted it."
+  },
+  {
+    "id": "ai201-m2-key-takeaways-100",
+    "moduleId": "ai201-m2",
+    "ordinal": 100,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Key takeaways\n\n- **The artisan tax is real and optional.** You pay it every time you re-brief material that\n  hasn't changed. The pack is the once-written refund.\n- **Three bins, one discipline:** durable-and-impersonal in the pack, run-specific fresh,\n  people data never in infrastructure. The middle of the module and the middle of the practice.\n- **Instructions are always-on behavior; knowledge is look-it-up reference. [V]** Short standing\n  brief, well-chosen shelf — in whatever tool your organization provisions.\n- **Stale context is a self-installed hallucination.** Date-stamp, split by rate of change,\n  review on a calendar, prune. Fix the pack before you fix the output.\n- **A written pack is transferable fluency.** It's what makes M8's handoff test passable — and\n  it's the first artifact of yours a colleague could actually learn from."
+  },
+  {
+    "id": "ai201-m2-sources-and-attribution-120",
+    "moduleId": "ai201-m2",
+    "ordinal": 120,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Sources and attribution\n\nBuilds on AI 101 M5 (briefing, gold-standard examples as prediction-narrowing) and 101 M1\nLesson 4 (the data you supply; \"the model has never seen your organization\"). The\npack/fresh/excluded three-bin model and \"people data must never become infrastructure\" are\noriginal to this course; M6 develops the exclusion rule into full data-tier practice. Lesson 3\nand marked passages are volatile layer — tool specifics current as of the stamp date, tailored\nper deployment to the organization's provisioned tools."
+  }
+]

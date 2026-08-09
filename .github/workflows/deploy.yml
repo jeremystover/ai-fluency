@@ -1,0 +1,91 @@
+name: Deploy fluency-demo
+
+# Same shape as AgentBuilder's _deploy-agent.yml, adapted for this repo:
+# npm instead of pnpm, drizzle/ as the migrations dir, and /api/brand as
+# the liveness probe (it needs only the seeded DB, no session).
+#
+# Required repo secrets (same values as AgentBuilder's):
+#   CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Wrangler 4.x requires Node 22+; on Node 20 the wrangler-action falls
+      # back to installing wrangler 3.x, which conflicts with workers-types v5.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build SPA
+        run: npm run build
+
+      - name: Apply D1 migrations
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: d1 migrations apply fluency-demo --remote
+
+      - name: Deploy Worker
+        id: deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
+
+      # Liveness check from the GitHub runner. /api/brand answers without a
+      # session and fails loudly if the DB is unseeded or the Worker is down.
+      - name: Smoke test
+        id: smoke
+        if: steps.deploy.outcome == 'success'
+        env:
+          HEALTH_URL: https://fluency-demo.jsstover.workers.dev/api/brand
+        run: |
+          echo "Smoke testing $HEALTH_URL"
+          CODE=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "$HEALTH_URL" || echo "000")
+          echo "HTTP $CODE"
+          if [ "$CODE" = "000" ] || [ "$CODE" -ge 500 ]; then
+            echo "::error::Smoke test failed (HTTP $CODE)"
+            exit 1
+          fi
+
+      # Record the outcome into agentbuilder-core D1, same convention as the
+      # AgentBuilder repo, so Claude sessions can confirm deploys by querying D1.
+      - name: Record deployment
+        if: always()
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          AGENT_ID: fluency-demo
+          GIT_SHA: ${{ github.sha }}
+          ACTOR: ${{ github.actor }}
+          RUN_ID: ${{ github.run_id }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          DEPLOY_OUTCOME: ${{ steps.deploy.outcome }}
+          SMOKE_OUTCOME: ${{ steps.smoke.outcome }}
+        run: |
+          if [ "$DEPLOY_OUTCOME" = "success" ]; then STATUS=success; else STATUS=failed; fi
+          case "$SMOKE_OUTCOME" in
+            success) SMOKE=ok ;;
+            skipped) SMOKE=skipped ;;
+            *)       SMOKE=fail ;;
+          esac
+          DEPLOY_ID="${AGENT_ID}-${GIT_SHA:0:12}-${RUN_ID}-${RUN_ATTEMPT}"
+          NOW=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          npx wrangler d1 execute agentbuilder-core --remote --command \
+            "CREATE TABLE IF NOT EXISTS deployments (deploy_id TEXT PRIMARY KEY, agent_id TEXT NOT NULL, git_sha TEXT NOT NULL, version_id TEXT DEFAULT '', status TEXT NOT NULL, smoke_status TEXT DEFAULT '', deployed_at TEXT NOT NULL, actor TEXT DEFAULT '', notes TEXT DEFAULT '')"
+          npx wrangler d1 execute agentbuilder-core --remote --command \
+            "INSERT INTO deployments (deploy_id, agent_id, git_sha, status, smoke_status, deployed_at, actor) VALUES ('${DEPLOY_ID}', '${AGENT_ID}', '${GIT_SHA}', '${STATUS}', '${SMOKE}', '${NOW}', '${ACTOR}')"

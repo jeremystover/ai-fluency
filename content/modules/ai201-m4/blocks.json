@@ -1,0 +1,101 @@
+[
+  {
+    "id": "ai201-m4-calibration-prompt-before-you-start-10",
+    "moduleId": "ai201-m4",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Calibration prompt — before you start\n\n*Two predictions, thirty seconds. The capstone scores them.*\n\nAt the end of this module you'll run a real verification sample on your workflow's output.\n\n1. **Out of ten outputs, how many will contain at least one real error?** A number, not a range.\n2. **What kind will dominate?** Wrong (contradicts the source) · missing (source material that\n   should be there and isn't) · invented (content with no source at all).\n\nThe second prediction is the interesting one. Most practitioners guess \"invented,\" because 101\ntaught them to fear hallucination. Volume workflows usually surprise them."
+  },
+  {
+    "id": "ai201-m4-module-brief-20",
+    "moduleId": "ai201-m4",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Module brief\n\nThere are two ways to run a workflow irresponsibly, and only one of them looks irresponsible.\n\nThe visible way is checking nothing: outputs ship on fluency, and 101 M6 told you exactly how\nthat story goes — the failure is quiet, plausible, and wearing your name. Nobody in this course\nis doing that.\n\nThe invisible way is more common among people who finished 101: **checking everything.** Every\noutput, read end to end, every run. It feels like diligence. It is actually two failures at\nonce. First, it silently refunds the time the workflow saved — your M1 calibration\npredicted hours back, and full-read review hands most of them right back. Second, it doesn't\nsurvive contact with a busy month. Willpower-based verification decays: you read every word in\nweek one, skim in week three, and by week six you're approving on fluency — which is checking\nnothing, plus a false sense of coverage. That last step off the cliff is where \"a human reviews\neverything\" becomes the most dangerous sentence in the building, because everyone has stopped\nworrying.\n\nThe practitioner's alternative is a **verification budget**: a designed, honest answer to \"how\nmuch checking does this output deserve, of what kind, by whom\" — written into the workflow so it\nhappens by structure rather than by mood. Sized to stakes, matched to failure mode, cheap enough\nto survive week six. That's this module. It's also the toll gate for the rest of the course:\nM5's autonomy ladder is built entirely out of what you can verify, and M8 won't let anything\nship without the plan you write here."
+  },
+  {
+    "id": "ai201-m4-learning-objectives-30",
+    "moduleId": "ai201-m4",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. Size a verification budget to stakes — and defend both the spending and the *not*-spending.\n2. Match technique to failure mode: sampling for volume, tracing for facts, adversarial reading\n   for judgment-adjacent prose, diffing for drift.\n3. Run an honest sample, classify what it finds, and know the escalation path when the rate is\n   too high.\n4. Write a sign-off that means something: one name, and a definition of what that name actually\n   reads.\n5. Run the output-incident path when something shipped wrong anyway — including the case where\n   it influenced a decision about a person.\n6. State what \"verified by hand\" in the practitioner's heuristic operationally requires."
+  },
+  {
+    "id": "ai201-m4-lesson-1-the-verification-budget-40",
+    "moduleId": "ai201-m4",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Lesson 1 · The verification budget\n\nStart from the two ends, because both are wrong for almost everything.\n\n**100% review** is correct exactly where a single bad output can do real harm to a person or\nthe organization — and if your workflow produces such outputs, M1 already asked whether it\nshould be a workflow at all. **0% review** is correct nowhere in People work; even the\nlowest-stakes newsletter carries your credibility in it.\n\nEverything real lives between, and the budget question has three parts:\n\n**How much?** Scale to stakes, which you scored in M1's audit. Low stakes (internal newsletter,\njargon-stripped postings): sample. Medium (survey narratives, policy notes — things leaders act\non): sample harder, plus a targeted pass on the riskiest section. High (anything adjacent to an\nindividual's treatment): full review, every time, by design — the budget for these isn't \"less\nreading,\" it's *structured* reading.\n\n**Of what?** This is M3's dividend. You verify *artifacts at checkpoints*, not final prose from\nscratch. Checking a theme table against raw comments is minutes; auditing a finished exec\nsummary with no intermediates is an afternoon — and less reliable, because by the time loss is\nvisible in prose, it isn't visible in prose. A workflow with good checkpoints has already paid\nmost of its verification bill.\n\n**Paid by whom, when?** In-run checkpoints (you, at the pause between steps) catch process\nfailures. Across-run sampling (you or a delegate, weekly or per-batch) catches *decay*: the\npack going stale, the source format shifting, the step prompt that worked in March eroding in\nJune. Both lines go in the budget; they find different things.\n\nAnd one design constraint that outranks the others: **the budget must be cheap enough that\nweek six runs it exactly like week one.** A verification plan you'd abandon under deadline will\nend as fluency-approval anyway. When in doubt, buy a smaller budget you'll actually spend."
+  },
+  {
+    "id": "ai201-m4-try-50",
+    "moduleId": "ai201-m4",
+    "ordinal": 50,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "### Try this — 2 minutes\nTake the last AI-assisted output you actually shipped.\n\n1. What percentage of it did you genuinely verify — not read, *verify*?\n2. Was that a decision, or a mood?\n3. If a colleague shipped the same output with the same checking, would you call it diligent?\n\nNo score. Just notice whether your current budget was designed by anyone, including you."
+  },
+  {
+    "id": "ai201-m4-lesson-2-technique-matches-failure-mode-60",
+    "moduleId": "ai201-m4",
+    "ordinal": 60,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Lesson 2 · Technique matches failure mode\n\n\"Check it\" is not a technique. What checking means depends entirely on how the output fails —\nand 101 gave you the failure taxonomy; this lesson pairs each entry with its counter.\n\n**Volume transformations fail by erosion → spot-check sampling.** Debriefs, FAQs, rewritten\npostings: the failure mode is rarely one spectacular fabrication; it's a slow leak — a dropped\nqualifier here, a flattened nuance there. Counter: fixed-size sample per run or per week (three\noutputs, rotating), each checked against its *source*, findings classified **wrong / missing /\ninvented**. The classification isn't bookkeeping — it's diagnosis. Wrong and missing usually\nmean a step prompt or pack problem (fixable in the runbook, M3); invented means the model is\nfilling gaps in supplied material (fix the inputs, or the workflow's scope).\n\n**Factual claims fail by fabrication → trace to source.** Numbers, citations, regulation\nreferences, quotes: fluency tells you nothing (101 M6, permanently). Counter: every claim\ntraces to an artifact — the count to the theme table, the quote to the raw comments, the\nregulation to the actual text *by a human, every time*, never to the model's memory of it. The\nM3 pipeline design makes this cheap: claims that carry their numbers and sources are traceable\nin minutes; claims that don't are unverifiable by construction, which is a design failure, not\na checking failure.\n\n**Judgment-adjacent prose fails by plausible slant → adversarial reading.** Narratives leaders\nwill act on: the survey story, the change note, the packet. The output isn't false; it's\n*angled* — smoothed, averaged, one office's problem dissolved into \"mixed sentiment.\" Counter:\nread it as its strongest critic. Three prompts to run in your own head or hand to a fresh\nconversation: *What would the person most affected say is missing? Which sentence would I\ndelete if I had to defend every remaining one? Argue this summary is materially wrong.* A\nsecond-model pass — a clean conversation given the source artifact and asked to critique the\nnarrative against it — is a cheap, genuinely useful skeptic. Treat it as a smoke detector, not\na guarantee: it shares the first pass's blind spots, and it must never *replace* the human\nread on high-stakes output, only sharpen it.\n\n**Format and drift fail silently → diff against the standard.** The output slowly stops\nmatching the definition of done; nobody notices because each step was small. Counter: your M2\npack already holds the gold-standard example and the checklist — put a periodic diff against\nboth into the sampling rotation. Thirty seconds; catches the slide while it's still cosmetic.\n"
+  },
+  {
+    "id": "ai201-m4-exercise",
+    "moduleId": "ai201-m4",
+    "ordinal": 65,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "{\"type\": \"sorting\", \"title\": \"Exercise — Buy the right verification\", \"intro\": \"Five minutes. Six outputs from a People team's workflows. For each, pick the **primary** verification technique — what you'd spend first. Most items deserve more than one; the reveal carries the budget levels.\\n\\nTwo of the six are designed to be argued about — either defensible answer scores.\"}"
+  },
+  {
+    "id": "ai201-m4-lesson-3-the-sign-off-70",
+    "moduleId": "ai201-m4",
+    "ordinal": 70,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Lesson 3 · The sign-off\n\nM1 said it as a rule: an output nobody owns is an incident that hasn't happened yet. This\nlesson makes the rule operational, because \"accountability\" that lives in a feeling is not a\ncontrol.\n\n**One name.** Every workflow's spec carries exactly one human whose name is on its outputs. Not\na team, not \"People Ops,\" not whoever ran it that day. The test is brutal and clarifying: *when\nthis output turns out to be wrong in a way that matters, who gets the call?* If the answer\nrequires discussion, the workflow doesn't have an owner yet.\n\n**What the name actually reads.** A sign-off is defined by its inputs, or it's theater. Write\ndown, in the spec, what the owner looks at before an output ships: which checkpoint artifacts,\nwhich sample results, which sections in full. This is where the budget from Lesson 1 becomes a\nchecklist a person can actually run — and where you inoculate against the decay curve, because\n\"sign-off = read the theme-table diff and this week's three samples\" survives a busy month in a\nway \"sign-off = review it\" never has.\n\n**The rubber-stamp trap, named again.** M1 warned that \"a human clicks approve\" doesn't move\nthe decisions-about-people line if the human stopped deciding. The same mechanism eats\nsign-offs: an approval that no longer reads its defined inputs is worse than no approval,\nbecause it *launders* — it stamps unverified output with a person's credibility. Two defenses.\nKeep the sign-off's reading list short enough to be real (Lesson 1's constraint again). And\nwhen the owner catches themselves approving without reading, treat it as the workflow's\nfailure, not the person's: the budget was priced wrong. Reprice it.\n\n**Delegation, honestly.** The owner need not run the checks — a coordinator can run samples, a\nsecond model can pre-read. The owner is the one who *cannot delegate the consequences*. That\nasymmetry is the whole design: checks can move; the name doesn't.\n\nThis line item — the name, and what the name reads — is the difference between M8 shipping\nyour workflow and M8 shipping your liability. It's also the first thing a colleague inherits\nin the handoff test, which is why the spec writes it down rather than assuming it."
+  },
+  {
+    "id": "ai201-m4-lesson-4-when-it-shipped-anyway-80",
+    "moduleId": "ai201-m4",
+    "ordinal": 80,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Lesson 4 · When it shipped anyway\n\nEverything so far catches errors before they leave. Some won't be caught. The debrief that\nmischaracterized a candidate went to the hiring manager last Tuesday; the theme summary that\nmisread a team's comments already shaped a staffing conversation. In People work this is both\nmore likely and more consequential than a data spill — and it needs its own path, written in\nadvance, exactly like the spill path M6 will give you. Four steps, in order:\n\n**1. Correct the record, at the error's own prominence.** Identify everyone who consumed the\noutput — your M3 artifacts and M5 audit trail tell you who, which is a quiet argument for both.\nThe correction goes to all of them, through the same channel the error traveled, stated\nplainly: what was wrong, what's right, what's being done. A correction buried in a reply-all\nthree days later is not a correction at the error's prominence.\n\n**2. Check for decision impact — and reopen what was touched.** The question a general counsel\nwill eventually ask, so answer it before they do: *did this output influence a decision about a\nperson?* If the mischaracterized debrief fed a hiring call, the call gets revisited with\ncorrected input, and the revisit is documented — who reconvened, what changed, what didn't and\nwhy. This is the step that distinguishes an error from a harm: the error was the output; the\nharm is a decision standing on it after you knew.\n\n**3. Trace the miss to its budget line.** Which layer should have caught it — a checkpoint, the\nsample, the sign-off's reading list? M3's backward walk gives the address. \"It slipped through\"\nis not a finding; \"the adversarial read doesn't cover per-candidate debriefs\" is.\n\n**4. Reprice.** The specific line changes: a checkpoint gains a what-would-wrong-look-like\nclause, the sample widens for that output type, the reading list grows by one item. One\nincident, one design change — resist the urge to add three; untargeted controls are how budgets\nstop surviving week six.\n\nThe ownership is already decided: the sign-off name from Lesson 3 owns the correction — that is\npart of what the name means. And the culture rule is the same one M6 will state for spills: the\npath only works if using it is safe. An output incident that gets quietly patched downstream,\nwithout the correction or the decision check, is the version of this that ends up in front of\ncounsel with the timeline against you."
+  },
+  {
+    "id": "ai201-m4-key-takeaways-90",
+    "moduleId": "ai201-m4",
+    "ordinal": 90,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Key takeaways\n\n- **Checking everything is the invisible failure.** It refunds the workflow's savings, then\n  decays into checking nothing — with a false sense of coverage on top.\n- **The budget has three parts:** how much (sized to stakes), of what (artifacts at\n  checkpoints, not prose from scratch), by whom and when (in-run pauses catch process;\n  across-run samples catch decay).\n- **Technique matches failure mode.** Sample for erosion, trace for fabrication, read\n  adversarially for slant, diff for drift. \"Check it\" is not a technique.\n- **Classification is diagnosis:** wrong and missing point at the runbook or pack; invented\n  points at the inputs. The tally tells you what to fix, not just how worried to be.\n- **One name, defined reading.** A sign-off is its reading list. An approval that stopped\n  reading launders credibility — when you catch it, reprice the budget.\n- **When something ships wrong anyway:** correct the record at the error's own prominence,\n  check whether a decision about a person stood on it and reopen what was touched, trace the\n  miss to its budget line, change that one line. The sign-off name owns the correction.\n- **\"Verified by hand\" now has a definition** — and it's the currency M5's autonomy ladder is\n  priced in."
+  },
+  {
+    "id": "ai201-m4-sources-and-attribution-110",
+    "moduleId": "ai201-m4",
+    "ordinal": 110,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-07",
+    "body": "## Sources and attribution\n\nBuilds on 101 M6 (confidence/correctness decoupling, verify-specifics-with-counsel) and 201\nM1–M3 (stakes scoring, the pack's definition of done, checkpoints and the backward walk). The\nverification-budget framing, the wrong/missing/invented classification, and \"a sign-off is its\nreading list\" are this course's adaptations of a real literature — the sampling and\nhuman-oversight ideas here are older than AI, and that ancestry is worth citing when a\ndata-literate reviewer pushes:\n\n*To be verified against editions and current URLs before publication; re-check on the Tier 1\nquarterly cadence.*\n\n1. **Deming, W. E. — *Out of the Crisis* (1986).** \"Cease dependence on inspection to achieve\n   quality\" — the classic argument behind Lesson 1's case that checking everything is the wrong\n   spend, and that quality lives in the process design.\n2. **Shewhart, W. A. — *Economic Control of Quality of Manufactured Product* (1931).** Process\n   behavior over single-inspection thinking; the ancestry of reading error rates by direction\n   and trend rather than level.\n3. **ANSI/ASQ Z1.4 (successor to MIL-STD-105), *Sampling Procedures and Tables for Inspection\n   by Attributes*.** The formal home of fixed-size, classified acceptance sampling — Lesson 2's\n   spot-check design, industrialized.\n4. **Bainbridge, L. — \"Ironies of Automation,\" *Automatica* 19(6) (1983).** Why the human\n   checker's job gets harder, not easier, as the automated part improves — the decay curve's\n   classic statement, twenty years before LLMs.\n5. **Parasuraman, R. & Riley, V. — \"Humans and Automation: Use, Misuse, Disuse, Abuse,\"\n   *Human Factors* 39(2) (1997).** Automation complacency: the rubber-stamp trap, formally\n   studied.\n6. **Vaughan, D. — *The Challenger Launch Decision* (1996).** Normalization of deviance — what\n   unlogged skipped reviews become, at the highest stakes on record.\n7. **Gawande, A. — *The Checklist Manifesto* (2009).** The sign-off reading list is checklist\n   design; this is the accessible case for why short, defined lists outperform diligence.\n\nStable layer throughout; the practices here are deliberately tool-independent."
+  }
+]

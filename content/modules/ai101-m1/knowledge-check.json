@@ -1,0 +1,127 @@
+{
+  "title": "Knowledge check — 10 questions",
+  "note": "Retakes are free and unlimited; previous answers are cleared.",
+  "reviewedAt": "2026-07-28",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Which is the most accurate working definition of \"AI\" as the term is used in your day-to-day work?",
+      "options": [
+        "A category covering many technologies, most prominently large language models",
+        "Software built to replace human workers across knowledge-work roles",
+        "Any program that automates a task, including spreadsheet macros and scheduling rules",
+        "A system that has achieved human-like general awareness"
+      ],
+      "correctIndex": 0,
+      "explanation": "AI is best understood as a broad category, with LLMs the kind most directly reshaping knowledge work. The others miss differently: human-like awareness is science fiction rather than anything the field has produced; calling all automation AI is so broad it stops being useful (a calculator isn't AI); and \"built to replace workers\" is a claim about intent, not a definition."
+    },
+    {
+      "id": "q2",
+      "prompt": "What does a large language model actually do when you send it a prompt?",
+      "options": [
+        "Looks up an answer in a database of pre-written responses",
+        "Searches the internet and summarizes the top results",
+        "Predicts what text should come next, one small piece at a time, from patterns learned in training",
+        "Reasons through the problem as a human expert would, then writes out the solution"
+      ],
+      "correctIndex": 2,
+      "explanation": "The core mechanic is next-piece prediction. Some tools layer search on top, which changes what's available in the prompt, but the model underneath is a statistical text predictor — not a lookup, not a search engine, and not human-style reasoning, even when the output resembles it."
+    },
+    {
+      "id": "q3",
+      "prompt": "Your ATS advertises \"AI-powered candidate matching.\" Based on this module, what's the most useful first question to ask the vendor?",
+      "options": [
+        "Which large language model does it use?",
+        "Is this a language model or a scoring/matching model, and does it influence a decision about a person?",
+        "How large is the context window?",
+        "What was the knowledge cutoff date?"
+      ],
+      "correctIndex": 1,
+      "explanation": "Candidate matching is usually a scoring model, not a language model — and scoring models that influence employment decisions are where regulatory obligations and adverse-impact risk concentrate. The other three questions are only meaningful once you know it's a language model, and asking them first signals you haven't made the distinction."
+    },
+    {
+      "id": "q4",
+      "prompt": "You ask the same question twice and get two slightly different answers. Most likely explanation?",
+      "options": [
+        "One of the two is a malfunction",
+        "The provider updated the model between your questions",
+        "A bug worth reporting to support",
+        "There's a small amount of randomness in how each next piece is chosen, which is normal"
+      ],
+      "correctIndex": 3,
+      "explanation": "Small variation is built into how these systems generate output. The same input rarely produces byte-identical results, and sometimes the second attempt is better — which is why re-running a prompt is a legitimate technique rather than a workaround."
+    },
+    {
+      "id": "q5",
+      "prompt": "What is the context window?",
+      "options": [
+        "The hours during which the tool is available",
+        "Your organization's list of approved use cases",
+        "How much text the model can hold in view at once: your message, the conversation, and attachments",
+        "The interface around the chat box"
+      ],
+      "correctIndex": 2,
+      "explanation": "It's the model's working memory for a given response, and it's finite. Understanding it explains why very long conversations feel like the model forgot something, and why pasting in a 90-page handbook can crowd out the question you actually asked."
+    },
+    {
+      "id": "q6",
+      "prompt": "You ask an AI what your organization's bereavement leave policy says. You paste nothing. What's most likely?",
+      "options": [
+        "It produces a fluent, specific, plausible policy that isn't yours",
+        "It refuses and explains it has no access to your systems",
+        "It asks a series of clarifying questions before answering",
+        "It accurately describes typical policy and clearly labels it as generic"
+      ],
+      "correctIndex": 0,
+      "explanation": "This is the highest-stakes pattern in the module. The model never saw your handbook, but it has seen thousands of bereavement policies, so it can generate something that reads exactly like one. Some tools will hedge — the other outcomes happen sometimes — but you cannot rely on it, and the failure is quiet. You get a real-looking answer with no signal that it's invented."
+    },
+    {
+      "id": "q7",
+      "prompt": "Which of these is NOT shaped by a model's training data?",
+      "options": [
+        "Which languages it's strongest in",
+        "Which topics it handles well",
+        "Whether it knows about something that happened this morning",
+        "The exact wording you choose to put in your prompt"
+      ],
+      "correctIndex": 3,
+      "explanation": "Your prompt is the data *you* contribute, in the moment. It's the part you control and the part not inherited from training. The other three — topic strength, language strength, recency — all follow directly from what was in the training corpus and when it was assembled."
+    },
+    {
+      "id": "q8",
+      "prompt": "Why does the bias question carry more weight in People work than in most functions?",
+      "options": [
+        "HR teams use AI more heavily than other functions",
+        "Models are trained on more HR data than other kinds",
+        "Outputs can influence decisions about people, which is the mechanism by which adverse impact occurs",
+        "Employment law prohibits using AI in HR contexts"
+      ],
+      "correctIndex": 2,
+      "explanation": "All training data carries bias and all models can reproduce it. What changes in People work is the consequence: when a biased output shapes screening, evaluation, or advancement, the harm attaches to a person and creates real legal exposure. The last option is simply false — AI isn't prohibited in HR, it's regulated in specific decision contexts."
+    },
+    {
+      "id": "q9",
+      "prompt": "What's the most accurate description of a hallucination?",
+      "options": [
+        "The model deliberately misleading you",
+        "The model producing something confident and plausible that is wrong or invented",
+        "The model flagging uncertainty in its response",
+        "The model crashing or returning nothing"
+      ],
+      "correctIndex": 1,
+      "explanation": "Note what's absent: intent. The model isn't lying, because lying requires knowing the truth and choosing otherwise. It's generating statistically likely text, and sometimes likely text is false. That's precisely why it's hard to catch — there's no tell."
+    },
+    {
+      "id": "q10",
+      "prompt": "You want to start using AI well. Based on this module, which habit is most important to build first?",
+      "options": [
+        "Asking, before any task: what does the model not know that I'd need to give it?",
+        "Always writing the longest, most detailed prompt possible",
+        "Using AI for as many tasks as you can each day to build reps",
+        "Keeping track of which model versions each provider has released"
+      ],
+      "correctIndex": 0,
+      "explanation": "That single question is the seed of good prompting and of good delegation judgment. It forces you to think about the data the model needs — the single largest lever on output quality — and it surfaces the tasks you shouldn't hand over at all. The others are counterproductive (longer isn't better), unfocused (reps without judgment build confident bad habits), or performative (version numbers are trivia)."
+    }
+  ]
+}

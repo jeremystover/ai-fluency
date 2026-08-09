@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the capstone spec is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-07",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What most reliably separates a workflow from a one-off AI task?",
+      "options": [
+        "It uses a more capable model",
+        "It has a named trigger, and runs the same way without you re-inventing it each time",
+        "It saves more than an hour a week",
+        "It involves more than one prompt"
+      ],
+      "correctIndex": 1,
+      "explanation": "The anatomy is the definition: a trigger and a repeatable shape. Model choice, time saved, and prompt count are all properties a workflow *might* have; the trigger and the sameness are what make it one."
+    },
+    {
+      "id": "q2",
+      "prompt": "Which part of the anatomy is most often missing from people's implicit workflows?",
+      "options": [
+        "The trigger",
+        "The inputs",
+        "Verification",
+        "The output format"
+      ],
+      "correctIndex": 2,
+      "explanation": "Almost everyone has an intuitive trigger, inputs, and output. Almost nobody has designed the checking step — which is why it gets its own module and why the spec cannot ship without it."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why is \"the task that annoys me most\" a poor basis for a first build?",
+      "options": [
+        "Annoying tasks are usually someone else's responsibility",
+        "Annoyance often signals the task resists structure — each instance different, judgment throughout",
+        "First builds should target the highest-stakes work instead",
+        "It isn't — high annoyance is a good proxy for high value"
+      ],
+      "correctIndex": 1,
+      "explanation": "The tasks that grate hardest often do so *because* they won't routinize. And C is the other seductive wrong answer: high stakes belong with your second build, after the habits work."
+    },
+    {
+      "id": "q4",
+      "prompt": "A workflow drafts rejection emails from your notes on each candidate. Another selects which candidates receive them. Under the practitioner's heuristic:",
+      "options": [
+        "Both are acceptable if a human clicks approve",
+        "Neither is acceptable in People work",
+        "The first transforms material you supply; the second makes a decision about people, and stays with a human",
+        "Both are acceptable once the model is accurate enough"
+      ],
+      "correctIndex": 2,
+      "explanation": "Drafting is transformation — the center of the model's competence. Selection is a decision about a person, and the heuristic's second sentence doesn't bend for accuracy (D) or for a rubber-stamp click (A) if the human has stopped genuinely deciding."
+    },
+    {
+      "id": "q5",
+      "prompt": "What makes \"you supply the material\" a hard requirement for a workflow candidate?",
+      "options": [
+        "Supplied material is cheaper to process",
+        "Without it, the model fills the gap with fluent invention — 101's central failure mode, now on a schedule",
+        "It's a data-privacy requirement",
+        "It keeps the context window small"
+      ],
+      "correctIndex": 1,
+      "explanation": "A one-off hallucination is an error; a scheduled workflow built on missing inputs is an error *generator*. The audit's third test exists to catch this before you build on it."
+    },
+    {
+      "id": "q6",
+      "prompt": "Your first build should score:",
+      "options": [
+        "High frequency, high structure, owned inputs, low-to-medium stakes",
+        "High stakes, high visibility — invest where it matters most",
+        "Low frequency, so mistakes surface slowly",
+        "Whatever your manager most wants automated"
+      ],
+      "correctIndex": 0,
+      "explanation": "Fast feedback, simple transformation, no dependency on others' data, and mistakes that can't hurt anyone while you learn. The high-stakes build is the second one."
+    },
+    {
+      "id": "q7",
+      "prompt": "The audit uses last week's calendar and sent mail rather than your recollection because:",
+      "options": [
+        "Memory surfaces the loudest task, not the best candidate",
+        "Calendars record time more precisely",
+        "It produces documentation for your manager",
+        "Sent mail shows which tasks involve other people"
+      ],
+      "correctIndex": 0,
+      "explanation": "The point is candidate *selection*, and recollection is biased toward recency and resentment. The paper trail is flatter and more honest."
+    },
+    {
+      "id": "q8",
+      "prompt": "\"A workflow, like a model, must not make decisions about people.\" The strongest reason, from this course:",
+      "options": [
+        "Regulation prohibits all AI involvement in HR decisions",
+        "Models aren't yet accurate enough for employment decisions",
+        "Automation reproduces bias patterns at scale and speed — adverse impact's mechanism — and accuracy doesn't cure it",
+        "Employees prefer decisions made by humans"
+      ],
+      "correctIndex": 2,
+      "explanation": "A is false (regulation targets specific decision contexts, as 101 covered), and B fails because the rule survives arbitrary accuracy: the issue is what a decision *is*, not how well a system scores. D may be true but is not the mechanism."
+    }
+  ]
+}
