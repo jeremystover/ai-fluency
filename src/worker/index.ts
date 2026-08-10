@@ -52,9 +52,11 @@ import type {
   PodcastSummary,
   PodcastVisual,
   GradeResult,
+  McpTouch,
   MeResponse,
   ModuleCard,
   ModuleContentResponse,
+  ModuleMcpActivity,
   PriorStage,
   TrailPoint,
   CalibrationTrail,
@@ -1173,6 +1175,11 @@ app.get('/api/module/:id', async (c) => {
     .where(eq(t.fdExercise.moduleId, id));
   const kinds = new Set(exerciseRows.map((r) => r.kind));
 
+  // This session's MCP trail: the assistant-side tools write the same funnel
+  // (with via/modality markers), so the module page can show "your assistant
+  // has been here" — one row per kind of touch, newest first.
+  const mcp = await mcpActivityFor(db, session.id, id);
+
   // Numeric prediction fields the opening calibration prompt captures, with
   // whatever this session already recorded — so the prompt renders as saved.
   const rubric = kinds.has('rubric') ? await getExercise<RubricPayload>(db, id, 'rubric') : null;
@@ -1205,9 +1212,62 @@ app.get('/api/module/:id', async (c) => {
     },
     openingFields,
     openingValues,
+    mcp,
   };
   return c.json(res);
 });
+
+// Summarize this session's MCP-side activity: everUsed says whether the
+// connection has ever been exercised (any module), touches are this module's
+// assistant-side moments — deduped to the newest per kind so the card reads
+// as a record, not a log.
+async function mcpActivityFor(db: DrizzleD1Database, sessionId: string, moduleId: string): Promise<ModuleMcpActivity> {
+  const rows = await db
+    .select({ type: t.fdEvent.type, payloadJson: t.fdEvent.payloadJson, createdAt: t.fdEvent.createdAt })
+    .from(t.fdEvent)
+    .where(
+      and(
+        eq(t.fdEvent.sessionId, sessionId),
+        sql`${t.fdEvent.type} IN ('module_opened', 'knowledge_check_submitted', 'module_completed', 'module_calibration_recorded', 'mcp_apply_to_work', 'mcp_teach_back')`,
+      ),
+    )
+    .orderBy(desc(t.fdEvent.createdAt))
+    .limit(400);
+
+  let everUsed = false;
+  const byKind = new Map<McpTouch['kind'], McpTouch>();
+  for (const row of rows) {
+    if (!row.payloadJson) continue;
+    let p: { moduleId?: string; via?: string; modality?: string; view?: string; correct?: number; total?: number; task?: string; text?: string };
+    try {
+      p = JSON.parse(row.payloadJson);
+    } catch {
+      continue;
+    }
+    const overMcp = p.via === 'mcp' || p.modality === 'mcp' || row.type.startsWith('mcp_');
+    if (!overMcp) continue;
+    everUsed = true;
+    if (p.moduleId !== moduleId) continue;
+
+    let touch: McpTouch | null = null;
+    if (row.type === 'module_opened') {
+      touch = { kind: 'taught', detail: p.view === 'summary' ? 'the two-minute cut' : null, at: row.createdAt };
+    } else if (row.type === 'knowledge_check_submitted' && p.total) {
+      touch = { kind: 'quizzed', detail: `${p.correct ?? 0}/${p.total}`, at: row.createdAt };
+    } else if (row.type === 'module_completed') {
+      touch = { kind: 'completed', detail: null, at: row.createdAt };
+    } else if (row.type === 'mcp_apply_to_work') {
+      touch = { kind: 'applied', detail: p.task ? p.task.slice(0, 120) : null, at: row.createdAt };
+    } else if (row.type === 'mcp_teach_back') {
+      touch = { kind: 'teach_back', detail: p.total !== undefined ? `${p.total}/15` : null, at: row.createdAt };
+    } else if (row.type === 'module_calibration_recorded') {
+      touch = { kind: 'predicted', detail: null, at: row.createdAt };
+    }
+    // Rows arrive newest-first — the first of each kind is the one to keep.
+    if (touch && !byKind.has(touch.kind)) byKind.set(touch.kind, touch);
+  }
+  return { everUsed, touches: [...byKind.values()] };
+}
 
 // A module's opening calibration prompt: free text always; numeric fields when
 // the rubric declares them. Numbers land in fd_calibration as open predictions
