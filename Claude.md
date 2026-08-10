@@ -1,5 +1,5 @@
 # CLAUDE.md
-Behavioral guidelines for Claude Code sessions working in this repo. Fleet conventions (rules about agents, packages, scaffolding) live in `AGENTS.md` — read both.
+Behavioral guidelines for Claude Code sessions working in this repo.
 
 **Tradeoff:** these guidelines bias toward caution over speed. For trivial tasks, use judgment. Exception: §5 deploys are intentionally no-gate and override "if uncertain, ask" for merge approval.
 
@@ -72,45 +72,39 @@ pausing for merge or deploy approval is the wrong move, and having to be told
   to an already-merged PR — start a new branch.
 - **Stop only for** a failing check you can't fix, a genuinely ambiguous
   change, or a destructive migration. Absent one of those, keep going.
-- Merging to `main` triggers `_deploy-agent.yml`, which applies pending
-  D1/Neon migrations and deploys the Worker.
-- Do **not** report "it's deployed" until the `deployments` row in
-  agentbuilder-core D1 shows `status='success'` and `smoke_status='ok'`.
+- Merging to `main` triggers `.github/workflows/deploy.yml`, which builds the
+  SPA, applies pending D1 migrations to the remote `fluency-demo` database,
+  deploys the Worker, and smoke-tests `/api/brand`.
+- Do **not** report "it's deployed" until that run is green. The workflow's
+  final step records the outcome in the shared `agentbuilder-core` D1
+  `deployments` table (agent_id `fluency-demo`), so a session with Cloudflare
+  credentials can confirm with:
+  `npx wrangler d1 execute agentbuilder-core --remote --command "SELECT status, smoke_status, deployed_at FROM deployments WHERE agent_id='fluency-demo' ORDER BY deployed_at DESC LIMIT 1"`
+  — wait for `status='success'` and `smoke_status='ok'`. Without credentials,
+  watch the Actions run itself.
 
-The step-by-step mechanics — web-session MCP steps, migration rules, reading logs/`fleet_errors`, the debug loop, auth checks, and Makefile targets — live in the **`deploy` skill** (`.claude/skills/deploy/SKILL.md`). Invoke it whenever shipping or debugging.
+One-off remote DB tasks (e.g. resetting generated podcast episodes) go through
+`.github/workflows/db-maintenance.yml` — a fixed task menu, dispatched manually
+or by merging a PR that sets the task name in `.github/maintenance-request`.
 
 ---
 
-## 6. Bug Monitoring (autonomous)
+## 6. Content Maintenance (autonomous)
 
-Errors from every agent are captured into the shared `agentbuilder-core` D1:
+This repo has no fleet error-capture pipeline — `fleet_errors`, `bug_tickets`,
+and `/fleet-doctor` live in the AgentBuilder fleet repo, not here. The one
+shared piece of fleet infrastructure is the `deployments` table §5 describes.
 
-- `fleet_errors` — one row per occurrence (request / cron / queue / frontend).
-- `bug_tickets` — deduped by fingerprint, with triage + fix state.
-- `bug_fixes` — append-only audit of what got fixed or flagged.
-
-Capture is wired through `@agentbuilder/observability`: `withObservability`
-wraps each `fetch` handler, `runCron` covers crons, and `handleClientError`
-(mounted at `POST /api/v1/client-error`) takes browser errors. See `AGENTS.md`
-rules 11–12.
-
-The **`/fleet-doctor`** slash command (`.claude/commands/fleet-doctor.md`) is
-the autonomous triage loop: it reads open `bug_tickets`, fixes what it's
-confident about (PR → merge → confirm via `deployments`), and opens a
-`needs-human` GitHub issue for the rest. It is **anti-spin**: at most 2 fix
-attempts per fingerprint, then it flags and stops.
-
-Run it on a recurring **scheduled trigger** (Claude Code on the web →
-environment settings; recommend hourly). To review what it has done, query
-`bug_tickets` / `bug_fixes`.
+What this repo does run autonomously is the **volatile-content maintenance
+agent** (`npm run maintain`, `scripts/maintenance-agent.mjs`): it walks ONLY
+`layer: 'volatile'` content blocks, checks each against the current state of
+the world, and proposes patches that preserve the block's voice, length, and
+pedagogy. The stable layer is untouched by construction. `--write` applies
+patches and bumps `reviewedAt`; the operator reviews `git diff content/`, then
+`npm run seed:generate` and deploys.
 
 ---
 
 **These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
 
 **Origin:** distilled from Andrej Karpathy's January 2026 observations on LLM coding pitfalls, via the [`andrej-karpathy-skills`](https://github.com/forrestchang/andrej-karpathy-skills) CLAUDE.md.
-
----
-
-## Runtime agents
-The four bolded one-liners above (§1–§4) are also exported from `@agentbuilder/llm` as `CORE_BEHAVIORAL_PREAMBLE`. Runtime agents (the AgentBuilder personas and any agent under `apps/*`) should prepend that constant to their system prompt. See `AGENTS.md` rule 10.
