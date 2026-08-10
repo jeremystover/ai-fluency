@@ -85,6 +85,27 @@ export async function verifyMcpKey(key: string | undefined, secret: string): Pro
   return sessionId;
 }
 
+// ---------- OAuth primitives ----------
+
+// 256 bits of entropy, URL-safe: authorization codes, access and refresh
+// tokens, client ids.
+export function randomToken(): string {
+  return b64url(crypto.getRandomValues(new Uint8Array(32)).buffer as ArrayBuffer);
+}
+
+// Codes and tokens are stored hashed, so a database dump never yields a
+// usable credential. Unsalted SHA-256 is right here (unlike passwords): the
+// input is already 256 bits of randomness, and lookup must be by exact hash.
+export async function tokenHash(token: string): Promise<string> {
+  const digest = await crypto.subtle.digest('SHA-256', enc.encode(token));
+  return b64url(digest);
+}
+
+// PKCE S256 (RFC 7636): the challenge is BASE64URL(SHA-256(verifier)).
+export async function pkceChallengeFor(verifier: string): Promise<string> {
+  return tokenHash(verifier);
+}
+
 export async function hashIp(ip: string, salt: string): Promise<string> {
   const digest = await crypto.subtle.digest('SHA-256', enc.encode(`${salt}:${ip}`));
   return b64url(digest);

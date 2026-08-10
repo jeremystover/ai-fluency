@@ -7,7 +7,10 @@
     "directory": "./dist/client",
     "binding": "ASSETS",
     "not_found_handling": "single-page-application",
-    "run_worker_first": ["/api/*"]
+    // OAuth discovery and the connector approval screen live outside /api;
+    // without them here the SPA asset handler would answer with index.html
+    // and every MCP client's discovery step would fail.
+    "run_worker_first": ["/api/*", "/.well-known/*", "/oauth/*"]
   },
   "d1_databases": [
     {

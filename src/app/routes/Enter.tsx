@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Screen, Button, ErrorNote } from '../components/ui';
 import { api, ApiError } from '../api';
 import { useApp } from '../brand';
@@ -9,8 +9,21 @@ import { useApp } from '../brand';
 // email + password sign-in. The server enforces the mode; this screen
 // just renders the right form.
 
-function PasscodeDoor() {
+// A learner sent here mid-connector-handshake (the OAuth approval screen
+// needs a session first) carries ?next= back to it. Only the worker-served
+// approval path is honored — anything else is an open-redirect invitation.
+function useAfterSignIn() {
   const navigate = useNavigate();
+  const next = new URLSearchParams(useLocation().search).get('next');
+  const safe = next && next.startsWith('/oauth/authorize') ? next : null;
+  return () => {
+    if (safe) window.location.href = safe;
+    else navigate('/welcome');
+  };
+}
+
+function PasscodeDoor() {
+  const afterSignIn = useAfterSignIn();
   const { refreshMe } = useApp();
   const [code, setCode] = useState('');
   const [error, setError] = useState<string | null>(null);
@@ -24,7 +37,7 @@ function PasscodeDoor() {
     try {
       await api.post('/api/enter', { code: code.trim() });
       await refreshMe();
-      navigate('/welcome');
+      afterSignIn();
     } catch (err) {
       setError(err instanceof ApiError ? err.message : 'Something went sideways. Try again.');
     } finally {
@@ -64,6 +77,7 @@ const field =
 
 function AccountDoor() {
   const navigate = useNavigate();
+  const afterSignIn = useAfterSignIn();
   const { me, refreshMe } = useApp();
   const [mode, setMode] = useState<'signin' | 'signup'>('signin');
   const [name, setName] = useState('');
@@ -86,7 +100,7 @@ function AccountDoor() {
       if (mode === 'signup') await api.post('/api/auth/signup', { name, email, password });
       else await api.post('/api/auth/signin', { email, password });
       await refreshMe();
-      navigate('/welcome');
+      afterSignIn();
     } catch (err) {
       setError(err instanceof ApiError ? err.message : 'Something went sideways. Try again.');
     } finally {

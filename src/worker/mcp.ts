@@ -18,6 +18,7 @@ import type { DrizzleD1Database } from 'drizzle-orm/d1';
 import { and, asc, desc, eq, sql } from 'drizzle-orm';
 import * as t from '../db/schema';
 import { verifyMcpKey } from './crypto';
+import { CORS_HEADERS, verifyAccessToken, wwwAuthenticate } from './oauth';
 import { moduleSnapshot, witnessContent } from './audit';
 import { getExercise, scoreSortingSubmission, selectVariants, toBlock, toolingOf, type KnowledgeCheckPayload, type SortingPayload } from './content';
 import { gradeSubmission, type RubricPayload } from './grading';
@@ -1281,18 +1282,55 @@ async function dispatch(msg: RpcMessage, ctx: ToolCtx): Promise<object | null> {
 export function createMcpApp(deps: McpDeps) {
   const mcp = new Hono<McpCtx>();
 
+  // Two credentials open this endpoint, and they are checked in that order:
+  // an OAuth bearer token (the connector handshake — see oauth.ts), or the
+  // personal signed key from the URL path (clients that don't do OAuth).
+  // Either way it resolves to one fd_session, so progress is one record.
   const serve = async (c: Context<McpCtx>, key: string | undefined) => {
-    const sessionId = await verifyMcpKey(key, c.env.SESSION_SECRET ?? 'dev-only-secret-set-SESSION_SECRET-in-production');
     const db = c.get('db');
+    const origin = new URL(c.req.url).origin;
+    const bearer = c.req.header('authorization')?.match(/^Bearer\s+(.+)$/i)?.[1]?.trim();
+
+    // An unauthenticated request must be answered with a challenge that names
+    // where the metadata lives — that pointer is how a connector discovers it
+    // needs to run OAuth at all.
+    const challenge = (error: string, description: string) => {
+      for (const [k, v] of Object.entries(CORS_HEADERS)) c.header(k, v);
+      c.header('WWW-Authenticate', wwwAuthenticate(origin, error, description));
+      return c.json({ error: description }, 401);
+    };
+
+    let sessionId: string | null = null;
+    if (bearer) {
+      const check = await verifyAccessToken(db, bearer);
+      if (check.ok) sessionId = check.sessionId;
+      else {
+        // A bearer token that fails is not a reason to fall through to the
+        // URL key: say so precisely so the client refreshes or reconnects.
+        const asKey = await verifyMcpKey(bearer, c.env.SESSION_SECRET ?? 'dev-only-secret-set-SESSION_SECRET-in-production');
+        if (!asKey) return challenge(check.error, check.description);
+        sessionId = asKey;
+      }
+    }
+    if (!sessionId && key) {
+      sessionId = await verifyMcpKey(key, c.env.SESSION_SECRET ?? 'dev-only-secret-set-SESSION_SECRET-in-production');
+    }
+
     let session: SessionRow | null = null;
     if (sessionId) {
       const rows = await db.select().from(t.fdSession).where(eq(t.fdSession.id, sessionId)).limit(1);
       session = rows[0] ?? null;
     }
     if (!session) {
-      return c.json({ error: 'Invalid or missing course key. Get your personal connector URL from the course app under "Learn inside your AI tools".' }, 401);
+      return challenge(
+        bearer || key ? 'invalid_token' : 'invalid_request',
+        bearer || key
+          ? 'That credential no longer maps to a course session. Reconnect the course.'
+          : 'Authorization required. Connect this course as a connector, or use your personal URL from the course app.',
+      );
     }
     await db.update(t.fdSession).set({ lastSeenAt: now() }).where(eq(t.fdSession.id, session.id));
+    for (const [k, v] of Object.entries(CORS_HEADERS)) c.header(k, v);
 
     const body = (await c.req.json().catch(() => null)) as RpcMessage | RpcMessage[] | null;
     if (!body) return c.json(rpcError(null, -32700, 'Body must be JSON-RPC.'), 400);
@@ -1316,11 +1354,33 @@ export function createMcpApp(deps: McpDeps) {
     return res ? c.json(res) : c.body(null, 202);
   };
 
+  // Browser-based connectors preflight before they ever POST.
+  const preflight = (c: Context<McpCtx>) => {
+    for (const [k, v] of Object.entries(CORS_HEADERS)) c.header(k, v);
+    return c.body(null, 204);
+  };
+  mcp.options('/', preflight);
+  mcp.options('/:key', preflight);
+
+  mcp.post('/', (c) => serve(c, undefined));
   mcp.post('/:key', (c) => serve(c, c.req.param('key')));
-  mcp.post('/', (c) => serve(c, c.req.header('authorization')?.replace(/^Bearer\s+/i, '')));
-  // No server-initiated stream: this server is stateless by design.
-  mcp.get('/:key', (c) => c.json({ error: 'This is an MCP endpoint — connect with an MCP client (POST JSON-RPC). Setup lives in the course app under "Learn inside your AI tools".' }, 405));
-  mcp.get('/', (c) => c.json({ error: 'This is an MCP endpoint — connect with an MCP client (POST JSON-RPC). Setup lives in the course app under "Learn inside your AI tools".' }, 405));
+
+  // No server-initiated stream: this server is stateless by design. The GET
+  // still answers with the challenge when unauthenticated, because some
+  // clients probe with GET before deciding whether they need to authorize.
+  const explain = (c: Context<McpCtx>) => {
+    for (const [k, v] of Object.entries(CORS_HEADERS)) c.header(k, v);
+    if (!c.req.header('authorization')) {
+      c.header('WWW-Authenticate', wwwAuthenticate(new URL(c.req.url).origin));
+      return c.json({ error: 'Authorization required.' }, 401);
+    }
+    return c.json({ error: 'This MCP server does not open a server-initiated stream — POST JSON-RPC instead.' }, 405);
+  };
+  mcp.get('/', explain);
+  mcp.get('/:key', explain);
+  // Streamable HTTP lets a client end a session; there is none to end here.
+  mcp.delete('/', preflight);
+  mcp.delete('/:key', preflight);
 
   return mcp;
 }

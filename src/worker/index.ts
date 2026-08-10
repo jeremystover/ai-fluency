@@ -6,6 +6,7 @@ import * as t from '../db/schema';
 import { verifyCode, hashCode, signSessionId, verifySessionCookie, hashIp, signMcpKey } from './crypto';
 import { toolingOf, selectVariants, toBlock, stampsFor, getExercise, scoreSortingSubmission, type KnowledgeCheckPayload, type SortingPayload } from './content';
 import { createMcpApp } from './mcp';
+import { createOauthApp, MCP_PATH } from './oauth';
 import { gradeSubmission, type RubricPayload } from './grading';
 import { adminApp } from './admin';
 import { buildTutorSystem, streamTutorReply, KICKOFF_TURN, type LearnerContext as TutorLearnerContext, type TutorMessage } from './chat';
@@ -3192,7 +3193,11 @@ app.get('/api/mcp/connection', async (c) => {
   if (!session) return c.json({ error: 'No session.' }, 401);
   const key = await signMcpKey(session.id, secret(c.env));
   const origin = new URL(c.req.url).origin;
-  return c.json({ url: `${origin}/api/mcp/${key}` });
+  // Two ways in. `url` is what most people paste: a plain, non-secret endpoint
+  // that runs the OAuth handshake (approval screen included). `keyUrl` is the
+  // pre-authenticated fallback for clients that don't speak OAuth — it carries
+  // this learner's signed key, so it IS a secret.
+  return c.json({ url: `${origin}${MCP_PATH}`, keyUrl: `${origin}/api/mcp/${key}` });
 });
 
 // The MCP endpoint itself: tools, prompts, and the tutor persona. Functions
@@ -3212,6 +3217,13 @@ app.route(
     guidanceFor,
   }),
 );
+
+// OAuth 2.1 for connector clients that expect a real sign-in service (the
+// claude.ai "Connect" button): discovery metadata at /.well-known/*, dynamic
+// registration, and the approval screen at /oauth/*. These paths sit outside
+// /api, so wrangler.jsonc lists them in run_worker_first — otherwise the SPA
+// asset handler would answer them with index.html.
+app.route('/', createOauthApp());
 
 // ---------- fallthrough ----------
 

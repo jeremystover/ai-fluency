@@ -385,6 +385,64 @@ export const fdReminderRule = sqliteTable(
   (t) => [index('idx_reminder_brand').on(t.brandSlug)],
 );
 
+// ---------- OAuth for the MCP connector ----------
+// Claude's "add a connector" flow speaks OAuth 2.1: it registers itself, sends
+// the learner through an approval screen, and trades a code for a token. These
+// three tables are that handshake's whole state. The token maps to an
+// fd_session row, so an assistant connected this way shares one progress
+// record with the app — same as the URL-key path.
+
+// Dynamically registered clients (RFC 7591). MCP clients register themselves
+// at connect time; we keep what they declared plus the id we minted.
+export const fdOauthClient = sqliteTable('fd_oauth_client', {
+  id: text('id').primaryKey(), // the issued client_id
+  name: text('name'),
+  redirectUris: text('redirect_uris').notNull(), // JSON array, matched exactly at /authorize
+  // MCP clients are public clients using PKCE; a secret is stored (hashed,
+  // same PBKDF2 format as passcodes) only when one asked to be confidential.
+  secretHash: text('secret_hash'),
+  tokenEndpointAuthMethod: text('token_endpoint_auth_method').notNull(), // none | client_secret_post|basic
+  metadataJson: text('metadata_json'), // the registration request, verbatim
+  createdAt: text('created_at').notNull(),
+});
+
+// One-time authorization codes: short-lived, PKCE-bound, single-use. Stored as
+// hashes — a database read never yields a usable code.
+export const fdOauthCode = sqliteTable(
+  'fd_oauth_code',
+  {
+    codeHash: text('code_hash').primaryKey(),
+    clientId: text('client_id').notNull(),
+    sessionId: text('session_id').notNull(),
+    redirectUri: text('redirect_uri').notNull(),
+    codeChallenge: text('code_challenge').notNull(),
+    codeChallengeMethod: text('code_challenge_method').notNull(), // S256 only
+    scope: text('scope'),
+    resource: text('resource'), // RFC 8707 audience the token is bound to
+    expiresAt: text('expires_at').notNull(),
+    usedAt: text('used_at'), // set on first exchange; a second attempt is an attack signal
+    createdAt: text('created_at').notNull(),
+  },
+  (t) => [index('idx_oauth_code_session').on(t.sessionId)],
+);
+
+// Access and refresh tokens, stored as hashes with an explicit expiry.
+export const fdOauthToken = sqliteTable(
+  'fd_oauth_token',
+  {
+    tokenHash: text('token_hash').primaryKey(),
+    kind: text('kind').notNull(), // access | refresh
+    clientId: text('client_id').notNull(),
+    sessionId: text('session_id').notNull(),
+    scope: text('scope'),
+    resource: text('resource'),
+    expiresAt: text('expires_at').notNull(),
+    revokedAt: text('revoked_at'),
+    createdAt: text('created_at').notNull(),
+  },
+  (t) => [index('idx_oauth_token_session').on(t.sessionId, t.kind)],
+);
+
 export const fdModule = sqliteTable('fd_module', {
   id: text('id').primaryKey(),
   courseId: text('course_id').notNull(),
