@@ -62,6 +62,9 @@ export const wwwAuthenticate = (origin: string, error?: string, description?: st
   [
     `Bearer realm="AI Fluency course"`,
     `resource_metadata="${origin}/.well-known/oauth-protected-resource${MCP_PATH}"`,
+    // The scope the client should ask for; without it a client requests
+    // everything in scopes_supported.
+    `scope="${SCOPE}"`,
     ...(error ? [`error="${error}"`] : []),
     ...(description ? [`error_description="${description}"`] : []),
   ].join(', ');
@@ -290,10 +293,17 @@ export function createOauthApp() {
   // --- RFC 9728: what this resource is and who authorizes for it. Clients
   // find this from the 401's resource_metadata pointer; the path-inserted
   // form is canonical, the bare form is what some clients try first.
+  // RFC 9728 §3.3 is strict: the `resource` we return must be byte-identical
+  // to the URL the client asked about, or it MUST discard the document. The
+  // well-known path carries that URL's path inserted after the host, so echo
+  // it back rather than always answering with the canonical MCP path — a
+  // learner who configured their personal key URL must still discover.
   const resourceMetadata = (c: Context<OauthCtx>) => {
     const origin = originOf(c);
+    const suffix = new URL(c.req.url).pathname.replace(/^\/\.well-known\/oauth-protected-resource/, '').replace(/\/$/, '');
+    const resourcePath = suffix.startsWith(MCP_PATH) ? suffix : MCP_PATH;
     return withCors(c, {
-      resource: `${origin}${MCP_PATH}`,
+      resource: `${origin}${resourcePath}`,
       authorization_servers: [origin],
       scopes_supported: [SCOPE],
       bearer_methods_supported: ['header'],
@@ -313,7 +323,9 @@ export function createOauthApp() {
       token_endpoint: `${origin}/oauth/token`,
       registration_endpoint: `${origin}/oauth/register`,
       revocation_endpoint: `${origin}/oauth/revoke`,
-      scopes_supported: [SCOPE],
+      // offline_access advertised HERE (not in the resource metadata, which is
+      // a resource concern) is how a client knows to ask for a refresh token.
+      scopes_supported: [SCOPE, 'offline_access'],
       response_types_supported: ['code'],
       response_modes_supported: ['query'],
       grant_types_supported: ['authorization_code', 'refresh_token'],
@@ -333,8 +345,12 @@ export function createOauthApp() {
 
   // --- RFC 7591: dynamic client registration. Claude registers itself the
   // first time a learner connects; there is no manual client provisioning.
-  oauth.post('/oauth/register', async (c) => {
+  // Some client builds POST a hardcoded /register instead of the advertised
+  // registration_endpoint, so the root path is an alias, not a redirect —
+  // a redirect here would drop the request body.
+  const register = async (c: Context<OauthCtx>) => {
     const db = dbOf(c);
+    c.header('cache-control', 'no-store');
     const body = await c.req.json<Record<string, unknown>>().catch(() => null);
     if (!body) return withCors(c, { error: 'invalid_client_metadata', error_description: 'Body must be JSON.' }, 400);
 
@@ -346,12 +362,11 @@ export function createOauthApp() {
         return withCors(c, { error: 'invalid_redirect_uri', error_description: `Redirect URI must be https (or loopback http): ${uri}` }, 400);
       }
     }
-    const grants = Array.isArray(body.grant_types) ? (body.grant_types as string[]) : ['authorization_code'];
-    for (const g of grants) {
-      if (g !== 'authorization_code' && g !== 'refresh_token') {
-        return withCors(c, { error: 'invalid_client_metadata', error_description: `Unsupported grant_type: ${g}` }, 400);
-      }
-    }
+    // Unknown grants are dropped rather than rejected: a client asking for
+    // something extra shouldn't fail registration over it.
+    const asked = Array.isArray(body.grant_types) ? (body.grant_types as string[]) : ['authorization_code'];
+    const grants = asked.filter((g) => g === 'authorization_code' || g === 'refresh_token');
+    if (!grants.includes('authorization_code')) grants.unshift('authorization_code');
 
     // Public clients using PKCE are the norm for MCP; honor a request to be
     // confidential, but never require it.
@@ -383,11 +398,13 @@ export function createOauthApp() {
         response_types: ['code'],
         token_endpoint_auth_method: authMethod,
         ...(name ? { client_name: name } : {}),
-        scope: SCOPE,
+        scope: `${SCOPE} offline_access`,
       },
       201,
     );
-  });
+  };
+  oauth.post('/oauth/register', register);
+  oauth.post('/register', register);
 
   // --- The approval screen. The learner is already authenticated here, so
   // this asks consent, never credentials.
@@ -511,8 +528,11 @@ export function createOauthApp() {
   });
 
   // --- Code and refresh exchange. Form-encoded in, JSON out (RFC 6749).
-  oauth.post('/oauth/token', async (c) => {
+  const token = async (c: Context<OauthCtx>) => {
     const db = dbOf(c);
+    // RFC 6749 §5.1: token responses must never be cached.
+    c.header('cache-control', 'no-store');
+    c.header('pragma', 'no-cache');
     const form = await c.req.parseBody().catch(() => null);
     const str = (k: string) => (typeof form?.[k] === 'string' ? (form[k] as string) : undefined);
     const bad = (error: string, description: string, status: 400 | 401 = 400) => withCors(c, { error, error_description: description }, status);
@@ -588,7 +608,9 @@ export function createOauthApp() {
     }
 
     return bad('unsupported_grant_type', 'Supported grants: authorization_code, refresh_token.');
-  });
+  };
+  oauth.post('/oauth/token', token);
+  oauth.post('/token', token);
 
   // --- RFC 7009 revocation: how "disconnect" actually disconnects.
   oauth.post('/oauth/revoke', async (c) => {

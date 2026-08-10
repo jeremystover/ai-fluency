@@ -7,10 +7,13 @@
     "directory": "./dist/client",
     "binding": "ASSETS",
     "not_found_handling": "single-page-application",
-    // OAuth discovery and the connector approval screen live outside /api;
-    // without them here the SPA asset handler would answer with index.html
-    // and every MCP client's discovery step would fail.
-    "run_worker_first": ["/api/*", "/.well-known/*", "/oauth/*"]
+    // Every request reaches the Worker first, which falls through to ASSETS
+    // for anything it doesn't handle (see app.notFound). A path list was the
+    // narrower option, but OAuth discovery lives at fixed well-known paths
+    // outside /api, and if asset routing wins there the SPA answers discovery
+    // with index.html and every connector fails at a step that looks like a
+    // server outage. Correctness over shaving a hop on static files.
+    "run_worker_first": true
   },
   "d1_databases": [
     {
