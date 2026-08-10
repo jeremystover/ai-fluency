@@ -252,8 +252,10 @@ type Recommendation = { moduleId: string; title: string; estMinutes: number; rea
 // Rank open, uncompleted modules by how many legible reasons point at them —
 // stated in terms of the learner's own inputs (goals, diagnostic), same as
 // the path screen. Course order breaks ties; unmet prereqs push a module down
-// but never hide it (nothing locks).
-async function recommendationsFor(db: DrizzleD1Database, deps: McpDeps, sessionId: string): Promise<Recommendation[]> {
+// but never hide it (nothing locks). Exported: /api/path's "up next" queue is
+// this exact ranking — one brain, two surfaces.
+export type RecommendDeps = Pick<McpDeps, 'loadPrefs' | 'computeDiagnosticResult'>;
+export async function recommendationsFor(db: DrizzleD1Database, deps: RecommendDeps, sessionId: string): Promise<Recommendation[]> {
   const rows = await db.select().from(t.fdModule).orderBy(asc(t.fdModule.courseId), asc(t.fdModule.ordinal));
   const progress = await progressFor(db, sessionId);
   const prefs = await deps.loadPrefs(db, sessionId);

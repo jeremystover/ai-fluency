@@ -69,6 +69,29 @@ export type PathModule = ModuleCard & {
   // Why this module is on THEIR path — goal labels and diagnostic reads, shown
   // verbatim so the learner can see the machine using their answers.
   recommendedFor: string[];
+  completedAt: string | null; // first module_completed event
+  bestCheck: { correct: number; total: number } | null; // best knowledge-check attempt
+};
+
+// The path page's progress instrument — every number derived from the
+// append-only funnel, never invented.
+export type PathSummary = {
+  openTotal: number; // open modules across courses
+  doneCount: number; // completed or tested-out among them
+  minutesInvested: number; // gap-sum estimate, same math as the admin's
+  activeDays7: number; // distinct active days in the last 7
+  checks: { passed: number; correct: number; total: number } | null; // best attempts; null = none yet
+};
+
+export type PathRecommendation = { moduleId: string; reasons: string[] };
+
+export type PathResponse = {
+  modules: PathModule[];
+  courses: CourseCard[];
+  summary: PathSummary;
+  // e.g. "your diagnostic says you expect too little from these tools"
+  diagnosticNote: string | null;
+  upNext: PathRecommendation[]; // ranked, top first
 };
 
 export type CourseCard = {
