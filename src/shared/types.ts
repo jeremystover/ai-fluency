@@ -289,6 +289,20 @@ export type PodcastListResponse = {
   audioPrerenders: boolean;
 };
 
+// This session's history with the module over the MCP connection — the same
+// events the MCP tools write (via/modality markers), summarized so the module
+// page can show "your assistant has been here" instead of generic setup copy.
+export type McpTouch = {
+  kind: 'taught' | 'quizzed' | 'applied' | 'teach_back' | 'predicted' | 'completed';
+  detail: string | null; // score, task snippet — whatever makes the row legible
+  at: string;
+};
+
+export type ModuleMcpActivity = {
+  everUsed: boolean; // any MCP activity on this session, any module
+  touches: McpTouch[]; // this module only, newest first, one per kind
+};
+
 export type ModuleContentResponse = {
   module: ModuleCard;
   blocks: ContentBlock[];
@@ -299,6 +313,7 @@ export type ModuleContentResponse = {
   // (rubric-declared), with any values this session already recorded.
   openingFields: CalibrationField[];
   openingValues: Record<string, number>;
+  mcp: ModuleMcpActivity;
 };
 
 // ---------- generic activity & knowledge check ----------

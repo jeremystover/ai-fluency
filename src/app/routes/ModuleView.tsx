@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import '@fontsource/caveat/700.css';
 import type { CalibrationField, ContentBlock, ModuleContentResponse } from '../../shared/types';
 import { Screen, Markdown, Button, ErrorNote } from '../components/ui';
 import SortingExercise from '../components/SortingExercise';
 import ChoiceExercise from '../components/ChoiceExercise';
-import ModuleHub from '../components/ModuleHub';
+import { ModuleLead, ModuleRail, styleOf, tutorHref, STYLE_LABELS } from '../components/ModuleHub';
 import { api, ApiError, track } from '../api';
 import { useApp } from '../brand';
 import { firstVisitRedirect } from '../modality';
@@ -12,9 +13,11 @@ import { depthOf } from '../../shared/depth';
 
 const COURSE_LABELS: Record<string, string> = { ai101: 'AI 101', ai201: 'AI 201' };
 
+const HAND_FONT = "'Caveat', 'Comic Sans MS', cursive";
+
 // A module's opening prediction — captured before the content, echoed at the
-// capstone. Free text always; numeric fields where the rubric declares them
-// (those become real prediction rows the activity's measured value later closes).
+// capstone. Rendered as a field note: lined card, taped corner, the learner's
+// words in their "own hand" — a personal artifact pinned into the read.
 function CalibrationPrompt({
   block,
   moduleId,
@@ -43,11 +46,17 @@ function CalibrationPrompt({
     }
   };
   return (
-    <div className="border-l-4 border-signal bg-signal/10 rounded-r-brand p-5 my-5">
+    <div
+      className="relative border border-line-strong bg-surface px-5 pt-5 pb-4 my-7 shadow-sm -rotate-[0.4deg]"
+      style={{ backgroundImage: 'repeating-linear-gradient(transparent, transparent 27px, var(--c-line) 27px, var(--c-line) 28px)' }}
+    >
+      <span aria-hidden="true" className="absolute -top-2.5 left-1/2 -translate-x-1/2 rotate-1 w-24 h-5 bg-signal/70 rounded-[1px]" />
       <Markdown source={block.body} className="text-[0.95rem] [&_h2]:mt-0 [&_h2]:text-xl" />
       {saved ? (
         <div className="mt-3">
-          <p className="label-utility">Recorded. It comes back at the capstone.</p>
+          {text.trim() && (
+            <p className="text-ink-strong text-2xl" style={{ fontFamily: HAND_FONT, lineHeight: '28px' }}>{text}</p>
+          )}
           {Object.keys(savedValues).length > 0 && (
             <p className="font-utility text-xs text-ink-strong mt-1.5">
               {fields
@@ -56,6 +65,7 @@ function CalibrationPrompt({
                 .join(' · ')}
             </p>
           )}
+          <p className="label-utility mt-2">Recorded · it comes back at the capstone.</p>
         </div>
       ) : (
         <div className="mt-3 flex flex-col gap-2">
@@ -82,7 +92,8 @@ function CalibrationPrompt({
             onChange={(e) => setText(e.target.value)}
             rows={2}
             placeholder={fields.length ? 'And the parts a number can’t hold — name the item, the step, the reason.' : 'Write the prediction down here — numbers included.'}
-            className="w-full border border-line-strong bg-surface rounded-brand px-3 py-2 text-sm text-ink focus:border-accent placeholder:text-muted/60"
+            className="w-full border border-line-strong bg-surface/80 rounded-brand px-3 py-2 text-xl text-ink-strong focus:border-accent placeholder:text-muted/60"
+            style={{ fontFamily: HAND_FONT, lineHeight: '28px' }}
           />
           <div>
             <Button onClick={save} disabled={!text.trim() && !numbersReady} variant="quiet">Record it</Button>
@@ -94,7 +105,8 @@ function CalibrationPrompt({
 }
 
 // Answer keys and reveals in modules whose exercises are static (honest tags:
-// the interactive version ships with the full course).
+// the interactive version ships with the full course). Kept boxed — the
+// commit-first-then-reveal move is interactive, and interactive gets borders.
 function Reveal({ block }: { block: ContentBlock }) {
   const [open, setOpen] = useState(false);
   const lines = block.body.split('\n');
@@ -119,6 +131,8 @@ function Reveal({ block }: { block: ContentBlock }) {
   );
 }
 
+// Try-this asides hang off an accent rule instead of sitting in a box —
+// prose keeps its own voice, and borders stay reserved for live surfaces.
 function TryThis({ block }: { block: ContentBlock }) {
   const [open, setOpen] = useState(false);
   const opened = useRef(false);
@@ -126,7 +140,7 @@ function TryThis({ block }: { block: ContentBlock }) {
   const heading = lines[0].replace(/^#+\s*/, '');
   const rest = lines.slice(1).join('\n').trim();
   return (
-    <div className="border border-accent/40 rounded-brand my-5 overflow-hidden">
+    <div className="border-l-2 border-accent pl-5 my-6">
       <button
         onClick={() => {
           setOpen(!open);
@@ -136,13 +150,13 @@ function TryThis({ block }: { block: ContentBlock }) {
           }
         }}
         aria-expanded={open}
-        className="w-full flex items-center justify-between gap-3 px-4 py-3 bg-accent/[0.04] hover:bg-accent/[0.08] transition-colors text-left"
+        className="w-full flex items-center justify-between gap-3 py-1 text-left"
       >
-        <span className="font-display font-semibold text-accent text-[0.95rem]">{heading}</span>
+        <span className="font-utility text-[0.68rem] uppercase tracking-wider text-accent font-semibold">{heading}</span>
         <span className="font-utility text-xs text-accent" aria-hidden="true">{open ? '−' : '+'}</span>
       </button>
       {open && (
-        <div className="px-4 pb-4 pt-1 anim-fade">
+        <div className="pt-1 anim-fade">
           <Markdown source={rest} className="text-[0.95rem]" />
         </div>
       )}
@@ -150,14 +164,17 @@ function TryThis({ block }: { block: ContentBlock }) {
   );
 }
 
-function VolatileMark({ block }: { block: ContentBlock }) {
+// The example layer, worn openly: volatile blocks sit in a dashed frame with
+// a dated stamp — content freshness as a visible promise instead of a
+// hover-only dot.
+function VolatileFrame({ block, children }: { block: ContentBlock; children: React.ReactNode }) {
   return (
-    <span className="group absolute -left-4 sm:-left-6 top-2 flex" tabIndex={0} aria-label={`Example layer — refreshed independently of concepts. Current as of ${block.reviewedAt}.`}>
-      <span className="w-2 h-2 rounded-full bg-signal border border-ink-strong/50 cursor-help" aria-hidden="true" />
-      <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 whitespace-nowrap font-utility text-[0.65rem] bg-ink-strong text-surface px-2 py-1 rounded opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity z-30">
-        example layer · current as of {block.reviewedAt}
+    <div className="relative border border-dashed border-line-strong rounded-brand bg-surface px-4 my-5">
+      <span className="absolute -top-2 right-3 font-utility text-[0.58rem] uppercase tracking-wider bg-signal text-on-signal px-2 py-0.5 rounded-sm">
+        example layer · {block.reviewedAt}
       </span>
-    </span>
+      {children}
+    </div>
   );
 }
 
@@ -242,17 +259,62 @@ function Block({
       </div>
     );
   }
-  const isAside = block.kind === 'callout' || block.kind === 'takeaways';
+
+  // Asides, de-boxed: takeaways get the signal band, callouts hang off a
+  // quiet rule. Boxes are for live surfaces only.
+  const inner =
+    block.kind === 'takeaways' ? (
+      <div className="border-l-[3px] border-signal rounded-r-brand px-5 py-4 my-8 bg-gradient-to-r from-signal/10 to-transparent">
+        <Markdown source={block.body} className="text-[0.97rem] [&_h3]:mt-0 [&_h2]:mt-0 [&_h2]:text-xl" />
+      </div>
+    ) : block.kind === 'callout' ? (
+      <div className="border-l-2 border-line-strong pl-5 my-6">
+        <Markdown source={block.body} className="text-[0.95rem] [&_h3]:mt-0 [&_h2]:mt-0 [&_h2]:text-xl" />
+      </div>
+    ) : (
+      <Markdown source={block.body} />
+    );
+
   return (
-    <div ref={ref} id={block.id} className="relative">
-      {block.layer === 'volatile' && <VolatileMark block={block} />}
-      {isAside ? (
-        <div className="border border-line rounded-brand bg-surface p-5 my-5">
-          <Markdown source={block.body} className="text-[0.95rem] [&_h3]:mt-0 [&_h2]:mt-0 [&_h2]:text-xl" />
-        </div>
-      ) : (
-        <Markdown source={block.body} />
-      )}
+    <div ref={ref} id={block.id}>
+      {block.layer === 'volatile' ? <VolatileFrame block={block}>{inner}</VolatileFrame> : inner}
+    </div>
+  );
+}
+
+// The command bar: a slim pill that follows the learner once the module
+// header scrolls away — where they are, how far along, and the module's exit.
+// On phones (no rail) it is the only progress chrome; on desktop it echoes
+// the spine.
+function CommandBar({
+  visible,
+  label,
+  progress,
+  checkHref,
+  checkLabel,
+}: {
+  visible: boolean;
+  label: string;
+  progress: number;
+  checkHref: string | null;
+  checkLabel: string;
+}) {
+  return (
+    <div
+      aria-hidden={!visible}
+      className={`fixed inset-x-0 top-16 z-30 px-5 transition-all duration-200 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}
+    >
+      <div className="max-w-xl mx-auto flex items-center gap-3 rounded-full bg-ink-strong text-surface py-1.5 pl-5 pr-1.5 shadow-lg shadow-ink-strong/25 text-[0.82rem]">
+        <span className="font-display font-semibold whitespace-nowrap overflow-hidden text-ellipsis">{label}</span>
+        <span aria-hidden="true" className="flex-1 h-[3px] min-w-10 rounded bg-surface/25 overflow-hidden">
+          <span className="block h-full bg-signal" style={{ width: `${Math.round(progress * 100)}%` }} />
+        </span>
+        {checkHref && (
+          <Link to={checkHref} tabIndex={visible ? 0 : -1} className="rounded-full bg-signal text-on-signal font-display font-semibold text-[0.78rem] px-3.5 py-1.5 no-underline whitespace-nowrap">
+            {checkLabel}
+          </Link>
+        )}
+      </div>
     </div>
   );
 }
@@ -263,14 +325,16 @@ export default function ModuleView() {
   const [error, setError] = useState<string | null>(null);
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [progress, setProgress] = useState(0);
+  const [barVisible, setBarVisible] = useState(false);
+  const [listenOpen, setListenOpen] = useState(false);
   const completedTracked = useRef(false);
   const { me } = useApp();
   const navigate = useNavigate();
   const redirected = useRef(false);
 
-  // Honor the stated learning style: a chat- or podcast-first learner's first
-  // visit to the module goes straight to that surface (it greets them there).
-  // Once they've used it — or if they chose reading — this page is home base.
+  // Honor the stated learning style: a chat-first learner's first visit to
+  // the module goes straight to the tutor (it greets them there). Once
+  // they've used it — or for every other style — this page is home base.
   useEffect(() => {
     if (!me || redirected.current) return;
     const target = firstVisitRedirect(me, moduleId);
@@ -280,9 +344,11 @@ export default function ModuleView() {
     }
   }, [me, navigate, moduleId]);
   const articleRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setData(null);
+    setListenOpen(false);
     api
       .get<ModuleContentResponse>(`/api/module/${moduleId}`)
       .then((d) => {
@@ -311,8 +377,8 @@ export default function ModuleView() {
     return () => clearTimeout(timer);
   }, [data, hash]);
 
-  // The hub's "sorting exercise" tile scrolls to the live exercise embedded
-  // in the read, if this module ships one.
+  // The rail's "sorting exercise" entry and the hands-on lead's second door
+  // scroll to the live exercise embedded in the read, if this module ships one.
   const sortingAnchorId = useMemo(() => {
     for (const b of data?.blocks ?? []) {
       if (b.kind !== 'exercise') continue;
@@ -325,9 +391,10 @@ export default function ModuleView() {
     return undefined;
   }, [data]);
 
-  // Scroll-linked TOC + honest reading progress. Reaching the end IS
+  // Scroll-linked spine + honest reading progress. Reaching the end IS
   // completing the read — that's what unlock hints and the plan key off,
-  // not the separately-graded applied activity.
+  // not the separately-graded applied activity. The command bar appears
+  // once the module header (title + lead) scrolls out of view.
   useEffect(() => {
     if (!data) return;
     const onScroll = () => {
@@ -340,8 +407,9 @@ export default function ModuleView() {
       setProgress(p);
       if (p >= 0.97 && !completedTracked.current) {
         completedTracked.current = true;
-        track('module_completed', { moduleId: 'ai101-m1' });
+        track('module_completed', { moduleId });
       }
+      setBarVisible((headerRef.current?.getBoundingClientRect().bottom ?? 1) < 64);
       let current: string | null = null;
       for (const s of sections) {
         const sec = document.getElementById(s.id);
@@ -352,87 +420,119 @@ export default function ModuleView() {
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, [data, sections]);
+  }, [data, sections, moduleId]);
 
   if (error) return <Screen><div className="pt-20"><ErrorNote message={error} /></div></Screen>;
   if (!data) return <Screen><div className="pt-24 text-center"><p className="label-utility">Loading the module…</p></div></Screen>;
 
+  const style = styleOf(me);
+  const courseLabel = COURSE_LABELS[data.module.courseId] ?? data.module.courseId;
+  const essentials = depthOf(me?.prefs?.depth) === 'essentials';
+  const activeTitle = sections.find((s) => s.id === activeSection)?.title;
+  const barLabel = `M${data.module.ordinal} · ${activeTitle ?? data.module.title}`;
+  const jumpToLead = () => headerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const toggleListen = () => {
+    setListenOpen((open) => {
+      if (!open) setTimeout(jumpToLead, 60);
+      return !open;
+    });
+  };
+
   return (
     <>
-      <div className="sticky top-14 z-30 h-0.5 bg-line" aria-hidden="true">
-        <div className="h-full bg-accent origin-left transition-transform duration-150" style={{ transform: `scaleX(${progress})` }} />
-      </div>
+      <CommandBar
+        visible={barVisible}
+        label={barLabel}
+        progress={progress}
+        checkHref={data.capabilities.knowledgeCheck ? `/module/${moduleId}/check` : null}
+        checkLabel={style === 'quiz_first' ? 'Take the check' : 'Knowledge check'}
+      />
       <Screen wide>
-        <div className="lg:grid lg:grid-cols-[230px_minmax(0,1fr)] lg:gap-10 pt-8">
-          <nav className="hidden lg:block sticky top-24 self-start" aria-label="Contents">
-            <p className="label-utility mb-3">Contents · ~{data.estReadMinutes} min read</p>
-            <ul className="flex flex-col gap-1 border-l border-line">
-              {sections.map((s) => (
-                <li key={s.id}>
-                  <a
-                    href={`#${s.id}`}
-                    className={`block pl-3 py-1 text-[0.8rem] leading-snug no-underline border-l-2 -ml-px transition-colors ${
-                      activeSection === s.id ? 'border-accent text-ink-strong font-semibold' : 'border-transparent text-muted hover:text-ink'
-                    }`}
-                  >
-                    {s.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+        <div className="lg:grid lg:grid-cols-[250px_minmax(0,1fr)] lg:gap-12 pt-8">
+          <ModuleRail
+            module={data.module}
+            capabilities={data.capabilities}
+            style={style}
+            me={me}
+            sections={sections}
+            activeSection={activeSection}
+            progress={progress}
+            estReadMinutes={data.estReadMinutes}
+            courseLabel={courseLabel}
+            listenOpen={listenOpen}
+            onToggleListen={toggleListen}
+            onJumpToLead={jumpToLead}
+            sortingAnchorId={sortingAnchorId}
+          />
 
           <article ref={articleRef} className="max-w-2xl">
-            <p className="label-utility">
-              {COURSE_LABELS[data.module.courseId] ?? data.module.courseId} · Module {data.module.ordinal} · ~{data.estReadMinutes} min read
-            </p>
-            <h1 className="font-display font-bold text-ink-strong text-3xl sm:text-4xl mt-3 tracking-tight">{data.module.title}</h1>
-            <p className="text-muted mt-2">{data.module.blurb}</p>
-{data.capabilities.micro && (
-              <p className="text-sm mt-2">
-                <Link to={`/module/${moduleId}/micro`} className="text-accent no-underline hover:underline">Short on time? The two-minute version →</Link>
+            <div ref={headerRef}>
+              <p className="label-utility flex items-center flex-wrap gap-x-2.5 gap-y-1.5">
+                <span>{courseLabel} · Module {data.module.ordinal} · ~{data.estReadMinutes} min read</span>
+                {data.capabilities.micro && (
+                  <Link
+                    to={`/module/${moduleId}/micro`}
+                    className={`border rounded-full px-2.5 py-0.5 no-underline hover:border-ink-strong ${
+                      essentials ? 'border-signal bg-signal/10 text-ink-strong' : 'border-line-strong text-accent'
+                    }`}
+                  >
+                    {essentials ? 'You asked for short — the 2-min version' : '2-min version'}
+                  </Link>
+                )}
+                {me?.prefs?.styles?.length ? (
+                  <span className="border border-line-strong rounded-full px-2.5 py-0.5 text-muted">your style: {STYLE_LABELS[style]}</span>
+                ) : null}
               </p>
-            )}
+              <h1 className="font-display font-bold text-ink-strong text-3xl sm:text-4xl mt-3 tracking-tight">{data.module.title}</h1>
+              <p className="text-muted mt-2">{data.module.blurb}</p>
+              <ModuleLead
+                module={data.module}
+                capabilities={data.capabilities}
+                style={style}
+                me={me}
+                mcp={data.mcp}
+                listenOpen={listenOpen}
+                sortingAnchorId={sortingAnchorId}
+              />
+            </div>
 
-            {data.capabilities.micro && depthOf(me?.prefs?.depth) === 'essentials' && (
-              <div className="mt-5 border border-signal rounded-brand bg-signal/10 px-4 py-2.5 flex items-center justify-between gap-3">
-                <p className="text-sm text-ink">
-                  <span className="font-display font-semibold">You asked for short and sweet</span> — this module has a two-minute version.
-                </p>
-                <Link to={`/module/${moduleId}/micro`} className="text-accent font-semibold text-sm no-underline hover:underline whitespace-nowrap">
-                  Read the micro →
-                </Link>
-              </div>
-            )}
-            <ModuleHub module={data.module} capabilities={data.capabilities} sortingAnchorId={sortingAnchorId} />
+            <hr className="border-0 border-t border-line mt-8" />
 
-            <div className="mt-6 sm:pl-2">
+            <div className="mt-2">
               {data.blocks.filter((b) => b.moduleId === moduleId).map((b) => (
                 <Block key={b.id} block={b} moduleId={moduleId} openingFields={data.openingFields} openingValues={data.openingValues} />
               ))}
             </div>
 
-            <footer className="mt-12 border-t border-line pt-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:justify-between">
-              <span className="font-utility text-[0.7rem] text-muted">
+            <footer className="mt-14">
+              {data.capabilities.knowledgeCheck && (
+                <div className="border border-ink-strong rounded-brand bg-surface p-6 sm:p-7">
+                  <p className="label-utility">{style === 'quiz_first' ? 'Studied up?' : "You've reached the end of the read"}</p>
+                  <h3 className="font-display font-semibold text-ink-strong text-2xl mt-2">
+                    {style === 'quiz_first' ? 'Back to the quiz.' : "Finish the module — or prove you didn't need it."}
+                  </h3>
+                  <p className="text-sm text-ink mt-2 max-w-[52ch]">
+                    The knowledge check closes this module: 60%+ clears anything it unlocks, misses point you at the exact lesson
+                    to revisit. Retakes are free and unlimited.
+                  </p>
+                  <div className="flex flex-wrap items-center gap-x-5 gap-y-3 mt-4">
+                    <Link
+                      to={`/module/${moduleId}/check`}
+                      className="inline-flex items-center px-5 py-2.5 font-display font-semibold text-[0.95rem] rounded-brand bg-accent text-on-accent hover:brightness-110 no-underline"
+                    >
+                      Take the knowledge check
+                    </Link>
+                    {data.capabilities.chat && (
+                      <Link to={tutorHref(me, moduleId)} className="text-accent font-semibold text-sm no-underline hover:underline">
+                        Or discuss with the tutor first →
+                      </Link>
+                    )}
+                  </div>
+                </div>
+              )}
+              <p className="font-utility text-[0.7rem] text-muted mt-6">
                 Concepts reviewed {data.stamps.conceptsReviewedAt ?? '—'} · Examples current as of {data.stamps.examplesCurrentAsOf ?? '—'}
-              </span>
-              <span className="flex items-center gap-4">
-                {data.capabilities.chat && (
-                  <Link to={`/module/${moduleId}/chat`} className="text-accent font-semibold text-sm no-underline hover:underline">
-                    Discuss with the tutor →
-                  </Link>
-                )}
-                {data.capabilities.knowledgeCheck && (
-                  <Link to={`/module/${moduleId}/check`} className="text-accent font-semibold text-sm no-underline hover:underline">
-                    Knowledge check →
-                  </Link>
-                )}
-                {data.capabilities.activity && (
-                  <Link to={`/module/${moduleId}/activity`} className="text-accent font-semibold text-sm no-underline hover:underline">
-                    Applied activity →
-                  </Link>
-                )}
-              </span>
+              </p>
             </footer>
           </article>
         </div>
