@@ -8,7 +8,7 @@ export type GoalChoice = {
   id: string;
   label: string;
   detail: string;
-  modules: string[]; // ai101 module ids this goal points at
+  modules: string[]; // module ids this goal points at
   courses: string[]; // later courses this goal points at
 };
 
@@ -24,14 +24,14 @@ export const GOAL_CHOICES: GoalChoice[] = [
     id: 'apply',
     label: 'Put AI to work in my job',
     detail: 'Real tasks from a People leader\'s week — job descriptions, ER write-ups, policy drafts, survey summaries — done in minutes, checked by you.',
-    modules: ['ai101-m2', 'ai101-m4', 'ai101-m5'],
+    modules: ['ai101-m2', 'ai101-m4', 'ai101-m5', 'ai201-m1', 'ai201-m3'],
     courses: ['ai201'],
   },
   {
     id: 'workflows',
     label: 'Become an automation ninja',
     detail: 'Go past chat: multi-step workflows and agents that handle the recurring People work while you review it.',
-    modules: ['ai101-m5'],
+    modules: ['ai101-m5', 'ai201-m1', 'ai201-m2', 'ai201-m5', 'ai201-m7', 'ai201-m8'],
     courses: ['ai201'],
   },
   {
@@ -52,7 +52,7 @@ export const GOAL_CHOICES: GoalChoice[] = [
     id: 'safety',
     label: 'Keep people data safe',
     detail: "Employee data is the most sensitive thing you hold. Know exactly what's safe to paste, and under what agreement — before anyone has to ask.",
-    modules: ['ai101-m4', 'ai101-m6', 'ai101-m7', 'ai101-m8'],
+    modules: ['ai101-m4', 'ai101-m6', 'ai101-m7', 'ai101-m8', 'ai201-m6'],
     courses: [],
   },
   {

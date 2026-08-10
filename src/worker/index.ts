@@ -5,7 +5,7 @@ import { and, asc, desc, eq, gt, inArray, lt, sql } from 'drizzle-orm';
 import * as t from '../db/schema';
 import { verifyCode, hashCode, signSessionId, verifySessionCookie, hashIp, signMcpKey } from './crypto';
 import { toolingOf, selectVariants, toBlock, stampsFor, getExercise, scoreSortingSubmission, type KnowledgeCheckPayload, type SortingPayload } from './content';
-import { createMcpApp } from './mcp';
+import { createMcpApp, recommendationsFor } from './mcp';
 import { createOauthApp, MCP_PATH } from './oauth';
 import { gradeSubmission, type RubricPayload } from './grading';
 import { adminApp } from './admin';
@@ -58,6 +58,8 @@ import type {
   ModuleCard,
   ModuleContentResponse,
   ModuleMcpActivity,
+  PathResponse,
+  PathSummary,
   PriorStage,
   TrailPoint,
   CalibrationTrail,
@@ -1024,6 +1026,25 @@ app.get('/api/path', async (c) => {
       })
       .filter(Boolean),
   );
+  // Per-module receipts for the ledger rows: when it was completed, and the
+  // best knowledge-check attempt — both straight from the rows above.
+  const completedAtById = new Map<string, string>();
+  const bestCheckById = new Map<string, { correct: number; total: number }>();
+  for (const e of doneRows) {
+    if (!e.payloadJson) continue;
+    const p = JSON.parse(e.payloadJson) as { moduleId?: string; correct?: number; total?: number };
+    if (typeof p.moduleId !== 'string') continue;
+    if (e.type === 'module_completed') {
+      const prev = completedAtById.get(p.moduleId);
+      if (!prev || e.createdAt < prev) completedAtById.set(p.moduleId, e.createdAt);
+    } else if (p.total) {
+      const best = bestCheckById.get(p.moduleId);
+      if (!best || (p.correct ?? 0) / p.total > best.correct / best.total) {
+        bestCheckById.set(p.moduleId, { correct: p.correct ?? 0, total: p.total });
+      }
+    }
+  }
+
   const kResponses = await db
     .select()
     .from(t.fdDiagnosticResponse)
@@ -1041,6 +1062,7 @@ app.get('/api/path', async (c) => {
   const prefs = await loadPrefs(db, session.id);
   const selectedGoals = GOAL_CHOICES.filter((g) => (prefs.goals ?? []).includes(g.id));
   const diagReasons = new Map<string, string>();
+  let diagnosticNote: string | null = null;
   const diagDoneRows = await db
     .select({ n: sql<number>`count(*)` })
     .from(t.fdEvent)
@@ -1050,6 +1072,11 @@ app.get('/api/path', async (c) => {
     const dir = diag.calibration.direction;
     if (dir === 'over' || dir === 'mixed') diagReasons.set('ai101-m6', 'your diagnostic: you expect too much from these tools');
     if (dir === 'under' || dir === 'mixed') diagReasons.set('ai101-m5', 'your diagnostic: you expect too little from these tools');
+    diagnosticNote =
+      dir === 'over' ? 'your diagnostic says you expect too much from these tools'
+      : dir === 'under' ? 'your diagnostic says you expect too little from these tools'
+      : dir === 'mixed' ? 'your diagnostic says your expectations swing both ways'
+      : 'your diagnostic says your instincts are well calibrated';
   }
   const reasonsFor = (moduleId: string): string[] => {
     const reasons: string[] = [];
@@ -1082,8 +1109,47 @@ app.get('/api/path', async (c) => {
       completed: completed.has(m.id),
       testedOut: !completed.has(m.id) && m.id === 'ai101-m1' && testedOutM1,
       recommendedFor: reasonsFor(m.id),
+      completedAt: completedAtById.get(m.id) ?? null,
+      bestCheck: bestCheckById.get(m.id) ?? null,
     };
   });
+
+  // The progress instrument: every number an honest read of the funnel.
+  // Minutes use the admin's math — gaps between consecutive events, counting
+  // only gaps under 10 minutes, so idle tabs don't inflate the estimate.
+  const openModules = modules.filter((m) => m.access === 'open');
+  const activeRaw = await db.all<{ active_min: number | null }>(sql`
+    WITH gaps AS (
+      SELECT (julianday(created_at) - julianday(LAG(created_at) OVER (ORDER BY created_at))) * 1440.0 AS gap_min
+      FROM fd_event WHERE session_id = ${session.id}
+    )
+    SELECT ROUND(SUM(CASE WHEN gap_min <= 10 THEN gap_min ELSE 0 END)) AS active_min FROM gaps`);
+  const activeRows = Array.isArray(activeRaw) ? activeRaw : ((activeRaw as { results?: { active_min: number | null }[] }).results ?? []);
+  const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
+  const dayRows = await db
+    .select({ day: sql<string>`DISTINCT substr(${t.fdEvent.createdAt}, 1, 10)` })
+    .from(t.fdEvent)
+    .where(and(eq(t.fdEvent.sessionId, session.id), sql`${t.fdEvent.createdAt} > ${weekAgo}`));
+  const openIds = new Set(openModules.map((m) => m.id));
+  const bestOnOpen = [...bestCheckById.entries()].filter(([id]) => openIds.has(id)).map(([, s]) => s);
+  const summary: PathSummary = {
+    openTotal: openModules.length,
+    doneCount: openModules.filter((m) => m.completed || m.testedOut).length,
+    minutesInvested: activeRows[0]?.active_min ?? 0,
+    activeDays7: dayRows.length,
+    checks: bestOnOpen.length
+      ? {
+          passed: bestOnOpen.filter((s) => s.total > 0 && s.correct / s.total >= 0.6).length,
+          correct: bestOnOpen.reduce((sum, s) => sum + s.correct, 0),
+          total: bestOnOpen.reduce((sum, s) => sum + s.total, 0),
+        }
+      : null,
+  };
+
+  // "Up next" is the same ranking the MCP tutor recommends from — one brain,
+  // two surfaces.
+  const recs = await recommendationsFor(db, { loadPrefs, computeDiagnosticResult }, session.id);
+  const upNext = recs.map(({ moduleId, reasons }) => ({ moduleId, reasons }));
 
   // Courses beyond 101 are locked cards; they live in content, not the DB, until they exist.
   const { courses } = (await import('../../content/modules.json')) as unknown as { courses: CourseCard[] };
@@ -1091,7 +1157,8 @@ app.get('/api/path', async (c) => {
     ...course,
     recommendedFor: selectedGoals.filter((g) => g.courses.includes(course.id)).map((g) => `your goal: ${g.label}`),
   }));
-  return c.json({ modules, courses: coursesOut });
+  const res: PathResponse = { modules, courses: coursesOut, summary, diagnosticNote, upNext };
+  return c.json(res);
 });
 
 // The two-minute cut of any module — same content system, tighter blocks.
