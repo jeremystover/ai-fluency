@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import { api } from '../api';
 import { Screen, ErrorNote } from '../components/ui';
 
-// The course as an MCP server, live. Each learner gets a personal connector
-// URL (their signed session key in the path) minted by /api/mcp/connection —
-// progress made inside Claude or ChatGPT and progress made here are the same
-// record, so the page's main job is handing over that URL plus honest steps.
+// The course as an MCP server, live. Two ways to connect, and the page leads
+// with the good one: the plain endpoint, which runs the OAuth handshake (the
+// learner approves on a branded screen and the token binds to their existing
+// session). The personal key URL stays as the fallback for clients that don't
+// speak OAuth — it's a secret, and the page says so.
 
 const ASK_EXAMPLES = [
   '"Teach me the next module of the AI fluency course."',
@@ -19,21 +20,27 @@ const ASK_EXAMPLES = [
 
 export default function McpSetup() {
   const [url, setUrl] = useState<string | null>(null);
+  const [keyUrl, setKeyUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState<'url' | 'key' | null>(null);
+  const [showKey, setShowKey] = useState(false);
 
   useEffect(() => {
     api
-      .get<{ url: string }>('/api/mcp/connection')
-      .then((r) => setUrl(r.url))
+      .get<{ url: string; keyUrl: string }>('/api/mcp/connection')
+      .then((r) => {
+        setUrl(r.url);
+        setKeyUrl(r.keyUrl);
+      })
       .catch((e: Error) => setError(e.message));
   }, []);
 
-  const copy = () => {
-    if (!url) return;
-    navigator.clipboard?.writeText(url).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+  const copy = (which: 'url' | 'key') => {
+    const value = which === 'url' ? url : keyUrl;
+    if (!value) return;
+    navigator.clipboard?.writeText(value).then(() => {
+      setCopied(which);
+      setTimeout(() => setCopied(null), 2000);
     });
   };
 
@@ -42,15 +49,16 @@ export default function McpSetup() {
       tool: 'Claude (claude.ai or desktop)',
       steps: [
         'Open Settings → Connectors → "Add custom connector".',
-        'Paste your personal course URL from above; no extra auth step — the key is in the URL.',
-        'Approve the connection. The course appears as tools Claude can call, and /learn, /quiz, and /whats-next show up as prompts.',
-        'Start a chat: "Teach me the next module of the AI fluency course." Claude pulls your real progress and teaches from the live content.',
+        'Paste the course URL from above and save.',
+        'Click "Connect". The course asks you to approve the connection — you\'ll see exactly what it can do, then you land back in Claude.',
+        'Start a chat: "Teach me the next module of the AI fluency course." Claude pulls your real progress and teaches from the live content, and /learn, /quiz, /challenge, /apply, /whats-next appear as prompts.',
       ],
     },
     {
       tool: 'Claude Code',
       steps: [
-        'Run: claude mcp add --transport http ai-fluency <your personal URL>',
+        'Run: claude mcp add --transport http ai-fluency <the course URL>',
+        'Run /mcp inside Claude Code and authenticate when it offers — same approval screen.',
         'Then in any session: "Quiz me on module ai101-m1" — or use the /learn prompt.',
       ],
     },
@@ -58,8 +66,8 @@ export default function McpSetup() {
       tool: 'ChatGPT',
       steps: [
         'Open Settings → Connectors and enable Developer Mode if your workspace requires it for custom connectors.',
-        'Add a new connector with your personal course URL.',
-        'Approve it for your chats, then ask: "Quiz me on Module 1 of the AI fluency course."',
+        'Add a new connector with the course URL and approve the connection when prompted.',
+        'Then ask: "Quiz me on Module 1 of the AI fluency course."',
       ],
     },
   ];
@@ -79,25 +87,49 @@ export default function McpSetup() {
         </p>
 
         <div className="mt-6 anim-rise" style={{ animationDelay: '90ms' }}>
-          <h2 className="font-display font-semibold text-ink-strong text-xl">Your personal course URL</h2>
+          <h2 className="font-display font-semibold text-ink-strong text-xl">The course URL</h2>
           {error && <div className="mt-3"><ErrorNote message={error} /></div>}
           {!error && (
             <div className="mt-3 border border-line rounded-brand bg-surface px-4 py-3">
-              <code className="font-utility text-xs text-ink break-all block">{url ?? 'Minting your key…'}</code>
+              <code className="font-utility text-xs text-ink break-all block">{url ?? 'Loading…'}</code>
               <button
                 type="button"
-                onClick={copy}
+                onClick={() => copy('url')}
                 disabled={!url}
                 className="mt-3 text-sm font-display font-semibold text-accent hover:underline disabled:opacity-50"
               >
-                {copied ? 'Copied ✓' : 'Copy URL'}
+                {copied === 'url' ? 'Copied ✓' : 'Copy URL'}
               </button>
             </div>
           )}
           <p className="text-sm text-muted mt-2">
-            This link is yours: it carries a signed key to your course record, so anyone holding it learns as you. Treat it like a
-            password; re-entering the course with your passcode mints a fresh one.
+            Paste this into your assistant's connector settings and hit Connect. You'll be asked to approve the connection here
+            first — that approval is what ties it to your course record. Nothing secret lives in this link, so it's safe to share
+            with a colleague; they'll approve with their own account.
           </p>
+
+          <details className="mt-4 border border-line rounded-brand bg-surface px-4 py-3" onToggle={(e) => setShowKey((e.target as HTMLDetailsElement).open)}>
+            <summary className="text-sm font-display font-semibold text-ink-strong cursor-pointer">
+              Using a client that can't sign in? Use your personal key URL
+            </summary>
+            <p className="text-sm text-muted mt-3">
+              Some MCP clients (and quick command-line tests) don't run the approval flow. This link authenticates as you all by
+              itself — <strong className="text-ink-strong">treat it like a password</strong>.
+            </p>
+            {showKey && (
+              <div className="mt-3">
+                <code className="font-utility text-xs text-ink break-all block">{keyUrl ?? 'Minting your key…'}</code>
+                <button
+                  type="button"
+                  onClick={() => copy('key')}
+                  disabled={!keyUrl}
+                  className="mt-3 text-sm font-display font-semibold text-accent hover:underline disabled:opacity-50"
+                >
+                  {copied === 'key' ? 'Copied ✓' : 'Copy key URL'}
+                </button>
+              </div>
+            )}
+          </details>
         </div>
 
         {steps.map((s, i) => (
