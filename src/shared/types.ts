@@ -12,6 +12,9 @@ export type BrandTokens = {
 export type Brand = {
   slug: string;
   name: string;
+  // 'passcode': the demo door (shared codes, no accounts).
+  // 'accounts': the product door — census-gated email + password sign-in.
+  authMode: 'passcode' | 'accounts';
   tokens: BrandTokens;
   voice: { greeting: string; signoff: string };
   // Assistants the company provisions (e.g. ["Claude"]). When the profile
@@ -184,6 +187,8 @@ export type MeResponse = {
   authenticated: boolean;
   displayName?: string | null;
   roleLabel?: string | null;
+  // Present when this session belongs to a real account (accounts mode).
+  account?: { email: string; name: string } | null;
   brandSlug?: string;
   prefs?: IntakePrefs;
   progress: {

@@ -1,4 +1,4 @@
-import { sqliteTable, text, integer, real, index } from 'drizzle-orm/sqlite-core';
+import { sqliteTable, text, integer, real, index, uniqueIndex } from 'drizzle-orm/sqlite-core';
 
 export const fdBrand = sqliteTable('fd_brand', {
   slug: text('slug').primaryKey(),
@@ -22,11 +22,33 @@ export const fdAccessCode = sqliteTable('fd_access_code', {
   active: integer('active').notNull().default(1),
 });
 
+// A real login identity (AUTH_MODE=accounts deployments). Passcode entry is
+// the demo door; accounts are the product door. Sign-up is census-gated: the
+// email must be on the imported fd_employee roster, so the census is the
+// allowlist. Passwords use the same PBKDF2 format as access codes.
+export const fdAccount = sqliteTable(
+  'fd_account',
+  {
+    id: text('id').primaryKey(),
+    brandSlug: text('brand_slug').notNull(),
+    email: text('email').notNull(), // stored lowercase
+    passwordHash: text('password_hash').notNull(), // pbkdf2$<iter>$<salt>$<hash>
+    name: text('name').notNull(),
+    createdAt: text('created_at').notNull(),
+    lastLoginAt: text('last_login_at'),
+  },
+  (t) => [uniqueIndex('idx_account_email').on(t.brandSlug, t.email)],
+);
+
 export const fdSession = sqliteTable(
   'fd_session',
   {
     id: text('id').primaryKey(),
+    // Demo sessions come from a shared passcode (code_id); account sessions
+    // carry account_id and are reused across sign-ins, so progress follows
+    // the account rather than the browser.
     codeId: text('code_id').notNull(),
+    accountId: text('account_id'),
     brandSlug: text('brand_slug').notNull(),
     createdAt: text('created_at').notNull(),
     lastSeenAt: text('last_seen_at').notNull(),
@@ -264,6 +286,22 @@ export const fdReview = sqliteTable(
   (t) => [index('idx_review_submission').on(t.submissionId)],
 );
 
+// Admin-authored steering text: what the company wants emphasized, overall
+// ('global'), per course ('course:<id>'), or per module ('module:<id>').
+// One row per (brand, scope); the text rides into every LLM personalization
+// prompt (tutor chat, podcast) alongside the module content.
+export const fdBrandGuidance = sqliteTable(
+  'fd_brand_guidance',
+  {
+    id: text('id').primaryKey(),
+    brandSlug: text('brand_slug').notNull(),
+    scope: text('scope').notNull(), // global | course:<id> | module:<id>
+    body: text('body').notNull(),
+    updatedAt: text('updated_at').notNull(),
+  },
+  (t) => [index('idx_guidance_brand').on(t.brandSlug, t.scope)],
+);
+
 // What a learner actually saw, content-addressed: one row per distinct
 // version (hash of the serialized content), shared by every completion that
 // witnessed that version. Unchanged content costs one row no matter how many
@@ -302,6 +340,49 @@ export const fdCompletionAudit = sqliteTable(
     index('idx_audit_module').on(t.moduleId, t.activity),
     index('idx_audit_hash').on(t.contentHash),
   ],
+);
+
+// The employee census: who should be taking the course. Imported via CSV in
+// the admin (Workday/Okta sync will land on the same rows — the source column
+// says where each row came from). Learner sessions are anonymous passcode
+// entries, so matching to sessions is by self-reported name until SSO exists.
+export const fdEmployee = sqliteTable(
+  'fd_employee',
+  {
+    id: text('id').primaryKey(),
+    brandSlug: text('brand_slug').notNull(),
+    name: text('name').notNull(),
+    email: text('email'),
+    roleTitle: text('role_title'),
+    managerName: text('manager_name'),
+    managerEmail: text('manager_email'),
+    level: text('level'),
+    location: text('location'),
+    startDate: text('start_date'),
+    source: text('source').notNull().default('csv'), // csv | workday | okta
+    createdAt: text('created_at').notNull(),
+    updatedAt: text('updated_at').notNull(),
+  },
+  (t) => [index('idx_employee_brand').on(t.brandSlug)],
+);
+
+// Configurable nudges. Rules are evaluated against the census + funnel; the
+// preview endpoint shows exactly who each rule would notify today. Delivery
+// requires an email provider — rules and previews work without one.
+export const fdReminderRule = sqliteTable(
+  'fd_reminder_rule',
+  {
+    id: text('id').primaryKey(),
+    brandSlug: text('brand_slug').notNull(),
+    audience: text('audience').notNull(), // employee | manager
+    trigger: text('trigger').notNull(), // not_started | inactive | incomplete
+    days: integer('days').notNull(), // trigger-specific threshold in days
+    template: text('template').notNull(), // {name} {first_name} {manager_name} {days} placeholders
+    active: integer('active').notNull().default(1),
+    createdAt: text('created_at').notNull(),
+    updatedAt: text('updated_at').notNull(),
+  },
+  (t) => [index('idx_reminder_brand').on(t.brandSlug)],
 );
 
 export const fdModule = sqliteTable('fd_module', {

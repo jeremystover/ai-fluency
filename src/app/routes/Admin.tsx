@@ -3,12 +3,24 @@ import { Screen, Button, ErrorNote } from '../components/ui';
 import { api, ApiError } from '../api';
 import { goalLabel } from '../../shared/goals';
 
-// Operator console: review queue (the async backup for the M8 peer exchange),
-// funnel reporting, access-code management, and the completion audit trail.
-// Deliberately utilitarian — this is a tool for one operator, not a learner
-// surface.
+// Operator console: the LMS completion log (learners), content management,
+// review queue (the async backup for the M8 peer exchange), funnel reporting,
+// access-code management, and the completion audit trail. Deliberately
+// utilitarian — this is a tool for one company admin, not a learner surface.
 
-type Tab = 'queue' | 'report' | 'codes' | 'audit';
+type Tab = 'learners' | 'content' | 'brand' | 'census' | 'reminders' | 'queue' | 'report' | 'codes' | 'audit';
+
+const TAB_LABELS: Record<Tab, string> = {
+  learners: 'Learners',
+  content: 'Content',
+  brand: 'Brand',
+  census: 'Census',
+  reminders: 'Reminders',
+  queue: 'Review queue',
+  report: 'Reporting',
+  codes: 'Access codes',
+  audit: 'Content audit',
+};
 
 type SubmissionRow = {
   id: string;
@@ -56,6 +68,72 @@ type AuditRow = {
   created_at: string;
   snapshot_kind: string | null;
   display_name: string | null;
+};
+
+type LearnerRow = {
+  session_id: string;
+  created_at: string;
+  last_seen_at: string;
+  display_name: string | null;
+  role_label: string | null;
+  code_label: string | null;
+  active_min: number;
+  modules_completed: number;
+  last_completed_at: string | null;
+  quiz_avg_pct: number | null;
+  quiz_attempts: number;
+  best_activity_score: number | null;
+  submissions: number;
+  podcast_listens: number;
+};
+
+type LearnerDetail = {
+  session: { id: string; createdAt: string; lastSeenAt: string };
+  participant: { displayName: string | null; roleLabel: string | null; orgLabel: string | null } | null;
+  preferences: Record<string, unknown>;
+  activeMinutes: number;
+  timeline: { type: string; payload_json: string | null; created_at: string }[];
+  submissions: { id: string; module_id: string; created_at: string; graded_at: string | null; total_score: number | null; chars: number }[];
+  audits: { id: string; module_id: string; activity: string; ref_id: string | null; content_hash: string; created_at: string; snapshot_kind: string | null }[];
+};
+
+type ContentModuleRow = {
+  id: string;
+  course_id: string;
+  ordinal: number;
+  title: string;
+  status: string;
+  est_minutes: number;
+  blocks: number;
+  micro_blocks: number;
+  activity_blocks: number;
+  exercise_kinds: string | null;
+  oldest_reviewed_at: string | null;
+  versions_witnessed: number;
+};
+
+type ContentBlockRow = {
+  id: string;
+  moduleId: string;
+  ordinal: number;
+  kind: string;
+  layer: string;
+  body: string;
+  variant: string | null;
+  reviewedAt: string;
+};
+
+type BrandConfig = {
+  slug: string;
+  name: string;
+  tokens: Record<string, unknown>;
+  voice: Record<string, unknown>;
+  profile: { aiTools?: string[] } & Record<string, unknown>;
+};
+
+type GuidanceData = {
+  guidance: { scope: string; body: string; updatedAt: string }[];
+  scopes: { courses: string[]; modules: { id: string; title: string; status: string }[] };
 };
 
 type SnapshotDetail = {
@@ -409,6 +487,736 @@ function Codes() {
   );
 }
 
+const fmtMin = (m: number) => (m >= 60 ? `${Math.floor(m / 60)}h ${Math.round(m % 60)}m` : `${Math.round(m)}m`);
+
+// One-line human description of a timeline event from its payload.
+function describeEvent(type: string, payloadJson: string | null): string {
+  const p = payloadJson ? (JSON.parse(payloadJson) as Record<string, unknown>) : {};
+  const mod = typeof p.moduleId === 'string' ? p.moduleId : '';
+  switch (type) {
+    case 'code_entered': return `entered with code "${p.codeLabel ?? '?'}"`;
+    case 'intake_completed': return 'completed intake';
+    case 'diagnostic_completed': return `finished the diagnostic${typeof p.correct === 'number' ? ` · ${p.correct}/${p.total}` : ''}`;
+    case 'module_opened': return `opened ${mod}`;
+    case 'module_completed': return `completed ${mod}`;
+    case 'knowledge_check_submitted': return `knowledge check ${mod} · ${p.correct}/${p.total}`;
+    case 'sort_submitted': return `sorting exercise ${mod} · ${p.correct}/${p.total}`;
+    case 'choice_submitted': return `choice exercise ${mod} · ${p.correct ? 'correct' : 'incorrect'}`;
+    case 'activity_submitted': return `submitted activity ${mod} (${p.chars} chars)`;
+    case 'activity_graded': return `activity graded ${mod} · ${p.total}/20`;
+    case 'chat_started': return `started tutor chat${mod ? ` ${mod}` : ''}`;
+    case 'podcast_played': return 'listened to a podcast episode';
+    default: return type.replaceAll('_', ' ');
+  }
+}
+
+function Learners() {
+  const [rows, setRows] = useState<LearnerRow[] | null>(null);
+  const [filter, setFilter] = useState('');
+  const [detail, setDetail] = useState<LearnerDetail | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+
+  useEffect(() => {
+    api.get<{ learners: LearnerRow[] }>('/api/admin/learners').then((d) => setRows(d.learners));
+  }, []);
+
+  const open = async (id: string) => {
+    setSelectedId(id);
+    setDetail(null);
+    setDetail(await api.get<LearnerDetail>(`/api/admin/learners/${id}`));
+  };
+
+  if (!rows) return <p className="label-utility mt-8">Loading learners…</p>;
+  const q = filter.trim().toLowerCase();
+  const shown = q
+    ? rows.filter((r) => [r.display_name ?? '', r.role_label ?? '', r.code_label ?? '', r.session_id].some((v) => v.toLowerCase().includes(q)))
+    : rows;
+  const prefs = detail?.preferences as { objective?: unknown } | undefined;
+  return (
+    <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
+      <div>
+        <input
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+          placeholder="Filter by name, role, or access code…"
+          className="w-full border border-line-strong bg-surface rounded-brand px-3 py-2 text-sm focus:border-accent placeholder:text-muted/60"
+          aria-label="Filter learners"
+        />
+        <div className="overflow-x-auto mt-3">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="text-left">
+                {['Who', 'First seen', 'Last seen', 'Time', 'Modules', 'Quiz', 'Activity', 'Pods'].map((h) => (
+                  <th key={h} className="label-utility font-normal pb-2 pr-3">{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {shown.map((r) => (
+                <tr
+                  key={r.session_id}
+                  onClick={() => open(r.session_id)}
+                  className={`border-t border-line cursor-pointer hover:bg-accent/5 ${selectedId === r.session_id ? 'bg-accent/10' : ''}`}
+                >
+                  <td className="py-2 pr-3">
+                    {r.display_name ?? 'Anonymous'}
+                    {r.role_label && <span className="text-muted text-xs"> · {r.role_label}</span>}
+                  </td>
+                  <td className="py-2 pr-3 font-utility text-xs text-muted whitespace-nowrap">{fmtDate(r.created_at)}</td>
+                  <td className="py-2 pr-3 font-utility text-xs text-muted whitespace-nowrap">{fmtDate(r.last_seen_at)}</td>
+                  <td className="py-2 pr-3 font-utility text-xs">{fmtMin(r.active_min)}</td>
+                  <td className="py-2 pr-3 font-utility text-xs">{r.modules_completed}</td>
+                  <td className="py-2 pr-3 font-utility text-xs">{r.quiz_avg_pct !== null ? `${r.quiz_avg_pct}%` : '—'}</td>
+                  <td className="py-2 pr-3 font-utility text-xs">{r.best_activity_score !== null ? `${r.best_activity_score}/20` : r.submissions > 0 ? 'ungraded' : '—'}</td>
+                  <td className="py-2 pr-3 font-utility text-xs">{r.podcast_listens || '—'}</td>
+                </tr>
+              ))}
+              {shown.length === 0 && (
+                <tr><td colSpan={8} className="py-6 text-muted text-sm">No learner sessions{q ? ' matching the filter' : ' yet'}.</td></tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-muted mt-2">
+          Time is estimated active time: gaps between recorded interactions, counting only gaps under 10 minutes. Quiz is the average of each module's latest knowledge-check attempt.
+        </p>
+      </div>
+      <div>
+        {selectedId ? (
+          detail ? (
+            <div className="border border-line rounded-brand bg-surface p-5">
+              <h2 className="font-display font-semibold text-ink-strong">
+                {detail.participant?.displayName ?? 'Anonymous'}
+                {detail.participant?.roleLabel ? ` · ${detail.participant.roleLabel}` : ''}
+              </h2>
+              <p className="text-xs text-muted mt-1">
+                {fmtDate(detail.session.createdAt)} → {fmtDate(detail.session.lastSeenAt)} · ~{fmtMin(detail.activeMinutes)} active
+              </p>
+              {typeof prefs?.objective === 'string' && (
+                <p className="text-xs text-ink mt-2 border-l-2 border-accent pl-2">Objective: “{prefs.objective}”</p>
+              )}
+              <span className="label-utility block mt-4">Timeline</span>
+              <div className="mt-1 max-h-56 overflow-y-auto flex flex-col gap-0.5">
+                {detail.timeline.map((e, i) => (
+                  <p key={i} className="text-xs text-ink">
+                    <span className="font-utility text-muted">{fmtDate(e.created_at)}</span> · {describeEvent(e.type, e.payload_json)}
+                  </p>
+                ))}
+                {detail.timeline.length === 0 && <p className="text-xs text-muted">No recorded activity.</p>}
+              </div>
+              {detail.submissions.length > 0 && (
+                <>
+                  <span className="label-utility block mt-4">Submissions</span>
+                  {detail.submissions.map((s) => (
+                    <p key={s.id} className="text-xs text-ink mt-1">
+                      <span className="font-utility text-muted">{fmtDate(s.created_at)}</span> · {s.module_id} · {s.chars} chars ·{' '}
+                      {s.graded_at ? `${s.total_score}/20` : 'ungraded'}
+                    </p>
+                  ))}
+                </>
+              )}
+              <span className="label-utility block mt-4">Content versions witnessed</span>
+              <div className="mt-1 max-h-40 overflow-y-auto flex flex-col gap-0.5">
+                {detail.audits.map((a) => (
+                  <p key={a.id} className="text-xs text-ink">
+                    <span className="font-utility text-muted">{fmtDate(a.created_at)}</span> · {a.activity.replaceAll('_', ' ')} · {a.module_id} ·{' '}
+                    <span className="font-utility" title={a.content_hash}>{a.content_hash.slice(0, 10)}</span>
+                  </p>
+                ))}
+                {detail.audits.length === 0 && <p className="text-xs text-muted">Nothing witnessed yet.</p>}
+              </div>
+              <p className="text-[0.65rem] text-muted mt-2">Open any version hash in the Content audit tab to read the exact content as this learner saw it.</p>
+            </div>
+          ) : (
+            <p className="label-utility mt-4">Loading learner…</p>
+          )
+        ) : (
+          <p className="text-muted text-sm mt-2">Select a learner to see their full history: timeline, quiz results, submissions, and the content versions they witnessed.</p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function Content() {
+  const [modules, setModules] = useState<ContentModuleRow[] | null>(null);
+  const [moduleId, setModuleId] = useState<string | null>(null);
+  const [segment, setSegment] = useState<'read' | 'micro' | 'activity'>('read');
+  const [blocks, setBlocks] = useState<ContentBlockRow[] | null>(null);
+  const [editing, setEditing] = useState<string | null>(null);
+  const [draft, setDraft] = useState('');
+  const [busy, setBusy] = useState(false);
+  const [note, setNote] = useState<string | null>(null);
+
+  useEffect(() => {
+    api.get<{ modules: ContentModuleRow[] }>('/api/admin/content/modules').then((d) => setModules(d.modules));
+  }, []);
+
+  const contentId = moduleId ? (segment === 'read' ? moduleId : `${moduleId}-${segment}`) : null;
+  useEffect(() => {
+    if (!contentId) return;
+    setBlocks(null);
+    setEditing(null);
+    api.get<{ blocks: ContentBlockRow[] }>(`/api/admin/content/blocks?module=${encodeURIComponent(contentId)}`).then((d) => setBlocks(d.blocks));
+  }, [contentId]);
+
+  const save = async (blockId: string) => {
+    if (busy) return;
+    setBusy(true);
+    setNote(null);
+    try {
+      const r = await api.put<{ ok: boolean; reviewedAt: string }>(`/api/admin/content/blocks/${blockId}`, { body: draft });
+      setBlocks((prev) => prev?.map((b) => (b.id === blockId ? { ...b, body: draft, reviewedAt: r.reviewedAt } : b)) ?? null);
+      setEditing(null);
+      setNote('Saved. The change is live for new views; earlier learners keep their audited version.');
+    } catch (e) {
+      setNote(e instanceof ApiError ? e.message : 'Failed to save.');
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  if (!modules) return <p className="label-utility mt-8">Loading content…</p>;
+  const selected = modules.find((m) => m.id === moduleId) ?? null;
+  return (
+    <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]">
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="text-left">
+              {['Module', 'Status', 'Blocks', 'Versions'].map((h) => (
+                <th key={h} className="label-utility font-normal pb-2 pr-3">{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {modules.map((m) => (
+              <tr
+                key={m.id}
+                onClick={() => { setModuleId(m.id); setSegment('read'); }}
+                className={`border-t border-line cursor-pointer hover:bg-accent/5 ${moduleId === m.id ? 'bg-accent/10' : ''}`}
+              >
+                <td className="py-2 pr-3">
+                  <span className="font-utility text-xs">{m.id}</span>
+                  <span className="block text-xs text-muted">{m.title}</span>
+                </td>
+                <td className="py-2 pr-3 font-utility text-xs">{m.status}</td>
+                <td className="py-2 pr-3 font-utility text-xs">{m.blocks}{m.micro_blocks ? ` +${m.micro_blocks}µ` : ''}{m.activity_blocks ? ` +${m.activity_blocks}a` : ''}</td>
+                <td className="py-2 pr-3 font-utility text-xs">{m.versions_witnessed || '—'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div>
+        {selected && contentId ? (
+          <div>
+            <div className="flex items-center justify-between flex-wrap gap-2">
+              <h2 className="font-display font-semibold text-ink-strong">{selected.title}</h2>
+              <div className="flex gap-1">
+                {(['read', 'micro', 'activity'] as const).map((s) => (
+                  <button
+                    key={s}
+                    onClick={() => setSegment(s)}
+                    aria-pressed={segment === s}
+                    className={`px-2 py-1 rounded-brand font-utility text-[0.65rem] uppercase tracking-wider ${segment === s ? 'bg-ink-strong text-surface' : 'text-muted hover:text-ink-strong'}`}
+                  >
+                    {s === 'read' ? `Reading (${selected.blocks})` : s === 'micro' ? `Micro (${selected.micro_blocks})` : `Activity (${selected.activity_blocks})`}
+                  </button>
+                ))}
+              </div>
+            </div>
+            {selected.exercise_kinds && (
+              <p className="text-xs text-muted mt-1">Exercises: {selected.exercise_kinds.replaceAll(',', ' · ')} (edit via seed packages — answer keys never render here)</p>
+            )}
+            {note && <p className="text-xs text-accent mt-2">{note}</p>}
+            {!blocks ? (
+              <p className="label-utility mt-4">Loading blocks…</p>
+            ) : blocks.length === 0 ? (
+              <p className="text-muted text-sm mt-4">No blocks in this segment.</p>
+            ) : (
+              <div className="mt-3 flex flex-col gap-3">
+                {blocks.map((b) => (
+                  <div key={b.id} className="border border-line rounded-brand bg-surface p-4">
+                    <div className="flex items-center justify-between flex-wrap gap-2">
+                      <span className="font-utility text-[0.65rem] uppercase tracking-wider text-muted">
+                        #{b.ordinal} · {b.kind} · {b.layer}{b.variant ? ` · ${b.variant}` : ''} · reviewed {b.reviewedAt}
+                      </span>
+                      {editing === b.id ? (
+                        <span className="flex gap-2">
+                          <Button onClick={() => save(b.id)} disabled={busy || !draft.trim()}>{busy ? 'Saving…' : 'Save'}</Button>
+                          <button onClick={() => setEditing(null)} className="text-muted text-xs hover:text-ink-strong">Cancel</button>
+                        </span>
+                      ) : (
+                        <button onClick={() => { setEditing(b.id); setDraft(b.body); }} className="text-accent text-xs font-semibold hover:underline">Edit</button>
+                      )}
+                    </div>
+                    {editing === b.id ? (
+                      <textarea
+                        value={draft}
+                        onChange={(e) => setDraft(e.target.value)}
+                        rows={Math.min(24, Math.max(6, draft.split('\n').length + 2))}
+                        className="mt-2 w-full border border-line-strong bg-surface rounded-brand px-3 py-2 text-sm font-utility text-ink focus:border-accent"
+                      />
+                    ) : (
+                      <pre className="mt-2 whitespace-pre-wrap text-xs text-ink font-body max-h-48 overflow-y-auto">{b.body}</pre>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        ) : (
+          <p className="text-muted text-sm mt-2">
+            Select a module to read and edit its content. Edits go live immediately for new views — learners who already saw the old version keep their audited snapshot, and the next view mints a new version in the audit trail.
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// One guidance editor: a textarea bound to a scope, saved on demand.
+function GuidanceEditor({ scope, label, hint, initial, onSaved }: { scope: string; label: string; hint?: string; initial: string; onSaved: () => void }) {
+  const [text, setText] = useState(initial);
+  const [busy, setBusy] = useState(false);
+  const [note, setNote] = useState<string | null>(null);
+  const dirty = text.trim() !== initial.trim();
+  const save = async () => {
+    if (busy) return;
+    setBusy(true);
+    setNote(null);
+    try {
+      await api.put('/api/admin/guidance', { scope, body: text });
+      setNote(text.trim() ? 'Saved — future tutor and podcast sessions carry it.' : 'Cleared.');
+      onSaved();
+    } catch (e) {
+      setNote(e instanceof ApiError ? e.message : 'Failed to save.');
+    } finally {
+      setBusy(false);
+    }
+  };
+  return (
+    <div className="border border-line rounded-brand bg-surface p-4">
+      <div className="flex items-center justify-between flex-wrap gap-2">
+        <span className="label-utility">{label}</span>
+        <span className="flex items-center gap-2">
+          {note && <span className="text-xs text-muted">{note}</span>}
+          <Button onClick={save} disabled={busy || !dirty}>{busy ? 'Saving…' : 'Save'}</Button>
+        </span>
+      </div>
+      {hint && <p className="text-xs text-muted mt-1">{hint}</p>}
+      <textarea
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        rows={4}
+        placeholder="Key takeaways, points to reinforce, company-specific framing… Leave empty for none."
+        className="mt-2 w-full border border-line-strong bg-surface rounded-brand px-3 py-2 text-sm text-ink focus:border-accent placeholder:text-muted/60"
+      />
+    </div>
+  );
+}
+
+function BrandTab() {
+  const [brand, setBrand] = useState<BrandConfig | null>(null);
+  const [guidance, setGuidance] = useState<GuidanceData | null>(null);
+  const [name, setName] = useState('');
+  const [aiTools, setAiTools] = useState('');
+  const [tokensDraft, setTokensDraft] = useState('');
+  const [voiceDraft, setVoiceDraft] = useState('');
+  const [busy, setBusy] = useState(false);
+  const [note, setNote] = useState<string | null>(null);
+
+  const load = async () => {
+    const b = await api.get<BrandConfig>('/api/admin/brand');
+    setBrand(b);
+    setName(b.name);
+    setAiTools((b.profile.aiTools ?? []).join(', '));
+    setTokensDraft(JSON.stringify(b.tokens, null, 2));
+    setVoiceDraft(JSON.stringify(b.voice, null, 2));
+    setGuidance(await api.get<GuidanceData>('/api/admin/guidance'));
+  };
+  useEffect(() => {
+    load();
+  }, []);
+
+  const saveIdentity = async () => {
+    if (busy || !brand) return;
+    setBusy(true);
+    setNote(null);
+    try {
+      let tokens: unknown;
+      let voice: unknown;
+      try {
+        tokens = JSON.parse(tokensDraft);
+        voice = JSON.parse(voiceDraft);
+      } catch {
+        setNote('Design tokens and voice must be valid JSON.');
+        setBusy(false);
+        return;
+      }
+      const tools = aiTools.split(',').map((s) => s.trim()).filter(Boolean);
+      await api.put('/api/admin/brand', {
+        name,
+        tokens,
+        voice,
+        profile: { ...brand.profile, aiTools: tools },
+      });
+      setNote('Saved. Learners see the new identity on their next page load.');
+    } catch (e) {
+      setNote(e instanceof ApiError ? e.message : 'Failed to save.');
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  if (!brand || !guidance) return <p className="label-utility mt-8">Loading brand…</p>;
+  const bodyFor = (scope: string) => guidance.guidance.find((g) => g.scope === scope)?.body ?? '';
+  const openModules = guidance.scopes.modules.filter((m) => m.status === 'open');
+  const refresh = () => api.get<GuidanceData>('/api/admin/guidance').then(setGuidance);
+  return (
+    <div className="mt-6 grid gap-6 lg:grid-cols-2">
+      <div>
+        <span className="label-utility">Content guidance</span>
+        <p className="text-xs text-muted mt-1 mb-3">
+          What you write here is passed to the AI whenever it personalizes content — the module tutor and the podcast hosts weave it in. Use it for key takeaways you want reinforced, company framing, or additions the base content doesn't carry. Changes apply to new sessions and re-bake stock episodes automatically.
+        </p>
+        <div className="flex flex-col gap-3">
+          <GuidanceEditor scope="global" label="Overall — every course and module" initial={bodyFor('global')} onSaved={refresh} />
+          {guidance.scopes.courses.map((courseId) => (
+            <GuidanceEditor key={courseId} scope={`course:${courseId}`} label={`Course · ${courseId}`} initial={bodyFor(`course:${courseId}`)} onSaved={refresh} />
+          ))}
+          {openModules.map((m) => (
+            <GuidanceEditor key={m.id} scope={`module:${m.id}`} label={`Module · ${m.id}`} hint={m.title} initial={bodyFor(`module:${m.id}`)} onSaved={refresh} />
+          ))}
+        </div>
+      </div>
+      <div>
+        <span className="label-utility">Brand identity · {brand.slug}</span>
+        <div className="mt-3 border border-line rounded-brand bg-surface p-4 flex flex-col gap-3">
+          <label className="flex flex-col gap-1">
+            <span className="label-utility">Company name</span>
+            <input value={name} onChange={(e) => setName(e.target.value)} className="border border-line-strong rounded-brand px-3 py-2 text-sm focus:border-accent" />
+          </label>
+          <label className="flex flex-col gap-1">
+            <span className="label-utility">Provisioned AI tools (comma-separated)</span>
+            <input value={aiTools} onChange={(e) => setAiTools(e.target.value)} placeholder="Claude, Claude Code" className="border border-line-strong rounded-brand px-3 py-2 text-sm focus:border-accent placeholder:text-muted/60" />
+          </label>
+          <label className="flex flex-col gap-1">
+            <span className="label-utility">Design tokens (colors, fonts, radius — JSON)</span>
+            <textarea value={tokensDraft} onChange={(e) => setTokensDraft(e.target.value)} rows={10} spellCheck={false} className="border border-line-strong rounded-brand px-3 py-2 text-xs font-utility focus:border-accent" />
+          </label>
+          <label className="flex flex-col gap-1">
+            <span className="label-utility">Voice (copy register — JSON)</span>
+            <textarea value={voiceDraft} onChange={(e) => setVoiceDraft(e.target.value)} rows={5} spellCheck={false} className="border border-line-strong rounded-brand px-3 py-2 text-xs font-utility focus:border-accent" />
+          </label>
+          <div className="flex items-center gap-3">
+            <Button onClick={saveIdentity} disabled={busy}>{busy ? 'Saving…' : 'Save identity'}</Button>
+            {note && <span className="text-xs text-muted">{note}</span>}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+type EmployeeRow = {
+  id: string;
+  name: string;
+  email: string | null;
+  roleTitle: string | null;
+  managerName: string | null;
+  managerEmail: string | null;
+  level: string | null;
+  location: string | null;
+  startDate: string | null;
+  source: string;
+  matchedSessionId: string | null;
+  lastSeenAt: string | null;
+  modulesCompleted: number;
+  hasAccount: boolean;
+  accountLastLoginAt: string | null;
+};
+
+function Census() {
+  const [employees, setEmployees] = useState<EmployeeRow[] | null>(null);
+  const [csv, setCsv] = useState('');
+  const [busy, setBusy] = useState(false);
+  const [note, setNote] = useState<string | null>(null);
+
+  const load = () => api.get<{ employees: EmployeeRow[] }>('/api/admin/census').then((d) => setEmployees(d.employees));
+  useEffect(() => {
+    load();
+  }, []);
+
+  const runImport = async () => {
+    if (busy || !csv.trim()) return;
+    setBusy(true);
+    setNote(null);
+    try {
+      const r = await api.post<{ imported: number; updated: number; skipped: number }>('/api/admin/census/import', { csv });
+      setNote(`Imported ${r.imported}, updated ${r.updated}${r.skipped ? `, skipped ${r.skipped} rows without a name` : ''}.`);
+      setCsv('');
+      await load();
+    } catch (e) {
+      setNote(e instanceof ApiError ? e.message : 'Import failed.');
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const remove = async (id: string) => {
+    await api.del(`/api/admin/census/${id}`);
+    await load();
+  };
+
+  const resetPassword = async (e: EmployeeRow) => {
+    setNote(null);
+    try {
+      const r = await api.post<{ tempPassword: string }>(`/api/admin/census/${e.id}/reset-password`);
+      setNote(`Temporary password for ${e.name}: ${r.tempPassword} — shown once, share it securely. They should change it after signing in.`);
+    } catch (err) {
+      setNote(err instanceof ApiError ? err.message : 'Reset failed.');
+    }
+  };
+
+  if (!employees) return <p className="label-utility mt-8">Loading census…</p>;
+  const matched = employees.filter((e) => e.matchedSessionId).length;
+  return (
+    <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,8fr)_minmax(0,4fr)]">
+      <div>
+        <p className="text-xs text-muted mb-2">
+          {employees.length} employees on file · {matched} matched to a learner session. Matching is by intake name (case-insensitive) until SSO provides real identity — unmatched rows may simply have entered a different name.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="text-left">
+                {['Name', 'Role', 'Manager', 'Level', 'Location', 'Started', 'Course status', 'Account', ''].map((h, i) => (
+                  <th key={i} className="label-utility font-normal pb-2 pr-3">{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {employees.map((e) => (
+                <tr key={e.id} className="border-t border-line">
+                  <td className="py-2 pr-3">
+                    {e.name}
+                    {e.email && <span className="block font-utility text-[0.65rem] text-muted">{e.email}</span>}
+                  </td>
+                  <td className="py-2 pr-3 text-xs">{e.roleTitle ?? '—'}</td>
+                  <td className="py-2 pr-3 text-xs">{e.managerName ?? '—'}</td>
+                  <td className="py-2 pr-3 font-utility text-xs">{e.level ?? '—'}</td>
+                  <td className="py-2 pr-3 text-xs">{e.location ?? '—'}</td>
+                  <td className="py-2 pr-3 font-utility text-xs">{e.startDate ?? '—'}</td>
+                  <td className="py-2 pr-3 text-xs">
+                    {e.matchedSessionId ? (
+                      <span>
+                        {e.modulesCompleted > 0 ? `${e.modulesCompleted} module${e.modulesCompleted === 1 ? '' : 's'} done` : 'started'}
+                        <span className="block font-utility text-[0.65rem] text-muted">seen {fmtDate(e.lastSeenAt)}</span>
+                      </span>
+                    ) : (
+                      <span className="text-muted">not started</span>
+                    )}
+                  </td>
+                  <td className="py-2 pr-3 text-xs">
+                    {e.hasAccount ? (
+                      <span>
+                        ✓<span className="block font-utility text-[0.65rem] text-muted">login {fmtDate(e.accountLastLoginAt)}</span>
+                        <button onClick={() => resetPassword(e)} className="text-accent text-[0.65rem] font-semibold hover:underline">Reset password</button>
+                      </span>
+                    ) : (
+                      <span className="text-muted">none</span>
+                    )}
+                  </td>
+                  <td className="py-2">
+                    <button onClick={() => remove(e.id)} className="text-muted text-xs hover:text-ink-strong">Remove</button>
+                  </td>
+                </tr>
+              ))}
+              {employees.length === 0 && (
+                <tr><td colSpan={9} className="py-6 text-muted text-sm">No employees yet — import a CSV to start the census.</td></tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div className="flex flex-col gap-4">
+        <div className="border border-line rounded-brand bg-surface p-4">
+          <span className="label-utility">CSV import</span>
+          <p className="text-xs text-muted mt-1">
+            Header row + one employee per row. Recognized columns: name (required), email, role/title, manager, manager_email, level, location, start_date. Re-importing updates existing rows by email, then name.
+          </p>
+          <textarea
+            value={csv}
+            onChange={(e) => setCsv(e.target.value)}
+            rows={7}
+            spellCheck={false}
+            placeholder={'name,email,role,manager,manager_email,level,location,start_date\nJane Doe,jane@acme.com,HRBP,Sam Lee,sam@acme.com,L5,Austin,2024-03-01'}
+            className="mt-2 w-full border border-line-strong bg-surface rounded-brand px-3 py-2 text-xs font-utility focus:border-accent placeholder:text-muted/60"
+          />
+          <div className="mt-2 flex items-center gap-3">
+            <Button onClick={runImport} disabled={busy || !csv.trim()}>{busy ? 'Importing…' : 'Import'}</Button>
+            {note && <span className="text-xs text-muted">{note}</span>}
+          </div>
+        </div>
+        <div className="border border-line rounded-brand bg-surface p-4">
+          <span className="label-utility">Workday · Okta</span>
+          <p className="text-xs text-muted mt-1">
+            Directory sync lands on these same rows (names, roles, managers, level, location, start date), with the source column marking where each record came from. Not yet connected — CSV import is the path today.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+type ReminderRule = {
+  id: string;
+  audience: string;
+  trigger: string;
+  days: number;
+  template: string;
+  active: boolean;
+};
+
+type ReminderPreview = {
+  ruleId: string;
+  audience: string;
+  trigger: string;
+  days: number;
+  recipients: { employee: string; to: string; message: string; deliverable: boolean }[];
+};
+
+const TRIGGER_LABELS: Record<string, string> = {
+  not_started: 'has not started',
+  inactive: 'inactive for',
+  incomplete: 'started but no module completed for',
+};
+
+function Reminders() {
+  const [rules, setRules] = useState<ReminderRule[] | null>(null);
+  const [previews, setPreviews] = useState<ReminderPreview[] | null>(null);
+  const [audience, setAudience] = useState('employee');
+  const [trigger, setTrigger] = useState('not_started');
+  const [days, setDays] = useState('7');
+  const [template, setTemplate] = useState('');
+  const [busy, setBusy] = useState(false);
+  const [note, setNote] = useState<string | null>(null);
+
+  const load = async () => {
+    const r = await api.get<{ rules: ReminderRule[] }>('/api/admin/reminders');
+    setRules(r.rules);
+    setPreviews((await api.get<{ previews: ReminderPreview[] }>('/api/admin/reminders/preview')).previews);
+  };
+  useEffect(() => {
+    load();
+  }, []);
+
+  const create = async (e: FormEvent) => {
+    e.preventDefault();
+    if (busy) return;
+    setBusy(true);
+    setNote(null);
+    try {
+      await api.post('/api/admin/reminders', { audience, trigger, days: Number(days), template });
+      setTemplate('');
+      await load();
+    } catch (err) {
+      setNote(err instanceof ApiError ? err.message : 'Failed to create rule.');
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  if (!rules) return <p className="label-utility mt-8">Loading reminders…</p>;
+  return (
+    <div className="mt-6 grid gap-6 lg:grid-cols-2">
+      <div>
+        <p className="text-xs text-muted mb-3">
+          Rules are evaluated against the census and the funnel. The preview shows exactly who each active rule would notify today, with the rendered message. Delivery needs an email provider connected — rules and previews are live now; nothing sends yet.
+        </p>
+        {rules.map((r) => {
+          const preview = previews?.find((p) => p.ruleId === r.id);
+          return (
+            <div key={r.id} className={`border border-line rounded-brand bg-surface p-4 mb-3 ${r.active ? '' : 'opacity-60'}`}>
+              <div className="flex items-center justify-between flex-wrap gap-2">
+                <span className="text-sm text-ink-strong">
+                  To the <strong>{r.audience}</strong> when the employee {TRIGGER_LABELS[r.trigger] ?? r.trigger} <strong>{r.days} days</strong>
+                </span>
+                <span className="flex gap-3">
+                  <button onClick={async () => { await api.post(`/api/admin/reminders/${r.id}/toggle`); await load(); }} className="text-accent text-xs font-semibold hover:underline">
+                    {r.active ? 'Pause' : 'Resume'}
+                  </button>
+                  <button onClick={async () => { await api.del(`/api/admin/reminders/${r.id}`); await load(); }} className="text-muted text-xs hover:text-ink-strong">
+                    Delete
+                  </button>
+                </span>
+              </div>
+              <p className="text-xs text-ink mt-2 whitespace-pre-wrap border-l-2 border-line pl-2">{r.template}</p>
+              {r.active && preview && (
+                <div className="mt-3 border-t border-line pt-2">
+                  <span className="label-utility">Would notify today · {preview.recipients.length}</span>
+                  <div className="mt-1 max-h-36 overflow-y-auto flex flex-col gap-1">
+                    {preview.recipients.map((rec, i) => (
+                      <details key={i} className="text-xs text-ink">
+                        <summary className="cursor-pointer">
+                          {rec.employee} → <span className={rec.deliverable ? 'font-utility' : 'text-muted'}>{rec.to}</span>
+                        </summary>
+                        <p className="whitespace-pre-wrap border-l-2 border-accent pl-2 mt-1 text-muted">{rec.message}</p>
+                      </details>
+                    ))}
+                    {preview.recipients.length === 0 && <p className="text-xs text-muted">Nobody matches right now.</p>}
+                  </div>
+                </div>
+              )}
+            </div>
+          );
+        })}
+        {rules.length === 0 && <p className="text-muted text-sm">No reminder rules yet — create the first one.</p>}
+      </div>
+      <form onSubmit={create} className="border border-line rounded-brand bg-surface p-5 h-fit">
+        <span className="label-utility">New reminder rule</span>
+        <div className="mt-3 flex flex-col gap-3">
+          <label className="flex flex-col gap-1">
+            <span className="label-utility">Send to</span>
+            <select value={audience} onChange={(e) => setAudience(e.target.value)} className="border border-line-strong bg-surface rounded-brand px-3 py-2 text-sm focus:border-accent">
+              <option value="employee">The employee</option>
+              <option value="manager">Their manager</option>
+            </select>
+          </label>
+          <label className="flex flex-col gap-1">
+            <span className="label-utility">When the employee</span>
+            <select value={trigger} onChange={(e) => setTrigger(e.target.value)} className="border border-line-strong bg-surface rounded-brand px-3 py-2 text-sm focus:border-accent">
+              <option value="not_started">Has not started the course</option>
+              <option value="inactive">Has gone inactive</option>
+              <option value="incomplete">Started but completed no module</option>
+            </select>
+          </label>
+          <label className="flex flex-col gap-1">
+            <span className="label-utility">After this many days</span>
+            <input type="number" min={1} max={365} value={days} onChange={(e) => setDays(e.target.value)} className="border border-line-strong rounded-brand px-3 py-2 w-24 font-utility text-sm focus:border-accent" />
+          </label>
+          <label className="flex flex-col gap-1">
+            <span className="label-utility">Message — placeholders: {'{name} {first_name} {manager_name} {days}'}</span>
+            <textarea
+              value={template}
+              onChange={(e) => setTemplate(e.target.value)}
+              rows={5}
+              placeholder={'Hi {first_name} — your AI fluency course is waiting. It takes about an hour to get through Module 1, and {days} days have gone by. Jump back in when you have a moment.'}
+              className="border border-line-strong bg-surface rounded-brand px-3 py-2 text-sm focus:border-accent placeholder:text-muted/60"
+            />
+          </label>
+          <div className="flex items-center gap-3">
+            <Button type="submit" disabled={busy || !template.trim()}>{busy ? 'Creating…' : 'Create rule'}</Button>
+            {note && <span className="text-xs text-muted">{note}</span>}
+          </div>
+        </div>
+      </form>
+    </div>
+  );
+}
+
 function Audit() {
   const [rows, setRows] = useState<AuditRow[] | null>(null);
   const [filter, setFilter] = useState('');
@@ -506,7 +1314,7 @@ function Audit() {
 
 export default function Admin() {
   const [state, setState] = useState<'loading' | 'login' | 'in'>('loading');
-  const [tab, setTab] = useState<Tab>('queue');
+  const [tab, setTab] = useState<Tab>('learners');
 
   const check = () =>
     api
@@ -529,7 +1337,7 @@ export default function Admin() {
             <h1 className="font-display font-bold text-ink-strong text-2xl mt-1">Admin</h1>
           </div>
           <div className="flex items-center gap-1">
-            {(['queue', 'report', 'codes', 'audit'] as Tab[]).map((tabId) => (
+            {(Object.keys(TAB_LABELS) as Tab[]).map((tabId) => (
               <button
                 key={tabId}
                 onClick={() => setTab(tabId)}
@@ -538,7 +1346,7 @@ export default function Admin() {
                   tab === tabId ? 'bg-ink-strong text-surface' : 'text-muted hover:text-ink-strong'
                 }`}
               >
-                {tabId === 'queue' ? 'Review queue' : tabId === 'report' ? 'Reporting' : tabId === 'codes' ? 'Access codes' : 'Content audit'}
+                {TAB_LABELS[tabId]}
               </button>
             ))}
             <button
@@ -552,6 +1360,11 @@ export default function Admin() {
             </button>
           </div>
         </div>
+        {tab === 'learners' && <Learners />}
+        {tab === 'content' && <Content />}
+        {tab === 'brand' && <BrandTab />}
+        {tab === 'census' && <Census />}
+        {tab === 'reminders' && <Reminders />}
         {tab === 'queue' && <Queue />}
         {tab === 'report' && <Reporting />}
         {tab === 'codes' && <Codes />}

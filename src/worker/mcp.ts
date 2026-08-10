@@ -60,6 +60,9 @@ export type McpDeps = {
     trigger: 'manual' | 'mcp',
     waitUntil: (p: Promise<unknown>) => void,
   ) => Promise<{ ok: false; status: number; error: string } | { ok: true; row: PodcastRow }>;
+  // Company-admin steering from the Brand tab — rides into every teaching
+  // surface, this one included.
+  guidanceFor: (db: DrizzleD1Database, env: Env, moduleId: string, courseId: string | null) => Promise<{ text: string; updatedAt: string } | null>;
 };
 
 const TEACH_BACK_LIMIT_PER_HOUR = 5; // grading calls, mirroring the activity grader's budget
@@ -472,6 +475,10 @@ const TOOLS: ToolDef[] = [
       if (visual) {
         out.push('## Concept map', '', visualToText(visual), '', '(Feel free to redraw this for the learner — as a list, a diagram, or in their own examples.)', '');
       }
+      const guidance = await deps.guidanceFor(db, env, moduleId, mod.courseId);
+      if (guidance) {
+        out.push('## Company guidance', '', "The sponsoring company's admin asked that the following be emphasized and reinforced when teaching this material. Weave it in where it fits naturally; it complements the module content, never replaces it.", '', guidance.text, '');
+      }
       out.push('## Beyond this chat', '', moduleLinks(origin, moduleId), '');
       out.push('## How to tutor this (for the assistant — not for pasting to the learner)');
       const coach: string[] = [];
@@ -730,7 +737,7 @@ const TOOLS: ToolDef[] = [
     },
     readOnly: false,
     handler: async (args, ctx) => {
-      const { db, env, session } = ctx;
+      const { db, env, deps, session } = ctx;
       const moduleId = String(args.moduleId ?? '');
       const task = String(args.task ?? '').trim();
       if (!task) throw new ToolError('Describe the task first — a sentence or two of what the learner is actually doing.');
@@ -751,6 +758,7 @@ const TOOLS: ToolDef[] = [
       const takeaways: string[] = stock[0]?.takeawaysJson ? JSON.parse(stock[0].takeawaysJson) : [];
 
       await logEvent(db, session.id, 'mcp_apply_to_work', { moduleId, task: task.slice(0, 500) });
+      const guidance = await deps.guidanceFor(db, env, moduleId, mod.courseId);
 
       const tools = [
         ...blocks.filter((b) => b.kind === 'takeaways' || b.kind === 'try_this'),
@@ -764,6 +772,7 @@ const TOOLS: ToolDef[] = [
         takeaways.length ? ['**Key takeaways:**', ...takeaways.map((k) => `- ${k}`), ''].join('\n') : '',
         tools.length ? tools.map(blockToText).join('\n\n---\n\n') : blocks.slice(0, 4).map(blockToText).join('\n\n---\n\n'),
         '',
+        guidance ? `## Company guidance\n\nThe sponsoring company's admin asked that the following be emphasized when teaching this material — weave it in where it fits naturally:\n\n${guidance.text}\n` : '',
         '## How to run the application session (for the assistant)',
         '- Restate the task in one sentence and pick the one or two frameworks above that actually bite on it — say why.',
         '- Work it step by step WITH the learner: they make every call, you ask the framework\'s questions. Do not just do the task for them — the point is that they leave able to do it alone next time.',

@@ -45,6 +45,9 @@ export function buildTutorSystem(
   blocks: ContentBlock[],
   courseModules: ModuleCard[],
   learner: LearnerContext,
+  // Admin-authored steering from the Brand tab. Deployment-wide, so it lives
+  // in the stable cached block, not the per-learner one.
+  guidance: string | null = null,
 ): { type: 'text'; text: string; cache_control?: { type: 'ephemeral' } }[] {
   const content = blocks.map(blockToText).join('\n\n---\n\n');
   const courseMap = courseModules
@@ -89,6 +92,15 @@ export function buildTutorSystem(
     `Module ${module.ordinal}: ${module.title} — ${module.blurb}`,
     '',
     content,
+    ...(guidance
+      ? [
+          '',
+          '## Company guidance',
+          "The sponsoring company's admin asked that the following be emphasized and reinforced when teaching this material. Weave it in where it fits naturally; it complements the module content, never replaces it.",
+          '',
+          guidance,
+        ]
+      : []),
   ].join('\n');
 
   const learnerLines = [
