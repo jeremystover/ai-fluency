@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import type { CourseCard, PathModule, PathResponse, PathResume } from '../../shared/types';
+import type { CourseCard, PathModule, PathResponse } from '../../shared/types';
+import { resumeLabel, resumeRoute } from '../resume';
 import { Screen, ErrorNote } from '../components/ui';
 import { api, ApiError } from '../api';
 import { useApp } from '../brand';
@@ -32,41 +33,6 @@ const daysSince = (iso: string) => Math.floor((Date.now() - new Date(iso).getTim
 
 // "AI 101 · Foundations" → "AI 101"
 const shortTitle = (course: CourseCard) => course.title.split('·')[0].trim();
-
-// Where a half-finished module resumes — the surface the last touch came from,
-// so "pick up where you left off" lands on the thing they were actually doing.
-const resumeRoute = (r: PathResume): string => {
-  const base = `/module/${r.moduleId}`;
-  switch (r.via) {
-    case 'chat':
-      return `${base}/chat`;
-    case 'podcast':
-      return `${base}/podcast`;
-    case 'check':
-      return `${base}/check`;
-    case 'activity':
-      return `${base}/activity`;
-    default:
-      return base;
-  }
-};
-
-const resumeLabel = (r: PathResume): string => {
-  switch (r.via) {
-    case 'chat':
-      return 'Back to the tutor →';
-    case 'podcast':
-      return 'Back to the episode →';
-    case 'check':
-      return 'Back to the check →';
-    case 'activity':
-      return 'Back to the activity →';
-    case 'exercise':
-      return 'Back to the exercise →';
-    default:
-      return 'Keep reading →';
-  }
-};
 
 type RowState = 'done' | 'tested' | 'next' | 'todo';
 
