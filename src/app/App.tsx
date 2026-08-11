@@ -3,6 +3,7 @@ import { useApp } from './brand';
 import { Header, Footer } from './components/ui';
 import Landing from './routes/Landing';
 import Enter from './routes/Enter';
+import Reset from './routes/Reset';
 import Welcome from './routes/Welcome';
 import Plan from './routes/Plan';
 import Diagnostic from './routes/Diagnostic';
@@ -10,6 +11,7 @@ import DiagnosticResult from './routes/DiagnosticResult';
 import Path from './routes/Path';
 import Library from './routes/Library';
 import Record from './routes/Record';
+import Team from './routes/Team';
 import ModuleView from './routes/ModuleView';
 import Chat from './routes/Chat';
 import MicroView from './routes/MicroView';
@@ -37,6 +39,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/enter" element={<Enter />} />
+          <Route path="/reset" element={<Reset />} />
           <Route path="/welcome" element={<RequireSession><Welcome /></RequireSession>} />
           <Route path="/plan" element={<RequireSession><Plan /></RequireSession>} />
           <Route path="/hello" element={<Navigate to="/welcome" replace />} />
@@ -45,6 +48,7 @@ export default function App() {
           <Route path="/path" element={<RequireSession><Path /></RequireSession>} />
           <Route path="/library" element={<RequireSession><Library /></RequireSession>} />
           <Route path="/record" element={<RequireSession><Record /></RequireSession>} />
+          <Route path="/team" element={<RequireSession><Team /></RequireSession>} />
           {/* Legacy /module/1 links (plans, bookmarks) → the canonical module id. */}
           <Route path="/module/1" element={<Navigate to="/module/ai101-m1" replace />} />
           <Route path="/module/1/chat" element={<Navigate to="/module/ai101-m1/chat" replace />} />

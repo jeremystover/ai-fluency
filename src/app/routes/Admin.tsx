@@ -1088,6 +1088,16 @@ type ReminderPreview = {
   recipients: { employee: string; to: string; message: string; deliverable: boolean }[];
 };
 
+type EmailSend = {
+  id: string;
+  kind: string;
+  toEmail: string;
+  subject: string;
+  status: string;
+  error: string | null;
+  createdAt: string;
+};
+
 const TRIGGER_LABELS: Record<string, string> = {
   not_started: 'has not started',
   inactive: 'inactive for',
@@ -1103,15 +1113,39 @@ function Reminders() {
   const [template, setTemplate] = useState('');
   const [busy, setBusy] = useState(false);
   const [note, setNote] = useState<string | null>(null);
+  const [configured, setConfigured] = useState(false);
+  const [sends, setSends] = useState<EmailSend[]>([]);
 
   const load = async () => {
     const r = await api.get<{ rules: ReminderRule[] }>('/api/admin/reminders');
     setRules(r.rules);
-    setPreviews((await api.get<{ previews: ReminderPreview[] }>('/api/admin/reminders/preview')).previews);
+    const p = await api.get<{ previews: ReminderPreview[]; delivery: { configured: boolean } }>('/api/admin/reminders/preview');
+    setPreviews(p.previews);
+    setConfigured(p.delivery.configured);
+    setSends((await api.get<{ sends: EmailSend[] }>('/api/admin/reminders/log')).sends);
   };
   useEffect(() => {
     load();
   }, []);
+
+  // Sending by hand runs exactly the pass the cron runs, dedupe included — so
+  // pressing it twice does not nudge anyone twice.
+  const sendNow = async () => {
+    if (busy) return;
+    setBusy(true);
+    setNote(null);
+    try {
+      const r = await api.post<{ sent: number; skipped: number; failed: number; suppressed: number }>('/api/admin/reminders/send');
+      setNote(
+        `${r.sent} sent · ${r.suppressed} already nudged inside their window · ${r.skipped} undeliverable · ${r.failed} failed.`,
+      );
+      await load();
+    } catch (err) {
+      setNote(err instanceof ApiError ? err.message : 'The send failed.');
+    } finally {
+      setBusy(false);
+    }
+  };
 
   const create = async (e: FormEvent) => {
     e.preventDefault();
@@ -1134,8 +1168,43 @@ function Reminders() {
     <div className="mt-6 grid gap-6 lg:grid-cols-2">
       <div>
         <p className="text-xs text-muted mb-3">
-          Rules are evaluated against the census and the funnel. The preview shows exactly who each active rule would notify today, with the rendered message. Delivery needs an email provider connected — rules and previews are live now; nothing sends yet.
+          Rules are evaluated against the census and the funnel. The preview shows exactly who each active rule would notify
+          today, with the rendered message — the send runs that same evaluation, so what you see here is what goes out. A rule
+          nudges one person at most once inside its own day window, which makes the pass safe to run repeatedly.
         </p>
+        <div className="flex items-center gap-3 flex-wrap mb-4">
+          <button
+            onClick={sendNow}
+            disabled={busy}
+            className="inline-flex px-4 py-2 font-display font-semibold text-[0.85rem] rounded-brand bg-accent text-on-accent hover:brightness-110 disabled:opacity-40"
+          >
+            {busy ? 'Running…' : 'Run the pass now'}
+          </button>
+          <span className="text-xs text-muted">
+            {configured
+              ? 'Provider connected — this sends real mail. The cron runs the same pass automatically.'
+              : 'No provider configured (RESEND_API_KEY + EMAIL_FROM). The pass still evaluates and logs every intended send as skipped.'}
+          </span>
+        </div>
+        {note && <p className="text-xs text-ink-strong font-semibold mb-3">{note}</p>}
+        {sends.length > 0 && (
+          <details className="mb-4">
+            <summary className="text-xs text-accent font-semibold cursor-pointer">Delivery log · {sends.length}</summary>
+            <div className="mt-2 border border-line rounded-brand bg-surface overflow-hidden">
+              {sends.slice(0, 25).map((s) => (
+                <div key={s.id} className="px-3 py-2 border-b border-line last:border-b-0 text-xs">
+                  <span className="font-utility uppercase tracking-wider text-muted">
+                    {s.createdAt.slice(0, 16).replace('T', ' ')} · {s.kind} · {s.status}
+                  </span>
+                  <br />
+                  <span className="text-ink-strong">{s.toEmail}</span>
+                  <span className="text-muted"> — {s.subject}</span>
+                  {s.error && <span className="text-muted"> ({s.error})</span>}
+                </div>
+              ))}
+            </div>
+          </details>
+        )}
         {rules.map((r) => {
           const preview = previews?.find((p) => p.ruleId === r.id);
           return (

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import type { CourseCard, PathModule, PathResponse } from '../../shared/types';
+import type { CommitmentResponse, CourseCard, PathModule, PathResponse } from '../../shared/types';
 import { resumeLabel, resumeRoute } from '../resume';
 import { Screen, ErrorNote } from '../components/ui';
 import { api, ApiError } from '../api';
@@ -33,6 +33,123 @@ const daysSince = (iso: string) => Math.floor((Date.now() - new Date(iso).getTim
 
 // "AI 101 · Foundations" → "AI 101"
 const shortTitle = (course: CourseCard) => course.title.split('·')[0].trim();
+
+// A date the learner picks, and — if they choose — their manager is told and
+// answers. A declaration into the void is a much weaker commitment than a
+// handshake, so the share is offered plainly rather than buried or defaulted on.
+function CommitmentCard({ initial, onSaved }: { initial: CommitmentResponse; onSaved: () => void }) {
+  const [open, setOpen] = useState(false);
+  const [date, setDate] = useState('');
+  const [note, setNote] = useState('');
+  const [share, setShare] = useState(initial.canShare);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const c = initial.commitment;
+
+  if (c) {
+    const overdue = Date.parse(`${c.targetDate}T23:59:59`) < Date.now();
+    return (
+      <div className="mt-3 border border-line rounded-brand bg-surface px-4 py-3">
+        <span className="label-utility">Your finish date</span>
+        <p className="text-[0.92rem] text-ink-strong mt-1">
+          You're aiming to finish by <span className="font-semibold">{fmtDate(c.targetDate)}</span>
+          {overdue && <span className="text-muted"> — that date has passed. Pick a new one whenever.</span>}
+        </p>
+        {c.sharedWithManager && (
+          <p className="text-[0.82rem] text-muted mt-1">
+            {c.managerAckAt
+              ? `${initial.managerName ?? 'Your manager'} acknowledged it${c.managerNote ? ` — "${c.managerNote}"` : ''}.`
+              : `Shared with ${initial.managerName ?? 'your manager'} — not acknowledged yet.`}
+          </p>
+        )}
+        <button onClick={() => setOpen(true)} className="text-accent font-semibold text-[0.8rem] mt-1 hover:underline">
+          Change it
+        </button>
+        {open && (
+          <CommitmentForm
+            {...{ date, setDate, note, setNote, share, setShare, busy, setBusy, error, setError, canShare: initial.canShare, managerName: initial.managerName, onSaved, setOpen }}
+          />
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <div className="mt-3 border border-line rounded-brand bg-surface px-4 py-3">
+      <span className="label-utility">When will you finish?</span>
+      <p className="text-[0.92rem] text-ink mt-1">
+        Naming a date — and a day you'll actually do it — is the single cheapest thing that makes courses get finished.
+        {initial.canShare && ' You can tell your manager, and they can answer.'}
+      </p>
+      {!open ? (
+        <button onClick={() => setOpen(true)} className="text-accent font-semibold text-[0.85rem] mt-1 hover:underline">
+          Set a finish date →
+        </button>
+      ) : (
+        <CommitmentForm
+          {...{ date, setDate, note, setNote, share, setShare, busy, setBusy, error, setError, canShare: initial.canShare, managerName: initial.managerName, onSaved, setOpen }}
+        />
+      )}
+    </div>
+  );
+}
+
+function CommitmentForm(p: {
+  date: string; setDate: (v: string) => void;
+  note: string; setNote: (v: string) => void;
+  share: boolean; setShare: (v: boolean) => void;
+  busy: boolean; setBusy: (v: boolean) => void;
+  error: string | null; setError: (v: string | null) => void;
+  canShare: boolean; managerName: string | null;
+  onSaved: () => void; setOpen: (v: boolean) => void;
+}) {
+  const save = async () => {
+    p.setBusy(true);
+    p.setError(null);
+    try {
+      await api.post('/api/commitment', { targetDate: p.date, note: p.note, share: p.share });
+      p.setOpen(false);
+      p.onSaved();
+    } catch (e) {
+      p.setError(e instanceof ApiError ? e.message : 'That did not save.');
+    } finally {
+      p.setBusy(false);
+    }
+  };
+  return (
+    <div className="mt-2.5 flex flex-col gap-2 max-w-md">
+      <input
+        type="date"
+        value={p.date}
+        onChange={(e) => p.setDate(e.target.value)}
+        className="border border-line-strong rounded-brand px-3 py-2 text-[0.88rem] bg-surface text-ink-strong"
+      />
+      <input
+        value={p.note}
+        onChange={(e) => p.setNote(e.target.value)}
+        placeholder="Optional: when you'll actually sit down for it"
+        className="border border-line-strong rounded-brand px-3 py-2 text-[0.88rem] bg-surface text-ink-strong"
+      />
+      {p.canShare && (
+        <label className="flex items-center gap-2 text-[0.85rem] text-ink">
+          <input type="checkbox" checked={p.share} onChange={(e) => p.setShare(e.target.checked)} />
+          Tell {p.managerName ?? 'my manager'} — they can acknowledge and protect the time
+        </label>
+      )}
+      {p.error && <span className="text-[0.82rem] text-ink-strong font-semibold">{p.error}</span>}
+      <div className="flex gap-3 items-center">
+        <button
+          onClick={save}
+          disabled={p.busy || !p.date}
+          className="inline-flex px-4 py-2 font-display font-semibold text-[0.85rem] rounded-brand bg-accent text-on-accent hover:brightness-110 disabled:opacity-40"
+        >
+          {p.busy ? 'Saving…' : 'Save'}
+        </button>
+        <button onClick={() => p.setOpen(false)} className="text-muted text-[0.82rem] hover:text-ink-strong">Cancel</button>
+      </div>
+    </div>
+  );
+}
 
 type RowState = 'done' | 'tested' | 'next' | 'todo';
 
@@ -135,18 +252,19 @@ export default function Path() {
   const essentialsReader = surface === 'read' && depthOf(me?.prefs?.depth) === 'essentials';
   const [data, setData] = useState<PathResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [reloads, setReloads] = useState(0);
 
   useEffect(() => {
     api
       .get<PathResponse>('/api/path')
       .then(setData)
       .catch((e) => setError(e instanceof ApiError ? e.message : 'Could not load the path. Reload to try again.'));
-  }, []);
+  }, [reloads]);
 
   if (error) return <Screen><div className="pt-20"><ErrorNote message={error} /></div></Screen>;
   if (!data) return <Screen><div className="pt-24 text-center"><p className="label-utility">Opening your path…</p></div></Screen>;
 
-  const { summary, upNext, diagnosticNote, resume } = data;
+  const { summary, upNext, diagnosticNote, resume, managerSignals, commitment, isManager } = data;
   const startFor = (m: PathModule) =>
     essentialsReader
       ? { route: `/module/${m.id}/micro`, label: 'Start micro →' }
@@ -258,10 +376,38 @@ export default function Path() {
             <div className="flex gap-x-5 gap-y-1.5 flex-wrap items-center mt-3.5 pt-3.5 border-t border-line font-utility text-[0.66rem] uppercase tracking-wider text-muted">
               {stats.map((s) => <span key={s}>{s}</span>)}
               {summary.activeDays.length > 0 && <WeekStrip activeDays={summary.activeDays} />}
-              <Link to="/record" className="text-accent font-semibold no-underline hover:underline ml-auto">Your record →</Link>
+              <span className="ml-auto flex gap-4">
+                {isManager && <Link to="/team" className="text-accent font-semibold no-underline hover:underline">Your team →</Link>}
+                <Link to="/record" className="text-accent font-semibold no-underline hover:underline">Your record →</Link>
+              </span>
             </div>
           )}
         </div>
+
+        {/* What a manager aimed at this learner. It sits above the queue and the
+            hero because a note from your own manager outranks anything this
+            page can say on its own. */}
+        {managerSignals.length > 0 && (
+          <div className="mt-3 flex flex-col gap-2">
+            {managerSignals.slice(0, 2).map((s) => (
+              <div key={s.id} className="border border-ink-strong rounded-brand bg-surface px-4 py-3">
+                <span className="label-utility">
+                  {s.kind === 'kudos' ? 'From your manager' : s.kind === 'endorse' ? 'Your manager flagged this' : 'A date from your manager'}
+                  {s.managerName ? ` · ${s.managerName}` : ''}
+                  {s.dueDate ? ` · by ${fmtDate(s.dueDate)}` : ''}
+                </span>
+                <p className="text-[0.92rem] text-ink-strong mt-1">{s.body}</p>
+                {s.moduleId && (
+                  <Link to={`/module/${s.moduleId}`} className="text-accent font-semibold text-[0.82rem] no-underline hover:underline">
+                    Open {data.modules.find((m) => m.id === s.moduleId)?.title ?? 'the module'} →
+                  </Link>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {!allDone && commitment && <CommitmentCard initial={commitment} onSaved={() => setReloads((n) => n + 1)} />}
 
         {/* Misses come back. Retrieving something you got wrong is where the
             learning happens, so the queue is raised here rather than waiting
@@ -448,6 +594,25 @@ export default function Path() {
                 <span className="font-utility text-[0.62rem] uppercase tracking-wider text-muted whitespace-nowrap">{c.level} · full course</span>
               </div>
             ))}
+          </div>
+        )}
+
+        {/* The connector can't notify anyone — what it does is make resuming
+            free for someone already in their assistant for work reasons. So the
+            pitch is the real task, not portability, and it only appears once
+            there's progress worth carrying. */}
+        {!data.mcpConnected && summary.doneCount > 0 && (
+          <div className="mt-9 border border-line-strong rounded-brand bg-surface px-5 py-4 flex items-baseline justify-between gap-4 flex-wrap">
+            <span className="max-w-xl">
+              <span className="font-display font-semibold text-[0.95rem] text-ink-strong">Bring this into Claude.</span>{' '}
+              <span className="text-[0.9rem] text-muted">
+                The tutor can work the course's frameworks on a real task from your week — your actual document, your actual
+                decision. That's the part a course page can't do.
+              </span>
+            </span>
+            <Link to="/mcp" className="text-accent font-semibold text-[0.85rem] no-underline hover:underline whitespace-nowrap">
+              Connect it →
+            </Link>
           </div>
         )}
 

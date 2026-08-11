@@ -3,12 +3,14 @@ import { getCookie, setCookie } from 'hono/cookie';
 import { drizzle, type DrizzleD1Database } from 'drizzle-orm/d1';
 import { and, asc, desc, eq, gt, inArray, lt, sql } from 'drizzle-orm';
 import * as t from '../db/schema';
-import { verifyCode, hashCode, signSessionId, verifySessionCookie, hashIp, signMcpKey } from './crypto';
+import { verifyCode, hashCode, signSessionId, verifySessionCookie, hashIp, signMcpKey, randomToken, tokenHash } from './crypto';
 import { toolingOf, selectVariants, toBlock, stampsFor, getExercise, scoreSortingSubmission, type KnowledgeCheckPayload, type SortingPayload } from './content';
 import { createMcpApp, recommendationsFor } from './mcp';
 import { createOauthApp, MCP_PATH } from './oauth';
 import { gradeSubmission, type RubricPayload } from './grading';
-import { adminApp } from './admin';
+import { adminApp, runReminderPass } from './admin';
+import { accountEmailFor, commitmentFor, createManagerApp, hasReports, managerEmailForSessionId, managerEmailOf, managerSignalsFor } from './manager';
+import { deliverableAddress, emailEnabled, sendEmail, signature } from './email';
 import { buildTutorSystem, streamTutorReply, KICKOFF_TURN, type LearnerContext as TutorLearnerContext, type TutorMessage } from './chat';
 import { transcribe, speakable, renderSpeech, TUTOR_VOICE } from './voice';
 import { moduleSnapshot, witnessContent } from './audit';
@@ -63,6 +65,7 @@ import type {
   ModuleContentResponse,
   ModuleMcpActivity,
   PathResponse,
+  SessionKind,
   PathResume,
   PathSummary,
   PriorStage,
@@ -87,10 +90,6 @@ export interface Env {
   // which variant of the [V] lab lessons is served — one tooling per deploy,
   // same pattern as BRAND_SLUG. Unset = 'claude'.
   ORG_TOOLING?: string;
-  // How learners get in. 'passcode' (default): the demo door — shared codes,
-  // no accounts. 'accounts': the product door — census-gated sign-up with
-  // email + password, passcode entry disabled. One mode per deployment.
-  AUTH_MODE?: string;
   GRADING_MODEL: string;
   CHAT_MODEL: string;
   PODCAST_MODEL?: string;
@@ -103,6 +102,14 @@ export interface Env {
   GEMINI_TTS_MODEL?: string;
   // Episode scripts per session per hour; default 4. Raise for demo/testing.
   PODCAST_LIMIT_PER_HOUR?: string;
+  // Email delivery for reminders, kudos, and commitment acknowledgments. With
+  // RESEND_API_KEY + EMAIL_FROM unset, rules still evaluate and every intended
+  // send is recorded as 'skipped' — nothing is silently dropped or pretended.
+  RESEND_API_KEY?: string;
+  EMAIL_FROM?: string;
+  // The origin cron-sent mail should link back to (requests know their own
+  // origin; a scheduled run has no request to ask).
+  PUBLIC_ORIGIN?: string;
   SESSION_SECRET?: string;
   ANTHROPIC_API_KEY?: string;
   ADMIN_PASSCODE?: string;
@@ -180,10 +187,21 @@ app.get('/api/brand', async (c) => {
   const row = rows[0];
   if (!row) return c.json({ error: 'No brand seeded for this deployment. Run the seed migration.' }, 500);
   const profile = row.profileJson ? JSON.parse(row.profileJson) : null;
+  // Which doors can actually open, asked of the data rather than a config var:
+  // codes exist → the demo door works; a census roster exists → sign-up works
+  // (it is roster-gated). Both can be true at once, and usually are.
+  const [codeRows, rosterRows] = await Promise.all([
+    db
+      .select({ n: sql<number>`count(*)` })
+      .from(t.fdAccessCode)
+      .where(and(eq(t.fdAccessCode.brandSlug, row.slug), eq(t.fdAccessCode.active, 1))),
+    db.select({ n: sql<number>`count(*)` }).from(t.fdEmployee).where(eq(t.fdEmployee.brandSlug, row.slug)),
+  ]);
   const brand: Brand = {
     slug: row.slug,
     name: row.name,
-    authMode: authModeOf(c.env),
+    doors: { passcode: (codeRows[0]?.n ?? 0) > 0, accounts: (rosterRows[0]?.n ?? 0) > 0 },
+    canResetPassword: emailEnabled(c.env),
     tokens: JSON.parse(row.tokensJson),
     voice: JSON.parse(row.voiceJson),
     ...(Array.isArray(profile?.aiTools) && profile.aiTools.length ? { aiTools: profile.aiTools } : {}),
@@ -251,11 +269,11 @@ app.post('/api/event', async (c) => {
 
 // ---------- access ----------
 
+// The demo door. Always open when active codes exist — a passcode holder is a
+// demo learner whether or not this deployment also has accounts. The two kinds
+// coexist; nothing here closes the other door.
 app.post('/api/enter', async (c) => {
   const db = c.get('db');
-  if (authModeOf(c.env) === 'accounts') {
-    return c.json({ error: 'Passcode entry is the demo door — this deployment uses accounts. Sign in instead.' }, 403);
-  }
   const body = await c.req.json<{ code?: string }>().catch(() => null);
   const code = body?.code?.trim();
   if (!code) return c.json({ error: 'Enter the passcode you were given.' }, 400);
@@ -327,7 +345,11 @@ app.post('/api/enter', async (c) => {
 
 // ---------- accounts (the product door; passcodes are the demo door) ----------
 
-const authModeOf = (env: Env) => (env.AUTH_MODE?.trim().toLowerCase() === 'accounts' ? 'accounts' : 'passcode');
+// Identity is a property of the session, not the deployment: a session with an
+// account behind it is a product learner, one without is a demo learner. Every
+// feature that needs a census identity (manager view, commitment sharing,
+// team-scoped guidance) resolves through this rather than a config switch.
+export const sessionKind = (session: SessionRow): SessionKind => (session.accountId ? 'account' : 'demo');
 const normalizeEmail = (raw: unknown) => (typeof raw === 'string' ? raw.trim().toLowerCase() : '');
 const MIN_PASSWORD_CHARS = 10;
 
@@ -442,32 +464,17 @@ app.post('/api/auth/signup', async (c) => {
   return c.json({ ok: true });
 });
 
-app.post('/api/auth/signin', async (c) => {
-  const db = c.get('db');
-  const body = await c.req.json<{ email?: string; password?: string }>().catch(() => null);
-  const email = normalizeEmail(body?.email);
-  const password = body?.password ?? '';
-  if (!email || !password) return c.json({ error: 'Email and password, both.' }, 400);
-
-  const ipHashed = await clientIpHash(c, c.env);
-  if (await authAttemptsExceeded(db, ipHashed)) {
-    return c.json({ error: 'Too many attempts from this connection. Wait 15 minutes.' }, 429);
-  }
-
-  const accounts = await db
-    .select()
-    .from(t.fdAccount)
-    .where(and(eq(t.fdAccount.brandSlug, c.env.BRAND_SLUG), eq(t.fdAccount.email, email)))
-    .limit(1);
-  const account = accounts[0];
-  const valid = account ? await verifyCode(password, account.passwordHash) : false;
-  if (!account || !valid) {
-    await logEvent(db, null, 'auth_attempt_failed', { ipHash: ipHashed, reason: 'bad_credentials' });
-    return c.json({ error: 'Email or password didn’t match.' }, 401);
-  }
-
-  // Progress follows the account: reuse its canonical session, so a new
-  // device picks up exactly where the last one left off.
+// Progress follows the account, not the browser: every sign-in reuses the
+// account's canonical session, so a new device picks up exactly where the
+// last one left off. Shared by password sign-in and by finishing a reset —
+// proving control of the mailbox lands you in the same place proving the
+// password does, on the same session.
+async function openAccountSession(
+  db: DrizzleD1Database,
+  c: Context<Ctx>,
+  account: typeof t.fdAccount.$inferSelect,
+  ipHashed: string,
+): Promise<string> {
   const sessions = await db
     .select()
     .from(t.fdSession)
@@ -500,6 +507,34 @@ app.post('/api/auth/signin', async (c) => {
   }
   await db.update(t.fdAccount).set({ lastLoginAt: now() }).where(eq(t.fdAccount.id, account.id));
   await logEvent(db, sessionId, 'signed_in', {});
+  return sessionId;
+}
+
+app.post('/api/auth/signin', async (c) => {
+  const db = c.get('db');
+  const body = await c.req.json<{ email?: string; password?: string }>().catch(() => null);
+  const email = normalizeEmail(body?.email);
+  const password = body?.password ?? '';
+  if (!email || !password) return c.json({ error: 'Email and password, both.' }, 400);
+
+  const ipHashed = await clientIpHash(c, c.env);
+  if (await authAttemptsExceeded(db, ipHashed)) {
+    return c.json({ error: 'Too many attempts from this connection. Wait 15 minutes.' }, 429);
+  }
+
+  const accounts = await db
+    .select()
+    .from(t.fdAccount)
+    .where(and(eq(t.fdAccount.brandSlug, c.env.BRAND_SLUG), eq(t.fdAccount.email, email)))
+    .limit(1);
+  const account = accounts[0];
+  const valid = account ? await verifyCode(password, account.passwordHash) : false;
+  if (!account || !valid) {
+    await logEvent(db, null, 'auth_attempt_failed', { ipHash: ipHashed, reason: 'bad_credentials' });
+    return c.json({ error: 'Email or password didn’t match.' }, 401);
+  }
+
+  const sessionId = await openAccountSession(db, c, account, ipHashed);
   await setSessionCookie(c, sessionId);
   return c.json({ ok: true });
 });
@@ -524,6 +559,161 @@ app.post('/api/auth/password', async (c) => {
   }
   await db.update(t.fdAccount).set({ passwordHash: await hashCode(next) }).where(eq(t.fdAccount.id, account.id));
   await logEvent(db, session.id, 'password_changed', {});
+  return c.json({ ok: true });
+});
+
+// ---------- password reset ----------
+//
+// The rules this flow is built on, in order of how much they'd cost to get
+// wrong:
+//
+//  1. **The response never depends on whether the account exists.** Same 200,
+//     same wording, whether the address is an account, a roster email with no
+//     account yet, or a stranger's. A reset form that answers "no such user"
+//     is a membership oracle for the company's employee list.
+//  2. **The token is the credential, so it is stored the way credentials are
+//     stored** — 256 bits of randomness, only its SHA-256 in the database.
+//  3. **One live token per account.** A new request invalidates the
+//     outstanding ones, so a stale link in a forwarded mail is already dead.
+//  4. **Single-use and short-lived.** Consumed on success; expired after
+//     RESET_TTL_MS regardless.
+//  5. **The link never reaches the delivery log.** Admins can read
+//     fd_email_send, and an admin can already reset anyone's password, so
+//     this isn't an escalation — but a reset link sitting in a log is a
+//     standing key, and it costs nothing to keep it out.
+const RESET_TTL_MS = 45 * 60 * 1000;
+
+const accountByEmail = async (db: DrizzleD1Database, brandSlug: string, email: string) => {
+  const rows = await db
+    .select()
+    .from(t.fdAccount)
+    .where(and(eq(t.fdAccount.brandSlug, brandSlug), eq(t.fdAccount.email, email)))
+    .limit(1);
+  return rows[0] ?? null;
+};
+
+app.post('/api/auth/reset/request', async (c) => {
+  const db = c.get('db');
+  const body = await c.req.json<{ email?: string }>().catch(() => null);
+  const email = normalizeEmail(body?.email);
+  const ipHashed = await clientIpHash(c, c.env);
+  // Deliberately not an error: an unparseable address gets the same answer as
+  // a real one. The only thing that returns non-200 here is rate limiting.
+  const accepted = { ok: true } as const;
+  if (await authAttemptsExceeded(db, ipHashed)) {
+    return c.json({ error: 'Too many attempts from this connection. Wait 15 minutes.' }, 429);
+  }
+  if (!email || !deliverableAddress(email)) {
+    await logEvent(db, null, 'auth_attempt_failed', { ipHash: ipHashed, reason: 'reset_bad_address' });
+    return c.json(accepted);
+  }
+
+  const account = await accountByEmail(db, c.env.BRAND_SLUG, email);
+  if (!account) {
+    // Counted against the IP budget exactly like a wrong password, so probing
+    // for which addresses have accounts is as expensive as guessing them.
+    await logEvent(db, null, 'auth_attempt_failed', { ipHash: ipHashed, reason: 'reset_no_account' });
+    return c.json(accepted);
+  }
+
+  await db
+    .update(t.fdPasswordReset)
+    .set({ usedAt: now() })
+    .where(and(eq(t.fdPasswordReset.accountId, account.id), sql`${t.fdPasswordReset.usedAt} IS NULL`));
+
+  const token = randomToken();
+  await db.insert(t.fdPasswordReset).values({
+    id: uuid(),
+    brandSlug: c.env.BRAND_SLUG,
+    accountId: account.id,
+    tokenHash: await tokenHash(token),
+    createdAt: now(),
+    expiresAt: new Date(Date.now() + RESET_TTL_MS).toISOString(),
+    usedAt: null,
+    ipHash: ipHashed,
+  });
+
+  const origin = new URL(c.req.url).origin;
+  const brandRows = await db.select().from(t.fdBrand).where(eq(t.fdBrand.slug, c.env.BRAND_SLUG)).limit(1);
+  const brandName = brandRows[0]?.name ?? 'Your company';
+  const link = `${origin}/reset?token=${token}`;
+  const logged = `Someone asked to reset the password for this account. The link is good for 45 minutes and can be used once. If this wasn't you, nothing has changed — ignore this and the link expires on its own.`;
+  const result = await sendEmail(c.env, {
+    to: email,
+    subject: 'AI Fluency — reset your password',
+    text: `${logged}\n\n${link}${signature(brandName, origin)}`,
+  });
+  await db.insert(t.fdEmailSend).values({
+    id: uuid(),
+    brandSlug: c.env.BRAND_SLUG,
+    kind: 'password_reset',
+    toEmail: email,
+    subject: 'AI Fluency — reset your password',
+    // The link is omitted on purpose — see rule 5 above.
+    body: logged,
+    status: result.status,
+    provider: result.provider,
+    error: result.error,
+    createdAt: now(),
+  });
+  await logEvent(db, null, 'password_reset_requested', { delivery: result.status });
+  return c.json(accepted);
+});
+
+// Resolves a token to its account, or null. Expiry and single-use are checked
+// here rather than at each call site, so the confirm route and the page's
+// pre-flight check can never disagree about what "valid" means.
+async function liveReset(db: DrizzleD1Database, brandSlug: string, token: string | undefined) {
+  if (!token) return null;
+  const rows = await db
+    .select()
+    .from(t.fdPasswordReset)
+    .where(and(eq(t.fdPasswordReset.brandSlug, brandSlug), eq(t.fdPasswordReset.tokenHash, await tokenHash(token))))
+    .limit(1);
+  const row = rows[0];
+  if (!row || row.usedAt || Date.parse(row.expiresAt) < Date.now()) return null;
+  const accounts = await db.select().from(t.fdAccount).where(eq(t.fdAccount.id, row.accountId)).limit(1);
+  return accounts[0] ? { row, account: accounts[0] } : null;
+}
+
+// Lets the reset page say "this link has expired, ask for a new one" before
+// the learner types a password they're about to lose.
+app.get('/api/auth/reset/check', async (c) => {
+  const found = await liveReset(c.get('db'), c.env.BRAND_SLUG, c.req.query('token'));
+  return c.json({ valid: !!found, ...(found ? { email: found.account.email } : {}) });
+});
+
+app.post('/api/auth/reset/confirm', async (c) => {
+  const db = c.get('db');
+  const body = await c.req.json<{ token?: string; password?: string }>().catch(() => null);
+  const password = body?.password ?? '';
+  const ipHashed = await clientIpHash(c, c.env);
+  if (await authAttemptsExceeded(db, ipHashed)) {
+    return c.json({ error: 'Too many attempts from this connection. Wait 15 minutes.' }, 429);
+  }
+  if (password.length < MIN_PASSWORD_CHARS) {
+    return c.json({ error: `Passwords need at least ${MIN_PASSWORD_CHARS} characters.` }, 400);
+  }
+  const found = await liveReset(db, c.env.BRAND_SLUG, body?.token);
+  if (!found) {
+    await logEvent(db, null, 'auth_attempt_failed', { ipHash: ipHashed, reason: 'reset_token_invalid' });
+    return c.json({ error: 'That reset link has expired or was already used. Ask for a new one.' }, 400);
+  }
+
+  await db
+    .update(t.fdAccount)
+    .set({ passwordHash: await hashCode(password) })
+    .where(eq(t.fdAccount.id, found.account.id));
+  // Burn every outstanding token for this account, not just the one used: if
+  // two requests were in flight, finishing one should close the other.
+  await db
+    .update(t.fdPasswordReset)
+    .set({ usedAt: now() })
+    .where(and(eq(t.fdPasswordReset.accountId, found.account.id), sql`${t.fdPasswordReset.usedAt} IS NULL`));
+
+  const sessionId = await openAccountSession(db, c, found.account, ipHashed);
+  await logEvent(db, sessionId, 'password_changed', { via: 'reset' });
+  await setSessionCookie(c, sessionId);
   return c.json({ ok: true });
 });
 
@@ -567,6 +757,7 @@ async function loadPrefs(db: DrizzleD1Database, sessionId: string): Promise<Inta
     else if (row.key === 'aiTools') prefs.aiTools = value;
     else if (row.key === 'aiToolOther') prefs.aiToolOther = value;
     else if (row.key === 'selfLevel') prefs.selfLevel = value;
+    else if (row.key === 'shareWork') prefs.shareWork = value === true;
   }
   return prefs;
 }
@@ -821,6 +1012,7 @@ app.get('/api/me', async (c) => {
 
   const res: MeResponse = {
     authenticated: true,
+    kind: session.accountId ? 'account' : 'demo',
     displayName: participants[0]?.displayName ?? null,
     roleLabel: participants[0]?.roleLabel ?? null,
     account,
@@ -1307,7 +1499,31 @@ app.get('/api/path', async (c) => {
     ...course,
     recommendedFor: selectedGoals.filter((g) => g.courses.includes(course.id)).map((g) => `your goal: ${g.label}`),
   }));
-  const res: PathResponse = { modules, courses: coursesOut, summary, diagnosticNote, upNext, resume };
+  // The manager layer, present only when this session belongs to an account the
+  // census knows. Passcode sessions are anonymous, so all three come back empty.
+  const [managerSignals, commitment, isManager, mcpRows] = await Promise.all([
+    managerSignalsFor(db, c.env.BRAND_SLUG, session),
+    commitmentFor(db, c.env.BRAND_SLUG, session),
+    hasReports(db, c.env.BRAND_SLUG, session),
+    db
+      .select({ id: t.fdEvent.id })
+      .from(t.fdEvent)
+      .where(and(eq(t.fdEvent.sessionId, session.id), inArray(t.fdEvent.type, ['mcp_connected', 'mcp_tool_called'])))
+      .limit(1),
+  ]);
+
+  const res: PathResponse = {
+    modules,
+    courses: coursesOut,
+    summary,
+    diagnosticNote,
+    upNext,
+    resume,
+    managerSignals,
+    commitment: commitment.commitment || commitment.canShare ? commitment : null,
+    isManager,
+    mcpConnected: mcpRows.length > 0,
+  };
   return c.json(res);
 });
 
@@ -1880,7 +2096,7 @@ app.post('/api/module/:id/chat', async (c) => {
     .where(eq(t.fdModule.courseId, loaded.mod.courseId))
     .orderBy(asc(t.fdModule.ordinal));
   const learner = await buildLearnerContext(db, session.id);
-  const guidance = await guidanceFor(db, c.env, moduleId, loaded.mod.courseId);
+  const guidance = await guidanceFor(db, c.env, moduleId, loaded.mod.courseId, await managerEmailOf(db, c.env.BRAND_SLUG, session));
   const system = buildTutorSystem(loaded.mod as ModuleCard, loaded.blocks, courseModules as ModuleCard[], learner, guidance?.text ?? null);
 
   // The stored opener starts with an assistant turn; the API requires user-first,
@@ -2074,6 +2290,89 @@ app.post('/api/module/:id/knowledge-check', async (c) => {
   await logEvent(db, session.id, 'knowledge_check_submitted', { moduleId, correct, total: kc.questions.length, missed });
   await witnessContent(db, { sessionId: session.id, moduleId, activity: 'knowledge_check_submitted', kind: 'exercise', content: { kind: 'knowledge_check', payload: kc } });
   return c.json({ score: { correct, total: kc.questions.length }, results });
+});
+
+// ---------- commitment ----------
+
+// A date the learner picks, and — if they choose — their manager is told. The
+// reciprocal half (an acknowledgment, and what the manager will do to protect
+// the time) lives in manager.ts. A declaration nobody answered is a much weaker
+// commitment than a handshake, which is the whole reason for the second half.
+app.get('/api/commitment', async (c) => {
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  return c.json(await commitmentFor(c.get('db'), c.env.BRAND_SLUG, session));
+});
+
+app.post('/api/commitment', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const body = await c.req.json<{ courseId?: string; targetDate?: string; note?: string; share?: boolean }>().catch(() => null);
+  const targetDate = (body?.targetDate ?? '').trim();
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(targetDate)) return c.json({ error: 'Pick a date.' }, 400);
+  if (Date.parse(`${targetDate}T23:59:59Z`) < Date.now()) return c.json({ error: 'Pick a date in the future.' }, 400);
+
+  const existing = await commitmentFor(db, c.env.BRAND_SLUG, session);
+  const share = !!body?.share && existing.canShare;
+  await db.insert(t.fdCommitment).values({
+    id: uuid(),
+    brandSlug: c.env.BRAND_SLUG,
+    sessionId: session.id,
+    courseId: (body?.courseId ?? 'ai101').slice(0, 40),
+    targetDate,
+    note: (body?.note ?? '').trim().slice(0, 1000) || null,
+    sharedWithManager: share ? 1 : 0,
+    createdAt: now(),
+  });
+  await logEvent(db, session.id, 'commitment_set', { targetDate, shared: share });
+
+  if (share) {
+    const email = await accountEmailFor(db, session);
+    const emp = email
+      ? (await db.select().from(t.fdEmployee).where(and(eq(t.fdEmployee.brandSlug, c.env.BRAND_SLUG), sql`LOWER(${t.fdEmployee.email}) = ${email}`)).limit(1))[0]
+      : undefined;
+    const to = deliverableAddress(emp?.managerEmail);
+    if (to) {
+      const brandRows = await db.select().from(t.fdBrand).where(eq(t.fdBrand.slug, c.env.BRAND_SLUG)).limit(1);
+      const origin = new URL(c.req.url).origin;
+      const subject = `${emp!.name.split(/\s+/)[0]} set a finish date for AI Fluency`;
+      const text = `${emp!.name} is aiming to finish the AI Fluency course by ${targetDate}.${body?.note ? `\n\nTheir note: ${body.note}` : ''}\n\nYou can acknowledge it — and say what you'll do to protect the time — in your team view:\n${origin}/team${signature(brandRows[0]?.name ?? 'Your company', origin)}`;
+      const result = await sendEmail(c.env, { to, subject, text });
+      await db.insert(t.fdEmailSend).values({
+        id: uuid(),
+        brandSlug: c.env.BRAND_SLUG,
+        kind: 'commitment',
+        toEmail: to,
+        subject,
+        body: text,
+        status: result.status,
+        provider: result.provider,
+        error: result.error,
+        createdAt: now(),
+      });
+    }
+  }
+  return c.json(await commitmentFor(db, c.env.BRAND_SLUG, session));
+});
+
+// Consent to let a manager read graded submissions. Off unless set, and it
+// never covers the tutor transcript, the diagnostic, or which questions missed.
+app.post('/api/share-work', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const body = await c.req.json<{ share?: boolean }>().catch(() => null);
+  const share = body?.share === true;
+  await db.insert(t.fdPreference).values({
+    id: uuid(),
+    sessionId: session.id,
+    key: 'shareWork',
+    valueJson: JSON.stringify(share),
+    createdAt: now(),
+  });
+  await logEvent(db, session.id, 'share_work_set', { share });
+  return c.json({ ok: true, share });
 });
 
 // ---------- the record ----------
@@ -2739,13 +3038,25 @@ const personalIntroKey = (sessionId: string, moduleId: string) => `podcast-intro
 // emphasized, overall and for this course/module. It varies only by
 // deployment (one brand) and module — the same axes as the content itself —
 // so it is safe to ride inside the prompt-cached module block.
+// Scopes stack widest-first: the company's global steer, then the course, then
+// the module, then — when the learner's manager has written one — their team's.
+// The team scope is the only one that varies per learner rather than per
+// deployment, so it does fragment the shared prompt cache; it is opt-in per
+// manager and absent on most deployments, which keeps that cost where the value
+// is. Team text goes last so the most specific voice lands closest to the task.
 async function guidanceFor(
   db: DrizzleD1Database,
   env: Env,
   moduleId: string,
   courseId: string | null,
+  teamEmail?: string | null,
 ): Promise<{ text: string; updatedAt: string } | null> {
-  const scopes = ['global', ...(courseId ? [`course:${courseId}`] : []), `module:${moduleId}`];
+  const scopes = [
+    'global',
+    ...(courseId ? [`course:${courseId}`] : []),
+    `module:${moduleId}`,
+    ...(teamEmail ? [`team:${teamEmail}`] : []),
+  ];
   const rows = await db
     .select()
     .from(t.fdBrandGuidance)
@@ -2767,7 +3078,12 @@ const GUIDANCE_PREFACE =
 const withGuidance = (contentMd: string, guidance: { text: string } | null) =>
   guidance ? `${contentMd}\n\n<company_guidance>\n${GUIDANCE_PREFACE}\n\n${guidance.text}\n</company_guidance>` : contentMd;
 
-async function moduleContent(db: DrizzleD1Database, env: Env, moduleId: string) {
+// `teamEmail` is the caller's assertion that this content is being assembled
+// for ONE listener. Pass it on the per-learner paths — the custom body, the
+// personal intro, a Q&A follow-up — and omit it on anything baked once and
+// shared (stock episodes, goal intros), where folding one team's guidance into
+// a shared asset would serve it to other teams.
+async function moduleContent(db: DrizzleD1Database, env: Env, moduleId: string, teamEmail?: string | null) {
   const modRows = await db.select().from(t.fdModule).where(eq(t.fdModule.id, moduleId)).limit(1);
   const mod = modRows[0];
   if (!mod || mod.status !== 'open') return null;
@@ -2778,7 +3094,7 @@ async function moduleContent(db: DrizzleD1Database, env: Env, moduleId: string) 
     .orderBy(asc(t.fdContentBlock.ordinal));
   if (blockRows.length === 0) return null;
   const blocks = selectVariants(blockRows, toolingOf(env)).filter((b) => b.kind !== 'exercise');
-  const guidance = await guidanceFor(db, env, moduleId, mod.courseId);
+  const guidance = await guidanceFor(db, env, moduleId, mod.courseId, teamEmail);
   const contentMd = withGuidance(blocks.map((b) => b.body).join('\n\n'), guidance);
   // Guidance edits count as content changes, so stale stock episodes rebake.
   const reviewedAt = [...blocks.map((b) => b.reviewedAt), guidance?.updatedAt ?? ''].reduce((max, d) => (d > max ? d : max), '');
@@ -2820,6 +3136,8 @@ async function bakeStock(env: Env, moduleId: string): Promise<void> {
   if (!env.ANTHROPIC_API_KEY) return;
   try {
     const db = drizzle(env.DB);
+    // Shared asset: baked once per module and served to every listener, so no
+    // team scope — one team's guidance must never ride in a shared episode.
     const content = await moduleContent(db, env, moduleId);
     if (!content) return;
     const existing = await loadStock(db, moduleId, 'generic');
@@ -2883,6 +3201,8 @@ async function bakeGoalIntro(env: Env, moduleId: string, goalId: string): Promis
     if (!generic) return;
     const existing = await loadStock(db, moduleId, goalId);
     if (existing && existing.contentReviewedAt === generic.contentReviewedAt && existing.promptVersion === PODCAST_PROMPT_VERSION) return;
+    // Shared per (module, goal) across every learner holding that goal — same
+    // reason as the stock bake: no team scope.
     const content = await moduleContent(db, env, moduleId);
     if (!content) return;
     const model = env.PODCAST_MODEL ?? env.GRADING_MODEL;
@@ -2986,7 +3306,7 @@ async function preparePersonalIntro(env: Env, sessionId: string, moduleId: strin
       generic = await loadStock(db, moduleId, 'generic');
       if (!generic) return;
     }
-    const content = await moduleContent(db, env, moduleId);
+    const content = await moduleContent(db, env, moduleId, await managerEmailForSessionId(db, env.BRAND_SLUG, sessionId));
     if (!content) return;
     const learner = await podcastLearner(db, sessionId);
     const model = env.PODCAST_MODEL ?? env.GRADING_MODEL;
@@ -3096,7 +3416,7 @@ async function completeAssembledBody(env: Env, row: PodcastRow): Promise<void> {
   try {
     const db = drizzle(env.DB);
     const generic = await loadStock(db, row.moduleId, 'generic');
-    const content = await moduleContent(db, env, row.moduleId);
+    const content = await moduleContent(db, env, row.moduleId, await managerEmailForSessionId(db, env.BRAND_SLUG, row.sessionId));
     const introLines = JSON.parse(row.introJson ?? '[]') as PodcastLine[];
     const beats = generic ? (JSON.parse(generic.beatsJson) as string[]) : [];
 
@@ -3209,12 +3529,14 @@ async function generateEpisode(
     .where(eq(t.fdContentBlock.moduleId, moduleId))
     .orderBy(asc(t.fdContentBlock.ordinal));
   if (blockRows.length === 0) return null;
+  // A Q&A segment is written for the one listener who asked, so it carries
+  // their team's guidance like the custom body does.
   const contentMd = withGuidance(
     selectVariants(blockRows, toolingOf(env))
       .filter((b) => b.kind !== 'exercise')
       .map((b) => b.body)
       .join('\n\n'),
-    await guidanceFor(db, env, moduleId, mod.courseId),
+    await guidanceFor(db, env, moduleId, mod.courseId, await managerEmailForSessionId(db, env.BRAND_SLUG, sessionId)),
   );
 
   // Q&A hosts remember what this listener actually heard: their module episode
@@ -3848,6 +4170,13 @@ app.route('/', createOauthApp());
 
 // ---------- fallthrough ----------
 
+// The manager view. No separate credential: the census declares who reports to
+// whom, so an account whose email appears in manager_email rows is a manager
+// and their team is exactly those rows. Authorization is exact-email only —
+// see the note at the top of manager.ts for why the display-name fallback the
+// admin census uses is deliberately not reused here.
+app.route('/api/manager', createManagerApp({ requireSession }));
+
 app.route('/api/admin', adminApp);
 
 app.notFound(async (c) => {
@@ -3858,8 +4187,17 @@ app.notFound(async (c) => {
 export default {
   fetch: app.fetch,
   // Cron trigger (see wrangler.jsonc): keeps stock episodes baked for every
-  // open module, so podcast arrival is instant even on a never-visited module.
+  // open module, so podcast arrival is instant even on a never-visited module,
+  // and runs the reminder pass. The pass dedupes per (rule, recipient) inside
+  // the rule's own day window, so running it on every tick is safe — no
+  // separate run-lock, and no double nudge.
   scheduled(_controller: ScheduledController, env: Env, ctx: ExecutionContext) {
     ctx.waitUntil(warmAllStock(env));
+    ctx.waitUntil(
+      (async () => {
+        const db = drizzle(env.DB);
+        await runReminderPass(db, env, env.PUBLIC_ORIGIN ?? 'https://fluency-demo.workers.dev');
+      })().catch(() => {}),
+    );
   },
 };

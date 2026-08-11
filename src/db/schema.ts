@@ -22,9 +22,10 @@ export const fdAccessCode = sqliteTable('fd_access_code', {
   active: integer('active').notNull().default(1),
 });
 
-// A real login identity (AUTH_MODE=accounts deployments). Passcode entry is
-// the demo door; accounts are the product door. Sign-up is census-gated: the
-// email must be on the imported fd_employee roster, so the census is the
+// A real login identity. Accounts and shared passcodes are two doors into the
+// same deployment, open at the same time: a session with an account_id is a
+// product learner, one without is a demo learner. Sign-up is census-gated —
+// the email must be on the imported fd_employee roster, so the census is the
 // allowlist. Passwords use the same PBKDF2 format as access codes.
 export const fdAccount = sqliteTable(
   'fd_account',
@@ -38,6 +39,30 @@ export const fdAccount = sqliteTable(
     lastLoginAt: text('last_login_at'),
   },
   (t) => [uniqueIndex('idx_account_email').on(t.brandSlug, t.email)],
+);
+
+// A password reset in flight. The token itself is never stored — only an
+// unsalted SHA-256 of it, same reasoning as the OAuth tables: the input is
+// already 256 bits of randomness, and lookup has to be by exact hash. One
+// live token per account (a new request invalidates the outstanding ones),
+// single-use, and short-lived, so a mail forwarded to the wrong inbox is a
+// dead link rather than a standing key.
+export const fdPasswordReset = sqliteTable(
+  'fd_password_reset',
+  {
+    id: text('id').primaryKey(),
+    brandSlug: text('brand_slug').notNull(),
+    accountId: text('account_id').notNull(),
+    tokenHash: text('token_hash').notNull(),
+    createdAt: text('created_at').notNull(),
+    expiresAt: text('expires_at').notNull(),
+    usedAt: text('used_at'),
+    ipHash: text('ip_hash'),
+  },
+  (t) => [
+    uniqueIndex('idx_password_reset_token').on(t.tokenHash),
+    index('idx_password_reset_account').on(t.accountId, t.usedAt),
+  ],
 );
 
 export const fdSession = sqliteTable(
@@ -383,6 +408,70 @@ export const fdReminderRule = sqliteTable(
     updatedAt: text('updated_at').notNull(),
   },
   (t) => [index('idx_reminder_brand').on(t.brandSlug)],
+);
+
+// Every message this deployment actually tried to send, and what came of it.
+// Doubles as the dedupe key: a rule fires for one recipient at most once per
+// its own day window. A deployment with no provider configured still writes
+// rows here with status 'skipped' — the evaluation is real and recorded even
+// when delivery isn't wired, so "who would we have emailed" stays answerable.
+export const fdEmailSend = sqliteTable(
+  'fd_email_send',
+  {
+    id: text('id').primaryKey(),
+    brandSlug: text('brand_slug').notNull(),
+    kind: text('kind').notNull(), // reminder:<ruleId> | kudos | endorse | deadline | commitment | commitment_ack
+    toEmail: text('to_email').notNull(),
+    subject: text('subject').notNull(),
+    body: text('body').notNull(),
+    status: text('status').notNull(), // sent | skipped | failed
+    provider: text('provider'),
+    error: text('error'),
+    createdAt: text('created_at').notNull(),
+  },
+  (t) => [index('idx_email_send_dedupe').on(t.brandSlug, t.kind, t.toEmail, t.createdAt)],
+);
+
+// A manager acting on one of their reports: recognition, a module they want
+// prioritized, or a date with a reason attached. Scoped by manager_email —
+// the census column the manager view authorizes against — so a row can only
+// exist for a pairing the roster actually declares.
+export const fdManagerAction = sqliteTable(
+  'fd_manager_action',
+  {
+    id: text('id').primaryKey(),
+    brandSlug: text('brand_slug').notNull(),
+    managerEmail: text('manager_email').notNull(), // stored lowercase
+    employeeId: text('employee_id').notNull(),
+    kind: text('kind').notNull(), // kudos | endorse | deadline
+    moduleId: text('module_id'), // endorse
+    dueDate: text('due_date'), // deadline
+    body: text('body').notNull(),
+    createdAt: text('created_at').notNull(),
+    seenAt: text('seen_at'),
+  },
+  (t) => [index('idx_manager_action_emp').on(t.employeeId, t.createdAt), index('idx_manager_action_mgr').on(t.managerEmail)],
+);
+
+// The learner's stated finish-by date and, when they choose to share it, their
+// manager's acknowledgment. Two-sided on purpose: a declaration into the void
+// is a far weaker commitment than one somebody answered, and the acknowledgment
+// is the manager's half of the bargain — protect the time.
+export const fdCommitment = sqliteTable(
+  'fd_commitment',
+  {
+    id: text('id').primaryKey(),
+    brandSlug: text('brand_slug').notNull(),
+    sessionId: text('session_id').notNull(),
+    courseId: text('course_id').notNull(),
+    targetDate: text('target_date').notNull(),
+    note: text('note'),
+    sharedWithManager: integer('shared_with_manager').notNull().default(0),
+    managerAckAt: text('manager_ack_at'),
+    managerNote: text('manager_note'),
+    createdAt: text('created_at').notNull(),
+  },
+  (t) => [index('idx_commitment_session').on(t.sessionId, t.createdAt)],
 );
 
 // ---------- OAuth for the MCP connector ----------

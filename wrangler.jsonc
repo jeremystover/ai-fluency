@@ -60,11 +60,24 @@
     // Episode scripts per session per hour (default 4 if unset). Raised for demo/testing.
     "PODCAST_LIMIT_PER_HOUR": "12",
     // Gemini TTS model used when the GEMINI_API_KEY secret is set (multi-speaker).
-    "GEMINI_TTS_MODEL": "gemini-3.1-flash-tts-preview"
+    "GEMINI_TTS_MODEL": "gemini-3.1-flash-tts-preview",
+    // Email delivery is off until BOTH the RESEND_API_KEY secret and a verified
+    // sender are set. Add EMAIL_FROM here once the domain is verified with the
+    // provider, e.g. "EMAIL_FROM": "AI Fluency <learn@yourdomain.com>".
+    //
+    // Where cron-sent mail links back to. A request knows its own origin; a
+    // scheduled run has none, so the reminder pass reads this. Set it to the
+    // origin learners actually type — a custom domain, once there is one, or
+    // the links in the nightly mail point at the wrong host.
+    "PUBLIC_ORIGIN": "https://fluency-demo.workers.dev"
   }
   // Secrets (set with `wrangler secret put`):
   //   SESSION_SECRET      — HMAC key for session cookie signing
   //   ANTHROPIC_API_KEY   — grading + tutor chat + podcast scripts; never exposed to the client
   //   GEMINI_API_KEY      — optional: voices podcast chunks with Gemini's native
   //                         multi-speaker TTS instead of Aura (Aura stays the fallback)
+  //   RESEND_API_KEY      — optional: sends reminders, kudos, and commitment mail.
+  //                         Unset, every rule still evaluates and each intended
+  //                         send is logged as 'skipped' — nothing is pretended.
+  //                         EMAIL_FROM is a var, not a secret — see the vars block.
 }

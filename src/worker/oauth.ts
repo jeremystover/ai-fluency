@@ -264,12 +264,14 @@ ${learner ? `<p>Signed in as <strong>${escapeHtml(learner)}</strong>.</p>` : ''}
   );
 }
 
-function signInPage(look: BrandLook, next: string, mode: 'passcode' | 'accounts'): string {
+// Door-agnostic on purpose: the course opens to an account sign-in or a demo
+// passcode, and which one this person holds is theirs to know, not ours.
+function signInPage(look: BrandLook, next: string): string {
   return page(
     look,
     `<p class="label">${escapeHtml(look.name)} · AI Fluency</p>
 <h1>Sign in to connect your course</h1>
-<p>${mode === 'accounts' ? 'Sign in to your course account' : 'Enter your course passcode'} first — then we'll bring you straight back here to finish connecting.</p>
+<p>Sign in to the course first — with your account or your demo passcode — and we'll bring you straight back here to finish connecting.</p>
 <a class="btn" href="/enter?next=${encodeURIComponent(next)}">Go to sign in</a>`,
   );
 }
@@ -450,7 +452,7 @@ export function createOauthApp() {
     const session = sessionId ? (await db.select().from(t.fdSession).where(eq(t.fdSession.id, sessionId)).limit(1))[0] : undefined;
     if (!session) {
       const back = new URL(c.req.url);
-      return c.html(signInPage(look, `${back.pathname}${back.search}`, c.env.AUTH_MODE?.trim().toLowerCase() === 'accounts' ? 'accounts' : 'passcode'), 200);
+      return c.html(signInPage(look, `${back.pathname}${back.search}`), 200);
     }
 
     const participant = (

@@ -9,12 +9,26 @@ export type BrandTokens = {
   logoUrl: string;
 };
 
+// How someone got in, and therefore what the product owes them. This is a
+// property of the session, not the deployment: both doors are always open and
+// the two kinds of learner coexist.
+//   demo    — entered with a shared passcode or promo code. Anonymous: no
+//             census identity, so no manager, no cross-device progress.
+//   account — signed in with email + password (SSO lands here too). Progress
+//             follows the account, and the census can match them exactly.
+export type SessionKind = 'demo' | 'account';
+
 export type Brand = {
   slug: string;
   name: string;
-  // 'passcode': the demo door (shared codes, no accounts).
-  // 'accounts': the product door — census-gated email + password sign-in.
-  authMode: 'passcode' | 'accounts';
+  // Which doors this deployment can actually open right now — derived from
+  // data, not configuration. A deployment with codes but no census roster
+  // shows only the demo door; one with both shows both.
+  doors: { passcode: boolean; accounts: boolean };
+  // Whether "forgot your password" can actually deliver. Self-serve reset
+  // needs a mail provider; without one the sign-in screen points at the
+  // admin's temp-password path instead of offering a link that goes nowhere.
+  canResetPassword: boolean;
   tokens: BrandTokens;
   voice: { greeting: string; signoff: string };
   // Assistants the company provisions (e.g. ["Claude"]). When the profile
@@ -135,6 +149,17 @@ export type PathResponse = {
   diagnosticNote: string | null;
   upNext: PathRecommendation[]; // ranked, top first
   resume: PathResume | null;
+  // Accounts mode only — both are empty for anonymous passcode sessions, which
+  // have no census identity and therefore no manager.
+  managerSignals: ManagerSignal[];
+  commitment: CommitmentResponse | null;
+  // True when this account has reports on the census — the manager view's door.
+  isManager: boolean;
+  // Whether this session has ever reached the course through an assistant. The
+  // connector is a pull surface, not a push one: it can't notify anyone. What it
+  // does is make resuming free for someone already in Claude for work reasons,
+  // which is why adoption is worth nudging at all.
+  mcpConnected: boolean;
 };
 
 export type CourseCard = {
@@ -229,6 +254,10 @@ export type IntakePrefs = {
   aiTools?: string[]; // claude | chatgpt | gemini | other — asked unless the company profile already says
   aiToolOther?: string; // free-text fill-in when 'other' is picked
   selfLevel?: string; // self-assessed fluency level — see shared/levels.ts
+  // Opt-in: lets a manager read this learner's graded activity submissions in
+  // their team view. Off by default, and it never covers the tutor transcript,
+  // the diagnostic self-assessment, or which questions were missed.
+  shareWork?: boolean;
 };
 
 export type PlanStep = {
@@ -251,9 +280,15 @@ export type PlanResponse = {
 
 export type MeResponse = {
   authenticated: boolean;
+  // How this particular learner got in. Demo and account learners use the same
+  // deployment at the same time; features needing a census identity (the
+  // manager view, sharing a finish date, team-scoped tutor guidance) resolve
+  // to their empty state for a demo session rather than being switched off
+  // deployment-wide.
+  kind?: SessionKind;
   displayName?: string | null;
   roleLabel?: string | null;
-  // Present when this session belongs to a real account (accounts mode).
+  // Present when this session belongs to a real account.
   account?: { email: string; name: string } | null;
   brandSlug?: string;
   prefs?: IntakePrefs;
@@ -540,6 +575,83 @@ export type RecordResponse = {
   badges: Badge[];
   credentials: Credential[];
   skills: SkillStatement[];
+};
+
+// ---------- the manager view ----------
+
+// What a manager may see about one of their reports. Deliberately short: course
+// progress, and graded work only when that learner opted in. It carries no
+// diagnostic self-rating, no calibration, no tutor transcript, and no record of
+// which questions were missed — this course asks people to admit what they
+// don't know, and that bargain breaks the moment their manager is reading.
+export type TeamMember = {
+  employeeId: string;
+  name: string;
+  roleTitle: string | null;
+  status: 'not_started' | 'started' | 'in_progress' | 'complete';
+  modulesCleared: number;
+  modulesTotal: number;
+  lastSeenAt: string | null;
+  // Present only with the learner's explicit consent (prefs.shareWork).
+  work: { moduleTitle: string; score: number | null; summary: string | null; submissionId: string }[] | null;
+  sharesWork: boolean;
+  // Their stated finish-by, when they chose to share it.
+  commitment: { id: string; targetDate: string; note: string | null; acknowledgedAt: string | null } | null;
+  // One thing to ask in the next 1:1, drawn from the module they most recently
+  // cleared — the course's own takeaways, not a generated prompt.
+  askAbout: { moduleTitle: string; question: string } | null;
+  recentActions: { kind: string; body: string; createdAt: string }[];
+};
+
+// Aggregate only, and suppressed below a floor — a "team" of two is two named
+// people wearing a trench coat, and this view is not a way to identify them.
+export type TeamAggregate = {
+  size: number;
+  started: number;
+  completedAny: number;
+  // Topics the team as a whole is weakest on, from missed knowledge-check
+  // questions across the team. Never attributed to anyone.
+  weakSpots: { moduleTitle: string; prompt: string; missedBy: number }[] | null;
+  // Org-wide comparison, so a manager can tell "my team" from "everyone".
+  orgStarted: number;
+  orgSize: number;
+};
+
+export type ManagerResponse = {
+  isManager: boolean;
+  managerEmail: string | null;
+  team: TeamMember[];
+  aggregate: TeamAggregate | null;
+  teamGuidance: string | null;
+  // The manager's own learner progress — "leader goes first" is stated, not implied.
+  selfCleared: number;
+  selfTotal: number;
+};
+
+// The learner's half of the two-sided commitment.
+export type CommitmentResponse = {
+  commitment: {
+    id: string;
+    courseId: string;
+    targetDate: string;
+    note: string | null;
+    sharedWithManager: boolean;
+    managerAckAt: string | null;
+    managerNote: string | null;
+  } | null;
+  managerName: string | null; // who it would be shared with, from the census
+  canShare: boolean; // false when the roster has no manager email for them
+};
+
+// What a manager has aimed at this learner, surfaced on their path.
+export type ManagerSignal = {
+  id: string;
+  kind: 'kudos' | 'endorse' | 'deadline';
+  moduleId: string | null;
+  dueDate: string | null;
+  body: string;
+  managerName: string | null;
+  createdAt: string;
 };
 
 // ---------- choice exercise ----------

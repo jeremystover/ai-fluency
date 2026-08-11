@@ -1,13 +1,13 @@
 import { useState, type FormEvent } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Screen, Button, ErrorNote } from '../components/ui';
 import { api, ApiError } from '../api';
 import { useApp } from '../brand';
 
-// The door. Which door depends on the deployment: 'passcode' is the demo
-// (shared codes, no accounts); 'accounts' is the product — census-gated
-// email + password sign-in. The server enforces the mode; this screen
-// just renders the right form.
+// The door — both of them. A passcode is the demo (shared codes, anonymous,
+// progress on this browser); email + password is the product (census-gated,
+// progress follows the account). Neither closes the other; which one someone
+// came through is a property of their session, not of the deployment.
 
 // A learner sent here mid-connector-handshake (the OAuth approval screen
 // needs a session first) carries ?next= back to it. Only the worker-served
@@ -78,7 +78,7 @@ const field =
 function AccountDoor() {
   const navigate = useNavigate();
   const afterSignIn = useAfterSignIn();
-  const { me, refreshMe } = useApp();
+  const { brand, me, refreshMe } = useApp();
   const [mode, setMode] = useState<'signin' | 'signup'>('signin');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -213,14 +213,59 @@ function AccountDoor() {
           </>
         )}
       </p>
-      {mode === 'signin' && (
-        <p className="text-xs text-muted mt-2">Forgot your password? Ask your admin to reset it — they can issue you a temporary one.</p>
-      )}
+      {mode === 'signin' &&
+        (brand?.canResetPassword ? (
+          <p className="text-xs text-muted mt-2">
+            <Link to="/reset" className="text-accent font-semibold hover:underline">
+              Forgot your password?
+            </Link>
+          </p>
+        ) : (
+          // No mail provider on this deployment, so self-serve reset can't
+          // deliver. Point at the path that does work rather than a link that
+          // sends nothing.
+          <p className="text-xs text-muted mt-2">Forgot your password? Ask your admin to reset it — they can issue you a temporary one.</p>
+        ))}
     </div>
   );
 }
 
+// Both doors, whenever both can open. An account is the product door — progress
+// follows you across devices, your manager can see that you're moving, and the
+// tutor knows what your team is working on. A passcode is the demo door: the
+// same course, anonymously, on this browser. Neither closes the other, and the
+// learner picks rather than the deployment picking for them.
 export default function Enter() {
   const { brand } = useApp();
-  return <Screen>{brand?.authMode === 'accounts' ? <AccountDoor /> : <PasscodeDoor />}</Screen>;
+  const doors = brand?.doors;
+  // Before the brand loads, assume the fuller door and let it settle.
+  const [showPasscode, setShowPasscode] = useState(false);
+
+  if (doors && !doors.accounts) return <Screen><PasscodeDoor /></Screen>;
+  if (doors && !doors.passcode) return <Screen><AccountDoor /></Screen>;
+
+  return (
+    <Screen>
+      {showPasscode ? <PasscodeDoor /> : <AccountDoor />}
+      <div className="mt-8 pt-6 border-t border-line max-w-md">
+        {showPasscode ? (
+          <p className="text-sm text-muted">
+            Have a work account?{' '}
+            <button onClick={() => setShowPasscode(false)} className="text-accent font-semibold hover:underline">
+              Sign in instead
+            </button>{' '}
+            — your progress follows you across devices.
+          </p>
+        ) : (
+          <p className="text-sm text-muted">
+            Given a demo or promo code?{' '}
+            <button onClick={() => setShowPasscode(true)} className="text-accent font-semibold hover:underline">
+              Enter it here
+            </button>{' '}
+            — no account needed, and progress stays on this browser.
+          </p>
+        )}
+      </div>
+    </Screen>
+  );
 }
