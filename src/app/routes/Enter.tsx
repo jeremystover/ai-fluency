@@ -220,7 +220,42 @@ function AccountDoor() {
   );
 }
 
+// Both doors, whenever both can open. An account is the product door — progress
+// follows you across devices, your manager can see that you're moving, and the
+// tutor knows what your team is working on. A passcode is the demo door: the
+// same course, anonymously, on this browser. Neither closes the other, and the
+// learner picks rather than the deployment picking for them.
 export default function Enter() {
   const { brand } = useApp();
-  return <Screen>{brand?.authMode === 'accounts' ? <AccountDoor /> : <PasscodeDoor />}</Screen>;
+  const doors = brand?.doors;
+  // Before the brand loads, assume the fuller door and let it settle.
+  const [showPasscode, setShowPasscode] = useState(false);
+
+  if (doors && !doors.accounts) return <Screen><PasscodeDoor /></Screen>;
+  if (doors && !doors.passcode) return <Screen><AccountDoor /></Screen>;
+
+  return (
+    <Screen>
+      {showPasscode ? <PasscodeDoor /> : <AccountDoor />}
+      <div className="mt-8 pt-6 border-t border-line max-w-md">
+        {showPasscode ? (
+          <p className="text-sm text-muted">
+            Have a work account?{' '}
+            <button onClick={() => setShowPasscode(false)} className="text-accent font-semibold hover:underline">
+              Sign in instead
+            </button>{' '}
+            — your progress follows you across devices.
+          </p>
+        ) : (
+          <p className="text-sm text-muted">
+            Given a demo or promo code?{' '}
+            <button onClick={() => setShowPasscode(true)} className="text-accent font-semibold hover:underline">
+              Enter it here
+            </button>{' '}
+            — no account needed, and progress stays on this browser.
+          </p>
+        )}
+      </div>
+    </Screen>
+  );
 }

@@ -61,6 +61,7 @@ import type {
   ModuleContentResponse,
   ModuleMcpActivity,
   PathResponse,
+  SessionKind,
   PathResume,
   PathSummary,
   PriorStage,
@@ -85,10 +86,6 @@ export interface Env {
   // which variant of the [V] lab lessons is served — one tooling per deploy,
   // same pattern as BRAND_SLUG. Unset = 'claude'.
   ORG_TOOLING?: string;
-  // How learners get in. 'passcode' (default): the demo door — shared codes,
-  // no accounts. 'accounts': the product door — census-gated sign-up with
-  // email + password, passcode entry disabled. One mode per deployment.
-  AUTH_MODE?: string;
   GRADING_MODEL: string;
   CHAT_MODEL: string;
   PODCAST_MODEL?: string;
@@ -186,10 +183,20 @@ app.get('/api/brand', async (c) => {
   const row = rows[0];
   if (!row) return c.json({ error: 'No brand seeded for this deployment. Run the seed migration.' }, 500);
   const profile = row.profileJson ? JSON.parse(row.profileJson) : null;
+  // Which doors can actually open, asked of the data rather than a config var:
+  // codes exist → the demo door works; a census roster exists → sign-up works
+  // (it is roster-gated). Both can be true at once, and usually are.
+  const [codeRows, rosterRows] = await Promise.all([
+    db
+      .select({ n: sql<number>`count(*)` })
+      .from(t.fdAccessCode)
+      .where(and(eq(t.fdAccessCode.brandSlug, row.slug), eq(t.fdAccessCode.active, 1))),
+    db.select({ n: sql<number>`count(*)` }).from(t.fdEmployee).where(eq(t.fdEmployee.brandSlug, row.slug)),
+  ]);
   const brand: Brand = {
     slug: row.slug,
     name: row.name,
-    authMode: authModeOf(c.env),
+    doors: { passcode: (codeRows[0]?.n ?? 0) > 0, accounts: (rosterRows[0]?.n ?? 0) > 0 },
     tokens: JSON.parse(row.tokensJson),
     voice: JSON.parse(row.voiceJson),
     ...(Array.isArray(profile?.aiTools) && profile.aiTools.length ? { aiTools: profile.aiTools } : {}),
@@ -257,11 +264,11 @@ app.post('/api/event', async (c) => {
 
 // ---------- access ----------
 
+// The demo door. Always open when active codes exist — a passcode holder is a
+// demo learner whether or not this deployment also has accounts. The two kinds
+// coexist; nothing here closes the other door.
 app.post('/api/enter', async (c) => {
   const db = c.get('db');
-  if (authModeOf(c.env) === 'accounts') {
-    return c.json({ error: 'Passcode entry is the demo door — this deployment uses accounts. Sign in instead.' }, 403);
-  }
   const body = await c.req.json<{ code?: string }>().catch(() => null);
   const code = body?.code?.trim();
   if (!code) return c.json({ error: 'Enter the passcode you were given.' }, 400);
@@ -333,7 +340,11 @@ app.post('/api/enter', async (c) => {
 
 // ---------- accounts (the product door; passcodes are the demo door) ----------
 
-const authModeOf = (env: Env) => (env.AUTH_MODE?.trim().toLowerCase() === 'accounts' ? 'accounts' : 'passcode');
+// Identity is a property of the session, not the deployment: a session with an
+// account behind it is a product learner, one without is a demo learner. Every
+// feature that needs a census identity (manager view, commitment sharing,
+// team-scoped guidance) resolves through this rather than a config switch.
+export const sessionKind = (session: SessionRow): SessionKind => (session.accountId ? 'account' : 'demo');
 const normalizeEmail = (raw: unknown) => (typeof raw === 'string' ? raw.trim().toLowerCase() : '');
 const MIN_PASSWORD_CHARS = 10;
 
@@ -828,6 +839,7 @@ app.get('/api/me', async (c) => {
 
   const res: MeResponse = {
     authenticated: true,
+    kind: session.accountId ? 'account' : 'demo',
     displayName: participants[0]?.displayName ?? null,
     roleLabel: participants[0]?.roleLabel ?? null,
     account,

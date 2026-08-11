@@ -22,9 +22,10 @@ export const fdAccessCode = sqliteTable('fd_access_code', {
   active: integer('active').notNull().default(1),
 });
 
-// A real login identity (AUTH_MODE=accounts deployments). Passcode entry is
-// the demo door; accounts are the product door. Sign-up is census-gated: the
-// email must be on the imported fd_employee roster, so the census is the
+// A real login identity. Accounts and shared passcodes are two doors into the
+// same deployment, open at the same time: a session with an account_id is a
+// product learner, one without is a demo learner. Sign-up is census-gated —
+// the email must be on the imported fd_employee roster, so the census is the
 // allowlist. Passwords use the same PBKDF2 format as access codes.
 export const fdAccount = sqliteTable(
   'fd_account',

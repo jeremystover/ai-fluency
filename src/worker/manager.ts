@@ -8,8 +8,9 @@
 // 1. Authorization is exact-email only. The census tab tolerates matching a
 //    learner by self-reported display name, because there a bad match is a
 //    wrong number on a report. Here a bad match is one person reading another
-//    person's work, so the name path is never used — accounts mode, exact
-//    address, or no team.
+//    person's work, so the name path is never used — a signed-in account, an
+//    exact address, or no team. A demo passcode session is anonymous and so
+//    resolves to no team, which is the correct answer rather than a blocked one.
 //
 // 2. The manager sees progress and finished work, never process. No diagnostic
 //    self-rating, no calibration, no tutor transcript, no per-question misses.
@@ -30,7 +31,7 @@ const AGGREGATE_FLOOR = 3;
 const now = () => new Date().toISOString();
 const uuid = () => crypto.randomUUID();
 
-export type ManagerEnv = EmailEnv & { DB: D1Database; BRAND_SLUG: string; AUTH_MODE?: string };
+export type ManagerEnv = EmailEnv & { DB: D1Database; BRAND_SLUG: string };
 
 type SessionRow = typeof t.fdSession.$inferSelect;
 

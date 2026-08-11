@@ -62,15 +62,6 @@
     // Gemini TTS model used when the GEMINI_API_KEY secret is set (multi-speaker).
     "GEMINI_TTS_MODEL": "gemini-3.1-flash-tts-preview"
   }
-  // AUTH_MODE is deliberately unset here, so this deployment runs the passcode
-  // demo door. Set it to "accounts" to run the product door — census-gated
-  // email + password sign-up, progress following the account across devices,
-  // and the manager view at /team (which needs a real identity: authorization
-  // is exact-email against fd_employee.manager_email, and passcode sessions are
-  // anonymous). Flip it only once the census is imported — sign-up is gated on
-  // that roster, so an empty census with AUTH_MODE=accounts means nobody can
-  // get in at all.
-
   // Secrets (set with `wrangler secret put`):
   //   SESSION_SECRET      — HMAC key for session cookie signing
   //   ANTHROPIC_API_KEY   — grading + tutor chat + podcast scripts; never exposed to the client

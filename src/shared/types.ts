@@ -9,12 +9,22 @@ export type BrandTokens = {
   logoUrl: string;
 };
 
+// How someone got in, and therefore what the product owes them. This is a
+// property of the session, not the deployment: both doors are always open and
+// the two kinds of learner coexist.
+//   demo    — entered with a shared passcode or promo code. Anonymous: no
+//             census identity, so no manager, no cross-device progress.
+//   account — signed in with email + password (SSO lands here too). Progress
+//             follows the account, and the census can match them exactly.
+export type SessionKind = 'demo' | 'account';
+
 export type Brand = {
   slug: string;
   name: string;
-  // 'passcode': the demo door (shared codes, no accounts).
-  // 'accounts': the product door — census-gated email + password sign-in.
-  authMode: 'passcode' | 'accounts';
+  // Which doors this deployment can actually open right now — derived from
+  // data, not configuration. A deployment with codes but no census roster
+  // shows only the demo door; one with both shows both.
+  doors: { passcode: boolean; accounts: boolean };
   tokens: BrandTokens;
   voice: { greeting: string; signoff: string };
   // Assistants the company provisions (e.g. ["Claude"]). When the profile
@@ -238,9 +248,15 @@ export type PlanResponse = {
 
 export type MeResponse = {
   authenticated: boolean;
+  // How this particular learner got in. Demo and account learners use the same
+  // deployment at the same time; features needing a census identity (the
+  // manager view, sharing a finish date, team-scoped tutor guidance) resolve
+  // to their empty state for a demo session rather than being switched off
+  // deployment-wide.
+  kind?: SessionKind;
   displayName?: string | null;
   roleLabel?: string | null;
-  // Present when this session belongs to a real account (accounts mode).
+  // Present when this session belongs to a real account.
   account?: { email: string; name: string } | null;
   brandSlug?: string;
   prefs?: IntakePrefs;
