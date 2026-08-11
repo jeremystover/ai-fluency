@@ -78,12 +78,25 @@ export type PathModule = ModuleCard & {
 export type PathSummary = {
   openTotal: number; // open modules across courses
   doneCount: number; // completed or tested-out among them
+  testedOutCount: number; // the head start the diagnostic earned, counted separately
+  minutesRemaining: number; // est minutes across open modules still uncleared
   minutesInvested: number; // gap-sum estimate, same math as the admin's
   activeDays7: number; // distinct active days in the last 7
+  activeDays: string[]; // those days as YYYY-MM-DD — the week strip renders from them
+  lastActiveAt: string | null; // most recent event, so a return after a gap can be greeted as one
   checks: { passed: number; correct: number; total: number } | null; // best attempts; null = none yet
 };
 
 export type PathRecommendation = { moduleId: string; reasons: string[] };
+
+// The module this session last touched without clearing it — an open loop the
+// path can offer to close. `via` is the surface the last touch came from, so
+// "pick up where you left off" returns them to that surface, not a generic page.
+export type PathResume = {
+  moduleId: string;
+  at: string;
+  via: 'read' | 'chat' | 'podcast' | 'check' | 'exercise' | 'activity';
+};
 
 export type PathResponse = {
   modules: PathModule[];
@@ -92,6 +105,7 @@ export type PathResponse = {
   // e.g. "your diagnostic says you expect too little from these tools"
   diagnosticNote: string | null;
   upNext: PathRecommendation[]; // ranked, top first
+  resume: PathResume | null;
 };
 
 export type CourseCard = {

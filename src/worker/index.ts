@@ -59,6 +59,7 @@ import type {
   ModuleContentResponse,
   ModuleMcpActivity,
   PathResponse,
+  PathResume,
   PathSummary,
   PriorStage,
   TrailPoint,
@@ -1132,11 +1133,23 @@ app.get('/api/path', async (c) => {
     .where(and(eq(t.fdEvent.sessionId, session.id), sql`${t.fdEvent.createdAt} > ${weekAgo}`));
   const openIds = new Set(openModules.map((m) => m.id));
   const bestOnOpen = [...bestCheckById.entries()].filter(([id]) => openIds.has(id)).map(([, s]) => s);
+  const lastEventRows = await db
+    .select({ at: t.fdEvent.createdAt })
+    .from(t.fdEvent)
+    .where(eq(t.fdEvent.sessionId, session.id))
+    .orderBy(desc(t.fdEvent.createdAt))
+    .limit(1);
   const summary: PathSummary = {
     openTotal: openModules.length,
     doneCount: openModules.filter((m) => m.completed || m.testedOut).length,
+    testedOutCount: openModules.filter((m) => m.testedOut).length,
+    // What's actually left, not a percentage — "~34 min to finish" is a
+    // decision the learner can make; "62% complete" isn't.
+    minutesRemaining: openModules.filter((m) => !m.completed && !m.testedOut).reduce((sum, m) => sum + m.estMinutes, 0),
     minutesInvested: activeRows[0]?.active_min ?? 0,
     activeDays7: dayRows.length,
+    activeDays: dayRows.map((r) => r.day),
+    lastActiveAt: lastEventRows[0]?.at ?? null,
     checks: bestOnOpen.length
       ? {
           passed: bestOnOpen.filter((s) => s.total > 0 && s.correct / s.total >= 0.6).length,
@@ -1145,6 +1158,33 @@ app.get('/api/path', async (c) => {
         }
       : null,
   };
+
+  // The open loop: the module they last touched and never cleared. Read from
+  // the funnel like everything else — the newest touch on an uncleared module
+  // wins, and the event type says which surface to send them back to.
+  const RESUME_VIA: Record<string, PathResume['via']> = {
+    module_opened: 'read',
+    chat_started: 'chat',
+    chat_message: 'chat',
+    podcast_started: 'podcast',
+    podcast_played: 'podcast',
+    knowledge_check_started: 'check',
+    knowledge_check_submitted: 'check',
+    sort_submitted: 'exercise',
+    choice_submitted: 'exercise',
+    activity_submitted: 'activity',
+  };
+  const touchRows = await db
+    .select({ type: t.fdEvent.type, at: t.fdEvent.createdAt, moduleId: sql<string | null>`json_extract(${t.fdEvent.payloadJson}, '$.moduleId')` })
+    .from(t.fdEvent)
+    .where(and(eq(t.fdEvent.sessionId, session.id), inArray(t.fdEvent.type, Object.keys(RESUME_VIA))))
+    .orderBy(desc(t.fdEvent.createdAt))
+    .limit(60);
+  const uncleared = new Set(openModules.filter((m) => !m.completed && !m.testedOut).map((m) => m.id));
+  const touch = touchRows.find((r) => r.moduleId && uncleared.has(r.moduleId));
+  const resume: PathResume | null = touch?.moduleId
+    ? { moduleId: touch.moduleId, at: touch.at, via: RESUME_VIA[touch.type] }
+    : null;
 
   // "Up next" is the same ranking the MCP tutor recommends from — one brain,
   // two surfaces.
@@ -1157,7 +1197,7 @@ app.get('/api/path', async (c) => {
     ...course,
     recommendedFor: selectedGoals.filter((g) => g.courses.includes(course.id)).map((g) => `your goal: ${g.label}`),
   }));
-  const res: PathResponse = { modules, courses: coursesOut, summary, diagnosticNote, upNext };
+  const res: PathResponse = { modules, courses: coursesOut, summary, diagnosticNote, upNext, resume };
   return c.json(res);
 });
 

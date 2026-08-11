@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import type { CourseCard, PathModule, PathResponse } from '../../shared/types';
+import type { CourseCard, PathModule, PathResponse, PathResume } from '../../shared/types';
 import { Screen, ErrorNote } from '../components/ui';
 import { api, ApiError } from '../api';
 import { useApp } from '../brand';
@@ -9,9 +9,15 @@ import { depthOf } from '../../shared/depth';
 import { goalLabel } from '../../shared/goals';
 
 // The path as a ledger: a progress instrument that owns "how far am I,"
-// an up-next queue that owns "why this, for me," and the library compressed
-// to state-weighted rows — done things shrink, the next thing grows. Nothing
-// locks; every number is a read of the funnel, never an invention.
+// one unambiguous next action that owns "what do I do now," and the library
+// compressed to state-weighted rows — done things shrink, the next thing
+// grows. Nothing locks; every number is a read of the funnel, never an
+// invention.
+//
+// The page offers exactly one primary move. An unfinished module outranks a
+// recommendation (closing an open loop beats starting a new one), and the
+// alternate surfaces live behind a disclosure rather than competing with it —
+// every extra door on this screen is a chance to leave through none of them.
 
 const fmtDate = (iso: string) => new Date(iso).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
 
@@ -22,8 +28,45 @@ const fmtMinutes = (min: number) => {
   return `~${h}h${m ? ` ${m.toString().padStart(2, '0')}m` : ''}`;
 };
 
+const daysSince = (iso: string) => Math.floor((Date.now() - new Date(iso).getTime()) / 86_400_000);
+
 // "AI 101 · Foundations" → "AI 101"
 const shortTitle = (course: CourseCard) => course.title.split('·')[0].trim();
+
+// Where a half-finished module resumes — the surface the last touch came from,
+// so "pick up where you left off" lands on the thing they were actually doing.
+const resumeRoute = (r: PathResume): string => {
+  const base = `/module/${r.moduleId}`;
+  switch (r.via) {
+    case 'chat':
+      return `${base}/chat`;
+    case 'podcast':
+      return `${base}/podcast`;
+    case 'check':
+      return `${base}/check`;
+    case 'activity':
+      return `${base}/activity`;
+    default:
+      return base;
+  }
+};
+
+const resumeLabel = (r: PathResume): string => {
+  switch (r.via) {
+    case 'chat':
+      return 'Back to the tutor →';
+    case 'podcast':
+      return 'Back to the episode →';
+    case 'check':
+      return 'Back to the check →';
+    case 'activity':
+      return 'Back to the activity →';
+    case 'exercise':
+      return 'Back to the exercise →';
+    default:
+      return 'Keep reading →';
+  }
+};
 
 type RowState = 'done' | 'tested' | 'next' | 'todo';
 
@@ -34,6 +77,33 @@ function StateDot({ state }: { state: RowState | 'lock' }) {
   if (state === 'next') return <span className={`${base} bg-signal text-on-signal font-bold`} aria-hidden="true">→</span>;
   if (state === 'lock') return <span className={`${base} border-2 border-dashed border-line-strong text-muted`} aria-hidden="true">·</span>;
   return <span className={`${base} border-2 border-line-strong`} aria-hidden="true" />;
+}
+
+// Seven days, oldest to newest, filled where the funnel recorded activity.
+// Day keys are UTC to match the server's substr() of the event timestamp, and
+// the labels are derived from the same keys so the strip never disagrees with
+// itself. A quiet read of consistency — no streak, nothing to break.
+function WeekStrip({ activeDays }: { activeDays: string[] }) {
+  const active = new Set(activeDays);
+  const days = Array.from({ length: 7 }, (_, i) => {
+    const d = new Date(Date.now() - (6 - i) * 86_400_000);
+    return d.toISOString().slice(0, 10);
+  });
+  const count = days.filter((d) => active.has(d)).length;
+  return (
+    <span className="flex items-center gap-2">
+      <span className="flex gap-1" role="img" aria-label={`Active ${count} of the last 7 days`}>
+        {days.map((d) => (
+          <span
+            key={d}
+            title={new Date(`${d}T00:00:00Z`).toLocaleDateString(undefined, { weekday: 'long', timeZone: 'UTC' })}
+            className={`w-1.5 h-1.5 rounded-full ${active.has(d) ? 'bg-accent' : 'bg-line'}`}
+          />
+        ))}
+      </span>
+      <span aria-hidden="true">active {count} of 7 days</span>
+    </span>
+  );
 }
 
 function ModuleRow({
@@ -110,14 +180,13 @@ export default function Path() {
   if (error) return <Screen><div className="pt-20"><ErrorNote message={error} /></div></Screen>;
   if (!data) return <Screen><div className="pt-24 text-center"><p className="label-utility">Opening your path…</p></div></Screen>;
 
-  const { summary, upNext, diagnosticNote } = data;
+  const { summary, upNext, diagnosticNote, resume } = data;
   const startFor = (m: PathModule) =>
     essentialsReader
       ? { route: `/module/${m.id}/micro`, label: 'Start micro →' }
       : { route: surfaceRoute(surface, m.id), label: surfaceStartLabel(surface) };
 
   const name = me?.displayName ?? null;
-  const greeting = summary.doneCount > 0 ? `Keep going${name ? `, ${name}` : ''}.` : `Choose your first move${name ? `, ${name}` : ''}.`;
   const goals = (me?.prefs?.goals ?? []).map(goalLabel);
 
   const nextId = upNext[0]?.moduleId ?? null;
@@ -127,14 +196,39 @@ export default function Path() {
   const stateOf = (m: PathModule): RowState =>
     m.completed ? 'done' : m.testedOut ? 'tested' : m.id === nextId ? 'next' : 'todo';
 
+  const allDone = summary.openTotal > 0 && summary.doneCount === summary.openTotal;
+  const gapDays = summary.lastActiveAt ? daysSince(summary.lastActiveAt) : 0;
+  // A return after a week away is greeted as a return, not scolded as a lapse:
+  // the temporal landmark is the hook, and there is no streak here to have lost.
+  const returning = !allDone && summary.doneCount > 0 && gapDays >= 7;
+
+  // The one module the page is pointing at, and how it's framed. An unfinished
+  // module wins over a recommendation — resuming is cheaper than starting.
+  const resumeModule = resume ? data.modules.find((m) => m.id === resume.moduleId) : undefined;
+  const heroModule = resumeModule ?? nextModule;
+  const heroIsResume = !!resumeModule && !!resume;
+  const heroStart = heroModule
+    ? heroIsResume
+      ? { route: resumeRoute(resume), label: resumeLabel(resume) }
+      : startFor(heroModule)
+    : null;
+
+  const greeting = allDone
+    ? `That's the course${name ? `, ${name}` : ''}.`
+    : returning
+      ? `Welcome back${name ? `, ${name}` : ''}.`
+      : summary.doneCount > 0
+        ? `Keep going${name ? `, ${name}` : ''}.`
+        : `Choose your first move${name ? `, ${name}` : ''}.`;
+
   const stats: string[] = [];
   if (summary.minutesInvested > 0) stats.push(`${summary.minutesInvested} min invested`);
   if (summary.checks) stats.push(`${summary.checks.passed} check${summary.checks.passed === 1 ? '' : 's'} passed · ${summary.checks.correct}/${summary.checks.total}`);
-  if (summary.activeDays7 > 0) stats.push(`active ${summary.activeDays7} of last 7 days`);
 
   // Courses with open modules render as row sections; the rest are horizon rows.
   const openCourses = data.courses.filter((course) => data.modules.some((m) => m.courseId === course.id));
   const horizonCourses = data.courses.filter((course) => !data.modules.some((m) => m.courseId === course.id));
+  const heroCourse = heroModule ? openCourses.find((c) => c.id === heroModule.courseId) : undefined;
 
   return (
     <Screen wide>
@@ -168,12 +262,16 @@ export default function Path() {
               {summary.doneCount} of {summary.openTotal}
               <span className="font-semibold text-muted text-base ml-2 tracking-normal">open modules</span>
             </span>
-            {stats.length > 0 && (
-              <span className="flex gap-x-5 gap-y-1 flex-wrap font-utility text-[0.66rem] uppercase tracking-wider text-muted">
-                {stats.map((s) => <span key={s}>{s}</span>)}
-              </span>
-            )}
+            {/* What's left, not what fraction is done — a number you can act on. */}
+            <span className="font-display font-semibold text-ink-strong text-lg">
+              {allDone ? 'Nothing left' : `${fmtMinutes(summary.minutesRemaining)} to finish`}
+            </span>
           </div>
+          {summary.testedOutCount > 0 && (
+            <p className="text-[0.8rem] text-accent font-semibold mt-1.5">
+              Head start: {summary.testedOutCount} of those you tested out of on the diagnostic — you never had to sit through them.
+            </p>
+          )}
           <div className="flex gap-1 mt-3.5" aria-hidden="true">
             {openModules.map((m) => {
               const s = stateOf(m);
@@ -190,44 +288,90 @@ export default function Path() {
               return <span key={course.id}>{shortTitle(course)} · {done}/{mods.length} cleared</span>;
             })}
           </div>
+          {(stats.length > 0 || summary.activeDays.length > 0) && (
+            <div className="flex gap-x-5 gap-y-1.5 flex-wrap mt-3.5 pt-3.5 border-t border-line font-utility text-[0.66rem] uppercase tracking-wider text-muted">
+              {stats.map((s) => <span key={s}>{s}</span>)}
+              {summary.activeDays.length > 0 && <WeekStrip activeDays={summary.activeDays} />}
+            </div>
+          )}
         </div>
 
-        {/* Up next for you */}
-        {nextModule && (
+        {/* Testing out is the strongest anti-drudgery move on offer, and it was
+            buried in a row subtitle. Anyone who hasn't taken the diagnostic is
+            told plainly that it can shorten the course. */}
+        {!allDone && !me?.progress.diagnosticDone && (
+          <p className="mt-3 text-[0.9rem] text-ink">
+            <span className="font-semibold text-ink-strong">Already know some of this?</span>{' '}
+            The 5-minute diagnostic can test you out of modules you don't need — cleared without sitting through them.{' '}
+            <Link to="/diagnostic" className="text-accent font-semibold no-underline hover:underline">Take the diagnostic →</Link>
+          </p>
+        )}
+
+        {/* The course, finished. Said plainly and once — the moment is the reward. */}
+        {allDone && (
+          <div className="mt-8 border border-accent rounded-brand bg-accent/[0.06] p-6">
+            <p className="label-utility text-accent">Course complete</p>
+            <h2 className="font-display font-bold text-ink-strong text-2xl mt-2 tracking-tight">
+              You cleared every open module.
+            </h2>
+            <p className="text-[0.95rem] text-ink mt-2 max-w-2xl">
+              {summary.doneCount} of {summary.openTotal} modules
+              {summary.minutesInvested > 0 ? `, ${summary.minutesInvested} minutes of real work` : ''}
+              {summary.checks ? `, ${summary.checks.correct}/${summary.checks.total} on the knowledge checks` : ''}. Everything
+              stays open — revisit any module any time, and the tutor keeps your history.
+            </p>
+          </div>
+        )}
+
+        {/* One move. The alternates exist, but they don't compete for the click. */}
+        {!allDone && heroModule && heroStart && (
           <div className="mt-8">
-            <p className="label-utility">Up next for you</p>
+            <p className="label-utility">{heroIsResume ? 'Pick up where you left off' : 'Up next for you'}</p>
             <div className="mt-3 grid gap-3 lg:grid-cols-[1.7fr_1fr]">
               <div className="border border-accent rounded-brand bg-accent/[0.04] p-6 flex flex-col">
                 <span className="font-utility text-[0.66rem] uppercase tracking-wider text-accent">
-                  {shortTitle(openCourses.find((c) => c.id === nextModule.courseId) ?? openCourses[0])} · Module {nextModule.ordinal} · ~{nextModule.estMinutes} min
+                  {heroCourse ? `${shortTitle(heroCourse)} · ` : ''}Module {heroModule.ordinal} · ~{heroModule.estMinutes} min
+                  {heroIsResume && resume ? ` · last open ${fmtDate(resume.at)}` : ''}
                 </span>
-                <h2 className="font-display font-bold text-ink-strong text-2xl mt-2 tracking-tight">{nextModule.title}</h2>
-                <p className="text-[0.92rem] text-ink mt-2 flex-1">{nextModule.blurb}</p>
-                {upNext[0].reasons.length > 0 && (
+                <h2 className="font-display font-bold text-ink-strong text-2xl mt-2 tracking-tight">{heroModule.title}</h2>
+                <p className="text-[0.92rem] text-ink mt-2 flex-1">{heroModule.blurb}</p>
+                {!heroIsResume && upNext[0]?.reasons.length > 0 && (
                   <div className="flex gap-1.5 flex-wrap mt-3">
                     {upNext[0].reasons.slice(0, 3).map((r) => (
                       <span key={r} className="font-utility text-[0.62rem] border border-accent text-accent rounded-full px-2.5 py-0.5 bg-surface">{r}</span>
                     ))}
                   </div>
                 )}
-                <div className="flex items-center gap-4 flex-wrap mt-4">
+                <div className="mt-4">
                   <Link
-                    to={startFor(nextModule).route}
+                    to={heroStart.route}
                     className="inline-flex items-center px-5 py-2.5 font-display font-semibold text-[0.95rem] rounded-brand bg-accent text-on-accent hover:brightness-110 no-underline"
                   >
-                    {startFor(nextModule).label}
+                    {heroStart.label}
+                    <span className="font-utility text-[0.7rem] font-normal opacity-80 ml-2">
+                      {heroIsResume ? `~${heroModule.estMinutes} min left` : `~${heroModule.estMinutes} min`}
+                    </span>
                   </Link>
-                  {(surface !== 'read' || essentialsReader) && (
-                    <Link to={`/module/${nextModule.id}`} className="text-accent font-semibold text-sm no-underline hover:underline">
-                      {essentialsReader ? 'Full read instead' : 'Read instead'}
-                    </Link>
-                  )}
-                  {!essentialsReader && (
-                    <Link to={`/module/${nextModule.id}/micro`} className="text-accent font-semibold text-sm no-underline hover:underline">
-                      Micro · {nextModule.microMinutes} min
-                    </Link>
-                  )}
                 </div>
+                <details className="mt-3 group">
+                  <summary className="text-muted text-[0.8rem] font-semibold cursor-pointer list-none hover:text-ink-strong">
+                    Other ways in <span className="group-open:hidden">▸</span><span className="hidden group-open:inline">▾</span>
+                  </summary>
+                  <div className="flex items-center gap-4 flex-wrap mt-2.5">
+                    <Link to={`/module/${heroModule.id}`} className="text-accent font-semibold text-sm no-underline hover:underline">
+                      Read it · ~{heroModule.estMinutes} min
+                    </Link>
+                    <Link to={`/module/${heroModule.id}/micro`} className="text-accent font-semibold text-sm no-underline hover:underline">
+                      Micro dose · {heroModule.microMinutes} min
+                    </Link>
+                    <Link to={`/module/${heroModule.id}/chat`} className="text-accent font-semibold text-sm no-underline hover:underline">
+                      Talk it through
+                    </Link>
+                    <Link to={`/module/${heroModule.id}/podcast`} className="text-accent font-semibold text-sm no-underline hover:underline">
+                      Listen
+                    </Link>
+                  </div>
+                </details>
               </div>
               {thenRecs.length > 0 && (
                 <div className="border border-line rounded-brand bg-surface px-5 py-4">
