@@ -5,6 +5,8 @@ import { Screen, Button, ErrorNote } from '../components/ui';
 import { api, ApiError } from '../api';
 import { goalLabel } from '../../shared/goals';
 
+// The sitting-sized cut of the course. State words stay ("this sitting" /
+// "another sitting"); the markers speak the path page's progress grammar.
 const STATE_LABEL: Record<string, string> = { done: 'Done', now: 'This sitting', later: 'Another sitting' };
 
 export default function Plan() {
@@ -43,35 +45,52 @@ export default function Plan() {
         )}
 
         <ol className="mt-8 flex flex-col">
-          {plan.steps.map((step, i) => (
+          {plan.steps.map((step, i) => {
+            // A sitting can hold several steps, but only one thing is next:
+            // the first undone step gets the glow and the Go; the rest of the
+            // sitting waits with a signal dot.
+            const isNext = step.state === 'now' && plan.steps.findIndex((s) => s.state === 'now') === i;
+            return (
             <li
               key={step.id}
-              className={`border-l-2 pl-5 pb-7 relative anim-rise ${
-                step.state === 'now' ? 'border-accent' : step.state === 'done' ? 'border-success' : 'border-line'
+              className={`border-l-2 pl-5 pb-6 relative anim-rise ${
+                step.state === 'done' ? 'border-accent' : step.state === 'now' ? 'border-signal' : 'border-line'
               }`}
               style={{ animationDelay: `${140 + i * 90}ms` }}
             >
+              {/* The path page's state grammar: done = accent check, now = the
+                  signal glow, later = an open circle waiting its turn. */}
               <span
-                className={`absolute -left-[7px] top-1 w-3 h-3 rounded-full border-2 ${
+                className={`absolute -left-[11px] top-1 w-[22px] h-[22px] rounded-full flex items-center justify-center text-[0.7rem] ${
                   step.state === 'done'
-                    ? 'bg-success border-success'
+                    ? 'bg-accent text-on-accent'
                     : step.state === 'now'
-                      ? 'bg-signal border-ink-strong'
-                      : 'bg-surface border-line-strong'
+                      ? 'bg-signal text-on-signal font-bold'
+                      : 'bg-surface border-2 border-line-strong'
                 }`}
                 aria-hidden="true"
-              />
-              <div className="flex items-baseline justify-between gap-3 flex-wrap">
-                <span className={`font-display font-semibold ${step.state === 'later' ? 'text-muted' : 'text-ink-strong'}`}>
-                  {step.title}
-                </span>
-                <span className="font-utility text-[0.65rem] uppercase tracking-wider text-muted shrink-0">
-                  {STATE_LABEL[step.state]} · {step.minutes} min
-                </span>
+              >
+                {step.state === 'done' ? '✓' : step.state === 'now' ? '→' : ''}
+              </span>
+              <div className={isNext ? 'bg-signal/10 rounded-brand -ml-1 px-3 py-2.5' : ''}>
+                <div className="flex items-baseline justify-between gap-3 flex-wrap">
+                  <span className={`font-display font-semibold ${step.state === 'done' ? 'text-muted' : 'text-ink-strong'}`}>
+                    {step.title}
+                  </span>
+                  <span className={`font-utility text-[0.65rem] uppercase tracking-wider shrink-0 ${step.state === 'done' ? 'text-accent' : 'text-muted'}`}>
+                    {step.state === 'done' ? '✓ Done' : `${STATE_LABEL[step.state]} · ${step.minutes} min`}
+                  </span>
+                </div>
+                <p className={`text-sm mt-1 ${step.state === 'done' ? 'text-muted' : 'text-ink'}`}>{step.detail}</p>
+                {isNext && (
+                  <Link to={step.route} className="inline-block mt-2 text-accent font-semibold text-sm no-underline hover:underline">
+                    Go →
+                  </Link>
+                )}
               </div>
-              <p className={`text-sm mt-1 ${step.state === 'later' ? 'text-muted' : 'text-ink'}`}>{step.detail}</p>
             </li>
-          ))}
+            );
+          })}
         </ol>
 
         {plan.notes.length > 0 && (
@@ -88,7 +107,7 @@ export default function Plan() {
         <div className="mt-8 flex items-center gap-5 flex-wrap">
           <Button onClick={() => navigate(plan.nextRoute)}>Start</Button>
           <Link to="/path" className="text-muted text-sm hover:text-ink-strong">
-            Explore the module library
+            See your path
           </Link>
           <Link to="/welcome?edit=1" className="text-muted text-sm hover:text-ink-strong">
             Customize your path
