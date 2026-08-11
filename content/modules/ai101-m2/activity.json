@@ -1,0 +1,11 @@
+[
+  {
+    "id": "ai101-m2-activity-applied-activity-the-stack-audit-10",
+    "moduleId": "ai101-m2-activity",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "## Applied activity — \"The Stack Audit\"\n\n**Time:** 20–25 minutes · **Submit:** your audit table plus a 250–350 word write-up · **Graded\nagainst the rubric below.** Score doesn't matter. Doing the work is where the learning lands.\n\nBefore you started this module, you predicted how many systems in your People stack have AI in\nthem. Now go count.\n\n**Step 1 — Inventory (10 min).** List the systems you or your team touch in a normal month:\nATS, HRIS, payroll, survey platform, LMS, docs suite, meeting tools, chat tools, scheduling\ntools. For each, note whether it has an AI feature — announced, embedded, or switched on\nwithout ceremony in the last two years. Vendor release notes and settings pages are fair game.\nThree systems minimum; most people find more.\n\n**Step 2 — Classify (5 min).** For each AI feature you found, name its shape — assistant,\ncopilot, or decision engine — using the four questions from Lesson 3. Where a system contains\nmore than one shape (many do), say so: \"HRIS: benefits-answer copilot + attrition-risk decision\nengine\" is exactly the kind of precision this exercise is after.\n\n**Step 3 — One question each (5 min).** For each decision engine you found — and at least one\ncopilot — write the single question you'd put to the vendor. Make it concrete enough that a\nvendor could actually answer it, and revealing enough that the answer would change what you do.\n\n**Step 4 — Score your prediction (5 min).** Compare the count you predicted against what you\nfound. Name the direction of your miss and your best one-sentence theory of why.\n\nThen write the reflection: what you found, what surprised you, which single system most needs a\ncloser look, and why."
+  }
+]

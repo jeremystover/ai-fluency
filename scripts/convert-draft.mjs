@@ -46,6 +46,7 @@ const classify = (heading) => {
   if (h.includes('answer key') || h.startsWith('exercise key')) return 'reveal';
   if (h.startsWith('knowledge check')) return 'knowledge_check';
   if (h.startsWith('capstone')) return 'activity';
+  if (h.startsWith('applied activity')) return 'activity'; // 101 modules — no capstone thread
   if (h.startsWith('manager one-pager')) return 'skip';
   return 'prose';
 };
