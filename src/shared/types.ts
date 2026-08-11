@@ -100,6 +100,34 @@ export type PathSummary = {
 
 export type PathRecommendation = { moduleId: string; reasons: string[] };
 
+// ---------- the library ----------
+
+// A lesson line in the catalog — the real ## heading, anchored to its block
+// so the syllabus deep-links into the read.
+export type LibraryLesson = { title: string; blockId: string; lab: boolean };
+
+export type LibraryModule = ModuleCard & {
+  microMinutes: number;
+  lessons: LibraryLesson[]; // empty for full-course modules (nothing seeded)
+  ways: { read: boolean; listen: boolean; tutor: boolean; exercise: boolean; lab: boolean; graded: boolean; check: boolean };
+  completed: boolean;
+  testedOut: boolean;
+  completedAt: string | null;
+  bestCheck: { correct: number; total: number } | null;
+  reviewDue: number; // this module's misses due back now — same spacing as the record's queue
+};
+
+export type LibraryCourse = CourseCard & { modules: LibraryModule[] };
+
+export type LibraryResponse = {
+  courses: LibraryCourse[]; // every course, module-less tiers included
+  totals: { courses: number; modules: number; lessons: number; minutes: number };
+  clearedCount: number;
+  nextModuleId: string | null; // same ranking brain as the path's queue
+  resume: PathResume | null; // the open loop, same computation as the path's hero
+  reviewDue: number; // misses due back now, across the program
+};
+
 // The module this session last touched without clearing it — an open loop the
 // path can offer to close. `via` is the surface the last touch came from, so
 // "pick up where you left off" returns them to that surface, not a generic page.

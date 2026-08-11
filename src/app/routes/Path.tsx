@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import type { CommitmentResponse, CourseCard, PathModule, PathResponse, PathResume } from '../../shared/types';
+import type { CommitmentResponse, CourseCard, PathModule, PathResponse } from '../../shared/types';
+import { resumeLabel, resumeRoute } from '../resume';
 import { Screen, ErrorNote } from '../components/ui';
 import { api, ApiError } from '../api';
 import { useApp } from '../brand';
@@ -32,41 +33,6 @@ const daysSince = (iso: string) => Math.floor((Date.now() - new Date(iso).getTim
 
 // "AI 101 · Foundations" → "AI 101"
 const shortTitle = (course: CourseCard) => course.title.split('·')[0].trim();
-
-// Where a half-finished module resumes — the surface the last touch came from,
-// so "pick up where you left off" lands on the thing they were actually doing.
-const resumeRoute = (r: PathResume): string => {
-  const base = `/module/${r.moduleId}`;
-  switch (r.via) {
-    case 'chat':
-      return `${base}/chat`;
-    case 'podcast':
-      return `${base}/podcast`;
-    case 'check':
-      return `${base}/check`;
-    case 'activity':
-      return `${base}/activity`;
-    default:
-      return base;
-  }
-};
-
-const resumeLabel = (r: PathResume): string => {
-  switch (r.via) {
-    case 'chat':
-      return 'Back to the tutor →';
-    case 'podcast':
-      return 'Back to the episode →';
-    case 'check':
-      return 'Back to the check →';
-    case 'activity':
-      return 'Back to the activity →';
-    case 'exercise':
-      return 'Back to the exercise →';
-    default:
-      return 'Keep reading →';
-  }
-};
 
 // A date the learner picks, and — if they choose — their manager is told and
 // answers. A declaration into the void is a much weaker commitment than a
@@ -555,7 +521,13 @@ export default function Path() {
           </div>
         )}
 
-        {/* The library, course by course */}
+        {/* The library, course by course — the full catalog lives one click away */}
+        <p className="mt-9 flex items-baseline justify-between gap-3 flex-wrap">
+          <span className="label-utility">Your courses</span>
+          <Link to="/library" className="text-accent font-semibold text-sm no-underline hover:underline">
+            Browse everything — the full library →
+          </Link>
+        </p>
         {openCourses.map((course) => {
           const mods = data.modules.filter((m) => m.courseId === course.id);
           const open = mods.filter((m) => m.access === 'open');
