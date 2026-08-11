@@ -22,6 +22,7 @@ import { CORS_HEADERS, verifyAccessToken, wwwAuthenticate } from './oauth';
 import { moduleSnapshot, witnessContent } from './audit';
 import { getExercise, scoreSortingSubmission, selectVariants, toBlock, toolingOf, type KnowledgeCheckPayload, type SortingPayload } from './content';
 import { gradeSubmission, type RubricPayload } from './grading';
+import { teamStatusFor } from './manager';
 import { GOAL_CHOICES } from '../shared/goals';
 import diagnosticData from '../../content/diagnostic.json';
 import contentCatalog from '../../content/modules.json';
@@ -708,6 +709,45 @@ const TOOLS: ToolDef[] = [
     },
   },
   {
+    name: 'get_team_status',
+    title: 'How is my team doing',
+    description:
+      "For managers: how the people who report to this learner are progressing through the course. Returns names, module counts, and last activity, plus the topics the team as a whole is weakest on. Returns nothing for a learner with no reports on the company roster. It deliberately carries no diagnostic self-ratings, no calibration, no tutor transcripts, and no per-person wrong answers — this course asks people to admit what they don't know, and that only works if their manager isn't reading it.",
+    inputSchema: { type: 'object', properties: {} },
+    readOnly: true,
+    handler: async (_args, ctx) => {
+      const { db, env, session, origin } = ctx;
+      const view = await teamStatusFor(db, env.BRAND_SLUG, session);
+      if (!view) {
+        return 'This learner has no reports on the company roster — either they do not manage anyone, or they are signed in with a shared passcode rather than a company account. Say so plainly and move on.';
+      }
+      const out: string[] = [`# Your team · ${view.team.length} ${view.team.length === 1 ? 'report' : 'reports'}`, ''];
+      for (const m of view.team) {
+        const state =
+          m.status === 'not_started'
+            ? 'not started'
+            : m.status === 'complete'
+              ? 'finished the course'
+              : `${m.modulesCleared} of ${m.modulesTotal} modules`;
+        out.push(`- **${m.name}**${m.roleTitle ? ` (${m.roleTitle})` : ''} — ${state}${m.lastSeenAt ? `, last active ${m.lastSeenAt.slice(0, 10)}` : ''}`);
+        if (m.commitment) out.push(`  - Aiming to finish by ${m.commitment.targetDate}${m.commitment.acknowledgedAt ? ' (acknowledged)' : ' — not yet acknowledged'}`);
+        if (m.askAbout) out.push(`  - Worth asking about: ${m.askAbout.question}`);
+      }
+      if (view.aggregate?.weakSpots?.length) {
+        out.push('', '**Where the team is weakest** (aggregate, not attributed to anyone):');
+        for (const w of view.aggregate.weakSpots) out.push(`- ${w.moduleTitle} — "${w.prompt}" (missed by ${w.missedBy})`);
+      }
+      if (view.aggregate) {
+        out.push('', `Team started: ${view.aggregate.started} of ${view.aggregate.size}. Company-wide: ${view.aggregate.orgStarted} of ${view.aggregate.orgSize}.`);
+      }
+      out.push(
+        '',
+        `Summarize honestly — do not rank people against each other, and do not editorialize about anyone's ability from a module count. Recognition, endorsing a module, and acknowledging a finish date are all one click at ${origin}/team.`,
+      );
+      return out.join('\n');
+    },
+  },
+  {
     name: 'recommend_next',
     title: 'Recommend what to learn next',
     description:
@@ -1198,6 +1238,24 @@ const PROMPTS = [
     arguments: [],
     text: () =>
       'Call get_course_overview and recommend_next on the AI Fluency course and give me a quick check-in: what I have finished, what that says about where I am, and two or three options for my next session with an honest recommendation. Under 200 words.',
+  },
+  {
+    // The connector's real advantage is not portability, it's that resuming
+    // costs nothing: the learner is already here for work reasons.
+    name: 'resume',
+    title: 'Pick up where I left off',
+    description: 'Reopen the module the learner last had open and keep teaching from where they stopped.',
+    arguments: [],
+    text: () =>
+      'Call get_course_overview on the AI Fluency course, find the module I started and have not finished, and fetch it with get_module. Open with one sentence on where I stopped and what came just before it — no recap of the whole module — then keep teaching from that point. If everything is finished, say so and call recommend_next instead.',
+  },
+  {
+    name: 'my-team',
+    title: 'How is my team doing',
+    description: 'For managers: progress across direct reports, and where the team as a whole is weakest.',
+    arguments: [],
+    text: () =>
+      'Call get_team_status on the AI Fluency course and summarize how my team is doing: who has not started, who is mid-course, who has finished, and the topics the team is weakest on. Do not rank people against each other. Then suggest at most two concrete things I could do this week — recognizing someone specific, or a topic worth ten minutes in a team meeting.',
   },
 ];
 

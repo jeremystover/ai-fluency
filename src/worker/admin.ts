@@ -7,8 +7,9 @@ import { drizzle, type DrizzleD1Database } from 'drizzle-orm/d1';
 import { and, asc, desc, eq, gt, sql } from 'drizzle-orm';
 import * as t from '../db/schema';
 import { constantTimeEqual, hashCode, signSessionId, verifySessionCookie, hashIp } from './crypto';
+import { deliverableAddress, emailEnabled, sendEmail, signature, type EmailEnv } from './email';
 
-export interface AdminEnv {
+export interface AdminEnv extends EmailEnv {
   DB: D1Database;
   BRAND_SLUG: string;
   SESSION_SECRET?: string;
@@ -722,21 +723,21 @@ adminApp.delete('/reminders/:id', async (c) => {
 const fillTemplate = (template: string, vars: Record<string, string>) =>
   template.replace(/\{(\w+)\}/g, (_, key: string) => vars[key] ?? `{${key}}`);
 
-// Dry run: exactly who each active rule would notify right now, with the
-// rendered message. This is the whole evaluation path — a delivery layer
-// (email provider + cron) would iterate the same result and send.
-adminApp.get('/reminders/preview', async (c) => {
-  const db = c.get('db');
+// Who each active rule would notify right now, with the rendered message. One
+// evaluation, two callers: the admin's dry-run preview and the delivery pass —
+// so what an operator sees in the preview is exactly what gets sent, never a
+// second implementation that drifts from it.
+export async function evaluateReminders(db: DrizzleD1Database, brandSlug: string) {
   const rules = await db
     .select()
     .from(t.fdReminderRule)
-    .where(and(eq(t.fdReminderRule.brandSlug, c.env.BRAND_SLUG), eq(t.fdReminderRule.active, 1)));
-  const employees = await db.select().from(t.fdEmployee).where(eq(t.fdEmployee.brandSlug, c.env.BRAND_SLUG));
+    .where(and(eq(t.fdReminderRule.brandSlug, brandSlug), eq(t.fdReminderRule.active, 1)));
+  const employees = await db.select().from(t.fdEmployee).where(eq(t.fdEmployee.brandSlug, brandSlug));
   const matches = await censusMatches(db);
   const nowMs = Date.now();
   const daysAgo = (iso: string | null) => (iso ? (nowMs - Date.parse(iso)) / 86_400_000 : null);
 
-  const previews = rules.map((rule) => {
+  return rules.map((rule) => {
     const due = employees.filter((e) => {
       const m = matches.forEmployee(e);
       if (rule.trigger === 'not_started') {
@@ -763,16 +764,102 @@ adminApp.get('/reminders/preview', async (c) => {
           manager_name: e.managerName ?? 'their manager',
           days: String(rule.days),
         };
+        const raw = rule.audience === 'manager' ? e.managerEmail : e.email;
         return {
           employee: e.name,
-          to: rule.audience === 'manager' ? (e.managerEmail ?? e.managerName ?? '(no manager on file)') : (e.email ?? '(no email on file)'),
+          to: raw ?? (rule.audience === 'manager' ? (e.managerName ?? '(no manager on file)') : '(no email on file)'),
+          address: deliverableAddress(raw),
           message: fillTemplate(rule.template, vars),
-          deliverable: rule.audience === 'manager' ? !!e.managerEmail : !!e.email,
+          deliverable: !!deliverableAddress(raw),
         };
       }),
     };
   });
-  return c.json({ previews });
+}
+
+adminApp.get('/reminders/preview', async (c) => {
+  const previews = await evaluateReminders(c.get('db'), c.env.BRAND_SLUG);
+  return c.json({ previews, delivery: { configured: emailEnabled(c.env) } });
+});
+
+// The delivery pass. Dedupe is per (rule, recipient) inside the rule's own day
+// window: a rule that fires on 7 days of silence should not nudge the same
+// person twice in those 7 days. That single fact makes the pass idempotent, so
+// the cron can run it as often as it likes without a separate run-lock.
+export async function runReminderPass(
+  db: DrizzleD1Database,
+  env: AdminEnv,
+  origin: string,
+): Promise<{ sent: number; skipped: number; failed: number; suppressed: number }> {
+  const previews = await evaluateReminders(db, env.BRAND_SLUG);
+  const brandRows = await db.select().from(t.fdBrand).where(eq(t.fdBrand.slug, env.BRAND_SLUG)).limit(1);
+  const brandName = brandRows[0]?.name ?? 'Your company';
+  const tally = { sent: 0, skipped: 0, failed: 0, suppressed: 0 };
+
+  for (const preview of previews) {
+    const kind = `reminder:${preview.ruleId}`;
+    const windowStart = new Date(Date.now() - preview.days * 86_400_000).toISOString();
+    const recent = await db
+      .select({ toEmail: t.fdEmailSend.toEmail })
+      .from(t.fdEmailSend)
+      .where(
+        and(
+          eq(t.fdEmailSend.brandSlug, env.BRAND_SLUG),
+          eq(t.fdEmailSend.kind, kind),
+          gt(t.fdEmailSend.createdAt, windowStart),
+        ),
+      );
+    const alreadyNudged = new Set(recent.map((r) => r.toEmail));
+
+    for (const r of preview.recipients) {
+      if (!r.address) {
+        tally.skipped++;
+        continue;
+      }
+      if (alreadyNudged.has(r.address)) {
+        tally.suppressed++;
+        continue;
+      }
+      const subject =
+        preview.audience === 'manager'
+          ? `AI Fluency — ${r.employee.split(/\s+/)[0]} on your team`
+          : 'AI Fluency — your course';
+      const result = await sendEmail(env, { to: r.address, subject, text: r.message + signature(brandName, origin) });
+      await db.insert(t.fdEmailSend).values({
+        id: uuid(),
+        brandSlug: env.BRAND_SLUG,
+        kind,
+        toEmail: r.address,
+        subject,
+        body: r.message,
+        status: result.status,
+        provider: result.provider,
+        error: result.error,
+        createdAt: now(),
+      });
+      alreadyNudged.add(r.address);
+      tally[result.status === 'sent' ? 'sent' : result.status === 'failed' ? 'failed' : 'skipped']++;
+    }
+  }
+  return tally;
+}
+
+adminApp.post('/reminders/send', async (c) => {
+  const tally = await runReminderPass(c.get('db'), c.env, new URL(c.req.url).origin);
+  return c.json({ ok: true, ...tally, delivery: { configured: emailEnabled(c.env) } });
+});
+
+// What actually went out, newest first — the operator's proof that the rules
+// are doing something, and the place a failed provider call is visible.
+adminApp.get('/reminders/log', async (c) => {
+  const rows = await c
+    .get('db')
+    .select()
+    .from(t.fdEmailSend)
+    .where(eq(t.fdEmailSend.brandSlug, c.env.BRAND_SLUG))
+    .orderBy(desc(t.fdEmailSend.createdAt))
+    .limit(200);
+  return c.json({ sends: rows });
 });
 
 // ---------- completion audit ----------

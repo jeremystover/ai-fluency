@@ -8,7 +8,9 @@ import { toolingOf, selectVariants, toBlock, stampsFor, getExercise, scoreSortin
 import { createMcpApp, recommendationsFor } from './mcp';
 import { createOauthApp, MCP_PATH } from './oauth';
 import { gradeSubmission, type RubricPayload } from './grading';
-import { adminApp } from './admin';
+import { adminApp, runReminderPass } from './admin';
+import { accountEmailFor, commitmentFor, createManagerApp, hasReports, managerEmailOf, managerSignalsFor } from './manager';
+import { deliverableAddress, sendEmail, signature } from './email';
 import { buildTutorSystem, streamTutorReply, KICKOFF_TURN, type LearnerContext as TutorLearnerContext, type TutorMessage } from './chat';
 import { transcribe, speakable, renderSpeech, TUTOR_VOICE } from './voice';
 import { moduleSnapshot, witnessContent } from './audit';
@@ -99,6 +101,14 @@ export interface Env {
   GEMINI_TTS_MODEL?: string;
   // Episode scripts per session per hour; default 4. Raise for demo/testing.
   PODCAST_LIMIT_PER_HOUR?: string;
+  // Email delivery for reminders, kudos, and commitment acknowledgments. With
+  // RESEND_API_KEY + EMAIL_FROM unset, rules still evaluate and every intended
+  // send is recorded as 'skipped' — nothing is silently dropped or pretended.
+  RESEND_API_KEY?: string;
+  EMAIL_FROM?: string;
+  // The origin cron-sent mail should link back to (requests know their own
+  // origin; a scheduled run has no request to ask).
+  PUBLIC_ORIGIN?: string;
   SESSION_SECRET?: string;
   ANTHROPIC_API_KEY?: string;
   ADMIN_PASSCODE?: string;
@@ -563,6 +573,7 @@ async function loadPrefs(db: DrizzleD1Database, sessionId: string): Promise<Inta
     else if (row.key === 'aiTools') prefs.aiTools = value;
     else if (row.key === 'aiToolOther') prefs.aiToolOther = value;
     else if (row.key === 'selfLevel') prefs.selfLevel = value;
+    else if (row.key === 'shareWork') prefs.shareWork = value === true;
   }
   return prefs;
 }
@@ -1251,7 +1262,31 @@ app.get('/api/path', async (c) => {
     ...course,
     recommendedFor: selectedGoals.filter((g) => g.courses.includes(course.id)).map((g) => `your goal: ${g.label}`),
   }));
-  const res: PathResponse = { modules, courses: coursesOut, summary, diagnosticNote, upNext, resume };
+  // The manager layer, present only when this session belongs to an account the
+  // census knows. Passcode sessions are anonymous, so all three come back empty.
+  const [managerSignals, commitment, isManager, mcpRows] = await Promise.all([
+    managerSignalsFor(db, c.env.BRAND_SLUG, session),
+    commitmentFor(db, c.env.BRAND_SLUG, session),
+    hasReports(db, c.env.BRAND_SLUG, session),
+    db
+      .select({ id: t.fdEvent.id })
+      .from(t.fdEvent)
+      .where(and(eq(t.fdEvent.sessionId, session.id), inArray(t.fdEvent.type, ['mcp_connected', 'mcp_tool_called'])))
+      .limit(1),
+  ]);
+
+  const res: PathResponse = {
+    modules,
+    courses: coursesOut,
+    summary,
+    diagnosticNote,
+    upNext,
+    resume,
+    managerSignals,
+    commitment: commitment.commitment || commitment.canShare ? commitment : null,
+    isManager,
+    mcpConnected: mcpRows.length > 0,
+  };
   return c.json(res);
 });
 
@@ -1707,7 +1742,7 @@ app.post('/api/module/:id/chat', async (c) => {
     .where(eq(t.fdModule.courseId, loaded.mod.courseId))
     .orderBy(asc(t.fdModule.ordinal));
   const learner = await buildLearnerContext(db, session.id);
-  const guidance = await guidanceFor(db, c.env, moduleId, loaded.mod.courseId);
+  const guidance = await guidanceFor(db, c.env, moduleId, loaded.mod.courseId, await managerEmailOf(db, c.env.BRAND_SLUG, session));
   const system = buildTutorSystem(loaded.mod as ModuleCard, loaded.blocks, courseModules as ModuleCard[], learner, guidance?.text ?? null);
 
   // The stored opener starts with an assistant turn; the API requires user-first,
@@ -1901,6 +1936,89 @@ app.post('/api/module/:id/knowledge-check', async (c) => {
   await logEvent(db, session.id, 'knowledge_check_submitted', { moduleId, correct, total: kc.questions.length, missed });
   await witnessContent(db, { sessionId: session.id, moduleId, activity: 'knowledge_check_submitted', kind: 'exercise', content: { kind: 'knowledge_check', payload: kc } });
   return c.json({ score: { correct, total: kc.questions.length }, results });
+});
+
+// ---------- commitment ----------
+
+// A date the learner picks, and — if they choose — their manager is told. The
+// reciprocal half (an acknowledgment, and what the manager will do to protect
+// the time) lives in manager.ts. A declaration nobody answered is a much weaker
+// commitment than a handshake, which is the whole reason for the second half.
+app.get('/api/commitment', async (c) => {
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  return c.json(await commitmentFor(c.get('db'), c.env.BRAND_SLUG, session));
+});
+
+app.post('/api/commitment', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const body = await c.req.json<{ courseId?: string; targetDate?: string; note?: string; share?: boolean }>().catch(() => null);
+  const targetDate = (body?.targetDate ?? '').trim();
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(targetDate)) return c.json({ error: 'Pick a date.' }, 400);
+  if (Date.parse(`${targetDate}T23:59:59Z`) < Date.now()) return c.json({ error: 'Pick a date in the future.' }, 400);
+
+  const existing = await commitmentFor(db, c.env.BRAND_SLUG, session);
+  const share = !!body?.share && existing.canShare;
+  await db.insert(t.fdCommitment).values({
+    id: uuid(),
+    brandSlug: c.env.BRAND_SLUG,
+    sessionId: session.id,
+    courseId: (body?.courseId ?? 'ai101').slice(0, 40),
+    targetDate,
+    note: (body?.note ?? '').trim().slice(0, 1000) || null,
+    sharedWithManager: share ? 1 : 0,
+    createdAt: now(),
+  });
+  await logEvent(db, session.id, 'commitment_set', { targetDate, shared: share });
+
+  if (share) {
+    const email = await accountEmailFor(db, session);
+    const emp = email
+      ? (await db.select().from(t.fdEmployee).where(and(eq(t.fdEmployee.brandSlug, c.env.BRAND_SLUG), sql`LOWER(${t.fdEmployee.email}) = ${email}`)).limit(1))[0]
+      : undefined;
+    const to = deliverableAddress(emp?.managerEmail);
+    if (to) {
+      const brandRows = await db.select().from(t.fdBrand).where(eq(t.fdBrand.slug, c.env.BRAND_SLUG)).limit(1);
+      const origin = new URL(c.req.url).origin;
+      const subject = `${emp!.name.split(/\s+/)[0]} set a finish date for AI Fluency`;
+      const text = `${emp!.name} is aiming to finish the AI Fluency course by ${targetDate}.${body?.note ? `\n\nTheir note: ${body.note}` : ''}\n\nYou can acknowledge it — and say what you'll do to protect the time — in your team view:\n${origin}/team${signature(brandRows[0]?.name ?? 'Your company', origin)}`;
+      const result = await sendEmail(c.env, { to, subject, text });
+      await db.insert(t.fdEmailSend).values({
+        id: uuid(),
+        brandSlug: c.env.BRAND_SLUG,
+        kind: 'commitment',
+        toEmail: to,
+        subject,
+        body: text,
+        status: result.status,
+        provider: result.provider,
+        error: result.error,
+        createdAt: now(),
+      });
+    }
+  }
+  return c.json(await commitmentFor(db, c.env.BRAND_SLUG, session));
+});
+
+// Consent to let a manager read graded submissions. Off unless set, and it
+// never covers the tutor transcript, the diagnostic, or which questions missed.
+app.post('/api/share-work', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const body = await c.req.json<{ share?: boolean }>().catch(() => null);
+  const share = body?.share === true;
+  await db.insert(t.fdPreference).values({
+    id: uuid(),
+    sessionId: session.id,
+    key: 'shareWork',
+    valueJson: JSON.stringify(share),
+    createdAt: now(),
+  });
+  await logEvent(db, session.id, 'share_work_set', { share });
+  return c.json({ ok: true, share });
 });
 
 // ---------- the record ----------
@@ -2566,13 +2684,25 @@ const personalIntroKey = (sessionId: string, moduleId: string) => `podcast-intro
 // emphasized, overall and for this course/module. It varies only by
 // deployment (one brand) and module — the same axes as the content itself —
 // so it is safe to ride inside the prompt-cached module block.
+// Scopes stack widest-first: the company's global steer, then the course, then
+// the module, then — when the learner's manager has written one — their team's.
+// The team scope is the only one that varies per learner rather than per
+// deployment, so it does fragment the shared prompt cache; it is opt-in per
+// manager and absent on most deployments, which keeps that cost where the value
+// is. Team text goes last so the most specific voice lands closest to the task.
 async function guidanceFor(
   db: DrizzleD1Database,
   env: Env,
   moduleId: string,
   courseId: string | null,
+  teamEmail?: string | null,
 ): Promise<{ text: string; updatedAt: string } | null> {
-  const scopes = ['global', ...(courseId ? [`course:${courseId}`] : []), `module:${moduleId}`];
+  const scopes = [
+    'global',
+    ...(courseId ? [`course:${courseId}`] : []),
+    `module:${moduleId}`,
+    ...(teamEmail ? [`team:${teamEmail}`] : []),
+  ];
   const rows = await db
     .select()
     .from(t.fdBrandGuidance)
@@ -2605,6 +2735,9 @@ async function moduleContent(db: DrizzleD1Database, env: Env, moduleId: string) 
     .orderBy(asc(t.fdContentBlock.ordinal));
   if (blockRows.length === 0) return null;
   const blocks = selectVariants(blockRows, toolingOf(env)).filter((b) => b.kind !== 'exercise');
+  // No team scope here on purpose: this content backs the per-module stock
+  // episode, which is baked once and shared by every listener. Folding one
+  // team's guidance into a shared asset would serve it to other teams.
   const guidance = await guidanceFor(db, env, moduleId, mod.courseId);
   const contentMd = withGuidance(blocks.map((b) => b.body).join('\n\n'), guidance);
   // Guidance edits count as content changes, so stale stock episodes rebake.
@@ -3675,6 +3808,13 @@ app.route('/', createOauthApp());
 
 // ---------- fallthrough ----------
 
+// The manager view. No separate credential: the census declares who reports to
+// whom, so an account whose email appears in manager_email rows is a manager
+// and their team is exactly those rows. Authorization is exact-email only —
+// see the note at the top of manager.ts for why the display-name fallback the
+// admin census uses is deliberately not reused here.
+app.route('/api/manager', createManagerApp({ requireSession }));
+
 app.route('/api/admin', adminApp);
 
 app.notFound(async (c) => {
@@ -3685,8 +3825,17 @@ app.notFound(async (c) => {
 export default {
   fetch: app.fetch,
   // Cron trigger (see wrangler.jsonc): keeps stock episodes baked for every
-  // open module, so podcast arrival is instant even on a never-visited module.
+  // open module, so podcast arrival is instant even on a never-visited module,
+  // and runs the reminder pass. The pass dedupes per (rule, recipient) inside
+  // the rule's own day window, so running it on every tick is safe — no
+  // separate run-lock, and no double nudge.
   scheduled(_controller: ScheduledController, env: Env, ctx: ExecutionContext) {
     ctx.waitUntil(warmAllStock(env));
+    ctx.waitUntil(
+      (async () => {
+        const db = drizzle(env.DB);
+        await runReminderPass(db, env, env.PUBLIC_ORIGIN ?? 'https://fluency-demo.workers.dev');
+      })().catch(() => {}),
+    );
   },
 };

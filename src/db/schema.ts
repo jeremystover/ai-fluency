@@ -385,6 +385,70 @@ export const fdReminderRule = sqliteTable(
   (t) => [index('idx_reminder_brand').on(t.brandSlug)],
 );
 
+// Every message this deployment actually tried to send, and what came of it.
+// Doubles as the dedupe key: a rule fires for one recipient at most once per
+// its own day window. A deployment with no provider configured still writes
+// rows here with status 'skipped' — the evaluation is real and recorded even
+// when delivery isn't wired, so "who would we have emailed" stays answerable.
+export const fdEmailSend = sqliteTable(
+  'fd_email_send',
+  {
+    id: text('id').primaryKey(),
+    brandSlug: text('brand_slug').notNull(),
+    kind: text('kind').notNull(), // reminder:<ruleId> | kudos | endorse | deadline | commitment | commitment_ack
+    toEmail: text('to_email').notNull(),
+    subject: text('subject').notNull(),
+    body: text('body').notNull(),
+    status: text('status').notNull(), // sent | skipped | failed
+    provider: text('provider'),
+    error: text('error'),
+    createdAt: text('created_at').notNull(),
+  },
+  (t) => [index('idx_email_send_dedupe').on(t.brandSlug, t.kind, t.toEmail, t.createdAt)],
+);
+
+// A manager acting on one of their reports: recognition, a module they want
+// prioritized, or a date with a reason attached. Scoped by manager_email —
+// the census column the manager view authorizes against — so a row can only
+// exist for a pairing the roster actually declares.
+export const fdManagerAction = sqliteTable(
+  'fd_manager_action',
+  {
+    id: text('id').primaryKey(),
+    brandSlug: text('brand_slug').notNull(),
+    managerEmail: text('manager_email').notNull(), // stored lowercase
+    employeeId: text('employee_id').notNull(),
+    kind: text('kind').notNull(), // kudos | endorse | deadline
+    moduleId: text('module_id'), // endorse
+    dueDate: text('due_date'), // deadline
+    body: text('body').notNull(),
+    createdAt: text('created_at').notNull(),
+    seenAt: text('seen_at'),
+  },
+  (t) => [index('idx_manager_action_emp').on(t.employeeId, t.createdAt), index('idx_manager_action_mgr').on(t.managerEmail)],
+);
+
+// The learner's stated finish-by date and, when they choose to share it, their
+// manager's acknowledgment. Two-sided on purpose: a declaration into the void
+// is a far weaker commitment than one somebody answered, and the acknowledgment
+// is the manager's half of the bargain — protect the time.
+export const fdCommitment = sqliteTable(
+  'fd_commitment',
+  {
+    id: text('id').primaryKey(),
+    brandSlug: text('brand_slug').notNull(),
+    sessionId: text('session_id').notNull(),
+    courseId: text('course_id').notNull(),
+    targetDate: text('target_date').notNull(),
+    note: text('note'),
+    sharedWithManager: integer('shared_with_manager').notNull().default(0),
+    managerAckAt: text('manager_ack_at'),
+    managerNote: text('manager_note'),
+    createdAt: text('created_at').notNull(),
+  },
+  (t) => [index('idx_commitment_session').on(t.sessionId, t.createdAt)],
+);
+
 // ---------- OAuth for the MCP connector ----------
 // Claude's "add a connector" flow speaks OAuth 2.1: it registers itself, sends
 // the learner through an approval screen, and trades a code for a token. These
