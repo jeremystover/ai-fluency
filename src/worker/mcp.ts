@@ -581,10 +581,12 @@ const TOOLS: ToolDef[] = [
       let correct = 0;
       const lines: string[] = [];
       const missedStudy: string[] = [];
+      const missed: string[] = [];
       kc.questions.forEach((q, i) => {
         const chosen = Number(answers[q.id]);
         const ok = Number.isInteger(chosen) && chosen === q.correctIndex;
         if (ok) correct++;
+        else missed.push(q.id);
         const chosenLabel = Number.isInteger(chosen) && q.options[chosen] ? `${'ABCDEFGH'[chosen]}. ${q.options[chosen]}` : '(no answer)';
         lines.push(
           `${i + 1}. ${ok ? '✓' : '✗'} \`${q.id}\` — answered ${chosenLabel}${ok ? '' : `; correct: ${'ABCDEFGH'[q.correctIndex]}. ${q.options[q.correctIndex]}`}`,
@@ -597,7 +599,7 @@ const TOOLS: ToolDef[] = [
 
       // Same event + audit the in-app check writes — this attempt counts
       // everywhere, including prerequisite gates on the path screen.
-      await logEvent(db, session.id, 'knowledge_check_submitted', { moduleId, correct, total, via: 'mcp' });
+      await logEvent(db, session.id, 'knowledge_check_submitted', { moduleId, correct, total, missed, via: 'mcp' });
       await witnessContent(db, {
         sessionId: session.id,
         moduleId,

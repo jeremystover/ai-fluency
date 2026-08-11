@@ -63,11 +63,20 @@ import type {
   ModuleContentResponse,
   ModuleMcpActivity,
   PathResponse,
+  PathResume,
   PathSummary,
   PriorStage,
   TrailPoint,
   CalibrationTrail,
   PathModule,
+  Badge,
+  CalibrationRecord,
+  Credential,
+  MasteryStage,
+  ModuleMastery,
+  RecordResponse,
+  ReviewItem,
+  SkillStatement,
 } from '../shared/types';
 
 export interface Env {
@@ -1043,6 +1052,40 @@ async function receiptsFor(db: DrizzleD1Database, sessionId: string) {
   return { completed, completedAtById, bestCheckById, testedOutM1 };
 }
 
+// Spacing is deliberately legible rather than clever: a first miss comes back
+// in three days, a repeat miss the next day. The point is that misses come
+// back at all — the exact curve matters far less than the return.
+const REVIEW_DELAY_DAYS = (misses: number) => (misses >= 2 ? 1 : 3);
+
+type CheckAttempt = { moduleId: string; correct: number; total: number; missed: string[] | null; at: string };
+
+// Questions still owed a second look: the misses on each module's most recent
+// attempt, with the date each is due back. A question the learner has since got
+// right simply isn't in that attempt's `missed` list, so it leaves the queue on
+// its own — there is no separate "cleared" bookkeeping to fall out of sync.
+// Attempts recorded before misses were tracked carry no `missed` array; they
+// contribute a score and nothing to review.
+function outstandingMisses(attempts: CheckAttempt[]) {
+  const byModule = new Map<string, CheckAttempt[]>();
+  for (const a of attempts) byModule.set(a.moduleId, [...(byModule.get(a.moduleId) ?? []), a]);
+  const out: { moduleId: string; questionId: string; missedAt: string; dueAt: string; misses: number }[] = [];
+  for (const [moduleId, list] of byModule) {
+    const latest = list[list.length - 1];
+    if (!latest.missed?.length) continue;
+    for (const questionId of latest.missed) {
+      const misses = list.filter((a) => a.missed?.includes(questionId)).length;
+      out.push({
+        moduleId,
+        questionId,
+        missedAt: latest.at,
+        dueAt: new Date(new Date(latest.at).getTime() + REVIEW_DELAY_DAYS(misses) * 86_400_000).toISOString(),
+        misses,
+      });
+    }
+  }
+  return out;
+}
+
 app.get('/api/path', async (c) => {
   const db = c.get('db');
   const session = requireSession(c);
@@ -1050,9 +1093,56 @@ app.get('/api/path', async (c) => {
   const rows = await db.select().from(t.fdModule).orderBy(asc(t.fdModule.courseId), asc(t.fdModule.ordinal));
 
   // Prerequisites are advisory — they shape the recommendation line, never a
-  // hard lock. One is satisfied by clearing the module or — for 101-M1 —
-  // testing out on the diagnostic.
-  const { completed, completedAtById, bestCheckById, testedOutM1 } = await receiptsFor(db, session.id);
+  // hard lock. One is satisfied by completing the module, passing its
+  // knowledge check at 60%+, or — for 101-M1 — testing out on the diagnostic
+  // (at most one knowledge miss, all questions answered).
+  const doneRows = await db
+    .select()
+    .from(t.fdEvent)
+    .where(
+      and(
+        eq(t.fdEvent.sessionId, session.id),
+        sql`${t.fdEvent.type} IN ('module_completed', 'knowledge_check_submitted')`,
+      ),
+    );
+  const completed = new Set(
+    doneRows
+      .map((e) => {
+        if (!e.payloadJson) return null;
+        const p = JSON.parse(e.payloadJson) as { moduleId?: string; correct?: number; total?: number };
+        // A knowledge check clears a prerequisite at 60%+ — retakes are free,
+        // so the gate asks for understanding, not mere submission.
+        if (e.type === 'knowledge_check_submitted' && p.total && (p.correct ?? 0) / p.total < 0.6) return null;
+        return p.moduleId;
+      })
+      .filter(Boolean),
+  );
+  // Per-module receipts for the ledger rows: when it was completed, and the
+  // best knowledge-check attempt — both straight from the rows above.
+  const completedAtById = new Map<string, string>();
+  const bestCheckById = new Map<string, { correct: number; total: number }>();
+  for (const e of doneRows) {
+    if (!e.payloadJson) continue;
+    const p = JSON.parse(e.payloadJson) as { moduleId?: string; correct?: number; total?: number };
+    if (typeof p.moduleId !== 'string') continue;
+    if (e.type === 'module_completed') {
+      const prev = completedAtById.get(p.moduleId);
+      if (!prev || e.createdAt < prev) completedAtById.set(p.moduleId, e.createdAt);
+    } else if (p.total) {
+      const best = bestCheckById.get(p.moduleId);
+      if (!best || (p.correct ?? 0) / p.total > best.correct / best.total) {
+        bestCheckById.set(p.moduleId, { correct: p.correct ?? 0, total: p.total });
+      }
+    }
+  }
+
+  const kResponses = await db
+    .select()
+    .from(t.fdDiagnosticResponse)
+    .where(and(eq(t.fdDiagnosticResponse.sessionId, session.id), sql`${t.fdDiagnosticResponse.correct} IS NOT NULL`));
+  const kTotal = diagItems.filter((i) => i.kind === 'knowledge').length;
+  const kCorrect = kResponses.filter((r) => r.correct === 1).length;
+  const testedOutM1 = kResponses.length >= kTotal && kCorrect >= kTotal - 1;
 
   const titleOf = (id: string) => rows.find((m) => m.id === id)?.title ?? id;
   const satisfied = (id: string) => completed.has(id) || (id === 'ai101-m1' && testedOutM1);
@@ -1133,11 +1223,35 @@ app.get('/api/path', async (c) => {
     .where(and(eq(t.fdEvent.sessionId, session.id), sql`${t.fdEvent.createdAt} > ${weekAgo}`));
   const openIds = new Set(openModules.map((m) => m.id));
   const bestOnOpen = [...bestCheckById.entries()].filter(([id]) => openIds.has(id)).map(([, s]) => s);
+  const lastEventRows = await db
+    .select({ at: t.fdEvent.createdAt })
+    .from(t.fdEvent)
+    .where(eq(t.fdEvent.sessionId, session.id))
+    .orderBy(desc(t.fdEvent.createdAt))
+    .limit(1);
   const summary: PathSummary = {
     openTotal: openModules.length,
     doneCount: openModules.filter((m) => m.completed || m.testedOut).length,
+    testedOutCount: openModules.filter((m) => m.testedOut).length,
+    // What's actually left, not a percentage — "~34 min to finish" is a
+    // decision the learner can make; "62% complete" isn't.
+    minutesRemaining: openModules.filter((m) => !m.completed && !m.testedOut).reduce((sum, m) => sum + m.estMinutes, 0),
     minutesInvested: activeRows[0]?.active_min ?? 0,
     activeDays7: dayRows.length,
+    activeDays: dayRows.map((r) => r.day),
+    lastActiveAt: lastEventRows[0]?.at ?? null,
+    // Misses owed a second look right now. The full queue lives on the record;
+    // the path only needs to know whether to raise a hand.
+    reviewDue: outstandingMisses(
+      doneRows
+        .filter((e) => e.type === 'knowledge_check_submitted')
+        .map((e) => {
+          const p = JSON.parse(e.payloadJson ?? '{}') as { moduleId?: string; correct?: number; total?: number; missed?: string[] };
+          return { moduleId: p.moduleId ?? '', correct: p.correct ?? 0, total: p.total ?? 0, missed: p.missed ?? null, at: e.createdAt };
+        })
+        .filter((a) => a.moduleId)
+        .sort((a, b) => a.at.localeCompare(b.at)),
+    ).filter((m) => Date.parse(m.dueAt) <= Date.now()).length,
     checks: bestOnOpen.length
       ? {
           passed: bestOnOpen.filter((s) => s.total > 0 && s.correct / s.total >= 0.6).length,
@@ -1146,6 +1260,33 @@ app.get('/api/path', async (c) => {
         }
       : null,
   };
+
+  // The open loop: the module they last touched and never cleared. Read from
+  // the funnel like everything else — the newest touch on an uncleared module
+  // wins, and the event type says which surface to send them back to.
+  const RESUME_VIA: Record<string, PathResume['via']> = {
+    module_opened: 'read',
+    chat_started: 'chat',
+    chat_message: 'chat',
+    podcast_started: 'podcast',
+    podcast_played: 'podcast',
+    knowledge_check_started: 'check',
+    knowledge_check_submitted: 'check',
+    sort_submitted: 'exercise',
+    choice_submitted: 'exercise',
+    activity_submitted: 'activity',
+  };
+  const touchRows = await db
+    .select({ type: t.fdEvent.type, at: t.fdEvent.createdAt, moduleId: sql<string | null>`json_extract(${t.fdEvent.payloadJson}, '$.moduleId')` })
+    .from(t.fdEvent)
+    .where(and(eq(t.fdEvent.sessionId, session.id), inArray(t.fdEvent.type, Object.keys(RESUME_VIA))))
+    .orderBy(desc(t.fdEvent.createdAt))
+    .limit(60);
+  const uncleared = new Set(openModules.filter((m) => !m.completed && !m.testedOut).map((m) => m.id));
+  const touch = touchRows.find((r) => r.moduleId && uncleared.has(r.moduleId));
+  const resume: PathResume | null = touch?.moduleId
+    ? { moduleId: touch.moduleId, at: touch.at, via: RESUME_VIA[touch.type] }
+    : null;
 
   // "Up next" is the same ranking the MCP tutor recommends from — one brain,
   // two surfaces.
@@ -1158,7 +1299,7 @@ app.get('/api/path', async (c) => {
     ...course,
     recommendedFor: selectedGoals.filter((g) => g.courses.includes(course.id)).map((g) => `your goal: ${g.label}`),
   }));
-  const res: PathResponse = { modules, courses: coursesOut, summary, diagnosticNote, upNext };
+  const res: PathResponse = { modules, courses: coursesOut, summary, diagnosticNote, upNext, resume };
   return c.json(res);
 });
 
@@ -1907,9 +2048,236 @@ app.post('/api/module/:id/knowledge-check', async (c) => {
       study: q.study,
     };
   });
-  await logEvent(db, session.id, 'knowledge_check_submitted', { moduleId, correct, total: kc.questions.length });
+  // Which questions were missed, not just how many: the review queue is built
+  // from these ids, and a score alone can't say what to bring back.
+  const missed = results.filter((r) => !r.correct).map((r) => r.id);
+  await logEvent(db, session.id, 'knowledge_check_submitted', { moduleId, correct, total: kc.questions.length, missed });
   await witnessContent(db, { sessionId: session.id, moduleId, activity: 'knowledge_check_submitted', kind: 'exercise', content: { kind: 'knowledge_check', payload: kc } });
   return c.json({ score: { correct, total: kc.questions.length }, results });
+});
+
+// ---------- the record ----------
+
+// One read of everything this session has actually demonstrated: mastery per
+// module, the questions still owed a second look, the calibration thread, and
+// the credential. Every field is derived from the append-only funnel, graded
+// submissions, or the content-addressed audit trail — nothing here is a stored
+// score that could drift from what happened.
+app.get('/api/record', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+
+  const moduleRows = await db.select().from(t.fdModule).orderBy(asc(t.fdModule.courseId), asc(t.fdModule.ordinal));
+  const openModules = moduleRows.filter((m) => m.status === 'open');
+  const titleOf = (id: string) => moduleRows.find((m) => m.id === id)?.title ?? id;
+
+  const events = await db
+    .select({ type: t.fdEvent.type, payloadJson: t.fdEvent.payloadJson, createdAt: t.fdEvent.createdAt })
+    .from(t.fdEvent)
+    .where(
+      and(
+        eq(t.fdEvent.sessionId, session.id),
+        inArray(t.fdEvent.type, ['module_completed', 'knowledge_check_submitted', 'mcp_teach_back', 'mcp_connected', 'diagnostic_completed']),
+      ),
+    )
+    .orderBy(asc(t.fdEvent.createdAt));
+
+  const attempts: CheckAttempt[] = [];
+  const completedAt = new Map<string, string>();
+  const bestCheck = new Map<string, { correct: number; total: number }>();
+  const teachBack = new Map<string, number>();
+  let connectedAt: string | null = null;
+  for (const e of events) {
+    const p = JSON.parse(e.payloadJson ?? '{}') as { moduleId?: string; correct?: number; total?: number; missed?: string[] };
+    if (e.type === 'mcp_connected') { connectedAt ??= e.createdAt; continue; }
+    if (typeof p.moduleId !== 'string') continue;
+    if (e.type === 'module_completed') {
+      if (!completedAt.has(p.moduleId)) completedAt.set(p.moduleId, e.createdAt);
+    } else if (e.type === 'mcp_teach_back') {
+      const prev = teachBack.get(p.moduleId);
+      if (typeof p.total === 'number' && (prev === undefined || p.total > prev)) teachBack.set(p.moduleId, p.total);
+    } else if (e.type === 'knowledge_check_submitted' && p.total) {
+      attempts.push({ moduleId: p.moduleId, correct: p.correct ?? 0, total: p.total, missed: p.missed ?? null, at: e.createdAt });
+      const best = bestCheck.get(p.moduleId);
+      if (!best || (p.correct ?? 0) / p.total > best.correct / best.total) bestCheck.set(p.moduleId, { correct: p.correct ?? 0, total: p.total });
+    }
+  }
+
+  // 101-M1 can be cleared by the diagnostic instead of its check — same rule
+  // the path screen uses, so the two screens never disagree.
+  const kResponses = await db
+    .select()
+    .from(t.fdDiagnosticResponse)
+    .where(and(eq(t.fdDiagnosticResponse.sessionId, session.id), sql`${t.fdDiagnosticResponse.correct} IS NOT NULL`));
+  const kTotal = diagItems.filter((i) => i.kind === 'knowledge').length;
+  const testedOutM1 = kResponses.length >= kTotal && kResponses.filter((r) => r.correct === 1).length >= kTotal - 1;
+
+  const submissions = await db
+    .select()
+    .from(t.fdSubmission)
+    .where(and(eq(t.fdSubmission.sessionId, session.id), sql`${t.fdSubmission.gradedAt} IS NOT NULL`))
+    .orderBy(desc(t.fdSubmission.createdAt));
+  const gradedByModule = new Map<string, (typeof submissions)[number]>();
+  for (const s of submissions) if (!gradedByModule.has(s.moduleId)) gradedByModule.set(s.moduleId, s);
+
+  const audits = await db
+    .select({ moduleId: t.fdCompletionAudit.moduleId, activity: t.fdCompletionAudit.activity, contentHash: t.fdCompletionAudit.contentHash })
+    .from(t.fdCompletionAudit)
+    .where(eq(t.fdCompletionAudit.sessionId, session.id));
+  // Engagement short of understanding: a read, or a check attempted and not
+  // passed. Both are real contact with the module — "not started" alongside a
+  // recorded score would be a contradiction.
+  const seen = new Set([
+    ...audits.filter((a) => a.activity === 'module_viewed' || a.activity === 'micro_viewed').map((a) => a.moduleId.replace(/-micro$/, '')),
+    ...attempts.map((a) => a.moduleId),
+  ]);
+
+  const checkPassed = (id: string) => {
+    const b = bestCheck.get(id);
+    return (!!b && b.total > 0 && b.correct / b.total >= 0.6) || (id === 'ai101-m1' && testedOutM1);
+  };
+
+  const mastery: ModuleMastery[] = openModules.map((m) => {
+    const graded = gradedByModule.get(m.id);
+    const stage: MasteryStage = teachBack.has(m.id)
+      ? 'taught'
+      : graded
+        ? 'applied'
+        : checkPassed(m.id) || completedAt.has(m.id)
+          ? 'checked'
+          : seen.has(m.id)
+            ? 'read'
+            : 'untouched';
+    return {
+      moduleId: m.id,
+      title: m.title,
+      courseId: m.courseId,
+      ordinal: m.ordinal,
+      stage,
+      bestCheck: bestCheck.get(m.id) ?? null,
+      activityScore: graded?.totalScore ?? null,
+      teachBackScore: teachBack.get(m.id) ?? null,
+      completedAt: completedAt.get(m.id) ?? null,
+    };
+  });
+
+  // The review queue: the outstanding misses, resolved back to their prompts.
+  const review: ReviewItem[] = [];
+  const nowMs = Date.now();
+  const checksByModule = new Map<string, KnowledgeCheckPayload | null>();
+  for (const miss of outstandingMisses(attempts)) {
+    if (!checksByModule.has(miss.moduleId)) {
+      checksByModule.set(miss.moduleId, await getExercise<KnowledgeCheckPayload>(db, miss.moduleId, 'knowledge_check'));
+    }
+    const q = checksByModule.get(miss.moduleId)?.questions.find((x) => x.id === miss.questionId);
+    if (!q) continue;
+    review.push({
+      moduleId: miss.moduleId,
+      moduleTitle: titleOf(miss.moduleId),
+      questionId: miss.questionId,
+      prompt: q.prompt,
+      missedAt: miss.missedAt,
+      dueAt: miss.dueAt,
+      due: Date.parse(miss.dueAt) <= nowMs,
+      misses: miss.misses,
+    });
+  }
+  review.sort((a, b) => Date.parse(a.dueAt) - Date.parse(b.dueAt));
+
+  const trail = await trailFor(db, session.id);
+  const closed = trail.points.filter((p) => p.delta !== null);
+  // Only claim a direction once there are enough closed loops for halves to
+  // mean something; two points is a line, not a trend.
+  let trend: CalibrationRecord['trend'] = null;
+  if (closed.length >= 4) {
+    const mid = Math.floor(closed.length / 2);
+    const avg = (xs: TrailPoint[]) => xs.reduce((s, p) => s + Math.abs(p.delta ?? 0), 0) / (xs.length || 1);
+    const before = avg(closed.slice(0, mid));
+    const after = avg(closed.slice(mid));
+    trend = after < before - 3 ? 'sharpening' : after > before + 3 ? 'drifting' : 'steady';
+  }
+  const diagDone = events.some((e) => e.type === 'diagnostic_completed');
+  const diag = diagDone ? await computeDiagnosticResult(db, session.id) : null;
+  const calibration: CalibrationRecord = {
+    diagnostic: diag ? { meanAbsDelta: diag.calibration.meanAbsDelta, direction: diag.calibration.direction } : null,
+    points: trail.points,
+    sorts: trail.sorts,
+    trend,
+  };
+
+  // Badges name a specific act that happened, with the timestamp it happened
+  // at. An unearned badge carries null rather than a locked silhouette — this
+  // is a record, not a collection to complete.
+  const firstCompletion = [...completedAt.values()].sort()[0] ?? null;
+  const firstApplied = [...gradedByModule.values()].map((s) => s.gradedAt).filter(Boolean).sort()[0] ?? null;
+  const firstTaught = teachBack.size > 0 ? (events.find((e) => e.type === 'mcp_teach_back')?.createdAt ?? null) : null;
+  const calibratedPoint = closed.find((p) => Math.abs(p.delta ?? 99) <= 10);
+  const badges: Badge[] = [
+    { id: 'first_module', label: 'First module cleared', detail: 'Finished a module end to end.', earnedAt: firstCompletion },
+    { id: 'applied', label: 'Applied it', detail: 'Submitted real work to the graded activity.', earnedAt: firstApplied },
+    { id: 'taught', label: 'Taught it back', detail: 'Explained a module in your own words and had it graded.', earnedAt: firstTaught },
+    { id: 'calibrated', label: 'Called it', detail: 'Made a prediction that landed within 10 points of the outcome.', earnedAt: calibratedPoint ? (completedAt.get(calibratedPoint.moduleId) ?? null) : null },
+    { id: 'connected', label: 'Connected', detail: 'Brought the course into your assistant over MCP.', earnedAt: connectedAt },
+  ];
+
+  // The credential: what was cleared, and the exact content versions witnessed
+  // while clearing it. The hashes are the point — they make the claim checkable
+  // against fd_content_snapshot after the live content has moved on.
+  const { courses } = (await import('../../content/modules.json')) as unknown as { courses: CourseCard[] };
+  const completionHashes = new Map<string, string>();
+  for (const a of audits) if (a.activity === 'module_completed') completionHashes.set(a.moduleId, a.contentHash);
+  const credentials: Credential[] = courses
+    .filter((course) => openModules.some((m) => m.courseId === course.id))
+    .map((course) => {
+      const mods = openModules.filter((m) => m.courseId === course.id);
+      // "Cleared" here means exactly what the path screen's counter means —
+      // completed, or tested out on the diagnostic. A passed knowledge check
+      // clears a *prerequisite*; it does not finish a module, and a credential
+      // that disagreed with the progress instrument would be worth nothing.
+      const clearedMods = mods.filter((m) => completedAt.has(m.id) || (m.id === 'ai101-m1' && testedOutM1));
+      const issued = clearedMods.map((m) => completedAt.get(m.id)).filter((x): x is string => !!x).sort();
+      return {
+        courseId: course.id,
+        courseTitle: course.title,
+        earned: clearedMods.length === mods.length && mods.length > 0,
+        cleared: clearedMods.length,
+        total: mods.length,
+        issuedAt: clearedMods.length === mods.length && issued.length ? issued[issued.length - 1] : null,
+        contentHashes: clearedMods.map((m) => completionHashes.get(m.id)).filter((x): x is string => !!x),
+      };
+    });
+
+  // Capability claims, each backed by one graded artifact. The claim is the
+  // module's own title and the evidence is the grader's own words — nothing
+  // here is written for the learner's benefit.
+  const rubricRows = await db.select().from(t.fdExercise).where(eq(t.fdExercise.kind, 'rubric'));
+  const maxByModule = new Map(
+    rubricRows.map((r) => [r.moduleId, (JSON.parse(r.payloadJson) as RubricPayload).dimensions.length * 5]),
+  );
+  const skills: SkillStatement[] = [...gradedByModule.entries()]
+    .filter(([, s]) => s.totalScore !== null)
+    .map(([moduleId, s]) => {
+      const max = maxByModule.get(moduleId) ?? 20;
+      const summary = s.rubricJson ? ((JSON.parse(s.rubricJson) as { summary?: string }).summary ?? '') : '';
+      return {
+        claim: titleOf(moduleId),
+        evidence: `Applied activity scored ${s.totalScore}/${max}${summary ? ` — ${summary}` : ''}`,
+      };
+    });
+
+  const participant = await db.select().from(t.fdParticipant).where(eq(t.fdParticipant.sessionId, session.id)).limit(1);
+  const res: RecordResponse = {
+    name: participant[0]?.displayName ?? null,
+    roleLabel: participant[0]?.roleLabel ?? null,
+    mastery,
+    review,
+    calibration,
+    badges,
+    credentials,
+    skills,
+  };
+  return c.json(res);
 });
 
 // ---------- capstone threading & the calibration trail ----------

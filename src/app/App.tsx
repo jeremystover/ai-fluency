@@ -9,6 +9,7 @@ import Diagnostic from './routes/Diagnostic';
 import DiagnosticResult from './routes/DiagnosticResult';
 import Path from './routes/Path';
 import Library from './routes/Library';
+import Record from './routes/Record';
 import ModuleView from './routes/ModuleView';
 import Chat from './routes/Chat';
 import MicroView from './routes/MicroView';
@@ -43,6 +44,7 @@ export default function App() {
           <Route path="/diagnostic/result" element={<RequireSession><DiagnosticResult /></RequireSession>} />
           <Route path="/path" element={<RequireSession><Path /></RequireSession>} />
           <Route path="/library" element={<RequireSession><Library /></RequireSession>} />
+          <Route path="/record" element={<RequireSession><Record /></RequireSession>} />
           {/* Legacy /module/1 links (plans, bookmarks) → the canonical module id. */}
           <Route path="/module/1" element={<Navigate to="/module/ai101-m1" replace />} />
           <Route path="/module/1/chat" element={<Navigate to="/module/ai101-m1/chat" replace />} />
