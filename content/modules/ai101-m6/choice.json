@@ -1,0 +1,31 @@
+{
+  "reviewedAt": "2026-08-11",
+  "title": "Find the fabrication",
+  "intro": "*Five minutes. Commit before you look.*\n\nAn HR manager asked an assistant — no documents attached — \"What should we consider before changing our PTO carryover policy?\" Below are four claims from the fluent, well-organized answer. All four *sound* equally authoritative. One is a Type 1 — a fabricated specific that would survive a skim and detonate under checking.\n\nUse the tells from Lesson 2. **Which claim is the fabrication?**",
+  "artifacts": [
+    {
+      "label": "Claim 1",
+      "body": "\"Changing carryover rules mid-year can create employee-relations friction, particularly for employees who planned leave around the existing policy — many organizations phase such changes in at the start of a calendar year.\""
+    },
+    {
+      "label": "Claim 2",
+      "body": "\"A 2023 SHRM Workplace Flexibility Study found that 62% of employees at companies that eliminated carryover reported increased burnout within 18 months.\""
+    },
+    {
+      "label": "Claim 3",
+      "body": "\"Several U.S. states treat accrued PTO as earned wages, which constrains use-it-or-lose-it policies — the details vary by state, so this is a question for employment counsel before any change ships.\""
+    },
+    {
+      "label": "Claim 4",
+      "body": "\"If your workforce spans multiple states, a single national policy may need to be written to the most protective state's rules, or varied by state — both approaches have administrative costs worth weighing.\""
+    }
+  ],
+  "options": [
+    { "id": "c1", "label": "Claim 1 — the change-management point" },
+    { "id": "c2", "label": "Claim 2 — the burnout study" },
+    { "id": "c3", "label": "Claim 3 — the earned-wages point" },
+    { "id": "c4", "label": "Claim 4 — the multi-state point" }
+  ],
+  "key": "c2",
+  "reasoning": "**Claim 2 is the fabrication — and it's the tell, not the topic, that catches it.** A named organization, a year, a study title, two precise numbers (62%, 18 months) — in response to a question that supplied *no* material. That's exactly the precision-you-didn't-supply signature: research-flavored claims conventionally contain citations, so the machinery produces one, formatted perfectly, whether or not anything stands behind it. Before it travels, that claim is decoration; Level 2 says trace it to the actual study or cut it — and the memo survives fine without it.\n\nWhy the others pass — and *what kind* of trust each has earned: Claims 1 and 4 are general professional reasoning with no invented specifics — nothing to trace, just judgment to agree or disagree with. Claim 3 contains a checkable legal claim, but notice its shape: it stays general (\"several states,\" \"varies\"), and it *routes itself to counsel* — the exact opposite of fabricated confidence. If it had said \"California Labor Code § 227.3 requires…\" you'd be back at the flinch rule: real-sounding, maybe even real, but a specific you didn't supply, checked before shipped.\n\nThe transferable pattern: you didn't need to know whether the SHRM study exists. The *form* — uncited precision on unsupplied ground — was enough to quarantine it. That's the flinch working."
+}
