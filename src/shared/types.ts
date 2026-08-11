@@ -85,6 +85,31 @@ export type PathSummary = {
 
 export type PathRecommendation = { moduleId: string; reasons: string[] };
 
+// ---------- the library ----------
+
+// A lesson line in the catalog — the real ## heading, anchored to its block
+// so the syllabus deep-links into the read.
+export type LibraryLesson = { title: string; blockId: string; lab: boolean };
+
+export type LibraryModule = ModuleCard & {
+  microMinutes: number;
+  lessons: LibraryLesson[]; // empty for full-course modules (nothing seeded)
+  ways: { read: boolean; listen: boolean; tutor: boolean; exercise: boolean; lab: boolean; graded: boolean; check: boolean };
+  completed: boolean;
+  testedOut: boolean;
+  completedAt: string | null;
+  bestCheck: { correct: number; total: number } | null;
+};
+
+export type LibraryCourse = CourseCard & { modules: LibraryModule[] };
+
+export type LibraryResponse = {
+  courses: LibraryCourse[]; // every course, module-less tiers included
+  totals: { courses: number; modules: number; lessons: number; minutes: number };
+  clearedCount: number;
+  nextModuleId: string | null; // same ranking brain as the path's queue
+};
+
 export type PathResponse = {
   modules: PathModule[];
   courses: CourseCard[];

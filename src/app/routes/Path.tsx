@@ -246,7 +246,13 @@ export default function Path() {
           </div>
         )}
 
-        {/* The library, course by course */}
+        {/* The library, course by course — the full catalog lives one click away */}
+        <p className="mt-9 flex items-baseline justify-between gap-3 flex-wrap">
+          <span className="label-utility">Your courses</span>
+          <Link to="/library" className="text-accent font-semibold text-sm no-underline hover:underline">
+            Browse everything — the full library →
+          </Link>
+        </p>
         {openCourses.map((course) => {
           const mods = data.modules.filter((m) => m.courseId === course.id);
           const open = mods.filter((m) => m.access === 'open');
