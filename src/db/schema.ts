@@ -41,6 +41,30 @@ export const fdAccount = sqliteTable(
   (t) => [uniqueIndex('idx_account_email').on(t.brandSlug, t.email)],
 );
 
+// A password reset in flight. The token itself is never stored — only an
+// unsalted SHA-256 of it, same reasoning as the OAuth tables: the input is
+// already 256 bits of randomness, and lookup has to be by exact hash. One
+// live token per account (a new request invalidates the outstanding ones),
+// single-use, and short-lived, so a mail forwarded to the wrong inbox is a
+// dead link rather than a standing key.
+export const fdPasswordReset = sqliteTable(
+  'fd_password_reset',
+  {
+    id: text('id').primaryKey(),
+    brandSlug: text('brand_slug').notNull(),
+    accountId: text('account_id').notNull(),
+    tokenHash: text('token_hash').notNull(),
+    createdAt: text('created_at').notNull(),
+    expiresAt: text('expires_at').notNull(),
+    usedAt: text('used_at'),
+    ipHash: text('ip_hash'),
+  },
+  (t) => [
+    uniqueIndex('idx_password_reset_token').on(t.tokenHash),
+    index('idx_password_reset_account').on(t.accountId, t.usedAt),
+  ],
+);
+
 export const fdSession = sqliteTable(
   'fd_session',
   {

@@ -1,13 +1,13 @@
 import { useState, type FormEvent } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Screen, Button, ErrorNote } from '../components/ui';
 import { api, ApiError } from '../api';
 import { useApp } from '../brand';
 
-// The door. Which door depends on the deployment: 'passcode' is the demo
-// (shared codes, no accounts); 'accounts' is the product — census-gated
-// email + password sign-in. The server enforces the mode; this screen
-// just renders the right form.
+// The door — both of them. A passcode is the demo (shared codes, anonymous,
+// progress on this browser); email + password is the product (census-gated,
+// progress follows the account). Neither closes the other; which one someone
+// came through is a property of their session, not of the deployment.
 
 // A learner sent here mid-connector-handshake (the OAuth approval screen
 // needs a session first) carries ?next= back to it. Only the worker-served
@@ -78,7 +78,7 @@ const field =
 function AccountDoor() {
   const navigate = useNavigate();
   const afterSignIn = useAfterSignIn();
-  const { me, refreshMe } = useApp();
+  const { brand, me, refreshMe } = useApp();
   const [mode, setMode] = useState<'signin' | 'signup'>('signin');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -213,9 +213,19 @@ function AccountDoor() {
           </>
         )}
       </p>
-      {mode === 'signin' && (
-        <p className="text-xs text-muted mt-2">Forgot your password? Ask your admin to reset it — they can issue you a temporary one.</p>
-      )}
+      {mode === 'signin' &&
+        (brand?.canResetPassword ? (
+          <p className="text-xs text-muted mt-2">
+            <Link to="/reset" className="text-accent font-semibold hover:underline">
+              Forgot your password?
+            </Link>
+          </p>
+        ) : (
+          // No mail provider on this deployment, so self-serve reset can't
+          // deliver. Point at the path that does work rather than a link that
+          // sends nothing.
+          <p className="text-xs text-muted mt-2">Forgot your password? Ask your admin to reset it — they can issue you a temporary one.</p>
+        ))}
     </div>
   );
 }

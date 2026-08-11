@@ -134,6 +134,13 @@
       "when": 1786630000000,
       "tag": "0017_manager_and_email",
       "breakpoints": true
+    },
+    {
+      "idx": 19,
+      "version": "6",
+      "when": 1786700000000,
+      "tag": "0018_password_reset",
+      "breakpoints": true
     }
   ]
 }

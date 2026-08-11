@@ -25,6 +25,10 @@ export type Brand = {
   // data, not configuration. A deployment with codes but no census roster
   // shows only the demo door; one with both shows both.
   doors: { passcode: boolean; accounts: boolean };
+  // Whether "forgot your password" can actually deliver. Self-serve reset
+  // needs a mail provider; without one the sign-in screen points at the
+  // admin's temp-password path instead of offering a link that goes nowhere.
+  canResetPassword: boolean;
   tokens: BrandTokens;
   voice: { greeting: string; signoff: string };
   // Assistants the company provisions (e.g. ["Claude"]). When the profile

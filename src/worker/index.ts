@@ -3,14 +3,14 @@ import { getCookie, setCookie } from 'hono/cookie';
 import { drizzle, type DrizzleD1Database } from 'drizzle-orm/d1';
 import { and, asc, desc, eq, gt, inArray, lt, sql } from 'drizzle-orm';
 import * as t from '../db/schema';
-import { verifyCode, hashCode, signSessionId, verifySessionCookie, hashIp, signMcpKey } from './crypto';
+import { verifyCode, hashCode, signSessionId, verifySessionCookie, hashIp, signMcpKey, randomToken, tokenHash } from './crypto';
 import { toolingOf, selectVariants, toBlock, stampsFor, getExercise, scoreSortingSubmission, type KnowledgeCheckPayload, type SortingPayload } from './content';
 import { createMcpApp, recommendationsFor } from './mcp';
 import { createOauthApp, MCP_PATH } from './oauth';
 import { gradeSubmission, type RubricPayload } from './grading';
 import { adminApp, runReminderPass } from './admin';
 import { accountEmailFor, commitmentFor, createManagerApp, hasReports, managerEmailForSessionId, managerEmailOf, managerSignalsFor } from './manager';
-import { deliverableAddress, sendEmail, signature } from './email';
+import { deliverableAddress, emailEnabled, sendEmail, signature } from './email';
 import { buildTutorSystem, streamTutorReply, KICKOFF_TURN, type LearnerContext as TutorLearnerContext, type TutorMessage } from './chat';
 import { transcribe, speakable, renderSpeech, TUTOR_VOICE } from './voice';
 import { moduleSnapshot, witnessContent } from './audit';
@@ -201,6 +201,7 @@ app.get('/api/brand', async (c) => {
     slug: row.slug,
     name: row.name,
     doors: { passcode: (codeRows[0]?.n ?? 0) > 0, accounts: (rosterRows[0]?.n ?? 0) > 0 },
+    canResetPassword: emailEnabled(c.env),
     tokens: JSON.parse(row.tokensJson),
     voice: JSON.parse(row.voiceJson),
     ...(Array.isArray(profile?.aiTools) && profile.aiTools.length ? { aiTools: profile.aiTools } : {}),
@@ -463,32 +464,17 @@ app.post('/api/auth/signup', async (c) => {
   return c.json({ ok: true });
 });
 
-app.post('/api/auth/signin', async (c) => {
-  const db = c.get('db');
-  const body = await c.req.json<{ email?: string; password?: string }>().catch(() => null);
-  const email = normalizeEmail(body?.email);
-  const password = body?.password ?? '';
-  if (!email || !password) return c.json({ error: 'Email and password, both.' }, 400);
-
-  const ipHashed = await clientIpHash(c, c.env);
-  if (await authAttemptsExceeded(db, ipHashed)) {
-    return c.json({ error: 'Too many attempts from this connection. Wait 15 minutes.' }, 429);
-  }
-
-  const accounts = await db
-    .select()
-    .from(t.fdAccount)
-    .where(and(eq(t.fdAccount.brandSlug, c.env.BRAND_SLUG), eq(t.fdAccount.email, email)))
-    .limit(1);
-  const account = accounts[0];
-  const valid = account ? await verifyCode(password, account.passwordHash) : false;
-  if (!account || !valid) {
-    await logEvent(db, null, 'auth_attempt_failed', { ipHash: ipHashed, reason: 'bad_credentials' });
-    return c.json({ error: 'Email or password didn’t match.' }, 401);
-  }
-
-  // Progress follows the account: reuse its canonical session, so a new
-  // device picks up exactly where the last one left off.
+// Progress follows the account, not the browser: every sign-in reuses the
+// account's canonical session, so a new device picks up exactly where the
+// last one left off. Shared by password sign-in and by finishing a reset —
+// proving control of the mailbox lands you in the same place proving the
+// password does, on the same session.
+async function openAccountSession(
+  db: DrizzleD1Database,
+  c: Context<Ctx>,
+  account: typeof t.fdAccount.$inferSelect,
+  ipHashed: string,
+): Promise<string> {
   const sessions = await db
     .select()
     .from(t.fdSession)
@@ -521,6 +507,34 @@ app.post('/api/auth/signin', async (c) => {
   }
   await db.update(t.fdAccount).set({ lastLoginAt: now() }).where(eq(t.fdAccount.id, account.id));
   await logEvent(db, sessionId, 'signed_in', {});
+  return sessionId;
+}
+
+app.post('/api/auth/signin', async (c) => {
+  const db = c.get('db');
+  const body = await c.req.json<{ email?: string; password?: string }>().catch(() => null);
+  const email = normalizeEmail(body?.email);
+  const password = body?.password ?? '';
+  if (!email || !password) return c.json({ error: 'Email and password, both.' }, 400);
+
+  const ipHashed = await clientIpHash(c, c.env);
+  if (await authAttemptsExceeded(db, ipHashed)) {
+    return c.json({ error: 'Too many attempts from this connection. Wait 15 minutes.' }, 429);
+  }
+
+  const accounts = await db
+    .select()
+    .from(t.fdAccount)
+    .where(and(eq(t.fdAccount.brandSlug, c.env.BRAND_SLUG), eq(t.fdAccount.email, email)))
+    .limit(1);
+  const account = accounts[0];
+  const valid = account ? await verifyCode(password, account.passwordHash) : false;
+  if (!account || !valid) {
+    await logEvent(db, null, 'auth_attempt_failed', { ipHash: ipHashed, reason: 'bad_credentials' });
+    return c.json({ error: 'Email or password didn’t match.' }, 401);
+  }
+
+  const sessionId = await openAccountSession(db, c, account, ipHashed);
   await setSessionCookie(c, sessionId);
   return c.json({ ok: true });
 });
@@ -545,6 +559,161 @@ app.post('/api/auth/password', async (c) => {
   }
   await db.update(t.fdAccount).set({ passwordHash: await hashCode(next) }).where(eq(t.fdAccount.id, account.id));
   await logEvent(db, session.id, 'password_changed', {});
+  return c.json({ ok: true });
+});
+
+// ---------- password reset ----------
+//
+// The rules this flow is built on, in order of how much they'd cost to get
+// wrong:
+//
+//  1. **The response never depends on whether the account exists.** Same 200,
+//     same wording, whether the address is an account, a roster email with no
+//     account yet, or a stranger's. A reset form that answers "no such user"
+//     is a membership oracle for the company's employee list.
+//  2. **The token is the credential, so it is stored the way credentials are
+//     stored** — 256 bits of randomness, only its SHA-256 in the database.
+//  3. **One live token per account.** A new request invalidates the
+//     outstanding ones, so a stale link in a forwarded mail is already dead.
+//  4. **Single-use and short-lived.** Consumed on success; expired after
+//     RESET_TTL_MS regardless.
+//  5. **The link never reaches the delivery log.** Admins can read
+//     fd_email_send, and an admin can already reset anyone's password, so
+//     this isn't an escalation — but a reset link sitting in a log is a
+//     standing key, and it costs nothing to keep it out.
+const RESET_TTL_MS = 45 * 60 * 1000;
+
+const accountByEmail = async (db: DrizzleD1Database, brandSlug: string, email: string) => {
+  const rows = await db
+    .select()
+    .from(t.fdAccount)
+    .where(and(eq(t.fdAccount.brandSlug, brandSlug), eq(t.fdAccount.email, email)))
+    .limit(1);
+  return rows[0] ?? null;
+};
+
+app.post('/api/auth/reset/request', async (c) => {
+  const db = c.get('db');
+  const body = await c.req.json<{ email?: string }>().catch(() => null);
+  const email = normalizeEmail(body?.email);
+  const ipHashed = await clientIpHash(c, c.env);
+  // Deliberately not an error: an unparseable address gets the same answer as
+  // a real one. The only thing that returns non-200 here is rate limiting.
+  const accepted = { ok: true } as const;
+  if (await authAttemptsExceeded(db, ipHashed)) {
+    return c.json({ error: 'Too many attempts from this connection. Wait 15 minutes.' }, 429);
+  }
+  if (!email || !deliverableAddress(email)) {
+    await logEvent(db, null, 'auth_attempt_failed', { ipHash: ipHashed, reason: 'reset_bad_address' });
+    return c.json(accepted);
+  }
+
+  const account = await accountByEmail(db, c.env.BRAND_SLUG, email);
+  if (!account) {
+    // Counted against the IP budget exactly like a wrong password, so probing
+    // for which addresses have accounts is as expensive as guessing them.
+    await logEvent(db, null, 'auth_attempt_failed', { ipHash: ipHashed, reason: 'reset_no_account' });
+    return c.json(accepted);
+  }
+
+  await db
+    .update(t.fdPasswordReset)
+    .set({ usedAt: now() })
+    .where(and(eq(t.fdPasswordReset.accountId, account.id), sql`${t.fdPasswordReset.usedAt} IS NULL`));
+
+  const token = randomToken();
+  await db.insert(t.fdPasswordReset).values({
+    id: uuid(),
+    brandSlug: c.env.BRAND_SLUG,
+    accountId: account.id,
+    tokenHash: await tokenHash(token),
+    createdAt: now(),
+    expiresAt: new Date(Date.now() + RESET_TTL_MS).toISOString(),
+    usedAt: null,
+    ipHash: ipHashed,
+  });
+
+  const origin = new URL(c.req.url).origin;
+  const brandRows = await db.select().from(t.fdBrand).where(eq(t.fdBrand.slug, c.env.BRAND_SLUG)).limit(1);
+  const brandName = brandRows[0]?.name ?? 'Your company';
+  const link = `${origin}/reset?token=${token}`;
+  const logged = `Someone asked to reset the password for this account. The link is good for 45 minutes and can be used once. If this wasn't you, nothing has changed — ignore this and the link expires on its own.`;
+  const result = await sendEmail(c.env, {
+    to: email,
+    subject: 'AI Fluency — reset your password',
+    text: `${logged}\n\n${link}${signature(brandName, origin)}`,
+  });
+  await db.insert(t.fdEmailSend).values({
+    id: uuid(),
+    brandSlug: c.env.BRAND_SLUG,
+    kind: 'password_reset',
+    toEmail: email,
+    subject: 'AI Fluency — reset your password',
+    // The link is omitted on purpose — see rule 5 above.
+    body: logged,
+    status: result.status,
+    provider: result.provider,
+    error: result.error,
+    createdAt: now(),
+  });
+  await logEvent(db, null, 'password_reset_requested', { delivery: result.status });
+  return c.json(accepted);
+});
+
+// Resolves a token to its account, or null. Expiry and single-use are checked
+// here rather than at each call site, so the confirm route and the page's
+// pre-flight check can never disagree about what "valid" means.
+async function liveReset(db: DrizzleD1Database, brandSlug: string, token: string | undefined) {
+  if (!token) return null;
+  const rows = await db
+    .select()
+    .from(t.fdPasswordReset)
+    .where(and(eq(t.fdPasswordReset.brandSlug, brandSlug), eq(t.fdPasswordReset.tokenHash, await tokenHash(token))))
+    .limit(1);
+  const row = rows[0];
+  if (!row || row.usedAt || Date.parse(row.expiresAt) < Date.now()) return null;
+  const accounts = await db.select().from(t.fdAccount).where(eq(t.fdAccount.id, row.accountId)).limit(1);
+  return accounts[0] ? { row, account: accounts[0] } : null;
+}
+
+// Lets the reset page say "this link has expired, ask for a new one" before
+// the learner types a password they're about to lose.
+app.get('/api/auth/reset/check', async (c) => {
+  const found = await liveReset(c.get('db'), c.env.BRAND_SLUG, c.req.query('token'));
+  return c.json({ valid: !!found, ...(found ? { email: found.account.email } : {}) });
+});
+
+app.post('/api/auth/reset/confirm', async (c) => {
+  const db = c.get('db');
+  const body = await c.req.json<{ token?: string; password?: string }>().catch(() => null);
+  const password = body?.password ?? '';
+  const ipHashed = await clientIpHash(c, c.env);
+  if (await authAttemptsExceeded(db, ipHashed)) {
+    return c.json({ error: 'Too many attempts from this connection. Wait 15 minutes.' }, 429);
+  }
+  if (password.length < MIN_PASSWORD_CHARS) {
+    return c.json({ error: `Passwords need at least ${MIN_PASSWORD_CHARS} characters.` }, 400);
+  }
+  const found = await liveReset(db, c.env.BRAND_SLUG, body?.token);
+  if (!found) {
+    await logEvent(db, null, 'auth_attempt_failed', { ipHash: ipHashed, reason: 'reset_token_invalid' });
+    return c.json({ error: 'That reset link has expired or was already used. Ask for a new one.' }, 400);
+  }
+
+  await db
+    .update(t.fdAccount)
+    .set({ passwordHash: await hashCode(password) })
+    .where(eq(t.fdAccount.id, found.account.id));
+  // Burn every outstanding token for this account, not just the one used: if
+  // two requests were in flight, finishing one should close the other.
+  await db
+    .update(t.fdPasswordReset)
+    .set({ usedAt: now() })
+    .where(and(eq(t.fdPasswordReset.accountId, found.account.id), sql`${t.fdPasswordReset.usedAt} IS NULL`));
+
+  const sessionId = await openAccountSession(db, c, found.account, ipHashed);
+  await logEvent(db, sessionId, 'password_changed', { via: 'reset' });
+  await setSessionCookie(c, sessionId);
   return c.json({ ok: true });
 });
 
