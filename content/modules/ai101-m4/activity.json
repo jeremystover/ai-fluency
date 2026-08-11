@@ -1,0 +1,11 @@
+[
+  {
+    "id": "ai101-m4-activity-applied-activity-the-redaction-pass-10",
+    "moduleId": "ai101-m4-activity",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "## Applied activity — \"The Redaction Pass\"\n\n**Time:** 20–25 minutes · **Submit:** the before/after redaction map plus a 250–350 word\nreflection · **Graded against the rubric below.** Score doesn't matter. Doing the work is\nwhere the learning lands. **Do not paste the original document into this submission** — the\nmap describes; it doesn't reproduce.\n\nTake one real document you'd genuinely like AI's help with — interview notes, survey\nverbatims, an ER summary, exit-interview material. Something Tier 3: honestly sensitive,\nhonestly useful.\n\n**Step 1 — Tier it (3 min).** Name the document type and its tier. If parts land in\ndifferent tiers — a mostly-internal doc with one person-identifying section — map the parts.\nAnything Tier 4 inside it: mark it *out of scope for any chat tool* and proceed with the\nrest. That marking is itself a graded judgment.\n\n**Step 2 — The redaction pass (10 min).** Produce the version you'd actually paste, using\nthe three moves: generalize quasi-identifiers, break the joins, paraphrase distinctive\nquotes. Work against the most-informed insider, not a stranger.\n\n**Step 3 — The map (5 min).** List what you changed, category by category — not the\nsensitive originals, the *categories*: \"4 names → roles · 2 offices → 'a regional office' ·\n3 dates → quarters · 1 distinctive quote paraphrased · accommodation mention removed\nentirely (Tier 4).\" Then the one-line narration you'd attach for a colleague.\n\n**Step 4 — Score the prediction (2 min).** Estimate what percentage of the original\nsurvived. Compare with your opening prediction: direction of the miss, and whether what you\n*lost* was what you expected to lose.\n\nThen the reflection: which move did the real work; what the shown-to-the-person test flagged,\nif anything; and the sentence you'd now say to a teammate who asks \"can I paste exit\ninterviews?\""
+  }
+]
