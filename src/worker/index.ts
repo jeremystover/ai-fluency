@@ -1930,8 +1930,23 @@ app.get('/api/module/:id/chat/audio/:messageId', async (c) => {
 
 // ---------- tutor chat ----------
 
+// The learner's provisioned AI tools, as display names for a prompt. The brand
+// profile (company-declared) wins; intake prefs fill in when the brand doesn't
+// say; [] when neither knows — callers phrase generically in that case.
+const AI_TOOL_LABELS: Record<string, string> = { claude: 'Claude', chatgpt: 'ChatGPT', gemini: 'Gemini' };
+async function resolveAiTools(db: DrizzleD1Database, brandSlug: string, prefs: IntakePrefs): Promise<string[]> {
+  const brandRows = await db.select().from(t.fdBrand).where(eq(t.fdBrand.slug, brandSlug)).limit(1);
+  const profile = brandRows[0]?.profileJson ? (JSON.parse(brandRows[0].profileJson) as { aiTools?: unknown }) : null;
+  if (Array.isArray(profile?.aiTools) && profile.aiTools.length) {
+    return profile.aiTools.filter((x): x is string => typeof x === 'string').slice(0, 6);
+  }
+  const names = (prefs.aiTools ?? []).filter((id) => id !== 'other').map((id) => AI_TOOL_LABELS[id] ?? id);
+  if ((prefs.aiTools ?? []).includes('other') && prefs.aiToolOther?.trim()) names.push(prefs.aiToolOther.trim().slice(0, 40));
+  return names;
+}
+
 // Everything the tutor should know about this learner, phrased for the prompt.
-async function buildLearnerContext(db: DrizzleD1Database, sessionId: string): Promise<TutorLearnerContext> {
+async function buildLearnerContext(db: DrizzleD1Database, brandSlug: string, sessionId: string): Promise<TutorLearnerContext> {
   const participants = await db
     .select()
     .from(t.fdParticipant)
@@ -1978,6 +1993,7 @@ async function buildLearnerContext(db: DrizzleD1Database, sessionId: string): Pr
     name: participants[0]?.displayName ?? null,
     roleLabel: participants[0]?.roleLabel ?? null,
     objective: prefs.objective ?? null,
+    aiTools: await resolveAiTools(db, brandSlug, prefs),
     depth: depthOf(prefs.depth),
     calibration,
     sortSummary,
@@ -2095,7 +2111,7 @@ app.post('/api/module/:id/chat', async (c) => {
     .from(t.fdModule)
     .where(eq(t.fdModule.courseId, loaded.mod.courseId))
     .orderBy(asc(t.fdModule.ordinal));
-  const learner = await buildLearnerContext(db, session.id);
+  const learner = await buildLearnerContext(db, c.env.BRAND_SLUG, session.id);
   const guidance = await guidanceFor(db, c.env, moduleId, loaded.mod.courseId, await managerEmailOf(db, c.env.BRAND_SLUG, session));
   const system = buildTutorSystem(loaded.mod as ModuleCard, loaded.blocks, courseModules as ModuleCard[], learner, guidance?.text ?? null);
 
@@ -3001,7 +3017,7 @@ app.get('/api/podcast', async (c) => {
 
 // Everything writeScript needs to know about this learner — name, role,
 // goals, depth, diagnostic — so every episode is unmistakably theirs.
-async function podcastLearner(db: DrizzleD1Database, sessionId: string): Promise<LearnerContext> {
+async function podcastLearner(db: DrizzleD1Database, brandSlug: string, sessionId: string): Promise<LearnerContext> {
   const participants = await db
     .select()
     .from(t.fdParticipant)
@@ -3017,6 +3033,7 @@ async function podcastLearner(db: DrizzleD1Database, sessionId: string): Promise
     calibrationHeadline: diag.calibration.points.length > 0 ? diag.calibration.headline : null,
     goals: GOAL_CHOICES.filter((g) => (prefs.goals ?? []).includes(g.id)).map((g) => g.label),
     depth: depthOf(prefs.depth),
+    aiTools: await resolveAiTools(db, brandSlug, prefs),
   };
 }
 
@@ -3308,7 +3325,7 @@ async function preparePersonalIntro(env: Env, sessionId: string, moduleId: strin
     }
     const content = await moduleContent(db, env, moduleId, await managerEmailForSessionId(db, env.BRAND_SLUG, sessionId));
     if (!content) return;
-    const learner = await podcastLearner(db, sessionId);
+    const learner = await podcastLearner(db, env.BRAND_SLUG, sessionId);
     const model = env.PODCAST_MODEL ?? env.GRADING_MODEL;
     const lines = await writePersonalIntro(
       env.ANTHROPIC_API_KEY,
@@ -3427,7 +3444,7 @@ async function completeAssembledBody(env: Env, row: PodcastRow): Promise<void> {
     let fallback = false;
 
     if (env.ANTHROPIC_API_KEY && content && beats.length > 0) {
-      const learner = await podcastLearner(db, row.sessionId);
+      const learner = await podcastLearner(db, env.BRAND_SLUG, row.sessionId);
       const model = env.PODCAST_MODEL ?? env.GRADING_MODEL;
       const draft = await writeCustomBody(
         env.ANTHROPIC_API_KEY,
@@ -3559,7 +3576,7 @@ async function generateEpisode(
     }));
   }
 
-  const learner = await podcastLearner(db, sessionId);
+  const learner = await podcastLearner(db, env.BRAND_SLUG, sessionId);
   const model = env.PODCAST_MODEL ?? env.GRADING_MODEL;
   const script = await writeScript(env.ANTHROPIC_API_KEY, model, mod.title, contentMd, learner, focus, length, kind, heard);
   if (!script) return null;

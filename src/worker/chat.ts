@@ -12,6 +12,7 @@ export type LearnerContext = {
   name: string | null;
   roleLabel: string | null;
   objective: string | null;
+  aiTools: string[]; // provisioned tools (brand profile first, else intake prefs) — [] when unknown
   depth: Depth; // how much they want to invest — shapes lecturette length and quiz appetite
   calibration: string | null; // one-line read from the diagnostic, if taken
   sortSummary: string | null; // sorting-exercise result, if done
@@ -108,6 +109,9 @@ export function buildTutorSystem(
     learner.name ? `Name: ${learner.name}` : 'Name: unknown (do not ask for it; just teach)',
     learner.roleLabel ? `Role: ${learner.roleLabel}` : null,
     learner.objective ? `Their stated objective for the course: "${learner.objective}" — connect the material to this when it fits naturally.` : null,
+    learner.aiTools.length
+      ? `Their organization's AI tools: ${learner.aiTools.join(', ')}. When discussing tools, examples, or how-to specifics, speak to these by name instead of generically — "in ${learner.aiTools[0]}" beats "in your AI tool". Never recommend they switch tools.`
+      : null,
     learner.depth === 'essentials'
       ? 'They chose "short and sweet": keep lecturettes to 60–120 words, lead with the essential fifth of each idea, and offer depth as an option rather than the default.'
       : learner.depth === 'deep'
