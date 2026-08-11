@@ -4,18 +4,18 @@ DELETE FROM fd_exercise;
 DELETE FROM fd_module;
 DELETE FROM fd_brand;
 DELETE FROM fd_access_code;
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-09T17:35:14.691Z');
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-09T17:35:14.691Z');
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('9f999ba0-dbe4-4e94-83b1-75e6f75f6054', 'omnissa', 'pbkdf2$100000$PgyxPo17POpZ3na/3BAr0w==$op2oML2DDg4IvMLLHgKmNbuT1OLuArWnRq5lX+3Svbg=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('93edf9dd-1235-4f5a-9387-f35d61c44eb3', 'verdant', 'pbkdf2$100000$6sC8jCyo13+oQ46IwHGgIQ==$/cs+fMbDT/26xL+4oqzmypfkTSLd49mwbNe+yVO6h+I=', 'Theming proof', NULL, 0, NULL, 1);
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-11T23:10:49.559Z');
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-11T23:10:49.559Z');
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('b91d2c49-41f8-4f1e-897a-af51c8a12ad2', 'omnissa', 'pbkdf2$100000$P7Zq29aPrvXYfFVaQyJlGA==$4Y7Jl//BfvflmgtUJrrXobc0oUoscdGdyWNrqppaVNA=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('0f54caee-2f2f-49d9-b922-1a932ab65ba0', 'verdant', 'pbkdf2$100000$Uk+NK+tgqPuM0P3seR054Q==$QrCaE/wtaGUjyJidk8ZCJK56Sa9l1XWLbbC47rlpRUU=', 'Theming proof', NULL, 0, NULL, 1);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m1', 'ai101', 1, 'What is AI?', 'A working mental model: what an LLM actually does, the vocabulary, why data decides everything, and a delegation heuristic you can carry under pressure.', 'open', 30, NULL);
-INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m2', 'ai101', 2, 'Choosing the tool for the task', 'Chat assistants, copilots, and the AI already embedded in your HR stack — what each is actually for, and how to tell a language model from a scoring engine before you rely on either.', 'locked', 25, NULL);
-INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m3', 'ai101', 3, 'What it costs and how it scales', 'Tokens, context windows, and pricing — enough of the economics to size a use case, read a vendor quote, and know when a bigger model is worth it.', 'locked', 25, NULL);
-INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m4', 'ai101', 4, 'Working with your documents and data', 'Attachments, long documents, and sensitive material: getting your world into the model''s view without crowding out the question — or crossing a line your legal team hasn''t cleared.', 'locked', 30, NULL);
-INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m5', 'ai101', 5, 'Prompting as briefing', 'Role, task, context, format. Prompting as briefing a capable stranger — and iteration as the keystone behavior that separates fluent users from frustrated ones.', 'locked', 35, '["ai101-m1"]');
-INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m6', 'ai101', 6, 'When it''s confidently wrong', 'Hallucination in depth: why fluent output deserves more scrutiny, not less, and the verification habits that keep a fabricated citation out of a document with someone''s name on it.', 'locked', 30, '["ai101-m1"]');
-INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m7', 'ai101', 7, 'The lines that don''t move', 'Bias, adverse impact, and decisions about people. Where AI assists, where it must stop, and how to say so in a way your organization will actually follow.', 'locked', 30, '["ai101-m6"]');
-INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m8', 'ai101', 8, 'What you own', 'Data agreements, disclosure, and accountability. What you''re responsible for when AI touched the work — and the policy questions to settle before someone asks.', 'locked', 25, NULL);
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m2', 'ai101', 2, 'Choosing the tool for the task', 'Chat assistants, copilots, and the AI already embedded in your HR stack — what each is actually for, and how to tell a language model from a scoring engine before you rely on either.', 'open', 25, NULL);
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m3', 'ai101', 3, 'What it costs and how it scales', 'Tokens, context windows, and pricing — enough of the economics to size a use case, read a vendor quote, and know when a bigger model is worth it.', 'open', 25, NULL);
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m4', 'ai101', 4, 'Working with your documents and data', 'Attachments, long documents, and sensitive material: getting your world into the model''s view without crowding out the question — or crossing a line your legal team hasn''t cleared.', 'open', 30, NULL);
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m5', 'ai101', 5, 'Prompting as briefing', 'Role, task, context, format. Prompting as briefing a capable stranger — and iteration as the keystone behavior that separates fluent users from frustrated ones.', 'open', 35, '["ai101-m1"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m6', 'ai101', 6, 'When it''s confidently wrong', 'Hallucination in depth: why fluent output deserves more scrutiny, not less, and the verification habits that keep a fabricated citation out of a document with someone''s name on it.', 'open', 30, '["ai101-m1"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m7', 'ai101', 7, 'The lines that don''t move', 'Bias, adverse impact, and decisions about people. Where AI assists, where it must stop, and how to say so in a way your organization will actually follow.', 'open', 30, '["ai101-m6"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m8', 'ai101', 8, 'What you own', 'Data agreements, disclosure, and accountability. What you''re responsible for when AI touched the work — and the policy questions to settle before someone asks.', 'open', 25, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai201-m1', 'ai201', 1, 'From one-offs to workflows', 'The workflow lens: five parts every repeatable workflow has, the audit that finds your candidates, the selection rules — and the capstone''s first stage: pick your build and spec it.', 'open', 30, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai201-m2', 'ai201', 2, 'Context that keeps', 'The artisan tax and its refund: context packs — what''s durable, what arrives fresh, what never becomes infrastructure — built hands-on in your organization''s tools.', 'open', 30, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai201-m3', 'ai201', 3, 'Document pipelines', 'Chains with checkpoints: structure forward, prose last, and the lossy middle where detail dies. Your workflow becomes a pipeline and runs on real material.', 'open', 35, NULL);
@@ -241,9 +241,1987 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
 
 AI does well when you supply the material and ask for transformation. It does badly when the task needs organizational knowledge it was never given. And it must not make decisions about people — regardless of how good the output looks.', NULL, '2026-07-28', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('m1micro-habit', 'ai101-m1-micro', 30, 'prose', 'stable', '**The one habit to build:** before any task, ask *"what does the model not know that I''d have to give it?"* That single question is the seed of good prompting and of good judgment about what to hand over at all.', NULL, '2026-07-28', NULL);
-INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai101-m1-sorting', 'ai101-m1', 'sorting', '{"buckets":[{"id":"well","label":"Does this well","hint":"Hand it over","rank":2,"pct":85},{"id":"partly","label":"Does this partly","hint":"Needs verification","rank":1,"pct":50},{"id":"badly","label":"Does this badly","hint":"Don''t","rank":0,"pct":15}],"tasks":[{"id":"t1","text":"Rewrite a job description to strip out jargon and inflated requirements","key":"well","reasoning":"You supply the JD; the model transforms it. Language transformation on material you provide is the center of its competence."},{"id":"t2","text":"Turn a page of your messy interview notes into a structured debrief","key":"well","reasoning":"Your notes in, structure out. The model never needs to know anything you didn''t hand it."},{"id":"t3","text":"Explain what happened to attrition in your Denver office last quarter","key":"badly","reasoning":"The model never saw your attrition data. It will answer anyway — fluently, and invented."},{"id":"t4","text":"Draft three versions of a candidate rejection email at different levels of warmth","key":"well","reasoning":"Tone variation on a well-understood format. It has seen thousands of these."},{"id":"t5","text":"Summarize the themes across 200 engagement survey free-text comments you paste in","key":"partly","reasoning":"Good at surfacing patterns, but it flattens minority views and will present a confident summary of the comments it weighted most. Read the raw comments too."},{"id":"t6","text":"Tell you which section of your employee handbook covers bereavement leave","key":"badly","reasoning":"It has never seen your handbook. It has seen thousands of others, so what it produces will read exactly like yours — and won''t be."},{"id":"t7","text":"Generate interview questions for a competency you describe in detail","key":"well","reasoning":"You describe the competency; it generates against your description. Supply the material, ask for transformation."},{"id":"t8","text":"Recommend the comp band for a new role","key":"badly","reasoning":"Your comp philosophy, your bands, your market data — none of it was in training. Any number it gives is a fabrication wearing a confident face."},{"id":"t9","text":"Rewrite a policy paragraph so a non-native English speaker can follow it","key":"well","reasoning":"Plain-language rewriting of supplied text. Squarely in competence."},{"id":"t10","text":"Explain, in general terms, what a statutory leave entitlement typically covers","key":"partly","reasoning":"Reasonable in the abstract, unreliable on your jurisdiction, your plan, or current specifics. Verify anything you''d act on."},{"id":"t11","text":"Decide whether an employee''s conduct warrants termination","key":"badly","reasoning":"This one isn''t about capability. It''s a decision about a person''s livelihood and it stays with a human, however good the output looks."},{"id":"t12","text":"Draft a performance improvement plan from notes you supply","key":"partly","reasoning":"Structure and language, yes; the judgment about whether a PIP is warranted, never."},{"id":"t13","text":"Tell you what your CEO said at last month''s all-hands","key":"badly","reasoning":"It wasn''t in the room and the transcript wasn''t in its training. It will produce plausible executive remarks that nobody gave."},{"id":"t14","text":"Produce a plain-language FAQ from a benefits summary you paste in","key":"well","reasoning":"Pasted source, transformed format. The model has everything it needs because you gave it everything it needs."},{"id":"t15","text":"Identify which of your open roles is hardest to fill","key":"badly","reasoning":"Your requisition data never reached it. Same failure as the attrition question: a confident answer built on nothing."}],"pattern":"AI does well when you supply the material and ask for transformation. It does badly when the task needs organizational knowledge it was never given. And it must not make decisions about people.","postscript":"If you missed several, look at which kind you missed. Over-assigning to \"does this well\" means you''re likely to ship something fabricated. Over-assigning to \"does this badly\" means you''re leaving real leverage on the table. Both are calibration errors. Neither is a character flaw. Both are fixable, and the next seven modules are how."}', '2026-08-09');
-INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai101-m1-rubric', 'ai101-m1', 'rubric', '{"promptVersion":"m1-testing-the-edges-v1","moduleId":"ai101-m1","minWords":250,"maxWords":350,"dimensions":[{"name":"Engagement with all three conversations","criteria":"All three run, with actual transcripts or faithful accounts. Follow-ups asked. Real subject matter, not placeholder queries."},{"name":"Observation of mechanics","criteria":"The reflection connects what was observed to how the system works — prediction, training data, context — rather than only reporting what it said."},{"name":"Calibration","criteria":"A prediction was made before Conversation 2, compared honestly afterward, and the direction of error is named. Accuracy isn''t scored; honesty and specificity are."},{"name":"Practical insight","criteria":"The habit named is concrete, tied to actual work, and checkable. Not \"I''ll be more careful.\""}],"minChars":700,"calibration":[{"key":"conversation2","label":"Conversation 2 prediction — % chance it invented something","hint":"Recorded before you check — honesty is what''s scored, not accuracy.","placeholder":"e.g. 60","min":0,"max":100}],"submitLabel":"Three conversations + reflection","intro":"Paste your three conversation accounts and the reflection below. Resubmission is free and unlimited — the score is a mirror, not a gate."}', '2026-08-09');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai101-m1-sorting', 'ai101-m1', 'sorting', '{"buckets":[{"id":"well","label":"Does this well","hint":"Hand it over","rank":2,"pct":85},{"id":"partly","label":"Does this partly","hint":"Needs verification","rank":1,"pct":50},{"id":"badly","label":"Does this badly","hint":"Don''t","rank":0,"pct":15}],"tasks":[{"id":"t1","text":"Rewrite a job description to strip out jargon and inflated requirements","key":"well","reasoning":"You supply the JD; the model transforms it. Language transformation on material you provide is the center of its competence."},{"id":"t2","text":"Turn a page of your messy interview notes into a structured debrief","key":"well","reasoning":"Your notes in, structure out. The model never needs to know anything you didn''t hand it."},{"id":"t3","text":"Explain what happened to attrition in your Denver office last quarter","key":"badly","reasoning":"The model never saw your attrition data. It will answer anyway — fluently, and invented."},{"id":"t4","text":"Draft three versions of a candidate rejection email at different levels of warmth","key":"well","reasoning":"Tone variation on a well-understood format. It has seen thousands of these."},{"id":"t5","text":"Summarize the themes across 200 engagement survey free-text comments you paste in","key":"partly","reasoning":"Good at surfacing patterns, but it flattens minority views and will present a confident summary of the comments it weighted most. Read the raw comments too."},{"id":"t6","text":"Tell you which section of your employee handbook covers bereavement leave","key":"badly","reasoning":"It has never seen your handbook. It has seen thousands of others, so what it produces will read exactly like yours — and won''t be."},{"id":"t7","text":"Generate interview questions for a competency you describe in detail","key":"well","reasoning":"You describe the competency; it generates against your description. Supply the material, ask for transformation."},{"id":"t8","text":"Recommend the comp band for a new role","key":"badly","reasoning":"Your comp philosophy, your bands, your market data — none of it was in training. Any number it gives is a fabrication wearing a confident face."},{"id":"t9","text":"Rewrite a policy paragraph so a non-native English speaker can follow it","key":"well","reasoning":"Plain-language rewriting of supplied text. Squarely in competence."},{"id":"t10","text":"Explain, in general terms, what a statutory leave entitlement typically covers","key":"partly","reasoning":"Reasonable in the abstract, unreliable on your jurisdiction, your plan, or current specifics. Verify anything you''d act on."},{"id":"t11","text":"Decide whether an employee''s conduct warrants termination","key":"badly","reasoning":"This one isn''t about capability. It''s a decision about a person''s livelihood and it stays with a human, however good the output looks."},{"id":"t12","text":"Draft a performance improvement plan from notes you supply","key":"partly","reasoning":"Structure and language, yes; the judgment about whether a PIP is warranted, never."},{"id":"t13","text":"Tell you what your CEO said at last month''s all-hands","key":"badly","reasoning":"It wasn''t in the room and the transcript wasn''t in its training. It will produce plausible executive remarks that nobody gave."},{"id":"t14","text":"Produce a plain-language FAQ from a benefits summary you paste in","key":"well","reasoning":"Pasted source, transformed format. The model has everything it needs because you gave it everything it needs."},{"id":"t15","text":"Identify which of your open roles is hardest to fill","key":"badly","reasoning":"Your requisition data never reached it. Same failure as the attrition question: a confident answer built on nothing."}],"pattern":"AI does well when you supply the material and ask for transformation. It does badly when the task needs organizational knowledge it was never given. And it must not make decisions about people.","postscript":"If you missed several, look at which kind you missed. Over-assigning to \"does this well\" means you''re likely to ship something fabricated. Over-assigning to \"does this badly\" means you''re leaving real leverage on the table. Both are calibration errors. Neither is a character flaw. Both are fixable, and the next seven modules are how."}', '2026-08-11');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai101-m1-rubric', 'ai101-m1', 'rubric', '{"promptVersion":"m1-testing-the-edges-v1","moduleId":"ai101-m1","minWords":250,"maxWords":350,"dimensions":[{"name":"Engagement with all three conversations","criteria":"All three run, with actual transcripts or faithful accounts. Follow-ups asked. Real subject matter, not placeholder queries."},{"name":"Observation of mechanics","criteria":"The reflection connects what was observed to how the system works — prediction, training data, context — rather than only reporting what it said."},{"name":"Calibration","criteria":"A prediction was made before Conversation 2, compared honestly afterward, and the direction of error is named. Accuracy isn''t scored; honesty and specificity are."},{"name":"Practical insight","criteria":"The habit named is concrete, tied to actual work, and checkable. Not \"I''ll be more careful.\""}],"minChars":700,"calibration":[{"key":"conversation2","label":"Conversation 2 prediction — % chance it invented something","hint":"Recorded before you check — honesty is what''s scored, not accuracy.","placeholder":"e.g. 60","min":0,"max":100}],"submitLabel":"Three conversations + reflection","intro":"Paste your three conversation accounts and the reflection below. Resubmission is free and unlimited — the score is a mirror, not a gate."}', '2026-08-11');
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai101-m1-knowledge_check', 'ai101-m1', 'knowledge_check', '{"title":"Knowledge check — 10 questions","note":"Retakes are free and unlimited; previous answers are cleared.","reviewedAt":"2026-07-28","questions":[{"id":"q1","prompt":"Which is the most accurate working definition of \"AI\" as the term is used in your day-to-day work?","options":["A category covering many technologies, most prominently large language models","Software built to replace human workers across knowledge-work roles","Any program that automates a task, including spreadsheet macros and scheduling rules","A system that has achieved human-like general awareness"],"correctIndex":0,"explanation":"AI is best understood as a broad category, with LLMs the kind most directly reshaping knowledge work. The others miss differently: human-like awareness is science fiction rather than anything the field has produced; calling all automation AI is so broad it stops being useful (a calculator isn''t AI); and \"built to replace workers\" is a claim about intent, not a definition.","study":{"blockId":"m1-l1-intro","label":"Lesson 1 · What we mean when we say \"AI\""}},{"id":"q2","prompt":"What does a large language model actually do when you send it a prompt?","options":["Looks up an answer in a database of pre-written responses","Searches the internet and summarizes the top results","Predicts what text should come next, one small piece at a time, from patterns learned in training","Reasons through the problem as a human expert would, then writes out the solution"],"correctIndex":2,"explanation":"The core mechanic is next-piece prediction. Some tools layer search on top, which changes what''s available in the prompt, but the model underneath is a statistical text predictor — not a lookup, not a search engine, and not human-style reasoning, even when the output resembles it.","study":{"blockId":"m1-l2-mechanism","label":"Lesson 2 · What an LLM actually does"}},{"id":"q3","prompt":"Your ATS advertises \"AI-powered candidate matching.\" Based on this module, what''s the most useful first question to ask the vendor?","options":["Which large language model does it use?","Is this a language model or a scoring/matching model, and does it influence a decision about a person?","How large is the context window?","What was the knowledge cutoff date?"],"correctIndex":1,"explanation":"Candidate matching is usually a scoring model, not a language model — and scoring models that influence employment decisions are where regulatory obligations and adverse-impact risk concentrate. The other three questions are only meaningful once you know it''s a language model, and asking them first signals you haven''t made the distinction.","study":{"blockId":"m1-l1-hrstack","label":"Lesson 1 · The AI in your HR stack"}},{"id":"q4","prompt":"You ask the same question twice and get two slightly different answers. Most likely explanation?","options":["One of the two is a malfunction","The provider updated the model between your questions","A bug worth reporting to support","There''s a small amount of randomness in how each next piece is chosen, which is normal"],"correctIndex":3,"explanation":"Small variation is built into how these systems generate output. The same input rarely produces byte-identical results, and sometimes the second attempt is better — which is why re-running a prompt is a legitimate technique rather than a workaround.","study":{"blockId":"m1-l2-mechanism","label":"Lesson 2 · What an LLM actually does"}},{"id":"q5","prompt":"What is the context window?","options":["The hours during which the tool is available","Your organization''s list of approved use cases","How much text the model can hold in view at once: your message, the conversation, and attachments","The interface around the chat box"],"correctIndex":2,"explanation":"It''s the model''s working memory for a given response, and it''s finite. Understanding it explains why very long conversations feel like the model forgot something, and why pasting in a 90-page handbook can crowd out the question you actually asked.","study":{"blockId":"m1-l3-vocab-a","label":"Lesson 3 · The vocabulary, demystified"}},{"id":"q6","prompt":"You ask an AI what your organization''s bereavement leave policy says. You paste nothing. What''s most likely?","options":["It produces a fluent, specific, plausible policy that isn''t yours","It refuses and explains it has no access to your systems","It asks a series of clarifying questions before answering","It accurately describes typical policy and clearly labels it as generic"],"correctIndex":0,"explanation":"This is the highest-stakes pattern in the module. The model never saw your handbook, but it has seen thousands of bereavement policies, so it can generate something that reads exactly like one. Some tools will hedge — the other outcomes happen sometimes — but you cannot rely on it, and the failure is quiet. You get a real-looking answer with no signal that it''s invented.","study":{"blockId":"m1-l4-supply","label":"Lesson 4 · The data you supply"}},{"id":"q7","prompt":"Which of these is NOT shaped by a model''s training data?","options":["Which languages it''s strongest in","Which topics it handles well","Whether it knows about something that happened this morning","The exact wording you choose to put in your prompt"],"correctIndex":3,"explanation":"Your prompt is the data *you* contribute, in the moment. It''s the part you control and the part not inherited from training. The other three — topic strength, language strength, recency — all follow directly from what was in the training corpus and when it was assembled.","study":{"blockId":"m1-l4-training","label":"Lesson 4 · Why data is the whole game"}},{"id":"q8","prompt":"Why does the bias question carry more weight in People work than in most functions?","options":["HR teams use AI more heavily than other functions","Models are trained on more HR data than other kinds","Outputs can influence decisions about people, which is the mechanism by which adverse impact occurs","Employment law prohibits using AI in HR contexts"],"correctIndex":2,"explanation":"All training data carries bias and all models can reproduce it. What changes in People work is the consequence: when a biased output shapes screening, evaluation, or advancement, the harm attaches to a person and creates real legal exposure. The last option is simply false — AI isn''t prohibited in HR, it''s regulated in specific decision contexts.","study":{"blockId":"m1-l4-training","label":"Lesson 4 · Why data is the whole game"}},{"id":"q9","prompt":"What''s the most accurate description of a hallucination?","options":["The model deliberately misleading you","The model producing something confident and plausible that is wrong or invented","The model flagging uncertainty in its response","The model crashing or returning nothing"],"correctIndex":1,"explanation":"Note what''s absent: intent. The model isn''t lying, because lying requires knowing the truth and choosing otherwise. It''s generating statistically likely text, and sometimes likely text is false. That''s precisely why it''s hard to catch — there''s no tell.","study":{"blockId":"m1-l3-vocab-b","label":"Lesson 3 · Hallucination, demystified"}},{"id":"q10","prompt":"You want to start using AI well. Based on this module, which habit is most important to build first?","options":["Asking, before any task: what does the model not know that I''d need to give it?","Always writing the longest, most detailed prompt possible","Using AI for as many tasks as you can each day to build reps","Keeping track of which model versions each provider has released"],"correctIndex":0,"explanation":"That single question is the seed of good prompting and of good delegation judgment. It forces you to think about the data the model needs — the single largest lever on output quality — and it surfaces the tasks you shouldn''t hand over at all. The others are counterproductive (longer isn''t better), unfocused (reps without judgment build confident bad habits), or performative (version numbers are trivia).","study":{"blockId":"m1-takeaways","label":"Key takeaways · the habit to build"}}]}', '2026-07-28');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m2-calibration-prompt-before-you-start-10', 'ai101-m2', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One prediction, thirty seconds. You''ll score it during the applied activity.*
+
+By the end of this module you''ll audit the systems your People function actually runs — the ATS,
+the HRIS, the survey platform, the docs suite, the chat tools — and find the AI already inside
+them.
+
+**How many distinct systems in your stack have AI in them right now?** Count anything you or
+your team touches in a normal month. Write the number down before you look.
+
+Almost everyone guesses low. The gap between your number and the real one is the point: it
+measures how much AI is already making or shaping calls around you without ever having been
+chosen.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m2-module-brief-20', 'ai101-m2', 20, 'prose', 'stable', '## Module brief
+
+In M1 you built a working model of one thing: the large language model. This module is about a
+harder, more practical problem — the word "AI" is currently stuck to at least three genuinely
+different technologies, and a People leader meets all three in a single week, usually without
+labels.
+
+Here''s the week. Monday, someone on your team asks whether they can use a chat assistant to
+draft interview questions. Wednesday, your HRIS vendor demos a new "AI-powered" panel that
+answers employees'' benefits questions. Friday, a different vendor shows you a dashboard that
+scores your open reqs'' candidate pipelines and flags "high-potential applicants." All three got
+called AI. Two of them are the technology you studied in M1. One is something else entirely —
+and it''s the one that can quietly make decisions about people.
+
+Confusing them costs you in both directions. Treat a scoring engine like a chat assistant and
+you''ll under-scrutinize something with real adverse-impact exposure. Treat a drafting copilot
+like a scoring engine and you''ll wrap a harmless writing aid in three layers of approval nobody
+needed. Over-trust and over-compliance are the same mistake — reasoning about the label instead
+of the thing.
+
+By the end of this module you''ll be able to look at any "AI-powered" product from the outside —
+in a demo, in your existing stack, in a teammate''s excited Slack message — and answer the only
+question that matters: *what shape of thing is this, and what does that shape make it good for,
+bad at, and accountable to?*', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m2-learning-objectives-30', 'ai101-m2', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Sketch the broad arc of AI as a field — the rule-based era, the shift to machine learning,
+   and what changed in 2017 — well enough to talk with a skeptical colleague without
+   overclaiming or dismissing.
+2. Distinguish the three shapes AI takes in a People leader''s stack — assistants, copilots, and
+   decision engines — by what goes in, what comes out, and where the context lives.
+3. Identify which shape any product is from the outside, using four questions that need no
+   technical access.
+4. Explain why the failure modes differ by shape — and why the scoring shape carries the
+   regulatory exposure.
+5. Match a real task to the right shape, and name the one question you''d put to a vendor before
+   trusting their label.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m2-lesson-1-the-long-arc-briefly-40', 'ai101-m2', 40, 'prose', 'stable', '## Lesson 1 · The long arc, briefly
+
+The term "artificial intelligence" was coined in 1956, at a summer workshop at Dartmouth
+College. The researchers there genuinely believed they could crack most of the problem within a
+generation. They were wrong — but their ambition set the field''s agenda for decades, and the
+field''s history since is the fastest way to understand why this moment is different.
+
+The first several decades were dominated by one approach: encode human knowledge as explicit
+rules, then write programs that reason over those rules. It worked in narrow domains and
+collapsed everywhere else — the world holds more edge cases than any rulebook can. Twice the
+gap between promise and delivery grew wide enough that funding and attention drained away.
+The field calls these the **AI winters**, and they''re why some of your most experienced
+colleagues reflexively file AI under "hype cycle." They watched it happen before. Their
+skepticism is earned, and arguing with it head-on is both rude and ineffective.
+
+The shift that ended the rules era was **machine learning**: instead of writing rules, show the
+system enormous numbers of examples and let it find the patterns itself. That''s the lineage the
+M1 material comes from — and it''s why *all training data carries bias* is a structural fact
+rather than a scandal. A system that learns from examples learns what the examples contain.
+
+The breakthrough that produced the current moment came in 2017, when researchers published the
+**transformer** architecture — the design that made it practical to train language models at
+enormous scale. Combined with a stubborn empirical finding — bigger models trained on more data
+kept getting better, past every point where experts predicted the gains would flatten — it
+produced the LLMs from M1. The "GPT" in ChatGPT stands for generative pre-trained *transformer*;
+Claude and Gemini are built on the same family of architecture.
+
+So when the skeptic on your leadership team says "we''ve seen AI hype before," the honest answer
+is: *yes, twice, and the pattern was real — and this wave is built on a different mechanism than
+the ones that stalled.* The previous eras tried to hand-encode intelligence; this one grew a
+general language capability from data at scale. That doesn''t mean every product demo is real —
+most of what you''ll be pitched is thin wrapping around someone else''s model. It means the
+underlying capability is not going to un-happen. Holding both of those at once — no
+overclaiming, no dismissing — is the posture this whole course tries to build. You''ll practice
+saying it out loud in M8.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m2-try-50', 'ai101-m2', 50, 'try_this', 'stable', '### Try this — 2 minutes
+Think of the most AI-skeptical person you work with. In two sentences — write them down —
+explain what changed in 2017 without using the words "transformer" or "architecture."
+If your sentences survive their eye-roll, you''ve got the arc.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m2-lesson-2-the-three-shapes-60', 'ai101-m2', 60, 'prose', 'volatile', '## Lesson 2 · The three shapes [V]
+
+Every "AI" a People leader meets is one of three shapes. The technology overlaps; the shape —
+what goes in, what comes out, where the context lives — is what determines how to treat it.
+
+**Shape 1: Assistants.** Claude, ChatGPT, Gemini, Copilot as a standalone chat. A general-purpose
+LLM in a conversation window. *You* supply the material and the briefing; it transforms,
+drafts, summarizes, critiques. Its defining property is breadth with zero built-in knowledge of
+your organization — everything M1 taught. It is the most capable shape and the most dependent
+on how well you drive it. When this course says "your AI tool," it means this shape.
+
+**Shape 2: Copilots.** The same LLM technology, embedded inside software you already use — the
+drafting panel in your ATS that writes job descriptions, the summarizer in your docs suite, the
+benefits-question bot inside the HRIS, the meeting notes in your video tool. The host
+application supplies the context automatically, which is the convenience — and the constraint.
+A copilot sees what its host shows it and nothing else, does the narrow set of tasks the vendor
+built, and quietly inherits every property of LLMs from M1: same fluency, same hallucination
+risk, same decoupling of confidence from correctness. The danger with copilots isn''t the
+technology — it''s the packaging. Output that appears inside a trusted system of record borrows
+that system''s credibility without earning it.
+
+**Shape 3: Decision engines.** Resume screeners and rankers, "candidate match" scores,
+attrition-risk predictors, engagement-driver models, comp benchmarking. Mostly not language
+models at all — these are scoring and matching systems, often older than the current wave,
+rebranded "AI" because the label sells. Structured data about people goes in; a number, rank,
+or flag about a person comes out. This is the shape M1 warned about: it doesn''t assist a
+decision about a person, it *makes* one and hands you the output. It''s also where regulatory
+frameworks concentrate — employment-related scoring is the canonical high-risk category **[V]**
+— and where adverse impact stops being abstract. You''ll spend M7 on this shape. For now, one
+rule: when the output is a number attached to a person, everything in this course about
+"drafts" stops applying. A draft can be edited. A score has already decided something.
+
+> **In your stack [V]:** Your organization''s provisioned tools slot into these shapes — the
+> assistants you''ve been given, the copilots already embedded in your HR systems, and any
+> scoring features switched on inside them. If you don''t know which of the three shapes a given
+> system is, that''s not a gap in your technical knowledge — it''s the audit this module''s
+> activity has you run.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m2-lesson-3-telling-them-apart-from-the-out-70', 'ai101-m2', 70, 'prose', 'stable', '## Lesson 3 · Telling them apart from the outside
+
+You will never be shown a product''s architecture, and you don''t need it. Four questions,
+answerable from a demo or a settings page, identify the shape of anything.
+
+**1. What goes in?** Material you choose to give it, per use (assistant). Whatever the host
+application already holds (copilot). Structured records about people — resumes, performance
+data, survey responses — flowing in automatically (decision engine).
+
+**2. What comes out?** Language you''ll edit — a draft, a summary, an answer (assistant or
+copilot). Or a number, rank, score, match percentage, or flag (decision engine). This is the
+single sharpest tell: **does it produce language, or a number about a person?** Language can be
+read, judged, and rewritten before it touches anyone. A number invites sorting, and sorted
+lists become decisions the moment someone is busy.
+
+**3. Where would an error land?** A bad draft lands on *your* desk, caught or not by your
+review. A bad copilot answer lands on an employee who asked the benefits bot and believed it. A
+bad score lands on a candidate who never knows they were filtered. The further the output lands
+from your desk, the less "human review" describes anything real.
+
+**4. Who''s accountable for the output?** If the honest answer is "whoever edits and ships it,"
+you''re looking at a drafting tool and M1''s rules apply. If the honest answer is "nobody edits
+it — it just routes people," you''re looking at a decision engine, whatever the marketing says —
+and it''s carrying accountability no one has consciously accepted.
+
+Ask these four in that vendor demo and watch what happens. A good vendor answers cleanly. A
+telling vendor answers the language question with the score question''s answer — "our AI
+surfaces the best candidates" — and that blur is your cue to slow the meeting down.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m2-try-80', 'ai101-m2', 80, 'try_this', 'stable', '### Try this — 3 minutes
+Pick one system in your stack with an AI feature you''ve never examined. Answer the four
+questions from what you already know. If you can''t answer #3 — where an error would land —
+you''ve found this week''s most useful email to send.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m2-exercise-embed-85', 'ai101-m2', 85, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m2-lesson-4-choosing-without-getting-paraly-90', 'ai101-m2', 90, 'prose', 'stable', '## Lesson 4 · Choosing without getting paralyzed
+
+"Which AI tool is best?" is the question everyone asks, and it''s the wrong one — it assumes the
+tools compete on one axis. The right question is older and calmer: **what is this task actually
+asking for?** Run the task, not the tool, through the shapes.
+
+**Transformation of material you have** — rewrite this policy in plain language, structure these
+interview notes, draft three versions of this announcement — wants an assistant. This is the
+delegation heuristic''s home ground: you supply everything it needs, and your review is the
+quality gate. When people ask "which assistant," the honest answer **[V]** is that the leading
+ones are close enough that *the one your organization has provisioned, used well,* beats the
+marginally better one used through a personal account — because the provisioned one comes with
+an agreement about your data, and M8 will show you why that dwarfs any capability difference.
+
+**Work that lives inside a system** — JD drafting in the ATS, summaries in the docs suite —
+wants the copilot that''s already there, with one habit attached: read its output with exactly
+the M1 skepticism you''d give a chat window. The system of record it appears in vouches for
+nothing.
+
+**Anything that scores, ranks, or filters people** doesn''t get a tool recommendation. It gets
+M7''s question first: should any system be doing this at all — and under whose sign-off? That
+one is never answered in a product demo.
+
+And a counterweight, because tool-shopping is a genuine failure mode: for the tasks in this
+course, the capability differences between major assistants are smaller than the difference
+between a thin brief and a good one. M5 — prompting as briefing — will move your results more
+than any tool switch. If you''re spending more time comparing tools than briefing them, the
+comparison has become the procrastination.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m2-key-takeaways-100', 'ai101-m2', 100, 'takeaways', 'stable', '## Key takeaways
+
+- **"AI" currently names three different shapes** in a People leader''s stack: assistants (you
+  supply material, it drafts), copilots (embedded in a host app, context comes along), and
+  decision engines (data about people in, scores about people out).
+- **The field''s history explains the skeptics.** Two AI winters made "hype cycle" a reasonable
+  prior. What changed in 2017 — learned language capability at scale, not hand-coded rules — is
+  a different mechanism, which is the honest, non-dismissive answer.
+- **The sharpest tell is the output: language, or a number about a person?** Language gets
+  edited before it touches anyone. A number attached to a person has already decided something.
+- **Copilots borrow credibility from their host system without earning it.** Same LLM, same
+  failure modes, more trusted wrapper. Read them with chat-window skepticism.
+- **Errors land in different places by shape** — your desk, an employee''s inbox, a candidate''s
+  silent rejection. "Human review" only describes the first.
+- **Choose by task, not by leaderboard.** The provisioned assistant used well beats the
+  marginally better one used outside your data agreement — and briefing quality moves results
+  more than tool choice ever will.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m2-activity-link-105', 'ai101-m2', 105, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 The Stack Audit", "blurb": "Inventory the systems your People function actually runs, classify every AI feature you find by shape, write the vendor question each one deserves \u2014 and score the prediction you made at the top of the module. Graded against a four-dimension rubric with per-dimension feedback. Free unlimited resubmission.", "estMinutes": "20\u201325"}', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m2-sources-and-attribution-110', 'ai101-m2', 110, 'prose', 'stable', '## Sources and attribution
+
+This module draws on the following material:
+
+- **The AI Fluency Framework** (Rick Dakan & Joseph Feller, in collaboration with Anthropic,
+  CC BY-NC-SA 4.0) — the historical arc in Lesson 1 and the overclaiming/dismissing framing
+  adapt its treatment of AI''s history and of calibrated judgment about AI capability.
+- **"Attention Is All You Need"** (Vaswani et al., 2017) — the transformer paper behind
+  Lesson 1''s account of what changed. **[V]**
+- The three-shapes taxonomy and the four outside questions are original to this course,
+  developed for the People-leader context.
+- Regulatory framing (employment as a high-risk category) follows the EU AI Act''s treatment of
+  employment-related AI systems — introduced in M1, deepened in M7. *Verify current specifics
+  with counsel; this area moves.* **[V]**', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m2-activity-applied-activity-the-stack-audit-10', 'ai101-m2-activity', 10, 'prose', 'stable', '## Applied activity — "The Stack Audit"
+
+**Time:** 20–25 minutes · **Submit:** your audit table plus a 250–350 word write-up · **Graded
+against the rubric below.** Score doesn''t matter. Doing the work is where the learning lands.
+
+Before you started this module, you predicted how many systems in your People stack have AI in
+them. Now go count.
+
+**Step 1 — Inventory (10 min).** List the systems you or your team touch in a normal month:
+ATS, HRIS, payroll, survey platform, LMS, docs suite, meeting tools, chat tools, scheduling
+tools. For each, note whether it has an AI feature — announced, embedded, or switched on
+without ceremony in the last two years. Vendor release notes and settings pages are fair game.
+Three systems minimum; most people find more.
+
+**Step 2 — Classify (5 min).** For each AI feature you found, name its shape — assistant,
+copilot, or decision engine — using the four questions from Lesson 3. Where a system contains
+more than one shape (many do), say so: "HRIS: benefits-answer copilot + attrition-risk decision
+engine" is exactly the kind of precision this exercise is after.
+
+**Step 3 — One question each (5 min).** For each decision engine you found — and at least one
+copilot — write the single question you''d put to the vendor. Make it concrete enough that a
+vendor could actually answer it, and revealing enough that the answer would change what you do.
+
+**Step 4 — Score your prediction (5 min).** Compare the count you predicted against what you
+found. Name the direction of your miss and your best one-sentence theory of why.
+
+Then write the reflection: what you found, what surprised you, which single system most needs a
+closer look, and why.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m2-micro-core', 'ai101-m2-micro', 10, 'prose', 'stable', '## Module 2 in two minutes
+
+**"AI" is currently three different things in your stack,** and the label hides which one you''re looking at. **Assistants** (Claude, ChatGPT, Gemini): you supply the material, it drafts, your review is the gate. **Copilots**: the same LLM technology embedded in your ATS, HRIS, or docs suite — context comes from the host app, and the output borrows the host''s credibility without earning it. **Decision engines**: scoring and matching systems — resume rankers, attrition predictors — where data about people goes in and a number about a person comes out.
+
+**The sharpest tell:** does it produce language, or a number attached to a person? Language gets edited before it touches anyone. A number invites sorting, and sorted lists become decisions the moment someone is busy — with the errors landing on people nobody reviewed.
+
+**And the history in one line:** the field stalled twice trying to hand-code intelligence; the 2017 transformer breakthrough grew language capability from data at scale instead. That''s the honest answer to a skeptic — the winters were real, and this mechanism is different.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m2-micro-rule', 'ai101-m2-micro', 20, 'callout', 'stable', '### The rule to carry
+
+Choose by task, not by leaderboard. Transformation of your material → assistant. Work inside a system → its copilot, read with chat-window skepticism. Anything that scores, ranks, or filters people → stop; that''s not a tool choice, it''s M7''s sign-off question.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m2-micro-close', 'ai101-m2-micro', 30, 'prose', 'stable', '**The full module adds** the four outside questions that identify any product''s shape from a demo, the vendor-demo exercise (find the claim that can''t be true), and the Stack Audit — counting the AI already inside your own systems against the number you predicted.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai101-m2-choice', 'ai101-m2', 'choice', '{"reviewedAt":"2026-08-11","title":"The demo that blurred","intro":"*Five minutes. Commit before you look.*\n\nYou''re forty minutes into a vendor demo of **TalentFlow**, an \"AI-powered talent intelligence platform\" your TA lead is excited about. Below are four claims the account executive made, verbatim. Three are ordinary vendor talk — optimistic, but consistent with the shape of thing being sold. **One cannot be true as stated**, because it quietly promises the properties of one shape while selling another.\n\nUse the four questions from Lesson 3. Which claim can''t be true?","artifacts":[{"label":"Claim 1 · the drafting panel","body":"\"Our JD Composer drafts job descriptions in your company voice — your recruiters edit and approve every word before anything posts.\""},{"label":"Claim 2 · the ranking dashboard","body":"\"Our Fit Score ranks every applicant against the role profile automatically, so your team spends their time on the top of the list, not the pile.\""},{"label":"Claim 3 · the assurance","body":"\"And because a human recruiter always makes the final hiring decision, the Fit Score is purely assistive — there''s no automated decision-making anywhere in the product.\""},{"label":"Claim 4 · the integration","body":"\"It all lives inside the ATS you already use — your team never has to leave their workflow or learn a new tool.\""}],"options":[{"id":"c1","label":"Claim 1 — the drafting panel"},{"id":"c2","label":"Claim 2 — the ranking dashboard"},{"id":"c3","label":"Claim 3 — the assurance"},{"id":"c4","label":"Claim 4 — the integration"}],"key":"c3","reasoning":"**Claim 3 can''t be true as stated.** Claim 2 already told you the shape: applicants are ranked automatically, and the team works \"the top of the list, not the pile.\" That means the sorting has happened before any human looks — the people at the bottom are filtered by the score, reviewed by no one. A system can be a decision engine *and* have a human sign the final offer; what it can''t be is \"purely assistive\" while deciding who never gets seen. This is the exact blur from Lesson 3: answering the accountability question with the drafting shape''s answer while selling the scoring shape.\n\nThe other three claims are consistent with their shapes. Claim 1 describes a copilot doing what copilots do — draft for a human who edits and ships (your M1 skepticism still applies to the drafts). Claim 4 is packaging, not capability — true of many products, good and bad. Claim 2 is honest, even blunt, about being a decision engine — which is precisely why Claim 3 contradicts it.\n\nThe practitioner''s move when you hear this blur in a live demo: slow the meeting down and ask question 3 — *where would an error land?* For the Fit Score, it lands on a candidate nobody reviewed. What happens next is M7''s territory."}', '2026-08-11');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai101-m2-rubric', 'ai101-m2', 'rubric', '{"promptVersion":"ai101-m2-stack-audit-v1","moduleId":"ai101-m2","minWords":250,"maxWords":350,"submitLabel":"Your audit table and reflection","intro":"Paste your audit table (any readable format) followed by the 250–350 word reflection. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for an AI fluency course for People leaders (AI 101, The Foundation). Module 2 applied activity, ''The Stack Audit'': an inventory of the systems their People function runs (three minimum), each AI feature classified by shape (assistant / copilot / decision engine), a concrete vendor question for each decision engine found plus at least one copilot, and a comparison against the count they predicted before the module. A numeric prediction may have been captured by the module''s opening calibration prompt; grade the calibration dimension on whether the prediction is stated and honestly compared, never on its accuracy.","opening":[{"key":"systems","label":"Predicted — systems in your stack with AI in them","hint":"Count anything you or your team touches in a normal month.","placeholder":"e.g. 4","min":0,"max":40}],"calibration":[{"key":"systemsActual","label":"Found — systems that actually have AI in them","hint":"Your audit''s real count. The miss is the lesson.","placeholder":"e.g. 7","min":0,"max":40,"actualFor":"systems"}],"dimensions":[{"name":"Coverage honesty","criteria":"At least three real systems from their actual stack, named specifically enough to be recognizable (vendor or category). An admitted ''I couldn''t find out'' for a system outscores a confident guess."},{"name":"Classification reasoning","criteria":"Shapes assigned using the four questions — what goes in, what comes out, where errors land, who''s accountable — not vendor labels. Systems containing more than one shape are split rather than averaged. A defended borderline call outscores an undefended correct one."},{"name":"The vendor questions","criteria":"Each question is concrete enough for a vendor to answer and revealing enough that the answer would change something. ''Is your AI ethical?'' scores low; ''what share of applicants does the Fit Score filter before a human sees them?'' scores high."},{"name":"Calibration","criteria":"The predicted count is stated, compared against what the audit found, the direction of the miss named, and a one-sentence theory offered. Accuracy isn''t graded; honesty and specificity are."}]}', '2026-08-11');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai101-m2-knowledge_check', 'ai101-m2', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-11","questions":[{"id":"q1","prompt":"A colleague says \"AI is just another hype cycle — I''ve seen this before.\" What''s the most honest and accurate response?","options":["They''re wrong — this technology has no precedent and the old pattern doesn''t apply","They''re right — the field has overpromised before and this wave will fade the same way","The skepticism is earned — the field stalled twice — but this wave runs on a different mechanism: learned capability from data at scale, not hand-coded rules","It doesn''t matter either way, because the tools change too fast for the history to be relevant"],"correctIndex":2,"explanation":"Both winters were real, which is why the skepticism deserves respect rather than rebuttal — and the mechanism shift is why the pattern doesn''t simply repeat. A overclaims, B dismisses, and D dodges the question the skeptic actually asked."},{"id":"q2","prompt":"What changed in 2017 that made the current generation of AI tools possible?","options":["Computers finally became fast enough to run the rule-based systems designed in the 1980s","The transformer architecture made it practical to train language models at enormous scale","Governments began funding AI research again after the second AI winter","Companies started collecting employee data in large enough volumes to train on"],"correctIndex":1,"explanation":"The transformer is the architecture behind the \"T\" in GPT — and behind Claude and Gemini. Combined with the finding that bigger models kept improving, it produced modern LLMs. A describes the era that failed; C and D aren''t the mechanism."},{"id":"q3","prompt":"Your HRIS vendor announces an \"AI-powered\" panel that answers employees'' benefits questions inside the HRIS. Which shape is this, and what''s its defining property?","options":["An assistant — the employee supplies all the context it uses","A decision engine — it processes structured employee records","A copilot — LLM technology embedded in a host system, drawing context from that system and borrowing its credibility","Not AI at all — question answering is a search feature"],"correctIndex":2,"explanation":"Embedded in a host app, context supplied by the host, narrow task set — and output that appears inside a trusted system of record, which is exactly why its errors are dangerous: an employee who asked the official HRIS believes the answer."},{"id":"q4","prompt":"Of the four outside questions, which single tell most sharply separates a decision engine from the other two shapes?","options":["Whether the product uses a large language model internally","Whether the output is language you''ll edit, or a number, rank, or flag attached to a person","Whether the vendor calls the feature \"AI-powered\" in their marketing","Whether the tool requires a separate login from your other systems"],"correctIndex":1,"explanation":"Language gets read, judged, and rewritten before it touches anyone; a number about a person invites sorting, and sorted lists become decisions. A is invisible from the outside, C is marketing, D is IT trivia."},{"id":"q5","prompt":"Why does a copilot''s output deserve the same skepticism as a chat assistant''s, even though it appears inside your system of record?","options":["It doesn''t — the host system''s data makes copilot output more reliable","Copilots run on older, weaker models than standalone assistants","It''s the same LLM technology with the same failure modes — the trusted wrapper adds credibility without adding correctness","Copilot output is unreliable because host systems restrict what the model can see"],"correctIndex":2,"explanation":"Same fluency, same hallucination risk, same confidence–correctness decoupling from M1. The packaging is the hazard: output inside the official HRIS *looks* vouched for. B isn''t reliably true, and D describes a constraint, not the reason for skepticism."},{"id":"q6","prompt":"A vendor demo shows a dashboard that ranks your candidate pipeline and flags \"high-potential applicants.\" Where would this system''s errors land?","options":["On your desk, caught by your normal review before anything ships","On the vendor, who is accountable for their model''s outputs","Nowhere serious — a ranking is only a suggestion until a human acts on it","On candidates who get filtered or deprioritized without anyone ever reviewing the call"],"correctIndex":3,"explanation":"A ranked list does its damage upstream of review: the people it sorts to the bottom silently fall out of a busy pipeline. That''s why \"human review\" describes drafting tools, not scoring tools — the human reviews the survivors, not the decision."},{"id":"q7","prompt":"Your team wants to turn messy panel-interview notes into structured debriefs. Which shape fits, and why?","options":["An assistant — you supply the notes, it transforms them, and your review is the quality gate","A decision engine — interview evaluation is fundamentally a scoring task","A copilot only — notes should never leave the system they were taken in","None — interview material is too sensitive for any AI shape to touch"],"correctIndex":0,"explanation":"Transformation of material you supply is the assistant''s home ground and the delegation heuristic''s center. B would convert your notes into scores about people — exactly the shape shift M7 exists to stop. C and D confuse the shape question with the data question, which M4 handles on its own terms."},{"id":"q8","prompt":"What''s the strongest argument for using the assistant your organization has provisioned rather than a marginally better one through a personal account?","options":["The provisioned one is always the most capable option available","The provisioned one comes with an agreement about your data — and that outweighs capability differences that briefing quality dwarfs anyway","IT departments block personal accounts, so the question never arises","Using multiple assistants confuses the models and degrades their output"],"correctIndex":1,"explanation":"The data agreement is the real difference — M8 makes this concrete — and M5 will show that briefing quality moves results more than tool choice. A isn''t guaranteed, C isn''t reliably true, and D isn''t a thing."}]}', '2026-08-11');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m3-calibration-prompt-before-you-start-10', 'ai101-m3', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One prediction, thirty seconds. You''ll score it during the applied activity.*
+
+At the end of this module you''ll take one recurring task from your own function — say,
+summarizing your engagement survey''s free-text comments twice a year, or drafting every job
+description your team posts — and estimate what it would cost per month to run through an AI
+tool.
+
+**Pick your task now, and predict its monthly cost in dollars.** Gut number, no arithmetic.
+Write it down.
+
+Most people miss by an order of magnitude — and the *direction* of the miss is what''s
+interesting. Guessing high usually means pricing the hype; guessing low usually means
+forgetting the reviewing human. Either way, the miss is the lesson.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m3-module-brief-20', 'ai101-m3', 20, 'prose', 'stable', '## Module brief
+
+You don''t need to understand AI economics to use a chat assistant. You need it the moment the
+conversation stops being about *you* using a tool and starts being about *scale*: a vendor
+quote lands on your desk, someone proposes running every exit interview through a summarizer,
+or Finance asks why the AI line item doubled. In those conversations, the person who
+understands what the meter is actually counting has a structural advantage over the person
+nodding along.
+
+The good news: the entire subject rests on one unit you already met in M1 — the token — and
+three pricing structures built on top of it. Learn those and vendor quotes stop being
+mysterious documents. You can size a use case on a napkin, spot the pricing model that goes
+wrong at your volume, and ask the question that makes a thin product wrapper visibly thin.
+
+The honest framing before we start: **the numbers in this module are illustrative, and the
+structure is the lesson.** Per-token prices have moved constantly since these tools launched
+— mostly down, sometimes by a lot **[V]** — and any specific figure printed here would be stale
+in months. What doesn''t move is the shape: everything is metered in tokens, tokens map to
+volume of text, and every pricing plan is a bet about your usage that someone — you or the
+vendor — is on the wrong side of.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m3-learning-objectives-30', 'ai101-m3', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Explain what a token is and why every AI cost, limit, and price traces back to counting
+   them.
+2. Reason about the context window as a budget — why long documents and long conversations
+   cost more, degrade, or both.
+3. Decide when a more capable model is worth its price, and recognize the People-work tasks
+   where the cheaper tier is the right call.
+4. Read a vendor quote: identify which of the three pricing structures you''re looking at, and
+   what usage pattern makes each one go wrong.
+5. Produce a defensible order-of-magnitude cost estimate for one real use case — the applied
+   activity.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m3-lesson-1-the-token-economy-40', 'ai101-m3', 40, 'prose', 'volatile', '## Lesson 1 · The token economy [V]
+
+M1 told you a language model reads and writes in **tokens** — fragments of words, roughly
+three-quarters of an English word each. What M1 didn''t say is that the token is also the
+industry''s billing unit. Every price you will ever see, whatever it''s dressed as, is
+ultimately a price for tokens in and tokens out.
+
+Rough sizes, to build intuition **[V]**: a one-page memo runs several hundred tokens. A
+ten-page policy, a few thousand. Two hundred engagement-survey comments, maybe ten to twenty
+thousand. Your whole employee handbook, likely into the hundreds of thousands. When you paste
+a document into a chat window, you are spending tokens; when the model answers, it spends
+more. A "conversation" is a running token bill that both sides are adding to.
+
+Two consequences follow immediately.
+
+**Input and output are priced separately, and output usually costs more per token** **[V]**.
+This is why "summarize this long document" (huge input, small output) and "write me a long
+report from these notes" (small input, huge output) have very different cost shapes even
+though both are one prompt.
+
+**"Unlimited" plans are a bet, not a description.** A flat per-seat subscription doesn''t make
+tokens free — it means the vendor predicted your usage and priced above it. Push usage far
+enough past the prediction and you meet the fine print: rate limits, throttling, "fair use"
+caps **[V]**. This isn''t vendor malice; it''s the token meter reasserting itself. The practical
+habit: whenever a price looks flat, ask what happens at ten times your expected volume. The
+answer tells you where the meter actually is.
+
+For a casual user none of this matters — the subscription is genuinely simpler and usually
+cheaper than metered pricing at low volume. It starts to matter exactly when *you* start to
+matter: the moment a task runs on a schedule rather than on a whim, tokens stop being an
+abstraction and become a line item. That moment is the subject of the rest of this module.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m3-try-50', 'ai101-m3', 50, 'try_this', 'stable', '### Try this — 2 minutes
+Take the last substantial thing you pasted into an AI tool — or would paste. Estimate its
+tokens: word count × 1.3, roughly. Now imagine the task running weekly for a year, for
+everyone on your team. You''ve just done real AI cost analysis — that multiplication is the
+whole method, and Lesson 4''s vendors are hoping you never do it.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m3-lesson-2-the-context-window-as-a-budget-60', 'ai101-m3', 60, 'prose', 'volatile', '## Lesson 2 · The context window as a budget [V]
+
+M1 introduced the **context window** — everything the model can see at once: your instructions,
+the documents you''ve supplied, and the conversation so far. This lesson makes it economic: the
+window is a *budget*, and treating it as unlimited is the most common way careful people get
+bad results at scale.
+
+Three budget behaviors are worth internalizing.
+
+**Filling it costs money.** Everything in the window is input tokens, re-sent with every turn
+of the conversation. A long chat with a large document attached re-reads that document, in
+token terms, every time you follow up **[V]** — which is why a rambling twenty-turn
+conversation over your handbook can cost more than twenty clean one-shot questions, and why
+the practitioners'' habit of starting fresh conversations per task (which you''ll build in 201)
+is a cost habit as much as a quality habit.
+
+**Filling it degrades attention.** The window is bigger than it used to be — current models
+advertise room for hundreds of pages **[V]** — but *fits* is not *attends*. M1''s mechanism
+explains why: every fragment is predicted from everything in view, and the more you put in
+view, the more everything competes. Material buried in the middle of a very long context is
+where details quietly stop influencing the output. The symptom to watch for: confident,
+fluent summaries of a long document that are strangely thin on its middle sections. (M4 gives
+this failure a full lesson; here it''s enough to know the budget has a quality dimension, not
+just a cost one.)
+
+**Overflowing it silently truncates.** When a conversation outgrows the window, the oldest
+material drops out of view — the model doesn''t announce this, and its fluency doesn''t dip.
+Your instructions from the start of a long session may simply no longer exist as far as the
+model is concerned. If a long conversation seems to have "forgotten" its brief, it likely
+has — literally.
+
+The budget mindset, in one line: **decide what the model needs to see for *this* question, and
+supply that** — not everything you have. It''s cheaper, and it''s better. The instinct to paste
+more context is usually right in direction (M1: the model knows nothing about your org) and
+wrong in indiscriminateness; M5 will turn that instinct into technique.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m3-lesson-3-when-the-bigger-model-is-worth--70', 'ai101-m3', 70, 'prose', 'volatile', '## Lesson 3 · When the bigger model is worth it [V]
+
+Every provider sells a range: a frontier model — the most capable, priced accordingly — and
+one or more cheaper, faster tiers that are a fraction of the cost per token **[V]**. The gap
+matters at scale: at meaningful volume, tier choice can move a project''s cost by multiples.
+So the question "which tier?" is a real budgeting decision, and it has a calmer answer than
+the marketing suggests.
+
+**Where the cheap tier wins** — which, for People work, is most of the time: transformation
+tasks with clear instructions and supplied material. Reformatting notes into a debrief.
+Extracting themes from comments *you provide*. Drafting routine communications from a solid
+brief. First-pass summaries a human will review anyway. These sit at the delegation
+heuristic''s center — you supplied everything, the shape of the output is known — and the
+cheaper tier does them roughly as well as the frontier model, several times cheaper and
+faster.
+
+**Where the frontier model earns its price:** long or subtle judgment over lots of material at
+once — the tasks where quality failures are expensive and hard to spot. Nuanced synthesis
+across many documents, careful reasoning about an ambiguous situation, drafting where tone
+misfires carry real cost. And note the pattern in that list: as tasks climb toward requiring
+organizational judgment, they climb toward the heuristic''s *boundary* — the tasks where the
+question stops being "which tier" and becomes "should the model be doing this without heavy
+human involvement at all." **If a task seems to need the smartest possible model, treat that
+as a flag to increase your review, not just your spend.**
+
+Two practical corollaries. First, *start cheap and escalate on evidence*: run the task on the
+cheaper tier, look at the output, and pay up only where you can articulate what was missing —
+that articulation is itself the review skill M6 builds. Second, *latency is a price too*:
+frontier models are slower, and for interactive drafting work, a fast good-enough model often
+beats a slow brilliant one because you iterate more. M5 will show that iteration count drives
+quality more than model choice does.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m3-try-80', 'ai101-m3', 80, 'try_this', 'stable', '### Try this — 3 minutes
+Take three AI-suitable tasks from your own week (steal them from M1''s sorting exercise if
+you did it). For each, one-line verdict: cheap tier, frontier, or "the tier question is the
+wrong question — this one needs a human." If everything landed in the frontier column,
+re-read the flag above: you may be describing tasks that need review, not horsepower.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m3-lesson-4-reading-a-vendor-quote-90', 'ai101-m3', 90, 'prose', 'volatile', '## Lesson 4 · Reading a vendor quote [V]
+
+Every AI price you''ll ever be quoted is one of three structures — or a bundle hiding one
+inside another. Each is a bet about usage, each goes wrong at a predictable place, and your
+job in a procurement conversation is to find where.
+
+**Per-seat subscription.** Flat monthly price per user **[V]**. The vendor''s bet: average
+usage stays modest. Goes wrong at the edges: heavy automated usage hits the fine-print caps
+(Lesson 1), while a sea of licensed-but-inactive seats means you''re paying retail for shelf
+space. The question to ask: *what does the fine print say at 10× typical usage — and what
+share of our seats were active last month?* For the second half, demand the usage report;
+every vendor has one.
+
+**Metered (per-use) pricing.** Pay per token, per document, per "credit" **[V]**. The bet
+runs the other way: the vendor wins when you use more. Predictable at steady volume, goes
+wrong at spikes — the surge you didn''t forecast (survey season, annual review cycle, a
+reorg''s worth of documents) arrives as an invoice. The questions: *what exactly is metered —
+tokens, documents, or something the vendor invented* (a "credit" is a markup wearing a
+costume) — *and what does our peak month look like, priced out?*
+
+**Enterprise agreement.** Negotiated flat rate for an organization **[V]**, typically bundling
+capability with the things M8 cares about — data terms, admin controls, retention promises.
+Goes wrong through mismatch: paying for an org-wide capability that fifty people use, or —
+the reverse and more common failure — buying the cheap thing and discovering the data terms
+you actually needed were in the tier you skipped. The question: *which parts of this price
+are capability and which are the data agreement?* — because (M8 will argue) the second part
+is the part you can''t do without.
+
+And one structural question that cuts across all three, for any product that isn''t from a
+model provider directly: **"which model does this run on, and what happens to our price when
+your model costs change?"** Most AI products are a workflow layer over someone else''s model —
+often a genuinely valuable layer, sometimes a thin one. A vendor with a real product answers
+cleanly. A vendor selling tokens at retail with a logo on top gets vague — and per-token
+prices'' historical direction of travel **[V]** means their margin is a melting asset you''d be
+locking in at today''s rate. Thin isn''t automatically bad; *unpriceable* is. If they can''t
+answer, you can''t size the deal, and that — not any single number — is what "being the person
+who understands the meter" buys you in the room.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m3-exercise-embed-95', 'ai101-m3', 95, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m3-key-takeaways-100', 'ai101-m3', 100, 'takeaways', 'stable', '## Key takeaways
+
+- **The token is the billing unit of everything.** Word count × 1.3, in and out, forever.
+  Every plan — subscription, metered, enterprise — is a structure built on that meter, and
+  every flat price is a bet someone placed on your volume.
+- **The context window is a budget with a quality dimension.** Filling it costs tokens on
+  every turn; overfilling it degrades attention in the lossy middle; overflowing it silently
+  drops your earliest instructions. Supply what the question needs, not everything you have.
+- **The cheap tier is the right call for most People work** — supplied material, clear
+  instructions, human review. Pay for the frontier model on evidence, not vibes — and treat
+  "this needs the smartest model" as a flag for more review, not just more spend.
+- **Every pricing structure has a predictable failure point:** per-seat fails at heavy use and
+  idle seats; metered fails at spikes; enterprise fails at mismatch. Price your peak month
+  and your idle seats before signing anything.
+- **Ask any non-provider vendor which model they run on** and what happens to your price when
+  their costs change. Clean answer: real product. Vague answer: you''re buying tokens at
+  retail, at a locked-in markup on a falling price.
+- **Numbers here are illustrative; the structure is the lesson.** Prices move monthly. The
+  napkin math — volume × tokens × rate, plus the human review time — is what transfers.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m3-activity-link-105', 'ai101-m3', 105, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 Size One Use Case", "blurb": "Take one recurring task from your own function, count its tokens, price it two ways, add the human review line \u2014 and score the gut prediction you made at the top of the module. Graded against a four-dimension rubric with per-dimension feedback. Free unlimited resubmission.", "estMinutes": "20\u201325"}', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m3-sources-and-attribution-110', 'ai101-m3', 110, 'prose', 'stable', '## Sources and attribution
+
+This module draws on the following material:
+
+- **The AI Fluency Framework** (Rick Dakan & Joseph Feller, in collaboration with Anthropic,
+  CC BY-NC-SA 4.0) — the treatment of tokens and context as practical constraints adapts its
+  framing of how model mechanics surface in everyday use.
+- Provider pricing and documentation pages — current per-token prices, tier names, context
+  window sizes, and plan terms move constantly; verify against the provider''s published
+  pricing at time of use. **[V]**
+- The three-pricing-structures taxonomy, the failure-point analysis, and the napkin method
+  are original to this course, developed for the People-leader procurement context.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m3-activity-applied-activity-size-one-use-case-10', 'ai101-m3-activity', 10, 'prose', 'stable', '## Applied activity — "Size One Use Case"
+
+**Time:** 20–25 minutes · **Submit:** your estimate table plus a 250–350 word write-up ·
+**Graded against the rubric below.** Score doesn''t matter. Doing the work is where the
+learning lands.
+
+At the top of this module you picked one recurring task and predicted its monthly cost. Now
+do the arithmetic and score yourself.
+
+**Step 1 — Define the unit (5 min).** What is one "run" of this task? (One survey cycle
+summarized, one JD drafted, one week''s exit interviews processed.) Describe the input and
+output of a single run concretely.
+
+**Step 2 — Count the tokens (5 min).** Estimate the input size (word count × 1.3, include
+*everything* the model must see — instructions, documents, examples) and the output size.
+Multiply by runs per month. Show the arithmetic; round numbers are fine, reasoning is the
+point.
+
+**Step 3 — Price it two ways (5 min).** (a) As metered usage, using a current published
+per-token price for a mid-tier model — note which one and the date **[V]**. (b) As a slice of
+a per-seat subscription: whose seat, and what share of that seat''s monthly price does this
+task plausibly represent? One sentence on which structure fits this task better and why.
+
+**Step 4 — Add the human (3 min).** Estimate the review time per run, in minutes, and note
+who does it. This number is usually the real cost. If your task''s review time rivals doing
+the task by hand, say so — that''s a finding, not a failure.
+
+**Step 5 — Score the prediction (2 min).** Predicted vs. computed: direction of miss, size
+of miss, one-sentence theory of why.
+
+Then the write-up: your table, the comparison, and one decision this estimate would actually
+change — a tool you''d adopt or skip, a quote you''d push back on, a task you''d leave manual.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m3-micro-core', 'ai101-m3-micro', 10, 'prose', 'stable', '## Module 3 in two minutes
+
+**Everything is metered in tokens** — roughly word count × 1.3, priced in and out — and every plan you''ll ever see is a structure built on that meter. A flat "unlimited" price is a bet on your volume, with fine print standing where the meter reasserts itself. The napkin method is the whole skill: volume × tokens × rate, plus the human review time — which is usually the real cost.
+
+**The context window is a budget.** Everything in it is re-sent every turn (long conversations over big documents quietly cost multiples), overfilling it degrades attention in the middle of long material, and overflowing it silently drops your earliest instructions. Supply what the question needs, not everything you have.
+
+**Three pricing structures, three failure points.** Per-seat fails at heavy use and idle seats. Metered fails at the spike you didn''t forecast — survey season arriving as an invoice. Enterprise fails at mismatch, though its premium often buys the data terms that matter more than capability. Price your peak month, not your average one.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m3-micro-rule', 'ai101-m3-micro', 20, 'callout', 'stable', '### The rule to carry
+
+Start on the cheap tier and escalate on evidence — most People work is supplied-material transformation where tier differences barely show. And if a task seems to need the smartest possible model, treat that as a flag to increase your review, not just your spend.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m3-micro-close', 'ai101-m3-micro', 30, 'prose', 'stable', '**The full module adds** the vendor-quote lesson (including the one question that exposes a thin wrapper: "which model does this run on, and what happens to our price when your costs change?"), the price-the-mismatch exercise, and Size One Use Case — real napkin math on a task from your own week, scored against your gut prediction.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai101-m3-choice', 'ai101-m3', 'choice', '{"reviewedAt":"2026-08-11","title":"Price the mismatch","intro":"*Five minutes. Commit before you look.*\n\nFour People teams, four pricing structures — each pairing plausible enough that somebody signed it. Three of them are reasonable fits: not perfect, but the kind of deal that works out fine. **One goes badly wrong at scale**, predictably, for structural reasons from Lesson 4.\n\nRead the four pairings. Which one blows up?","artifacts":[{"label":"Pairing A · the TA team","body":"A 6-person talent acquisition team drafts 25–30 job descriptions and offer letters a month, spread evenly across the year. They sign a per-seat subscription: flat monthly price per recruiter, everything included."},{"label":"Pairing B · the survey program","body":"A People-analytics lead runs the engagement survey twice a year — 4,000 free-text comments per cycle, processed over two intense weeks, near-zero AI usage in between. She signs a metered plan priced per token, which was by far the cheapest option in the months she compared."},{"label":"Pairing C · the HRBP group","body":"Twelve HRBPs use an assistant a few times a week each — drafting, summarizing meeting notes, tightening documents. They''re on the org''s enterprise agreement, which bundles admin controls and data-processing terms. Per head, it costs more than a consumer subscription would."},{"label":"Pairing D · the L&D experiment","body":"An L&D manager pilots AI-generated first drafts of course outlines — a handful of documents a month for one quarter. He uses a metered plan and expenses roughly the price of a nice lunch each month."}],"options":[{"id":"a","label":"Pairing A — TA on per-seat"},{"id":"b","label":"Pairing B — surveys on metered"},{"id":"c","label":"Pairing C — HRBPs on enterprise"},{"id":"d","label":"Pairing D — L&D on metered"}],"key":"b","reasoning":"**Pairing B blows up.** Metered pricing fails at spikes, and her usage is *only* spikes: months of near-zero (when metered looked unbeatable in the comparison) punctuated by two weeks of processing 4,000 comments — tens of thousands of tokens per batch, re-supplied across every follow-up pass. The plan looked cheapest precisely because she compared it during the quiet months; survey season arrives as an invoice nobody forecast. The fix isn''t necessarily a different plan — it''s pricing the *peak* month before signing, which is the one month that matters.\n\nThe other three hold. **A** is per-seat''s home ground: steady, modest, predictable usage across a stable team — the vendor''s bet and the team''s reality agree. **C** costs more per head *and that''s the point*: the premium buys the data-processing terms and admin controls, which is the part of the price M8 argues you can''t do without — HRBP work touches exactly the material that needs them. **D** is what metered is for: small, exploratory, honestly temporary — a subscription would be shelf space by month two.\n\nThe pattern to carry into any quote: match the structure to the *shape* of your usage — steady, spiky, or sensitive — and price the edge case, not the average month."}', '2026-08-11');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai101-m3-rubric', 'ai101-m3', 'rubric', '{"promptVersion":"ai101-m3-size-one-use-case-v1","moduleId":"ai101-m3","minWords":250,"maxWords":350,"submitLabel":"Your estimate table and write-up","intro":"Paste your estimate table (any readable format) followed by the 250–350 word write-up. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for an AI fluency course for People leaders (AI 101, The Foundation). Module 3 applied activity, ''Size One Use Case'': one recurring task from their own function, sized end to end — the unit of work defined, tokens estimated with visible arithmetic (word count × 1.3, input and output, runs per month), priced two ways (metered at a named current per-token price with date, and as a share of a per-seat subscription), a human review-time line with a named reviewer, and a comparison against the gut prediction made before the module. A numeric prediction may have been captured by the module''s opening calibration prompt; grade the calibration dimension on whether the prediction is stated and honestly compared, never on its accuracy. Order-of-magnitude reasoning with round numbers is the goal; false precision is not.","opening":[{"key":"monthlyCost","label":"Predicted — this task''s monthly cost in dollars","hint":"Gut number, no arithmetic. Whole dollars.","placeholder":"e.g. 150","min":0,"max":100000}],"calibration":[{"key":"monthlyCostActual","label":"Computed — what the arithmetic actually says","hint":"Your step-3 estimate, in whole dollars. The direction of the miss is the lesson.","placeholder":"e.g. 12","min":0,"max":100000,"actualFor":"monthlyCost"}],"dimensions":[{"name":"The unit is real","criteria":"A genuine recurring task from their own function, with one run defined concretely — input and output described specifically enough that someone else could recognize a run. Invented or generic tasks score low."},{"name":"Arithmetic shown","criteria":"Token estimates built from visible reasoning (word counts, the ×1.3 rule, runs per month), input and output both counted, and everything the model must see included — instructions and examples, not just the document. Round numbers with reasoning outscore precise numbers without it."},{"name":"Both pricings, compared","criteria":"Metered pricing uses a named model and a dated price; the per-seat framing names whose seat and a plausible share. One sentence commits to which structure fits this task''s usage shape and why — steady, spiky, or sensitive."},{"name":"The human line and the verdict","criteria":"Review time per run estimated with a named reviewer, and the write-up names one decision this estimate would actually change. An honest ''leave it manual'' or ''the review is the real cost'' verdict outscores an enthusiastic case for automation. Calibration: prediction stated, miss direction named, one-sentence theory offered."}]}', '2026-08-11');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai101-m3-knowledge_check', 'ai101-m3', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-11","questions":[{"id":"q1","prompt":"Why does a long back-and-forth conversation over an attached document cost substantially more than the same questions asked as clean, separate one-shot prompts?","options":["Conversations are billed at a premium rate compared to single prompts","The full context — document included — is re-sent as input tokens on every turn","The model writes longer answers in conversations than in one-shot prompts","It doesn''t — conversation turns after the first are free on most plans"],"correctIndex":1,"explanation":"The window is re-supplied each turn, so the document''s tokens are effectively re-read every time you follow up. That''s the economic half of the fresh-conversation habit; the quality half is attention. A and D describe billing structures that don''t exist, and C isn''t the mechanism."},{"id":"q2","prompt":"A vendor''s plan is \"unlimited AI drafting, $30 per seat per month.\" What is this price, structurally?","options":["Evidence that the vendor has found a way to make tokens genuinely free at scale","A loss-leader that must disappear once the vendor''s investors demand profitability","A bet that average usage stays modest — with fine print (rate limits, fair-use caps) standing where the token meter reasserts itself","Proof the product doesn''t use a large language model, since LLM costs are always metered"],"correctIndex":2,"explanation":"Flat prices don''t remove the meter; they hide it behind a usage prediction. The practical habit: ask what happens at ten times your expected volume — the answer locates the real limit. B might even prove true for a given vendor, but it''s a guess about one company, not the structure of the price."},{"id":"q3","prompt":"Your team runs a 40-page report through an assistant and gets a fluent summary that''s strangely thin on the report''s middle sections. What most likely happened?","options":["The middle sections exceeded the model''s knowledge cutoff","The document filled a large share of the context window, and material in the middle of a long context received the least attention","The model''s safety filters removed the middle content","The subscription''s fair-use cap truncated the output"],"correctIndex":1,"explanation":"Fits is not attends: everything in the window competes for influence, and the middle of a long context is where details stop mattering first — while fluency stays perfect, which is what makes it dangerous. A confuses the cutoff (training time) with the window (right now); C and D aren''t this mechanism."},{"id":"q4","prompt":"For which task is the cheaper model tier most clearly the right choice?","options":["Reformatting your own interview notes into the team''s standard debrief template","Synthesizing an ambiguous ER situation across a year of scattered documentation","Drafting a sensitive org-change announcement where tone missteps carry real cost","Any task involving employee data, since cheaper models are safer with sensitive inputs"],"correctIndex":0,"explanation":"Supplied material, clear instructions, known output shape, human review — the delegation heuristic''s center, where tier differences barely show. B and C are the judgment-heavy profile where the frontier model earns its price — and where the real flag is more review, not just more spend. D confuses the tier question with the data question; model size has nothing to do with data terms."},{"id":"q5","prompt":"A team that runs heavy, predictable daily volume is choosing between per-seat and metered pricing. What''s the structural trade?","options":["Metered pricing is always cheaper at high volume","Per-seat absorbs their heavy steady usage until fine-print caps bite; metered prices it accurately but punishes unforecast spikes","There is no real difference — both bill the same tokens underneath","Per-seat is only available in enterprise agreements"],"correctIndex":1,"explanation":"Each structure fails at its own edge: flat plans at sustained heavy use (that''s what the fine print is for), metered at the surge you didn''t forecast — survey season arriving as an invoice. C is true of the underlying meter but false about who carries the risk, which is the entire question."},{"id":"q6","prompt":"During procurement, which single question most directly exposes whether an \"AI-powered\" product is a thin wrapper around someone else''s model?","options":["\"Is your product SOC 2 compliant?\"","\"How many engineers are on your AI team?\"","\"Which model does this run on, and what happens to our price when your model costs change?\"","\"Does your product use the latest generation of models?\""],"correctIndex":2,"explanation":"A vendor with a real workflow layer answers cleanly; a reseller of tokens at retail gets vague, because their margin is the gap between your locked-in price and a falling cost they don''t control. A matters for M8''s reasons but doesn''t locate thinness; B and D invite theater."},{"id":"q7","prompt":"Why should \"this task seems to need the most capable model available\" prompt a second look rather than just a bigger budget?","options":["Frontier models are usually too slow to be usable for any real work","Tasks that seem to need maximum capability are usually climbing toward judgment calls — where the right response is more human review, not just more model","Capability differences between tiers are pure marketing with no real effect","Cheaper models produce more reliable outputs than frontier models"],"correctIndex":1,"explanation":"The pattern from the lesson: as tasks climb toward organizational judgment, they approach the delegation heuristic''s boundary, where \"which tier\" becomes \"how much human.\" A overstates a real latency trade; C and D are both false."},{"id":"q8","prompt":"In the Size One Use Case activity, why does the estimate require a line for human review time?","options":["Because review time is usually the dominant real cost, and a task whose review rivals doing it by hand may not be worth automating","Because regulators require documented human oversight of all AI usage","To calculate how many tokens the reviewer will consume re-reading the output","To determine which employees need training on the tool"],"correctIndex":0,"explanation":"Token costs are usually the small number; the reviewing human is the big one. An estimate without that line flatters every use case and hides the honest finding — sometimes the verdict is \"leave it manual,\" and the activity treats that as a result, not a failure. B overstates current requirements (M7 covers what actually applies); C and D aren''t what the line is for."}]}', '2026-08-11');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m4-calibration-prompt-before-you-start-10', 'ai101-m4', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One prediction, thirty seconds. You''ll score it during the applied activity.*
+
+At the end of this module you''ll take one real document you''d genuinely like AI''s help with —
+an ER summary, survey verbatims, interview notes — and produce the version you''d actually
+paste, redacting what shouldn''t travel.
+
+**What percentage of the document do you predict survives redaction?** Meaning: after you
+remove what shouldn''t be pasted under your current agreement, how much of the original text is
+left? Write the number down.
+
+Both directions of miss are instructive. Much survives that people expect to lose — most
+redaction is precise, not wholesale. And what''s lost is rarely what they guessed — names are
+easy; it''s the office, the role, and the date that carry identity out the door.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m4-module-brief-20', 'ai101-m4', 20, 'prose', 'stable', '## Module brief
+
+M1 left you with a clean principle: the model has never seen your organization, so quality
+depends on the material you supply. This module is about the collision between that principle
+and another one: **the material a People leader holds is the most sensitive material in the
+building.**
+
+Here''s the collision in one scene. An HRBP has forty pages of exit-interview notes and a
+Thursday deadline for a themes summary. The right move *capability-wise* is obvious — M1
+taught it: supply the material, ask for transformation. The right move *stewardship-wise* is
+not obvious at all: those notes contain names, grievances, a mention of a medical
+accommodation, and a quote so distinctive that anyone in the department could identify its
+author. Pasting them raw into a personal chat account is a data incident with extra steps.
+Refusing to use AI at all hands back the Thursday problem. The skill this module builds is
+the middle path: knowing exactly what may travel, making the rest travel-safe, and being able
+to defend the call afterward.
+
+Two ideas do most of the work. A **four-tier classification** you can run on any document in
+seconds, and a single test that catches what the tiers miss: **could this run be shown to the
+person it concerns?** Around them: what actually happens to a long document inside the model
+(M3''s budget, now with failure modes), and what real redaction looks like — as opposed to the
+theater of deleting names and calling it done.
+
+One promise: nothing here requires a policy your organization hasn''t written yet. This is the
+judgment you can exercise *today*, under whatever agreement you currently have — and it''s the
+foundation M8 builds the policy skeleton on.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m4-learning-objectives-30', 'ai101-m4', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Explain why supplying material beats describing it — and route any real task through
+   attach-and-transform rather than describe-and-hope.
+2. Predict how a long document degrades in the window — the lossy middle, silent truncation —
+   and know the working habits that defend against both.
+3. Tier any People-work artifact in under a minute — public / internal / person-identifying /
+   protected — and say what each tier permits under your current agreement. **[V]**
+4. Apply the shown-to-the-person test to catch what tiering misses.
+5. Redact a real document so it actually de-identifies — not just de-names — and say out loud
+   what was removed and why.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m4-lesson-1-supplying-material-beats-descri-40', 'ai101-m4', 40, 'prose', 'stable', '## Lesson 1 · Supplying material beats describing it
+
+Run the same task both ways and the principle teaches itself.
+
+*Describing:* "Summarize our PTO policy for new managers." The model has never seen your PTO
+policy. M1 told you what happens next: it generates a fluent summary of *a* PTO policy — a
+plausible average of the thousands in its training data. Accrual rates you don''t offer,
+carryover rules you don''t have, delivered in confident prose. Nothing about it looks wrong,
+and all of it is invented.
+
+*Supplying:* paste the policy, then ask. Now every sentence has source material to draw on,
+and — just as important — **you have something to check against.** When the summary says
+"unused days lapse in March," you can look at the policy and verify it. Supplied material
+doesn''t just improve the output; it converts an unverifiable claim into a checkable one.
+That''s the difference M6 will lean on hard.
+
+The habit, stated once and bluntly: **for any task touching your organization''s specifics,
+attach the source or expect invention.** The model fills gaps silently — that''s its mechanism,
+not a defect — so the only question is whether you filled them first.
+
+And the immediate objection — *"but can I paste this?"* — is the right one. It''s the rest of
+this module. The answer is almost never "no, nothing"; it''s "these parts, under these
+conditions, in this form." Hold the objection for two lessons and you''ll have the tools to
+answer it precisely instead of nervously.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m4-try-50', 'ai101-m4', 50, 'try_this', 'stable', '### Try this — 2 minutes
+Ask your AI tool to summarize a policy your organization actually has — by name, without
+attaching it. Read the confident result. Count the invented specifics. You''ve just watched
+the gap that every supplied document closes — and you''ll never again wonder whether
+attaching the source matters.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m4-lesson-2-what-happens-to-a-long-document-60', 'ai101-m4', 60, 'prose', 'volatile', '## Lesson 2 · What happens to a long document [V]
+
+M3 called the context window a budget. Here''s what spending it on a big document actually
+looks like — and the two failure modes that matter for People work.
+
+**The lossy middle.** Current models advertise windows that hold hundreds of pages **[V]**,
+and the marketing is technically true: the pages fit. But *fits is not attends* — every
+fragment of output is predicted from everything in view, and the more there is in view, the
+more it all competes. Empirically, material at the start and end of a long context holds the
+model''s attention best; the middle is where details go quiet. For a 60-page handbook, that
+means a summary can be sharp on sections 1–3, sharp on the appendix, and strangely vague
+about the grievance procedure buried in the middle — while sounding equally confident
+throughout. The tell is *asymmetric thinness*: if a summary''s detail level varies by section
+for no editorial reason, suspect the middle, and probe it directly ("what does section 7 say
+about escalation timelines?").
+
+**Silent truncation.** A conversation that outgrows the window drops its oldest content
+without announcement — including, eventually, the document you attached and the instructions
+you opened with. A long working session that starts giving generic answers hasn''t gotten
+lazy; it has literally lost sight of your material.
+
+The working habits that defend against both, cheap and boring by design: **ask for what you
+need section by section** rather than one heroic full-document request; **put the thing that
+matters most at the start or end** of what you supply, never the middle; **start fresh
+conversations per task** instead of nursing one endless thread; and **spot-check the middle**
+of anything long before you trust its summary. (201 M3 turns these habits into designed
+pipelines; here they''re just hygiene.)', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m4-lesson-3-the-paste-question-answered-70', 'ai101-m4', 70, 'prose', 'volatile', '## Lesson 3 · The paste question, answered [V]
+
+"Can I paste this?" has a real answer, and it isn''t a vibe. It''s a tier and an agreement.
+
+**The four tiers** — run any artifact through them in seconds:
+
+**Tier 1 · Public.** Already published or intended to be: job postings, your careers page,
+publicly filed policies. No new exposure — it''s already out there.
+
+**Tier 2 · Internal.** Organizational but not about a person: policy drafts, org design
+notes, process docs, aggregate statistics, template language. Sensitive to the *organization*
+(confidentiality, competitive), not to an individual.
+
+**Tier 3 · Person-identifying.** About someone, or traceable to someone: interview notes,
+performance narratives, survey verbatims, exit interviews, anything with a name — or with the
+combination of details that works like a name. This is the tier people mis-sort most, in both
+directions.
+
+**Tier 4 · Protected.** The categories with legal weight of their own **[V]**: medical and
+accommodation information, protected-class data, active investigation and legal-hold
+material, compensation at the individual level. Not "be careful" — *stop*: this tier moves
+only inside systems and processes your counsel has explicitly blessed, which a chat window
+almost never is.
+
+**What tiers permit depends on the agreement** — the M2 lesson about provisioned tools, now
+with teeth. Under a consumer account, the safe assumption **[V]** is that anything pasted
+may be retained and possibly used to improve the service: fine for Tier 1, defensible for
+sanitized Tier 2, wrong for Tier 3. Under an enterprise agreement with negotiated
+data-processing terms **[V]** — no training on your inputs, defined retention — Tier 2 is
+ordinary work and Tier 3 becomes possible *in redacted form* (next lesson). Tier 4 stays
+stop-and-ask under every agreement, because the constraint isn''t the vendor''s terms — it''s
+your own obligations. If you don''t know which agreement covers the tool in front of you,
+that''s not a reason to guess; it''s the single most useful question you can ask IT this week,
+and M8 gives you the follow-ups.
+
+**And the test that catches what tiering misses: could this run be shown to the person it
+concerns?** Imagine the employee in your Tier 3 document reading the transcript — your
+prompt, their information, the output. If your reaction is discomfort, the discomfort is
+information: something traveled that shouldn''t have, or the task itself is one M7 wants a
+harder look at. The test works because it swaps an abstract compliance question for a
+concrete loyalty one — *am I handling this person''s information the way I''d defend to their
+face?* — and People leaders'' instincts on that question are already well trained.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m4-try-80', 'ai101-m4', 80, 'try_this', 'stable', '### Try this — 3 minutes
+Tier the last five things you (or your team) put into an AI tool — or would have. Fast,
+gut-level, honest. Most people find four easy calls and one that makes them stop. The
+stopper is the point: write one sentence on *why* it''s hard to place, and you''ve found
+either a redaction candidate (Lesson 4) or a question for M7.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m4-exercise-embed-85', 'ai101-m4', 85, 'exercise', 'stable', '{"type": "sorting", "title": "Calibration exercise \u2014 Tier the artifacts", "intro": "Ten minutes, twelve artifacts from a People leader''s week. Sort each into the tier it belongs to. Commit every card before the reveal \u2014 the pattern in your misses matters more than the count.\n\nAssume nothing has been redacted yet: tier each artifact as it sits."}', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m4-lesson-4-redaction-that-isn-t-theater-90', 'ai101-m4', 90, 'prose', 'stable', '## Lesson 4 · Redaction that isn''t theater
+
+Deleting names and calling a document safe is the most common redaction mistake in People
+work, and it fails for a reason worth understanding: **identity lives in combinations, not
+names.** "A senior engineer in the Denver office who raised concerns after the March reorg"
+contains zero names and identifies one person to everyone who works there. Re-identification
+is a *join* — each detail narrows the set of people it could be, and three or four details
+in, the set has one member.
+
+Real redaction is three moves, applied with the reader in mind — not a hypothetical stranger,
+but the most-informed insider who could plausibly see the output:
+
+**Generalize the quasi-identifiers.** Role, location, tenure, dates, team names — replace
+each with the least specific version that still serves the task. "Senior engineer, Denver,
+post-reorg" becomes "an experienced employee in a technical function." If the task genuinely
+needs the specific — say, you''re analyzing *Denver''s* results — that''s a sign the task wants
+a more controlled setting than a chat window, not a sign to leave the detail in.
+
+**Break the joins.** One distinctive detail is a flag; the *combination* is the identifier.
+Ask which details, together, shrink the candidate set to one, and cut or blur until the set
+is comfortably large. Distinctive phrasing counts: a verbatim quote with an unusual turn of
+phrase identifies its author to colleagues as surely as a name — paraphrase it.
+
+**Then run the shown-to-the-person test on what''s left.** If the redacted version would still
+make its subject flinch — because the *situation* is identifiable even with every detail
+blurred — the document wasn''t over-sensitive; the task was. Some analyses shouldn''t run on a
+small population at all, in any tool. Finding that out during redaction is the discipline
+working, not failing.
+
+Two habits complete the practice. **Redact before the material enters the tool**, not in the
+prompt ("ignore the names" is an instruction to a system that has already received the
+names). And **say what you removed** — a one-line note on the redacted version ("names,
+office, dates generalized; two quotes paraphrased") turns your judgment into something a
+colleague can review and M8 can call accountable. Silent redaction protects the data;
+*narrated* redaction protects you.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m4-key-takeaways-100', 'ai101-m4', 100, 'takeaways', 'stable', '## Key takeaways
+
+- **Attach the source or expect invention.** Describing your organization''s documents
+  produces fluent averages of other people''s; supplying them produces checkable output.
+  The gap never closes on its own.
+- **Long documents degrade predictably:** the lossy middle (fits ≠ attends — probe for
+  asymmetric thinness) and silent truncation (long threads drop their oldest material without
+  telling you). Section-by-section requests and fresh conversations are cheap insurance.
+- **Four tiers, run in seconds:** public / internal / person-identifying / protected. The
+  agreement determines what each permits **[V]** — and if you don''t know which agreement
+  covers your tool, that''s this week''s most useful question for IT.
+- **Tier 4 is stop, not caution** — medical, protected-class, investigation, individual comp.
+  The constraint is your obligations, not the vendor''s terms, so no agreement upgrade
+  unlocks it.
+- **The shown-to-the-person test catches what tiers miss:** could this run — prompt, data,
+  output — be shown to the person it concerns? Discomfort is information.
+- **Identity lives in combinations, not names.** Real redaction generalizes
+  quasi-identifiers, breaks the joins, paraphrases distinctive quotes — before the material
+  enters the tool — and narrates what it removed so the judgment is reviewable.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m4-activity-link-105', 'ai101-m4', 105, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 The Redaction Pass", "blurb": "One real document you''d want AI''s help with: tier it, produce the version you''d actually paste, map what you removed and why \u2014 and score your prediction of how much survives. Graded against a four-dimension rubric with per-dimension feedback. Free unlimited resubmission.", "estMinutes": "20\u201325"}', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m4-sources-and-attribution-110', 'ai101-m4', 110, 'prose', 'stable', '## Sources and attribution
+
+This module draws on the following material:
+
+- **The AI Fluency Framework** (Rick Dakan & Joseph Feller, in collaboration with Anthropic,
+  CC BY-NC-SA 4.0) — the supply-don''t-describe framing extends its treatment of context as
+  the lever on output quality.
+- Provider documentation on data handling, retention, and training-use defaults across
+  consumer and enterprise tiers — verify against your vendor''s current published terms and
+  your own agreement; both move. **[V]**
+- The four-tier classification, the shown-to-the-person test, and the three-move redaction
+  discipline are original to this course, developed for the People-leader context. The
+  re-identification-by-combination principle reflects the long-standing privacy research
+  consensus on quasi-identifiers.
+- Regulatory treatment of employee data varies by jurisdiction and moves quickly — this
+  module teaches judgment, not compliance advice. *Verify specifics with counsel.* **[V]**', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m4-activity-applied-activity-the-redaction-pass-10', 'ai101-m4-activity', 10, 'prose', 'stable', '## Applied activity — "The Redaction Pass"
+
+**Time:** 20–25 minutes · **Submit:** the before/after redaction map plus a 250–350 word
+reflection · **Graded against the rubric below.** Score doesn''t matter. Doing the work is
+where the learning lands. **Do not paste the original document into this submission** — the
+map describes; it doesn''t reproduce.
+
+Take one real document you''d genuinely like AI''s help with — interview notes, survey
+verbatims, an ER summary, exit-interview material. Something Tier 3: honestly sensitive,
+honestly useful.
+
+**Step 1 — Tier it (3 min).** Name the document type and its tier. If parts land in
+different tiers — a mostly-internal doc with one person-identifying section — map the parts.
+Anything Tier 4 inside it: mark it *out of scope for any chat tool* and proceed with the
+rest. That marking is itself a graded judgment.
+
+**Step 2 — The redaction pass (10 min).** Produce the version you''d actually paste, using
+the three moves: generalize quasi-identifiers, break the joins, paraphrase distinctive
+quotes. Work against the most-informed insider, not a stranger.
+
+**Step 3 — The map (5 min).** List what you changed, category by category — not the
+sensitive originals, the *categories*: "4 names → roles · 2 offices → ''a regional office'' ·
+3 dates → quarters · 1 distinctive quote paraphrased · accommodation mention removed
+entirely (Tier 4)." Then the one-line narration you''d attach for a colleague.
+
+**Step 4 — Score the prediction (2 min).** Estimate what percentage of the original
+survived. Compare with your opening prediction: direction of the miss, and whether what you
+*lost* was what you expected to lose.
+
+Then the reflection: which move did the real work; what the shown-to-the-person test flagged,
+if anything; and the sentence you''d now say to a teammate who asks "can I paste exit
+interviews?"', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m4-micro-core', 'ai101-m4-micro', 10, 'prose', 'stable', '## Module 4 in two minutes
+
+**Attach the source or expect invention.** The model has never seen your organization''s documents; describe them and it generates fluent averages of other people''s. Supplying the material improves the output *and* makes it checkable — every claim can now be verified against something you hold.
+
+**The paste question has a real answer: a tier and an agreement.** Public / internal / person-identifying / protected, run in seconds. What the first three permit depends on your tool''s agreement; Tier 4 — medical, protected-class, investigations, individual comp — is *stop* under every agreement, because the obligations attach to the data itself. The test that catches what tiers miss: **could this run be shown to the person it concerns?** Discomfort is information.
+
+**Redaction that isn''t theater:** identity lives in combinations, not names. ''A senior engineer in the Denver office who raised concerns after the reorg'' names nobody and identifies one person. Generalize the quasi-identifiers, break the joins, paraphrase distinctive quotes — before the material enters the tool — and narrate what you removed so the judgment is reviewable.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m4-micro-rule', 'ai101-m4-micro', 20, 'callout', 'stable', '### The rule to carry
+
+Tier it, redact to the most-informed insider, run the shown-to-the-person test — and when unsure, round the tier up. If the redacted version would still make its subject flinch, the task is the problem, not the document.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m4-micro-close', 'ai101-m4-micro', 30, 'prose', 'stable', '**The full module adds** the long-document failure modes (the lossy middle and silent truncation, with the working habits that defend against both), the twelve-artifact tier sort, and the Redaction Pass — the full discipline run on a real document of yours, scored against your prediction of how much survives.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai101-m4-sorting', 'ai101-m4', 'sorting', '{"reviewedAt":"2026-08-11","buckets":[{"id":"public","label":"Tier 1 · Public","hint":"Already out there","rank":0,"pct":5},{"id":"internal","label":"Tier 2 · Internal","hint":"Org-sensitive, not person-sensitive","rank":1,"pct":35},{"id":"person","label":"Tier 3 · Person-identifying","hint":"Traceable to someone","rank":2,"pct":70},{"id":"protected","label":"Tier 4 · Protected","hint":"Stop — counsel-blessed systems only","rank":3,"pct":95}],"tasks":[{"id":"t1","text":"The job posting for an open Marketing Manager role, as it appears on your careers page","key":"public","reasoning":"Published and intended to be. Pasting it creates no exposure that hitting the careers page doesn''t."},{"id":"t2","text":"A draft of the new hybrid-work policy, two weeks before announcement","key":"internal","reasoning":"Organizationally sensitive — you wouldn''t want it leaked — but about rules, not people. Classic Tier 2: sanitized org material, defensible under a proper agreement."},{"id":"t3","text":"Interview notes on a named finalist, including your panel''s concerns about their management style","key":"person","reasoning":"Named person plus evaluative judgment — Tier 3''s center. It can travel only in redacted form, and the evaluative content is exactly what redaction has to be most careful with."},{"id":"t4","text":"An employee''s request for a reduced schedule, which mentions their ongoing chemotherapy","key":"protected","reasoning":"Medical information. Not ''redact carefully'' — Tier 4: it moves only inside systems counsel has blessed, under obligations that attach to the data itself. No agreement upgrade changes this."},{"id":"t5","text":"Aggregate engagement scores by division — no division smaller than 150 people","key":"internal","reasoning":"Aggregated past individual traceability, so it''s org data, not person data. The division size is what makes this call — the same scores for a 6-person team would jump a tier."},{"id":"t6","text":"Survey verbatims with names stripped — but one comment complains about ''the only manager in the Portland office''","key":"person","reasoning":"Names stripped is not de-identified: ''the only manager in the Portland office'' is a name wearing a costume. Identity lives in combinations — this is the mis-tier the module most wants you to catch.","also":["protected"]},{"id":"t7","text":"Your team''s standard offer letter template, all merge fields blank","key":"internal","reasoning":"Template language with no person in it. Internal rather than public only because you haven''t published it — the content itself is boilerplate."},{"id":"t8","text":"Notes from an active harassment investigation, witnesses anonymized as ''Witness A'' and ''Witness B''","key":"protected","reasoning":"Active investigation material is Tier 4 regardless of anonymization quality — legal hold and process obligations attach to the matter, not to the names. The anonymization is irrelevant to the tier."},{"id":"t9","text":"A spreadsheet of individual salaries you''re using to check a proposed band structure","key":"protected","reasoning":"Individual-level compensation is Tier 4. The band *structure* — mins, mids, maxes with no individuals — would be Tier 2; the individual rows are what lock the tier."},{"id":"t10","text":"Your published DEI commitment statement from the company''s annual report","key":"public","reasoning":"In the annual report — as public as it gets. That it touches a sensitive *topic* doesn''t change the tier of an already-published document."},{"id":"t11","text":"A performance improvement plan for a named employee, drafted but not yet delivered","key":"person","reasoning":"Named individual plus evaluative judgment with real consequences. Tier 3 at minimum — and if it intersects an accommodation or investigation, it climbs. Drafting help is possible; it requires the module''s full redaction discipline.","also":["protected"]},{"id":"t12","text":"Process documentation for how your team runs quarterly promotion calibrations","key":"internal","reasoning":"How the process works, with nobody in it — Tier 2. The moment a real calibration''s *contents* enter (names, ratings, decisions), you''re in Tier 3–4 territory; the process doc itself is org material."}],"pattern":"Identity lives in combinations, and obligations attach to data — the two ideas that decide every hard card.","postscript":"The easy cards sort themselves by asking ''is a person in it?'' The hard ones — the Portland comment, the anonymized investigation, the salary spreadsheet — are hard because they hide the second question: what obligations already attach to this material, whatever you strip from it? Placed too low is the miss that costs you (exposure); placed too high mostly costs convenience — which is why, when unsure, you round up. The applied activity now runs this judgment on a document of yours that actually matters."}', '2026-08-11');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai101-m4-rubric', 'ai101-m4', 'rubric', '{"promptVersion":"ai101-m4-redaction-pass-v1","moduleId":"ai101-m4","minWords":250,"maxWords":350,"submitLabel":"Your redaction map and reflection","intro":"Submit the before/after map — categories of what changed, never the sensitive originals — plus the 250–350 word reflection. Do not paste the original document. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for an AI fluency course for People leaders (AI 101, The Foundation). Module 4 applied activity, ''The Redaction Pass'': one real Tier-3 document from their own work, tiered (with any Tier-4 content marked out of scope), redacted using the three moves (generalize quasi-identifiers, break re-identifying combinations, paraphrase distinctive quotes), mapped by category of change with a one-line narration, and scored against their opening prediction of what percentage survives. IMPORTANT: the submission should describe changes by category, not reproduce sensitive originals — a submission that pastes identifiable source material has missed the module''s point, and the feedback must say so plainly (grade what''s there, but flag it as the primary issue). A numeric prediction may have been captured by the module''s opening calibration prompt; grade the calibration dimension on whether the prediction is stated and honestly compared, never on its accuracy.","opening":[{"key":"survives","label":"Predicted — % of the document that survives redaction","hint":"After removing what shouldn''t travel, how much of the original text is left?","placeholder":"e.g. 60","min":0,"max":100}],"calibration":[{"key":"survivesActual","label":"Measured — % that actually survived","hint":"Rough word-count ratio is fine. Was what you lost what you expected to lose?","placeholder":"e.g. 85","min":0,"max":100,"actualFor":"survives"}],"dimensions":[{"name":"Tiering judgment","criteria":"The document is real, its tier named with reasoning, mixed-tier parts mapped separately, and any Tier-4 content explicitly marked out of scope rather than redacted-and-included. A defended borderline call outscores an easy document."},{"name":"The three moves, actually applied","criteria":"Quasi-identifiers generalized (role, location, dates, tenure — not just names), at least one re-identifying combination found and broken, distinctive quotes paraphrased. Working against the most-informed insider, not a stranger. Name-deletion-only is the failure mode this dimension exists to catch."},{"name":"The map narrates","criteria":"Changes listed by category with counts, no sensitive originals reproduced, and a one-line narration a colleague could review the judgment from. Silent or vague redaction (''cleaned it up'') scores low."},{"name":"The test and the calibration","criteria":"The shown-to-the-person test is run on the result and its verdict stated honestly — including ''the task itself is the problem'' if that''s where it landed. Prediction compared, miss direction named, and whether what was lost matched what they expected to lose."}]}', '2026-08-11');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai101-m4-knowledge_check', 'ai101-m4', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-11","questions":[{"id":"q1","prompt":"Asked to \"summarize our parental leave policy\" with no document attached, the model produces a confident, detailed summary. What is that summary?","options":["A retrieval of your policy from the model''s training data, current as of the cutoff","A plausible average of the many parental leave policies in the training data — invented specifics, fluent delivery","A refusal in disguise — models won''t summarize documents they haven''t seen","A summary of the most common policy among companies your size"],"correctIndex":1,"explanation":"The model has never seen your policy (M1), so it generates *a* policy-shaped answer from patterns — accrual rules you don''t have, delivered confidently. It won''t decline (C); it fills the gap silently. A and D describe retrieval systems, which this isn''t."},{"id":"q2","prompt":"Beyond better output, what does supplying the source document change about the *checkability* of the result?","options":["Nothing — output quality and checkability are the same property","Supplied documents make the model cite its sources automatically","Every claim in the output can now be verified against material you hold — invention becomes catchable","Checkability only improves under an enterprise agreement"],"correctIndex":2,"explanation":"With the source in hand, \"unused days lapse in March\" is a checkable claim instead of a plausible one — the conversion M6''s verification habits depend on. B overstates what attachment does **[V]**; D confuses the data question with the quality question."},{"id":"q3","prompt":"A summary of your 60-page handbook is detailed on early sections, detailed on the appendix, and oddly vague about the grievance procedure in the middle — all in equally confident prose. What''s the most likely cause?","options":["The grievance procedure was written after the model''s knowledge cutoff","Attention degrades for material in the middle of a very long context — it fit, but it didn''t attend","The model''s safety filters suppressed the grievance content","The handbook exceeded the window, so the middle was dropped entirely"],"correctIndex":1,"explanation":"Asymmetric thinness with uniform confidence is the lossy middle''s signature. D is a real failure mode but truncation drops the *oldest* material in an overgrown conversation, not the middle of one attachment; A confuses cutoff with context; C isn''t this."},{"id":"q4","prompt":"Which artifact is most likely to be *mis*-tiered as safely internal when it''s actually person-identifying?","options":["The published careers-page description of your hybrid work policy","A template offer letter with all fields blank","Aggregate survey scores by 200-person division","Survey verbatims with names stripped but role, office, and a distinctive complaint intact"],"correctIndex":3,"explanation":"Identity lives in combinations: role + office + recognizable grievance identifies the author to any informed insider, names or no names. A is public, B is internal template language, C is aggregated past the point of individual traceability — the classic safe versions of each tier."},{"id":"q5","prompt":"What makes Tier 4 (medical, protected-class, investigation, individual comp) different in kind from Tier 3 — not just more sensitive?","options":["Tier 4 documents are longer and exceed context windows","The constraint comes from your own legal obligations, so no vendor agreement upgrade unlocks a chat window for it","Tier 4 material confuses models and produces lower-quality output","Nothing — Tier 4 is Tier 3 with more thorough redaction required"],"correctIndex":1,"explanation":"Tiers 1–3 are governed by what your tool''s agreement permits **[V]**; Tier 4 is governed by obligations that attach to the data itself — which is why the answer stays \"stop and ask\" under every agreement, and why it moves only in systems counsel has explicitly blessed. D is the tempting wrong answer: redaction quality isn''t the issue."},{"id":"q6","prompt":"The point of the shown-to-the-person test — could this run be shown to the person it concerns? — is that it:","options":["Replaces the tier system with a single easier question","Converts an abstract compliance question into a concrete one your existing instincts can actually answer — and catches tasks the tiers technically permit","Is a legal requirement under current privacy regulation","Confirms the model handled the data securely on the vendor''s side"],"correctIndex":1,"explanation":"It complements the tiers rather than replacing them (A): a properly redacted run can still fail it when the *task* is the problem — surfacing exactly the cases M7 wants. C overstates its status **[V]**; D tests something no prompt-side judgment can see."},{"id":"q7","prompt":"Why does \"ignore the names and any identifying details\" *in the prompt* fail as redaction?","options":["Models can''t follow negative instructions of any kind","The instruction consumes context budget better spent on the task","The identifying material has already entered the tool — retention and exposure happened at paste time, whatever the output ignores","It doesn''t fail — prompt-level redaction is equivalent to editing the document first"],"correctIndex":2,"explanation":"Redaction is about what *enters* the system, not what the output mentions. An instruction to ignore data is received by a system that now holds the data. Redact before the material goes in — that''s why it''s a document-editing pass, not a prompting technique."},{"id":"q8","prompt":"Your redacted ER summary — every name, office, and date generalized — would still make its subject flinch, because anyone close to the situation would recognize it. What does the discipline say?","options":["The redaction failed on technique — generalize harder until the flinch goes away","Flinching isn''t the test; if the tiers and agreement permit it, proceed","Ship it but add a note disclosing that redaction was performed","The task, not the document, is the problem — some analyses shouldn''t run on a small population in any tool, and finding that out now is the discipline working"],"correctIndex":3,"explanation":"When the situation itself is identifiable at any blur level, no technique fixes it — the shown-to-the-person test has caught a task that needs a more controlled setting or shouldn''t run at all (M7''s territory). A mistakes a task problem for a technique problem; B inverts the test''s whole purpose; C narrates a decision that shouldn''t ship."}]}', '2026-08-11');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m5-calibration-prompt-before-you-start-10', 'ai101-m5', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One prediction, thirty seconds. You''ll score it during the applied activity.*
+
+At the end of this module you''ll run the same real task twice: once with the kind of one-line
+prompt most people type, once with a proper brief. You''ll compare the outputs side by side.
+
+**How much better do you expect the briefed version to be, on a 1–10 scale?** Where 1 means
+"barely different" and 10 means "unrecognizably better — the thin version was unusable."
+Write your number down.
+
+People who''ve never briefed properly tend to guess 3 or 4 — the tool already seems pretty
+good, how much better could it get? The gap surprises in a specific way: it''s not that the
+briefed output is more polished. It''s that it''s *yours* — the thin prompt''s output could have
+been written for any company on earth.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m5-module-brief-20', 'ai101-m5', 20, 'prose', 'stable', '## Module brief
+
+You know from M1 why the model needs material: it has never seen your organization, and what
+you don''t supply, it invents. M4 taught you to supply documents safely. This module is about
+the other half of what the model needs — and it starts with the mental model that quietly
+ruins most people''s results.
+
+Most people prompt like they search. Short query, sparse context, hit enter, judge the
+result: *"write interview questions for a program manager role."* Against a search engine,
+that works — the query just has to *match* something that exists. Against a model that
+*generates*, it fails in a specific way: every detail you didn''t specify gets filled from the
+statistical average of everything the model has seen. Level, competencies, your interview
+philosophy, what good answers sound like — all averaged. The output isn''t wrong. It''s
+*generic*, which for your purposes is the same thing wearing better clothes.
+
+The fix is a different mental model: **prompting is briefing a capable stranger.** Specifically:
+a talented contractor on their first day — sharp, widely read, infinitely willing, and
+knowing absolutely nothing about your organization, your standards, or what happened in the
+meeting before this one. You already know how to brief such a person; you''ve onboarded
+dozens. You''d never say "write interview questions" and walk away. You''d say who''s hiring,
+for what, what matters, what to avoid, what the output should look like — and you''d expect
+their second draft to beat their first, because your feedback is part of the process.
+
+That''s the whole module. Four parts of a brief, the iteration habit that turns an okay first
+draft into your draft, and the single strongest lever — examples — plus where to get them
+without violating M4. None of it is technique for its own sake: every piece maps to
+something the mechanism in M1 predicts.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m5-learning-objectives-30', 'ai101-m5', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Explain why "briefing a capable stranger" produces good prompts where "typing a search
+   query" produces generic ones — in M1''s vocabulary, not as folklore.
+2. Build a brief from the four parts — role, task, context, format — and say what each part
+   buys you mechanically.
+3. Treat the first output as a draft of the *brief*: diagnose what''s off, and steer with the
+   four moves that reliably work.
+4. Use examples as the strongest single lever, sourced from your own work without violating
+   M4''s tiers.
+5. Recognize when a brief has hit diminishing returns — and when the task itself was the
+   wrong delegation (M1''s heuristic, closing the loop).', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m5-lesson-1-briefing-a-capable-stranger-40', 'ai101-m5', 40, 'prose', 'stable', '## Lesson 1 · Briefing a capable stranger
+
+Watch the two mental models produce two different prompts for the same Monday task.
+
+*The search query:* "write a job description for a senior data analyst."
+
+*The brief:* "You''re helping a People team at a 400-person healthcare company write a job
+description. The role: senior data analyst on the People Analytics team, reporting to me —
+first dedicated analytics hire, so they''ll build the function, not inherit it. We compete
+for talent against tech companies but can''t match their comp; we win on mission and scope.
+Tone: direct and warm, no corporate filler — here are two recent postings of ours that got
+the tone right [attached]. Draft the posting: 400–500 words, structured as hook, role,
+must-haves (keep to five), nice-to-haves, comp range $95–115k."
+
+Read what the second prompt is doing through M1''s mechanism. Every sentence *pins* something
+that would otherwise float to the statistical average: the company size and industry pin the
+register; "first hire, builds the function" pins the seniority framing; "can''t match tech
+comp, win on mission" pins the persuasion strategy; the attached postings pin the voice; the
+structure list pins the shape. The model generates one fragment at a time from everything in
+view — so everything you put in view is a constraint on what gets generated, and everything
+you leave out is a dimension where you''ve delegated the choice to the training data''s
+average. A brief isn''t politeness. It''s *narrowing the prediction*.
+
+One reframe makes the discipline stick: **the brief is where your expertise enters the
+system.** People worry AI will make their skills irrelevant; the mechanism says the opposite.
+Two people with the same tool and the same task get wildly different results, and the
+difference is exactly the judgment in their briefs — knowing that the comp positioning
+matters, that five must-haves is the ceiling before candidates self-deselect, that your org''s
+voice is direct-and-warm. The tool amplifies the expertise you articulate. It can''t amplify
+what you didn''t say.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m5-try-50', 'ai101-m5', 50, 'try_this', 'stable', '### Try this — 2 minutes
+Take the last prompt you actually typed into an AI tool. Rewrite the *first sentence* as
+you''d open a briefing to a first-day contractor: who you are, what this is for. Just that
+one sentence. Notice how much it already pins.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m5-lesson-2-the-four-parts-60', 'ai101-m5', 60, 'prose', 'stable', '## Lesson 2 · The four parts
+
+A workable brief has four parts. You won''t always need all four at full strength — but when
+an output disappoints, one of these is almost always the missing part, and knowing which is
+the diagnostic skill.
+
+**Role.** Who the model should be, and who it''s working for: "You''re an experienced HR
+communications writer helping a People team at a manufacturing company." Role pins register,
+vocabulary, and level of assumed knowledge — the difference between output aimed at HR
+professionals and output aimed at everyone.
+
+**Task.** The verb and the deliverable, sharply: not "help me with our engagement survey"
+but "draft the five open-ended questions for the manager-effectiveness section." One task
+per ask — M1''s tug-of-war applies: pile four jobs into one prompt and the middle jobs get
+half attention. (When work genuinely has multiple stages, run them as stages — 201 M3 makes
+a discipline of it.)
+
+**Context.** The part People leaders skip most, because it''s the part that feels obvious *to
+you* — and nothing is obvious to a system that has never seen your organization. What''s the
+situation, who''s the audience, what constraints bind, what happened already, what does
+success look like? Context is also where M4''s material goes: the attached policy, the
+redacted examples, the survey verbatims. Rule of thumb: if a first-day contractor would need
+to know it, it goes in the brief. If they''d need to know it and you *can''t* share it (Tier
+3–4 unredacted), that''s not a prompting problem — handle it with M4''s discipline before it
+enters the window.
+
+**Format.** What the output should literally look like: length, structure, headings, table
+or prose, tone reference. Format is the cheapest quality win available — "500 words, three
+sections, plain language, no bullet-point walls" costs you ten seconds and saves an entire
+revision round, because format is otherwise decided by the training data''s average, and the
+training data''s average loves bullet-point walls.
+
+Two calibration notes. First, scale the brief to the stakes: a two-line prompt is *correct*
+for "make this email friendlier" — the four parts are a diagnostic checklist, not a form to
+fill. Second, when you find yourself re-typing the same role and context every morning,
+you''ve discovered the tax that 201 M2 eliminates with a briefing library. Feel the tax for
+now; it''s motivation.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m5-lesson-3-iteration-is-the-skill-70', 'ai101-m5', 70, 'prose', 'stable', '## Lesson 3 · Iteration is the skill
+
+Here is the sentence that separates fluent users from frustrated ones: **the first output is
+a draft of the brief, not the work.** When it disappoints, the frustrated user concludes the
+tool is overhyped and quits; the fluent user reads the output *as information about what the
+brief failed to pin* and steers. Fluent users iterate two or three times as a matter of
+course. It''s not remedial. It *is* the workflow.
+
+Four steering moves cover most situations:
+
+**Name what''s wrong, specifically.** "Make it better" re-rolls the dice. "The tone is too
+formal for our culture, and must-have #3 would exclude the internal candidates we want" —
+that''s new constraint, and the mechanism gives you a visibly different next draft. If you
+can''t name what''s wrong, that''s your signal the *task* was under-specified: what would good
+look like? Answer that, then say it.
+
+**Supply what''s missing.** When output goes generic in a specific area, that area needed
+material: attach the document, paste the (M4-safe) example, state the fact it invented.
+
+**Constrain the format.** Structure drifting, length ballooning, bullet-walls returning —
+re-pin: "keep to 400 words, prose, no bullets."
+
+**Ask for variants.** When you can''t articulate what''s off: "give me three versions —
+formal, direct, warm." Recognition is easier than specification; picking beats describing,
+and the one you pick becomes an example (next lesson) for everything after.
+
+Two boundaries keep iteration honest. **Know when to stop:** each round should produce a
+visibly better draft; two rounds of sideways movement mean stop steering and start editing —
+you''re the senior editor, and the last 10% is usually your judgment, which was never
+delegable. And **know when it was the wrong delegation:** if iteration keeps failing on the
+same dimension — the output can''t get *your org* right no matter what you say — check the
+task against M1''s heuristic. Needs organizational knowledge you can''t supply (Tier 4, or
+tacit)? Judgment call about a person? No amount of briefing fixes a delegation error.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m5-try-80', 'ai101-m5', 80, 'try_this', 'stable', '### Try this — 3 minutes
+Find a disappointing AI output from your recent history (everyone has one). Diagnose it
+against the four parts: which was missing? Write the one steering message you''d send now —
+name what''s wrong, supply what''s missing, or re-pin the format. If you can''t write it,
+notice why: was it the brief, or was it the delegation?', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m5-lesson-4-examples-the-strongest-lever-90', 'ai101-m5', 90, 'prose', 'stable', '## Lesson 4 · Examples — the strongest lever
+
+Everything in Lessons 1–3 describes what you want. An example *shows* it — and for reasons
+straight out of M1, showing beats describing every time. Describing your tone ("direct and
+warm, professional but not stiff") makes the model interpret adjectives, and adjectives are
+generic — a thousand companies'' "direct and warm" averaged together. Attaching two
+announcements that *sound like you* makes the model continue a demonstrated pattern.
+Patterns pin what adjectives wave at: sentence length, greeting conventions, how much warmth,
+where the caveats go, what never gets said.
+
+The practice is almost embarrassingly simple: **one or two good examples of the output you
+want, attached to the brief.** "Draft the promotion announcement — here are two past ones
+that got it right" outperforms three paragraphs of tone description, every time, and takes
+less effort to assemble. Three refinements make it work harder:
+
+**Curate for the property you want copied.** The example teaches everything it contains —
+structure, length, tone, *and* flaws. Pick examples excellent in the dimension that matters,
+and say which dimension: "match the tone of these, not the length."
+
+**Show the transformation, not just the destination.** For recurring conversions — messy
+notes → structured debrief — one before/after pair teaches the mapping better than any
+instruction list. This is the seed of the reusable workflow 201 builds.
+
+**Source them M4-safely.** Examples are supplied material; the tiers apply. Template
+language and published docs: clean. A past PIP as a format example: Tier 3 — redact it with
+Lesson 4''s discipline (the *format* is what you want copied; the person in it is exactly
+what shouldn''t travel). Building a small library of sanitized, excellent examples — your
+best JD, announcement, debrief, scrubbed once and reused forever — is 201 M2''s briefing
+library arriving early. Start the folder this week.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m5-exercise-embed-95', 'ai101-m5', 95, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m5-key-takeaways-100', 'ai101-m5', 100, 'takeaways', 'stable', '## Key takeaways
+
+- **Brief a capable stranger; don''t type a search query.** A talented first-day contractor:
+  infinitely willing, completely ignorant of your organization. You already know how to
+  brief that person.
+- **Every unpinned detail floats to the training data''s average.** A brief works by
+  narrowing prediction — role pins register, task pins the deliverable, context pins your
+  reality, format pins the shape. The part People leaders skip is context, because it''s
+  obvious — to them.
+- **The brief is where your expertise enters the system.** Same tool, same task, different
+  results — the difference is the judgment articulated in the brief. The tool amplifies
+  what you say, not what you know.
+- **The first output is a draft of the brief.** Steer: name what''s wrong, supply what''s
+  missing, constrain the format, ask for variants. Two sideways rounds → stop steering,
+  start editing.
+- **Examples beat descriptions.** One or two curated, M4-safe examples pin what adjectives
+  can''t. Say which property to copy. Start the sanitized-examples folder now — 201 turns it
+  into a library.
+- **Some failures are delegation errors, not briefing errors.** If iteration keeps missing
+  on organizational knowledge you can''t supply — or the task judges a person — no brief
+  fixes it. That''s the heuristic, still in charge.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m5-activity-link-105', 'ai101-m5', 105, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 Brief It Twice", "blurb": "One real task, run twice: the thin one-liner most people type, then the full four-part brief with one steering round \u2014 outputs compared side by side against the improvement you predicted. Graded against a four-dimension rubric with per-dimension feedback. Free unlimited resubmission.", "estMinutes": "20\u201325"}', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m5-sources-and-attribution-110', 'ai101-m5', 110, 'prose', 'stable', '## Sources and attribution
+
+This module draws on the following material:
+
+- **The AI Fluency Framework** (Rick Dakan & Joseph Feller, in collaboration with Anthropic,
+  CC BY-NC-SA 4.0) — the briefing-over-querying stance and the treatment of iteration as
+  core practice adapt its "Delegation" and "Description" competencies for the People-leader
+  context.
+- **Anthropic''s published prompting guidance** — the role/task/context/format decomposition
+  is consistent with provider best-practice documentation, which evolves; check current
+  guidance for tool-specific features. **[V]**
+- The capable-stranger framing, the four steering moves, and the M4-safe example-sourcing
+  discipline are original to this course.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m5-activity-applied-activity-brief-it-twice-10', 'ai101-m5-activity', 10, 'prose', 'stable', '## Applied activity — "Brief It Twice"
+
+**Time:** 20–25 minutes · **Submit:** both prompts, both outputs (or faithful excerpts),
+and a 250–350 word comparison · **Graded against the rubric below.** Score doesn''t matter.
+Doing the work is where the learning lands.
+
+Pick one real writing or transformation task from your actual week — a JD, an announcement,
+turning notes into a debrief, a policy summary for managers. M4 rules apply: redact anything
+Tier 3 before it enters the window.
+
+**Step 1 — The thin version (3 min).** Prompt the task the way most people would: one or two
+lines, no context. Save the output. Don''t soften the thinness to make the comparison kinder —
+the honest baseline is the experiment.
+
+**Step 2 — The brief (10 min).** Fresh conversation **[V]**. Build the full four-part brief:
+role, task, context (including at least one attached or pasted piece of M4-safe material —
+an example counts), format. Save the output.
+
+**Step 3 — One steering round (5 min).** Whatever the briefed draft got most wrong, steer it
+with one of the four moves. Save the result. (If it got nothing wrong, say so — and steer
+for a variant anyway to see what moves.)
+
+**Step 4 — Score the prediction (2 min).** Side by side: thin vs. final. Your 1–10
+improvement score, versus what you predicted at the top of the module. Direction of miss,
+one-sentence theory.
+
+Then the comparison: which of the four parts did the most work (point to specific
+differences in the outputs), what the steering round changed, and the one-sentence briefing
+rule you''re taking into next week.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m5-micro-core', 'ai101-m5-micro', 10, 'prose', 'stable', '## Module 5 in two minutes
+
+**Prompting is briefing a capable stranger** — a talented contractor on their first day: sharp, willing, and knowing nothing about your organization. Most people prompt like they search, and every detail a search-style prompt leaves unspecified gets filled from the training data''s average. That''s why thin prompts produce generic output: not wrong, just *anyone''s*.
+
+**Four parts pin the prediction.** Role (register), task (one deliverable, sharply), context (your reality — the part everyone skips because it''s obvious *to them*), format (the cheapest quality win there is). Scale to stakes: two lines is correct for small asks.
+
+**The first output is a draft of the brief, not the work.** Steer: name what''s wrong specifically, supply what''s missing, constrain the format, or ask for variants. Two sideways rounds means stop steering and start editing. And **examples beat descriptions** — one or two curated, M4-safe examples pin what adjectives can''t. The brief is where your expertise enters the system; the tool amplifies what you articulate, not what you know.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m5-micro-rule', 'ai101-m5-micro', 20, 'callout', 'stable', '### The rule to carry
+
+Before hitting enter, ask: what would a first-day contractor still have to invent from this? Everything on that list either goes in the brief, gets an example — or, if it can''t travel (M4) or judges a person (M1), stays yours.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m5-micro-close', 'ai101-m5-micro', 30, 'prose', 'stable', '**The full module adds** the four-briefs exercise (spot the one that gets a usable first draft — and why role inflation feels like briefing but isn''t), the four steering moves in detail, M4-safe example sourcing, and Brief It Twice — the same real task run thin and briefed, scored against your prediction of the gap.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai101-m5-choice', 'ai101-m5', 'choice', '{"reviewedAt":"2026-08-11","title":"Four briefs, one task","intro":"*Five minutes. Commit before you look.*\n\nFour HRBPs at the same company need the same thing: an announcement to a 60-person department that its longtime director is leaving and an interim structure starts Monday. Below are their four actual prompts.\n\nOne of these briefs will produce a usable first draft — something its author would only need to edit lightly. The others each leave a load-bearing decision to the training data''s average. **Which brief gets a usable first draft?**","artifacts":[{"label":"Brief A","body":"\"Write an announcement that our director is leaving and we''ll have an interim structure. Make it professional but warm, and not too long.\""},{"label":"Brief B","body":"\"You''re helping an HR team write a sensitive internal announcement. Context: a 60-person product department; the director is leaving on good terms after 9 years; interim structure starts Monday (two team leads splitting coverage, org chart attached); people will worry about layoffs — there are none planned, and we can say so plainly. Audience: the department, some of whom are close to the director. Draft the announcement: 250–300 words, direct subject line, no corporate euphemisms — here''s last year''s VP transition note, which struck the right tone [attached].\""},{"label":"Brief C","body":"\"You are a world-class executive communications specialist with 20 years of experience in Fortune 500 change management, known for empathy, clarity, and strategic insight. Using best practices in organizational communication and change psychology, craft a compelling, emotionally intelligent announcement about a leadership transition. Structure it perfectly and make every word count.\""},{"label":"Brief D","body":"\"Draft a leaving announcement for our director. Important: get the tone exactly right for our culture, address the concerns people will actually have, and make sure the details about the transition are accurate. Don''t be generic about it.\""}],"options":[{"id":"a","label":"Brief A"},{"id":"b","label":"Brief B"},{"id":"c","label":"Brief C"},{"id":"d","label":"Brief D"}],"key":"b","reasoning":"**Brief B gets the usable draft.** Map it to the four parts: role (light but present), task (the announcement, one deliverable, with length), context (department size, good terms, the interim plan *attached*, the layoff worry named — with permission to address it plainly), format (250–300 words, direct subject line, no euphemisms, and a tone *example* attached). Every load-bearing decision is pinned. Note what it isn''t: it isn''t long-winded — it''s about eighty words plus two attachments. Briefing weight is specificity, not volume.\n\nThe others each fail one diagnostic. **A** is the search query: ''professional but warm, not too long'' leaves the actual decisions — is there a layoff fear? what''s the interim plan? — to the average, which will produce a lovely announcement for a fictional company. **C** is the seductive one: an elaborate *role* and zero *context* — the model is now a world-class specialist who has never heard of your department, your director, or Monday. Role inflation is the most common way people feel like they''re briefing without briefing. **D** *names* the right concerns — tone, real worries, accurate details — but supplies none of them: ''get the tone right'' without an example, ''accurate details'' without the details. Instructions to not be generic are not information; they''re hope.\n\nThe pattern: a brief works by what it *pins*, and you can audit any prompt — including C and D''s polished-sounding ones — by asking what a capable stranger would still have to invent."}', '2026-08-11');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai101-m5-rubric', 'ai101-m5', 'rubric', '{"promptVersion":"ai101-m5-brief-it-twice-v1","moduleId":"ai101-m5","minWords":250,"maxWords":350,"submitLabel":"Both prompts, both outputs, and your comparison","intro":"Paste the thin prompt, the full brief, the outputs (or faithful excerpts), the steering round, and the 250–350 word comparison. M4 rules apply to anything you include. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for an AI fluency course for People leaders (AI 101, The Foundation). Module 5 applied activity, ''Brief It Twice'': one real task from their week run twice — a deliberately thin one-line prompt, then a full four-part brief (role, task, context with at least one piece of attached or pasted M4-safe material, format) in a fresh conversation, plus one steering round using a named move, and a side-by-side comparison scored against the 1–10 improvement they predicted before the module. A numeric prediction may have been captured by the module''s opening calibration prompt; grade the calibration dimension on whether the prediction is stated and honestly compared, never on its accuracy. If included material appears unredacted and person-identifying, flag it plainly in feedback as an M4 violation.","opening":[{"key":"improvement","label":"Predicted — improvement of briefed over thin, 1–10","hint":"1 = barely different · 10 = the thin version was unusable by comparison.","placeholder":"e.g. 4","min":1,"max":10}],"calibration":[{"key":"improvementActual","label":"Observed — the improvement you actually saw, 1–10","hint":"Judged side by side. The direction of the miss is the lesson.","placeholder":"e.g. 8","min":1,"max":10,"actualFor":"improvement"}],"dimensions":[{"name":"The experiment is honest","criteria":"A real task from their actual week; the thin prompt genuinely thin (not sandbagged with hidden context, not strawmanned into gibberish); the brief built in a fresh conversation; both outputs shown or faithfully excerpted."},{"name":"The brief has all four parts","criteria":"Role, task, context, and format each present and doing work — with at least one piece of supplied material (an example counts), sourced M4-safely. Specificity over volume: a tight brief that pins the load-bearing decisions outscores a long one that describes them."},{"name":"The steering round","criteria":"One named move (name what''s wrong / supply what''s missing / constrain format / ask for variants) applied to the briefed draft''s actual weakest point, with the result shown and its effect described. ''It was already perfect'' is acceptable only with the variant-steer run as instructed."},{"name":"The comparison sees the mechanism","criteria":"Points to specific differences in the outputs and attributes them to specific parts of the brief — not just ''the second was better.'' Prediction stated, miss direction named, one-sentence theory, and a briefing rule concrete enough to use next week. ''Add more context'' scores low; ''attach a tone example for anything going to the whole department'' scores high."}]}', '2026-08-11');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai101-m5-knowledge_check', 'ai101-m5', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-11","questions":[{"id":"q1","prompt":"Why does \"write interview questions for a program manager role\" produce generic output, mechanically?","options":["The model can''t access current examples of interview questions","Every unspecified detail — level, competencies, philosophy — is filled from the statistical average of the training data","The prompt is too short for the model to process reliably","Interview design requires reasoning that models can''t perform"],"correctIndex":1,"explanation":"The model generates from everything in view; what''s not in view gets the average. The output isn''t wrong — it''s *anyone''s*, which is the failure. A, C, and D mislocate the problem: it''s not access, length, or capability. It''s an unpinned prediction."},{"id":"q2","prompt":"The \"capable stranger\" of the mental model is a talented contractor who is:","options":["Sharp and widely read, but knows nothing about your organization, standards, or prior conversations","Experienced at your company but unfamiliar with AI tools","Skilled but unreliable, requiring you to verify every claim","Knowledgeable about your industry but weak at writing"],"correctIndex":0,"explanation":"Capability without organizational knowledge — exactly M1''s model. You''d never hand that person a one-line request and walk away; the whole discipline follows from taking the mental model seriously. C is true of models (M6''s subject) but it''s not what *this* frame is teaching."},{"id":"q3","prompt":"Of the four parts, which do People leaders most commonly under-supply, and why?","options":["Role — it feels presumptuous to assign the model a persona","Task — deliverables are hard to define in People work","Context — because it''s obvious to them, and nothing is obvious to a system that has never seen their organization","Format — output structure can''t be controlled reliably"],"correctIndex":2,"explanation":"The curse of knowledge: the situation, audience, and constraints feel too obvious to state. The stranger test breaks the curse — if a first-day contractor would need it, it goes in the brief. D is exactly backwards: format is the cheapest control you have."},{"id":"q4","prompt":"A briefed draft comes back with the wrong tone and one requirement that would exclude internal candidates. What''s the fluent move?","options":["Start over with a longer brief in a fresh conversation","Accept it — first drafts reflect the model''s actual capability ceiling","Reply \"make it better\" and regenerate until it improves","Name both problems specifically — the tone gap and the excluding requirement — as new constraints"],"correctIndex":3,"explanation":"Specific critique is new information that narrows the next generation; that''s steering. \"Make it better\" (C) re-rolls the dice with no new constraint. A wastes a mostly-good draft; B mistakes an unpinned brief for a capability ceiling — the core frustrated-user error."},{"id":"q5","prompt":"Iteration has gone two rounds and the draft is moving sideways, not improving. The discipline says:","options":["Keep iterating — quality is a function of round count","Stop steering and start editing — the last stretch is your judgment, which was never delegable","Switch to a more capable model tier and re-run the brief","The task was mis-delegated and should not have used AI"],"correctIndex":1,"explanation":"Each round should visibly improve the draft; sideways movement means the remaining gap is editorial judgment — yours. C is M3''s escalate-on-evidence, but \"sideways\" isn''t capability evidence. D is the right call only when iteration keeps failing on the *same organizational-knowledge dimension* — a different signature than diminishing returns."},{"id":"q6","prompt":"Why does attaching two past announcements outperform three paragraphs describing your company''s tone?","options":["Attachments are weighted more heavily than prompt text","Adjectives get interpreted as the average of everyone''s \"direct and warm\"; a demonstrated pattern pins sentence length, warmth, and structure directly","It doesn''t — precise description and examples perform identically","Examples save typing but produce the same output quality"],"correctIndex":1,"explanation":"Describing makes the model interpret generic words; showing gives it a pattern to continue — M1''s mechanism again. The refinements matter because the example teaches *everything* it contains: curate for the property you want, and say which. A invents a weighting rule; C and D deny the lever this lesson exists to hand you."},{"id":"q7","prompt":"You want to use a past PIP as a format example for drafting a new one. The M4-safe move is:","options":["Attach it as-is — format examples aren''t really \"using\" the content","Don''t use examples for sensitive document types; describe the format instead","Redact it first — generalize identifiers, break the joins — because the format is what you want copied and the person is what shouldn''t travel","Paste it with an instruction telling the model to ignore the personal details"],"correctIndex":2,"explanation":"Examples are supplied material, so the tiers apply — and redaction preserves exactly what the example is for (structure, register) while removing what it must not carry (the person). D is M4''s named anti-pattern: the data enters the tool regardless of what the output ignores. B surrenders the strongest lever unnecessarily."},{"id":"q8","prompt":"After four steering rounds, output for \"draft talking points for Friday''s restructuring announcement\" keeps inventing wrong specifics — who''s affected, what changes. The brief can''t include the real details: the reorg is confidential and the details are Tier 3–4. What''s the honest diagnosis?","options":["A delegation problem, not a briefing problem — the task needs material that can''t travel, so this part of the work stays with you","A briefing problem — a more detailed role and format section would fix the inventions","A capability problem — a frontier-tier model would stop inventing the specifics","An iteration problem — steering moves need several more rounds to converge"],"correctIndex":0,"explanation":"The failure signature from Lesson 3: iteration keeps missing on the same dimension, and the missing dimension is material you *can''t* supply. M1''s heuristic closes the loop — what the model isn''t given, it invents, and no brief, tier, or round count changes that. The fluent user drafts the shareable scaffolding and keeps the specifics human."}]}', '2026-08-11');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m6-calibration-prompt-before-you-start-10', 'ai101-m6', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One prediction, thirty seconds. You''ll score it during the applied activity.*
+
+At the end of this module you''ll deliberately fish for a hallucination in your own domain —
+asking about things you know cold, until the model produces something confident, plausible,
+and wrong enough that you can prove it.
+
+**How many attempts do you predict it takes?** Count each distinct question as one attempt.
+Write the number down.
+
+The miss is diagnostic in both directions. Way fewer attempts than predicted: you''ve been
+over-trusting fluent output. Way more: the frontier has moved since you formed your
+expectations **[V]** — which is its own lesson about keeping your model of the model current.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m6-module-brief-20', 'ai101-m6', 20, 'prose', 'stable', '## Module brief
+
+Everything in this module follows from one sentence in M1: *the model produces confident
+output the same way whether the content is right or invented.* M1 gave you the mechanism.
+This module is about living with its sharpest consequence — because somewhere between
+"drafting a JD" and "citing a regulation in a termination memo," fluent-but-wrong stops
+being an annoyance and becomes a professional incident with your name on it.
+
+Start with why this is *hard*, not just important. Every credibility instinct you own was
+trained on humans — and in humans, fluency is *evidence*. A person who answers precisely,
+in confident prose, with specific citations, is usually a person who knows. Your whole
+career has rewarded that inference. The model breaks it: fluency is how it generates
+*everything*, so fluency carries zero information about accuracy. The most dangerous outputs
+are the best-written ones — precise, specific, well-structured — because they''re the ones
+your instincts wave through. **More polish should trigger more scrutiny, not less.** That
+inversion doesn''t come naturally to anyone; this module is about installing it as a habit
+rather than a slogan.
+
+The good news: hallucination isn''t random. It has a shape — four recurring failure types,
+each with a tell you can learn — and it concentrates exactly where M1''s mechanism predicts:
+specifics the model was never given, gaps where your organization''s knowledge should be,
+and facts past the training cutoff. Verification, likewise, isn''t "check everything" — that
+kills the time savings and nobody sustains it. It''s a small set of habits, sized to stakes,
+that catch the failures where they cluster.
+
+One reframe before we start: in People work, *you are usually the verification layer for
+other people''s AI use, not just your own.* Your hiring managers, your employees, your
+vendors are all shipping fluent AI output at you. The habits in this module are what make
+you the person who catches it — which, as M8 will argue, is quietly becoming part of the
+job description.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m6-learning-objectives-30', 'ai101-m6', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Explain why fluent output deserves *more* scrutiny, not less — the inversion of a
+   career-long credibility instinct, grounded in M1''s mechanism.
+2. Recognize the four failure types — fabricated specifics, plausible-but-wrong reasoning,
+   confident gaps, stale facts — and the tell for each.
+3. Run verification sized to stakes: the two-minute habits for routine work, the deeper
+   passes for output that leaves your hands.
+4. Name the high-risk surface in People work — the outputs where a single fabrication is an
+   incident — and treat everything on it as guilty until verified.
+5. Produce, catch, and document a hallucination in your own domain — the applied activity,
+   and the fastest way to make all of this visceral.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m6-lesson-1-why-confidence-and-correctness--40', 'ai101-m6', 40, 'prose', 'stable', '## Lesson 1 · Why confidence and correctness came apart
+
+M1''s mechanism, followed one step further than we took it there.
+
+The model generates each fragment by asking: given everything so far, what plausibly comes
+next? When the training data holds the answer thickly — the shape of a JD, the register of
+a policy summary — plausible and true point the same direction, and output is reliable.
+When the data runs thin — a specific statute number, your company''s actual carryover rule, a
+study on four-day weeks in manufacturing — the machinery doesn''t stop, slow down, or flag
+anything. It keeps producing the most plausible next fragment. And here''s the step that
+matters: **plausible text has the *form* of knowledge — specificity, structure, confidence —
+because that''s what answers look like in the training data.** A citation that doesn''t exist
+comes out formatted exactly like one that does: "29 CFR § 825.303" has the right shape
+whether or not there''s anything behind it. The model isn''t lying — lying requires knowing
+better. It''s completing a pattern, and the pattern includes what certainty looks like.
+
+This is why the human credibility heuristic fails so specifically. With people, producing
+precise, confident, well-cited prose *costs something* — you generally have to know the
+material to fake the form, so form is honest evidence of substance. With the model, the
+form costs nothing. It''s the native output format of the machinery, right or wrong. Fluency
+still feels like evidence — that feeling took a career to build and won''t dissolve because
+a course told it to. The realistic goal is a trained flinch: *the more a passage leans on
+specifics I didn''t supply — numbers, names, citations, dates — the more it needs checking
+before it travels.*
+
+One more consequence, because it sharpens everything: asking the model "are you sure?"
+re-runs the same machinery. Sometimes it catches itself **[V]**; often it apologizes and
+produces a new, equally confident wrongness, or — worse — capitulates on something that was
+*right*, because deference is also a plausible pattern. Self-confirmation is not
+verification. Verification means checking against something that *isn''t* the model: a
+source document, a system of record, your own expertise. (M4 already handed you the best
+version of this: material you supplied is material you can check against.)', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m6-try-50', 'ai101-m6', 50, 'try_this', 'stable', '### Try this — 2 minutes
+Recall the last AI output that impressed you. Ask of it: which specifics did I supply,
+and which did the model produce on its own? Underline the second set mentally — numbers,
+names, citations, dates. That underlined set is where this module lives.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m6-lesson-2-the-failure-taxonomy-60', 'ai101-m6', 60, 'prose', 'stable', '## Lesson 2 · The failure taxonomy
+
+Four types cover nearly everything you''ll meet. Learn the tell for each; they fail
+differently, and knowing *which* failure you''re looking at tells you how to check for it.
+
+**Type 1 · Fabricated specifics.** Invented citations, statutes, statistics, quotes, case
+names, URLs — the classic. *The tell: precision you didn''t supply.* An exact percentage, a
+named study, a section number, appearing in response to a question whose answer the model
+was never given. The flinch rule: **a specific that didn''t come from your material came
+from the pattern** — treat it as decoration until a source confirms it. This type
+concentrates wherever answers *conventionally contain* citations — legal, medical,
+research-flavored questions — because the form demands specifics and the machinery obliges.
+
+**Type 2 · Plausible-but-wrong reasoning.** The facts are fine; the logic connecting them
+quietly isn''t. A benefits comparison that mishandles a threshold, an adverse-impact
+calculation that compares the wrong groups, a policy inference that generalizes from the
+wrong clause. *The tell: smooth transitions carrying load-bearing steps* — "therefore,"
+"which means," "as a result" gliding past the exact point where you''d slow down. These
+survive spot-checks aimed at facts, because every individual fact checks out; you catch
+them by re-deriving the *conclusion*, which is why high-stakes reasoning needs a human
+re-walk (Lesson 3''s deepest pass).
+
+**Type 3 · Confident gaps.** M1''s signature failure: asked about *your* organization
+without material, the model answers anyway, from the average. Your PTO policy, your
+escalation path, why your Denver office''s attrition spiked. *The tell: the output is
+generic where it should be specific* — it describes a company, not your company. This is
+the most catchable type (M4 killed most of it: supply the material or expect invention),
+and the most dangerous residue lands on *other people* — the employee who asks the
+benefits copilot a question the underlying docs don''t cover, and gets a confident answer
+assembled from the average of everyone else''s benefits.
+
+**Type 4 · Stale facts. [V]** Right at training time, wrong now: the regulation amended
+last spring, the tool feature that shipped or died, the salary benchmark from two years
+ago. *The tell: time-sensitivity itself.* Anything that moves — law, prices, products,
+people in roles — carries an implicit "as of when?" that the output won''t volunteer.
+Some tools now browse or ground answers in live sources **[V]**, which converts this type
+into "check the cited source" (Type 1''s remedy) rather than eliminating it: retrieval can
+still fetch a stale or wrong page, fluently.
+
+The types compound — a stale regulation, precisely cited, inside smooth reasoning, is
+Types 4+1+2 in one paragraph — but the tells stack the same way: specifics you didn''t
+supply, transitions carrying weight, generic-where-specific, and anything with a clock on
+it. That''s the whole checklist, and it fits on a sticky note.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m6-exercise-embed-65', 'ai101-m6', 65, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m6-lesson-3-verification-that-fits-a-real-w-70', 'ai101-m6', 70, 'prose', 'stable', '## Lesson 3 · Verification that fits a real week
+
+"Check everything" is not a verification strategy; it''s a resolution that dies by
+Wednesday. Real verification is *sized to stakes* — a budget, exactly like M3''s window
+budget, spent where the failure types cluster. Three levels:
+
+**Level 1 — the two-minute scan (everything).** For any output you''ll use at all: underline
+the specifics you didn''t supply (Type 1), circle anything time-sensitive (Type 4), and ask
+whether anything is generic where it should be specific (Type 3). Not checking yet — just
+*seeing*. The scan costs two minutes and converts unknown risk into a visible list of
+claims-to-check. Most routine output — a reworded email, a first-draft JD — has nothing on
+the list, and the scan *is* the verification. Done.
+
+**Level 2 — follow the claims (anything that informs a decision or leaves your desk).**
+Every underlined specific gets traced to something that isn''t the model: the statute looked
+up, the statistic found in a real source, the policy claim checked against the actual
+policy (which M4 taught you to have attached in the first place — supplied material makes
+this step fast). The discipline: **a claim you can''t trace gets cut or flagged, never
+shipped on vibes.** Cutting is usually free — the memo survives without the impressive
+statistic; it does not survive the statistic being fake.
+
+**Level 3 — adversarial reading (high stakes: it''s load-bearing, it''s about people, or it
+ships under your name).** Two moves. Re-derive the reasoning yourself — walk every
+"therefore" and check it holds, because Type 2 hides in exactly the steps you''d otherwise
+glide past. And run the two-minute red team: ask the model itself, in a fresh conversation
+**[V]**, "argue that this analysis is wrong — what would its critics say?" This isn''t
+self-confirmation (Lesson 1''s trap) — you''re not asking it to certify truth, you''re using
+its fluency to *generate attack surface* your own review might miss. The critique is raw
+material for your judgment, not a verdict.
+
+Who verifies matters as much as how: **the checker needs to be someone who could catch the
+error** — which for organizational specifics means you or a colleague who knows, not a
+second model *(a second model can widen Level 3''s attack surface, but agreement between two
+models is still not evidence — they share training-data instincts, and plausible-but-wrong
+is exactly what they agree on)*. And write the check down where it matters: "verified
+against [source], [date]" on anything Level 2+ costs one line and changes the conversation
+M8 cares about — from "the AI said" to "I checked."', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m6-try-80', 'ai101-m6', 80, 'try_this', 'stable', '### Try this — 3 minutes
+Take one recent AI output you actually used. Run the Level 1 scan on it now, after the
+fact: underline, circle, generic-check. If the list is empty, notice how fast that was.
+If it isn''t — you know what tonight''s Level 2 looks like.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m6-lesson-4-the-high-risk-surface-in-people-90', 'ai101-m6', 90, 'prose', 'stable', '## Lesson 4 · The high-risk surface in People work
+
+Some outputs deserve standing suspicion — not because the model fails there more often,
+but because the *cost per failure* is a different species. Four zones make up the surface,
+and everything on it starts at Level 2 minimum, no exceptions for being busy:
+
+**Legal and policy citations. [V]** Statutes, regulations, compliance claims, "employment
+law requires…" — Type 1''s favorite habitat, because legal answers conventionally bristle
+with specifics. A fabricated "29 CFR § 825.303" in a termination memo isn''t an error;
+it''s an exhibit. The rule: every legal specific traced to the actual source or cut — and
+the *reasoning* about what the law means for your case goes to counsel, not to Level 3.
+The model can help you *prepare the question for counsel*; it doesn''t get to be counsel.
+
+**Numbers that will be re-said.** Anything quantitative headed for a board deck, an
+all-hands, a budget doc. Numbers have a property prose doesn''t: **they get repeated
+without their caveats.** Your careful "roughly 12%, per the model''s summary" becomes
+"12%" in the CFO''s mouth by Thursday. Any number that will outlive its context gets
+traced to a real source — or presented as illustrative, loudly.
+
+**Anything about a named individual.** A fabrication inside an ER summary, a performance
+narrative, a reference check isn''t a quality miss — it''s a false statement about a person,
+in a document with consequences, bearing your name. This zone overlaps M4 (what may enter
+the tool) and M7 (what the tool may influence); M6''s contribution is blunt: *every factual
+claim about a person gets verified against the record by a human, every time.* There is no
+routine tier here.
+
+**Answers other people take directly.** The copilot in the HRIS, the benefits bot, the
+FAQ draft you published — output consumed without a professional in the loop. Your
+verification here is *structural*, not per-answer: what material grounds these answers
+(M4), what happens when the material doesn''t cover the question, who audits samples, and
+where does the disclaimer actually point? (This is 201 M6''s territory in miniature; for
+now, know the zone exists and that "the vendor handles that" is a claim, not an answer.)
+
+The surface is small — four zones — and that''s the point. Guard it without apology, spend
+Level 1 everywhere else, and you get the time savings *and* keep your name clean. The
+applied activity now makes all of this visceral: you''re going to manufacture a Type 1 in
+your own domain, on purpose, and watch how good it looks.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m6-key-takeaways-100', 'ai101-m6', 100, 'takeaways', 'stable', '## Key takeaways
+
+- **Fluency carries zero information about accuracy.** The model produces confident,
+  well-formed output the same way whether it''s right or invented — so polish should
+  trigger scrutiny, not lower it. That''s an inversion of a career-trained instinct, and
+  it installs as a flinch: *specifics I didn''t supply need checking before they travel.*
+- **Four failure types, four tells:** fabricated specifics (precision you didn''t supply),
+  plausible-but-wrong reasoning (smooth transitions carrying load), confident gaps
+  (generic where it should be specific), stale facts (anything with a clock on it).
+- **"Are you sure?" is not verification.** Checking means something that isn''t the model:
+  a source, a system of record, your own expertise. Supplied material (M4) is what makes
+  checking fast. Two models agreeing is still not evidence.
+- **Size verification to stakes:** the two-minute scan on everything, claim-tracing on
+  whatever informs decisions or leaves your desk, adversarial re-derivation on the
+  load-bearing. A claim you can''t trace gets cut, not shipped.
+- **The high-risk surface gets no routine tier:** legal citations, numbers that will be
+  re-said, claims about named individuals, and answers other people consume directly.
+  Level 2 minimum, human eyes always, "verified against [source]" written down.
+- **You are the verification layer** — for your own use and, increasingly, everyone
+  else''s. That''s not overhead on the job; it''s becoming the job.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m6-activity-link-105', 'ai101-m6', 105, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 Catch It Lying", "blurb": "Fish for a hallucination in the domain you know best, prove it against a real source, classify its failure type \u2014 and write the one-sentence verification rule you''d give your team. Scored against your predicted attempt count. Graded with per-dimension feedback; free unlimited resubmission.", "estMinutes": "20\u201325"}', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m6-sources-and-attribution-110', 'ai101-m6', 110, 'prose', 'stable', '## Sources and attribution
+
+This module draws on the following material:
+
+- **The AI Fluency Framework** (Rick Dakan & Joseph Feller, in collaboration with
+  Anthropic, CC BY-NC-SA 4.0) — the treatment of critical evaluation of AI output and
+  calibrated trust adapts its "Discernment" competency for the People-leader context.
+- **Anthropic''s published research on model behavior** — including work on why models
+  produce confident errors and on training models to acknowledge uncertainty; behaviors
+  improve unevenly across models and versions. **[V]**
+- The four-type taxonomy, the three-level verification discipline, and the high-risk
+  surface map are original to this course, developed for the People-leader context.
+- Nothing in this module is legal advice; the legal-citations zone exists precisely
+  because that boundary is real. *Counsel verifies legal reasoning; this module only
+  keeps fabrications from reaching them.*', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m6-activity-applied-activity-catch-it-lying-10', 'ai101-m6-activity', 10, 'prose', 'stable', '## Applied activity — "Catch It Lying"
+
+**Time:** 20–25 minutes · **Submit:** the transcript excerpts, your documentation, and a
+250–350 word reflection · **Graded against the rubric below.** Score doesn''t matter.
+Doing the work is where the learning lands.
+
+You''re going to make the model produce something confidently wrong in the domain you know
+best — and prove it. Nothing builds the flinch like watching a fabrication assemble itself
+in front of you, wearing your profession''s vocabulary.
+
+**Step 1 — Pick your ground (2 min).** A People-work area where you''re genuinely expert:
+the leave policy you administer, the ER process you own, the comp philosophy you wrote.
+You must be able to *prove* wrongness against a real source — your expertise plus a
+document, not just your recollection.
+
+**Step 2 — Fish (10 min).** Ask questions in that area *without supplying material* —
+you''re deliberately doing what M4 taught you not to. Aim where the types live: specifics
+(ask for citations, numbers, named sources), your org''s particulars (Type 3 territory),
+time-sensitive details **[V]**. Count your attempts. If the model honestly declines or
+hedges instead of inventing **[V]** — note that too; it''s data, and it counts as an
+attempt.
+
+**Step 3 — Catch and prove (5 min).** When you get one: capture the exact wrong claim,
+state what''s actually true, and name your proof (the policy section, the real statute,
+the source of record). Classify it: which of the four types, and which tell should have
+caught it?
+
+**Step 4 — Score the prediction (2 min).** Attempts predicted vs. actual, direction of
+miss, and the honest sentence about what that says about your current trust calibration.
+
+Then the reflection — including the deliverable that makes this transfer: **the
+verification rule you''d give your team**, written as one enforceable sentence aimed at
+the type you caught. Not "be careful with AI" — a rule someone could actually follow and
+someone else could audit. ("Every statute or regulation cited in any document leaving
+this team gets traced to the primary source before it ships" is the shape.)', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m6-micro-core', 'ai101-m6-micro', 10, 'prose', 'stable', '## Module 6 in two minutes
+
+**Fluency carries zero information about accuracy.** The model produces confident, well-cited-looking output the same way whether it''s right or invented — the form costs nothing, so the career-trained instinct that polish signals knowledge fails here specifically. The inversion to install: *more polish, more scrutiny* — and the flinch that makes it practical: **specifics you didn''t supply need checking before they travel.**
+
+**Four failure types, four tells.** Fabricated specifics (precision you didn''t supply). Plausible-but-wrong reasoning (smooth ''therefores'' carrying load — survives fact-checks, dies on re-derivation). Confident gaps (generic where it should be specific — your org''s questions answered from everyone''s average). Stale facts (anything with a clock on it).
+
+**Verification is sized to stakes, not applied everywhere.** The two-minute scan on everything; claim-tracing to sources that *aren''t the model* on anything that informs a decision; adversarial re-derivation on the load-bearing. "Are you sure?" re-runs the same machinery and is not verification. A claim you can''t trace gets cut, not shipped.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m6-micro-rule', 'ai101-m6-micro', 20, 'callout', 'stable', '### The rule to carry
+
+Four zones get no routine tier, ever: legal citations, numbers that will be re-said, claims about named individuals, and answers other people consume directly. Level 2 minimum, human eyes, and "verified against [source]" written down.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m6-micro-close', 'ai101-m6-micro', 30, 'prose', 'stable', '**The full module adds** the find-the-fabrication exercise (four authoritative-sounding claims, one invented study), why two models agreeing is still not evidence, and Catch It Lying — manufacturing a hallucination in your own domain, proving it, and writing the one-sentence verification rule your team could actually be audited against.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai101-m6-choice', 'ai101-m6', 'choice', '{"reviewedAt":"2026-08-11","title":"Find the fabrication","intro":"*Five minutes. Commit before you look.*\n\nAn HR manager asked an assistant — no documents attached — \"What should we consider before changing our PTO carryover policy?\" Below are four claims from the fluent, well-organized answer. All four *sound* equally authoritative. One is a Type 1 — a fabricated specific that would survive a skim and detonate under checking.\n\nUse the tells from Lesson 2. **Which claim is the fabrication?**","artifacts":[{"label":"Claim 1","body":"\"Changing carryover rules mid-year can create employee-relations friction, particularly for employees who planned leave around the existing policy — many organizations phase such changes in at the start of a calendar year.\""},{"label":"Claim 2","body":"\"A 2023 SHRM Workplace Flexibility Study found that 62% of employees at companies that eliminated carryover reported increased burnout within 18 months.\""},{"label":"Claim 3","body":"\"Several U.S. states treat accrued PTO as earned wages, which constrains use-it-or-lose-it policies — the details vary by state, so this is a question for employment counsel before any change ships.\""},{"label":"Claim 4","body":"\"If your workforce spans multiple states, a single national policy may need to be written to the most protective state''s rules, or varied by state — both approaches have administrative costs worth weighing.\""}],"options":[{"id":"c1","label":"Claim 1 — the change-management point"},{"id":"c2","label":"Claim 2 — the burnout study"},{"id":"c3","label":"Claim 3 — the earned-wages point"},{"id":"c4","label":"Claim 4 — the multi-state point"}],"key":"c2","reasoning":"**Claim 2 is the fabrication — and it''s the tell, not the topic, that catches it.** A named organization, a year, a study title, two precise numbers (62%, 18 months) — in response to a question that supplied *no* material. That''s exactly the precision-you-didn''t-supply signature: research-flavored claims conventionally contain citations, so the machinery produces one, formatted perfectly, whether or not anything stands behind it. Before it travels, that claim is decoration; Level 2 says trace it to the actual study or cut it — and the memo survives fine without it.\n\nWhy the others pass — and *what kind* of trust each has earned: Claims 1 and 4 are general professional reasoning with no invented specifics — nothing to trace, just judgment to agree or disagree with. Claim 3 contains a checkable legal claim, but notice its shape: it stays general (\"several states,\" \"varies\"), and it *routes itself to counsel* — the exact opposite of fabricated confidence. If it had said \"California Labor Code § 227.3 requires…\" you''d be back at the flinch rule: real-sounding, maybe even real, but a specific you didn''t supply, checked before shipped.\n\nThe transferable pattern: you didn''t need to know whether the SHRM study exists. The *form* — uncited precision on unsupplied ground — was enough to quarantine it. That''s the flinch working."}', '2026-08-11');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai101-m6-rubric', 'ai101-m6', 'rubric', '{"promptVersion":"ai101-m6-catch-it-lying-v1","moduleId":"ai101-m6","minWords":250,"maxWords":350,"submitLabel":"Your transcript excerpts, documentation, and reflection","intro":"Paste the relevant transcript excerpts (M4 rules apply — nothing person-identifying), your catch documentation, and the 250–350 word reflection ending with your team rule. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for an AI fluency course for People leaders (AI 101, The Foundation). Module 6 applied activity, ''Catch It Lying'': the learner fished for a hallucination in a domain where they hold real expertise, asking questions without supplying material; caught a confident wrong claim (or documented honest declines/hedges — which the activity explicitly counts as valid data); proved wrongness against a named real source; classified the failure by type (fabricated specifics / plausible-but-wrong reasoning / confident gaps / stale facts) and named the tell that should catch it; compared attempt count against their prediction; and wrote a one-sentence verification rule for their team. A numeric prediction may have been captured by the module''s opening calibration prompt; grade the calibration dimension on whether the prediction is stated and honestly compared, never on its accuracy. A submission reporting that the model declined to fabricate, documented honestly with attempts shown, can score full marks on every dimension — the calibration lesson stands either way.","opening":[{"key":"attempts","label":"Predicted — attempts before you catch one","hint":"Each distinct question is one attempt. Honest declines count as attempts.","placeholder":"e.g. 3","min":1,"max":50}],"calibration":[{"key":"attemptsActual","label":"Actual — attempts it took (or total attempts, if it never invented)","hint":"Way fewer than predicted = you''ve been over-trusting. Way more = your expectations are stale.","placeholder":"e.g. 7","min":1,"max":50,"actualFor":"attempts"}],"dimensions":[{"name":"The ground is real expertise","criteria":"The domain is one they demonstrably own, and wrongness is proven against a named source — a policy section, a statute, a system of record — not just ''I know this is wrong.'' The proof is specific enough that a colleague could re-verify it."},{"name":"The fishing is diagnostic","criteria":"Questions aimed where the types live — specifics, org particulars, time-sensitive details — with material deliberately withheld, attempts counted, and hedges or declines recorded as data rather than skipped. Random questions that happened to work score lower than aimed ones."},{"name":"The catch is classified","criteria":"The wrong claim captured exactly, the truth stated, the failure typed correctly, and the tell named — the one that should have caught it in the wild. A near-miss classification with visible reasoning outscores a correct label with none."},{"name":"The rule and the calibration","criteria":"The team rule is one enforceable sentence aimed at the type they caught — followable by a person, auditable by another. ''Be careful with AI'' fails this dimension. Prediction compared, direction named, and the honest sentence about their own trust calibration written."}]}', '2026-08-11');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai101-m6-knowledge_check', 'ai101-m6', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-11","questions":[{"id":"q1","prompt":"Why does the human credibility heuristic — precise, confident, well-cited prose signals knowledge — fail specifically for model output?","options":["Models are trained to deceive users into over-trusting them","For humans the form costs something — you must know the material to fake it — while for the model, confident form is the native output format, right or wrong","It doesn''t fail — fluent model output is in fact more likely to be accurate","Human writing contains verifiable citations while model output never does"],"correctIndex":1,"explanation":"With people, form is honest evidence of substance because producing it requires substance. The model produces the form — specificity, structure, certainty — as pattern completion, identically for true and invented content. No deception is involved (A): lying requires knowing better."},{"id":"q2","prompt":"\"29 CFR § 825.303\" appears in a leave-policy answer you asked for without supplying any material. Before anything else, this citation is best treated as:","options":["Reliable — that level of precision indicates the model found the real regulation","A formatting artifact with no meaning at all","A specific you didn''t supply — decoration until a source that isn''t the model confirms it","Verified, provided the model confirms it when asked \"are you sure?\""],"correctIndex":2,"explanation":"The flinch rule: precision you didn''t supply is Type 1''s tell, and a fabricated section number comes out formatted exactly like a real one — the form is identical either way, which is what makes A the career-trained trap. D re-runs the same machinery and is the module''s named non-verification."},{"id":"q3","prompt":"A benefits comparison cites accurate plan facts throughout, but its recommendation mishandles an eligibility threshold on the way to a confident conclusion. Which type is this, and why do fact-focused spot-checks miss it?","options":["Type 1 — the threshold was a fabricated specific","Type 3 — the model lacked organizational material","Type 4 — the plan facts were stale","Type 2 — every individual fact checks out, so the error lives in the reasoning steps that checks aimed at facts never touch"],"correctIndex":3,"explanation":"Plausible-but-wrong reasoning survives claim-tracing precisely because the claims are fine; the load-bearing \"which means…\" is where it hides. The remedy is re-deriving the conclusion — Level 3''s human re-walk — not more fact-checking."},{"id":"q4","prompt":"An employee asks the HRIS benefits copilot about a situation the underlying documents don''t cover, and gets a confident, specific answer. What has most likely happened, and why is this zone structurally risky?","options":["A confident gap — the answer assembled from the average of everyone else''s benefits — consumed by someone with no professional in the loop","A stale fact — the copilot''s documents are outdated","Nothing risky — copilots only answer from their grounding documents","A Type 2 failure — the reasoning was wrong but the facts were right"],"correctIndex":0,"explanation":"Type 3''s most dangerous residue: where the material runs out, the machinery keeps answering from the average (M1), and the person consuming it can''t tell (M2''s borrowed credibility). That''s why Lesson 4 makes this zone *structural* — grounding, coverage gaps, sample audits — rather than per-answer. C describes the marketing, not the guarantee **[V]**."},{"id":"q5","prompt":"Why is asking the model \"are you sure?\" not verification — and what is?","options":["It is verification, as long as you ask in the same conversation","The question re-runs the same machinery — which may double down, or capitulate on something that was right; verification means checking against something that isn''t the model","It fails only because models are programmed to always agree with users","Verification requires asking at least two different models the same question"],"correctIndex":1,"explanation":"Deference is also a plausible pattern — so the reply is more generation, not evidence. A source document, a system of record, or your own expertise is the standard. D is the subtle trap: two models share training-data instincts, and plausible-but-wrong is exactly where they agree."},{"id":"q6","prompt":"Under the three-level discipline, which output is the *minimum* that requires Level 2 — tracing claims to real sources — rather than just the two-minute scan?","options":["A reworded internal email where the scan found nothing to underline","Any output produced by a frontier-tier model","A first-draft JD that a recruiter will heavily edit anyway","A market-practice summary whose statistics will inform your comp proposal"],"correctIndex":3,"explanation":"It informs a decision, so every specific it contributed gets traced — and any untraceable statistic gets cut, because the proposal survives without the statistic but not with a fake one. A and C are Level 1''s home ground; B confuses model tier with stakes, which the discipline prices by consequence, not capability."},{"id":"q7","prompt":"Why do numbers get their own zone on the high-risk surface?","options":["Models are categorically worse at arithmetic than at prose","Numbers get repeated without their caveats — \"roughly 12%, per the summary\" becomes \"12%\" in Thursday''s board meeting","Numerical output is harder to read than prose output","Regulators require all workplace statistics to be independently audited"],"correctIndex":1,"explanation":"The property is social, not statistical: a number outlives its context and sheds its hedges as it travels. So any number that will be re-said gets traced to a real source — or labeled illustrative loudly enough to survive repetition."},{"id":"q8","prompt":"In \"Catch It Lying,\" the model responds to several of your fishing attempts by declining or hedging instead of inventing. What does the activity say this means?","options":["Your domain has no hallucination risk and needs no verification budget","The activity failed and you should switch to a different model","It''s data — count it, note it, and let it update your calibration; the frontier moves, and your trust settings should track what the model actually does now","The model detected the test and behaved differently than it would in real use"],"correctIndex":2,"explanation":"Honest declines are a real and improving behavior **[V]** — and the activity''s calibration works in both directions: fishing that takes far *more* attempts than predicted means your expectations were formed on older behavior. A overgeneralizes from a sample; the habits stay, because the failure types remain wherever the data runs thin."}]}', '2026-08-11');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m7-calibration-prompt-before-you-start-10', 'ai101-m7', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One prediction, thirty seconds. You''ll score it during the applied activity.*
+
+At the end of this module you''ll audit the AI uses in your own function — current and
+seriously proposed — against the line this module draws.
+
+**How many of them do you predict land on the wrong side?** Count anything live or under
+real consideration: tools, features, team habits, the vendor pilot someone''s excited
+about. Write the number down.
+
+The commonest miss isn''t the direction you''d guess. People expect to find zero and fear
+finding five; what they usually find is one or two — already running, adopted casually,
+that nobody ever examined *as* a decision about people. The audit exists to make the
+implicit explicit while it''s still cheap to change.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m7-module-brief-20', 'ai101-m7', 20, 'prose', 'stable', '## Module brief
+
+Every module so far has taught you to use AI better. This one teaches you where using it
+better is beside the point — because some applications fail not by working badly but by
+*working at all*.
+
+M1 ended its delegation heuristic with a clause this course has repeated like a drumbeat:
+*and it must not make decisions about people.* This module is where the drumbeat becomes
+an argument you can make out loud — to an excited vendor, an impatient executive, a
+well-meaning teammate with a screening shortcut. The argument has to be made well, because
+you will not be the most enthusiastic person in the room. Efficiency is on the other side.
+"The human still decides" is on the other side. You''ll need something better than
+discomfort; you''ll need the mechanism.
+
+Here it is, compressed once, built out in Lesson 1. The model learned from human text and
+human records. Those records contain every pattern in how organizations have actually
+treated people — including the ones we''ve spent decades trying to correct. A system that
+learns "what does a strong candidate look like" from history learns *who got called
+strong*, and reproduces it at scale, fluently, with M6''s signature confidence. Bias in AI
+isn''t a defect that better engineering removes; it''s fidelity to data that contains the
+world as it has been. In most domains that''s a quality problem. In employment decisions
+it has a legal name — adverse impact — and a moral one, and it lands on the population
+you specifically exist to protect.
+
+What this module is not: anti-AI. Six modules taught you the assist side, and the assist
+side is enormous — drafting, summarizing, structuring, preparing. The line this module
+draws is narrow, specific, and defensible: **AI assists with work about people; it does
+not decide about people, rank people, or filter people.** Narrow lines hold. Vague
+discomfort gets routed around by Q3.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m7-learning-objectives-30', 'ai101-m7', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Explain why bias is a property of learned systems, not a bug — and why "we cleaned the
+   data" and "we removed the protected fields" don''t dissolve the problem.
+2. Draw the assist/decide line through real cases — screening, ranking, performance
+   language, promotion, termination — and say precisely why "a human reviewed it" isn''t
+   automatically a defense.
+3. Sketch the regulatory shape **[V]** well enough to ask counsel the right questions —
+   and no further.
+4. Say no so it sticks: specific, tied to a named decision, with the assist-side
+   alternative attached.
+5. Audit your own function''s AI uses against the line — the applied activity.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m7-lesson-1-bias-is-a-property-not-a-bug-40', 'ai101-m7', 40, 'prose', 'stable', '## Lesson 1 · Bias is a property, not a bug
+
+The word "bias" invites a mental model of contamination — a stain in the data that
+diligent cleaning removes. That model leads to the two most common false reassurances in
+vendor conversations, so let''s break it properly.
+
+Recall M1: a learned system finds patterns in examples and reproduces them. Now ask what
+the examples *are* for any employment-relevant model: decades of résumés, hiring
+outcomes, performance ratings, promotion histories — records of what organizations
+actually did. Those records don''t contain "merit" as a clean signal. They contain *who
+got hired, rated, promoted* — merit tangled with every systematic pattern in how those
+calls were made: which schools got the benefit of the doubt, which names got callbacks,
+which communication styles got called "leadership presence," who got mentored onto the
+projects that make a résumé strong. A system trained to predict "strong candidate"
+learns that tangle *as* the definition. It isn''t malfunctioning when it reproduces the
+pattern. It''s doing exactly what it was built to do, on data that contains the world as
+it has been.
+
+Now the two reassurances. **"We removed gender, race, and age from the inputs."** The
+tangle doesn''t live in the labeled fields; it lives in everything correlated with them —
+name, zip code, school, employment gaps, club memberships, word choice, the shape of a
+career path. M4 taught you that identity survives redaction through combinations;
+protected characteristics survive field-removal the same way. The literature''s blunt
+version: proxies are everywhere, and a capable learner finds them. **"Our model is more
+objective than biased human reviewers."** This one deserves care, because the premise is
+true — human review *is* biased; that''s what the training data just proved. But a model
+doesn''t transcend the pattern; it *standardizes* it. A biased human decision is one
+decision, varying by the human, contestable in the room. The same bias in a model runs on
+every candidate, identically, at scale, wearing M6''s fluent confidence — and (next
+lesson) with the accountability diffused. "Less biased than a human" is an empirical
+claim someone must *demonstrate for the specific system on the specific population* —
+never a property the technology gets on principle.
+
+One more consequence, from M6: an LLM asked to *evaluate* a person produces the same
+confident prose whether its judgment is sound or a reproduced pattern. "Rate this
+candidate''s leadership potential from their résumé" returns fluent, specific,
+plausible-sounding assessment — and every word of it is pattern completion over exactly
+the tangled history above. The fluency is not evidence. In this domain, it never is.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m7-try-50', 'ai101-m7', 50, 'try_this', 'stable', '### Try this — 2 minutes
+Write down three things a hiring model could infer from a résumé that correlate with a
+protected characteristic but aren''t one. (Lesson 1 named several.) This is the list
+you''ll want in your pocket the next time someone says "we don''t even look at
+demographics."', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m7-lesson-2-assist-versus-decide-60', 'ai101-m7', 60, 'prose', 'stable', '## Lesson 2 · Assist versus decide
+
+The line, stated operationally: **AI may transform, structure, and prepare the material
+humans decide from. It may not score, rank, filter, or characterize the people the
+decision is about.** Run the week''s real cases through it:
+
+**Screening.** *Assist:* structuring intake notes; turning a hiring manager''s rambling
+brief into a crisp role spec; drafting interview questions from the competencies.
+*Decide:* résumé scoring, "fit" ranking, auto-rejection, "top candidates" surfacing —
+M2''s decision engines. The tell from M2 applies: if candidates the system ranked low
+never reach human eyes, the system decided, whatever the workflow diagram says.
+
+**Performance.** *Assist:* helping a manager turn their own observations into clear,
+specific written feedback; structuring peer input *the humans wrote*. *Decide:* generating
+the assessment — "rate this employee," "summarize their performance from these tickets,"
+any sentence about a person''s quality that a human didn''t originate. The manager''s
+judgment is the input; AI formats it. The moment AI supplies the judgment and the manager
+formats *that*, the line is crossed even though a human typed the final version.
+
+**Promotion, comp, termination.** *Assist:* checking a written case for clarity and
+consistency; assembling the human-authored materials into a packet. *Decide:* flight-risk
+scores feeding retention decisions, "potential" ratings, termination-list drafting — and
+note that these arrive politely, as "data points for the conversation." A number about a
+person in a decision meeting *is* a decision input; that''s what numbers in meetings are
+for (M6 told you what happens to numbers — they get repeated without caveats, and they
+anchor).
+
+Now the sentence you''ll hear most: **"it''s fine — a human makes the final call."** Here''s
+why that''s not automatically a defense, mechanically. Human review checks a *specific
+failure* you can articulate: M6''s Level 2 traces a citation, a manager re-derives a
+recommendation. But review of a ranked list checks — what, exactly? The reviewer sees the
+survivors, not the filtered; they can''t re-derive a score built on ten thousand tangled
+examples; and the anchor is already set — disagreeing with the machine now requires a
+*reason*, and the machine''s reason looked so fluent. Review without the ability to catch
+the failure is M6''s definition of theater: **a human in the loop is a defense only when
+the human could actually catch the error.** For a fabricated citation, they can. For
+"why did the model rank her 47th?", nobody can — including the vendor.
+
+The line''s honest gray zone: aggregate analysis. "Summarize themes from 400 exit
+interviews" is about *people*, plural, and it shapes decisions — but it characterizes a
+population, not a person, and no individual is scored. That''s assist-side, with M4''s
+redaction and M6''s verification riding along — *until* the aggregate gets small enough
+to point at individuals (M4''s small-population flag) or the themes get re-attached to
+named people. The test that travels: **could this output change one identifiable
+person''s outcome?** Yes → the decide side''s rules apply, whatever the tool looks like.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m7-exercise-embed-65', 'ai101-m7', 65, 'exercise', 'stable', '{"type": "sorting", "title": "Calibration exercise \u2014 Which side of the line?", "intro": "Ten minutes, ten uses of AI from a People function''s real week. Sort each: assist (go, with ordinary care), assist with verification (go, with M6''s Level 2+ riding along), or never (the decide side). Commit every card before the reveal.\n\nUse the traveling test: could this output change one identifiable person''s outcome?"}', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m7-lesson-3-the-regulatory-shape-70', 'ai101-m7', 70, 'prose', 'volatile', '## Lesson 3 · The regulatory shape [V]
+
+*Everything in this lesson is direction-of-travel, not legal advice, and it moves —
+verify with counsel before relying on any specific here. The lesson''s purpose is to make
+your conversation with counsel better, not to replace it.*
+
+The shape, in four strokes. **Employment decisions are a named high-risk category** in
+the emerging regulatory landscape — the EU AI Act treats AI systems used in employment,
+worker management, and access to self-employment as high-risk, with obligations to
+match; U.S. federal enforcement agencies have signaled that existing employment law
+fully applies to algorithmic decisions; and a growing patchwork of state and city rules
+targets automated employment decision tools specifically — audit requirements,
+disclosure requirements, and definitions that turn on whether a tool *substantially
+assists or replaces* discretionary decisions. **[V]**
+
+**Disparate impact doesn''t need intent.** The doctrine long predates AI: a neutral-seeming
+practice that disproportionately excludes a protected group needs job-related
+justification, regardless of anyone''s intentions. Map that onto Lesson 1 — a system that
+learned the tangle reproduces the disparity at scale, no malice required — and you see why
+"the vendor assured us it''s unbiased" is not a defense but a deferred question: *show me
+the analysis, for this system, on a population like ours.* Vendors making bias claims
+should expect to produce validation evidence; that expectation is increasingly
+regulatory, not just prudent. **[V]**
+
+**Accountability doesn''t outsource.** The consistent regulatory and enforcement posture:
+the employer using the tool owns the outcome, jointly with whoever built it — buying a
+biased system is doing a biased thing. M8 generalizes this ("the sentence ''the AI did
+it'' has never once helped anyone"); here it lands specifically: your organization''s name
+is on every decision its tools make.
+
+What this means you should *do*, this quarter, without waiting for counsel: **inventory**
+(the M2 stack audit, re-read for decision engines — you likely already have automated
+employment decision tools you didn''t name that way); **ask vendors for their validation
+evidence** in writing; and **bring counsel a specific list** — "these three systems
+touch hiring and performance; here''s what each decides" — because "is our AI compliant?"
+gets you a shrug, and the specific list gets you an answer. The questions for counsel:
+which of our jurisdictions regulate these tools today, what do they require of us this
+year, and what''s coming that we should build for now? **[V]**', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m7-lesson-4-saying-no-so-it-sticks-80', 'ai101-m7', 80, 'prose', 'stable', '## Lesson 4 · Saying no so it sticks
+
+You now own an argument. This lesson is about deploying it so it survives contact with
+enthusiasm — because vague discomfort loses to a vendor deck every time, and a blanket
+"no AI near people decisions" gets routed around the moment it blocks something a leader
+wants. Four properties make a line hold:
+
+**Specific.** Name the decision, not the technology. Not "we''re cautious about AI in
+hiring" — "no system ranks, scores, or filters candidates; screening decisions are made
+by humans reading human-legible material." A specific line can be checked against any
+new tool in thirty seconds; vagueness has to be re-litigated per vendor.
+
+**Attached to its alternative.** Every no arrives with the assist-side yes: "we don''t
+score candidates — we *do* use AI to structure intake, draft interview kits, and turn
+your notes into clean debriefs, and here''s who sets that up for your team." The
+alternative isn''t a consolation prize; it''s what makes the line politically survivable.
+People route around prohibitions; they adopt trades.
+
+**Reasoned in the room''s language.** For the executive: standardized bias at scale,
+disparate impact without intent, accountability that doesn''t outsource — risk language,
+with Lesson 3''s specifics ready. For the team: "we can''t catch this system''s errors, and
+we don''t ship what we can''t verify" — M6''s language, which they''ve now internalized. For
+the vendor: "show me your validation evidence for a population like ours, in writing" —
+which either produces evidence or produces silence, and both are answers.
+
+**Owned by a name.** A line nobody owns is a suggestion. The line gets a sign-off — new
+tools touching people decisions clear [name/role] before pilot, and that person''s answer
+is the answer. (M8 builds the full policy skeleton; this is its first entry, and the
+applied activity has you draft it.)
+
+And the posture that makes all four land: the line is not a hedge against the future —
+it''s how you get to use everything else *confidently*. The teams that drew it clearly
+are the ones moving fastest on the assist side, because nobody''s wondering where the
+edge is. That''s the version of this module you want your organization to remember: not
+the department of no — the people who knew exactly where yes lives.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m7-key-takeaways-90', 'ai101-m7', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **Bias is fidelity, not malfunction.** Learned systems reproduce the patterns in their
+  training records — which for employment data means the tangle of merit with every
+  systematic skew in how organizations actually treated people. Cleaning intentions out
+  of the data isn''t an option; the tangle *is* the data.
+- **Field-removal doesn''t work and "more objective than humans" proves too much.**
+  Proxies survive deletion the way identity survives redaction; and a model doesn''t
+  transcend human bias — it standardizes one instance of it at scale, fluently. "Less
+  biased" is an empirical claim requiring demonstration, per system, per population.
+- **The line: AI transforms and prepares the material humans decide from; it does not
+  score, rank, filter, or characterize the people decided about.** The traveling test:
+  could this output change one identifiable person''s outcome?
+- **"A human reviews it" defends only what the human could actually catch.** Nobody can
+  re-derive a ranking built on ten thousand tangled examples — review of the unreviewable
+  is theater, and the filtered-out never reach the reviewer at all.
+- **The regulatory shape [V]: employment is a named high-risk category, disparate impact
+  needs no intent, and accountability doesn''t outsource.** Inventory your decision
+  engines, demand validation evidence in writing, bring counsel a specific list.
+- **A line that holds is specific, attached to its assist-side alternative, reasoned in
+  the room''s language, and owned by a name.** Drawn well, it''s not the department of no
+  — it''s what lets everything else move fast.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m7-activity-link-95', 'ai101-m7', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 Draw the Line", "blurb": "Audit your function''s real AI uses against the line, then write the one-pager you could actually circulate: three endorsed uses, two forbidden ones with reasoning an executive would engage with, the trade, and the sign-off. Scored against your predicted wrong-side count. Free unlimited resubmission.", "estMinutes": "20\u201325"}', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m7-sources-and-attribution-100', 'ai101-m7', 100, 'prose', 'stable', '## Sources and attribution
+
+This module draws on the following material:
+
+- **The AI Fluency Framework** (Rick Dakan & Joseph Feller, in collaboration with
+  Anthropic, CC BY-NC-SA 4.0) — the treatment of ethical responsibility and human
+  accountability for AI-assisted decisions adapts its "Diligence" competency for the
+  employment context.
+- The disparate-impact framing follows long-standing U.S. employment-law doctrine;
+  the high-risk categorization of employment AI follows the EU AI Act''s published
+  framework; agency guidance on algorithmic employment decisions continues to evolve.
+  **This lesson is direction-of-travel, not legal advice — verify all specifics with
+  counsel before relying on them. Flagged for counsel review before any
+  deployment-specific claims are added. [V]**
+- The proxy-variable problem and the standardization-of-bias argument reflect the
+  published algorithmic-fairness research consensus.
+- The assist/decide line, the traveling test, the review-theater argument, and the
+  four properties of a line that holds are original to this course.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m7-activity-applied-activity-draw-the-line-10', 'ai101-m7-activity', 10, 'prose', 'stable', '## Applied activity — "Draw the Line"
+
+**Time:** 20–25 minutes · **Submit:** your one-pager plus a 250–350 word reflection ·
+**Graded against the rubric below.** Score doesn''t matter. Doing the work is where the
+learning lands.
+
+One page, for your own function, that you could actually circulate. Before you write it:
+the audit you predicted on.
+
+**Step 1 — The audit (7 min).** List your function''s AI uses — live and seriously
+proposed. Include the unglamorous ones: the ATS feature someone switched on, the survey
+platform''s "AI insights," the manager who mentioned using a chatbot for review drafts.
+For each: which side of the line, using the traveling test. Count the wrong-side
+findings and score your prediction — direction of miss, one sentence on why.
+
+**Step 2 — The one-pager (12 min).** Four sections, all concrete:
+- **Three uses you endorse** — assist-side, from your real work, each with its M6
+  verification note ("JD drafting — recruiter reviews, no verification beyond read" vs.
+  "policy summaries — Level 2, claims traced").
+- **Two uses you forbid** — named specifically (the decision, not the technology), each
+  with its reasoning in one or two sentences an executive would engage with.
+- **The trade** — for each no, the assist-side yes that replaces it.
+- **The sign-off** — who clears new people-touching tools before pilot, by name or role.
+
+**Step 3 — The stress test (3 min).** Read your forbidden list as the most enthusiastic
+AI adopter you know. Write down the workaround they''d find. If the workaround is easy,
+tighten the specific wording — that gap is where the line will actually be tested.
+
+Then the reflection: what the audit surprised you with, which forbidden use was hardest
+to write the reasoning for (that''s the one that needed this module), and what you''d need
+from M8 to make the one-pager real policy.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m7-micro-core', 'ai101-m7-micro', 10, 'prose', 'stable', '## Module 7 in two minutes
+
+**Bias is a property of learned systems, not a bug.** Employment records contain merit tangled with every systematic skew in how organizations actually decided — and a system trained on the records learns the tangle as the definition. Removing protected fields doesn''t help (proxies are everywhere — names, schools, gaps, career shapes), and "less biased than humans" is an empirical claim requiring demonstration per system, per population — because a model doesn''t transcend the pattern, it standardizes one instance of it at scale.
+
+**The line: AI transforms and prepares the material humans decide from; it does not score, rank, filter, or characterize the people decided about.** The test that travels: *could this output change one identifiable person''s outcome?* And the defense that isn''t: "a human reviews it" only counts where the human could actually catch the error — nobody can re-derive a ranking, and the filtered-out never reach the reviewer at all.
+
+**The regulatory shape [V]:** employment is a named high-risk category, disparate impact needs no intent, and accountability doesn''t outsource — buying a biased system is doing a biased thing. Verify specifics with counsel; bring them a list, not a vibe.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m7-micro-rule', 'ai101-m7-micro', 20, 'callout', 'stable', '### The rule to carry
+
+A line that holds is specific (name the decision, not the technology), attached to its assist-side trade, reasoned in the room''s language, and owned by a name. Drawn well, it''s not the department of no — it''s what lets the assist side move fast.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m7-micro-close', 'ai101-m7-micro', 30, 'prose', 'stable', '**The full module adds** the which-side-of-the-line sort (ten real uses — the never cards all arrive politely, as ''data points'' and ''first passes''), the review-theater argument in full, the counsel conversation that gets answers instead of shrugs, and Draw the Line — auditing your own function and writing the one-pager you could actually circulate.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai101-m7-sorting', 'ai101-m7', 'sorting', '{"reviewedAt":"2026-08-11","buckets":[{"id":"never","label":"Never","hint":"The decide side","rank":0,"pct":5},{"id":"verify","label":"Assist + verification","hint":"Go, with Level 2+ riding along","rank":1,"pct":45},{"id":"assist","label":"Assist","hint":"Go, with ordinary care","rank":2,"pct":85}],"tasks":[{"id":"t1","text":"Turn a hiring manager''s rambling role description into a structured job spec","key":"assist","reasoning":"Transformation of human-supplied material about a role, not a person. The heuristic''s home ground — ordinary M5 care, no special verification."},{"id":"t2","text":"Rank the 80 applicants for a role by fit score so recruiters can focus on the top 20","key":"never","reasoning":"Scoring and filtering people — the 60 at the bottom are decided about by a system, reviewed by no one. ''Recruiters make the final call'' fails the review test: they only ever see the survivors."},{"id":"t3","text":"Draft interview questions from the role''s competency list","key":"assist","reasoning":"Material about the role, transformed into interview scaffolding. The humans still run the interviews and form every judgment about the people in them."},{"id":"t4","text":"Summarize themes across 400 redacted exit-interview transcripts for the annual retention review","key":"verify","reasoning":"Assist-side — a population characterized, no individual scored — but it shapes real decisions and summarization has M6 failure modes (the lossy middle, flattened intensity), so Level 2 rides along: spot-check themes against transcripts. And watch M4''s small-population flag if any cut gets thin."},{"id":"t5","text":"Paste an employee''s support tickets and ask for a summary of their performance this quarter","key":"never","reasoning":"AI originates a characterization of a named person''s quality — the decide side even if a manager edits the result afterward. Direction of origination is the test: judgment must start with the human."},{"id":"t6","text":"Help a manager turn their own written observations into a clear, structured performance review","key":"verify","reasoning":"The manager supplies the judgment; AI formats it — assist-side. Verification rides along because it''s a consequential document about a named person: the manager confirms every claim survived formatting intact, and nothing got added. That''s M6''s named-individual zone.","also":["assist"]},{"id":"t7","text":"Draft the FAQ for an upcoming benefits change, from the plan documents","key":"verify","reasoning":"Assist-side drafting from supplied material — but the output is consumed directly by employees who''ll act on it (M6''s fourth zone), and benefits claims are checkable specifics. Level 2: every factual claim traced to the plan docs before publishing."},{"id":"t8","text":"Generate a flight-risk score for each employee in the org, as a data point for retention conversations","key":"never","reasoning":"A number attached to every named person, feeding decisions about them. ''Just a data point'' is how scores enter meetings — and M6 told you what numbers do there: shed caveats and anchor. This is a decision engine whatever the dashboard calls it."},{"id":"t9","text":"Check a promotion case the manager wrote for clarity, consistency, and gaps before the calibration meeting","key":"assist","reasoning":"Editing support on a human-authored case: the judgment exists, on paper, from its accountable author. AI is improving the material humans decide from — which is the line''s exact definition of assist."},{"id":"t10","text":"Screen out résumés with employment gaps longer than a year before human review","key":"never","reasoning":"Auto-filtering people on a rule — and a rule that''s a textbook proxy: gaps correlate with caregiving, disability, and other protected ground (Lesson 1''s tangle). The filtered are never seen; disparate impact needs no intent."}],"pattern":"The traveling test decides every card: could this output change one identifiable person''s outcome?","postscript":"The never cards share one property — a system originated a judgment or filter on a person — and the polite framing (''data point,'' ''just a first pass,'' ''recruiters still decide'') is exactly how they arrive in real meetings. Cards placed above the key are the direction that costs people; below, the direction that costs only convenience — and note t6: some cards are legitimately arguable between assist and verify, which is why the verification column exists. The applied activity now runs this same sort on your function''s real uses — including the ones nobody ever examined as decisions about people."}', '2026-08-11');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai101-m7-rubric', 'ai101-m7', 'rubric', '{"promptVersion":"ai101-m7-draw-the-line-v1","moduleId":"ai101-m7","minWords":250,"maxWords":350,"submitLabel":"Your one-pager and reflection","intro":"Paste the one-pager (all four sections) followed by the 250–350 word reflection. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for an AI fluency course for People leaders (AI 101, The Foundation). Module 7 applied activity, ''Draw the Line'': an audit of their function''s real AI uses (live and seriously proposed) against the assist/decide line using the traveling test (could this output change one identifiable person''s outcome?), scored against their predicted wrong-side count; then a circulate-ready one-pager with four sections — three endorsed assist-side uses each carrying an M6 verification note, two specifically-named forbidden uses with reasoning an executive would engage with, the assist-side trade attached to each no, and a named sign-off for new people-touching tools; then a stress test writing the workaround an enthusiastic adopter would find. A numeric prediction may have been captured by the module''s opening calibration prompt; grade the calibration dimension on whether the prediction is stated and honestly compared, never on its accuracy. Finding zero wrong-side uses is acceptable only with evidence the audit actually looked — including embedded features and casual team habits, not just official tools.","opening":[{"key":"wrongSide","label":"Predicted — current or proposed uses landing on the wrong side","hint":"Count anything live or under real consideration in your function.","placeholder":"e.g. 1","min":0,"max":20}],"calibration":[{"key":"wrongSideActual","label":"Found — wrong-side uses the audit actually surfaced","hint":"The commonest find: something already running that nobody examined as a decision about people.","placeholder":"e.g. 2","min":0,"max":20,"actualFor":"wrongSide"}],"dimensions":[{"name":"The audit looked","criteria":"Real uses from their actual function, including embedded features (ATS/HRIS/survey-platform AI) and informal team habits — not just official tools. Each use placed with the traveling test visible in the reasoning. A surprising find honestly reported outscores a clean bill of health."},{"name":"The forbidden uses are named and reasoned","criteria":"Two prohibitions naming the decision, not the technology (''no system ranks candidates'' not ''careful with AI''), each with reasoning drawn from the module''s mechanism — standardized bias, review theater, proxies, accountability — at a register an executive would engage with rather than dismiss."},{"name":"The line could hold","criteria":"Every no carries its assist-side trade; the sign-off names a person or role; and the stress test identifies a real workaround with a specific tightening in response. A line with an obvious unaddressed route-around scores low on this dimension regardless of the reasoning quality."},{"name":"Verification notes and calibration","criteria":"Each endorsed use carries a proportionate M6 note (which level, why); the prediction is compared, direction named, with the honest sentence about what the audit revealed. The reflection names which forbidden use was hardest to reason — and why."}]}', '2026-08-11');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai101-m7-knowledge_check', 'ai101-m7', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-11","questions":[{"id":"q1","prompt":"Why is bias in an employment-trained model a property rather than a bug?","options":["Vendors deliberately train models on biased data because it''s cheaper","The training records contain merit tangled with every systematic skew in how organizations actually decided — and the system learns that tangle as the definition","Models are programmed with the biases of their developers","It is a bug — sufficiently careful data cleaning removes the bias"],"correctIndex":1,"explanation":"The records are what organizations *did*, not what merit *was* — who got hired, rated, promoted, with every pattern in those calls included. A system that predicts \"strong candidate\" from history reproduces the history. D is the contamination model this lesson exists to break: you can''t clean intentions out of outcomes."},{"id":"q2","prompt":"A vendor explains their screening tool can''t be biased because gender, race, and age were removed from the inputs. What''s wrong with this reassurance?","options":["Nothing — removing protected fields is the accepted standard for fairness","The fields can be reconstructed from metadata the vendor forgot to strip","The patterns live in everything correlated with those fields — names, schools, gaps, word choice, career shapes — and a capable learner finds the proxies","Removing fields reduces accuracy, which is itself a form of bias"],"correctIndex":2,"explanation":"Protected characteristics survive field-removal the way identity survives name-deletion in M4 — through combinations. The tangle doesn''t live in labeled columns; it lives in the correlated everything-else, which is why field-removal is the first false reassurance of Lesson 1."},{"id":"q3","prompt":"\"Our model is less biased than human reviewers\" is best treated as:","options":["True on principle — algorithms don''t have feelings, so they can''t discriminate","False on principle — software is always more biased than people","Irrelevant — bias comparisons between humans and models are meaningless","An empirical claim requiring demonstration for the specific system on a relevant population — because a model standardizes one bias pattern at scale rather than transcending it"],"correctIndex":3,"explanation":"The premise is even true — human review is biased; that''s what the training data proves. But the model doesn''t rise above the pattern, it runs one instance of it on every candidate identically, fluently, at scale. So the claim is checkable, sometimes even true — and never a property the technology gets for free. Ask for the validation evidence, in writing."},{"id":"q4","prompt":"A manager uses AI to turn their own written observations into a clear, well-structured performance review. A second manager pastes an employee''s tickets and asks the model to \"summarize their performance,\" then edits the result. The line says:","options":["Both are fine — a human shipped the final text in both cases","The first is assist (AI formats the manager''s judgment); the second crossed the line (AI originated the judgment, and the human formatted it)","Both crossed it — AI should never touch performance documents","The second is safer, because tickets are objective data"],"correctIndex":1,"explanation":"The direction of origination is the whole test: judgment from the human, formatting from the machine is assist; judgment from the machine, formatting from the human is decide — even though a person typed the final version in both. D is the seductive one: \"objective\" inputs don''t make the characterization of a person any less a characterization."},{"id":"q5","prompt":"Why isn''t \"a human makes the final call\" automatically a defense for a résumé-ranking system?","options":["Because regulations prohibit humans from overriding algorithmic outputs","Humans always agree with the machine, so review changes nothing","The reviewer sees only the survivors, can''t re-derive the scores, and is anchored by them — review is a defense only where the human could actually catch the error","It is a defense — human review resolves the concern in full"],"correctIndex":2,"explanation":"M6''s principle, sharpened: verification requires the checker to be capable of catching the failure. The filtered-out candidates never reach the reviewer; the score''s reasoning isn''t re-derivable by anyone, vendor included; and disagreeing with a fluent number now requires a reason. Review of the unreviewable is theater."},{"id":"q6","prompt":"\"Summarize the themes in these 400 redacted exit interviews\" sits on the assist side. What moves this kind of work across the line?","options":["Using more than one model to generate the summary","The population getting small enough to point at individuals, or themes getting re-attached to named people — anything that could change one identifiable person''s outcome","Nothing — aggregate analysis is always safe regardless of size","Using the summary in any meeting where decisions are made"],"correctIndex":1,"explanation":"The traveling test. Aggregates characterize populations, and that''s assist-side work with M4 and M6 riding along — until the aggregate thins into de-facto individual assessment. C ignores M4''s small-population flag; D would outlaw using analysis for anything, which isn''t the line — informing decisions about *policies* is what analysis is for."},{"id":"q7","prompt":"Per the regulatory shape **[V]**, why does \"the vendor assured us their tool is unbiased\" fail as a defense under disparate-impact doctrine?","options":["Vendor statements are inadmissible in legal proceedings","Disparate impact turns on outcomes, not intent — so the question is validation evidence for this system on a population like yours, and the employer owns the outcome either way","It doesn''t fail — good-faith reliance on vendor assurances transfers the liability","Because all vendor tools are in fact biased"],"correctIndex":1,"explanation":"No malice is required — a neutral-seeming practice that disproportionately excludes needs job-related justification, whoever built it. Accountability doesn''t outsource: buying a biased system is doing a biased thing. Hence the module''s homework — validation evidence in writing, and a specific list for counsel rather than \"are we compliant?\""},{"id":"q8","prompt":"Which version of the line is most likely to actually hold inside an organization?","options":["\"We take an appropriately cautious approach to AI in talent processes\"","\"No AI anywhere near anything involving people, effective immediately\"","\"No system ranks, scores, or filters candidates — screening stays human. AI does structure intake, draft kits, and clean up debriefs; [Name] clears any new people-touching tool before pilot\"","Whichever version the vendor''s legal team is comfortable signing"],"correctIndex":2,"explanation":"The four properties: specific (checkable against any new tool in seconds), attached to its assist-side trade (adoptable, not just prohibitive), reasoned, and owned by a name. A re-litigates per vendor; B routes around by Q3 because it blocks the assist side too — the blanket version is the *weaker* version, which is this module''s least intuitive lesson."}]}', '2026-08-11');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m8-calibration-prompt-before-you-start-10', 'ai101-m8', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One prediction, thirty seconds — the last one, and it''s about all the others.*
+
+Across this course you''ve made a prediction at the top of most modules and scored it in the
+activity. The final activity asks you to gather them and look at the pattern.
+
+**Before you look back: in which direction do you think you''ve mostly missed?** Over —
+expecting more from these tools than they delivered? Under — expecting less? Mixed? Write
+one sentence, including your best guess at *why* your misses lean the way they do.
+
+This one has no numeric field on purpose. The last calibration is a judgment about your own
+judgment — which is, not coincidentally, the skill the whole course was building.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m8-module-brief-20', 'ai101-m8', 20, 'prose', 'stable', '## Module brief
+
+Here is the situation the previous seven modules leave you in. You can predict what a model
+will do well (M1), identify what shape of AI you''re looking at (M2), size a use case (M3),
+move material safely (M4), brief and steer (M5), catch fabrications (M6), and say where
+the machines must stop (M7). One question remains, and it''s the one your organization will
+actually ask you, usually on a bad day: **when AI touched the work, who owns the result?**
+
+The answer is one word long — *you* — and this module is about making that answer
+survivable. Because "you own it" without infrastructure is just exposure: you own output
+you didn''t verify, under agreements you haven''t read, with disclosure norms nobody wrote
+down, against questions nobody settled. The module builds the infrastructure: the
+accountability principle stated so it can''t be misread, the agreement layer that determines
+what your tools may do with what you give them **[V]**, the disclosure judgment for when
+"AI helped" needs saying out loud, and the five questions to settle with legal and IT
+*before* the bad day — plus the one-pager that closes the course by writing your answers
+down.
+
+One reframe to carry through the module: ownership is not the tax on using AI. It''s the
+*license*. The person who can say "I use these tools, here''s what I verify, here''s my
+line, and here''s my name on the result" gets to use them without asking permission every
+time — and becomes the person others ask. That''s the posture 201 builds on, and the reason
+this module closes the course instead of opening it: you can only own what you understand,
+and now you understand it.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m8-learning-objectives-30', 'ai101-m8', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. State the accountability principle — the output is a draft, never a decision — and apply
+   it to the excuses that arrive when AI-assisted work goes wrong.
+2. Read your tools'' agreement layer **[V]**: what''s retained, what''s trained on, and the
+   difference between consumer defaults and enterprise terms — and know which questions go
+   to IT versus counsel.
+3. Make the disclosure call with the honest test: would the person reading this feel misled
+   to learn how it was made?
+4. Bring legal and IT the five questions worth settling now, as a policy skeleton rather
+   than an open-ended worry.
+5. Write your own one-pager — use, verify, disclose, refuse — and score your calibration
+   across the whole course. The applied activity, and the course close.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m8-lesson-1-the-output-is-a-draft-never-a-d-40', 'ai101-m8', 40, 'prose', 'stable', '## Lesson 1 · The output is a draft, never a decision
+
+The principle first, stated so it can''t be misread: **AI output is a draft handed to you.
+The moment you ship it — send it, file it, say it in a meeting — it stops being AI output
+and becomes your work.** Accountability doesn''t transfer to a tool, because the tool can''t
+hold it: it can''t be questioned about intent, can''t correct the record, can''t make the
+person harmed whole, can''t be sanctioned into doing better. Every mechanism accountability
+runs on requires a person. That''s not a course rule; it''s how your organization, your
+profession, and the law already work — this module just refuses to pretend AI changed it.
+
+The principle earns its keep on the bad day, when the excuses arrive. Hold four of them up
+to the light — you''ll hear all four eventually, possibly in your own voice, and each one
+is actually a *confession* wearing a defense:
+
+**"The AI wrote it."** Confesses: I shipped work I didn''t stand behind. The provenance of a
+draft has never mattered to accountability — nobody accepts "the intern wrote it" or "the
+template said that" from the person who signed. This excuse has never once helped anyone,
+and its M1-shaped error is treating the tool as an *author* — an entity that could own
+words — rather than machinery that produced them.
+
+**"I reviewed it."** Better — review is the right *category* — but as a defense it claims
+whatever the review could actually catch, no more. M6 priced this precisely: a Level 1
+scan defends against nothing on the high-risk surface; "I reviewed it" for a fabricated
+statute means "I read it and it sounded right," which is M6''s exact description of how
+fabrications ship. The honest version has content: *"I traced its claims against the plan
+documents"* — a defense with a verb in it.
+
+**"It was only a draft."** Confesses: I lost track of the boundary between drafting and
+shipping. The principle is precisely that draft-ness *ends* — at the send button, at the
+meeting, at the moment a colleague could rely on it. Sharing "just a draft" analysis that
+someone acts on shipped it, whatever the filename said.
+
+**"The vendor said it was compliant."** M7 already broke this one — accountability doesn''t
+outsource, and a vendor''s assurance is a deferred question, not a defense. Confesses: I
+let someone else''s claim stand where my organization''s verification should be.
+
+Notice what all four have in common: each one tries to relocate agency — to the tool, the
+glance, the label, the vendor. The principle''s whole content is that agency stayed with
+you the entire time. Which is also — turn it around — the *good* news, and the license
+this module opened with: work you verified, under terms you know, is work you can put
+your name on without flinching.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m8-try-50', 'ai101-m8', 50, 'try_this', 'stable', '### Try this — 3 minutes
+The excuse audit. For each of the four — "the AI wrote it," "I reviewed it," "it was
+only a draft," "the vendor said it was compliant" — write the one-line honest version:
+what would you have needed to *actually do* for the sentence to hold up? You''ve just
+written the four working standards of this module; keep them.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m8-lesson-2-the-agreement-layer-60', 'ai101-m8', 60, 'prose', 'volatile', '## Lesson 2 · The agreement layer [V]
+
+M4 told you what may enter a tool depends on the agreement covering it. This lesson is
+that agreement layer up close — because "what happens to what I paste?" has a knowable
+answer, it''s in a document, and *you are allowed to ask for it.* Most people never do;
+they use tools under terms they''ve never seen and describe the result as a mystery. Three
+questions organize everything worth knowing:
+
+**Is my input used to train or improve the models?** The load-bearing question. Consumer
+tiers vary and have historically defaulted toward *yes, unless you opt out* **[V]**;
+enterprise agreements typically answer *no, contractually*. The difference is the M4
+distinction with teeth: material that trains a model may surface, in some transformed
+form, outside your control forever. This single question is most of why "the provisioned
+tool used well beats the better tool used personally" (M2) is the professional''s answer.
+
+**What''s retained, and for how long?** Even without training, inputs and outputs persist
+somewhere — conversation history, vendor logs, safety review **[V]**. Retention determines
+what exists to be breached, subpoenaed, or surprised by. Enterprise terms typically
+negotiate retention windows and deletion; consumer tiers typically don''t. The M4
+connection runs both directions: retention is why redaction mattered, and redaction is
+your control when retention isn''t.
+
+**Who can see it?** Vendor staff under what circumstances, your own admins under what
+controls, and — increasingly relevant — what the vendor''s own AI features do with your
+content inside their platform **[V]**.
+
+What to do with the three questions is a routing rule. **IT/security answers them** — for
+each provisioned tool, in writing; if the answer is "we don''t know," you''ve found real
+work, and asking it is a contribution, not a nuisance. **Counsel handles what the answers
+imply** — whether those terms satisfy your obligations for Tier 3 material, what your
+regulators require **[V]**. **You enforce the boundary that follows:** the tier rules of
+M4, now with a documented *why* behind them, which is what makes them teachable to your
+team instead of arbitrary. And one habit closes the loop: when the answers arrive, put
+them where your team can see them — a one-line-per-tool grid ("Tool X: no training,
+90-day retention, enterprise terms — Tier 2 OK, Tier 3 redacted only"). That grid is the
+most-requested artifact in every organization''s AI rollout, and almost nobody has made
+it. Be the one who did.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m8-lesson-3-disclosure-would-they-feel-misl-70', 'ai101-m8', 70, 'prose', 'stable', '## Lesson 3 · Disclosure — would they feel misled?
+
+Somewhere between "spell-check" and "the AI wrote my performance reviews," AI assistance
+starts needing to be said out loud. The interesting question is where — and the answer
+that actually works isn''t a percentage of AI involvement. It''s a question about the
+*reader*: **would this person feel misled if they learned how this was made?** Misled is
+the precise word. Not surprised, not impressed — *misled*: they took the artifact as
+evidence of something it isn''t.
+
+Watch the test sort real cases. A job posting drafted by AI from your role spec, edited
+and approved by your recruiter? Nobody feels misled — no reader takes a job posting as
+someone''s personal prose; the organization stands behind the content, which is exactly
+what the artifact claims. A board slide whose numbers came from an AI summary of survey
+data? The board takes those numbers as *verified facts* — what needs disclosing isn''t
+"AI helped" but provenance and verification status: "figures from the Q3 survey analysis,
+methodology in appendix." A condolence note, a personal thank-you, a reference you''re
+asked to give *as you* — here the artifact''s entire value is that a person meant it
+personally; discovering it was generated voids the thing itself, which is why "AI wrote
+my heartfelt note" stories keep ending badly. And the candidate rejection note: the
+company''s decision in the company''s voice — AI drafting fine, provided the *decision*
+was made the M7 way, which is the thing the reader actually cares about being real.
+
+The pattern the cases reveal: **disclosure tracks the reader''s stake in how it was made,
+not the amount of AI involved.** Readers have a stake when the artifact implies a
+human''s personal witness (the note, the reference), when they''ll rely on unverified
+specifics as verified (the board numbers), or when the making *is* the message. They
+have no stake in the mechanics of routine institutional prose — nobody needs a
+provenance label on a meeting-notes summary.
+
+Three practices operationalize it. **Per-artifact, ask the test** — it takes five
+seconds and it''s usually obvious. **Where disclosure is owed, disclose the useful
+thing** — verification status and provenance ("drafted with AI assistance, reviewed and
+verified by me") rather than a vague AI-was-here sticker. **And for recurring artifact
+types, decide once** — your team shouldn''t re-derive the ethics of AI-assisted JDs
+weekly; that''s a norms question, it belongs in the one-pager, and Lesson 4 files it
+there. One boundary case gets a flag because it''s yours: *ER documentation and anything
+that may become evidence* — where provenance of every sentence can end up examined under
+oath **[V]** — routes to counsel''s guidance, not to per-artifact judgment.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m8-exercise-embed-75', 'ai101-m8', 75, 'exercise', 'stable', '{"type": "sorting", "title": "Calibration exercise \u2014 Would they feel misled?", "intro": "Ten minutes, six pieces of shipped work AI touched. Sort each: disclose (the reader is owed something about how it was made), no disclosure needed (no stake in the mechanics), or shouldn''t have shipped at all (the problem is upstream of disclosure). Commit every card before the reveal.\n\nUse the test: would this reader feel misled to learn how this was made \u2014 did they take the artifact as evidence of something it isn''t?"}', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m8-lesson-4-the-five-questions-to-settle-no-80', 'ai101-m8', 80, 'prose', 'stable', '## Lesson 4 · The five questions to settle now
+
+Everything so far in this module is judgment you can exercise alone. This lesson is the
+part you can''t do alone — the questions that need legal, IT, and leadership answers, and
+that are *cheap to settle now and expensive to settle during an incident.* Five, phrased
+to bring to the meeting:
+
+**1. Which tools, which tiers?** The approved-tools grid from Lesson 2 — each tool''s
+agreement answers, and what data tier each may touch (M4). This is the question that
+retires "is it OK if I paste…?" forever.
+
+**2. Where''s the line, and who owns it?** M7''s one-pager, adopted: what AI must not
+decide, who signs off on new people-touching tools, in writing.
+
+**3. What are our disclosure norms?** Lesson 3''s decide-once list: which artifact types
+carry a note, what the note says, and who decides novel cases.
+
+**4. What''s our verification standard?** M6''s levels, assigned: what must be true before
+AI-assisted work ships — by stakes, with the high-risk surface named — so "I reviewed
+it" has organizational content instead of personal interpretation.
+
+**5. What happens when something goes wrong?** The one nobody wants to write and
+everyone needs: who gets told when AI-assisted work ships with an error, what''s the
+correction path, and — critically — what''s the *no-blame lane* for self-reporting? An
+organization that punishes the person who says "my AI-assisted memo had a fabricated
+citation, here''s the correction" trains everyone to stop saying it. The incident you
+hear about early is cheap; the incident that hides is the expensive one.
+
+Bring the five as a skeleton — proposed answers, not open questions; you have all the
+material from seven modules — and you''ll leave the meeting with a policy. Bring them as
+worries and you''ll leave with a follow-up meeting. The applied activity has you draft
+exactly that skeleton for yourself, which is also the course closing the loop: in M1 you
+predicted where AI would help; now you''re writing the terms under which you''ll let it.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m8-key-takeaways-90', 'ai101-m8', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **The output is a draft, never a decision.** Shipping converts AI output into your
+  work — send, file, or say it, and it''s yours. Every excuse on the bad day ("the AI
+  wrote it," "I reviewed it," "only a draft," "the vendor said") is a confession about
+  relocated agency; the honest versions all have verbs in them.
+- **The agreement layer is knowable — ask three questions [V]:** trained on? retained
+  how long? visible to whom? IT answers, counsel interprets, you enforce the tier rules
+  that follow — and publish the one-line-per-tool grid nobody else has made.
+- **Disclosure tracks the reader''s stake, not the AI percentage.** The test: would they
+  feel misled about what this artifact is evidence of? Disclose the useful thing —
+  verification and provenance, not a vague sticker. Decide once per artifact type.
+- **Five questions settle the policy before the incident:** tools and tiers, the line
+  and its owner, disclosure norms, verification standards, and the no-blame correction
+  path. Bring skeletons, not worries.
+- **Ownership is the license, not the tax.** "I use these tools, here''s what I verify,
+  here''s my line, my name''s on the result" is the sentence that earns autonomy — and
+  the posture 201 builds a practitioner on.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m8-activity-link-95', 'ai101-m8', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 The One-Pager", "blurb": "The course close: the terms under which you use AI \u2014 use, verify, disclose, refuse \u2014 written so your team could read it Monday, plus the calibration review across every prediction you made in this course. Graded with per-dimension feedback; free unlimited resubmission.", "estMinutes": "25\u201330"}', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m8-sources-and-attribution-100', 'ai101-m8', 100, 'prose', 'stable', '## Sources and attribution
+
+This module draws on the following material:
+
+- **The AI Fluency Framework** (Rick Dakan & Joseph Feller, in collaboration with
+  Anthropic, CC BY-NC-SA 4.0) — the accountability stance and the treatment of
+  responsible disclosure adapt its "Diligence" competency; the course''s four-competency
+  inheritance (Delegation, Description, Discernment, Diligence) is its framework
+  throughout.
+- Provider terms of service, data processing agreements, and enterprise documentation —
+  training defaults, retention windows, and visibility rules are moving targets; verify
+  against your vendor''s current terms and your own agreement. **[V]**
+- The excuse audit, the reader''s-stake disclosure test, and the five-question policy
+  skeleton are original to this course, developed for the People-leader context.
+- Evidentiary treatment of AI-assisted workplace documentation is an evolving area —
+  the ER-documentation flag exists because provenance can be examined in ways that
+  are jurisdiction- and case-specific. *Counsel''s guidance governs there, not this
+  course.* **[V]**', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m8-activity-applied-activity-the-one-pager-10', 'ai101-m8-activity', 10, 'prose', 'stable', '## Applied activity — "The One-Pager"
+
+**Time:** 25–30 minutes · **Submit:** your one-pager plus a 250–350 word calibration
+review · **Graded against the rubric below.** Score doesn''t matter — this one is the
+course landing. Doing the work is where the learning lands.
+
+Two parts: the artifact, and the look back.
+
+**Part 1 — Your one-pager (15–20 min).** One page, first person, real: the terms under
+which you use AI in your work, written so your manager or team could read it Monday.
+Four sections —
+- **Use:** the three to five tasks where AI now has a standing place in your week, each
+  in one line with its M5-shaped habit ("JDs — drafted from role specs with two
+  examples attached, recruiter-reviewed").
+- **Verify:** your M6 commitments, by stakes: what gets the scan, what gets claims
+  traced, what gets adversarial review — and your personal high-risk surface, named.
+- **Disclose:** your Lesson 3 decide-once list — artifact types that carry a note, what
+  the note says.
+- **Refuse:** your M7 line, in your own words, plus the M4 tiers you won''t move without
+  the agreement answers — and the one question you''re taking to IT or counsel first.
+
+**Part 2 — The calibration review (10 min).** Gather your predictions from across the
+course — M1''s edges, the stack count, the cost guess, the improvement score, the
+attempt count, the wrong-side audit — and score the pattern, not the points: which
+direction did you mostly miss, does it match what you predicted at the top of *this*
+module, and what does the pattern tell you about your starting posture toward these
+tools? End with the one-sentence version you''d say out loud: how your model of AI
+changed from Module 1 to now — specific enough that it couldn''t have been written
+before you took the course.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m8-micro-core', 'ai101-m8-micro', 10, 'prose', 'stable', '## Module 8 in two minutes
+
+**The output is a draft, never a decision.** The moment you ship it — send, file, say it — it''s your work, because accountability needs an entity that can answer for it, and a tool can''t hold it. The bad-day excuses are all confessions about relocated agency: "the AI wrote it" (I shipped what I didn''t stand behind), "I reviewed it" (only a defense for what the review could catch), "only a draft" (someone relied on it — that was the shipping), "the vendor said" (their claim stood where my verification belonged).
+
+**The agreement layer is knowable — three questions [V]:** is my input trained on? retained how long? visible to whom? IT answers in writing, counsel interprets, you enforce the tier rules that follow — and publish the one-line-per-tool grid nobody else has made.
+
+**Disclosure tracks the reader''s stake, not the AI percentage.** The test: would they feel misled about what this artifact is evidence of? Institutional prose, no stake. Numbers headed for a board, disclose verification status. Personal witness — the condolence note, the reference given as you — no disclosure fixes a false claim; don''t ship it.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m8-micro-rule', 'ai101-m8-micro', 20, 'callout', 'stable', '### The rule to carry
+
+Ownership is the license, not the tax: "here''s what I use, here''s what I verify, here''s my line, my name''s on the result" is the sentence that earns autonomy with these tools — and it''s the whole course in one breath.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m8-micro-close', 'ai101-m8-micro', 30, 'prose', 'stable', '**The full module adds** the excuse audit, the would-they-feel-misled sort (six shipped artifacts, two of which no disclosure can fix), the five questions to settle with legal and IT before the bad day — skeletons, not worries — and The One-Pager: your own use/verify/disclose/refuse terms, plus the calibration review across every prediction the course made you write down.', NULL, '2026-08-11', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai101-m8-sorting', 'ai101-m8', 'sorting', '{"reviewedAt":"2026-08-11","buckets":[{"id":"noship","label":"Shouldn''t have shipped","hint":"The problem is upstream of disclosure","rank":0,"pct":5},{"id":"disclose","label":"Disclose","hint":"The reader is owed provenance or verification status","rank":1,"pct":50},{"id":"none","label":"No disclosure needed","hint":"No stake in the mechanics","rank":2,"pct":90}],"tasks":[{"id":"t1","text":"A job posting drafted by AI from the role spec, edited and approved by the recruiter, published to the careers page","key":"none","reasoning":"No reader takes a job posting as someone''s personal prose — the artifact claims the organization stands behind the content, and it does. No stake in the mechanics."},{"id":"t2","text":"A board slide whose headline figures came from an AI summary of the engagement survey, presented without sourcing","key":"disclose","reasoning":"The board relies on those numbers as verified facts — their stake is in provenance and verification status, not in which software touched them. ''Figures from the Q3 survey analysis, methodology in appendix'' is the useful disclosure; a vague AI sticker is not."},{"id":"t3","text":"A condolence note to an employee who lost a parent, generated by AI and sent under the manager''s name unedited","key":"noship","reasoning":"The note''s entire value is the manager''s personal witness — discovering it was generated voids the thing itself, so no disclosure fixes it. The problem is upstream: this artifact claims something untrue about itself. (Asking AI to help *the manager* find words they then genuinely make their own is a different artifact.)"},{"id":"t4","text":"A candidate rejection email drafted by AI in the company voice, decision made by the hiring panel, reviewed before sending","key":"none","reasoning":"The company''s decision in the company''s voice — the reader''s real stake is that the *decision* was made the M7 way (by humans), and it was. Institutional prose carries no personal-witness claim.","also":["disclose"]},{"id":"t5","text":"An ER investigation summary drafted with AI assistance from the investigator''s notes, headed for the case file","key":"disclose","reasoning":"Anything that may become evidence carries a provenance stake — the file should record how the document was produced and verified, per counsel''s guidance, because every sentence''s origin can end up examined. This is the boundary case the module routes to counsel rather than per-artifact judgment.","also":["noship"]},{"id":"t6","text":"A reference for a former report, which you agreed to give personally, generated by AI from their LinkedIn and sent with your signature","key":"noship","reasoning":"You were asked *as you* — the artifact''s value is your personal knowledge of the person, and it was generated from a public profile you didn''t even verify. Both the personal-witness claim and the factual basis are false. Decline, or write it yourself (AI may polish your substance; it can''t supply it)."}],"pattern":"Disclosure tracks the reader''s stake in how it was made — not the amount of AI involved.","postscript":"The two no-ship cards fail the same way: the artifact itself claims personal witness that didn''t happen, and no note fixes a false claim. The two disclose cards owe the reader something specific — verification status, provenance — not an AI-was-here sticker. And the two clean cards are institutional prose, where the only real stake is that the organization means it. Cards placed above the key treated a reader''s stake as mechanics; below, mechanics as a stake. The applied activity now has you write your own decide-once list, so your team never re-derives these calls artifact by artifact."}', '2026-08-11');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai101-m8-rubric', 'ai101-m8', 'rubric', '{"promptVersion":"ai101-m8-one-pager-v1","moduleId":"ai101-m8","minWords":250,"maxWords":350,"submitLabel":"Your one-pager and calibration review","intro":"Paste the one-pager (all four sections) followed by the 250–350 word calibration review. This is the course close — resubmission is free and unlimited, and the score is a mirror, not a gate.","activityContext":"You are grading the closing submission of an AI fluency course for People leaders (AI 101, The Foundation). Module 8 applied activity, ''The One-Pager'': Part 1 is a first-person, one-page working policy — Use (three to five real tasks with their M5-shaped habits), Verify (M6 commitments sized to stakes, personal high-risk surface named), Disclose (a decide-once list of artifact types with what the note says), Refuse (their M7 line in their own words, M4 tiers they won''t move without agreement answers, and one named question for IT or counsel). Part 2 is a calibration review across the whole course: the predictions they made in earlier modules gathered, the overall direction of miss named and compared against the direction they predicted at the top of this module, and a closing one-sentence account of how their model of AI changed — specific enough that it couldn''t have been written before the course. Learners may not have completed every earlier module or prediction; grade the review on honesty about the pattern in whatever they did complete, never on volume or accuracy. This is the learner''s own working policy, not a compliance document — concreteness and first-person ownership are the standards.","opening":[],"calibration":[],"dimensions":[{"name":"Use and Verify are real and matched","criteria":"The standing uses are recognizable tasks from their actual week, each with a habit attached — and the verification commitments are sized to stakes with the high-risk surface named, not a uniform ''I''ll review everything.'' A modest, keepable set of commitments outscores an aspirational one."},{"name":"Disclose and Refuse have edges","criteria":"The decide-once list names artifact types and what the note says (the useful thing — provenance and verification status, not a sticker). The refusal line names decisions, not technology, in their own words — and the one question for IT or counsel is specific enough to get an answer rather than a shrug."},{"name":"It could circulate Monday","criteria":"First person, one page, concrete enough that their manager or team could read it and know what to expect — and what to ask. Policy-speak, hedging, and borrowed language score low; the test is whether it sounds like a person who means it."},{"name":"The calibration review closes the loop","criteria":"Predictions gathered honestly from whatever modules they completed, the direction of the pattern named and compared to what they predicted this module, and the closing sentence is specific to their own shift — it names something they believed in Module 1 that they no longer believe, or vice versa. Generic endings (''AI is a powerful tool with risks'') fail this dimension."}]}', '2026-08-11');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai101-m8-knowledge_check', 'ai101-m8', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-11","questions":[{"id":"q1","prompt":"What exactly converts AI output from \"a draft\" into \"your work\"?","options":["Editing at least half of it before use","Shipping it — sending, filing, or saying it where someone could rely on it","The tool''s terms of service assigning you the copyright","Nothing — AI-generated content remains the tool''s output permanently"],"correctIndex":1,"explanation":"The boundary is the moment of reliance, not the degree of editing — unedited output you ship is fully yours, and heavily edited output still in your drafts folder is nobody''s yet. That''s also why \"it was only a draft\" fails once a colleague acted on it: sharing it where someone could rely on it *was* the shipping."},{"id":"q2","prompt":"Why does \"the AI wrote it\" fail as a defense — at the level of principle, not just optics?","options":["Because current law hasn''t caught up to AI authorship yet","Because it''s usually false — the human edited the text somewhat","Accountability requires an entity that can answer for the work — be questioned, correct the record, make harm whole — and a tool can''t hold any of it","It doesn''t fail — provenance genuinely mitigates responsibility"],"correctIndex":2,"explanation":"Every mechanism accountability runs on needs a person, which is why provenance of a draft has never mattered: nobody accepts \"the intern wrote it\" from the person who signed. The excuse just relocates agency that never moved."},{"id":"q3","prompt":"Under the excuse audit, what''s the difference between \"I reviewed it\" and a defense that holds?","options":["A defense that holds names what the review actually did — \"I traced its claims against the plan documents\" — and covers only what that could catch","There is no difference — review is review","A holding defense requires a second person to also review the work","\"I reviewed it\" holds as long as the reviewer was senior enough"],"correctIndex":0,"explanation":"M6 priced review precisely: a defense claims what the verification level could actually catch, no more. \"I read it and it sounded right\" is the exact mechanism by which fabrications ship — so the honest version has a verb and a source in it."},{"id":"q4","prompt":"Of the three agreement-layer questions **[V]**, which is load-bearing, and why?","options":["Retention — because deleted data can''t be breached","Whether inputs train or improve the models — because trained-on material may surface, transformed, outside your control forever","Visibility — because vendor staff access is the main exposure","None individually — only the full contract matters"],"correctIndex":1,"explanation":"Training is the irreversible one: retention windows expire and access can be controlled, but what entered a model''s training doesn''t come back out on request. It''s also most of the reason the provisioned tool beats the personal account — the enterprise \"no, contractually\" versus the consumer default **[V]**."},{"id":"q5","prompt":"Your board slide includes figures that came from an AI summary of survey data. What does the disclosure test actually require here?","options":["Nothing — internal slides never require disclosure","A footer stating \"this presentation was created with AI assistance\"","Provenance and verification status — the board will rely on the numbers as verified facts, so what they''re owed is where the figures came from and whether they were checked","Removing the figures, since AI-derived numbers can''t be presented to boards"],"correctIndex":2,"explanation":"The reader''s stake is in the numbers'' *verifiedness*, not in which software touched them — M6 told you numbers get repeated without caveats, which is exactly why their status must travel with them. B discloses the useless thing; the sticker satisfies no stake the board actually has."},{"id":"q6","prompt":"Why do the personal cases — condolence notes, references given as you — sit at the far end of the disclosure spectrum?","options":["They''re legally protected categories of communication","The artifact''s entire value is a person''s personal witness — discovering it was generated voids the thing itself, so no disclosure fixes it","They''re too short for AI assistance to matter","They don''t — all artifacts follow the same disclosure rule"],"correctIndex":1,"explanation":"For institutional prose, the reader''s stake is in the organization standing behind content. Here the making *is* the message — the reader took the artifact as evidence of personal attention, so the failure isn''t undisclosed AI, it''s that the artifact claims something untrue about itself. The test catches this without any percentage rule."},{"id":"q7","prompt":"Why does the fifth question — what happens when something goes wrong — specifically need a no-blame lane for self-reporting?","options":["Because blame-free cultures are more pleasant to work in","To satisfy whistleblower-protection requirements","Because punishing the self-report trains everyone to stop reporting — and the incident that hides is the expensive one","It doesn''t — accountability requires consequences for errors"],"correctIndex":2,"explanation":"The incentive design is the point: you want the fabricated citation surfaced by its author on Tuesday, not discovered by opposing counsel in a year. D confuses accountability (owning and correcting the work) with punishment (which, applied to self-reports, purchases silence at the worst price available)."},{"id":"q8","prompt":"The module calls ownership \"the license, not the tax.\" What does that mean in practice?","options":["Organizations should license AI tools before taxing their use","Ownership costs are deductible against AI productivity gains","Accepting accountability is the price of being left alone by IT","The person who can say \"here''s what I use, verify, disclose, and refuse — my name''s on it\" earns autonomy with the tools and becomes who others trust on them"],"correctIndex":3,"explanation":"The one-pager isn''t defensive paperwork — it''s the sentence that lets you use everything the course taught without asking permission per use, and it''s the posture 201 assumes: you can only own what you understand, and now you do."}]}', '2026-08-11');
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai201-m1-calibration-prompt-before-you-start-10', 'ai201-m1', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
 
 *One question, thirty seconds. You''ll come back to it at the end of the course.*
@@ -478,8 +2456,8 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
 
 You may only systematize what you have verified by hand. And a workflow, like a model, must not make decisions about people — automation makes decisions faster, not fairer.', NULL, '2026-08-07', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai201-m1-micro-close', 'ai201-m1-micro', 30, 'prose', 'stable', '**The full module adds** the audit method, the selection rules with their two seductive wrong answers, a twelve-task sorting exercise from a People leader''s real week, and the capstone''s first stage: choosing your build and writing its five-part spec — the artifact all seven later modules advance.', NULL, '2026-08-07', NULL);
-INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m1-sorting', 'ai201-m1', 'sorting', '{"buckets":[{"id":"workflow","label":"Workflow it","hint":"Recurring transformation of material you own","rank":2,"pct":85},{"id":"manual","label":"Keep it manual","hint":"Judgment-heavy, or a true one-off","rank":1,"pct":50},{"id":"never","label":"Never systematize","hint":"Decisions about people","rank":0,"pct":15}],"tasks":[{"id":"t1","text":"Turning each week''s interview notes into structured debriefs","key":"workflow","reasoning":"The canonical first build: weekly, structured, your notes."},{"id":"t2","text":"Drafting the monthly people-metrics narrative from a data export you own","key":"workflow","reasoning":"Your export, same shape monthly; verification catches the numbers."},{"id":"t3","text":"Deciding which of two finalists receives the offer","key":"never","reasoning":"A decision about a person. It isn''t about capability, and it doesn''t move for better models."},{"id":"t4","text":"Refreshing job postings each quarter to strip jargon and drift","key":"workflow","reasoning":"Quarterly but perfectly structured — pure transformation."},{"id":"t5","text":"Responding to an employee''s grievance email","key":"manual","reasoning":"Arrives on a rhythm, but each one is a distinct human situation carrying legal weight. AI can help you understand a policy; the response is authored, not generated."},{"id":"t6","text":"Summarizing exit-interview verbatims at quarter end","key":"workflow","reasoning":"Same pattern as engagement summaries — with the same caveat: read the raw comments too."},{"id":"t7","text":"Setting performance ratings ahead of calibration","key":"never","reasoning":"The decision where bias stops being abstract: automation reproduces patterns at scale and speed, and adverse impact is the mechanism."},{"id":"t8","text":"Drafting the weekly HR newsletter from bullet points you supply","key":"workflow","reasoning":"Low stakes, weekly, you supply every bullet."},{"id":"t9","text":"Writing this year''s reduction-in-force communication","key":"manual","reasoning":"A one-off, and one of the highest-stakes documents you''ll ever write. Fails the ''recurs'' test before stakes even enter it."},{"id":"t10","text":"Translating policy updates into plain-language change notes","key":"workflow","reasoning":"Text in, plainer text out."},{"id":"t11","text":"Screening résumés for a hard-to-fill role","key":"never","reasoning":"A decision about people — and the place your vendors quietly systematize it for you. You wrote the questions to ask them in 101."},{"id":"t12","text":"Preparing talking points for a sensitive conversation with a specific employee","key":"manual","reasoning":"The material that matters — history, relationship, what you know that isn''t written down — is exactly what no system holds."}],"pattern":"Workflow the recurring transformations of material you own. Keep manual the judgment calls that happen to recur — and anything that happens once. Never systematize decisions about people.","postscript":"If you missed several, look at which kind. Putting judgment calls in ''workflow it'' means you''ll build something that launders discretion through a template. Putting good transformations in ''keep it manual'' means the artisan tax continues for no reason. Both are fixable; that''s what the selection rules are for."}', '2026-08-09');
-INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m1-rubric', 'ai201-m1', 'rubric', '{"promptVersion":"ai201-m1-spec-v1","moduleId":"ai201-m1","minChars":600,"submitLabel":"The five-part spec + your selection reasoning","intro":"Write the five-part spec — trigger, inputs, transformation, verification, output and owner — then defend the choice against the selection rules, including what you rejected and why. Resubmission is free and unlimited.","activityContext":"The learner is submitting Capstone Stage 1 of AI 201: a five-part workflow spec (trigger, inputs, transformation, verification, output/owner) for one workflow chosen from an audit of their own week, plus a paragraph defending the selection against the module''s rules (high frequency, high structure, owned inputs, low-to-medium stakes).","calibration":[{"key":"hours","label":"Prediction 1 — hours/month this task costs you today","hint":"Honest hours, not resentment. Scored for honesty in Module 7.","placeholder":"e.g. 6","min":0,"max":200},{"key":"savings","label":"Prediction 2 — % of that time the workflow saves within a month","hint":"Recorded before you build. Direction of error is the lesson.","placeholder":"e.g. 50","min":0,"max":100}],"dimensions":[{"name":"Spec concreteness","criteria":"All five parts present and specific enough that a colleague could challenge them. Inputs name real sources; the transformation is verbs, not vibes."},{"name":"Selection reasoning","criteria":"The choice is defended against the selection rules, honestly scored for frequency, structure, ownership, and stakes — including what was rejected and why."},{"name":"Verification exists","criteria":"The verification part is present and matched to stakes. It can be modest; it cannot be missing or hand-waved."},{"name":"Calibration","criteria":"Both predictions recorded before the spec, with enough specificity to score in Module 7. Honesty and precision graded; accuracy never."}]}', '2026-08-09');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m1-sorting', 'ai201-m1', 'sorting', '{"buckets":[{"id":"workflow","label":"Workflow it","hint":"Recurring transformation of material you own","rank":2,"pct":85},{"id":"manual","label":"Keep it manual","hint":"Judgment-heavy, or a true one-off","rank":1,"pct":50},{"id":"never","label":"Never systematize","hint":"Decisions about people","rank":0,"pct":15}],"tasks":[{"id":"t1","text":"Turning each week''s interview notes into structured debriefs","key":"workflow","reasoning":"The canonical first build: weekly, structured, your notes."},{"id":"t2","text":"Drafting the monthly people-metrics narrative from a data export you own","key":"workflow","reasoning":"Your export, same shape monthly; verification catches the numbers."},{"id":"t3","text":"Deciding which of two finalists receives the offer","key":"never","reasoning":"A decision about a person. It isn''t about capability, and it doesn''t move for better models."},{"id":"t4","text":"Refreshing job postings each quarter to strip jargon and drift","key":"workflow","reasoning":"Quarterly but perfectly structured — pure transformation."},{"id":"t5","text":"Responding to an employee''s grievance email","key":"manual","reasoning":"Arrives on a rhythm, but each one is a distinct human situation carrying legal weight. AI can help you understand a policy; the response is authored, not generated."},{"id":"t6","text":"Summarizing exit-interview verbatims at quarter end","key":"workflow","reasoning":"Same pattern as engagement summaries — with the same caveat: read the raw comments too."},{"id":"t7","text":"Setting performance ratings ahead of calibration","key":"never","reasoning":"The decision where bias stops being abstract: automation reproduces patterns at scale and speed, and adverse impact is the mechanism."},{"id":"t8","text":"Drafting the weekly HR newsletter from bullet points you supply","key":"workflow","reasoning":"Low stakes, weekly, you supply every bullet."},{"id":"t9","text":"Writing this year''s reduction-in-force communication","key":"manual","reasoning":"A one-off, and one of the highest-stakes documents you''ll ever write. Fails the ''recurs'' test before stakes even enter it."},{"id":"t10","text":"Translating policy updates into plain-language change notes","key":"workflow","reasoning":"Text in, plainer text out."},{"id":"t11","text":"Screening résumés for a hard-to-fill role","key":"never","reasoning":"A decision about people — and the place your vendors quietly systematize it for you. You wrote the questions to ask them in 101."},{"id":"t12","text":"Preparing talking points for a sensitive conversation with a specific employee","key":"manual","reasoning":"The material that matters — history, relationship, what you know that isn''t written down — is exactly what no system holds."}],"pattern":"Workflow the recurring transformations of material you own. Keep manual the judgment calls that happen to recur — and anything that happens once. Never systematize decisions about people.","postscript":"If you missed several, look at which kind. Putting judgment calls in ''workflow it'' means you''ll build something that launders discretion through a template. Putting good transformations in ''keep it manual'' means the artisan tax continues for no reason. Both are fixable; that''s what the selection rules are for."}', '2026-08-11');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m1-rubric', 'ai201-m1', 'rubric', '{"promptVersion":"ai201-m1-spec-v1","moduleId":"ai201-m1","minChars":600,"submitLabel":"The five-part spec + your selection reasoning","intro":"Write the five-part spec — trigger, inputs, transformation, verification, output and owner — then defend the choice against the selection rules, including what you rejected and why. Resubmission is free and unlimited.","activityContext":"The learner is submitting Capstone Stage 1 of AI 201: a five-part workflow spec (trigger, inputs, transformation, verification, output/owner) for one workflow chosen from an audit of their own week, plus a paragraph defending the selection against the module''s rules (high frequency, high structure, owned inputs, low-to-medium stakes).","calibration":[{"key":"hours","label":"Prediction 1 — hours/month this task costs you today","hint":"Honest hours, not resentment. Scored for honesty in Module 7.","placeholder":"e.g. 6","min":0,"max":200},{"key":"savings","label":"Prediction 2 — % of that time the workflow saves within a month","hint":"Recorded before you build. Direction of error is the lesson.","placeholder":"e.g. 50","min":0,"max":100}],"dimensions":[{"name":"Spec concreteness","criteria":"All five parts present and specific enough that a colleague could challenge them. Inputs name real sources; the transformation is verbs, not vibes."},{"name":"Selection reasoning","criteria":"The choice is defended against the selection rules, honestly scored for frequency, structure, ownership, and stakes — including what was rejected and why."},{"name":"Verification exists","criteria":"The verification part is present and matched to stakes. It can be modest; it cannot be missing or hand-waved."},{"name":"Calibration","criteria":"Both predictions recorded before the spec, with enough specificity to score in Module 7. Honesty and precision graded; accuracy never."}]}', '2026-08-11');
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m1-knowledge_check', 'ai201-m1', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the capstone spec is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-07","questions":[{"id":"q1","prompt":"What most reliably separates a workflow from a one-off AI task?","options":["It uses a more capable model","It has a named trigger, and runs the same way without you re-inventing it each time","It saves more than an hour a week","It involves more than one prompt"],"correctIndex":1,"explanation":"The anatomy is the definition: a trigger and a repeatable shape. Model choice, time saved, and prompt count are all properties a workflow *might* have; the trigger and the sameness are what make it one."},{"id":"q2","prompt":"Which part of the anatomy is most often missing from people''s implicit workflows?","options":["The trigger","The inputs","Verification","The output format"],"correctIndex":2,"explanation":"Almost everyone has an intuitive trigger, inputs, and output. Almost nobody has designed the checking step — which is why it gets its own module and why the spec cannot ship without it."},{"id":"q3","prompt":"Why is \"the task that annoys me most\" a poor basis for a first build?","options":["Annoying tasks are usually someone else''s responsibility","Annoyance often signals the task resists structure — each instance different, judgment throughout","First builds should target the highest-stakes work instead","It isn''t — high annoyance is a good proxy for high value"],"correctIndex":1,"explanation":"The tasks that grate hardest often do so *because* they won''t routinize. And C is the other seductive wrong answer: high stakes belong with your second build, after the habits work."},{"id":"q4","prompt":"A workflow drafts rejection emails from your notes on each candidate. Another selects which candidates receive them. Under the practitioner''s heuristic:","options":["Both are acceptable if a human clicks approve","Neither is acceptable in People work","The first transforms material you supply; the second makes a decision about people, and stays with a human","Both are acceptable once the model is accurate enough"],"correctIndex":2,"explanation":"Drafting is transformation — the center of the model''s competence. Selection is a decision about a person, and the heuristic''s second sentence doesn''t bend for accuracy (D) or for a rubber-stamp click (A) if the human has stopped genuinely deciding."},{"id":"q5","prompt":"What makes \"you supply the material\" a hard requirement for a workflow candidate?","options":["Supplied material is cheaper to process","Without it, the model fills the gap with fluent invention — 101''s central failure mode, now on a schedule","It''s a data-privacy requirement","It keeps the context window small"],"correctIndex":1,"explanation":"A one-off hallucination is an error; a scheduled workflow built on missing inputs is an error *generator*. The audit''s third test exists to catch this before you build on it."},{"id":"q6","prompt":"Your first build should score:","options":["High frequency, high structure, owned inputs, low-to-medium stakes","High stakes, high visibility — invest where it matters most","Low frequency, so mistakes surface slowly","Whatever your manager most wants automated"],"correctIndex":0,"explanation":"Fast feedback, simple transformation, no dependency on others'' data, and mistakes that can''t hurt anyone while you learn. The high-stakes build is the second one."},{"id":"q7","prompt":"The audit uses last week''s calendar and sent mail rather than your recollection because:","options":["Memory surfaces the loudest task, not the best candidate","Calendars record time more precisely","It produces documentation for your manager","Sent mail shows which tasks involve other people"],"correctIndex":0,"explanation":"The point is candidate *selection*, and recollection is biased toward recency and resentment. The paper trail is flatter and more honest."},{"id":"q8","prompt":"\"A workflow, like a model, must not make decisions about people.\" The strongest reason, from this course:","options":["Regulation prohibits all AI involvement in HR decisions","Models aren''t yet accurate enough for employment decisions","Automation reproduces bias patterns at scale and speed — adverse impact''s mechanism — and accuracy doesn''t cure it","Employees prefer decisions made by humans"],"correctIndex":2,"explanation":"A is false (regulation targets specific decision contexts, as 101 covered), and B fails because the rule survives arbitrary accuracy: the issue is what a decision *is*, not how well a system scores. D may be true but is not the mechanism."}]}', '2026-08-07');
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai201-m2-calibration-prompt-before-you-start-10', 'ai201-m2', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
 
@@ -780,7 +2758,7 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
 People data must never become infrastructure. Sensitive material may enter a single run as fresh input, under that run''s judgment — it never lives in packs, instructions, or anything a future conversation can see.', NULL, '2026-08-07', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai201-m2-micro-close', 'ai201-m2-micro', 30, 'prose', 'stable', '**The full module adds** the instructions-vs-knowledge design rule, the hands-on pack build in your organization''s tools, a twelve-item sorting exercise, and capstone stage 2: the pack for your own workflow.', NULL, '2026-08-07', NULL);
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m2-sorting', 'ai201-m2', 'sorting', '{"reviewedAt":"2026-08-07","buckets":[{"id":"pack","label":"Lives in the pack","hint":"Durable and impersonal — infrastructure","rank":3,"pct":90},{"id":"fresh","label":"Supplied fresh each run","hint":"This run''s material — arrives, transforms, leaves","rank":2,"pct":50},{"id":"never","label":"Never enters the system","hint":"People data — not as pack, not as paste","rank":1,"pct":10}],"tasks":[{"id":"t1","text":"Your company''s voice and style guide","key":"pack","reasoning":"The canonical pack item — durable, impersonal, true for months."},{"id":"t2","text":"The best interview debrief you''ve ever written, as an example","key":"pack","reasoning":"The gold-standard example: one great example outworks three paragraphs of description."},{"id":"t3","text":"This week''s interview notes","key":"fresh","reasoning":"The reason the run exists. It arrives, gets transformed, and leaves with the run."},{"id":"t4","text":"The comp philosophy one-pager","key":"pack","reasoning":"Principles, not numbers or names. When the cycle changes it, the review cadence catches it."},{"id":"t5","text":"A named employee''s performance history","key":"never","reasoning":"Writing it into infrastructure converts a one-time judgment call into a standing condition nobody re-decides."},{"id":"t6","text":"This quarter''s engagement survey verbatims","key":"fresh","reasoning":"Pack them and June confidently cites March — the quieter way context rots."},{"id":"t7","text":"The definition-of-done checklist for the output","key":"pack","reasoning":"Load-bearing later: M4''s verification needs something to verify against."},{"id":"t8","text":"Grievance details naming the individuals involved","key":"never","reasoning":"People data must never become infrastructure — this is the one sorting error with legal weight."},{"id":"t9","text":"The team glossary — acronyms, level names, competency terms","key":"pack","reasoning":"The slice of your org the model may safely see."},{"id":"t10","text":"A raw HRIS export, employee IDs included","key":"never","reasoning":"IDs are identity by design. Where a single run legitimately needs sensitive material, M6 governs how it enters — fresh, minimized, under that run''s judgment — and how it leaves."},{"id":"t11","text":"The policy paragraph being rewritten this run","key":"fresh","reasoning":"Today''s work product, nobody''s infrastructure — it leaves with the run."},{"id":"t12","text":"Your org context brief — what the company does, size, shape, no names","key":"pack","reasoning":"Impersonal by construction: nothing you''d redact from a conference talk."}],"pattern":"Durable and impersonal lives in the pack. Run-specific material arrives fresh and leaves with the run. Anything identifying a person never becomes infrastructure.","postscript":"If you put fresh material in the pack, you built the quiet failure: current-sounding answers from stale truth. If you packed people data, stop before building anything and read M6''s opening — that one carries legal weight."}', '2026-08-07');
-INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m2-rubric', 'ai201-m2', 'rubric', '{"promptVersion":"ai201-m2-capstone-v1","moduleId":"ai201-m2","minChars":600,"submitLabel":"Your capstone-stage submission","intro":"Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). Capstone stage 2: the context pack for the workflow specced in stage 1 — a three-bin inventory (pack / fresh / excluded), the standing instructions verbatim, a knowledge list with review dates, and a fresh-run transcript. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.","calibration":[{"key":"itemsActual","label":"Measured — items the pack actually needed","hint":"Count the knowledge list you’re about to paste. The miss is the lesson.","placeholder":"e.g. 6","min":1,"max":60,"actualFor":"items"}],"dimensions":[{"name":"Pack design","criteria":"Instructions are short and behavioral; knowledge is reference, not recitation; a gold-standard example and definition of done are present. The split shows judgment, not just sorting."},{"name":"Boundary discipline","criteria":"Nothing person-identifying anywhere in pack or instructions; fresh vs. pack placements are defensible; the excluded bin shows they know *why* those items are excluded."},{"name":"Durability design","criteria":"Every knowledge item carries a review date and a stable/volatile designation; a real review cadence exists somewhere a calendar can enforce it."},{"name":"Calibration","criteria":"Both predictions recorded before building, scored honestly after, with the direction of error named. Accuracy isn''t graded; honesty and specificity are."}],"opening":[{"key":"items","label":"Predicted — distinct items your pack will need","hint":"A voice guide is one item. An example debrief is one item.","placeholder":"e.g. 8","min":1,"max":60}]}', '2026-08-09');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m2-rubric', 'ai201-m2', 'rubric', '{"promptVersion":"ai201-m2-capstone-v1","moduleId":"ai201-m2","minChars":600,"submitLabel":"Your capstone-stage submission","intro":"Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). Capstone stage 2: the context pack for the workflow specced in stage 1 — a three-bin inventory (pack / fresh / excluded), the standing instructions verbatim, a knowledge list with review dates, and a fresh-run transcript. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.","calibration":[{"key":"itemsActual","label":"Measured — items the pack actually needed","hint":"Count the knowledge list you’re about to paste. The miss is the lesson.","placeholder":"e.g. 6","min":1,"max":60,"actualFor":"items"}],"dimensions":[{"name":"Pack design","criteria":"Instructions are short and behavioral; knowledge is reference, not recitation; a gold-standard example and definition of done are present. The split shows judgment, not just sorting."},{"name":"Boundary discipline","criteria":"Nothing person-identifying anywhere in pack or instructions; fresh vs. pack placements are defensible; the excluded bin shows they know *why* those items are excluded."},{"name":"Durability design","criteria":"Every knowledge item carries a review date and a stable/volatile designation; a real review cadence exists somewhere a calendar can enforce it."},{"name":"Calibration","criteria":"Both predictions recorded before building, scored honestly after, with the direction of error named. Accuracy isn''t graded; honesty and specificity are."}],"opening":[{"key":"items","label":"Predicted — distinct items your pack will need","hint":"A voice guide is one item. An example debrief is one item.","placeholder":"e.g. 8","min":1,"max":60}]}', '2026-08-11');
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m2-knowledge_check', 'ai201-m2', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the capstone pack is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-07","questions":[{"id":"q1","prompt":"What is the \"artisan tax\"?","options":["The subscription cost of professional AI tools","The recurring cost of re-briefing unchanged context in every conversation","The time spent verifying AI output","The premium for larger context windows"],"correctIndex":1,"explanation":"It''s the per-conversation cost of re-supplying material that barely changes between runs. Verification (C) is a cost worth keeping — M4 designs it rather than eliminating it."},{"id":"q2","prompt":"The two-question test for whether material belongs in the pack:","options":["Is it useful? Is it well-written?","Will it still be right in ninety days? Does it identify a person?","Is it shorter than a page? Is it approved by legal?","Has it been used more than twice? Is it confidential?"],"correctIndex":1,"explanation":"Durable *and* impersonal — yes to the first, no to the second. Everything else in the module''s three-bin sorting follows from those two questions."},{"id":"q3","prompt":"Why does putting this quarter''s survey verbatims in the pack cause trouble?","options":["Verbatims are too long for knowledge files","Survey data is always too sensitive to use","Fresh material packed as durable gets confidently cited long after it''s stale","It doesn''t — verbatims are ideal pack content"],"correctIndex":2,"explanation":"That''s the quiet rot: June''s run cites March''s themes, fluently, with no signal anything is wrong. Verbatims are legitimate *fresh* input (B overshoots); they just must leave with the run."},{"id":"q4","prompt":"Instructions versus knowledge, in one rule: **[V]**","options":["Instructions are what it must always do; knowledge is what it may need to look at","Instructions are for formatting; knowledge is for facts","Instructions are temporary; knowledge is permanent","They''re interchangeable — use whichever has space"],"correctIndex":0,"explanation":"The standing brief stays short and behavioral; the shelf holds reference consulted as needed. Three pages of instructions is knowledge in the wrong house."},{"id":"q5","prompt":"\"People data must never become infrastructure\" means:","options":["People data may never be used with AI at all","Sensitive material may enter a run as fresh input under that run''s judgment, but never live in packs or instructions","People data belongs in knowledge files, not instructions","Only aggregated people data may go in the pack"],"correctIndex":1,"explanation":"The rule targets *standing* exposure — material written once and present in every future conversation, with nobody re-deciding. A is broader than the course teaches (M6 governs per-run use); C is precisely the violation."},{"id":"q6","prompt":"A conversation inside a Claude Project produces a much better debrief format than your pack specifies. Next week''s runs will: **[V]**","options":["Use the improved format — the project learns from its conversations","Use the old format, until you deliberately edit the instructions or knowledge","Alternate between formats","Ask which format you prefer"],"correctIndex":1,"explanation":"Conversations don''t teach the project — 101''s \"you''re not training it\" lesson, now operational. That''s a feature: the pack changes only when you change it, which is what makes it auditable. Fix the pack, not the output."},{"id":"q7","prompt":"The stable/volatile split applied to your own pack means:","options":["Keeping two separate packs per workflow","Reviewing fast-aging items (org brief, anything touching money or structure) on a short cadence, and slow-aging items on a long one","Marking which items the model may quote directly","Storing volatile items as instructions and stable items as knowledge"],"correctIndex":1,"explanation":"Different material ages at different speeds, so it gets reviewed at different speeds — the same discipline this course''s own content runs on, applied to your infrastructure."},{"id":"q8","prompt":"A run produces a wrong output because the org brief in your pack predates the reorg. The practitioner''s move:","options":["Correct the output and ship it","Correct the output, then update the pack and its review cadence","Delete the org brief — packs shouldn''t contain anything that changes","Add a disclaimer to the output"],"correctIndex":1,"explanation":"Ship the corrected work, then fix the system that drafted it — otherwise next week pays the same cost. C throws away the pack''s value; the answer to aging content is a cadence, not exclusion."}]}', '2026-08-07');
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai201-m3-calibration-prompt-before-you-start-10', 'ai201-m3', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
 
@@ -1055,7 +3033,7 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
 Chain only when the input is long, the stakes are real, or a failure would be invisible in final prose. Everything else stays a single prompt — small pipelines exactly where they''re needed.', NULL, '2026-08-07', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai201-m3-micro-close', 'ai201-m3-micro', 30, 'prose', 'stable', '**The full module adds** a three-pipeline gallery for People work, the find-the-lossy-step exercise, the runbook lab, and capstone stage 3: your workflow''s pipeline, designed and run on real material.', NULL, '2026-08-07', NULL);
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m3-choice', 'ai201-m3', 'choice', '{"reviewedAt":"2026-08-07","title":"Find the lossy step","intro":"*Five minutes. Commit before you look.*\n\nA People team ran Pipeline 1 on their Q2 survey. Here are the actual artifacts, abridged. By the final artifact, a localized problem — nine strongly negative comments from one office — has become \"minor concerns.\" **Which step killed the signal?** Commit to an answer, and have one sentence ready on how you''d fix that step''s prompt.","artifacts":[{"label":"Raw comments · step 0","body":"214 comments. Among them, 41 mention manager communication; 9 of those are strongly negative, and all 9 come from the Denver office."},{"label":"Theme table · after step 1","body":"\"Manager communication — 41 mentions · 9 strongly negative · negative mentions concentrated in Denver · quotes: [three verbatim quotes].\""},{"label":"Narrative draft · after step 2","body":"\"Some employees expressed concerns about manager communication, though sentiment in this area was mixed rather than uniformly negative.\""},{"label":"Exec summary · after step 3","body":"\"Overall sentiment remains positive, with minor communication concerns noted.\""}],"options":[{"id":"step1","label":"Step 1 — Extract"},{"id":"step2","label":"Step 2 — Narrate"},{"id":"step3","label":"Step 3 — Format"}],"key":"step2","reasoning":"**Step 2 killed the signal.** The theme table after step 1 was faithful: 41 mentions, 9 strongly negative, concentrated in Denver, verbatim quotes. The narrative draft dropped the count, the intensity, and — fatally — the concentration, dissolving a localized management problem into \"mixed sentiment.\" Step 3 then did its job honestly on corrupted input: \"minor communication concerns\" is a fair formatting of a false narrative.\n\nTwo fixes, both to step 2, both from Lesson 1: the step prompt requires every claim to carry its number and concentration (\"no theme may be described without its count and where it clusters\"), and the checkpoint compares the narrative against the theme table row by row — which would have caught this in under a minute.","closing":"Two reflexes to keep. First: when the final output is wrong, walk *backward* through the artifacts to find the last one that was right; the step after it is your culprit. Second: notice that the exec summary read as entirely plausible. Nothing in the final prose looked broken. That''s why checkpoints exist — by the time the loss is visible in the output, it isn''t visible in the output."}', '2026-08-07');
-INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m3-rubric', 'ai201-m3', 'rubric', '{"promptVersion":"ai201-m3-capstone-v1","moduleId":"ai201-m3","minChars":600,"submitLabel":"Your capstone-stage submission","intro":"Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). Capstone stage 3: the workflow as a pipeline — step designs with checkpoints, the runbook prompts verbatim, a real run with all intermediate artifacts, and the calibration score for the predicted-lossiest step. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.","calibration":[],"dimensions":[{"name":"Step discipline","criteria":"One transformation per step; structured intermediates; prose only at the end. A deliberately small pipeline defended well outscores an elaborate one."},{"name":"Checkpoint design","criteria":"Each checkpoint names what failure would look like there, and a human could realistically catch it in the artifact submitted."},{"name":"The run is real","criteria":"Genuine material, all intermediates included, and evidence the checkpoints were actually looked at — not a pipeline run for the grade."},{"name":"Calibration","criteria":"Prediction recorded before the run, scored honestly after, direction of error named. Accuracy isn''t graded; honesty and specificity are."}]}', '2026-08-09');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m3-rubric', 'ai201-m3', 'rubric', '{"promptVersion":"ai201-m3-capstone-v1","moduleId":"ai201-m3","minChars":600,"submitLabel":"Your capstone-stage submission","intro":"Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). Capstone stage 3: the workflow as a pipeline — step designs with checkpoints, the runbook prompts verbatim, a real run with all intermediate artifacts, and the calibration score for the predicted-lossiest step. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.","calibration":[],"dimensions":[{"name":"Step discipline","criteria":"One transformation per step; structured intermediates; prose only at the end. A deliberately small pipeline defended well outscores an elaborate one."},{"name":"Checkpoint design","criteria":"Each checkpoint names what failure would look like there, and a human could realistically catch it in the artifact submitted."},{"name":"The run is real","criteria":"Genuine material, all intermediates included, and evidence the checkpoints were actually looked at — not a pipeline run for the grade."},{"name":"Calibration","criteria":"Prediction recorded before the run, scored honestly after, direction of error named. Accuracy isn''t graded; honesty and specificity are."}]}', '2026-08-11');
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m3-knowledge_check', 'ai201-m3', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the capstone pipeline is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-07","questions":[{"id":"q1","prompt":"Why does a four-job mega-prompt underperform a short chain, mechanically?","options":["Long prompts exceed the context window","Objectives compete within a single generation, and middle objectives quietly lose","The model refuses compound instructions","Chains use more capable models by default"],"correctIndex":1,"explanation":"Generation is one fragment at a time, predicted from everything in view; multiple objectives dilute each other, and the loss is silent. A confuses prompt length with window limits; C and D aren''t how any of this works."},{"id":"q2","prompt":"What makes an intermediate artifact a real checkpoint?","options":["It''s produced between two steps","It''s written in polished prose","A human glancing at it could catch a real error — you can say what a wrong version would show","It''s saved in the project''s knowledge"],"correctIndex":2,"explanation":"The design test is naming what failure looks like there. An artifact that reads identically whether the work was faithful or invented checks nothing, wherever it''s saved."},{"id":"q3","prompt":"Steps should hand forward structure (tables, counted lists) rather than prose because:","options":["Structure uses fewer tokens","The next step predicts better from clean material, and structure can be verified — counts check, quotes trace","Prose is against the pipeline convention","Structured formats prevent hallucination entirely"],"correctIndex":1,"explanation":"Both halves matter: better input for the next step (101''s supply-the-material lever) and checkable claims for the human between steps. D overclaims — structure makes errors *catchable*, not impossible."},{"id":"q4","prompt":"The \"lossy middle\" is:","options":["The middle of a long document, which models skip","The step where structured detail becomes narrative, and counts, intensity, and concentration quietly drop","A context-window overflow","The degradation of quality in long conversations"],"correctIndex":1,"explanation":"It''s the structured-to-prose transformation — the exercise''s step 2. The defense is a prompt that requires claims to carry their numbers, and a checkpoint that compares the narrative to the structure it came from."},{"id":"q5","prompt":"In the survey pipeline, step 2 drafts the narrative from the theme table *only*, with raw comments out of view, because:","options":["The comments no longer fit in the window","It stops the step from quietly re-analyzing — the narrative can only use what the checkpointed table contains","Raw comments are too sensitive for later steps","It makes the step run faster"],"correctIndex":1,"explanation":"Limiting a step''s view is a design tool: what the step can''t see, it can''t silently reinterpret. Your verified artifact becomes the single source of truth for everything downstream."},{"id":"q6","prompt":"Which task has *not* earned a pipeline?","options":["200 survey verbatims into an exec summary","A handbook revision into a plain-language change note","Rewriting one clunky policy paragraph for clarity","Six candidates'' interview notes into a decision packet"],"correctIndex":2,"explanation":"One short transformation, low stakes, failure visible on reading — none of the three conditions hold. Chaining it is ceremony. The other three are long, consequential, or fail invisibly — usually two of the three at once."},{"id":"q7","prompt":"Your pipeline''s final output is wrong. The practitioner''s first move:","options":["Rerun the whole pipeline — randomness may fix it","Rewrite the final step''s prompt","Walk backward through the artifacts to the last correct one; the step after it is the culprit","Add a verification step at the end"],"correctIndex":2,"explanation":"The artifacts exist precisely so failure has an address. Rerunning (A) discards the diagnosis; B assumes the last step failed, which the exercise shows is often exactly wrong."},{"id":"q8","prompt":"The interview pipeline''s assemble step compares evidence but produces no ranking, because:","options":["Rankings exceed what the model can do accurately","The packet informs a human decision about people; it must not become the decision","Hiring managers prefer making their own comparisons","Rankings would require a larger context window"],"correctIndex":1,"explanation":"M1''s line, unmoved by pipeline sophistication: a workflow may organize the evidence for a people decision; the decision stays human. Capability (A) isn''t the reason — the rule holds however good the ranking would be."}]}', '2026-08-07');
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai201-m4-calibration-prompt-before-you-start-10', 'ai201-m4', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
 
@@ -1353,7 +3331,7 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
 "Verified by hand" means: a written budget sized to stakes, techniques matched to failure modes, a defined sign-off, and an honest sample run against real outputs. That''s the admission ticket to any autonomy conversation.', NULL, '2026-08-07', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai201-m4-micro-close', 'ai201-m4-micro', 30, 'prose', 'stable', '**The full module adds** the buy-the-right-verification exercise, the sampling and human-factors literature behind the design, and capstone stage 4: your workflow''s verification plan and first honest sample.', NULL, '2026-08-07', NULL);
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m4-sorting', 'ai201-m4', 'sorting', '{"reviewedAt":"2026-08-07","buckets":[{"id":"sample","label":"Spot-check sample","hint":"A fixed slice against source — catches erosion","rank":0,"pct":50},{"id":"trace","label":"Trace to source","hint":"Every claim to its artifact — catches fabrication","rank":0,"pct":50},{"id":"adversarial","label":"Adversarial read","hint":"Read as its strongest critic — catches slant","rank":0,"pct":50},{"id":"diff","label":"Diff the standard","hint":"Against the gold standard — catches drift","rank":0,"pct":50}],"tasks":[{"id":"t1","text":"Forty rewritten job postings, batch-produced monthly","key":"sample","reasoning":"Volume transformation, low stakes, erosion failure — budget: light. Three per batch against source, classified. Full reads here are the budget-killer from Lesson 1."},{"id":"t2","text":"The exec survey narrative, quoting counts by office","key":"trace","also":["adversarial"],"reasoning":"Every count and concentration to the theme table (minutes, thanks to M3), then the critic''s pass — this is the Denver scenario''s home ground. Trace or adversarial as primary is defensible either way; the indefensible answer is ''sample'' — you don''t sample the one narrative leadership acts on. Budget: standard, plus the adversarial read."},{"id":"t3","text":"A benefits FAQ produced weekly from the plan summary","key":"sample","reasoning":"Volume-ish and pack-driven, but benefits errors reach real people''s decisions — the sample runs weekly, any invented finding triggers a full pass, and drift-diff joins the rotation monthly. Budget: standard."},{"id":"t4","text":"A change note claiming \"this complies with the new state leave law\"","key":"trace","reasoning":"Trace, full — by a human, to the actual text. A compliance claim is never sampled and never delegated to the model''s memory of the law. If the workflow routinely produces sentences like this, its scope is wrong, not just its verification."},{"id":"t5","text":"The interview evidence packet for tomorrow''s debrief","key":"trace","reasoning":"Every claim to your notes, every gap confirmed as flagged-not-filled. Adjacent to a decision about people, so the budget is structured full review — and the M1 line (evidence, no verdicts) is part of what you''re verifying."},{"id":"t6","text":"This week''s newsletter, drafted from your bullets","key":"diff","also":["sample"],"reasoning":"Lowest stakes on the board; the real risk is drift from the definition of done — budget: light. A light sample is also fine. What it must not consume is the budget the packet and the compliance claim need."}],"pattern":"Spend where failure is invisible or touches people; save where failure is cosmetic and loud.","postscript":"Two of the six were designed to be argued about — the narrative and the newsletter score for either defensible answer. And if your instinct on all six was one flat level of effort, that''s the exercise''s real target: a flat budget is a default, not a design."}', '2026-08-07');
-INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m4-rubric', 'ai201-m4', 'rubric', '{"promptVersion":"ai201-m4-capstone-v1","moduleId":"ai201-m4","minChars":600,"submitLabel":"Your capstone-stage submission","intro":"Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). Capstone stage 4: the verification plan — a budget sized to stakes, a technique map by failure mode, the sign-off reading list, an honest five-output sample with classified findings, the escalation line, and the output-incident path. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.","calibration":[{"key":"errorsActual","label":"Measured — your sample, scaled to ten: how many actually did","hint":"From the honest sample this stage asks you to run.","placeholder":"e.g. 2","min":0,"max":10,"actualFor":"errors"}],"dimensions":[{"name":"Fit to stakes","criteria":"The budget matches the M1 stakes honestly — no full-read theater on low stakes, no sampling hand-waves on high. The \"why not more\" sentence shows real reasoning."},{"name":"Technique match","criteria":"Failure modes identified for *this* workflow, each paired with the right counter; adversarial questions are bespoke, not boilerplate."},{"name":"The sample is honest","criteria":"Real outputs, real source-checking, findings classified, and the tally reported straight — including the awkward ones. A suspiciously clean sample with no follow-up plan scores low."},{"name":"Calibration","criteria":"Both predictions recorded first, scored honestly, direction of error named. Accuracy isn''t graded; honesty and specificity are."}],"opening":[{"key":"errors","label":"Predicted — of ten outputs, how many hold at least one real error","hint":"A number, not a range.","placeholder":"e.g. 3","min":0,"max":10}]}', '2026-08-09');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m4-rubric', 'ai201-m4', 'rubric', '{"promptVersion":"ai201-m4-capstone-v1","moduleId":"ai201-m4","minChars":600,"submitLabel":"Your capstone-stage submission","intro":"Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). Capstone stage 4: the verification plan — a budget sized to stakes, a technique map by failure mode, the sign-off reading list, an honest five-output sample with classified findings, the escalation line, and the output-incident path. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.","calibration":[{"key":"errorsActual","label":"Measured — your sample, scaled to ten: how many actually did","hint":"From the honest sample this stage asks you to run.","placeholder":"e.g. 2","min":0,"max":10,"actualFor":"errors"}],"dimensions":[{"name":"Fit to stakes","criteria":"The budget matches the M1 stakes honestly — no full-read theater on low stakes, no sampling hand-waves on high. The \"why not more\" sentence shows real reasoning."},{"name":"Technique match","criteria":"Failure modes identified for *this* workflow, each paired with the right counter; adversarial questions are bespoke, not boilerplate."},{"name":"The sample is honest","criteria":"Real outputs, real source-checking, findings classified, and the tally reported straight — including the awkward ones. A suspiciously clean sample with no follow-up plan scores low."},{"name":"Calibration","criteria":"Both predictions recorded first, scored honestly, direction of error named. Accuracy isn''t graded; honesty and specificity are."}],"opening":[{"key":"errors","label":"Predicted — of ten outputs, how many hold at least one real error","hint":"A number, not a range.","placeholder":"e.g. 3","min":0,"max":10}]}', '2026-08-11');
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m4-knowledge_check', 'ai201-m4', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the capstone plan is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-07","questions":[{"id":"q1","prompt":"Why is \"a human reviews everything\" often the most dangerous verification plan?","options":["Human review is less accurate than automated checks","It refunds the workflow''s time savings, then decays under load into fluency-approval — while everyone believes coverage is total","It violates the delegation heuristic","Full review is only dangerous for high-stakes outputs"],"correctIndex":1,"explanation":"The decay curve is the danger: week one reads everything, week six approves on fluency, and the plan''s reputation for rigor is exactly what stops anyone from noticing."},{"id":"q2","prompt":"The cheapest place to verify a pipeline''s work is:","options":["The final output, read end to end","The artifacts at checkpoints, against their sources","A second model''s opinion of the final output","User complaints after shipping"],"correctIndex":1,"explanation":"M3''s dividend: a theme table checks against raw comments in minutes, and catches loss that final prose hides by construction. A is the expensive, less reliable afternoon; C is a useful smoke detector, not a foundation."},{"id":"q3","prompt":"Your weekly sample of debriefs finds two \"missing\" findings and no \"invented\" ones. The likely fix lives in:","options":["The model — switch to a more capable one","The step prompt or pack — source material is being dropped, which is a runbook problem","The sample size — too small to conclude anything","Nothing — missing findings are acceptable at low rates"],"correctIndex":1,"explanation":"Classification is diagnosis: wrong/missing point at instructions and pack; invented points at gaps in supplied material. That''s why the tally is classified at all — the categories have different addresses."},{"id":"q4","prompt":"Adversarial reading exists because judgment-adjacent prose fails by:","options":["Fabricating citations","Being angled — smoothed and averaged in ways that are plausible rather than false","Exceeding the context window","Drifting from the output format"],"correctIndex":1,"explanation":"The Denver summary wasn''t a lie; it was a slant. Tracing catches false claims; only a critic''s read catches a true-ish narrative that buries the signal."},{"id":"q5","prompt":"A second-model critique pass should be treated as:","options":["A replacement for human review on routine outputs","A guarantee against hallucination","A cheap skeptic that sharpens the human read but shares the first pass''s blind spots","Forbidden — models must not check models"],"correctIndex":2,"explanation":"It''s a smoke detector: genuinely useful, cheap to run, and never the thing that makes high-stakes output safe on its own. A is the rubber-stamp trap with extra software."},{"id":"q6","prompt":"A real sign-off is defined by:","options":["The seniority of the person approving","Its reading list — the named inputs the owner looks at before shipping","The approval being recorded in writing","A second approver for high-stakes outputs"],"correctIndex":1,"explanation":"\"Sign-off = the theme-table diff plus this week''s three samples\" is a control. \"Sign-off = review it\" is a sentiment with a signature line. The name matters too — but only paired with what the name reads."},{"id":"q7","prompt":"The owner catches herself approving outputs without reading the defined inputs. The module''s prescription:","options":["Replace the owner","Add a second approver","Treat it as a pricing failure — the budget was too expensive to survive a busy month — and reprice it","Automate the sign-off"],"correctIndex":2,"explanation":"Willpower failures of well-designed systems are rare; willpower failures of overpriced ones are guaranteed. Fix the design, and the person''s diligence becomes affordable again."},{"id":"q8","prompt":"\"You may only systematize what you have verified by hand\" — after this module, \"verified\" operationally means:","options":["The owner has read every output the workflow has produced","A sample was run once before launch","A written budget exists — sized to stakes, techniques matched to failure modes, a defined sign-off — and an honest sample has been run against real outputs","No errors have been reported by recipients"],"correctIndex":2,"explanation":"Not everything read (A is the decay trap), not one pre-launch glance (B), and never silence-as-evidence (D). A designed, running, honest verification layer — which is exactly the ticket M5 checks at the door."}]}', '2026-08-07');
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai201-m5-calibration-prompt-before-you-start-10', 'ai201-m5', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
 
@@ -1682,7 +3660,7 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
 Some workflows never climb: person-affecting work, judgment-dense work, low-frequency high-stakes work whose run history can never accumulate. Writing the ceiling down — with its reason — is the most senior artifact this course produces.', NULL, '2026-08-07', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai201-m5-micro-close', 'ai201-m5-micro', 30, 'prose', 'stable', '**The full module adds** the assign-the-rung exercise, the MCP lab with a supervised agent behind a visible approval gate, and capstone stage 5: your workflow''s autonomy decision memo.', NULL, '2026-08-07', NULL);
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m5-sorting', 'ai201-m5', 'sorting', '{"reviewedAt":"2026-08-07","buckets":[{"id":"refuse","label":"R — refusal","hint":"Shouldn''t be in an agent''s hands at all","rank":0,"pct":0},{"id":"rung1","label":"Rung 1 — draft only","hint":"The agent drafts; a human does everything else","rank":1,"pct":30},{"id":"rung2","label":"Rung 2 — propose, approve","hint":"The agent stages; a human''s click is the boundary","rank":2,"pct":60},{"id":"rung3","label":"Rung 3 — act, audit trail","hint":"The agent acts; the record shows everything","rank":3,"pct":90}],"tasks":[{"id":"t1","text":"Extract a theme table from this quarter''s survey verbatims","key":"rung3","reasoning":"Read-only input, structured checkable output, trivially reversible (regenerate) — and your M3 checkpoint still reviews the artifact downstream. This is what rung 3 was made for. One caveat from Lesson 2: if the table were ranked by severity to direct investigation resources, the laundering test applies and the ranking step is person-adjacent even though extraction isn''t."},{"id":"t2","text":"Draft rejection emails for the week''s declined candidates","key":"rung1","reasoning":"Rung 1, permanent. Drafting is legitimate — M1''s sorting said so; anything above draft-only walks toward the person-line. The draft lands in a human''s hands; a human sends, every time. The trap in the wording: ''draft'' was always the rung — the question is refusing the climb."},{"id":"t3","text":"Save the formatted debrief into the hiring channel''s shared folder","key":"rung2","also":["rung3"],"reasoning":"First rigged item. It feels routine and it''s probably reversible — but ''save to where the hiring team reads'' is a small publish. Rung 2 until the approval log shows you never decline; then rung 3 is an evidence-based conversation."},{"id":"t4","text":"Send the weekly HR newsletter to the all-staff list","key":"rung2","reasoning":"The reverse trap: low stakes, so rung 3 feels fine — but send-to-all-staff is irreversible, and reversibility, not stakes, sets the cap. The agent stages it in the outbox; the human''s click costs three seconds; the un-sendable email costs more."},{"id":"t5","text":"Update each candidate''s stage in the ATS after the debrief meeting","key":"refuse","reasoning":"An action on a person''s process in the system of record. The agent may prepare the list of stage changes as an artifact — rung 1–2 work; the human executes in the ATS. If the volume makes that painful, the pain is information about the process, not a case for permissions."},{"id":"t6","text":"Compile the weekly people-metrics table from the HRIS export","key":"rung3","reasoning":"Mechanical, checkable against the export, regenerable, feeding a human-owned narrative downstream. With a sampled error history, the least controversial climb on the board."}],"pattern":"Rung 3 lives where work is mechanical, checkable, and undoable. The boundary crossings — publish, send, touch a person''s record — are where humans stand.","postscript":"The two rigged items — the shared-folder save and the newsletter send — show the tell isn''t how routine a step feels but what its undo costs."}', '2026-08-07');
-INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m5-rubric', 'ai201-m5', 'rubric', '{"promptVersion":"ai201-m5-capstone-v1","moduleId":"ai201-m5","minChars":600,"submitLabel":"Your capstone-stage submission","intro":"Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). Capstone stage 5: the autonomy decision memo — the measured shuttling split, a per-step rung profile priced in verification evidence, the guardrail spec with the deliberately-not-attached tool list, and the refusal where it applies. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.","calibration":[{"key":"shuttlingActual","label":"Measured — shuttling % from your timed run","hint":"The stage’s timed end-to-end run, watch in hand.","placeholder":"e.g. 75","min":0,"max":100,"actualFor":"shuttling"}],"dimensions":[{"name":"Rung reasoning","criteria":"Every rung priced in verification evidence, not capability enthusiasm. \"Not yet\" distinguished from \"never,\" both defended."},{"name":"Guardrails are permissions","criteria":"The spec controls what''s attached, not what''s requested. The not-attached list is present and thoughtful. Blast radius stated honestly."},{"name":"Per-step granularity","criteria":"The profile treats steps individually; any all-or-nothing answer is argued for, not defaulted to."},{"name":"Calibration","criteria":"Shuttling prediction recorded first, measured against a real run, direction of miss named. Honesty and specificity graded; accuracy never."}],"opening":[{"key":"shuttling","label":"Predicted — % of a run that is mechanical shuttling","hint":"Pasting, re-attaching, moving artifacts — versus actual judgment.","placeholder":"e.g. 60","min":0,"max":100}]}', '2026-08-09');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m5-rubric', 'ai201-m5', 'rubric', '{"promptVersion":"ai201-m5-capstone-v1","moduleId":"ai201-m5","minChars":600,"submitLabel":"Your capstone-stage submission","intro":"Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). Capstone stage 5: the autonomy decision memo — the measured shuttling split, a per-step rung profile priced in verification evidence, the guardrail spec with the deliberately-not-attached tool list, and the refusal where it applies. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.","calibration":[{"key":"shuttlingActual","label":"Measured — shuttling % from your timed run","hint":"The stage’s timed end-to-end run, watch in hand.","placeholder":"e.g. 75","min":0,"max":100,"actualFor":"shuttling"}],"dimensions":[{"name":"Rung reasoning","criteria":"Every rung priced in verification evidence, not capability enthusiasm. \"Not yet\" distinguished from \"never,\" both defended."},{"name":"Guardrails are permissions","criteria":"The spec controls what''s attached, not what''s requested. The not-attached list is present and thoughtful. Blast radius stated honestly."},{"name":"Per-step granularity","criteria":"The profile treats steps individually; any all-or-nothing answer is argued for, not defaulted to."},{"name":"Calibration","criteria":"Shuttling prediction recorded first, measured against a real run, direction of miss named. Honesty and specificity graded; accuracy never."}],"opening":[{"key":"shuttling","label":"Predicted — % of a run that is mechanical shuttling","hint":"Pasting, re-attaching, moving artifacts — versus actual judgment.","placeholder":"e.g. 60","min":0,"max":100}]}', '2026-08-11');
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m5-knowledge_check', 'ai201-m5', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the decision memo is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-07","questions":[{"id":"q1","prompt":"The three rungs of the autonomy ladder, in order of extended trust:","options":["Read-only → read-write → admin","Draft-only → propose-then-approve → act-with-audit-trail","Manual → assisted → autonomous","Chat → project → agent"],"correctIndex":1,"explanation":"Each rung is an answer to \"what may the system do without waiting for you?\" — and each is priced in verification evidence, not capability."},{"id":"q2","prompt":"What is the \"price\" of rung 2 (propose-then-approve)?","options":["An enterprise license for agent features","A sampled error rate below your M4 escalation line, plus an approval that''s inspectable in seconds with a defined reading list","Manager authorization","A successful demo of the agent completing the workflow"],"correctIndex":1,"explanation":"The ladder is priced in M4 currency. A demo (D) is capability evidence; the ladder runs on *verification* evidence — your error history, your escalation line, your reading list."},{"id":"q3","prompt":"Why does reversibility, not stakes, cap the newsletter-send at rung 2?","options":["Newsletters are high-stakes communications","Sending to all-staff cannot be undone, and irreversible actions keep a human at the boundary regardless of how low the stakes are","Email tools cannot be connected to agents","It doesn''t — low stakes justify rung 3"],"correctIndex":1,"explanation":"The master question is what undo costs. Low stakes shrink the *harm*; they don''t restore the *option*. The three-second human click is the cheapest control in the module."},{"id":"q4","prompt":"\"Guardrails are permissions, not hopes\" means:","options":["Write guardrail instructions in the system prompt, prominently","Control what tools are attached — what must not happen shouldn''t be representable","Require the agent to confirm it understands its restrictions","Log all agent actions for review"],"correctIndex":1,"explanation":"An instruction is a sentence competing inside a context window; an unattached tool is a fact. A and C are instructions, not permissions; D is necessary for rung 3 but doesn''t *prevent* anything."},{"id":"q5","prompt":"An approval you have never once declined across thirty runs is:","options":["Proof the approval step is unnecessary bureaucracy","Evidence for a rung-3 conversation about that step — the approval load data the ladder asks for","Evidence the approver isn''t reading carefully","Normal, and means nothing"],"correctIndex":1,"explanation":"Rung 2 generates exactly this data: how often the human actually says no. A clean approval history is the evidence-based case for climbing; a decline-heavy one is the case the workflow isn''t ready. (C is possible — which is why the approval''s reading list is defined; an approver who stopped reading is M4''s repricing signal.)"},{"id":"q6","prompt":"Why does the module bar agents from holding person-affecting permissions even behind approval gates?","options":["Regulations prohibit all agent actions in HR systems","Models aren''t accurate enough yet for personnel actions","Approvals decay into rubber stamps under load, and a rubber-stamped action on a person is decision-laundering at machine speed","Person-affecting actions are too slow to automate profitably"],"correctIndex":2,"explanation":"The argument is structural, not statistical: M4 showed what load does to approvals, and M1''s line — the human must genuinely decide — can''t survive that decay when actions fire at agent speed. B implies better models change the answer; they don''t."},{"id":"q7","prompt":"The RIF communication can never climb above rung 1 because:","options":["It''s too emotionally sensitive for a model to draft","As low-frequency, high-stakes work, no run history can accumulate — so no higher rung can ever be priced","Legal review is required for RIF communications","It can, once error rates on other workflows are established"],"correctIndex":1,"explanation":"The ladder''s currency is run history for *this* work; other workflows'' evidence (D) doesn''t transfer. \"Unpriceable\" is the ladder''s own vocabulary for why some ceilings are permanent — better reasoning than \"too risky,\" same conclusion."},{"id":"q8","prompt":"A well-written refusal contains:","options":["The ceiling, its permanence, the reason — and a review trigger tied to changed reasons, not improved tools","A list of the agent features evaluated and rejected","The date after which automation will be reconsidered","Sign-off from IT and Legal"],"correctIndex":0,"explanation":"The refusal is a decision artifact: it shows the automation decision was *made*, with reasoning a successor and a curious executive can both read. C reconsiders on a calendar; the module reconsiders when reasons change — \"the model got better\" isn''t one."}]}', '2026-08-07');
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai201-m6-calibration-prompt-before-you-start-10', 'ai201-m6', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
 
@@ -1982,7 +3960,7 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
 People data never becomes infrastructure, and a run that touches it ends with hygiene: fresh material leaves with the run; what persists, persists minimized.', NULL, '2026-08-07', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai201-m6-micro-close', 'ai201-m6-micro', 30, 'prose', 'stable', '**The full module adds** the ten-input tiering exercise, the disclosure-control literature behind the small-n floor, and capstone stage 6: your workflow''s boundary sheet.', NULL, '2026-08-07', NULL);
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m6-sorting', 'ai201-m6', 'sorting', '{"reviewedAt":"2026-08-07","buckets":[{"id":"t1pub","label":"Tier 1 · Public","hint":"Published is published","rank":1,"pct":10},{"id":"t2int","label":"Tier 2 · Internal","hint":"Impersonal org material — the workhorse tier","rank":2,"pct":40},{"id":"t3pid","label":"Tier 3 · Person-identifying","hint":"A reader could resolve it to a person","rank":3,"pct":75},{"id":"t4prot","label":"Tier 4 · Protected","hint":"Health, investigations, accommodations — doesn''t go in","rank":4,"pct":95}],"tasks":[{"id":"t1","text":"The employee handbook, current version","key":"t2int","reasoning":"Internal, impersonal, the workhorse tier. (Public if yours is published; most aren''t.)"},{"id":"t2","text":"This week''s interview notes on four named candidates","key":"t3pid","reasoning":"The canonical Tier 3 case: enters fresh, minimized by step zero, leaves with the run."},{"id":"t3","text":"An engagement survey theme table: counts by office, no quotes, smallest group is 47","key":"t2int","reasoning":"Aggregation above any reasonable floor, no quotes. This is what good step-zero output looks like — Tier 3 in, Tier 2 artifact out."},{"id":"t4","text":"A comment from that survey: \"as the only nurse on the night shift, I feel unheard\"","key":"t3pid","reasoning":"No name, full identification. Small-n and distinctive detail in one sentence — the calibration prompt''s trap in the wild."},{"id":"t5","text":"The comp philosophy one-pager","key":"t2int","reasoning":"Principles, not people. One person''s salary is Tier 3; the philosophy never is."},{"id":"t6","text":"A spreadsheet of salaries by employee ID (names removed)","key":"t3pid","reasoning":"IDs resolve to people by design; ''names removed'' is the label, not the fact. With small teams, even bucketed versions need the small-n floor."},{"id":"t7","text":"An email thread about an employee''s accommodation request","key":"t4prot","reasoning":"Health-adjacent by nature. Doesn''t go in — including ''just to summarize it.'' If accommodation workflows need support, that''s a sanctioned-system conversation with legal in the room, not a pipeline decision."},{"id":"t8","text":"Your published careers page","key":"t1pub","reasoning":"Published is published."},{"id":"t9","text":"Exit interview notes: \"a senior engineer, here 11 years, leaving over the reorg\"","key":"t3pid","reasoning":"Distinctive-detail trap: tenure plus seniority plus context resolves fast in most orgs. Step zero coarsens it to what the exit-themes analysis needs."},{"id":"t10","text":"The plain-language benefits FAQ your workflow produced last week","key":"t2int","reasoning":"Outputs have tiers too. This one''s clean by construction if the pipeline was — which is why M4 sampling includes a boundary glance, and why artifacts persist minimized."}],"pattern":"Tier by what a reader could learn, not by what a label says. Names removed isn''t identity removed; aggregated isn''t always anonymous; and health, investigations, and accommodations are Tier 4 wherever they appear.","postscript":"If you tiered the night-shift comment, the ID spreadsheet, or the exit note at Tier 2, you''ve found your pattern: tiering by label (name present or absent) rather than by what a reader could learn. That''s the module''s central correction — fixable by running the person-test twice more this week."}', '2026-08-07');
-INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m6-rubric', 'ai201-m6', 'rubric', '{"promptVersion":"ai201-m6-capstone-v1","moduleId":"ai201-m6","minChars":600,"submitLabel":"Your capstone-stage submission","intro":"Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). Capstone stage 6: the boundary sheet — a tiered input census, mitigations matched to tier, the four agreement answers with sources (provisional status marked if unknowns remain), the escalation card, and the extended sign-off line. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.","calibration":[{"key":"elementsActual","label":"Census — elements the boundary sheet actually found","placeholder":"e.g. 19","min":0,"max":500,"actualFor":"elements"},{"key":"identifyingActual","label":"Census — how many actually identify a person","hint":"After the person-test, not before.","placeholder":"e.g. 7","min":0,"max":500,"actualFor":"identifying"}],"dimensions":[{"name":"Tier honesty","criteria":"The census is complete and the tricky calls — descriptions, small-n, convergence — are caught and reasoned, not waved through."},{"name":"Mitigation matches tier","criteria":"Step-zero designs are real pipeline steps with checkpoints; Tier 4 handling is removal or named clearance, never \"carefully.\""},{"name":"The agreement layer is factual","criteria":"Four questions answered from sources, not assumptions; unknowns owned honestly with a pursuit plan."},{"name":"Calibration","criteria":"Both counts predicted first, scored against the census, direction of error named. Honesty and specificity graded; accuracy never."}],"opening":[{"key":"elements","label":"Predicted — distinct data elements per run","hint":"A document is one. A pasted table is one. Names inside count separately.","placeholder":"e.g. 12","min":0,"max":500},{"key":"identifying","label":"Predicted — how many identify a person","hint":"By name, or by description a colleague could resolve.","placeholder":"e.g. 2","min":0,"max":500}]}', '2026-08-09');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m6-rubric', 'ai201-m6', 'rubric', '{"promptVersion":"ai201-m6-capstone-v1","moduleId":"ai201-m6","minChars":600,"submitLabel":"Your capstone-stage submission","intro":"Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). Capstone stage 6: the boundary sheet — a tiered input census, mitigations matched to tier, the four agreement answers with sources (provisional status marked if unknowns remain), the escalation card, and the extended sign-off line. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.","calibration":[{"key":"elementsActual","label":"Census — elements the boundary sheet actually found","placeholder":"e.g. 19","min":0,"max":500,"actualFor":"elements"},{"key":"identifyingActual","label":"Census — how many actually identify a person","hint":"After the person-test, not before.","placeholder":"e.g. 7","min":0,"max":500,"actualFor":"identifying"}],"dimensions":[{"name":"Tier honesty","criteria":"The census is complete and the tricky calls — descriptions, small-n, convergence — are caught and reasoned, not waved through."},{"name":"Mitigation matches tier","criteria":"Step-zero designs are real pipeline steps with checkpoints; Tier 4 handling is removal or named clearance, never \"carefully.\""},{"name":"The agreement layer is factual","criteria":"Four questions answered from sources, not assumptions; unknowns owned honestly with a pursuit plan."},{"name":"Calibration","criteria":"Both counts predicted first, scored against the census, direction of error named. Honesty and specificity graded; accuracy never."}],"opening":[{"key":"elements","label":"Predicted — distinct data elements per run","hint":"A document is one. A pasted table is one. Names inside count separately.","placeholder":"e.g. 12","min":0,"max":500},{"key":"identifying","label":"Predicted — how many identify a person","hint":"By name, or by description a colleague could resolve.","placeholder":"e.g. 2","min":0,"max":500}]}', '2026-08-11');
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m6-knowledge_check', 'ai201-m6', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the boundary sheet is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-07","questions":[{"id":"q1","prompt":"Why does a workflow change the \"what can I paste?\" question from 101?","options":["Workflows process larger volumes of data","The question now gets asked every run, forever — eventually by an agent — so the answer must live in design, not per-moment judgment","Workflows are subject to different regulations than conversations","It doesn''t — the question is identical"],"correctIndex":1,"explanation":"One conversation gets your full judgment; a scheduled pipeline gets whatever the design encoded. That''s the entire case for tiers, step zero, and the boundary sheet."},{"id":"q2","prompt":"\"The only woman on the Denver sales team said…\" is Tier 3 because:","options":["Survey comments are always person-identifying","Identification doesn''t require a name — a description a colleague could resolve to one person identifies them","Denver is a small office","It isn''t — no name appears, so it''s Tier 2"],"correctIndex":1,"explanation":"The tier turns on what a reader could learn, not on whether a name-shaped string is present. Small-n and distinctive detail are how \"anonymous\" material stays identifying."},{"id":"q3","prompt":"The person-test runs on the whole run rather than each artifact because:","options":["Testing artifacts individually takes too long","Individually clean artifacts can converge — assembled, they point at one person","Only final outputs matter for privacy","The test requires seeing the original inputs"],"correctIndex":1,"explanation":"The convergence trap: theme table + quote + narrative, each fine alone, jointly identifying. Run-level review is the only place that failure is visible."},{"id":"q4","prompt":"Minimization beats redaction as the primary move because:","options":["Redaction tools are unreliable","Material you never carry can''t leak, converge, or be re-identified — the transformation should receive only what it needs","Minimized documents use fewer tokens","Redaction is only required for Tier 4"],"correctIndex":1,"explanation":"Masking what remains is the second line; not carrying it is the first. It''s the M1 what-does-this-need question, pointed at data instead of capability."},{"id":"q5","prompt":"Your workflow turns out to routinely need investigation files to function. The module''s conclusion:","options":["Get a standing legal clearance for the workflow","Add a stronger redaction step","This shouldn''t be a workflow — routine Tier 4 need is M1''s should-this-exist finding, reached from the data side","Run it only in the enterprise deployment"],"correctIndex":2,"explanation":"Tier 4''s default is \"doesn''t go in,\" and a *routine* need isn''t a mitigation problem. A and B engineer around a finding; the finding is about the workflow''s existence."},{"id":"q6","prompt":"The four agreement-layer questions establish: **[V]**","options":["Whether AI use is permitted at your organization at all","Which tools are sanctioned, whether data trains models, what retention applies, and who owns the contract","The price tier of your organization''s deployment","Which model versions are approved"],"correctIndex":1,"explanation":"Those four answers, sourced and dated, are what \"sanctioned deployment\" concretely means — and question four''s name is the escalation path''s third step."},{"id":"q7","prompt":"The strongest reason the escalation path must be blame-safe:","options":["Blame slows down incident response","Hidden incidents are the only truly unmanageable kind — shame produces hiding","Most incidents turn out to be harmless","Legal requires no-fault reporting"],"correctIndex":1,"explanation":"Every other property of the path — speed, facts, the right name — depends on the incident being surfaced at all. A People leader already knows this pattern; this is it, again."},{"id":"q8","prompt":"After a wrong paste, the fourth step — \"fix the system, not just the moment\" — means:","options":["Retrain everyone on data handling","Trace how the material reached the model (missing step zero, raw file, accumulating pack) and change that design","Add an approval gate to every step","Retire the workflow"],"correctIndex":1,"explanation":"M4''s reflex applied to boundaries: the incident is diagnostic data about a specific design gap. A, C, and D are moods — broad, expensive, and unaimed."}]}', '2026-08-07');
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai201-m7-calibration-prompt-before-you-start-10', 'ai201-m7', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
 
@@ -2228,7 +4206,7 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
 Module 1''s cost prediction gets scored here against measured reality. The point was never the estimate — it''s learning which direction you systematically miss on your own work, and pricing the next build against it.', NULL, '2026-08-07', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai201-m7-micro-close', 'ai201-m7-micro', 30, 'prose', 'stable', '**The full module adds** the signal-or-theater exercise, the measurement-design literature behind the four numbers, and capstone stage 7: baselines, an installed rhythm, and the retirement clause.', NULL, '2026-08-07', NULL);
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m7-sorting', 'ai201-m7', 'sorting', '{"reviewedAt":"2026-08-07","buckets":[{"id":"keep","label":"Keep — it''s a signal","hint":"Answers \"what would I do differently if this moved?\"","rank":0,"pct":50},{"id":"cut","label":"Cut — it''s theater","hint":"Measures activity, can''t go down, or informs no decision","rank":0,"pct":50}],"tasks":[{"id":"t1","text":"Cumulative debriefs generated since launch","key":"cut","reasoning":"Cumulative counts can''t go down — they measure elapsed time, nothing else."},{"id":"t2","text":"Minutes per debrief, timed monthly, vs. the by-hand baseline","key":"keep","reasoning":"The time number, done right: an actual run timed occasionally against a recorded baseline, not self-reported hours saved."},{"id":"t3","text":"\"Time saved feels significant\" — team survey, quarterly","key":"cut","also":["keep"],"reasoning":"The arguable one. Sentiment isn''t worthless — a team that hates a workflow is information — but as proposed it fails the test twice: no denominator, no would-do-differently answer. The defensible keep is a repurposed version: one question at the monthly review, treated as a smoke detector for the use metric — not a KPI."},{"id":"t4","text":"Errors per weekly five-debrief sample, classified","key":"keep","reasoning":"The quality number — the M4 sample already produces it; the rhythm just graphs it. Direction matters more than level."},{"id":"t5","text":"Number of prompts in the prompt library","key":"cut","reasoning":"Library size measures accumulation, not value; by M2''s own hygiene rules a shrinking library is often the healthier sign."},{"id":"t6","text":"Share of debriefs opened by the hiring manager within 48 hours","key":"keep","reasoning":"The best of the board: it measures the hiring manager''s behavior, not yours — real downstream use."},{"id":"t7","text":"Monthly run cost — token or seat share plus maintenance minutes, estimated quarterly","key":"keep","reasoning":"Estimated lazily, but present — a value claim without a cost line doesn''t survive its first CFO."}],"pattern":"Every metric must answer: what would I do differently if this number moved? No answer, no metric.","postscript":"The sentiment survey scores either way — the reasoning is the point. If you kept it as a KPI rather than repurposing it as a smoke detector, that''s the theater reflex the lesson is after."}', '2026-08-07');
-INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m7-rubric', 'ai201-m7', 'rubric', '{"promptVersion":"ai201-m7-capstone-v1","moduleId":"ai201-m7","minChars":600,"submitLabel":"Your capstone-stage submission","intro":"Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). Capstone stage 7: the four numbers baselined with would-do-differently answers, the rhythm installed on a real calendar, the retirement clause with quantified triggers, and the reckoning against the Module 1 prediction. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.","calibration":[{"key":"savingsActual","label":"Measured — % of the by-hand baseline the workflow actually saves","hint":"From your timed runs against the baseline. Closes the prediction you made in Module 1.","placeholder":"e.g. 40","min":0,"max":100,"actualFor":"ai201-m1:savings"}],"dimensions":[{"name":"Honest numbers","criteria":"Four metrics, each with a baseline and a would-do-differently answer. No theater; the cost line is present; the use metric is genuinely about downstream use."},{"name":"A rhythm that survives","criteria":"Blocks exist on a real calendar, sized to the maintenance fraction, with scripts runnable in a bad week. Skips are logged, not hidden."},{"name":"The retirement clause has teeth","criteria":"Triggers are specific enough that a reluctant future owner couldn''t argue past them, and retirement is framed as an outcome, not a failure."},{"name":"Calibration","criteria":"The M1 reckoning is done with real numbers; the direction paragraph names a systematic bias and a concrete consequence for the next build."}],"includeTrail":true}', '2026-08-09');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m7-rubric', 'ai201-m7', 'rubric', '{"promptVersion":"ai201-m7-capstone-v1","moduleId":"ai201-m7","minChars":600,"submitLabel":"Your capstone-stage submission","intro":"Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). Capstone stage 7: the four numbers baselined with would-do-differently answers, the rhythm installed on a real calendar, the retirement clause with quantified triggers, and the reckoning against the Module 1 prediction. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.","calibration":[{"key":"savingsActual","label":"Measured — % of the by-hand baseline the workflow actually saves","hint":"From your timed runs against the baseline. Closes the prediction you made in Module 1.","placeholder":"e.g. 40","min":0,"max":100,"actualFor":"ai201-m1:savings"}],"dimensions":[{"name":"Honest numbers","criteria":"Four metrics, each with a baseline and a would-do-differently answer. No theater; the cost line is present; the use metric is genuinely about downstream use."},{"name":"A rhythm that survives","criteria":"Blocks exist on a real calendar, sized to the maintenance fraction, with scripts runnable in a bad week. Skips are logged, not hidden."},{"name":"The retirement clause has teeth","criteria":"Triggers are specific enough that a reluctant future owner couldn''t argue past them, and retirement is framed as an outcome, not a failure."},{"name":"Calibration","criteria":"The M1 reckoning is done with real numbers; the direction paragraph names a systematic bias and a concrete consequence for the next build."}],"includeTrail":true}', '2026-08-11');
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m7-knowledge_check', 'ai201-m7', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the capstone is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-07","questions":[{"id":"q1","prompt":"How do workflows usually die?","options":["A visible incident forces a shutdown","Quiet decay: sources shift, samples stop, and months later nobody has a number — just a feeling it used to be better","The model provider deprecates a feature","They rarely die; maintained workflows are stable"],"correctIndex":1,"explanation":"No single failure, just unattended drift — every mode of which an earlier module predicted. The rhythm exists because decay is the default, not the exception."},{"id":"q2","prompt":"The sizing rule for a workflow''s maintenance rhythm:","options":["As thorough as the workflow is important","A small fraction of what the workflow saves — past that, it''s a hobby","One hour per week, standardized across workflows","Whatever the owner can sustain"],"correctIndex":1,"explanation":"The fraction test keeps the rhythm honest in both directions: enough to catch decay, never enough to consume the savings it protects. It''s also a retirement trigger when it inverts."},{"id":"q3","prompt":"A skipped weekly review should be:","options":["Made up with a double review next week","Logged out loud — \"skipped, crunch\" — because two consecutive skips is information","Avoided by automating the review","Ignored; the monthly review covers it"],"correctIndex":1,"explanation":"The skip isn''t the sin; the silent skip is. A visible skip pattern is exactly the M4-style decay signal the rhythm exists to surface — about itself."},{"id":"q4","prompt":"Why is \"share of debriefs opened by the hiring manager\" the strongest of the kept metrics?","options":["It''s the easiest to collect","It measures downstream behavior — whether the work product actually matters to its audience","It can be tracked automatically","It correlates with time saved"],"correctIndex":1,"explanation":"Time, cost, and quality can all look excellent on a workflow nobody uses. The use metric is the one that catches the workflow whose quality no longer matters to anyone."},{"id":"q5","prompt":"The test that deletes theater metrics on contact:","options":["Can this number be gathered automatically?","What would I do differently if this number moved?","Does this number always increase?","Would an executive find this number impressive?"],"correctIndex":1,"explanation":"No decision downstream, no metric. (C is a good tell — always-up numbers restate elapsed time — but B is the test that also catches subtle theater.)"},{"id":"q6","prompt":"Retirement criteria are written at baseline time because:","options":["Baselines are required for retirement calculations","The future evaluator owns sunk costs and a builder''s identity — the criteria must predate the fondness that will argue with them","Criteria written later would be less accurate","The rhythm has no other place to put them"],"correctIndex":1,"explanation":"It''s a pre-commitment against a bias you can name today and will feel next year. Same reasoning as M5''s refusal: write the judgment down before the pressure arrives."},{"id":"q7","prompt":"A workflow saved five hours a month for a year; then the org''s new HRIS made it unnecessary, and it was archived with its numbers. This is:","options":["A failure to future-proof the design","A complete success story with an ending — the failure mode is the zombie, not the retirement","Evidence the workflow was never necessary","A reason to rebuild it against the new system"],"correctIndex":1,"explanation":"Fourteen months of measured savings is the win; the world moving is trigger three working as designed. (D might *also* be true — but that''s a new M1 audit, not a reflex.)"},{"id":"q8","prompt":"The point of scoring the M1 prediction against measured reality is:","options":["Grading the accuracy of the original estimate","Surfacing your systematic direction of error about your own work, and feeding it into the next build","Producing a success number for the M8 portfolio","Proving the workflow was worth building"],"correctIndex":1,"explanation":"As everywhere in both courses: accuracy isn''t the graded thing — direction is. Seven predictions produce a pattern; the practitioner''s edge is knowing their own lean and pricing the next build against it."}]}', '2026-08-07');
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai201-m8-calibration-prompt-before-you-start-10', 'ai201-m8', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
 
@@ -2436,5 +4414,5 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
 
 Would a reasonable colleague trust it? Not "is it impressive" — verification real, boundary defensible, autonomy evidenced, documentation a stranger has run. Trust is what the whole system either earns or doesn''t.', NULL, '2026-08-07', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai201-m8-micro-close', 'ai201-m8-micro', 30, 'prose', 'stable', '**The full module adds** the shipping checklist, the peer-exchange mechanics, the manager one-pager — and the quiet news that the skills this build taught you have a name: the Translator. AI 301 starts there.', NULL, '2026-08-07', NULL);
-INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m8-rubric', 'ai201-m8', 'rubric', '{"promptVersion":"ai201-m8-capstone-v1","moduleId":"ai201-m8","minChars":600,"submitLabel":"Your capstone-stage submission","intro":"Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). The AI 201 capstone portfolio: the index page and consistent binder, two real runs with intermediates, the four numbers in executive-sentence form, both directions of the peer exchange with the calibration score, and the closing reflection. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.","calibration":[],"dimensions":[{"name":"Engagement with real work","criteria":"The runs are real, the material is real, the fixes were actually made. A portfolio assembled for the grade reads exactly like one — and scores like one."},{"name":"Observation of mechanics","criteria":"The reflection connects what happened — the stalls, the deltas, the numbers — to how the systems work: context, verification, decay, transfer."},{"name":"Calibration","criteria":"The handoff prediction was made, scored, and folded into the course-long direction honestly. Accuracy isn''t graded; the named lean and its consequence are."},{"name":"Practical insight","criteria":"The next build is specific: named workflow, starting rung, budget size — each traceable to something this course measured about *you*."},{"name":"Would a colleague trust it?","criteria":"The test of the whole course: guardrails a reasonable peer would rely on — verification real, boundary defensible, autonomy evidenced, documentation a stranger has run. Not \"is it impressive.\" Is it *trustworthy*."}],"includeTrail":true}', '2026-08-09');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m8-rubric', 'ai201-m8', 'rubric', '{"promptVersion":"ai201-m8-capstone-v1","moduleId":"ai201-m8","minChars":600,"submitLabel":"Your capstone-stage submission","intro":"Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). The AI 201 capstone portfolio: the index page and consistent binder, two real runs with intermediates, the four numbers in executive-sentence form, both directions of the peer exchange with the calibration score, and the closing reflection. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.","calibration":[],"dimensions":[{"name":"Engagement with real work","criteria":"The runs are real, the material is real, the fixes were actually made. A portfolio assembled for the grade reads exactly like one — and scores like one."},{"name":"Observation of mechanics","criteria":"The reflection connects what happened — the stalls, the deltas, the numbers — to how the systems work: context, verification, decay, transfer."},{"name":"Calibration","criteria":"The handoff prediction was made, scored, and folded into the course-long direction honestly. Accuracy isn''t graded; the named lean and its consequence are."},{"name":"Practical insight","criteria":"The next build is specific: named workflow, starting rung, budget size — each traceable to something this course measured about *you*."},{"name":"Would a colleague trust it?","criteria":"The test of the whole course: guardrails a reasonable peer would rely on — verification real, boundary defensible, autonomy evidenced, documentation a stranger has run. Not \"is it impressive.\" Is it *trustworthy*."}],"includeTrail":true}', '2026-08-11');
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m8-knowledge_check', 'ai201-m8', 'knowledge_check', '{"title":"Knowledge check — 6 questions","note":"Unlocks after the portfolio is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-07","questions":[{"id":"q1","prompt":"The proof of the Practitioner level is:","options":["A workflow running at rung 3 autonomy","Transferability — a stranger can run the build, read its boundaries, and trust its guardrails from the documentation alone","Measured time savings above five hours a month","Completion of all eight capstone stages"],"correctIndex":1,"explanation":"Rungs, savings, and stages are properties a good build might have. The level is about whether the judgment left the builder''s head and survived in writing."},{"id":"q2","prompt":"The consistency pass exists because:","options":["Reviewers require a single document format","Artifacts written across seven modules drift apart as the workflow evolves — and contradictions are where cold readers stall and trust dies","The portfolio must fit in one file","Each artifact must be re-approved before shipping"],"correctIndex":1,"explanation":"The binder was written longitudinally; the workflow kept moving. The pass reconciles them — spec to rhythm, runbook to budget, pack to census — before the stranger reads."},{"id":"q3","prompt":"During the handoff run, the reader may not ask the builder questions because:","options":["The exchange is graded as a test of the reader","The documentation must answer or fail visibly — a question answered aloud is a gap that ships unfixed","Peers are anonymous in the exchange","Questions would take too long"],"correctIndex":1,"explanation":"The cold read is the instrument. Every question the builder answers in person is a stall the binder no longer gets credit for revealing — and documentation debt that survives to the *next* reader, who won''t have the builder''s number."},{"id":"q4","prompt":"Builders mispredict where readers stall in a specific direction:","options":["They predict stalls at complex parts; readers stall at obvious ones, where the builder''s expertise has gone invisible","They predict too many stalls overall","They predict stalls at the beginning; readers stall at the end","There is no systematic direction"],"correctIndex":0,"explanation":"The tacit-knowledge tax: obviousness is what expertise can no longer see. It''s the course''s last calibration lesson, and the core diagnostic of the coaching work ahead."},{"id":"q5","prompt":"The executive sentence — \"saves N hours a month against a measured baseline, at a running cost of $X and Y% sampled error, with a boundary security has seen\" — is powerful because:","options":["It uses precise numbers","Each clause is backed by an artifact that exists and can be audited: the baseline, the cost estimate, the sample tallies, the boundary sheet","It''s short enough for an executive to remember","It avoids technical vocabulary"],"correctIndex":1,"explanation":"The sentence is a claim with receipts — which is what separates it from every AI-enthusiasm anecdote in the same meeting. The numbers matter because the artifacts behind them do."},{"id":"q6","prompt":"The fifth rubric dimension — \"would a colleague trust it?\" — is the course''s test because:","options":["Peer approval is required for shipping","It integrates everything: verification that''s real, boundaries that are defensible, autonomy that''s evidenced, documentation that''s been run — trustworthy, not impressive","Colleagues will maintain the workflow after handoff","Trust is easier to grade than quality"],"correctIndex":1,"explanation":"Any single module can be performed; trust is what the whole system either earns or doesn''t. It''s also the property the next course spends: a Translator''s credibility starts at their own shipped, trustworthy build."},{"id":"q7","prompt":"The index page — new in this module — is written for two readers. They are:","options":["The builder, as a personal reference, and the review queue","A successor, as the first page they read, and an executive, as the only page they read","The deployment owner and the legal team","The peer reviewer and the hiring manager"],"correctIndex":1,"explanation":"One page: what the workflow is, what it saves, where everything lives, who owns it. A successor starts there and reads deeper; an executive reads it and stops — which is why the numbers on it carry their baseline and cost."},{"id":"q8","prompt":"Your paired peer''s review hasn''t arrived within a week. Under the course''s design, your shipping:","options":["Stalls until the peer delivers — the exchange is a hard gate","Skips the exchange; the consistency pass covers the same ground","Proceeds — your binder goes to the review queue, where an experienced reviewer runs the same cold read","Proceeds only if you review your own binder with fresh eyes"],"correctIndex":2,"explanation":"No single person can deadlock the course. The queue''s reviewer runs the identical protocol — and having seen many binders, their stalls are better-aimed than a peer''s. A feature, not a compromise."}]}', '2026-08-07');

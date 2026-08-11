@@ -1572,7 +1572,9 @@ app.get('/api/library', async (c) => {
       if ((b.kind !== 'prose' && b.kind !== 'reveal') || !b.body.startsWith('## ')) continue;
       let title = b.body.split('\n')[0].replace(/^##\s*/, '').trim();
       if (LIBRARY_NON_LESSONS.has(title)) continue;
-      const lab = /\[V\]\s*$/.test(title) || /\bthe lab\b/i.test(title);
+      // "The lab" in the title is the signal; a bare [V] marks volatility
+      // (tool names, prices), which many non-lab lessons carry.
+      const lab = /\bthe lab\b/i.test(title);
       title = title.replace(/\s*\[V\]\s*$/, '').replace(/^Lesson \d+\s*·\s*/, '');
       out.push({ title, blockId: b.id, lab });
     }

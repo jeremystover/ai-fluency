@@ -17,7 +17,7 @@
       "ordinal": 2,
       "title": "Choosing the tool for the task",
       "blurb": "Chat assistants, copilots, and the AI already embedded in your HR stack — what each is actually for, and how to tell a language model from a scoring engine before you rely on either.",
-      "status": "locked",
+      "status": "open",
       "estMinutes": 25,
       "prereqs": [],
       "microMinutes": 2
@@ -28,7 +28,7 @@
       "ordinal": 3,
       "title": "What it costs and how it scales",
       "blurb": "Tokens, context windows, and pricing — enough of the economics to size a use case, read a vendor quote, and know when a bigger model is worth it.",
-      "status": "locked",
+      "status": "open",
       "estMinutes": 25,
       "prereqs": [],
       "microMinutes": 2
@@ -39,7 +39,7 @@
       "ordinal": 4,
       "title": "Working with your documents and data",
       "blurb": "Attachments, long documents, and sensitive material: getting your world into the model's view without crowding out the question — or crossing a line your legal team hasn't cleared.",
-      "status": "locked",
+      "status": "open",
       "estMinutes": 30,
       "prereqs": [],
       "microMinutes": 2
@@ -50,7 +50,7 @@
       "ordinal": 5,
       "title": "Prompting as briefing",
       "blurb": "Role, task, context, format. Prompting as briefing a capable stranger — and iteration as the keystone behavior that separates fluent users from frustrated ones.",
-      "status": "locked",
+      "status": "open",
       "estMinutes": 35,
       "prereqs": [
         "ai101-m1"
@@ -63,7 +63,7 @@
       "ordinal": 6,
       "title": "When it's confidently wrong",
       "blurb": "Hallucination in depth: why fluent output deserves more scrutiny, not less, and the verification habits that keep a fabricated citation out of a document with someone's name on it.",
-      "status": "locked",
+      "status": "open",
       "estMinutes": 30,
       "prereqs": [
         "ai101-m1"
@@ -76,7 +76,7 @@
       "ordinal": 7,
       "title": "The lines that don't move",
       "blurb": "Bias, adverse impact, and decisions about people. Where AI assists, where it must stop, and how to say so in a way your organization will actually follow.",
-      "status": "locked",
+      "status": "open",
       "estMinutes": 30,
       "prereqs": [
         "ai101-m6"
@@ -89,7 +89,7 @@
       "ordinal": 8,
       "title": "What you own",
       "blurb": "Data agreements, disclosure, and accountability. What you're responsible for when AI touched the work — and the policy questions to settle before someone asks.",
-      "status": "locked",
+      "status": "open",
       "estMinutes": 25,
       "prereqs": [],
       "microMinutes": 2
