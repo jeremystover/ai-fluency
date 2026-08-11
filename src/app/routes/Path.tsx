@@ -289,12 +289,31 @@ export default function Path() {
             })}
           </div>
           {(stats.length > 0 || summary.activeDays.length > 0) && (
-            <div className="flex gap-x-5 gap-y-1.5 flex-wrap mt-3.5 pt-3.5 border-t border-line font-utility text-[0.66rem] uppercase tracking-wider text-muted">
+            <div className="flex gap-x-5 gap-y-1.5 flex-wrap items-center mt-3.5 pt-3.5 border-t border-line font-utility text-[0.66rem] uppercase tracking-wider text-muted">
               {stats.map((s) => <span key={s}>{s}</span>)}
               {summary.activeDays.length > 0 && <WeekStrip activeDays={summary.activeDays} />}
+              <Link to="/record" className="text-accent font-semibold no-underline hover:underline ml-auto">Your record →</Link>
             </div>
           )}
         </div>
+
+        {/* Misses come back. Retrieving something you got wrong is where the
+            learning happens, so the queue is raised here rather than waiting
+            to be discovered on the record page. */}
+        {summary.reviewDue > 0 && (
+          <Link
+            to="/record"
+            className="mt-3 flex items-baseline gap-2 flex-wrap border border-accent rounded-brand bg-accent/[0.06] px-4 py-3 no-underline hover:brightness-105"
+          >
+            <span className="font-display font-semibold text-[0.92rem] text-ink-strong">
+              {summary.reviewDue} question{summary.reviewDue === 1 ? '' : 's'} worth a second look
+            </span>
+            <span className="text-[0.85rem] text-muted">
+              You missed {summary.reviewDue === 1 ? 'it' : 'them'} earlier — retakes are free.
+            </span>
+            <span className="text-accent font-semibold text-[0.85rem] ml-auto">Review →</span>
+          </Link>
+        )}
 
         {/* Testing out is the strongest anti-drudgery move on offer, and it was
             buried in a row subtitle. Anyone who hasn't taken the diagnostic is

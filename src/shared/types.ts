@@ -84,6 +84,7 @@ export type PathSummary = {
   activeDays7: number; // distinct active days in the last 7
   activeDays: string[]; // those days as YYYY-MM-DD — the week strip renders from them
   lastActiveAt: string | null; // most recent event, so a return after a gap can be greeted as one
+  reviewDue: number; // missed questions due back now — the full queue lives on the record
   checks: { passed: number; correct: number; total: number } | null; // best attempts; null = none yet
 };
 
@@ -439,6 +440,78 @@ export type KnowledgeCheckResult = {
     explanation: string;
     study?: { blockId: string; label: string };
   }[];
+};
+
+// ---------- the learner's record ----------
+
+// What a learner has demonstrated on a module, in rising order of evidence.
+// Every stage is earned by a specific recorded act — none is self-declared,
+// and none can be reached by clicking through.
+export type MasteryStage = 'untouched' | 'read' | 'checked' | 'applied' | 'taught';
+
+export type ModuleMastery = {
+  moduleId: string;
+  title: string;
+  courseId: string;
+  ordinal: number;
+  stage: MasteryStage;
+  bestCheck: { correct: number; total: number } | null;
+  activityScore: number | null; // out of 20, latest graded submission
+  teachBackScore: number | null; // out of 15, best teach-back over MCP
+  completedAt: string | null;
+};
+
+// A question this session got wrong and hasn't since got right. Spacing is
+// deliberately legible rather than clever: a first miss comes back in three
+// days, a repeat miss the next day.
+export type ReviewItem = {
+  moduleId: string;
+  moduleTitle: string;
+  questionId: string;
+  prompt: string;
+  missedAt: string;
+  dueAt: string;
+  due: boolean;
+  misses: number;
+};
+
+export type CalibrationRecord = {
+  diagnostic: { meanAbsDelta: number; direction: 'over' | 'under' | 'mixed' | 'calibrated' } | null;
+  points: TrailPoint[]; // closed prediction loops, oldest first
+  sorts: { moduleId: string; correct: number; total: number; overAssigned: number; underAssigned: number }[];
+  // How the gap between prediction and outcome has moved across closed loops.
+  // Null until there are enough closed loops to say anything honest.
+  trend: 'sharpening' | 'steady' | 'drifting' | null;
+};
+
+export type Badge = { id: string; label: string; detail: string; earnedAt: string | null };
+
+// The completion credential. It names the exact content versions the learner
+// witnessed (fd_content_snapshot hashes) — which is what makes it a verifiable
+// record of what was learned rather than a decoration.
+export type Credential = {
+  courseId: string;
+  courseTitle: string;
+  earned: boolean;
+  cleared: number;
+  total: number;
+  issuedAt: string | null;
+  contentHashes: string[];
+};
+
+// A capability claim backed by a specific graded artifact. Derived, never
+// generated — the evidence line is the real score and the grader's own words.
+export type SkillStatement = { claim: string; evidence: string };
+
+export type RecordResponse = {
+  name: string | null;
+  roleLabel: string | null;
+  mastery: ModuleMastery[];
+  review: ReviewItem[];
+  calibration: CalibrationRecord;
+  badges: Badge[];
+  credentials: Credential[];
+  skills: SkillStatement[];
 };
 
 // ---------- choice exercise ----------
