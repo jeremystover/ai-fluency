@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-11",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What exactly converts AI output from \"a draft\" into \"your work\"?",
+      "options": [
+        "Editing at least half of it before use",
+        "Shipping it — sending, filing, or saying it where someone could rely on it",
+        "The tool's terms of service assigning you the copyright",
+        "Nothing — AI-generated content remains the tool's output permanently"
+      ],
+      "correctIndex": 1,
+      "explanation": "The boundary is the moment of reliance, not the degree of editing — unedited output you ship is fully yours, and heavily edited output still in your drafts folder is nobody's yet. That's also why \"it was only a draft\" fails once a colleague acted on it: sharing it where someone could rely on it *was* the shipping."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why does \"the AI wrote it\" fail as a defense — at the level of principle, not just optics?",
+      "options": [
+        "Because current law hasn't caught up to AI authorship yet",
+        "Because it's usually false — the human edited the text somewhat",
+        "Accountability requires an entity that can answer for the work — be questioned, correct the record, make harm whole — and a tool can't hold any of it",
+        "It doesn't fail — provenance genuinely mitigates responsibility"
+      ],
+      "correctIndex": 2,
+      "explanation": "Every mechanism accountability runs on needs a person, which is why provenance of a draft has never mattered: nobody accepts \"the intern wrote it\" from the person who signed. The excuse just relocates agency that never moved."
+    },
+    {
+      "id": "q3",
+      "prompt": "Under the excuse audit, what's the difference between \"I reviewed it\" and a defense that holds?",
+      "options": [
+        "A defense that holds names what the review actually did — \"I traced its claims against the plan documents\" — and covers only what that could catch",
+        "There is no difference — review is review",
+        "A holding defense requires a second person to also review the work",
+        "\"I reviewed it\" holds as long as the reviewer was senior enough"
+      ],
+      "correctIndex": 0,
+      "explanation": "M6 priced review precisely: a defense claims what the verification level could actually catch, no more. \"I read it and it sounded right\" is the exact mechanism by which fabrications ship — so the honest version has a verb and a source in it."
+    },
+    {
+      "id": "q4",
+      "prompt": "Of the three agreement-layer questions **[V]**, which is load-bearing, and why?",
+      "options": [
+        "Retention — because deleted data can't be breached",
+        "Whether inputs train or improve the models — because trained-on material may surface, transformed, outside your control forever",
+        "Visibility — because vendor staff access is the main exposure",
+        "None individually — only the full contract matters"
+      ],
+      "correctIndex": 1,
+      "explanation": "Training is the irreversible one: retention windows expire and access can be controlled, but what entered a model's training doesn't come back out on request. It's also most of the reason the provisioned tool beats the personal account — the enterprise \"no, contractually\" versus the consumer default **[V]**."
+    },
+    {
+      "id": "q5",
+      "prompt": "Your board slide includes figures that came from an AI summary of survey data. What does the disclosure test actually require here?",
+      "options": [
+        "Nothing — internal slides never require disclosure",
+        "A footer stating \"this presentation was created with AI assistance\"",
+        "Provenance and verification status — the board will rely on the numbers as verified facts, so what they're owed is where the figures came from and whether they were checked",
+        "Removing the figures, since AI-derived numbers can't be presented to boards"
+      ],
+      "correctIndex": 2,
+      "explanation": "The reader's stake is in the numbers' *verifiedness*, not in which software touched them — M6 told you numbers get repeated without caveats, which is exactly why their status must travel with them. B discloses the useless thing; the sticker satisfies no stake the board actually has."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why do the personal cases — condolence notes, references given as you — sit at the far end of the disclosure spectrum?",
+      "options": [
+        "They're legally protected categories of communication",
+        "The artifact's entire value is a person's personal witness — discovering it was generated voids the thing itself, so no disclosure fixes it",
+        "They're too short for AI assistance to matter",
+        "They don't — all artifacts follow the same disclosure rule"
+      ],
+      "correctIndex": 1,
+      "explanation": "For institutional prose, the reader's stake is in the organization standing behind content. Here the making *is* the message — the reader took the artifact as evidence of personal attention, so the failure isn't undisclosed AI, it's that the artifact claims something untrue about itself. The test catches this without any percentage rule."
+    },
+    {
+      "id": "q7",
+      "prompt": "Why does the fifth question — what happens when something goes wrong — specifically need a no-blame lane for self-reporting?",
+      "options": [
+        "Because blame-free cultures are more pleasant to work in",
+        "To satisfy whistleblower-protection requirements",
+        "Because punishing the self-report trains everyone to stop reporting — and the incident that hides is the expensive one",
+        "It doesn't — accountability requires consequences for errors"
+      ],
+      "correctIndex": 2,
+      "explanation": "The incentive design is the point: you want the fabricated citation surfaced by its author on Tuesday, not discovered by opposing counsel in a year. D confuses accountability (owning and correcting the work) with punishment (which, applied to self-reports, purchases silence at the worst price available)."
+    },
+    {
+      "id": "q8",
+      "prompt": "The module calls ownership \"the license, not the tax.\" What does that mean in practice?",
+      "options": [
+        "Organizations should license AI tools before taxing their use",
+        "Ownership costs are deductible against AI productivity gains",
+        "Accepting accountability is the price of being left alone by IT",
+        "The person who can say \"here's what I use, verify, disclose, and refuse — my name's on it\" earns autonomy with the tools and becomes who others trust on them"
+      ],
+      "correctIndex": 3,
+      "explanation": "The one-pager isn't defensive paperwork — it's the sentence that lets you use everything the course taught without asking permission per use, and it's the posture 201 assumes: you can only own what you understand, and now you do."
+    }
+  ]
+}

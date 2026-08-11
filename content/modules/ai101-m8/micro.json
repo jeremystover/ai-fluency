@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ai101-m8-micro-core",
+    "moduleId": "ai101-m8-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "## Module 8 in two minutes\n\n**The output is a draft, never a decision.** The moment you ship it — send, file, say it — it's your work, because accountability needs an entity that can answer for it, and a tool can't hold it. The bad-day excuses are all confessions about relocated agency: \"the AI wrote it\" (I shipped what I didn't stand behind), \"I reviewed it\" (only a defense for what the review could catch), \"only a draft\" (someone relied on it — that was the shipping), \"the vendor said\" (their claim stood where my verification belonged).\n\n**The agreement layer is knowable — three questions [V]:** is my input trained on? retained how long? visible to whom? IT answers in writing, counsel interprets, you enforce the tier rules that follow — and publish the one-line-per-tool grid nobody else has made.\n\n**Disclosure tracks the reader's stake, not the AI percentage.** The test: would they feel misled about what this artifact is evidence of? Institutional prose, no stake. Numbers headed for a board, disclose verification status. Personal witness — the condolence note, the reference given as you — no disclosure fixes a false claim; don't ship it."
+  },
+  {
+    "id": "ai101-m8-micro-rule",
+    "moduleId": "ai101-m8-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "### The rule to carry\n\nOwnership is the license, not the tax: \"here's what I use, here's what I verify, here's my line, my name's on the result\" is the sentence that earns autonomy with these tools — and it's the whole course in one breath."
+  },
+  {
+    "id": "ai101-m8-micro-close",
+    "moduleId": "ai101-m8-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "**The full module adds** the excuse audit, the would-they-feel-misled sort (six shipped artifacts, two of which no disclosure can fix), the five questions to settle with legal and IT before the bad day — skeletons, not worries — and The One-Pager: your own use/verify/disclose/refuse terms, plus the calibration review across every prediction the course made you write down."
+  }
+]
