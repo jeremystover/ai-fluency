@@ -104,6 +104,7 @@ export type LibraryModule = ModuleCard & {
   testedOut: boolean;
   completedAt: string | null;
   bestCheck: { correct: number; total: number } | null;
+  reviewDue: number; // this module's misses due back now — same spacing as the record's queue
 };
 
 export type LibraryCourse = CourseCard & { modules: LibraryModule[] };
@@ -113,6 +114,8 @@ export type LibraryResponse = {
   totals: { courses: number; modules: number; lessons: number; minutes: number };
   clearedCount: number;
   nextModuleId: string | null; // same ranking brain as the path's queue
+  resume: PathResume | null; // the open loop, same computation as the path's hero
+  reviewDue: number; // misses due back now, across the program
 };
 
 // The module this session last touched without clearing it — an open loop the

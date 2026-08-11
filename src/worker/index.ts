@@ -1026,9 +1026,10 @@ async function receiptsFor(db: DrizzleD1Database, sessionId: string) {
   const completed = new Set<string>();
   const completedAtById = new Map<string, string>();
   const bestCheckById = new Map<string, { correct: number; total: number }>();
+  const attempts: CheckAttempt[] = [];
   for (const e of doneRows) {
     if (!e.payloadJson) continue;
-    const p = JSON.parse(e.payloadJson) as { moduleId?: string; correct?: number; total?: number };
+    const p = JSON.parse(e.payloadJson) as { moduleId?: string; correct?: number; total?: number; missed?: string[] };
     if (typeof p.moduleId !== 'string') continue;
     if (e.type === 'module_completed') {
       completed.add(p.moduleId);
@@ -1036,12 +1037,14 @@ async function receiptsFor(db: DrizzleD1Database, sessionId: string) {
       if (!prev || e.createdAt < prev) completedAtById.set(p.moduleId, e.createdAt);
     } else if (p.total) {
       if ((p.correct ?? 0) / p.total >= 0.6) completed.add(p.moduleId);
+      attempts.push({ moduleId: p.moduleId, correct: p.correct ?? 0, total: p.total, missed: p.missed ?? null, at: e.createdAt });
       const best = bestCheckById.get(p.moduleId);
       if (!best || (p.correct ?? 0) / p.total > best.correct / best.total) {
         bestCheckById.set(p.moduleId, { correct: p.correct ?? 0, total: p.total });
       }
     }
   }
+  attempts.sort((a, b) => a.at.localeCompare(b.at));
   const kResponses = await db
     .select()
     .from(t.fdDiagnosticResponse)
@@ -1049,7 +1052,7 @@ async function receiptsFor(db: DrizzleD1Database, sessionId: string) {
   const kTotal = diagItems.filter((i) => i.kind === 'knowledge').length;
   const kCorrect = kResponses.filter((r) => r.correct === 1).length;
   const testedOutM1 = kResponses.length >= kTotal && kCorrect >= kTotal - 1;
-  return { completed, completedAtById, bestCheckById, testedOutM1 };
+  return { completed, completedAtById, bestCheckById, testedOutM1, attempts };
 }
 
 // Spacing is deliberately legible rather than clever: a first miss comes back
@@ -1084,6 +1087,35 @@ function outstandingMisses(attempts: CheckAttempt[]) {
     }
   }
   return out;
+}
+
+// The open loop: the module the session last touched and never cleared. Read
+// from the funnel like everything else — the newest touch on an uncleared
+// module wins, and the event type says which surface to send them back to.
+// Shared by the path (its hero) and the library (the in-progress stamp), so
+// the two screens never disagree about where the learner left off.
+const RESUME_VIA: Record<string, PathResume['via']> = {
+  module_opened: 'read',
+  chat_started: 'chat',
+  chat_message: 'chat',
+  podcast_started: 'podcast',
+  podcast_played: 'podcast',
+  knowledge_check_started: 'check',
+  knowledge_check_submitted: 'check',
+  sort_submitted: 'exercise',
+  choice_submitted: 'exercise',
+  activity_submitted: 'activity',
+};
+
+async function resumeFor(db: DrizzleD1Database, sessionId: string, unclearedIds: Set<string>): Promise<PathResume | null> {
+  const touchRows = await db
+    .select({ type: t.fdEvent.type, at: t.fdEvent.createdAt, moduleId: sql<string | null>`json_extract(${t.fdEvent.payloadJson}, '$.moduleId')` })
+    .from(t.fdEvent)
+    .where(and(eq(t.fdEvent.sessionId, sessionId), inArray(t.fdEvent.type, Object.keys(RESUME_VIA))))
+    .orderBy(desc(t.fdEvent.createdAt))
+    .limit(60);
+  const touch = touchRows.find((r) => r.moduleId && unclearedIds.has(r.moduleId));
+  return touch?.moduleId ? { moduleId: touch.moduleId, at: touch.at, via: RESUME_VIA[touch.type] } : null;
 }
 
 app.get('/api/path', async (c) => {
@@ -1261,32 +1293,8 @@ app.get('/api/path', async (c) => {
       : null,
   };
 
-  // The open loop: the module they last touched and never cleared. Read from
-  // the funnel like everything else — the newest touch on an uncleared module
-  // wins, and the event type says which surface to send them back to.
-  const RESUME_VIA: Record<string, PathResume['via']> = {
-    module_opened: 'read',
-    chat_started: 'chat',
-    chat_message: 'chat',
-    podcast_started: 'podcast',
-    podcast_played: 'podcast',
-    knowledge_check_started: 'check',
-    knowledge_check_submitted: 'check',
-    sort_submitted: 'exercise',
-    choice_submitted: 'exercise',
-    activity_submitted: 'activity',
-  };
-  const touchRows = await db
-    .select({ type: t.fdEvent.type, at: t.fdEvent.createdAt, moduleId: sql<string | null>`json_extract(${t.fdEvent.payloadJson}, '$.moduleId')` })
-    .from(t.fdEvent)
-    .where(and(eq(t.fdEvent.sessionId, session.id), inArray(t.fdEvent.type, Object.keys(RESUME_VIA))))
-    .orderBy(desc(t.fdEvent.createdAt))
-    .limit(60);
   const uncleared = new Set(openModules.filter((m) => !m.completed && !m.testedOut).map((m) => m.id));
-  const touch = touchRows.find((r) => r.moduleId && uncleared.has(r.moduleId));
-  const resume: PathResume | null = touch?.moduleId
-    ? { moduleId: touch.moduleId, at: touch.at, via: RESUME_VIA[touch.type] }
-    : null;
+  const resume = await resumeFor(db, session.id, uncleared);
 
   // "Up next" is the same ranking the MCP tutor recommends from — one brain,
   // two surfaces.
@@ -1316,6 +1324,14 @@ app.get('/api/library', async (c) => {
   const rows = await db.select().from(t.fdModule).orderBy(asc(t.fdModule.courseId), asc(t.fdModule.ordinal));
   const receipts = await receiptsFor(db, session.id);
   const tooling = toolingOf(c.env);
+
+  // Misses due back now, per module — the same spacing the record's review
+  // queue uses, so a card's "due for review" never disagrees with /record.
+  const dueByModule = new Map<string, number>();
+  const nowMs = Date.now();
+  for (const miss of outstandingMisses(receipts.attempts)) {
+    if (Date.parse(miss.dueAt) <= nowMs) dueByModule.set(miss.moduleId, (dueByModule.get(miss.moduleId) ?? 0) + 1);
+  }
 
   // All seeded blocks for open modules in one read; lesson headings come from
   // the same variant selection every other surface uses.
@@ -1380,6 +1396,7 @@ app.get('/api/library', async (c) => {
       testedOut: !receipts.completed.has(m.id) && m.id === 'ai101-m1' && receipts.testedOutM1,
       completedAt: receipts.completedAtById.get(m.id) ?? null,
       bestCheck: receipts.bestCheckById.get(m.id) ?? null,
+      reviewDue: dueByModule.get(m.id) ?? 0,
     };
   };
 
@@ -1394,6 +1411,7 @@ app.get('/api/library', async (c) => {
 
   const allModules = coursesOut.flatMap((course) => course.modules);
   const recs = await recommendationsFor(db, { loadPrefs, computeDiagnosticResult }, session.id);
+  const unclearedIds = new Set(allModules.filter((m) => m.status === 'open' && !m.completed && !m.testedOut).map((m) => m.id));
   const res: LibraryResponse = {
     courses: coursesOut,
     totals: {
@@ -1404,6 +1422,8 @@ app.get('/api/library', async (c) => {
     },
     clearedCount: allModules.filter((m) => m.status === 'open' && (m.completed || m.testedOut)).length,
     nextModuleId: recs[0]?.moduleId ?? null,
+    resume: await resumeFor(db, session.id, unclearedIds),
+    reviewDue: [...dueByModule.values()].reduce((sum, n) => sum + n, 0),
   };
   return c.json(res);
 });

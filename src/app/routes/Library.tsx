@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import type { LibraryCourse, LibraryModule, LibraryResponse } from '../../shared/types';
+import type { LibraryCourse, LibraryModule, LibraryResponse, PathResume } from '../../shared/types';
+import { resumeLabel, resumeRoute } from '../resume';
 import { Screen, ErrorNote } from '../components/ui';
 import { api, ApiError } from '../api';
 import { useApp } from '../brand';
@@ -36,9 +37,22 @@ function Glyph({ name }: { name: string }) {
   );
 }
 
-function ModuleAtlasCard({ m, isNext, startRoute }: { m: LibraryModule; isNext: boolean; startRoute: string }) {
+function ModuleAtlasCard({
+  m,
+  isNext,
+  startRoute,
+  resume,
+}: {
+  m: LibraryModule;
+  isNext: boolean;
+  startRoute: string;
+  resume: PathResume | null;
+}) {
   const open = m.status === 'open';
   const done = m.completed || m.testedOut;
+  // The open loop outranks the recommendation, same as the path's hero:
+  // picking a half-finished module back up beats starting the suggested one.
+  const isResume = !!resume && resume.moduleId === m.id;
   const glyphs = [
     m.ways.read && 'read',
     m.ways.listen && 'listen',
@@ -50,7 +64,7 @@ function ModuleAtlasCard({ m, isNext, startRoute }: { m: LibraryModule; isNext: 
   return (
     <div
       className={`relative overflow-hidden flex flex-col border rounded-brand bg-surface px-[18px] pt-4 pb-3.5 ${
-        isNext ? 'border-accent shadow-[0_0_0_2px_rgba(74,18,240,0.15)]' : done ? 'border-accent/40' : open ? 'border-line' : 'border-dashed border-line-strong'
+        isResume || isNext ? 'border-accent shadow-[0_0_0_2px_rgba(74,18,240,0.15)]' : done ? 'border-accent/40' : open ? 'border-line' : 'border-dashed border-line-strong'
       }`}
     >
       <span
@@ -66,6 +80,8 @@ function ModuleAtlasCard({ m, isNext, startRoute }: { m: LibraryModule; isNext: 
           <span className="font-utility text-[0.62rem] text-success">
             ✓ {m.completedAt ? fmtDate(m.completedAt) : ''}{m.testedOut ? ' · tested out' : m.bestCheck ? ` · check ${m.bestCheck.correct}/${m.bestCheck.total}` : ''}
           </span>
+        ) : isResume && resume ? (
+          <span className="font-utility text-[0.58rem] uppercase tracking-wider border border-accent text-accent rounded-full px-2 py-0.5">◐ In progress · {fmtDate(resume.at)}</span>
         ) : isNext ? (
           <span className="tag font-utility text-[0.58rem] uppercase tracking-wider bg-signal text-on-signal rounded-full px-2 py-0.5">★ Up next for you</span>
         ) : !open ? (
@@ -109,12 +125,21 @@ function ModuleAtlasCard({ m, isNext, startRoute }: { m: LibraryModule; isNext: 
       <div className="flex items-baseline justify-between gap-2 mt-2">
         <span className="font-utility text-[0.6rem] text-muted">~{m.estMinutes} min{open ? ` · micro ${m.microMinutes} min` : ''}</span>
         {open ? (
-          isNext ? (
+          isResume && resume ? (
+            <Link to={resumeRoute(resume)} className="text-accent font-bold text-[0.8rem] no-underline hover:underline">{resumeLabel(resume)}</Link>
+          ) : isNext ? (
             <Link to={startRoute} className="text-accent font-bold text-[0.8rem] no-underline hover:underline">Start →</Link>
+          ) : done ? (
+            <span className="flex items-center gap-3">
+              {m.reviewDue > 0 && (
+                <Link to="/record" className="text-accent font-bold text-[0.8rem] no-underline hover:underline">
+                  ↻ Review {m.reviewDue} due
+                </Link>
+              )}
+              <Link to={`/module/${m.id}`} className="text-accent font-semibold text-[0.8rem] no-underline hover:underline">Revisit</Link>
+            </span>
           ) : (
-            <Link to={done ? `/module/${m.id}` : startRoute} className="text-accent font-semibold text-[0.8rem] no-underline hover:underline">
-              {done ? 'Revisit' : 'Start'}
-            </Link>
+            <Link to={startRoute} className="text-accent font-semibold text-[0.8rem] no-underline hover:underline">Start</Link>
           )
         ) : (
           <span className="label-utility">yours whenever</span>
@@ -124,7 +149,17 @@ function ModuleAtlasCard({ m, isNext, startRoute }: { m: LibraryModule; isNext: 
   );
 }
 
-function Shelf({ course, nextModuleId, startFor }: { course: LibraryCourse; nextModuleId: string | null; startFor: (m: LibraryModule) => string }) {
+function Shelf({
+  course,
+  nextModuleId,
+  resume,
+  startFor,
+}: {
+  course: LibraryCourse;
+  nextModuleId: string | null;
+  resume: PathResume | null;
+  startFor: (m: LibraryModule) => string;
+}) {
   const open = course.modules.filter((m) => m.status === 'open');
   const cleared = open.filter((m) => m.completed || m.testedOut).length;
   return (
@@ -143,7 +178,7 @@ function Shelf({ course, nextModuleId, startFor }: { course: LibraryCourse; next
       {course.modules.length > 0 && (
         <div className="mt-4 grid gap-3 md:grid-cols-2">
           {course.modules.map((m) => (
-            <ModuleAtlasCard key={m.id} m={m} isNext={m.id === nextModuleId} startRoute={startFor(m)} />
+            <ModuleAtlasCard key={m.id} m={m} isNext={m.id === nextModuleId} resume={resume} startRoute={startFor(m)} />
           ))}
         </div>
       )}
@@ -199,10 +234,15 @@ export default function Library() {
               </span>
             );
           })}
+          {data.reviewDue > 0 && (
+            <Link to="/record" className="text-accent no-underline hover:underline">
+              <span className="font-bold">↻ {data.reviewDue}</span> due for review
+            </Link>
+          )}
         </div>
 
         {data.courses.map((course) => (
-          <Shelf key={course.id} course={course} nextModuleId={data.nextModuleId} startFor={startFor} />
+          <Shelf key={course.id} course={course} nextModuleId={data.nextModuleId} resume={data.resume} startFor={startFor} />
         ))}
 
         <p className="label-utility mt-10">Go in any order — prerequisites are recommendations, not gates.</p>
