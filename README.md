@@ -33,7 +33,19 @@ npm run seed:generate && npm run db:seed:remote
 wrangler secret put SESSION_SECRET
 wrangler secret put ANTHROPIC_API_KEY
 wrangler secret put ADMIN_PASSCODE     # gates the operator console at /admin
+wrangler secret put RESEND_API_KEY     # optional: turns on email delivery
 npm run deploy
+```
+
+Email is the one optional dependency with a prerequisite outside Cloudflare: the
+sending domain has to be verified with the provider (Resend → Domains → add the
+DKIM/SPF/DMARC records) before `EMAIL_FROM` will be accepted. Then set
+`EMAIL_FROM` to a mailbox on that domain and `PUBLIC_ORIGIN` to the origin
+learners actually type — both are `vars` in `wrangler.jsonc`, not secrets:
+
+```jsonc
+"EMAIL_FROM": "AI Fluency <learn@yourdomain.com>",
+"PUBLIC_ORIGIN": "https://learn.yourdomain.com"
 ```
 
 ## Architecture notes
