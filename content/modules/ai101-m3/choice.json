@@ -1,0 +1,31 @@
+{
+  "reviewedAt": "2026-08-11",
+  "title": "Price the mismatch",
+  "intro": "*Five minutes. Commit before you look.*\n\nFour People teams, four pricing structures — each pairing plausible enough that somebody signed it. Three of them are reasonable fits: not perfect, but the kind of deal that works out fine. **One goes badly wrong at scale**, predictably, for structural reasons from Lesson 4.\n\nRead the four pairings. Which one blows up?",
+  "artifacts": [
+    {
+      "label": "Pairing A · the TA team",
+      "body": "A 6-person talent acquisition team drafts 25–30 job descriptions and offer letters a month, spread evenly across the year. They sign a per-seat subscription: flat monthly price per recruiter, everything included."
+    },
+    {
+      "label": "Pairing B · the survey program",
+      "body": "A People-analytics lead runs the engagement survey twice a year — 4,000 free-text comments per cycle, processed over two intense weeks, near-zero AI usage in between. She signs a metered plan priced per token, which was by far the cheapest option in the months she compared."
+    },
+    {
+      "label": "Pairing C · the HRBP group",
+      "body": "Twelve HRBPs use an assistant a few times a week each — drafting, summarizing meeting notes, tightening documents. They're on the org's enterprise agreement, which bundles admin controls and data-processing terms. Per head, it costs more than a consumer subscription would."
+    },
+    {
+      "label": "Pairing D · the L&D experiment",
+      "body": "An L&D manager pilots AI-generated first drafts of course outlines — a handful of documents a month for one quarter. He uses a metered plan and expenses roughly the price of a nice lunch each month."
+    }
+  ],
+  "options": [
+    { "id": "a", "label": "Pairing A — TA on per-seat" },
+    { "id": "b", "label": "Pairing B — surveys on metered" },
+    { "id": "c", "label": "Pairing C — HRBPs on enterprise" },
+    { "id": "d", "label": "Pairing D — L&D on metered" }
+  ],
+  "key": "b",
+  "reasoning": "**Pairing B blows up.** Metered pricing fails at spikes, and her usage is *only* spikes: months of near-zero (when metered looked unbeatable in the comparison) punctuated by two weeks of processing 4,000 comments — tens of thousands of tokens per batch, re-supplied across every follow-up pass. The plan looked cheapest precisely because she compared it during the quiet months; survey season arrives as an invoice nobody forecast. The fix isn't necessarily a different plan — it's pricing the *peak* month before signing, which is the one month that matters.\n\nThe other three hold. **A** is per-seat's home ground: steady, modest, predictable usage across a stable team — the vendor's bet and the team's reality agree. **C** costs more per head *and that's the point*: the premium buys the data-processing terms and admin controls, which is the part of the price M8 argues you can't do without — HRBP work touches exactly the material that needs them. **D** is what metered is for: small, exploratory, honestly temporary — a subscription would be shelf space by month two.\n\nThe pattern to carry into any quote: match the structure to the *shape* of your usage — steady, spiky, or sensitive — and price the edge case, not the average month."
+}

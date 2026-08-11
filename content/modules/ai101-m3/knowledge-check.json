@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-11",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why does a long back-and-forth conversation over an attached document cost substantially more than the same questions asked as clean, separate one-shot prompts?",
+      "options": [
+        "Conversations are billed at a premium rate compared to single prompts",
+        "The full context — document included — is re-sent as input tokens on every turn",
+        "The model writes longer answers in conversations than in one-shot prompts",
+        "It doesn't — conversation turns after the first are free on most plans"
+      ],
+      "correctIndex": 1,
+      "explanation": "The window is re-supplied each turn, so the document's tokens are effectively re-read every time you follow up. That's the economic half of the fresh-conversation habit; the quality half is attention. A and D describe billing structures that don't exist, and C isn't the mechanism."
+    },
+    {
+      "id": "q2",
+      "prompt": "A vendor's plan is \"unlimited AI drafting, $30 per seat per month.\" What is this price, structurally?",
+      "options": [
+        "Evidence that the vendor has found a way to make tokens genuinely free at scale",
+        "A loss-leader that must disappear once the vendor's investors demand profitability",
+        "A bet that average usage stays modest — with fine print (rate limits, fair-use caps) standing where the token meter reasserts itself",
+        "Proof the product doesn't use a large language model, since LLM costs are always metered"
+      ],
+      "correctIndex": 2,
+      "explanation": "Flat prices don't remove the meter; they hide it behind a usage prediction. The practical habit: ask what happens at ten times your expected volume — the answer locates the real limit. B might even prove true for a given vendor, but it's a guess about one company, not the structure of the price."
+    },
+    {
+      "id": "q3",
+      "prompt": "Your team runs a 40-page report through an assistant and gets a fluent summary that's strangely thin on the report's middle sections. What most likely happened?",
+      "options": [
+        "The middle sections exceeded the model's knowledge cutoff",
+        "The document filled a large share of the context window, and material in the middle of a long context received the least attention",
+        "The model's safety filters removed the middle content",
+        "The subscription's fair-use cap truncated the output"
+      ],
+      "correctIndex": 1,
+      "explanation": "Fits is not attends: everything in the window competes for influence, and the middle of a long context is where details stop mattering first — while fluency stays perfect, which is what makes it dangerous. A confuses the cutoff (training time) with the window (right now); C and D aren't this mechanism."
+    },
+    {
+      "id": "q4",
+      "prompt": "For which task is the cheaper model tier most clearly the right choice?",
+      "options": [
+        "Reformatting your own interview notes into the team's standard debrief template",
+        "Synthesizing an ambiguous ER situation across a year of scattered documentation",
+        "Drafting a sensitive org-change announcement where tone missteps carry real cost",
+        "Any task involving employee data, since cheaper models are safer with sensitive inputs"
+      ],
+      "correctIndex": 0,
+      "explanation": "Supplied material, clear instructions, known output shape, human review — the delegation heuristic's center, where tier differences barely show. B and C are the judgment-heavy profile where the frontier model earns its price — and where the real flag is more review, not just more spend. D confuses the tier question with the data question; model size has nothing to do with data terms."
+    },
+    {
+      "id": "q5",
+      "prompt": "A team that runs heavy, predictable daily volume is choosing between per-seat and metered pricing. What's the structural trade?",
+      "options": [
+        "Metered pricing is always cheaper at high volume",
+        "Per-seat absorbs their heavy steady usage until fine-print caps bite; metered prices it accurately but punishes unforecast spikes",
+        "There is no real difference — both bill the same tokens underneath",
+        "Per-seat is only available in enterprise agreements"
+      ],
+      "correctIndex": 1,
+      "explanation": "Each structure fails at its own edge: flat plans at sustained heavy use (that's what the fine print is for), metered at the surge you didn't forecast — survey season arriving as an invoice. C is true of the underlying meter but false about who carries the risk, which is the entire question."
+    },
+    {
+      "id": "q6",
+      "prompt": "During procurement, which single question most directly exposes whether an \"AI-powered\" product is a thin wrapper around someone else's model?",
+      "options": [
+        "\"Is your product SOC 2 compliant?\"",
+        "\"How many engineers are on your AI team?\"",
+        "\"Which model does this run on, and what happens to our price when your model costs change?\"",
+        "\"Does your product use the latest generation of models?\""
+      ],
+      "correctIndex": 2,
+      "explanation": "A vendor with a real workflow layer answers cleanly; a reseller of tokens at retail gets vague, because their margin is the gap between your locked-in price and a falling cost they don't control. A matters for M8's reasons but doesn't locate thinness; B and D invite theater."
+    },
+    {
+      "id": "q7",
+      "prompt": "Why should \"this task seems to need the most capable model available\" prompt a second look rather than just a bigger budget?",
+      "options": [
+        "Frontier models are usually too slow to be usable for any real work",
+        "Tasks that seem to need maximum capability are usually climbing toward judgment calls — where the right response is more human review, not just more model",
+        "Capability differences between tiers are pure marketing with no real effect",
+        "Cheaper models produce more reliable outputs than frontier models"
+      ],
+      "correctIndex": 1,
+      "explanation": "The pattern from the lesson: as tasks climb toward organizational judgment, they approach the delegation heuristic's boundary, where \"which tier\" becomes \"how much human.\" A overstates a real latency trade; C and D are both false."
+    },
+    {
+      "id": "q8",
+      "prompt": "In the Size One Use Case activity, why does the estimate require a line for human review time?",
+      "options": [
+        "Because review time is usually the dominant real cost, and a task whose review rivals doing it by hand may not be worth automating",
+        "Because regulators require documented human oversight of all AI usage",
+        "To calculate how many tokens the reviewer will consume re-reading the output",
+        "To determine which employees need training on the tool"
+      ],
+      "correctIndex": 0,
+      "explanation": "Token costs are usually the small number; the reviewing human is the big one. An estimate without that line flatters every use case and hides the honest finding — sometimes the verdict is \"leave it manual,\" and the activity treats that as a result, not a failure. B overstates current requirements (M7 covers what actually applies); C and D aren't what the line is for."
+    }
+  ]
+}
