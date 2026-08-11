@@ -9,7 +9,7 @@ import { createMcpApp, recommendationsFor } from './mcp';
 import { createOauthApp, MCP_PATH } from './oauth';
 import { gradeSubmission, type RubricPayload } from './grading';
 import { adminApp, runReminderPass } from './admin';
-import { accountEmailFor, commitmentFor, createManagerApp, hasReports, managerEmailOf, managerSignalsFor } from './manager';
+import { accountEmailFor, commitmentFor, createManagerApp, hasReports, managerEmailForSessionId, managerEmailOf, managerSignalsFor } from './manager';
 import { deliverableAddress, sendEmail, signature } from './email';
 import { buildTutorSystem, streamTutorReply, KICKOFF_TURN, type LearnerContext as TutorLearnerContext, type TutorMessage } from './chat';
 import { transcribe, speakable, renderSpeech, TUTOR_VOICE } from './voice';
@@ -2724,7 +2724,12 @@ const GUIDANCE_PREFACE =
 const withGuidance = (contentMd: string, guidance: { text: string } | null) =>
   guidance ? `${contentMd}\n\n<company_guidance>\n${GUIDANCE_PREFACE}\n\n${guidance.text}\n</company_guidance>` : contentMd;
 
-async function moduleContent(db: DrizzleD1Database, env: Env, moduleId: string) {
+// `teamEmail` is the caller's assertion that this content is being assembled
+// for ONE listener. Pass it on the per-learner paths — the custom body, the
+// personal intro, a Q&A follow-up — and omit it on anything baked once and
+// shared (stock episodes, goal intros), where folding one team's guidance into
+// a shared asset would serve it to other teams.
+async function moduleContent(db: DrizzleD1Database, env: Env, moduleId: string, teamEmail?: string | null) {
   const modRows = await db.select().from(t.fdModule).where(eq(t.fdModule.id, moduleId)).limit(1);
   const mod = modRows[0];
   if (!mod || mod.status !== 'open') return null;
@@ -2735,10 +2740,7 @@ async function moduleContent(db: DrizzleD1Database, env: Env, moduleId: string) 
     .orderBy(asc(t.fdContentBlock.ordinal));
   if (blockRows.length === 0) return null;
   const blocks = selectVariants(blockRows, toolingOf(env)).filter((b) => b.kind !== 'exercise');
-  // No team scope here on purpose: this content backs the per-module stock
-  // episode, which is baked once and shared by every listener. Folding one
-  // team's guidance into a shared asset would serve it to other teams.
-  const guidance = await guidanceFor(db, env, moduleId, mod.courseId);
+  const guidance = await guidanceFor(db, env, moduleId, mod.courseId, teamEmail);
   const contentMd = withGuidance(blocks.map((b) => b.body).join('\n\n'), guidance);
   // Guidance edits count as content changes, so stale stock episodes rebake.
   const reviewedAt = [...blocks.map((b) => b.reviewedAt), guidance?.updatedAt ?? ''].reduce((max, d) => (d > max ? d : max), '');
@@ -2780,6 +2782,8 @@ async function bakeStock(env: Env, moduleId: string): Promise<void> {
   if (!env.ANTHROPIC_API_KEY) return;
   try {
     const db = drizzle(env.DB);
+    // Shared asset: baked once per module and served to every listener, so no
+    // team scope — one team's guidance must never ride in a shared episode.
     const content = await moduleContent(db, env, moduleId);
     if (!content) return;
     const existing = await loadStock(db, moduleId, 'generic');
@@ -2843,6 +2847,8 @@ async function bakeGoalIntro(env: Env, moduleId: string, goalId: string): Promis
     if (!generic) return;
     const existing = await loadStock(db, moduleId, goalId);
     if (existing && existing.contentReviewedAt === generic.contentReviewedAt && existing.promptVersion === PODCAST_PROMPT_VERSION) return;
+    // Shared per (module, goal) across every learner holding that goal — same
+    // reason as the stock bake: no team scope.
     const content = await moduleContent(db, env, moduleId);
     if (!content) return;
     const model = env.PODCAST_MODEL ?? env.GRADING_MODEL;
@@ -2946,7 +2952,7 @@ async function preparePersonalIntro(env: Env, sessionId: string, moduleId: strin
       generic = await loadStock(db, moduleId, 'generic');
       if (!generic) return;
     }
-    const content = await moduleContent(db, env, moduleId);
+    const content = await moduleContent(db, env, moduleId, await managerEmailForSessionId(db, env.BRAND_SLUG, sessionId));
     if (!content) return;
     const learner = await podcastLearner(db, sessionId);
     const model = env.PODCAST_MODEL ?? env.GRADING_MODEL;
@@ -3056,7 +3062,7 @@ async function completeAssembledBody(env: Env, row: PodcastRow): Promise<void> {
   try {
     const db = drizzle(env.DB);
     const generic = await loadStock(db, row.moduleId, 'generic');
-    const content = await moduleContent(db, env, row.moduleId);
+    const content = await moduleContent(db, env, row.moduleId, await managerEmailForSessionId(db, env.BRAND_SLUG, row.sessionId));
     const introLines = JSON.parse(row.introJson ?? '[]') as PodcastLine[];
     const beats = generic ? (JSON.parse(generic.beatsJson) as string[]) : [];
 
@@ -3169,12 +3175,14 @@ async function generateEpisode(
     .where(eq(t.fdContentBlock.moduleId, moduleId))
     .orderBy(asc(t.fdContentBlock.ordinal));
   if (blockRows.length === 0) return null;
+  // A Q&A segment is written for the one listener who asked, so it carries
+  // their team's guidance like the custom body does.
   const contentMd = withGuidance(
     selectVariants(blockRows, toolingOf(env))
       .filter((b) => b.kind !== 'exercise')
       .map((b) => b.body)
       .join('\n\n'),
-    await guidanceFor(db, env, moduleId, mod.courseId),
+    await guidanceFor(db, env, moduleId, mod.courseId, await managerEmailForSessionId(db, env.BRAND_SLUG, sessionId)),
   );
 
   // Q&A hosts remember what this listener actually heard: their module episode

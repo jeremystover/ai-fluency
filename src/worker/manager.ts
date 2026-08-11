@@ -499,6 +499,18 @@ export async function managerEmailOf(db: DrizzleD1Database, brandSlug: string, s
   return rows[0]?.managerEmail?.toLowerCase() ?? null;
 }
 
+// managerEmailOf for callers holding only a session id. The podcast pipeline
+// works from stored rows and background jobs rather than the request's session,
+// so it has an id and no row.
+export async function managerEmailForSessionId(
+  db: DrizzleD1Database,
+  brandSlug: string,
+  sessionId: string,
+): Promise<string | null> {
+  const rows = await db.select().from(t.fdSession).where(eq(t.fdSession.id, sessionId)).limit(1);
+  return rows[0] ? managerEmailOf(db, brandSlug, rows[0]) : null;
+}
+
 // Whether this account has anyone reporting to it. Cheap enough to answer on
 // every path load, and it decides whether the manager door is shown at all.
 export async function hasReports(db: DrizzleD1Database, brandSlug: string, session: SessionRow): Promise<boolean> {
