@@ -53,6 +53,10 @@ import type {
   PodcastSummary,
   PodcastVisual,
   GradeResult,
+  LibraryCourse,
+  LibraryLesson,
+  LibraryModule,
+  LibraryResponse,
   McpTouch,
   MeResponse,
   ModuleCard,
@@ -1004,6 +1008,50 @@ app.get('/api/diagnostic/result', async (c) => {
 
 // ---------- path & content ----------
 
+// The learner's earned record, shared by the path and the library: which
+// modules are cleared (completed, or knowledge check at 60%+ — retakes are
+// free, so the gate asks for understanding, not mere submission), the
+// completion dates and best check scores that stamp the rows, and whether
+// the diagnostic tested them out of 101-M1.
+async function receiptsFor(db: DrizzleD1Database, sessionId: string) {
+  const doneRows = await db
+    .select()
+    .from(t.fdEvent)
+    .where(
+      and(
+        eq(t.fdEvent.sessionId, sessionId),
+        sql`${t.fdEvent.type} IN ('module_completed', 'knowledge_check_submitted')`,
+      ),
+    );
+  const completed = new Set<string>();
+  const completedAtById = new Map<string, string>();
+  const bestCheckById = new Map<string, { correct: number; total: number }>();
+  for (const e of doneRows) {
+    if (!e.payloadJson) continue;
+    const p = JSON.parse(e.payloadJson) as { moduleId?: string; correct?: number; total?: number };
+    if (typeof p.moduleId !== 'string') continue;
+    if (e.type === 'module_completed') {
+      completed.add(p.moduleId);
+      const prev = completedAtById.get(p.moduleId);
+      if (!prev || e.createdAt < prev) completedAtById.set(p.moduleId, e.createdAt);
+    } else if (p.total) {
+      if ((p.correct ?? 0) / p.total >= 0.6) completed.add(p.moduleId);
+      const best = bestCheckById.get(p.moduleId);
+      if (!best || (p.correct ?? 0) / p.total > best.correct / best.total) {
+        bestCheckById.set(p.moduleId, { correct: p.correct ?? 0, total: p.total });
+      }
+    }
+  }
+  const kResponses = await db
+    .select()
+    .from(t.fdDiagnosticResponse)
+    .where(and(eq(t.fdDiagnosticResponse.sessionId, sessionId), sql`${t.fdDiagnosticResponse.correct} IS NOT NULL`));
+  const kTotal = diagItems.filter((i) => i.kind === 'knowledge').length;
+  const kCorrect = kResponses.filter((r) => r.correct === 1).length;
+  const testedOutM1 = kResponses.length >= kTotal && kCorrect >= kTotal - 1;
+  return { completed, completedAtById, bestCheckById, testedOutM1 };
+}
+
 // Spacing is deliberately legible rather than clever: a first miss comes back
 // in three days, a repeat miss the next day. The point is that misses come
 // back at all — the exact curve matters far less than the return.
@@ -1252,6 +1300,111 @@ app.get('/api/path', async (c) => {
     recommendedFor: selectedGoals.filter((g) => g.courses.includes(course.id)).map((g) => `your goal: ${g.label}`),
   }));
   const res: PathResponse = { modules, courses: coursesOut, summary, diagnosticNote, upNext, resume };
+  return c.json(res);
+});
+
+// The library: the whole program at full richness — every module with its
+// blurb, its real lesson headings (anchored for deep links), its ways in,
+// and the learner's receipts stamped on. Locked tiers included; seeing
+// what's in the full course is the point.
+const LIBRARY_NON_LESSONS = new Set(['Module brief', 'Why this module exists', 'Key takeaways', 'Sources and attribution']);
+
+app.get('/api/library', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const rows = await db.select().from(t.fdModule).orderBy(asc(t.fdModule.courseId), asc(t.fdModule.ordinal));
+  const receipts = await receiptsFor(db, session.id);
+  const tooling = toolingOf(c.env);
+
+  // All seeded blocks for open modules in one read; lesson headings come from
+  // the same variant selection every other surface uses.
+  const openIds = rows.filter((m) => m.status === 'open').map((m) => m.id);
+  const blockRows = openIds.length
+    ? await db
+        .select()
+        .from(t.fdContentBlock)
+        .where(inArray(t.fdContentBlock.moduleId, openIds))
+        .orderBy(asc(t.fdContentBlock.ordinal))
+    : [];
+  const blocksByModule = new Map<string, typeof blockRows>();
+  for (const b of blockRows) {
+    const list = blocksByModule.get(b.moduleId);
+    if (list) list.push(b);
+    else blocksByModule.set(b.moduleId, [b]);
+  }
+  const lessonsOf = (moduleId: string): LibraryLesson[] => {
+    const blocks = selectVariants(blocksByModule.get(moduleId) ?? [], tooling);
+    const out: LibraryLesson[] = [];
+    for (const b of blocks) {
+      if ((b.kind !== 'prose' && b.kind !== 'reveal') || !b.body.startsWith('## ')) continue;
+      let title = b.body.split('\n')[0].replace(/^##\s*/, '').trim();
+      if (LIBRARY_NON_LESSONS.has(title)) continue;
+      const lab = /\[V\]\s*$/.test(title) || /\bthe lab\b/i.test(title);
+      title = title.replace(/\s*\[V\]\s*$/, '').replace(/^Lesson \d+\s*·\s*/, '');
+      out.push({ title, blockId: b.id, lab });
+    }
+    return out;
+  };
+
+  const exRows = await db.select({ moduleId: t.fdExercise.moduleId, kind: t.fdExercise.kind }).from(t.fdExercise);
+  const kindsByModule = new Map<string, Set<string>>();
+  for (const e of exRows) {
+    const set = kindsByModule.get(e.moduleId) ?? new Set<string>();
+    set.add(e.kind);
+    kindsByModule.set(e.moduleId, set);
+  }
+
+  const toLibraryModule = (m: (typeof rows)[number]): LibraryModule => {
+    const open = m.status === 'open';
+    const lessons = open ? lessonsOf(m.id) : [];
+    const kinds = kindsByModule.get(m.id) ?? new Set<string>();
+    return {
+      ...(m as ModuleCard),
+      microMinutes: 2,
+      lessons,
+      // Locked modules ship with the course promise — read, listen, tutor,
+      // graded work, and a check — but never fake seeded exercises or labs.
+      ways: open
+        ? {
+            read: lessons.length > 0,
+            listen: (blocksByModule.get(m.id)?.length ?? 0) > 0,
+            tutor: (blocksByModule.get(m.id)?.length ?? 0) > 0,
+            exercise: kinds.has('sorting') || kinds.has('choice'),
+            lab: lessons.some((l) => l.lab),
+            graded: kinds.has('rubric'),
+            check: kinds.has('knowledge_check'),
+          }
+        : { read: true, listen: true, tutor: true, exercise: false, lab: false, graded: true, check: true },
+      completed: receipts.completed.has(m.id),
+      testedOut: !receipts.completed.has(m.id) && m.id === 'ai101-m1' && receipts.testedOutM1,
+      completedAt: receipts.completedAtById.get(m.id) ?? null,
+      bestCheck: receipts.bestCheckById.get(m.id) ?? null,
+    };
+  };
+
+  const prefs = await loadPrefs(db, session.id);
+  const goalsPicked = GOAL_CHOICES.filter((g) => (prefs.goals ?? []).includes(g.id));
+  const { courses } = (await import('../../content/modules.json')) as unknown as { courses: CourseCard[] };
+  const coursesOut: LibraryCourse[] = courses.map((course) => ({
+    ...course,
+    recommendedFor: goalsPicked.filter((g) => g.courses.includes(course.id)).map((g) => `your goal: ${g.label}`),
+    modules: rows.filter((m) => m.courseId === course.id).map(toLibraryModule),
+  }));
+
+  const allModules = coursesOut.flatMap((course) => course.modules);
+  const recs = await recommendationsFor(db, { loadPrefs, computeDiagnosticResult }, session.id);
+  const res: LibraryResponse = {
+    courses: coursesOut,
+    totals: {
+      courses: coursesOut.length,
+      modules: allModules.length,
+      lessons: allModules.reduce((sum, m) => sum + m.lessons.length, 0),
+      minutes: allModules.reduce((sum, m) => sum + m.estMinutes, 0),
+    },
+    clearedCount: allModules.filter((m) => m.status === 'open' && (m.completed || m.testedOut)).length,
+    nextModuleId: recs[0]?.moduleId ?? null,
+  };
   return c.json(res);
 });
 
