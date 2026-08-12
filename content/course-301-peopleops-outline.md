@@ -530,7 +530,28 @@ current state pay-data regimes.
 **10. Two counsel-review gates, M4 and M7** — no other track needs two. M4's is the heavier: FMLA and
 ADA notice through a chatbot is unsettled enough that the content must state the gate itself.
 
-**11. Three citations are now shared across tracks and should move to a shared evidence library.** The
+**11. The rung question is resolved, and it produces a drafting rule.** Five of the human brief's six
+modules would read almost verbatim for a CHRO or a People Analytics lead, which is the risk the brief
+names when it flags CHRO/CPO as possibly belonging at 401. The resolution: the governance arc stays at
+301, and **every governance lesson must land on something the learner configures** — their own
+register, a retention setting, a routing rule, a signature line. The test to apply to each lesson
+while drafting: **can this learner act on it alone, this quarter, without convening anyone?** If not,
+it is 401 material and comes out. That rule is what removed PO 306's operating-model proposal and what
+keeps M8's job-architecture lesson, since position management is a system they administer.
+
+**12. The calibration prompt is replaced course-wide, not just here.** The human brief's critique —
+self-report is not evidence — is correct and general, and it wins over the convention. All four tracks
+should open each module on **a claim about the learner's own organization, contested before content
+and verified against evidence from their systems**, rather than a numeric confidence prediction.
+"Score the delta" survives unchanged in purpose; the delta is now measured against artifacts instead
+of guesses. This track is built that way from the start. **The retrofit is a real body of work and is
+not in this outline's scope:** `ai301-hrbp` (7 modules, drafted and seeded), `ai301-recruiter` (7,
+drafted), and `ai301-comp` (6, drafted) each carry calibration prompts in `blocks.json` and prediction
+fields in `rubric.json`, and 101 and 201 carry the thread too. It should be scoped as its own change
+with the brief's §5 convention text updated in the same pass, since that document currently records
+the opening prediction as the one genuinely shared mechanism.
+
+**13. Three citations are now shared across tracks and should move to a shared evidence library.** The
 coaching trials (HRBP M7 and M2 here, with genuinely different readings — allocation there, task scope
 here), *Mobley* and the agent doctrine (HRBP M6, recruiter R6, M7 here), and SHRM's 52% (HRBP's
 unsettled debates, M8 here). The brief already recommends authoring these once and referencing them;
@@ -538,20 +559,6 @@ this track is the point at which not doing so starts producing drift.
 
 ## Open questions for review
 
-- **Is this track for the systems owner or the function leader?** The most important question in the
-  integration. Five of the human brief's six modules — decision rights, measurement, reinvestment,
-  operating-model redesign, the CFO conversation — would work almost verbatim for a CHRO or a People
-  Analytics lead. That is not a criticism of the content; it is a question about which rung it sits
-  on, and the brief flags CHRO/CPO as possibly belonging at 401 for exactly this reason. v2 resolves
-  it by anchoring every governance module to something the learner configures — a register of their
-  own decisions, a retention setting, a routing rule, a signature line. **If that resolution is
-  wrong, the arc should move to 401 and this track should be narrower.**
-- **Does the calibration prompt survive anywhere in the curriculum?** The human brief's critique —
-  self-report is not evidence — is correct, and v2 replaces the prediction with a contestable claim
-  about the learner's own organization. That works here. But the opening prediction is 3/3 across the
-  shipped and outlined tracks and is called out in the brief as the one genuinely shared mechanism.
-  Either this track is a deliberate exception, or the convention should change everywhere — worth
-  deciding once rather than per track.
 - **M4's conditional spine attachment.** It is the strongest legal module in the track and it applies
   only if the learner's chosen decision faces employees. Supply a worked service-desk case as the
   alternate path, or require an employee-facing decision as the spine and lose learners whose stack
