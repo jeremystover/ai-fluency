@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why does this module replace the task audit with a decision register?",
+      "options": [
+        "Because tasks are harder to inventory accurately than decisions",
+        "Because the things carrying risk in a systems role are decisions that were made once, encoded, and abandoned while still executing — and a task audit cannot see them, since an encoded decision looks like a process step",
+        "Because 201's task audit was superseded by better practice",
+        "Because decisions are more frequent than tasks in People Operations work"
+      ],
+      "correctIndex": 1,
+      "explanation": "201 M1's task audit is right for building a workflow you own. This is a different question, and the practical consequence is that you cannot enable AI on a decision nobody owns, because there is nobody to sign the enablement."
+    },
+    {
+      "id": "q2",
+      "prompt": "What is the module's diagnostic question for identifying a deferred decision?",
+      "options": [
+        "How often does this decision get made?",
+        "Is this decision documented anywhere?",
+        "Can you name the person — not the team — who would defend it if challenged?",
+        "Was this decision reviewed in the last twelve months?"
+      ],
+      "correctIndex": 2,
+      "explanation": "A team cannot sign anything, and Module 7 ends in a signature. \"Nobody\" is a valid and highly informative answer. D is a reasonable hygiene question and not the diagnostic."
+    },
+    {
+      "id": "q3",
+      "prompt": "Where does HR technology management sit in AI adoption across HR practice areas? `[V]`",
+      "options": [
+        "Roughly mid-pack, behind recruiting, L&D and employee experience",
+        "Second at around 21%, behind recruiting's 27% — inside a function where 54% of organizations have deployed no AI in HR at all and have no plans this year",
+        "Lowest, alongside compliance and board relations",
+        "Highest, ahead of recruiting"
+      ],
+      "correctIndex": 1,
+      "explanation": "From SHRM's 2026 mapping of 138 use cases across 16 practice areas, n=1,722. The pairing is the point: you are the front line of a function that mostly has not started, which makes \"we haven't adopted AI yet\" usually false in your stack specifically."
+    },
+    {
+      "id": "q4",
+      "prompt": "Which of the three doors AI arrives through has no gate — and is the largest?",
+      "options": [
+        "Employees using their own consumer tools",
+        "New product procurement",
+        "A feature arriving in a system you already own, via a release note",
+        "Pilot programs run by other functions"
+      ],
+      "correctIndex": 2,
+      "explanation": "Procurement is the only gated door and it receives essentially all governance attention. A is real and invisible but smaller. Nearly a third of organizations cannot say whether their current HR systems contain AI features, which is door one's signature."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why does the register require accountability by named person rather than by team?",
+      "options": [
+        "Because individuals are more reliable than teams",
+        "Because a team cannot sign anything, and the track's final artifact is a decision-rights map with a signature line",
+        "Because regulators require named individuals for all HR decisions",
+        "Because team ownership is usually inaccurate in HR functions"
+      ],
+      "correctIndex": 1,
+      "explanation": "And resolving an honest blank by writing a plausible team name destroys the entry's value. C overstates the legal position; the reason is that a signature needs a signatory."
+    },
+    {
+      "id": "q6",
+      "prompt": "What makes the wide-reach, long-latency quadrant the dangerous one?",
+      "options": [
+        "Errors there are more frequent than in other quadrants",
+        "Nothing announces the failure, so the error runs across every transaction until an audit or a filing surfaces it — and this is precisely the quadrant AI is sold into, because the labour savings and the blast radius have the same cause",
+        "Those decisions are usually the highest-stakes ones",
+        "Regulators focus enforcement there"
+      ],
+      "correctIndex": 1,
+      "explanation": "Wide-reach short-latency failures are bad and they get fixed, because they announce themselves. C confuses stakes with the axes; the module's argument is that stakes are the wrong variable here."
+    },
+    {
+      "id": "q7",
+      "prompt": "How does the module modify 201 M4's verification budget for systems work?",
+      "options": [
+        "Verification should be doubled for any automated process",
+        "Size it to detection latency rather than only to stakes, because error cost compounds with every run before anyone notices",
+        "Verification should be sized to the number of people affected",
+        "Systems work needs no verification budget because logs provide an audit trail"
+      ],
+      "correctIndex": 1,
+      "explanation": "The same error rate costs wildly different amounts depending on when it surfaces — a nuisance if caught immediately, a year of transactions if caught at the annual audit. Same budget, different denominator."
+    },
+    {
+      "id": "q8",
+      "prompt": "What does \"AI can prepare and remind, but it cannot be the control\" require in practice?",
+      "options": [
+        "That a human performs every step of any process with a statutory deadline",
+        "That AI is never used for compliance-related work",
+        "That an automated control produce evidence it ran which somebody actually looked at — a reminder nobody acknowledged is a log entry, not a control",
+        "That controls be tested annually by internal audit"
+      ],
+      "correctIndex": 2,
+      "explanation": "Preparation is drafting, assembling, and flagging. The control is what guarantees the step happened, and guarantees need evidence. A prohibits far more than the rule requires."
+    }
+  ]
+}
