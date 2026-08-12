@@ -1,381 +1,511 @@
-# AI 301 · The Specialist — Employee Experience / Internal Comms track · "The Budget You Don't Own" (draft v1)
+# AI 301 · The Specialist — Employee Experience / Internal Comms track · "After the Draft" (draft v2, integrated)
 
 **Audience:** Internal communicators, employee experience leads, engagement and listening program
 owners, intranet and channel owners — anyone who writes to the whole company, writes in someone
 else's name, or owns what the company hears back.
 **Level transition:** L3 The Specialist → L4 The Translator.
-**Shape:** 7 modules · 25–50 min each · ~4h05 · same package as the rest of the ladder — read,
+**Shape:** 10 modules · 10–30 min each · ~3h35 · same package as the rest of the ladder — read,
 micro dose, tutor, podcast, one interactive, one AI-graded activity, one knowledge check. Async
 and self-serve.
-**Prerequisite:** AI 101 (or the diagnostic test-out) and AI 201. This track assumes you can
-already draft, edit, summarize, build a context pack, and run a verbatims pipeline — 101 and 201
-taught that, and **this track does not teach writing.** Say so in Module 1.
+**Prerequisite:** AI 101 (or the diagnostic test-out) and AI 201.
 **Tooling stance:** Tool-agnostic. Every statistic, statute, benchmark figure, and vendor claim is
-volatile-layer `[V]`. The Article 50 and Article 5 material carries hard dates and will move.
+volatile-layer `[V]`. The Article 5 and Article 50 material carries hard dates and will move.
+
+**The premise, stated in the sales copy and again in Module 1:** *This course does not teach you to
+prompt. It assumes you already can. It teaches you where the value in your job moved, and what to
+do about it.*
+
+**Runtime is a deliberate decision, not a constraint.** ~3.5 hours is roughly a third of AIHR's
+comparable runtime and half of Ragan's, because those courses teach mechanics and this one doesn't.
+Short modules also fit the role: communicators have less desk time than any other audience on this
+ladder — the same argument that set the recruiter track at 20–25 minutes.
+
+---
+
+## Which spine won, and why
+
+**The human outline's spine won, and it isn't close.** Two of its ideas are better than anything in
+the Claude v1 draft:
+
+**The Six Links** — Sense → Interpret → Decide → Produce → Distribute → Verify — beats v1's five
+work types (produce, voice, listen, design, counsel). A value *chain* explains where the value
+moved; a taxonomy only says what the work is. The chain makes listening structurally upstream
+rather than a side topic, makes verification a link rather than an add-on, and gives the course its
+thesis in one sentence: **the profession is investing in the collapsing link.** v1's best line —
+*identified with the type that got commoditized, paid for the one AI can't reach* — is the same
+observation stated worse.
+
+**The Mandate as the closing act** beats v1's "Telling them about the AI." v1 closed defensively, on
+a credibility trap. This closes positionally: the function is already being handed enterprise AI
+adoption, and the course ends by making the learner argue whether to take it. That converts seven
+modules of craft into a claim on territory, and it gives the contestable-claim device its best
+instruction in either draft — *argue the side you don't believe.*
+
+The three-act shape (map → craft → mandate) is also simply a better arc than v1's seven flat
+modules, and the **Prediction gate** is a genuine improvement on the convention (see Decision 2).
+
+**What survives from v1 is the evidence and the floor.** Five verification corrections, and an
+entire legal surface the human draft doesn't have — which is not a stylistic difference. Module 8
+below teaches learners to mine Slack help channels and HR tickets; shipping that without the
+monitoring floor is the one genuinely unsafe thing in either draft.
 
 ---
 
 ## The through-line
 
-> **You are the only function that can spend everyone's attention at once — and AI just removed
-> the last thing that rationed it. Attention and belief are your budget. Words never were.**
-
-Earned, not asserted: employees inundated with messages are **30% more likely to lose trust in
-leadership and 24% more susceptible to burnout**, and **83%** of the profession says information
-overload is growing `[V]`. That is the cost of volume, denominated in the exact currency this
-function runs on. Every other track's AI story is *produce more, faster.* For this one, production
-volume was the presenting complaint before AI arrived.
+> **Producing communication got free. Being believed did not, and neither did attention. The value
+> in your job moved to the links either side of the draft.**
 
 ## Where the learner stands (design premise)
 
-They finished 201 and they are, genuinely, good at this. AI writes a serviceable announcement in
-nine seconds and they know it. What they have is a quieter problem: the thing they are best at is
-the thing that just became free, and the things AI can't do — deciding what not to send, telling an
-executive the message is wrong, being believed — are the things nobody trained them in and nobody
-measures them on.
+They finished 201 and they are good at this. AI writes a serviceable announcement in nine seconds
+and they know it. The quieter problem: the thing they are best at is the thing that just became
+free, and the links either side of it — sensing what's actually happening, deciding what deserves
+to be said, verifying what went out — are what nobody trained them in and nobody measures them on.
 
-> "I don't need help writing. I could send forty things this week instead of four and every one of
-> them would be fine. Tell me what that costs, who's actually speaking when I use this, and how to
-> keep the one thing my function runs on."
+> "I don't need help writing. I could send forty things this week instead of four and every one
+> would be fine. Tell me what that costs, who's actually speaking when I use this, and what my job
+> is now."
 
-**Two things make this track different from the three above it.** First, the diagnosis inverts:
-every other track opens by telling the learner they're less behind than they fear. This one opens
-by telling them they're *ahead — on the wrong axis.* The function has adopted AI almost
-universally for drafting, which is where it is most dangerous, and barely at all for targeting and
-measurement, where it would help. Second, **the legal floor doesn't sit in one module.** This
-role's law splits by which half of the job it governs, and forcing the halves together would
-produce a module joined only by the word "legal." See Decision 3.
+**Two structural notes.** The diagnosis inverts: every other track opens by telling the learner
+they're less behind than they fear; this one opens by telling them they're *ahead, on the wrong
+link.* And **the legal floor splits across two modules** rather than sitting in one — see
+Decision 4.
 
-## The spine: one real audience, and the attention ledger
+## The spine: the compression map, and the attention ledger under it
 
-Every module advances **one real audience the learner broadcasts to** — their company, their
-business unit, their site — and the next real thing they have to tell them.
+Every module advances **one real audience the learner broadcasts to** and the compression map they
+build for their own function in Module 4.
 
-Running through all seven is the **attention ledger**: opened in M1 as a count of everything the
-function sent that audience in thirty days, kept as the track's only number, and cashed in M7 as
-the baseline for the closing bet. It is the through-line made countable, and it is the one spine
-device no other track has, because no other role spends a shared resource.
+Running underneath is the **attention ledger** — a count of everything the function sent that
+audience in thirty days, recipients × read-minutes. It exists because the human outline's closing
+artifact is a proposal to an exec sponsor, and a proposal without a baseline is the thing Module 3
+teaches them to distrust. The ledger is what makes the Produce and Distribute links countable, and
+it is the number the Module 10 bet is measured against.
 
-| Module | What it does to the audience |
-|---|---|
-| M1 | Count what you spent on them |
-| M2 | Locate your own week in the five work types |
-| M3 | Set the voice floor for who speaks to them |
-| M4 | Decide what you'll stop sending them |
-| M5 | Write the charter for what you hear back |
-| M6 | Spec what the assistant may say to them |
-| M7 | Bet one change against the ledger |
-
-**And every module ends on a contestable claim** with a genuinely strong counter-argument stated
-in the content — the recruiter track's mechanism, which suits this audience for the same reason:
-in this role almost every question is live.
+| Module | | Artifact |
+|---|---|---|
+| M1 | The Prediction | Eight committed predictions |
+| M2 | The Six Links | — |
+| M3 | The Volume Trap | The attention ledger (send audit) |
+| M4 | Map your function | **Your Compression Map** |
+| M5 | The Review Discipline | Draft review protocol + stop-rule list |
+| M6 | The Trust Line | **Your Trust Line** + the voice floor |
+| M7 | Listening at Full Fidelity | Unread Signal Inventory + 30-day pilot |
+| M8 | The Knowledge Layer | Content Debt Triage + refusal spec |
+| M9 | The Manager Multiplier | One manager-enablement asset |
+| M10 | The Mandate | **Exec proposal + the delta reckoning** |
 
 ---
 
-## M1 · The budget nobody counts
+## M1 · The Prediction
 
-*~25 min · the shortest module, deliberately first*
+*~10 min · no content, deliberately*
 
-- **Lesson 1:** The inversion `[V]`. Employees flooded with messages are 30% more likely to lose
-  trust in leadership and 24% more at risk of burnout; 83% of the profession says overload is
-  growing. Volume was already the problem. AI didn't create it — it removed the last constraint on
-  it, which was that writing took time.
-- **Lesson 2:** The two budgets. **Attention** — finite, shared, non-renewable inside a week, and
-  not yours. **Belief** — earned over years, spent in one bad send, and the only input AI cannot
-  manufacture. Words were never the constraint, which is why making them free changed less than it
-  looks and more than you'd like.
-- **Lesson 3:** Where the function actually is `[V]`. 75% of IC functions are still early-stage or
-  ad hoc with AI — and the maturity split is the diagnosis: **low-maturity teams use AI to draft;
-  high-maturity teams use it to measure and target.** The function adopted AI precisely where it's
-  most dangerous and least where it would help. Only 36% feel AI-ready, rising to 61% where formal
-  governance exists — the variable is governance, not tooling.
-- **Lesson 4:** What this course refuses to teach. Not writing, not prompting, not voice packs, not
-  survey pipelines — 101 and 201 own all four, and a 300-level course that re-teaches them is
-  selling remediation. Said out loud, because for this audience the refusal is the credibility
-  move.
-- **Interactive:** choice — four AI initiatives an IC team is considering; find the one that spends
-  attention it hasn't budgeted.
-- **Activity:** *"The send audit"* — everything your function sent one real audience in the last 30
-  days. Recipients × estimated read-minutes = the attention bill, and it opens the ledger.
-  **Calibration:** predict the number of sends before you count them.
-- **Claim:** *"Your biggest AI risk isn't a hallucination. It's that you can now afford to send
-  everything you used to have to choose between."*
+Eight forced-choice predictions committed before any teaching. **Answers are withheld until the
+module that earns them.** Among them: what happens to a colleague's perceived trustworthiness when
+they send AI-drafted work; what share of organizations resource their managers with communication
+toolkits; what share of IC teams are already responsible for enterprise AI adoption; whether the EU
+prohibits sentiment analysis of employee messages.
 
-## M2 · Sort your own job
+Also carries the refusal: this course does not teach prompting, writing, voice packs, or survey
+pipelines. 101 and 201 own all four. For an audience whose craft *is* writing, saying so first is
+the credibility move.
 
-*~35 min*
+- **Activity:** the eight predictions, committed. No score. The reckoning is M10's.
+- **Claim:** *"You already know what this course is going to tell you."* (Scored against their own
+  eight answers in M10 — the only claim in the track the learner refutes with their own data.)
 
-- **Lesson 1:** The five work types — **produce, voice, listen, design, counsel.** Every task in
-  the function is one of these and they have completely different relationships with AI.
-- **Lesson 2:** Where AI has landed per type. Produce: transformed. Voice: transformed and
-  dangerous (M3). Listen: transformed and legally constrained (M5). Design — journeys, channel
-  architecture, campaign structure: barely touched. Counsel: untouched.
-- **Lesson 3:** The finding, which most people guess wrong. **The function is identified with the
-  type that just got commoditized and paid for the one AI can't reach.** Gallagher's maturity split
-  is the same finding arriving from the outside `[V]`: the teams getting value are the ones using
-  AI on the types nobody associates with the job.
-- **Lesson 4:** What counsel actually is, and why nobody taught it to you. Telling an executive the
-  message is wrong, the timing is wrong, or that the thing they want to announce shouldn't be
-  announced at all. It is the highest-value hour in the function and the one no communicator is
-  hired for. The compression is only an identity threat if counsel stays undeveloped.
-- **Interactive:** sorting — twelve pieces of real IC/EX work into the five types.
-- **Activity:** *"Work-type map"* — your own week, predicted split versus actual, plus **one piece
-  of counsel you owed someone this quarter and didn't deliver**, and what stopped you.
-  **Calibration:** commit your five percentages before Lesson 1.
-- **Claim:** *"You are paid for counsel and promoted for production, and AI just made production
-  free. That isn't a threat to your job. It's a bill coming due on a skill nobody trained you in."*
+---
 
-## M3 · Whose voice is this?
+# Part One · The Compression Map
+*Where the value in your job actually moved*
 
-*~50 min · the signature module · partial counsel review — Article 50*
+## M2 · The Six Links
 
-- **Lesson 1:** The divergence `[V]`. In a study of 1,100 professionals, supervisors using heavy
-  AI assistance were rated sincere by **40–52%**, against **83%** at low assistance — while
-  perceived professionalism fell only from **95%** to **69–73%**. The two curves separate. **AI
-  makes the writing better and the writer less believable, simultaneously.** Professionalism is
-  what you're optimizing; sincerity is what the reader is actually scoring.
-- **Lesson 2:** The gradient, not the binary. The penalty barely touches informational and routine
-  messages — reminders, factual announcements, logistics — and concentrates in relationship-oriented
-  ones: empathy, praise, recognition, motivation, personal feedback. **The rule: acceptable AI
-  involvement is inversely proportional to how much the message claims a relationship.** That is a
-  usable dial, not a prohibition.
-- **Lesson 3:** Ghostwriting is old; the floor is what moved. Communicators have written in
-  executive voice for a century, and what made it legitimate was that the executive supplied the
-  position and carried the stakes. AI didn't introduce ghostwriting — it removed the last
-  requirement that the executive be involved at all. **The voice input floor:** what a leader must
-  personally supply for a message to be theirs. Then the hardest case, the layoff message, where
-  employees are reading for tells and will find them.
-- **Lesson 4:** Disclosure, and the legal edge `[V]`. 101 M8 gave the reader's-stake test; two
-  things are this role's alone. The EU AI Act's **Article 50 transparency obligations became
-  applicable 2 August 2026** — synthetic audio or video of a real person carries a disclosure duty
-  that, unlike the AI-generated-text obligation, is **not** limited to public-interest publishing,
-  so the AI-dubbed CEO video shown to employees is in scope. And the carve-out worth more than the
-  rule: the text obligation **falls away where content had human review and a named person holds
-  editorial responsibility.** Which converts a compliance question into the one this function
-  should have been asking anyway — *who owns this sentence?*
-- **Interactive:** choice — four leadership messages; identify the one where AI involvement costs
-  the most, and say what it costs.
-- **Activity:** *"The voice floor"* — a written standard for your two most-ghostwritten executives:
-  what they must supply for a message to go out in their name, which message types are AI-assisted
-  and which aren't, what gets disclosed and where. Tested against one real message you've already
-  sent. **Calibration:** predict where your audience would score your last leadership message for
-  sincerity.
-- **Claim:** *"Ghostwriting was always fine. What made it fine was that the executive had to show up
-  with a position — and that is precisely the requirement AI removed."*
+*~25 min*
 
-## M4 · Deciding what not to send
+- **Lesson 1:** **Sense → Interpret → Decide → Produce → Distribute → Verify.** Every piece of work
+  the function does is a pass along this chain, and most people can only name two of the links.
+- **Lesson 2:** Where AI lands on each. Produce: collapsed. Distribute: mostly solved before AI.
+  Sense and Interpret: transformed and barely touched by the profession. Decide: untouched. Verify:
+  newly expensive, and newly load-bearing.
+- **Lesson 3:** The thesis, with the profession's own benchmark behind it `[V]`. **75% of IC
+  functions remain in early-stage AI adoption — experimenting ad hoc or not at all — and the
+  maturity split is diagnostic: low-maturity teams use AI to draft; high-maturity teams use it to
+  measure and generate insight.** The profession is investing in the collapsing link. Only 36% feel
+  AI-ready, rising to 61% where formal governance exists — the variable is governance, not tooling.
+- **Lesson 4:** The link you're excluded from. **Decide** is where counsel lives — telling an
+  executive the message is wrong, the timing is wrong, or that the thing shouldn't be announced.
+  It's the highest-value hour in the function, the one link AI cannot touch, and the one most
+  communicators are not in the room for. Naming it here sets up M10's mandate argument.
+- **Interactive:** sorting — twelve pieces of real IC/EX work onto the six links.
+- **Activity:** *"Where does your week sit?"* — predicted distribution across the six links.
+- **Claim:** *"The link where your team spends the most time is the link that matters least."*
 
-*~40 min*
+## M3 · The Volume Trap
 
-- **Lesson 1:** Workslop, aimed here `[V]`. 41% of workers have received AI-generated work that
-  looks like work and isn't; roughly two hours of rework per instance; **42% rate the sender less
-  trustworthy.** It lands hardest on this function for a structural reason: everywhere else it goes
-  to a colleague, here it is broadcast to everyone at once, and the "sender" is the channel your
-  next message depends on.
-- **Lesson 2:** The volume trap, this role's version — **and its distance from the HRBP track's,
-  stated rather than assumed.** There the cost is decisions: more artifacts, no more calls. Here
-  the cost is attention, and the difference is that decisions are your own budget while attention
-  is everyone else's, spent without their consent. Different argument, different remedy: not a
-  volume decision, a kill list.
-- **Lesson 3:** The kill list, and where volume actually comes from `[V]`. **61% of organizations
-  have no formal change communication strategy** while ranking change comms their top skill need —
-  so every change spawns its own ad-hoc cascade, and the aggregate nobody owns is the flood.
-  Consolidation, channel discipline, and the sentence this function never says: *we're not sending
-  that.*
-- **Lesson 4:** Measurement that isn't vanity. Open rates measure delivery, not comprehension and
-  not behavior. What to measure instead, and the honest problem underneath: the measures that
-  matter are expensive and the vanity ones are free — which is exactly why AI's best use here is
-  the one the function does least (M2's maturity finding, now with somewhere to land).
-  **The manager cascade beat:** consistency was the entire point of a cascade, and AI makes local
-  variation free — 200 managers each generating their own version of the same message.
+*~25 min*
+
+- **Lesson 1:** Workslop `[V]`. 41% of workers have received AI-generated work that looks like work
+  and isn't; roughly two hours of rework per instance; **42% rate the sender less trustworthy.** It
+  lands hardest on this function for a structural reason: everywhere else it goes to a colleague;
+  here it's broadcast to everyone at once, and the "sender" is the channel your next message
+  depends on.
+- **Lesson 2:** The cost, measured `[V]`. Employees inundated with messages are **30% more likely
+  to lose trust in leadership and 24% more susceptible to burnout**; **83%** of the profession says
+  information overload is growing. **The first-order effect of AI on internal comms is
+  degradation** — and the fix is a norms problem, which makes it this function's.
+- **Lesson 3:** The delta from the HRBP track, stated rather than assumed. HRBP M3 teaches the
+  volume trap as a cost in **decisions** — more artifacts, no more calls. Here it's a cost in
+  **attention**, and the difference is the whole module: decisions are your own budget, attention
+  is everyone else's, spent without their consent. Different remedy — not a volume decision, a kill
+  list.
+- **Lesson 4:** Where volume actually comes from `[V]`. **61% of organizations have no formal
+  change communication strategy** while ranking change comms their top skill need — so every change
+  spawns its own ad-hoc cascade and the aggregate belongs to nobody. Plus measurement: open rates
+  measure delivery, not comprehension and not behavior.
 - **Interactive:** sorting — ten planned communications: send / consolidate / don't send.
-- **Activity:** *"The kill list"* — from M1's ledger, three things you will stop sending, the
-  attention returned quantified, and one measure you'll replace open rate with. **Calibration:**
-  predict what share of your last 30 days' sends you would defend to the recipients, to their
-  faces.
+- **Activity:** *"The send audit"* — everything your function sent one real audience in 30 days,
+  recipients × read-minutes. **This opens the attention ledger**, and M10's proposal is measured
+  against it.
 - **Claim:** *"Every message is a withdrawal from an account you don't own and can't top up."*
 
-## M5 · Listening without surveillance
+## M4 · Map your function
 
-*~50 min · the heaviest module · counsel review required before ship*
+*~20 min · the guided one*
 
-- **Lesson 1:** What listening is for, and the promise it runs on. The anonymity commitment is this
-  function's most load-bearing sentence: made at fielding time, cashed at analysis time, and
-  usually by different people.
-- **Lesson 2:** Small teams and re-identification. **Distinct from the HRBP track's small-N
-  problem** — there the failure is inferring too much from too few people; here it is *identifying*
-  too few people against a promise you made. Different failure, different fix: not a confidence
-  interval, a reporting floor.
+- Plot your own headcount, budget, and calendar across the six links. Where the money is versus
+  where the value is. The ledger from M3 supplies the Produce and Distribute numbers, so the map
+  has at least one column that isn't an estimate.
+- **Interactive:** choice — four compression maps from real functions; find the one whose owner has
+  misdiagnosed themselves.
+- **Activity:** *"Your Compression Map"* — one page. **Calibration:** scored against M2's predicted
+  distribution.
+- **Claim:** *"You cannot argue for a mandate you can't draw."*
+
+---
+
+# Part Two · The Judgment Layer
+*The craft that replaces drafting*
+
+## M5 · The Review Discipline
+
+*~30 min*
+
+- **Lesson 1:** Fluency as the trap, and why 101 M6's taxonomy isn't enough here. Four failure modes
+  this role owns: **fabricated specifics, voice flattening, lost nuance, and confident tone on
+  shaky ground.** The middle two are additions to 101's list, and they're the ones that matter for
+  published institutional prose.
+- **Lesson 2:** **Read against the source, not against your ear.** Your ear is calibrated to
+  fluency, which is the one thing the model always gets right.
+- **Lesson 3:** **Omission is worse than fabrication.** A fabricated statistic can be caught; a
+  dropped caveat leaves nothing behind to catch. The specific case: the summary of a policy change
+  that quietly loses the exception.
+- **Lesson 4:** Stop-rule categories — the classes of work that don't go out without a named human
+  pass, written as categories rather than instances so they survive contact with a busy week.
+- **Interactive:** choice — four AI-assisted drafts against their sources; find the one whose
+  omission changes the meaning.
+- **Activity:** *"Draft review protocol"* — your protocol plus your team's stop-rule list.
+  **Calibration:** predict which of the four failure modes your last month's output hit most.
+- **Claim:** *"Your stop-rule list is too short."*
+
+## M6 · The Trust Line
+
+*~30 min · the signature module · counsel review — Article 50*
+
+- **Lesson 1:** The divergence `[V]`. In a study of 1,100 professionals, supervisors using heavy AI
+  assistance were rated sincere by **40–52%**, against **83%** at low assistance — while perceived
+  professionalism fell only from **95%** to **69–73%**. The curves separate. **AI makes the writing
+  better and the writer less believable at the same time.** Professionalism is what you're
+  optimizing; sincerity is what the reader is scoring.
+- **Lesson 2:** The gradient, not the binary. The penalty barely touches informational and routine
+  messages and concentrates in relational ones — empathy, praise, recognition, motivation, personal
+  feedback. **Acceptable AI involvement is inversely proportional to how much the message claims a
+  relationship.** A dial, not a prohibition. Plus contamination by association: one obviously
+  AI-drafted message taxes everything sent after it.
+- **Lesson 3:** The resolution, which is a production pattern rather than a rule. **Human-first
+  drafting for relational messages, and atomization of genuinely human moments** — the CEO podcast
+  → transcript → summary → pull quotes → FAQ → clips pattern. Capture the human thing once; let AI
+  multiply it. This is the constructive answer to Lesson 1, and it is the only place in the track
+  where more AI output is the right call.
+- **Lesson 4:** The voice floor and the legal edge `[V]`. Ghostwriting is a century old; what made
+  it legitimate was that the executive supplied the position and carried the stakes, and that is
+  precisely the requirement AI removed. **The voice input floor:** what a leader must personally
+  supply for a message to be theirs. Then the law aimed at this function: the EU AI Act's **Article
+  50 transparency obligations became applicable 2 August 2026** — synthetic audio or video of a
+  real person carries a disclosure duty that, unlike the AI-generated-text obligation, is **not**
+  limited to public-interest publishing, so the AI-dubbed CEO video shown to employees is in scope.
+  And the carve-out worth more than the rule: the text obligation **falls away where content had
+  human review and a named person holds editorial responsibility** — which turns a compliance
+  question into *who owns this sentence?*
+- **Interactive:** choice — four leadership messages; identify the one where AI involvement costs
+  the most, and name what it costs.
+- **Activity:** *"Your Trust Line"* — the written list of what will never be AI-drafted here and
+  why, plus the voice floor for your two most-ghostwritten executives, tested against one real
+  message you've already sent. **Calibration:** predict where your audience would score your last
+  leadership message for sincerity.
+- **Claim:** *"Ghostwriting was always fine. What made it fine was that the executive had to show up
+  with a position — and that is exactly the requirement AI removed."*
+
+## M7 · Listening at Full Fidelity
+
+*~30 min · the heaviest module · counsel review required before ship*
+
+The Sense/Interpret unlock and its floor, in one module because the opportunity and the constraint
+are the same material. **Shipping either half alone is wrong**, and the human draft's version has
+only the first.
+
+- **Lesson 1:** The unread signal. Intranet search queries, HR tickets, all-hands Q&A, Slack help
+  channels, open text — the function has always been sitting on the highest-fidelity account of what
+  employees actually don't understand, and has never been able to read it at volume. This is the
+  Sense link, and it is the biggest genuine unlock in the track.
+- **Lesson 2:** The interpretation trap. Confident synthesis of a signal that isn't there — the
+  model will theme forty tickets into five clean categories whether or not five categories exist.
+  Plus re-identification: **distinct from the HRBP track's small-N problem**, where the failure is
+  inferring too much from too few people. Here it's *identifying* too few people against a promise
+  you made. Different failure, different fix — not a confidence interval, a reporting floor.
 - **Lesson 3:** The prohibition, read properly `[V]`. EU AI Act **Article 5(1)(f)** bans inferring
   emotions in the workplace, in force since **2 February 2025**, absolute except for medical and
   safety purposes. But the Commission's guidelines tie it to the Act's definition of an emotion
-  recognition system, which is limited to inference **from biometric data** — so a webcam reading
-  faces in a town hall is squarely inside it, while text sentiment analysis of Slack messages or
-  survey verbatims very likely falls outside, and is genuinely unsettled where it drives employment
-  decisions. **The lesson is the reasoning, not the answer:** the thing everyone assumes is banned
-  mostly isn't, and *not prohibited* is not *cleared.*
-- **Lesson 4:** What actually governs it, then `[V]`. GDPR and works council consultation in the
-  EU; ECPA and consent in the US; state electronic-monitoring notice regimes (New York,
-  Connecticut, Delaware); and NLRA §7 — where the instructive fact is that the NLRB General
-  Counsel memo on electronic surveillance, **GC 23-02, was rescinded on 14 February 2025** among 31
-  others. The statute didn't move; the enforcement posture did. **A listening program designed
-  against an enforcement posture breaks when the posture flips. Design against the duty.** And the
-  rule that survives all of it: *the promise you made when you fielded it governs what you may do
-  with the answers, whatever the tool can do.*
+  recognition system, limited to inference **from biometric data** — so a webcam reading faces in a
+  town hall is squarely inside it, while text sentiment analysis of Slack messages or verbatims very
+  likely falls outside, and is genuinely unsettled where it drives employment decisions. **The
+  lesson is the reasoning, not the answer:** the thing everyone assumes is banned mostly isn't, and
+  *not prohibited* is not *cleared.*
+- **Lesson 4:** What actually governs it, then `[V]`. GDPR and works council consultation in the EU;
+  ECPA and consent in the US; state electronic-monitoring notice regimes (New York, Connecticut,
+  Delaware); and NLRA §7 — where the instructive fact is that the NLRB General Counsel memo on
+  electronic surveillance, **GC 23-02, was rescinded on 14 February 2025** among 31 others. The
+  statute didn't move; the enforcement posture did. **A listening program designed against a
+  posture breaks when the posture flips. Design against the duty.** And the rule that survives all
+  of it: *the promise you made when you fielded it governs what you may do with the answers,
+  whatever the tool can do.*
 - **Interactive:** sorting — ten listening practices: run it / run it with disclosure and
   consultation / never.
-- **Activity:** *"The listening charter"* — for one real instrument you own: what's collected,
-  what's promised, who sees it at what grain, what's prohibited outright, and the re-identification
-  floor. **Calibration:** predict whether your current survey's anonymity promise would survive the
-  analysis you actually ran on last cycle's data.
+- **Activity:** *"Unread Signal Inventory"* — every source of unread employee signal you already
+  hold, plus **one pilot you'll run in 30 days**, and the charter it runs under: what's collected,
+  what's promised, who sees it at what grain, and the re-identification floor. **Calibration:**
+  predict whether your current survey's anonymity promise would survive the analysis you ran on
+  last cycle's data.
 - **Claim:** *"'The tool could do it' and 'we told them we wouldn't' are both true. Only one of them
   is a decision."*
 
-## M6 · The bot that speaks for you
+---
 
-*~40 min · **no statistical anchor, deliberately** — see Decision 5*
+# Part Three · The Mandate
+*Claiming the territory*
 
-- **Lesson 1:** The category difference. This is the only AI in the entire curriculum that speaks
-  **to employees, in the company's voice, unsupervised, at 11pm.** Everything else produces a draft
-  a human owns before anyone sees it. This is a publishing surface with no editor — 201 M5's
-  autonomy ladder, where the action being authorized is *saying something to an employee.* And the
-  module opens by admitting that every number available about this product category is a vendor
-  number with no published method, so it argues from craft.
-- **Lesson 2:** The knowledge base is the product. A confident wrong answer about parental leave
-  isn't a model failure — it's a content failure wearing a model's confidence. That makes the KB an
-  EX deliverable with an owner and a decay rate, not an IT asset.
-- **Lesson 3:** Refusal design. What it must not answer, and the tell that it's answering anyway:
-  anything about the employee's own case, anything touching leave or medical, and anything that is
-  actually a *disclosure* rather than a question. **A bot that helpfully answers a harassment
-  question has intercepted a report.** Escalation that carries context forward instead of dead-ending.
-- **Lesson 4:** What the employee thinks they were told. Reliance — someone acted on the bot's
-  answer about an enrollment deadline and missed it. What you owe them, what your comms say about
-  it before it happens, and why a disclaimer nobody reads isn't the answer. This is M3's editorial
-  responsibility, arriving from the other direction.
-- **Interactive:** choice — four assistant exchanges; find the one that should have escalated and
-  name what it cost.
-- **Activity:** *"Refusal spec"* — for a real or proposed assistant: the refusal list, the
-  escalation path with what context travels, the KB owner and review cadence, and the plain-language
-  answer to "what happens if it's wrong." **Calibration:** predict how many of your audience's top
-  20 questions your current knowledge base could answer correctly today.
+## M8 · The Knowledge Layer
+
+*~25 min · **no statistical anchor, deliberately** — see Decision 6*
+
+- **Lesson 1:** **Content debt converts from annoyance to liability the day an agent goes live.**
+  The stale policy page was a nuisance when a human found it and a confident wrong answer once a
+  bot reads it. Nothing about the debt changed; the blast radius did.
+- **Lesson 2:** The positive and negative cases `[V]`. TouchPointGPT, where **the achievement was
+  curating 9,000 documents, not building a bot.** Against the stock-vesting chatbot failure. The
+  knowledge base is the product; the model is the least interesting component.
+- **Lesson 3:** Refusal design. What the assistant must not answer, and the tell that it's answering
+  anyway: anything about the employee's own case, anything touching leave or medical, and anything
+  that is a *disclosure* rather than a question. **A bot that helpfully answers a harassment
+  question has intercepted a report.** Escalation that carries context forward instead of
+  dead-ending. This is 201 M5's autonomy ladder, where the action being authorized is *saying
+  something to an employee.*
+- **Lesson 4:** Reliance — someone acted on the bot's answer about an enrollment deadline and missed
+  it. What you owe them, what your comms say about it *before* it happens, and why a disclaimer
+  nobody reads isn't the answer. M6's editorial responsibility, arriving from the other direction.
+- **Interactive:** choice — four assistant exchanges; find the one that should have escalated.
+- **Activity:** *"Content Debt Triage"* — top 20 documents by blast radius, plus the refusal list,
+  the escalation path, and the KB owner and review cadence. **Calibration:** predict how many of
+  your audience's top 20 questions your current knowledge base could answer correctly today.
 - **Claim:** *"You didn't deploy a tool. You published a colleague — and you did it without an
   editor."*
 
-## M7 · Telling them about the AI
+## M9 · The Manager Multiplier
 
-*~35 min · the course lands*
+*~25 min*
 
-- **Lesson 1:** The trap, named. This function announces the AI policy, the AI-attributed
-  restructuring, and the "augment, not replace" message — using AI to write it, to an audience that
-  can check every claim against its own week. You are the messenger for the thing people are most
-  afraid of, and your credibility is the medium it travels on.
-- **Lesson 2:** The messages that don't survive contact `[V]`. "AI will augment, not replace" sent
-  the same quarter a team was cut. The productivity narrative employees can test against their
-  Tuesday. And the specific self-inflicted wound: announcing an AI policy your own function visibly
-  doesn't follow.
-- **Lesson 3:** What transparency buys, and what it doesn't `[V]`. The credibility effect of AI in
-  leadership communication appears to hinge on whether the use is disclosed — which makes
-  disclosure a lever rather than only a duty. The limit: disclosure does not rescue a message that
-  shouldn't have been AI-written at all. M3's gradient still governs.
-- **Lesson 4:** The bet, against a real number. One change, the baseline from M1's ledger, what
-  you'd measure at 90 days, and **what you'll stop sending to fund it.** That last line is what
-  separates a bet from a wish.
-- **Interactive:** choice — four internal AI announcements; find the one that survives an employee
-  who reads carefully.
-- **Activity (course close):** *"The bet"* — one page: the change, the ledger baseline, the 90-day
-  measure, the funding line. Then **the delta reckoning**: every prediction across seven modules,
-  what moved, and what the direction says about where your instincts lean. The rubric grades the
-  account of the change, never the accuracy of either end.
-- **Claim:** *"You cannot communicate your way out of something employees can check against their
-  own week."*
+- **Lesson 1:** The gap, in full `[V]`. **87% identify line manager effectiveness as a significant
+  risk; 21% provide managers with communication toolkits or resources.** A stated-priority-versus-
+  investment gap, and the widest one in the profession's own data.
+- **Lesson 2:** Why it stayed open, and why it can't stay open now. Personalized manager enablement
+  — a different briefing for each manager's team, situation, and population — was economically
+  impossible at any real headcount. It isn't anymore. That is the clearest ROI case in the track.
+- **Lesson 3:** **Sharing engagement data *with* managers rather than *about* them.** The posture
+  flip that makes enablement land, and the listening charter from M7 is what makes it safe.
+- **Lesson 4:** The consistency problem, which is the same capability pointed the wrong way.
+  Consistency was the entire purpose of a cascade, and AI makes local variation free — 200 managers
+  each generating their own version of the same message. What must stay identical, what should
+  legitimately vary, and how the kit encodes the difference.
+- **Interactive:** sorting — ten cascade elements: must stay identical / should be localized /
+  shouldn't be in the kit at all.
+- **Activity:** *"One manager-enablement asset"* — built and tested with **one real manager**, plus
+  what they actually did with it. **Calibration:** predict what share of your managers currently
+  rewrite your talking points before delivering them.
+- **Claim:** *"Your managers are your highest-bandwidth channel and your least-resourced one, and
+  you've been calling that a budget problem."*
+
+## M10 · The Mandate
+
+*~25 min · the course lands*
+
+- **Lesson 1:** The tension, in numbers `[V]`. **45% of IC teams are heavily involved in or solely
+  responsible for communicating and supporting AI rollouts; 40% for creating AI strategies; 40% for
+  adoption workstreams** — against **16% of HR professionals who think HR should lead change
+  management for AI.** The work is arriving whether or not the function claims it. *(Cross-track
+  note: the 16% is the same figure the HRBP track uses for its "should HR lead AI governance?"
+  debate. Same data, two functions, opposite conclusions — worth the two tracks disagreeing on
+  purpose.)*
+- **Lesson 2:** The job now exists. *Director of Internal Communications for Enterprise AI Adoption*
+  is a real title. What claiming it requires: the compression map, the trust line, and a listening
+  charter — which is to say, the three artifacts this course already made them build.
+- **Lesson 3:** What it costs, honestly. You become the function that announces the AI policy, the
+  AI-attributed restructuring, and the "augment, not replace" message — using AI, to an audience
+  that can check every claim against its own week. **Your credibility is the medium the message
+  travels on, and the mandate spends it.** Disclosure is a lever here, not only a duty; and it
+  doesn't rescue a message that shouldn't have been AI-written at all — M6's gradient still governs.
+- **Lesson 4:** The bet. One change, the **ledger baseline from M3**, what you'd measure at 90 days,
+  and what you'll stop sending to fund it. That last line is what separates a bet from a wish.
+- **Interactive:** choice — four proposals to an exec sponsor; find the one an executive would
+  actually fund.
+- **Activity (course close):** *"The proposal"* — one page to your exec sponsor: the mandate you're
+  claiming, the compression map behind it, the ledger baseline, the 90-day measure, the funding
+  line. Then **the delta reckoning** against M1's eight predictions: what moved, and what the
+  direction says about where your instincts lean. The rubric grades the account of the change,
+  never the accuracy of either end.
+- **Claim:** *"My function should own AI adoption in this organization."* — **argue the side you
+  don't believe.** The strongest instruction in either draft, and the only claim in the track that
+  forbids the learner their own position.
 
 ---
 
 ## The claims
 
-Seven contestable positions, one per module, stated in the content and argued by the learner.
+Ten contestable positions, one per module, stated in the content and argued by the learner.
 Mechanism per the recruiter track's Decision 2: stated as a `callout` block near the end of the
 module; the learner's position captured **in the activity submission**, with a rubric dimension
 grading whether they engaged the strongest case *against* their own view; and the tutor argues it
-live because it reads every block. The strongest counter-arguments are written into the content —
-the one for M4 is that a function which optimizes for restraint stops being visible, and
-invisible functions get cut.
+live because it reads every block. M10 inverts the mechanism by assigning the side.
 
 ## Prerequisite map
 
 - 101 and 201 assumed. Modules point at the material they lean on rather than re-teaching it.
-- M1 first — it opens the ledger every later module writes to.
-- M2 before M4 and M7 (you can't build a kill list or a bet without knowing which work type it
-  touches).
-- M3 before M6 (the bot module inherits editorial responsibility from the voice module).
-- M5 open order, but before any listening instrument the learner has scheduled to field.
-- M7 last — it carries the reckoning.
+- M1 first and strictly — the predictions are worthless if any content precedes them.
+- M2 before M4 (you can't map what you can't name) and before M10 (the mandate argument runs on the
+  chain).
+- M3 before M10 (the proposal needs the ledger baseline).
+- M7 before M9 (the charter is what makes sharing data with managers safe).
+- M6 before M8 (editorial responsibility, then the unedited surface).
+- M10 last — it carries the reckoning.
 
 ## Per-module deliverables
 
-Same package and pipeline as the rest of the ladder: draft at
-`content/ai301-excomms-mN-<slug>.md` → `scripts/convert-draft.mjs` → hand-tuned `blocks.json`,
-`micro.json`, `knowledge-check.json`, `rubric.json`, `sorting.json` or `choice.json`,
+Draft at `content/ai301-excomms-mN-<slug>.md` → `scripts/convert-draft.mjs` → hand-tuned
+`blocks.json`, `micro.json`, `knowledge-check.json`, `rubric.json`, `sorting.json` or `choice.json`,
 `activity.json` → `generate-seed.mjs`. Track id `ai301-excomms`; register in `src/shared/roles.ts`
 and add module rows to `content/modules.json` **only when the track is complete.**
 
-## Decisions (v1)
+## Decisions (v2 — the integration)
 
-1. **The diagnosis inverts, and that's the point.** The other three tracks open by lowering
-   anxiety — you're less behind than you think. This one opens by raising a different one: you are
-   ahead on production and behind on restraint. Same instrument, opposite reading, and it follows
-   from the role rather than from the convention.
-2. **The volume trap is re-aimed, and it says so.** HRBP M3 owns it. M4 cites that explicitly and
-   argues its delta — decisions are your own budget, attention is everyone else's — rather than
-   re-teaching the trap with new nouns. If a reviewer thinks the delta doesn't hold, M4 should
-   shrink to a lesson inside M1 and the track goes to six.
-3. **The floor splits across two modules. This is the biggest deviation from the convention and
-   it's deliberate.** Publishing law (Article 50 disclosure, editorial responsibility) belongs with
-   the voice module because it *is* the voice question; monitoring law (Article 5, works councils,
-   §7, state notice regimes) belongs with the listening module because it governs the promise. A
-   combined floor module would be two unrelated statutory regimes joined by the word "legal." Cost
-   acknowledged: two counsel reviews instead of one, possibly two reviewers.
-4. **One anchor statistic per module.** M1: the 30%/24% over-communication finding. M2: the
-   maturity split. M3: the 83%→40–52% sincerity collapse against the 95%→69–73% professionalism
-   hold. M4: workslop's 42% trust decline. M5: Article 5(1)(f) and its biometric limit. M6: **none
-   — argued from craft.** M7: the transparency-dependence finding, *pending primary-source
-   confirmation.*
-5. **M6 carries no statistic on purpose.** Every available number about employee-facing HR
-   assistants is vendor-published with no methodology. A module that teaches people to ask "what's
-   the sample?" cannot lead on a number that has none, and saying so in the first paragraph is
-   worth more than a borrowed figure.
-6. **Seven modules.** Candidates for an eighth, in order: the manager cascade under AI (currently
-   M4 Lesson 4 and the strongest standalone case), and localization at scale (currently a beat, and
-   thin on its own). Fallback to six is Decision 2's collapse.
-7. **This track does not teach writing, and says so in M1.** For an audience whose craft is writing,
-   the refusal is the credibility move — the same play the comp track makes with its 100-level
-   refusal, and true for the same reason.
-8. **Verification ledger.** *Confirmed before writing:* Article 5(1)(f)'s in-force date and its
-   Commission-guidance limitation to biometric inference; Article 50's 2 August 2026 applicability,
-   the deepfake obligation's independence from the public-interest condition, and the human-review /
-   editorial-responsibility carve-out; GC 23-02's 14 February 2025 rescission; Coman & Cardon,
-   *International Journal of Business Communication* (n=1,100, Florida/USC); the BetterUp Labs +
-   Stanford Social Media Lab workslop findings. *Blocking before drafting:* the M7 credibility
-   figures (33%/13%/43% — no primary source or sample identified); the Gallagher 2026 figures
-   against the primary report rather than secondary coverage (publisher domain blocked from this
-   environment); state monitoring-notice requirements; ECPA consent mechanics; and works council
-   duties in whichever jurisdictions the content names.
+1. **The human spine is adopted whole:** the Six Links, the three-act structure, the Prediction
+   gate, and the Mandate close. v1's five work types, its M1 framing, and its standalone "telling
+   them about the AI" module are cut. The credibility trap survives as M10 Lesson 3, where it is
+   the *cost of the mandate* rather than a module of its own — a better home for it than v1 gave it.
+2. **The Prediction gate replaces per-module calibration prompts, and should be retrofitted.**
+   Committing eight forced-choice predictions up front, with answers withheld until the module that
+   earns them, beats the convention's per-module prompt on three counts: it prevents the module's
+   own framing from anchoring the prediction, it creates anticipation across the whole course, and
+   it makes the closing reckoning a single computation. **This is a track-level improvement to a
+   course-level convention** — the same shape as the comp track's "score the delta," and it should
+   be offered to the other three tracks rather than kept here. Mechanics caveat: the product's
+   prediction fields are per-module `rubric.json` `activityContext`, so M1 needs either a
+   prediction-set activity or eight `record_prediction` calls held server-side. Small, but real.
+3. **The attention ledger survives from v1, demoted from spine to instrument.** It is no longer the
+   organizing idea — the compression map is — but M10's proposal needs a baseline, and M3 is the
+   module that argues why. The send audit is what gives the Produce and Distribute links a column
+   that isn't an estimate.
+4. **The floor splits across M6 and M7. This is the biggest deviation from the convention and it's
+   deliberate.** Publishing law (Article 50, editorial responsibility) belongs with the voice module
+   because it *is* the voice question; monitoring law (Article 5, works councils, §7, state notice
+   regimes) belongs with the listening module because it governs the promise. A combined floor
+   module would be two unrelated statutory regimes joined by the word "legal." Cost: two counsel
+   reviews, possibly two reviewers.
+5. **The legal content is non-negotiable, and it is the largest thing v1 contributes.** The human
+   draft has no legal surface at all, and M7's Lesson 1 teaches learners to mine Slack help
+   channels, HR tickets, and open text — which is the practice sitting in the monitoring grey zone.
+   Every other 301 track carries a counsel gate; this one would have shipped without one.
+6. **M8 carries no statistic on purpose.** Every available number about employee-facing HR
+   assistants is vendor-published with no methodology. A module teaching "what's the sample?" can't
+   lead on a number that has none — the same call the HRBP track made for its M4. The TouchPointGPT
+   and stock-vesting cases carry it as craft instead.
+7. **Async conversions, four of them.** *Artifacts brought to the live session* → AI-graded activity
+   submissions. *Contestable claims argued in the room* → in-content claims with the position
+   captured in the activity and graded on engaging the strongest counter. *"Who got the workslop
+   number closest"* → M10's delta reckoning against M1's committed eight. *The capstone defended in
+   a 5-minute recording* → written defense in M10's activity, argued live with the tutor for anyone
+   who opens chat. No cohort, roster, facilitator, or recording surface is assumed. There is no
+   learner-to-learner exchange in this product.
+8. **The optional capstone becomes the required close.** A credential tier the product doesn't have
+   isn't worth inventing, and the other three tracks all land on a required final activity. M10's
+   proposal *is* the capstone; the other two options the human draft offered (the stop-rule list,
+   the compression map) are already required outputs of M5 and M4.
+9. **Module 0 renumbers to Module 1.** The data model orders from 1 — settled by the HRBP track's
+   Decision 4.
+10. **Title: "After the Draft."** Of the three options, it names the premise — the course starts
+    where drafting ends — and it's the only one that doesn't collide: "The Judgment Layer" is
+    already this outline's Part Two *and* sits a word away from the HRBP track's "Judgment Work,"
+    and "EX 300: Signal" collides with the recruiter track's "Rebuilding the Signal."
+11. **Ten modules at 10–30 minutes, ~3h35.** The human draft's runtime argument is right and its
+    reasoning (a third of AIHR, half of Ragan, because this isn't mechanics) belongs in the sales
+    copy. The three acts survive as part labels rather than sub-courses — three course ids would
+    break the one-role-one-track resolver in `roles.ts`.
+
+## Verification ledger
+
+**Confirmed before writing.** Article 5(1)(f)'s in-force date and the Commission guidance limiting
+it to biometric inference. Article 50's 2 August 2026 applicability, the deepfake obligation's
+independence from the public-interest condition, and the human-review / editorial-responsibility
+carve-out. GC 23-02's rescission on 14 February 2025. Coman & Cardon, *International Journal of
+Business Communication* (n=1,100, Florida/USC) — the sincerity/professionalism divergence.
+BetterUp Labs + Stanford Social Media Lab on workslop. Gallagher 2026 (n≈1,300 across 40 countries)
+— the 30%/24% over-communication finding, 83% overload, 61% with no change comms strategy, the 75%
+early-stage adoption figure and the maturity split, 36%/61% AI-readiness, and **87% manager-risk /
+21% toolkit provision.** Simpplr State of Internal Communications 2026 (n≈450, North America) —
+**45% / 40% / 40%** on AI rollout, strategy, and adoption workstreams.
+
+**Corrected during verification, not confirmed.** The **75%/25% usage split** cited in the human
+draft could not be sourced. Gallagher's 75% is *early-stage adoption*, not drafting usage — almost
+certainly where the number originated before secondary coverage transposed it onto a usage split.
+Simpplr's actual usage figures are different again (52% use AI at least weekly; highest-impact areas
+reported as content strategy 49%, planning 48%, channel strategy 41%). **M2 Lesson 3 therefore
+anchors on the maturity split instead**, which proves the same thesis better: the profession's own
+benchmark says low-maturity teams draft and high-maturity teams measure. If a primary source for
+the 75/25 split exists, it should replace this — and if it doesn't, the claim shouldn't ship.
+
+**Blocking before drafting.** The leadership-credibility figures (33% erosion / 13% enhancement /
+43% transparency-dependent) — surfaced only in secondary coverage, no primary source or sample
+identified, and load-bearing for M10 Lesson 3. The Gallagher figures against the primary report
+rather than secondary coverage — the publisher's domain is blocked from this environment. The
+**TouchPointGPT 9,000-document case and the stock-vesting chatbot failure**, both from the human
+draft and both currently uncited. State electronic-monitoring notice requirements (New York,
+Connecticut, Delaware). ECPA consent mechanics. Works council consultation duties in the
+jurisdictions the content names. AIHR and Ragan runtimes, if the comparison appears in sales copy.
 
 ## Open questions for review
 
-- **One track or two?** IC and EX merge in most organizations and split in large ones, where EX
-  owns listening and service delivery while IC owns the leadership channel. This outline serves the
-  merged role; in a deployment skewed to one half, three of seven modules read as someone else's
-  job.
-- **Does the ledger survive a learner without a channel?** An EX program manager may not broadcast
-  to anyone. Fallback spine: one real *program* rather than one real audience — weaker, because the
-  through-line is about a shared resource.
-- **Is counsel teachable async?** M2 asserts the function is paid for counsel and trained in
-  production. If the track diagnoses that and never teaches it, it has named a gap and left it
-  open. Candidate answer: the adversarial rehearsal technique from HRBP M4, aimed at the executive
-  conversation — which would make it a technique here rather than a module, as it is for recruiters.
-- **The People Ops boundary on M6.** Proposed split: EX owns voice, refusal, and what the employee
-  was told; People Ops owns deflection and throughput. Needs settling before the People Ops track is
-  outlined, not after.
-- **Counsel review of M5, and of M3 Lesson 4** — two separate legal surfaces, possibly two
-  reviewers. M5 is the heavier of the two.
+- **Is ten modules the right count, or does Part One compress?** M2 and M4 are the same idea taught
+  then applied, and the recruiter track would have made them one. Kept separate because the map is
+  the artifact M10 runs on, but M4 is the most collapsible module in the track.
+- **One track or two?** IC and EX merge in most organizations and split in large ones, where EX owns
+  listening and service delivery while IC owns the leadership channel. This serves the merged role;
+  in a deployment skewed one way, three of ten modules read as someone else's job.
+- **Is counsel teachable, or only nameable?** M2 Lesson 4 identifies Decide as the link that matters
+  most and the one communicators are excluded from — and then no module teaches how to get into that
+  room. Candidate fix: the HRBP track's adversarial rehearsal, aimed at the executive conversation,
+  folded into M6 or M10 as a technique. Currently the biggest hole in the integrated design.
+- **The People Ops boundary on M8.** Proposed split: EX owns voice, refusal, and what the employee
+  was told; People Ops owns deflection and throughput. Worth settling before that track is outlined.
+- **M9's "one real manager" requirement** — same dependency the HRBP track flagged for its M7, and
+  the same question: alternate path, or accept that the track assumes a manager population?
+- **Counsel review of M7, and of M6 Lesson 4** — two separate legal surfaces. M7 is the heavier.
