@@ -1,0 +1,105 @@
+{
+  "reviewedAt": "2026-08-12",
+  "buckets": [
+    {
+      "id": "silent",
+      "label": "Would silently stop",
+      "hint": "Nobody owns it, and nobody would notice it stopped",
+      "rank": 0,
+      "pct": 5
+    },
+    {
+      "id": "absorbed",
+      "label": "Absorbed, and someone would notice",
+      "hint": "Not in a job description, but its absence surfaces fast",
+      "rank": 1,
+      "pct": 45
+    },
+    {
+      "id": "owned",
+      "label": "Has a named owner",
+      "hint": "Someone would say 'that's mine' if asked directly",
+      "rank": 2,
+      "pct": 90
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "text": "Running payroll each cycle",
+      "key": "owned",
+      "reasoning": "The control item. It is named, dated, legally consequential, and somebody's title contains it — and its absence is noticed within hours by everyone in the company. Included so the exercise has a floor: not everything is invisible, and a leader who cannot tell the difference will find twelve orphans on a team that has three."
+    },
+    {
+      "id": "t2",
+      "text": "Telling a new starter which of two conflicting policies is actually enforced",
+      "key": "silent",
+      "reasoning": "The purest orphan on the list. No owner, no ticket, no metric — and when it stops, the new starter simply follows the written policy, gets it wrong in a way nobody connects to anything, and learns the real rule six months later from a mistake. **Nothing in any system records that this stopped happening.**"
+    },
+    {
+      "id": "t3",
+      "text": "Noticing the board metric looks wrong before the deck goes out",
+      "key": "absorbed",
+      "reasoning": "Nobody's job description says 'sanity-check the number', but the absence surfaces fast and loudly — in the meeting, in front of the audience that matters most. Absorbed rather than silent, and it is the item most likely to be doing its work through one specific person's habit rather than any process."
+    },
+    {
+      "id": "t4",
+      "text": "Sitting with someone who has just had bad news",
+      "key": "silent",
+      "reasoning": "Never written down, never measured, and its absence is invisible for a long time — it surfaces as attrition, as a manager reputation, or as an exit interview comment eighteen months later, attributed to something else. Module 8 is about the structural version of this."
+    },
+    {
+      "id": "t5",
+      "text": "Checking whether the vendor renewal is coming up",
+      "key": "absorbed",
+      "reasoning": "Usually orphaned in practice and rescued by whoever has the calendar habit — but when it stops, the auto-renewal fires and finance notices within a quarter. **A hard one, because the noticing is real and arrives too late to act on**, which is the difference between a consequence being visible and being preventable."
+    },
+    {
+      "id": "t6",
+      "text": "Approving expenses over the manager threshold",
+      "key": "owned",
+      "reasoning": "A named delegation with a system enforcing it. Included because it is the kind of item people miscategorize as invisible — it is unglamorous and interstitial, which is not the same as unowned. The test is whether somebody would say 'that's mine' if asked directly."
+    },
+    {
+      "id": "t7",
+      "text": "Translating what the business unit means by 'senior' into what the comp architecture means by it",
+      "key": "silent",
+      "reasoning": "Module 4's badly-defined interface, wearing its everyday clothes. Nobody owns the translation, and when it stops, offers go out at the wrong level and get fixed one at a time forever. **The consequence surfaces as a series of individual exceptions rather than as a systemic failure**, which is precisely why it never gets assigned."
+    },
+    {
+      "id": "t8",
+      "text": "Keeping the shared prompt library from filling with things that no longer work",
+      "key": "silent",
+      "reasoning": "The newest orphan in most organizations and a direct handoff to Module 7. Someone set the library up, nobody owns pruning it, and its decay is invisible because a stale prompt still returns fluent output. Nothing breaks. The quality just drifts."
+    },
+    {
+      "id": "t9",
+      "text": "Deciding which escalations are genuinely urgent when three arrive at once",
+      "key": "absorbed",
+      "reasoning": "Concentrated in the middle layer, and Lesson 4's central example. It is real judgment work performed continuously by someone whose job description says 'manages the team', and when their capacity drops the triage gets worse before anyone can name what changed.",
+      "also": [
+        "silent"
+      ]
+    },
+    {
+      "id": "t10",
+      "text": "Making sure the two teams working on the same integration know about each other",
+      "key": "silent",
+      "reasoning": "The coordination structure from Module 1, in task form. Absorbed by whoever happens to sit in both conversations, owned by no one, and its absence produces exactly one visible event — a collision, months later, that gets attributed to poor planning rather than to the person who used to be in both rooms."
+    },
+    {
+      "id": "t11",
+      "text": "Chasing the field that is missing from the HRIS export every month",
+      "key": "absorbed",
+      "reasoning": "Classic seam work: nobody's job, everybody's problem, and if it stops the monthly report is late and someone complains. **Absorbed rather than silent precisely because it has a deadline attached** — which is the single most reliable predictor of whether orphaned work gets noticed when it stops."
+    },
+    {
+      "id": "t12",
+      "text": "Answering the three questions a junior analyst asks each day",
+      "key": "silent",
+      "reasoning": "The archetype from Module 1, and the reason this bucket matters. The asking has already declined in most teams, nobody logged it, and what stops is not the answering — it is the transmission of norms, the discovery of what already failed, and the relationship that would have made this person stay. **It is the highest-consequence item on this list and the least visible.**"
+    }
+  ],
+  "pattern": "**Look at what separates the silent column from the absorbed one.** It is not importance — item 12 is arguably the most consequential thing here and it is silent. It is not difficulty either.\n\nIt is **whether a deadline or an audience is attached.** Everything in the absorbed column has one: a deck goes out, a report is due, a renewal fires, an export is late. Somebody is waiting, so the absence announces itself. Everything in the silent column has neither — the consequence is diffuse, delayed, and lands somewhere other than where the work stopped.\n\nThat gives you a working test for your own inventory, and it is more useful than intuition: **for each item, name who would be waiting.** If nobody is waiting, it will stop silently, and it needs an explicit owner or an explicit decision to drop it — because the default is that it simply ends and gets attributed to something else two quarters later.",
+  "postscript": "**If you put item 9 in Silent, that is defensible and the exercise scores it.** Escalation triage genuinely degrades invisibly — nobody logs the escalation that was mis-prioritized. The reason the key says absorbed is that the degradation is *fast* and lands on people who complain. But this is the item that best shows the two buckets are ends of a spectrum rather than a binary.\n\n**And if you put item 5 in Silent, notice what you were tracking.** The auto-renewal does get noticed — in finance, one quarter later, after the money is committed. The distinction the exercise is drawing is between *noticed* and *noticed in time*, and for a live inventory the second one is what you actually care about. Add the column if it helps: not just what happens, but when, and whether anyone can still do anything about it."
+}
