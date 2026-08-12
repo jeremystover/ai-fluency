@@ -1,0 +1,114 @@
+{
+  "reviewedAt": "2026-08-12",
+  "buckets": [
+    {
+      "id": "production",
+      "label": "Production",
+      "hint": "Running it, building it, writing it up",
+      "rank": 0,
+      "pct": 90
+    },
+    {
+      "id": "definitional",
+      "label": "Definitional authority",
+      "hint": "Deciding what the metric means",
+      "rank": 1,
+      "pct": 45
+    },
+    {
+      "id": "judgment",
+      "label": "Methodological judgment",
+      "hint": "Knowing when to stop",
+      "rank": 2,
+      "pct": 30
+    },
+    {
+      "id": "evaluative",
+      "label": "Evaluative design",
+      "hint": "Knowing what would settle it",
+      "rank": 3,
+      "pct": 25
+    },
+    {
+      "id": "standing",
+      "label": "Accountable standing",
+      "hint": "Being answerable for a claim about people",
+      "rank": 4,
+      "pct": 15
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "text": "Building the monthly headcount and attrition scorecard from the standard extract",
+      "key": "production",
+      "reasoning": "The clearest case in the set, and the one that consumes the most hours in most functions. Recurring, specified, and reproducible by anyone with the schema. If analysis were free, this would not still be scarce — which is the whole test."
+    },
+    {
+      "id": "t2",
+      "text": "Deciding that an internal transfer does not count as attrition, and that a fixed-term end does",
+      "key": "definitional",
+      "reasoning": "Two rulings that change every attrition number the company will publish for years. A model asked an attrition question resolves both silently and may resolve them differently next week. **Somebody has to have decided, and be able to defend it when Finance uses a different number.**"
+    },
+    {
+      "id": "t3",
+      "text": "Telling the CHRO the engagement data cannot support the claim that the manager programme worked",
+      "key": "judgment",
+      "reasoning": "Purely subtractive, and the deliverable is a number that didn't get produced. This is the layer the track argues is now the core of the job, and the one that is hardest to get credit for — nothing appears in the output log."
+    },
+    {
+      "id": "t4",
+      "text": "Writing the SQL that joins the ATS extract to the HRIS record on employee ID",
+      "key": "production",
+      "reasoning": "Feels like a moat because it requires knowing your systems. Most of that knowledge can be written down once and handed over — and the part that can't is usually a definitional ruling wearing a technical costume. **If it is genuinely unwriteable, say so; if it is merely unwritten, that is a task not a moat.**"
+    },
+    {
+      "id": "t5",
+      "text": "Realising the RTO policy hit one region three months before the others, and that the comparison is still recoverable",
+      "key": "evaluative",
+      "reasoning": "Knowing what would settle a question, which is a different skill from being able to run the analysis once you know. The comparison was sitting in the data the whole time and nobody preserved it — a process failure rather than a methodological one, and the layer with the most unclaimed territory attached to it."
+    },
+    {
+      "id": "t6",
+      "text": "Signing the works council submission describing what the new manager dashboard measures",
+      "key": "standing",
+      "reasoning": "Not a capability question. It is a question about who can be asked *why* and made to answer, in front of a body with an enforceable veto. A model cannot hold this position, and it is what converts methodological judgment into organisational authority."
+    },
+    {
+      "id": "t7",
+      "text": "Producing the quarterly board slide on representation from the agreed definitions",
+      "key": "production",
+      "reasoning": "High-visibility production is still production. The stakes changed; the scarcity didn't. Note that the *definitions* underneath it are Layer 2 and were set once — which is exactly the asymmetry the module is about: the reputation sits on the slide and the value sat in the ruling."
+    },
+    {
+      "id": "t8",
+      "text": "Deciding not to build the flight-risk model that was requested, and writing down why",
+      "key": "judgment",
+      "reasoning": "The hardest card to file honestly, because refusing work does not feel like output. **Which model should not be built at all** is the sharpest version of knowing when to stop, and Module 2 turns it into a written halt condition rather than a judgment call made under pressure."
+    },
+    {
+      "id": "t9",
+      "text": "Setting the minimum cell size below which survey results are suppressed",
+      "key": "definitional",
+      "reasoning": "The trap card. It looks like methodological judgment and it is a definitional ruling — you are deciding what the published number *means* and what it is entitled to reveal. It is also a promise to respondents with a number under it, which is why Module 5 treats disclosure control as a professional obligation rather than a preference."
+    },
+    {
+      "id": "t10",
+      "text": "Specifying that the onboarding evaluation needs a holdout, and which cohort it comes from",
+      "key": "evaluative",
+      "reasoning": "Design, not execution. Anyone can run the comparison once it exists; knowing that a comparison is required, is available, and would have to be arranged *before* the programme launches is the scarce part. Module 6 is built on this."
+    },
+    {
+      "id": "t11",
+      "text": "Answering the individual who asks why a model flagged them, and on what basis",
+      "key": "standing",
+      "reasoning": "The layer at its most concrete. Not the explanation — the answerability. Somebody has to be the person the question lands on, and a model cannot be that person however good its feature attributions are."
+    },
+    {
+      "id": "t12",
+      "text": "Reformatting the workforce report into the new brand template",
+      "key": "production",
+      "reasoning": "The free one, filed here to make a point. Four of twelve cards are production, which is roughly the share most functions guess — and far below the share the activity usually measures. **If your hours land where your prestige doesn't, that gap is the module.**"
+    }
+  ]
+}
