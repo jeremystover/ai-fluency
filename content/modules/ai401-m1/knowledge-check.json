@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is the course's central thesis?",
+      "options": [
+        "AI increases individual productivity, so organizations should adopt it faster",
+        "AI lowers the cost of individual production and raises the cost of collective coherence",
+        "AI adoption fails when leaders do not communicate a clear vision",
+        "AI is more disruptive to knowledge work than to physical work"
+      ],
+      "correctIndex": 1,
+      "explanation": "It is neither a warning nor a productivity claim — it is an observation about where cost moved. The seven familiar symptoms are one problem seen from seven positions."
+    },
+    {
+      "id": "q2",
+      "prompt": "What did the Work Trend Index finding about organizational versus individual factors (67% vs 32%) imply for the courses below this one?",
+      "options": [
+        "That individual fluency training is wasted effort",
+        "That the ladder below this rung was building the smaller share of the variance — necessary, and about a third of the problem",
+        "That organizations should stop training individuals and train managers instead",
+        "That self-reported impact is not a reliable measure"
+      ],
+      "correctIndex": 1,
+      "explanation": "Individual craft is a precondition, not the lever. D names a real limitation of the evidence — it is self-reported impact, not measured output — but it is not the implication."
+    },
+    {
+      "id": "q3",
+      "prompt": "What is cultural debt?",
+      "options": [
+        "The cost of retraining a workforce after a technology change",
+        "The gap between what an organization says about AI and what it does",
+        "The cost an organization takes on when it scales AI faster than the norms, trust, and accountability structures around it",
+        "Employee resistance that accumulates when change is poorly communicated"
+      ],
+      "correctIndex": 2,
+      "explanation": "Like technical debt: invisible in the quarter you incur it, expensive in the one where you pay. The 42% who say their organization rarely evaluates AI's impact on people is the measurement gap that lets it accumulate."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why does the module argue that undesigned structures are the ones most likely to be load-bearing?",
+      "options": [
+        "Because informal structures are usually more efficient than formal ones",
+        "Because designed structures get documented, documented structures get defended, and undesigned ones have no owner or advocate — so nothing in the process notices when they go",
+        "Because organizations systematically under-invest in process design",
+        "Because coordination work is harder to design than production work"
+      ],
+      "correctIndex": 1,
+      "explanation": "It is a claim about *what happens when something is removed*, not about which kind of structure is better."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why is AI unusually good at removing this specific category of structure?",
+      "options": [
+        "Because AI tools are designed to eliminate meetings",
+        "Because undesigned structures are almost always coordination structures, and coordination is what gets optimized away first",
+        "Because AI adoption tends to start with administrative work",
+        "Because undesigned structures are not represented in any system AI can read"
+      ],
+      "correctIndex": 1,
+      "explanation": "The handoff document stops being necessary when either person can produce the whole deliverable — and nothing was destroyed, something was removed that nobody had written down as load-bearing."
+    },
+    {
+      "id": "q6",
+      "prompt": "What does \"tolerances, not drawings\" mean in practice?",
+      "options": [
+        "That plans should be revised quarterly rather than annually",
+        "That leaders should set targets rather than prescribe methods",
+        "That you specify what must hold and how much variation it can absorb, rather than specifying the destination",
+        "That change programs should be piloted before they are scaled"
+      ],
+      "correctIndex": 2,
+      "explanation": "You cannot pre-specify the destination; you can specify what must hold. That is the move that keeps a strategy artifact from becoming a vision document."
+    },
+    {
+      "id": "q7",
+      "prompt": "What property does a spec with a trigger have that a vision statement does not?",
+      "options": [
+        "It is easier for executives to approve",
+        "It can be wrong in a way you would notice",
+        "It requires less frequent revision",
+        "It assigns accountability to a named individual"
+      ],
+      "correctIndex": 1,
+      "explanation": "That is the entire difference, and it is why every strategy artifact in this course requires at least one condition that would make you replan. D is a separate requirement (Step 7) rather than the property in question."
+    },
+    {
+      "id": "q8",
+      "prompt": "Why does the course distribute change-management content rather than give it a module?",
+      "options": [
+        "Because change management is out of scope at this level",
+        "Because the audience has already covered it in AI 201",
+        "Because a standalone change module is the most cliché-prone object in leadership training, and the material is more useful attached to the thing being changed",
+        "Because there is not enough verified evidence to support a full module"
+      ],
+      "correctIndex": 2,
+      "explanation": "The trade is stated in Lesson 4 so you can disagree with it: six placements, each next to the work it applies to."
+    }
+  ]
+}

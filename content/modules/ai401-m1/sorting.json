@@ -1,0 +1,111 @@
+{
+  "reviewedAt": "2026-08-12",
+  "buckets": [
+    {
+      "id": "dissolving",
+      "label": "Load-bearing, dissolving",
+      "hint": "Carrying real weight — and AI is removing it",
+      "rank": 0,
+      "pct": 5
+    },
+    {
+      "id": "holding",
+      "label": "Load-bearing, holding",
+      "hint": "Carrying real weight, and still intact",
+      "rank": 1,
+      "pct": 30
+    },
+    {
+      "id": "decorative",
+      "label": "Decorative",
+      "hint": "Real, visible, effortful — holding up nothing",
+      "rank": 2,
+      "pct": 90
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "text": "The junior analyst who asks the senior analyst three questions a day",
+      "key": "dissolving",
+      "reasoning": "The archetype of the whole course. Those three questions were moving information *and* building the relationship that transmits norms, finds the newcomer a mentor, and tells them what already failed. The model answers faster and never sighs, so the questions stop. Module 8 is about the half of this transaction nobody assigned to anybody."
+    },
+    {
+      "id": "t2",
+      "text": "The quarterly engagement dashboard that gets produced, circulated, and filed",
+      "key": "decorative",
+      "reasoning": "Effortful, visible, and holding up nothing — the test is whether any decision has ever changed because of it. If you can't name one, it is not carrying load, and its production cost is now near zero, which makes it more likely to proliferate rather than less."
+    },
+    {
+      "id": "t3",
+      "text": "The undocumented handoff between two people who ship a joint deliverable weekly",
+      "key": "dissolving",
+      "reasoning": "Nobody designed it, so nothing defends it. Once either person can produce the whole deliverable alone, the handoff stops — and with it the weekly moment where two views of the work had to reconcile. Module 4 turns this into an ownership contract."
+    },
+    {
+      "id": "t4",
+      "text": "The employment counsel review before a termination goes out",
+      "key": "holding",
+      "reasoning": "Bearing enormous load and not dissolving — the legal exposure has not moved and no model absorbs it. Worth including because the reflex at this rung is to assume everything is under threat. Some structures are load-bearing and entirely intact, and knowing which is half of the diagnosis."
+    },
+    {
+      "id": "t5",
+      "text": "The eleven-year veteran everyone asks before doing something new",
+      "key": "dissolving",
+      "reasoning": "The single point of institutional memory, and the only reason anyone learns what already failed here. They get asked less every month — not because anyone decided, but because the model responds instantly and without a raised eyebrow. Module 7 is about codifying what is in their head before the resignation, not after.",
+      "also": [
+        "holding"
+      ]
+    },
+    {
+      "id": "t6",
+      "text": "The standing weekly meeting nobody defends but everybody attends",
+      "key": "dissolving",
+      "reasoning": "The hardest item here, and it splits by what actually happens in the room. If it is a status readout, it is decorative and AI will kill it, correctly. If it is the one place three teams discover incompatible assumptions, it is load-bearing and the discovery function has no other home. **The meeting is not the structure. The collision is.**",
+      "also": [
+        "decorative"
+      ]
+    },
+    {
+      "id": "t7",
+      "text": "The monthly all-hands where leadership presents the roadmap",
+      "key": "decorative",
+      "reasoning": "Usually decorative in the strict sense — it transmits information that a document transmits better, and its real function is often ceremonial reassurance. Which is not nothing, but it is not load. Module 10's deck exists because ceremony aimed at belief is a distinct instrument with a distinct job."
+    },
+    {
+      "id": "t8",
+      "text": "The onboarding buddy assignment for new starters",
+      "key": "dissolving",
+      "reasoning": "Formally designed, so it looks safe. What is dissolving is not the assignment but its *function*: a new starter with a capable model asks their buddy far less, and the relationship that used to form around thirty small questions does not form. The structure survives on paper and stops carrying its load, which is the most deceptive pattern in this exercise."
+    },
+    {
+      "id": "t9",
+      "text": "The comp committee's review of executive pay recommendations",
+      "key": "holding",
+      "reasoning": "Governance with a named owner, a charter, and a legal reason to exist. Designed structures are the defended ones — this has documentation, an advocate, and a calendar. Load-bearing and not going anywhere."
+    },
+    {
+      "id": "t10",
+      "text": "The escalation path that exists because someone once did it and it worked",
+      "key": "dissolving",
+      "reasoning": "Pure undesigned load-bearing structure: no charter, no owner, no documentation, and the only reason hard cases reach the person who can resolve them. When self-service resolves the easy cases, the path gets used rarely enough that people forget it exists — and it is not there on the day it is needed."
+    },
+    {
+      "id": "t11",
+      "text": "The annual policy attestation everyone clicks through",
+      "key": "decorative",
+      "reasoning": "The clearest decorative item in the set and a useful contrast with item 4. It produces a record rather than a behavior. Worth noting that it is not worthless — the record has evidentiary value — but nothing about how the organization works is being held up by the clicking."
+    },
+    {
+      "id": "t12",
+      "text": "The shared document where one team writes down why it rejected an approach",
+      "key": "holding",
+      "reasoning": "A rare designed coordination structure, and one AI makes *more* valuable rather than less: as production accelerates, the record of rejected approaches is what stops three people re-litigating a settled question at speed. Module 7 argues this is the shape codification should take.",
+      "also": [
+        "dissolving"
+      ]
+    }
+  ],
+  "pattern": "**Look at where the dissolving items came from.** Almost all of them are undesigned — a handoff, a habit, a person, a path someone improvised once. The two structures that are load-bearing and *safe* — counsel review, the comp committee — are the two with a charter, an owner, and a place on a calendar.\n\nThat is the module's claim arriving as data rather than assertion. **Designed structures get documented, documented structures get defended, and undesigned structures have nobody to speak for them at the moment they are removed.**\n\nAnd notice what the dissolving items have in common beyond that: every one of them is a **coordination** structure. Not a production structure. Nothing on this list that dissolves was making a thing — they were all making sure separate people's things fit together. That is exactly the category AI optimizes away first, and exactly the category whose absence you cannot see until two accelerated workstreams collide.",
+  "postscript": "**If you put item 6 in Decorative, you may be right.** The standing weekly meeting genuinely is decorative in a great many organizations, and the exercise scores it either way for that reason. The distinction worth carrying is that *the meeting is not the structure — the collision is.* Kill the meeting if you like. Then answer the question the meeting was answering, or find out in about four months that nobody is.\n\n**If you put item 5 in Holding, that is also defensible** and is the optimistic read: the veteran is still there and still answering. The reason the key says dissolving is that the load is not the person, it is the *asking* — and the asking is already down. The person leaving is the event everyone plans for. The asking stopping is the event nobody notices, and it happens first."
+}
