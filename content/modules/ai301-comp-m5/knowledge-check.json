@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What does the \"85% used ChatGPT for salary negotiation\" figure actually support? `[V]`",
+      "options": [
+        "That 85% of candidates now arrive at negotiations AI-prepared",
+        "That among candidates who already prepare with AI, 85% used ChatGPT specifically — the surveyed workers had all already used AI, so it's a statement about which tool, not about how many candidates",
+        "That AI preparation improves negotiation outcomes in 85% of cases",
+        "That 85% of hiring managers encountered an AI-prepared candidate"
+      ],
+      "correctIndex": 1,
+      "explanation": "The sample is the finding, which is Module 2's whole method applied to a number this course itself uses. You will see this quoted as A, and A is wrong."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why is inconsistent AI advice harder to negotiate against than good advice? `[V]`",
+      "options": [
+        "Because inconsistent advice is more likely to be aggressive",
+        "Because good advice converges — two well-advised candidates arrive near the same number — while inconsistent advice diverges, so one candidate is anchored high on a hallucinated comparable and another low, both equally certain, and no script covers both",
+        "Because candidates trust inconsistent advice more strongly",
+        "Because it takes longer to correct a wrong number than to agree with a right one"
+      ],
+      "correctIndex": 1,
+      "explanation": "Convergence is what makes a counterparty predictable. What works instead isn't a script, it's the ability to say where your number comes from in a form that survives checking."
+    },
+    {
+      "id": "q3",
+      "prompt": "What was the largest source of variation in the negotiation-advice audit? `[V]`",
+      "options": [
+        "Gender of the profile in the prompt",
+        "The candidate's stated years of experience",
+        "Differences between model versions, and between prompts voiced as the employee versus the employer",
+        "The geographic market named in the prompt"
+      ],
+      "correctIndex": 2,
+      "explanation": "Gender effects were statistically significant in all four versions and *smaller* than these. The employee/employer voicing gap means **the same model gives the two sides of your negotiation different numbers**, and neither party can see the other's framing."
+    },
+    {
+      "id": "q4",
+      "prompt": "What does the audit imply about your own function's use of these tools? `[V]`",
+      "options": [
+        "That comp teams should use a different model than candidates use",
+        "That a comp team using the same kind of general tool to set pay would be introducing exactly the disparate impact of Module 4's circular zone — fluently, in a version that may behave differently next quarter",
+        "That model outputs should be averaged across several versions to reduce variance",
+        "That the findings apply only to candidate-side use, since employers use structured data"
+      ],
+      "correctIndex": 1,
+      "explanation": "This is the evidence behind *describe your pay patterns, don't recommend your pay decisions*. C treats a validity problem as a variance problem."
+    },
+    {
+      "id": "q5",
+      "prompt": "What changes when institutional investors read proxy statements with AI? `[V]`",
+      "options": [
+        "Proxy advisor recommendations become more influential",
+        "Analysis moves from sampling to census — every peer read every year at the same depth — with growing focus on whether performance goals were actually challenging, and more independent analyses that don't share a methodology",
+        "Executive compensation disclosure requirements become more detailed",
+        "Compensation committees lose discretion over pay design"
+      ],
+      "correctIndex": 1,
+      "explanation": "A is backwards — advisor influence appears to be declining as investors build in-house approaches. Your disclosure is no longer competing for attention; it's being compared."
+    },
+    {
+      "id": "q6",
+      "prompt": "What does the shift to machine-read disclosure reward? `[V]`",
+      "options": [
+        "More extensive narrative explaining the compensation philosophy",
+        "Precision, consistent terminology, and information where a reader expects it — because narrative that only works on a sympathetic human reader is worth less than it used to be",
+        "Shorter proxy statements with fewer disclosed metrics",
+        "Greater use of infographics in place of tables"
+      ],
+      "correctIndex": 1,
+      "explanation": "A well-designed program with a clearly written explanation gains from this. One that depended on complexity absorbing scrutiny loses."
+    },
+    {
+      "id": "q7",
+      "prompt": "What's the practical test for whether a pay rationale survives contact?",
+      "options": [
+        "Whether it has been reviewed by legal counsel",
+        "Whether it can be delivered consistently by every manager",
+        "Whether it depends on the listener not checking — anything that worked only because verification was expensive has stopped working",
+        "Whether it aligns with the organization's stated compensation philosophy"
+      ],
+      "correctIndex": 2,
+      "explanation": "\"The market for this role is around X\" is now checkable in ninety seconds. If your X is defensible, the check confirms you and you're better off than before."
+    },
+    {
+      "id": "q8",
+      "prompt": "What's the strongest counter-argument to \"your pay story is already being audited by a model\"?",
+      "options": [
+        "That most candidates don't actually use AI for negotiation preparation",
+        "That the module's own Lesson 2 undercuts it — an instrument that gives inconsistent answers, shifts with version and framing, and confidently prices fictional universities isn't an audit, and redesigning around it lets an unreliable instrument set your standard",
+        "That institutional investors are legally required to use human analysts for voting decisions",
+        "That pay decisions are too context-dependent for any external analysis to evaluate"
+      ],
+      "correctIndex": 1,
+      "explanation": "It's strongest because the module concedes the premise itself. The position you owe is how a sound structure plus a willingness to say \"that number is wrong\" compares to defensive redesign."
+    }
+  ]
+}
