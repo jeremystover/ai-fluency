@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is the module's counterintuitive core finding?",
+      "options": [
+        "AI adoption is slower in large organizations than small ones",
+        "Individual AI adoption can increase total coordination cost while decreasing production cost",
+        "Coordination costs rise faster than production costs fall in most AI deployments",
+        "Teams that adopt AI unevenly perform worse than teams that do not adopt it at all"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which means the enthusiastic early adopter, genuinely producing more, can be making the organization slower — not by doing anything wrong, but by generating integration debt faster than it is retired."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why does local optimization increase coordination cost?",
+      "options": [
+        "Because individuals choose tools their colleagues cannot access",
+        "Because it increases variation, and variation is paid for in coordination by whoever has the least slack",
+        "Because optimized processes are harder to document",
+        "Because individual improvements are rarely shared across teams"
+      ],
+      "correctIndex": 1,
+      "explanation": "There was always variation; the constraint that suppressed it — the cost of producing anything at all — is gone."
+    },
+    {
+      "id": "q3",
+      "prompt": "What three conditions make an absorption rate a discipline rather than a veto?",
+      "options": [
+        "Executive approval, documentation, and quarterly review",
+        "It is a rate rather than a limit; it is stated as a number in advance; and it is falsifiable",
+        "It is benchmarked externally, measured continuously, and owned by a named person",
+        "It is agreed with affected teams, published, and revisited annually"
+      ],
+      "correctIndex": 1,
+      "explanation": "\"We can't absorb that,\" said in the meeting where something is proposed, is a veto. \"Two process changes per quarter, agreed in January\" binds you as well as them."
+    },
+    {
+      "id": "q4",
+      "prompt": "How does the module reframe the speed-versus-risk question?",
+      "options": [
+        "Speed and risk are both subordinate to quality",
+        "You do not trade speed against risk — you govern speed against absorption",
+        "Risk should be assessed per use case rather than per pace decision",
+        "Speed is a leadership choice; risk is a compliance one"
+      ],
+      "correctIndex": 1,
+      "explanation": "Risk is a different question with a different unit and belongs in Module 9. Conflating the two turns a pace argument into a safety argument nobody believes."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why is the early adopter conversation not a performance conversation?",
+      "options": [
+        "Because performance conversations require a formal process",
+        "Because their performance is genuinely excellent — framing it otherwise is both wrong and the fastest way to lose them",
+        "Because integration debt is an organizational failure rather than an individual one",
+        "Because performance management is the manager's job rather than the translator's"
+      ],
+      "correctIndex": 1,
+      "explanation": "And losing them is worse than the debt. Name the value first and specifically, then the debt and who is absorbing it."
+    },
+    {
+      "id": "q6",
+      "prompt": "What does the module recommend doing with the early adopter's integration debt?",
+      "options": [
+        "Pausing their work until the organization catches up",
+        "Assigning a coordinator to reconcile their outputs",
+        "Handing them the problem — \"make this reusable by the three people downstream\"",
+        "Standardizing their tooling across the team"
+      ],
+      "correctIndex": 2,
+      "explanation": "They are the best-placed person to make it consumable, it reads as a promotion rather than a restraint, and it converts an integration liability into Module 7's codification asset."
+    },
+    {
+      "id": "q7",
+      "prompt": "What does \"lock-in is integration debt with a contract attached\" mean for procurement?",
+      "options": [
+        "That contract length should be minimized wherever possible",
+        "That switchability is an architectural property — what comes out, in what form, and who does the work — rather than a procurement footnote",
+        "That multi-vendor strategies are safer than single-platform ones",
+        "That pricing should be negotiated on a per-use basis"
+      ],
+      "correctIndex": 1,
+      "explanation": "Once prompts, connectors, evaluation suites, and workflow logic live inside one platform, \"we'll move later\" becomes a quarter-long project — and none of that appears in the pricing conversation."
+    },
+    {
+      "id": "q8",
+      "prompt": "What is the correct reading of a vendor deflecting the discriminatory-outcome liability question?",
+      "options": [
+        "That the vendor's legal team has not been consulted on the deal",
+        "That liability is genuinely unsettled and will be determined case by case",
+        "That the deflection is the information — substantial exposure sits with you as the deployer regardless of the contract",
+        "That the question should be raised with procurement rather than the vendor"
+      ],
+      "correctIndex": 2,
+      "explanation": "Which is Module 9's subject and why it carries a counsel-review gate rather than being folded in here."
+    }
+  ]
+}
