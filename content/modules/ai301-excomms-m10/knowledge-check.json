@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What do the adoption figures actually describe `[V]`?",
+      "options": [
+        "A forecast of where AI responsibility will sit within three years",
+        "The present — in roughly half of organizations surveyed, internal comms is already heavily involved in or solely responsible for AI rollout communication, with 40% also on strategy and adoption workstreams",
+        "What practitioners believe their role ought to be",
+        "The share of organizations that have completed an AI rollout"
+      ],
+      "correctIndex": 1,
+      "explanation": "n=448 North American IC professionals, fielded December 2025. Reading it as a forecast misses the point: the work is arriving now, and the question is whether you claim it deliberately or receive it by default."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why does the ~16% figure make the opportunity larger rather than smaller?",
+      "options": [
+        "Because it shows HR lacks the capability to lead AI change",
+        "Because a responsibility that is arriving anyway, and that its obvious owner has declined, gets assigned rather than competed for",
+        "Because it demonstrates that AI adoption is not a People function issue",
+        "Because low support means low expectations and easier success"
+      ],
+      "correctIndex": 1,
+      "explanation": "And it gets assigned to whoever holds the most credible account of how it should work when somebody senior finally asks — which is what the four artifacts from this track are for."
+    },
+    {
+      "id": "q3",
+      "prompt": "What is the first cost of claiming the mandate?",
+      "options": [
+        "The additional headcount required to deliver it",
+        "Becoming the messenger for the thing people fear most — drawing down a credibility stock you spend faster than you build",
+        "The loss of independence from the IT function",
+        "Increased scrutiny of the communications budget"
+      ],
+      "correctIndex": 1,
+      "explanation": "Module 3 established the asymmetry between spending and building credibility. A mandate requiring you to announce unpopular things repeatedly draws down the exact asset the rest of the track exists to protect."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why does \"AI will augment, not replace\" become a liability?",
+      "options": [
+        "Because it is usually false",
+        "Because employees do not have access to your reasoning — they have access to the sequence of events, and a vague reassurance later falsified costs more than an honest uncertainty",
+        "Because it invites comparison with competitors' messaging",
+        "Because it cannot be translated consistently across languages"
+      ],
+      "correctIndex": 1,
+      "explanation": "If you can't make the commitment specific — which roles, over what period, reviewed when — describing what is genuinely uncertain is the stronger move."
+    },
+    {
+      "id": "q5",
+      "prompt": "What happens when an announcement contradicts a reader's direct experience?",
+      "options": [
+        "They assume their own experience is unrepresentative",
+        "They discount that specific claim while trusting the rest of the message",
+        "They conclude the announcement isn't describing reality — and that judgement transfers to the next announcement, which may be one that matters",
+        "They seek clarification through their manager"
+      ],
+      "correctIndex": 2,
+      "explanation": "Which is why the productivity narrative is dangerous: it lands in front of people whose actual experience includes supervision work nobody counted."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why is announcing an AI policy your function doesn't follow described as self-inflicted?",
+      "options": [
+        "Because policies should be written by legal rather than communications",
+        "Because your function is the most-observed user of AI in the organization — your output is what everybody sees, so a gap between the policy and your newsletter is published evidence against yourself",
+        "Because policy announcements attract more scrutiny than other messages",
+        "Because employees rarely read policies but always notice inconsistency"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which makes Modules 5 and 6 the protection: a trust line you actually hold and a review discipline you actually run are the difference between announcing a standard and demonstrating one."
+    },
+    {
+      "id": "q7",
+      "prompt": "What separates a proposal from a request for more capacity?",
+      "options": [
+        "Naming a specific executive sponsor",
+        "Including a competitive benchmark",
+        "The funding line — what you will stop doing, which is why the kill list asked for three things and their sponsors rather than a principle",
+        "Quantifying the return on investment"
+      ],
+      "correctIndex": 2,
+      "explanation": "A proposal that adds scope without subtracting anything is a request for more capacity dressed as a strategy, and an experienced reader can tell in about four seconds."
+    },
+    {
+      "id": "q8",
+      "prompt": "What is the sharpest argument *against* claiming this mandate?",
+      "options": [
+        "That communications lacks the technical knowledge for AI governance",
+        "That the function claiming AI adoption in a year of cuts has volunteered to be the face of the cuts — and the people declining to lead may have correctly assessed what comes with it",
+        "That IT or Legal will claim it regardless",
+        "That the mandate cannot be delivered without additional headcount"
+      ],
+      "correctIndex": 1,
+      "explanation": "It reframes the 16% as an accurate read rather than timidity, and it is the version most likely to change whether you actually send the proposal — which is why the activity asks you to engage it."
+    }
+  ]
+}
