@@ -1,0 +1,52 @@
+{
+  "promptVersion": "ai301-excomms-m1-the-send-audit-v1",
+  "moduleId": "ai301-excomms-m1",
+  "minWords": 200,
+  "maxWords": 300,
+  "submitLabel": "Your send audit and write-up",
+  "intro": "Paste the audit — the thirty-day count, the attention bill in person-hours with your per-message minute estimate labelled, and what happened when you went looking — followed by the 200–300 word write-up including your position on this module's claim. Resubmission is free and unlimited — the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, Employee Experience / Internal Comms track. Module 1 applied activity, 'The send audit': every separate communication their function sent ONE real audience in the last thirty days, across all push channels (email, intranet, Slack/Teams, newsletter, signage, all-hands, manager cascade kits), converted into an attention bill of recipients × estimated minutes = person-hours, plus a settlement of the opening claim and a comparison against their predicted send count.\n\nCRITICAL — 'the number could not be retrieved' is a finding, not a failure. In many organizations no single person can see across all channels, and a learner who went looking, documented what they tried, named which channels were visible and which were not, and reported the gap honestly must score at FULL CREDIT on the counting dimension. A tidy estimate presented as a count is worth less than a documented dead end. Do not reward completeness that was manufactured.\n\nAn acknowledged estimate is usable; a confident invention is not — this applies especially to the per-message minute figure, which must be labelled with its basis.\n\nThis track scores the delta rather than the score. Grade the learner's ACCOUNT of the gap between prediction and reality — its direction, its size, and what they think it reveals. NEVER grade prediction accuracy. A learner who predicted badly and explains why clearly outranks one who predicted well and says nothing about it.",
+  "opening": [
+    {
+      "key": "sends30",
+      "label": "Predicted — separate communications sent to this audience in 30 days",
+      "hint": "Every push channel counted, before you go and look.",
+      "placeholder": "e.g. 14",
+      "min": 0,
+      "max": 500
+    }
+  ],
+  "calibration": [
+    {
+      "key": "sends30Actual",
+      "label": "Counted — what the audit actually found",
+      "hint": "The real total. If some channels were not visible, count what you could see and say so in the write-up.",
+      "placeholder": "e.g. 31",
+      "min": 0,
+      "max": 500,
+      "actualFor": "sends30"
+    }
+  ],
+  "dimensions": [
+    {
+      "name": "The count is real, or its absence is documented",
+      "criteria": "Either a genuine cross-channel count with the channels named, or an explicit account of which channels could be seen, which could not, who would have to be asked, and what was tried. Both score at the top. A single-channel figure presented as a total, or a round number with no stated source, scores poorly — that is the failure this dimension exists to catch."
+    },
+    {
+      "name": "The bill is priced honestly",
+      "criteria": "Recipients × a per-message minute estimate whose basis is stated — a read-time metric, a reasoned guess, an observed sample. The arithmetic should be visible. An unlabelled minute figure or a person-hours total with no working shown is the gap to name in feedback. Estimates are fine; unacknowledged estimates are not."
+    },
+    {
+      "name": "The opening claim is settled against what they found",
+      "criteria": "They committed to 'true of us' or 'not true of us' on whether anyone could produce this number today, and the write-up says what actually happened when they went to look. A learner who committed to 'true of us' and discovered it was true for one channel only — and says so — is demonstrating exactly the move this module teaches. Restating the original commitment without testing it is the weakest possible answer."
+    },
+    {
+      "name": "The position engages the real counter-argument",
+      "criteria": "A committed position on the claim that AI's biggest risk here is affordable volume, which engages the strongest case against it: that internal comms carries traffic other functions demand, on deadlines it doesn't set, so volume is an upstream demand problem and a kill list is a fantasy about power the function lacks. A strong answer names the specific traffic they genuinely cannot refuse, then says what they'd do about the traffic they can. Agreement or disagreement both score well; ignoring the counter does not."
+    },
+    {
+      "name": "The delta is accounted for",
+      "criteria": "The predicted send count compared against the real one, with the direction and size of the miss named and one honest sentence on what it reveals. Grade the account, never the accuracy — a large miss explained well is the best version of this. Plus one real message from those thirty days they would not send again; naming one they personally approved is the strongest form."
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+[
+  {
+    "id": "ai301-excomms-m1-calibration-prompt-before-you-start-10",
+    "moduleId": "ai301-excomms-m1",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Calibration prompt — before you start\n\n*One claim. Commit before you read anything.*\n\nHere is a factual assertion about your own organization:\n\n> **\"Somebody here could tell me, today, how many separate communications we sent our whole\n> workforce in the last thirty days.\"**\n\n**True of us, or not true of us?** Commit to one, in a sentence, before you continue. Not what you\nwish were true and not what you could find out with a week's notice — whether the number exists\nsomewhere right now.\n\nThen predict the number itself. You will count it for real in this module's activity, and the gap\nbetween your estimate and the count is the most useful thing you will learn today.\n\nMost people in this function commit to \"true of us\" and discover the number exists for one channel."
+  },
+  {
+    "id": "ai301-excomms-m1-module-brief-20",
+    "moduleId": "ai301-excomms-m1",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nEvery other course on this ladder opens by telling you that you are less behind on AI than you\nfear. This one opens by telling you the opposite, and in a direction you probably haven't\nconsidered: **you are ahead — on the wrong axis.**\n\nYour function adopted generative AI faster than almost any other part of the People organization,\nand it adopted it almost entirely for drafting. Drafting is the one part of this job that was never\nthe constraint. What was always the constraint is the thing AI cannot manufacture: the finite,\nshared, non-renewable supply of employee attention, and the slowly-earned credit that makes the next\nmessage land.\n\nThis module is about naming those two budgets, showing you what the profession's own benchmark data\nsays about spending them, and getting you to count — for one real audience — what your function\nactually spent last month. That count opens the **attention ledger**, which runs under all ten\nmodules and becomes the baseline for the proposal you write at the end.\n\nThe uncomfortable part is that the count is usually higher than the person who owns the channel\nbelieves, and there is no villain in the story. Nobody decided to flood anyone. Every message had a\nsponsor, a reason, and an approver. The flood is what you get when the cost of producing one more\nmessage falls to roughly zero and nothing else in the system changes."
+  },
+  {
+    "id": "ai301-excomms-m1-learning-objectives-30",
+    "moduleId": "ai301-excomms-m1",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. State the two budgets this function actually spends, and explain why neither is measured in words.\n2. Describe what the profession's benchmark data says about communication volume as an\n   organizational risk — and name the limitation of that evidence.\n3. Explain the AI-maturity split in internal communications, and why the function adopted AI where\n   it is most dangerous and least where it would help.\n4. Distinguish an AI initiative that spends attention from one that protects it.\n5. Produce a thirty-day send audit for one real audience, and convert it into an attention bill."
+  },
+  {
+    "id": "ai301-excomms-m1-lesson-1-the-inversion-40",
+    "moduleId": "ai301-excomms-m1",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 · The inversion [V]\n\nStart with the finding that reframes the job.\n\nGallagher's *2026 Employee Communications Report* — the eighteenth year of its State of the Sector\nbenchmark, published March 2026, drawing on more than 1,300 communications and HR professionals\nacross 40 countries — reports that **high-volume communication environments see a 30% increase in\nleadership-trust risk and a 24% rise in audience burnout**. Alongside it, **83% of internal\ncommunications professionals say information overload is a growing problem in their organization.**\n\nRead those two together and the shape of the job changes. Communication volume is not a neutral\noperational variable that occasionally annoys people. It is being measured as an organizational\nrisk, and the thing it puts at risk is the exact asset your function exists to build.\n\n**Now the limitation, stated here rather than buried, because this course is about to spend nine\nmodules asking you to interrogate other people's numbers.** That finding comes from a survey of\n*communicators*, not a survey of *employees*. Nobody asked ten thousand workers whether they trust\ntheir leadership less this year. Practitioners reported on their organizations, and the report\nmodels risk from those responses. It is the best benchmark this profession has and it is not a\ncontrolled measurement of employee trust. Hold it as a strong directional signal from people well\npositioned to see the pattern — not as a coefficient.\n\nThat caveat does not weaken the argument, because the argument does not depend on the precise\nnumber. It depends on the direction, and on something you already know from your own inbox.\n\n**What AI changed is not the direction. It is the last constraint.** Writing used to cost time.\nThat time was a crude, arbitrary, but genuinely effective rationing mechanism: if drafting the\nall-company note took ninety minutes, somebody had to decide the note was worth ninety minutes. The\ndecision was made badly and inconsistently, but it was made. Generative AI removed the ninety\nminutes and did not replace the decision with anything.\n\nSo the first-order effect of AI on internal communications is not efficiency. **It is degradation** —\nmore volume, aimed at a fixed supply of attention, at an organization that was already reporting\noverload before the tools arrived. And because the remedy is a norms problem rather than a\ntechnology problem, it belongs to the function that sets communication norms. Which is yours."
+  },
+  {
+    "id": "ai301-excomms-m1-lesson-2-the-two-budgets-50",
+    "moduleId": "ai301-excomms-m1",
+    "ordinal": 50,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 · The two budgets\n\nWords were never your constraint. These two are.\n\n**Attention is finite, shared, and non-renewable inside a week.** A workforce of six thousand people\nhas a fixed number of minutes it can spend reading things that are not its job. Every message you\nsend draws on that pool. So does every message Finance sends, and IT, and the office-move\ncommittee, and the four managers who forwarded your announcement with their own framing on top.\nYou are one of many drawers on an account with no overdraft facility — and you are the only\nfunction that can draw on all of it at once, which makes you its de facto steward whether or not\nanyone gave you the title.\n\nThe property that makes this hard: **spending attention feels free at the moment of spending.** The\ncost lands diffusely, later, on people who cannot attribute it to you. Nobody writes back to say\n\"that update cost me four minutes I needed.\" They just read the next one less carefully.\n\n**Belief is earned slowly and spent instantly.** It is the reason a message from your channel gets\nread at all. It compounds over years of messages that turned out to be accurate, timely, and worth\nthe time — and it drops in one send that was none of those. It is also the one input in this entire\ncourse that AI cannot produce. A model can write you a paragraph that *sounds* trustworthy. It\ncannot make you trusted, because trustedness is a property of your track record, held in other\npeople's heads, and no amount of fluency touches it.\n\nTogether these give you the frame the whole track runs on:\n\n> **Your function's product is not content. It is attention converted into belief. AI made the raw\n> material free and left both budgets exactly where they were.**\n\nEverything in the next nine modules is either a way of spending those budgets better or a way of\nnoticing when you are spending them badly."
+  },
+  {
+    "id": "ai301-excomms-m1-try-60",
+    "moduleId": "ai301-excomms-m1",
+    "ordinal": 60,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### Try this — 3 minutes\nOpen the last all-company message you sent. Multiply the recipient count by the number of minutes\nyou'd guess a typical person spent on it — be honest, most skim in well under one. Now look at the\ntotal in person-hours. That is the invoice. Ask yourself what you would have had to demonstrate,\nto a finance partner, to spend that many hours of payroll on any other activity."
+  },
+  {
+    "id": "ai301-excomms-m1-lesson-3-where-the-function-actually-is-70",
+    "moduleId": "ai301-excomms-m1",
+    "ordinal": 70,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 · Where the function actually is [V]\n\nNow the diagnosis, which is the part most people guess wrong about themselves.\n\nThe same Gallagher benchmark reports that **75% of internal communications functions remain in\nearly-stage AI adoption — describing their maturity as ad hoc, or as discussion only.** Only **36%\nof respondents feel AI-ready**, and that figure rises to **61% among those with formal governance\nand structure in place.** Teams with high governance are reported as roughly **ten times more likely\nto reach an enabled level of AI maturity** than those relying on unstructured adoption.\n\nTwo things follow, and the second is the diagnosis.\n\n**First: the variable is governance, not tooling.** The teams pulling ahead are not the ones\nexperimenting most. They are the ones that decided how AI would be used before they scaled its use.\nThat is an unusual finding in this market and it is worth sitting with, because it is the opposite\nof what every product demonstration implies.\n\n**Second, and this is the module's real point: the profession adopted AI precisely where it is most\ndangerous, and barely at all where it would help.** The same benchmark separates the two ends of\nthe maturity curve by what they use AI *for* — **low-maturity teams use it to draft content;\nhigh-maturity teams use it to measure outcomes and generate strategic insight.**\n\nLook at what that means against Lesson 1. Drafting is production. Production is the input to\nvolume, and volume is the measured risk. So the function's most common AI use accelerates the thing\nits own benchmark identifies as its central hazard. Meanwhile the uses that would *reduce* the\nhazard — knowing which audiences actually need a given message, measuring whether anything landed,\nfinding the messages that could be consolidated or killed — sit at the far end of a maturity curve\nthree-quarters of the profession hasn't started climbing.\n\nThat is the inversion, stated as a sentence you can take to your director:\n\n> **We are using AI to produce more of the thing we already have too much of, and not using it for\n> the thing that would tell us which of it to stop.**\n\nThis is not an argument against drafting with AI. Drafting with AI is fine, it works, and Module 5\nwill make you better at reviewing what comes out. It is an argument about proportion, and about\nwhich end of the curve you want your function's next investment aimed at."
+  },
+  {
+    "id": "ai301-excomms-m1-lesson-4-what-this-course-will-not-teach-80",
+    "moduleId": "ai301-excomms-m1",
+    "ordinal": 80,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 · What this course will not teach you\n\nA short lesson, because for this audience the refusal is the credibility move.\n\n**This course does not teach writing.** It does not teach prompting, it does not teach you to build\na brand-voice pack, and it does not teach you to run survey verbatims through a summarization\npipeline. Those are all real skills. They are also all already taught, one and two rungs below\nthis one: briefing a model is AI 101 Module 5, durable context packs are AI 201 Module 2, and the\ndocument pipeline whose worked example is literally survey verbatims to themes to executive summary\nis AI 201 Module 3.\n\nA three-hundred-level course that re-teaches them is selling you remediation with a seniority\nlabel on it. Most of the material aimed at communicators does exactly that, because it is written\nfor people who have never used the tools — and you have.\n\nWhat this track teaches instead is where the value in the job moved, and what to do about it: the\nchain your work actually runs on (Module 2), what to stop sending (Module 3), how to review output\nyou didn't write (Module 5), whose voice is speaking when a leader's message wasn't written by the\nleader (Module 6), how to listen without surveilling (Module 7), what happens when a bot speaks for\nyou (Module 8), how to arm managers (Module 9), and what to claim (Module 10).\n\nIf you find yourself thinking *I already know this* during a lesson, that is a defect and you should\ntell us. If you find yourself thinking *nobody has ever told me this was part of my job* — that is\nthe course working."
+  },
+  {
+    "id": "ai301-excomms-m1-key-takeaways-90",
+    "moduleId": "ai301-excomms-m1",
+    "ordinal": 90,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **Volume is a measured organizational risk, not an operational annoyance** `[V]`. High-volume\n  communication environments show a 30% increase in leadership-trust risk and a 24% rise in audience\n  burnout, and 83% of the profession reports overload growing. Note the sample: communicators, not\n  employees — directional, not a coefficient.\n- **Two budgets, neither denominated in words.** Attention is finite, shared, non-renewable within a\n  week, and not yours. Belief is earned slowly, spent instantly, and is the one input AI cannot\n  manufacture.\n- **Writing time was a crude rationing mechanism, and AI removed it** without replacing the\n  decision it used to force. The first-order effect on this function is degradation, and the remedy\n  is a norms problem — which makes it yours.\n- **Governance, not tooling, separates the teams getting value** `[V]`. 36% feel AI-ready overall,\n  61% where formal governance exists, and high-governance teams are around ten times more likely to\n  reach enabled maturity.\n- **The inversion** `[V]`: 75% of functions are still ad hoc with AI, and the maturity split is\n  diagnostic — low-maturity teams use it to draft, high-maturity teams use it to measure and target.\n  The profession adopted AI where it is most dangerous and least where it would help.\n- **This course refuses the 100-level job.** No prompting, no voice packs, no survey pipelines —\n  101 and 201 own all three."
+  },
+  {
+    "id": "ai301-excomms-m1-exercise-embed-95",
+    "moduleId": "ai301-excomms-m1",
+    "ordinal": 95,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\":\"choice\"}"
+  },
+  {
+    "id": "ai301-excomms-m1-take-a-position-100",
+    "moduleId": "ai301-excomms-m1",
+    "ordinal": 100,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"Your function's biggest AI risk isn't a hallucination. It's that you can now afford\nto send everything you used to have to choose between.\"*\n\nThe strongest counter-argument is not that volume is fine. It is that **volume is a symptom and this\nframing misdiagnoses who the patient is.** Internal communications rarely originates the messages it\nsends; it carries traffic other functions demand be carried, on deadlines it doesn't set, for\nsponsors with more authority than it has. Telling a communications team its central risk is\nover-sending is like telling a switchboard operator the phone rings too much. On that reading, a\nkill list is a fantasy about a power the function doesn't hold, and the honest advice would be about\ninfluencing demand upstream rather than rationing supply downstream.\n\nTake a position on that, in writing, in the activity. The version of your answer worth submitting\nnames the specific traffic you genuinely cannot refuse, and then says what you would do about the\ntraffic you *can*."
+  },
+  {
+    "id": "ai301-excomms-m1-activity-link-105",
+    "moduleId": "ai301-excomms-m1",
+    "ordinal": 105,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\":\"activity_link\",\"title\":\"Applied activity — The send audit\",\"blurb\":\"Thirty days of everything your function sent one real audience, priced as an attention bill in person-hours. Opens the ledger the whole track writes to. \\\"Nobody here can produce this number\\\" is a finding and scores at full credit. Graded against a four-dimension rubric. Free unlimited resubmission.\",\"estMinutes\":\"20\"}"
+  },
+  {
+    "id": "ai301-excomms-m1-sources-and-attribution-110",
+    "moduleId": "ai301-excomms-m1",
+    "ordinal": 110,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- **Gallagher, *2026 Employee Communications Report*** (State of the Sector, 18th edition,\n  published March 2026; more than 1,300 communications and HR professionals across 40 countries) —\n  the 30% leadership-trust-risk and 24% burnout findings in high-volume environments, 83% reporting\n  growing information overload, 75% of functions at early-stage AI maturity, 36%/61% AI-readiness\n  with and without formal governance, the roughly tenfold governance effect on reaching enabled\n  maturity, and the low-maturity-drafts / high-maturity-measures split. **[V]** *Verification note:\n  the publisher's primary PDF was not reachable from the authoring environment; figures are taken\n  from Gallagher's own press release and consistent secondary coverage, and the practitioner-survey\n  limitation is stated in Lesson 1 because this course holds its own evidence to the standard it\n  asks of others. Re-verify against the primary report at next review.*\n- The two-budget frame, the rationing-mechanism argument, and the attention ledger are original to\n  this course.\n- Structure and topic coverage follow the AI Fluency Framework (Dakan & Feller, in collaboration\n  with Anthropic, CC BY-NC-SA 4.0); prose is original."
+  }
+]
