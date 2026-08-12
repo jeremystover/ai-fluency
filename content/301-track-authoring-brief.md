@@ -198,7 +198,25 @@ must answer it about its own evidence. Mark every statistic, statute, vendor cla
 detail as volatile layer `[V]`; these tracks run ~80% volatile against 101's ~20%, and
 `scripts/maintenance-agent.mjs` re-checks volatile blocks against the web.
 
-**Any module with legal content carries a counsel-review gate stated in the content itself.**
+**A `[V]` figure carries its sample and date at the point of claim, not only in the sources block.**
+Learned from an audit of the comp track, which declares *"the numbers, with their samples attached —
+because a module about reading evidence has to model it"* and then states three figures bare in the
+body with attribution only in its sources section. A reader who never scrolls to the sources block
+has read an unattributed number, and the sources block is not where the claim does its work.
+
+**When you resolve a blocking item, edit the blocking line — do not append the resolution below it.**
+Same audit, second finding: the comp outline still lists items as "outstanding and still blocking"
+130 lines above the record that resolves them, and still states a figure its own verification section
+refutes. Appending is how a document ends up contradicting itself, and the next thread to read it
+cannot tell which half is current.
+
+**Any module with legal content carries a counsel-review gate stated in the content itself** — and
+gets a row in `content/301-issue-register.md`, because nothing else tracks whether the review
+actually happened.
+
+**Facts shared across tracks belong in `content/evidence/`.** Horizontal duplication is sanctioned
+(§3a), so the cost is drift rather than redundancy. Reuse the canonical wording from the library and
+note in your sources block that you did; author role-specific evidence yourself.
 
 ---
 
