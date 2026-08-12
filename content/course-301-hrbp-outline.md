@@ -135,7 +135,7 @@ The leverage play, taught honestly — including the evidence that constrains it
 
 Both are genuinely contested, and both run as **tutor scenario challenges** rather than prose — the tutor is the surface that can actually argue back, which is the async answer to a room discussion.
 
-1. **Should HR lead AI governance?** 52% of organizations don't involve HR in AI strategy at all — SHRM's *State of AI in HR 2026*, n=1,908, fielded December 2025; the same survey finds only 28% regard HR as a true strategic leader with a seat at the table, and a further 19% a strategic partner still excluded from core decision forums — and asked what role HR *should* play, only 16% supported HR leading change management and 15% leading training; for four of six activities, more would rather not be involved than lead `[V]`. That is a self-inflicted wound, and the learner should have to defend a position on it. Attaches to M7.
+1. **Should HR lead AI governance?** 52% of organizations don't involve HR in AI strategy at all — SHRM's *State of AI in HR 2026*, n=1,722, fielded 5–23 December 2025; the same survey finds only 28% regard HR as a true strategic leader with a seat at the table, and a further 19% a strategic partner still excluded from core decision forums — and asked what role HR *should* play, only 16% supported HR leading change management and 15% leading training; for four of six activities, more would rather not be involved than lead `[V]`. That is a self-inflicted wound, and the learner should have to defend a position on it. Attaches to M7.
 2. **What is the recovered time actually for?** Said out loud, with a number. Attaches to M3, where it is also the activity's grading edge.
 
 ## Prerequisite map

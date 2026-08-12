@@ -363,7 +363,7 @@ Four things in the brief that no exploration would have produced:
   better read of this audience than "anxious professional needing encouragement," which is what the
   whole market assumes.
 - **The exclusion data, with its sample.** 52% / 28% / 19%, from SHRM's *State of AI in HR 2026*
-  (n=1,908, fielded December 2025). Sharper than the ~13% figure the brief uses for the same point,
+  (n=1,722, fielded 5–23 December 2025). Sharper than the ~13% figure the brief uses for the same point,
   and it belongs in M5 Lesson 1 alongside it.
 - **The 401 boundary, stated the other way round.** See Decision 2.
 
@@ -488,7 +488,7 @@ here rather than fixed silently.
     that uses it as evidence about HR, and scores an admitted temptation above a silent avoidance.
 16. **M5 lost a figure and gained a better-evidenced argument.** The ~13% of enterprises with a CHRO
     leading AI workforce strategy could not be traced to a primary source and is not used. The SHRM
-    figures cover the same ground with a stated sample (52% / 28% / 19%, n=1,908), and the
+    figures cover the same ground with a stated sample (52% / 28% / 19%, n=1,722), and the
     candidate-trust side turned out much stronger than the outline assumed — 26% with n=2,918, plus
     a *behavioural* figure the outline did not have: roughly 38% have walked away from a hiring
     process because it included an AI interview. M5's Sources names the dropped claim explicitly
@@ -505,7 +505,7 @@ here rather than fixed silently.
 
 ## Verification status
 
-**Confirmed:** the SHRM exclusion figures with sample (n=1,908, December 2025); the CHRO skepticism
+**Confirmed:** the SHRM exclusion figures with sample (n=1,722, December 2025); the CHRO skepticism
 contrast; the Culture Amp finding, **sourced and demoted** — *2026 AI in HR Study*, 22 July 2026,
 70% vs 25%, n=264, vendor community survey, cross-sectional (see Decision 7); the EU AI Act's
 actual current position, **now corrected in HRBP M6 and the recruiter outline**; IBM's 94%

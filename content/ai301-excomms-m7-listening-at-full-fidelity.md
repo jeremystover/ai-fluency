@@ -253,7 +253,7 @@ issued a memorandum, **GC 23-02**, signalling aggressive enforcement against int
 monitoring and algorithmic management. Anyone designing a listening programme in 2023 or 2024 treated
 it as the governing constraint.
 
-**GC 23-02 was rescinded on 14 February 2025**, among 31 rescinded memoranda.
+**GC 23-02 was rescinded on 14 February 2025**, in GC 25-05, among 29 rescinded memoranda.
 
 Read what did and didn't happen there. **The statute did not change. Section 7 says exactly what it
 said. The Board's decisional law is where it was.** What changed was the enforcement appetite of one
@@ -448,7 +448,7 @@ today and have never read.
   guidance linking it to the Act's definition of an emotion recognition system, which is limited to
   inference from biometric data. **Counsel review required — see the gate at the top.** **[V]**
 - **NLRB General Counsel Memorandum GC 23-02** (October 2022) on electronic surveillance and
-  algorithmic management, **rescinded 14 February 2025** among 31 rescinded memoranda. Cited for the
+  algorithmic management, **rescinded 14 February 2025** in GC 25-05, among 29 rescinded memoranda. Cited for the
   posture-versus-duty lesson rather than as guidance. **[V]**
 - **US state electronic-monitoring notice regimes** — New York (notice on hire, acknowledgment,
   conspicuous posting; AG-enforced at $500 / $1,000 / $3,000), Connecticut (Gen. Stat. § 31-48d;

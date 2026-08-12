@@ -1,0 +1,36 @@
+{
+  "id": "mobley-v-workday",
+  "asOf": "2026-06-22",
+  "lastVerified": "2026-08-12",
+  "source": "Mobley v. Workday, Inc. (N.D. Cal.)",
+  "sample": null,
+  "claims": [
+    {
+      "claim": "The court allowed claims to proceed on the theory that a vendor screening candidates on an employer's behalf acts as its agent, and so falls within the statutory definition of 'employer'",
+      "figure": null
+    },
+    {
+      "claim": "ADEA collective conditionally certified, with roughly 14,000 opt-ins",
+      "figure": "~14,000"
+    },
+    {
+      "claim": "Rulings through mid-2026 (6 March and 22 June 2026) kept claims alive across race, sex, age and disability",
+      "figure": null
+    },
+    {
+      "claim": "A 28 May 2026 ruling held AI bias-testing data may be shielded from discovery by attorney-client privilege — a reason to involve counsel before testing, not after",
+      "figure": "28 May 2026"
+    }
+  ],
+  "cautions": [
+    "Active litigation. The posture is the most staleness-prone fact in the curriculum; re-check before any customer deployment."
+  ],
+  "citedBy": [
+    "ai301-hrbp-m6",
+    "ai301-recruiter-r6",
+    "ai301-peopleops-m7",
+    "ai301-ler-l7",
+    "ai301-defensible-m1",
+    "ai301-comp-m4"
+  ]
+}

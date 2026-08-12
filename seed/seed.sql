@@ -4,10 +4,10 @@ DELETE FROM fd_exercise;
 DELETE FROM fd_module;
 DELETE FROM fd_brand;
 DELETE FROM fd_access_code;
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-12T17:45:39.228Z');
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-12T17:45:39.228Z');
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('01b07cc3-5a8a-41e2-a3ab-b60c6c4839c7', 'omnissa', 'pbkdf2$100000$gPeDX3gFHg5LZkR8llHWUA==$Zpf0v3pUjFtYY92D5NwVd+s0xUCoT1aFbbsMuWBk8fA=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('aa6ebd47-e95c-44cc-82d4-6b9de78cc17d', 'verdant', 'pbkdf2$100000$X3W3Vr+ZSTuklVloDrEniw==$/m4U5QbS/z4XKJHYJjcx5aiHO/65HmkapQ2jfegj/FQ=', 'Theming proof', NULL, 0, NULL, 1);
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-12T21:39:31.686Z');
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-12T21:39:31.686Z');
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('e78d4e1e-44df-4d39-a05c-9839ff6d3383', 'omnissa', 'pbkdf2$100000$a6kGeAdd1Xke/ppx6qUR9w==$gQUO8BKgq1QWoP30WOwQVnbtuhvG38A0su/yfKDysN8=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('dfad0500-4b84-43d8-af21-c5fc12adef9f', 'verdant', 'pbkdf2$100000$7MCsbcu6B6Zh5G7FhfKRBw==$kgwjQGP1WSGSponwHDBvM1AmTUFGqUym8yxVr9MMfrk=', 'Theming proof', NULL, 0, NULL, 1);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m1', 'ai101', 1, 'What is AI?', 'A working mental model: what an LLM actually does, the vocabulary, why data decides everything, and a delegation heuristic you can carry under pressure.', 'open', 30, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m2', 'ai101', 2, 'Choosing the tool for the task', 'Chat assistants, copilots, and the AI already embedded in your HR stack — what each is actually for, and how to tell a language model from a scoring engine before you rely on either.', 'open', 25, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m3', 'ai101', 3, 'What it costs and how it scales', 'Tokens, context windows, and pricing — enough of the economics to size a use case, read a vendor quote, and know when a bigger model is worth it.', 'open', 25, NULL);
@@ -8934,7 +8934,7 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
 
 - **The concentration of reported AI use in HR** `[V]` — recruiting, HR technology, learning and
   development, and employee experience as the leading practice areas, from SHRM''s *State of AI in HR
-  2026* (n=1,908, fielded December 2025). Cited here only to support the observation that the
+  2026* (n=1,722, fielded 5–23 December 2025). Cited here only to support the observation that the
   leading areas are operating-system functions; **the same survey is used with the same phrasing in
   the HRBP and Talent Development tracks** so the volatile copies do not drift.
 - **The three tiers, the compression thesis, the information-to-nerve argument, and the
@@ -9205,8 +9205,8 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
 
 - **SHRM, *The State of AI in HR 2026*** `[V]` — 52% of organizations with no direct HR involvement
   in AI strategy; 28% regarding HR as a true strategic leader with a seat at the table; a further
-  19% seeing HR as a strategic partner still excluded from core decision forums. Survey of 1,908 HR
-  professionals, fielded December 2025. **The same figures appear in Module 2 and in the HRBP
+  19% seeing HR as a strategic partner still excluded from core decision forums. Survey of 1,722 HR
+  professionals, fielded 5–23 December 2025. **The same figures appear in Module 2 and in the HRBP
   track**, deliberately worded consistently so the volatile copies do not drift.
 - **Moderna''s combination of its People and Digital Technology organizations** under a Chief People
   and Digital Technology Officer `[V]` — the title and the organizational merger are confirmed.
@@ -9778,7 +9778,7 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
   in AI strategy; 28% regarding HR as a true strategic leader; 19% strategic partner still excluded
   from core decision forums; and, among organizations using or piloting AI, approximately 49% with a
   policy regulating workforce AI use, of which about a quarter believe it is clear and durable.
-  Survey of 1,908 HR professionals, fielded December 2025. **Same wording as Modules 2 and 3 and the
+  Survey of 1,722 HR professionals, fielded 5–23 December 2025. **Same wording as Modules 2 and 3 and the
   HRBP track**, deliberately, so the volatile copies do not drift.
 - **EU AI Act and the Digital Omnibus** `[V]` — Annex III employment classification deferred to
   2 December 2027 by **Regulation (EU) 2026/1744**, published 24 July 2026 and in force 27 July
@@ -14073,7 +14073,7 @@ issued a memorandum, **GC 23-02**, signalling aggressive enforcement against int
 monitoring and algorithmic management. Anyone designing a listening programme in 2023 or 2024 treated
 it as the governing constraint.
 
-**GC 23-02 was rescinded on 14 February 2025**, among 31 rescinded memoranda.
+**GC 23-02 was rescinded on 14 February 2025**, in GC 25-05, among 29 rescinded memoranda.
 
 Read what did and didn''t happen there. **The statute did not change. Section 7 says exactly what it
 said. The Board''s decisional law is where it was.** What changed was the enforcement appetite of one
@@ -14160,7 +14160,7 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
   guidance linking it to the Act''s definition of an emotion recognition system, which is limited to
   inference from biometric data. **Counsel review required — see the gate at the top.** **[V]**
 - **NLRB General Counsel Memorandum GC 23-02** (October 2022) on electronic surveillance and
-  algorithmic management, **rescinded 14 February 2025** among 31 rescinded memoranda. Cited for the
+  algorithmic management, **rescinded 14 February 2025** in GC 25-05, among 29 rescinded memoranda. Cited for the
   posture-versus-duty lesson rather than as guidance. **[V]**
 - **US state electronic-monitoring notice regimes** — New York (notice on hire, acknowledgment,
   conspicuous posting; AG-enforced at $500 / $1,000 / $3,000), Connecticut (Gen. Stat. § 31-48d;
@@ -24597,7 +24597,7 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
 
 The reason this track cannot open the way the others do.
 
-**Where AI actually landed in HR.** In SHRM''s *State of AI in HR 2026* — a survey of 1,908 HR
+**Where AI actually landed in HR.** In SHRM''s *State of AI in HR 2026* — a survey of 1,722 HR
 professionals fielded in December 2025 — reported AI use concentrates in recruiting (27%), HR
 technology (21%), **learning and development (17%)**, and employee experience (14%). L&D is third
 of sixteen practice areas, and the three ahead of or alongside it are all places where the work is
@@ -24730,7 +24730,7 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
 
 - **SHRM, *The State of AI in HR 2026*** — the practice-area concentration of reported AI use:
   recruiting 27%, HR technology 21%, learning and development 17%, employee experience 14%. Survey
-  of 1,908 HR professionals, fielded December 2025. The same survey is cited in the HRBP track; the
+  of 1,722 HR professionals, fielded 5–23 December 2025. The same survey is cited in the HRBP track; the
   phrasing here is deliberately consistent with it so the two do not drift. **[V]**
 - **LinkedIn, *Workplace Learning Report 2025*** — approximately 71% of L&D professionals
   experimenting with or integrating AI. The in-lesson caveats about what "use cases" and

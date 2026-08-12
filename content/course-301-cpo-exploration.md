@@ -142,7 +142,7 @@ changed content rather than confirming it.
 
 | Claim | Status | Effect |
 |---|---|---|
-| HR has no direct involvement in AI strategy in 52% of organizations | **Confirmed with sample** — SHRM *State of AI in HR 2026*, n=1,908, fielded December 2025. The HRBP outline carries this without the sample and should gain it | Design premise |
+| HR has no direct involvement in AI strategy in 52% of organizations | **Confirmed with sample** — SHRM *State of AI in HR 2026*, n=1,722, fielded 5–23 December 2025. The HRBP outline carries this without the sample and should gain it | Design premise |
 | 28% regard HR as a true strategic leader; 19% partner-but-excluded | **Confirmed** — same survey | Supporting, sharper than the 52% alone |
 | "≈90% of CHROs expect more adoption while over half have implemented none" | **Not confirmed; current data points the other way.** The authoring brief cites this as a prior verification win. Current figures show CHROs as the *most cautious* C-suite function — 5% expect half of HR work AI-enabled within three years, against ~80% of executives expecting bottom-line impact | **Changed the design premise.** The track opens on the skeptic-in-a-committed-room reading, not an expectations gap |
 | EU AI Act "fully applicable as of 2 August 2026, HR algorithms high-risk" | **Wrong, and nine days stale.** Regulation (EU) 2026/1744 (Digital Omnibus on AI) published 24 July 2026, in force 27 July 2026. Employment high-risk obligations → **2 December 2027**; Annex I → August 2028. **Most Article 50 transparency obligations still applied from 2 August 2026** | **Replaced M5's statutory content, and the replacement teaches better.** Also affects HRBP M6 and recruiter R6, which carry the deferral as a proposal — now adopted law |

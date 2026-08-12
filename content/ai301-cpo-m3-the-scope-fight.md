@@ -361,7 +361,7 @@ was a judgment or an avoidance.** Both answers are respectable and only one of t
 
 - **SHRM, *The State of AI in HR 2026*** `[V]` — 52% of organizations with no direct HR involvement
   in AI strategy; 28% regarding HR as a true strategic leader with a seat at the table; a further
-  19% seeing HR as a strategic partner still excluded from core decision forums. Survey of 1,908 HR
+  19% seeing HR as a strategic partner still excluded from core decision forums. Survey of 1,722 HR
   professionals, fielded December 2025. **The same figures appear in Module 2 and in the HRBP
   track**, deliberately worded consistently so the volatile copies do not drift.
 - **Moderna's combination of its People and Digital Technology organizations** under a Chief People
