@@ -1,0 +1,56 @@
+{
+  "promptVersion": "ai301-cpo-m2-calendar-and-budget-v1",
+  "moduleId": "ai301-cpo-m2",
+  "minWords": 300,
+  "maxWords": 400,
+  "submitLabel": "Your two maps and write-up",
+  "intro": "Paste both maps — last quarter's calendar and this year's budget, each split across the three tiers — plus the disagreement you found, the one move you would make and where it comes from, and the 300–400 word write-up including your position on this module's claim. Resubmission is free and unlimited; the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, CPO / CHRO track — for sitting Chief People Officers and CHROs. Module 2 applied activity, 'Calendar and budget, mapped': the learner sorts last quarter's actual calendar (or four representative weeks) and this year's People budget across three tiers — fiduciary and governance, the operating system, strategic counsel — producing three percentages for each. Then they read the disagreement between the two numbers against the module's three named readings (both concentrated in the operating system, predicting a compression problem; budget in operating system with calendar in strategic counsel, risking confident commitment without current operational knowledge; significant governance time already, meaning either well-prepared or something is currently wrong), name one thing they would move — attention, budget, or a person — with what it comes out of, and score their predicted split against the real one. CRITICAL SCORING NOTES. (1) ROUGH CATEGORIZATION IS CORRECT AND SHOULD NOT BE PENALIZED. The signal is the gap between two approximate numbers, not the precision of either. A learner who built an elaborate taxonomy or created a fourth 'mixed' category has misunderstood the exercise; a learner who split entries roughly and moved on has understood it. (2) The one move must have a named source — what it comes out of. A move with no source is an addition, not a decision, and should score low. (3) Where a learner cannot reconstruct a budget split, that is acceptable if they say how they approximated it; a fabricated precise split is worse than an acknowledged estimate. The module's claim, which the write-up must take a position on, is that the middle of the function is where automation lands and where the budget is; its real counter-argument is that the tiers are not separable — governance credibility is earned by running the operating system well, and nobody takes advice from a function that cannot run payroll, so hollowing the middle may evaporate both ends. The sharper version: the compression thesis is a claim about the future in the present tense, and a CPO who acts early and is wrong has cut the capability that made them credible. Strong positions name what evidence would show the compression is NOT happening at the assumed pace. This track scores the delta, not the score: never grade the accuracy of the predicted split, grade the account of the gap — and note that most predicted splits flatter their owner in the same direction.",
+  "opening": [
+    {
+      "key": "counselPct",
+      "label": "Predicted — % of last quarter's calendar spent on strategic counsel",
+      "hint": "Advising on decisions that had not been made yet. From memory, before you look.",
+      "placeholder": "e.g. 35",
+      "min": 0,
+      "max": 100
+    }
+  ],
+  "calibration": [
+    {
+      "key": "counselPctActual",
+      "label": "Measured — the same figure after mapping the actual calendar",
+      "hint": "Most people find this lower than they estimated. Direction and cause are the finding.",
+      "placeholder": "e.g. 15",
+      "min": 0,
+      "max": 100,
+      "actualFor": "counselPct"
+    }
+  ],
+  "dimensions": [
+    {
+      "name": "Both maps exist and use real data",
+      "criteria": "An actual calendar (a quarter, or four representative weeks) and an actual budget, each split three ways with percentages. Rough categorization is correct and must not be penalized — the exercise fails when someone builds a taxonomy. Where the budget split had to be approximated, credit an acknowledged estimate with its method; penalize a fabricated precise figure."
+    },
+    {
+      "name": "The tiers were sorted by consequence",
+      "criteria": "Evidence that entries were sorted by what happens if the work goes wrong rather than by team, seniority of the room, or subject matter. The tell of a good sort is at least one entry the learner found genuinely arguable, with the reasoning that resolved it — particularly a case where the same meeting split across two tiers, which is the module's boundary example."
+    },
+    {
+      "name": "The disagreement is read, not just reported",
+      "criteria": "Not two lists but an interpretation: where the numbers diverge and what that predicts. Credit a learner who identifies which of the three named readings is theirs, and equally one who says none fits and characterizes their own — the readings are a starting point rather than an exhaustive set."
+    },
+    {
+      "name": "One move, with a named source",
+      "criteria": "A single specific move of attention, budget, or a person, and what it comes out of. This is the dimension that separates a diagnosis from an observation. A list of intentions scores at the bottom; so does a move with no stated source, because an addition without a subtraction is not a decision at this altitude."
+    },
+    {
+      "name": "The position engages the inseparability objection",
+      "criteria": "A committed position on the claim that meets the real counter-argument: that governance credibility and strategic standing are both earned by running the operating system well, so hollowing the middle can evaporate the ends. Required element — what evidence would indicate the compression is not happening at the assumed pace. A learner who cannot name any falsifying evidence should be marked down, because they have accepted a forecast on presentation."
+    },
+    {
+      "name": "The delta, honestly read",
+      "criteria": "Predicted counsel percentage against the measured one, with an account of the gap — direction and cause, never accuracy. The specific thing to credit: whether the learner notices their prediction flattered them, and can say what they were counting as strategic counsel that the calendar shows was something else. That recognition is the module's highest-value output."
+    }
+  ]
+}
