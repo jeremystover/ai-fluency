@@ -457,8 +457,8 @@ surface and need a targeted check — M3 works without them, since the org-desig
 
 ## What drafting changed (v2 — recorded during the build)
 
-M1 is drafted; M2–M6 are outlined and verified but not yet drafted. Five things changed and are
-recorded here so the remaining modules inherit them.
+**The track is drafted — all six modules.** Five things changed in the writing and are recorded
+here rather than fixed silently.
 
 11. **Renamed from "The Decision Series."** That name belongs to the Talent Development track, which
     took it from its own human brief. "Irreversible" comes from this track's positioning — the
@@ -479,8 +479,29 @@ recorded here so the remaining modules inherit them.
     said the coaching RCT moved and HRBP M7 kept a pointer. Under the brief's revised §3a no learner
     sees two role tracks, so horizontal duplication is an authoring concern rather than a learner
     one. **Nothing in this track requires an edit to shipped content.**
-15. **M6's Gartner figure is not what the brief assumed, and the correction is the lesson.** See the
-    verification table.
+15. **M6's Gartner figure is not what the brief assumed, and the correction became the lesson.** The
+    "only 28% of AI use cases meet ROI expectations" figure is real and about **782
+    infrastructure-and-operations leaders**, not HR. Rather than cut it, M6 puts it *first* as the
+    worked example of scope-laundering — and specifically because it is the number most likely to
+    catch this audience: sober, credible, and supporting a cautious posture they already hold.
+    **Skepticism aimed only at optimistic claims is not skepticism.** The rubric marks down any case
+    that uses it as evidence about HR, and scores an admitted temptation above a silent avoidance.
+16. **M5 lost a figure and gained a better-evidenced argument.** The ~13% of enterprises with a CHRO
+    leading AI workforce strategy could not be traced to a primary source and is not used. The SHRM
+    figures cover the same ground with a stated sample (52% / 28% / 19%, n=1,908), and the
+    candidate-trust side turned out much stronger than the outline assumed — 26% with n=2,918, plus
+    a *behavioural* figure the outline did not have: roughly 38% have walked away from a hiring
+    process because it included an AI interview. M5's Sources names the dropped claim explicitly
+    rather than leaving a silent omission.
+17. **The five gate predictions distributed rather than stacking.** The outline put all five in M1.
+    Under the contested-claim convention each module opens on its own claim about the learner's
+    organization, with the numeric field beside the content that settles it — which is better,
+    because a prediction answered five modules later is a quiz and one answered in the same module
+    is a calibration.
+18. **Two modules needed a J-curve link the outline did not anticipate.** M4's trough is not only a
+    change-management lesson: it constrains M6's threshold design, because a threshold measured
+    inside the expected decline stops something that was working. M6 Lesson 2 carries that
+    explicitly, and it is the one piece of cross-module machinery unique to this track.
 
 ## Verification status
 
