@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why does this track's diagnosis run opposite to the HR business partner track's?",
+      "options": [
+        "Because L&D professionals are more anxious about AI than business partners are",
+        "Because the business partner's core territory is among the least AI-penetrated parts of HR, while L&D's core craft is among the most — so the reassuring version of the diagnosis would be false here",
+        "Because L&D has more budget exposure than the business partner function",
+        "Because business partners were taught this material in 201 and L&D professionals were not"
+      ],
+      "correctIndex": 1,
+      "explanation": "The shape of the finding is the same in both tracks — where has AI actually landed — and it points in opposite directions. Telling this audience \"you're not behind, calm down\" would be comfortable and untrue."
+    },
+    {
+      "id": "q2",
+      "prompt": "What does the seven-stage chain reveal that a list of L&D responsibilities does not?",
+      "options": [
+        "Which stages require the most specialized training to perform",
+        "That the hours concentrate in the middle stages while the distinctive value concentrates at the two ends — so collapsing the middle promotes the ends to being the whole job",
+        "That delivery is the stage most exposed to automation",
+        "That the stages must be performed in strict sequence to be effective"
+      ],
+      "correctIndex": 1,
+      "explanation": "A responsibilities list is unordered and hides the asymmetry. Only a sequence shows that time and value sit in different places."
+    },
+    {
+      "id": "q3",
+      "prompt": "In the triage, what does question one — \"is it cheap now?\" — actually ask?",
+      "options": [
+        "Whether the item was inexpensive to produce originally",
+        "Whether the item is low quality",
+        "What it would cost to replace the item today, regardless of what it cost to make",
+        "Whether the item is still being used by the business"
+      ],
+      "correctIndex": 2,
+      "explanation": "What it cost you is a fact about the past. The triage is about replacement cost now, which is why \"but that took my team six weeks\" is not an answer to it."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why does the module insist the three questions be run in order?",
+      "options": [
+        "Because the buckets must be equally sized for the analysis to work",
+        "Because running question three first makes everything look human-critical, and running question one first without the later rescues would swallow work that genuinely belongs in two or three",
+        "Because questions two and three are harder and should be attempted when fresh",
+        "Because the order matches the sequence of the chain in Lesson 1"
+      ],
+      "correctIndex": 1,
+      "explanation": "Both failure modes are real and they point in opposite directions. The discipline is a harsh question one followed by honest rescues, not a gentle pass through all three."
+    },
+    {
+      "id": "q5",
+      "prompt": "What actually protects the material in bucket two?",
+      "options": [
+        "That the judgment involved is too subtle for a model to reproduce",
+        "That it is legally restricted from being processed by AI systems",
+        "That the information it depends on is undocumented — absent from any record a model could have been trained on",
+        "That it changes too frequently for a model's knowledge cutoff"
+      ],
+      "correctIndex": 2,
+      "explanation": "And the distinction matters enormously, because the undocumented-information claim comes with a condition: it holds only while the information stays undocumented. The subtlety claim would be permanent, and it is not the one the module makes."
+    },
+    {
+      "id": "q6",
+      "prompt": "According to the module, what would most shrink bucket two?",
+      "options": [
+        "A substantially more capable model",
+        "Your own organization getting better at documenting how it actually works",
+        "Vendors gaining access to more industry-specific training data",
+        "A reduction in the regulatory constraints on AI in employment"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which is uncomfortable, because that is normally considered an unambiguously good thing to do. A is the answer that skips the mechanism — the constraint is the record, not the reasoning."
+    },
+    {
+      "id": "q7",
+      "prompt": "Why does the module state what the track will not teach?",
+      "options": [
+        "To set expectations about the time commitment involved",
+        "Because those topics are covered in optional supplementary material",
+        "Because building content with AI is 201 M3, a standards pack is 201 M2, and a calendar of workflows is 201 M7 — a 300-level course that re-teaches them is charging twice for the same material",
+        "Because production topics are outside the scope of any 301 track"
+      ],
+      "correctIndex": 2,
+      "explanation": "They are the three most obvious modules a Talent Development course would reach for, which is exactly why they need naming. D is wrong: other tracks teach production-adjacent craft where the role makes it specialist."
+    },
+    {
+      "id": "q8",
+      "prompt": "A learner reports they cannot produce an inventory of their own catalog. How should that be treated?",
+      "options": [
+        "As a failure to complete the activity, which should be resubmitted once the list exists",
+        "As a finding about the function that is worth more than the exercise, and which should become the write-up",
+        "As a reason to run the triage on a hypothetical portfolio instead",
+        "As evidence that the function is too small for the triage to apply"
+      ],
+      "correctIndex": 1,
+      "explanation": "A function that cannot enumerate what it publishes has learned something structural about itself. The activity is a means of finding things out; when the means fails informatively, the finding is the output."
+    }
+  ]
+}
