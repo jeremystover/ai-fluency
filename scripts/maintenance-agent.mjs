@@ -243,26 +243,46 @@ function distinctive(candidates) {
 // what separates a useful flag from noise — counting tokens flagged a recruiting
 // module as citing an NLRB memorandum because it contained "2022" and "General".
 function tokenScore(token, df) {
-  if (/^\d{1,2} [A-Z][a-z]+ \d{4}$/.test(token)) return 3; // 31 October 2022
-  if (/^\d{1,3}(,\d{3})+$/.test(token)) return 3; // 1,722
-  if (/^\d+\.\d+%$/.test(token)) return 3; // 0.29%
-  if (/^[A-Z][a-z]+ \d{4}$/.test(token)) return 2; // October 2022
-  if (/^\d+%$/.test(token)) return Number(token.slice(0, -1)) % 5 === 0 ? 1 : 2; // 20% vs 68%
-  if (/^(19|20)\d{2}$/.test(token)) return 1; // a bare year
-  return df <= 3 ? 3 : 1; // a proper noun, scored by how rare it is
+  let base;
+  if (/^\d{1,2} [A-Z][a-z]+ \d{4}$/.test(token)) base = 3; // 31 October 2022
+  else if (/^\d{1,3}(,\d{3})+$/.test(token)) base = 3; // 1,722
+  else if (/^\d+\.\d+%$/.test(token)) base = 3; // 0.29%
+  else if (/^[A-Z][a-z]+ \d{4}$/.test(token)) base = 2; // October 2022
+  else if (/^\d+%$/.test(token)) base = Number(token.slice(0, -1)) % 5 === 0 ? 1 : 2; // 20% vs 68%
+  else if (/^(19|20)\d{2}$/.test(token)) base = 1; // a bare year
+  else base = 3; // a proper noun
+
+  // Rarity caps the WEAK types only, and that distinction is the whole trick.
+  //
+  // "August 2026" looks like a specific date and is worthless here — half the
+  // curriculum carries it, because it is an EU AI Act deadline. Capping it by
+  // frequency is right.
+  //
+  // Applying the same cap to strong types was a bug, caught by the regression
+  // check below: "Mobley" appears in ten modules *precisely because* ten tracks
+  // cite the case. For a token that is already tied to the fact, a high document
+  // frequency is evidence the fact is widely cited, not evidence the token is
+  // noise. Strong types keep their score however common they are.
+  if (base >= 3) return base;
+  if (df > 5) return 1;
+  if (df > 2) return Math.min(base, 2);
+  return base;
 }
 
 // A module not listed in citedBy is only flagged when the evidence is strong
 // enough to be worth a human's attention: enough total weight, and at least one
 // token that is not itself a coincidence.
-const UNLISTED_MIN_SCORE = 4;
+// One strong token plus one weak one is not enough: an acronym like "EEOC" in a
+// module that merely mentions the agency would clear that bar. The flag needs
+// real weight AND at least one token that is evidence on its own.
+const UNLISTED_MIN_SCORE = 5;
 function unlistedEvidence(entry, moduleId) {
   const text = textOf(moduleId);
   const hits = detectionTokens(entry)
     .filter((t) => occursIn(text, t))
     .map((t) => ({ token: t, score: tokenScore(t, dfCache.get(t) ?? 99) }));
   const total = hits.reduce((sum, h) => sum + h.score, 0);
-  const strong = hits.some((h) => h.score >= 2);
+  const strong = hits.some((h) => h.score >= 3);
   return total >= UNLISTED_MIN_SCORE && strong ? hits : null;
 }
 
@@ -272,7 +292,24 @@ function detectionTokens(entry) {
   const candidates = new Set(figureAtoms(entry));
   // Proper nouns from the source line — "SHRM", "Mobley", "Workday". The
   // frequency filter removes the generic ones.
-  for (const word of String(entry.source ?? '').match(/\b[A-Z][A-Za-z]{3,}\b/g) ?? []) candidates.add(word);
+  // Proper nouns from the source line — "SHRM", "Mobley", "Workday". Two
+  // exclusions, both learned from false positives:
+  //
+  // Month names are capitalised and pass the length test but are not proper
+  // nouns here — "June" out of a source line matched five unrelated modules.
+  //
+  // And a source line written as prose ("...Civil Rights Act of 1991; EEOC
+  // National Enforcement Plan...") yields ordinary words that happen to sit at
+  // the start of a title. The tell is that a real proper noun almost never
+  // appears lowercased in the corpus, while "executive", "plan" and "rights" are
+  // everywhere. So a candidate is dropped if its lowercase form is common.
+  for (const word of String(entry.source ?? '').match(/\b[A-Z][A-Za-z]{3,}\b/g) ?? []) {
+    if (new RegExp(`^(?:${MONTH})$`).test(word)) continue;
+    if (word === word.toUpperCase()) { candidates.add(word); continue; } // acronym: EEOC, SHRM
+    const lower = word.toLowerCase();
+    const lowerDf = allModuleIds.filter((id) => occursIn(textOf(id), lower)).length;
+    if (lowerDf <= 5) candidates.add(word);
+  }
   const tokens = distinctive([...candidates]);
   tokenCache.set(entry.id, tokens);
   return tokens;

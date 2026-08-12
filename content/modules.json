@@ -1039,9 +1039,9 @@
       "courseId": "ai301-cpo",
       "ordinal": 5,
       "title": "The trust you own but don't control",
-      "blurb": "The one decision in the track that isn't yours to make — and the deficit you are accountable for anyway.",
+      "blurb": "The trust you own but did not design — the US floor that did not move, the European one that deferred without giving you runway, and why a policy nobody has enforced is not governance.",
       "status": "open",
-      "estMinutes": 25,
+      "estMinutes": 40,
       "prereqs": [
         "ai301-cpo-m1"
       ],

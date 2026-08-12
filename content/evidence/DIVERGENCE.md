@@ -90,6 +90,61 @@ professionals, fielded Dec 2025).
 
 ---
 
+## Third pass — the US surface, and three detector bugs · 12 August 2026
+
+Adding the US floor lesson to `ai301-cpo-m5` put two new entries in the library
+(`us-enforcement-posture`, `eeo1-rescission`) and turned up one piece of shipped content that has
+gone stale.
+
+**`ai301-defensible-m1` Lesson 3 is out of date on the EEO-1.** It describes the rescission as
+submitted to OIRA on 14 May 2026 with review expected inside 90 days. The NPRM has since been
+published in the Federal Register (23 July 2026) with comments closing 24 August 2026. The lesson's
+*teaching* point — that a baseline is disappearing and baselines cannot be reconstructed backwards —
+is unaffected and still good. Only the procedural stage is wrong. **Filed as S-12.**
+
+### Three bugs in the `citedBy` detector, and what each one taught
+
+The second pass reported 7 findings with no false positives, which was true of the corpus *as it
+then stood*. Adding two entries whose source lines are prose rather than short citations broke it
+three separate ways. Recorded because each failure has a general shape.
+
+**1. Month names are not proper nouns.** `June` was extracted from a source line and matched five
+unrelated modules. Excluded.
+
+**2. A capitalised word in a title is not a proper noun either.** A source line reading
+*"...Civil Rights Act of 1991; EEOC National Enforcement Plan..."* yields `Civil`, `Rights`,
+`Executive`, `Enforcement`, `Plan` — all ordinary words. The discriminator that works is cheap: **a
+real proper noun almost never appears lowercased in the corpus**, while *executive*, *plan* and
+*rights* are everywhere. Candidates whose lowercase form is common are dropped; acronyms are kept.
+
+**3. Rarity must cap weak tokens only — and this one was caught by the regression check, not by
+inspection.** Capping every token's score by document frequency looked obviously right and quietly
+destroyed the best signal in the library: **`Mobley` appears in ten modules precisely because ten
+tracks cite the case.** For a token already tied to a fact, high document frequency is evidence the
+fact is widely cited, not evidence the token is noise. Removing two known citers from
+`mobley-v-workday` produced *nothing* — a silent, total loss of recall on the entry the library was
+most built for. Strong types now keep their score however common they are; only bare years, round
+percentages and `Month YYYY` are capped.
+
+The threshold also rose to 5 with at least one token that is evidence on its own, because a single
+acronym plus a stray date cleared the old bar.
+
+### The regression check, which is the part worth keeping
+
+`DIVERGENCE.md` already stated the validation criterion: *the detector must rediscover a known
+divergence without being told to look for it.* Bug 3 is the argument for actually running it rather
+than restating it. The procedure, three steps:
+
+1. Baseline: `npm run evidence:check` reports zero mismatches.
+2. Remove two or three known-good entries from `citedBy` lists across two different entries, re-run,
+   and confirm **every one is rediscovered**.
+3. Restore, re-run, confirm clean.
+
+Current state: baseline clean · four removals across `mobley-v-workday` and `eu-ai-act-timeline` all
+rediscovered · clean after restore.
+
+---
+
 ## Second pass — the agent, wired · 12 August 2026
 
 Stage 2 replaced the by-hand method below with `scripts/maintenance-agent.mjs`. Its first run found

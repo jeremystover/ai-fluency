@@ -1,0 +1,34 @@
+{
+  "id": "us-enforcement-posture",
+  "asOf": "2026-08-12",
+  "lastVerified": "2026-08-12",
+  "source": "Executive Orders 14281 and 14398; EEOC National Enforcement Plan (June 2026); Griggs v. Duke Power Co. (1971); Civil Rights Act of 1991",
+  "sample": "Primary instruments — no survey sample applies",
+  "claims": [
+    {
+      "claim": "Disparate impact liability under Title VII is statutory — recognised in Griggs v. Duke Power Co. (1971) and codified by Congress in the Civil Rights Act of 1991",
+      "figure": "1991",
+      "canonicalWording": "Always pair the codification with the point that an executive order cannot repeal a statute. The two facts are only useful together."
+    },
+    {
+      "claim": "EO 14281 (April 2025) directs federal agencies to eliminate disparate impact liability from civil rights enforcement",
+      "figure": "April 2025"
+    },
+    {
+      "claim": "The EEOC dropped pending disparate impact cases, and in June 2026 issued a National Enforcement Plan prioritising disparate treatment theories over disparate impact theories",
+      "figure": "June 2026"
+    },
+    {
+      "claim": "EO 14398, 'Addressing DEI Discrimination by Federal Contractors', signed 26 March 2026 — flow-down clause to subcontractors, 'reasonably knowable' disclosure duty, books-and-records access, enforcement including False Claims Act actions",
+      "figure": "26 March 2026"
+    }
+  ],
+  "cautions": [
+    "The posture is contested in both directions and litigation challenging these orders is live. State direction of travel, never a settled position.",
+    "The load-bearing teaching point is that enforcement retreat is not exposure reduction — it relocates exposure to the private plaintiffs' bar. A module that reports the retreat without that point teaches the opposite of what is intended."
+  ],
+  "citedBy": [
+    "ai301-defensible-m1",
+    "ai301-cpo-m5"
+  ]
+}

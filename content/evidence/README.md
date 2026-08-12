@@ -33,7 +33,9 @@ content written this deliberately.
 |---|---|---|
 | `shrm-ai-in-hr-2026.json` | Adoption concentration and policy findings | 10 |
 | `eu-ai-act-timeline.json` | Annex III deferral, Article 50, Article 25/26 | 10 |
-| `mobley-v-workday.json` | Agent theory and the 2026 posture | 7 |
+| `us-enforcement-posture.json` | The US retreat, the statutory floor that did not move, EO 14398 | 2 |
+| `mobley-v-workday.json` | Agent theory, the 2026 posture, the privilege holding | 8 |
+| `eeo1-rescission.json` | The NPRM, its dates, and the baseline problem | 2 |
 | `nlrb-gc-memoranda.json` | GC 23-02 and its rescission | 2 |
 | `ai-policy-prevalence.json` | Two instruments that look contradictory and aren't | 2 |
 | `productivity-evidence.json` | METR, the firm-level survey, the Danish nulls | 4 |
