@@ -1,5 +1,14 @@
 [
   {
+    "id": "ai301-peopleops-m4-counsel-review-required-5",
+    "moduleId": "ai301-peopleops-m4",
+    "ordinal": 5,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## ⚖️ Counsel review required\n\n**Counsel review is required before this module ships, and before you act on Lesson 3.**\n\nThe chatbot-as-notice exposure in that lesson is identified by employment counsel and is **not\nsettled by any decision we could find**. It is framed in *may* throughout, deliberately — and that\nhedging is the accurate state of the law, not authorial caution.\n\nLessons 1, 3 and 4 are volatile layer. This module tells you which questions to take to your own\nlawyers. **It is not legal advice.**"
+  },
+  {
     "id": "ai301-peopleops-m4-calibration-prompt-the-claim-to-contest-10",
     "moduleId": "ai301-peopleops-m4",
     "ordinal": 10,

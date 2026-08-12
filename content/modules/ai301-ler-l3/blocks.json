@@ -1,5 +1,14 @@
 [
   {
+    "id": "ai301-ler-l3-counsel-review-required-5",
+    "moduleId": "ai301-ler-l3",
+    "ordinal": 5,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## ⚖️ Counsel review required\n\n**Consent law is state-specific, biometric-privacy litigation is active, and the disparity exposure\nin Lesson 3 is an emerging theory rather than a settled one.**\n\n**Counsel review is required before this module ships, and before you change your recording\npractice.** Changing how interviews are recorded on the strength of a course — any course — is the\nspecific mistake this gate exists to prevent. Lessons 1 through 4 are volatile layer.\n\nThis module tells you which questions to take to your own lawyers. **It is not legal advice.**"
+  },
+  {
     "id": "ai301-ler-l3-calibration-prompt-the-claim-to-contest-10",
     "moduleId": "ai301-ler-l3",
     "ordinal": 10,

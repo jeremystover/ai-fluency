@@ -32,7 +32,7 @@ These are wrong or stale in content a learner can open today. Highest priority i
 | **S-10** | **SHRM sample was wrong in five modules across three tracks** — 1,908 (started) used where 1,722 (completed, the analytic sample) belongs. Found by the first library pass. | 9 files | **closed** — corrected everywhere; canonical in `content/evidence/shrm-ai-in-hr-2026.json` |
 | **S-11** | **NLRB rescinded-memoranda count contradicted itself** — `excomms-m7` said 31, `ler-l7` said 29. | `ai301-excomms-m7` | **closed** — 29 is correct; excomms now names GC 25-05 too |
 | **S-12** | **`ai301-defensible-m1` Lesson 3 is stale on the EEO-1 rescission.** It has the rule submitted to OIRA on 14 May 2026 with review expected inside 90 days; the NPRM was published in the Federal Register on **23 July 2026** with comments closing **24 August 2026**. The lesson's teaching point — a baseline is disappearing and baselines cannot be reconstructed backwards — is unaffected; only the procedural stage is wrong. Canonical wording now in `content/evidence/eeo1-rescission.json`, which flags the item as high-volatility. Found while building the CPO US floor lesson, not by a maintenance run. | `ai301-defensible-m1` | **open** |
-| **S-13** | **Six modules lost their counsel-review gate in conversion, and five more carry it only in the sources block.** `scripts/convert-draft.mjs` drops everything before the first `## ` heading, so a gate written into a draft's metadata header never reaches `blocks.json` — invisible to the learner, the tutor and the podcast. **Predicted by the 401 thread's build note and confirmed here.** Absent entirely: `ai301-analytics-m5`, `ai301-comp-m4`, `ai301-ler-l3`, `ai301-ler-l7`, `ai301-peopleops-m7`, `ai301-talent-dev-m5`. Present only at ordinal 100–110, after the learner has read the legal content: `ai301-cpo-m5`, `ai301-hrbp-m6`, `ai301-peopleops-m4`, `ai301-recruiter-r6`. Done correctly at ordinal 10, ahead of the calibration prompt: `ai301-defensible-m1/m2/m3`, `ai301-excomms-m6/m7`, `ai401-m9`. **Note `ai301-ler-l7` is listed in the counsel-gate table below on the strength of its draft** — the gate a reader would rely on is not in the shipped module. | multiple | **open** |
+| **S-13** | **Six modules lost their counsel-review gate in conversion, and five more carry it only in the sources block.** `scripts/convert-draft.mjs` drops everything before the first `## ` heading, so a gate written into a draft's metadata header never reaches `blocks.json` — invisible to the learner, the tutor and the podcast. **Predicted by the 401 thread's build note and confirmed here.** Absent entirely: `ai301-analytics-m5`, `ai301-comp-m4`, `ai301-ler-l3`, `ai301-ler-l7`, `ai301-peopleops-m7`, `ai301-talent-dev-m5`. Present only at ordinal 100–110, after the learner has read the legal content: `ai301-cpo-m5`, `ai301-hrbp-m6`, `ai301-peopleops-m4`, `ai301-recruiter-r6`. Done correctly at ordinal 10, ahead of the calibration prompt: `ai301-defensible-m1/m2/m3`, `ai301-excomms-m6/m7`, `ai401-m9`. **Note `ai301-ler-l7` is listed in the counsel-gate table below on the strength of its draft** — the gate a reader would rely on is not in the shipped module. | multiple | **closed** — all 10 now carry `## ⚖️ Counsel review required` at ordinal 5, written from each module's own draft wording rather than templated. `convert-draft.mjs` now **refuses to convert** a draft whose gate lives only in the metadata header (`--allow-lost-gate` overrides), so this cannot recur silently |
 
 ---
 
@@ -86,6 +86,9 @@ Modules that carry an explicit counsel-review requirement in their own content. 
 tracks whether the review happened.** This is an operational blocker for customer deployment, not a
 content task.
 
+Every module below now states its own gate at the top of its content (S-13). This table tracks
+whether the review it asks for has actually happened, which the content cannot know.
+
 | Module | Surface | Reviewed |
 |---|---|---|
 | `ai301-comp-m4` | ERISA fiduciary duty, pay transparency, privilege and AI | ☐ |
@@ -97,6 +100,12 @@ content task.
 | `ai301-defensible-m3` | Adverse impact testing under privilege | ☐ |
 | `ai301-ler-l7` | Statute, Board doctrine and General Counsel priorities | ☐ |
 | `ai101-m7` L3 | Regulatory claims — see S-1 | ☐ |
+| `ai301-ler-l3` | Consent law, biometric privacy, disparity exposure | ☐ |
+| `ai301-hrbp-m6` | The regulatory surface and the agent theory | ☐ |
+| `ai301-recruiter-r6` | The floor and reading a bias audit | ☐ |
+| `ai301-cpo-m5` | The US floor, the EU floor, privilege sequencing | ☐ |
+| `ai301-talent-dev-m5` | Statutory positions across jurisdictions | ☐ |
+| `ai401-m9` | Deployer obligations, the agent theory, the exception path | ☐ |
 
 ---
 

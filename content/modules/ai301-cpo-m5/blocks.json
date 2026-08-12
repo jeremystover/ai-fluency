@@ -1,5 +1,14 @@
 [
   {
+    "id": "ai301-cpo-m5-counsel-review-required-5",
+    "moduleId": "ai301-cpo-m5",
+    "ordinal": 5,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## ⚖️ Counsel review required\n\n**This module states statutory positions that move** — one of them moved nine days before it was\nwritten, and the US enforcement posture it describes is contested in both directions with live\nlitigation.\n\n**Counsel review is required before deployment.** Confirm every specific against your own\njurisdictions and sectors before relying on it, and if you hold federal contracts, before acting on\nany of Lesson 2's contractor material at all. Lessons 1, 2 and 3 are volatile layer throughout.\n\nNothing here is legal advice. It states the surface so that **you can ask your general counsel a\nspecific question instead of \"are we compliant?\"**, which gets a shrug and deserves one."
+  },
+  {
     "id": "ai301-cpo-m5-calibration-prompt-before-you-start-10",
     "moduleId": "ai301-cpo-m5",
     "ordinal": 10,

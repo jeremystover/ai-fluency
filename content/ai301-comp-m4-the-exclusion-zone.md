@@ -13,6 +13,18 @@
 
 ---
 
+## ⚖️ Counsel review required
+
+**The legal surface in this module moves faster than in any other track on this ladder**, and two of
+the decisions it cites are months old and unsettled.
+
+**Before your organization ships anything built from this module**, it needs a read by counsel
+qualified in your jurisdictions. Lessons 3 and 4 are volatile layer throughout.
+
+Nothing here is legal advice. **It is a map of where you need some** — which, for a function that
+commissions pay analyses, is a question about sequencing as much as content: whether an analysis is
+run for counsel is decided when you ask for it, not after you read it.
+
 ## Calibration prompt — before you start
 
 *Two predictions, one minute.*

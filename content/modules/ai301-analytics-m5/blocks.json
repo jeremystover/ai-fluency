@@ -1,5 +1,14 @@
 [
   {
+    "id": "ai301-analytics-m5-counsel-review-required-5",
+    "moduleId": "ai301-analytics-m5",
+    "ordinal": 5,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## ⚖️ Counsel review required\n\n**This module maps a statutory surface that is still moving.** One of the statutes it describes was\npostponed, enjoined, repealed and replaced inside thirteen months — which is a lesson about the\nterrain, not a footnote about one state.\n\n**Before your organization ships anything built from this module**, it needs a read by counsel\nqualified in your jurisdictions. Lessons 2 through 5 are volatile layer throughout.\n\nNothing here is legal advice. **It is a map of where you need some** — and of the one thing only you\ncan produce, which is an accurate account of what your organisation actually does with inference\nabout people."
+  },
+  {
     "id": "ai301-analytics-m5-claim-to-contest-before-you-start-10",
     "moduleId": "ai301-analytics-m5",
     "ordinal": 10,

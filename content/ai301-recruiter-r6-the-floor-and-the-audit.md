@@ -12,6 +12,17 @@
 
 ---
 
+## ⚖️ Counsel review required
+
+**This module's legal content moves faster than anything else in the curriculum.** Statutes,
+effective dates and litigation posture change between review cycles.
+
+**Counsel review is required before this module ships in any deployment**, by counsel qualified in
+that deployment's jurisdictions.
+
+Nothing here is legal advice. It teaches you **what to ask counsel** — and, for a function that buys
+screening tools, what to ask a vendor before signature, when you still have leverage.
+
 ## Calibration prompt — before you start
 
 *One prediction, thirty seconds.*

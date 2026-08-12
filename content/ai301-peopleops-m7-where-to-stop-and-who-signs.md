@@ -15,6 +15,17 @@
 
 ---
 
+## ⚖️ Counsel review required
+
+**This is the heaviest module in the curriculum, and the fastest-moving.** While this track was being
+written a regulation was published, a Board changed composition, and a discovery ruling issued.
+
+**Counsel review is required before this module ships.** Lessons 2 through 5 are volatile layer.
+
+Nothing here is legal advice. This module teaches you **which questions have legal answers**, and how
+to bring counsel a specific list rather than a general worry — which is the difference between an
+answer and a shrug.
+
 ## Calibration prompt — the claim to contest
 
 *Commit before you read anything. Thirty seconds.*

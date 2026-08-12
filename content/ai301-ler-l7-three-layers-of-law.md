@@ -15,6 +15,18 @@
 
 ---
 
+## ⚖️ Counsel review required
+
+**This is the most volatile module on the ladder, by design.** The three-layer framework is stable.
+Every example inside it carries a date, because every example moves.
+
+**Counsel review is required before acting on anything in Lessons 2, 3 or 5.** The module tells you
+where the questions are and gives you the list to bring; it does not answer them.
+
+**Jurisdictional note:** the examples are US federal labor law. **The layer framework transfers; the
+citations do not.** If you operate outside the US, treat every citation here as an illustration of
+the framework rather than as a statement about your obligations.
+
 ## Calibration prompt — the claim to contest
 
 *Commit before you read anything. Thirty seconds.*

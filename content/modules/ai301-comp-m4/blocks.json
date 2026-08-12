@@ -1,5 +1,14 @@
 [
   {
+    "id": "ai301-comp-m4-counsel-review-required-5",
+    "moduleId": "ai301-comp-m4",
+    "ordinal": 5,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## ⚖️ Counsel review required\n\n**The legal surface in this module moves faster than in any other track on this ladder**, and two of\nthe decisions it cites are months old and unsettled.\n\n**Before your organization ships anything built from this module**, it needs a read by counsel\nqualified in your jurisdictions. Lessons 3 and 4 are volatile layer throughout.\n\nNothing here is legal advice. **It is a map of where you need some** — which, for a function that\ncommissions pay analyses, is a question about sequencing as much as content: whether an analysis is\nrun for counsel is decided when you ask for it, not after you read it."
+  },
+  {
     "id": "ai301-comp-m4-calibration-prompt-before-you-start-10",
     "moduleId": "ai301-comp-m4",
     "ordinal": 10,

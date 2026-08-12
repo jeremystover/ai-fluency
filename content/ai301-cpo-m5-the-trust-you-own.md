@@ -15,6 +15,19 @@
 
 ---
 
+## ⚖️ Counsel review required
+
+**This module states statutory positions that move** — one of them moved nine days before it was
+written, and the US enforcement posture it describes is contested in both directions with live
+litigation.
+
+**Counsel review is required before deployment.** Confirm every specific against your own
+jurisdictions and sectors before relying on it, and if you hold federal contracts, before acting on
+any of Lesson 2's contractor material at all. Lessons 1, 2 and 3 are volatile layer throughout.
+
+Nothing here is legal advice. It states the surface so that **you can ask your general counsel a
+specific question instead of "are we compliant?"**, which gets a shrug and deserves one.
+
 ## Calibration prompt — before you start
 
 *One claim. Commit before you read.*

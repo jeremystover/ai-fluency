@@ -13,6 +13,19 @@
 
 ---
 
+## ⚖️ Counsel review required
+
+**This module maps a statutory surface that is still moving.** One of the statutes it describes was
+postponed, enjoined, repealed and replaced inside thirteen months — which is a lesson about the
+terrain, not a footnote about one state.
+
+**Before your organization ships anything built from this module**, it needs a read by counsel
+qualified in your jurisdictions. Lessons 2 through 5 are volatile layer throughout.
+
+Nothing here is legal advice. **It is a map of where you need some** — and of the one thing only you
+can produce, which is an accurate account of what your organisation actually does with inference
+about people.
+
 ## Claim to contest — before you start
 
 *Commit before you read anything.*
