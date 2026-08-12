@@ -111,8 +111,14 @@ at this altitude; behaviour is not.
    system nobody in HR has reviewed. *(M5 — and "I can't name one" is itself a finding)*
 
 - **Lesson 1:** The credibility chain — personal fluency → functional transformation → enterprise
-  standing. HR leaders who have actually transformed core processes are roughly three times more
-  likely to say AI made them better leaders `[V]`. You cannot lead Job B without doing Job A.
+  standing. **Argued from craft, not from a statistic** (Decision 7). The available number points
+  the right way and cannot carry the claim: in Culture Amp's 2026 AI in HR study, HR professionals
+  reporting transformation in core processes were nearly three times as likely to say AI made them
+  better leaders — **70% against 25%** — from **264 respondents drawn from the vendor's own
+  community**, cross-sectional, which establishes a correlation and says nothing about which
+  direction it runs `[V]`. The lesson says that out loud, because this audience checks, and because
+  M6 asks them to hold vendors to exactly this standard. You cannot lead Job B without doing Job A,
+  and the reason is structural rather than statistical.
 - **Lesson 2:** What executive-altitude practice actually looks like `[V]`. Not a tool demo — a
   standing habit. The CHRO who records his meetings, keeps them in a private model, and every
   Monday asks what he did well, what he did poorly, and what to change. A CPO generating candidate
@@ -436,21 +442,32 @@ surface and need a targeted check — M3 works without them, since the org-desig
    guidance. It sits comfortably with the prediction gate, which asks for estimates of facts and
    outcomes rather than self-rated confidence — but the distinction should be written into the
    convention so nobody adds a confidence scale later.
-6. **One anchor per module.** M1 the Culture Amp 3x; M2 none — argued from the tier frame; M3 the
-   Moderna org move; M4 the IBM trough; M5 the trust asymmetry; M6 the MIT 95% *with its sample
-   stated*. Everything else supporting or cut.
+6. **One anchor per module — and M1 deliberately has none.** M1 argued from craft (Decision 7); M2
+   none, argued from the tier frame; M3 the Moderna org move; M4 the IBM trough; M5 the trust
+   asymmetry; M6 the MIT 95% *with its sample stated*. Everything else supporting or cut.
+7. **The Culture Amp finding is demoted from anchor to supporting — settled after verification.**
+   The brief leads M1 on it. Chased to source it is Culture Amp's *2026 AI in HR Study*, released
+   22 July 2026: 70% versus 25%, from **264 HR professionals in the vendor's own community survey**,
+   cross-sectional. Three problems for a module opening a track aimed at the most skeptical
+   executive in the C-suite — a small self-selected sample, a vendor with an interest in the
+   result, and a correlation with no direction. **Opening the course on a citation this audience
+   can dismiss in one line is the worst possible place to lose them**, and M1's claim is a craft
+   argument that does not need propping up. The number stays, stated with its sample and its
+   causal limit; the argument leads.
 
 ## Verification status
 
 **Confirmed:** the SHRM exclusion figures with sample (n=1,908, December 2025); the CHRO skepticism
-contrast; the EU AI Act's actual current position; IBM's 94% resolution, 40% budget reduction, and
+contrast; the Culture Amp finding, **sourced and demoted** — *2026 AI in HR Study*, 22 July 2026,
+70% vs 25%, n=264, vendor community survey, cross-sectional (see Decision 7); the EU AI Act's
+actual current position, **now corrected in HRBP M6 and the recruiter outline**; IBM's 94%
+resolution, 40% budget reduction, and
 the −35 → +74 recovery *as a satisfaction score*; IBM's increase in entry-level hiring; Tracey
 Franklin's role and the Moderna People/Digital Technology merger; MIT's 95% with its sample and its
 methodological critique.
 
 **Unverified and blocking before drafting:**
 
-- **The Culture Amp ~3x finding** — M1's anchor. Needs source and sample.
 - **The Bersin CHRO anecdote and the Walmart senior-search example** — M1 Lesson 2's concrete
   material. Both are second-hand as stated.
 - **Moderna's 3,000+ custom GPTs and ~5,800 headcount.**

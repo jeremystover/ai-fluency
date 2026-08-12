@@ -153,7 +153,13 @@ changed content rather than confirming it.
 | MIT: 95% of enterprise genAI pilots no measurable P&L impact | **Confirmed with sample** — *The GenAI Divide*: 52 executive interviews, 153 survey respondents, 300 public deployments. Critics argue it describes organizations measuring the wrong things at the wrong time | M6's anchor, sample stated in-lesson |
 | 401's definition describes a rung, not the CHRO | **Confirmed in-repo** — but read wrongly the first time. See §3 | Corrected the verdict |
 
-**Still unverified and blocking before drafting:** the Culture Amp ~3x finding (M1's anchor); the
+**Chased and resolved:** the Culture Amp finding is Culture Amp's *2026 AI in HR Study*, released
+22 July 2026 — 70% versus 25%, from **264 HR professionals in the vendor's own community survey**,
+cross-sectional. Directionally right, but a small self-selected sample, an interested publisher,
+and no causal direction. **Demoted from M1's anchor to supporting evidence, stated with its
+limits** (outline Decision 7). M1 is argued from craft instead.
+
+**Still unverified and blocking before drafting:** the
 Bersin CHRO and Walmart senior-search anecdotes; Gartner's 28% and the 47%-of-CHROs measurement
 figure; the ~26% candidate-fairness and ~13% CHRO-leading-AI-strategy pair; the
 ~49%-have-a-policy / quarter-think-it-durable pair; the 47% → 38% confidence decline; and the

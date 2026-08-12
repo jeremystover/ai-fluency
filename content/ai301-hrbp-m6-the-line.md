@@ -74,11 +74,22 @@ sometimes with publication; the right to request human review; and record-keepin
 tool was used and what it produced. If you build for those four, you are broadly positioned for
 regimes you haven't read yet.
 
-**The European regime has one absolute.** The EU AI Act classifies employment uses — recruitment,
-selection, promotion, termination, task allocation, and performance monitoring — as high-risk,
-and those obligations were deferred to **December 2027** under the Digital Omnibus agreement. But
-two things did not move: the **AI literacy obligation** and the **prohibition on emotion
-recognition in the workplace**, both in force since February 2025. The emotion-recognition ban is
+**The European regime, and why deferral is not runway.** The EU AI Act classifies employment uses
+— recruitment, selection, promotion, termination, task allocation, and performance monitoring — as
+high-risk. Those obligations moved to **2 December 2027** under the Digital Omnibus on AI,
+**Regulation (EU) 2026/1744**, which entered into force on 27 July 2026 — six days before the
+original deadline. Read only that headline and you would conclude you have until 2027. You do not:
+**three sets of duties bind you now.**
+
+The **AI literacy obligation** and the **prohibition on emotion recognition in the workplace**,
+both in force since February 2025. And since **2 August 2026**, the Act's **transparency
+obligations**, which apply to covered systems *regardless of high-risk classification*. The one
+that reaches most People functions: a system interacting directly with a person must disclose that
+it is AI, at or before the start of the interaction. **A recruiting chatbot, an HR service bot, or
+an onboarding assistant operating in Europe sits squarely inside that** — and the ceiling is
+€15 million or 3% of worldwide turnover.
+
+The emotion-recognition ban is
 not a risk to manage — it is a prohibition on inferring emotional states of employees or
 candidates from facial expression, voice, or similar signals. If a vendor is selling you
 sentiment-from-video in an interview context and you have European operations, that is not a
@@ -189,8 +200,10 @@ coming that we should build for now?"* That question has answers. The general on
   whether you comply.
 - **Four obligations recur** across regimes: notice, bias auditing, human review, record-keeping.
   Build for those and you're positioned for statutes you haven't read.
-- **The EU emotion-recognition ban is already absolute** `[V]`, alongside the AI literacy
-  obligation — high-risk employment duties deferred to December 2027, those two did not move.
+- **Deferral is not runway** `[V]`. High-risk employment duties moved to 2 December 2027, but three
+  sets bind you today: AI literacy and the absolute workplace emotion-recognition ban (February
+  2025), and the transparency obligations since 2 August 2026 — under which a candidate-facing
+  chatbot must disclose it is AI, whatever its risk class.
 - **Agent theory means neither party can point at the other** `[V]`, and discovery reaches the
   model — "we don't know how it works" is a position to defend, not a shield. Get validation
   evidence before signature; afterwards you have no leverage.
@@ -254,16 +267,18 @@ are taking to counsel first.
 > **B.** You cannot comply with a regime you don't know covers you, which is why the module's
 > homework starts with inventory and jurisdiction rather than with policy.
 
-**Q2.** Which EU AI Act obligations are already in force rather than deferred to December 2027? `[V]`
+**Q2.** Which EU AI Act obligations bind an employer today, rather than being deferred to December 2027? `[V]`
 
 - A. All high-risk employment obligations
 - B. Bias auditing and candidate notice
-- C. The AI literacy obligation and the prohibition on emotion recognition in the workplace ✓
+- C. AI literacy, the workplace emotion-recognition prohibition, and the transparency duty that makes a candidate-facing chatbot disclose it is AI ✓
 - D. None — the entire regime was postponed under the Digital Omnibus
 
-> **C.** The high-risk employment duties moved; those two did not. And the emotion-recognition
-> provision is a prohibition rather than a risk to manage — relevant the moment a vendor offers
-> sentiment inference from interview video.
+> **C.** The high-risk employment duties moved to 2 December 2027 under Regulation (EU) 2026/1744;
+> three sets did not. AI literacy and the emotion-recognition ban have applied since February 2025
+> — and the ban is a prohibition, not a risk to manage. The transparency obligations took effect
+> 2 August 2026 and apply regardless of risk class, which is why a recruiting or HR service chatbot
+> is in scope now rather than in 2027. Deferral of one regime is not runway across the Act.
 
 **Q3.** Under the agent theory in Mobley v. Workday `[V]`, what changed most for an employer?
 
@@ -336,8 +351,10 @@ are taking to counsel first.
   record-keeping obligations, and the awareness finding among HR professionals in regulated
   states. Fast-moving; verify current scope and effective dates with counsel. **[V]**
 - **EU AI Act and the Digital Omnibus** — Annex III employment classification deferred to
-  2 December 2027; the AI literacy obligation and workplace emotion-recognition prohibition in
-  force since February 2025. **[V]**
+  2 December 2027 by **Regulation (EU) 2026/1744**, published 24 July 2026 and in force 27 July
+  2026; the AI literacy obligation and workplace emotion-recognition prohibition in force since
+  February 2025; the Article 50 transparency obligations applicable from 2 August 2026,
+  independent of high-risk classification. Re-verified 12 August 2026. **[V]**
 - **Mobley v. Workday** — the agent theory permitted to proceed while the employment-agency theory
   was dismissed; claims continuing across race, sex, age, and disability; active discovery
   including disputes over algorithmic code and testing data. Litigation posture changes between
