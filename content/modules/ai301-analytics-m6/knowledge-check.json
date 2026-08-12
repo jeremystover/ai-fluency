@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is the second reading of the 15%-in-trials versus 0.29%-at-firm-level gap? `[V]`",
+      "options": [
+        "That the trial results were not replicable outside controlled conditions",
+        "That the capability is real and is not reaching the organization — which is an adoption problem, and adoption problems are diagnosable",
+        "That firms adopted the technology too slowly to show effects within three years",
+        "That the productivity gains were captured as profit rather than measured output"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which makes the gap the largest available diagnostic opportunity in your organization rather than evidence that AI fails — and you are the function that diagnoses things."
+    },
+    {
+      "id": "q2",
+      "prompt": "What does the module mean by \"a finding is not a product\"?",
+      "options": [
+        "That findings should be delivered through tooling rather than documents",
+        "That a product has a user, a moment of use, and a decision it changes, while a finding has an author and a distribution list",
+        "That findings must be productized to justify analytics headcount",
+        "That analytical outputs should be versioned and maintained like software"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which is why presenting attrition drivers with no decision attached changes nothing — and the reason is not that the audience failed to understand it."
+    },
+    {
+      "id": "q3",
+      "prompt": "How should a dashboard nobody opens be diagnosed?",
+      "options": [
+        "As a communication failure requiring training and promotion",
+        "As a design problem — and the standard response of training, a comms push and a meeting reminder is what you do when you have decided the artifact is fine",
+        "As evidence the underlying metrics are not decision-relevant",
+        "As a normal outcome, since most dashboards have low utilisation"
+      ],
+      "correctIndex": 1,
+      "explanation": "The instinct is to treat non-use as a user problem. C is often true downstream and is a consequence of the same design failure."
+    },
+    {
+      "id": "q4",
+      "prompt": "What is trust, in the module's definition?",
+      "options": [
+        "The belief that your numbers are accurate",
+        "The belief that you will say something the room does not want to hear — so that your silence is informative",
+        "The reputation accrued from consistently meeting delivery commitments",
+        "Stakeholder confidence in the analytics function's technical competence"
+      ],
+      "correctIndex": 1,
+      "explanation": "Everyone assumes A, and it buys less than you think. **The refusals are what make the assertions load-bearing** — which is why a function that never declines has said its findings mean nothing in particular."
+    },
+    {
+      "id": "q5",
+      "prompt": "Which erodes trust faster than a wrong number?",
+      "options": [
+        "Delivering analysis later than promised",
+        "Producing what was wanted, confidence that never varies, and silence about a limitation the audience later discovers",
+        "Presenting findings that contradict leadership's stated strategy",
+        "Using methods the audience cannot follow"
+      ],
+      "correctIndex": 1,
+      "explanation": "A wrong number is recoverable. Producing what was wanted — once, visibly — is remembered for years, and a limitation the audience discovers for itself was survivable until they discovered it."
+    },
+    {
+      "id": "q6",
+      "prompt": "An executive arrives with a more confident answer from their own analysis. What works?",
+      "options": [
+        "A detailed methods appendix demonstrating your approach is more rigorous",
+        "Locate the definitional difference in one sentence, name one confound in theirs specifically, then offer what would settle it",
+        "Establishing your function's authority over workforce metrics before discussing the numbers",
+        "Running their analysis yourself to demonstrate the error"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nobody in the room can adjudicate a methods dispute, so it resolves on confidence — and you spent yours on caveats. Offering the resolution converts a status contest into a question."
+    },
+    {
+      "id": "q7",
+      "prompt": "What is the fourth term the module adds to the closing bet?",
+      "options": [
+        "The executive sponsor who will champion it",
+        "The risk that would cause you to abandon the bet",
+        "Which recurring report you stop publishing",
+        "The headcount required to sustain it"
+      ],
+      "correctIndex": 2,
+      "explanation": "Description is where the hours are and the least defended thing in the portfolio. A stated pause with a review date is the practical version — **and nearly nobody asks for it back**, which is information worth more than the report was."
+    },
+    {
+      "id": "q8",
+      "prompt": "What is the module's closing warning about the track as a whole?",
+      "options": [
+        "That the methods require organizational maturity most companies lack",
+        "That the halt conditions and thresholds are all ways to say no, and a function arriving with five new refusals and nothing new to offer has made itself easier to route around",
+        "That governance work will consume the capacity freed by AI",
+        "That the track's evidence will date quickly and needs re-checking"
+      ],
+      "correctIndex": 1,
+      "explanation": "The methods in Modules 2, 3 and 5 are only defensible in an organization where Module 4's territory has been claimed. **Do the offering first.**"
+    }
+  ]
+}
