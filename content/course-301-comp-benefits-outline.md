@@ -1,264 +1,297 @@
-# AI 301 · The Specialist — Comp & Benefits track · "Numbers That Hold" (draft v0)
+# AI 301 · The Specialist — Comp & Benefits track · "Numbers That Hold" (draft v1)
 
-**Status:** first independent pass, written deliberately as a **stress test of the emerging
-spine** — the third design, against which the two-role pattern gets checked. Expect a separate
-outline to merge into this the way HRBP and Recruiter did; this one is written first so the
-integration has something to argue with.
-
-**Audience:** Comp analysts and partners, benefits managers, total rewards leads — anyone who
-owns the merit cycle, the benchmarking, the plan design, or the equity analysis.
+**Audience:** Comp analysts and partners, benefits managers, total rewards leads — anyone who owns
+the merit cycle, the benchmarking, the plan design, the equity analysis, or the renewal.
 **Level transition:** L3 The Specialist → L4 The Translator.
-**Shape:** 7 modules · ~3h · same package as the rest of the ladder. Async and self-serve.
+**Shape:** 6 modules · 45–60 min of content each · ~5h of course, plus artifact work that scales
+with how seriously the learner takes it. Async and self-serve.
 **Prerequisite:** AI 101 (or test-out) and AI 201.
-**Tooling stance:** Tool-agnostic. Statutes, survey-provider specifics, platform features, and
-regulatory timing are volatile-layer `[V]` — and this track's legal surface moves faster than
-either other track's.
+**Tooling stance:** Tool-agnostic. Statutes, adoption statistics, survey-provider specifics, and
+platform features are volatile-layer `[V]` — this track's legal surface moves faster than either
+other track's.
 
 ---
+
+## Design premises
+
+**This is a 300-level course, which means it refuses to do the 100-level job.** No explanation of
+what an LLM is, no prompting primer, no tool tour — 101 and 201 covered that, and this track
+says so out loud. Most competing material spends half its runtime on remedial content because
+it's selling to novices. **The refusal is the product.**
+
+**The job is not to transfer knowledge — it's to manufacture positions.** Every module ends in
+something the learner *made* and a claim they have to take a side on, in writing, before they see
+how anyone else answered.
+
+**Score the delta, not the score.** The assessment that matters is whether the learner's Module 6
+position differs from their Module 1 prediction — and whether they can say why. **Evidence of
+updating is the signal worth measuring.** This is the strongest idea in this track and it belongs
+across all three (see the spine test).
 
 ## The through-line
 
 > **You are the most numerate function in HR, and that is exactly what makes fluent output
 > dangerous here. A wrong sentence gets caught. A wrong model gets presented.**
 
-This is 101 M6's confidence–correctness split, aimed at someone whose work product is a number
-that an executive will repeat. Every other track worries about output nobody checks; this one
-worries about output that *looks* checkable, is checkable in principle, and won't be checked in
-practice because it arrived formatted and confident three days before the comp committee meets.
+## Where the learner stands
 
-## Where the learner stands (design premise)
-
-They are the most analytically capable people in the function, and their instinct — *I'll spot a
-bad number* — is correct for arithmetic and wrong for models. They also have the most restricted
-data in HR: individual pay is Tier 4 under 101 M4, which means the core of their work is the
-material they can least freely put into a tool.
+They are the most analytically capable people in the function, and their instinct — *I'd spot a
+bad number* — is right about arithmetic and wrong about models. They also hold the most
+restricted data in HR: individual pay is Tier 4 under 101 M4, so the core of their work is the
+material they can least freely put in a tool.
 
 > "My data is the most sensitive in the building and my output goes to the board. Tell me what I
 > can actually use this for, and how to keep a confident wrong number out of a deck with my name
 > on it."
 
-## The spine: one live cycle
+## The spine: one live cycle, and the delta
 
 Every module advances **one real thing the learner owns** — a merit cycle, an open enrollment, a
-benchmarking round, an equity review. Same capstone logic as the recruiter track's live req, and
-for the same reason: this role's work is cycle-shaped, so a track that runs on one real cycle
-beats seven disconnected exercises.
+benchmarking round, an equity review. And every module opens with a prediction, so that M6 can
+measure how far the learner moved and whether they can account for it.
 
 ---
 
-## C1 · The confidence trap
+## M1 · What this job actually is
 
-*~25 min · the diagnosis*
+*~45 min · opens with the prediction gate, before any content*
 
-- **Lesson 1:** Why numerate people are *more* exposed, not less. Fluency in numbers means you
-  read a formatted model the way you read a formatted sentence — quickly, and for shape.
-- **Lesson 2:** The four failure types (101 M6) in quantitative dress. Fabricated benchmarks;
-  reasoning that mishandles a threshold or a weighting; confident gaps where your plan's actual
-  rules should be; stale market data `[V]`. Each has a numeric tell.
-- **Lesson 3:** Why verification is asymmetric here. You can check a claim in a sentence in
-  seconds; checking a model means re-deriving it. **The practical rule: never present a number you
-  couldn't rebuild from its inputs in front of the person asking.**
-- **Lesson 4:** What survives repetition. 101 M6 said numbers get repeated without their caveats;
-  in this role that isn't a risk, it's the job description of your output.
-- **Interactive:** choice — four AI-produced comp analyses, one with a planted error that survives
-  a skim.
-- **Activity:** *"Rebuild it"* — take one AI-assisted analysis you'd actually use, rebuild it from
-  inputs, and document what changed. **Calibration:** predict whether anything will.
-- **Claim:** *"Your analytical training is why you'll miss it. You read models for shape, and shape
-  is the one thing the model always gets right."*
+- **Lesson 1:** The function, reconstructed honestly. Comp side: architecture, market
+  intelligence, structure, cycle execution, variable pay, equity, executive comp, pay equity.
+  Benefits side: plan design and funding, renewals and vendor leverage, retirement fiduciary work,
+  leave, enrollment.
+- **Lesson 2:** The five work types — **data assembly, analysis, judgment, explanation,
+  governance.** Every task in the function is one of these, and they have completely different
+  relationships with AI.
+- **Lesson 3:** Where AI actually lands per type — and the finding most people guess wrong:
+  **explanation is the largest and most transformed.** Explaining a band to a manager, a merit
+  outcome to an employee, an equity grant to a candidate, a renewal to a CFO. Most comp leaders
+  predict analysis dominates their week; it doesn't.
+- **Lesson 4:** Why this makes your AI strategy a *work-type* strategy rather than a tool
+  strategy — and why buying by tool category is how functions end up with three products serving
+  the work type that needed the least help.
+- **Interactive:** sorting — twelve real C&B tasks into the five work types.
+- **Activity:** *"Work-type map"* — your own week, predicted split versus actual.
+  **Calibration (the gate):** commit your five percentages before Lesson 1.
+- **Claim:** *"You think this job is analysis. It's explanation with analysis attached."*
 
-## C2 · Sort your own job
+## M2 · Reading the evidence
 
-*~25 min*
+*~45 min*
 
-The same two-question frame as the other tracks — but the quadrants land in an unusual place,
-because a great deal of C&B work is genuinely structured and genuinely automatable, while the
-part that isn't is unusually consequential.
+- **Lesson 1:** The adoption picture without the marketing `[V]`. 20% currently operationalizing
+  AI in benefits against 72% planning to within two years; 39% of HR functions having adopted
+  anything at all while 54% have no plans this year; 88% of HR leaders reporting no significant
+  business value yet.
+- **Lesson 2:** The meta-lesson, which is the transferable one: **most published "AI in comp"
+  thought leadership is vendor content describing a product roadmap as an industry trend.** How
+  to tell — who funded it, what's being sold, whether the "trend" has any subject other than the
+  vendor's roadmap.
+- **Lesson 3:** The teardown method. What's the evidence, what's the sample, and what would
+  falsify it. (101 M2's vendor teardown, aimed at a literature rather than a product.)
+- **Lesson 4:** Data that was soft before AI touched it `[V]`. Six-incumbent matches, thin cuts,
+  aging, matching quality. Market data was always an estimate — AI didn't make it worse, it made
+  it faster to present, which is worse.
+- **Interactive:** choice — four claims from comp-tech marketing; find the one with evidence
+  behind it.
+- **Activity:** *"Teardown"* — one specific AI claim made by a vendor **you currently pay**.
+  Evidence, sample, falsifier. **Calibration:** predict the share of HR functions with no AI plans
+  this year.
+- **Claim:** *"Most of what you've read about AI in comp is a product roadmap wearing an industry
+  trend's clothes."*
 
-- **Lesson 1:** The tiers — throughput, insight, redesign — applied to the cycle calendar.
-- **Lesson 2:** What's honestly automatable here: survey submission prep, job-matching first
-  passes, comms drafting, FAQ generation, variance flagging.
-- **Lesson 3:** What isn't, and why: plan design judgment, exception decisions, remediation calls,
-  anything that sets a precedent.
-- **Lesson 4:** The cycle as the unit of leverage. Deadline-driven work rewards preparation more
-  than speed, which is the opposite of the recruiter's constraint.
-- **Interactive:** sorting — twelve pieces of C&B work into the three tiers.
-- **Activity:** *"Cycle map"* — one real cycle mapped, one narrow goal named in a sentence.
-- **Claim:** *"The most automatable function in HR is also the one where a silent error is most
-  expensive. Those are the same fact."*
+## M3 · The craft layer
 
-## C3 · The data you can't paste
+*~60 min · the longest module, and the one nothing else on the market has*
 
-*~25 min · no counterpart in either other track*
+- **Lesson 1:** Why numerate people are *more* exposed. You read a formatted model the way you
+  read a formatted sentence — quickly, and for shape — and shape is the one thing the model
+  always gets right. **The rule this module builds toward: never present a number you couldn't
+  rebuild from its inputs in front of the person asking.**
+- **Lesson 2:** The perimeter and the data. Staying inside the security perimeter. **Dropping
+  unneeded columns rather than anonymizing them** — the cheapest control in the discipline.
+  Pseudonymizing before upload, with the mapping held outside the session.
+- **Lesson 3:** Verification as craft. Demanding **audit files with row counts and documented
+  joins.** The **Python-then-Excel double-pass**, so a finance partner can still review formulas
+  the way they always have rather than being asked to trust a black box. And **specifying
+  reconciliation explicitly** — the model will not propose those checks itself, and its silence
+  is not reassurance.
+- **Lesson 4:** Durability. Insights files, data-mapping files, and **terminology files for the
+  terms models reliably fumble** — target vs. actual, grant date vs. vest date, FMV vs. strike.
+  Bundled into a reusable starter kit. (This is 201 M2's context pack, specialized to a domain
+  where the vocabulary is a minefield.)
+- **Interactive:** choice — four analysis workflows; find the one whose reconciliation is theater.
+- **Activity:** *"The starter kit"* — a complete, working kit for one recurring analysis you
+  actually run: insights file, data map, terminology file, and the reconciliation spec.
+  **Calibration:** predict whether your current workflow would survive an audit of its joins.
+- **Claim:** *"Your analytical training is why you'll miss it. You read models for shape, and
+  shape is the one thing the model always gets right."*
 
-- **Lesson 1:** Why individual pay is Tier 4 (101 M4) and what that forecloses. The core material
-  of the role is the material that can't travel.
-- **Lesson 2:** Working in structure instead of instances. Bands without incumbents, ranges
-  without names, distributions without rows — most comp reasoning doesn't need a single real
-  person in it, and saying so precisely is the skill.
-- **Lesson 3:** Synthetic and shaped data. Building a model on representative-but-not-real numbers,
-  then running the real numbers yourself in the system of record. Where this is legitimate and
-  where it quietly becomes theater.
-- **Lesson 4:** The agreement layer, sharpened `[V]`. What your comp platform's AI features do with
-  your data, what your broker's do, and the question your security team can answer in a week.
-- **Interactive:** sorting — ten comp and benefits artifacts by tier, with the tricky ones
-  (aggregate ranges for a six-person function, a redacted offer history) doing the teaching.
-- **Activity:** *"Structure without instances"* — take a real analysis you want AI's help with and
-  rewrite the request so it needs no individual data. Submit both versions.
-- **Claim:** *"If your analysis needs real salaries in the prompt, you haven't finished designing
-  the analysis."*
+## M4 · The exclusion zone
 
-## C4 · Pay equity, done properly
+*~50 min · counsel review required before ship*
 
-*~30 min · the paradox module · counsel review required*
-
-The sharpest test of this curriculum's central line, and the reason this track exists.
-
-- **Lesson 1:** The paradox stated. 101 M7 says AI must not make decisions about people. Pay equity
-  analysis *is* analysis about people at scale — and it is protective, and increasingly required
-  `[V]`. The line survives, but only if you can say precisely where it falls.
-- **Lesson 2:** Where it actually falls. AI can help structure the analysis, explain the method,
-  check the model's assumptions, and draft the narrative. It cannot determine who gets remediated,
-  cannot rank employees, and must not be used to generate post-hoc explanations for a gap you
-  already found.
-- **Lesson 3:** Method literacy `[V]`. What a regression-based analysis controls for and what that
-  choice smuggles in; why "explained" variance is a modeling decision with fairness consequences;
-  what a vendor's equity product is actually computing.
-- **Lesson 4:** Privilege and the ethic `[V]`. Running the analysis under counsel; and the rule
-  that predates AI — **don't run the analysis if you aren't prepared to act on what it finds.**
-- **Interactive:** choice — four uses of AI in an equity review; find the one that crossed.
-- **Activity:** *"Where the line falls"* — a one-page standard for your own equity work: what AI
-  touches, what it never touches, who signs off.
-- **Claim:** *"Analysis about people is not the thing 101 warned you about. Decisions about people
-  is. If you can't state the difference in one sentence, you'll either freeze or overstep."*
-
-## C5 · Benchmarking and the vendor layer
-
-*~25 min*
-
-- **Lesson 1:** What survey data is and isn't `[V]`. Matching quality, aging, sample thinness — the
-  places where a market number is softer than it looks before AI touches it at all.
-- **Lesson 2:** "AI-powered market pricing," torn down `[V]`. What these features actually do, what
-  the methodology page says, and the questions that separate a real product from a wrapper. (101
-  M2's teardown, applied to a category that sells to this role specifically.)
-- **Lesson 3:** Job matching with AI assistance — genuinely useful, and the first place a small
-  systematic error compounds across an entire structure.
-- **Lesson 4:** Small-N in market data. Six-incumbent matches, thin cuts, and the confidence you
-  cannot honestly claim.
-- **Interactive:** choice — four benchmarking claims; find the one that can't bear the weight.
-- **Activity:** *"Methodology read"* — one vendor's methodology, read critically, with three
-  questions for them.
-- **Claim:** *"Market data was always an estimate. AI didn't make it worse — it made it faster to
-  present, which is worse."*
-
-## C6 · Models that survive the room
-
-*~25 min*
-
-Where the HRBP track's "Arguing with Finance" **inverts.** This role doesn't need to be taught to
-bring a model; it needs to know where AI-assisted models break and how to defend one it didn't
-build by hand.
-
-- **Lesson 1:** What AI is genuinely good at here — scenario scaffolding, sensitivity structure,
-  translating a model into an explanation an executive can follow.
-- **Lesson 2:** Where it introduces errors that survive review: silent unit and period mismatches,
-  assumptions restated as findings, a scenario range that never had a floor.
-- **Lesson 3:** Defending a model in the room. The assumption you name first is the one that
-  doesn't get used against you.
-- **Lesson 4:** The comp committee standard. What a board-facing number has to be able to
-  withstand, and why that standard should govern everything upstream of it.
-- **Interactive:** choice — four merit-budget models; find the one whose assumptions were laundered
-  into findings.
-- **Activity:** *"One model, defended"* — a real cost or budget model with its weakest assumption
-  named by you first, and the sensitivity that proves you looked.
-- **Claim:** *"An assumption you didn't state is a finding you'll have to retract."*
-
-## C7 · The floor, and the cycle that compounds
-
-*~30 min · counsel review required*
-
-- **Lesson 1:** The legal surface `[V]`, which is a completely different set of statutes from the
-  other tracks: ERISA fiduciary duty and its implications for AI-assisted plan decisions; ACA and
-  nondiscrimination testing; pay transparency regimes across US states and the EU Pay Transparency
-  Directive's reporting and joint-assessment duties.
-- **Lesson 2:** The AI overlay. Where an AI-assisted decision meets a fiduciary standard, and why
-  "the tool recommended it" is a worse sentence here than anywhere else in HR.
-- **Lesson 3:** Documentation that survives a plan audit — what gets recorded about how a
-  determination was reached, and what uncertain provenance does to it.
-- **Lesson 4:** The compounding asset. Your own record: what you benchmarked, what you decided,
-  what it cost, and what happened. The one thing no survey provider sells you.
-- **Interactive:** sorting — ten AI uses across benefits and comp administration: run it / run it
-  with the record / don't.
-- **Activity (course close):** *"The standard and the case"* — a one-page AI standard for your
-  function plus the case for one change to your live cycle: baseline, measure, owner, review date.
+- **Lesson 1:** The governing principle: **AI for speed, human-built tooling for accountability.**
+  Everything in this module follows from deciding which side of that line a task sits on.
+- **Lesson 2:** The zones. Pay equity regression conducted under privilege. Fiduciary duty on
+  retirement plans. Comp committee and proxy inputs. And the sharp one: **disparate impact
+  exposure when a model trained on historical pay recommends adjustments** — the model learns what
+  you paid, which is the thing you're trying to audit.
+- **Lesson 3:** Method literacy `[V]`. What a regression controls for, and what that choice
+  smuggles in; why "explained" variance is a modeling decision with fairness consequences, not a
+  statistical fact; and what a vendor's equity product is actually computing. You will be asked
+  to interpret one of these — reading it critically is the job.
+- **Lesson 4:** The statutory floor `[V]`. Pay transparency regimes across US states and the EU
+  Pay Transparency Directive's reporting and joint-assessment duties — and where AI touches them:
+  generating ranges for postings, drafting disclosures, and running the joint assessments the
+  directive requires.
+- **Interactive:** sorting — ten uses across comp and benefits: run it / run it with the record /
+  never.
+- **Activity:** *"The operating policy"* — your team's actual written AI policy: red lines,
+  approved uses, review checkpoints, escalation path. Roughly 1% of organizations have one `[V]`;
+  the learner leaves with a draft. **Calibration:** predict how many of your peers' organizations
+  have one.
 - **Claim:** *"'The tool recommended it' is not a defense anywhere in HR. Where you hold a
   fiduciary duty, it's an admission."*
 
+## M5 · The counterparty
+
+*~45 min · the module that makes people uncomfortable, which is why it sits at five*
+
+- **Lesson 1:** The employee side `[V]`. In one survey, 85% reported using ChatGPT for salary
+  negotiation and 63% believed it produced a stronger offer. Your candidates arrive briefed.
+- **Lesson 2:** And the briefing is unreliable in exactly the way that matters `[V]`. A controlled
+  audit of 98,800 prompts per model version found the models weren't consistent enough to be
+  trusted for the task — with the largest gaps between model versions, and **between prompts
+  voiced as employee versus employer.** You are negotiating against confident, inconsistent
+  advice, which is harder than negotiating against good advice.
+- **Lesson 3:** The third counterparty `[V]`. Investors applying AI to ingest proxy statements,
+  pay tables, and peer data to flag outliers across whole portfolios, with institutions moving
+  toward customized voting policies applied by models. Your executive comp disclosure is now read
+  by machines, at scale, against every peer at once.
+- **Lesson 4:** What survives contact. A pay story that holds when the other side has the same
+  tools: range logic that's defensible, a rationale that doesn't depend on the listener not
+  checking, and the discipline of knowing what you can say out loud.
+- **Interactive:** choice — four negotiation rationales; find the one that survives the adversary.
+- **Activity:** *"First contact"* — run your own range and rationale through the adversary's
+  prompt, **as the employee**. Bring back what it said, and what you'd change.
+  **Calibration:** predict whether your rationale survives.
+- **Claim:** *"Your pay story is already being audited by a model. You just haven't read the
+  report."*
+
+## M6 · The bet
+
+*~45 min · the course lands*
+
+- **Lesson 1:** The leverage ladder — **compress, continuous, explain, design.** What each rung
+  actually requires, and which ones a comp function can reach this year.
+- **Lesson 2:** The role decomposition. Analysts gain productivity; partners gain coverage;
+  operations gain efficiency — **and efficiency matters least, because comp teams aren't big
+  enough for headcount savings to matter.** The honest version of the value case for a small
+  function.
+- **Lesson 3:** Why *explain* is the rung this function systematically undervalues — the callback
+  to M1's finding, now with the ladder to place it on.
+- **Lesson 4:** Betting honestly. What you'd measure at 90 days, and **what you'd stop doing to
+  fund it.** That line is what separates a bet from a wish.
+- **Interactive:** choice — four proposed bets; find the wish.
+- **Activity (course close):** *"The bet"* — one page: which rung, which specific use case, what
+  you'd measure at 90 days, what you'd stop doing to fund it. Then **the delta**: how your M6
+  position differs from your M1 prediction, and why. The rubric grades the account of the change,
+  not the accuracy of either end.
+- **Claim:** *"A bet without a funding line is a wish."*
+
 ---
 
-# The spine test
+## Decisions (v1)
 
-Three designs now exist. Here is what actually recurs.
+1. **Async and self-serve.** The source was pre-work for a live discussion. Positions still get
+   manufactured and committed in writing — into the activity submission, where a rubric dimension
+   grades whether the learner engaged the strongest case against their own view, and where the
+   tutor can argue it live because it reads every block.
+2. **"Artifacts other people can attack" — what actually exists.** There is no learner-to-learner
+   peer exchange in the product. There is an operator review queue (`fd_review`, the async
+   backstop the 201 outline specifies) and the tutor. So M3's kit-swapping and M4's red-line
+   defence run against the tutor as adversary and, where an operator is in the loop, the review
+   queue. Building peer-to-peer exchange is a product decision, not a content one.
+3. **Score the delta, not the score — adopted course-wide.** M1's prediction gate and M6's
+   reckoning are the same instrument, and this principle should be retrofitted into the HRBP
+   track's calibration reckoning, which currently measures accuracy of prediction rather than
+   evidence of updating. That is a real improvement to a track already outlined.
+4. **Six modules.** The benchmarking module from the earlier draft dissolves: survey-provider
+   claims are M2's teardown target, and market-pricing analysis is a use case for M3's craft. One
+   less module, nothing lost.
+5. **The confidence trap opens M3 rather than standing alone.** It is the *reason* the craft layer
+   exists — reconciliation specs and audit files are the answer to it — so it motivates the module
+   instead of occupying its own.
+6. **The refusal is stated in the content, not just the outline.** The course opens by saying what
+   it will not teach. That's a credibility move for this audience and it's true.
+7. **Verification debt is total for this track.** Nothing here is verified yet. Blocking before
+   drafting: the adoption statistics (20%/72%, 39%/54%, 88%); the negotiation survey (85%/63%);
+   the 98,800-prompt audit; the ~1% operating-policy figure; ERISA and fiduciary specifics; US
+   state transparency regimes and the EU Pay Transparency Directive's duties and timing. The
+   HRBP and recruiter tracks each had their anchors confirmed before drafting; this one starts
+   from zero.
 
-## What recurs across all three
+## Open question: the time budget
 
-| Slot | HRBP | Recruiter | C&B | Shared? |
+The source sets 8–10 hours. That is a considered number — thin courses don't change behaviour,
+and thirty-hour courses don't get finished — but it was set for a cohort with a live session as
+the forcing function. **Async, with no deadline, 8–10 hours is a completion risk.** The outline
+above splits the difference: ~5 hours of module content, with artifact work scaling to the
+learner's seriousness. The artifacts here are unusually valuable standalone — a working starter
+kit and a drafted AI operating policy are things people would pay for on their own — so the depth
+is available to whoever wants it without gating completion behind it. Worth confirming.
+
+---
+
+# The spine test, revised — three designs
+
+The third design changes the answer in two directions.
+
+## What recurs
+
+| Slot | HRBP | Recruiter | C&B | Verdict |
 |---|---|---|---|---|
-| **The diagnosis** | Where you actually are | What broke | The confidence trap | **Position only.** Three completely different diagnoses. HRBP: you're less behind than you feel. Recruiter: signal collapsed on both sides. C&B: your numeracy is the exposure. No shared content at all. |
-| **Sort your own job** | M2 | R2 | C2 | **Genuinely shared frame.** Three for three, same two-question/tier method, role-specific contents. This one is real. |
-| **The floor** | M6 | R6 | C7 | **Position only.** Employment statutes vs. hiring statutes vs. ERISA/transparency. Almost no overlap in substance. |
-| **The case / the close** | M7 | R7 | C7 | **Position and shape.** All three close on a one-page case with a baseline. |
+| **Opening prediction** | calibration prompt | calibration prompt | the prediction gate | **3/3 — genuinely shared**, and all three use it the same way |
+| **Decompose your own job** | M2 Sort your own job | R2 Sort your own job | M1 five work types | **3/3 — shared frame**, though C&B decomposes by *work type* rather than leverage tier, which is better for that role |
+| **The counterparty has AI too** | *(latent — AI-written complaints, AI-assisted self-reviews)* | R1/R4 both sides of the table | M5 The counterparty | **2/3 explicit, 1 latent — stronger than I credited.** Likely a real shared slot |
+| **The floor / exclusion zone** | M6 | R6 | M4 | **3/3 as position**, near-zero shared content — employment vs. hiring vs. ERISA-and-transparency |
+| **The closing bet with a baseline** | M7 | R7 | M6 | **3/3 in position and shape** |
+| **The diagnosis** | M1 | R1 | *(absent — M1 is decomposition)* | **2/3 — weaker than I claimed** |
 
 ## What doesn't recur
 
-- **Honest arithmetic** (HRBP M3) — absent from both other tracks.
-- **Adversarial rehearsal** (HRBP M4) — a technique inside intake for recruiters, absent for C&B.
-- **The capture layer** (Recruiter R5) — arguably belongs in C7 for C&B, absent for HRBP.
-- **Intake** (Recruiter R3), **pay equity** (C4), **the data you can't paste** (C3) — role-unique.
-- **Arguing with Finance** — present for HRBP, *inverted* for C&B (C6), absent for recruiters.
+Honest arithmetic (HRBP only). Adversarial rehearsal (HRBP module, recruiter technique, absent
+for C&B). Intake, the closed loop, pay equity, the craft layer, the un-pasteable data — all
+role-unique. And *arguing with Finance* is present for HRBP, **inverted** for C&B, absent for
+recruiters.
 
-## The honest conclusion
+## The corrected conclusion
 
-**The spine is much thinner than I claimed after two roles.** It is not seven shared modules with
-role-specific examples. It is:
+My "seven of eight map cleanly" was wrong, and my follow-up — "only one frame recurs" — was too
+pessimistic. Three designs in, the real answer:
 
-1. **A shared arc** — diagnose → sort your job → two or three role-specific depth modules → the
-   floor → make your case — which is a *sequencing convention*, not content.
-2. **Exactly one genuinely shared module frame:** sort your own job.
-3. **A small library of HR-wide evidence** — botsitting, the 87/75/50 split, the adoption map, the
-   coaching RCT, workslop — cited by different modules in different tracks.
+**Four things recur, and only one of them is content.** The opening prediction, the job
+decomposition, the floor-as-position, and the closing bet. Of those, only the decomposition
+carries teachable method across roles.
 
-Everything else is role-specific, and the two most valuable modules in each track so far are
-role-unique: intake and the closed loop for recruiters; ER documentation and the allocation
-argument for HRBPs; pay equity and the un-pasteable data for C&B.
+**The strongest shared thing isn't structure at all — it's an assessment philosophy.** Score the
+delta, not the score. Open with a committed prediction, close by measuring whether the learner
+moved and whether they can account for it. That works in every track, it's already half-built in
+the product, and it's the thing worth writing into the convention.
 
-## What that means for how we build
+**And every track's best material remains role-unique** — the craft layer, intake, the closed
+loop, pay equity, ER documentation, the allocation argument. Three for three. Whatever convention
+we write down must protect the middle of each course from it.
 
-The earlier proposal — shared module frames with role-specific content — **overreached.** The
-corrected version:
+## What to build
 
-- **Do not build shared modules.** One frame recurs; that is not an architecture, it's a
-  convention worth writing down.
-- **Do build a shared evidence library.** The HR-wide statistics are the volatile mass, they are
-  identical across tracks, and duplicating them across six roles means six independently drifting
-  copies. This is the part worth structuring, and it's smaller and simpler than a spine — a set of
-  volatile blocks authored once and referenced wherever a track needs them.
-- **Keep tracks as separate courses.** `ai301-hrbp`, `ai301-recruiter`, `ai301-comp`. A learner
-  sees only theirs.
-- **Write down the arc as a convention** for role four onward — diagnosis, sort, depth, floor,
-  case — with the explicit instruction that the depth modules are discovered from the role, never
-  derived from the convention. Every track's best material has come from that middle section.
-
-## Open questions
-
-- **Does the diagnosis slot want a shared *shape* even with unshared content?** All three do the
-  same job — reorient the learner before teaching — and all three do it with a piece of evidence
-  that contradicts an assumption. That may be worth writing down as a pattern.
-- **C4's counsel gate is heavier than any other module in the curriculum.** Pay equity method,
-  privilege, and remediation are legal-adjacent in a way even the recruiter's statutes aren't.
-- **Is C7 doing two jobs?** The floor plus the compounding record — the same overload the other
-  two tracks' legal modules have. Third occurrence suggests the pattern is real and the answer may
-  be that "the floor" should always be its own module.
-- **Verification debt** for this track is entirely unstarted: ERISA/fiduciary specifics, the EU
-  Pay Transparency Directive's timing and duties, US state transparency regimes, and whatever
-  pay-equity-product claims we end up citing.
+- **A shared evidence library.** The HR-wide statistics — botsitting, 87/75/50, the adoption map,
+  the coaching RCT, workslop — are the volatile mass, they're identical across tracks, and six
+  roles means six drifting copies. Author once, reference from any track.
+- **Separate courses per track.** `ai301-hrbp`, `ai301-recruiter`, `ai301-comp`.
+- **A written convention, not a template:** open with a prediction; decompose the job; two to four
+  role-discovered depth modules; the floor; close on a bet with a baseline and the delta. With the
+  standing rule that **depth modules are discovered from the role and never derived from the
+  convention** — that rule is what produced the craft layer, intake, and the closed loop, and a
+  template would have prevented all three.
