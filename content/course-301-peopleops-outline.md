@@ -473,11 +473,15 @@ middle of the course the convention exists to protect.
   — there is no learner-to-learner exchange, only `fd_review` and the tutor. What survives is the part
   that is genuinely this role's: job architecture and manager span are **system objects** they
   configure, not an essay they write.
-- **The 7% guidance statistic — cut.** It is HRBP M3's anchor, and the reinvestment argument is
-  stronger with the IBM reversal than with a borrowed number.
-- **Bias testing under privilege as a standalone topic — cut to one clause.** HRBP M6 owns it. The
-  new part is worth a line: the May 2026 privilege holding in *Mobley* is a reason to involve counsel
-  before testing.
+- **The 7% guidance statistic — cut, but not for the reason first given.** v1 cut it because it is
+  HRBP M3's anchor. Under brief §3a that is not a reason — a People Ops learner never opens the HRBP
+  track. It stays cut on merit: the IBM reversal is stronger material for this argument than a
+  borrowed number, and reusing an HR-wide statistic across tracks is fine so long as it comes from
+  the shared evidence library rather than a second hand-authored copy.
+- **Bias testing under privilege — reduced to one clause on relevance, not on ownership.** A People
+  Ops lead does not commission bias tests, so the depth belongs elsewhere; the clause that earns its
+  place is that the May 2026 privilege holding in *Mobley* is a reason to involve counsel before
+  testing rather than after.
 - **"Transform, not transfer" — cut as a quotation.** I could not confirm it as an IBM formulation.
   The concept survives as *redeploy, don't strand*.
 
@@ -551,7 +555,10 @@ fields in `rubric.json`, and 101 and 201 carry the thread too. It should be scop
 with the brief's §5 convention text updated in the same pass, since that document currently records
 the opening prediction as the one genuinely shared mechanism.
 
-**13. Three citations are now shared across tracks and should move to a shared evidence library.** The
+**13. Three citations are now shared across tracks and should move to a shared evidence library** —
+and brief §3a has since made this load-bearing rather than tidy. Sanctioning duplication across
+sibling tracks removes the pedagogical objection to overlap and leaves drift as the only real cost,
+which is exactly what a shared library prevents. The
 coaching trials (HRBP M7 and M2 here, with genuinely different readings — allocation there, task scope
 here), *Mobley* and the agent doctrine (HRBP M6, recruiter R6, M7 here), and SHRM's 52% (HRBP's
 unsettled debates, M8 here). The brief already recommends authoring these once and referencing them;

@@ -107,8 +107,21 @@ stop at credibility determinations, conclusions about what happened, and charact
 person; and the provenance discipline ending in *if you couldn't defend a sentence's origin, rewrite
 it.*
 
-**All of that is out.** A specialist track that re-teaches the completeness pass is the failure the
-brief warns about.
+**None of that is out — and my first pass had this wrong.** I initially cut all of it and made the
+track depend on HRBP M6 as a prerequisite, reasoning that re-teaching it would violate the
+subtraction discipline. But `trackForRole` resolves a learner to exactly one 301 course id, so an LER
+learner will never open the HRBP track. The overlap costs the *learner* nothing; it costs the
+*authors* a maintenance liability. See brief §3a, written as a result: vertical subtraction against
+101 and 201 stays absolute, horizontal subtraction against siblings is a drift problem, and the rule
+is teach what the role needs, share the volatile evidence rather than the prose.
+
+So the craft is taught here, in its specialist form, which is a genuinely different subject: not *how
+to use AI on a document* but **what the document has to do.** Elements a finder of fact looks for
+rather than a narrative. **"Which allegation did I fail to resolve?"** rather than "what did I fail to
+ask?" — a coverage audit against a list, which is mechanical and safe. And the rung boundary
+maintained sentence by sentence, which is the evidentiary ladder applied to prose. That became its
+own module rather than a fragment, because report-writing is the highest-frequency output in the role
+and the generalist track gives it one lesson.
 
 ### But HRBP M6 leaves a door open, and it is the best door in this exploration
 
@@ -124,11 +137,14 @@ and load-bearing, and nobody has drawn it. That is this track's signature module
 
 ### The four close calls
 
-**HRBP M4's adversarial rehearsal vs. preparing for arbitration.** Real overlap. HRBP M4 teaches
-rehearsing your own position against an adversary set. The delta here is that the adversary's
-position is **discoverable from a corpus** — the contract language, the past-practice record, prior
-awards, the steps already taken — so this is retrieval and interpretation, not imagination. Where it
-becomes rehearsal, it is HRBP M4 and gets cited, not repeated.
+**HRBP M4's adversarial rehearsal vs. preparing for arbitration.** Real overlap, and under §3a it is
+not a reason to withhold anything. The distinctive part is that here the adversary's position is
+**discoverable from a corpus** — the contract language, the past-practice record, prior awards, the
+steps already taken — so it is retrieval and interpretation rather than imagination, which is a
+different technique with a different failure mode (fabricated citations rather than a flattering
+sparring partner). Where a learner also needs the rehearsal mechanics, teach them; they have not seen
+them. Currently unplaced in the outline — the honest reason is that arbitration advocacy is the
+thinnest-evidenced area in this exploration, not that another track owns it.
 
 **People Ops M6 vs. building a case-history index.** People Ops says never index investigation
 files into a general assistant. This track wants exactly that corpus searchable for comparator
@@ -343,9 +359,11 @@ adapt rather than copy.
 
 ## 7. Open questions for review
 
-- **Does HRBP M6 Lesson 3 get trimmed once this track exists?** My answer is no — HRBPs genuinely
-  write ER documents and need the basics — but the two must be explicitly cross-referenced or they
-  will drift, and this track must never re-teach the completeness pass. Worth deciding deliberately.
+- **Does HRBP M6 Lesson 3 get trimmed once this track exists?** No — HRBPs genuinely write ER
+  documents and need the basics, and under §3a the duplication is sanctioned. What it does need is a
+  reconcilable relationship: the two teach the same discipline at different depths for audiences that
+  never overlap, so the risk is contradiction rather than repetition, and only a periodic read of both
+  will catch it.
 - **Does the track assume a represented workforce?** Resolved by design rather than by asking:
   Section 7 protects concerted activity with or without a union, so the floor applies to everyone,
   and the bargaining material is marked as conditional depth. But in heavily unionized industries
