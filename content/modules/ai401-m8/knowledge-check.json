@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why does the module lead with the productivity and burnout findings?",
+      "options": [
+        "To establish credibility before making a harder argument",
+        "Because they are the same people in the same survey, and a leader who carries only the second half will be correctly accused of telling half a story",
+        "Because burnout reduction is the more robust of the two findings",
+        "Because wellbeing gains offset the connection losses"
+      ],
+      "correctIndex": 1,
+      "explanation": "62% reporting lower stress is a large effect. If the finding were simply \"AI makes people miserable,\" the politics would be easy — the difficulty is that both halves are true of the same population."
+    },
+    {
+      "id": "q2",
+      "prompt": "What is unusual about the sample in this study, and why does it matter?",
+      "options": [
+        "It surveyed only managers, so it reflects a supervisory perspective",
+        "It surveyed AI users at large organizations — the population most exposed in both directions, which makes the good news less surprising and the bad news more serious",
+        "It was fielded across seven countries, so national differences are averaged out",
+        "It relied on self-reported data rather than observed behavior"
+      ],
+      "correctIndex": 1,
+      "explanation": "n=2,150, seven countries, organizations of 3,500+, all active AI users. D is a real limitation of the study and not the answer to this question."
+    },
+    {
+      "id": "q3",
+      "prompt": "What does the module say about people using AI for advice, brainstorming, and companionship?",
+      "options": [
+        "It is a warning sign that should be addressed through policy",
+        "It is a moral failure of workplace culture",
+        "It is frequently a better experience — and those same frictions are what made asking a colleague work",
+        "It is a temporary behavior that will normalize as tools mature"
+      ],
+      "correctIndex": 2,
+      "explanation": "The model is available at 11pm, does not judge, and never mentions it to anyone. The small humiliation of admitting you did not know something is the same event as somebody learning who you are."
+    },
+    {
+      "id": "q4",
+      "prompt": "What four jobs did help-seeking do beyond producing an answer?",
+      "options": [
+        "Trained juniors, surfaced errors, documented process, and distributed workload",
+        "Built trust at low stakes, transmitted norms that are in no document, let newcomers find mentors, and told people what existed",
+        "Created accountability, reinforced hierarchy, spread expertise, and built culture",
+        "Validated decisions, escalated risks, shared context, and reduced duplication"
+      ],
+      "correctIndex": 1,
+      "explanation": "A mechanism quietly doing four jobs got optimized away because it was visibly doing one."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why does the module argue this is structural rather than a wellbeing concern?",
+      "options": [
+        "Because loneliness has measurable effects on productivity",
+        "Because weak ties are how people learn about opportunity — a well-evidenced finding — and they are disproportionately the bridge for people whose strong-tie networks are already closed",
+        "Because time off due to isolation has a direct cost that can be calculated",
+        "Because engagement scores are a board-level metric"
+      ],
+      "correctIndex": 1,
+      "explanation": "The narrowing of access happens with no decision anyone could point to, which is what makes it a design problem rather than a programme problem."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why is the Gen Z / Gen X gap significant to the argument?",
+      "options": [
+        "Because younger workers use AI more heavily than older ones",
+        "Because it shows the effect is generational preference rather than structural",
+        "Because it is what happens when you enter an organization at the moment the mechanism for entering it stopped operating",
+        "Because Gen Z have higher turnover rates generally"
+      ],
+      "correctIndex": 2,
+      "explanation": "Gen X built their networks before this. Gen Z are being asked to build theirs without the transaction that used to do it."
+    },
+    {
+      "id": "q7",
+      "prompt": "Why can't manufactured social time solve the problem?",
+      "options": [
+        "Because participation is usually voluntary and uptake is low",
+        "Because it attempts to produce the output of interdependency — people knowing each other — without the input, which is people needing each other",
+        "Because it takes time away from productive work",
+        "Because remote and hybrid teams cannot participate equally"
+      ],
+      "correctIndex": 1,
+      "explanation": "The relationship was a by-product of dependence, and you cannot manufacture the by-product without the process."
+    },
+    {
+      "id": "q8",
+      "prompt": "What test must a designed interdependency pass to count as structural?",
+      "options": [
+        "That both participants agree it is valuable",
+        "That it appears in both people's objectives",
+        "That it would survive an efficiency review — defensible on the work's own terms without mentioning connection",
+        "That it occurs at least monthly"
+      ],
+      "correctIndex": 2,
+      "explanation": "If someone whose job is removing steps could not be answered on the work's own terms, it is manufactured friction and it will be removed. D is one of the three tests — repetition — but not the one that separates structural from manufactured."
+    }
+  ]
+}
