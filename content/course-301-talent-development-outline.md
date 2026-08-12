@@ -465,13 +465,58 @@ Three things, plus one line.
    changes** — and where an IC can only recommend, naming the decision-maker is graded as the
    equivalent of making the call.
 
+## What drafting changed (v3 — recorded after the track was built)
+
+The outline was approved and drafted rather than re-litigated. Six things changed in the writing,
+and they are recorded here rather than silently fixed.
+
+11. **The opening mechanism is now a contested claim, not a numeric prediction.** The brief's §5 was
+    revised course-wide while this track was being outlined: a confidence rating is self-report, and
+    self-report is not evidence. Every module now opens on **a factual assertion about the learner's
+    own organization**, committed as true-of-us or not, then checked against evidence from their own
+    systems. The numeric field survives **where a real measurable exists to close against** — all six
+    modules kept one, because all six had an honest one (bucket-one share, training-problem share,
+    predicted issue count, human-support share, accessibility pass rate, count of falsifiable
+    programs). None was invented to earn the cohort-comparison feature.
+12. **Where "go and check" cannot settle the claim, the rubric scores that at full credit.** This
+    turned out to matter more in this track than expected, and it fires in five of six modules: a
+    function that cannot enumerate its catalog (M1), has no artifact recording a diagnosis (M2),
+    cannot tell which content was AI-assisted (M3), cannot say who has access to human support (M4),
+    or has no accessibility standard at all (M5). Each is a *finding about the function* and a more
+    useful one than the measurement would have been. Stated explicitly in every `activityContext`.
+13. **Decision 4 is reversed. The coaching RCT stays in both tracks.** The outline said the depth
+    moved here and HRBP M7 kept a pointer, requiring an edit to shipped content. The brief's revised
+    §3a makes that wrong: `trackForRole` resolves a learner to exactly one 301 course, no learner
+    sees both, and horizontal duplication is an authoring-and-maintenance concern rather than a
+    learner one. **HRBP M7 needs no edit.** Both tracks carry the trial evidence with deliberately
+    aligned wording — HRBP for allocation-as-equity-decision, M4 here as a design constraint on what
+    delegates and whose results get averaged away — and the overlap is named in both directions in
+    M4's Sources block so the volatile copies stay reconcilable.
+14. **M3's anchor does not exist, and the module is better for it.** The human brief's "compliance
+    findings" and "five error clusters" were never sourced. Searched before drafting: **there is no
+    published error rate for AI-assisted training or compliance content** — no sampled corpus, no
+    taxonomy, no baseline. What exists is vendor commentary, general legal advisory, and analogy to
+    fabricated-citation research in law. Rather than borrow a plausible figure, the module reports
+    the absence as its first finding — *a profession running a known risk at scale with no
+    measurement of it has told you something* — which makes the learner's own backward-read count
+    the evidence rather than an illustration. Richter et al. becomes the anchor; the five clusters
+    are original to the course, since there was no taxonomy to borrow.
+15. **M6's worked example verified richer than the outline expected.** The AI-roleplay ROI claims
+    check out as a genuine teaching case with three layers: vendor figures with round endpoints and
+    no falsifier (300–500%, 80–90%, 70–80%), independent meta-analytic evidence for simulated
+    practice that is real and roughly an order of magnitude smaller (+9% to +20% across 65 studies),
+    and **a laundering case** — a genuine ROI finding about *human-delivered* in-factory training
+    circulating in support of AI role-play products. The third layer was not in the outline and is
+    the most transferable part.
+16. **The track name collided with the CPO track's.** Both outlines carried "The Decision Series."
+    This track keeps it — it comes from this track's human brief — and the CPO track was renamed.
+
 ### Follow-up that touches shipped content
 
-Decision 4 requires an edit to the **HRBP track's M7**, which is authored and live: its Lesson 3
-currently walks through the coaching RCT in full. It becomes a short allocation lesson plus a
-pointer to this track. That is a small, contained change and it should ship *with* this track
-rather than before it — pointing at a course that does not exist yet is worse than the duplication
-it fixes.
+**Superseded by Decision 13.** The outline required an edit to HRBP M7. Under the brief's revised
+§3a it does not: no learner sees two role tracks, so the duplication is correct and the only real
+cost is drift, which is handled by aligning the wording and naming the overlap. **Nothing in this
+track requires a change to shipped content.**
 
 ## Verification status
 
