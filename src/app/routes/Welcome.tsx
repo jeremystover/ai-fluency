@@ -8,6 +8,7 @@ import { useApp } from '../brand';
 import { GOAL_CHOICES, type GoalChoice } from '../../shared/goals';
 import { DEPTH_CHOICES } from '../../shared/depth';
 import { SELF_LEVEL_CHOICES, normalizeSelfLevel } from '../../shared/levels';
+import { ROLE_CHOICES, roleChoice } from '../../shared/roles';
 import type { IntakePrefs } from '../../shared/types';
 
 // Course Crafting as an interview: one true question per screen, seven named
@@ -115,7 +116,8 @@ export default function Welcome() {
   // The furthest step reached — earlier steps are always tappable in the map.
   const [maxStep, setMaxStep] = useState(0);
   const [name, setName] = useState('');
-  const [role, setRole] = useState('');
+  const [roleId, setRoleId] = useState<string>();
+  const [roleOther, setRoleOther] = useState('');
   const [start, setStart] = useState<IntakePrefs['start']>();
   const [depth, setDepth] = useState<IntakePrefs['depth']>();
   const [styles, setStyles] = useState<string[]>([]);
@@ -155,7 +157,8 @@ export default function Welcome() {
     if (!editing || !me?.authenticated || prefilled.current) return;
     prefilled.current = true;
     setName(me.displayName ?? '');
-    setRole(me.roleLabel ?? '');
+    setRoleId(me.prefs?.roleId);
+    setRoleOther(me.prefs?.roleOther ?? '');
     setStart(me.prefs?.start);
     setDepth(me.prefs?.depth);
     setStyles(me.prefs?.styles ?? []);
@@ -176,6 +179,10 @@ export default function Welcome() {
   const next = () => goTo(step + 1);
   const back = () => goTo(step - 1);
 
+  // The display string the tutor, podcast and echoes use. A picked role gives
+  // its label; 'Something else' gives whatever they typed, so personalization
+  // says their actual job rather than "Something else in People".
+  const roleTrim = (roleId === 'other' ? roleOther.trim() : roleChoice(roleId)?.label ?? '').trim();
   // The goals screen reuses what earlier screens taught us: their role
   // personalizes the apply goal, their tools personalize the tools goal, and
   // their self-assessed level marks the goals that fit it best. Display-only —
@@ -189,7 +196,6 @@ export default function Welcome() {
 
   const adaptGoal = (choice: GoalChoice): { label: string; detail: string; tag?: string; adapted: boolean } => {
     let { label, detail } = choice;
-    const roleTrim = role.trim();
     if (choice.id === 'apply' && roleTrim && roleTrim.length <= 40) {
       label = `Put AI to work in my ${roleTrim} role`;
       detail = 'Real tasks from your week — job descriptions, ER write-ups, policy drafts, survey summaries — done in minutes, checked by you.';
@@ -206,7 +212,6 @@ export default function Welcome() {
   // "optional" stays honest.
   const levelShort = selfLevel ? SELF_LEVEL_CHOICES.find((l) => l.id === selfLevel)?.label.split('·')[0].trim() : undefined;
   const nameTrim = name.trim();
-  const roleTrim = role.trim();
   const echoFor = (key: (typeof STEPS)[number]['key']): string | null => {
     switch (key) {
       case 'you':
@@ -268,8 +273,8 @@ export default function Welcome() {
     try {
       await api.post('/api/intake', {
         displayName: name,
-        roleLabel: role,
-        prefs: { start, depth, styles, goals, objective, aiUsage, aiTools, aiToolOther, selfLevel } satisfies IntakePrefs,
+        roleLabel: roleTrim,
+        prefs: { start, depth, styles, goals, objective, aiUsage, aiTools, aiToolOther, selfLevel, roleId, roleOther } satisfies IntakePrefs,
       });
       await refreshMe();
       // Assessment-first: the course is crafted from what the assessment
@@ -411,15 +416,31 @@ export default function Welcome() {
                     className="border border-line-strong bg-surface rounded-brand px-4 py-2.5 text-ink-strong focus:border-accent"
                   />
                 </label>
-                <label className="flex flex-col gap-1.5">
-                  <span className="label-utility">Role</span>
-                  <input
-                    value={role}
-                    onChange={(e) => setRole(e.target.value)}
-                    placeholder="e.g. VP People, HRBP, Head of TA"
-                    className="border border-line-strong bg-surface rounded-brand px-4 py-2.5 text-ink-strong focus:border-accent placeholder:text-muted/60"
-                  />
-                </label>
+                <div className="flex flex-col gap-1.5">
+                  <span className="label-utility">Which part of People are you in?</span>
+                  <p className="text-muted text-[0.8rem] -mt-0.5">This picks your specialist track later in the ladder — the 301 course is written for one role at a time.</p>
+                  <div className="mt-1.5 flex flex-col gap-2">
+                    {ROLE_CHOICES.map((choice) =>
+                      card({
+                        key: choice.id,
+                        label: choice.label,
+                        detail: choice.detail,
+                        compact: true,
+                        selected: roleId === choice.id,
+                        onClick: () => setRoleId((cur) => (cur === choice.id ? undefined : choice.id)),
+                      }),
+                    )}
+                  </div>
+                  {roleId === 'other' && (
+                    <input
+                      value={roleOther}
+                      autoFocus
+                      onChange={(e) => setRoleOther(e.target.value)}
+                      placeholder="e.g. Head of Talent Development"
+                      className="mt-2 border border-line-strong bg-surface rounded-brand px-4 py-2.5 text-ink-strong focus:border-accent placeholder:text-muted/60"
+                    />
+                  )}
+                </div>
               </div>
               {error && <div className="mt-4"><ErrorNote message={error} /></div>}
               {nav(<Button onClick={next}>Continue</Button>)}

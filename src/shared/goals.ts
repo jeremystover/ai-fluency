@@ -25,7 +25,7 @@ export const GOAL_CHOICES: GoalChoice[] = [
     label: 'Put AI to work in my job',
     detail: 'Real tasks from a People leader\'s week — job descriptions, ER write-ups, policy drafts, survey summaries — done in minutes, checked by you.',
     modules: ['ai101-m2', 'ai101-m4', 'ai101-m5', 'ai201-m1', 'ai201-m3'],
-    courses: ['ai201', 'ai301'],
+    courses: ['ai201'], // 301 is assigned by role, not recommended by goal — see shared/roles.ts
   },
   {
     id: 'workflows',

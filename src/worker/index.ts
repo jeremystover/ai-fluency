@@ -18,6 +18,7 @@ import { extractPaths } from '../shared/chat';
 import { GOAL_CHOICES, goalLabel } from '../shared/goals';
 import { DEPTH_IDS, depthOf } from '../shared/depth';
 import { SELF_LEVEL_IDS } from '../shared/levels';
+import { ROLE_IDS, ALL_TRACK_IDS, trackForRole } from '../shared/roles';
 import { chunkPlan } from '../shared/audioChunks';
 import {
   writeScript,
@@ -739,6 +740,20 @@ const VALID_GOALS = new Set(GOAL_CHOICES.map((g) => g.id));
 const VALID_AI_TOOLS = new Set(['claude', 'chatgpt', 'gemini', 'other']);
 
 
+// A learner sees exactly one 301 specialist track — theirs. The others exist
+// as courses but are somebody else's curriculum, so they're filtered out of
+// both the path and the library rather than shown locked. Falls back to the
+// HRBP track for roles whose track isn't authored yet.
+function trackFilter(prefs: IntakePrefs, courseIds: Iterable<string>) {
+  const mine = trackForRole(prefs.roleId, courseIds);
+  const hidden = new Set(ALL_TRACK_IDS.filter((id) => id !== mine));
+  return {
+    mine,
+    keepCourse: (id: string) => !hidden.has(id),
+    keepModule: (courseId: string) => !hidden.has(courseId),
+  };
+}
+
 async function loadPrefs(db: DrizzleD1Database, sessionId: string): Promise<IntakePrefs> {
   const rows = await db
     .select()
@@ -757,6 +772,8 @@ async function loadPrefs(db: DrizzleD1Database, sessionId: string): Promise<Inta
     else if (row.key === 'aiTools') prefs.aiTools = value;
     else if (row.key === 'aiToolOther') prefs.aiToolOther = value;
     else if (row.key === 'selfLevel') prefs.selfLevel = value;
+    else if (row.key === 'roleId') prefs.roleId = value;
+    else if (row.key === 'roleOther') prefs.roleOther = value;
     else if (row.key === 'shareWork') prefs.shareWork = value === true;
   }
   return prefs;
@@ -793,6 +810,8 @@ app.post('/api/intake', async (c) => {
   if (Array.isArray(raw.aiTools)) clean.push(['aiTools', raw.aiTools.filter((t) => VALID_AI_TOOLS.has(t)).slice(0, 4)]);
   if (typeof raw.aiToolOther === 'string') clean.push(['aiToolOther', raw.aiToolOther.trim().slice(0, 120)]);
   if (typeof raw.selfLevel === 'string' && SELF_LEVEL_IDS.includes(raw.selfLevel)) clean.push(['selfLevel', raw.selfLevel]);
+  if (typeof raw.roleId === 'string' && ROLE_IDS.includes(raw.roleId)) clean.push(['roleId', raw.roleId]);
+  if (typeof raw.roleOther === 'string') clean.push(['roleOther', raw.roleOther.trim().slice(0, 120)]);
 
   for (const [key, value] of clean) {
     await db.delete(t.fdPreference).where(and(eq(t.fdPreference.sessionId, session.id), eq(t.fdPreference.key, key)));
@@ -1375,6 +1394,11 @@ app.get('/api/path', async (c) => {
   // inputs — their goals and their diagnostic — so the personalization is
   // legible, not a black box.
   const prefs = await loadPrefs(db, session.id);
+  // A learner sees one 301 track — theirs. Availability comes from what's
+  // actually seeded, so a declared-but-unauthored track falls back to the
+  // default rather than serving an empty course.
+  const track = trackFilter(prefs, rows.map((m) => m.courseId));
+  const trackRows = rows.filter((m) => track.keepModule(m.courseId));
   const selectedGoals = GOAL_CHOICES.filter((g) => (prefs.goals ?? []).includes(g.id));
   const diagReasons = new Map<string, string>();
   let diagnosticNote: string | null = null;
@@ -1402,7 +1426,7 @@ app.get('/api/path', async (c) => {
     return reasons;
   };
 
-  const modules: PathModule[] = rows.map((m) => {
+  const modules: PathModule[] = trackRows.map((m) => {
     const prereqs: string[] = m.prereqJson ? JSON.parse(m.prereqJson) : [];
     const unmet = prereqs.filter((p) => !satisfied(p));
     const access: PathModule['access'] = m.status === 'open' ? 'open' : 'full_course';
@@ -1495,10 +1519,12 @@ app.get('/api/path', async (c) => {
 
   // Courses beyond 101 are locked cards; they live in content, not the DB, until they exist.
   const { courses } = (await import('../../content/modules.json')) as unknown as { courses: CourseCard[] };
-  const coursesOut: CourseCard[] = courses.map((course) => ({
-    ...course,
-    recommendedFor: selectedGoals.filter((g) => g.courses.includes(course.id)).map((g) => `your goal: ${g.label}`),
-  }));
+  const coursesOut: CourseCard[] = courses
+    .filter((course) => track.keepCourse(course.id))
+    .map((course) => ({
+      ...course,
+      recommendedFor: selectedGoals.filter((g) => g.courses.includes(course.id)).map((g) => `your goal: ${g.label}`),
+    }));
   // The manager layer, present only when this session belongs to an account the
   // census knows. Passcode sessions are anonymous, so all three come back empty.
   const [managerSignals, commitment, isManager, mcpRows] = await Promise.all([
@@ -1621,11 +1647,15 @@ app.get('/api/library', async (c) => {
   const prefs = await loadPrefs(db, session.id);
   const goalsPicked = GOAL_CHOICES.filter((g) => (prefs.goals ?? []).includes(g.id));
   const { courses } = (await import('../../content/modules.json')) as unknown as { courses: CourseCard[] };
-  const coursesOut: LibraryCourse[] = courses.map((course) => ({
-    ...course,
-    recommendedFor: goalsPicked.filter((g) => g.courses.includes(course.id)).map((g) => `your goal: ${g.label}`),
-    modules: rows.filter((m) => m.courseId === course.id).map(toLibraryModule),
-  }));
+  // Same availability rule as the path: seeded module rows, not declared courses.
+  const track = trackFilter(prefs, rows.map((m) => m.courseId));
+  const coursesOut: LibraryCourse[] = courses
+    .filter((course) => track.keepCourse(course.id))
+    .map((course) => ({
+      ...course,
+      recommendedFor: goalsPicked.filter((g) => g.courses.includes(course.id)).map((g) => `your goal: ${g.label}`),
+      modules: rows.filter((m) => m.courseId === course.id).map(toLibraryModule),
+    }));
 
   const allModules = coursesOut.flatMap((course) => course.modules);
   const recs = await recommendationsFor(db, { loadPrefs, computeDiagnosticResult }, session.id);

@@ -298,13 +298,6 @@
       "status": "open"
     },
     {
-      "id": "ai301",
-      "title": "AI 301 · The Specialist",
-      "level": "L3 → L4",
-      "blurb": "Your actual role, in depth: the workflows, judgment calls, and edge cases specific to what you do — where generic advice runs out and the real applications begin.",
-      "status": "locked"
-    },
-    {
       "id": "ai401",
       "title": "AI 401 · The Translator",
       "level": "L4",

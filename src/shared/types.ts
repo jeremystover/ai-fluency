@@ -254,6 +254,8 @@ export type IntakePrefs = {
   aiTools?: string[]; // claude | chatgpt | gemini | other — asked unless the company profile already says
   aiToolOther?: string; // free-text fill-in when 'other' is picked
   selfLevel?: string; // self-assessed fluency level — see shared/levels.ts
+  roleId?: string; // People role — see shared/roles.ts; resolves to the 301 specialist track
+  roleOther?: string; // free-text fill-in when 'other' is picked
   // Opt-in: lets a manager read this learner's graded activity submissions in
   // their team view. Off by default, and it never covers the tutor transcript,
   // the diagnostic self-assessment, or which questions were missed.
