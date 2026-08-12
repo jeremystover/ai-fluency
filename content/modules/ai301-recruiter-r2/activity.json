@@ -1,0 +1,11 @@
+[
+  {
+    "id": "ai301-recruiter-r2-activity-applied-activity-friction-map-10",
+    "moduleId": "ai301-recruiter-r2-activity",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Applied activity — \"Friction map\"\n\n**Time:** 20 minutes · **Submit:** the map plus a 250–350 word write-up · **Graded against the\nrubric below.**\n\n**Step 1 — Log the week (7 min).** Your team's actual week, in blocks. Include the interrupt work\nthat never hits a calendar — chasing feedback, re-sending, answering the same hiring manager\nquestion.\n\n**Step 2 — Sort into tiers (4 min).** Throughput, insight, redesign, with a percentage\ndistribution. Most teams find redesign at or near zero, which is the finding.\n\n**Step 3 — Pick one friction and run the diagnostic (6 min).** All five questions on a single real\nfriction point. Answer question 3 in **one sentence with no \"and\" in it** — if you can't, split\nthe problem and pick the half you'd solve first.\n\n**Step 4 — Name your archetype (1 min).** High-volume, professional/senior, or both — and if both,\nsay which one your current tooling is actually optimized for.\n\n**Step 5 — Score the prediction (2 min).** Your predicted throughput share against what you found.\n\nThen the write-up: the one-sentence goal, whether it wants automation or an agent and why, who\nowns it when it breaks, your position on the claim above with the counter-argument addressed, and\nwhat you'd have to stop doing to make room for any redesign at all."
+  }
+]

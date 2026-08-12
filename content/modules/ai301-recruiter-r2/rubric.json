@@ -1,0 +1,21 @@
+{
+  "promptVersion": "ai301-recruiter-r2-friction-map-v1",
+  "moduleId": "ai301-recruiter-r2",
+  "minWords": 250,
+  "maxWords": 350,
+  "submitLabel": "Your friction map and write-up",
+  "intro": "Paste the week's log with its tier distribution, the five-question diagnostic on one friction point, your archetype, and the 250–350 word write-up including your position on this module's claim.",
+  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, Recruiting/TA track. Module 2 applied activity, 'Friction map': their team's real week logged in blocks including interrupt work that never hits a calendar, sorted into throughput / insight / redesign with a percentage distribution (most teams find redesign at or near zero — that is the intended finding, not a failure), then one real friction point through all five diagnostic questions. Question 3 — what does solved look like — must be answered in ONE SENTENCE WITH NO 'and' in it; if the learner couldn't manage that, they should have split the problem and picked a half, and doing so scores well. Question 5 (who owns it when it breaks at 7pm) must name a person or role, not a team. They also declare their hiring archetype (high-volume hourly, professional/senior, or both) and, if both, which one their current tooling is actually optimized for — a genuinely useful and uncomfortable question. Then compare against their predicted throughput share. This track scores the delta, not the score: never grade prediction accuracy.",
+  "opening": [
+    { "key": "throughputShare", "label": "Predicted — % of your team's week that is throughput work", "hint": "Coordinating, formatting, scheduling, chasing, status-updating.", "placeholder": "e.g. 40", "min": 0, "max": 100 }
+  ],
+  "calibration": [
+    { "key": "throughputShareActual", "label": "Measured — what the logged week shows", "hint": "From your own distribution.", "placeholder": "e.g. 65", "min": 0, "max": 100, "actualFor": "throughputShare" }
+  ],
+  "dimensions": [
+    { "name": "The week is real and complete", "criteria": "An actual week including the interrupt work — chasing, re-sending, answering the same question — with approximate hours. A tidy representative week scores below a messy honest one." },
+    { "name": "The tiers are applied honestly", "criteria": "A percentage distribution with borderline items reasoned rather than rounded. Watch for throughput work classified as insight because its content is judgment-laden (summarizing scorecards is transformation, not judgment) and redesign work classified as throughput because its artifact is short. A redesign share at or near zero, reported plainly, is the intended finding." },
+    { "name": "The diagnostic is complete and the goal is one sentence", "criteria": "All five questions answered on one real friction. Question 3 in a single sentence with no 'and' — a learner who split a compound problem and picked a half has done the exercise correctly. Question 5 names a person or role, not 'the team'; an unowned automation should be flagged in feedback as a future incident." },
+    { "name": "Archetype, position, and delta", "criteria": "The archetype named, and if both, an honest answer about which one the current tooling actually serves. Plus a position on the claim engaging its real counter-argument — that 'AI project' attracts budget and sponsorship 'workflow automation' never has, so the reframe may be reading the organization correctly — and the prediction compared with the miss direction named." }
+  ]
+}
