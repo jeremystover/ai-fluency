@@ -1,0 +1,70 @@
+{
+  "reviewedAt": "2026-08-12",
+  "buckets": [
+    { "id": "never", "label": "Never", "hint": "Prohibited, or destroys the instrument", "rank": 0, "pct": 8 },
+    { "id": "consult", "label": "With disclosure and consultation", "hint": "Defensible, but not before the notice, the council and the floor", "rank": 1, "pct": 48 },
+    { "id": "run", "label": "Run it", "hint": "Go — nothing here needs a new promise", "rank": 2, "pct": 88 }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "text": "Ranking last quarter's zero-result intranet searches by frequency to find what people can't locate",
+      "key": "run",
+      "reasoning": "The cheapest, highest-fidelity thing on this list. Aggregate, operational, about content findability rather than people, and it needs no promise you haven't already made. If one item on this exercise becomes a pilot, make it this one."
+    },
+    {
+      "id": "t2",
+      "text": "A webcam tool that scores attention and engagement from employees' faces during the all-hands",
+      "key": "never",
+      "reasoning": "Inference of emotion from biometric data in a workplace — squarely inside the EU AI Act's Article 5(1)(f) prohibition, which is absolute rather than a risk to manage. This is the category the module warns arrives as a *feature*: it gets switched on inside a video platform by someone who never framed it as emotion recognition."
+    },
+    {
+      "id": "t3",
+      "text": "Themeing 400 help-desk tickets from the last month to find what the benefits announcement failed to explain",
+      "key": "run",
+      "reasoning": "Aggregate analysis of operational data for a content question. Run it — with the Lesson 2 defences riding along: ask for the distribution rather than the themes, ask what didn't fit and how much, and run it twice to see whether the structure holds."
+    },
+    {
+      "id": "t4",
+      "text": "Sentiment scoring across public Slack channels, reported to leadership as a weekly team-level morale index",
+      "key": "consult",
+      "reasoning": "The hardest card, and the one people most often put in the wrong bucket in both directions. It is very probably *outside* Article 5(1)(f), because text is not biometric data — so \"illegal in the EU\" is not the reason to hesitate. But it needs the other three gates: a lawful basis under data protection, works council consultation where one exists, and a monitoring notice that actually covers it. Team-level reporting also demands a floor. Defensible with all four; indefensible without."
+    },
+    {
+      "id": "t5",
+      "text": "Reporting engagement survey results for a five-person team, because the manager asked for their numbers",
+      "key": "never",
+      "reasoning": "Below any sensible reporting floor, and the request being reasonable is what makes it dangerous. The analysis may be perfectly sound; the output is a disclosure, and the manager will infer the silent respondents. A floor you waive when someone asks nicely is not a floor — which is why it is set before you see the data."
+    },
+    {
+      "id": "t6",
+      "text": "Voice-stress analysis on recorded HR service calls to flag distressed employees for follow-up",
+      "key": "never",
+      "reasoning": "Inference of emotional state from voice — biometric data — in a workplace context. Prohibited. Note that the *intent* is benevolent and irrelevant: Article 5(1)(f)'s exceptions are medical and safety purposes narrowly construed, not good intentions. A well-meaning deployment is still a prohibited one."
+    },
+    {
+      "id": "t7",
+      "text": "Analyzing three years of exit-interview free text for patterns in why people leave one business unit",
+      "key": "consult",
+      "reasoning": "Genuinely valuable and not automatic. Exit interviews carry an implied confidentiality most organizations never wrote down, verbatims identify people regardless of sample size, and a single business unit narrows the population sharply. Check what was promised at collection, set a verbatim rule, and if the promise doesn't cover it, change the promise going forward rather than reinterpreting the old one."
+    },
+    {
+      "id": "t8",
+      "text": "Counting how many all-hands questions on the same topic went unanswered across the last four quarters",
+      "key": "run",
+      "reasoning": "Run it. This is aggregate, about your own performance rather than about employees, and it needs nothing from anyone. A question asked four quarters running is not a question — it is a finding about the function, and this is the rare listening exercise whose subject is you."
+    },
+    {
+      "id": "t9",
+      "text": "Flagging individual employees whose message tone shifts negatively over time, for manager follow-up",
+      "key": "never",
+      "reasoning": "Individual-level inference about emotional state driving action about a named person. Even where the text route escapes Article 5(1)(f), this is the case most likely to be caught at the unsettled edge, it is high-risk profiling under data protection law, and it is the single fastest way to make employees stop writing candidly in any channel you can see. It destroys the instrument to get one quarter of insight out of it."
+    },
+    {
+      "id": "t10",
+      "text": "Summarizing the open-text comments from a pulse survey into themes for the leadership readout, as the survey's privacy note said you would",
+      "key": "run",
+      "reasoning": "Run it — and note why it earns the top bucket while item 7 doesn't. The promise made at fielding time explicitly covers this use. That is the whole rule: the promise governs, and here it was written to permit exactly what you're doing. Reporting floor and verbatim rule still apply to the output."
+    }
+  ]
+}
