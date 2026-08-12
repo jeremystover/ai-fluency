@@ -1,5 +1,29 @@
 # AI 301 · DEI — assessment, not an outline
 
+> ## ⚠️ SUPERSEDED — the recommendation in this file was wrong
+>
+> **The track exists. See `course-301-defensible-outline.md`.**
+>
+> A human-written brief reframed the role away from program ownership and toward the technical
+> compliance function for algorithmic people decisions, and that reframe defeats all three
+> arguments below. The specific error: §3's subtraction table sends "adverse impact computation"
+> to recruiter R6 and calls it owned — but R6 teaches a recruiter to *read* a vendor's bias audit,
+> while the track teaches someone to *design and run the testing protocol under privilege*. Those
+> are different designs wearing the same topic, which is the exact failure the authoring brief's §3
+> warns about, made one step earlier in the process than it anticipates.
+>
+> Two further things this file missed: the shadow vendor stack (AI features enabled inside tools
+> already owned, with no procurement event), and Connecticut's statutory enumeration of how
+> anti-bias testing will be judged — which is the strongest single argument for the track and
+> appears in neither document.
+>
+> **Kept unedited** because the subtraction table, the verification in §6, and item A below are all
+> still accurate and still useful. §1, §4's distribution plan, and §5's steelman are the parts that
+> were wrong.
+>
+> **Item A survives independently of the track decision:** 101 M7 Lesson 3 is shipped, open, and
+> its federal-enforcement claim is stale. Fixing it is not made unnecessary by this track existing.
+
 **Why this file has a different name from the others.** The authoring brief flags DEI with a
 question rather than a recommendation: *"heavy overlap with pay equity and adverse impact; may be
 lessons rather than a track."* That question has to be answered before an outline is written, the
