@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why is a model's willingness to argue any position without believing it an asset in this module and a liability elsewhere?",
+      "options": [
+        "Because rehearsal doesn't require factual accuracy, so hallucination is harmless here",
+        "Because you need a sparring partner with no stake and no social reason to go easy — the same indifference that makes fluent output untrustworthy makes attack honest",
+        "Because models argue better than they explain",
+        "It isn't an asset — the module works despite this property, not because of it"
+      ],
+      "correctIndex": 1,
+      "explanation": "Elsewhere, arguing convincingly without belief is exactly why output needs verification. Here it's the point: no colleague will attack your plan with that little social friction. A overstates it — accuracy still matters, which is why Lesson 4 traces wrong objections."
+    },
+    {
+      "id": "q2",
+      "prompt": "You ask a model \"what do you think of this plan?\" and get praise, three considerations, and a balanced close. What happened?",
+      "options": [
+        "The plan is genuinely strong and the model found little to object to",
+        "The model's critical capabilities are weaker than its generative ones",
+        "You asked for the wrong thing — the plausible continuation of that question is a constructive-colleague response, which reads as critique and functions as endorsement",
+        "The context window was too short to support a thorough critique"
+      ],
+      "correctIndex": 2,
+      "explanation": "Nothing malfunctioned. The mechanism is 101's: most plausible continuation. The failure is dangerous precisely because it feels like having been reviewed."
+    },
+    {
+      "id": "q3",
+      "prompt": "Which instruction is most likely to produce usable objections?",
+      "options": [
+        "\"Be critical of this plan and don't hold back\"",
+        "\"You manage a team of nine with operating targets and you have to defend this on Monday — what questions can't you answer?\"",
+        "\"List the pros and cons of this approach\"",
+        "\"Rate this plan out of ten and explain the score\""
+      ],
+      "correctIndex": 1,
+      "explanation": "A role with an interest and something at stake. A produces criticism-flavoured text because \"critical\" is a style instruction, not a position. C invites the balanced close the module is trying to defeat."
+    },
+    {
+      "id": "q4",
+      "prompt": "What does the fourth adversary — the person with the least power affected — exist to surface?",
+      "options": [
+        "Legal exposure from the most vulnerable group",
+        "What you normalized, from the perspective of someone structurally absent from the room where the plan was built",
+        "The strongest emotional reaction, for communications planning",
+        "Whether the change is defensible under 101 M7's line"
+      ],
+      "correctIndex": 1,
+      "explanation": "They're in the set because representing that person is structurally an HRBP's job and they are almost never in the design conversation. A and D are things this adversary may incidentally surface; the purpose is the blind spot."
+    },
+    {
+      "id": "q5",
+      "prompt": "Which single prompt does the module identify as the highest-yield?",
+      "options": [
+        "\"What's the strongest objection to this?\"",
+        "\"What would the headline say if this went badly?\"",
+        "\"What am I not asking you because I don't want to know the answer?\"",
+        "\"Are you sure about that objection?\""
+      ],
+      "correctIndex": 2,
+      "explanation": "It targets what your own preparation is structurally blind to — you can't audit your omissions from inside them. D is the module's named non-move: self-confirmation isn't verification here any more than it was in 101 M6."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why should the rehearsal happen in a fresh conversation rather than the one where you built the plan?",
+      "options": [
+        "Long conversations exceed the context window and drop the plan",
+        "The building conversation contains all your justifications, and the model predicts from everything in view — so it argues from inside your framing",
+        "Models perform better on the first exchange of any conversation",
+        "Fresh conversations are cheaper in token terms"
+      ],
+      "correctIndex": 1,
+      "explanation": "101 M1's mechanism. Give it the plan and the role, not the story of how you arrived at the plan — otherwise you've briefed your adversary with your own defence."
+    },
+    {
+      "id": "q7",
+      "prompt": "An adversary raises an objection that rests on a false assumption about your organization. The practitioner move is to:",
+      "options": [
+        "Dismiss it and move on — the objection is invalid",
+        "Correct the model and re-run the adversary with better context",
+        "Ask how it got there — because a false inference drawn from your written plan is a communication defect a human reader would make faster",
+        "Accept it anyway, since the perception matters more than the fact"
+      ],
+      "correctIndex": 2,
+      "explanation": "The wrong objection is still evidence about how the plan reads without your context. B isn't wrong as a follow-up, but it skips the free finding. D over-corrects into treating every misreading as valid."
+    },
+    {
+      "id": "q8",
+      "prompt": "What is the module's own claim against itself?",
+      "options": [
+        "That adversarial rehearsal is less effective than rehearsing with a human colleague",
+        "That preparation and confidence move independently, and a rehearsal can deliver only the second — generating counters for every objection while the plan stays unchanged",
+        "That the technique only works for high-stakes conversations",
+        "That models are too agreeable for the technique to work reliably"
+      ],
+      "correctIndex": 1,
+      "explanation": "Rationalization wearing rehearsal's clothes, and it feels identical from the inside — which is why the activity weights \"what did you change?\" most heavily. D is the problem Lesson 3 solves, not the residual risk the claim names."
+    }
+  ]
+}
