@@ -507,12 +507,55 @@ the 75/25 split exists, it should replace this — and if it doesn't, the claim 
 
 **Blocking before drafting.** The leadership-credibility figures (33% erosion / 13% enhancement /
 43% transparency-dependent) — surfaced only in secondary coverage, no primary source or sample
-identified, and load-bearing for M10 Lesson 3. The Gallagher figures against the primary report
-rather than secondary coverage — the publisher's domain is blocked from this environment. The
-**TouchPointGPT 9,000-document case and the stock-vesting chatbot failure**, both from the human
-draft and both currently uncited. State electronic-monitoring notice requirements (New York,
-Connecticut, Delaware). ECPA consent mechanics. Works council consultation duties in the
-jurisdictions the content names. AIHR and Ragan runtimes, if the comparison appears in sales copy.
+identified, and load-bearing for M10 Lesson 3. AIHR and Ragan runtimes, if the comparison appears in
+sales copy.
+
+**Resolved during drafting.**
+
+- **State electronic-monitoring notice requirements — verified and carried into M7 Lesson 4.** New
+  York (notice on hire, acknowledgment, conspicuous posting; AG-enforced at $500 / $1,000 / $3,000),
+  Connecticut (Gen. Stat. § 31-48d, $500–$3,000), Delaware (daily logon reminder or a single
+  acknowledged notice, $100 per violation). The material finding: these are **notice regimes, not
+  consent regimes**, which turns "are we allowed to do sentiment analysis" into the checkable
+  "does the notice our employees acknowledged cover what we're building".
+- **The Simpplr methodology is more specific than the outline recorded.** Not "n≈450, North
+  America" — an independent survey of **448 IC professionals, 85% US / 15% Canada, fielded December
+  2025**, all at organizations of 500+. An earlier search had given "523 across North America and
+  the UK"; the specific methodology supersedes it. M2 also uses a second finding from the same
+  report that the outline didn't have: highest-impact areas among AI users are content strategy
+  (49%), planning (48%), channel strategy (41%) — Decide and Interpret work, which corroborates the
+  compression thesis from a different direction.
+- **Gallagher's over-communication finding is a risk-index measure from a practitioner survey**, not
+  a measurement of employee trust. The precise phrasing is a 30% increase in leadership-trust risk
+  and a 24% rise in audience burnout in high-volume environments. M1 Lesson 1 states that limitation
+  in the lesson rather than the sources block. The primary PDF remains unreachable — the publisher's
+  domain is egress-blocked from the authoring environment — so figures come from Gallagher's own
+  press release and consistent secondary coverage, recorded as such in M1's sources.
+- **Cardon & Coman is richer than the outline recorded**, and re-verifying it before drafting
+  changed M6's structure. Two (directionality) × four (levels of AI assistance) design, n=1,100,
+  stimulus a manager's congratulatory message with AI-assisted sections highlighted. Beyond the
+  divergence, the study reports a **perception gap** — people rate their own AI use similarly at any
+  level and judge others' by magnitude — which became M6 Lesson 2 and is the reason the module's
+  answer cannot be "use judgment". Both limitations (single relational stimulus; participants told
+  which sections were AI-assisted) are stated in-lesson.
+
+**Failed verification — cut, and the module redesigned around the absence.**
+
+- **TouchPointGPT (the 9,000-document curation success) and the stock-vesting chatbot failure**,
+  both carried from the human draft into M8, **could not be verified.** Neither traces to a primary
+  source, a named organization, or a published account with enough detail to check. Searching for
+  independent evidence on employee-facing HR assistants more broadly returned only vendor blogs,
+  vendor case studies, and vendor statistics with no stated methodology.
+  **This made M8 stronger rather than weaker.** Decision 6 already gave the module no statistical
+  anchor because every available number is vendor-produced; the case studies failing the same way
+  turned that decision into the module's opening lesson. M8 Lesson 1 now states plainly that no
+  independent evidence base appears to exist, names the two unverifiable cases as unusable, and
+  draws the procurement consequence: every number you will be shown was produced by someone selling
+  something, so the burden of proof is entirely yours and the only evidence that will ever exist
+  about your deployment is evidence you generate. The module is argued from craft throughout.
+  One vendor framing surfaced by the same search — *if an employee claims they were given wrong
+  information, the audit log is your defence* — is quoted in Lesson 4 **to be torn down**, because
+  it converts an employee's harm into the employer's litigation exposure.
 
 ## Open questions for review
 
