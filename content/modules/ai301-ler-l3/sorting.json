@@ -1,0 +1,33 @@
+{
+  "reviewedAt": "2026-08-12",
+  "buckets": [
+    { "id": "dont", "label": "Don't record", "hint": "The cost falls on the wrong person", "rank": 0, "pct": 30 },
+    { "id": "consent-first", "label": "Only with disclosed consent", "hint": "Ask, offer the alternative, mean it", "rank": 1, "pct": 55 },
+    { "id": "consent-review", "label": "Consent, plus review before filing", "hint": "Attribution and quality by speaker", "rank": 2, "pct": 45 },
+    { "id": "stop", "label": "Stop — resolve a question first", "hint": "Lawfulness or a dependency is unresolved", "rank": 3, "pct": 20 }
+  ],
+  "tasks": [
+    { "id": "t1", "text": "First contact with a complainant who is deciding whether to proceed at all", "key": "dont",
+      "reasoning": "Lesson 1's clearest case. Chilling costs the most here and the record is worth the least — nothing has been alleged yet in a form the transcript would preserve usefully. Take notes." },
+    { "id": "t2", "text": "A respondent interview where the respondent is a fluent speaker of the transcription tool's primary language", "key": "consent-review",
+      "reasoning": "Recording is defensible and the review is not optional: attribution errors and unmarked inaudibility are the two failures that reach a file. Note that the fluency in the card does not remove the review — it removes one *reason* for concern, and the module's rule is that transcripts are an aid rather than a substitute regardless." },
+    { "id": "t3", "text": "A witness interview where the witness is a non-native speaker and the tool has produced poor transcripts for them before", "key": "dont",
+      "reasoning": "The disparity exposure in its concrete form. A materially worse transcript for this witness means their account reaches the decision-maker less accurately than others' — a due-process problem and a discrimination problem at once. The answer is your notes and a human review, and recording that you made that call. Not a better prompt." },
+    { "id": "t4", "text": "An interview where one participant is joining from California and you are not", "key": "stop",
+      "reasoning": "All-party consent, and the controlling question is where the *participants* are rather than where you are. This is not a judgment call to make in the moment — it is a lawfulness question with a state-specific answer, and it belongs on the counsel list before the interview rather than after." },
+    { "id": "t5", "text": "A routine follow-up call to confirm a date against a calendar entry", "key": "consent-first",
+      "reasoning": "Low stakes, low chilling cost, and genuinely useful to have accurately. Disclose at the start and offer the alternative — the point of the offer is that it makes the transcribed majority consensual, and uptake is usually low. Include it because a sorting exercise where nothing is straightforward teaches the wrong lesson." },
+    { "id": "t6", "text": "An investigatory interview with a represented employee who has requested their union representative", "key": "stop",
+      "reasoning": "Weingarten does not forbid recording — that is the finding worth having. But three things are unresolved before you proceed: the representative's consent is among the consents you need, your collective agreement may address recording explicitly, and introducing routine recording may itself be a mandatory subject. Module 7's territory, and the answer is not in this room." },
+    { "id": "t7", "text": "A grievance meeting where the union has said it will make its own recording", "key": "consent-first",
+      "reasoning": "The card that reframes the question. If the other side is recording, your choice is between having a record and having only theirs — which turns the candour argument on its head, because the chilling has already happened. Disclose and record, and note that your record is no longer the only record either way." },
+    { "id": "t8", "text": "A conversation that began as a policy question and turned into an allegation halfway through", "key": "dont",
+      "reasoning": "The realistic and awkward one. A transcript running from before the moment it became an investigation captures the preamble — including whatever was said casually about third parties — and none of it was previously producible. Stop, tell them you want to restart this as a proper interview, and begin again with disclosure. Salvaging the first half is the tempting error.", "also": ["stop"] },
+    { "id": "t9", "text": "A follow-up interview where the tool defaulted to transcribing and you noticed ten minutes in", "key": "stop",
+      "reasoning": "Two problems and only one is legal. You may have recorded without consent, which is a counsel question. And a participant who *notices a bot mid-conversation* loses trust in the process rather than in the recording — Lesson 1's point about disclosing before rather than during. Say so, decide together what happens to the partial recording, and document it." },
+    { "id": "t10", "text": "An interview with a manager about their own decision-making in a discipline case", "key": "consent-review",
+      "reasoning": "Recording is appropriate — this is the account most likely to be contested later, and \"that's not what I said\" is the attack a verbatim record defeats. Review still applies, and note the second-order point: a manager who knows they are being transcribed may give a more careful and less candid account of their own reasoning, which is a cost you accept for accuracy here rather than one you can eliminate." }
+  ],
+  "pattern": "Recording is lawful more often than it is right, and the deciding question is usually which party absorbs the cost of your choice.",
+  "postscript": "Three of the ten say stop, which is higher than most people place — and each one is a different kind of unresolved question: a lawfulness question (**t4**), a dependency question (**t6**), and a thing that already went wrong (**t9**). Sit with **t8**, the conversation that turned into an allegation partway through: salvaging the first half is the tempting error, and restarting properly costs you twenty minutes and saves you a producible preamble. And **t7** is the card that inverts the module's own argument — if the union is recording, the candour cost is already paid and only your record is missing. If you sorted **t3** into a consent bucket, re-read Lesson 3: consent does not fix an unequal error rate, because the person consenting has no way to know their transcript will be worse."
+}

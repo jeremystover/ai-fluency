@@ -1,0 +1,119 @@
+[
+  {
+    "id": "ai301-ler-l3-calibration-prompt-the-claim-to-contest-10",
+    "moduleId": "ai301-ler-l3",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Calibration prompt — the claim to contest\n\n*Commit before you read anything. Thirty seconds.*\n\n**The claim:** *\"A verbatim transcript of an investigatory interview is better evidence than your\nnotes.\"*\n\n**True or not true**, and the one sentence you would defend it with. Note that this one is genuinely\ncontested among people who do this work for a living, and the module does not settle it.\n\n**And the number you will check:** **of the platforms your investigations use for interviews — video\nconferencing, telephony, room systems, anything a meeting can happen on — how many have transcription\nor an AI notetaker available, or switched on by default?**\n\nCount them, then go and look. Most people find at least one more than they expected, and the ones that\nare on by default are the ones that matter."
+  },
+  {
+    "id": "ai301-ler-l3-module-brief-20",
+    "moduleId": "ai301-ler-l3",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nThe last module was about what a model may do with the material. This one is about how the material\ncomes into existence, and it contains a decision most ER functions have never consciously made.\n\nSomebody, at some point, decided how your investigation interviews get recorded. Increasingly the\nanswer is that nobody decided — a transcription feature arrived in the platform you already used, and\nnow some proportion of your interviews produce a verbatim, timestamped, discoverable artifact that\ndid not exist two years ago. Nobody chose that, and it changes your exposure in four directions at\nonce.\n\nThe module's structure follows the four, and only one of them is about accuracy. **The interesting\nexposures are not that the transcript might be wrong.** They are that it might chill the interview,\nthat it exists at all, that capturing it may itself be unlawful in some places, and that its errors\nmay not be evenly distributed across the people you interview.\n\n**One thing deliberately deferred.** Whether your investigation material is privileged, and what\nputting it into an AI tool does to that, is the subject of Module 4 — there is now actual case law and\nit deserves proper treatment rather than a caution here. If you are about to change your practice\nthis week, read Module 4 first."
+  },
+  {
+    "id": "ai301-ler-l3-learning-objectives-30",
+    "moduleId": "ai301-ler-l3",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. Explain the trade the recording decision actually involves `[V]` — and why the tool that improves\n   the record can degrade the investigation.\n2. Describe what a verbatim transcript does to your discovery exposure, in both directions.\n3. Name three exposures that have nothing to do with transcript accuracy `[V]`: consent, biometrics,\n   and unequal error rates.\n4. State what Weingarten does and does not constrain `[V]`, and locate the real constraint on\n   recording.\n5. Apply the aid-not-substitute discipline to machine transcripts before they enter a file."
+  },
+  {
+    "id": "ai301-ler-l3-lesson-1-what-recording-does-to-candour-40",
+    "moduleId": "ai301-ler-l3",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 · What recording does to candour [V]\n\nStart with the cost that does not appear on any feature comparison.\n\nEmployment counsel writing on AI notetakers are consistent on this point: recording intake interviews,\nwitness statements, and investigative meetings **may chill candour and discourage participation.**\nWitnesses who would speak freely to a person taking notes speak differently — or decline — when the\nconversation is being captured verbatim.\n\nThat matters more here than it would in most settings, and the reason is worth being precise about,\nbecause it is not sentimental:\n\n> **The employer's own defence depends on the investigation having been prompt and effective. A tool\n> that reduces what witnesses are willing to say attacks the thing you are relying on.**\n\nAn investigation that reached no conclusion because two witnesses declined to be interviewed is not a\nneutral outcome. It is a weaker position for the employer, a worse outcome for the complainant, and a\ndocument that says less than it should.\n\nSo the trade is real and it runs in both directions:\n\n- **Recording improves the record and may degrade the investigation the record is of.**\n- **Not recording protects candour and leaves you with a reconstruction written by an interested\n  party.**\n\nNeither is free, and this module's position is that the decision has to be **made and written down**,\nnot inherited from a platform default. Which is a lower bar than it sounds — most functions have not\ncleared it.\n\nThree things that reduce the candour cost without abandoning the record, all of them cheap:\n\n**Disclose before, not during.** A witness told at the start that the conversation will be transcribed\nadjusts once. A witness who notices a bot join mid-conversation loses trust in the process, not just\nin the recording.\n\n**Offer the alternative and mean it.** *We normally transcribe; if you'd prefer we didn't, say so and\nI'll take notes instead.* Uptake is usually low, and the offer is what makes the transcribed majority\ngenuinely consensual.\n\n**Never transcribe the first contact.** The initial intake conversation, where somebody decides whether\nto proceed at all, is where chilling costs the most and the record is worth the least. Take notes."
+  },
+  {
+    "id": "ai301-ler-l3-lesson-2-a-record-that-would-not-otherwi-50",
+    "moduleId": "ai301-ler-l3",
+    "ordinal": 50,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 · A record that would not otherwise exist [V]\n\nNow the exposure people miss, because it sounds like a benefit.\n\nTranscripts are **discoverable.** That much is obvious. The part that gets missed is what changes when\nthe artifact exists at all:\n\n> **Transcription creates a comprehensive, timestamped record that would not otherwise have existed.**\n\nYour notes were always a reconstruction: selective, summarized, and shaped by what you judged\nrelevant. A transcript is everything. Which means it contains:\n\n- Every clumsy question your investigator asked, including the leading one they corrected immediately.\n- Every aside, joke, and moment of impatience.\n- The five minutes of preamble in which somebody said something about a third party who is not\n  involved in this matter.\n- The point at which the investigator speculated aloud.\n\nNone of that was previously producible, because none of it was previously recorded. **It is now, and\nit is producible in full**, and the person reading it will be looking for exactly those passages.\n\n**And the same fact cuts the other way, which is why this is a genuine trade rather than a warning.**\nA verbatim record defeats *\"that's not what I said\"* — the most common attack on investigation notes\nthere is. It protects a complainant whose account was summarized unsympathetically. It protects an\ninvestigator accused of leading a witness, provided they did not. And it removes an entire category of\ndispute about what happened in the room.\n\n**The fabrication problem sits inside this.** Notetakers misattribute and invent — the speaker labels\nswap, a sentence gets assigned to the wrong person, an inaudible passage is rendered as confident\ntext. In most contexts that is an annoyance. Here, **a hallucinated line in an investigation transcript\nis discoverable evidence that you produced**, and you will be asked to explain it.\n\nWhich yields the discipline, and it is the operational core of the module:\n\n> **A machine transcript is an aid to your notes, never a substitute for them.**\n\nConcretely: keep your contemporaneous notes, separately. Review the transcript against them before it\nis filed — specifically checking speaker attribution and anything rendered without a marked\ninaudibility. **An unreviewed transcript does not go in the file.** And if you correct one, the\ncorrection is visible and dated rather than silent, because a silently edited transcript is worse than\neither the original or your notes."
+  },
+  {
+    "id": "ai301-ler-l3-try-60",
+    "moduleId": "ai301-ler-l3",
+    "ordinal": 60,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### Try this — 3 minutes\nThink about the last investigatory interview you conducted. Now imagine a verbatim transcript of the\nfirst five minutes being read aloud by someone hostile. Is there anything in there you would rather\nnot defend? That answer is the candour trade from the other side of the table, and it is why this\ndecision is a judgment rather than a default."
+  },
+  {
+    "id": "ai301-ler-l3-lesson-3-three-exposures-that-aren-t-abo-70",
+    "moduleId": "ai301-ler-l3",
+    "ordinal": 70,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 · Three exposures that aren't about accuracy [V]\n\nThree more, and none of them is fixed by a better transcription engine.\n\n**Consent, which is state-specific and unforgiving.** Many jurisdictions require notice or consent\nbefore a conversation is recorded, and **all-party consent states — California, Florida and\nPennsylvania among them — require every participant to agree.** The operative point for you: **\"the\nbot joined the call\" is not consent.** Nor is a line in an employee handbook nobody read. For a\nmulti-state investigation, the controlling question is where the *participants* are, not where you\nare, and a single witness in an all-party state can change what is lawful for that interview.\n\n**Biometrics, which is live litigation.** In February 2026 a class action was filed alleging that a\nmajor platform's live transcription feature captured **voice biometric data without proper consent\nunder Illinois law.** Note what that theory does: it makes the *transcription feature itself* the\nexposure, independent of what the transcript says or who saw it. A recording you never used, in a\nmatter that went nowhere, is still within the theory.\n\n**And the disparity exposure, which is the sharpest thing in this module.** Automated transcription\naccuracy is not uniform across speakers. Where quality is **systematically worse for speakers of\nparticular ethnicities or linguistic backgrounds**, the resulting records may themselves support a\nbias allegation.\n\nSit with what that means in an investigation specifically, because it is worse than a data-quality\nproblem:\n\n> **A materially worse transcript for a non-native-speaking respondent is a due-process problem and a\n> discrimination problem at the same time.**\n\nTheir account is captured less accurately than their accuser's. The file that goes to the\ndecision-maker misrepresents them more than it misrepresents the other party. And if the matter is\never challenged, the transcript is the evidence of that — produced by you, at your instruction.\n\nTwo practical moves. **Check quality by speaker, not in aggregate** — an overall accuracy figure will\nhide exactly the pattern that matters. And where a participant's transcript is visibly poorer, **the\nanswer is your notes and a human review, not a better prompt.** Treat it as the case for\nnot relying on the transcript for that interview, and record that you made that call.\n\n**Honest limit on this one:** the disparity theory is emerging rather than established. Counsel are\nwriting about it; we found no controlling decision applying it to investigation transcripts. It is on\nthis module's counsel list for exactly that reason."
+  },
+  {
+    "id": "ai301-ler-l3-lesson-4-weingarten-and-what-the-rule-ac-80",
+    "moduleId": "ai301-ler-l3",
+    "ordinal": 80,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 · Weingarten, and what the rule actually is [V]\n\nOne more, because the assumption in this area is usually wrong in a specific and useful way.\n\n**What Weingarten does.** Under *NLRB v. J. Weingarten* (1975), an employee subject to an\n**investigatory interview that could lead to discipline** who **requests** union representation is\nentitled to have a representative present. The request matters — the right is triggered by asking. The\nrepresentative may advise and actively assist, though not to the point of obstructing the interview.\nAn employer that proceeds while refusing a valid request, or retaliates against someone for making\none, violates the Act.\n\n**And now the part practitioners often assume wrongly:** the Weingarten decision **does not forbid the\nemployer from recording an investigatory interview.** Whatever constrains your recording practice, it\nis not Weingarten.\n\nThat is a genuinely useful finding, because it tells you where the real constraints are:\n\n- **Consent law** — Lesson 3, and state-specific.\n- **Candour and the effectiveness of the investigation** — Lesson 1, and a judgment rather than a rule.\n- **Any collective agreement you are party to**, which may address recording explicitly and which is\n  the first place to look in a represented workplace. Module 7 covers why your management-rights\n  clause probably does not help you here.\n- **And the duty to bargain**, if introducing routine recording changes a term or condition of\n  employment for represented employees. That is Module 7's subject and it is a live question rather\n  than a settled one.\n\nWhat Weingarten *does* change about the room is worth noting even though it is not about recording. A\nrepresented employee's interview now has a third participant who is taking their own account away with\nthem, which means **your record is no longer the only record.** That is a reason to be accurate rather\nthan a reason to be nervous — and if you are transcribing, the representative's consent is among the\nconsents you need."
+  },
+  {
+    "id": "ai301-ler-l3-exercise-embed-85",
+    "moduleId": "ai301-ler-l3",
+    "ordinal": 85,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"sorting\", \"title\": \"Ten recording scenarios\", \"intro\": \"*Ten minutes. Commit each card before you move it.*\\n\\nTen situations where a recording or transcription decision arises in an investigation. Sort each by what you would do.\\n\\nThe hard ones are where recording is lawful and still wrong \\u2014 and where not recording is defensible and still costs somebody.\"}"
+  },
+  {
+    "id": "ai301-ler-l3-key-takeaways-90",
+    "moduleId": "ai301-ler-l3",
+    "ordinal": 90,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **Recording may chill candour** `[V]`, and that matters because **the employer's own defence depends\n  on the investigation having been prompt and effective** — an investigation weakened by witnesses who\n  declined is not a neutral outcome.\n- **Neither choice is free.** Recording improves the record and may degrade the investigation;\n  not recording protects candour and leaves a reconstruction written by an interested party. **The\n  decision has to be made and written down rather than inherited from a platform default.**\n- **Three cheap mitigations:** disclose before rather than during; offer the alternative and mean it;\n  and **never transcribe the first contact**, where chilling costs most and the record is worth least.\n- **Transcription creates a comprehensive timestamped record that would not otherwise exist** — every\n  clumsy question, every aside, the preamble about an uninvolved third party. Previously not\n  producible. Now producible in full.\n- **And it cuts the other way**: a verbatim record defeats *\"that's not what I said\"*, protects a\n  complainant whose account was unsympathetically summarized, and removes a whole category of dispute.\n- **A machine transcript is an aid to your notes, never a substitute** — keep contemporaneous notes\n  separately, review attribution and unmarked inaudibility before filing, **an unreviewed transcript\n  does not go in the file**, and corrections are visible and dated rather than silent.\n- **Three exposures unrelated to accuracy** `[V]`: **consent** (all-party states, and \"the bot joined\n  the call\" is not consent — the controlling question is where the *participants* are); **biometrics**\n  (a February 2026 class action makes the transcription feature itself the exposure); and **the\n  disparity theory** — a materially worse transcript for a non-native speaker is **a due-process\n  problem and a discrimination problem at once.** Check quality **by speaker**, never in aggregate.\n- **Weingarten does not forbid recording** `[V]`. The real constraints are consent law, candour, your\n  collective agreement, and possibly the duty to bargain. And a representative in the room means\n  **your record is no longer the only record.**"
+  },
+  {
+    "id": "ai301-ler-l3-activity-link-95",
+    "moduleId": "ai301-ler-l3",
+    "ordinal": 95,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"activity_link\", \"title\": \"Applied activity \\u2014 The records decision\", \"blurb\": \"Audit every platform an interview could happen on and find what is on by default. Then write the decision: what is captured, at which stage, the consent sentence in the words you would say, who reviews attribution and quality by speaker before filing \\u2014 and the one thing you have decided not to record. A defensible \\\"we don't record\\\" is full credit.\", \"estMinutes\": \"30\"}"
+  },
+  {
+    "id": "ai301-ler-l3-take-a-position-100",
+    "moduleId": "ai301-ler-l3",
+    "ordinal": 100,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"The tool that improves your record degrades the investigation the record is of.\"*\n\nThe strongest counter-argument is that **this treats candour as fragile on thin evidence while\nflattering what notes actually are.**\n\nInvestigator notes are a reconstruction. They are selective, written by an interested party, produced\nunder time pressure, and they are attacked on precisely those grounds in every forum where they are\ntested. *\"That's not what I said\"* and *\"the note omits my explanation\"* are the two most common\nchallenges to an investigation, and a verbatim transcript defeats both. It also protects the people\nwith the least power in the process: a complainant whose account was summarized by somebody who found\nit implausible, and a respondent whose explanation was compressed into a clause.\n\nAnd the chilling argument proves too much. **People give evidence on the record constantly** — in\ndepositions, at tribunals, in disciplinary hearings with a union representative present and a note\nbeing taken. The claim that HR investigations specifically require the *absence* of a durable record\nis a claim about HR's informality rather than about human psychology, and informality is the condition\nunder which bad investigations have always happened. Defending it deserves more scrutiny than it\nusually gets.\n\nOn that reading, the honest position is that **a transcript is better evidence and you should disclose\nit and obtain consent** — which is a procedural obligation, not an argument against recording at all.\n\nYour position has to say **whether candour or accuracy should win where they conflict** — and then the\nquestion that makes it hard: **who bears the cost of each choice?** Because it is not the same person.\nChilling costs the complainant, who may not come forward. Inaccurate notes cost the respondent, whose\nexplanation is the one that gets compressed. **Deciding between them is a decision about which party\nabsorbs the risk of your process**, and stating that out loud is more honest than presenting either\noption as simply better practice."
+  },
+  {
+    "id": "ai301-ler-l3-sources-and-attribution-110",
+    "moduleId": "ai301-ler-l3",
+    "ordinal": 110,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- **Employment and privacy counsel on AI notetakers** (including Mayer Brown, Littler, Duane Morris,\n  Goodwin and Pillsbury, 2026) — that recording intake interviews, witness statements and investigative\n  meetings may chill candour and discourage participation, undermining the employer's ability to\n  investigate promptly and effectively; that transcripts are discoverable and create a comprehensive\n  timestamped record that would not otherwise exist; that all-party consent states including\n  California, Florida and Pennsylvania require every participant's agreement; that notetakers can\n  fabricate or misattribute statements and a hallucinated transcript becomes discoverable evidence; and\n  that **systematically poorer transcription quality for speakers of particular ethnicities or\n  linguistic backgrounds may support a bias allegation.** **[V]**\n- **Biometric privacy litigation** — a February 2026 class action alleging that a major collaboration\n  platform's live transcription captured voice biometric data without proper consent under Illinois\n  law. **Active litigation; posture will change. [V]**\n- ***NLRB v. J. Weingarten, Inc.*, 420 U.S. 251 (1975)** — the right to union representation, on\n  request, in an investigatory interview that could lead to discipline; the representative's entitlement\n  to advise and assist without obstructing; and employer violations for proceeding despite a valid\n  request or retaliating for one. **The decision does not forbid an employer from recording an\n  investigatory interview** — verified because the contrary assumption is common. **[V]**\n- The candour trade as stated, the three mitigations including never transcribing first contact, the\n  aid-not-substitute discipline with its attribution and inaudibility checks, the check-quality-by-speaker\n  rule, and the who-bears-the-cost framing are original to this course.\n- Builds on Modules 1 and 2 of this track. **Privilege is deliberately deferred to Module 4**, where\n  2026 case law on AI tools and privilege waiver is treated properly rather than as a caution here.\n- **The disparity exposure in Lesson 3 is an emerging theory, not settled law.** Counsel are writing\n  about it; we found no controlling decision applying it to investigation transcripts. It is on the\n  counsel list for that reason. **This module is not legal advice.**"
+  }
+]
