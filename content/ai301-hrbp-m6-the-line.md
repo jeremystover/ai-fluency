@@ -170,11 +170,21 @@ and did it change? **A document whose production you cannot describe is weaker t
 
 That last rule is the whole discipline in one line, and it is not really about AI at all.
 
+**And the line to hold when accounts conflict.** You will be tempted to hand a model two
+statements and ask which is more credible. **A model may locate conflicts; only a human may resolve
+them.** Asking it to surface where two accounts diverge, what each asserts, and what is
+corroborated elsewhere is legitimate and genuinely useful — it is faster and more thorough than you
+are. Asking it *who is telling the truth* is a credibility determination, and a credibility
+determination made by a system on evidence it cannot weigh is the finding a plaintiff's counsel
+most wants to discover. The output is not the problem; **the delegation is**, and it does not become
+acceptable because you agreed with the answer.
+
 > ### Try this — 3 minutes
 > Take a recent ER summary you wrote — mentally, no files needed. Could you say, for each
 > conclusion in it, what evidence produced it and when you reached it? If yes, AI assistance adds
 > speed to a defensible process. If no, the process was already the problem and AI would only
 > make it faster.
+
 
 ## Lesson 4 · What you can do this quarter
 
@@ -187,6 +197,16 @@ least one they'd never classified that way.
 **Ask three questions of each vendor, in writing.** Has this tool been bias-audited, by whom, and
 may we see it? What does it do when it has insufficient data about a candidate? And: which of our
 jurisdictions have you assessed this tool against? The answers — or the silences — are the finding.
+
+**Bring them in before you test, not after.** The order matters more than the invitation. If you
+commission an analysis — a pay-gap look, an adverse-impact check on a screening tool, a review of
+why one team's ratings skew — and *then* take counsel the result, you have created a document that
+exists whatever it says. If counsel commissions it, or is asked in advance what work should be done
+under privilege, the same analysis may sit somewhere different. **That is a decision made at the
+moment you ask the question, and it cannot be made retroactively.** You are not the person who
+decides what is privileged; you are the person whose sequencing determines whether the question can
+be asked at all. So the practical version is one sentence, said early: *"Before I ask anyone to run
+this, should it be run for you?"*
 
 **Write the documentation standard.** One page for your own team, covering the ER discipline
 above. It costs an afternoon and it is the artifact your organization will wish it had.
@@ -217,6 +237,12 @@ coming that we should build for now?"* That question has answers. The general on
   source material, and never let a model's phrasing become a finding you didn't reach.
 - **Bring counsel a specific list.** "Are we compliant?" gets a shrug; four named systems and
   what each decides gets an answer.
+- **Sequencing is the privilege decision.** Whether an analysis can be run for counsel is settled
+  at the moment you ask for it, not after you read the result. *"Before I ask anyone to run this,
+  should it be run for you?"*
+- **A model may locate conflicts; only a human may resolve them.** Surfacing where two accounts
+  diverge is useful work. Asking which one is true is a credibility determination, and the
+  delegation is the problem even when you agree with the answer.
 
 ## Take a position
 

@@ -4,10 +4,10 @@ DELETE FROM fd_exercise;
 DELETE FROM fd_module;
 DELETE FROM fd_brand;
 DELETE FROM fd_access_code;
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-12T21:46:38.973Z');
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-12T21:46:38.973Z');
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('587ba853-d51d-46a8-9697-c1b30bc4fbd6', 'omnissa', 'pbkdf2$100000$9D6AlHVsb4Bc6TqBR4B/Qg==$wdo5GrojGAApfBbY4sHx2Em/VcbKRDTxJ4BVMYWkD6I=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('50367943-9342-49db-a0f2-7a4293c5efe5', 'verdant', 'pbkdf2$100000$IW6ZCCrPI7sQR7FrO72qiA==$yh/0ihPZk1jHlobJD82PI0hwk2PJXp96rZIUpOk8kwo=', 'Theming proof', NULL, 0, NULL, 1);
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-12T22:17:28.611Z');
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-12T22:17:28.611Z');
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('06566fab-2d83-4672-ac03-a86ed9188693', 'omnissa', 'pbkdf2$100000$K60uman4BQdV28vzJU0qHw==$ktvY5T08e7qhbkHyDUybh6B+IwA6pUIAaQB8zo+Soig=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('887de068-2d36-444f-a4da-5e2c4ab1c0ff', 'verdant', 'pbkdf2$100000$hs63txM80CCsl7cu/P6nfQ==$Sio5jMuuxTbTZfd7MSf0VOTO0+LYc1Z0UaH+mU2lEYQ=', 'Theming proof', NULL, 0, NULL, 1);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m1', 'ai101', 1, 'What is AI?', 'A working mental model: what an LLM actually does, the vocabulary, why data decides everything, and a delegation heuristic you can carry under pressure.', 'open', 30, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m2', 'ai101', 2, 'Choosing the tool for the task', 'Chat assistants, copilots, and the AI already embedded in your HR stack — what each is actually for, and how to tell a language model from a scoring engine before you rely on either.', 'open', 25, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m3', 'ai101', 3, 'What it costs and how it scales', 'Tokens, context windows, and pricing — enough of the economics to size a use case, read a vendor quote, and know when a bigger model is worth it.', 'open', 25, NULL);
@@ -27,9 +27,9 @@ INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-hrbp-m1', 'ai301-hrbp', 1, 'Where you actually are', 'Most of the urgency was manufactured: what the adoption data actually says, and the difference between a peer gap and an expectations gap.', 'open', 20, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-hrbp-m2', 'ai301-hrbp', 2, 'Sort your own job', 'Two questions — presence, contested judgment — and the four quadrants they produce. Least penetrated is not protected.', 'open', 40, '["ai301-hrbp-m1"]');
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-hrbp-m3', 'ai301-hrbp', 3, 'The honest arithmetic', 'Botsitting, the four-question workflow audit, the volume trap, and tearing down a claim on evidence, sample, and falsifier.', 'open', 45, '["ai301-hrbp-m2"]');
-INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-hrbp-m4', 'ai301-hrbp', 4, 'Adversarial rehearsal', 'Five adversaries, five sting moves, and the model''s job is to attack your work rather than make it. The tutor is the surface.', 'open', 45, '["ai301-hrbp-m2"]');
-INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-hrbp-m5', 'ai301-hrbp', 5, 'Arguing with finance', 'A story loses to a model. Three you can build, the ways your HR data lies, and why small numbers demand the n in the sentence.', 'open', 40, '["ai301-hrbp-m3"]');
-INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-hrbp-m6', 'ai301-hrbp', 6, 'The line', 'The law about systems and the law about your documents: the patchwork, the agent theory, and ER documentation that survives discovery.', 'open', 45, NULL);
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-hrbp-m4', 'ai301-hrbp', 4, 'Adversarial rehearsal', 'Five adversaries, five sting moves, and the model''s job is to attack your work rather than make it. The tutor is the surface.', 'open', 50, '["ai301-hrbp-m2"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-hrbp-m5', 'ai301-hrbp', 5, 'Arguing with finance', 'A story loses to a model. Three you can build, the ways your HR data lies, and why small numbers demand the n in the sentence.', 'open', 50, '["ai301-hrbp-m3"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-hrbp-m6', 'ai301-hrbp', 6, 'The line', 'The law about systems and the law about your documents: the patchwork, the agent theory, and ER documentation that survives discovery.', 'open', 50, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-hrbp-m7', 'ai301-hrbp', 7, 'Manager capability as product', 'Catching misuse without driving it underground, what the coaching evidence really says, and why allocating human support is an equity call.', 'open', 40, '["ai301-hrbp-m4"]');
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-recruiter-r1', 'ai301-recruiter', 1, 'What broke', 'The two-sided collapse of signal cost, the symmetry rule, and why detection is a screening decision about people.', 'open', 25, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-recruiter-r2', 'ai301-recruiter', 2, 'Sorting your own job', 'Throughput, insight, redesign — plus the archetype split that reverses every piece of advice.', 'open', 25, '["ai301-recruiter-r1"]');
@@ -69,7 +69,7 @@ INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-talent-dev-m1', 'ai301-talent-dev', 1, 'The portfolio triage', 'The course subtracts its own bulk work and says so — plus the program you name for the kill list.', 'open', 25, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-talent-dev-m2', 'ai301-talent-dev', 2, 'Diagnosis as the job', '“Not a training problem” as a live option, and the request rewritten into the question it would have to be.', 'open', 25, '["ai301-talent-dev-m1"]');
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-talent-dev-m3', 'ai301-talent-dev', 3, 'The silent failure audit', 'You would expect there to be a number. One live asset audited backward, against the standard the field never applied to itself.', 'open', 25, '["ai301-talent-dev-m1"]');
-INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-talent-dev-m4', 'ai301-talent-dev', 4, 'Where the machine stops', 'The allocation policy — what needs a human on the hook, written across the portfolio rather than decided per request.', 'open', 25, '["ai301-talent-dev-m1"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-talent-dev-m4', 'ai301-talent-dev', 4, 'Where the machine stops', 'The allocation policy — what needs a human on the hook, written across the portfolio rather than decided per request.', 'open', 30, '["ai301-talent-dev-m1"]');
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-talent-dev-m5', 'ai301-talent-dev', 5, 'The floor', 'Mandate, accessibility, inference and licence. Where a recommendation becomes a decision about a person through a door nobody watched.', 'open', 25, '["ai301-talent-dev-m1"]');
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-talent-dev-m6', 'ai301-talent-dev', 6, 'The defense', 'The right end of the barbell, and the end this profession has never been able to hold — a case with a measure that can fail.', 'open', 25, '["ai301-talent-dev-m1"]');
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-excomms-m1', 'ai301-excomms', 1, 'The budget nobody counts', 'Your function is ahead on AI and on the wrong axis — attention is the budget nobody counts and you are already overspending it.', 'open', 25, NULL);
@@ -5389,6 +5389,23 @@ immediate: **verbatim volume and polish have stopped being evidence of engagemen
 A long, well-structured, articulate comment used to indicate someone who cared enough to write it.
 That inference is no longer safe, and any process that weights comments by length or fluency — yours,
 or a model''s summarisation — is now weighting something else.
+
+**And the highest-stakes case is not a survey construct at all — it is the performance rating.**
+Module 2 named it as a confounder: *performance data is a rating produced by the system you are
+evaluating.* That is true and it stops short. The prior question is whether the rating **measures
+anything** — whether "performance," as operationalised by your scale, your competency definitions
+and your calibration process, is a construct with any validity at all.
+
+Note what makes this worse than engagement. **An engagement index has a weak external referent;
+a performance rating has none.** A pay range can be benchmarked against a market. A competency
+framework is true because your organisation agreed it is, which makes performance and potential the
+only major HR instruments whose validity is entirely internal — and they gate promotion, pay and
+succession.
+
+Which yields a question worth asking out loud in a room where nobody has: **when a model generates
+a competency framework in ninety seconds, what exactly was scarce about the old one?** Not the
+document. The **agreement** — and the agreement is what made it operative. That is the same move as
+this course''s opening: the artifact went to zero and the authority above it did not.
 
 **The check that survives all of this is the oldest one in measurement:** can you state what would
 have to be true for this metric to be measuring something other than what it is named after? If you
@@ -15689,6 +15706,38 @@ a claim to a source; here you trace a conclusion to its premise. Same discipline
 rule applies: **you''re checking against something outside the model — your own knowledge of the
 organization — not asking the model to confirm itself.** "Are you sure?" is as useless here as it
 was there.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m4-lesson-5-calibration-is-a-room-85', 'ai301-hrbp-m4', 85, 'prose', 'stable', '## Lesson 5 · Calibration is a room you design
+
+Everything so far has you using a model on your own argument. Calibration inverts that: you are not
+the advocate, you are the person who built the room. And it is the highest-stakes room an HRBP
+designs, because what comes out of it is a permanent record about people''s careers.
+
+**Most organisations treat calibration as a meeting. It is an instrument.** The evidence that counts
+as admissible, who is allowed in, how a disagreement gets closed, what gets written down — those are
+design decisions, and if nobody made them deliberately they got made by whoever talks most.
+
+A model is genuinely useful on three of those and must be kept off the fourth.
+
+**It can surface outliers.** Which managers rate consistently high, which teams'' distributions moved
+this cycle, where a rating and the written evidence for it point different ways. That is pattern
+work over text and numbers, done faster and more evenly than a room can do it.
+
+**It can prepare the record.** Draft the evidence summaries in one shape, so the room compares
+comparable things instead of comparing writing quality — which is a real and under-noticed source of
+rating noise.
+
+**It can rehearse the hard case**, in exactly the way Lesson 2 describes: run the argument for a
+rating against the strongest objection to it before the meeting rather than during.
+
+**It may not resolve a disagreement between two managers about a person.** This is the same line the
+ER work draws, applied to ratings instead of witness accounts: *a model may locate conflicts; only a
+human may resolve them.* The tell is not the sophistication of the output — the output will be
+reasonable. It is that a rating is a decision about someone with consequences they can contest, and
+the answer to *who decided this* has to be a person who can be asked why.
+
+**The practical version:** write down what the model was allowed to do before the cycle, not after
+someone objects. A rule you can state in advance is a design. A rule you produce afterwards is a
+defence.', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m4-key-takeaways-90', 'ai301-hrbp-m4', 90, 'takeaways', 'stable', '## Key takeaways
 
 - **The property that makes AI risky everywhere else makes it useful here**: it will argue any
@@ -15705,7 +15754,11 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
 - **Five moves make it sting:** commit first in writing, forbid hedging, demand the steelman
   rather than a list, ask what you''re avoiding asking, and start fresh without your own framing.
 - **A wrong objection is still data.** Trace how it got there: a false inference from your written
-  plan is a communication defect you found for free.', NULL, '2026-08-12', NULL);
+  plan is a communication defect you found for free.
+- **Calibration is an instrument, not a meeting.** A model may surface outliers, standardise the
+  evidence summaries and rehearse the hard case; it may not close a disagreement between two
+  managers about a person. Write down which before the cycle — a rule stated in advance is a
+  design, a rule produced afterwards is a defence.', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m4-exercise-embed-95', 'ai301-hrbp-m4', 95, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m4-take-a-position-100', 'ai301-hrbp-m4', 100, 'callout', 'stable', '## Take a position
 
@@ -15923,6 +15976,35 @@ Pick one HR field you''d use in a model — regretted flag, performance rating, 
 reason. Write one sentence on how it''s actually populated in your organization, and one on how
 that differs from what its name implies. If you can''t answer the first, you''ve found this
 week''s most useful question for your HRIS or analytics partner.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m5-lesson-3b-when-they-arrive-75', 'ai301-hrbp-m5', 75, 'prose', 'stable', '## Lesson 3b · When they arrive with their own analysis
+
+Increasingly the leader you are briefing has already asked a model the same question and has an
+answer — **and it is more confident than yours**, because it has no alternatives list, no stated
+limitation and no small-numbers caveat. The absence of all three reads as clarity.
+
+**What does not work:** more rigour, a longer methods note, or your credentials. Nobody in the room
+can adjudicate a methods dispute, so it resolves on confidence, and you have deliberately spent
+yours on caveats.
+
+**Three moves, in order.**
+
+**Locate the definitional difference in one sentence.** Not the method — the *decision*. "Ours
+counts internal transfers as attrition, theirs almost certainly doesn''t, and that is most of the
+gap." This is why written definitions matter: with them you can locate a disagreement instead of
+having one.
+
+**Name one confound in theirs, specifically.** Not "there are limitations," which sounds defensive
+and generic. *"That comparison is between people who volunteered for the programme and people who
+didn''t."* One sentence, one mechanism, checkable.
+
+**Then offer the resolution, not the rebuttal.** *"Here''s what would settle it, and it would take
+two weeks."* That converts a status contest into a question, which is the only frame where being
+right helps you.
+
+**And the case to prepare for: they are right and you are wrong.** Conceding immediately,
+specifically, in front of the same audience is the highest-return move available to you — it is the
+strongest evidence that your objections are about the evidence rather than your position, and that
+is the whole basis of being believed the next time you object.', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m5-lesson-4-small-numbers-80', 'ai301-hrbp-m5', 80, 'prose', 'stable', '## Lesson 4 · Small numbers
 
 Your unit is ninety people. The team you''re worried about is six.
@@ -15951,7 +16033,22 @@ part you can hold.
 And the honest limit, worth saying plainly: **sometimes the right answer is that your population
 cannot support a quantified claim at all.** Then your contribution is the qualitative case, made
 explicitly as such — which is a different and more defensible thing than a quantitative case built
-on six people.', NULL, '2026-08-12', NULL);
+on six people.
+
+**And the other reason you will be told no — which is not statistical.** When you ask People
+Analytics for engagement results for that six-person team, the refusal you get is usually about
+**disclosure**, not sample size. Published results carry a minimum cell size because respondents
+were promised confidentiality, and the promise has a number under it. Worse, the threshold applies
+to *everything already published together*: a cut by function and a cut by function-and-tenure can
+each clear it and still **subtract to one person''s answer.** Nobody''s permissions were violated;
+the individual was identified anyway.
+
+That is a professional obligation on their side, not obstruction, and knowing it changes the ask.
+**Do not ask for the cut — ask for the question.** *Is there anything in this team''s results I
+should act on?* can often be answered by someone who has seen the data and is permitted to
+characterise it, when the table itself can never be released. If you read the refusal as
+gatekeeping you will escalate it, win, and destroy the confidentiality promise that makes next
+year''s survey worth running.', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m5-key-takeaways-90', 'ai301-hrbp-m5', 90, 'takeaways', 'stable', '## Key takeaways
 
 - **A story and a model are different objects.** Only a model can be argued with, and being
@@ -15969,7 +16066,14 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
   usually the only person who knows all of it, and that is your actual contribution.
 - **Small numbers demand the n in the sentence, a stated coincidence test, and direction over
   magnitude.** Sometimes the honest answer is that the population can''t support a quantified
-  claim, and saying so is stronger than manufacturing one.', NULL, '2026-08-12', NULL);
+  claim, and saying so is stronger than manufacturing one.
+- **When a leader arrives with their own analysis, locate the definitional difference, name one
+  confound specifically, then offer what would settle it.** More rigour loses to more confidence;
+  a checkable question does not. And if they are right, concede immediately and in front of the
+  same audience — that is what buys your next objection.
+- **A refusal to give you results for a team of six is usually about disclosure, not sample size.**
+  Minimum cell sizes protect a promise made to respondents, and separately-published cuts can
+  subtract to one person. Ask for the question answered, not the table released.', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m5-exercise-embed-95', 'ai301-hrbp-m5', 95, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m5-take-a-position-100', 'ai301-hrbp-m5', 100, 'callout', 'stable', '## Take a position
 
@@ -16187,7 +16291,16 @@ and did it change? **A document whose production you cannot describe is weaker t
 - Never let a model''s phrasing become a finding you didn''t independently reach.
 - If a sentence in the final document is one you couldn''t defend the origin of, rewrite it.
 
-That last rule is the whole discipline in one line, and it is not really about AI at all.', NULL, '2026-08-12', NULL);
+That last rule is the whole discipline in one line, and it is not really about AI at all.
+
+**And the line to hold when accounts conflict.** You will be tempted to hand a model two
+statements and ask which is more credible. **A model may locate conflicts; only a human may resolve
+them.** Asking it to surface where two accounts diverge, what each asserts, and what is
+corroborated elsewhere is legitimate and genuinely useful — it is faster and more thorough than you
+are. Asking it *who is telling the truth* is a credibility determination, and a credibility
+determination made by a system on evidence it cannot weigh is the finding a plaintiff''s counsel
+most wants to discover. The output is not the problem; **the delegation is**, and it does not become
+acceptable because you agreed with the answer.', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m6-try-70', 'ai301-hrbp-m6', 70, 'try_this', 'stable', '### Try this — 3 minutes
 Take a recent ER summary you wrote — mentally, no files needed. Could you say, for each
 conclusion in it, what evidence produced it and when you reached it? If yes, AI assistance adds
@@ -16204,6 +16317,16 @@ least one they''d never classified that way.
 **Ask three questions of each vendor, in writing.** Has this tool been bias-audited, by whom, and
 may we see it? What does it do when it has insufficient data about a candidate? And: which of our
 jurisdictions have you assessed this tool against? The answers — or the silences — are the finding.
+
+**Bring them in before you test, not after.** The order matters more than the invitation. If you
+commission an analysis — a pay-gap look, an adverse-impact check on a screening tool, a review of
+why one team''s ratings skew — and *then* take counsel the result, you have created a document that
+exists whatever it says. If counsel commissions it, or is asked in advance what work should be done
+under privilege, the same analysis may sit somewhere different. **That is a decision made at the
+moment you ask the question, and it cannot be made retroactively.** You are not the person who
+decides what is privileged; you are the person whose sequencing determines whether the question can
+be asked at all. So the practical version is one sentence, said early: *"Before I ask anyone to run
+this, should it be run for you?"*
 
 **Write the documentation standard.** One page for your own team, covering the ER discipline
 above. It costs an afternoon and it is the artifact your organization will wish it had.
@@ -16233,7 +16356,13 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
 - **If you can''t defend a sentence''s origin, rewrite it.** Record that AI assisted, keep the
   source material, and never let a model''s phrasing become a finding you didn''t reach.
 - **Bring counsel a specific list.** "Are we compliant?" gets a shrug; four named systems and
-  what each decides gets an answer.', NULL, '2026-08-12', NULL);
+  what each decides gets an answer.
+- **Sequencing is the privilege decision.** Whether an analysis can be run for counsel is settled
+  at the moment you ask for it, not after you read the result. *"Before I ask anyone to run this,
+  should it be run for you?"*
+- **A model may locate conflicts; only a human may resolve them.** Surfacing where two accounts
+  diverge is useful work. Asking which one is true is a credibility determination, and the
+  delegation is the problem even when you agree with the answer.', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m6-activity-link-95', 'ai301-hrbp-m6', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 Inventory and standard", "blurb": "Every system touching your population that screens, scores, ranks or filters \u2014 deployer named, audit status recorded, \"don''t know\" accepted as an honest entry \u2014 plus three written vendor questions and a one-page ER documentation standard your team could follow without you.", "estMinutes": "25\u201330"}', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m6-take-a-position-100', 'ai301-hrbp-m6', 100, 'callout', 'stable', '## Take a position
 
@@ -25708,6 +25837,38 @@ measurement you currently run.
 
 If you route it, route it knowing that. And if you route it, put something else on the calendar that
 serves the relationship, or accept that you have removed it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-talent-dev-m4-lesson-5-the-agreement-problem-82', 'ai301-talent-dev-m4', 82, 'prose', 'stable', '## Lesson 5 · The agreement problem
+
+One more thing the machine produces and cannot finish — and it is the one most likely to land on
+your desk this year, because it looks like a win.
+
+Ask a model for a capability framework for your organisation and you will get a good one. Coherent,
+well-levelled, better written than most in production, in about ninety seconds. The same is true of
+a rating rubric, a set of learning outcomes, a competency dictionary. **These artifacts are now
+free.**
+
+Then watch what happens to it. It goes to a leadership group, and somebody says *"that''s not what we
+mean by judgment here,"* and somebody else says *"level 3 and level 4 are the same thing,"* and six
+months later there is a framework in production that is worse-written than the generated one and
+that people actually use. **The rewriting was not the point. The arguing was.**
+
+Here is the structure, and it generalises well beyond frameworks: **the artifact was never the
+scarce thing. The agreement was** — and the agreement is what made it operative. A framework is not
+a document, it is a set of commitments about what the organisation will reward, made by people with
+enough standing that others treat them as settled. You cannot generate standing.
+
+This has a sharp consequence for how you use the free version, and it is not *don''t*. **Use it as a
+draft to argue with, and be explicit that this is what it is.** A generated framework put in front
+of a leadership team as a starting position gets you to the argument faster, which is real value.
+The same document circulated as *the new framework* skips the argument, and a framework nobody
+argued about is one nobody is committed to — it will be ignored in exactly the moments it was built
+for.
+
+**And the reason this bites harder here than in comp:** a pay structure has an external referent.
+You can benchmark it, and the market can tell you you are wrong. A competency framework and a
+definition of potential have no external referent at all. **They are true because the organisation
+agreed they were.** That makes agreement not a soft step before rollout but the entire source of the
+instrument''s validity — which is why the free artifact saved you the cheapest part.', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-talent-dev-m4-exercise-embed-85', 'ai301-talent-dev-m4', 85, 'exercise', 'stable', '{"type": "sorting"}', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-talent-dev-m4-key-takeaways-90', 'ai301-talent-dev-m4', 90, 'takeaways', 'stable', '## Key takeaways
 
@@ -25730,7 +25891,11 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
   them** — and the group it failed is the group the program was justified by. Segment before you
   run, or you have chosen not to see it.
 - **Routing development conversations to a tool may preserve the content and remove the occasion** —
-  and the occasion was doing most of the work.', NULL, '2026-08-12', NULL);
+  and the occasion was doing most of the work.
+- **The artifact was never the scarce thing — the agreement was.** A generated competency
+  framework is good and free; what made the old one operative was that people with standing
+  argued about it and then treated it as settled. Use the free version as a draft to argue with,
+  and say that is what it is.', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-talent-dev-m4-activity-link-95', 'ai301-talent-dev-m4', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 The allocation policy", "blurb": "One page your organization does not currently have: who gets a human, who gets a tool, and the stated basis for the line. Budget is a legitimate basis \u2014 it just has to be written down rather than smuggled in as a judgment about who benefits most.", "estMinutes": "30"}', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-talent-dev-m4-take-a-position-100', 'ai301-talent-dev-m4', 100, 'callout', 'stable', '## Take a position
 

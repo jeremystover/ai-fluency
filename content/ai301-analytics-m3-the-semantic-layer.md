@@ -200,6 +200,23 @@ A long, well-structured, articulate comment used to indicate someone who cared e
 That inference is no longer safe, and any process that weights comments by length or fluency — yours,
 or a model's summarisation — is now weighting something else.
 
+**And the highest-stakes case is not a survey construct at all — it is the performance rating.**
+Module 2 named it as a confounder: *performance data is a rating produced by the system you are
+evaluating.* That is true and it stops short. The prior question is whether the rating **measures
+anything** — whether "performance," as operationalised by your scale, your competency definitions
+and your calibration process, is a construct with any validity at all.
+
+Note what makes this worse than engagement. **An engagement index has a weak external referent;
+a performance rating has none.** A pay range can be benchmarked against a market. A competency
+framework is true because your organisation agreed it is, which makes performance and potential the
+only major HR instruments whose validity is entirely internal — and they gate promotion, pay and
+succession.
+
+Which yields a question worth asking out loud in a room where nobody has: **when a model generates
+a competency framework in ninety seconds, what exactly was scarce about the old one?** Not the
+document. The **agreement** — and the agreement is what made it operative. That is the same move as
+this course's opening: the artifact went to zero and the authority above it did not.
+
 **The check that survives all of this is the oldest one in measurement:** can you state what would
 have to be true for this metric to be measuring something other than what it is named after? If you
 cannot, you have a number, not a measure.

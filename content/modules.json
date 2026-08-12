@@ -231,7 +231,7 @@
       "title": "Adversarial rehearsal",
       "blurb": "Five adversaries, five sting moves, and the model's job is to attack your work rather than make it. The tutor is the surface.",
       "status": "open",
-      "estMinutes": 45,
+      "estMinutes": 50,
       "prereqs": [
         "ai301-hrbp-m2"
       ],
@@ -244,7 +244,7 @@
       "title": "Arguing with finance",
       "blurb": "A story loses to a model. Three you can build, the ways your HR data lies, and why small numbers demand the n in the sentence.",
       "status": "open",
-      "estMinutes": 40,
+      "estMinutes": 50,
       "prereqs": [
         "ai301-hrbp-m3"
       ],
@@ -257,7 +257,7 @@
       "title": "The line",
       "blurb": "The law about systems and the law about your documents: the patchwork, the agent theory, and ER documentation that survives discovery.",
       "status": "open",
-      "estMinutes": 45,
+      "estMinutes": 50,
       "prereqs": [],
       "microMinutes": 3
     },
@@ -761,7 +761,7 @@
       "title": "Where the machine stops",
       "blurb": "The allocation policy — what needs a human on the hook, written across the portfolio rather than decided per request.",
       "status": "open",
-      "estMinutes": 25,
+      "estMinutes": 30,
       "prereqs": [
         "ai301-talent-dev-m1"
       ],

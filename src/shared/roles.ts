@@ -74,7 +74,11 @@ export const ROLE_CHOICES: RoleChoice[] = [
     // "DEI"-titled course is a deployment blocker for some federal contractors.
     id: 'defensible',
     label: 'Pay Equity & Algorithmic Fairness',
-    detail: 'Adverse impact testing, pay equity analysis, bias auditing and AEDT governance — owning whether the organisation’s people decisions can be defended.',
+    // Named for the capability, not the function — a DEI-titled course is a
+    // deployment blocker for some federal contractors. But a DEI lead has to
+    // recognise themselves here or they pick `other`, so the discipline names
+    // live in the detail line where they aid routing without titling the course.
+    detail: 'Adverse impact testing, pay equity analysis, bias auditing and AEDT governance — owning whether the organisation’s people decisions can be defended. Where DEI measurement, equity analytics or algorithmic fairness sits with you, this is your track.',
     track: 'ai301-defensible',
   },
   {
@@ -84,9 +88,13 @@ export const ROLE_CHOICES: RoleChoice[] = [
     track: 'ai301-cpo',
   },
   {
+    // Talent management routes here deliberately rather than to a track of its
+    // own — see content/course-301-talent-management-exploration.md. The
+    // business partner track is the right landing: it owns calibration and
+    // contested judgment, which is the half of that job AI actually changes.
     id: 'other',
     label: 'Something else in People',
-    detail: "Talent management, org development, or something we haven't listed. Tell us below — you'll start on the business partner track while yours is built.",
+    detail: "Talent management, org development, or something we haven't listed. Tell us below — you'll start on the business partner track, which is where calibration and contested judgment live.",
     track: DEFAULT_TRACK,
   },
 ];
