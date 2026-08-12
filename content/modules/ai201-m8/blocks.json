@@ -54,6 +54,15 @@
     "body": "## Lesson 3 · What this course actually taught you\n\nClose the loop, then open the next one.\n\n**The result, stated plainly.** You now own a production workflow with a measured before and\nafter, a verification layer with real sample data, a defensible boundary, an autonomy\ndecision made on evidence, and documentation a stranger has actually run. When someone in\nyour organization asks what AI is worth — and someone will, with a budget line attached —\nyou are the person in the room with a baseline. One sentence, from your M7 numbers: *\"This\nworkflow saves N hours a month against a measured baseline, at a running cost of $X and a\nY% sampled error rate, with a boundary sheet security has seen.\"* Practice saying it. The\ncost clause matters as much as the savings clause: it's the difference between a pitch and\nan accounting, and a CFO hears the difference immediately.\n\n**The skills that came along quietly.** Look at what shipping required, and notice none of\nit was prompting: you priced trust in evidence (M4→M5), wrote boundaries a reviewer could\naudit (M6), measured your own judgment's lean and corrected for it (every module), read a\ncolleague's build and diagnosed where their expertise went invisible (M2 of this module),\nand produced the org's first honest before/after. Those are the raw materials of both rungs\nabove this one. **AI 301 · The Specialist** drives the practice you just built into the\nspecifics of your actual role — where generic advice runs out and the real applications\nstart, and where a shipped workflow beats a blank page as a starting point. Further up,\n**AI 401 · The Translator** is the multiplayer game: helping other functions adopt AI with\njudgment, evaluating vendors without being sold to, running pilots that produce evidence\ninstead of anecdotes, and owning the policy for what AI may touch. Translators are made\ncredible by exactly one thing — a build of their own they can point at — and you have one.\n\n**And the course keeps one promise on its way out.** 101 M1 said your two roles — using AI\nwell, and leading others to — were different jobs needing different preparation, and that\nyou couldn't credibly lead a change you can't perform. That debt is now paid. You can\nperform it — and every rung above this one, from your role in depth to the leading itself,\nis built on exactly that."
   },
   {
+    "id": "ai201-m8-exercise-embed-65",
+    "moduleId": "ai201-m8",
+    "ordinal": 65,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"choice\"}"
+  },
+  {
     "id": "ai201-m8-key-takeaways-70",
     "moduleId": "ai201-m8",
     "ordinal": 70,
