@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What does the \"continuous\" rung actually require?",
+      "options": [
+        "Better data infrastructure than most comp functions have",
+        "A decision that someone will act on the output — a quarterly pay equity check with no remediation mechanism is a quarterly record that you knew about a problem for longer",
+        "Real-time integration between the HRIS and the survey provider",
+        "Dedicated analyst headcount to maintain the cadence"
+      ],
+      "correctIndex": 1,
+      "explanation": "The requirement is organizational, not technical, which is true of most of the ladder. This rung is where good intentions become documented inaction."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why is the leverage ladder explicitly not a maturity model?",
+      "options": [
+        "Because organizations progress through the rungs at different speeds",
+        "Because you don't climb it in order and get no points for altitude — it sorts proposals by what they require, so the right rung is the highest one whose prerequisite you already have",
+        "Because the rungs apply differently to compensation than to benefits",
+        "Because Rung 4 is unreachable for most organizations"
+      ],
+      "correctIndex": 1,
+      "explanation": "For most comp functions that means Rung 3, which is also the one they overlook when asked what AI could do for them."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why is efficiency the weakest value argument for a comp function? `[V]`",
+      "options": [
+        "Because productivity gains from AI are usually overstated by vendors",
+        "Because a 25% gain across a six-person function is one to two FTEs — which rounds to nothing as a cost story, while the same capacity pointed at a drifting structure or an uninterrogated benefits spend is a seven-figure question",
+        "Because efficiency gains are difficult to measure reliably",
+        "Because comp work cannot be meaningfully automated"
+      ],
+      "correctIndex": 1,
+      "explanation": "Efficiency is the frame the whole market sells in and the one frame your function can never win. Accepting it means arguing for your own smallness."
+    },
+    {
+      "id": "q4",
+      "prompt": "Which gain does the module say matters most to the business and is hardest to evidence? `[V]`",
+      "options": [
+        "Analyst productivity, because it's the most certain",
+        "Operational efficiency in cycle administration",
+        "Partner coverage — supporting eight business units at a level currently sustainable for three — because coverage improvements show up as an absence of complaints rather than a metric",
+        "Design capability, because its value is realized over multiple years"
+      ],
+      "correctIndex": 2,
+      "explanation": "The thing with no metric is the thing that goes unfunded, which is the same structural problem as Rung 3's invisibility."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why is *explain* systematically undervalued rather than accidentally overlooked?",
+      "options": [
+        "Because explanation work is genuinely lower value than analysis",
+        "Because nothing counts it, it feels like overhead rather than the job, and its failure mode is silent — the manager who half-understood explains it badly and the cost lands as diffuse mistrust attributed to the pay program",
+        "Because managers rarely ask for help explaining compensation",
+        "Because explanation quality can't be improved with AI assistance"
+      ],
+      "correctIndex": 1,
+      "explanation": "Three structural reasons, none of them about the work's actual value. **A structure nobody can explain produces the same employee experience as a bad one.**"
+    },
+    {
+      "id": "q6",
+      "prompt": "What's the honest caveat on betting the *explain* rung?",
+      "options": [
+        "That explanation quality is impossible to measure",
+        "That high explanation volume can be a symptom of upstream design failure — getting better at explaining a confusing system can entrench the confusion by removing the pain that would have forced a redesign",
+        "That employees prefer explanations from humans",
+        "That explanation work is seasonal and doesn't justify year-round investment"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which is why a Rung 3 bet should name the questions it expects to **eliminate**, not just answer faster."
+    },
+    {
+      "id": "q7",
+      "prompt": "What makes a 90-day measure real rather than decorative?",
+      "options": [
+        "That it's tied to a financial outcome",
+        "That it's approved by the CFO before the bet starts",
+        "That it has a number, a baseline you can take this week, and you'd report it even if it moved the wrong way",
+        "That it's benchmarked against comparable organizations"
+      ],
+      "correctIndex": 2,
+      "explanation": "A measure you can't baseline before you start is one you'll define retrospectively to look good — Module 2's rationalization, arriving inside your own proposal."
+    },
+    {
+      "id": "q8",
+      "prompt": "What's the strongest counter-argument to \"a bet without a funding line is a wish\"?",
+      "options": [
+        "That funding decisions belong to Finance rather than to the proposing function",
+        "That early AI work often runs on genuine slack, so demanding a named sacrifice before value is demonstrated inverts the order — the funding conversation is properly a consequence of evidence, not a precondition for gathering it",
+        "That AI tools are inexpensive enough not to require trade-offs",
+        "That comp functions lack the authority to stop doing anything"
+      ],
+      "correctIndex": 1,
+      "explanation": "It's strongest because it's right about pilots and wrong about scaled commitments. The position you owe is where the threshold sits — at what size a proposal stops being an experiment you can run on slack."
+    }
+  ]
+}
