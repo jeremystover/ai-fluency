@@ -570,6 +570,51 @@ have produced:
 10. **The rehearsal mechanic's evidence is stated rather than implied.** It appears in four modules
     and its applied evidence is vendor-supplied.
 
+## What drafting changed (recorded during the build)
+
+**All ten modules are drafted.** Seven things changed in the writing and are recorded here rather
+than fixed silently.
+
+11. **The counsel-review gate had to become a block, not header text.** `scripts/convert-draft.mjs`
+    drops everything before the first `## ` heading, so a gate written into the draft's metadata
+    header — which is where the shipped HRBP module puts its equivalent — never reaches
+    `blocks.json` and is invisible to the learner, the tutor, and the podcast. M9 now opens on a
+    `## Counsel review required **[V]**` section that converts to ordinal 10, ahead of the
+    calibration prompt. **This is a latent bug in shipped tracks with legal content and worth
+    checking during the integration pass.**
+12. **M2's Lesson 1 lost its statistic and got better.** The outline expected to argue triggers over
+    roadmaps partly from the claim that leaders who admit uncertainty accelerate adoption. It did
+    not verify, so the lesson names the failure in-content and argues from consequence instead — a
+    roadmap you cannot keep is a credibility loan repaid in the quarter you miss, which the learner
+    can test against their own organization's history in three minutes. **A claim you can check beat
+    a claim you have to trust**, and the module says so.
+13. **M5 turned its missing anchor into the lesson.** The outline flagged M3 as the only module
+    without a statistic. M5 turned out to be the second, and the reason is better than the absence:
+    work in nobody's job description is in nobody's dataset, so the phenomenon is why the evidence
+    does not exist. Lesson 3 says this, and says an inventory that comes back empty falsifies the
+    module for that team.
+14. **M8 needed a stated foundation for "structural, not pastoral" and the weak-ties literature
+    supplied it.** The exploration's experimental finding — that AI use drove people to try harder to
+    connect and still feel isolated — could not be verified and was dropped. Granovetter's strength
+    of weak ties, and the large-scale causal test of it, carry the argument properly: weak ties
+    carry access to opportunity, and they are disproportionately the bridge for people whose
+    strong-tie networks are already closed. **That made the equity consequence explicit**, which the
+    outline had only implied.
+15. **The M10 exercise is about metrics rather than the deck.** The outline specified "four proposed
+    metrics; find the one that will produce itself" and that survived — but drafting made clear the
+    deck needed the learner's *own* anti-slogan test rather than a fifth worked example. The
+    activity now asks which slide of their own deck a reasonable person could disagree with, and
+    treats "none of them" as a finding about the deck.
+16. **Three modules ended up arguing against their own module's instinct**, which was not planned
+    and is worth keeping. M3's exercise catches over-application of its own technique (the request
+    that means exactly what it says). M4's catches the boundary you should concede. M6's catches you
+    admiring the fastest debt generator. The pattern is stronger than the convention required and
+    should be a candidate for the authoring brief.
+17. **Rubric word counts vary by module rather than sitting at one house number** — 200–350 for M9,
+    which is a systems exercise, up to 400–700 for M10's capstone. The convention elsewhere on the
+    ladder is 300–400 nearly everywhere; the variation here tracks how much the activity actually
+    asks for.
+
 ## Horizontal overlaps with sibling 301 tracks
 
 Named in both directions so the copies stay reconcilable. No learner sees two role tracks, but a
