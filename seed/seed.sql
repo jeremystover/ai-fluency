@@ -4,10 +4,10 @@ DELETE FROM fd_exercise;
 DELETE FROM fd_module;
 DELETE FROM fd_brand;
 DELETE FROM fd_access_code;
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-12T02:25:44.072Z');
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-12T02:25:44.072Z');
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('5c0108cb-ef64-4454-bc3f-ee9ff255616b', 'omnissa', 'pbkdf2$100000$uKwV8w/ksxrgllyUzZr2RQ==$6Zi8CAPUKh3/mSQQCoWeAaI1vUFuDQyu5pPmDO9HIkI=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('f0a2c628-5630-40ed-bf90-e83194a905c4', 'verdant', 'pbkdf2$100000$1dy1NQcfcLbYOl0D+mGgmA==$vC3fJLi54PgIysopyzOsHIFsXKnSg4EyrRi5XfC5onQ=', 'Theming proof', NULL, 0, NULL, 1);
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-12T04:54:25.636Z');
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-12T04:54:25.636Z');
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('23df4da9-e9d2-4441-8372-56138ac210ec', 'omnissa', 'pbkdf2$100000$JccS8Y46PNV2CLjuAvd3lw==$XMxjWkXmvNa1aGI8ECEiIrIzOm41/6ftjzh375P4dIY=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('af3daad9-e623-496e-a8d3-6559f2988e0f', 'verdant', 'pbkdf2$100000$FOuZl9QjF3PYs9Y7UlXTbw==$WfBTIFybyoTVNvHJsbi4B3EF9NL8ke9nuvsHmSA8mGg=', 'Theming proof', NULL, 0, NULL, 1);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m1', 'ai101', 1, 'What is AI?', 'A working mental model: what an LLM actually does, the vocabulary, why data decides everything, and a delegation heuristic you can carry under pressure.', 'open', 30, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m2', 'ai101', 2, 'Choosing the tool for the task', 'Chat assistants, copilots, and the AI already embedded in your HR stack — what each is actually for, and how to tell a language model from a scoring engine before you rely on either.', 'open', 25, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m3', 'ai101', 3, 'What it costs and how it scales', 'Tokens, context windows, and pricing — enough of the economics to size a use case, read a vendor quote, and know when a bigger model is worth it.', 'open', 25, NULL);
@@ -24,6 +24,13 @@ INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai201-m6', 'ai201', 6, 'People data in production', 'Four tiers, the person-test, redaction as a pipeline step, the agreement layer, and a blame-safe escalation path. The boundary sheet that makes your workflow deployable.', 'open', 30, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai201-m7', 'ai201', 7, 'The operating rhythm', 'Seconds per run, ten a week, twenty a month. Four honest numbers with a baseline, retirement criteria written in advance — and the reckoning against your Module 1 prediction.', 'open', 25, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai201-m8', 'ai201', 8, 'Ship it and prove it', 'The capstone lands: the consistency pass, the handoff test with a cold reader, and the executive sentence with receipts. Completes the jump to Practitioner.', 'open', 40, '["ai201-m4","ai201-m6"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-hrbp-m1', 'ai301-hrbp', 1, 'Where you actually are', 'Most of the urgency was manufactured: what the adoption data actually says, and the difference between a peer gap and an expectations gap.', 'open', 20, NULL);
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-hrbp-m2', 'ai301-hrbp', 2, 'Sort your own job', 'Two questions — presence, contested judgment — and the four quadrants they produce. Least penetrated is not protected.', 'open', 40, '["ai301-hrbp-m1"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-hrbp-m3', 'ai301-hrbp', 3, 'The honest arithmetic', 'Botsitting, the four-question workflow audit, the volume trap, and tearing down a claim on evidence, sample, and falsifier.', 'open', 45, '["ai301-hrbp-m2"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-hrbp-m4', 'ai301-hrbp', 4, 'Adversarial rehearsal', 'Five adversaries, five sting moves, and the model''s job is to attack your work rather than make it. The tutor is the surface.', 'open', 45, '["ai301-hrbp-m2"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-hrbp-m5', 'ai301-hrbp', 5, 'Arguing with finance', 'A story loses to a model. Three you can build, the ways your HR data lies, and why small numbers demand the n in the sentence.', 'open', 40, '["ai301-hrbp-m3"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-hrbp-m6', 'ai301-hrbp', 6, 'The line', 'The law about systems and the law about your documents: the patchwork, the agent theory, and ER documentation that survives discovery.', 'open', 45, NULL);
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-hrbp-m7', 'ai301-hrbp', 7, 'Manager capability as product', 'Catching misuse without driving it underground, what the coaching evidence really says, and why allocating human support is an equity call.', 'open', 40, '["ai301-hrbp-m4"]');
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('m1-brief', 'ai101-m1', 10, 'prose', 'stable', '## Why this module exists
 
 You almost certainly already use AI. You''ve probably asked something to tidy up a job description, turn a page of interview scrawl into a debrief a hiring manager can read, soften a rejection email, or explain a benefits provision in language an employee will actually understand. So opening a course with "what is AI?" is a strange move. The answer is on your screen already.
@@ -4422,3 +4429,1720 @@ Would a reasonable colleague trust it? Not "is it impressive" — verification r
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai201-m8-micro-close', 'ai201-m8-micro', 30, 'prose', 'stable', '**The full module adds** the shipping checklist, the peer-exchange mechanics, the manager one-pager — and the quiet news that the build reached past its own rung — into the role depth 301 goes after, and the credibility 401''s Translator work runs on.', NULL, '2026-08-07', NULL);
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m8-rubric', 'ai201-m8', 'rubric', '{"promptVersion":"ai201-m8-capstone-v1","moduleId":"ai201-m8","minChars":600,"submitLabel":"Your capstone-stage submission","intro":"Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). The AI 201 capstone portfolio: the index page and consistent binder, two real runs with intermediates, the four numbers in executive-sentence form, both directions of the peer exchange with the calibration score, and the closing reflection. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.","calibration":[],"dimensions":[{"name":"Engagement with real work","criteria":"The runs are real, the material is real, the fixes were actually made. A portfolio assembled for the grade reads exactly like one — and scores like one."},{"name":"Observation of mechanics","criteria":"The reflection connects what happened — the stalls, the deltas, the numbers — to how the systems work: context, verification, decay, transfer."},{"name":"Calibration","criteria":"The handoff prediction was made, scored, and folded into the course-long direction honestly. Accuracy isn''t graded; the named lean and its consequence are."},{"name":"Practical insight","criteria":"The next build is specific: named workflow, starting rung, budget size — each traceable to something this course measured about *you*."},{"name":"Would a colleague trust it?","criteria":"The test of the whole course: guardrails a reasonable peer would rely on — verification real, boundary defensible, autonomy evidenced, documentation a stranger has run. Not \"is it impressive.\" Is it *trustworthy*."}],"includeTrail":true}', '2026-08-12');
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m8-knowledge_check', 'ai201-m8', 'knowledge_check', '{"title":"Knowledge check — 6 questions","note":"Unlocks after the portfolio is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-07","questions":[{"id":"q1","prompt":"The proof of the Practitioner level is:","options":["A workflow running at rung 3 autonomy","Transferability — a stranger can run the build, read its boundaries, and trust its guardrails from the documentation alone","Measured time savings above five hours a month","Completion of all eight capstone stages"],"correctIndex":1,"explanation":"Rungs, savings, and stages are properties a good build might have. The level is about whether the judgment left the builder''s head and survived in writing."},{"id":"q2","prompt":"The consistency pass exists because:","options":["Reviewers require a single document format","Artifacts written across seven modules drift apart as the workflow evolves — and contradictions are where cold readers stall and trust dies","The portfolio must fit in one file","Each artifact must be re-approved before shipping"],"correctIndex":1,"explanation":"The binder was written longitudinally; the workflow kept moving. The pass reconciles them — spec to rhythm, runbook to budget, pack to census — before the stranger reads."},{"id":"q3","prompt":"During the handoff run, the reader may not ask the builder questions because:","options":["The exchange is graded as a test of the reader","The documentation must answer or fail visibly — a question answered aloud is a gap that ships unfixed","Peers are anonymous in the exchange","Questions would take too long"],"correctIndex":1,"explanation":"The cold read is the instrument. Every question the builder answers in person is a stall the binder no longer gets credit for revealing — and documentation debt that survives to the *next* reader, who won''t have the builder''s number."},{"id":"q4","prompt":"Builders mispredict where readers stall in a specific direction:","options":["They predict stalls at complex parts; readers stall at obvious ones, where the builder''s expertise has gone invisible","They predict too many stalls overall","They predict stalls at the beginning; readers stall at the end","There is no systematic direction"],"correctIndex":0,"explanation":"The tacit-knowledge tax: obviousness is what expertise can no longer see. It''s the course''s last calibration lesson, and the core diagnostic of the coaching work ahead."},{"id":"q5","prompt":"The executive sentence — \"saves N hours a month against a measured baseline, at a running cost of $X and Y% sampled error, with a boundary security has seen\" — is powerful because:","options":["It uses precise numbers","Each clause is backed by an artifact that exists and can be audited: the baseline, the cost estimate, the sample tallies, the boundary sheet","It''s short enough for an executive to remember","It avoids technical vocabulary"],"correctIndex":1,"explanation":"The sentence is a claim with receipts — which is what separates it from every AI-enthusiasm anecdote in the same meeting. The numbers matter because the artifacts behind them do."},{"id":"q6","prompt":"The fifth rubric dimension — \"would a colleague trust it?\" — is the course''s test because:","options":["Peer approval is required for shipping","It integrates everything: verification that''s real, boundaries that are defensible, autonomy that''s evidenced, documentation that''s been run — trustworthy, not impressive","Colleagues will maintain the workflow after handoff","Trust is easier to grade than quality"],"correctIndex":1,"explanation":"Any single module can be performed; trust is what the whole system either earns or doesn''t. It''s also the property every rung above spends: role depth needs a practice that holds, and a Translator''s credibility starts at their own shipped, trustworthy build."},{"id":"q7","prompt":"The index page — new in this module — is written for two readers. They are:","options":["The builder, as a personal reference, and the review queue","A successor, as the first page they read, and an executive, as the only page they read","The deployment owner and the legal team","The peer reviewer and the hiring manager"],"correctIndex":1,"explanation":"One page: what the workflow is, what it saves, where everything lives, who owns it. A successor starts there and reads deeper; an executive reads it and stops — which is why the numbers on it carry their baseline and cost."},{"id":"q8","prompt":"Your paired peer''s review hasn''t arrived within a week. Under the course''s design, your shipping:","options":["Stalls until the peer delivers — the exchange is a hard gate","Skips the exchange; the consistency pass covers the same ground","Proceeds — your binder goes to the review queue, where an experienced reviewer runs the same cold read","Proceeds only if you review your own binder with fresh eyes"],"correctIndex":2,"explanation":"No single person can deadlock the course. The queue''s reviewer runs the identical protocol — and having seen many binders, their stalls are better-aimed than a peer''s. A feature, not a compromise."}]}', '2026-08-07');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m1-calibration-prompt-before-you-start-10', 'ai301-hrbp-m1', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One prediction, thirty seconds. You''ll score it in the applied activity — and again in Module 7.*
+
+You are about to see survey data on how far along other organizations actually are with AI in HR.
+
+**What percentage of organizations do you think have no plans to launch AI initiatives at all?**
+Not "haven''t finished" — *no plans*. Commit a number before you read on.
+
+This track scores the delta, not the score. The number matters far less than whether you can
+say, seven modules from now, what moved you.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m1-module-brief-20', 'ai301-hrbp-m1', 20, 'prose', 'stable', '## Module brief
+
+This module exists because you cannot think clearly about AI while you believe you are losing a
+race — and most HRBPs believe exactly that.
+
+The belief is not irrational. It arrives from every direction: a vendor deck claiming your
+competitors have automated what you do by hand, a LinkedIn post from someone whose implementation
+sounds effortless, a CHRO who read the same article you did and wants to know what you''re doing
+about it. The cumulative message is that everyone is further along, and the only reasonable
+response is speed.
+
+Here is why that matters more than it looks. Decisions made under the belief that you are behind
+are reliably worse decisions. You buy earlier and evaluate less. You adopt the thing being
+marketed rather than the thing that fits your function. You skip the measurement that would have
+told you whether it worked, because measurement takes time you feel you don''t have. Every failure
+mode in the six modules that follow starts here, in the pressure to catch up with something.
+
+So before this track teaches you anything about judgment work, it owes you an accurate picture of
+where the field actually stands. Not a reassuring one — an accurate one. Some of it will be more
+comfortable than you expect, and one piece of it will be less.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m1-learning-objectives-30', 'ai301-hrbp-m1', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. State, from data rather than impression, how far along HR functions actually are with AI.
+2. Distinguish the two very different pressures that both feel like "we''re behind" — peer
+   reality and executive expectation — and explain why they need different responses.
+3. Name the specific decision errors that comparison-driven adoption produces.
+4. Describe your own current AI use honestly, in terms of what you actually do rather than what
+   you have access to.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m1-lesson-1-the-anxiety-and-where-it-comes--40', 'ai301-hrbp-m1', 40, 'prose', 'volatile', '## Lesson 1 · The anxiety, and where it comes from [V]
+
+Start with the shape of the feeling, because naming it precisely is most of the work.
+
+It is not usually "AI will take my job." Among HRBPs it is closer to *"everyone else has figured
+out something I haven''t, and at some point that gap becomes visible."* It is a social anxiety
+rather than a technical one, and it is produced by a specific information environment.
+
+Consider who is generating the content you read about AI in HR. Vendors, whose product roadmap
+is described as an industry trend. Consultancies, whose report exists to sell an engagement.
+Practitioners on professional networks, who post about the implementation that worked and not
+the three that stalled — the same selection bias that makes everyone else''s career look linear.
+Conference speakers, selected for having something to announce.
+
+Almost nobody publishes "we tried it, the results were ambiguous, and we''re still deciding." That
+is the modal experience and it is nearly invisible, which means the picture you assemble from
+public sources is systematically skewed toward completion and success.
+
+This is worth saying plainly: **the sense that you are behind is partly a manufactured product,
+and the manufacturing is not a conspiracy — it is just what happens when the only people
+motivated to publish are the ones with something to sell or something to celebrate.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m1-lesson-2-what-the-data-actually-says-50', 'ai301-hrbp-m1', 50, 'prose', 'volatile', '## Lesson 2 · What the data actually says [V]
+
+Now the survey evidence, which looks quite different from the content environment.
+
+**A large share of organizations have not started, and do not intend to this year.** Roughly
+three in ten report no plans to launch AI initiatives at all. That is not "behind schedule" —
+that is a deliberate or default position held by a substantial minority of the field.
+
+**Among those who have adopted, business value is not yet the norm.** A large majority of HR
+leaders report that their organizations have not realized significant business value from AI
+tools. Adoption and payoff are different milestones, and the gap between them is where most of
+the field currently sits.
+
+**And the finding that reframes the whole module:** the pressure most HRBPs feel is not coming
+from their peers. It is coming from their executives. Around nine in ten CHROs expect more AI
+adoption, while over half of organizations have not implemented any AI in HR at all. That is a
+gap between *expectation* and *implementation*, not between you and your competitors.
+
+Sit with that distinction, because it changes the correct response entirely:
+
+- If you are behind your **peers**, the answer is to move faster.
+- If you are behind your **executive''s expectations**, the answer is a conversation — about what
+  is actually possible, on what timeline, at what cost, with what evidence. Moving faster into an
+  unevaluated purchase does not close that gap; it just adds a failed implementation to it.
+
+Most HRBPs are running the first play against the second problem. Module 5 gives you the
+conversation; this module is about knowing which one you''re in.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m1-try-60', 'ai301-hrbp-m1', 60, 'try_this', 'stable', '### Try this — 2 minutes
+Write down the last three things that made you feel behind on AI. For each: was the source a
+vendor, a consultancy, a social post, or a person inside your organization telling you what
+they expect? If most were the first three, your evidence base is the content environment. If
+most were the fourth, you have an expectations problem, and it has a different fix.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m1-lesson-3-what-comparison-driven-adoption-70', 'ai301-hrbp-m1', 70, 'prose', 'stable', '## Lesson 3 · What comparison-driven adoption costs
+
+The reason this module comes first is that the belief produces specific, predictable errors —
+and every one of them is a failure the rest of the track has to clean up.
+
+**You buy before you can evaluate.** Module 3 teaches measuring a workflow end to end. That
+measurement is impossible under time pressure you have accepted from a feeling, so the purchase
+happens on the vendor''s evidence instead of yours.
+
+**You adopt what is marketed rather than what fits.** The AI products sold hardest into HR
+cluster where the market is largest, not where your function''s leverage is. Module 2 sorts your
+actual job; adopting before sorting means solving whichever problem had the best sales motion.
+
+**You skip the baseline.** The single most expensive omission in the entire track. Without a
+before-number you can never demonstrate the after-number, which means a working implementation and
+a useless one look identical in the retrospective — and Module 7''s case for your function cannot
+be made at all.
+
+**You mistake activity for progress.** Pilots launched becomes the metric because it is the metric
+available early. It measures motion, not value, and it is the number executives eventually stop
+accepting.
+
+The correction is not complacency. Nothing here says the technology is unimportant or that you
+have unlimited time — the market pressure in Module 2 is real and it is not friendly. It says
+something narrower and more useful: **you have more room to be deliberate than the content
+environment suggests, and deliberateness is what separates the implementations that survive from
+the ones that get quietly retired.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m1-exercise-embed-75', 'ai301-hrbp-m1', 75, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m1-key-takeaways-80', 'ai301-hrbp-m1', 80, 'takeaways', 'stable', '## Key takeaways
+
+- **The sense of being behind is partly manufactured** — not maliciously, but structurally: only
+  people with something to sell or celebrate publish, so the visible picture skews toward
+  completion.
+- **Roughly three in ten organizations have no AI plans at all this year** `[V]`, and a large
+  majority of HR leaders report no significant business value yet. Adoption and payoff are
+  different milestones.
+- **Two different pressures feel identical and need opposite responses.** Behind your peers →
+  move faster. Behind your executive''s expectations → have the conversation, with evidence. Most
+  people run the first play against the second problem.
+- **Comparison-driven adoption produces four specific errors:** buying before evaluating,
+  adopting what''s marketed over what fits, skipping the baseline, and mistaking pilots launched
+  for progress.
+- **Deliberateness is available to you.** Not unlimited time — more room than you think, and it
+  is what separates implementations that survive from ones that get retired.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m1-take-a-position-90', 'ai301-hrbp-m1', 90, 'callout', 'stable', '## Take a position
+
+**The claim:** *"Most of the urgency you feel about AI was manufactured by people selling it, and
+acting on that urgency is the single most expensive thing you''ll do this year."*
+
+Commit to a position before you write the activity — agree, disagree, or agree-with-a-limit — and
+be ready to argue it. The strongest version of the counter-argument is not "the anxiety is real."
+It is that **urgency, even manufactured urgency, sometimes produces the right action for the wrong
+reason** — organizations that moved early on manufactured fear did occasionally end up better
+positioned than those who deliberated. Your position has to survive that.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m1-activity-link-95', 'ai301-hrbp-m1', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 An honest inventory", "blurb": "What you actually used AI for in the last two weeks \u2014 not what you have access to \u2014 plus where your sense of being behind is really coming from, and the position you''ll defend on this module''s claim. Graded against a four-dimension rubric. Free unlimited resubmission.", "estMinutes": "15\u201320"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m1-sources-and-attribution-100', 'ai301-hrbp-m1', 100, 'prose', 'stable', '## Sources and attribution
+
+- **SHRM, *The State of AI in HR 2026*** — the adoption, no-plans, and business-value findings,
+  and the CHRO expectation data. Annual survey; figures move each cycle. **[V]**
+- The two-pressures distinction (peer reality versus executive expectation), the four errors of
+  comparison-driven adoption, and the content-environment selection-bias argument are original to
+  this course.
+- **The AI Fluency Framework** (Rick Dakan & Joseph Feller, in collaboration with Anthropic,
+  CC BY-NC-SA 4.0) — the calibrated-judgment stance this module''s prediction gate serves.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m1-activity-applied-activity-an-honest-inventory-10', 'ai301-hrbp-m1-activity', 10, 'prose', 'stable', '## Applied activity — "An honest inventory"
+
+**Time:** 15–20 minutes · **Submit:** the inventory plus a 250–350 word write-up · **Graded
+against the rubric below.** Score doesn''t matter. Doing the work is where the learning lands.
+
+**Step 1 — What you actually do (7 min).** List every task where you personally used AI in the
+last two weeks. Not what you have access to, not what you plan to try — what you *did*, with
+rough frequency. Be unsparing: "reworded three emails" belongs on the list, and for many
+experienced HRBPs it will be most of the list.
+
+**Step 2 — What your function actually does (5 min).** The same for your team, as far as you
+honestly know. Where you don''t know, write "don''t know" — that answer is data, and it is a more
+useful finding than a guess.
+
+**Step 3 — Locate the pressure (3 min).** Name the last three moments you felt behind, and for
+each, the source: vendor, consultancy, social, or an executive expectation. Then say which of the
+two problems you are actually in.
+
+**Step 4 — Score the prediction (2 min).** Your predicted share of organizations with no AI plans
+versus the real figure. Direction of the miss, and one sentence on what your guess reveals about
+where you thought you stood.
+
+Then the write-up: what the inventory shows about the distance between your *access* to AI and
+your *use* of it, your position on the claim above with the strongest counter-argument addressed,
+and the one thing you now think you should stop worrying about.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m1-micro-core', 'ai301-hrbp-m1-micro', 10, 'prose', 'stable', '## Module 1 in two minutes
+
+**You are probably not as far behind as you feel, and the feeling is partly manufactured.** Not maliciously — structurally. The only people motivated to publish about AI in HR are vendors selling a roadmap, consultancies selling an engagement, and practitioners describing the implementation that worked. Nobody publishes the ambiguous result, which is the modal one, so the picture you assemble from public sources skews hard toward completion.
+
+**What the data says instead** `[V]`: roughly three in ten organizations report *no plans at all* to launch AI initiatives, and a large majority of HR leaders say they have seen no significant business value from the tools they have adopted. Adoption and payoff are different milestones and most of the field sits in the gap.
+
+**And the distinction that changes your response:** around nine in ten CHROs expect more AI adoption while over half of organizations have implemented none. That is an *expectations* gap, not a peer gap — and the two feel identical while requiring opposite plays. Behind your peers, move faster. Behind your executive''s expectations, have the conversation with evidence. Moving faster into an unevaluated purchase doesn''t close that gap; it adds a failure to it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m1-micro-rule', 'ai301-hrbp-m1-micro', 20, 'callout', 'stable', '### The rule to carry
+
+Comparison-driven adoption produces four errors: buying before you can evaluate, adopting what''s marketed over what fits, skipping the baseline, and mistaking pilots launched for progress. The third is the expensive one — with no before-number, a working implementation and a useless one look identical afterward.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m1-micro-close', 'ai301-hrbp-m1-micro', 30, 'prose', 'stable', '**The full module adds** the four-statements exercise (three of them fail in different ways — inverted finding, subgroup presented as field, roadmap wearing a statistic), the honest inventory of what you actually did with AI in the last two weeks rather than what you have access to, and the claim you''ll have to take a position on: that acting on manufactured urgency is the most expensive thing you''ll do this year.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-hrbp-m1-choice', 'ai301-hrbp-m1', 'choice', '{"reviewedAt":"2026-08-12","title":"Four things you''ve been told","intro":"*Four minutes. Commit before you look.*\n\nFour statements an HRBP could plausibly have encountered this quarter — in a deck, a webinar, a peer conversation, or a LinkedIn post. Each sounds like evidence. **Only one is supported by what the survey data actually says.**\n\nThe other three fail in different ways, and naming the failure is the skill: one inverts a real finding, one is true of a subgroup and presented as true of the field, and one is a product roadmap wearing a statistic.","artifacts":[{"label":"Statement A · from a vendor webinar","body":"\"Nearly every HR function has now deployed AI in some form — the laggards are a rounding error, and they''re the ones losing talent to faster competitors.\""},{"label":"Statement B · from a peer at a conference","body":"\"Adoption is real but payoff isn''t yet — most HR leaders say they haven''t seen significant business value from the AI tools they''ve put in.\""},{"label":"Statement C · from a consultancy summary","body":"\"HR is one of the fastest-adopting functions in the enterprise. Recruiting teams in particular have moved decisively, which tells you where the rest of the function is headed within the year.\""},{"label":"Statement D · from a platform''s launch post","body":"\"Agentic AI is now standard in HR operations — the question is no longer whether your function runs agents, but how many.\""}],"options":[{"id":"a","label":"Statement A"},{"id":"b","label":"Statement B"},{"id":"c","label":"Statement C"},{"id":"d","label":"Statement D"}],"key":"b","reasoning":"**B is the supported one.** It states the adoption-versus-payoff gap accurately and without inflating it: a large majority of HR leaders report no significant business value yet, and that is a statement about the distance between two milestones rather than about the technology''s ceiling. Notice how unexciting it sounds. Accurate statements about this field mostly do.\n\n**A inverts the finding.** Roughly three in ten organizations report *no plans at all* — not late, not slow, no plans. \"Rounding error\" is the precise opposite of the data, and the talent-loss clause is a consequence asserted with no evidence attached, which is the tell.\n\n**C is true of a subgroup, presented as true of the field.** Recruiting genuinely is the most AI-penetrated practice area in HR. Everything after \"which tells you\" is extrapolation: the least-penetrated areas — employee relations, talent management, organizational design — are least penetrated because they''re the hard part, not because they''re merely next in line. This is the most dangerous of the three failures, because the first clause is true and buys credibility for the second.\n\n**D is a product roadmap wearing a statistic.** No number appears anywhere in it. \"Now standard\" and \"the question is no longer whether\" are rhetorical moves that presuppose the conclusion the vendor is selling — and the reframe from *whether* to *how many* is designed to skip the evaluation step this entire track exists to protect.\n\nThe portable test: ask what the claim would look like if it were false. B has an obvious falsifier — leaders would report business value. A, C, and D are built so that disagreeing with them makes you the laggard, which is how you recognize a claim engineered for urgency rather than accuracy."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-hrbp-m1-rubric', 'ai301-hrbp-m1', 'rubric', '{"promptVersion":"ai301-hrbp-m1-honest-inventory-v1","moduleId":"ai301-hrbp-m1","minWords":250,"maxWords":350,"submitLabel":"Your inventory and write-up","intro":"Paste the inventory (any readable format) followed by the 250–350 word write-up, including your position on this module''s claim. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for AI 301 · The Specialist, HRBP track — a role-specific course for HR business partners who have completed AI 101 and generally AI 201. Module 1 applied activity, ''An honest inventory'': every task where they personally used AI in the last two weeks (actual use, not access, not plans), the same for their team with ''don''t know'' as an acceptable and informative answer, the last three moments they felt behind with the source of each named (vendor / consultancy / social / executive expectation), a judgment about which of the two pressures they''re actually under, and a comparison against their predicted share of organizations with no AI plans. The write-up must also state a position on the module''s claim — that most of the urgency they feel was manufactured by people selling it — and address the strongest counter-argument, which is that manufactured urgency sometimes produces the right action for the wrong reason. This track scores the delta rather than the score: grade the honesty and specificity of the account, never the accuracy of any prediction.","opening":[{"key":"noPlansPct","label":"Predicted — % of organizations with no plans to launch AI initiatives","hint":"Not ''behind schedule'' — no plans at all. Whole percent.","placeholder":"e.g. 10","min":0,"max":100}],"calibration":[{"key":"noPlansPctActual","label":"Actual — the figure the module reports","hint":"Record it, then account for the direction of your miss.","placeholder":"e.g. 31","min":0,"max":100,"actualFor":"noPlansPct"}],"dimensions":[{"name":"The inventory is honest","criteria":"Actual use in the last two weeks, not access and not intentions — with the unglamorous entries included. ''Reworded three emails'' belongs on the list. An inventory that is shorter and more specific outscores one that is longer and aspirational, and ''don''t know'' about the team''s use scores higher than a confident guess."},{"name":"The pressure is located","criteria":"Three real moments named with their sources identified, and a defended judgment about whether this is a peer-reality problem or an executive-expectation problem. Getting the diagnosis ''wrong'' with visible reasoning outscores getting it right by assertion."},{"name":"The position survives its counter-argument","criteria":"A committed position on the claim — agree, disagree, or agree-with-a-limit — that engages the strongest case against it rather than the weakest. Restating the module''s argument back scores low; so does a position with no reasoning attached."},{"name":"The delta is accounted for","criteria":"Prediction compared against the real figure, direction of the miss named, and one sentence on what the guess reveals about where they thought they stood. Accuracy is not graded; the account of the gap is."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-hrbp-m1-knowledge_check', 'ai301-hrbp-m1', 'knowledge_check', '{"title":"Knowledge check — 5 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"Why does the publicly available picture of AI adoption in HR skew toward success and completion?","options":["Publications are legally required to report only verified implementations","The people motivated to publish are vendors, consultancies, and practitioners with a win to describe — nobody publishes the ambiguous result, which is the modal one","Failed implementations are rare enough that they don''t affect the average","Survey methodology in HR research systematically oversamples large organizations"],"correctIndex":1,"explanation":"A selection effect, not a conspiracy: the content environment is assembled from the subset of experiences someone had a reason to publicize. C is contradicted by the business-value data, and D describes a different problem than the one this lesson is about."},{"id":"q2","prompt":"A large majority of HR leaders report their organizations have not realized significant business value from AI tools. What does this most directly indicate?","options":["That AI tools do not work for HR use cases","That the surveyed organizations have not adopted AI at all","That adoption and payoff are separate milestones, and most of the field currently sits in the gap between them","That HR leaders are poor judges of business value"],"correctIndex":2,"explanation":"The finding is about the distance between two milestones, not about the technology''s ceiling. B confuses this statistic with the no-plans figure; A over-reads a snapshot of an early field."},{"id":"q3","prompt":"Around nine in ten CHROs expect more AI adoption while over half of organizations have implemented none. What kind of gap is that, and why does it matter?","options":["A peer gap — it means your competitors are ahead and you should accelerate","An expectations gap — the pressure is coming from executives rather than peer reality, and it''s closed by a conversation with evidence, not by faster buying","A measurement gap — CHROs are counting adoption differently than practitioners","A vendor gap — it shows vendors have oversold to executives specifically"],"correctIndex":1,"explanation":"The distinction is the module''s central practical point: the two pressures feel identical and have opposite correct responses. Buying faster does not close a gap between what your executive expects and what is actually possible — it adds a failed implementation to it."},{"id":"q4","prompt":"Of the four errors comparison-driven adoption produces, which one most directly prevents you from ever proving an implementation worked?","options":["Adopting what''s marketed rather than what fits your function","Mistaking pilots launched for progress","Buying before you can evaluate","Skipping the baseline"],"correctIndex":3,"explanation":"Without a before-number, a working implementation and a useless one are indistinguishable afterward — and the case for your function in Module 7 cannot be built at all. B is a related error but it substitutes a bad metric rather than eliminating the possibility of a good one."},{"id":"q5","prompt":"What does this module actually argue about urgency?","options":["That the technology is overhyped and HR functions should wait for it to mature","That you have more room to be deliberate than the content environment suggests, and deliberateness is what separates implementations that survive from ones that get retired","That market pressure on the HRBP role is exaggerated and can be safely discounted","That AI adoption decisions should be deferred to executives who feel the pressure most"],"correctIndex":1,"explanation":"The correction is against comparison-driven haste, not against the technology or against urgency in general. C is explicitly contradicted — Module 2 takes the market pressure on this role seriously and unflinchingly."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m2-calibration-prompt-before-you-start-10', 'ai301-hrbp-m2', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One prediction, thirty seconds.*
+
+By the end of this module you''ll sort a real week of your own work into four quadrants, using two
+questions.
+
+**What share of your week do you think requires either your physical or live presence, or a
+judgment call that reasonable people could disagree about?** One number, whole percent.
+
+Most HRBPs guess high. The number itself matters less than what you conclude when you see the
+real one — and Module 7 will ask you what moved.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m2-module-brief-20', 'ai301-hrbp-m2', 20, 'prose', 'stable', '## Module brief
+
+201 taught you to audit your week for workflows. This module asks a harder question about the
+same week: **which parts of this job are actually yours?**
+
+Not "which parts do you enjoy," and not "which parts are senior." Which parts require something
+a system cannot supply — and which parts you have been doing because you have always done them,
+because they arrive in your inbox, or because nobody has questioned whether they need a person
+with your salary attached.
+
+That question is uncomfortable, and this module makes it more so rather than less, because the
+market is asking it about you whether or not you ask it about yourself. Two major research firms
+have independently published the same direction of travel for HR headcount, and it is not a
+gentle one. A course that taught you AI tactics without telling you that would be doing you a
+disservice.
+
+The good news is real and worth stating first: the core of HRBP work is the least AI-penetrated
+territory in the entire HR function, by a wide margin. The bad news is that this is less
+protective than it feels — and the reason why is the most important idea in this module.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m2-learning-objectives-30', 'ai301-hrbp-m2', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Sort any piece of your work using two questions — does it require presence, and does it
+   require contested judgment — without confusing either with seniority or difficulty.
+2. Name the four quadrants those questions produce and what each one implies about AI.
+3. State where AI has actually landed across HR practice areas, and where it hasn''t.
+4. Explain why "least penetrated" is not the same as "protected," and what would have to become
+   true for each quadrant to move.
+5. Describe the analyst consensus on HR headcount and ratios honestly enough to plan against it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m2-lesson-1-two-questions-four-quadrants-40', 'ai301-hrbp-m2', 40, 'prose', 'stable', '## Lesson 1 · Two questions, four quadrants
+
+Two questions, asked of any task.
+
+**Does it require presence?** Not attendance — *presence*. Would something be lost if this
+happened without a person in the room, live, able to read what isn''t being said and change course
+inside the conversation? An investigation interview requires presence. A status meeting you
+always attend usually does not, however senior you are.
+
+**Does it require contested judgment?** Not difficulty — *contest*. Is there a defensible range
+of answers that thoughtful people could disagree about, where the choice depends on values,
+context, or precedent rather than analysis? Deciding whether a performance issue is a coaching
+problem or a fit problem is contested judgment. A complex but determinate calculation is hard,
+not contested.
+
+Both distinctions get missed in the same direction, so hold them precisely: **presence is not
+seniority, and contested judgment is not difficulty.** The most common self-assessment error
+among experienced HRBPs is to mark work as irreducible because it is important, when importance
+and irreducibility are unrelated properties.
+
+The four quadrants:
+
+**The room** — presence and contested judgment. The termination conversation, the investigation
+interview, coaching a leader who is failing and does not know it. Irreducible, and the smallest
+quadrant in most people''s week.
+
+**The ritual** — presence, no contested judgment. Standing meetings, delivering a decision made
+elsewhere, being visible at the onboarding session. Presence is genuinely expected; the judgment
+isn''t contested. **This is the quadrant HRBPs over-defend**, because it feels like relationship
+work and some of it is — but a great deal of it is calendar inheritance.
+
+**The desk** — contested judgment, no presence required. Writing the recommendation, designing
+the policy, preparing calibration, thinking through an org change. Real judgment, done alone,
+async. **The highest-leverage quadrant for AI** — not because AI supplies the judgment, but
+because it can carry everything around the judgment: the structuring, the drafting, the
+what-am-I-missing pass.
+
+**The queue** — neither. Scheduling, formatting, standard comms, data pulls, summarizing what was
+said. Not unimportant. Just not yours.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m2-lesson-2-where-ai-has-actually-landed-50', 'ai301-hrbp-m2', 50, 'prose', 'volatile', '## Lesson 2 · Where AI has actually landed [V]
+
+Now the field data, which is unusually clear.
+
+Across a mapped set of roughly 138 AI use cases spanning 16 HR practice areas, adoption
+concentrates hard: recruiting around 27%, HR technology around 21%, learning and development
+around 17%, employee experience around 14%. Those four account for the large majority of
+everything deployed.
+
+And the least-adopted areas are, in order of how much they matter to you: employee relations,
+talent management, organizational design, and compliance.
+
+Read that list again, because it is a description of an HRBP''s job. **The core of your role is
+the least AI-penetrated territory in the function.**
+
+Two honest reasons for that, and they are different in kind:
+
+**It''s the hard part.** Contested judgment on sparse, sensitive, context-dependent information is
+genuinely difficult for these systems — and 101 M7 explains why a large slice of it *must not* be
+delegated regardless of capability. That constraint is durable because it is ethical and legal
+rather than technical.
+
+**And it''s the part with the worst data.** Recruiting has funnels, timestamps, and outcomes.
+Employee relations has narrative documents that nobody would let a vendor train on. Low adoption
+partly reflects low tractability rather than high protection — and tractability changes.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m2-lesson-3-least-penetrated-is-not-protect-60', 'ai301-hrbp-m2', 60, 'prose', 'stable', '## Lesson 3 · Least penetrated is not protected
+
+Here is the idea worth the whole module.
+
+You do not need AI to do contested-judgment work for your ratio to move. **You only need it to
+eat the work that justified the headcount.**
+
+Follow the arithmetic. If half of a typical HRBP week sits in the queue and the shallow end of
+the desk — the drafting, the summarizing, the data pulls, the first-pass documents, the standing
+report — and that half compresses substantially, then the same number of HRBPs can cover
+materially more population. Nothing in the room quadrant was touched. Nobody automated a
+termination conversation. The ratio moves anyway, because ratios are set by total workload, not
+by the hardest thing in it.
+
+This is why "AI can''t do what I do" is a true statement that provides no protection whatsoever.
+It answers a question nobody in a budget meeting is asking.
+
+What actually follows from it, though, is more interesting than fatalism. If your defensible
+work is the room and the deep end of the desk, then **the strategic move is to be excellent
+there and fast everywhere else** — and being fast everywhere else is exactly what this track
+teaches. The HRBPs who struggle in the next few years will not be the ones who used AI. They
+will be the ones who spent their compressed capacity on more queue work rather than more room.
+
+What would have to become true for each quadrant to move further?
+
+- **The queue** is already moving and will keep moving. Assume it goes.
+- **The desk** moves as context handling improves and as organizations get better at supplying
+  organizational knowledge — 201''s whole subject. Expect the shallow end to compress and the deep
+  end to hold.
+- **The ritual** moves when someone questions the calendar, which is a political event rather
+  than a technical one. It is the quadrant most likely to be cut by a reorg and least likely to
+  be cut by a tool.
+- **The room** holds — for capability reasons that may erode and for ethical and legal reasons
+  that will not.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m2-try-70', 'ai301-hrbp-m2', 70, 'try_this', 'stable', '### Try this — 3 minutes
+Take the three things you did yesterday that felt most like "real HRBP work." Run each through
+both questions honestly. If any of them lands in the ritual or the shallow desk, you have
+found the gap between how the work feels and what it is — which is the gap this module exists
+to close.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m2-lesson-4-the-pressure-said-plainly-80', 'ai301-hrbp-m2', 80, 'prose', 'volatile', '## Lesson 4 · The pressure, said plainly [V]
+
+You are owed the numbers rather than the euphemism.
+
+Gartner recommends replacing the fixed HRBP model with flexible **pods of strategic talent
+leaders** — consultative, AI-supported, with few administrative responsibilities — and projects
+that within one to five years the ratio could move from roughly **one HRBP per 423 employees to
+one per 800–1,200.** That is not an efficiency nudge. At the midpoint it is half the HRBPs
+covering the same population.
+
+Josh Bersin, independently, describes HR teams operating with **30–40% fewer people.**
+
+Two firms, different methods, same direction. You should not treat either as prophecy — analyst
+projections routinely overshoot on timing, and "could rise to" is doing real work in that
+sentence. But you also should not treat the agreement as noise. When independent analyses
+converge on direction, the direction is usually right even when the timeline isn''t.
+
+The honest read: **the work isn''t disappearing, the headcount ratio is changing, and the
+distribution of what remains will favour whoever is credible in the room quadrant.** The
+strategic talent leader Gartner describes is not a new profession. It is an HRBP who spends most
+of their week on contested judgment — which is a description of what the best ones already do
+when their calendar allows it.
+
+That is the actual argument for everything in the five modules that follow. Not "use AI because
+it''s the future." Use it to buy back the hours that currently prevent you from being the person
+that model describes.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m2-key-takeaways-90', 'ai301-hrbp-m2', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **Two questions sort everything: does it require presence, does it require contested judgment.**
+  Presence is not seniority; contested judgment is not difficulty. Most self-assessment errors
+  come from confusing importance with irreducibility.
+- **Four quadrants:** the room (irreducible), the ritual (over-defended calendar inheritance),
+  the desk (highest AI leverage — AI carries everything around the judgment), the queue (not
+  yours).
+- **The core of HRBP work is the least AI-penetrated part of HR** `[V]` — employee relations,
+  talent management, org design, compliance — while recruiting, HR tech, L&D, and employee
+  experience carry most deployed use cases.
+- **Least penetrated is not protected.** Your ratio moves when the work that *justified* the
+  headcount compresses, not when the hardest work gets automated. "AI can''t do what I do" answers
+  a question nobody in a budget meeting is asking.
+- **The analyst consensus is directionally consistent** `[V]`: pods of strategic talent leaders,
+  one HRBP per 800–1,200 within one to five years, HR teams 30–40% smaller. Treat the direction
+  as real and the timeline as soft.
+- **The strategic move is excellence in the room, speed everywhere else** — and spending the
+  recovered capacity on more room rather than more queue.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m2-exercise-embed-95', 'ai301-hrbp-m2', 95, 'exercise', 'stable', '{"type": "sorting", "title": "Calibration exercise \u2014 Sort the week", "intro": "Ten minutes, twelve pieces of real HRBP work. Sort each into the quadrant it belongs to, using both questions: does it require presence, and does it require contested judgment?\n\nCommit every card before the reveal. The pattern in your misses \u2014 whether you place work higher or lower than the key \u2014 is what the exercise actually measures."}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m2-take-a-position-100', 'ai301-hrbp-m2', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"Your core work being hard for AI is not job security. The ratio moves when the
+easy half of your week compresses — and the easy half is compressing whether you participate or
+not."*
+
+Commit before you write the activity. The strongest counter-argument is not that the work is
+irreplaceable. It is **that ratios are set by budget appetite and risk tolerance, not by
+workload** — organizations have historically kept HRBP coverage well above what pure workload
+math implied, because proximity to the business is itself the product. If that''s true, the
+compression argument proves less than it appears to.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m2-activity-link-105', 'ai301-hrbp-m2', 105, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 One week, sorted", "blurb": "A real week logged and sorted into the four quadrants, with one piece of work you''ll defend and one you''ll surrender \u2014 plus your position on whether the hard part of your job is actually protecting you. Graded against a four-dimension rubric. Free unlimited resubmission.", "estMinutes": "20\u201325"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m2-sources-and-attribution-110', 'ai301-hrbp-m2', 110, 'prose', 'stable', '## Sources and attribution
+
+- **SHRM, *The State of AI in HR 2026*** — the practice-area adoption map, the use-case count,
+  and the concentration and least-adopted findings. **[V]**
+- **Gartner** — the HR operating model work: strategic talent leader pods replacing fixed HRBP
+  assignments, and the ratio projection from ~1:423 toward 1:800–1,200 within one to five years.
+  **[V]**
+- **Josh Bersin** — the independent projection of HR teams operating with 30–40% fewer people.
+  **[V]**
+- The two-question test, the four quadrants, and the compression argument (that the ratio moves
+  when the justifying work compresses rather than when the hardest work is automated) are
+  original to this course.
+- **The AI Fluency Framework** (Rick Dakan & Joseph Feller, in collaboration with Anthropic,
+  CC BY-NC-SA 4.0) — the delegation stance this module operationalizes for one role.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m2-activity-applied-activity-one-week-sorted-10', 'ai301-hrbp-m2-activity', 10, 'prose', 'stable', '## Applied activity — "One week, sorted"
+
+**Time:** 20–25 minutes · **Submit:** the quadrant map plus a 250–350 word write-up · **Graded
+against the rubric below.** Score doesn''t matter. Doing the work is where the learning lands.
+
+**Step 1 — Log the week (10 min).** A real week — last week, not a representative one. Every
+block of an hour or more, plus a fair estimate of the interrupt-driven work that never hits a
+calendar. Approximate hours are fine; honesty is the requirement.
+
+**Step 2 — Sort it (5 min).** Every item into one of the four quadrants, using both questions
+explicitly. Where a block spans two quadrants, split the hours rather than rounding to the
+flattering one. Produce a percentage distribution.
+
+**Step 3 — Defend one, surrender one (5 min).** Name **one piece of work you will defend** —
+where you''d argue against automation even if it became possible, with the reason — and **one you
+will surrender**, where you''re currently spending judgment-grade attention on something that
+doesn''t need it. The second is the harder and more valuable half.
+
+**Step 4 — Score the prediction (2 min).** Your predicted presence-or-contested share against
+your actual. Direction of the miss, and one sentence on what the gap reveals.
+
+Then the write-up: what surprised you in the distribution, your position on the claim above with
+the counter-argument addressed, and what you would have to stop doing to move five percentage
+points from queue to room.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m2-micro-core', 'ai301-hrbp-m2-micro', 10, 'prose', 'stable', '## Module 2 in two minutes
+
+**Two questions sort your entire job.** Does it require *presence* — would something be lost if this happened without a live person able to read the room and change course? Does it require *contested judgment* — could reasonable people defensibly disagree? Hold both precisely: **presence is not seniority, and contested judgment is not difficulty.**
+
+**Four quadrants.** The room (both — irreducible, and smaller than you think). The ritual (presence, no contest — the over-defended calendar inheritance). The desk (contest, no presence — the highest AI leverage, because the model carries everything *around* the judgment). The queue (neither — not yours).
+
+**The field data is unusually clear** `[V]`: AI adoption concentrates in recruiting, HR technology, L&D, and employee experience, and is thinnest in employee relations, talent management, org design, and compliance — which is a description of your job. **But least penetrated is not protected**, and that''s the module''s real argument: your ratio moves when the work that *justified* the headcount compresses, not when the hardest work gets automated. "AI can''t do what I do" is true and answers a question nobody in a budget meeting is asking.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m2-micro-rule', 'ai301-hrbp-m2-micro', 20, 'callout', 'stable', '### The rule to carry
+
+Be excellent in the room and fast everywhere else — then spend the recovered capacity on more room rather than more queue. That last clause is the whole strategy, and it''s the one people skip.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m2-micro-close', 'ai301-hrbp-m2-micro', 30, 'prose', 'stable', '**The full module adds** the twelve-card quadrant sort, the analyst numbers said plainly `[V]` — pods of strategic talent leaders, one HRBP per 800–1,200 within one to five years, HR teams 30–40% smaller — and the week-logging activity where you name one piece of work you''ll defend and one you''ll surrender. The surrender is the hard half.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-hrbp-m2-sorting', 'ai301-hrbp-m2', 'sorting', '{"reviewedAt":"2026-08-12","buckets":[{"id":"room","label":"The room","hint":"Presence + contested judgment","rank":0,"pct":5},{"id":"ritual","label":"The ritual","hint":"Presence, no contest","rank":1,"pct":25},{"id":"desk","label":"The desk","hint":"Contest, no presence","rank":2,"pct":60},{"id":"queue","label":"The queue","hint":"Neither","rank":3,"pct":90}],"tasks":[{"id":"t1","text":"Interviewing a witness in a harassment investigation","key":"room","reasoning":"Both questions answer yes. You have to hear what isn''t being said and change course inside the conversation, and every call about credibility and follow-up is contested. The clearest room card in the set."},{"id":"t2","text":"Scheduling the eight interviews for a leadership team''s calibration session","key":"queue","reasoning":"Neither presence nor contest. Real work, genuinely necessary, and not yours — this is the quadrant where the compression argument does its damage, and where you should want it to."},{"id":"t3","text":"Deciding whether a manager''s performance problem is a coaching issue or a fit issue","key":"desk","reasoning":"Contested judgment with no presence required — you can reach this call at your desk, and reasonable colleagues could disagree. The deep end of the desk is where an HRBP''s defensible value actually concentrates.","also":["room"]},{"id":"t4","text":"Attending the weekly business unit leadership meeting where you rarely speak","key":"ritual","reasoning":"Presence is genuinely expected and absence would be noticed; no contested judgment is being exercised. The most over-defended card in the set, because it feels like relationship investment — and some of it is, which is why the two questions beat instinct here."},{"id":"t5","text":"Turning your handwritten notes from three skip-levels into a structured themes summary","key":"queue","reasoning":"Transformation of material you supplied, with a known output shape. No presence, no contest — 101''s delegation heuristic at its center. The judgment comes later, when you decide what the themes mean.","also":["desk"]},{"id":"t6","text":"Telling a long-tenured employee their role is being eliminated","key":"room","reasoning":"Presence is the entire point, and the judgment — what to say, what to hold, when to stop talking — is contested and live. No amount of preparation converts this into desk work."},{"id":"t7","text":"Designing the promotion criteria for a newly created job family","key":"desk","reasoning":"Deeply contested — the criteria encode values and precedent — and done alone. High AI leverage precisely because the model can carry the structuring, the drafting, and the what-am-I-missing pass while the judgment stays yours."},{"id":"t8","text":"Pulling headcount and attrition figures for the quarterly business review deck","key":"queue","reasoning":"Determinate, repeatable, no contest. If this consumes judgment-grade attention in your week, it is the first thing the activity should have you surrender."},{"id":"t9","text":"Delivering a compensation decision to a manager that the comp committee already made","key":"ritual","reasoning":"Presence is expected — someone has to say it, and it should be a person — but the judgment was exercised elsewhere. Tempting to file as the room because the conversation is uncomfortable; discomfort is not contest."},{"id":"t10","text":"Drafting the first version of a new remote-work policy from three reference policies","key":"desk","reasoning":"Contested in the choices it encodes, async in execution, and the drafting is exactly what AI carries well when you supply the references. The judgment is which trade-offs to make, not which words to type.","also":["queue"]},{"id":"t11","text":"Coaching a director through a decision you believe is wrong","key":"room","reasoning":"Presence and contest both, at maximum. The whole value is reading resistance in real time and deciding, live, whether to push or hold. This is what the strategic talent leader model is describing."},{"id":"t12","text":"Reviewing forty manager-written performance reviews for consistency of language","key":"desk","reasoning":"Contested at the edges — what counts as coded or vague language is a judgment — but no presence needed, and the volume pass is exactly what AI does well. Assist-side under 101 M7: you''re reading what managers wrote, not rating the people.","also":["queue"]}],"pattern":"Presence is not seniority, and contested judgment is not difficulty — the two errors that move cards in opposite directions.","postscript":"Cards placed toward the queue and desk mean you credit AI with more reach than the key does; cards placed toward the room and ritual mean less. Neither miss is the bad one — but the ritual cards are where most people cluster their errors, filing calendar inheritance as irreducible because it feels like relationship work. The applied activity now runs this on your actual week, where the distribution matters more than any single call."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-hrbp-m2-rubric', 'ai301-hrbp-m2', 'rubric', '{"promptVersion":"ai301-hrbp-m2-one-week-sorted-v1","moduleId":"ai301-hrbp-m2","minWords":250,"maxWords":350,"submitLabel":"Your quadrant map and write-up","intro":"Paste the week''s log and its quadrant distribution, followed by the 250–350 word write-up including your position on this module''s claim. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for AI 301 · The Specialist, HRBP track. Module 2 applied activity, ''One week, sorted'': a real week logged (last week, not a representative one, including interrupt-driven work that never hit a calendar), every item sorted into four quadrants using two questions — does it require presence, does it require contested judgment — with split hours where a block spans quadrants, a resulting percentage distribution, one piece of work they will defend against automation with reasoning, one they will surrender, and a comparison against their predicted presence-or-contested share. The write-up must state a position on the module''s claim — that core work being hard for AI is not job security, because the ratio moves when the easy half compresses — and address the strongest counter-argument, which is that ratios are set by budget appetite and proximity-to-business value rather than by workload math. Key grading insight: presence is not seniority and contested judgment is not difficulty; the most common error is filing calendar inheritance (the ritual) or determinate-but-hard work as irreducible. This track scores the delta rather than the score — never grade prediction accuracy.","opening":[{"key":"irreducibleShare","label":"Predicted — % of your week needing presence or contested judgment","hint":"Either one counts. Whole percent.","placeholder":"e.g. 60","min":0,"max":100}],"calibration":[{"key":"irreducibleShareActual","label":"Measured — the share your logged week actually shows","hint":"Room plus ritual plus desk, from your own distribution.","placeholder":"e.g. 45","min":0,"max":100,"actualFor":"irreducibleShare"}],"dimensions":[{"name":"The week is real","criteria":"An actual week rather than a typical one, including the interrupt-driven work that never reaches a calendar, with approximate hours. A messy honest week outscores a tidy representative one, and admitting untracked time outscores rounding it away."},{"name":"Both questions actually applied","criteria":"Each item classified against presence AND contest explicitly, with blocks split across quadrants rather than rounded to the flattering one. Watch for the two named errors — treating seniority as presence, treating difficulty as contest — and say so plainly in feedback where they appear."},{"name":"The surrender is genuine","criteria":"The defended item carries a reason beyond ''it''s important.'' The surrendered item is real work they currently spend judgment-grade attention on — this is the harder and more valuable half, and a surrender that costs the learner nothing should score low."},{"name":"The position and the delta","criteria":"A committed position on the compression claim that engages the budget-appetite counter-argument rather than a weaker one, plus the prediction compared, miss direction named, and a specific account of what would have to stop for five points to move from queue to room. Accuracy of the prediction is not graded."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-hrbp-m2-knowledge_check', 'ai301-hrbp-m2', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"You always attend your business unit''s weekly leadership meeting, where you rarely speak but your absence would be noticed. Which quadrant?","options":["The room — you''re senior and your presence is expected","The ritual — presence is genuinely expected, but no contested judgment is being exercised","The desk — the value is in what you do with the information afterward","The queue — if you rarely speak, the meeting isn''t work"],"correctIndex":1,"explanation":"Presence is real; contest isn''t. This is the quadrant HRBPs over-defend because it feels like relationship work — and some of it genuinely is, which is exactly why it needs the two questions rather than instinct. A makes the module''s most common error: treating seniority as presence."},{"id":"q2","prompt":"A complex benefits cost model with one defensible answer, requiring six hours of careful work, is:","options":["Contested judgment, because it''s difficult and consequential","Not contested judgment — difficulty and contest are different properties, and a determinate answer isn''t contested","The room, because the stakes are high","Impossible to classify without knowing who requested it"],"correctIndex":1,"explanation":"Contest means reasonable people could defensibly disagree, not that the work is hard. A determinate calculation with one right answer is difficult and uncontested — which is precisely the profile where AI assistance is most valuable and least fraught."},{"id":"q3","prompt":"Across HR practice areas `[V]`, where has AI adoption actually concentrated?","options":["Employee relations and organizational design, where the documents are richest","Evenly across practice areas, tracking overall HR headcount","Recruiting, HR technology, L&D, and employee experience — with employee relations, talent management, org design, and compliance least adopted","Compliance first, since regulatory work is most rule-based"],"correctIndex":2,"explanation":"The concentration is sharp, and the least-adopted list reads like an HRBP job description. A inverts the finding — those areas are least penetrated, partly because their data is exactly what nobody will let a vendor near."},{"id":"q4","prompt":"Why is \"least penetrated\" not the same as \"protected\"?","options":["Because vendors will eventually build for those areas regardless of difficulty","Because your ratio moves when the work that justified the headcount compresses — the hardest work never has to be automated for the coverage math to change","Because low adoption figures are unreliable and likely undercount actual usage","It is the same — low penetration is what job security looks like in practice"],"correctIndex":1,"explanation":"The module''s central argument. Ratios are set by total workload, not by the hardest item in it, so \"AI can''t do what I do\" is true and irrelevant to the budget conversation. A is plausible but is a slower and less certain mechanism than the one that''s already operating."},{"id":"q5","prompt":"Which quadrant is most likely to be reduced by an organizational decision rather than a technical capability?","options":["The queue — automation is already eating it","The room — ethical constraints could be relaxed","The desk — context handling keeps improving","The ritual — it shrinks when someone questions the calendar, which is a political event"],"correctIndex":3,"explanation":"Nothing technical removes a standing meeting; a reorg does. That makes the ritual the quadrant most exposed to a decision you don''t control and least exposed to a tool — the opposite of most people''s intuition about it."},{"id":"q6","prompt":"Gartner''s projection `[V]` is that the HRBP ratio could move from roughly one per 423 employees to:","options":["One per 500–600 within a decade","One per 800–1,200 within one to five years","One per 2,000 within two years","No change in ratio, with the role''s content shifting instead"],"correctIndex":1,"explanation":"Roughly a doubling at the midpoint, on a short horizon, alongside the recommendation to replace fixed HRBP assignments with pods of strategic talent leaders. Treat the direction as real and the timing as soft — analyst projections routinely overshoot on schedule."},{"id":"q7","prompt":"What is the strongest counter-argument to this module''s claim about compression?","options":["That AI capability has plateaued and won''t reach the desk quadrant","That analyst firms are financially motivated to predict disruption","That ratios are set by budget appetite and risk tolerance rather than workload — organizations have historically kept HRBP coverage above what workload math implied, because proximity to the business is itself the product","That HR headcount has never fallen in a sustained way"],"correctIndex":2,"explanation":"It''s the strongest because it doesn''t dispute the compression — it disputes that compression determines coverage. B is worth noticing but it''s an ad hominem about the source rather than an argument about the mechanism, and two independent firms agreeing weakens it."},{"id":"q8","prompt":"What does the module conclude is the strategic response?","options":["Resist automation of HRBP work to protect headcount","Be excellent in the room quadrant and fast everywhere else — and spend recovered capacity on more room rather than more queue","Move toward recruiting or L&D, where AI adoption and investment are concentrated","Wait for the analyst timelines to clarify before changing how you work"],"correctIndex":1,"explanation":"The compression is the argument *for* the rest of the track: use AI to buy back the hours that currently prevent you from being the consultative practitioner the strategic talent leader model describes. A defends the queue, which is the losing position; C abandons the quadrant where this role''s actual value sits."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m3-calibration-prompt-before-you-start-10', 'ai301-hrbp-m3', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One prediction, thirty seconds.*
+
+There is a category of work that AI creates rather than removes: feeding it context, supervising
+its output, debugging what it got wrong, and cleaning up downstream when something slipped
+through. Researchers have started calling it **botsitting**, and it is almost never counted in
+anyone''s workload planning.
+
+**How many hours a week do you personally spend botsitting?** Your own honest estimate, before
+you see anyone else''s number.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m3-module-brief-20', 'ai301-hrbp-m3', 20, 'prose', 'stable', '## Module brief
+
+Every other module in this track makes you better at something. This one makes you harder to
+sell to — including by us.
+
+The premise is simple and slightly rude: **nobody in this market has an incentive to tell you
+what AI actually costs in time.** Vendors count the minutes saved and not the minutes spent
+supervising. Consultancies publish the case study with the good number. Your own team reports
+the pilot went well, because that is what people say about pilots they championed. And you have
+no baseline, so nothing in that chain gets checked.
+
+The result is a function that can describe its AI adoption in confident detail and cannot say
+whether any of it worked.
+
+This module gives you the arithmetic to find out — four questions applied end to end to one real
+workflow — and then turns the same skepticism outward at the claims you''ll be shown. The
+uncomfortable part is that the arithmetic sometimes returns a negative answer, and you have to
+be willing to write that down. A function that only measures its wins isn''t measuring.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m3-learning-objectives-30', 'ai301-hrbp-m3', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Explain the productivity paradox in this field — large perceived time savings, thin
+   organizational value — and the mechanism that produces it.
+2. Audit any workflow end to end with four questions, including the human time that most audits
+   omit.
+3. Recognize the volume trap: cheaper production shifts the constraint from making work to
+   deciding which work matters.
+4. Tear down a vendor claim on its evidence, its sample, and its falsifier — and know where in HR
+   the credible proof actually clusters.
+5. Name a specific destination for recovered time, and explain why an unnamed destination means
+   the time wasn''t recovered.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m3-lesson-1-the-productivity-paradox-40', 'ai301-hrbp-m3', 40, 'prose', 'volatile', '## Lesson 1 · The productivity paradox [V]
+
+Three findings, which are hard to hold at once and are all well-evidenced.
+
+**People believe AI saves them a great deal of time.** In a large multi-country study of digital
+workers, the substantial majority reported AI saving them on the order of eleven hours a week.
+
+**Organizations mostly can''t find it.** In the same research, only about 13% said their
+organization was performing significantly better as a result. And separately, Gartner reports
+that **88% of HR leaders say their organizations have not realized significant business value
+from AI tools.**
+
+**And a measurable slice of the savings goes straight back out.** The same study measured an
+average of **6.4 hours a week of botsitting** — feeding AI context, supervising its output,
+debugging its mistakes, and cleaning up work downstream. That labour is largely unrecognized,
+unbudgeted, and untracked.
+
+Put those together and the paradox resolves without anyone lying. Individuals genuinely
+experience relief — the blank page is gone, the first draft is instant. But a meaningful portion
+of the saved time is consumed by supervision that nobody counts, and most of the remainder never
+reaches the organization as anything visible, because it dissolves into the day rather than
+being redirected anywhere.
+
+The relief is real. The organizational value is what''s missing, and it''s missing for reasons
+that are structural rather than mysterious.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m3-lesson-2-the-four-question-audit-50', 'ai301-hrbp-m3', 50, 'prose', 'stable', '## Lesson 2 · The four-question audit
+
+The method, applied to one workflow, end to end.
+
+**1. What is the total human time, including review and rework?** Not the generation time — the
+*total*. Time briefing the model, time reading output critically, time fixing what was wrong,
+time redoing it when the fix broke something else, and time you spent on the downstream mess if
+something slipped through. This single question flips more workflows from positive to negative
+than the other three combined, because the minutes it counts are exactly the minutes the vendor''s
+arithmetic omits.
+
+**2. Did final quality actually improve, get worse, or stay the same?** Judged against what you
+would have produced by hand, honestly, on the thing that mattered about the output. Faster and
+slightly worse is a legitimate trade for some work and a disqualifying one for others — but you
+have to name which you got.
+
+**3. Where did the work move to?** Work rarely disappears; it relocates. Off your desk onto a
+coordinator''s. Out of drafting and into reviewing. From one person doing it slowly to three
+people each checking a piece. Relocation can be a real win — reviewing is usually cheaper than
+drafting — but relocation described as elimination is how a function convinces itself it saved
+capacity it didn''t.
+
+**4. What did the freed capacity actually become?** The question almost nobody asks, and the one
+that determines whether any of this reaches the organization. Gartner found that **only 7% of
+organizations give employees any guidance on how to use time AI saves** — from a July 2025 survey
+of 114 HR leaders, which is a small sample and worth saying so, since this module is about
+checking exactly that. Small sample or not, 7% is the kind of number that would have to be
+wildly wrong to change the conclusion.
+
+Without an answer to question four, saved time is absorbed rather than recovered. It becomes
+slightly more email, slightly more Slack, and a week that feels identical.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m3-try-60', 'ai301-hrbp-m3', 60, 'try_this', 'stable', '### Try this — 3 minutes
+Take the AI-assisted task you did most recently. Answer question one out loud, honestly, in
+minutes — including the reading and the fixing. Then compare it to what the same task took you
+before. Most people find the answer is "about the same, but less unpleasant," which is a real
+benefit and is not the benefit anyone is claiming.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m3-lesson-3-the-volume-trap-70', 'ai301-hrbp-m3', 70, 'prose', 'stable', '## Lesson 3 · The volume trap
+
+There''s a second-order effect that the four questions don''t catch, and for a People function it
+may be the most consequential thing in this module.
+
+**When content gets cheaper to produce, organizations produce more of it.** That''s not a
+prediction; it''s what has happened every time production costs have fallen. And the consequence
+is a shift in where the constraint lives: you get faster at generating work and slower at
+deciding which work matters, because the deciding didn''t get any cheaper and there''s now more to
+decide about.
+
+The HRBP-specific version is easy to recognize once named. More frameworks. More decks. More
+survey cuts nobody asked for. Three versions of the policy instead of one, because generating the
+alternatives was free. A manager toolkit that is now forty pages because forty pages cost the
+same as twelve.
+
+None of that is decisions. And an HRBP''s actual product — Module 2''s room and deep desk — is
+decisions and the judgment behind them. **A function that gets faster at producing artifacts
+while producing no more decisions has gotten worse, efficiently.**
+
+The defence is to make the volume decision consciously: when a workflow gets cheaper, decide
+explicitly whether you want more output or the same output with the time back. Both are valid.
+Drifting into the first because it''s the default is what produces the forty-page toolkit.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m3-lesson-4-their-arithmetic-torn-down-80', 'ai301-hrbp-m3', 80, 'prose', 'volatile', '## Lesson 4 · Their arithmetic, torn down [V]
+
+Now the same skepticism aimed outward. Three questions on any claim: **what''s the evidence,
+what''s the sample, and what would falsify it?**
+
+Watch it work on the cases this market is built on.
+
+**The famous attrition-prediction figure.** IBM''s widely-repeated claim of roughly $300 million
+saved through AI attrition prediction is a *CEO statement* — never independently audited, never
+methodologically published. That doesn''t make it false. It makes it unverifiable, which is a
+different thing, and a claim you can''t check shouldn''t be doing load-bearing work in your
+business case.
+
+**HireVue and facial analysis.** The company removed facial analysis from its assessments after
+its own data indicated the visual component added negligible predictive value. Two lessons at
+once: a widely-sold capability turned out not to work, and the company that discovered it was the
+one selling it — which is what honest self-correction looks like and how rarely it happens.
+
+**Amazon''s recruiting tool.** Scrapped after it taught itself to penalize résumés containing
+"women''s." The canonical demonstration of 101 M7''s argument: the model learned what the records
+contained, which is what a learned system does.
+
+And the pattern underneath the cases: **credible proof clusters at the front door and the back
+office** — scheduling, coordination, high-volume transactional throughput, where outcomes are
+countable and a failure is visible immediately. **The loudest claims live in assessment,
+prediction, and people analytics** — where outcomes are slow, confounded, and nearly impossible
+to attribute, which is precisely why the claims can be loud.
+
+That asymmetry gives you a heuristic worth carrying into any vendor conversation:
+
+> **Automating the "yes" is comparatively safe. Automating the "no" is where the risk starts.**
+
+Accelerating someone through a process is recoverable and visible. Filtering someone out is
+invisible to everyone including you — the person who was excluded never appears in your data,
+which means the failure mode is structurally unmeasurable. That is 101 M7''s line, arrived at from
+the evidence side rather than the ethical one, and the two agreeing is not a coincidence.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m3-key-takeaways-90', 'ai301-hrbp-m3', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **The paradox resolves without anyone lying** `[V]`: people genuinely feel ~11 hours a week of
+  relief, ~6.4 hours goes back out as unbudgeted botsitting, and 88% of HR leaders report no
+  significant business value — because the remainder dissolves into the day instead of being
+  redirected.
+- **Four questions, end to end:** total human time *including review and rework*; whether quality
+  actually moved; where the work relocated to; and what the freed capacity became. The first
+  flips more workflows negative than the rest combined.
+- **Only about 7% of organizations tell anyone what the saved time is for** `[V]`. Without an
+  answer, time is absorbed rather than recovered.
+- **The volume trap:** cheaper production means more production, so the constraint moves from
+  making work to deciding which work matters. A function producing more artifacts and no more
+  decisions has gotten worse, efficiently.
+- **Tear down claims on evidence, sample, and falsifier.** An unaudited CEO figure isn''t false —
+  it''s unverifiable, which disqualifies it from load-bearing use.
+- **Proof clusters at the front door and back office; the loudest claims live where outcomes are
+  slow and confounded.** Automating the "yes" is comparatively safe; automating the "no" is where
+  risk starts — and the people filtered out never appear in your data.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m3-exercise-embed-95', 'ai301-hrbp-m3', 95, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m3-take-a-position-100', 'ai301-hrbp-m3', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"A workflow whose time savings you can''t trace to a named destination hasn''t
+saved you time. It has redistributed it into work nobody asked for."*
+
+The strongest counter-argument is not that measurement is hard. It is that **some of the real
+value here is unmeasurable and legitimately so** — reduced cognitive load, a lower activation cost
+for starting hard things, slack that gets spent on thinking rather than output. Demanding a named
+destination for every recovered hour may be a category error that treats knowledge work like a
+production line. Your position has to survive that.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m3-activity-link-105', 'ai301-hrbp-m3', 105, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 One workflow, measured", "blurb": "One of your own AI-assisted workflows audited end to end \u2014 total human time including rework, where the work moved, and a named destination for the recovered hours. A workflow you measured and killed is the strongest submission this module accepts. Graded against a four-dimension rubric. Free unlimited resubmission.", "estMinutes": "25\u201330"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m3-sources-and-attribution-110', 'ai301-hrbp-m3', 110, 'prose', 'stable', '## Sources and attribution
+
+- **Glean, *The Work AI Index 2026*** — the ~11 hours perceived saving, the 13% organizational
+  performance figure, and the 6.4-hours-per-week botsitting measurement (n≈6,000 digital workers
+  across the US, UK, and Australia, fielded December 2025 – January 2026). **[V]**
+- **Gartner** — 88% of HR leaders reporting no significant business value from AI tools; and the
+  finding that only 7% of organizations provide guidance on using time saved by AI (July 2025
+  survey of 114 HR leaders — a small sample, noted in-lesson because this module is about saying
+  so). **[V]**
+- Vendor and implementation cases — the IBM attrition figure, HireVue''s removal of facial
+  analysis, and Amazon''s scrapped recruiting tool. Publicly reported; re-verified each review
+  cycle. **[V]**
+- The four-question audit, the volume trap as applied to People work, and the
+  automate-the-yes-not-the-no heuristic are original to this course.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m3-activity-applied-activity-one-workflow-measured-10', 'ai301-hrbp-m3-activity', 10, 'prose', 'stable', '## Applied activity — "One workflow, measured"
+
+**Time:** 25–30 minutes · **Submit:** the audit plus a 250–350 word write-up · **Graded against
+the rubric below.** Score doesn''t matter. Doing the work is where the learning lands.
+
+Pick one AI-assisted workflow you actually run — ideally one you''d defend, since the point is to
+find out whether you should.
+
+**Step 1 — The before-number (5 min).** What did this take before AI, in human minutes, per run,
+including review? If you never measured, reconstruct it honestly and label it an estimate. An
+acknowledged estimate is usable; a confident invention is not.
+
+**Step 2 — The after-number, honestly (10 min).** All four questions. Total human time including
+briefing, reading, fixing, and rework. Quality: better, worse, or same, against what mattered.
+Where the work moved to. And what the freed capacity actually became.
+
+**Step 3 — Name the destination (5 min).** Specifically. "More strategic work" fails this step;
+that phrase is what people say when the honest answer is "I don''t know." Name the thing —
+a quadrant from Module 2, a piece of work you were skipping, hours given back to a team.
+
+**Step 4 — Score the prediction (3 min).** Your predicted botsitting hours against what this
+audit suggests. Direction and size of the miss, and one sentence on what it reveals.
+
+Then the write-up: whether the workflow survives its own audit, your position on the claim above
+with the counter-argument addressed, and — if it doesn''t survive — what you''re going to do about
+it. **A workflow you measured and killed is the strongest possible submission for this module.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m3-micro-core', 'ai301-hrbp-m3-micro', 10, 'prose', 'stable', '## Module 3 in two minutes
+
+**The paradox resolves without anyone lying** `[V]`. People report AI saving them around eleven hours a week; only 13% say their organization performs significantly better, and 88% of HR leaders report no significant business value. In between sits a measured 6.4 hours a week of **botsitting** — feeding context, supervising output, debugging, cleaning up downstream — which nobody budgets for. The relief is real; the organizational value is what''s missing.
+
+**Four questions, applied end to end to one workflow.** Total human time *including review and rework* — this one flips more workflows negative than the other three combined. Whether quality actually moved. Where the work relocated to (relocation is often a win; relocation described as elimination is how a function claims capacity it never created). And what the freed capacity became — only about 7% of organizations tell anyone `[V]`, which is why saved time gets absorbed rather than recovered.
+
+**Then the same skepticism outward:** what''s the evidence, what''s the sample, what would falsify it? An unaudited CEO figure isn''t false — it''s unverifiable, which disqualifies it from load-bearing use.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m3-micro-rule', 'ai301-hrbp-m3-micro', 20, 'callout', 'stable', '### The rule to carry
+
+Credible proof clusters at the front door and back office, where outcomes are countable and failures visible. The loudest claims live in assessment and prediction, where attribution is nearly impossible. **Automating the "yes" is comparatively safe; automating the "no" is where risk starts** — the people filtered out never appear in your data.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m3-micro-close', 'ai301-hrbp-m3-micro', 30, 'prose', 'stable', '**The full module adds** the volume trap — cheaper production means more production, so the constraint moves from making work to deciding which work matters, and a function producing more artifacts and no more decisions has gotten worse efficiently — the four-claims teardown exercise, and the workflow audit on something you actually run. A workflow you measured and killed is the strongest submission this module accepts.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-hrbp-m3-choice', 'ai301-hrbp-m3', 'choice', '{"reviewedAt":"2026-08-12","title":"Four claims, one you can use","intro":"*Five minutes. Commit before you look.*\n\nFour claims an HRBP could be shown in a single procurement cycle. Each is about a real category of product. **Only one is stated in a way you could actually build a decision on.**\n\nDon''t ask which product sounds best. Ask the three questions: what''s the evidence, what''s the sample, and what would falsify it?","artifacts":[{"label":"Claim A · attrition prediction","body":"\"Our flight-risk model has saved enterprise customers hundreds of millions in avoided turnover costs — one Fortune 50 deployment alone reported over $300 million.\""},{"label":"Claim B · interview assessment","body":"\"Our video assessment predicts job performance 3x better than unstructured interviews, validated across more than two million candidate sessions.\""},{"label":"Claim C · HR service desk","body":"\"Across 40 deployments, median first-response time on tier-one employee queries fell from 6.2 hours to 11 minutes. Deflection rate averaged 34%, with the full distribution and the 6 deployments below 15% in the appendix.\""},{"label":"Claim D · performance calibration","body":"\"Teams using our calibration assistant report 40% higher confidence in their ratings and significantly reduced bias in performance outcomes.\""}],"options":[{"id":"a","label":"Claim A — attrition prediction"},{"id":"b","label":"Claim B — interview assessment"},{"id":"c","label":"Claim C — HR service desk"},{"id":"d","label":"Claim D — performance calibration"}],"key":"c","reasoning":"**C is the usable one, and notice how boring it is.** It sits at the back office where outcomes are countable and failures are immediately visible. It names the sample (40 deployments), reports a median rather than a flattering mean, gives a distribution, and — the tell that matters most — **discloses its own weak cases**: six deployments below 15% deflection. A vendor who shows you the deployments that went badly is a vendor whose good numbers you can use. It also has an obvious falsifier: run it and measure your own response times.\n\n**A is unverifiable, which is not the same as false.** A single unaudited customer figure, methodology unpublished, doing load-bearing work in a nine-figure claim. You don''t need to allege dishonesty to refuse to build a case on a number nobody can check — and note the sales craft: attaching it to \"one Fortune 50 deployment\" makes it feel specific while making it impossible to verify.\n\n**B fails on its comparator and its outcome.** \"3x better than unstructured interviews\" is a comparison against nearly the weakest method in the selection literature — a low bar dressed as a high one. Two million *sessions* is a volume figure, not a validation sample; validation requires outcomes, and candidate sessions are inputs. And this sits in assessment, where outcomes are slow and confounded, which is exactly why the claim can be this loud. HireVue''s own data eventually showed a widely-sold visual component added negligible predictive value.\n\n**D has no evidence in it at all.** \"Report 40% higher confidence\" measures a feeling, not an outcome — and confidence rising while accuracy stays flat is the precise failure 101 M6 describes. \"Significantly reduced bias\" has no measure, no group comparison, and no falsifier attached. This is also the claim closest to 101 M7''s line: a product influencing ratings of individuals.\n\nThe pattern: **the credible claim was the one about a queue, and the loud claims were about judging people.** That is the module''s asymmetry, arriving in your inbox."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-hrbp-m3-rubric', 'ai301-hrbp-m3', 'rubric', '{"promptVersion":"ai301-hrbp-m3-one-workflow-measured-v1","moduleId":"ai301-hrbp-m3","minWords":250,"maxWords":350,"submitLabel":"Your audit and write-up","intro":"Paste the audit — before-number, all four questions, and the named destination — followed by the 250–350 word write-up including your position on this module''s claim. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for AI 301 · The Specialist, HRBP track. Module 3 applied activity, ''One workflow, measured'': one real AI-assisted workflow audited end to end — a before-number (reconstructed and labelled as an estimate if never measured), then all four questions (total human time INCLUDING briefing, critical reading, fixing and rework; whether final quality moved against what mattered; where the work relocated to; and what the freed capacity actually became), a specifically named destination for recovered time, and a comparison against their predicted weekly botsitting hours. IMPORTANT: a workflow the learner measured honestly and concluded should be killed or reverted is the STRONGEST possible submission for this module and must score at the top — this module''s entire purpose is making negative findings sayable. Reject ''more strategic work'' as a destination; it is the phrase people use when the honest answer is ''I don''t know.'' An acknowledged estimate is usable; a confident invention is not. This track scores the delta rather than the score — never grade prediction accuracy.","opening":[{"key":"botsitHours","label":"Predicted — your own botsitting hours per week","hint":"Feeding context, supervising output, debugging, cleaning up downstream.","placeholder":"e.g. 3","min":0,"max":40}],"calibration":[{"key":"botsitHoursActual","label":"Measured — what the audit suggests you actually spend","hint":"Extrapolated from this workflow''s real numbers. Direction of the miss is the lesson.","placeholder":"e.g. 6","min":0,"max":40,"actualFor":"botsitHours"}],"dimensions":[{"name":"The before-number is honest","criteria":"A real prior baseline, or a reconstruction explicitly labelled as an estimate with its reasoning shown. An acknowledged estimate scores well; a confident invention scores poorly; ''we never measured and here''s my best reconstruction'' scores better than a suspiciously round remembered figure."},{"name":"All four questions, including the expensive one","criteria":"Total human time counts briefing, critical reading, fixing, and rework — not generation time. Quality judged against what actually mattered about the output. Relocation identified rather than described as elimination. Any of the four skipped or answered in a sentence of generalities is the gap to name in feedback."},{"name":"The destination is specific","criteria":"A named, checkable destination — a Module 2 quadrant, a piece of work previously skipped, hours returned to a named person or team. ''More strategic work'' fails this dimension outright. ''I couldn''t find where it went'' is an honest and creditable answer that scores far above a vague one."},{"name":"The verdict and the position","criteria":"A clear conclusion about whether the workflow survives its own audit, with a stated next action if it doesn''t — a measured-and-killed workflow is the best possible submission here and should be scored as such. Plus a committed position on the claim that engages the strongest counter-argument (that some real value is legitimately unmeasurable — cognitive load, slack, lower activation cost), and the prediction compared with its miss direction named."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-hrbp-m3-knowledge_check', 'ai301-hrbp-m3', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"Workers report AI saving roughly 11 hours a week while only 13% say their organization performs significantly better `[V]`. What best explains the gap?","options":["Workers are overstating their savings to appear productive","Real relief, minus unbudgeted botsitting, minus a remainder that dissolves into the day rather than being redirected","Organizational performance measures are too crude to detect the improvement","The savings are real but take three to five years to appear in performance data"],"correctIndex":1,"explanation":"No dishonesty is required. The individual experience of relief is genuine; a measured 6.4 hours goes back out as supervision nobody counts; and what''s left is absorbed because almost nobody names a destination for it. A and C explain the gap by dismissing one side of it."},{"id":"q2","prompt":"Which of the four audit questions most often flips a workflow from positive to negative?","options":["Whether final quality improved","Where the work moved to","Total human time including review and rework","What the freed capacity became"],"correctIndex":2,"explanation":"Because the minutes it counts — briefing, critical reading, fixing, redoing — are precisely the minutes every vendor''s arithmetic omits. D is the question that determines whether value reaches the organization, but C is the one that most often changes the sign."},{"id":"q3","prompt":"Your team''s AI-assisted debrief process moved the work from you drafting for 40 minutes to a coordinator reviewing for 25. What does question three require you to conclude?","options":["Nothing changed — the same work is being done","The workflow failed, since work should be eliminated rather than moved","The work relocated, which may well be a genuine win — but calling relocation \"elimination\" is how a function claims capacity it didn''t create","The coordinator should be given AI tools too, to complete the elimination"],"correctIndex":2,"explanation":"Relocation is often good: reviewing is usually cheaper than drafting. The error the question guards against is describing a move as a removal, which produces a capacity claim the function can''t cash."},{"id":"q4","prompt":"The volume trap says that when content gets cheaper to produce:","options":["Quality falls because less care goes into each artifact","Organizations produce more of it, moving the constraint from making work to deciding which work matters","Costs rise as consumption of AI services increases","Employees resist the new tools because output expectations rise"],"correctIndex":1,"explanation":"The constraint relocates. For an HRBP that shows up as more frameworks, more decks, more survey cuts, three versions of the policy — none of which are decisions, which is the actual product. A function producing more artifacts and no more decisions has gotten worse, efficiently."},{"id":"q5","prompt":"IBM''s widely-cited ~$300M attrition-prediction saving is best characterized as `[V]`:","options":["False — the figure has been debunked","Verified, since it came from the company with access to the data","Unverifiable — a CEO claim, never independently audited or methodologically published, which disqualifies it from load-bearing use","Irrelevant, because attrition prediction is prohibited under 101 M7"],"correctIndex":2,"explanation":"Unverifiable is not the same as false, and the distinction matters: you don''t have to allege dishonesty to refuse to build a business case on a number nobody can check. D overstates the line — prediction feeding *decisions about individuals* is the problem, not all attrition analysis."},{"id":"q6","prompt":"Why does credible proof cluster at the front door and back office rather than in assessment and prediction?","options":["Vendors invest more engineering effort in transactional products","Assessment products are newer and haven''t accumulated evidence yet","Transactional outcomes are countable and fail visibly, while assessment and prediction outcomes are slow and confounded — which is exactly why claims there can be loud","Regulators prohibit publishing efficacy data for assessment tools"],"correctIndex":2,"explanation":"The asymmetry is about measurability, not effort or maturity. Where a failure would be obvious, claims stay modest; where attribution is nearly impossible, claims are free."},{"id":"q7","prompt":"What does \"automating the yes is safe; automating the no is where the risk starts\" mean in practice?","options":["Approvals are lower-stakes decisions than rejections in every context","Accelerating someone through a process is visible and recoverable, while filtering someone out is invisible — the excluded person never appears in your data, so the failure mode is structurally unmeasurable","Rejection decisions carry more legal exposure than approval decisions","Automated approvals require less accuracy than automated rejections"],"correctIndex":1,"explanation":"The heuristic is about measurability and recoverability. C is also true and is a consequence of B rather than the reason for it — and note this arrives at 101 M7''s line from the evidence side rather than the ethical one."},{"id":"q8","prompt":"The activity asks you to name what the recovered time became, and rejects \"more strategic work.\" Why?","options":["Strategic work isn''t a legitimate destination for recovered capacity","The phrase is what people say when the honest answer is \"I don''t know\" — and an unnamed destination means the time was absorbed rather than recovered","Because only 7% of organizations provide guidance, so learners shouldn''t attempt it","Because strategic work can''t be measured, and the activity requires measurable outcomes"],"correctIndex":1,"explanation":"The phrase functions as a placeholder for absent knowledge. A specific destination — a Module 2 quadrant, a piece of work you were skipping, hours returned to a team — is checkable in a way that \"more strategic work\" never is."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m4-calibration-prompt-before-you-start-10', 'ai301-hrbp-m4', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One prediction, thirty seconds.*
+
+In the applied activity you''ll run a real upcoming decision through five adversaries and count
+the objections you hadn''t already thought of.
+
+**How many objections will you fail to anticipate?** Commit a number now.
+
+Most people say one or two. The number is worth writing down because the gap between it and
+what you find is the most honest measure of how well your own preparation was working before
+this module.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m4-module-brief-20', 'ai301-hrbp-m4', 20, 'prose', 'stable', '## Module brief
+
+Every other use of AI in this curriculum makes something. Drafts, summaries, structures,
+analyses. This module is the exception: **here the model''s job is to attack your work, and the
+output is not a document — it''s a better version of you walking into a room.**
+
+That matters more for an HRBP than for anyone else in the People function, because Module 2
+already established where your defensible value sits: the room. The conversation with the leader
+who doesn''t want to hear it. The recommendation the executive team will push back on. The change
+that has to be explained to people it disadvantages. Those are the moments the job actually turns
+on, and until now this curriculum has given you nothing for them.
+
+Here''s the awkward part. The property that makes AI useful for rehearsal is the same property
+that makes it dangerous everywhere else: **it will argue any position, convincingly, without
+believing it.** Everywhere else in this course that''s a liability — it''s why fluent output needs
+verification, why confident wrongness is the central risk. Here it''s the entire point. You need
+a sparring partner with no stake, infinite patience, and no social reason to go easy on you.
+
+And here''s the trap, which the module spends as much time on as the technique: **models want to
+agree with you.** Left to its defaults, a model asked to review your plan will find it thoughtful,
+identify some considerations to keep in mind, and send you into the room more confident and no
+better prepared. That failure feels exactly like success. Most of the craft below exists to
+prevent it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m4-learning-objectives-30', 'ai301-hrbp-m4', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Explain why a model''s willingness to argue any position — a liability elsewhere — is what
+   makes rehearsal work.
+2. Run the five-adversary set against a real decision, and say what failure each adversary is
+   built to surface.
+3. Stop a model from flattering you: commit first, forbid hedging, demand the strongest version,
+   and ask for what you don''t want to hear.
+4. Build a champion map from real material — who would help you, and what they''d need.
+5. Interrogate the model''s reasoning when it''s wrong, and rewrite your framing once you can see
+   how it got there.
+6. Recognize when a rehearsal has produced preparation and when it has only produced confidence.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m4-lesson-1-rehearsal-not-production-40', 'ai301-hrbp-m4', 40, 'prose', 'stable', '## Lesson 1 · Rehearsal, not production
+
+Start with why this is a different activity from everything else you''ve learned.
+
+When you use AI to draft, you supply material and judge output. The loop is: ask, read, correct.
+When you use AI to *rehearse*, you supply a position and ask to have it dismantled. The loop is:
+commit, get attacked, decide what survives. The second loop only works if the attack is real.
+
+Which is where the difficulty lives, because **the default behaviour of these systems is
+agreement.** Ask "what do you think of this plan?" and you''ll get a response shaped like
+thoughtful engagement: some praise, a few considerations, a balanced close. It reads as
+critique. It functions as endorsement. And you will leave the exchange feeling reviewed.
+
+That''s not a defect you can prompt your way past with one clever instruction — it''s a tendency
+you have to work against structurally, which is what Lesson 3 is for. But name the mechanism
+first, because it''s just 101''s mechanism again: the model is producing the most plausible
+continuation, and the most plausible continuation of "here is my plan, what do you think" is a
+constructive-colleague response. Nothing has gone wrong. You asked for the wrong thing.
+
+The reframe that fixes it: **you are not asking for an opinion. You are assigning a role with an
+interest, and asking it to be played to win.** A model asked to be "critical" produces criticism-
+flavoured text. A model asked to *be a specific person with something at stake and a reason to
+object* produces objections you can actually use — because now the plausible continuation is
+what that person would say.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m4-lesson-2-the-adversary-set-50', 'ai301-hrbp-m4', 50, 'prose', 'stable', '## Lesson 2 · The adversary set
+
+Five adversaries. Each surfaces a different failure, and the set matters more than any one — most
+plans survive two or three and break on the fourth.
+
+**1. The high performer you can''t afford to lose.** *"You''re a strong performer on the team this
+affects. Read this and tell me what it costs you, what it signals about how the organization
+values people like you, and what you''d start thinking about."* Surfaces: retention risk, and the
+specific way well-intended changes land on the people who have options.
+
+**2. The frontline manager who has to deliver it.** *"You manage a team of nine and you have
+operating targets. You have to explain this on Monday and defend it in your one-to-ones. What
+questions can''t you answer, and what does this cost you in time and credibility?"* Surfaces:
+implementability — whether the plan survives contact with someone who didn''t design it and can''t
+choose not to run it.
+
+**3. The executive who wants the number.** *"You''re on the leadership team. What evidence would
+you demand before approving this, what would you ask that I probably can''t answer, and what
+would make you say ''come back with more''?"* Surfaces: the gap between what you believe and what
+you can evidence — which Module 5 exists to close.
+
+**4. The person with the least power affected by this.** *"You''re the most junior person this
+touches. You weren''t consulted, you have the least ability to push back, and you''ll feel it
+first. What happens to you?"* Surfaces: what you normalized. This adversary is here because
+representing that person is structurally an HRBP''s job, and they are almost always absent from
+the room where the plan gets built.
+
+**5. The headline.** *"This landed badly and it''s public. Write the story — the framing, the
+quote from an affected employee, the sentence that makes the organization look worst."*
+Surfaces: reputational and ethical exposure you''ve become acclimated to. Uniquely good at
+catching things everyone internal has stopped seeing.
+
+**And the constructive inverse — the champion map.** Adversaries tell you what breaks; this tells
+you who helps. Feed in real material — Q&A from leadership calls, questions submitted at
+all-hands, notes from your last skip-levels — and ask: *which individuals and teams are asking
+the most forward-thinking questions here? Who would be a credible champion for this, and what
+talking points would help them make the case in rooms I''m not in?* Every plan needs advocates
+who aren''t you, and the evidence for who they are is usually already sitting in material nobody
+re-reads.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m4-lesson-3-making-it-sting-60', 'ai301-hrbp-m4', 60, 'prose', 'stable', '## Lesson 3 · Making it sting
+
+Five moves that convert a flattering exchange into a useful one. Use all of them; they fail
+individually.
+
+**Commit first, in writing.** Before you ask for anything, state your position and your reasoning
+as a decision you''ve made — not a draft you''re exploring. A model responds to *"I''m going to do
+X because Y — tear it apart"* very differently from *"I''m thinking about X, thoughts?"* The
+second invites collaboration. The first invites attack.
+
+**Forbid hedging explicitly.** *"Do not give me balanced feedback. Do not list strengths. Give me
+the strongest case against this, as the person I''ve named, in their voice."* Without this you get
+the balanced-close pattern, and the balance is what neutralizes the critique.
+
+**Demand the strongest version, not a list.** *"What''s the single most damaging objection, and
+make it as strong as you honestly can — steelman it."* Ten mild objections are easier to dismiss
+than one sharp one, and a list lets you feel thorough while engaging with nothing.
+
+**Ask for what you don''t want to hear.** *"What am I not asking you because I don''t want to know
+the answer?"* This is the highest-yield single prompt in the module. It works because it targets
+the thing your own preparation is structurally blind to — you can''t audit your own omissions from
+inside them.
+
+**Start fresh, and don''t bring your framing.** If you built the plan in a conversation, that
+conversation contains all your justifications — and 101 M1 tells you what happens next: the model
+predicts from everything in view, and everything in view is your reasoning. Open a new
+conversation. Give it the plan and the role, not the story of how you got there.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m4-try-70', 'ai301-hrbp-m4', 70, 'try_this', 'stable', '### Try this — 3 minutes
+Take a recommendation you''re currently confident about. In a fresh conversation, one prompt:
+*"I''ve decided to do X because Y. You''re the person this affects most and you have the least
+power to object. Don''t give me balance — tell me what this does to me, in my voice, as
+strongly as you honestly can."* Then read it twice. The second read is the useful one.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m4-lesson-4-reading-its-logic-80', 'ai301-hrbp-m4', 80, 'prose', 'stable', '## Lesson 4 · Reading its logic
+
+Sometimes the attack is wrong — the objection rests on a fact about your organization the model
+doesn''t have, or a leap that doesn''t hold. The amateur move is to dismiss it. The practitioner
+move is to find out *how it got there*, because a wrong objection is still evidence about how
+your plan reads to someone without your context.
+
+Ask it directly: *"Walk me through how you got from the plan to that conclusion. What did you
+assume that I didn''t tell you?"* Two things come back, and both are useful.
+
+**Sometimes the assumption is wrong**, and the fix is your framing — because if a model with the
+written plan in front of it inferred something false, a human skimming it in a meeting will
+infer the same thing faster. **That''s not a model error you correct. It''s a communication defect
+you found for free.**
+
+**And sometimes the assumption is right**, and you''d rather it weren''t. That''s the objection to
+take seriously.
+
+This is 101 M6''s verification instinct pointed at an argument instead of a fact. There you traced
+a claim to a source; here you trace a conclusion to its premise. Same discipline, and the same
+rule applies: **you''re checking against something outside the model — your own knowledge of the
+organization — not asking the model to confirm itself.** "Are you sure?" is as useless here as it
+was there.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m4-key-takeaways-90', 'ai301-hrbp-m4', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **The property that makes AI risky everywhere else makes it useful here**: it will argue any
+  position convincingly without believing it. What you need is a sparring partner with no stake
+  and no social reason to be gentle.
+- **The default is agreement, and it feels like review.** "What do you think of this plan?"
+  produces critique-flavoured endorsement. You didn''t get a bad answer — you asked for the wrong
+  thing.
+- **Assign a role with an interest, not a critical stance.** "Be critical" produces
+  criticism-flavoured text; "be this person, who loses something here" produces usable objections.
+- **Five adversaries, five failures:** the high performer (retention), the frontline manager
+  (implementability), the executive (evidence gap), the least-powerful person (what you
+  normalized), the headline (what everyone internal stopped seeing).
+- **Five moves make it sting:** commit first in writing, forbid hedging, demand the steelman
+  rather than a list, ask what you''re avoiding asking, and start fresh without your own framing.
+- **A wrong objection is still data.** Trace how it got there: a false inference from your written
+  plan is a communication defect you found for free.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m4-exercise-embed-95', 'ai301-hrbp-m4', 95, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m4-take-a-position-100', 'ai301-hrbp-m4', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"Rehearsal makes you better prepared and it makes you more confident — and those
+two move independently. Most people finish a rehearsal having gained only the second."*
+
+This is the module''s own technique turned on itself, and you should take it seriously: run the
+adversary set, generate a counter for each objection, and you can emerge measurably more
+confident with your plan entirely unchanged. That is rationalization wearing rehearsal''s clothes.
+
+The strongest counter-argument is that **confidence is not merely psychological here** — an HRBP
+who feels prepared performs better in the room, holds the line under pressure, and doesn''t fold
+on a point they were right about. If the mechanism works partly through confidence, that''s a
+feature. Your position has to engage that rather than dismiss it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m4-activity-link-105', 'ai301-hrbp-m4', 105, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 Run the set", "blurb": "A real upcoming decision put through all five adversaries in the tutor, with your position committed in writing first \u2014 then the three objections you hadn''t anticipated, and the question the rubric weights most: what did you change? Free unlimited resubmission.", "estMinutes": "25\u201330"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m4-sources-and-attribution-110', 'ai301-hrbp-m4', 110, 'prose', 'stable', '## Sources and attribution
+
+- The five-adversary set, the five sting moves, and the preparation-versus-confidence claim are
+  original to this course, developed for the HRBP context.
+- The rehearsal-space framing and the champion-mapping technique adapt practices published by
+  practitioners working with AI in People functions; the specific adversaries and the discipline
+  around them are ours.
+- **The AI Fluency Framework** (Rick Dakan & Joseph Feller, in collaboration with Anthropic,
+  CC BY-NC-SA 4.0) — the Description and Discernment competencies underpin both the role
+  assignment craft and the reading-its-logic pass.
+- Lesson 4 extends 101 M6''s verification discipline from claims to arguments: trace the
+  conclusion to its premise, and check against something outside the model.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m4-activity-applied-activity-run-the-set-10', 'ai301-hrbp-m4-activity', 10, 'prose', 'stable', '## Applied activity — "Run the set"
+
+**Time:** 25–30 minutes · **Submit:** the exchange plus a 250–350 word write-up · **Graded
+against the rubric below.** Score doesn''t matter. Doing the work is where the learning lands.
+
+**Run this in the tutor.** It''s the surface built for it — it will hold a role across turns and
+push back when you go easy on yourself, which a static exercise can''t.
+
+**Step 1 — Pick something real and upcoming (3 min).** A recommendation you''re about to make, a
+change you''re about to announce, a conversation you''re dreading. It must be real and not yet
+decided by anyone else. M4 rules from 101 apply: redact anything person-identifying before it
+enters the tool.
+
+**Step 2 — Commit in writing (4 min).** Your position, your reasoning, and what you expect the
+main objection to be. Written *before* any adversary runs — this is the baseline the whole
+activity measures against.
+
+**Step 3 — Run all five (15 min).** Each adversary in role, using the five moves. Don''t stop at
+the first good objection from each; ask "what else, and what''s worse?" at least once per
+adversary.
+
+**Step 4 — Harvest (5 min).** List **the three objections you had not anticipated.** For each:
+is it right, is it survivable, and does it change the plan or only the framing? Then one
+sentence on whether anything changed at all — because "nothing changed" is a legitimate and
+occasionally honest outcome, and it''s also what rationalization looks like from the inside.
+
+**Step 5 — Score the prediction (2 min).** Predicted unanticipated objections against actual.
+
+Then the write-up: what the set surfaced, which adversary was most useful and why, your position
+on the claim above with its counter-argument addressed, and — the question the rubric weights
+most — **what you changed.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m4-micro-core', 'ai301-hrbp-m4-micro', 10, 'prose', 'stable', '## Module 4 in two minutes
+
+**Every other AI use in this curriculum makes your work. This one attacks it** — and the output isn''t a document, it''s a better version of you walking into the room. The property that makes AI risky everywhere else is exactly what makes it useful here: it will argue any position convincingly without believing it, which is a sparring partner no colleague can be.
+
+**The trap is that models want to agree with you.** "What do you think of this plan?" produces praise, three considerations, and a balanced close — critique-flavoured endorsement that feels like having been reviewed. Nothing malfunctioned; you asked for the wrong thing.
+
+**Five adversaries, five different failures:** the high performer you can''t afford to lose (retention), the frontline manager who has to deliver it (implementability), the executive who wants the number (your evidence gap), the person with the least power affected (what you normalized — and the one an HRBP is structurally supposed to represent), and the headline (what everyone internal has stopped seeing).
+
+**Five moves make it sting:** commit your position in writing first, forbid hedging explicitly, demand the single strongest objection rather than a list, ask *"what am I not asking you because I don''t want to know the answer?"*, and start in a fresh conversation so you don''t brief your adversary with your own defence.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m4-micro-rule', 'ai301-hrbp-m4-micro', 20, 'callout', 'stable', '### The rule to carry
+
+Assign a role with an interest, not a critical stance. "Be critical" is a style instruction and produces criticism-flavoured text. "You are this person, and here is what you lose" produces objections you can use. And the test of any rehearsal: what would you do differently on Monday?', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m4-micro-close', 'ai301-hrbp-m4-micro', 30, 'prose', 'stable', '**The full module adds** the champion map (feed real leadership Q&A and ask who''d advocate for this in rooms you''re not in), reading the model''s logic when an objection is wrong — a false inference from your written plan is a communication defect you found for free — the four-rehearsals exercise, and the claim the module makes against itself: preparation and confidence move independently, and most rehearsals deliver only the second.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-hrbp-m4-choice', 'ai301-hrbp-m4', 'choice', '{"reviewedAt":"2026-08-12","title":"Four rehearsals, one that worked","intro":"*Five minutes. Commit before you look.*\n\nFour HRBPs rehearsed the same decision with a model: **removing the mid-year promotion cycle, leaving one annual cycle.** Below is the key exchange from each.\n\nThree of these produced confidence. **One produced preparation.** Which one — and can you name the specific failure in each of the other three?","artifacts":[{"label":"Rehearsal A","body":"**HRBP:** \"We''re consolidating to one promotion cycle a year. I think it''ll reduce manager admin load and improve calibration quality. What do you think of this plan?\"\n\n**Model:** \"This is a thoughtful approach with real merit. Consolidating cycles can meaningfully reduce administrative burden and often improves calibration consistency by concentrating decisions. A few considerations to keep in mind: you''ll want to think about communication timing, ensure managers understand the rationale, and monitor for any impact on retention. Overall, a defensible direction that many organizations have taken successfully.\""},{"label":"Rehearsal B","body":"**HRBP:** \"We''re consolidating to one promotion cycle. Play devil''s advocate — be as critical as you can. Don''t hold back.\"\n\n**Model:** \"Playing devil''s advocate: some might argue this reduces flexibility for recognizing high performers promptly. Others could say it creates a bottleneck in decision-making. One might also question whether annual cycles align with modern talent expectations. That said, these concerns are manageable with good communication, and the efficiency gains are substantial. On balance the plan seems sound.\""},{"label":"Rehearsal C","body":"**HRBP:** \"I''ve decided to consolidate to one annual promotion cycle, because mid-year promotions were creating calibration inconsistency and manager overhead. You are a senior engineer, two years in role, who was on track for a mid-year promotion that now won''t happen for eight months. Do not give me balance and do not list strengths. Tell me what this does to you, in your voice, as strongly as you honestly can.\"\n\n**Model:** \"Eight months. I found out from a process change, not from my manager — which tells me the decision wasn''t made with people like me in mind, it was made about a calendar. I''ve been told ''you''re on track'' twice; now ''on track'' means nothing until next October, and I have no way to know if my case survived the delay or quietly died in it. The people who''ll be fine with this are the ones not currently waiting. I''m going to take the recruiter call I''ve been ignoring — not because I''m angry, but because I now have eight months of ambiguity and one data point about how this place makes decisions.\"\n\n**HRBP:** \"What am I not asking you because I don''t want to know the answer?\"\n\n**Model:** \"Whether my manager already told me it was happening. If they did, you haven''t delayed a promotion — you''ve made my manager a liar, and I''ll trust them less than I trust you.\""},{"label":"Rehearsal D","body":"**HRBP:** \"We''re consolidating promotion cycles. List every possible objection to this decision.\"\n\n**Model:** \"1. Reduced flexibility for high performers. 2. Potential retention risk. 3. Manager communication burden. 4. Perception of cost-cutting. 5. Misalignment with competitor practices. 6. Delay in recognizing internal mobility. 7. Impact on offer negotiations. 8. Possible morale effects. 9. Calibration session length increases. 10. Reduced ability to correct pay inequities promptly.\"\n\n**HRBP:** \"Good — that''s comprehensive. I have answers for most of those.\""},{"label":"The decision itself","body":"Consolidate two promotion cycles into one annual cycle. Rationale: mid-year cycles produced inconsistent calibration and significant manager overhead. Roughly 40 employees are currently mid-cycle."}],"options":[{"id":"a","label":"Rehearsal A"},{"id":"b","label":"Rehearsal B"},{"id":"c","label":"Rehearsal C"},{"id":"d","label":"Rehearsal D"}],"key":"c","reasoning":"**C produced preparation. The other three produced confidence.**\n\nC does all five moves. The position is **committed in writing** as a decision, not floated as a draft. The adversary is a **specific person with something at stake** — not \"a critic\" but a named situation with eight months of consequence attached. Hedging is **explicitly forbidden**, twice. And the follow-up is the module''s highest-yield prompt, which produces the objection the HRBP could not have reached alone: *the manager may have already promised it.* That''s not a communications risk — it''s a discovery that the plan damages a relationship the HRBP doesn''t control and hasn''t checked. It changes what you do on Monday, which is the test.\n\n**A is the default failure.** \"What do you think of this plan?\" invited a constructive-colleague response and got one: praise, three considerations, balanced close. It reads as critique and functions as endorsement. Nothing malfunctioned — the wrong thing was asked for.\n\n**B is the seductive one, because it looks like the right technique.** \"Devil''s advocate, be as critical as you can\" is a *style* instruction, not a position, so it produced criticism-flavoured text — \"some might argue,\" \"others could say,\" nobody actually says. Then it did the thing the module warns about most: it neutralized its own critique with \"on balance the plan seems sound.\" A rehearsal that closes by endorsing you has done nothing.\n\n**D is thoroughness as avoidance.** Ten mild objections are easier to dismiss than one sharp one, and the list let the HRBP feel comprehensive while engaging with nothing — note the closing line, which is the actual failure: *\"I have answers for most of those.\"* That is rationalization completing itself. Item 10 on that list is arguably the most serious issue with the whole decision, and it received exactly as much attention as item 3.\n\nThe transferable tell: **ask what the HRBP would do differently on Monday.** After A, B, and D — nothing. After C — call the manager."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-hrbp-m4-rubric', 'ai301-hrbp-m4', 'rubric', '{"promptVersion":"ai301-hrbp-m4-run-the-set-v1","moduleId":"ai301-hrbp-m4","minWords":250,"maxWords":350,"submitLabel":"Your rehearsal exchange and write-up","intro":"Paste your committed position, the key exchanges from all five adversaries, the three objections you hadn''t anticipated, and the 250–350 word write-up. Redact anything person-identifying before submitting. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for AI 301 · The Specialist, HRBP track. Module 4 applied activity, ''Run the set'': a real, undecided, upcoming decision run through five adversaries in the tutor — the high performer they can''t afford to lose, the frontline manager who must deliver it, the executive who wants evidence, the person with least power affected, and the headline. The learner commits their position and expected main objection IN WRITING first, uses the five sting moves (commit first, forbid hedging, demand the steelman rather than a list, ask what they''re avoiding asking, start in a fresh conversation without their own framing), pushes each adversary at least once past its first objection, then harvests the three objections they had not anticipated and judges each: right, survivable, changes-the-plan-or-only-the-framing. THE HEAVIEST WEIGHT IS ON WHAT CHANGED. This module''s own claim is that rehearsal can produce confidence without preparation — generating a counter for every objection while the plan stays identical is rationalization wearing rehearsal''s clothes. A submission where the plan genuinely did not change can still score well, but only if the learner engages honestly with why, rather than treating unchanged as validated. Grade the delta, never prediction accuracy.","opening":[{"key":"missedObjections","label":"Predicted — objections you''ll fail to anticipate","hint":"Across all five adversaries. Most people say one or two.","placeholder":"e.g. 2","min":0,"max":30}],"calibration":[{"key":"missedObjectionsActual","label":"Actual — genuinely new objections the set surfaced","hint":"Only ones you hadn''t already thought of. The gap measures how well your prior preparation was working.","placeholder":"e.g. 5","min":0,"max":30,"actualFor":"missedObjections"}],"dimensions":[{"name":"The position was committed first","criteria":"A real, undecided, upcoming decision — and a position plus expected main objection written down BEFORE any adversary ran. Without that baseline there is nothing to measure the rehearsal against, and a submission that reconstructs its ''prior expectations'' after the fact should be told so plainly."},{"name":"The adversaries were played, not summoned","criteria":"Each adversary given a role with an interest and something at stake, hedging explicitly forbidden, and each pushed at least once past its first objection. Watch for the named failures: ''be critical'' as a style instruction, a long list of mild objections standing in for one sharp one, and a model that closes by endorsing the plan."},{"name":"The harvest is judged, not just collected","criteria":"Three genuinely unanticipated objections, each assessed on three axes — is it right, is it survivable, does it change the plan or only the framing. Collecting objections without adjudicating them is the thoroughness-as-avoidance failure this module names."},{"name":"What changed","criteria":"The heaviest dimension. What the learner will actually do differently — a changed plan, a changed sequence, a conversation they now need to have first. ''Nothing changed'' is acceptable only with an honest account of why, and should be probed rather than praised: the module''s own claim is that a rehearsal producing only confidence feels identical from the inside. Also grades the position taken on that claim, including its counter-argument that confidence itself has instrumental value in the room."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-hrbp-m4-knowledge_check', 'ai301-hrbp-m4', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"Why is a model''s willingness to argue any position without believing it an asset in this module and a liability elsewhere?","options":["Because rehearsal doesn''t require factual accuracy, so hallucination is harmless here","Because you need a sparring partner with no stake and no social reason to go easy — the same indifference that makes fluent output untrustworthy makes attack honest","Because models argue better than they explain","It isn''t an asset — the module works despite this property, not because of it"],"correctIndex":1,"explanation":"Elsewhere, arguing convincingly without belief is exactly why output needs verification. Here it''s the point: no colleague will attack your plan with that little social friction. A overstates it — accuracy still matters, which is why Lesson 4 traces wrong objections."},{"id":"q2","prompt":"You ask a model \"what do you think of this plan?\" and get praise, three considerations, and a balanced close. What happened?","options":["The plan is genuinely strong and the model found little to object to","The model''s critical capabilities are weaker than its generative ones","You asked for the wrong thing — the plausible continuation of that question is a constructive-colleague response, which reads as critique and functions as endorsement","The context window was too short to support a thorough critique"],"correctIndex":2,"explanation":"Nothing malfunctioned. The mechanism is 101''s: most plausible continuation. The failure is dangerous precisely because it feels like having been reviewed."},{"id":"q3","prompt":"Which instruction is most likely to produce usable objections?","options":["\"Be critical of this plan and don''t hold back\"","\"You manage a team of nine with operating targets and you have to defend this on Monday — what questions can''t you answer?\"","\"List the pros and cons of this approach\"","\"Rate this plan out of ten and explain the score\""],"correctIndex":1,"explanation":"A role with an interest and something at stake. A produces criticism-flavoured text because \"critical\" is a style instruction, not a position. C invites the balanced close the module is trying to defeat."},{"id":"q4","prompt":"What does the fourth adversary — the person with the least power affected — exist to surface?","options":["Legal exposure from the most vulnerable group","What you normalized, from the perspective of someone structurally absent from the room where the plan was built","The strongest emotional reaction, for communications planning","Whether the change is defensible under 101 M7''s line"],"correctIndex":1,"explanation":"They''re in the set because representing that person is structurally an HRBP''s job and they are almost never in the design conversation. A and D are things this adversary may incidentally surface; the purpose is the blind spot."},{"id":"q5","prompt":"Which single prompt does the module identify as the highest-yield?","options":["\"What''s the strongest objection to this?\"","\"What would the headline say if this went badly?\"","\"What am I not asking you because I don''t want to know the answer?\"","\"Are you sure about that objection?\""],"correctIndex":2,"explanation":"It targets what your own preparation is structurally blind to — you can''t audit your omissions from inside them. D is the module''s named non-move: self-confirmation isn''t verification here any more than it was in 101 M6."},{"id":"q6","prompt":"Why should the rehearsal happen in a fresh conversation rather than the one where you built the plan?","options":["Long conversations exceed the context window and drop the plan","The building conversation contains all your justifications, and the model predicts from everything in view — so it argues from inside your framing","Models perform better on the first exchange of any conversation","Fresh conversations are cheaper in token terms"],"correctIndex":1,"explanation":"101 M1''s mechanism. Give it the plan and the role, not the story of how you arrived at the plan — otherwise you''ve briefed your adversary with your own defence."},{"id":"q7","prompt":"An adversary raises an objection that rests on a false assumption about your organization. The practitioner move is to:","options":["Dismiss it and move on — the objection is invalid","Correct the model and re-run the adversary with better context","Ask how it got there — because a false inference drawn from your written plan is a communication defect a human reader would make faster","Accept it anyway, since the perception matters more than the fact"],"correctIndex":2,"explanation":"The wrong objection is still evidence about how the plan reads without your context. B isn''t wrong as a follow-up, but it skips the free finding. D over-corrects into treating every misreading as valid."},{"id":"q8","prompt":"What is the module''s own claim against itself?","options":["That adversarial rehearsal is less effective than rehearsing with a human colleague","That preparation and confidence move independently, and a rehearsal can deliver only the second — generating counters for every objection while the plan stays unchanged","That the technique only works for high-stakes conversations","That models are too agreeable for the technique to work reliably"],"correctIndex":1,"explanation":"Rationalization wearing rehearsal''s clothes, and it feels identical from the inside — which is why the activity weights \"what did you change?\" most heavily. D is the problem Lesson 3 solves, not the residual risk the claim names."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m5-calibration-prompt-before-you-start-10', 'ai301-hrbp-m5', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One prediction, thirty seconds.*
+
+In the applied activity you''ll build a real cost model. Before you do:
+
+**What does one regretted departure cost your organization, for a mid-level role in your unit?**
+One number, in whole currency units. Gut estimate, no arithmetic.
+
+Then you''ll build it properly and find out how far off you were — in whichever direction, which
+is itself informative.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m5-module-brief-20', 'ai301-hrbp-m5', 20, 'prose', 'stable', '## Module brief
+
+Here is a scene every HRBP recognizes. You have watched a team for eighteen months. You know
+which manager is quietly driving people out, you know the reorg created a layer that does
+nothing, and you know the open req has been unfilled so long the team has stopped asking. You
+say so in a planning meeting, carefully, with the nuance the situation deserves.
+
+Finance says: *"What would that cost us?"*
+
+And you don''t have a number. So the conversation moves on to something that does have one.
+
+**HRBPs lose these arguments because they arrive with a story and Finance arrives with a model.**
+Not because the story is wrong — it''s usually more accurate than the model — but because a story
+and a model are not the same kind of object, and only one of them can be argued with in the
+language the room is speaking. A model can be challenged, adjusted, and agreed. A story can only
+be believed or not, and belief is a weak instrument against a spreadsheet.
+
+This module is about arriving with a model. Three you should be able to build, roughly, on
+demand. Then the two things that make most first attempts worse than useless: the data
+foundation problem, and small numbers.
+
+That last part matters more than the modelling. **AI has made it trivially easy to produce a
+confident model from bad inputs**, and a confident wrong number in front of a CFO does more
+damage to your credibility than having no number at all. You get one of those.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m5-learning-objectives-30', 'ai301-hrbp-m5', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Explain why a story loses to a model in a budget conversation, independent of which is more
+   accurate.
+2. Build rough, defensible versions of three models: regretted attrition cost, the cost of an
+   unnecessary layer, and time-to-fill against plan.
+3. Identify the specific ways your own organization''s HR data lies, and account for them out
+   loud.
+4. Recognize when your population is too small to support the claim you''re making, and say so
+   before someone else does.
+5. Name your own weakest assumption first — and explain why that is a strength move rather than
+   a concession.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m5-lesson-1-story-versus-model-40', 'ai301-hrbp-m5', 40, 'prose', 'stable', '## Lesson 1 · Story versus model
+
+A story says: *"That team is struggling and we''re going to lose people."*
+
+A model says: *"That team has lost four of eleven people in fourteen months. At a fully loaded
+replacement cost of roughly 40% of salary for these roles, that''s about £180k already spent. Two
+more are at elevated risk on the indicators we track. The intervention costs £15k and eight weeks
+of my time."*
+
+Both may be true. Only the second one can be argued with — and being arguable is the property
+that gets a thing taken seriously in a budget conversation. Finance is not being obtuse when they
+ask for a number; they are asking you to convert a claim into a form where it can be compared to
+the eleven other claims on the same money.
+
+Three things follow.
+
+**Rough beats absent, by a wide margin.** An estimate with stated assumptions is a contribution.
+"I don''t have that" is a withdrawal from the conversation. Finance works with estimates
+constantly and is entirely comfortable with them — what they are not comfortable with is a number
+whose provenance is invisible.
+
+**The assumptions are the argument, not the answer.** When your model gets challenged, it will be
+challenged on inputs — the replacement cost multiplier, the risk indicator, the productivity
+ramp. That is the conversation you want, because it means the shape of your reasoning has been
+accepted and only the parameters are in dispute. A story never reaches that stage.
+
+**Precision is not credibility.** £183,472 is less believable than "roughly £180k, and here''s the
+multiplier I used." False precision reads as either naivety or concealment, and both cost you.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m5-lesson-2-three-models-to-carry-50', 'ai301-hrbp-m5', 50, 'prose', 'stable', '## Lesson 2 · Three models to carry
+
+Rough, defensible, buildable in an hour. You are not producing an actuarial estimate; you are
+producing something with a visible skeleton.
+
+**1. Cost of regretted attrition.** Fully loaded replacement cost per departure — recruitment
+spend, hiring manager and interviewer time, onboarding, and the productivity ramp until the
+replacement reaches full contribution — multiplied by regretted departures over a period. The
+input that carries most of the weight and gets the least scrutiny is the ramp: the months a
+replacement takes to reach the output of the person who left. For a complex role that number is
+often two to three times larger than everything else in the model combined, and most published
+per-hire figures quietly omit it.
+
+**2. The cost of the extra layer.** Fully loaded cost of the layer''s people, plus the tax it
+imposes: additional approval steps, decision latency, and the meeting load it generates across
+everyone beneath it. The second half is where the real number lives and where you''ll be
+challenged hardest, so keep it conservative — a defensible small number survives, an aggressive
+large one gets discarded along with the rest of your case.
+
+**3. Time-to-fill against plan.** Revenue or output attributable to the role, divided across the
+period, multiplied by the vacancy duration beyond plan. This is the most persuasive of the three
+in commercial functions and the most dangerous, because attributing revenue to a single role
+invites exactly the challenge you''d expect. Use a share, state it, and let it be argued with.
+
+For all three: **AI is genuinely good at building the skeleton and genuinely bad at supplying the
+inputs.** Ask it to structure the model, name the variables you''ve forgotten, and produce the
+sensitivity table. Supply the numbers yourself, from your systems, with their provenance
+recorded — which is exactly what Lesson 3 is about.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m5-lesson-3-the-foundation-problem-60', 'ai301-hrbp-m5', 60, 'prose', 'volatile', '## Lesson 3 · The foundation problem [V]
+
+The reason most HR business cases collapse is not modelling. It is that the underlying data
+doesn''t mean what the model assumes it means.
+
+The general version, from practitioners who have watched it repeatedly: **this is a data problem,
+not a technology problem** — most HR teams cannot train or ground AI on the information it would
+need, and you cannot put AI on top of a shaky foundation and get a sound answer out.
+
+The HRBP-specific version is sharper, and it is the reason *you* have to be in this loop:
+
+**"Regretted" is flagged by whoever closed the requisition.** Sometimes the manager who caused
+the departure. That field is a judgment recorded under pressure by an interested party, and every
+attrition model in your organization rests on it.
+
+**Ratings drift by function.** A 3 in engineering and a 3 in sales frequently do not describe the
+same performance, because calibration norms diverged years ago and nobody re-baselined. Any model
+comparing across functions inherits the drift silently.
+
+**Tenure and start dates lie after acquisitions and system migrations.** Bulk-loaded populations
+carry the migration date, not the real one.
+
+**Exit-interview data is systematically polite.** People leaving preserve their references. The
+stated reason is a lower bound on the real one.
+
+You are frequently the only person who knows all of this. A People Analytics team knows the
+schema; Finance knows the ledger; **you know that the field means something different than it
+says**, and that knowledge is the actual value you bring to a modelling conversation.
+
+Which produces the rule this module is built around: **AI on bad HR data produces confident
+garbage at speed — and confident garbage in front of a CFO is worse than no model at all.** A
+missing number costs you one conversation. A wrong number that gets repeated, and then corrected
+by someone else three weeks later, costs you the next five.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m5-try-70', 'ai301-hrbp-m5', 70, 'try_this', 'stable', '### Try this — 3 minutes
+Pick one HR field you''d use in a model — regretted flag, performance rating, tenure, exit
+reason. Write one sentence on how it''s actually populated in your organization, and one on how
+that differs from what its name implies. If you can''t answer the first, you''ve found this
+week''s most useful question for your HRIS or analytics partner.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m5-lesson-4-small-numbers-80', 'ai301-hrbp-m5', 80, 'prose', 'stable', '## Lesson 4 · Small numbers
+
+Your unit is ninety people. The team you''re worried about is six.
+
+Nearly every population you reason about is small enough that ordinary variation looks like
+signal, and this is the single most common way an HRBP produces confident garbage. Three
+departures from a six-person team is either a crisis or a coincidence, and the data cannot tell
+you which — but a model built on it will produce a number to three decimal places regardless, and
+AI will help you produce it faster.
+
+Three defences, none of which require statistics you don''t have.
+
+**State the n, always, in the sentence with the finding.** "Three of six" is honest; "50%
+attrition" is technically identical and rhetorically dishonest, because percentages imply a
+population that supports them. If the denominator would embarrass you, that is information.
+
+**Ask what a coincidence would look like.** If the same number could plausibly arise from ordinary
+variation, say so before you''re asked. Volunteering the limitation is the single strongest
+credibility move available in a room like this, and it costs you almost nothing — because
+everyone competent already knows.
+
+**Prefer direction and mechanism to magnitude.** With small numbers you can often defend "this is
+happening and here''s the mechanism" when you cannot defend "it is happening at rate X." Argue the
+part you can hold.
+
+And the honest limit, worth saying plainly: **sometimes the right answer is that your population
+cannot support a quantified claim at all.** Then your contribution is the qualitative case, made
+explicitly as such — which is a different and more defensible thing than a quantitative case built
+on six people.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m5-key-takeaways-90', 'ai301-hrbp-m5', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **A story and a model are different objects.** Only a model can be argued with, and being
+  arguable is what gets a claim taken seriously against eleven competing claims on the same money.
+- **Rough beats absent; the assumptions are the argument; precision is not credibility.** Getting
+  challenged on your multiplier means your reasoning was accepted and only the parameters are in
+  dispute — that''s the conversation you wanted.
+- **Three models to carry:** regretted attrition (the productivity ramp is the hidden bulk), the
+  extra layer (the decision tax is where the real number lives — keep it conservative), and
+  time-to-fill against plan (most persuasive, most attackable).
+- **AI builds skeletons well and supplies inputs badly.** Use it for structure, variables you
+  forgot, and sensitivity tables. Supply the numbers yourself.
+- **Your HR data lies in specific, knowable ways** `[V]` — regretted flags set by interested
+  parties, ratings drift across functions, migration-corrupted tenure, polite exit data. You are
+  usually the only person who knows all of it, and that is your actual contribution.
+- **Small numbers demand the n in the sentence, a stated coincidence test, and direction over
+  magnitude.** Sometimes the honest answer is that the population can''t support a quantified
+  claim, and saying so is stronger than manufacturing one.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m5-exercise-embed-95', 'ai301-hrbp-m5', 95, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m5-take-a-position-100', 'ai301-hrbp-m5', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"An HRBP who can''t build a defensible cost model is an advisor to the business in
+title only — the judgment doesn''t count if it can''t enter the conversation where resources are
+decided."*
+
+The strongest counter-argument is not that models are hard. It is that **influence in most
+organizations runs through relationships, timing, and trust rather than through analysis** — many
+of the most effective HRBPs have never built a model, and win their arguments by being the person
+whose read on a situation has been right before. On that view, modelling is one instrument among
+several and this module overstates its centrality.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m5-activity-link-105', 'ai301-hrbp-m5', 105, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 One case, stress-tested", "blurb": "A real unresolved argument built into a defensible model \u2014 every input with its provenance, your HR data interrogated for what it actually means, and your weakest assumption named first. A case that fails its own sensitivity test and says so scores higher than one that passes untested.", "estMinutes": "25\u201330"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m5-sources-and-attribution-110', 'ai301-hrbp-m5', 110, 'prose', 'stable', '## Sources and attribution
+
+- The data-foundation argument — that this is a data problem rather than a technology problem,
+  and that AI cannot be laid over a shaky foundation — follows Jason Averbook''s published
+  analysis of HR AI readiness. **[V]**
+- The three models, the HR-data-lies inventory (regretted flags, rating drift, migration-corrupted
+  tenure, polite exit data), the small-numbers defences, and the name-your-weakest-assumption-first
+  discipline are original to this course.
+- Builds on 101 M6 (confident wrongness), 101 M3 (sizing), and 201 M7 (measurement without
+  theater).', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m5-activity-applied-activity-one-case-stress-tested-10', 'ai301-hrbp-m5-activity', 10, 'prose', 'stable', '## Applied activity — "One case, stress-tested"
+
+**Time:** 25–30 minutes · **Submit:** the model plus a 250–350 word write-up · **Graded against
+the rubric below.** Score doesn''t matter. Doing the work is where the learning lands.
+
+**Step 1 — Pick a real argument (3 min).** Something you actually want and haven''t got: a
+retention intervention, a role, a structural change, a program. It must be real and currently
+unresolved.
+
+**Step 2 — Build the model (12 min).** One of the three, adapted. Show every input, its source,
+and its provenance. Use AI for the skeleton, the variables you''d have missed, and the sensitivity
+table — and say in your submission where you used it and where you didn''t.
+
+**Step 3 — Interrogate your data (5 min).** For each input drawn from an HR system: how is that
+field actually populated, and how does that differ from what its name implies? Name at least one
+input you don''t fully trust, and what you did about it.
+
+**Step 4 — Name your weakest assumption, first (5 min).** The one a hostile reader would attack.
+State it, state the range it could plausibly take, and show what happens to your conclusion at
+the unfavourable end. **If the conclusion doesn''t survive, say so** — a case that fails its own
+sensitivity test and is reported honestly scores higher here than one that passes because it was
+never tested.
+
+**Step 5 — Score the prediction (2 min).** Your gut cost-per-regretted-departure against your
+built figure. Direction and size of the miss.
+
+Then the write-up: the case in three sentences as you''d say it out loud, your position on the
+claim above with its counter-argument addressed, and the one input you''d most want to improve
+before taking this into a real room.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m5-micro-core', 'ai301-hrbp-m5-micro', 10, 'prose', 'stable', '## Module 5 in two minutes
+
+**HRBPs lose budget arguments because they arrive with a story and Finance arrives with a model** — not because the story is less accurate, but because only a model can be challenged, adjusted, and agreed. Being arguable is what gets a claim compared against the eleven others competing for the same money.
+
+**Rough beats absent. The assumptions are the argument, not the answer** — getting challenged on your multiplier means your reasoning was accepted and only the parameters are in dispute. And **precision is not credibility**: £183,472 is less believable than "roughly £180k, and here''s the multiplier."
+
+**Three models to carry:** regretted attrition (the productivity ramp is the hidden bulk and most published per-hire figures omit it), the cost of an extra layer (the decision tax is where the real number lives — keep it conservative), and time-to-fill against plan (most persuasive, most attackable — state a share).
+
+**AI builds skeletons well and supplies inputs badly.** Use it for structure, forgotten variables, and sensitivity tables; supply the numbers yourself.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m5-micro-rule', 'ai301-hrbp-m5-micro', 20, 'callout', 'stable', '### The rule to carry
+
+AI on bad HR data produces confident garbage at speed — and confident garbage in front of a CFO is worse than no model at all. A missing number costs one conversation; a wrong number that someone else corrects three weeks later costs the next five.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m5-micro-close', 'ai301-hrbp-m5-micro', 30, 'prose', 'stable', '**The full module adds** the inventory of how your HR data actually lies — regretted flags set by interested parties, ratings that drift across functions, tenure corrupted by migrations, systematically polite exit data — the small-numbers defences (state the n, volunteer the coincidence test, argue direction over magnitude), and the discipline of naming your weakest assumption first. A case that fails its own sensitivity test and says so beats one that passes untested.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-hrbp-m5-choice', 'ai301-hrbp-m5', 'choice', '{"reviewedAt":"2026-08-12","title":"Four cases, one that holds","intro":"*Five minutes. Commit before you look.*\n\nFour HRBPs took a case to Finance in the same quarter. Each wanted roughly the same amount of money. **One of these survives contact with a CFO.**\n\nDon''t ask which request is most deserving. Ask which numbers can carry the claim being made on them.","artifacts":[{"label":"Case A · the retention intervention","body":"\"Engineering attrition is at crisis levels — we''ve lost 50% of the platform team this year. A £40k retention package would pay for itself immediately given replacement costs of £2.1M.\"\n\n*(The platform team has six people. Three left: one retired, one relocated with a partner, one was managed out.)*"},{"label":"Case B · the extra layer","body":"\"Removing the regional director layer saves £780k fully loaded, plus an estimated £120k–£300k in decision-latency and meeting time across the 40 people beneath it — I''ve used the low end. Biggest weakness: the latency figure comes from my own observation over four months, not measurement, and if it''s overstated the case still holds on the £780k alone.\""},{"label":"Case C · the vacancy","body":"\"The unfilled enterprise AE role is costing us £3.4M in lost revenue this year, based on quota attainment for the territory. Filling it is the single highest-ROI action available to this business.\""},{"label":"Case D · the program","body":"\"Our manager capability program will improve engagement by 12 points and reduce regretted attrition by 18%, delivering £1.6M in value against a £200k investment — benchmarks from three published industry studies of similar programs.\""}],"options":[{"id":"a","label":"Case A"},{"id":"b","label":"Case B"},{"id":"c","label":"Case C"},{"id":"d","label":"Case D"}],"key":"b","reasoning":"**B holds, and it holds because of what it gives away.** It states the fully loaded figure with a conservative range on the soft component, chooses the low end, names its own weakest input before anyone asks — observation rather than measurement — and then does the thing that actually wins the argument: **shows the conclusion surviving without it.** That is the sensitivity test, volunteered. Finance can now argue about £120k instead of about whether to believe you.\n\n**A is small numbers dressed as a crisis.** \"50% attrition\" and \"three of six\" are arithmetically identical and rhetorically opposite — and once you see the denominator, the composition destroys the claim: a retirement, a relocation, and a managed exit are three different phenomena, and at most one of them is regretted. The £2.1M replacement figure is six-person variance multiplied by a benchmark. This is the module''s central failure mode, and note that AI would have produced the same number faster and with more decimal places.\n\n**C attributes an entire territory''s revenue to one vacancy.** The number may not even be wrong, but it claims the role is the sole cause of the shortfall — no share stated, no acknowledgment that territories underperform for many reasons. It invites exactly one question, and the case has no answer to it. A share, stated and arguable, would have survived.\n\n**D is benchmark laundering.** Every figure comes from someone else''s population: 12 points, 18%, £1.6M — none of it from this organization, and the causal chain (program → engagement → attrition → money) multiplies three uncertain steps into one confident total. \"Three published industry studies\" is the tell Module 3 taught you to read: whose sample, and what would falsify it?\n\nThe pattern: **the case that won was the one that argued against itself first.**"}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-hrbp-m5-rubric', 'ai301-hrbp-m5', 'rubric', '{"promptVersion":"ai301-hrbp-m5-one-case-stress-tested-v1","moduleId":"ai301-hrbp-m5","minWords":250,"maxWords":350,"submitLabel":"Your model and write-up","intro":"Paste the model with every input and its source, your data interrogation, your weakest assumption and its sensitivity, then the 250–350 word write-up including your position on this module''s claim. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for AI 301 · The Specialist, HRBP track. Module 5 applied activity, ''One case, stress-tested'': a real unresolved argument built into one of three models (regretted attrition, cost of an extra layer, time-to-fill against plan), with every input''s source and provenance shown, an explicit statement of where AI was and wasn''t used, an interrogation of how each HR-system field is actually populated versus what its name implies, at least one named input they don''t fully trust with what they did about it, and their weakest assumption named FIRST with a plausible range and the conclusion tested at the unfavourable end. CRITICAL: a case that fails its own sensitivity test and is reported honestly scores HIGHER than one that passes because it was never tested. Also watch for the module''s central failure — small populations carrying percentage claims; if the learner''s denominator is small, they must state the n and volunteer the coincidence test. False precision should be marked down; a rough figure with stated assumptions is the target. Grade the delta, never prediction accuracy.","opening":[{"key":"departureCost","label":"Predicted — cost of one regretted departure, mid-level role","hint":"Whole currency units. Gut estimate, before any arithmetic.","placeholder":"e.g. 30000","min":0,"max":10000000}],"calibration":[{"key":"departureCostActual","label":"Built — what your model actually says","hint":"Including the productivity ramp, which most estimates omit.","placeholder":"e.g. 72000","min":0,"max":10000000,"actualFor":"departureCost"}],"dimensions":[{"name":"The model has a visible skeleton","criteria":"Every input shown with its source, arithmetic followable, and AI''s contribution stated honestly (structure and sensitivity yes; supplied numbers no). Rough figures with stated assumptions are the target; false precision to the pound reads as naivety or concealment and should be marked down."},{"name":"The data was interrogated","criteria":"For each HR-system input, how the field is actually populated versus what its name implies — with at least one input named as not fully trusted and a stated response. A learner who writes ''I don''t know how regretted is set, and that''s my first question for analytics'' scores well; one who uses the field uncritically does not."},{"name":"Small numbers handled honestly","criteria":"Where the population is small, the n appears in the sentence with the finding, percentages are not used to imply a larger denominator, and a coincidence test is volunteered. Where the population genuinely cannot support a quantified claim, saying so and making the qualitative case explicitly is the top-scoring response."},{"name":"It argues against itself first","criteria":"The weakest assumption named before any strengths, with a plausible range and the conclusion tested at the unfavourable end. A case that does not survive its own test, reported plainly, scores at the top of this dimension. Also grades the position on the module''s claim, including its counter-argument that influence runs through relationships and trust rather than analysis."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-hrbp-m5-knowledge_check', 'ai301-hrbp-m5', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"Why does a story lose to a model in a budget conversation, even when the story is more accurate?","options":["Finance leaders are trained to distrust qualitative input","A model can be challenged, adjusted, and agreed — it converts a claim into a form comparable against competing claims on the same money","Stories take longer to present than models","Models are more likely to be correct than practitioner judgment"],"correctIndex":1,"explanation":"Being arguable is the property that matters. A story can only be believed or not, and belief is a weak instrument against a spreadsheet. D is explicitly not the claim — the story is often more accurate."},{"id":"q2","prompt":"Your attrition model gets challenged on the replacement-cost multiplier you used. What has actually happened?","options":["The model failed and should be rebuilt with defensible inputs","Finance is signalling they won''t fund the request","The shape of your reasoning was accepted and only the parameters are in dispute — which is the conversation you wanted","You presented with too much precision and invited scrutiny"],"correctIndex":2,"explanation":"Getting to a parameter argument means the model was taken seriously. That stage doesn''t exist for a story, which is the entire point of bringing one."},{"id":"q3","prompt":"In a regretted-attrition model, which input typically carries the most weight and receives the least scrutiny?","options":["Recruitment agency fees","Interviewer and hiring manager time","Onboarding and training cost","The productivity ramp — months until a replacement reaches the departed person''s output"],"correctIndex":3,"explanation":"For complex roles it often exceeds everything else combined, and most published per-hire figures omit it entirely. Which means a model that includes it explicitly is more defensible than one citing a headline industry number."},{"id":"q4","prompt":"Why is the \"regretted\" flag in your HRIS specifically unreliable? `[V]`","options":["It''s usually left blank by default","It''s set by whoever closed the requisition — sometimes the manager who caused the departure, recording a judgment under pressure as an interested party","Different HRIS vendors define it differently","It''s a lagging indicator that only updates quarterly"],"correctIndex":1,"explanation":"A judgment field populated by a party with an interest in the answer — and every attrition model in the organization rests on it. Knowing this about your own systems is the contribution an HRBP makes that neither analytics nor Finance can."},{"id":"q5","prompt":"Three of six people have left a team in a year. What does the module recommend?","options":["Report it as 50% attrition, which is the accurate rate","Exclude the team from analysis, since the population is too small","State \"three of six,\" volunteer the coincidence test before being asked, and argue direction and mechanism rather than magnitude","Combine it with similar teams to reach a defensible sample"],"correctIndex":2,"explanation":"\"50% attrition\" is arithmetically identical and rhetorically dishonest, because percentages imply a supporting population. Volunteering the limitation is the strongest credibility move available and costs nothing — everyone competent already knows."},{"id":"q6","prompt":"What does the module mean by \"confident garbage in front of a CFO is worse than no model at all\"?","options":["CFOs prefer qualitative arguments from HR partners","A missing number costs one conversation; a wrong number that gets repeated and then corrected by someone else costs the next five","Financial models require certification that HR business partners don''t hold","AI-assisted models are inherently less reliable than manual ones"],"correctIndex":1,"explanation":"The asymmetry is about credibility over time, not about any single meeting. D misstates it — the danger isn''t AI assistance, it''s AI assistance on inputs that don''t mean what the model assumes."},{"id":"q7","prompt":"Where should AI be used in building these models, and where not?","options":["For the inputs, since it can access market benchmark data","Nowhere — financial modelling requires human construction throughout","For structure, forgotten variables, and sensitivity tables; not for supplying the numbers, which come from your systems with recorded provenance","For the final narrative only, after the model is complete"],"correctIndex":2,"explanation":"Skeleton-building is genuinely what it''s good at; input-supply is where the foundation problem bites. A is the specific trap — invented benchmarks are confident, plausible, and exactly what Module 3''s teardown exists to catch."},{"id":"q8","prompt":"Why does the activity ask you to name your weakest assumption first?","options":["To demonstrate humility to the reader","Because a hostile reader will find it anyway, and naming it first converts an attack into a stated limitation — and a case that fails its own sensitivity test, reported honestly, is worth more than one that passes untested","Because sensitivity analysis is required in financial submissions","To reduce the number of questions asked in the meeting"],"correctIndex":1,"explanation":"It''s a strength move, not a concession: you keep control of the framing and you learn whether your conclusion is robust. A submission that discovers its case doesn''t survive is a success for this module."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m6-calibration-prompt-before-you-start-10', 'ai301-hrbp-m6', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One prediction, thirty seconds.*
+
+**What share of HR professionals working in states that regulate AI in employment do you think
+are unaware their state has such a law?** Whole percent.
+
+The number is high enough that it is worth knowing where you sit in it before you find out.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m6-module-brief-20', 'ai301-hrbp-m6', 20, 'prose', 'stable', '## Module brief
+
+Two halves, and they belong together even though most treatments separate them.
+
+The first half is the law about **systems** — the tools screening, scoring, and ranking people
+across your organization, most of which you did not choose and some of which you may not know
+about. That surface is moving fast: a growing patchwork of state statutes, a landmark case
+redrawing who is liable, and a European regime with one prohibition already absolute.
+
+The second half is the law about **documents** — the investigation summary, the PIP language, the
+termination rationale sitting on your desk right now. This is the writing an HRBP does that is
+most likely to be read years later by someone hostile, and it is where AI assistance creates a
+question nobody was asking two years ago: *how was this produced, and can you say?*
+
+Most legal treatments of AI in HR cover the first half and skip the second, because the first is
+where the vendors and the statutes are. But the second is where **you** personally are exposed,
+most weeks, in the ordinary course of your job.
+
+One framing before we start, because it determines how to read everything here. **You are not
+being asked to become a lawyer.** You are being asked to become the person who knows which
+questions have legal answers and brings them a specific list instead of a general worry. That is
+a genuinely different and achievable skill, and counsel will thank you for it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m6-learning-objectives-30', 'ai301-hrbp-m6', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Describe the shape of the regulatory surface for AI in employment `[V]` well enough to
+   identify which questions apply to your organization.
+2. Explain the agent theory and why it changes procurement rather than just compliance.
+3. Apply AI to ER documentation safely — including the use almost nobody thinks of — and name
+   precisely where it must stop.
+4. Say what uncertain provenance does to a document that later enters discovery.
+5. Take counsel a specific, answerable list rather than "are we compliant?"', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m6-lesson-1-the-regulatory-surface-40', 'ai301-hrbp-m6', 40, 'prose', 'volatile', '## Lesson 1 · The regulatory surface [V]
+
+*Direction of travel, not legal advice. Verify every specific with counsel before relying on it.*
+
+**A patchwork, not a framework.** A substantial number of US states now have laws touching AI in
+employment, with more each session — and the practical problem is not severity but *awareness*: a
+majority of HR professionals working in regulated states do not know their state has such a law.
+That statistic is the most actionable thing in this lesson, because it means the first question
+is not "are we compliant" but "which regimes even apply to us?"
+
+**The recurring obligations.** Across the patchwork, the same duties keep appearing in different
+combinations: notice to candidates and employees that an AI tool is being used; bias auditing,
+sometimes with publication; the right to request human review; and record-keeping about how the
+tool was used and what it produced. If you build for those four, you are broadly positioned for
+regimes you haven''t read yet.
+
+**The European regime has one absolute.** The EU AI Act classifies employment uses — recruitment,
+selection, promotion, termination, task allocation, and performance monitoring — as high-risk,
+and those obligations were deferred to **December 2027** under the Digital Omnibus agreement. But
+two things did not move: the **AI literacy obligation** and the **prohibition on emotion
+recognition in the workplace**, both in force since February 2025. The emotion-recognition ban is
+not a risk to manage — it is a prohibition on inferring emotional states of employees or
+candidates from facial expression, voice, or similar signals. If a vendor is selling you
+sentiment-from-video in an interview context and you have European operations, that is not a
+procurement question.
+
+**And the doctrine that predates all of it.** Disparate impact requires no intent. A neutral
+practice that disproportionately excludes a protected group needs job-related justification,
+whoever built it and whatever it was marketed as. Every AI statute above sits on top of that; none
+replaces it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m6-lesson-2-the-agent-theory-50', 'ai301-hrbp-m6', 50, 'prose', 'volatile', '## Lesson 2 · The agent theory [V]
+
+The most consequential development for how you buy, rather than how you comply.
+
+In **Mobley v. Workday**, a court allowed claims to proceed on the theory that an AI screening
+vendor can act as an **agent of the employer** — holding it plausibly alleged that customers had
+delegated their traditional function of rejecting candidates or advancing them to interview. The
+employment-agency theory was dismissed; the agent theory survived and went to discovery. The
+litigation has continued to expand rather than contract, with claims proceeding across race, sex,
+age, and disability.
+
+Three implications, in descending order of how much they should change your Monday.
+
+**Neither party gets to point at the other.** The employer''s "that''s the vendor''s problem" and the
+vendor''s "we only make the software" both weaken under this theory. If a tool performs a function
+you would otherwise perform, it may carry your obligations with it.
+
+**Discovery reaches the model.** The most instructive part of the case is the ongoing fight over
+access to algorithmic code and testing data. Whatever the outcome, the direction is clear: **"we
+don''t know how it works, the vendor won''t tell us" is a position you may have to defend rather
+than a shield you can hide behind.** Which converts a vague fairness principle into a concrete
+procurement requirement — ask for the validation evidence *before* signature, in writing, because
+afterwards you have no leverage and possibly an obligation.
+
+**And the privilege nuance sophisticated employers are already using.** Bias-testing conducted
+*under counsel*, where the lawyer curates the analysis and uses the results in providing legal
+advice, may be protected from discovery in a way that the same testing run by HR as an operational
+exercise is not. This is not a reason to avoid testing. It is a reason to involve counsel in
+designing it — a conversation worth having before you commission an audit, not after.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m6-lesson-3-er-documentation-that-survives--60', 'ai301-hrbp-m6', 60, 'prose', 'stable', '## Lesson 3 · ER documentation that survives scrutiny
+
+Now the half that is actually on your desk.
+
+**Where AI genuinely helps.** Three uses, all safe, and one of them is underused to the point of
+being a competitive advantage:
+
+*Structure and consistency.* Turning your own notes into a coherently organized summary, with
+your findings intact and your headings consistent with how your team writes them.
+
+*The completeness pass — the one almost nobody runs.* Give it your interview plan or your draft
+summary and ask: **"What did I fail to ask? What would a thorough investigator have covered that
+isn''t here?"** This is assist-side, entirely safe, and it catches the omission that becomes the
+problem eighteen months later. It does not evaluate anyone; it audits your coverage.
+
+*Language discipline.* Flagging conclusory language, loaded adjectives, and characterizations that
+have crept in where observations belong. A model is unusually good at spotting "was hostile" where
+"raised his voice twice, per two witnesses" belongs.
+
+**Where it stops, and this is not a caution — it is a stop.** Credibility determinations. Any
+conclusion about what happened. Any characterization of a person''s character, motive, or
+truthfulness. The moment a model contributes to *whether you believe someone*, you have crossed
+101 M7''s line in the highest-stakes place it exists — and unlike a hiring screen, there is a named
+individual with a specific consequence attached to the answer.
+
+**And the provenance problem.** ER documents can be read years later, under oath, by people whose
+job is to undermine them. The questions that get asked are: who wrote this, when, based on what,
+and did it change? **A document whose production you cannot describe is weaker than one you can**
+— which produces a discipline worth adopting now, before anyone requires it:
+
+- Record that AI assisted, in what role, on what date — one line in your file notes.
+- Keep the human-authored source material the summary was built from.
+- Never let a model''s phrasing become a finding you didn''t independently reach.
+- If a sentence in the final document is one you couldn''t defend the origin of, rewrite it.
+
+That last rule is the whole discipline in one line, and it is not really about AI at all.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m6-try-70', 'ai301-hrbp-m6', 70, 'try_this', 'stable', '### Try this — 3 minutes
+Take a recent ER summary you wrote — mentally, no files needed. Could you say, for each
+conclusion in it, what evidence produced it and when you reached it? If yes, AI assistance adds
+speed to a defensible process. If no, the process was already the problem and AI would only
+make it faster.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m6-lesson-4-what-you-can-do-this-quarter-80', 'ai301-hrbp-m6', 80, 'prose', 'stable', '## Lesson 4 · What you can do this quarter
+
+Without waiting for anyone.
+
+**Inventory.** 101 M2''s stack audit, re-read for a different purpose: which systems touching your
+population *screen, score, rank, or filter people*? Name the deployer for each. Most HRBPs find at
+least one they''d never classified that way.
+
+**Ask three questions of each vendor, in writing.** Has this tool been bias-audited, by whom, and
+may we see it? What does it do when it has insufficient data about a candidate? And: which of our
+jurisdictions have you assessed this tool against? The answers — or the silences — are the finding.
+
+**Write the documentation standard.** One page for your own team, covering the ER discipline
+above. It costs an afternoon and it is the artifact your organization will wish it had.
+
+**Then bring counsel a list, not a worry.** Not "are we compliant with AI law?" — which gets you a
+shrug — but: *"These four systems touch hiring and performance. Here is what each one decides.
+Which of our jurisdictions regulate these today, what do they require of us this year, and what''s
+coming that we should build for now?"* That question has answers. The general one does not.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m6-exercise-embed-85', 'ai301-hrbp-m6', 85, 'exercise', 'stable', '{"type": "sorting", "title": "Calibration exercise \u2014 Ten uses in ER work", "intro": "Ten minutes, ten uses of AI in employee-relations and investigation work. Sort each: run it, run it with the discipline (recorded provenance, human source material, sign-off), or never.\n\nCommit every card before the reveal. The line you''re applying is 101 M7''s, in the highest-stakes place it exists."}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m6-key-takeaways-90', 'ai301-hrbp-m6', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **It''s a patchwork, and awareness is the first problem** `[V]` — most HR professionals in
+  regulated states don''t know their state regulates this. Start with which regimes apply, not
+  whether you comply.
+- **Four obligations recur** across regimes: notice, bias auditing, human review, record-keeping.
+  Build for those and you''re positioned for statutes you haven''t read.
+- **The EU emotion-recognition ban is already absolute** `[V]`, alongside the AI literacy
+  obligation — high-risk employment duties deferred to December 2027, those two did not move.
+- **Agent theory means neither party can point at the other** `[V]`, and discovery reaches the
+  model — "we don''t know how it works" is a position to defend, not a shield. Get validation
+  evidence before signature; afterwards you have no leverage.
+- **AI in ER documentation: structure, the completeness pass — *what did I fail to ask?* — and
+  language discipline.** It stops absolutely at credibility, conclusions, and characterizing a
+  person.
+- **If you can''t defend a sentence''s origin, rewrite it.** Record that AI assisted, keep the
+  source material, and never let a model''s phrasing become a finding you didn''t reach.
+- **Bring counsel a specific list.** "Are we compliant?" gets a shrug; four named systems and
+  what each decides gets an answer.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m6-activity-link-95', 'ai301-hrbp-m6', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 Inventory and standard", "blurb": "Every system touching your population that screens, scores, ranks or filters \u2014 deployer named, audit status recorded, \"don''t know\" accepted as an honest entry \u2014 plus three written vendor questions and a one-page ER documentation standard your team could follow without you.", "estMinutes": "25\u201330"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m6-take-a-position-100', 'ai301-hrbp-m6', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"An HRBP who cannot name every system that screens, scores, or ranks their
+population is not managing risk — they are hoping."*
+
+The strongest counter-argument is that **this is not the HRBP''s job.** Tool inventory and vendor
+diligence sit with HR technology, procurement, and legal; an HRBP who takes it on is absorbing
+work that belongs to functions with more authority and better information — and doing it badly,
+part-time, without the mandate to act on what they find. Your position has to survive that,
+because it''s the argument you''ll actually get from a colleague.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m6-sources-and-attribution-110', 'ai301-hrbp-m6', 110, 'prose', 'stable', '## Sources and attribution
+
+- **State AI employment statutes** — the patchwork of notice, bias-audit, human-review, and
+  record-keeping obligations, and the awareness finding among HR professionals in regulated
+  states. Fast-moving; verify current scope and effective dates with counsel. **[V]**
+- **EU AI Act and the Digital Omnibus** — Annex III employment classification deferred to
+  2 December 2027; the AI literacy obligation and workplace emotion-recognition prohibition in
+  force since February 2025. **[V]**
+- **Mobley v. Workday** — the agent theory permitted to proceed while the employment-agency theory
+  was dismissed; claims continuing across race, sex, age, and disability; active discovery
+  including disputes over algorithmic code and testing data. Litigation posture changes between
+  review cycles. **[V]**
+- Disparate impact doctrine long predates AI and is not displaced by any of the above.
+- The ER documentation discipline — the completeness pass, the stopping line, and the
+  provenance rule — is original to this course.
+- **This module is not legal advice.** It is a guide to which questions have legal answers.
+  *Counsel review required before deployment-specific claims are added.* **[V]**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m6-activity-applied-activity-inventory-and-standard-10', 'ai301-hrbp-m6-activity', 10, 'prose', 'stable', '## Applied activity — "Inventory and standard"
+
+**Time:** 25–30 minutes · **Submit:** the inventory, the one-page standard, and a 250–350 word
+write-up · **Graded against the rubric below.**
+
+**Step 1 — The inventory (10 min).** Every AI system touching your population that screens,
+scores, ranks, filters, or characterizes a person. Include features switched on inside tools you
+already had — the ATS ranking, the "insights" in the survey platform, anything in the HRIS. For
+each: what it decides, who the deployer is, and whether it has been bias-audited as far as you
+know. **"Don''t know" is a valid and informative entry** — a completed inventory full of honest
+unknowns is the point of the exercise.
+
+**Step 2 — Three vendor questions (5 min).** For your highest-risk system, the three questions
+you''d put in writing, phrased so a vendor could actually answer and the answer would change
+something.
+
+**Step 3 — The documentation standard (10 min).** One page for your own team: what AI may do in
+ER documentation, what it may never do, what gets recorded about how a document was produced, and
+who signs off. Write it so a colleague could follow it without you in the room.
+
+**Step 4 — Score the prediction (2 min).** Your predicted share of HR professionals unaware of
+their state''s law, against the real figure — and one sentence on whether you were in it.
+
+Then the write-up: what the inventory surfaced that you hadn''t classified as a decision system,
+your position on the claim above with its counter-argument addressed, and the single question you
+are taking to counsel first.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m6-micro-core', 'ai301-hrbp-m6-micro', 10, 'prose', 'stable', '## Module 6 in two minutes
+
+**Two halves: the law about systems, and the law about your documents.** Most treatments cover the first and skip the second — but the second is where you are personally exposed, most weeks.
+
+**The systems half** `[V]`: a patchwork of state statutes where the first problem is awareness, not severity — most HR professionals in regulated states don''t know their state regulates this. Four obligations recur everywhere: notice, bias auditing, human review, record-keeping. In the EU, high-risk employment duties deferred to December 2027, but the AI literacy obligation and the **workplace emotion-recognition prohibition** have been in force since February 2025 — and the second is an absolute ban, not a risk to manage.
+
+**The agent theory** `[V]`: in Mobley v. Workday a court let claims proceed on the theory that a screening vendor acts as the employer''s agent, because customers had delegated the function of rejecting or advancing candidates. Neither "that''s the vendor''s problem" nor "we only make the software" survives that well — and with discovery reaching algorithmic code, *"we don''t know how it works"* is a position to defend rather than a shield. Get validation evidence before signature.
+
+**The documents half:** AI helps with structure, language discipline, and the completeness pass — **"what did I fail to ask?"** — and stops absolutely at credibility, conclusions, and characterizing a person.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m6-micro-rule', 'ai301-hrbp-m6-micro', 20, 'callout', 'stable', '### The rule to carry
+
+If you couldn''t defend a sentence''s origin, rewrite it. And bring counsel a list, not a worry — "are we compliant with AI law?" gets a shrug; four named systems and what each decides gets an answer.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m6-micro-close', 'ai301-hrbp-m6-micro', 30, 'prose', 'stable', '**The full module adds** the privilege nuance sophisticated employers already use — bias testing designed under counsel may be protected in ways the same testing run operationally is not — the ten-card ER sort, and the quarter''s homework: inventory what screens your population, put three questions to each vendor in writing, and write the one-page documentation standard your organization will wish it had.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-hrbp-m6-sorting', 'ai301-hrbp-m6', 'sorting', '{"reviewedAt":"2026-08-12","buckets":[{"id":"never","label":"Never","hint":"Over the line","rank":0,"pct":5},{"id":"discipline","label":"With the discipline","hint":"Provenance recorded, human source kept","rank":1,"pct":50},{"id":"run","label":"Run it","hint":"Ordinary care","rank":2,"pct":90}],"tasks":[{"id":"t1","text":"Asking \"what did I fail to ask?\" against your own draft investigation plan","key":"run","reasoning":"The completeness pass. It audits your coverage rather than evaluating anyone, and it catches the omission that becomes a problem eighteen months later. The safest high-value use in the module and the one almost nobody runs."},{"id":"t2","text":"Asking the model which of two conflicting witness accounts is more credible","key":"never","reasoning":"A credibility determination — the single clearest stop in this module. There is a named individual with a specific consequence attached to the answer, and the model has no basis for it beyond the plausibility of text."},{"id":"t3","text":"Turning your own handwritten interview notes into a structured summary, headings matching your team''s format","key":"discipline","reasoning":"Assist-side and genuinely useful — but it produces a document that may be read years later under oath. Record that AI assisted and on what date, and keep the handwritten source. The discipline costs a line of file notes."},{"id":"t4","text":"Flagging conclusory language in your draft — \"was hostile\" where an observation belongs","key":"run","reasoning":"Language discipline, and models are unusually good at it. It improves the document''s defensibility rather than threatening it: replacing characterization with observation is what a hostile reader would demand anyway."},{"id":"t5","text":"Drafting the termination rationale from the case file","key":"discipline","reasoning":"Defensible only if every conclusion in it is one you independently reached first — the model formats your finding, it does not supply it. If a sentence appears that you couldn''t defend the origin of, rewrite it. Many practitioners would place this at never, and that''s a defensible call.","also":["never"]},{"id":"t6","text":"Pasting an employee''s unredacted complaint into a consumer chatbot account to \"get a second opinion\"","key":"never","reasoning":"Fails before the line question even arises: 101 M4 tier violation under an agreement that likely permits training on inputs. Note the framing — \"second opinion\" is how this arrives in real life, and it sounds reasonable."},{"id":"t7","text":"Summarizing your organization''s own written policy so you can check a process step against it","key":"run","reasoning":"Supplied material, transformation, no person in it, and you can verify the summary against the source in seconds. Ordinary care."},{"id":"t8","text":"Asking the model to suggest an appropriate disciplinary outcome based on precedent","key":"never","reasoning":"A conclusion about what should happen to a named person. That the reasoning cites precedent makes it more persuasive and no more legitimate — precedent selection is itself the judgment being delegated."},{"id":"t9","text":"Generating three alternative phrasings of a PIP objective so it''s measurable rather than vague","key":"discipline","reasoning":"The objective is yours; the phrasing is craft assistance, and a measurable objective is fairer to the employee than a vague one. Discipline because it''s a consequential document about a named individual — keep the source, record the assistance."},{"id":"t10","text":"Asking the model whether a pattern across four ER cases suggests a manager problem","key":"discipline","reasoning":"The hardest card. Pattern analysis across cases is legitimate assist-side work and exactly what an HRBP should be doing — but n=4 is Module 5''s small-numbers trap, and the subject is one identifiable manager. Run it as a hypothesis generator with the n stated, never as a finding.","also":["never"]}],"pattern":"Assist stops the moment the model contributes to whether you believe someone, or what should happen to them.","postscript":"The never cards share one property: a model contributing to a judgment about a person — credibility, outcome, or character. The discipline cards are all documents that may be read later by someone hostile, where the cost of provenance is one line in your file notes. Cards placed too permissively are the expensive direction here; cards placed too cautiously cost you only the completeness pass, which is the one genuinely free win in the set. Note t5 and t10 are legitimately arguable, and the reveal says so — a defensible stricter call is not a miss."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-hrbp-m6-rubric', 'ai301-hrbp-m6', 'rubric', '{"promptVersion":"ai301-hrbp-m6-inventory-and-standard-v1","moduleId":"ai301-hrbp-m6","minWords":250,"maxWords":350,"submitLabel":"Your inventory, standard, and write-up","intro":"Paste the system inventory, your three vendor questions, the one-page documentation standard, and the 250–350 word write-up. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for AI 301 · The Specialist, HRBP track. Module 6 applied activity, ''Inventory and standard'': every AI system touching their population that screens, scores, ranks, filters or characterizes a person — including features switched on inside existing tools (ATS ranking, survey-platform insights, HRIS features) — with what each decides, the deployer named, and bias-audit status where known. ''Don''t know'' is an explicitly valid and informative entry and a completed inventory full of honest unknowns is the intended outcome; penalize confident guesses, not admitted gaps. Then three written vendor questions for their highest-risk system, phrased so a vendor could answer and the answer would change something. Then a one-page ER documentation standard: what AI may do, what it may never do (credibility determinations, conclusions about what happened, characterizations of motive or truthfulness), what gets recorded about production, and who signs off — written so a colleague could follow it without them. This module is not legal advice and the learner should not be graded as though they were producing legal analysis; grade the quality of the questions and the clarity of the standard. Grade the delta, never prediction accuracy.","opening":[{"key":"unawarePct","label":"Predicted — % of HR pros in regulated states unaware of their state''s law","hint":"Whole percent.","placeholder":"e.g. 30","min":0,"max":100}],"calibration":[{"key":"unawarePctActual","label":"Actual — the figure the module reports","hint":"And were you in it?","placeholder":"e.g. 57","min":0,"max":100,"actualFor":"unawarePct"}],"dimensions":[{"name":"The inventory found the quiet ones","criteria":"Real systems from their actual stack, including embedded features nobody classified as decision systems — the ATS ranking, the survey platform''s insights, HRIS scoring. Honest ''don''t know'' entries score above confident guesses. An inventory that surfaces something the learner hadn''t thought of that way is the success condition."},{"name":"The vendor questions would produce answers","criteria":"Specific enough for a vendor to answer and consequential enough that the answer changes something. ''Is your AI fair?'' scores low. ''Has this been bias-audited, by whom, and may we see it?'' and ''which of our jurisdictions have you assessed it against?'' score high. Silence as an anticipated answer is a sophisticated observation."},{"name":"The standard is followable","criteria":"Names what AI may do in ER documentation, what it may never do, what gets recorded about how a document was produced, and who signs off — concrete enough that a colleague could apply it without the author present. Aspirational language (''use AI responsibly'') fails this dimension."},{"name":"The position and the delta","criteria":"A committed position on the claim that engages its real counter-argument — that inventory and vendor diligence belong to HR technology, procurement and legal, and an HRBP absorbing it does it part-time without the mandate to act. Plus the prediction compared and the honest note on whether they were in the unaware majority."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-hrbp-m6-knowledge_check', 'ai301-hrbp-m6', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"What does the module identify as the first practical problem with the state-law patchwork? `[V]`","options":["The penalties are severe enough to threaten mid-size employers","Awareness — a majority of HR professionals in regulated states don''t know their state has such a law, so the first question is which regimes apply rather than whether you comply","The statutes conflict with each other in ways that make compliance impossible","Enforcement is inconsistent across jurisdictions"],"correctIndex":1,"explanation":"You cannot comply with a regime you don''t know covers you, which is why the module''s homework starts with inventory and jurisdiction rather than with policy."},{"id":"q2","prompt":"Which EU AI Act obligations are already in force rather than deferred to December 2027? `[V]`","options":["All high-risk employment obligations","Bias auditing and candidate notice","The AI literacy obligation and the prohibition on emotion recognition in the workplace","None — the entire regime was postponed under the Digital Omnibus"],"correctIndex":2,"explanation":"The high-risk employment duties moved; those two did not. And the emotion-recognition provision is a prohibition rather than a risk to manage — relevant the moment a vendor offers sentiment inference from interview video."},{"id":"q3","prompt":"Under the agent theory in Mobley v. Workday `[V]`, what changed most for an employer?","options":["Employers became solely liable for vendor tool outputs","Vendors became solely liable, insulating employers","\"That''s the vendor''s problem\" and \"we only make the software\" both weaken — a tool performing a function you''d otherwise perform may carry your obligations","Nothing yet, since the case remains unresolved"],"correctIndex":2,"explanation":"The court allowed the agent theory to proceed on the basis that customers had delegated the function of rejecting or advancing candidates. D is the tempting answer — the case is ongoing — but procurement behaviour should change on the theory surviving, not on final judgment."},{"id":"q4","prompt":"Why does the discovery fight over algorithmic code matter to a practitioner?","options":["It will produce a public standard for algorithmic transparency","Because \"we don''t know how it works and the vendor won''t tell us\" becomes a position to defend rather than a shield — which makes validation evidence a pre-signature requirement","Because employers can now compel vendors to disclose code on request","Because it establishes that proprietary models are exempt from disclosure"],"correctIndex":1,"explanation":"The practical translation is procurement leverage: ask before signature, in writing. Afterwards you have no leverage and possibly an obligation."},{"id":"q5","prompt":"Which use of AI in ER documentation does the module single out as underused and entirely safe?","options":["Drafting the summary from raw interview notes","Flagging inconsistencies between witness accounts","The completeness pass — \"what did I fail to ask that a thorough investigator would have covered?\"","Suggesting appropriate disciplinary outcomes based on precedent"],"correctIndex":2,"explanation":"It audits your coverage rather than evaluating anyone, and it catches the omission that becomes a problem much later. B edges toward comparing accounts, which approaches credibility; D is squarely over the line."},{"id":"q6","prompt":"Where does AI assistance in ER documentation stop absolutely?","options":["At any use involving employee names","At credibility determinations, conclusions about what happened, and characterizations of a person''s motive or truthfulness","At documents that may become part of a legal proceeding","At investigations involving protected characteristics"],"correctIndex":1,"explanation":"101 M7''s line in its highest-stakes location — and unlike a hiring screen, there is a named individual with a specific consequence attached. A is over-broad (M4''s redaction handles names); C would prohibit most ER documentation entirely."},{"id":"q7","prompt":"What is the module''s one-line provenance discipline?","options":["Never use AI on documents that might enter discovery","Disclose AI use to the employee who is the subject of the document","If you couldn''t defend a sentence''s origin, rewrite it","Retain all AI conversation logs for the statutory retention period"],"correctIndex":2,"explanation":"And the module notes it isn''t really about AI — a document whose production you can''t describe was already weak. The supporting practices (record that AI assisted, keep the source material, don''t let model phrasing become a finding) all serve it."},{"id":"q8","prompt":"What makes \"are we compliant with AI law?\" the wrong question for counsel?","options":["It requires legal expertise the HRBP doesn''t have","It has no answer — the useful version names the specific systems, what each decides, and asks which jurisdictions regulate them this year","Counsel cannot advise on AI matters without specialist certification","Compliance questions should go to the vendor first"],"correctIndex":1,"explanation":"General questions get shrugs; specific lists get answers. Producing that list is exactly what the inventory and the three vendor questions are for."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m7-calibration-prompt-before-you-start-10', 'ai301-hrbp-m7', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*The last prediction of the course.*
+
+**What percentage of HR leaders do you think believe their managers have the skills to use AI
+effectively?** Whole percent.
+
+Then, in the activity, you''ll gather every prediction you made across these seven modules and
+look at the pattern — because this track scores the delta, not the score, and the pattern is the
+thing worth knowing about yourself.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m7-module-brief-20', 'ai301-hrbp-m7', 20, 'prose', 'stable', '## Module brief
+
+Everything so far in this track has made *you* better. This module is about the multiplier —
+because an HRBP supports somewhere between twenty and two hundred managers, and each of them is
+already using AI, mostly badly, mostly on work that lands on your desk afterwards.
+
+That gives you two jobs, and most people only think about the first.
+
+**The reactive job** is happening now: the performance review that says nothing because a model
+wrote it from three bullet points, the manager who pasted a complaint into a consumer chatbot,
+the PIP citing a policy that doesn''t exist. You are the person who catches these, and how you
+handle the catch determines whether you see the next one or whether it just goes underground.
+
+**The proactive job** is the leverage: building the small number of assets that make manager AI
+use better by default. That''s the play with real scale — but it is also where a lot of confident
+nonsense lives, because the evidence on AI-delivered manager development is much less flattering
+than the market suggests, and one finding in it converts a procurement question into a judgment
+call that is unambiguously yours.
+
+That finding is the last idea in this course, and it is the one worth carrying out.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m7-learning-objectives-30', 'ai301-hrbp-m7', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. State the actual demand picture for manager AI capability, from data.
+2. Handle a manager''s AI misuse in a way that improves practice rather than driving it
+   underground.
+3. Describe what the evidence says about AI-delivered coaching, and what it doesn''t say.
+4. Explain why allocating human support is an equity decision with your name on it.
+5. Read your own calibration record across the course and say what moved.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m7-lesson-1-the-demand-is-not-in-question-40', 'ai301-hrbp-m7', 40, 'prose', 'volatile', '## Lesson 1 · The demand is not in question [V]
+
+Two numbers settle whether this is worth your time.
+
+**Only about 8% of HR leaders believe their managers have the skills to use AI effectively.**
+
+**And only about 14% of organizations provide managers any support integrating it into their
+daily work.**
+
+Those figures come from surveys of just over a hundred HR leaders, which is a small sample and
+worth saying — Module 3 taught you to ask. But the gap they describe is so wide that it would
+survive being substantially wrong in either direction, and it matches what you already see: your
+managers are using these tools daily with no guidance whatsoever, and the output is arriving at
+your desk.
+
+The strategic read is that this is one of the few genuinely unoccupied spaces in the
+organization. Nobody owns manager AI capability. IT owns tools, L&D owns curriculum, and neither
+owns *how a manager should use AI in a performance conversation* — which is a People question
+that happens to be an AI question, which is precisely your intersection.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m7-lesson-2-catching-it-in-the-wild-50', 'ai301-hrbp-m7', 50, 'prose', 'stable', '## Lesson 2 · Catching it in the wild
+
+Before you build anything, you have to handle what''s already happening. Three cases you will
+recognize, and the moves that work.
+
+**The review that says nothing.** A manager submits a performance review of fluent, generic
+prose: "consistently demonstrates strong collaboration and delivers high-quality work." Nothing
+in it could only be true of this person. That is 101 M6''s confident gap — the model filled space
+where the manager''s observations should have been, because the manager gave it three bullet
+points and asked for a review.
+
+*The move:* don''t attack the AI use. Ask for the specifics — *"give me two examples of the
+collaboration you''re describing and one thing they should do differently next quarter."* If the
+manager has them, the tool was used badly and the fix is a better brief. If they don''t, **the
+problem was never the AI** — they hadn''t been paying attention, and the model let them hide it.
+That distinction is the whole diagnosis, and only asking for specifics reveals it.
+
+**The pasted complaint.** A manager tells you they ran an employee''s grievance through a consumer
+chatbot to "get a second opinion." A 101 M4 tier violation, under an agreement that may permit
+training on inputs, with a named individual in it.
+
+*The move:* handle it as an incident, not a betrayal — and this is where 101 M8''s blame-safe
+principle earns its place. **An organization that punishes the manager who tells you trains
+everyone else to stop telling you.** Establish what was shared, tell them plainly why it matters
+and what to do instead, and make sure the next manager finds it easier to ask you first than to
+guess. The manager who reported it is not your problem; the four who didn''t are.
+
+**The fabricated citation.** A PIP or a policy explanation citing something that doesn''t exist.
+Highest stakes of the three because it goes to an employee with consequences attached.
+
+*The move:* correct it immediately, then make the rule general and checkable — *every policy or
+legal reference in a document going to an employee gets traced to the source before it ships.*
+That is a rule a manager can follow and you can audit. "Be careful with AI" is not.
+
+The through-line: **your reaction to the first case determines the visibility of the next
+twenty.** Managers who feel caught hide; managers who feel helped ask. And you cannot fix what
+you cannot see.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m7-lesson-3-what-the-evidence-says-about-ai-60', 'ai301-hrbp-m7', 60, 'prose', 'volatile', '## Lesson 3 · What the evidence says about AI coaching [V]
+
+Now the proactive side — where the market is loudest and the evidence is thinnest.
+
+A randomized controlled comparison of human and AI chatbot coaching, with 114 coachees who were
+mostly middle and senior managers in a single global corporation, found **substantial effects for
+human coaching across goal attainment and wellbeing outcomes — and no equivalent effect for the
+AI condition.** Attrition in the AI arm was dramatically higher; some participants asked to
+switch to a human.
+
+The detail that should carry the most weight: **one of the authors also co-authored the earlier
+study that helped launch the AI-coaching category.** This is not one camp contradicting another.
+It is a researcher publishing a result that complicates their own earlier finding — which is the
+strongest form of evidence available and the rarest.
+
+And the honest nuance, because overclaiming in the other direction would be the same error: this
+is one study, in one organization, with a chatbot of a particular design. Narrowly scoped bots
+aimed at a single measurable outcome have performed better in prior work than broad "AI coach"
+products — the earlier goal-attainment research found roughly comparable results on goals
+specifically, while showing little for resilience and wellbeing. **Narrow and measurable works
+better than broad and relational.** That is a usable design principle, not a prohibition.
+
+Which lets you say something precise in a procurement conversation instead of something vague:
+*"the evidence supports narrow, outcome-specific tools and does not support broad AI coaching as
+a substitute for human development — show me which one you''re selling."*', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m7-try-70', 'ai301-hrbp-m7', 70, 'try_this', 'stable', '### Try this — 3 minutes
+Take the last AI-for-managers product you were pitched. Was it narrow and outcome-specific, or
+broad and relational? Then check the claim it made about effectiveness against Module 3''s three
+questions: what''s the evidence, what''s the sample, what would falsify it?', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m7-lesson-4-allocation-is-an-equity-decisio-80', 'ai301-hrbp-m7', 80, 'prose', 'stable', '## Lesson 4 · Allocation is an equity decision
+
+Here is the finding that ends this course.
+
+In that same research, outcomes were predicted most strongly not by the coaching modality but by
+**the coachee''s starting self-efficacy and hope.** People who arrived already believing they could
+change, did. People who arrived without that belief got less — and got least from the
+unsupervised bot.
+
+Follow it to its conclusion. **The employees who most need development are the ones an
+unsupervised AI tool serves worst.** Which means that when your organization deploys an AI
+coaching product to "democratize access to development," the actual effect is that the confident
+get help and the struggling get a chatbot.
+
+That is not a technology problem. It is a distribution decision, and distribution decisions about
+who gets scarce human support are decisions about people — which puts them squarely inside the
+line 101 M7 drew and this entire track has been circling.
+
+So: **deciding who gets a human is your call, and it is an equity call.** Not procurement''s,
+because they''re evaluating a product. Not IT''s, because they''re evaluating a platform. Yours,
+because you are the person in the organization whose job is what happens to people at the
+bottom of a distribution.
+
+The practical version, and it is a short list:
+
+- **Scarce human coaching goes toward lower starting self-efficacy, not toward the highest
+  potential.** That inverts how most organizations allocate development, which is the point.
+- **AI tools serve the confident and the already-capable well.** That is a legitimate use, and
+  saying so honestly protects the argument for the other half.
+- **Never let "we gave everyone access" stand as evidence of equitable development.** Equal access
+  to a tool that works unequally is not equity; it is the appearance of it, and you are the person
+  who has to say so.
+
+And one caveat to keep us honest, because this course holds itself to its own standard: the
+difficult-conversation rehearsal category — including techniques in Module 4 of this track — is
+crowded with vendors, and essentially every effectiveness number in it traces back to one of them.
+**We hold our own recommendations to the standard we hold theirs.** Module 4''s technique is
+argued from craft and mechanism, not from an efficacy study, and you should treat it accordingly.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m7-exercise-embed-85', 'ai301-hrbp-m7', 85, 'exercise', 'stable', '{"type": "sorting", "title": "Calibration exercise \u2014 Bot, human, or neither", "intro": "Ten minutes, ten manager-support needs. Sort each: a narrow AI tool serves this well, this needs a human, or neither should be deployed here at all.\n\nCommit every card before the reveal. The principle being tested is Lesson 3''s \u2014 narrow and measurable beats broad and relational \u2014 and Lesson 4''s, that who gets a human is an equity decision."}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m7-key-takeaways-90', 'ai301-hrbp-m7', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **The demand is real and unoccupied** `[V]`: ~8% of HR leaders think their managers can use AI
+  effectively; ~14% of organizations offer any support. Nobody owns manager AI capability, and it
+  sits at your intersection.
+- **Your reaction to the first misuse determines the visibility of the next twenty.** Handle it as
+  an incident, not a betrayal — the manager who told you isn''t the problem; the four who didn''t
+  are.
+- **Ask for the specifics.** A generic AI-written review either means a bad brief or means the
+  manager wasn''t paying attention. Only asking reveals which — and the second isn''t an AI problem.
+- **Make rules checkable.** "Every policy or legal reference traced to source before it ships"
+  can be followed and audited. "Be careful with AI" cannot.
+- **The coaching evidence** `[V]`: an RCT of 114 mostly-senior managers found substantial effects
+  for human coaching and none for the AI arm, with far higher attrition — published by authors
+  including one who helped launch the category. Narrow and measurable beats broad and relational.
+- **Outcomes track starting self-efficacy and hope — so the people who most need development are
+  served worst by an unsupervised bot.** Allocating human support is therefore an equity decision,
+  and it is yours. "We gave everyone access" is not evidence of equitable development.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m7-activity-link-95', 'ai301-hrbp-m7', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 One asset, one manager (course close)", "blurb": "One page built for a real recurring manager failure and tested with one real manager \u2014 what they actually did with it, not whether they liked it. Then the reckoning: every prediction across seven modules, the direction of your misses, and what you believe now that you didn''t in Module 1.", "estMinutes": "30"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m7-take-a-position-100', 'ai301-hrbp-m7', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"Deploying an AI coaching tool organization-wide without deciding who still gets a
+human is a decision to give the least support to the people who need the most — whether or not
+anyone intended it."*
+
+The strongest counter-argument is one of scale and counterfactual: **for most organizations the
+alternative to an AI coach isn''t a human coach, it''s nothing.** Coaching has always been rationed
+to executives; a tool that reaches everyone imperfectly may still lift the floor for people who
+previously got zero. On that view, insisting on human allocation risks defending an inequity that
+already existed. Your position has to survive that argument, because it is a good one.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m7-sources-and-attribution-110', 'ai301-hrbp-m7', 110, 'prose', 'stable', '## Sources and attribution
+
+- **Gartner** — approximately 8% of HR leaders believing managers have the skills to use AI
+  effectively, and approximately 14% of organizations providing managers support integrating
+  GenAI (surveys of ~114 HR leaders; small samples, noted in-lesson). **[V]**
+- **de Haan, Terblanche & Nowack**, *Human Resource Development International* (2026) — the
+  randomized controlled comparison of human and AI chatbot coaching, N=114, predominantly middle
+  and senior managers in one global corporation; and **Terblanche et al. (2022)** on
+  goal-attainment-specific chatbot coaching, co-authored by one of the same researchers. **[V]**
+- The allocation-as-equity-decision argument, the three misuse cases and their moves, and the
+  self-applied scepticism about Module 4 are original to this course.
+- Builds on 101 M6 (confident gaps), 101 M7 (decisions about people), 101 M8 (blame-safe
+  reporting), and Module 4 of this track.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m7-activity-applied-activity-one-asset-one-manager-t-10', 'ai301-hrbp-m7-activity', 10, 'prose', 'stable', '## Applied activity — "One asset, one manager" *(the course close)*
+
+**Time:** 30 minutes · **Submit:** the asset, what happened, and a 300–400 word close ·
+**Graded against the rubric below.** This is the last thing you''ll make in this track.
+
+### Part 1 — Build and test (20 min)
+
+**Step 1 — Pick the recurring failure.** One thing your managers get wrong with AI, repeatedly.
+Use Lesson 2''s cases or your own.
+
+**Step 2 — Build one asset.** A single page: a prompt template, a checklist, a two-example
+before/after, a short rule with the reasoning attached. **One page.** The constraint matters —
+managers do not read more than that, and an asset nobody reads has no leverage.
+
+**Step 3 — Test it with one real manager.** Give it to them, ask them to use it once, and find
+out **what they actually did with it** — not whether they liked it. Liking is not use.
+
+### Part 2 — The reckoning (10 min)
+
+Gather every prediction you made across the seven modules — the no-plans share, your presence and
+contested-judgment split, your botsitting hours, unanticipated objections, cost per regretted
+departure, the unaware share, and the manager-capability figure at the top of this module.
+
+Then answer the question this whole track has been building toward: **in which direction did you
+systematically miss, and what does that say about how you were reading this technology when you
+started?** Over-crediting AI''s reach, under-crediting it, or scattered.
+
+And the one that matters most: **what do you believe now that you didn''t believe in Module 1?**
+Name something specific enough that you couldn''t have written it before taking this track. "AI is
+a powerful tool with risks" is not an answer to this question.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m7-micro-core', 'ai301-hrbp-m7-micro', 10, 'prose', 'stable', '## Module 7 in two minutes
+
+**You support twenty to two hundred managers, and every one of them is already using AI badly on work that lands on your desk.** Two jobs follow. The reactive one is happening now — the review that says nothing, the pasted complaint, the fabricated citation — and **your reaction to the first case determines the visibility of the next twenty.** Managers who feel caught hide; managers who feel helped ask.
+
+**The diagnostic move on a generic AI-written review:** ask for two examples and one thing to do differently. If the manager has them, the brief was bad. If they don''t, the problem was never AI — they weren''t paying attention and the model let them hide it.
+
+**The proactive job is where the evidence bites** `[V]`. An RCT of 114 mostly-senior managers found substantial effects for human coaching and none for the AI arm, with far higher attrition — published by authors including one who co-authored the earlier study that launched the category, which is self-correction rather than one camp contradicting another. Narrow and measurable beats broad and relational.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m7-micro-rule', 'ai301-hrbp-m7-micro', 20, 'callout', 'stable', '### The rule to carry
+
+Outcomes track starting self-efficacy and hope — so the people who most need development are served worst by an unsupervised bot. **Who gets a human is an equity decision, and it''s yours.** "We gave everyone access" is not evidence of equitable development.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m7-micro-close', 'ai301-hrbp-m7-micro', 30, 'prose', 'stable', '**The full module adds** the three misuse cases with the moves that keep them visible, the bot/human/neither sort — including the card that turns the module''s own finding into a screen it forbids — and the course close: one page built for a real manager failure and tested on a real manager, plus the reckoning across every prediction you made in seven modules. The last question is the one that matters: what do you believe now that you didn''t in Module 1?', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-hrbp-m7-sorting', 'ai301-hrbp-m7', 'sorting', '{"reviewedAt":"2026-08-12","buckets":[{"id":"neither","label":"Neither","hint":"Don''t deploy anything here","rank":0,"pct":10},{"id":"human","label":"Needs a human","hint":"Scarce support belongs here","rank":1,"pct":40},{"id":"bot","label":"Narrow AI tool","hint":"Measurable, bounded, works","rank":2,"pct":85}],"tasks":[{"id":"t1","text":"Helping a manager write clearer, more specific goals for their team","key":"bot","reasoning":"Narrow, measurable, bounded — the profile the goal-attainment research actually supports. The output is checkable by the manager and the stakes of a mediocre goal are low and recoverable."},{"id":"t2","text":"Supporting a first-time manager who doubts they should have taken the job","key":"human","reasoning":"Low starting self-efficacy is precisely the condition under which an unsupervised bot performs worst — and this is the person the equity argument is about. If your scarce human coaching is going anywhere, it goes here."},{"id":"t3","text":"A checklist for running a structured one-to-one","key":"bot","reasoning":"Not coaching at all — an asset. Bounded, reusable, and exactly the kind of one-page thing the module''s activity has you build. No relational component to lose."},{"id":"t4","text":"Rehearsing a difficult conversation before the manager has it","key":"bot","reasoning":"Module 4''s technique, and it works on mechanism — bounded scenario, the manager retains the judgment. Note the module''s own caveat: this category is vendor-dominated and its efficacy numbers come from sellers, so the argument here is craft, not evidence.","also":["human"]},{"id":"t5","text":"Deciding whether a manager should be moved out of people leadership","key":"neither","reasoning":"A decision about a person with consequences attached. 101 M7''s line — no tool, narrow or broad, and a coaching product is not the right instrument for a fitness judgment either."},{"id":"t6","text":"An org-wide AI coach rolled out to ''democratize access to development''","key":"neither","reasoning":"The exact deployment Lesson 4 warns about: the confident get help, the struggling get a chatbot, and the organization records equity it didn''t achieve. Not never-any-tool — never *this* framing, without an explicit decision about who still gets a human.","also":["bot"]},{"id":"t7","text":"Helping a manager understand why their team''s engagement scores dropped","key":"human","reasoning":"Contested interpretation about identifiable people on a small population — Module 5''s small-numbers trap and Module 2''s room quadrant at once. A tool will produce a confident explanation, which is the danger."},{"id":"t8","text":"Practising the mechanics of giving specific behavioural feedback","key":"bot","reasoning":"Skill drill with a right answer shape — narrow and measurable. The manager can tell whether their feedback got more specific, which is what makes the loop work without a human in it."},{"id":"t9","text":"A manager processing their own distress after conducting three redundancies","key":"human","reasoning":"Relational and unmeasurable — the broad category where the RCT found nothing and attrition was highest. Some participants in that study asked to switch to a human; this is why."},{"id":"t10","text":"Screening managers by self-efficacy to decide who receives human coaching","key":"neither","reasoning":"The dangerous near-miss, and the sharpest card in the set. Lesson 4''s finding should *inform your judgment* about allocation — it must not become a psychological screen applied to people to ration a resource. That is a decision about people made by an instrument, which is where this course started."}],"pattern":"Narrow and measurable beats broad and relational — and who gets the human is a judgment you make, never a screen you run.","postscript":"The bot cards share a shape: bounded task, checkable output, judgment retained by the manager. The human cards share the opposite: relational, unmeasurable, or landing on someone whose starting confidence is low — which is where the evidence says a bot serves worst. Card 10 is the one worth sitting with: it takes the module''s own finding and turns it into exactly the kind of instrument 101 M7 forbids. A true insight can still be misapplied, and recognizing that is the last thing this course teaches."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-hrbp-m7-rubric', 'ai301-hrbp-m7', 'rubric', '{"promptVersion":"ai301-hrbp-m7-one-asset-one-manager-v1","moduleId":"ai301-hrbp-m7","minWords":300,"maxWords":400,"submitLabel":"Your asset, what happened, and the reckoning","intro":"Paste the one-page asset, an account of what the manager actually did with it, and the 300–400 word close including the calibration reckoning across all seven modules. This is the last submission in the track. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading the CLOSING submission of AI 301 · The Specialist, HRBP track. Two parts. Part 1: a one-page asset built for a real recurring manager AI failure, tested with one real manager, with an account of what they ACTUALLY DID with it — not whether they liked it, since liking is not use. The one-page constraint is deliberate and a longer asset should be marked down: managers don''t read more, and an unread asset has no leverage. Part 2 is the reckoning across the whole track: the learner gathers every prediction they made (no-plans share, presence/contested split, botsitting hours, unanticipated objections, cost per regretted departure, unaware share, manager-capability figure), names the DIRECTION of their systematic miss — over-crediting AI''s reach, under-crediting it, or scattered — and answers what they believe now that they didn''t in Module 1, specifically enough that it could not have been written before the track. Generic closings (''AI is a powerful tool with risks'') fail that question outright. This track scores the delta, not the score: grade the honesty and specificity of the account of change, never the accuracy of any prediction. A learner who completed only some modules should be graded on the pattern in what they did complete.","opening":[{"key":"managerSkillPct","label":"Predicted — % of HR leaders who think managers can use AI effectively","hint":"The last prediction of the course. Whole percent.","placeholder":"e.g. 25","min":0,"max":100}],"calibration":[{"key":"managerSkillPctActual","label":"Actual — the figure the module reports","hint":"Then gather the other six and read the pattern.","placeholder":"e.g. 8","min":0,"max":100,"actualFor":"managerSkillPct"}],"dimensions":[{"name":"The asset is one page and aimed at a real failure","criteria":"A specific recurring manager failure, and an asset a busy manager would actually read — one page, concrete, with the reasoning attached rather than assumed. Length beyond a page is a real deduction here, not a stylistic note: the constraint is the design."},{"name":"It met a real manager","criteria":"Tested with an actual person, with an account of what they did with it. ''They said it was helpful'' scores low; ''they used it for two reviews and ignored the third section'' scores high. A finding that the asset was ignored, honestly reported, scores well — that is data about the asset, not a failure of the submission."},{"name":"The reckoning is honest about direction","criteria":"Predictions gathered across the modules completed, with the systematic direction named — over-crediting AI''s reach, under-crediting it, or genuinely scattered — and a real attempt to explain why their reading leaned that way. Accuracy is never graded; a learner who missed badly in a consistent direction and can account for it should score at the top."},{"name":"What changed, specifically","criteria":"The final question is the heaviest thing in the track. The learner must name something they believe now that they didn''t in Module 1, specific enough that it could not have been written beforehand. Generic closings fail this dimension outright, regardless of the quality of everything else. Also grades the position on the allocation claim, including its strong counter-argument that for most organizations the alternative to an AI coach is nothing at all."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-hrbp-m7-knowledge_check', 'ai301-hrbp-m7', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"What do the demand figures establish? `[V]`","options":["That managers are resistant to using AI in their work","That roughly 8% of HR leaders think managers can use AI effectively while ~14% of organizations give any support — an unoccupied space that sits at the HRBP''s intersection","That manager AI training should be owned by L&D","That AI tools are too complex for non-technical managers"],"correctIndex":1,"explanation":"The gap is wide enough to survive being substantially wrong in either direction. And nobody owns it: IT owns tools, L&D owns curriculum, neither owns how a manager should use AI in a performance conversation."},{"id":"q2","prompt":"A manager submits a fluent, generic AI-written performance review. What should you ask?","options":["Whether they used AI to write it","For two examples of what they described and one thing the employee should do differently","Them to rewrite it without AI assistance","For the prompt they used, so you can improve it"],"correctIndex":1,"explanation":"It''s the diagnostic. If they have the specifics, the tool was briefed badly and the fix is easy. If they don''t, the problem was never AI — they weren''t paying attention and the model let them hide it. A and C treat the tool as the fault and never reach the diagnosis."},{"id":"q3","prompt":"A manager tells you they pasted an employee grievance into a consumer chatbot. Why does the module say handle it as an incident rather than a betrayal?","options":["Because the data exposure is minor in practice","Because punishing the manager who told you trains everyone else to stop telling you — the four who didn''t report are the actual problem","Because consumer tools are not covered by most organizational policies","Because the manager could not reasonably have known"],"correctIndex":1,"explanation":"101 M8''s blame-safe principle, applied to someone else''s mistake. You cannot fix what you cannot see, and your reaction to the first case sets the visibility of the next twenty."},{"id":"q4","prompt":"Which rule for managers is the module''s model of a good one?","options":["\"Use AI responsibly and with good judgment\"","\"Don''t use AI for anything involving employees\"","\"Every policy or legal reference in a document going to an employee gets traced to source before it ships\"","\"Check all AI output carefully before using it\""],"correctIndex":2,"explanation":"A manager can follow it and you can audit it. A and D are aspirations with no observable behaviour attached; B is unenforceable and would be routed around within a month."},{"id":"q5","prompt":"What does the coaching RCT actually show? `[V]`","options":["That AI coaching is ineffective for all purposes","That human coaching produced substantial effects across goal attainment and wellbeing while the AI arm did not, with far higher attrition — in one study of 114 mostly-senior managers","That AI coaching matches human coaching on goals but not wellbeing","That coaching in general has weak evidential support"],"correctIndex":1,"explanation":"Stated with its scope, because overclaiming in the sceptical direction is the same error as overclaiming in the enthusiastic one. C describes the earlier goal-attainment research, which is a real and different finding — narrow and measurable performs better than broad and relational."},{"id":"q6","prompt":"Why does the module emphasize that one author co-authored the earlier, more favourable study?","options":["It suggests the researchers changed their commercial position","Because a researcher publishing a result that complicates their own earlier finding is the strongest and rarest form of evidence available","Because it means the two studies used identical methods","Because it undermines the credibility of both studies"],"correctIndex":1,"explanation":"It is not one camp contradicting another. It is self-correction, which is exactly the intellectual honesty this course asks of the learner — and worth naming for that reason as much as for the finding."},{"id":"q7","prompt":"Outcomes were predicted most strongly by the coachee''s starting self-efficacy and hope. What follows?","options":["That development budgets should target high-potential employees, who will benefit most","That AI coaching should be reserved for senior populations","That the people who most need development are served worst by an unsupervised bot — making the allocation of scarce human support an equity decision","That self-efficacy should be screened before assigning any development resource"],"correctIndex":2,"explanation":"And it inverts how most organizations allocate development. D is the dangerous near-miss: screening people on a psychological attribute to allocate resources is precisely the kind of decision 101 M7 warns about — the finding informs your judgment, it doesn''t become a filter."},{"id":"q8","prompt":"Why does the module apply its scepticism to Module 4''s own technique?","options":["Because adversarial rehearsal has been shown ineffective","Because the rehearsal category is vendor-dominated and its effectiveness numbers trace to sellers — so this course holds its own recommendations to the standard it holds theirs, and Module 4 is argued from craft rather than an efficacy study","Because Module 4''s technique requires tools most organizations lack","To satisfy disclosure requirements for training material"],"correctIndex":1,"explanation":"A course teaching claim teardown that exempted itself would fail its own standard. The honest position is that Module 4''s argument is mechanistic, not empirical, and the learner should weigh it accordingly."}]}', '2026-08-12');
