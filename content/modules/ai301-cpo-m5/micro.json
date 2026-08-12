@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ai301-cpo-m5-micro-core",
+    "moduleId": "ai301-cpo-m5-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module 5 in two minutes\n\n> ⚠️ **Counsel review required before deployment.** Every specific here moves — one of them moved nine days before this was written.\n\n**You own the trust deficit whether or not you owned the design decision.** Accountability without authority, which is a genuinely bad structural position and the honest starting point.\n\n**The asymmetry, in numbers** `[V]`: only **26%** of candidates trust AI to evaluate them fairly (Gartner, n=2,918), ~79% want to be told when it is used, and **~38% have walked away from a process that included an AI interview** — behavioural, not attitudinal. Meanwhile HR has no direct involvement in AI strategy in **52%** of organizations. The systems spending that trust are chosen by people who do not carry the consequence.\n\n**Deferral is not runway** `[V]`. EU high-risk employment duties moved to 2 December 2027, but AI literacy and the **absolute** emotion-recognition prohibition have bound since February 2025, and transparency obligations since 2 August 2026 — a recruiting or HR chatbot is in scope now."
+  },
+  {
+    "id": "ai301-cpo-m5-micro-rule",
+    "moduleId": "ai301-cpo-m5-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## The durable rule\n\n**AI is never the decision-maker. Automate the assembly, not the reasoning.**\n\nA system may gather, structure, summarize, rank for review, and flag. **A person decides, and that person is nameable.** Statutory positions have moved twice in eighteen months in both directions — a posture built on a date expires, and this one is stricter than most current law, which is exactly what makes it durable.\n\nAnd: **the difference between a policy and governance is whether anything has ever been refused.**"
+  },
+  {
+    "id": "ai301-cpo-m5-micro-more",
+    "moduleId": "ai301-cpo-m5-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## What the full module adds\n\nWhy the emotion-recognition prohibition matters to *this* function specifically — engagement inference from webcam is marketed here. The policy arithmetic: roughly 49% have a policy and about a quarter of those believe it is clear and durable, so **around one organization in eight has one its own people think will hold** `[V]`. The one-minute diagnostic — *when did your organization last say no to an AI deployment, and who was told?* **The disclosure scenario** that no policy addresses: an employee confides in a coaching tool for six weeks, it never escalates, she resigns and alleges the company knew. Every position is uncomfortable; the failure is that nobody chose, so the vendor's default decides. Ten systems to sort. And the activity: go and find one."
+  }
+]

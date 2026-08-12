@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is the trust asymmetry this module describes?",
+      "options": [
+        "That employees trust AI more than candidates do",
+        "That the function carrying the consequences of AI decisions about people is frequently absent from making them — 26% candidate trust against HR having no direct involvement in AI strategy in 52% of organizations",
+        "That executives overestimate how much employees trust automated processes",
+        "That trust in AI varies more by seniority than by function"
+      ],
+      "correctIndex": 1,
+      "explanation": "The systems spending employee and candidate trust are increasingly chosen by people who do not carry the consequence of spending it."
+    },
+    {
+      "id": "q2",
+      "prompt": "Which candidate-trust figure is behavioural rather than attitudinal? `[V]`",
+      "options": [
+        "That 26% trust AI to evaluate them fairly",
+        "That 79% want to be told when AI is used",
+        "That approximately 38% have walked away from a hiring process because it included an AI interview",
+        "All three are self-reported attitudes"
+      ],
+      "correctIndex": 2,
+      "explanation": "People are not registering discomfort in a survey — they are leaving. That is the figure with a business consequence attached."
+    },
+    {
+      "id": "q3",
+      "prompt": "What is the correct current statement of the EU position? `[V]`",
+      "options": [
+        "The whole regime was deferred to December 2027, so nothing binds until then",
+        "High-risk employment obligations moved to 2 December 2027, but AI literacy and the emotion-recognition prohibition have bound since February 2025 and transparency obligations since 2 August 2026 — which puts a recruiting or HR chatbot in scope now",
+        "All obligations took effect 2 August 2026 as originally scheduled",
+        "Only systems making fully automated decisions are covered"
+      ],
+      "correctIndex": 1,
+      "explanation": "Deferral of one regime is not runway across the Act, and a learner who takes away only the 2027 date has the dangerous version of this lesson."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why does the module recommend building a posture on a principle rather than the current statute? `[V]`",
+      "options": [
+        "Because statutes vary too much between jurisdictions to build a single posture",
+        "Because statutory positions have moved twice in eighteen months in both directions, so a posture built on a date expires — while \"AI is never the decision-maker\" is stricter than most current law and will not need rewriting",
+        "Because principles are easier to communicate to employees than legal requirements",
+        "Because regulators give credit for principles-based compliance"
+      ],
+      "correctIndex": 1,
+      "explanation": "Being stricter than the law is exactly what makes it durable. You will not have to rewrite it when the law moves again, and it has moved twice already."
+    },
+    {
+      "id": "q5",
+      "prompt": "What distinguishes having a policy from having governance?",
+      "options": [
+        "Whether the policy was approved at board level",
+        "Whether the policy is reviewed on a defined cycle",
+        "Whether anything has ever been refused — a policy never enforced against someone with standing is a statement of intent, not a control",
+        "Whether the policy covers vendor systems as well as internal ones"
+      ],
+      "correctIndex": 2,
+      "explanation": "Writing the policy is operating-system work; refusing a peer's exception is governance. The one-minute diagnostic: when did your organization last say no to an AI deployment, and who was told?"
+    },
+    {
+      "id": "q6",
+      "prompt": "Roughly what proportion of organizations have an AI policy their own people consider clear and durable? `[V]`",
+      "options": [
+        "About half",
+        "About one in three",
+        "About one in eight — roughly 49% have a policy, and about a quarter of those believe it is clear and durable",
+        "About one in twenty"
+      ],
+      "correctIndex": 2,
+      "explanation": "The rest have either nothing or a document. The multiplication is what makes the gap visible; either figure alone reads much better than the position actually is."
+    },
+    {
+      "id": "q7",
+      "prompt": "What does the module say is the failure in the AI-coaching disclosure scenario?",
+      "options": [
+        "Deploying a coaching tool without confidentiality guarantees",
+        "Failing to build an escalation path into the tool",
+        "That nobody has made a decision at all — so the behaviour is determined by the vendor's default rather than by the organization",
+        "Not informing employees that the tool retains conversation data"
+      ],
+      "correctIndex": 2,
+      "explanation": "Every available position is uncomfortable and the module does not claim to settle it. What it requires is a deliberate decision, written down and disclosed — B is one legitimate choice among several, not the answer."
+    },
+    {
+      "id": "q8",
+      "prompt": "A learner searches thoroughly and cannot find an unreviewed decision. How should that be scored?",
+      "options": [
+        "As incomplete, since the activity requires a named system",
+        "As full credit if they submit the search — where they looked, who they asked, what they concluded — and especially if the reason is that nobody could tell them what systems are running",
+        "As evidence their organization has mature AI governance",
+        "As a reason to complete the activity using a hypothetical system"
+      ],
+      "correctIndex": 1,
+      "explanation": "The inability to see the systems is a larger finding than any single system would have been, and C is exactly the wrong inference — not finding one may mean there isn't one, or it may mean you cannot see them, and the search is what distinguishes those."
+    }
+  ]
+}
