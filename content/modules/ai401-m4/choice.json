@@ -1,0 +1,31 @@
+{
+  "reviewedAt": "2026-08-12",
+  "title": "Four boundary claims",
+  "intro": "*Five minutes. Commit before you look.*\n\nFour People leaders are about to write an ownership contract for a seam that has become contested since AI arrived. Three of them should write it and send it.\n\n**In one of these, the right answer is to concede the boundary** — not defer it, not negotiate it. Hand it over. Find that one.",
+  "artifacts": [
+    {
+      "label": "Situation A",
+      "body": "**People analytics vs. Finance, on workforce forecasting.** Finance has started producing its own attrition projections using a model one of their analysts built, and presenting them to the exec team. Yours are more careful — you control for tenure and internal moves, and you state confidence intervals. Theirs are simpler and arrive two weeks earlier. Twice now the exec team has quoted their number back to you. Finance owns the forecast that goes in the plan; you own the one that goes in the People review."
+    },
+    {
+      "label": "Situation B",
+      "body": "**Talent acquisition vs. hiring managers, on candidate assessment summaries.** Managers have started writing their own AI-assisted summaries of candidate interviews rather than waiting for the recruiter's debrief pack. The summaries are fluent and arrive same-day. Two of them have contained characterizations of candidates that you would not have put in writing, and one is now in a file that could be requested."
+    },
+    {
+      "label": "Situation C",
+      "body": "**People operations vs. IT, on the employee data dictionary.** Both teams now maintain a definition of what each HRIS field means, because both have been building AI tooling that needs one. The two definitions have diverged on four fields. Nobody has noticed downstream yet. IT's version is better maintained; yours is better understood by the people who use the data."
+    },
+    {
+      "label": "Situation D",
+      "body": "**Learning & development vs. an engineering director, on AI enablement for her team.** She has built her own internal enablement material — prompts, worked examples, a weekly practice slot — and it is being used far more than the central L&D offering. She did not ask, and she did not tell you. Her material contains nothing you would object to. Your team's charter says enablement is yours."
+    }
+  ],
+  "options": [
+    { "id": "a", "label": "Situation A" },
+    { "id": "b", "label": "Situation B" },
+    { "id": "c", "label": "Situation C" },
+    { "id": "d", "label": "Situation D" }
+  ],
+  "key": "d",
+  "reasoning": "**D is the concession, and it should be a fast and public one.** Run the module's own design question rather than the ownership instinct: where do you want redundancy, and where do you want a single owner? Enablement material for a specific engineering team is high-volume, low-stakes, context-dependent work where the queue is the biggest cost — **the textbook case for redundancy.** She is closer to the work, her material is being used, and there is nothing in it you object to. The only argument on your side is a charter, and *\"my charter says so\"* is the weakest claim available to a function with no authority.\n\nWhat concession actually looks like here is not walking away. It is saying so out loud, quickly: *her material is the standard for her group, here is what I'd want to borrow from it, and here is the one thing central L&D will still own* — probably anything that touches evaluation of people, which is Module 9's line. **Conceding a boundary while naming the narrow piece you keep is how the narrow piece survives.**\n\nAnd notice what you gain. Module 7 is about practice trapped in one person's head; she has just codified something that works, unprompted. Fighting her for the territory is how you lose the artifact.\n\n**A is a real claim worth making, and it is not about the forecast.** You will not win \"our model is better\" — theirs is faster and the exec team has already voted with its behavior. The contract worth writing is about the *seam*: which number is the number, stated once, in advance, with what each is for. Two attrition projections in one organization is not a turf problem, it is a **decision-quality** problem, and it is the one framing finance will engage with.\n\n**B must be written and sent, and quickly.** This is not a redundancy question at all. There is a written characterization of a candidate in a file that could be requested, produced outside any review anyone designed. The contract's fourth part — what may be produced with AI without telling the other side — exists for exactly this, and the answer here is a hard one. Note what makes it urgent: not that the summaries are bad, but that **the failure is already in a record.**\n\n**C is the quietest and the most expensive to leave.** Two diverging data dictionaries with nothing broken downstream *yet* is the profile of a problem that surfaces as four contradictory numbers in one board deck, eighteen months from now, with no way to reconstruct which was right. Single owner, obviously — and the module's rule says pick the better-maintained one and fix the comprehension gap, rather than picking yours because it is yours.\n\nThe transferable test: **before claiming a boundary, ask what you would do with it if you won.** In D the honest answer is that you would run it worse and slower than the person already running it."
+}
