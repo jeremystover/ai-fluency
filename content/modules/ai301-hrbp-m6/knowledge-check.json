@@ -17,15 +17,15 @@
     },
     {
       "id": "q2",
-      "prompt": "Which EU AI Act obligations are already in force rather than deferred to December 2027? `[V]`",
+      "prompt": "Which EU AI Act obligations bind an employer today, rather than being deferred to December 2027? `[V]`",
       "options": [
         "All high-risk employment obligations",
         "Bias auditing and candidate notice",
-        "The AI literacy obligation and the prohibition on emotion recognition in the workplace",
+        "AI literacy, the workplace emotion-recognition prohibition, and the transparency duty that makes a candidate-facing chatbot disclose it is AI",
         "None — the entire regime was postponed under the Digital Omnibus"
       ],
       "correctIndex": 2,
-      "explanation": "The high-risk employment duties moved; those two did not. And the emotion-recognition provision is a prohibition rather than a risk to manage — relevant the moment a vendor offers sentiment inference from interview video."
+      "explanation": "The high-risk employment duties moved to 2 December 2027 under Regulation (EU) 2026/1744; three sets did not. AI literacy and the emotion-recognition ban have applied since February 2025 — and the ban is a prohibition, not a risk to manage. The transparency obligations took effect 2 August 2026 and apply regardless of risk class, which is why a recruiting or HR service chatbot is in scope now rather than in 2027. Deferral of one regime is not runway across the Act."
     },
     {
       "id": "q3",

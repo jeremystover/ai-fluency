@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why does AI ownership have no default owner?",
+      "options": [
+        "Because the technology is too new for governance conventions to have formed",
+        "Because it is not a function — it lands inside every function at once, so each executive can see a piece that is genuinely theirs",
+        "Because most executive teams lack the technical understanding to assign it",
+        "Because regulators have not specified where accountability should sit"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which is also why confidence in that room tells you nothing. Everyone is confident because everyone is looking at a real piece of it."
+    },
+    {
+      "id": "q2",
+      "prompt": "What does the module predict about how the question gets settled?",
+      "options": [
+        "Through a formal governance review once the risks become material",
+        "By precedent rather than principle — whoever moves first, builds the thing that works, or is in the room when the CEO asks",
+        "By the CEO, using a framework supplied by the Chief Digital Officer",
+        "By regulators, once employment AI obligations take effect"
+      ],
+      "correctIndex": 1,
+      "explanation": "And the consequence is the one that matters: a scope question decided by default is decided against the function that was not present."
+    },
+    {
+      "id": "q3",
+      "prompt": "What is the digital-labour argument?",
+      "options": [
+        "That AI agents will replace a substantial proportion of the workforce",
+        "That HR should manage the technology because it affects employees",
+        "That if agents have owners, budgets, access rights, performance standards, onboarding and offboarding, that is workforce management — and those are disciplines your function already has and no other executive does",
+        "That agents should be counted in headcount reporting for budget purposes"
+      ],
+      "correctIndex": 2,
+      "explanation": "The strength is in the list rather than the metaphor. Each item is a discipline with an existing owner, and no other executive has an equivalent."
+    },
+    {
+      "id": "q4",
+      "prompt": "What is the strongest objection to that argument? `[V]`",
+      "options": [
+        "That agent technology is changing too quickly for stable ownership",
+        "That agents are software, the transferable disciplines are infrastructure ones that other functions already do well, and the CPO who wins may inherit operational work they are the wrong function to carry",
+        "That other executives would resist the claim on principle",
+        "That employment law does not recognize software as labour"
+      ],
+      "correctIndex": 1,
+      "explanation": "And the sharper version is that winning could be the worst outcome — acquiring operating-system overhead exactly when Module 2 argued your attention should move out of it."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why does \"HR should own AI governance\" lose as a claim?",
+      "options": [
+        "Because governance is legally the General Counsel's responsibility",
+        "Because it is a claim about authority in a room where every other claimant has one too, so it reduces to who the CEO likes best",
+        "Because HR lacks the technical credibility to make it",
+        "Because governance is a subset of a larger ownership question"
+      ],
+      "correctIndex": 1,
+      "explanation": "It also carries an implication everyone hears — that the excluded function should now lead — without supplying a reason."
+    },
+    {
+      "id": "q6",
+      "prompt": "What does the module offer as the claim that actually survives?",
+      "options": [
+        "Joint ownership shared between the CPO and the CIO",
+        "A named decision right — no agent deployed into a process affecting a person's work, pay, evaluation or access without your sign-off",
+        "A seat on the AI steering committee with veto authority",
+        "Ownership of the agent registry and its associated budget"
+      ],
+      "correctIndex": 1,
+      "explanation": "Narrower, harder to refuse, does not require anyone else to lose something they wanted, and does not put you on call at 3am. D is close to the thing the module warns against acquiring."
+    },
+    {
+      "id": "q7",
+      "prompt": "A significant AI decision has already been made without the CPO. What does the module recommend?",
+      "options": [
+        "Relitigating the selection, since it was made without the affected function",
+        "Accepting the decision and focusing on adoption support",
+        "Claiming the consequences — what happens to the people whose work changes, the policy for what it may touch, the measurement, and who is accountable when it harms a named individual",
+        "Escalating to the CEO to establish precedent for future decisions"
+      ],
+      "correctIndex": 2,
+      "explanation": "Relitigating loses, costs the relationship, and the decision is sunk. The consequences are the more durable half of the scope, and nobody else wants them."
+    },
+    {
+      "id": "q8",
+      "prompt": "What does the module require of a decline?",
+      "options": [
+        "That it be escalated to the CEO for confirmation",
+        "That it be temporary and revisited within a defined period",
+        "That it be defensible in writing — what you are not claiming, what you require anyway, and what you are doing instead with the attention",
+        "That another executive formally accept the responsibility being declined"
+      ],
+      "correctIndex": 2,
+      "explanation": "Without those three parts, a decline is simply absence — which is the 52% outcome with extra steps rather than a decision."
+    }
+  ]
+}

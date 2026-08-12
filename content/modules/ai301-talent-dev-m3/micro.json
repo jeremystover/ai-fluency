@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ai301-talent-dev-m3-micro-core",
+    "moduleId": "ai301-talent-dev-m3-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module 3 in two minutes\n\n**There is a fifth failure type past 101 M6's four, and this profession is its habitat.** The output is fluent, internally consistent, correctly sourced, factually accurate — and wrong at the foundation, because the foundation arrived in your brief. An accuracy review passes it. It has to: every fact in it is true.\n\n**Models are not ignorant of this field's myths. They are deferential** `[V]`. Asked directly, they identify educational neuromyths more accurately than experienced educators. Asked to *build something* on one — *\"material for my visual learners\"* — every model tested complied and none flagged the premise. A question invites evaluation. **A request invites compliance.**\n\n**Which means exposure scales with expertise.** 101 M5 taught briefing as the core skill, and it is — a good brief is also the delivery mechanism. An expert's brief carries dozens of confident premises, none examined.\n\n**And your reviewer makes it worse, not better.** A premise that is wrong is usually a premise that is widely held. So the expert reviewer doesn't merely miss it — it *confirms their expectations*, which is the strongest possible signal that nothing is wrong.\n\n**No published error rate exists** for AI-assisted training content `[V]`. That absence is a finding about the profession, and the substitute is your own number."
+  },
+  {
+    "id": "ai301-talent-dev-m3-micro-rule",
+    "moduleId": "ai301-talent-dev-m3-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## The rule\n\n**Read only your own words in the brief, and underline every assertion about your learners** — what they know, why they aren't doing something, how they prefer to learn.\n\nEach underline is a premise the model accepted without examination. Most people find between three and eight in a paragraph. **A constraint you own is not a premise; a constraint you justify with a claim about learners is.**"
+  },
+  {
+    "id": "ai301-talent-dev-m3-micro-more",
+    "moduleId": "ai301-talent-dev-m3-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## What the full module adds\n\nThe five clusters that survive a competent review — inherited premise, laundered authority, confident canon, jurisdictional drift, stale specificity — with the worked cases, including why Dale's Cone is the canonical laundering example and where 70-20-10's numbers actually came from. The **backward read** in five steps, for content already live. The **premise challenge** for content not yet built, with its three honest limits. Four briefs to sort, only one of which is clean. And the position: whether this module's own foundations survive the method it teaches."
+  }
+]

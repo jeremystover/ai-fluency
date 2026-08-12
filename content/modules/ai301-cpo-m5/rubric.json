@@ -1,0 +1,60 @@
+{
+  "promptVersion": "ai301-cpo-m5-the-unreviewed-decision-v1",
+  "moduleId": "ai301-cpo-m5",
+  "minWords": 300,
+  "maxWords": 400,
+  "submitLabel": "Your finding and write-up",
+  "intro": "Paste the finding — the system, what it decides or shapes, who deployed it, whether the affected person would know, whether it assembles or reasons, and what you will do by when — plus the 300–400 word write-up including your position on this module's claim. Resubmission is free and unlimited; the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, CPO / CHRO track — for sitting Chief People Officers and CHROs. THIS MODULE CARRIES A COUNSEL-REVIEW GATE: do not grade legal conclusions as correct or incorrect. Grade whether the learner identified what needs asking and of whom. Module 5 applied activity, 'The unreviewed decision': the learner goes and finds ONE consequential decision about a person currently being made or shaped in their organization by a system nobody in HR has reviewed. They name it (what it is, what it decides or shapes, who deployed it, and whether the affected person would know), apply the durable rule (is it assembling or reasoning — and if a person decides, name them; if the person is approving a ranked list they cannot interrogate, that is the finding), decide what they will do by when and with whom, and answer the disclosure question for one employee-facing tool: if someone disclosed something serious, what happens — designed behaviour or guess. CRITICAL SCORING NOTES. (1) If the learner searched thoroughly and could not find one, the SEARCH is a full-credit submission — where they looked, who they asked, what they concluded — and it is a LARGER finding if the reason is that nobody could tell them what systems are running. Do not treat 'could not find one' as evidence of mature governance; the module explicitly warns against that inference. (2) 'Accept it deliberately and record that I did' is a legitimate and full-credit decision, better than an escalation the learner will not follow through. Grade the deliberateness, not the ambition. (3) Credit heavily the admission that they already knew about the system and had not acted — the write-up asks directly, and that answer is common and the most useful thing in the submission. (4) The highest-yield findings come from features that arrived in a release note of a platform bought for another purpose; credit a learner who looked there. The module's claim, which the write-up must take a position on, is that you own the trust deficit whether or not you owned the design decision. Its real counter-argument is that accepting accountability without authority makes the function a permanent scapegoat and removes the only pressure that would ever move the decision rights — and the sharper version, that a review right is not equivalent compensation for owning the outcome, so the correct move may be Module 3's decline. Strong positions say what they would actually do the day after a system they never reviewed harmed a named individual, since both positions must answer that and only one answers it in public. This track scores the delta, not the score: never grade the accuracy of the opening position, grade the account of the gap.",
+  "opening": [
+    {
+      "key": "reviewedSystems",
+      "label": "Predicted — how many AI systems touching decisions about people you could name and say who reviewed",
+      "hint": "Systems you could name today, with a reviewer attached to each.",
+      "placeholder": "e.g. 3",
+      "min": 0,
+      "max": 100
+    }
+  ],
+  "calibration": [
+    {
+      "key": "reviewedSystemsActual",
+      "label": "Found — how many you could actually name and attribute after looking",
+      "hint": "Count only those where you can name both the system and who reviewed it.",
+      "placeholder": "e.g. 1",
+      "min": 0,
+      "max": 100,
+      "actualFor": "reviewedSystems"
+    }
+  ],
+  "dimensions": [
+    {
+      "name": "A real system, found by looking",
+      "criteria": "A specific named system in the learner's own organization, with what it decides or shapes and who deployed it — not a category or a hypothetical. Credit findings from the high-yield places the module names, especially a feature that arrived in a release note of a platform bought for another purpose. Where the learner submits a documented search instead, score at full credit on this dimension if the search was genuine: where they looked, who they asked, what they concluded."
+    },
+    {
+      "name": "The would-they-know question is answered",
+      "criteria": "Whether the affected person would know the system is involved in a decision about them. This is the diagnostic the module turns on, and a learner who answers 'no' and recognizes that as significant has understood it. An unanswered or hand-waved response here should score low even where the system was well identified."
+    },
+    {
+      "name": "Assembling or reasoning, applied honestly",
+      "criteria": "The durable rule applied: does a named person decide, on material they can interrogate? Credit a learner who identifies the hard case — a human approving a ranked list or a generated matrix they cannot rebuild — and calls it deciding rather than assembling. A submission that classifies everything as assembling because a human is technically in the loop has not applied the rule."
+    },
+    {
+      "name": "A decision with a date and a person",
+      "criteria": "What the learner will do, by when, and with whom. Escalate, require review, require disclosure, or accept and record. ACCEPTING IT DELIBERATELY AND WRITING THAT DOWN IS FULL CREDIT — it is better than an escalation that will not happen. What scores low is a statement of principle with no date and no named counterpart, which is the same shape as the policy the module says is not governance."
+    },
+    {
+      "name": "The disclosure question, answered as designed or guessed",
+      "criteria": "For one employee-facing tool: if someone disclosed something serious, what happens. The graded part is whether the learner can distinguish a designed behaviour from a guess, and whether they went and asked rather than assuming. A learner who reports that the answer was a guess, and that the guess was reassuring, has found the module's point in their own organization."
+    },
+    {
+      "name": "The position engages the scapegoat objection",
+      "criteria": "A committed position on the claim that meets the real counter-argument — that accepting accountability without authority removes the pressure that would move the decision rights, and that a review right is not equivalent compensation for owning the outcome. Required element: what they would do the day after a system they never reviewed harmed a named individual. A position that accepts the liability without addressing that day is untested."
+    },
+    {
+      "name": "The delta, and whether they already knew",
+      "criteria": "Predicted count against what they could actually name and attribute, with an account of the gap — direction and cause, never accuracy. Plus the module's closing question: whether they already knew about this system and had not acted. Credit that admission highly and specifically. It is the most useful sentence most of these submissions will contain, and a learner who reaches it has done the module rather than performed it."
+    }
+  ]
+}

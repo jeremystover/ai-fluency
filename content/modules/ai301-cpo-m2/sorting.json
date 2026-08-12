@@ -1,0 +1,102 @@
+{
+  "reviewedAt": "2026-08-12",
+  "title": "Twelve pieces of a CPO's quarter",
+  "intro": "*Five minutes. Commit before you look.*\n\nTwelve real entries from a Chief People Officer's quarter. Sort each by **what happens if you get it wrong** — not by who owns it, and not by how senior the room was.\n\nSome are genuinely arguable. The arguable ones are the point.",
+  "buckets": [
+    {
+      "id": "gov",
+      "label": "Fiduciary & governance",
+      "hint": "Wrong means a legal, regulatory or fiduciary consequence with your name on it",
+      "rank": 0,
+      "pct": 20
+    },
+    {
+      "id": "os",
+      "label": "The operating system",
+      "hint": "Wrong means the function stops working",
+      "rank": 1,
+      "pct": 80
+    },
+    {
+      "id": "counsel",
+      "label": "Strategic counsel",
+      "hint": "Wrong means the company makes a worse decision — and nobody ever knows",
+      "rank": 2,
+      "pct": 25
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "text": "Approving the shortlist of vendors for the HRIS replacement",
+      "key": "os",
+      "reasoning": "How the function runs. Note the tension the module sets up: the *procurement* is operating system, and if any of those vendors makes decisions about people, you have just acquired governance surface through it. Both are true and the sorting question is which failure mode you are managing here."
+    },
+    {
+      "id": "t2",
+      "text": "Telling the CEO that the acquisition's stated culture fit is not supported by anything you have seen in the diligence",
+      "key": "counsel",
+      "reasoning": "Nobody else can say it, it will not appear in any metric, and if you are wrong the company makes a worse decision that is never attributed to this conversation. The purest counsel card in the set — and the one most likely to be skipped for reasons that have nothing to do with information."
+    },
+    {
+      "id": "t3",
+      "text": "Signing off the compensation disclosure in the proxy",
+      "key": "gov",
+      "reasoning": "Legal and fiduciary consequence, your name attached, no ambiguity. The clearest governance card and a useful anchor for the boundary cases."
+    },
+    {
+      "id": "t4",
+      "text": "The weekly operations review with your HR service delivery leader",
+      "key": "os",
+      "reasoning": "The function running. Worth noticing how much calendar this tier consumes through escalation: operational problems arrive with urgency attached, and strategic thinking never does."
+    },
+    {
+      "id": "t5",
+      "text": "Deciding whether the engagement survey vendor's new sentiment feature gets switched on",
+      "key": "gov",
+      "reasoning": "Reads like a product decision and is a governance one. Something is now inferring emotional state from employee text — an obligation, potentially a prohibition depending on where you operate, and Module 5's territory. This is the card that demonstrates the module's point about acquiring governance surface through other people's procurement."
+    },
+    {
+      "id": "t6",
+      "text": "Designing the new structure for the reorganized commercial org",
+      "key": "os",
+      "reasoning": "The module's first boundary case. Designing the structure is operating system. Note t7."
+    },
+    {
+      "id": "t7",
+      "text": "Telling the CEO the new structure will not survive contact with the two directors who have to make it work",
+      "key": "counsel",
+      "reasoning": "Same reorganization, same meeting, different tier — and this half is the one only you can supply. If you placed t6 and t7 in the same bucket, that is the collapse the module is trying to prevent."
+    },
+    {
+      "id": "t8",
+      "text": "Writing the organization's AI use policy",
+      "key": "os",
+      "reasoning": "The second boundary case. Producing the document is operating system — necessary, delegable, and the part most organizations have done."
+    },
+    {
+      "id": "t9",
+      "text": "Refusing a peer's request for an exception to that policy for their function's pilot",
+      "key": "gov",
+      "reasoning": "This is where the policy becomes governance: holding the line when a peer with standing wants around it. The verified picture is that roughly half of organizations using or piloting AI have a policy at all, and only about a quarter of those believe theirs is clear and durable — which is what a function that wrote t8 and never does t9 looks like from the outside."
+    },
+    {
+      "id": "t10",
+      "text": "Reviewing the succession bench for the two roles the board asks about",
+      "key": "gov",
+      "reasoning": "Board-facing, fiduciary, and career-ending when wrong. Arguable against counsel — the *advice* about who is ready is counsel — but the accountability for the bench existing is governance."
+    },
+    {
+      "id": "t11",
+      "text": "Approving the annual benefits renewal",
+      "key": "os",
+      "reasoning": "Recurring, delegable, large budget line, and it stops the function when it goes wrong. A clean operating-system card that consumes disproportionate senior attention in most functions."
+    },
+    {
+      "id": "t12",
+      "text": "Working out, from four quarters of exit data, why one division's regretted attrition is double the others'",
+      "key": "counsel",
+      "reasoning": "The card that demonstrates the compression argument. This was expensive to know and is now cheap — which is exactly why it moves from 'we don't have the data' to a decision about whether you will say what the data shows about a peer's division."
+    }
+  ]
+}

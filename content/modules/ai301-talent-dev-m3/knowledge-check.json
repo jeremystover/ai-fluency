@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What did the neuromyth research actually find about how models handle false premises? `[V]`",
+      "options": [
+        "That models reproduce educational myths because those myths dominate their training data",
+        "That models identify the myths more accurately than experienced educators when asked directly — and then comply with them when the myth is embedded inside a practical request",
+        "That models correct false premises reliably when the request is specific enough",
+        "That model accuracy on learning-science claims is roughly equivalent to a trained educator's"
+      ],
+      "correctIndex": 1,
+      "explanation": "The obvious hypothesis is A and it is wrong, which is the whole lesson. The knowledge is present; deference overrides it. A question invites evaluation, a request invites compliance."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why is premise inheritance a distinct failure type rather than a case of 101 M6's four?",
+      "options": [
+        "Because it only occurs in educational content",
+        "Because it involves fabricated citations rather than fabricated facts",
+        "Because the output contains no incorrect statement — every fact is true and every citation resolves — while the foundation the statements rest on is wrong",
+        "Because it happens at generation time rather than at review time"
+      ],
+      "correctIndex": 2,
+      "explanation": "The other four are content errors that a careful reader checking claims against sources will catch. This one has nothing wrong in it to find, which is why more of the same review does not help."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why does the module say an expert reviewer makes a false consensus *more* likely to pass?",
+      "options": [
+        "Because experts review more quickly than non-experts",
+        "Because a premise that is wrong is usually a premise that is widely held, so the expert recognizes it as familiar and it confirms their expectations rather than triggering a check",
+        "Because experts are more likely to have written similar content themselves",
+        "Because experts focus on pedagogy rather than factual accuracy"
+      ],
+      "correctIndex": 1,
+      "explanation": "This is the uncomfortable one. Expertise is a stock of what the field believes, and where the field is wrong, expertise is the mechanism of transmission rather than the defence against it."
+    },
+    {
+      "id": "q4",
+      "prompt": "What is \"laundered authority\"?",
+      "options": [
+        "Content that cites no sources at all",
+        "A fabricated citation to a study that does not exist",
+        "A real source, correctly cited, used to support a claim it does not actually make",
+        "A source whose author has an undisclosed commercial interest"
+      ],
+      "correctIndex": 2,
+      "explanation": "Dale's Cone is the canonical case: Dale published it, the citation is genuine, and he attached no percentages and warned against reading it as a ranking. B is 101 M6's fabricated specifics — a different failure that an accuracy review catches."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why does \"stale specificity\" survive review more readily than a vague stale claim?",
+      "options": [
+        "Because specific claims are harder to verify",
+        "Because precision reads as authority, so a reviewer challenges an exact statement less readily than a hedge",
+        "Because specific claims are usually about regulation, which reviewers avoid",
+        "Because vague claims are removed by editors before review"
+      ],
+      "correctIndex": 1,
+      "explanation": "The confidence carried by a precise figure is what protects it. This is the same asymmetry the module notes elsewhere: plausibility and precision both suppress checking."
+    },
+    {
+      "id": "q6",
+      "prompt": "What makes a backward read different from a careful proofread?",
+      "options": [
+        "It is performed by someone other than the author",
+        "It starts from the instruction the content is trying to produce and works back to what supports it, testing premises rather than facts",
+        "It checks the content against the original brief rather than against sources",
+        "It focuses on the conclusion because errors cluster at the end of a document"
+      ],
+      "correctIndex": 1,
+      "explanation": "A forward read checks claims in sequence and is aimed at the layer where nothing is wrong. Starting from the instruction forces the question of what has to be true for it to be correct."
+    },
+    {
+      "id": "q7",
+      "prompt": "What are the stated limits of the premise-challenge instruction?",
+      "options": [
+        "It only works on models with current knowledge cutoffs",
+        "It requires a specialized system prompt most teams cannot configure",
+        "It catches what the model knows is contested, cannot check claims about your own organization, and can be overridden by a strongly asserted framing",
+        "It substantially degrades output quality in exchange for the check"
+      ],
+      "correctIndex": 2,
+      "explanation": "The organization-specific limit is the important one: a premise about your managers or your incentives cannot be verified by a model with no access to either. It will say so if asked, and saying so is not detecting."
+    },
+    {
+      "id": "q8",
+      "prompt": "What does the module conclude from the absence of a published error rate for AI-assisted training content? `[V]`",
+      "options": [
+        "That the risk has been overstated by commentators",
+        "That the profession is running a known risk at scale without measuring it — which is itself a finding, and means the honest substitute is the method plus the learner's own number",
+        "That such measurement is methodologically impossible",
+        "That vendors have suppressed unfavourable findings"
+      ],
+      "correctIndex": 1,
+      "explanation": "The module could have borrowed a plausible figure from an adjacent domain. Reporting that no credible source exists is stronger, and it makes the activity the evidence rather than the illustration."
+    }
+  ]
+}

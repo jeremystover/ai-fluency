@@ -1,11 +1,29 @@
 [
-  { "id": "ai301-hrbp-m6-micro-core", "moduleId": "ai301-hrbp-m6-micro", "ordinal": 10, "kind": "prose", "layer": "stable", "reviewedAt": "2026-08-12",
-    "body": "## Module 6 in two minutes\n\n**Two halves: the law about systems, and the law about your documents.** Most treatments cover the first and skip the second — but the second is where you are personally exposed, most weeks.\n\n**The systems half** `[V]`: a patchwork of state statutes where the first problem is awareness, not severity — most HR professionals in regulated states don't know their state regulates this. Four obligations recur everywhere: notice, bias auditing, human review, record-keeping. In the EU, high-risk employment duties deferred to December 2027, but the AI literacy obligation and the **workplace emotion-recognition prohibition** have been in force since February 2025 — and the second is an absolute ban, not a risk to manage.\n\n**The agent theory** `[V]`: in Mobley v. Workday a court let claims proceed on the theory that a screening vendor acts as the employer's agent, because customers had delegated the function of rejecting or advancing candidates. Neither \"that's the vendor's problem\" nor \"we only make the software\" survives that well — and with discovery reaching algorithmic code, *\"we don't know how it works\"* is a position to defend rather than a shield. Get validation evidence before signature.\n\n**The documents half:** AI helps with structure, language discipline, and the completeness pass — **\"what did I fail to ask?\"** — and stops absolutely at credibility, conclusions, and characterizing a person."
+  {
+    "id": "ai301-hrbp-m6-micro-core",
+    "moduleId": "ai301-hrbp-m6-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module 6 in two minutes\n\n**Two halves: the law about systems, and the law about your documents.** Most treatments cover the first and skip the second — but the second is where you are personally exposed, most weeks.\n\n**The systems half** `[V]`: a patchwork of state statutes where the first problem is awareness, not severity — most HR professionals in regulated states don't know their state regulates this. Four obligations recur everywhere: notice, bias auditing, human review, record-keeping. In the EU, high-risk employment duties deferred to 2 December 2027 — but that is not runway: AI literacy and the **workplace emotion-recognition prohibition** have been in force since February 2025 (the second an absolute ban, not a risk to manage), and since 2 August 2026 the transparency obligations bind regardless of risk class, so a candidate-facing chatbot must disclose it is AI.\n\n**The agent theory** `[V]`: in Mobley v. Workday a court let claims proceed on the theory that a screening vendor acts as the employer's agent, because customers had delegated the function of rejecting or advancing candidates. Neither \"that's the vendor's problem\" nor \"we only make the software\" survives that well — and with discovery reaching algorithmic code, *\"we don't know how it works\"* is a position to defend rather than a shield. Get validation evidence before signature.\n\n**The documents half:** AI helps with structure, language discipline, and the completeness pass — **\"what did I fail to ask?\"** — and stops absolutely at credibility, conclusions, and characterizing a person."
   },
-  { "id": "ai301-hrbp-m6-micro-rule", "moduleId": "ai301-hrbp-m6-micro", "ordinal": 20, "kind": "callout", "layer": "stable", "reviewedAt": "2026-08-12",
+  {
+    "id": "ai301-hrbp-m6-micro-rule",
+    "moduleId": "ai301-hrbp-m6-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
     "body": "### The rule to carry\n\nIf you couldn't defend a sentence's origin, rewrite it. And bring counsel a list, not a worry — \"are we compliant with AI law?\" gets a shrug; four named systems and what each decides gets an answer."
   },
-  { "id": "ai301-hrbp-m6-micro-close", "moduleId": "ai301-hrbp-m6-micro", "ordinal": 30, "kind": "prose", "layer": "stable", "reviewedAt": "2026-08-12",
+  {
+    "id": "ai301-hrbp-m6-micro-close",
+    "moduleId": "ai301-hrbp-m6-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
     "body": "**The full module adds** the privilege nuance sophisticated employers already use — bias testing designed under counsel may be protected in ways the same testing run operationally is not — the ten-card ER sort, and the quarter's homework: inventory what screens your population, put three questions to each vendor in writing, and write the one-page documentation standard your organization will wish it had."
   }
 ]

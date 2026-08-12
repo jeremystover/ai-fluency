@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "How does the module say the three tiers should be sorted?",
+      "options": [
+        "By which team in the function owns the work",
+        "By seniority of the stakeholders involved",
+        "By what happens if you get it wrong — a legal or fiduciary consequence, the function stopping, or the company making a worse decision",
+        "By whether the work is recurring or one-off"
+      ],
+      "correctIndex": 2,
+      "explanation": "The consequence is what makes the tiers economically different. Sorting by team or seniority reproduces the org chart, which is what the frame is trying to see past."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why does governance expand rather than compress?",
+      "options": [
+        "Because regulators are increasing reporting requirements across all functions",
+        "Because every system making or shaping a decision about a person is an obligation, and the number of those systems is growing faster than anyone is tracking",
+        "Because AI systems require more documentation than manual processes",
+        "Because governance work cannot be automated for legal reasons"
+      ],
+      "correctIndex": 1,
+      "explanation": "And the mechanism is the striking part: **you acquire governance surface through other people's procurement decisions**, which is a genuinely new way to acquire an obligation."
+    },
+    {
+      "id": "q3",
+      "prompt": "What was the actual constraint on strategic counsel?",
+      "options": [
+        "The seniority of the person delivering it",
+        "The analytical capability of the People function",
+        "The cost of knowing things — which exit interviews you had read, whether you could compare this restructure against the last four",
+        "The absence of a seat at the executive table"
+      ],
+      "correctIndex": 2,
+      "explanation": "Not intelligence. Counsel ran on pattern recognition from a small personal sample because a larger sample was expensive, and that expense is what collapsed."
+    },
+    {
+      "id": "q4",
+      "prompt": "What does the module mean by \"the scarce resource moved from information to nerve\"?",
+      "options": [
+        "That data literacy is now less valuable than interpersonal skill",
+        "That *\"we don't have the data\"* was shelter as well as fact — excusing the recommendation not made and the peer not contradicted — and that shelter is going",
+        "That intuition outperforms analysis in people decisions",
+        "That courage is now a hiring criterion for senior HR roles"
+      ],
+      "correctIndex": 1,
+      "explanation": "The information constraint concealed how much of the job was courage, including from the people doing it. What remains when you can know the thing is whether you will say it."
+    },
+    {
+      "id": "q5",
+      "prompt": "Which tier is most exposed to automation, and why?",
+      "options": [
+        "Governance, because compliance work is rule-based",
+        "Strategic counsel, because language models are good at synthesis",
+        "The operating system, because it is transactional, high-volume and rule-governed — the profile automation has found in every function it has touched",
+        "All three equally, since AI capability is general"
+      ],
+      "correctIndex": 2,
+      "explanation": "It is also the largest budget line in most People functions, which is the combination that makes the compression consequential rather than merely interesting."
+    },
+    {
+      "id": "q6",
+      "prompt": "A CPO's budget sits in the operating system and their calendar in strategic counsel. What is the risk?",
+      "options": [
+        "That the function is under-resourced for the work it is being asked to do",
+        "That they are advising well on top of an operating system they have stopped understanding — and may commit the function to something it cannot deliver",
+        "That governance is receiving no attention from either",
+        "That their personal attention is misaligned with where value is moving"
+      ],
+      "correctIndex": 1,
+      "explanation": "D is wrong — in this reading their attention is where value is going, which is the good part. The failure mode is confident commitment made without current knowledge of what the function can actually execute."
+    },
+    {
+      "id": "q7",
+      "prompt": "How should a learner treat entries that span two tiers?",
+      "options": [
+        "Create a fourth category for mixed work",
+        "Exclude them, since they cannot be classified reliably",
+        "Split them or assign to the dominant tier and move on — the disagreement between calendar and budget carries the information and survives rough categorization",
+        "Classify by the tier with the higher consequence"
+      ],
+      "correctIndex": 2,
+      "explanation": "Building a precise taxonomy is the way this exercise fails. The signal is in the gap between two rough numbers, not in the accuracy of either."
+    },
+    {
+      "id": "q8",
+      "prompt": "What does the module's own counter-argument say about the compression thesis?",
+      "options": [
+        "That compression will affect governance more than the operating system",
+        "That it is a claim about the future stated in the present tense — so acting on it early and being wrong cuts the capability that makes a CPO credible, and a position should name what evidence would show it is not happening",
+        "That the thesis is well evidenced but the timeline is uncertain",
+        "That compression applies only to organizations above a certain size"
+      ],
+      "correctIndex": 1,
+      "explanation": "And the sharper half is that the tiers may not be separable at all: governance credibility is earned by running the operating system well, so hollowing out the middle can evaporate both ends."
+    }
+  ]
+}

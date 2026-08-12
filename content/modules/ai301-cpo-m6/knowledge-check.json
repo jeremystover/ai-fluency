@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why does the module say measurement binds before rather than after?",
+      "options": [
+        "Because finance requires evaluation plans to be approved in advance",
+        "Because a baseline not taken at the start cannot be reconstructed at the end — which is arithmetic rather than a discipline problem",
+        "Because measuring during a transformation distorts the results",
+        "Because approval cycles require projected returns"
+      ],
+      "correctIndex": 1,
+      "explanation": "And the consequence is the governing sentence: an initiative whose result you cannot demonstrate is funded exactly the same way as one that failed."
+    },
+    {
+      "id": "q2",
+      "prompt": "What is wrong with quoting the \"28% of AI use cases meet ROI expectations\" figure in a People business case? `[V]`",
+      "options": [
+        "The figure is disputed and has been withdrawn",
+        "It is a vendor claim rather than independent research",
+        "It is a real Gartner finding about 782 infrastructure-and-operations leaders — so using it about HR is a real study of a neighbouring thing supporting a claim it does not make",
+        "It is too old to be relevant to current AI capability"
+      ],
+      "correctIndex": 2,
+      "explanation": "Nobody has been dishonest, the source exists, the quote is accurate, and every check passes. That is what makes scope-laundering the most effective form available."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why does the module say this particular figure is the one most likely to catch a CPO?",
+      "options": [
+        "Because it is the most widely circulated statistic in the field",
+        "Because it is sober, credible, and supports a cautious posture the learner already holds — and skepticism aimed only at optimistic claims is not skepticism",
+        "Because it appears in most vendor procurement materials",
+        "Because its methodology is unusually difficult to check"
+      ],
+      "correctIndex": 1,
+      "explanation": "The track spent five modules teaching skepticism toward optimistic claims. The number that gets past you is the pessimistic one you would have reached for yourself."
+    },
+    {
+      "id": "q4",
+      "prompt": "What is the correct order for designing the case?",
+      "options": [
+        "Intervention, cost, expected return, measurement",
+        "Business result, behaviour, intervention, baseline taken today",
+        "Baseline, intervention, behaviour, business result",
+        "Adoption target, behaviour, business result, threshold"
+      ],
+      "correctIndex": 1,
+      "explanation": "Starting from the intervention and reasoning forward to a hoped-for result cannot produce a falsifiable measure, because by the time you reach the result you have no independent check on it."
+    },
+    {
+      "id": "q5",
+      "prompt": "What does a pre-committed threshold buy?",
+      "options": [
+        "Regulatory defensibility and audit protection",
+        "That the evaluation can return a negative, that the ask becomes a bet with a stated losing condition the CFO recognizes, and that the standard is fixed while everyone is still optimistic",
+        "Faster approval through the budget process",
+        "Protection against the initiative being cancelled early"
+      ],
+      "correctIndex": 1,
+      "explanation": "The third is the underrated one. A threshold set afterwards will be set to whatever was achieved, and everyone involved will genuinely believe they were being fair."
+    },
+    {
+      "id": "q6",
+      "prompt": "What must a threshold account for, given Module 4? `[V]`",
+      "options": [
+        "Seasonal variation in the measured population",
+        "The J-curve — a threshold measured inside the trough will trigger during the expected decline and stop something that was working",
+        "The time required for vendor implementation",
+        "Changes in the comparison population over the measurement period"
+      ],
+      "correctIndex": 1,
+      "explanation": "Otherwise you have built a mechanism that kills your own initiative on schedule. Set the measurement point past the trough and state the trough's expected depth."
+    },
+    {
+      "id": "q7",
+      "prompt": "What does a board actually want on this topic?",
+      "options": [
+        "A productivity figure and a projected return",
+        "That the exposure is known, that somebody is accountable by name, and that there is a decision rule they can hold you to",
+        "A technology briefing sufficient to evaluate the initiatives themselves",
+        "Assurance that the organization is at or above peer adoption levels"
+      ],
+      "correctIndex": 1,
+      "explanation": "The question behind the question is *if this goes wrong, who do we call* — and \"the AI steering group\" is not an answer. C is the most common failure: it tells the board you think their problem is comprehension rather than control."
+    },
+    {
+      "id": "q8",
+      "prompt": "How should the reckoning be graded?",
+      "options": [
+        "On how many of the six opening positions turned out to be correct",
+        "On the account of what changed and whether the movement ran in a consistent direction — never on accuracy",
+        "On whether the learner's positions became more optimistic over the course",
+        "On the number of positions that changed"
+      ],
+      "correctIndex": 1,
+      "explanation": "A learner whose six positions were all wrong and who can name precisely what they were reading instead of the evidence has done the best work available. The pattern in the direction of their optimism is the course's highest-value output."
+    }
+  ]
+}
