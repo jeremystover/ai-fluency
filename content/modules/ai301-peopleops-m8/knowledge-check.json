@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is the lesson of IBM's 2023-to-2026 reversal? `[V]`",
+      "options": [
+        "That AI automation of HR work does not deliver its promised savings",
+        "That capacity you do not deliberately redeploy gets stranded — and the pipeline is the first thing you lose and the last thing you can rebuild",
+        "That entry-level roles are more resistant to automation than expected",
+        "That headcount reductions should be announced only after results are proven"
+      ],
+      "correctIndex": 1,
+      "explanation": "The obvious reading is wrong: AskHR worked, and this track relies on it twice. The story is about what happened to the capacity. Everything else can be re-hired at market rate; a three-year gap in junior intake cannot."
+    },
+    {
+      "id": "q2",
+      "prompt": "How should the Gartner rehiring figure be characterized? `[V]`",
+      "options": [
+        "A finding that half of AI-driven headcount reductions have already been reversed",
+        "A prediction — that by 2027 half the companies attributing cuts to AI will rehire under different titles — concerning customer service rather than HR, and against a base where only ~20% made such cuts",
+        "An observation specific to HR shared services",
+        "A regulatory forecast with compliance implications"
+      ],
+      "correctIndex": 1,
+      "explanation": "Forecast, not observation; customer service, not HR; and the base rate cuts against the discourse — most organizations held staffing flat while absorbing more volume."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why does the reinvestment commitment belong inside the enablement decision?",
+      "options": [
+        "Because auditors require it to be documented at approval",
+        "Because it behaves like the kill condition — nearly free to write before anyone is invested, nearly impossible afterwards",
+        "Because finance will not approve the business case without it",
+        "Because it determines the 90-day measure"
+      ],
+      "correctIndex": 1,
+      "explanation": "Module 2's argument arriving one level up. \"We will redeploy to higher-value work\" means nobody has decided, and it will still mean that in eighteen months."
+    },
+    {
+      "id": "q4",
+      "prompt": "Where does an AI agent belong in an org structure, per the emerging convention? `[V]`",
+      "options": [
+        "As a headcount entry with a cost centre, so its expense is visible",
+        "In a separate agent hierarchy parallel to the human one",
+        "Nowhere on the human reporting chart — what goes on the chart is the accountable human owner who answers for its outputs",
+        "Wherever the vendor's implementation guide recommends"
+      ],
+      "correctIndex": 2,
+      "explanation": "Which is Module 1's accountability column and Module 7's signature arriving from org design. The chart question resolves into the register question. Roughly 31% of leaders are already framing AI as a teammate, so this is being decided with or without you."
+    },
+    {
+      "id": "q5",
+      "prompt": "What quietly breaks in reporting when work moves to agents?",
+      "options": [
+        "Headcount reconciliation between the HCM and payroll",
+        "Span of control, cost per employee and revenue per employee — because the work moved and the denominators didn't, so the ratios now measure something different from last year",
+        "Effective-dated history for affected positions",
+        "Manager hierarchy integrity"
+      ],
+      "correctIndex": 1,
+      "explanation": "And nobody will announce it. You are the person who will be asked why the numbers moved, which is a good reason to have decided the treatment deliberately and written it down."
+    },
+    {
+      "id": "q6",
+      "prompt": "What is the fourth term of the bet, available only to this role?",
+      "options": [
+        "The reinvestment commitment",
+        "The review date and its owner",
+        "What you would turn off",
+        "The named accountable human"
+      ],
+      "correctIndex": 2,
+      "explanation": "No other role in the curriculum can subtract — an HRBP cannot retire a process, a recruiter cannot disable an integration. And subtraction reduces the surface every other module has to govern, which usually makes the widest-reach unowned capability in your register the best available bet."
+    },
+    {
+      "id": "q7",
+      "prompt": "What single test distinguishes a bet from a migration?",
+      "options": [
+        "Whether a baseline was recorded before launch",
+        "Whether there is a state of the world in which you do not proceed",
+        "Whether the change is reversible within a quarter",
+        "Whether the vendor contract includes a termination right"
+      ],
+      "correctIndex": 1,
+      "explanation": "If the vendor is signed, the date announced and the training built, it is a migration — which is legitimate and should be called one. Using \"bet\" for something that cannot go either way is how a function loses the ability to stop anything."
+    },
+    {
+      "id": "q8",
+      "prompt": "What does the module conclude from HR's absence from AI strategy in 52% of organizations? `[V]`",
+      "options": [
+        "That the function should campaign for a seat at the strategy table",
+        "That AI governance should be owned by IT instead",
+        "That the function is excluded from strategy while its systems are where the AI actually runs — so this role holds an implementation-layer seat the function's leadership often lacks, with artifacts nobody else can produce",
+        "That HR technology adoption figures are overstated"
+      ],
+      "correctIndex": 2,
+      "explanation": "Read against Module 1's finding that HR technology is the second-most-adopted area in the function. Not the back office: the control surface — the only place the function's AI can actually be governed."
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+[
+  {
+    "id": "ai301-peopleops-m8-calibration-prompt-the-claim-to-contest-10",
+    "moduleId": "ai301-peopleops-m8",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Calibration prompt — the claim to contest\n\n*Commit before you read anything. Thirty seconds.*\n\n**The claim:** *\"You approved a tool without naming what the saved time would become.\"*\n\n**Is that true of your organization?** *True of us* or *not true of us*, and the one sentence you would\ndefend it with.\n\n**And the number that closes the course:** across Modules 1 to 7 you contested seven claims about your\nown organization. **How many of the seven turned out to be true of you?** Predict it now, from memory,\nbefore you go back and read what you wrote.\n\nSeven is the denominator. The gap between what you remember and what you recorded is the last finding\nthis track has to offer."
+  },
+  {
+    "id": "ai301-peopleops-m8-module-brief-20",
+    "moduleId": "ai301-peopleops-m8",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nSeven modules have been about control: what is running, whether it works, whether it should be on,\nwhat it says to employees, what it rests on, what it can reach, and who signs. This one is about what\nall of that was *for*, and it has to answer a question the track has been deferring.\n\nIf the register, the reviews, the exclusion list and the signed map do their job, you will produce\ncapacity — some of your own, and more of other people's. **The question this module refuses to let you\navoid is where it goes**, because capacity that nobody assigns does not stay capacity. It dissipates,\nand then it gets counted as a saving anyway.\n\nThen two things specific to your role that no other track can close on. **You are the only person who\ncan answer where an agent goes in the org structure**, because you administer position management —\nand it turns out a convention is emerging, and it is one you have already built. And **you are the\nonly role in this curriculum whose bet can include a subtraction**: turning something off is available\nto you and to nobody else in the People function.\n\nFinally the reckoning. Seven claims, seven answers, and what the pattern says about where your\njudgement leans."
+  },
+  {
+    "id": "ai301-peopleops-m8-learning-objectives-30",
+    "moduleId": "ai301-peopleops-m8",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. Explain why unassigned capacity gets stranded `[V]`, and why the reinvestment commitment belongs\n   inside the enablement decision rather than after it.\n2. State the emerging convention for where an agent sits in an org structure `[V]`, and what breaks in\n   your reporting when work moves to agents.\n3. Write a bet with four terms — including the one only this role has.\n4. Distinguish a bet from a migration using a single test.\n5. Read your own delta across seven contested claims, and say what direction your judgement leans."
+  },
+  {
+    "id": "ai301-peopleops-m8-lesson-1-redeploy-don-t-strand-40",
+    "moduleId": "ai301-peopleops-m8",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 · Redeploy, don't strand [V]\n\nThe most instructive thing that has happened in this field is a reversal, and it is worth knowing in\ndetail because the shape of it is the lesson.\n\nIn **2023**, IBM's chief executive said AI would replace thousands of back-office roles. Back-office\nhiring was frozen, and roughly 30% of some 26,000 non-customer-facing positions were described as\nautomatable within five years. The company then built one of the most effective HR service\ndeployments in existence — the AskHR agent this track cites in Modules 2 and 4, which now reportedly\nsettles around 94% of routine requests.\n\nIn **February 2026**, IBM announced it was **tripling entry-level hiring** — software engineering, HR,\nacross the board. The reasoning its CHRO gave was not complicated: if you stop investing in\nentry-level hires, in three to five years there is no pipeline and the well dries up. The jobs were\nrewritten rather than eliminated — entry-level engineers who had spent the bulk of their week writing\ncode moved toward client work and collaboration — and total employment went up rather than down.\n\n**Read the lesson carefully, because the obvious reading is wrong.** This is not a story about\nautomation failing. AskHR worked; this track relies on it twice. The story is about what happened to\nthe capacity:\n\n> **Capacity you do not deliberately redeploy gets stranded — and the pipeline is the first thing you\n> lose and the last thing you can rebuild.**\n\nEverything else can be re-hired at market rate. A three-year gap in your junior intake cannot be\nclosed by recruiting, because the people who would now be mid-level were never brought in.\n\n**The industry-scale version, labelled honestly as a prediction rather than a finding.** In February\n2026 Gartner predicted that **by 2027, half of the companies that attributed headcount reduction to AI\nwill rehire for similar functions under different titles.** Two caveats belong in the same breath: it\nis a forecast, not an observation, and it concerns customer service rather than HR. And a third detail\nworth carrying, because it cuts against the discourse: only around **20% of organizations reported\nreducing agent headcount because of AI at all** — the majority held staffing flat while absorbing more\nvolume. So the pattern is less common than the headlines suggest, and among those who did it, the\npredicted reversal rate is high.\n\n**What this means for how you write an enablement decision.** Module 2 established that a kill\ncondition is nearly free to write before anyone is invested and nearly impossible afterwards. The\nreinvestment commitment behaves identically:\n\n> **Name where the capacity goes in the enablement decision itself, in the same document, at the same\n> time.**\n\nNot as a follow-up, not as a phase two. \"We will redeploy the freed capacity to higher-value work\" is\nthe sentence that means nobody has decided, and it will still mean that in eighteen months. Name the\nwork. Name whose it is."
+  },
+  {
+    "id": "ai301-peopleops-m8-lesson-2-where-the-agent-goes-on-the-cha-50",
+    "moduleId": "ai301-peopleops-m8",
+    "ordinal": 50,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 · Where the agent goes on the chart [V]\n\nHere is a question you will be asked and nobody else in the People function can answer, because the\nanswer is a configuration decision in a system you administer.\n\nIt is already live, whether or not anyone has decided it. In a survey of more than 1,200 managers and\nexecutives reported in mid-2026, about **31% said their leadership is already framing AI as a teammate\nor an employee, and close to one in four said agents are formally listed on organizational or workflow\ncharts.** Somebody in your company may have put an agent on a chart already.\n\n**And a convention is emerging. It is a good one, and you have already built it:**\n\n> **An agent is not a person and does not occupy a headcount box. What goes on the chart is the\n> accountable human owner — every agent reports to a named person who answers for its outputs.**\n\nThat should feel familiar, because it is **Module 1's accountability column and Module 7's signature,\narriving from the org-design direction.** The chart question resolves into the register question. If\nyou have done Modules 1 and 7, you have answered it — and you can say so in a meeting where everyone\nelse is speculating.\n\nFour practical consequences, all of them yours:\n\n**Do not create worker records for agents.** It breaks headcount, corrupts every ratio derived from\nit, and creates a person-shaped object in your system of record with no employment relationship behind\nit. Whatever short-term convenience it buys, you will be unpicking it for years.\n\n**Do record the agent as an asset with an owner.** It belongs in an inventory — your Module 1 register\nis already one — not in the position-management structure. Where that inventory lives is a decision;\nit is probably not the HCM.\n\n**Do decide what happens when the owner leaves.** This is the offboarding cascade with a new node in\nit, and it will happen. An agent whose accountable human has departed is exactly the condition Module\n5 describes for employees whose manager left: nothing breaks, and nobody notices.\n\n**And do notice what breaks in reporting.** Span of control, cost per employee, revenue per employee —\nif work moved to agents and your denominators did not change, **your ratios now measure something\ndifferent from what they measured last year**, and nobody is going to announce that. You are the person\nwho will be asked why the numbers moved.\n\n**The honest limit:** this is genuinely unsettled, and the reporting question has no good answer yet.\nWhat is available to you is to decide it deliberately and write down what you decided — so that when a\nconvention does arrive, you know what you did and can change it on purpose."
+  },
+  {
+    "id": "ai301-peopleops-m8-lesson-3-the-bet-and-the-fourth-term-60",
+    "moduleId": "ai301-peopleops-m8",
+    "ordinal": 60,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 · The bet, and the fourth term\n\nEvery track in this curriculum closes on a bet with three terms. **Which change**, **what you would\nmeasure at 90 days** — Module 2 built that baseline — and **what you would stop doing to fund it.**\n\nYou get a fourth, and it is yours alone:\n\n> **What would you turn off?**\n\nNo other role in this curriculum can subtract. An HR business partner cannot retire a process. A\nrecruiter cannot disable an integration. A comp analyst cannot remove a field. **You can**, and it is\nfrequently the better bet — because every capability you turn off is one that no longer has to be\nreviewed, measured, logged for six months, disclosed, consulted on, or signed for. **Subtraction\nreduces the surface that Modules 3 through 7 all have to govern.**\n\nThe first candidate is usually sitting in your own register: **the capability with the widest reach\nand no named owner.** It is the highest-value thing you could switch off, it is normally available,\nand nobody will fight for it precisely because nobody owns it.\n\nThen the test that separates the two things this module is about:\n\n> **Is there a state of the world in which you do not proceed?**\n\nIf the vendor is signed, the date is in the newsletter, the training is built and the announcement has\ngone out, then you are describing a migration. That may be entirely correct — migrations are legitimate\nand organizations need them — but **call it one.** The word \"bet\" implies a decision that could go\neither way, and using it for something that cannot is how a function gradually loses the ability to\nstop anything. It is Module 2's *installation with optimistic paperwork*, arriving one level up and at\nthe end of the course."
+  },
+  {
+    "id": "ai301-peopleops-m8-lesson-4-the-seat-you-already-have-70",
+    "moduleId": "ai301-peopleops-m8",
+    "ordinal": 70,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 · The seat you already have [V]\n\nOne last piece of data, and it resolves into something more useful than it first looks.\n\nSHRM's *State of AI in HR 2026* found that in **52% of organizations, HR has no direct involvement in\noverall AI strategy.** Read that against Module 1's finding from the same research — that HR technology\nmanagement is the second-highest AI adoption area in the function — and something odd falls out.\n\n**The function is excluded from the strategy conversation, and its systems are where the AI actually\nruns.**\n\nWhich means you are in every AI conversation your company has, at the implementation layer, whether or\nnot your CHRO is in the strategy one. That is a functional seat the function's own leadership\nfrequently does not have. And unlike a seat granted by an invitation, it comes with artifacts nobody\nelse can produce: the register, the evaluation plan, the signed decision-rights map, the exclusion\nlist.\n\n**Which is what the function is for, after.** Not the back office. **The control surface** — the place\nwhere the whole function's AI is actually governed, because it is the only place where it can be. Every\nother track in this curriculum ends its legal module by telling its learner to find out who the\ndeployer is. You are the answer to that question, and it turns out to be a position of unusual leverage\nrather than unusual exposure.\n\nOne honest note to close on, because Module 2 raised a problem this track never fully solved. You are\nthe person whose queue can demonstrate that another team's AI is generating rework. That does not get\npolitically easier with seniority. What changes it is the artifact: **a finding attached to a register\nrow with a named owner and a date is a different conversation from a complaint**, and producing that\ndocument is the whole of what this track has been teaching."
+  },
+  {
+    "id": "ai301-peopleops-m8-try-80",
+    "moduleId": "ai301-peopleops-m8",
+    "ordinal": 80,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### Try this — 3 minutes\nOpen your Module 1 register and find the capability with the widest reach and no named owner. Ask\nyourself honestly whether anyone would object if it were switched off next Friday. If the answer is\nthat nobody would notice, you have found your subtraction — and the strongest single item for the\npage you are about to write."
+  },
+  {
+    "id": "ai301-peopleops-m8-exercise-embed-85",
+    "moduleId": "ai301-peopleops-m8",
+    "ordinal": 85,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"choice\"}"
+  },
+  {
+    "id": "ai301-peopleops-m8-key-takeaways-90",
+    "moduleId": "ai301-peopleops-m8",
+    "ordinal": 90,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **Capacity you do not deliberately redeploy gets stranded** `[V]`. IBM froze back-office hiring in\n  2023, built an HR agent that works, and by February 2026 was tripling entry-level hiring because\n  without junior intake there is no pipeline in three to five years. **The pipeline is the first thing\n  you lose and the last thing you can rebuild.**\n- **The industry-scale version is a prediction, not a finding** `[V]`: Gartner forecasts that by 2027\n  half the companies attributing headcount cuts to AI will rehire under different titles — customer\n  service, not HR, and only ~20% reported making such cuts in the first place.\n- **Name where the capacity goes inside the enablement decision**, at the same time, in the same\n  document. \"Redeployed to higher-value work\" means nobody has decided, and it will still mean that in\n  eighteen months.\n- **An agent does not occupy a headcount box** `[V]`. The emerging convention is that what goes on the\n  chart is **the accountable human owner** — which is Module 1's accountability column arriving from\n  org design. About 31% of leaders are already framing AI as a teammate, and nearly one in four report\n  agents on charts, so this is being decided with or without you.\n- **Four consequences you own:** no worker records for agents; record them as assets with owners;\n  decide what happens when the owner leaves; and notice that **span of control, cost per employee and\n  revenue per employee now measure something different** if work moved and denominators didn't.\n- **The bet has a fourth term only you have: what would you turn off?** Subtraction reduces the surface\n  that every other module has to govern, and the first candidate is usually **the widest-reach\n  capability in your register with no named owner.**\n- **The test: is there a state of the world in which you do not proceed?** If not, it is a migration —\n  which is legitimate, and should be called one, because using \"bet\" for something that cannot go\n  either way is how a function loses the ability to stop things.\n- **You hold a seat the function often doesn't** `[V]`. HR is absent from AI strategy in 52% of\n  organizations while its technology function is the second-most-adopted area — so you are in every\n  implementation conversation, with artifacts nobody else can produce. **Not the back office: the\n  control surface.**"
+  },
+  {
+    "id": "ai301-peopleops-m8-activity-link-95",
+    "moduleId": "ai301-peopleops-m8",
+    "ordinal": 95,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"activity_link\", \"title\": \"Applied activity \\u2014 Stays on, changes, or comes off\", \"blurb\": \"The course close. One page on the capability you have tracked since Module 1, with the fourth term only this role has: what comes off. Then the reckoning \\u2014 seven contested claims, how many were true of you, and which direction your judgement leans.\", \"estMinutes\": \"35\"}"
+  },
+  {
+    "id": "ai301-peopleops-m8-take-a-position-100",
+    "moduleId": "ai301-peopleops-m8",
+    "ordinal": 100,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"A bet you cannot reverse isn't a bet, it's a migration. And the only person who can\ntell the difference is the one who has performed the rollback.\"*\n\nThe strongest counter-argument is that **this valorizes reversibility well past the point where it is\nuseful, and most things worth doing are not reversible.**\n\nAn HCM implementation is not reversible. A process redesign that retrains four thousand people is not\nreversible. The integration you retire is not coming back, and neither is the institutional knowledge\nof the process you removed — the people who knew how it worked will have moved on. If rehearsed\nreversibility is the gate, you spend a career on small, safe, marginal changes and never do the thing\nthat would actually alter your function's cost structure. And organizations that genuinely transformed\ntheir operations mostly did it through **commitments they could not walk back**, which is precisely\nwhat made those commitments credible internally: the irreversibility was the signal that the\norganization meant it.\n\nOn that reading, demanding a rehearsed rollback for everything is a sophisticated way of never being\naccountable for a direction. It converts the systems function into a brake, which is the role it is\nalready suspected of playing.\n\nYour position has to say **where the line falls** — which changes genuinely require reversibility, and\nwhich are commitments that legitimately should not have it. And notice what the counter-argument is\nmade of: **it is Module 1's own reversibility gate turned against the track's closing artifact.** If\nreversibility is the gate on automating a decision, but irreversible commitment is what makes strategy\ncredible, then you need a principle that distinguishes them rather than a preference between them."
+  },
+  {
+    "id": "ai301-peopleops-m8-sources-and-attribution-110",
+    "moduleId": "ai301-peopleops-m8",
+    "ordinal": 110,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- **IBM's 2023 announcement and 2026 reversal** — the statement that AI would replace thousands of\n  back-office roles, the back-office hiring freeze, roughly 30% of some 26,000 non-customer-facing\n  roles described as automatable within five years; then the February 2026 tripling of entry-level\n  hiring across engineering and HR, the CHRO's pipeline reasoning, the redesign of entry-level roles,\n  and total employment rising. Reported via IBM statements and trade and business press; **the\n  company's own figures, not independently audited.** The AskHR figures cited in Modules 2 and 4 carry\n  the same label. **[V]**\n- **Gartner (February 2026)** — the prediction that by 2027, half of companies attributing headcount\n  reduction to AI will rehire for similar functions under different titles; and that around 20% of\n  organizations reported reducing agent headcount because of AI. **A forecast rather than an\n  observation, and concerning customer service rather than HR — both stated in-lesson.** **[V]**\n- **Survey on AI agents in organizational structures (mid-2026)** — approximately 31% of leadership\n  framing AI as a teammate or employee and close to one in four reporting agents formally listed on\n  organizational or workflow charts, from a study of more than 1,200 managers and executives reported\n  in business press. **Sample size reported; the underlying instrument is not named in the sources we\n  reached, so treat the figures as indicative.** The accompanying convention — that an agent occupies\n  no headcount box and what belongs on the chart is the accountable human owner — is emerging practice\n  rather than settled standard. **[V]**\n- **SHRM, *The State of AI in HR 2026*** — 52% of organizations with no direct HR involvement in\n  overall AI strategy. Survey of 1,722 HR professionals, fielded 5–23 December 2025; same instrument\n  as Module 1's adoption split. Also cited in `ai301-hrbp` for a different argument, so the phrasing\n  is aligned to prevent drift. **[V]**\n- The fourth term of the bet, the state-of-the-world test distinguishing a bet from a migration, the\n  four agent-in-the-HCM consequences, and the delta reckoning's direction-of-judgement question are\n  original to this course.\n- Builds on Modules 1–7 of this track, and closes the arc 101 M7 opened: every other track ends by\n  asking who the deployer is, and this one answers it."
+  }
+]
