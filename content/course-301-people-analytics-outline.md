@@ -99,13 +99,19 @@ Both are the brief's and both are kept verbatim, because the second one is the b
 in either document — it is a prediction, a diagnosis and a threat assessment in one, and it cannot
 be answered defensively without the learner noticing they are being defensive.
 
-**One adaptation, and it is the only place the brief and the product genuinely diverge.** The brief
-pays this off with a **cross-cohort dataset** — *"your opening slide, and it will be the
-most-photographed thing in the deck."* That is a real product insight and it is right, and the
-product has no cohort aggregation, so the async course cannot deliver it today. Logged as a product
-opportunity rather than quietly dropped (see Decision 5). What ships now: the learner's own numbers,
-held and returned to them in M6's reckoning. **The comparison to peers is the thing to build; the
-comparison to your own earlier answer is the thing we have.**
+**The cross-cohort payoff is built.** The brief pays this section off with a **cross-cohort dataset**
+— *"your opening slide, and it will be the most-photographed thing in the deck"* — and that is the
+best product idea in either document, so it is now in the product rather than in a backlog. Any
+module whose rubric declares an opening numeric field returns, **after the learner commits their own
+number**, how everyone else answered it: the median, the middle half, and — once enough of them have
+closed the loop — the typical miss and which way people leaned. See Decision 5 for the two rules it
+enforces and why both live on the server.
+
+For this track that means the pre-work percentage and the module openings are no longer only a
+private artifact returned at the capstone. **They are a comparison the learner cannot argue with**,
+and *"you think 30% of your hours are automatable; the median answer here is 55%"* does more work in
+one line than a page of argument. The vanish-on-Monday cases stay private and free-text — they are
+the part that should not be normalized against a median.
 
 ## M1 · The Scarcity Stack
 
@@ -122,16 +128,34 @@ clothes — and the people who used to need you for it don't need you anymore."*
   would actually settle this), **governance standing** (who is accountable for a model about people),
   and **trust** (whose number the room believes). Each maps to a module, which is why I think the
   reconstruction is close; the naming and ordering are the author's.
-- **Lesson 2:** The evidence that it is already happening `[V]`. Three items, and the module must be
-  precise about what kind of evidence each one is, because this track's credibility depends on
-  getting that right in its first ten minutes:
-  - The **collapse-of-analysis argument** (Napper, and Napper & Stehlík on causal inference in people
-    analytics) — an *argument* from practitioners inside the field, cited as an argument.
-  - **Stehlík commoditizing an ONA product in two or three hours** — an *existence proof*, which is
-    the strongest thing a demonstration can be and does not need a sample. **Framed as an existence
-    proof, not as evidence of a trend**, and the difference is the lesson.
-  - **Insight222's finding that technology investment is migrating away from dashboards and
-    specialist platforms toward AI** — subscription research; cite with its access status stated.
+- **Lesson 2:** The evidence, in three tiers, each honest about what it establishes `[V]`. **The
+  module does not try to prove a trend, because the available sources cannot carry one** — and a
+  track whose first module teaches evidence-versus-sample-versus-falsifier cannot open by
+  overclaiming. What it proves instead is *possible*, which is all the argument needs.
+  - **An existence proof.** Stehlík commoditizing an ONA product in two or three hours. An existence
+    proof needs no sample — it establishes that the thing can be done, full stop, and that is the
+    strongest form this evidence can take. **Framed as an existence proof, never as a rate.**
+  - **An argument, labeled as one.** Napper's collapse-of-analysis case, engaged with rather than
+    cited as proof. Say the awkward part in-lesson: **Napper and Stehlík co-author on causal
+    inference in people analytics, so this is closer to one source than two.** A course that teaches
+    learners to check whether their sources are independent has to check its own.
+  - **The counterweight, which sharpens the claim rather than weakening it** `[V]`. On **DABstep**
+    — 450+ real multi-step analysis tasks requiring reasoning across heterogeneous documentation —
+    **the best agents reach about 14.55% on the hardest tier.** So the honest claim is not "analysis
+    is free." It is **"routine analysis is free; the hard tier is not — and the hard tier is not
+    where your hours are."** That is more defensible, more useful, and it argues *for* the Scarcity
+    Stack rather than around it.
+  - **Insight222** on technology investment migrating away from dashboards and specialist platforms
+    toward AI — cite with its subscription status and date stated.
+- **Lesson 2b:** The tension with M4, and it is the intellectual spine of the whole course.
+  M1 says the cost of producing analysis collapsed. M4 will say the measured firm-level productivity
+  gain is about **0.29%**, that **89% of firms report no impact at all**, and that experienced
+  developers were **19% slower** while feeling 20% faster. **Both are true, and the resolution is the
+  course's central claim: production was never the bottleneck.** If producing analysis had been the
+  constraint, making it free would show up in firm-level output. It doesn't. **That is evidence
+  *for* the stack** — the value always sat in the layers above production, and nobody itemized them.
+  Which yields a sharper and more alarming premise than *you'll be replaced*: **your function is
+  funded for the thing that just became free and valued for things that were never written down.**
 - **Lesson 3:** Where your hours are versus where your value is. Most analytics functions spend the
   majority of their time in the layer that just got cheapest and most of their reputation in the
   layers where the warrant is hardest and the review is thinnest. Name the asymmetry rather than
@@ -150,7 +174,12 @@ clothes — and the people who used to need you for it don't need you anymore."*
   mis-sort the module exists to produce.
 - **Activity:** *"The function, scored"* — the stack scored for their team, plus **the single
   capability they'd lose least by giving up**, and the pre-work percentage revisited now that the
-  framework exists. The brief's artifact, kept.
+  framework exists. The brief's artifact, kept — **with one addition that fixes the sourcing problem
+  by routing around it.** Before scoring, the learner takes **one real deliverable from last quarter
+  and tries to reproduce it with a model in thirty minutes, timed**, then records how far it got and
+  where it broke. That is an existence proof they generated, on their own data, and it is unarguable
+  in a way no citation is. It also produces the first honest read on which tier of DABstep their
+  actual work sits in — and where it broke is the single most informative sentence in the module.
 
 ## M2 · Designing constraints — the guardrail discipline
 
@@ -492,16 +521,34 @@ is the same move one level less honest.
   professional obligation with a legal edge, and because it carries the People Ops boundary. Nothing
   is lost and the module count holds.
 
-**5. Format: the brief is a blended program and the product is async-only. One adaptation, stated
-precisely rather than as a general worry.** The brief's async spine — six modules, ~3.5 hours,
-artifact-per-module — is fully compatible and is adopted as written; the artifact discipline is
-strictly better than v1's activity design because *bring it to the room* is a harder test than
-*submit it.* What does not survive today is the **live-session payoff**: the cross-cohort dataset,
-the opening slide, "the most-photographed thing in the deck." The product has no cohort aggregation.
-**This is a product opportunity, not a content compromise**, and it is worth filing on its own: a
-pre-work question whose answers aggregate across learners would be valuable in every track, and this
-track is where it would land hardest. What ships now is the learner's own numbers, returned to them
-in M6's reckoning.
+**5. Format: the brief is a blended program and the product is async-only — and the gap is now
+closed rather than noted.** The brief's async spine — six modules, ~3.5 hours, artifact-per-module —
+is fully compatible and adopted as written; the artifact discipline is strictly better than v1's
+activity design because *bring it to the room* is a harder test than *submit it.* What did not
+survive was the live-session payoff: the cross-cohort dataset, the opening slide.
+
+**That is now built, because the data was already there.** Every numeric prediction in the
+curriculum has been landing in one table (`fd_calibration`) keyed by module and field since the
+first track shipped — so cohort aggregation was a GROUP BY over data already collected, not a new
+capture surface. `GET /api/module/:id/cohort` returns, per opening field: n, median, and the
+interquartile range of other learners' predictions, plus — once enough have closed the loop — the
+median absolute miss and the share who predicted high.
+
+**Two rules are enforced on the server rather than in the UI, because both are about the integrity of
+the measurement rather than the look of it.**
+- **A field is returned only once this session has committed its own number.** Showing the crowd
+  first would anchor the learner and destroy the prediction the comparison exists to measure. This
+  is the whole reason the pre-work says *no teaching yet* — the same principle, one layer down.
+- **Nothing is returned below five other respondents, and the asker's own row is never counted.**
+  That is the minimum-cell-size rule this curriculum teaches in M5 L5, applied to itself. With an n
+  of one or two, "the cohort median" is one person's answer, and this course would be publishing a
+  small cell in the same week it teaches learners not to.
+
+The build is track-agnostic: it lights up for **every** module in every course whose rubric declares
+an opening field, which is most of the 301 curriculum. **The thing this does not do is segment by
+cohort or brand** — it is all learners who have answered that field. Per-brand scoping is the obvious
+next step and will rarely clear the n threshold in early deployments, which is an argument for
+shipping the global version first and saying so in the copy.
 
 **6. Sourcing — the brief's citations verified, and two came back stronger than stated.** Given this
 track's thesis, anchoring it on unverified sources would have been fatal, so this was done first.
@@ -523,11 +570,7 @@ track's thesis, anchoring it on unverified sources would have been fatal, so thi
   diagnostics for humans. **A team shipping this at scale arrived independently at the module's
   thesis**, which is a stronger anchor than a demonstration. Stehlík's people-analytics application
   stays alongside it.
-- **The M1 evidence, and the one place to be careful.** Napper's collapse-of-analysis argument is an
-  *argument*; the ONA commoditization is an **existence proof**; Insight222 is subscription research.
-  A track whose first module teaches evidence-versus-sample-versus-falsifier has to label all three
-  correctly in its own opening, and an existence proof presented as a trend would be exactly the
-  error the course is about. **Framing them correctly is a lesson, not a caveat.**
+- **M1's evidence was the weak point and is now restructured — see Decision 10.**
 
 **7. Six modules at 35–45 minutes plus 15 minutes of pre-work, ~3h30.** The brief's shape, and it
 settles a question the People Ops outline raised. Track lengths now sit at ~2h55 (HRBP, 7), ~4h15
@@ -548,6 +591,36 @@ co-determination on a different footing than *deployment* does. Insight222's fin
 status and date confirmed. And for M2 L5: a primary source on flight-risk performance in deployment
 — **if none exists, the module says so, which is the stronger lesson.**
 
+**10. M1's sourcing was the weakest thing in either document, and the fix is to stop trying to prove
+a trend.** The three available items cannot carry one: Napper's argument and Stehlík's demonstration
+come from co-authors, so it is **closer to one source than two**, and neither establishes a rate or a
+breadth. Insight222 is indirect and behind a subscription. A track whose first module teaches
+evidence-versus-sample-versus-falsifier cannot open by overclaiming — and it does not need to. Four
+changes:
+
+- **Label each tier for what it establishes.** The ONA commoditization is an **existence proof**,
+  which needs no sample and is the strongest form this evidence can take. Napper is **an argument**,
+  engaged with rather than cited as proof. And the module **says out loud that the two authors are
+  co-authors** — a course that teaches learners to check source independence has to check its own.
+- **Add the counterweight, which sharpens the claim instead of weakening it** `[V]`. On **DABstep**
+  (450+ real multi-step analysis tasks over heterogeneous documentation) the best agents reach about
+  **14.55% on the hardest tier**. So the defensible claim is not *analysis is free* but **"routine
+  analysis is free; the hard tier is not — and the hard tier is not where your hours are."** That is
+  narrower, truer, and argues *for* the Scarcity Stack rather than around it.
+- **Make the learner generate the proof.** The activity now opens with reproducing one real
+  deliverable from last quarter with a model, **thirty minutes, timed**, recording how far it got and
+  where it broke. An existence proof on their own data, unarguable in a way no citation is — and it
+  tells them which DABstep tier their actual work occupies. This is the fix that matters most,
+  because it routes around the sourcing problem rather than patching it.
+- **Wire M4's evidence into M1 as a tension rather than removing it (new Lesson 2b), and this is the
+  best idea to come out of the sourcing problem.** M1 says production collapsed in cost; M4 says the
+  measured firm-level gain is **0.29%**, that **89% of firms report no impact**, and that developers
+  were **19% slower while feeling faster**. Both true. **The resolution is the course's central
+  claim: production was never the bottleneck** — if it had been, making it free would show up in
+  firm-level output, and it doesn't. That converts the apparent contradiction into the strongest
+  available argument for the stack, and yields a sharper premise than *you'll be replaced*: **your
+  function is funded for the thing that just became free and valued for things nobody itemized.**
+
 ## Open questions for review
 
 - **The five scarcity layers, and this is the one genuine blocker.** The brief names the stack as the
@@ -557,10 +630,11 @@ status and date confirmed. And for M2 L5: a primary source on flight-risk perfor
   knowing when to stop** (M2), **causal and evaluative design** (M4), **governance standing** (M5),
   and **trust** (M6). If that is close, the stack and the module sequence are the same object read
   twice, which is a strong sign; if it is wrong, M1 and the pre-work both change.
-- **Does the cross-cohort dataset get built?** It is the single best product idea in the brief, it
-  would improve every track, and it is a real piece of work — pre-work answers, aggregated,
-  anonymized, returned as a comparison. Worth its own conversation rather than a line in a content
-  outline.
+- **~~Does the cross-cohort dataset get built?~~ Built — see Decision 5.** What remains open is
+  whether it should segment by brand or cohort once deployments are large enough to clear the
+  threshold, and whether the pre-work's free-text questions should ever be aggregated. Current lean
+  on the second: no. The vanish-on-Monday cases are where the learner is most honest and least
+  performative, and normalizing them against a median would cost more than it returns.
 - **Does M2 hold at 45 minutes?** It now carries the thesis, the anchor, the general failure modes,
   the HR-specific instances, prediction-about-individuals, and the ask-it-to-refute move. That is the
   most content in any module in the curriculum and it is the likeliest split in the set. Shipping
