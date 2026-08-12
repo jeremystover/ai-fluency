@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "87% identify line manager effectiveness as a significant risk while 21% provide toolkits `[V]`. What kind of gap is that?",
+      "options": [
+        "A competence gap — communicators don't know how to build manager materials",
+        "A stated-priority-versus-investment gap, which almost always means the intervention was unaffordable rather than unwanted",
+        "A measurement gap — organizations don't track manager effectiveness accurately",
+        "An awareness gap — most organizations don't realize managers matter"
+      ],
+      "correctIndex": 1,
+      "explanation": "The same respondents naming the risk are the ones without the resources to close it. That reading matters because it determines the argument you make: you're pointing at a named top risk that was never resourced, and explaining that the reason has gone away."
+    },
+    {
+      "id": "q2",
+      "prompt": "What do managers actually need that a generic talking-points document can't provide?",
+      "options": [
+        "Shorter documents with clearer formatting",
+        "Earlier access to the message before it goes to employees",
+        "The local version — their team's specific exposure, the questions their people will actually ask, what will land badly here, and language that passes the read-aloud test",
+        "Training in how to deliver difficult messages"
+      ],
+      "correctIndex": 2,
+      "explanation": "The document was written for the average manager, and no manager is average. D is a real need and it is the counter-argument, not this lesson."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why was personalized manager enablement impossible before, in precise terms?",
+      "options": [
+        "The data to segment on didn't exist",
+        "Because 40 minutes per manager × 400 managers is roughly 260 person-days per significant change — arithmetic, not budget",
+        "Because managers wouldn't have used it",
+        "Because legal review couldn't scale to that many variants"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which is why every organization ships the generic version and calls the gap a budget problem. Now the 40 minutes of thinking happens once, centrally, and generation is close to free."
+    },
+    {
+      "id": "q4",
+      "prompt": "What distinguishes sharing data *with* a manager from sharing it *about* them?",
+      "options": [
+        "Whether the data is quantitative or qualitative",
+        "Whether it is shared before or after a review cycle",
+        "*About* arrives as assessment, so the rational response is to manage the number; *with* arrives as usable intelligence that makes them better at a job they're already trying to do",
+        "Whether the manager's own team can see it"
+      ],
+      "correctIndex": 2,
+      "explanation": "Their engagement score against the company average is a grade. \"Here's what your team asked about most, and the three things they searched for and didn't find\" is material. Same underlying data, opposite effect."
+    },
+    {
+      "id": "q5",
+      "prompt": "What must be true for *with* not to collapse back into *about*?",
+      "options": [
+        "It must be delivered by the manager's own leader",
+        "It must not be comparative by default, and it must run inside the listening charter — if the charter and this module's ambition conflict, the charter wins",
+        "It must be anonymized before the manager sees it",
+        "It must be optional for the manager to receive"
+      ],
+      "correctIndex": 1,
+      "explanation": "The moment a manager's number sits next to their peers', it is assessment regardless of framing. And a manager-enablement programme that quietly breaches a listening promise destroys the listening programme, which is the more valuable asset."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why does AI making local variation free create a problem for cascades?",
+      "options": [
+        "Because managers lack the skill to adapt messages well",
+        "Because each individual version is often better, and in aggregate you get four hundred slightly different accounts of a restructure — which is how an organization acquires commitments it never made",
+        "Because localized messages take longer to review",
+        "Because employees prefer to receive the official version"
+      ],
+      "correctIndex": 1,
+      "explanation": "Consistency was the entire purpose of a cascade. The response isn't to forbid improvisation — it's to build the distinction into the kit so managers improvise in the right places."
+    },
+    {
+      "id": "q7",
+      "prompt": "Which category does \"the date the change takes effect, and which roles are affected\" belong to?",
+      "options": [
+        "Should vary locally — the manager knows how to frame it for their team",
+        "Shouldn't be in the kit — it requires judgment the manager isn't equipped to make",
+        "Must stay identical — it's a commitment that will be compared across teams, and a rephrasing reads as incompetence or concealment",
+        "It depends on whether the manager's team is directly affected"
+      ],
+      "correctIndex": 2,
+      "explanation": "And the kit should say *why* it's fixed. Managers comply with constraints they understand and route around ones they don't."
+    },
+    {
+      "id": "q8",
+      "prompt": "What is the strongest argument *against* this module's claim?",
+      "options": [
+        "That manager toolkits have never been shown to improve message retention",
+        "That the constraint was never production cost — managers avoid these conversations because delivering bad news is hard, they often disagree with the decision, and they're protecting long-term relationships. A better kit touches none of that",
+        "That personalization at scale creates unacceptable data-protection exposure",
+        "That managers prefer to receive less material, not more"
+      ],
+      "correctIndex": 1,
+      "explanation": "And it has a sharper edge for this audience: personalized kits may make it *worse*, by making it easier to deliver a message you don't believe without the friction that used to force you to work out what you thought. Which is why the activity asks what you actually saw in a real manager."
+    }
+  ]
+}
