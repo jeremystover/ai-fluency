@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What has AI-drafted complaining changed about the relationship between drafting quality and the complainant? `[V]`",
+      "options": [
+        "Nothing — well-drafted complaints have always come from well-advised employees",
+        "The correlation between an articulate document and an articulate, advised, or well-resourced complainant has been severed",
+        "Drafting quality now correlates with the seriousness of the underlying conduct",
+        "Complaints are better drafted but shorter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which matters because a great deal of informal HR triage ran on exactly that correlation without anyone admitting it. And length went the other way: two pages to eight or twelve."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why do minor incidents arrive in protected-characteristic language? `[V]`",
+      "options": [
+        "Because complainants are increasingly aware of their statutory rights",
+        "Because a model asked to make a complaint sound serious reaches for the vocabulary the situation seems to call for, and the available vocabulary is bullying, harassment, discrimination, victimisation",
+        "Because AI tools are trained on tribunal decisions",
+        "Because employees are advised to use statutory language to compel investigation"
+      ],
+      "correctIndex": 1,
+      "explanation": "Not dishonesty — register. And the consequence is that **the escalated framing is now on the record**: once the document alleges discrimination your response must address discrimination, even where the facts describe something else."
+    },
+    {
+      "id": "q3",
+      "prompt": "What is the exposure from downgrading a complaint because it appears AI-drafted? `[V]`",
+      "options": [
+        "A data-protection complaint about automated decision-making",
+        "Breach of the Acas Code and potentially victimisation under the Equality Act in the UK; retaliation exposure and loss of the prompt-and-appropriate-response posture in the US",
+        "None, provided the decision is documented",
+        "A grievance about the grievance procedure"
+      ],
+      "correctIndex": 1,
+      "explanation": "The rule is the same in both jurisdictions; the citation is not, and the module names the UK authority because that is where direct guidance exists. Specifics to your own counsel."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why is treating an AI-drafted submission with extra scepticism described as the same error as extra deference?",
+      "options": [
+        "Because both slow the process down",
+        "Because both substitute a judgment about provenance for a judgment about content — and both leave a discoverable trace",
+        "Because scepticism and deference are equally difficult to evidence",
+        "Because deference is prohibited by the Acas Code"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which produces the practical discipline: do not record or discuss your view that a submission was AI-drafted. Not because the observation is wrong, but because it is irrelevant to every decision you are about to make."
+    },
+    {
+      "id": "q5",
+      "prompt": "What is the crucial asymmetry between allegations and argument?",
+      "options": [
+        "Argument is longer than allegation in most submissions",
+        "Only the allegations generate an investigative obligation; the argument must be addressed in your response but does not become an investigation line",
+        "Allegations must be investigated within statutory time limits and argument need not be",
+        "Argument can be answered by AI and allegations cannot"
+      ],
+      "correctIndex": 1,
+      "explanation": "Conflating them is what turns a twelve-page document into a twelve-page investigation — and it is why volume feels overwhelming when what changed is the ratio."
+    },
+    {
+      "id": "q6",
+      "prompt": "Which step does the module call the highest-value one, and why?",
+      "options": [
+        "Extracting the allegations with a model, because it saves the most time",
+        "Having a second person confirm the list, because it catches missed allegations",
+        "Sending the numbered list back to the complainant — it corrects your extraction before you build on it, evidences engagement with the whole submission, and prevents the argument that you investigated a narrower version",
+        "Recording the time allocated to each allegation"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ten minutes, and it forecloses Module 4's defect about restating an allegation more narrowly and resolving the narrower version."
+    },
+    {
+      "id": "q7",
+      "prompt": "How does the volume trap run in this function?",
+      "options": [
+        "Cheaper production means your function generates more artifacts than it used to",
+        "Production got cheaper for the other side, and your obligation per matter did not change",
+        "AI-drafted complaints are more likely to be withdrawn, wasting investigative effort",
+        "Longer submissions require proportionally longer responses"
+      ],
+      "correctIndex": 1,
+      "explanation": "Same mechanism as elsewhere in the curriculum, opposite direction. The answer is not reading faster — it is not paying investigative attention to argument."
+    },
+    {
+      "id": "q8",
+      "prompt": "Why is labor arbitration described as a forum with no detection apparatus? `[V]`",
+      "options": [
+        "Because arbitrators are not required to give reasons",
+        "Because arbitration records are confidential and cannot be checked",
+        "Because most arbitrators have no law clerks, no case-law database, and limited power to sanction — so fabricated citations appear and are largely neither reported nor sanctioned",
+        "Because arbitration does not rely on precedent"
+      ],
+      "correctIndex": 2,
+      "explanation": "Which matters precisely because past awards and past practice do real work in contract interpretation: a fabricated authority can enter the precedent conversation and stay. Verify your own citations and check theirs."
+    }
+  ]
+}
