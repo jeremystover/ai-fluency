@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why does the module place measurement at position two rather than at the end of the track?",
+      "options": [
+        "Because measurement is the easiest topic and belongs early",
+        "Because the most important measurement is taken before the deployment exists, and once it is live the opportunity to observe the before has passed permanently",
+        "Because the enablement review in Module 3 is optional",
+        "Because baselines take longer to collect than other module activities"
+      ],
+      "correctIndex": 1,
+      "explanation": "Every other mistake in the track is fixable later. A missing baseline is not, which is why it is the second module's first lesson rather than the eighth module's footnote."
+    },
+    {
+      "id": "q2",
+      "prompt": "What distinguishes a baseline from a remembered number?",
+      "options": [
+        "A baseline is expressed as a percentage rather than a count",
+        "A baseline is approved by a manager before use",
+        "A baseline is a named query against a stated population on a stated date, saved so it can be re-run identically",
+        "A baseline covers at least twelve months of history"
+      ],
+      "correctIndex": 2,
+      "explanation": "Save the query, not just the answer, and write down the population — otherwise the comparison six months later uses a slightly different denominator that happens to flatter the result. That is what happens to everyone who didn't write it down."
+    },
+    {
+      "id": "q3",
+      "prompt": "What did IBM's 2018 AskHR mandate demonstrate about activity metrics? `[V]`",
+      "options": [
+        "That mandating adoption is an effective way to drive behaviour change",
+        "That usage went to near-universal while HR satisfaction fell from +19 to −35 — so every project-dashboard number improved while the experience got materially worse",
+        "That chatbots are unsuitable for HR service delivery",
+        "That satisfaction scores are unreliable in HR contexts"
+      ],
+      "correctIndex": 1,
+      "explanation": "And the collapse was only visible because a pre-mandate baseline existed on a metric measuring experience rather than usage. IBM rebuilt around employees and satisfaction recovered into the +80s, which is why the case is worth teaching rather than just citing."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why is self-initiated repeat use the leading indicator this module recommends?",
+      "options": [
+        "Because it is easier to measure than satisfaction",
+        "Because it is a revealed preference on a population that could have gone elsewhere — and it is exactly the signal a mandate destroys your ability to read",
+        "Because vendors report it as standard",
+        "Because it correlates with cost per interaction"
+      ],
+      "correctIndex": 1,
+      "explanation": "If usage is compulsory, usage tells you nothing. Voluntary return is worth more than any satisfaction survey because nobody is reporting an attitude; they are choosing to come back."
+    },
+    {
+      "id": "q5",
+      "prompt": "Where does the rework created by a deployment you run actually land? `[V]`",
+      "options": [
+        "On the deployment team, as botsitting",
+        "Nowhere measurable, which is why it can be discounted",
+        "On employees, managers and coordinators — none of which appears in the project's numbers, and all of which appears in your queue",
+        "On the vendor, under the support agreement"
+      ],
+      "correctIndex": 2,
+      "explanation": "A is the HRBP track's version, correctly aimed at someone auditing their own workflow. Yours relocates onto people who are not you, which makes your ticket queue the function's rework detector — and you are the only person who can read it."
+    },
+    {
+      "id": "q6",
+      "prompt": "What did the two AI coaching trials establish? `[V]`",
+      "options": [
+        "That AI coaching does not work",
+        "That newer models perform worse than earlier ones on coaching tasks",
+        "That the same class of technology produced opposite results four years apart, and the variable that changed was task scope rather than the technology",
+        "That human coaches outperform AI on every measured outcome"
+      ],
+      "correctIndex": 2,
+      "explanation": "The 2022 trial gave the AI a narrow structured goal-attainment protocol and it performed comparably to human coaches; the 2026 trial removed the guardrails for open-ended development work and found no significant benefit. One researcher co-authored both, which is what makes the pair trustworthy."
+    },
+    {
+      "id": "q7",
+      "prompt": "Why does a broadly scoped pilot tend to be unfalsifiable?",
+      "options": [
+        "Because broad pilots involve more stakeholders who disagree about success",
+        "Because a scope wide enough to be impressive is usually wide enough that no specific observable outcome could disconfirm it",
+        "Because broad pilots take longer than the evaluation window allows",
+        "Because vendors refuse to define success criteria for large deployments"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which is why the design rule runs the other way: narrow the scope until it works, rather than widening it until it fails. The two questions are what is the single task, and what would failure look like on it."
+    },
+    {
+      "id": "q8",
+      "prompt": "Which part of a kill condition does the module say people most often skip?",
+      "options": [
+        "The threshold, because it requires a baseline",
+        "The date, because calendars slip",
+        "The named person, because teams are easier to assign",
+        "A rollback somebody has actually performed — not a documented one, a performed one, with the time it took written down"
+      ],
+      "correctIndex": 3,
+      "explanation": "An untested rollback is a hope. And the test for whether the whole condition is real is whether it could fire while the sponsor still wants the project; if not, it is a review date with a number attached."
+    }
+  ]
+}

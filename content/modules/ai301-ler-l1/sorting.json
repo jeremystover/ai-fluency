@@ -1,0 +1,38 @@
+{
+  "reviewedAt": "2026-08-12",
+  "buckets": [
+    { "id": "observation", "label": "Observation", "hint": "What was said, seen, recorded", "rank": 0, "pct": 90 },
+    { "id": "corroboration", "label": "Corroboration", "hint": "What other evidence exists", "rank": 1, "pct": 80 },
+    { "id": "inference", "label": "Inference", "hint": "What it could mean — plural", "rank": 2, "pct": 40 },
+    { "id": "finding", "label": "Finding", "hint": "What you conclude happened", "rank": 3, "pct": 10 },
+    { "id": "determination", "label": "Determination", "hint": "What follows for a person", "rank": 4, "pct": 5 }
+  ],
+  "tasks": [
+    { "id": "t1", "text": "\"The complainant states that the respondent raised his voice during the 14 March team meeting.\"", "key": "observation",
+      "reasoning": "An account, attributed, dated. Note the construction doing the work: *states that*. It reports what was said without adopting it, which is what keeps the sentence on rung one." },
+    { "id": "t2", "text": "\"Two of four witnesses recall raised voices. The meeting invitation confirms the date. No contemporaneous notes exist.\"", "key": "corroboration",
+      "reasoning": "Establishes what exists, including the absence — and the absence is often the most useful part. This is the rung where AI is both strongest and fully permitted, and where cases are won and lost." },
+    { "id": "t3", "text": "\"The respondent's account is more credible than the complainant's.\"", "key": "finding",
+      "reasoning": "A credibility determination, which is a finding about facts and requires weighing. AI must not participate at any point in producing this sentence — not by ranking accounts, not by scoring consistency, not by being asked which version fits the evidence better." },
+    { "id": "t4", "text": "\"The conduct described would, if established, breach section 4.2 of the dignity-at-work policy.\"", "key": "inference",
+      "reasoning": "The card most people mis-sort as a determination, and the two words that save it are *if established*. Conditional policy analysis is reasoning about what the evidence could mean — genuinely rung three. Remove those two words and it becomes rung five." },
+    { "id": "t5", "text": "\"Recommend a final written warning.\"", "key": "determination",
+      "reasoning": "What follows for a named person. Unambiguous, and the rung where the module's line is least contested — which is why the interesting failures are elsewhere." },
+    { "id": "t6", "text": "A list of questions the investigator has not yet asked, generated from the allegation and the interviews so far", "key": "corroboration",
+      "reasoning": "Establishing what is missing rather than what happened. High value, entirely safe, and one of the clearest legitimate AI uses in the function — it audits coverage rather than evaluating anybody." },
+    { "id": "t7", "text": "\"Three readings of the timeline are available: a single exchange, an escalating pattern, or a misremembered date.\"", "key": "inference",
+      "reasoning": "Plural by construction, which is what makes it rung three rather than rung four. If a model returned only one reading, or ranked these, it has crossed — and the plural form is the visible evidence that it did not." },
+    { "id": "t8", "text": "The chronology: dated events, each with its source document", "key": "observation",
+      "reasoning": "Assembly, not interpretation. Frequently mis-sorted upward because building it feels analytical — but a chronology that stays on rung one is a chronology whose every row cites where it came from." },
+    { "id": "t9", "text": "An intake triage decision assigning severity and routing", "key": "determination",
+      "reasoning": "Lesson 4's card. It looks like sorting inbound items and it decides whether an allegation is investigated — a rung-five determination wearing rung-one clothing, and the person downgraded here never appears in your data." },
+    { "id": "t10", "text": "\"On the balance of probabilities, the respondent raised his voice in the 14 March meeting.\"", "key": "finding",
+      "reasoning": "The standard of proof named in the sentence is the tell. Applying a standard *is* weighing, and weighing is the boundary — this is the rung four the whole ladder exists to protect." },
+    { "id": "t11", "text": "\"The respondent was hostile in the meeting.\"", "key": "finding",
+      "reasoning": "The most dangerous card on the page, because it *looks* like an observation and reads like a description. \"Hostile\" is a characterization, and a characterization of a person is a conclusion nobody attributed. Module 4 is largely about catching this sentence.", "also": ["observation"] },
+    { "id": "t12", "text": "A comparison of how three prior matters with similar conduct were resolved", "key": "corroboration",
+      "reasoning": "Establishing what the record contains — Module 5's comparator work, and legitimate at rung two. It becomes rung five the moment it is asked which outcome *should* follow, and the transition is one prompt wide." }
+  ],
+  "pattern": "The breaches happen where a sentence's grammar suggests one rung and its content does another — most often a characterization dressed as an observation.",
+  "postscript": "Check **t11** first. \"The respondent was hostile\" is the sentence this whole track is built around: it has the grammar of an observation and the content of a finding, and once it is in a document nobody can tell which rung produced it. Then **t4 versus t5** — *if established* is the entire difference between rung three and rung five, and it is two words. And **t9**, because triage is the automation most likely to be sold to you this year. If you sorted the corroboration cards (t2, t6, t12) higher up the ladder than the key does, you may be under-using the rung where AI is both safest and most valuable."
+}

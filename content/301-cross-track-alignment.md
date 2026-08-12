@@ -21,16 +21,26 @@ stated in the module, not assumed.
 | AI 101 · Foundations | `ai101` | 8 modules authored | **Yes — open** |
 | AI 201 · The Practitioner | `ai201` | 8 modules authored | **Yes — open** |
 | HR Business Partner | `ai301-hrbp` | 7 modules authored | **Yes — open** |
-| Recruiting / TA | `ai301-recruiter` | Outlined · R1–R3 drafted with packages | No — unregistered |
-| Compensation & Benefits | `ai301-comp` | Outlined | No |
-| Employee Experience / Internal Comms | `ai301-excomms` | Outlined (v2, integrated) | No |
-| Defensible by Design | `ai301-defensible` | Outlined (v1, integrated) | No |
-| People Analytics / HR Technology | — | Not started — **brief's top recommendation** | No |
-| Talent Development / L&D | — | Not started | No |
-| People Ops / shared services | — | Not started | No |
-| CHRO / CPO | — | Not started — **check 401 first** | No |
+| Recruiting / TA | `ai301-recruiter` | 7 modules authored | **Yes — open** |
+| Compensation & Benefits | `ai301-comp` | 6 modules authored | **Yes — open** |
+| People Analytics | `ai301-analytics` | 6 modules authored | **Yes — open** |
+| Employee Experience / Internal Comms | `ai301-excomms` | 10 modules, packages complete | No — unregistered |
+| People Ops & HR Technology | `ai301-peopleops` | 8 modules, packages complete | No — unregistered |
+| Talent Development / L&D | `ai301-talent-dev` | 6 modules, packages complete | No — unregistered |
+| CHRO / CPO | `ai301-cpo` | 6 modules, packages complete | No — unregistered |
+| Defensible by Design *(was DEI)* | `ai301-defensible` | 5 modules, packages complete | No — unregistered |
+| Labor & Employee Relations | `ai301-ler` | Outlined — 8 modules, 2 drafted | No — in progress |
 
-Live surface is 23 modules. Corrections to live content are the highest-priority items in §3.
+**Live surface is 34 modules across four 301 tracks.** Corrections to live content are the
+highest-priority items in §3, and that list grew when Recruiting, Comp and Analytics went live —
+see C-03 and C-05, which were written when those tracks were still editable outlines and are now
+changes to shipped content.
+
+⚠️ **Five tracks are authored and unregistered.** That is the correct state, not a backlog: module
+rows go in only when a track is complete, and **registration is one integration pass, done once.**
+The reason `modules.json`, `roles.ts` and `seed.sql` have merged cleanly through six parallel
+authoring sessions is that none of those sessions touched them. The first session to "helpfully"
+regenerate the seed will produce a conflict nobody can review.
 
 ---
 
@@ -203,21 +213,24 @@ on 22 June 2026 core claims allowed to proceed with FEHA and proxy-discriminatio
 surviving. That debt can be cleared.
 **Blocked on:** counsel review. **Owner:** maintenance agent + counsel.
 
-### C-03 · Recruiter R6 — regulatory framing reversed · outline + undrafted
+### C-03 ⚠️ · Recruiter R6 — regulatory framing reversed · **NOW LIVE**
 
 The **method** stands entirely: four-fifths, pass-through rates, reading an audit. The **framing**
 assumed a regulatory posture that has reversed. R6 should teach the private-litigation channel as
 the live exposure, add Kistler's FCRA route, and point at Defensible for learners who need to
 produce rather than read. Add B-01 to its Decisions section.
-**Free to fix — R6 is not drafted.**
+**Status changed:** this was written while the recruiter track was an editable outline. That track
+is now authored, registered and open, so **this is a correction to shipped content** — same class as
+C-01 and C-02, and it should be sequenced with them rather than treated as cheap.
 
-### C-04 · Recruiter R1 — disparate impact references · **drafted, not live**
+### C-04 · Recruiter R1 — disparate impact references · **NOW LIVE**
 
 R1 uses "disparate impact and no validation study" in prose, a knowledge-check answer, and its
 explanation. All doctrinally correct and unaffected by C-01, but the package should be re-read
-against C-01's corrected framing before the track is registered.
+against C-01's corrected framing. **The window to do this before registration has closed** — the
+track shipped. Re-read it anyway.
 
-### C-05 · Comp M4 — EU Pay Transparency floor predates reality · outline + undrafted
+### C-05 ⚠️ · Comp M4 — EU Pay Transparency floor predates reality · **NOW LIVE**
 
 M4 L4 names the Directive's reporting and joint-assessment duties. As of the 7 June 2026
 transposition deadline, **only 4 of 27 member states met it** — Slovakia, Italy, Lithuania, Malta —
@@ -226,12 +239,21 @@ no extension. Also: **CSRD's diversity reporting was narrowed by Omnibus I** —
 top management only, age dropped, family-leave datapoint non-mandatory.
 The teaching point improves: the duty is fragmented and your obligation depends on where your
 employees sit. Add B-02 and B-14 to its Decisions section.
+**Status changed:** the comp track is now authored, registered and open. This is a correction to
+shipped content.
 
-### C-06 · Comp M2 — total verification debt · outline + undrafted
+### C-06 ⚠️ · Comp M2 — verification debt · **NOW LIVE, and the deadline passed**
 
-Comp's own Decision 7 states nothing in that track is verified. Its adoption statistics (20%/72%,
-39%/54%, 88%), the negotiation survey (85%/63%), the 98,800-prompt audit, and the ~1%
-operating-policy figure are all still unchecked. **Blocking before drafting.**
+Comp's own Decision 7 stated that nothing in that track was verified, and listed its adoption
+statistics (20%/72%, 39%/54%, 88%), the negotiation survey (85%/63%), the 98,800-prompt audit and
+the ~1% operating-policy figure as **blocking before drafting**.
+
+**The track has since been drafted and shipped.** Either those figures were verified during
+drafting — in which case the comp outline's verification record should say so and this entry can be
+closed — or they shipped unverified, which is the single highest-priority item in this register.
+**Somebody needs to read that track's sources blocks and find out which.** Note the curriculum has
+already caught one of these: a "~1% of organizations have a written AI policy" figure was found to
+be badly wrong elsewhere, and that same figure is on this list.
 
 ### C-07 · EX/comms M10 — unsourced credibility figures · outline + undrafted
 

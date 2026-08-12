@@ -1,0 +1,11 @@
+[
+  { "id": "ai301-recruiter-r7-micro-core", "moduleId": "ai301-recruiter-r7-micro", "ordinal": 10, "kind": "prose", "layer": "stable", "reviewedAt": "2026-08-12",
+    "body": "## Module 7 in two minutes\n\n**Sloppy AI output costs you more than it costs most functions** `[V]`. Workslop runs ~2 hours of rework per incident and leaves 42% of recipients trusting the sender less — and your recipient is the hiring manager whose willingness to give you forty-five honest minutes is the input to everything Module 3 built. Read it once more before you send it, or don't send it.\n\n**Four elements or it isn't funded:** baseline, measure, owner, review date. **The baseline is the one usually missing**, and without a before-number success is unprovable and your request is indistinguishable from a preference. Ask small enough to be believed, and say what you'd stop doing to fund it — that converts a request for resource into a reallocation.\n\n**The headcount conversation has two failure modes.** With your team it's false comfort: \"nothing's going to change\" is a sentence they'll remember when something does. With your exec it's pleading — effort and loyalty arguments lose because every function makes them. Bring the record instead."
+  },
+  { "id": "ai301-recruiter-r7-micro-rule", "moduleId": "ai301-recruiter-r7-micro", "ordinal": 20, "kind": "callout", "layer": "stable", "reviewedAt": "2026-08-12",
+    "body": "### The rule to carry\n\n**A TA function's product is not filled requisitions. It's decisions nobody has to redo.** That's the version of the function that requires judgment, which is the version that survives the compression — and if you built the record, it's the one you can prove."
+  },
+  { "id": "ai301-recruiter-r7-micro-close", "moduleId": "ai301-recruiter-r7-micro", "ordinal": 30, "kind": "prose", "layer": "stable", "reviewedAt": "2026-08-12",
+    "body": "**The full module adds** the honest limit on what evidence buys you — it influences who is kept and what the function is asked to do, not always whether the ratio moves — the four-cases exercise where the test is whether a case could come back badly, and the course close: one page for one change to your live req, plus the reckoning across every prediction you made in seven modules."
+  }
+]

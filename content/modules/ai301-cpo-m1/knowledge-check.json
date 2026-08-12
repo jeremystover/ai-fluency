@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why does this track state its exclusions in the first minute?",
+      "options": [
+        "To set expectations about the time commitment",
+        "Because the exclusions are the product — most material sold to this audience spends half its runtime on remedial content written for a broad HR population and priced for a senior one",
+        "Because the excluded topics are covered in optional supplementary material",
+        "Because fundamentals are outside the scope of any 301 track"
+      ],
+      "correctIndex": 1,
+      "explanation": "For this audience specifically, refusing to re-teach the basics is a credibility move, and it is true. If you need the fundamentals, 101 and 201 will do it better than a course pretending to serve executives."
+    },
+    {
+      "id": "q2",
+      "prompt": "How does the module handle the survey evidence for the credibility chain? `[V]`",
+      "options": [
+        "It presents it as the anchor finding supporting the module's argument",
+        "It states the sample, the publisher's interest, and the absence of causal direction — then sets it aside and argues from the mechanism instead",
+        "It dismisses the finding as unreliable and does not report it",
+        "It presents it alongside a contradicting study without resolving the tension"
+      ],
+      "correctIndex": 1,
+      "explanation": "Both halves matter. Leading on a citation this audience can dismiss in one line would have cost more than the number was worth — and doing so in the first module would have discredited everything after it."
+    },
+    {
+      "id": "q3",
+      "prompt": "What distinguishes executive-altitude practice from ordinary executive AI use?",
+      "options": [
+        "It uses more capable models with longer context windows",
+        "It is performed personally rather than through an assistant",
+        "The model is aimed at your reasoning rather than your output — none of the three uses produces a deliverable",
+        "It focuses on strategic rather than operational questions"
+      ],
+      "correctIndex": 2,
+      "explanation": "Delegated drafting is useful and develops no judgment, because the output is something you were going to review anyway. B is close but incomplete: doing ordinary drafting yourself is still ordinary drafting."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why is catching a model being confidently wrong in your own domain described as non-substitutable?",
+      "options": [
+        "Because it demonstrates the limits of the specific model being used",
+        "Because being told that models are confidently wrong is different knowledge from knowing what it feels like when one is wrong about something you know well — and the second is what you need in a procurement conversation",
+        "Because domain-specific errors are more common than general ones",
+        "Because it establishes a baseline error rate for that model"
+      ],
+      "correctIndex": 1,
+      "explanation": "It is the difference between a briefing and judgment, and it is why the chain's first link cannot be delegated."
+    },
+    {
+      "id": "q5",
+      "prompt": "What are the two mechanisms by which delegated fluency fails?",
+      "options": [
+        "Slower decision cycles and increased vendor dependency",
+        "You lose the ability to interrogate what you are told, and your own errors stop being corrected because nobody above you is positioned to catch them",
+        "Loss of technical credibility with the IT function and reduced budget authority",
+        "Over-reliance on a single adviser and inconsistent policy application"
+      ],
+      "correctIndex": 1,
+      "explanation": "The second is the one specific to your seat. Everyone else has somebody who might catch a mistaken belief about what AI can do; a mistaken CPO propagates it downward into procurement and policy unchallenged."
+    },
+    {
+      "id": "q6",
+      "prompt": "How does the module answer the \"nobody expects a CFO to do the accounting\" objection?",
+      "options": [
+        "By arguing that AI is more central to HR than accounting is to finance",
+        "By conceding it is real, and noting that a CFO's second-hand judgment rests on audits, standards, and regulators — an apparatus that does not yet exist for AI claims, which makes the argument time-limited rather than eternal",
+        "By pointing out that CFOs do in fact require technical accounting knowledge",
+        "By arguing the comparison fails because AI affects every function rather than one"
+      ],
+      "correctIndex": 1,
+      "explanation": "And naming it as time-limited is the honest part. When vendor claims are audited and benchmarks are independent, first-hand knowledge will stop doing work it currently has to do."
+    },
+    {
+      "id": "q7",
+      "prompt": "Why does the track reject confidence ratings as a measure?",
+      "options": [
+        "Because they are difficult to compare between organizations",
+        "Because self-reported confidence correlates with marketing exposure, temperament, and recency rather than capability — and is systematically inflated at senior levels, where admitting uncertainty reads as being behind",
+        "Because executives are less accurate self-raters than individual contributors",
+        "Because confidence changes too quickly to be tracked usefully"
+      ],
+      "correctIndex": 1,
+      "explanation": "Behaviour is checkable against a record. It does not require honesty with yourself in the abstract, only that you go and look."
+    },
+    {
+      "id": "q8",
+      "prompt": "A learner runs their practice twice, finds it does not survive their calendar, and says precisely why. How should that be scored?",
+      "options": [
+        "As an incomplete submission, since the practice was not sustained",
+        "As more useful than a report of enthusiasm, provided the account of why it failed is specific",
+        "As acceptable only if they propose an alternative practice",
+        "As evidence the practice chosen was poorly matched to their role"
+      ],
+      "correctIndex": 1,
+      "explanation": "The activity asks what happened, not what they hoped. A precise account of why a practice failed contact with a real executive week is genuinely more useful than an untested intention — and it is the honest answer this track's standard is designed to make available."
+    }
+  ]
+}

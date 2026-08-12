@@ -1,0 +1,79 @@
+{
+  "title": "Knowledge check — 6 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Under a bias-audit regime like NYC's LL144, which tools are in scope? `[V]`",
+      "options": [
+        "Only tools that make a final hire/no-hire decision without human involvement",
+        "Tools that make *or substantially assist* an employment decision — including a ranking that determines review order, even though a human technically decides",
+        "Only tools purchased after the regulation's effective date",
+        "Only tools that process demographic data directly"
+      ],
+      "correctIndex": 1,
+      "explanation": "\"Substantially assists\" is the phrase doing the work, and it's why a recruiter's instinct that \"a human still decides\" doesn't take a tool out of scope. D is the field-removal fallacy from 101 M7 in regulatory clothing."
+    },
+    {
+      "id": "q2",
+      "prompt": "What did the agent theory in Mobley v. Workday allow to proceed? `[V]`",
+      "options": [
+        "Claims that the vendor operated as an employment agency",
+        "Claims that the vendor acted as an agent of employers, on the basis that customers had delegated the function of rejecting or advancing candidates",
+        "A class action against employers using the tool",
+        "A regulatory enforcement action"
+      ],
+      "correctIndex": 1,
+      "explanation": "The employment-agency theory was dismissed; the agent theory survived to discovery. That's the distinction that matters, because agency is what makes \"we only make the software\" stop working."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why does the discovery dispute over algorithmic code matter to a practitioner?",
+      "options": [
+        "It will force vendors to publish their models publicly",
+        "Because \"we don't know how it works and the vendor won't tell us\" becomes a position to defend rather than a shield — making validation evidence a pre-signature ask",
+        "Because it establishes that employers own vendor training data",
+        "Because it delays enforcement until the case resolves"
+      ],
+      "correctIndex": 1,
+      "explanation": "The practical translation is leverage: ask before you sign. Afterwards you have none, and possibly an obligation to have asked."
+    },
+    {
+      "id": "q4",
+      "prompt": "200 candidates from Group A applied and 60 advanced; 150 from Group B applied and 27 advanced. What does the four-fifths rule say?",
+      "options": [
+        "0.90 — well within the threshold",
+        "0.60 — below the 0.80 threshold, flagging the stage for job-related justification and a conversation with counsel",
+        "0.45 — below the threshold, which constitutes proof of discrimination",
+        "The rule can't be applied without knowing the roles involved"
+      ],
+      "correctIndex": 1,
+      "explanation": "Rates are 30% and 18%; 18 ÷ 30 = 0.60. C gets the arithmetic wrong *and* overstates what the rule establishes — it is a trigger for scrutiny, not a finding of discrimination."
+    },
+    {
+      "id": "q5",
+      "prompt": "Which misreading of the four-fifths rule does the module call out as most common?",
+      "options": [
+        "Applying it to stages other than the final offer",
+        "Using it with small group sizes",
+        "Treating a passing ratio as a clean bill of health, when it's a low-bar screening heuristic rather than a validation",
+        "Computing it before an independent audit is complete"
+      ],
+      "correctIndex": 2,
+      "explanation": "A tool can clear four-fifths comfortably and still select on something indefensible. A is backwards — per-stage computation is what the module *recommends*, because a funnel can look balanced at the end while one early stage does all the excluding."
+    },
+    {
+      "id": "q6",
+      "prompt": "Which three questions separate a real bias audit from a compliance artifact?",
+      "options": [
+        "Who paid for it, when it was conducted, and whether it was published",
+        "Whether rates were computed per stage, what the group sizes were, and which stages were excluded",
+        "Which statistical software was used, the confidence intervals, and the auditor's credentials",
+        "Whether the vendor agrees with the findings, and what remediation followed"
+      ],
+      "correctIndex": 1,
+      "explanation": "These are answerable, and each one can hide a problem: end-of-funnel-only computation masks an excluding stage, small groups make ratios meaningless, and an excluded stage is usually the automated one. C sounds more rigorous and is harder to act on."
+    }
+  ]
+}

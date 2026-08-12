@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What did IBM do when the consolidated service platform saw no uptake? `[V]`",
+      "options": [
+        "Ran a change-management campaign and extended the transition period",
+        "Shut off the HR email address and phone line, and told around 21,000 managers their HR partners were no longer available for routine questions",
+        "Made self-service mandatory for a pilot population before scaling",
+        "Rebuilt the platform based on user feedback before relaunching"
+      ],
+      "correctIndex": 1,
+      "explanation": "Removing the alternative is the decision the case turns on, and it is the one most organizations will not take. A and D are the moves that feel responsible and leave the old channel intact, which is why uptake does not change."
+    },
+    {
+      "id": "q2",
+      "prompt": "What is the correct characterization of the −35 figure? `[V]`",
+      "options": [
+        "Employee Net Promoter Score for the company overall",
+        "An internal customer-satisfaction score for the HR service — not eNPS, which is how it is usually misquoted",
+        "The percentage decline in HR service usage during the transition",
+        "A composite index of satisfaction and resolution time"
+      ],
+      "correctIndex": 1,
+      "explanation": "The magnitude of the fall is real and the metric is a service score. The distinction matters for an audience that knows exactly what eNPS is and what −35 would mean on it."
+    },
+    {
+      "id": "q3",
+      "prompt": "What does the J-curve say about the trough?",
+      "options": [
+        "That it can be avoided with sufficient change management",
+        "That it indicates a design flaw that should be corrected before proceeding",
+        "That service genuinely does get worse, and that this is the shape of the transition rather than evidence of failure",
+        "That its depth is proportional to the size of the population affected"
+      ],
+      "correctIndex": 2,
+      "explanation": "The important word is *genuinely*. It is not a perception problem to be communicated away — people really cannot find things, and edge cases really do fall through, until habit forms."
+    },
+    {
+      "id": "q4",
+      "prompt": "What does the module identify as the binding constraint on a transformation like this?",
+      "options": [
+        "The quality of the self-service technology",
+        "The sponsor's tolerance for the trough",
+        "The change-management resource available",
+        "The size of the operating budget being targeted"
+      ],
+      "correctIndex": 1,
+      "explanation": "Almost every failure happens at the same place — month four, numbers at their worst, complaints escalated, somebody senior proposing a pause."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why is pausing at the bottom of a J-curve described as the worst available move?",
+      "options": [
+        "Because restarting requires a new business case",
+        "Because it guarantees the full cost of the disruption without any of the benefit, and teaches the organization that these initiatives get abandoned when they get hard",
+        "Because the technology investment is typically non-refundable",
+        "Because staff who were redeployed cannot be returned to their original roles"
+      ],
+      "correctIndex": 1,
+      "explanation": "The second half is the expensive part: it raises the cost of the next attempt by everyone, not just yours."
+    },
+    {
+      "id": "q6",
+      "prompt": "What is the sequencing rule, and why does the module say it is practical rather than moral?",
+      "options": [
+        "That transformations should begin with the smallest function; because risk is contained",
+        "That you have no standing to tell another function to redesign until you have done it to your own; because the question they will ask is what it actually costs, and only a practitioner can answer that",
+        "That HR must complete its own transformation before the technology is available elsewhere",
+        "That functions should transform in order of their exposure to automation"
+      ],
+      "correctIndex": 1,
+      "explanation": "And it is also the answer to Module 3: the scope fight is won by demonstrated competence, and this is the demonstration."
+    },
+    {
+      "id": "q7",
+      "prompt": "Why did IBM raise entry-level hiring while cutting the HR operating budget? `[V]`",
+      "options": [
+        "To offset the reputational effect of the service consolidation",
+        "Because automating the work junior people used to do while also cutting junior hiring dries the well — in three to five years there is no mid-level population, because the entry point was removed",
+        "Because regulatory requirements mandated minimum graduate intake",
+        "Because entry-level roles were cheaper than the automation licences"
+      ],
+      "correctIndex": 1,
+      "explanation": "It is the least-quoted part of the case and the one that reframes it: the question is not what you can cut but what the cut funds."
+    },
+    {
+      "id": "q8",
+      "prompt": "A learner's honest answer is that the saving would be banked rather than reinvested. How should that be treated?",
+      "options": [
+        "As a failure to apply the module, since reinvestment is required",
+        "As legitimate in some conditions, provided the write-up then addresses why the function should continue to be led by a CPO rather than run down",
+        "As acceptable only if paired with a commitment to reinvest in a later cycle",
+        "As evidence the cut was too large for the function to absorb"
+      ],
+      "correctIndex": 1,
+      "explanation": "Banking a saving is a real decision and sometimes the right one. What it is not is a proposal that requires a CPO — which is a conclusion the learner should reach deliberately rather than back into."
+    }
+  ]
+}

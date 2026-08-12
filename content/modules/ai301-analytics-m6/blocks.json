@@ -1,0 +1,128 @@
+[
+  {
+    "id": "ai301-analytics-m6-claim-to-contest-before-you-start-10",
+    "moduleId": "ai301-analytics-m6",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Claim to contest — before you start\n\n*The last one. Commit before you read anything.*\n\n> **\"Your team has been waiting to be given a mandate that nobody is going to give you.\"**\n\n**True of us, or not true of us?** And then the question that makes it real: **when did you last ask\nfor something and get told no?** If the answer is \"we haven't asked,\" the claim is true of you and\nthe module is about what to do next."
+  },
+  {
+    "id": "ai301-analytics-m6-module-brief-20",
+    "moduleId": "ai301-analytics-m6",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nFive modules of method. This one asks what you are going to do with it, and it starts from an\nuncomfortable observation about how this usually ends.\n\n**Adoption is where AI investments in HR die — not technology.** The tool works, the pilot goes well,\nthe business case is approved, and eighteen months later nobody uses it and nobody can say exactly\nwhen that happened. The same is true of analytics findings, which is the version that concerns you:\n**a correct analysis that nobody acts on has the same organizational footprint as no analysis at\nall.** You have probably produced several.\n\nSo the closing module is not *make your case.* It is **make it land** — which is a harder problem and\na different skill, and it is the one nobody in this profession was hired for.\n\nThen the honest part, which the rest of the course has been building toward. **Nobody hands you AI\nmeasurement or AI governance.** Module 4 identified unclaimed territory and Module 5 identified an\nobligation nobody else can discharge, and neither of those comes with an invitation. **A three-person\nteam reporting into HR Ops does not win a mandate by asking for one.** It wins it by producing one\nartifact somebody needed and could not get anywhere else — which is what Modules 4 and 5 just had you\nproduce."
+  },
+  {
+    "id": "ai301-analytics-m6-learning-objectives-30",
+    "moduleId": "ai301-analytics-m6",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. Say why adoption rather than technology is where these investments fail `[V]`.\n2. Describe product orientation and why this function was not selected for it.\n3. Explain trust as the residual at the top of the scarcity stack, and what erodes it.\n4. Hold a finding against a stakeholder who has run their own analysis and disagrees.\n5. Write a 90-day plan for one undeniable win, with a baseline and something you stop.\n6. Account for how far you moved across the whole track."
+  },
+  {
+    "id": "ai301-analytics-m6-lesson-1-adoption-is-the-failure-mode-40",
+    "moduleId": "ai301-analytics-m6",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 · Adoption is the failure mode [V]\n\nThe evidence from Module 4 has a second reading, and it is the one this module needs.\n\n**0.29% average firm-level productivity gain. 89% of firms reporting no impact at all.** The\nconventional interpretation is that the technology underdelivers. But hold it next to the RCT\nfinding — **gains exceeding 15% for the same tasks under trial conditions** — and a different reading\nbecomes available.\n\n**The capability is real and it is not reaching the organization.** Something between the demonstrated\ntask-level gain and the firm-level result is absorbing nearly all of it, and that something is not\ntechnical. It is workflow, incentive, habit, review burden, and the fact that a tool nobody was\ntrained on gets used the way the last tool was used.\n\n**That is an adoption problem, and adoption problems are diagnosable.** Which means the gap between\n15% and 0.29% is not an argument that AI does not work. **It is the largest available diagnostic\nopportunity in your organization**, and you are the function that diagnoses things.\n\nIt also applies to you, which is the uncomfortable turn. Every finding your team has published that\nchanged nothing failed at exactly this step. **You have been running an adoption problem for years\nwithout calling it one.**"
+  },
+  {
+    "id": "ai301-analytics-m6-lesson-2-product-orientation-50",
+    "moduleId": "ai301-analytics-m6",
+    "ordinal": 50,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 · Product orientation\n\nThe competency nobody in people analytics was hired for.\n\n**This function selected for being right.** The interview asks about methods. The credibility comes\nfrom rigour. The pride is in the analysis that survives scrutiny. All of that is correct and none of\nit is sufficient, because **shipping something people use is a different discipline from producing\nsomething that is correct**, and the two are only weakly related.\n\nThree things product orientation means here, stated concretely.\n\n**A finding is not a product.** A product has a user, a moment of use, and a decision it changes. A\nfinding has an author and a distribution list. When you present attrition drivers to a leadership team\nwith no decision attached, you have produced a document — and the reason it changed nothing is not\nthat they did not understand it.\n\n**A dashboard nobody opens is a correct artifact that failed.** This is worth sitting with, because\nthe instinct is to treat non-use as a user problem. It is a design problem, and the standard response —\ntraining, a comms push, a reminder in the monthly meeting — is what you do when you have decided the\nartifact is fine.\n\n**The unit of delivery is the decision, not the insight.** Recruiter R5's test — *name the decision\nthat changes* — arrives here as a product question rather than a measurement one. If you cannot name\nthe decision, the finding has no user, however true it is.\n\n**And the uncomfortable diagnostic:** go back through last year's outputs and ask, for each, *what\ndecision did this change, and who made it?* Most functions find the honest answer is \"none, and\nnobody\" for the majority of what they published — including the things they are proudest of. **That\nratio is the product problem, and it is not fixed by better analysis.**"
+  },
+  {
+    "id": "ai301-analytics-m6-try-60",
+    "moduleId": "ai301-analytics-m6",
+    "ordinal": 60,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### Try this — 3 minutes\nTake the analysis you are proudest of from the last year. Name the decision it changed and the\nperson who made it. If you can do both, that is the model for the 90-day plan."
+  },
+  {
+    "id": "ai301-analytics-m6-lesson-3-trust-is-the-residual-70",
+    "moduleId": "ai301-analytics-m6",
+    "ordinal": 70,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 · Trust is the residual\n\nModule 1 put trust at the top of the scarcity stack and said it is not a sixth layer — it is what\naccrues to a function that holds the other four. Here is what that means in practice, and why it is\nthe last thing to commoditize.\n\n**Trust is not the belief that your numbers are right.** Everyone assumes that, and it buys you less\nthan you think. **Trust is the belief that you will say something the room does not want to hear**,\nand that when you do not object, that silence is informative.\n\nThat is why the declining move from Module 4 matters so much. **A function that never declines has\ntold its organization that its findings mean nothing in particular** — because if you produce a\nsupportive number for every request, your supportive number carries no information. **The refusals are\nwhat make the assertions load-bearing.**\n\nThree things erode it faster than a wrong number:\n\n- **Producing what was wanted.** Once, visibly. It is remembered for years.\n- **Confidence that does not vary.** If every finding arrives with the same certainty, the audience\n  learns your confidence is a style rather than a signal.\n- **Silence about a limitation the audience later discovers.** The limitation was survivable; the\n  discovery is not.\n\nAnd the thing that builds it fastest is the least comfortable: **being right about something\nunwelcome, early, in writing.** Which requires having written it down before you knew you were right,\nand is the reason Module 2's invariants file and Module 4's failure condition are both dated\nartifacts."
+  },
+  {
+    "id": "ai301-analytics-m6-lesson-4-the-stakeholder-who-ran-their-o-80",
+    "moduleId": "ai301-analytics-m6",
+    "ordinal": 80,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 · The stakeholder who ran their own numbers\n\nThe specific encounter this course has been preparing you for, and it is now routine.\n\nAn executive arrives having asked a model the same question you were asked. They have an answer. It\nis **more confident than yours**, because it has no alternatives list, no stated limitation, and no\nhalt condition — Module 2's whole apparatus is missing, and its absence reads as clarity.\n\n**What does not work:** more rigour, a longer methods appendix, or a defence of your credentials.\nNobody in the room can adjudicate a methods dispute, so it resolves on confidence, and you have\ndeliberately spent yours on caveats.\n\n**What works is three moves, in order.**\n\n**Say where your number comes from, in one sentence.** Not the method — the *decision*. \"Ours counts\ninternal transfers as attrition, theirs almost certainly doesn't, and that is most of the gap.\" This\nis Module 3 paying off: if the definitions are written, you can locate a disagreement instead of\nhaving one.\n\n**Name the confound in theirs, specifically.** Not \"there are limitations,\" which sounds defensive and\ngeneric. *\"That comparison is between people who volunteered for the programme and people who\ndidn't.\"* One sentence, one mechanism, checkable. You can find it quickly because Module 2 gave you\nthe list — and because you can ask a model to enumerate alternatives faster than they can defend\nagainst one.\n\n**Then offer the resolution, not the rebuttal.** *\"Here is what would settle it, and it would take two\nweeks.\"* This converts a status contest into a question, which is the only frame where being right\nhelps you. It is also Module 4's design work arriving where it does the most good.\n\n**And the case you must prepare for: they are right and you are wrong.** It happens. **Conceding\nimmediately, specifically, and in front of the same audience is the single highest-return move\navailable to you** — it is the strongest possible evidence that your objections are about the evidence\nrather than about your position, which is the whole basis of Lesson 3."
+  },
+  {
+    "id": "ai301-analytics-m6-lesson-5-the-bet-and-what-you-stop-90",
+    "moduleId": "ai301-analytics-m6",
+    "ordinal": 90,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 5 · The bet, and what you stop\n\nThe close, and it takes the shape every track in this curriculum ends on, with one term added that is\nspecific to this role.\n\n**Which layer.** From Module 1's stack — definitional authority, methodological judgment, evaluative\ndesign, or accountable standing. One. The honest choice is usually the highest layer whose\nprerequisite you already have, and for most functions that is not the most exciting one.\n\n**One undeniable win.** Not a programme — a single artifact somebody needed and could not get\nanywhere else. **Undeniable means it is obviously good and obviously yours**, and the test is whether\nits absence would have been noticed. Modules 4 and 5 both produced candidates: a measurement design\nfor a deployment nobody was evaluating, an inventory nobody else could assemble.\n\n**A baseline and a 90-day measure.** Taken this week, reportable either way. Module 4's standard\napplies to your own bet exactly as it applies to everyone else's — **if no result would make you call\nit a failure, you have written a justification.**\n\n**And this role's fourth term: which recurring report you stop publishing.**\n\nThat last one is not a rhetorical flourish. **Description is where the hours are and the least\ndefended thing in the portfolio**, and Module 1 asked you to name the capability you would lose least\nby giving up. This is where that answer becomes a decision.\n\nSay the practical part, because \"stop the report\" is easy to write and hard to do. Somebody receives\nit. They may not read it, but they will notice it stopping, and the safest version is a stated pause\nwith a named date to review — *we are pausing this for a quarter; tell me if you miss it.* **Nearly\nnobody does.** The information from that experiment is worth more than the report was.\n\n**And a closing warning about the whole track.** You now have halt conditions, alternatives lists,\ndisclosure thresholds and a decline script. **Every one of them is a way to say no, and a function\nthat arrives with five new ways to say no and no new thing to offer has made itself easier to route\naround.** The methods in Modules 2, 3 and 5 are only defensible in an organization where Module 4's\nterritory has been claimed. **Do the offering first.**"
+  },
+  {
+    "id": "ai301-analytics-m6-exercise-embed-95",
+    "moduleId": "ai301-analytics-m6",
+    "ordinal": 95,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"choice\"}"
+  },
+  {
+    "id": "ai301-analytics-m6-key-takeaways-100",
+    "moduleId": "ai301-analytics-m6",
+    "ordinal": 100,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **Adoption is where these investments die, not technology** `[V]` — and the gap between 15% in\n  trials and 0.29% at firm level is **the largest available diagnostic opportunity in your\n  organization**, not evidence that AI fails. **You have been running an adoption problem for years\n  without calling it one.**\n- **Product orientation is the competency this function was not hired for.** A finding is not a\n  product; a dashboard nobody opens is a correct artifact that failed; **the unit of delivery is the\n  decision, not the insight.**\n- **Ask of last year's outputs: what decision did this change, and who made it?** The ratio is the\n  product problem, and better analysis does not fix it.\n- **Trust is not the belief that your numbers are right** — everyone assumes that. **It is the belief\n  that you will say something the room does not want to hear**, which is why the refusals are what\n  make the assertions load-bearing.\n- **Three things erode it faster than a wrong number:** producing what was wanted, confidence that\n  never varies, and silence about a limitation the audience later discovers.\n- **Against the executive who ran their own numbers:** locate the definitional difference, name one\n  confound specifically, offer the resolution rather than the rebuttal. **And when they are right,\n  concede immediately and in front of the same audience** — the highest-return move available.\n- **The bet has four terms here:** one layer, one undeniable win, a 90-day measure you would report\n  either way, and **which recurring report you stop.**\n- **A function that arrives with five new ways to say no and nothing new to offer has made itself\n  easier to route around.** Claim the territory first."
+  },
+  {
+    "id": "ai301-analytics-m6-activity-link-105",
+    "moduleId": "ai301-analytics-m6",
+    "ordinal": 105,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"activity_link\", \"title\": \"Applied activity \\u2014 The 90-day plan (course close)\", \"blurb\": \"One page: which layer, one undeniable win with a named recipient, a baseline you can take this week, the result that would make you call it a failure, and what recurring report comes off to fund it. Then the reckoning \\u2014 every claim you contested since Module 1, what moved, and where you now disagree with this course.\", \"estMinutes\": \"35\"}"
+  },
+  {
+    "id": "ai301-analytics-m6-take-a-position-110",
+    "moduleId": "ai301-analytics-m6",
+    "ordinal": 110,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"Nobody hands you AI measurement or AI governance. A three-person team reporting into\nHR Ops does not win a mandate by asking.\"*\n\nThe strongest counter-argument is that **this is advice to work around your own organization, and it\ntends to produce exactly one good quarter.** Claiming territory by producing an unrequested artifact\nis a real tactic and it is also, seen from above, a function that decided its own priorities and spent\nbudget on them without asking. It works once, when the artifact is undeniable and the timing is\nlucky. It does not build a mandate, because **a mandate is a durable allocation of authority and those\nare granted, not taken** — and the version taken by initiative can be revoked the moment a sponsor\nchanges. On that view the module has mistaken a tactic for a strategy, and the real work is the\nunglamorous thing it skips: finding the executive whose problem this is, making it their idea, and\naccepting a slower path to a claim that survives you. Your position has to say what happens to the\nundeniable win when its sponsor leaves."
+  },
+  {
+    "id": "ai301-analytics-m6-sources-and-attribution-120",
+    "moduleId": "ai301-analytics-m6",
+    "ordinal": 120,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- **Adoption as the failure mode, product orientation, trust as the residual asset, and the\n  nobody-hands-you-a-mandate close** come from a human-authored brief for this track.\n- **The productivity evidence `[V]`** is carried in full by Module 4 — the 5,000+ executive survey\n  (0.29% realized, 89% reporting no impact), the METR developer trial, and Humlum & Vestergaard's\n  Danish nulls against 15%+ RCT gains. Cited here for its second reading, not re-derived.\n- The three-move response to a disagreeing stakeholder, the trust-erosion list, and the\n  stop-a-report term are original to this course.\n- Builds on every prior module: Module 1 (the stack, and the capability you'd give up), Module 2 (the\n  alternatives list, and that an evaluation must be able to fail), Module 3 (written definitions,\n  which are what let you locate a disagreement rather than have one), Module 4 (the declining move,\n  and the measurement design as a candidate win), Module 5 (the inventory as the other candidate).\n  Also recruiter R5's *name the decision that changes*, arriving here as a product question.\n- The delta reckoning — open on a contested claim, close by measuring whether the learner moved and\n  whether they can account for it — is the assessment philosophy shared across all AI 301 tracks."
+  }
+]

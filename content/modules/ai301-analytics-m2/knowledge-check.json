@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "How does this module's rule differ from the construction rule it assumes?",
+      "options": [
+        "It applies to causal analysis rather than to descriptive analysis",
+        "Construction governs whether the table is right; this governs the leap from a right table to a claim — and a perfectly built table licenses nothing on its own",
+        "It requires documentation rather than verification",
+        "It applies to models rather than to queries"
+      ],
+      "correctIndex": 1,
+      "explanation": "They also fail differently, which is why both exist: a construction failure produces a wrong number and gets caught eventually. **An inference failure produces a right number under a wrong claim, and there is no procedure that catches it.**"
+    },
+    {
+      "id": "q2",
+      "prompt": "In the deployed causal-inference workflow, what is reserved for humans? `[V]`",
+      "options": [
+        "Final approval of the effect estimate before publication",
+        "Covariate balance checking and sensitivity analysis, since these require judgment",
+        "Framing the question, scrutinising assumptions, and evaluating diagnostics — while the laborious mechanical middle is automated",
+        "Selecting which statistical method to apply"
+      ],
+      "correctIndex": 2,
+      "explanation": "They automated the typing and left humans the part where being wrong is expensive. Note the output shape too: it returns a **credibility level**, not just an answer."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why does the module insist halt conditions carry a threshold rather than a caution?",
+      "options": [
+        "Because thresholds are easier to audit",
+        "Because a caution is something you override under deadline, and a threshold is something you have to argue with",
+        "Because cautions cannot be encoded in code",
+        "Because regulators require documented thresholds"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which is also why encoded constraints beat instructed ones — the templated notebook makes the check happen rather than asking for it."
+    },
+    {
+      "id": "q4",
+      "prompt": "Which failure mode does the module call the most common and the least technical?",
+      "options": [
+        "Small n",
+        "Positivity violations",
+        "Contested estimands — the question has no single answer because it has no single meaning, and nobody wrote down what would count as one",
+        "Post-treatment covariates"
+      ],
+      "correctIndex": 2,
+      "explanation": "On whom, compared to what, over what horizon, for those who took it or those offered it. If the estimand is not agreed before the analysis runs, the analysis does not run."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why is regression to the mean singled out among the HR confounders?",
+      "options": [
+        "Because it is the hardest to detect statistically",
+        "Because it explains more \"our intervention worked\" findings in People than any other mechanism — you select the worst-scoring teams and then measure improvement, and selection on an extreme guarantees movement toward the middle with no intervention",
+        "Because it only affects longitudinal analyses",
+        "Because it invalidates difference-in-differences designs"
+      ],
+      "correctIndex": 1,
+      "explanation": "And the more extreme your targeting criterion, the larger the improvement you observe from nothing. Almost every targeted programme evaluation is exposed; almost none mention it."
+    },
+    {
+      "id": "q6",
+      "prompt": "A flight-risk model reports 78% accuracy in a population with 12% annual attrition. What does that establish? `[V]`",
+      "options": [
+        "That the model correctly identifies roughly four out of five leavers",
+        "Very little — predicting \"nobody leaves\" would score 88%, so accuracy against a low base rate is not evidence, and the questions that matter are the flag rates and what a manager does after three false positives",
+        "That the model is well calibrated but poorly discriminating",
+        "That the model would perform better with more features"
+      ],
+      "correctIndex": 1,
+      "explanation": "Aggregate accuracy is not the property the intervention runs on, because the intervention lands on named people."
+    },
+    {
+      "id": "q7",
+      "prompt": "What do the headline accuracies in the attrition-prediction literature actually measure? `[V]`",
+      "options": [
+        "Deployed model performance across multiple client organizations",
+        "Cross-validated performance on anonymized real employee records",
+        "Performance largely on the IBM HR Analytics dataset — 1,470 explicitly fictional employee records created by IBM data scientists",
+        "Performance on simulated data calibrated to industry attrition rates"
+      ],
+      "correctIndex": 2,
+      "explanation": "A 98.8%-accurate model, on invented people, cited as evidence that flight-risk scoring works. Nobody is being dishonest — the papers state their data — but the number travels without it."
+    },
+    {
+      "id": "q8",
+      "prompt": "What is the intervention paradox?",
+      "options": [
+        "That interventions to retain flagged employees usually fail",
+        "That acting on a prediction destroys the ability to evaluate it, while preserving the evaluation means withholding something from a named person — so every honest design is a compromise",
+        "That models become less accurate as more managers see their outputs",
+        "That retention interventions are more expensive than the attrition they prevent"
+      ],
+      "correctIndex": 1,
+      "explanation": "It is why the deployment literature is thin — that is structural, not laziness. **Naming which compromise you chose is the professional act.** C is real (Lesson 5's last point) and is a different problem."
+    }
+  ]
+}

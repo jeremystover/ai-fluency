@@ -225,12 +225,9 @@ measure how far the learner moved and whether they can account for it.
    instead of occupying its own.
 6. **The refusal is stated in the content, not just the outline.** The course opens by saying what
    it will not teach. That's a credibility move for this audience and it's true.
-7. **Verification debt is total for this track.** Nothing here is verified yet. Blocking before
-   drafting: the adoption statistics (20%/72%, 39%/54%, 88%); the negotiation survey (85%/63%);
-   the 98,800-prompt audit; the ~1% operating-policy figure; ERISA and fiduciary specifics; US
-   state transparency regimes and the EU Pay Transparency Directive's duties and timing. The
-   HRBP and recruiter tracks each had their anchors confirmed before drafting; this one starts
-   from zero.
+7. **Verification: done, and it changed two modules.** See the verification record below.
+   Outstanding and still blocking: ERISA fiduciary specifics, US state pay-transparency regimes,
+   and whatever pay-equity-product claims we end up citing.
 
 ## Open question: the time budget
 
@@ -295,3 +292,110 @@ we write down must protect the middle of each course from it.
   standing rule that **depth modules are discovered from the role and never derived from the
   convention** — that rule is what produced the craft layer, intake, and the closed loop, and a
   template would have prevented all three.
+
+---
+
+# Verification record
+
+Run before drafting, per the track's own standard. Four claims verified as stated, one failed
+outright, and two came back richer than the outline had them.
+
+## Verified as stated
+
+| Claim | Source | Notes for drafting |
+|---|---|---|
+| **20% of employers currently operationalizing AI in benefits; 72% plan to within two years** | WTW, *2026 AI Use in Health and Benefits Survey* — 312 employers, 4.6M US employees, fielded Jan–Feb 2026 | Also usable: planned investment concentrates in communication (68%), data analytics (59%), personalized support (57%). Note the scope is **health and benefits**, not total rewards — do not widen it. |
+| **85% used ChatGPT for salary negotiation; 63% said it produced a stronger offer** | Survey of 899 professionals for Eastern Washington University — 488 hiring managers, 411 workers | **Critical qualifier:** the 411 workers had *already used AI* for negotiation prep. So it's 85% *of AI-using candidates*, not of all candidates. State this in-lesson — a module teaching sample-reading must read its own. Also available: 78% feel more confident negotiating with AI prep; 55% secured higher base pay. |
+| **88% of HR leaders report no significant business value from AI tools** | Gartner | Already used in the HRBP track. |
+| **Mobley agent theory, EU Annex III deferral, emotion-recognition prohibition** | Verified for HRBP M6 and recruiter R6 | Reusable verbatim. |
+
+## Failed — do not use
+
+**"Roughly 1% of organizations have a written AI operating policy."** This does not hold, and the
+real data contradicts it: **68% of employers now have a formal AI policy** (Littler, May 2026
+Annual Employer Survey), roughly double the 38% a year earlier; among AI-adopting organizations,
+47% have policies regulating workforce use, ranging from 56% at large organizations to 36% at
+small ones.
+
+**The better finding underneath it, which reframes M4's activity:** of organizations that *have*
+a policy, only about a quarter believe it is clear and future-proof, and 44% of US workers say
+their employer has no clear AI policy or they don't know whether one exists. So the gap is not
+existence — it is **clarity and function-specificity**. M4's activity should not promise the
+learner they'll be among the 1% with a policy. It should promise something truer and more useful:
+most organizations have a policy, most of them are neither clear nor written for comp work, and
+theirs will name actual red lines for pay equity, fiduciary decisions, and proxy inputs.
+
+## Came back richer than the outline
+
+**The negotiation-advice audit (M5).** Geiger et al., *PLOS ONE*, February 2025 — 98,800 prompts
+submitted to **each of four ChatGPT versions**, systematically varying gender, university, and
+major, and testing prompts voiced as **the employee versus the employer**. Findings: statistically
+significant salary differences by gender in all four models (smaller than other attributes); the
+**largest gaps were between model versions and between employee- and employer-voiced prompts**;
+substantial gaps by university and major, inconsistent across versions; and **wildly inconsistent
+results for fictional and fraudulent universities** — the model confidently prices institutions
+that do not exist.
+
+Two consequences the outline missed. The employee/employer voicing gap means **the same model
+gives the two sides of your negotiation different numbers**, which is a sharper framing than
+"candidates arrive briefed." And the gender and university effects mean this is not only a story
+about your counterparty — **a comp team using the same tool for pay decisions would be
+introducing exactly the disparate impact M4 is about.** That second angle belongs in the module.
+
+**The EU Pay Transparency Directive (M4).** The 7 June 2026 transposition deadline **has passed**,
+and only 4 of 27 member states met it (Slovakia, Italy, Lithuania, Malta); Germany, France, the
+Netherlands and Spain openly missed it. Employers with 100+ workers must publish median gender pay
+gap, the gap in variable components, and the proportion of each gender per quartile pay band
+(smaller employers report every three years). Where a mean gap **exceeds 5%** in any category of
+workers and cannot be justified on objective, gender-neutral criteria, **Article 10 requires a
+joint pay assessment** — seven criteria, conducted *in cooperation with worker representatives*,
+published to workers and available to equality bodies and labour inspectorates.
+
+**The finding worth building a lesson around:** the joint pay assessment **cannot be conducted
+confidentially**. That collides directly with the US privilege strategy in M4 Lesson 4 — where the
+sophisticated posture is to run pay equity analysis under counsel to protect it from discovery. A
+comp leader with operations on both sides has to hold two opposite postures at once: privileged
+and protected in the US, mandatory and published in the EU. Neither outline had this, and it is
+the most role-specific legal content available to this track.
+
+## Verified before drafting M4 (second pass)
+
+**US state pay transparency `[V]`.** 18 states plus Washington DC have pay transparency laws as of
+2026, with penalties running from $100 to $250,000 per violation depending on jurisdiction. The
+regimes are not uniform: some require a range in every posting (California, Colorado, New York),
+others only on request or after an interview. Most require a **good-faith estimate** of what the
+employer actually expects to pay. Remote postings are generally subject to the law of any state
+where the work could be performed, so multi-state employers effectively comply with the strictest
+applicable rule.
+
+**ERISA and AI `[V]`.** No AI-specific ERISA rule exists; the ordinary duties do the work —
+prudence, loyalty, monitoring, documentation, and the exclusive benefit rule. The practitioner
+consensus is that AI must sit in a **decision-support role with final authority in human hands**,
+and that adverse benefit determinations require human involvement. Courts examine *how*
+fiduciaries reached a decision, not only what they decided, which makes the process record the
+asset. Note for accuracy: **DOL EBSA Technical Release 2026-01 (April 1, 2026) is about proxy
+advisory services, not AI** — do not cite it as AI guidance. It is relevant to M5's institutional
+investor lesson instead.
+
+**Privilege and AI — two decisions, one week, opposite results `[V]`.** This is the strongest new
+material for M4 and neither outline had it.
+
+- ***United States v. Heppner*** (S.D.N.Y., Judge Rakoff; ordered orally Feb 10, 2026, written
+  opinion Feb 17, 2026). A criminal defendant, who had retained counsel but acted **independently
+  and not at counsel's direction**, put information learned from his lawyers into a public
+  conversational AI platform. Held: neither attorney-client privilege nor work product protection
+  applied. Three independent grounds — the platform is not a lawyer, so there was no
+  attorney-client communication; the platform's terms defeated any reasonable expectation of
+  confidentiality; and the purpose was not to obtain legal advice from an entity that disclaims
+  giving it. Question of first impression nationwide.
+- ***Warner v. Gilbarco, Inc.*** (Judge Patti, Feb 10, 2026). A pro se plaintiff's use of
+  generative AI in litigation **did not** waive work product protection. AI programs are "tools,
+  not persons," disclosure to a tool is not disclosure to an adversary, and holding otherwise
+  "would nullify work-product protection in nearly every modern drafting environment."
+
+The synthesis for the module: the two cases are reconcilable — Heppner turns on *consumer terms
+plus absence of counsel's direction*, Gilbarco on *a tool used as a drafting instrument*. The
+practical rule that follows is **enterprise deployment plus documented direction of counsel**, and
+the honest statement is that this floor is unsettled and moving. Courts have **not** yet ruled on
+the case where counsel expressly directs a client to use an AI tool, which is precisely the pay
+equity posture this track teaches.

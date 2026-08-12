@@ -1,0 +1,31 @@
+{
+  "reviewedAt": "2026-08-12",
+  "title": "Four claims",
+  "intro": "*Five minutes. Commit before you look.*\n\nFour CPOs make their move in the same executive conversation about who owns AI. All four are articulate and all four believe what they are saying.\n\n**One of them would actually get what they asked for.** Find it.",
+  "artifacts": [
+    {
+      "label": "Claim A",
+      "body": "\"AI is fundamentally a people question. Every one of these systems changes how someone works, and we're the function accountable for that. HR should own the AI governance agenda — the policy, the standards, and the review process — and I'd propose we stand up a working group with me chairing it.\""
+    },
+    {
+      "label": "Claim B",
+      "body": "\"I'm not claiming the AI agenda. Dave's team is better placed on selection and infrastructure and I'd rather he ran it. What I need is one thing: no system that affects a person's work, pay, evaluation or access goes live without our sign-off. In exchange I'm putting my next two quarters into the manager capability problem, which is the actual constraint on any of this landing.\""
+    },
+    {
+      "label": "Claim C",
+      "body": "\"Agents have owners, budgets, access rights and performance standards. That's workforce management, and it's ours — we should own the agent registry and the lifecycle the same way we own the org chart. I'd want the headcount and budget to run it properly.\""
+    },
+    {
+      "label": "Claim D",
+      "body": "\"We restructured our own service delivery last year — 40% out of the operating budget, and I can show you the framework we used for what got automated and where we drew the line on decisions about people. That framework is what this company needs before the next six pilots go live. I'm not asking to own AI. I'm asking that no system touching an employment decision deploys without that review, and I'll run it.\""
+    }
+  ],
+  "options": [
+    "Claim A",
+    "Claim B",
+    "Claim C",
+    "Claim D"
+  ],
+  "key": 3,
+  "reasoning": "**D gets what it asks for, and the reason is the first sentence rather than the last.** It arrives with a worked example — a restructure that happened, a number attached, and a framework that already exists. That converts the ask from a claim about authority into a demonstration nobody else in the room can match. Then it does the narrow thing: not ownership of AI, a **named decision right** over systems touching employment decisions, with an offer to do the work. It is refusable only by someone willing to say the review is unnecessary, which is a hard position to hold out loud.\n\n**B is the second-best answer and it is genuinely good**, which is why it is the hard distractor. It is a proper decline: what it is not claiming, what it requires anyway — the same decision right D asks for — and what it does instead with the attention. Serious CPOs land here and should not feel they have lost. What separates D is only that D supplies a reason to be believed; B asks for the same floor on the strength of the request alone.\n\n**A loses, and it loses in the room rather than later.** \"AI is fundamentally a people question\" is true, unfalsifiable, and available to every executive about their own function. \"HR should own the governance agenda\" is a claim about authority in a room where five other people have one, so it resolves to who the CEO likes best. And the working group with the proposer chairing it is what a bid for territory looks like from the outside, whatever was intended.\n\n**C makes the right argument and asks for the wrong prize.** The digital-labour reasoning is sound — the list of disciplines is real and no other executive has an equivalent. But it converts that into a request for the *registry and the lifecycle*, with headcount to run it. That is the module's own warning arriving as a card: this CPO may win, and what they will have won is operating-system overhead at exactly the moment their attention should be moving out of it. In three years they run the agent registry, which is an administrative burden with a strategic name.\n\nThe transferable test: **does the claim start with \"HR owns…\" or with \"No system may…\"?** The first requires you to win on authority. The second requires someone to argue that a review is unnecessary."
+}

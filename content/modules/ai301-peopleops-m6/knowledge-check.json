@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "\"The assistant only retrieves what the asking user can already see.\" How should you read that? `[V]`",
+      "options": [
+        "As a vendor claim that should be independently verified before deployment",
+        "As true and reassuring — it means the assistant introduces no new exposure",
+        "As true and as the entire problem, because it means the assistant inherits your existing access model including every mistake in it",
+        "As false — assistants index content beyond individual user permissions"
+      ],
+      "correctIndex": 2,
+      "explanation": "Both halves have to be held at once. No new access is created; every over-share you already had becomes one prompt away, because the effort that was hiding it does not survive."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why is \"this is a permissions problem, not an AI problem\" an inadequate response?",
+      "options": [
+        "Because it is factually incorrect",
+        "Because it is true and settles nothing — the permissions problem was survivable at the old discovery cost and is not survivable at the new one",
+        "Because permissions and AI risk cannot be separated technically",
+        "Because it shifts responsibility to IT, who will refuse it"
+      ],
+      "correctIndex": 1,
+      "explanation": "\"AI didn't cause this\" is true and is not a defence. Removing the friction that made a latent problem tolerable is a change in kind, even though nothing in the access model moved."
+    },
+    {
+      "id": "q3",
+      "prompt": "What makes HR's corpus a worse case than other functions'?",
+      "options": [
+        "HR documents are more numerous than other functions' documents",
+        "The ratio of restricted to routine content is higher than anywhere else — and the subjects of the documents are employees who hold assistant licences",
+        "HR documents are less likely to be correctly labelled",
+        "HR systems have weaker access controls than finance systems"
+      ],
+      "correctIndex": 1,
+      "explanation": "Finance holds sensitive aggregates; HR holds sensitive individuals, and those individuals are inside your tenant asking in good faith about their own situation. Which is why generic rollout guidance, sized for a mostly-routine corpus, under-serves you invisibly."
+    },
+    {
+      "id": "q4",
+      "prompt": "What does it mean that summarization \"launders provenance\"?",
+      "options": [
+        "That the assistant removes metadata from documents it processes",
+        "That the answer contains a document's substance with no filename, no permission prompt, no access event, and no audit entry — because the user read an answer rather than a document",
+        "That summaries are harder to classify than source documents",
+        "That the assistant cannot cite its sources reliably"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which breaks the assumption every permission model rests on: that finding something is work, and that the last step of finding it leaves a record."
+    },
+    {
+      "id": "q5",
+      "prompt": "Which consequence of provenance laundering does the module say causes the most trouble?",
+      "options": [
+        "That leak investigations will find no file access",
+        "That the user is not culpable, so there is no deterrent",
+        "That aggregation across partially-reachable sources produces facts no single document contained, which are therefore in nobody's index of sensitive material",
+        "That audit logs cannot be reconciled"
+      ],
+      "correctIndex": 2,
+      "explanation": "Three partially-reachable sources can yield who is being managed out. Nobody over-shared that; the assistant assembled it, and it did not exist until it was asked for. A and B are real and listed below it."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why does the module recommend exclusion before sensitivity labelling?",
+      "options": [
+        "Because labelling requires licences that exclusion does not",
+        "Because labelling only protects you to the extent it is correct, and yours is not yet — while the most reliable protection for a document is not being in the index",
+        "Because labels can be removed by document owners",
+        "Because exclusion is required for regulatory compliance"
+      ],
+      "correctIndex": 1,
+      "explanation": "Labelling at the source is the better long-term control and the wrong first move. The principle mirrors the Comp & Benefits track's rule that the most reliable protection for a data element is its absence."
+    },
+    {
+      "id": "q7",
+      "prompt": "Why is testing the assistant as yourself the discipline's most common error? `[V]`",
+      "options": [
+        "Because administrators receive different model behaviour than standard users",
+        "Because you are an administrator who can see everything, so every result you get is reassuring and means nothing — the vendor's own guidance is to validate exposure per persona",
+        "Because admin accounts are excluded from audit logging",
+        "Because your queries are cached differently"
+      ],
+      "correctIndex": 1,
+      "explanation": "The fix is concrete: obtain a test account with the permissions of a mid-level individual contributor with no HR role, and ask it the ten questions you would least like answered."
+    },
+    {
+      "id": "q8",
+      "prompt": "For a practitioner who does not administer the assistant tenant, what does the module recommend?",
+      "options": [
+        "Escalating the risk in writing and treating it as another function's problem",
+        "Requesting administrative access so the work can be done properly",
+        "Authoring the exclusion list — the artifact only this role can write, since nobody in IT knows which site holds redundancy selections — and bringing the list rather than the concern",
+        "Delaying any assistant deployment until permissions are remediated"
+      ],
+      "correctIndex": 2,
+      "explanation": "A concern gets acknowledged and filed; a list of named sites with a sentence each converts your problem into their ten-minute configuration task. A is the position the module's counter-argument defends, and the write-up has to engage it."
+    }
+  ]
+}

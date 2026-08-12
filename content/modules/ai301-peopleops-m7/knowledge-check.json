@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What makes a \"recommend\" tier real rather than nominal?",
+      "options": [
+        "That a human signs off on every recommendation",
+        "That declining a recommendation is normal — if reviewers accept 99% of them, it is an automated decision with a signature step",
+        "That the recommendation includes a confidence score",
+        "That the recommendation is logged before the decision is made"
+      ],
+      "correctIndex": 1,
+      "explanation": "A signature step is not a gate. The test is whether refusal actually happens, which is the same test Module 3 applies to the human gate in its eight questions."
+    },
+    {
+      "id": "q2",
+      "prompt": "What is the axis that sorts decisions into the three tiers?",
+      "options": [
+        "The stakes attached to the decision",
+        "How difficult the decision is",
+        "Whether the decision requires judgment whose absence nobody would notice",
+        "How many people the decision affects"
+      ],
+      "correctIndex": 2,
+      "explanation": "High-stakes and difficult decisions attract supervision precisely because they are frightening. The danger concentrates where a fluent, wrong output gets filed without comment — Module 1's detection-latency argument arriving as an ethical criterion."
+    },
+    {
+      "id": "q3",
+      "prompt": "Which Article 26 duty is a configuration setting you can check today? `[V]`",
+      "options": [
+        "Managing input data for representativeness",
+        "Following the provider's instructions for use",
+        "Keeping logs for at least six months — a retention period somebody sets, where the common default of 30 or 90 days is probably already wrong",
+        "Notifying authorities of serious incidents"
+      ],
+      "correctIndex": 2,
+      "explanation": "The module calls it the single most actionable sentence in it, because the fix takes minutes and the default is usually non-compliant for high-risk uses."
+    },
+    {
+      "id": "q4",
+      "prompt": "What does \"these obligations cannot be contracted away\" mean for procurement? `[V]`",
+      "options": [
+        "That vendor contracts cannot include indemnities for AI failures",
+        "That an indemnity allocates who bears the cost of a failure but does not move the duty — so indemnity is not compliance",
+        "That deployers must renegotiate all existing AI contracts",
+        "That the provider and deployer share obligations equally"
+      ],
+      "correctIndex": 1,
+      "explanation": "You can negotiate who pays. You cannot negotiate away the requirement to have assigned competent human oversight."
+    },
+    {
+      "id": "q5",
+      "prompt": "What is the timing trap? `[V]`",
+      "options": [
+        "That the entire EU AI Act was deferred to December 2027",
+        "That Annex III employment obligations moved to 2 December 2027 while Article 50's transparency duties were not deferred and became enforceable on 2 August 2026 — catching any organization that runs a chatbot, even one with no high-risk AI",
+        "That Article 50 was deferred while high-risk obligations took effect on schedule",
+        "That the deferral applies only to organizations headquartered in the EU"
+      ],
+      "correctIndex": 1,
+      "explanation": "Regulation (EU) 2026/1744 entered into force 27 July 2026 and moved the high-risk date. Article 50 was left out of the deferral. Expect colleagues to be wrong in both directions, and check against a primary source."
+    },
+    {
+      "id": "q6",
+      "prompt": "How should the May 2026 privilege ruling in *Mobley* be stated? `[V]`",
+      "options": [
+        "As establishing that AI bias-testing data is privileged",
+        "As a denial of a motion to compel on these facts, where privilege applied because the vendor's attorneys curated the analysis and used its results in providing legal advice — so the structure determines the protection",
+        "As holding that bias testing is discoverable in all circumstances",
+        "As unrelated to employers, since it concerned a vendor's own data"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which produces the actionable version: involve counsel *before* you run testing, not after somebody asks for it. The same analysis run as an HR operational exercise may have entirely different discovery consequences."
+    },
+    {
+      "id": "q7",
+      "prompt": "When does German co-determination require works-council involvement in an AI deployment? `[V]`",
+      "options": [
+        "At launch, as a notification",
+        "At the planning stage, under §90 — with §80(3) presuming an employer-funded external expert, and §95 reaching AI-established selection criteria",
+        "Only where the system makes automated decisions without human review",
+        "Only in organizations above a headcount threshold"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which makes consultation a dependency with a lead time on the project plan rather than a message sent at go-live. Note the boundary: a labour court held that merely permitting a browser-based AI tool did not trigger co-determination — the question is what the system does inside your estate."
+    },
+    {
+      "id": "q8",
+      "prompt": "Which of the four rules colliding on your AI logs overrides the others?",
+      "options": [
+        "Your organization's retention schedule, since it is the organization's own policy",
+        "Article 26's six-month minimum",
+        "A legal hold, which requires preservation from the moment litigation is reasonably anticipated — and which cannot reach a system nobody told legal about",
+        "The vendor's default configuration"
+      ],
+      "correctIndex": 2,
+      "explanation": "Which is why the module says telling your legal team the system exists and generates records is frequently the most valuable sentence in the exercise. The medical-information complication sits on top of all four."
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is the test the module gives for whether your effective dating actually works?",
+      "options": [
+        "Whether every record has a start date populated",
+        "Whether the system can answer who this person's manager was on a specific date last year — not just who it is now",
+        "Whether historical records are archived rather than deleted",
+        "Whether date fields are validated on entry"
+      ],
+      "correctIndex": 1,
+      "explanation": "Most systems answer the present-tense question instantly and cannot answer the historical one, or answer it wrongly because a correction was applied without a date. Every trend and cohort analysis depends on the second answer."
+    },
+    {
+      "id": "q2",
+      "prompt": "What does \"a field being populated is not a field being true\" mean for data-quality metrics?",
+      "options": [
+        "That completeness statistics should be weighted by field importance",
+        "That every metric you have been shown measures completeness — which is easy to measure and easy to fake with a default value — while nobody measures truth",
+        "That populated fields should be audited annually",
+        "That required fields produce better data than optional ones"
+      ],
+      "correctIndex": 1,
+      "explanation": "And it is the reason the number in Lesson 2 does not exist. You can populate a field in an afternoon; you cannot make it true in an afternoon."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why does this module have no anchor statistic? `[V]`",
+      "options": [
+        "Because HR data quality varies too much between organizations to benchmark",
+        "Because the relevant figures are held privately by HCM vendors",
+        "Because no credible measurement exists — the available figures trace to vendor blogs citing each other, an undisclosed-sample vendor survey, consultancy claims with no methodology, and an unattributed anecdote",
+        "Because the module is argued from craft rather than evidence by design"
+      ],
+      "correctIndex": 2,
+      "explanation": "A course that teaches you to ask \"what's the sample?\" has to answer it about its own evidence. Building the lesson on the undisclosed-sample figure would have been the exact failure this curriculum spends eight modules warning about."
+    },
+    {
+      "id": "q4",
+      "prompt": "How does the module turn that absence into an argument?",
+      "options": [
+        "By arguing that unmeasurable problems are usually overstated",
+        "Because work nobody measures is work nobody funds, and unfunded unowned work generates no research — so the missing number is a symptom of the condition the module is about",
+        "By substituting qualitative evidence for quantitative",
+        "By deferring the question to the People Analytics track"
+      ],
+      "correctIndex": 1,
+      "explanation": "If data quality were funded, measured and owned, there would be benchmarks. There are none, and that is informative rather than merely inconvenient."
+    },
+    {
+      "id": "q5",
+      "prompt": "What is the significance of the payroll error survey in this lesson? `[V]`",
+      "options": [
+        "It measures HR data quality directly",
+        "It shows the cause is unmeasured while the downstream symptom has a disclosed-sample number — which is why you build the business case on the symptom",
+        "It proves that payroll systems are less reliable than HR systems",
+        "It provides the cost figure to use in any remediation business case"
+      ],
+      "correctIndex": 1,
+      "explanation": "Roughly one in five US payrolls containing errors, from 508 practitioners at companies of 250–10,000 employees, 2022. Consultancy survey, four years old, modelled per-error cost — and its sample is disclosed, which is the comparison that matters. D over-claims: use your own measured symptom, not this figure."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why is data-quality work described as unambiguously safe AI work?",
+      "options": [
+        "Because it involves no employee-identifying data",
+        "Because it makes no decisions about people — it finds where the record disagrees with itself — and every candidate finding is independently checkable in seconds",
+        "Because errors in it are self-correcting over time",
+        "Because it operates on aggregate rather than individual records"
+      ],
+      "correctIndex": 1,
+      "explanation": "The checkability is what makes it safe rather than merely useful: you do not have to trust the model, you open the row. That is a different risk posture from everything else in the track. A is false — it works on exactly that data."
+    },
+    {
+      "id": "q7",
+      "prompt": "Why does the four-line business case work when \"we need better data\" does not?",
+      "options": [
+        "Because it quantifies the total cost of poor data quality",
+        "Because it is shorter and executives prefer brevity",
+        "Because it reframes the ask from a new project competing for funding into a prerequisite for something leadership has already promised in public",
+        "Because it assigns the work to another function's budget"
+      ],
+      "correctIndex": 2,
+      "explanation": "A request gets weighed against other requests. A risk to something already committed is a different conversation with a different default — and you are the only person who can see it."
+    },
+    {
+      "id": "q8",
+      "prompt": "Why is a bulk correction itself a dangerous change?",
+      "options": [
+        "Because bulk updates bypass field-level validation",
+        "Because it is a wide-reach long-latency change by construction, so a remediation run badly is indistinguishable from the problem it fixed — and it is made under time pressure by someone embarrassed about the original",
+        "Because correction scripts cannot be version-controlled",
+        "Because vendors do not support bulk operations on all fields"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which is why the form is a candidate list with a reason per row, a real sample looking for *families* of false positive, batches small enough to reverse, and a reconciliation of the changed count against the approved count."
+    }
+  ]
+}

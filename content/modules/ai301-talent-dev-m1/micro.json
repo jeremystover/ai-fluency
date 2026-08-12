@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ai301-talent-dev-m1-micro-core",
+    "moduleId": "ai301-talent-dev-m1-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module 1 in two minutes\n\n**L&D work runs a chain:** request → diagnosis → design → production → delivery → transfer → evidence. Your hours have always concentrated in the middle three. Your distinctive value has always sat at the two ends — deciding what is worth building, and proving it did anything.\n\n**AI collapsed the middle.** Which promotes the two things this field has historically been worst at into the entire job.\n\n**And the diagnosis here runs opposite to every other People track's** `[V]`. The business partner is told their core territory is the least AI-penetrated part of HR. Yours is among the most: L&D is third of sixteen practice areas for reported AI use at 17%, and roughly 71% of L&D professionals report experimenting or integrating. The saturation is in your craft, and you brought it there yourselves. (Honest caveat, since this module asks you to interrogate evidence: \"use cases\" is not \"work replaced,\" and \"experimenting or integrating\" is a generous bucket. The narrow claim is enough.)\n\n**The triage, in order: cheap now / ours only / needs a human on the hook.** Run question one as harshly as you can, then rescue only what genuinely answers two or three. Reversing the order makes everything look human-critical.\n\n**What protects bucket two is that the information is undocumented** — not that the judgment is subtle. Those are different claims, and the second comes with a condition: it holds exactly as long as the documentation gap does."
+  },
+  {
+    "id": "ai301-talent-dev-m1-micro-rule",
+    "moduleId": "ai301-talent-dev-m1-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## The rule\n\n**Question one asks what it costs to replace the thing today — not what it cost you to make.**\n\n\"But that took my team six weeks\" is a fact about the past and is not an answer to the triage. The most common way a portfolio review fails is that it defends the hours rather than the value."
+  },
+  {
+    "id": "ai301-talent-dev-m1-micro-more",
+    "moduleId": "ai301-talent-dev-m1-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## What the full module adds\n\nThe seven-stage chain worked through with your own hours against it. The adoption evidence with its caveats stated. The twelve-item sorting exercise, including the three cards that are genuinely arguable. What would have to become true for bucket two to halve — and why the answer is uncomfortable. The three modules this track refuses to teach, and where they already live. And the activity: your real catalog triaged, two boundaries defended, and **one program you would stop.**"
+  }
+]

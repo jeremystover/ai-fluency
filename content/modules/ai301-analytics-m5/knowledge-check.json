@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is the argument for AI governance belonging to analytics rather than Legal?",
+      "options": [
+        "That analytics teams have better access to the underlying data",
+        "That the obligations are legal but the evidence that discharges them is statistical — Legal can state the standard and cannot tell you whether you met it",
+        "That Legal teams are typically under-resourced for AI work",
+        "That analytics owns the vendor relationships for most HR AI tools"
+      ],
+      "correctIndex": 1,
+      "explanation": "Defining comparison groups, choosing the selection-rate measure, and deciding which controls are legitimate rather than laundering are modelling decisions with fairness consequences. See the module's own counter-argument for the serious case against claiming this."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why does the module treat Colorado as a lesson rather than a date? `[V]`",
+      "options": [
+        "Because the January 2027 date is likely to move again",
+        "Because SB 24-205 was postponed, enjoined, repealed and replaced within thirteen months — so a compliance programme keyed to one statute's requirements would have been rebuilt twice",
+        "Because the replacement framework is materially stricter",
+        "Because Colorado's law conflicts with federal guidance"
+      ],
+      "correctIndex": 1,
+      "explanation": "The date survived and the law behind it did not. **Build an inventory that survives the statute rather than a checklist keyed to one.**"
+    },
+    {
+      "id": "q3",
+      "prompt": "What makes Illinois's zip-code provision analytics-specific? `[V]`",
+      "options": [
+        "That it requires geographic data to be excluded from all models",
+        "That it generalises — any geographic, educational or behavioural feature can function as a proxy, and strict liability means intent is not a defence, so feature-by-feature proxy review is a modelling task",
+        "That it applies only to models built in-house",
+        "That it requires notice to be given before geographic data is collected"
+      ],
+      "correctIndex": 1,
+      "explanation": "A is too strong and misses the mechanism. The prohibition names zip codes; the obligation reaches every feature that could do the same work."
+    },
+    {
+      "id": "q4",
+      "prompt": "Which limb of Article 25 does this audience most often trigger? `[V]`",
+      "options": [
+        "Putting your name or trademark on a high-risk system already on the market",
+        "Making a substantial modification to an existing high-risk system",
+        "Changing a system's intended purpose so that it becomes high-risk — pointing a general model at an employment question",
+        "Distributing a high-risk system to another organization"
+      ],
+      "correctIndex": 2,
+      "explanation": "And it does not feel like a legal act when you do it. Nobody signed anything and nobody called it a deployment. **An in-house model is not the safe option; it is the one where nobody else is holding the paperwork.**"
+    },
+    {
+      "id": "q5",
+      "prompt": "Why is the engagement survey the sharpest purpose-limitation case?",
+      "options": [
+        "Because survey data is legally protected in most jurisdictions",
+        "Because the promise made to respondents is broken even where the secondary use clears the legal bar — and broken unrecoverably, since the next survey is answered by people who now know",
+        "Because survey responses are more identifying than transactional HR data",
+        "Because consent for survey participation cannot cover model training"
+      ],
+      "correctIndex": 1,
+      "explanation": "The legal question and the promise question can come apart, and the promise is the one that destroys the instrument."
+    },
+    {
+      "id": "q6",
+      "prompt": "What distinguishes disclosure control from access control?",
+      "options": [
+        "Disclosure control applies to external publication, access control to internal",
+        "Access control governs who can retrieve what and is fixed with permissions; disclosure control governs what a legitimately-permissioned aggregate reveals and is fixed with thresholds and suppression",
+        "Disclosure control is a legal obligation, access control is a security practice",
+        "They are the same problem addressed at different layers of the stack"
+      ],
+      "correctIndex": 1,
+      "explanation": "Two failure modes: *someone reached a document they shouldn't have* versus **nobody's permissions were violated and the individual was identified anyway.** The second is yours."
+    },
+    {
+      "id": "q7",
+      "prompt": "Why does the differencing attack make disclosure control a process rather than a report property?",
+      "options": [
+        "Because thresholds must be recalculated for each publication",
+        "Because two individually-compliant published cuts can be subtracted to isolate one person, so what matters is the set of everything you have published, not each thing",
+        "Because aggregate suppression rules vary by jurisdiction",
+        "Because open-text responses cannot be suppressed by cell size"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which requires somebody tracking what has already gone out — a role most listening programmes have not assigned to anyone."
+    },
+    {
+      "id": "q8",
+      "prompt": "What does \"we're only analysing data we already have\" establish under German co-determination? `[V]`",
+      "options": [
+        "That the analysis falls outside §87(1) no. 6, since no new system is deployed",
+        "Nothing — co-determination turns on whether a technical system is objectively suitable for monitoring behaviour or performance, and the employer's intent is irrelevant",
+        "That consultation is advisory rather than binding for existing data",
+        "That the works council's rights attach only once results are shared with managers"
+      ],
+      "correctIndex": 1,
+      "explanation": "Manager dashboards, productivity scores and AI-driven workforce analytics are named examples. **\"Purely observational\" is not a legal category, and for you the analysis output is the monitoring device.**"
+    }
+  ]
+}

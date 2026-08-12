@@ -1,0 +1,31 @@
+{
+  "reviewedAt": "2026-08-12",
+  "title": "Four executive practices",
+  "intro": "*Five minutes. Commit before you look.*\n\nFour CPOs describe how they personally use AI. All four are genuine, all four save time.\n\n**One of them is building judgment. The other three are producing output.** Find it.",
+  "artifacts": [
+    {
+      "label": "Practice A",
+      "body": "\"Every Friday my chief of staff pulls the week's exec-team materials into a model and gives me a two-page synthesis with the decisions flagged. I read it Sunday night. It's cut my prep time by about half and I go into Monday genuinely better briefed than I used to be.\""
+    },
+    {
+      "label": "Practice B",
+      "body": "\"Before anything goes to the board or the exec team, I write my position in three sentences, commit to it, and make the model build the strongest case against it — not a balanced view, the strongest case. Then I ask what I've failed to anticipate. Half the time it's nothing I hadn't thought of. The other half I change a slide.\""
+    },
+    {
+      "label": "Practice C",
+      "body": "\"I use it constantly for first drafts — board narrative, comp committee papers, the all-hands script, difficult emails. I'd say it's taken 20% off my writing time and the quality is at least as good, because I'm editing rather than staring at a blank page.\""
+    },
+    {
+      "label": "Practice D",
+      "body": "\"We built a custom assistant on our policy library so my team can answer employee questions without escalating. Adoption's been strong and escalations to my office are down noticeably. I check the dashboard weekly.\""
+    }
+  ],
+  "options": [
+    "Practice A",
+    "Practice B",
+    "Practice C",
+    "Practice D"
+  ],
+  "key": 1,
+  "reasoning": "**B is the only one aimed at the executive's own reasoning.** Everything else is aimed at output. The mechanism is in the detail people skip: **committing the position in three sentences before the model responds.** That forces a precision most executive reasoning never has to survive, and it is what makes the exercise work whether or not the model produces anything good. Note that B reports it finds nothing new half the time — which is what an honest account of this practice looks like, and a strong signal it is actually being run.\n\n**A is delegated fluency in its most seductive form**, and the trap is that it genuinely works. The briefing is better. The time saving is real. And the executive develops no judgment whatsoever, because someone else is doing the interrogating and they are receiving conclusions. Ask what happens when the synthesis is subtly wrong: nothing, because nobody in the chain is positioned to notice.\n\n**C is drafting, done personally.** Doing it yourself rather than delegating it does not change what it is. The output improves, the blank page problem goes away, and the executive's judgment about where the technology is reliable is exactly where it was — because editing prose you commissioned is not the same as catching a model being confidently wrong about something you know cold.\n\n**D is a deployment, not a practice**, and it is the one most likely to be mistaken for personal fluency because it involves the most technical decisions. Building a thing is a functional transformation — the second link in the chain, and a real one. But the executive's own use here is reading a dashboard weekly, which is management. Note also what the dashboard measures: adoption and escalation volume, neither of which says whether the answers were right.\n\nThe transferable test: **does the practice produce a deliverable?** If yes, it is developing your output. If it produces only an argument you now have to answer, it is developing your judgment."
+}

@@ -1,0 +1,119 @@
+[
+  {
+    "id": "ai301-talent-dev-m2-calibration-prompt-before-you-start-10",
+    "moduleId": "ai301-talent-dev-m2",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Before you start — commit a position\n\n*One claim. Commit before you read, and be specific.*\n\n> **\"The last five requests my team accepted were diagnosed before they were built — someone\n> established what was actually causing the performance gap and confirmed training was the right\n> instrument.\"**\n\n**True of us, or not true of us?** Commit in a sentence, then say where you would look to check —\nan intake form, a project brief, a kickoff note, a Slack thread. Anything that would carry evidence\nof a diagnosis having happened.\n\nThen, if you can: **what share of the requests currently in your queue are genuinely training\nproblems?** You will test that against one real request in the activity.\n\nIf your function has no artifact that would record a diagnosis, **write that down instead.** The\nabsence is the answer to the claim, and it is graded as one."
+  },
+  {
+    "id": "ai301-talent-dev-m2-module-brief-20",
+    "moduleId": "ai301-talent-dev-m2",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nModule 1 left you with a distribution and a killed program. This module is about the end of the\nchain that decides whether anything gets onto that list in the first place.\n\nThe premise is short and it is the most expensive idea in this track:\n\n> **Building a course used to be expensive, and the expense was doing work nobody counted. It was\n> the filter.**\n\nWhen a program cost six weeks of a designer's time, \"this is a process problem, training won't fix\nit\" was an argument you could win. Not because anyone valued diagnosis — most organizations never\nhave — but because the alternative was visibly costly, and someone had to sign for it. The\neconomics did the gatekeeping that the profession was never given the authority to do.\n\nThat filter is gone. The honest diagnosis now competes against an afternoon's work, and it loses by\ndefault unless somebody makes it explicit and defends it out loud.\n\nThere is a second-order version of this that is worse. The expensive middle also *created* the\ndiagnosis, as a side effect. You worked out what the problem really was while you were building for\nit — in the SME interviews, in the third rewrite of the objectives, in the moment the practice\nscenario refused to work because the underlying process was broken. **Nobody scheduled that\ndiagnosis. It happened because the production was slow enough to think in.** Take the slowness out\nand the thinking does not automatically relocate. It just stops.\n\nSo this module makes diagnosis a deliberate act with a method, because it is no longer going to\narrive as a by-product of anything."
+  },
+  {
+    "id": "ai301-talent-dev-m2-learning-objectives-30",
+    "moduleId": "ai301-talent-dev-m2",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. Distinguish collaboration from diagnosis, and explain why taking the order feels like service and\n   functions as abdication.\n2. Apply the knowledge-versus-willingness test, and state what training can and cannot fix.\n3. Use the environmental-causes prior as a working default — and say honestly what kind of evidence\n   it rests on.\n4. Explain the accidental-safeguard argument and the SME-displacement version of it.\n5. Write a refusal that survives contact: one that names what you *will* do, and accounts for your\n   own incentives."
+  },
+  {
+    "id": "ai301-talent-dev-m2-lesson-1-collaboration-is-not-diagnosis-40",
+    "moduleId": "ai301-talent-dev-m2",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 · Collaboration is not diagnosis\n\nTwo postures look similar from outside and produce opposite work.\n\n**Collaboration** is being easy to work with. You take the request, clarify the scope, agree the\ntimeline, and deliver something good against it. Everyone leaves the meeting satisfied. This is what\nmost stakeholders mean when they say a business partner is responsive, and it is genuinely valuable\nright up until the request is wrong.\n\n**Diagnosis** is refusing to accept the problem statement as given. Someone tells you what they want\nbuilt; you go and find out what is actually happening. Those produce different meetings, and the\nsecond one is less pleasant.\n\nHere is the trap, and it is specific to this profession: **L&D is structurally rewarded for\ncollaboration and structurally unmeasured on diagnosis.** Delivering the thing that was asked for is\nvisible, countable, and appreciated within the quarter. Establishing that the thing shouldn't be\nbuilt is invisible, uncountable, and creates friction with the person who asked. If you had designed\na set of incentives to eliminate diagnosis from a function, you would have designed these.\n\nWhich is why it needs to be a named step with an artifact, rather than a professional value that\neveryone endorses and nobody schedules.\n\n**The request is a symptom report, not a specification.** When a manager says \"my team needs\ntraining on giving feedback,\" they have observed something real — feedback in their team is bad —\nand then performed an amateur diagnosis and handed you the prescription. You would not accept a\nprescription from a patient. You would take the symptom seriously and do your own work.\n\nThe reframe that makes this sayable out loud without sounding obstructive: *\"Tell me what you saw\nthat made you think of training.\"* It accepts the observation, declines the prescription, and cannot\nbe heard as a refusal, because it isn't one."
+  },
+  {
+    "id": "ai301-talent-dev-m2-lesson-2-knowledge-willingness-and-the-p-50",
+    "moduleId": "ai301-talent-dev-m2",
+    "ordinal": 50,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 · Knowledge, willingness, and the prior [V]\n\nThe first cut, and it is brutally simple.\n\n**Training only ever fixes people who *can't*. It never fixes people who *don't*.**\n\nIf someone lacks knowledge or skill, instruction can close that gap — that is what instruction is\nfor. If someone knows perfectly well how to do the thing and is not doing it, the cause is\nsomewhere else entirely: the incentives point the other way, the process makes it impossible, the\ntools don't support it, their manager rewards the opposite, nobody has ever noticed whether they do\nit, or they tried once and it went badly.\n\n**Training a willingness problem is the single most common failure in this profession**, and it is\nworse than doing nothing. It costs money, consumes the goodwill you would need for the real\nintervention, and — the part that matters — **produces evidence that the problem was addressed.**\nThe course ran. Attendance was 94%. The satisfaction scores were good. Now nobody will look at the\nactual cause for eighteen months.\n\nThe test in one question: *if I offered this person a large sum of money to do it correctly\ntomorrow, could they?* If yes, it is not a knowledge problem, and no amount of instruction will\ntouch it.\n\n### The prior, and where it comes from\n\nThe performance-technology literature carries a widely-repeated finding: something like **75–80% of\nthe factors influencing workplace performance are environmental rather than individual** —\ninformation, resources, and incentives rather than knowledge, capacity, and motives. It descends\nfrom Gilbert's Behavior Engineering Model, which is one of the foundational frameworks in the\ndiscipline.\n\n**Now look at that number the way this track is going to teach you to look at numbers**, because it\nmatters more that you can do this than that you accept the figure.\n\nIt is a round range. It is attributed to a *model* rather than to a study. It is cited constantly\nand traced rarely. Chase it and you find consensus rather than a sample — the kind of claim that\ngets repeated until repetition becomes the evidence. **That is exactly the profile of the learning\npyramid's retention percentages and 70-20-10's ratios**, both of which you will meet in Module 3,\nand both of which turn out to be fabrications or retrospective self-reports dressed as findings.\n\nSo we are not going to pretend this one is better sourced than it is. Two things are true at once:\n\n1. **As a number, treat it with the suspicion you would apply to a vendor's.** If you find yourself\n   putting \"research shows 80%\" on a slide, you have become the thing Module 3 is about.\n2. **As a prior, it earns its place anyway** — because it does not need to be precise to be useful.\n   Its job is to set the default assumption you walk into an intake with. \"Probably environmental\n   until shown otherwise\" changes which questions you ask first. It would change them at 60% and at\n   85%.\n\nA prior is a starting posture, not a finding. This one is worth holding and not worth citing."
+  },
+  {
+    "id": "ai301-talent-dev-m2-try-60",
+    "moduleId": "ai301-talent-dev-m2",
+    "ordinal": 60,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### Try this — 3 minutes\nTake the last program your function delivered. Ask the money question about its target audience:\ncould they have done the thing correctly tomorrow, for a large enough reward? If the answer is\nyes, you have just identified a willingness problem that received a knowledge intervention — and\nyou are almost certainly still carrying the program in your catalog."
+  },
+  {
+    "id": "ai301-talent-dev-m2-lesson-3-the-accidental-safeguard-70",
+    "moduleId": "ai301-talent-dev-m2",
+    "ordinal": 70,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 · The accidental safeguard\n\nNow the argument this module is built on, in full.\n\nProduction time was expensive. Everyone in this profession has complained about it — the six-week\nbuild, the SME who won't return your calls, the review cycle that eats a fortnight. It was\ngenuinely wasteful, and removing it is genuinely good.\n\n**And it was doing three jobs nobody had assigned it.**\n\n**It was the economic filter.** Somebody had to approve six weeks of a designer's time. That\napproval was a checkpoint, however crude, and bad requests died at it — not because anyone diagnosed\nthem, but because they weren't worth the cost. When the cost approaches zero, the checkpoint\ndisappears silently. Nobody removed it. It just stopped stopping anything.\n\n**It forced the SME conversation.** To build the thing, you had to extract the content from\nsomebody who knew it. That conversation was slow and awkward, and it was also where you found out\nthat the real problem was the handoff between two teams, or that the process everyone described\nhasn't been followed since 2022. **That was never scheduled as diagnosis. It happened because\nproduction required it.** Now the model can produce a plausible first draft from public knowledge\nand a job description, and the SME conversation becomes optional — which means the discovery it\ncarried becomes optional too, and optional things in a busy quarter do not happen.\n\n**It rationed volume.** A function that could ship four programs a year had to choose four. Choosing\nis a form of thinking. A function that can ship forty does not have to choose, and mostly won't.\n\nNone of this is an argument for keeping production slow — that would be absurd, and you couldn't\nanyway. It is an argument that **three real functions were being performed by a cost you have now\nremoved, and if you don't rebuild them deliberately, you don't have them.** They were not features\nof the profession's discipline. They were side effects of its inefficiency.\n\nThe uncomfortable corollary: functions that were *worst* at deliberate diagnosis had the most\nprotection from the accidental kind, and will feel this collapse hardest. Being bad at this and\nslow was survivable. Being bad at this and fast is not."
+  },
+  {
+    "id": "ai301-talent-dev-m2-lesson-4-the-refusal-that-survives-80",
+    "moduleId": "ai301-talent-dev-m2",
+    "ordinal": 80,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 · The refusal that survives\n\nDiagnosis is worthless if the conclusion cannot be delivered. This lesson is about the delivery.\n\n**A refusal that only declines gets routed around — and now it gets routed around to someone who\nwill generate the course by Friday.** That is new. Five years ago, being told \"no\" by L&D meant the\nrequester had to either accept it or find budget. Today it means they open a chat window. Your veto\nwas never absolute; it is now barely a speed bump, and the only thing that still works is being\n*more useful than the alternative* rather than more authoritative.\n\nSo the shape that lands has three parts:\n\n**What you found.** The actual cause, stated concretely and without triumph. *\"I talked to six\npeople on the team. Every one of them can describe good feedback accurately. Four of them told me\nthey gave difficult feedback last year and it went badly for them in their review.\"*\n\n**What that means training would and wouldn't do.** Specific, not doctrinal. *\"A course would\nconfirm what they already know. It wouldn't touch the thing that's actually stopping them, and it\nwould tell the team we think the problem is their skill.\"* That last clause is usually the one that\nlands, because it names a cost the requester hadn't considered.\n\n**What you will do instead.** Non-negotiable. This is what separates a diagnosis from an\nobstruction. It might be small — a change to the review calibration, a conversation with two\nmanagers, a decision that needs making at a level above the requester. It has to be *something you\nare offering to own*, or you have handed back a problem with a lecture attached.\n\n### And your own incentives, honestly\n\nThere is a version of this module that would let you off too easily, so here is the counterweight.\n\n**\"It's not a training problem\" has always been available as a way to avoid work.** It is a\nsophisticated-sounding refusal that requires no delivery, and every experienced practitioner has\nused it at least once when the real reason was a full quarter. The requester often knows this, which\nis why diagnosis can be heard as evasion even when it is rigorous.\n\nThe discipline that keeps you honest is the third part above. **A diagnosis that concludes in\nsomething you will own cannot be an avoidance move**, because it costs you something. If your\ndiagnoses systematically conclude that the problem belongs to another function and requires nothing\nfrom you, that is a pattern worth examining before anyone else examines it."
+  },
+  {
+    "id": "ai301-talent-dev-m2-exercise-embed-85",
+    "moduleId": "ai301-talent-dev-m2",
+    "ordinal": 85,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"choice\"}"
+  },
+  {
+    "id": "ai301-talent-dev-m2-key-takeaways-90",
+    "moduleId": "ai301-talent-dev-m2",
+    "ordinal": 90,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **The request is a symptom report, not a specification.** The requester observed something real\n  and then handed you their own amateur diagnosis. *\"Tell me what you saw that made you think of\n  training\"* accepts the first and declines the second.\n- **L&D is structurally rewarded for collaboration and structurally unmeasured on diagnosis** —\n  which is why diagnosis has to be a named step with an artifact, not a value everyone endorses.\n- **Training fixes people who can't. It never fixes people who don't.** The test: could they do it\n  tomorrow for a large enough reward?\n- **Training a willingness problem is worse than doing nothing**, because it produces evidence that\n  the problem was addressed and buys the real cause eighteen months of quiet.\n- **The environmental prior is worth holding and not worth citing** `[V]`. A round range attributed\n  to a model rather than a study — treat the number the way you'd treat a vendor's, and keep the\n  posture it produces.\n- **Production time was the filter, it forced the SME conversation, and it rationed volume.** Three\n  real jobs performed by a cost you have removed. Rebuild them deliberately or don't have them.\n- **A refusal that only declines gets routed around** to someone who will build it by Friday. The\n  shape that survives: what you found, what training would and wouldn't do, and what you will own\n  instead.\n- **A diagnosis that concludes in nothing you own cannot be distinguished from avoidance** — and\n  the requester can tell."
+  },
+  {
+    "id": "ai301-talent-dev-m2-activity-link-95",
+    "moduleId": "ai301-talent-dev-m2",
+    "ordinal": 95,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"activity_link\", \"title\": \"Applied activity \\u2014 The request, diagnosed\", \"blurb\": \"One live request from your queue, taken apart: the observation underneath it, knowledge or willingness, two environmental candidates, and a conclusion in three parts. \\\"This isn't a training problem\\\" has to be genuinely available \\u2014 and so does its opposite.\", \"estMinutes\": \"30\"}"
+  },
+  {
+    "id": "ai301-talent-dev-m2-take-a-position-100",
+    "moduleId": "ai301-talent-dev-m2",
+    "ordinal": 100,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"Most training requests should not become training — and cheap production is\nexactly why more of them will.\"*\n\nThe strongest counter-argument is that **the economics genuinely changed, and the gatekeeping\nposture is a hangover from when they hadn't.** If a job aid costs two hours, the expected cost of\nbuilding the wrong thing has collapsed alongside everything else — so the rational response to cheap\nproduction might be to build more, ship faster, and find out empirically which interventions land,\nrather than to spend a diagnostic hour protecting a resource that is no longer scarce. On that view,\ndiagnosis was always partly a rationing mechanism dressed as professional rigour, and defending it\nafter the rationing became unnecessary is defending the ritual rather than the reason.\n\nIt is a good argument and it has a real edge: **it is testable, and this module never tests it.**\nYour position has to say what would distinguish \"build more and learn from it\" from \"produce more\nand notice nothing\" — and if you can't name the difference, notice that the counter-argument has\njust walked you into Module 6's problem, which is that this profession has never been able to tell\nthose two apart."
+  },
+  {
+    "id": "ai301-talent-dev-m2-sources-and-attribution-110",
+    "moduleId": "ai301-talent-dev-m2",
+    "ordinal": 110,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- **The environmental-causes prior** — commonly stated as 75–80% of performance factors being\n  environmental rather than individual, descending from Gilbert's Behavior Engineering Model and its\n  split of information, resources, and incentives against knowledge, capacity, and motives. Verified\n  as literature consensus rather than as a traceable study; the lesson states that provenance\n  explicitly and treats the figure as a prior rather than evidence, which is the honest position and\n  is also the module's own demonstration of Module 3's method. **[V]**\n- The knowledge-versus-willingness distinction and the money test are long-standing performance\n  analysis practice, most associated with Mager and Pipe's work on analyzing performance problems.\n- **The accidental-safeguard argument** — production cost as economic filter, forced SME\n  conversation, and volume rationing — and the three-part refusal shape are original to this course.\n- Builds on 101 M5 (briefing as the supply of material) and 201 M4 (verification sized to stakes),\n  and sets up Module 6, which is where the counter-argument to this module gets tested."
+  }
+]

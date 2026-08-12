@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What actually changed about metric ambiguity?",
+      "options": [
+        "Models introduce new ambiguities that did not exist in dashboards",
+        "Nothing changed about the ambiguity — it became executable, so the decision still gets made but stopped being made by anyone",
+        "Stakeholders now ask more sophisticated questions than the definitions anticipated",
+        "Natural-language interfaces are less precise than SQL"
+      ],
+      "correctIndex": 1,
+      "explanation": "The six families of decision under an attrition question were always there. What is new is a resolution step that leaves no record and may resolve differently next Tuesday."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why is a silent resolution worse than an error?",
+      "options": [
+        "Because errors are logged and resolutions are not",
+        "Because it is invisible (well-formed and in range, so nothing prompts a check), unstable (two true-looking numbers that disagree with no traceable why), and unattributable",
+        "Because models resolve ambiguity less consistently than junior analysts",
+        "Because it produces numbers outside the expected range"
+      ],
+      "correctIndex": 1,
+      "explanation": "D is the opposite of the problem — a number outside the range would get checked. The danger is precisely that it looks right."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why does the module reject \"route all questions through us\" as the fix?",
+      "options": [
+        "Because stakeholders will ignore the policy",
+        "Because it volunteers the function as a queue — the tooling will answer regardless, and the fix is decisions made in advance, written where the machine reads them, owned by a named person",
+        "Because it slows the organization down more than the errors cost",
+        "Because it conflicts with self-service analytics strategy"
+      ],
+      "correctIndex": 1,
+      "explanation": "Though see the module's own counter-argument, which makes the serious case that the queue is the control. C is a real consideration and is not the module's reason."
+    },
+    {
+      "id": "q4",
+      "prompt": "What is the verification problem?",
+      "options": [
+        "That AI-generated analyses cannot be reproduced",
+        "That checking requires more expertise than producing",
+        "That knowing enough to check is a different skill from knowing the method — and the second used to imply the first, because the checking skill came bundled with the production skill",
+        "That verification tooling has not kept pace with generation tooling"
+      ],
+      "correctIndex": 2,
+      "explanation": "The implication broke quietly. Nobody had to design for the checking skill before, because it arrived free as a side effect of having built things badly several times."
+    },
+    {
+      "id": "q5",
+      "prompt": "Which check is specific to this era and most often skipped?",
+      "options": [
+        "Reconciling the input population against a known count",
+        "Rebuilding a figure you already know, on a prior period",
+        "Asking the system what it assumed — which denominator, which population, which date basis",
+        "Comparing the output against the previous month's report"
+      ],
+      "correctIndex": 2,
+      "explanation": "The output does not invite it. And it only becomes a real check once Lesson 1's work exists, because then the answer is checkable against a written definition rather than against your memory."
+    },
+    {
+      "id": "q6",
+      "prompt": "What does the second-brain pattern transfer, and what does it not?",
+      "options": [
+        "It transfers method but not domain knowledge",
+        "It transfers knowledge — the reasoning, the dead ends, what the data turned out to be — but not the experience of having been confidently wrong in front of someone who mattered",
+        "It transfers judgment but requires ongoing curation to stay current",
+        "It transfers both, provided the capture is disciplined enough"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which is why the module calls it a partial answer, and why it lands on the uncomfortable conclusion that some production work should be protected rather than automated."
+    },
+    {
+      "id": "q7",
+      "prompt": "Why is a reworded survey item a problem even when the new wording is better?",
+      "options": [
+        "Because employees notice changes and respond to them",
+        "Because a reworded item is a different item, and it breaks comparability with every prior wave — which is usually the entire value of the instrument",
+        "Because AI-written items are less psychometrically valid on average",
+        "Because item wording must be approved by the vendor"
+      ],
+      "correctIndex": 1,
+      "explanation": "Improved wording is still a change. If you change items you do it deliberately, say so, and either re-baseline or run both."
+    },
+    {
+      "id": "q8",
+      "prompt": "What has stopped being evidence of engagement with a survey?",
+      "options": [
+        "Response rate",
+        "Completion time",
+        "Verbatim volume and polish — a long, articulate comment no longer indicates someone who cared enough to write it",
+        "The proportion of respondents who leave open text blank"
+      ],
+      "correctIndex": 2,
+      "explanation": "Which matters most for any process that weights comments by length or fluency — including a model's summarisation of them."
+    }
+  ]
+}

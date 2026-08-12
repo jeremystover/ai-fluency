@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why does the module argue that analytical training increases exposure to model error?",
+      "options": [
+        "Because analysts use AI more heavily than other HR functions",
+        "Because expert readers scan formatted output quickly and for shape — and shape is the one thing the model always gets right, so the fast check passes while the construction underneath goes unexamined",
+        "Because analysts are more likely to trust statistical output uncritically",
+        "Because comp data is more complex than other HR data"
+      ],
+      "correctIndex": 1,
+      "explanation": "The skill is real; it's aimed at the wrong layer. AI also severed the correlation between polish and care that the fast check was calibrated on — polish is now free."
+    },
+    {
+      "id": "q2",
+      "prompt": "What makes the \"plausible coefficient\" dangerous?",
+      "options": [
+        "That regression coefficients are frequently miscalculated by language models",
+        "That it's believable whether the model is right or whether a control absorbed the effect you were looking for — and plausibility is exactly what stops it being checked",
+        "That coefficients are hard for non-statisticians to interpret",
+        "That small coefficients are usually statistically insignificant"
+      ],
+      "correctIndex": 1,
+      "explanation": "An implausible number gets checked. That's the asymmetry, and it's why the failures that survive are the ones that look fine."
+    },
+    {
+      "id": "q3",
+      "prompt": "Which data control does the module call the cheapest in the discipline?",
+      "options": [
+        "Pseudonymizing identifiers before upload",
+        "Negotiating zero-retention terms with the vendor",
+        "Dropping columns the analysis doesn't need — the most reliable protection for a data element is its absence",
+        "Restricting tool access to a named group of analysts"
+      ],
+      "correctIndex": 2,
+      "explanation": "And it's routinely skipped because it takes four minutes and feels like busywork, while anonymization feels like security work. Only one of them actually reduces the data at risk."
+    },
+    {
+      "id": "q4",
+      "prompt": "What does it mean that the model didn't flag a problem with your analysis?",
+      "options": [
+        "That the analysis probably passed the model's internal checks",
+        "Nothing — absence of a warning carries no information, because there is no state in which it noticed the dropped rows and chose not to mention them",
+        "That the problem is below the model's confidence threshold for reporting",
+        "That the analysis was well-specified enough not to trigger a warning"
+      ],
+      "correctIndex": 1,
+      "explanation": "This is the most common misreading of model confidence, and it's different from a colleague not raising a concern — a colleague was looking."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why does the module insist reconciliation checks be specified *before* the analysis runs?",
+      "options": [
+        "Because the model performs better when given checks up front",
+        "Because a reconciliation named in advance is a test, while one invented afterward is a rationalization — you'll construct it to pass",
+        "Because retrospective checks are technically harder to implement",
+        "Because auditors require documented controls to predate the work"
+      ],
+      "correctIndex": 1,
+      "explanation": "The order is the whole control. D is a real compliance consideration and not the module's reason."
+    },
+    {
+      "id": "q6",
+      "prompt": "What's the primary argument for the Python-then-Excel double-pass?",
+      "options": [
+        "Excel is more accurate than code for compensation calculations",
+        "Two implementations that agree is stronger evidence than one that looks right, and it keeps reviewers' method intact rather than asking a finance partner to trust a black box",
+        "It's required for SOX compliance in most organizations",
+        "Code-based analysis can't be version-controlled effectively"
+      ],
+      "correctIndex": 1,
+      "explanation": "Building the visible version also forces you to state the logic in a form a human can follow, which is where you catch the step you accepted without reading. It costs roughly 30% more work."
+    },
+    {
+      "id": "q7",
+      "prompt": "Why does the terminology file matter more in compensation than in most functions?",
+      "options": [
+        "Because compensation uses more jargon than other HR disciplines",
+        "Because a set of terms carry a general-usage meaning that differs from the technical one — target vs. actual, grant vs. vest, compa-ratio vs. range penetration — so the model drifts between them and produces work that is wrong in a way that looks fine",
+        "Because compensation terminology varies more between organizations",
+        "Because models have less training data on compensation topics"
+      ],
+      "correctIndex": 1,
+      "explanation": "C is also true and is why the activity asks for your organization's local terms as well. But the drift between two real, close meanings is the failure the file exists to prevent."
+    },
+    {
+      "id": "q8",
+      "prompt": "Why bundle the four files into a reusable kit rather than build them per analysis?",
+      "options": [
+        "Because reusable context produces better model output on average",
+        "Because comp work is seasonal — the merit cycle is when your care is scarcest and your consequences are largest, and a discipline that only operates when you're not busy is an intention rather than a discipline",
+        "Because it reduces the time spent on each individual analysis",
+        "Because auditors prefer standardized documentation"
+      ],
+      "correctIndex": 1,
+      "explanation": "The point isn't efficiency, it's survival under load. A is true and much weaker."
+    }
+  ]
+}

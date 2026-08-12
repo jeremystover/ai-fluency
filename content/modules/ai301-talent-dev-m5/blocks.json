@@ -1,0 +1,119 @@
+[
+  {
+    "id": "ai301-talent-dev-m5-calibration-prompt-before-you-start-10",
+    "moduleId": "ai301-talent-dev-m5",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Before you start — commit a position\n\n*One claim. Commit before you read.*\n\n> **\"Every AI-assisted asset currently live in my catalog would pass an accessibility audit at WCAG\n> 2.1 Level AA.\"**\n\n**True of us, or not true of us?** Commit in a sentence, and say whether anyone has ever checked.\n\nThen: **what percentage of your AI-assisted assets do you expect would pass?** You will sample three\nof them in the activity and produce a real number.\n\nIf your organization has no accessibility standard for learning content at all, **write that down.**\nThat is the finding, and it is a more serious one than a failure rate."
+  },
+  {
+    "id": "ai301-talent-dev-m5-module-brief-20",
+    "moduleId": "ai301-talent-dev-m5",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nFour hard edges. Three of them have penalties attached and the fourth has a court case behind it,\nand none of them appear in any other track on this ladder because none of them are anyone else's\nproblem.\n\nThe organizing idea is simple and it is the thing Module 3 was building toward:\n\n> **A course can be pedagogically excellent, factually accurate, well-reviewed — and still be\n> non-compliant, inaccessible, or built on something you do not own.**\n\nEvery quality signal your function currently uses would return clean on all four failures in this\nmodule. That is not a coincidence. It is the same structure as premise inheritance: **your checks\nare aimed at a different layer than the risk.**\n\nAnd there is a specific reason this arrives now rather than in a general compliance course.\n**Volume multiplies every one of these.** Module 1's first bucket — the material that is cheap to\nproduce now — is exactly where accessibility debt, jurisdictional drift, and licensing exposure\nconcentrate, because those failures scale with the number of assets rather than with the care taken\non any one of them. A function that tripled its output tripled its floor problem and almost\ncertainly did not notice.\n\nOne thing to be clear about, because a module like this can read as a reason to stop. **None of\nthis argues against using AI in compliance content.** It argues that the compliance layer needs a\ncheck your current process does not contain, and that the check is cheap once you know what it is."
+  },
+  {
+    "id": "ai301-talent-dev-m5-learning-objectives-30",
+    "moduleId": "ai301-talent-dev-m5",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. Explain why a mandated-training statute makes pedagogical quality irrelevant to compliance.\n2. State the current EU position accurately, including which obligations bind now and which were\n   deferred.\n3. Identify the predictable ways AI-generated media fails WCAG 2.1 AA, and why volume makes it worse.\n4. Recognize a skills inference as a decision about a person, and apply 101 M7's line to it.\n5. Ask the four ownership questions about your content stack before you need the answers."
+  },
+  {
+    "id": "ai301-talent-dev-m5-lesson-1-mandated-content-is-specified-a-40",
+    "moduleId": "ai301-talent-dev-m5",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 · Mandated content is specified, and the specification is not about quality [V]\n\nSeveral US states mandate harassment-prevention training, and the mandates are unusually prescriptive\n— they name duration, they require interactivity, and they specify content elements.\n\n**California** requires two hours for supervisors and one hour for non-supervisory employees, every\ntwo years, for employers at or above a low headcount threshold, and the training must meet the\nstate's standard for *effective interactive training* rather than merely being delivered.\n**Illinois** requires annual training for every employer with employees in the state, regardless of\nsize, and specifies content elements including a summary of the relevant statutory provisions and\nthe employer's prevention and corrective-action responsibilities. **New York** requires annual\ninteractive training. Several other states have their own regimes, and the thresholds, intervals,\nand content lists differ.\n\nNow put a generated course against that.\n\n**A model will produce excellent harassment-prevention training.** The topic is extensively\ndocumented, the pedagogy is well understood, and the output will be clear, well-structured, and\nappropriately serious. It will also, unless you specifically require otherwise, produce *general*\nharassment-prevention training — because that is what the training data overwhelmingly contains,\nand because your brief almost certainly said \"harassment prevention\" rather than \"harassment\nprevention meeting the Illinois content requirements.\"\n\n**And a course that is pedagogically excellent and omits a required content element is\nnon-compliant.** The audit does not grade it. There is no partial credit for quality. This is\nModule 3's jurisdictional drift with a penalty attached: nothing in the content is untrue, every\nfact checks out, and it does not satisfy the obligation.\n\nThree practical consequences:\n\n**The requirement is an input, not a review criterion.** Put the actual statutory content list into\nthe brief and require the output to map to it element by element. Checking afterwards means\nrebuilding.\n\n**Duration and interactivity are structural.** You cannot add two hours of interactivity to a\nfinished forty-minute module. If the mandate specifies form, the form is a design constraint from\nthe first line.\n\n**Multi-state means the strictest applicable, or genuinely separate versions.** The failure mode is\na single national course built to the least demanding standard, deployed everywhere, and satisfying\nnobody's mandate but the loosest."
+  },
+  {
+    "id": "ai301-talent-dev-m5-lesson-2-the-european-position-and-why-d-50",
+    "moduleId": "ai301-talent-dev-m5",
+    "ordinal": 50,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 · The European position, and why deferral is not runway [V]\n\nThis is the passage most likely to be out of date when you read it, and it is the one most likely to\nbe repeated to you incorrectly by a vendor.\n\nThe EU AI Act classifies employment uses — recruitment, selection, promotion, termination, task\nallocation, and performance monitoring — as high-risk. Those obligations moved to **2 December 2027**\nunder the Digital Omnibus on AI, **Regulation (EU) 2026/1744**, which entered into force on 27 July\n2026, six days before the original deadline.\n\n**Read only that and you would conclude you have until 2027. You do not.**\n\nThe **AI literacy obligation** and the **prohibition on emotion recognition in the workplace** have\nbeen in force since February 2025. And since **2 August 2026**, the Act's **transparency\nobligations** apply — to covered systems *regardless of high-risk classification*. The one that\nreaches learning functions: a system interacting directly with a person must disclose that it is AI,\nat or before the start of the interaction.\n\n**If you run a learning assistant, a coaching bot, an onboarding chatbot, or a tutoring interface in\nEurope, that is you** — and the ceiling is €15 million or 3% of worldwide turnover.\n\nTwo things specific to this role:\n\n**The AI literacy obligation is partly yours.** An obligation to ensure staff have sufficient AI\nliteracy lands, in most organizations, on the function that builds capability. That is the one item\nin this module that is an opportunity as well as a duty, and Module 6 is where you argue for the\nbudget.\n\n**The emotion-recognition prohibition is absolute, and this is where it touches you.** It is not a\nrisk to manage. If a vendor offers engagement scoring from webcam, attention or affect inference\nfrom video during a course, or sentiment detection in a virtual classroom, and you have European\noperations — that is not a procurement question. Products in this space are frequently marketed to\nlearning functions specifically, on the grounds that they measure engagement, which is a thing this\nprofession has always wanted to measure."
+  },
+  {
+    "id": "ai301-talent-dev-m5-lesson-3-accessibility-is-a-floor-and-vo-60",
+    "moduleId": "ai301-talent-dev-m5",
+    "ordinal": 60,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 · Accessibility is a floor, and volume multiplies it [V]\n\n**WCAG 2.1 Level AA** is the practical benchmark. Section 508's refresh adopted it, the US\nDepartment of Justice's 2024 Title II rule names it, and while private-sector obligations under ADA\nTitle III do not name a version, it is the standard courts and regulators apply.\n\nFor learning content, AI-generated media fails it in predictable, repeatable ways:\n\n**Generated video without captions or a transcript.** The single most common failure, and it arrives\nby default — text-to-video produces video, not captioned video.\n\n**Images with absent or decorative alt text.** A model asked for a diagram produces a diagram. Alt\ntext that conveys the *instructional content* of that diagram is a separate deliberate act, and\n\"chart showing data\" is not it.\n\n**Colour-only signalling.** Generated diagrams routinely distinguish categories by colour alone —\nred for non-compliant, green for compliant — which conveys nothing to a substantial population.\n\n**Contrast below threshold.** Generated visual design tends toward the aesthetically soft. AA\nrequires 4.5:1 for normal text and 3:1 for large.\n\n**Interactive elements that assume a mouse.** Drag-and-drop sorting, hotspot graphics, and timed\nreveals are frequently generated without keyboard equivalents.\n\n**Here is why this belongs in this track rather than in a general accessibility course.** Every one\nof these failures is a per-asset failure, and the effort to fix each is small and fixed. Which means\n**the exposure scales linearly with the number of assets you publish**, and it is precisely the\ncheap-to-produce bucket-one material — the fastest to make, the least reviewed, the highest volume\n— where the debt concentrates.\n\nA function that went from twelve modules a year to sixty has not tripled its accessibility risk. It\nhas quintupled it, on material nobody reviewed, and every one of those assets is now sitting in a\ncatalog with a completion requirement attached to it.\n\nThe check is genuinely cheap: captions and transcripts on everything with audio, alt text that\ncarries instructional meaning, never colour alone, contrast tested once per template, keyboard paths\non every interaction. **It is cheap and it is only cheap if it happens at production time.**\nRetrofitting sixty modules is a project. Requiring it in the brief is a sentence."
+  },
+  {
+    "id": "ai301-talent-dev-m5-try-70",
+    "moduleId": "ai301-talent-dev-m5",
+    "ordinal": 70,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### Try this — 3 minutes\nOpen the most recent thing your function published that contains video or a diagram. Check one\nitem: is there a transcript, and does the alt text say what the image *teaches* rather than what\nit depicts? Most people find the answer to at least one is no, on content that shipped last month."
+  },
+  {
+    "id": "ai301-talent-dev-m5-lesson-4-the-taxonomy-that-became-a-deci-80",
+    "moduleId": "ai301-talent-dev-m5",
+    "ordinal": 80,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 · The taxonomy that became a decision system, and what you actually own [V]\n\nTwo ownership questions, and the first one is the one nobody is watching.\n\n### Skills inference\n\nSkills taxonomies are the fastest-growing thing in this profession and the least examined. A model\ninfers an employee's skills — from their role history, their work products, their completed\nlearning, their project assignments — and populates a profile. It reads as infrastructure. It reads\nas *descriptive*.\n\nThen that inference gates something. Eligibility for a development program. Visibility in an\ninternal talent marketplace. Inclusion on a succession slate. Whether someone is surfaced for a\nstretch assignment. And at that moment it stops being a description of a person and becomes **a\ndecision about them**, made by a system, on evidence they have never seen and cannot correct.\n\n101 M7 drew this line and it applies here in full. The reason it has not been applied is that\nnobody experiences building a taxonomy as building a decision engine. **The tell is not what the\nsystem outputs. It is what happens downstream of the output.**\n\nThree questions that resolve it:\n\n1. **Does any allocation of opportunity depend on this inference?** If yes, it is a decision system,\n   whatever it is called internally.\n2. **Can the person see their inferred profile and contest it?** If not, you have a determination\n   about someone made on evidence they have no access to.\n3. **What is the inference actually trained on?** If it learns from who has historically been\n   promoted, developed, or given stretch assignments, it will reproduce that pattern — which is\n   101 M7's argument arriving in a place this profession does not expect it.\n\n**This is the boundary with the People Analytics specialism**, and it is worth stating: that\ndiscipline owns whether an inference is any good. You own what happens to a person because of it.\nBoth are needed and they are not the same question.\n\n### What you own and what you licensed\n\nFour questions to have answers to before you need them:\n\n**What do your content-library terms permit a model to ingest?** Most enterprise learning-content\nlicences predate generative AI and grant a right to *deliver* content to your learners. Whether that\nincludes uploading it into a model to summarize, adapt, or generate derivatives from is usually\nunaddressed, which is not the same as permitted.\n\n**Who owns AI-generated course content?** The answer varies by jurisdiction and turns on human\nauthorship. It matters when you want to enforce against reuse, when a vendor relationship ends, or\nwhen a client asks for the copyright to something you built for them.\n\n**Does your authoring platform train on your material?** Your proprietary content, your internal\nprocesses, and the anonymized-but-not-really case studies inside your courses are all in scope of\nthat question. This is 101 M8's agreement layer, aimed at the tools this specific role uses.\n\n**What happens when a licence lapses?** A program built on licensed content — a model, an\nassessment, a framework — may have to be rebuilt or withdrawn. Programs are long-lived and licences\nare not."
+  },
+  {
+    "id": "ai301-talent-dev-m5-exercise-embed-85",
+    "moduleId": "ai301-talent-dev-m5",
+    "ordinal": 85,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"sorting\"}"
+  },
+  {
+    "id": "ai301-talent-dev-m5-key-takeaways-90",
+    "moduleId": "ai301-talent-dev-m5",
+    "ordinal": 90,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **A course can be excellent and non-compliant** `[V]`. Mandated-training statutes specify\n  duration, interactivity, and content elements; the audit does not grade pedagogy, and there is no\n  partial credit for quality.\n- **The requirement is an input, not a review criterion.** Put the statutory content list in the\n  brief; checking afterwards means rebuilding. Multi-state means strictest applicable or genuinely\n  separate versions.\n- **Deferral is not runway** `[V]`. EU high-risk employment duties moved to 2 December 2027 under\n  Regulation (EU) 2026/1744, but AI literacy and the absolute workplace emotion-recognition\n  prohibition have bound since February 2025, and the transparency obligations since 2 August 2026 —\n  which puts a learning assistant or coaching bot in scope now, whatever its risk class.\n- **The emotion-recognition prohibition is absolute**, and engagement-scoring-from-video products are\n  marketed to this function specifically.\n- **AI-generated media fails WCAG 2.1 AA in predictable ways** `[V]`: uncaptioned video, decorative\n  alt text, colour-only signalling, low contrast, mouse-only interactions.\n- **Accessibility exposure scales with asset count**, and concentrates in exactly the\n  cheap-to-produce bucket. Cheap at production time; a project afterwards.\n- **A skills inference becomes a decision the moment an opportunity depends on it** — and the tell is\n  what happens downstream, not what the system outputs.\n- **Four ownership questions**: what your licences permit a model to ingest, who owns generated\n  content, whether your platform trains on your material, and what happens when a licence lapses."
+  },
+  {
+    "id": "ai301-talent-dev-m5-activity-link-95",
+    "moduleId": "ai301-talent-dev-m5",
+    "ordinal": 95,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"activity_link\", \"title\": \"Applied activity \\u2014 The floor, cleared\", \"blurb\": \"Four checks against your own function: one mandate compared element by element, three real assets sampled for accessibility, the inference line written, and the three ownership questions you will ask \\u2014 named person, named date.\", \"estMinutes\": \"35\"}"
+  },
+  {
+    "id": "ai301-talent-dev-m5-take-a-position-100",
+    "moduleId": "ai301-talent-dev-m5",
+    "ordinal": 100,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"Your skills taxonomy is a decision system, and you have never treated it like one.\"*\n\nThe strongest counter-argument is that **this reasoning proves far too much, and its consequences\nfall on the people it claims to protect.** Taxonomies are descriptive infrastructure. So is a\ndirectory, a project history, and a CV. If every inference that could influence an opportunity is a\nregulated decision requiring notice, contestability, and audit, then the entire skills-based agenda\nbecomes prohibitively expensive — and that agenda exists to *widen* access to opportunity, by making\ncapability visible in a way that does not depend on whose manager advocates for them.\n\nThe sharp version: **the realistic alternative to algorithmic skills inference is not careful human\nassessment. It is managerial intuition and informal networks**, which are unaudited, uncontestable,\ninvisible, and extremely well-documented as sources of exactly the bias the objection is worried\nabout. A compliance posture that makes inference expensive hands the field back to that, and calls\nit a win.\n\nYour position has to survive that — and in particular it has to say what threshold *would* trigger\nthe protections, given that \"influences an opportunity\" plainly captures too much."
+  },
+  {
+    "id": "ai301-talent-dev-m5-sources-and-attribution-110",
+    "moduleId": "ai301-talent-dev-m5",
+    "ordinal": 110,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- **State harassment-prevention training mandates** `[V]` — California's two-hour supervisor and\n  one-hour non-supervisory requirement on a two-year cycle with an \"effective interactive training\"\n  standard; Illinois's annual requirement for all employers with employees in the state, with\n  specified content elements; New York's annual interactive requirement. Thresholds, intervals, and\n  content lists differ by state and change; **confirm with counsel for your own jurisdictions.**\n- **EU AI Act and the Digital Omnibus** `[V]` — Annex III employment classification deferred to\n  2 December 2027 by **Regulation (EU) 2026/1744**, published 24 July 2026 and in force 27 July\n  2026; the AI literacy obligation and workplace emotion-recognition prohibition in force since\n  February 2025; the Article 50 transparency obligations applicable from 2 August 2026, independent\n  of high-risk classification. **This phrasing is deliberately consistent with HRBP M6 and the\n  recruiter track's floor module**, which carry the same facts for different roles, so that the\n  three copies do not drift when the volatile layer is re-checked. Re-verified 12 August 2026.\n- **WCAG 2.1 Level AA** `[V]` — adopted by Section 508's refresh and named in the US Department of\n  Justice's 2024 ADA Title II rule; Title III names no version, and 2.1 AA is the applied benchmark.\n  The specific AI-media failure modes listed are observational and original to this course, not\n  drawn from a published study.\n- The skills-inference test, the boundary statement with the People Analytics specialism, and the\n  four ownership questions are original to this course.\n- Builds on 101 M7 (decisions about people), 101 M8 (the agreement layer), and Module 3's backward\n  read, aimed here at compliance content."
+  }
+]

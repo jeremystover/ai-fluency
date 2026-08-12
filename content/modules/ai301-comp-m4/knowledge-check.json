@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What determines which side of the speed/accountability line a task sits on?",
+      "options": [
+        "How sensitive the underlying data is",
+        "What you would have to produce if the outcome were challenged — the result, or the method with each choice explained",
+        "Whether the task is legally regulated",
+        "How much time the task currently takes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sensitivity and regulation both correlate with it and neither is the test. The deposition question surfaces it fastest: does \"why is this person's adjustment 4%?\" have an answer."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why is a model fitted on historical pay structurally unsuited to recommending pay?",
+      "options": [
+        "Because historical pay data is usually incomplete",
+        "Because it learns the pattern in what you have paid — including the disparities a pay equity audit exists to find — and reproduces them fluently and at scale, with a rationale attached",
+        "Because pay decisions require contextual judgment models can't access",
+        "Because compensation data changes too quickly for a fitted model to stay accurate"
+      ],
+      "correctIndex": 1,
+      "explanation": "Consistency with the training data is what fitting means. C is true and much weaker; the circularity is the specific problem. **A model may describe your pay patterns; it may not recommend your pay decisions.**"
+    },
+    {
+      "id": "q3",
+      "prompt": "A pay equity regression controls for job level, and the residual gap is near zero. What does this establish? `[V]`",
+      "options": [
+        "That pay is equitable across the organization",
+        "That, within level, pay is equitable — which is a narrower question, and if women are systematically leveled lower at hire the control has absorbed the effect you were looking for",
+        "That job level is the primary driver of pay in the organization",
+        "That the analysis was correctly specified"
+      ],
+      "correctIndex": 1,
+      "explanation": "The model isn't wrong; it's answering something narrower than people will hear. **\"Explained\" variance is a modeling decision with fairness consequences, not a statistical fact** — and \"legitimate\" was defined by whoever chose the control set."
+    },
+    {
+      "id": "q4",
+      "prompt": "What does ERISA require of AI use in benefit plan administration? `[V]`",
+      "options": [
+        "A specific AI disclosure filed with the Department of Labor",
+        "Nothing yet — no AI-specific rule has been issued",
+        "Nothing AI-specific, because the ordinary duties already reach it: AI in decision support, final authority with a human, and human involvement in adverse benefit determinations",
+        "That any AI vendor be a named plan fiduciary"
+      ],
+      "correctIndex": 2,
+      "explanation": "B is half-right and misleads — the absence of an AI-specific rule is not an absence of obligation. Prudence, loyalty, monitoring and the exclusive benefit rule do the work, and courts examine *how* you decided, which makes the process record the asset."
+    },
+    {
+      "id": "q5",
+      "prompt": "What's the practical rule that reconciles *Heppner* and *Warner v. Gilbarco*? `[V]`",
+      "options": [
+        "That AI use always waives privilege in criminal matters but not civil ones",
+        "That work product survives AI use but attorney-client privilege never does",
+        "Enterprise deployment with confidentiality terms plus documented direction of counsel — Heppner turned on consumer terms and the absence of counsel's direction, Gilbarco on a tool used as an ordinary drafting instrument",
+        "That pro se litigants receive greater protection than represented parties"
+      ],
+      "correctIndex": 2,
+      "explanation": "And the honest coda: **no court has yet ruled on counsel expressly directing the AI use**, which is exactly the pay equity posture. The floor is being built."
+    },
+    {
+      "id": "q6",
+      "prompt": "What's the operative standard for a salary range in a posting under most US pay transparency laws? `[V]`",
+      "options": [
+        "The range must match the approved band in the compensation structure",
+        "A good-faith estimate of what the employer actually expects to pay — which is a substantive standard, not a formatting one",
+        "The range must be within 20% of market median for the role",
+        "The range must reflect the actual pay of current incumbents"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which is why a model producing a plausible-looking range from market data hasn't necessarily produced a compliant one. Plausible and good-faith are different standards, and only one is legally operative."
+    },
+    {
+      "id": "q7",
+      "prompt": "Why does the EU joint pay assessment collide with US pay equity practice? `[V]`",
+      "options": [
+        "Because the EU uses a different definition of the gender pay gap",
+        "Because it cannot be conducted confidentially — it's produced with worker representatives and available to workers and labour inspectorates — while the US posture runs the analysis under counsel precisely to protect it from discovery",
+        "Because the EU threshold of 5% is stricter than any US requirement",
+        "Because EU member states transposed the directive on different schedules"
+      ],
+      "correctIndex": 1,
+      "explanation": "Two opposite postures, at the same time, on the same underlying pay data. C and D are both true and neither is the collision."
+    },
+    {
+      "id": "q8",
+      "prompt": "What's the strongest counter-argument to \"the tool recommended it is an admission\"?",
+      "options": [
+        "That AI recommendations are often more consistent than human ones",
+        "That professionals routinely rely on instruments they can't reconstruct — actuarial tables, survey aging methodologies, statistical packages — and we call that reasonable reliance, so the real distinction is whether the instrument is professionally recognized and validated",
+        "That fiduciary standards were written before AI existed and don't contemplate it",
+        "That vendors indemnify customers against errors in their models"
+      ],
+      "correctIndex": 1,
+      "explanation": "It's strongest because it points at a threshold AI tools will cross for some uses, after which relying on them is prudent rather than negligent. The position you owe is where that threshold sits and how you'd know it had been crossed."
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+[
+  {
+    "id": "ai301-talent-dev-m1-calibration-prompt-before-you-start-10",
+    "moduleId": "ai301-talent-dev-m1",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Before you start — commit a position\n\n*One claim. Commit to it before you read anything, and be honest — nobody sees this but you.*\n\n> **\"More than half of what my function published last year could be rebuilt to an acceptable\n> standard, in a weekend, by a competent person outside L&D using current AI tools.\"**\n\n**True of us, or not true of us?** Commit, in a sentence, and say what you're basing it on.\n\nThen, if you can put a number on it: **what percentage of your portfolio falls on the \"yes,\nrebuildable\" side?** You'll check that number against your actual catalog in the activity, and the\ngap between the two is the point.\n\nIf you genuinely cannot check it — no catalog inventory, no way to see what shipped last year —\n**write that down instead.** That is a finding about your function, not a failure to do the\nexercise, and it is graded as one."
+  },
+  {
+    "id": "ai301-talent-dev-m1-module-brief-20",
+    "moduleId": "ai301-talent-dev-m1",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nHere is the uncomfortable shape of this course, stated in the first three minutes so you can decide\nwhether to trust it.\n\nLearning and development is the third-highest concentration of AI use cases in HR — behind\nrecruiting and HR technology, ahead of everything else — and roughly seven in ten L&D professionals\nreport already experimenting with or integrating AI `[V]`. That is not a warning about a coming\ndisruption. It is a description of a change that has already happened, and it landed on the part of\nthis work its practitioners were proudest of.\n\nWhich produces a diagnosis that runs opposite to the one every other People function gets. The HR\nbusiness partner's course opens by telling them their core territory is the *least*-penetrated part\nof HR, and that the anxiety they've been sold is mostly manufactured. That is true, and it is not\ntrue here. **Your core craft is the most AI-saturated work in the function.**\n\nSo this module does two jobs that are, for this role, one job: the diagnosis and the map. The\nfinding is the same object seen twice.\n\n**L&D work runs a chain.** A request arrives. Someone diagnoses it. Someone designs. Someone\nproduces. Someone delivers. Something transfers, or doesn't. Someone tries to prove it. Seven\nstages, and your hours have always concentrated in the middle three while your value has always\nconcentrated at the two ends.\n\n**AI collapsed the middle.** Which means the two things this field has historically been worst at —\ndeciding what is worth building, and proving it did anything — are now the entire job.\n\nAnd there is a cost to that nobody has named, which is what Module 2 is about: the expensive middle\nwas doing work nobody counted. It was the reason bad training requests died."
+  },
+  {
+    "id": "ai301-talent-dev-m1-learning-objectives-30",
+    "moduleId": "ai301-talent-dev-m1",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. Locate any piece of L&D work on the seven-stage chain, and explain why the value sits at the ends\n   while the hours sit in the middle.\n2. Sort a real portfolio with three questions — cheap now, ours only, needs a human on the hook —\n   and defend the boundaries.\n3. Explain what the second bucket actually depends on, and what would have to become true for it to\n   shrink.\n4. Name what this track will not teach you, and where that material already lives.\n5. Produce a triage of your own portfolio with a percentage in each bucket and one named program you\n   would kill."
+  },
+  {
+    "id": "ai301-talent-dev-m1-lesson-1-the-chain-and-where-the-value-w-40",
+    "moduleId": "ai301-talent-dev-m1",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 · The chain, and where the value went\n\nNot a maturity model. Just the sequence work actually moves through.\n\n**Request → diagnosis → design → production → delivery → transfer → evidence.**\n\n- **Request.** Someone asks for something. A manager, a function head, an exec, a post-incident\n  debrief.\n- **Diagnosis.** Deciding whether this is a training problem at all, and what the actual performance\n  gap is.\n- **Design.** Objectives, assessment, sequencing, practice, spacing, transfer strategy. The\n  discipline with a real research base.\n- **Production.** Slides, modules, scripts, job aids, facilitator guides, video, assessments.\n- **Delivery.** Live, virtual, asynchronous, blended.\n- **Transfer.** Whether anything changes on the job.\n- **Evidence.** Whether you can show it did.\n\nNow put your hours against it. For nearly every L&D function that has ever been timed, the mass sits\nin **design and production** — and production alone is usually the largest single block in the role.\n\nAnd put your *value* against it. What did the function contribute that nobody else could? Two\nthings, and they sit at the ends: **the judgment that this request should or shouldn't become a\nprogram**, and **the evidence that it worked.** The middle is craft — real, learnable, and, it turns\nout, the part a general-purpose tool got good at first.\n\n**That is the barbell, and it is not a metaphor imposed on the role.** It is what the timesheet says\nonce you sort it. Everything else in this track hangs off it: Module 2 is the left end, Module 6 is\nthe right end, and Modules 3 through 5 are what stops you from getting hurt in between."
+  },
+  {
+    "id": "ai301-talent-dev-m1-try-50",
+    "moduleId": "ai301-talent-dev-m1",
+    "ordinal": 50,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### Try this — 3 minutes\nTake the last thing your team shipped. Say out loud how many hours went into producing it, and how\nmany went into deciding it should exist. If the second number is smaller than the first by more\nthan a factor of ten, you have found the shape of your function without needing the rest of the\nlesson."
+  },
+  {
+    "id": "ai301-talent-dev-m1-lesson-2-the-inversion-60",
+    "moduleId": "ai301-talent-dev-m1",
+    "ordinal": 60,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 · The inversion [V]\n\nThe reason this track cannot open the way the others do.\n\n**Where AI actually landed in HR.** In SHRM's *State of AI in HR 2026* — a survey of 1,908 HR\nprofessionals fielded in December 2025 — reported AI use concentrates in recruiting (27%), HR\ntechnology (21%), **learning and development (17%)**, and employee experience (14%). L&D is third\nof sixteen practice areas, and the three ahead of or alongside it are all places where the work is\ntransactional and countable.\n\n**And L&D's own adoption runs ahead of the function's.** LinkedIn's *Workplace Learning Report 2025*\nput roughly **71% of L&D professionals** experimenting with or integrating AI into their work.\nWhatever else is true, this is not a population that needs persuading to try it.\n\nHold those two together and the diagnosis writes itself. The business partner is told: *your core is\nthe least-penetrated part of HR, the pressure is real but the panic is sold to you.* You get the\nopposite. **The saturation is in your craft, and you brought it there yourselves, enthusiastically,\nbecause it worked.**\n\nTwo honest qualifications, because a module that asks you to interrogate evidence has to survive its\nown standard:\n\n**\"Use cases\" is not \"work replaced.\"** The SHRM figure counts where organizations report applying\nAI, not what proportion of L&D work is now machine-made. A function with ten AI use cases and two\nhundred people is counted the same as one that restructured. The figure establishes concentration,\nnot depth.\n\n**And self-reported experimentation is a weak measure.** \"Experimenting with or integrating\" is a\ngenerous bucket. Someone who used a model to draft one email is inside it.\n\nSo the honest version of the claim is narrower than the headline and still sufficient: **among the\nsixteen things HR does, this is one of the three where AI has landed hardest, and this profession\nadopted it faster than its neighbours.** You do not need the strong version for the rest of the\ntrack to hold."
+  },
+  {
+    "id": "ai301-talent-dev-m1-lesson-3-the-three-questions-70",
+    "moduleId": "ai301-talent-dev-m1",
+    "ordinal": 70,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 · The three questions\n\nThe triage. Run every piece of your portfolio through them, in order.\n\n**Question 1 — Is it cheap now?** Could a competent person outside your function, with current\ntools and access to your source material, rebuild this to an acceptable standard in a weekend?\n\nNote what the question does *not* ask. Not \"is it good.\" Not \"did it take you six weeks.\" Whether it\nwas expensive to make is a fact about the past. **The question is what it costs to replace, now.**\n\nMost people find this bucket lands above half, and the number is not the lesson. The lesson is what\nyou do about it — which is Module 6's problem, and you cannot get there without the number.\n\n**Question 2 — Is it ours only?** Could anyone outside this organization make it? This is the bucket\nthat depends on something only you hold: your actual processes, your real incidents, your specific\nsystems, your regulatory posture, the way decisions genuinely get made here. A compliance module on\ngeneral anti-harassment principles is not in this bucket. One built around three anonymized\nincidents that actually happened in your business, with your escalation path, is.\n\n**Question 3 — Does it need a human on the hook?** Not \"would a human do it better\" — whether\nsomeone has to be *accountable in the room*. Development conversations where the point is the\nrelationship. Facilitation where the value is that a senior person showed up. Anything where\nsomebody has to be answerable for a judgment about a named individual.\n\n**Order matters.** Run 1 first and it will swallow work that belongs in 2 or 3, because almost\nanything looks rebuildable if you only consider the artifact. Run 3 first and everything looks\nhuman-critical, because everyone believes their work needs them. The discipline is to run 1 as\nharshly as you can, then rescue from it only what genuinely answers 2 or 3."
+  },
+  {
+    "id": "ai301-talent-dev-m1-lesson-4-what-the-second-bucket-rests-on-80",
+    "moduleId": "ai301-talent-dev-m1",
+    "ordinal": 80,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 · What the second bucket rests on, and what this course won't teach\n\n**Bucket two is the one people argue about**, so here is the argument, stated as an argument rather\nthan a fact.\n\nThe material in bucket two is protected by a specific property: it is **undocumented**. Your\nescalation path in practice rather than on the intranet, why the 2023 reorg makes one team's\nonboarding different, which manager behaviours actually get someone promoted here. A model cannot\nsupply it because nobody wrote it down.\n\nThat is a real mechanism, and it is worth being precise about what it does and doesn't promise.\nIt does *not* say bucket two is safe because the judgment involved is too subtle. It says the\ninformation is **absent from the record**. Those are very different claims, and the second one has a\ncondition attached: **it holds exactly as long as the information stays undocumented.**\n\nWhich means the thing that would most shrink bucket two is not a better model. It is your own\norganization getting better at capturing how it actually works — which is something you might\notherwise think of as an unambiguously good idea, and which Module 6 will ask you to have a position\non. Take one now: *what would have to become true for bucket two to halve?* If your answer is \"a\nmuch better model,\" you have not engaged the mechanism.\n\n**And what this course will not teach you**, stated plainly because the exclusions are the product.\n\nYou have finished 201. That course already taught document pipelines — chaining a long input into\nstructured outputs with checkpoints, whose worked example is literally a transcript becoming a\nstructured summary. **Building an e-learning module from a SME interview is that.** It also taught\nthe context pack: reusable standing material so you stop re-explaining your world. **A course\nstyle-and-standards pack is that.** And it taught the operating rhythm: cadence, measurement,\nretirement criteria. **\"Your L&D calendar as workflows\" is that.**\n\nThree modules a Talent Development course would obviously reach for, and all three are already\nyours. A 300-level course that quietly re-teaches the 200-level is charging you twice for the same\nmaterial and betting you won't notice. If you skipped 201, the honest instruction is to go take it\nrather than accept a thin summary here.\n\nWhat survives that subtraction is the rest of this track, and none of it is production."
+  },
+  {
+    "id": "ai301-talent-dev-m1-exercise-embed-85",
+    "moduleId": "ai301-talent-dev-m1",
+    "ordinal": 85,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"sorting\"}"
+  },
+  {
+    "id": "ai301-talent-dev-m1-key-takeaways-90",
+    "moduleId": "ai301-talent-dev-m1",
+    "ordinal": 90,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **The chain is request → diagnosis → design → production → delivery → transfer → evidence.** Your\n  hours concentrate in the middle. Your value concentrates at the ends. That gap is the whole track.\n- **AI collapsed the middle**, which promotes the two things this field has historically been worst\n  at — deciding what to build, and proving it worked — into the entire job.\n- **L&D is the third-highest AI use-case concentration in HR at 17%, and ~71% of L&D professionals\n  report experimenting or integrating** `[V]`. The diagnosis here is the opposite of the business\n  partner's: the saturation is in your craft.\n- **But \"use cases\" is not \"work replaced,\" and self-reported experimentation is a generous\n  bucket.** The narrow version of the claim is enough.\n- **Three questions, in order: cheap now / ours only / needs a human on the hook.** Run question one\n  as harshly as you can, then rescue only what genuinely answers two or three.\n- **Bucket two is protected because the information is undocumented — not because the judgment is\n  subtle.** That protection lasts exactly as long as the documentation gap does.\n- **Production with AI is 201 M3. A standards pack is 201 M2. An L&D calendar of workflows is 201\n  M7.** This track teaches none of them, on purpose."
+  },
+  {
+    "id": "ai301-talent-dev-m1-activity-link-95",
+    "moduleId": "ai301-talent-dev-m1",
+    "ordinal": 95,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"activity_link\", \"title\": \"Applied activity \\u2014 The triage\", \"blurb\": \"Your actual catalog, sorted into three buckets with a percentage in each \\u2014 and one program you would stop. Not pause. Stop. A triage that ends without a named casualty has not been run.\", \"estMinutes\": \"30\"}"
+  },
+  {
+    "id": "ai301-talent-dev-m1-take-a-position-100",
+    "moduleId": "ai301-talent-dev-m1",
+    "ordinal": 100,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"The part of your job you were proudest of is the part that just became cheap.\"*\n\nThe strongest counter-argument is that **rebuildable is not the same as replaceable, and the triage\nmay be measuring the wrong thing.** A competent outsider with good tools can reproduce the artifact\n— the deck, the module, the job aid — and reproduce almost none of what made it land. The political\nread on why the program had to be framed *this* way rather than the obviously better way. The scope\nthat was negotiated down in a room. The credibility of the person who delivered it, which is why\nanyone showed up. On that view, question one measures **artifact complexity** and quietly calls it\nvalue, and a function that triages on it will cheerfully surrender the things that were working for\nreasons the triage cannot see.\n\nThat argument is strong enough that it changes what an honest bucket-one number means. Your position\nhas to say whether the triage survives it — and if you think it does, what specifically stops\nquestion one from mistaking \"hard to make\" for \"valuable.\""
+  },
+  {
+    "id": "ai301-talent-dev-m1-sources-and-attribution-110",
+    "moduleId": "ai301-talent-dev-m1",
+    "ordinal": 110,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- **SHRM, *The State of AI in HR 2026*** — the practice-area concentration of reported AI use:\n  recruiting 27%, HR technology 21%, learning and development 17%, employee experience 14%. Survey\n  of 1,908 HR professionals, fielded December 2025. The same survey is cited in the HRBP track; the\n  phrasing here is deliberately consistent with it so the two do not drift. **[V]**\n- **LinkedIn, *Workplace Learning Report 2025*** — approximately 71% of L&D professionals\n  experimenting with or integrating AI. The in-lesson caveats about what \"use cases\" and\n  \"experimenting or integrating\" do and do not measure are ours, and are stated because this module\n  asks the learner to interrogate evidence. **[V]**\n- The seven-stage chain, the barbell finding, the three-question triage and its ordering rule, and\n  the undocumented-information account of what protects bucket two are original to this course.\n- Builds on 201 M2 (context packs), 201 M3 (document pipelines), and 201 M7 (the operating rhythm) —\n  by declining to repeat them, and saying so."
+  }
+]
