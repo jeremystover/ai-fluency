@@ -1,0 +1,33 @@
+{
+  "reviewedAt": "2026-08-12",
+  "buckets": [
+    { "id": "answer", "label": "The bot answers it", "hint": "Factual, governed by a current document", "rank": 0, "pct": 90 },
+    { "id": "answer-then-route", "label": "Answers, then offers a human", "hint": "Factual, but consequential enough to hand on", "rank": 1, "pct": 60 },
+    { "id": "route-silent", "label": "Routes, and says nothing else", "hint": "Acknowledge and hand over — no advice", "rank": 2, "pct": 25 },
+    { "id": "never", "label": "A human only — and the bot shouldn't be the front door", "hint": "The channel itself is the problem", "rank": 3, "pct": 10 }
+  ],
+  "tasks": [
+    { "id": "t1", "text": "\"How many PTO days do I have left?\"", "key": "answer",
+      "reasoning": "Factual, personal, governed by a system of record rather than a policy document. The clearest legitimate case there is — and the one every vendor demo opens with." },
+    { "id": "t2", "text": "\"When does open enrollment close?\"", "key": "answer",
+      "reasoning": "A date from a current document. Safe, high-volume, and exactly what the capability should be scoped to. Note the dependency: safe only if the enrollment document carries an effective date and the prior year's version is out of the index." },
+    { "id": "t3", "text": "\"I'm struggling to get in for 9am since my treatment started — is there anything that can be done?\"", "key": "route-silent",
+      "reasoning": "The module's central card. This is potentially an accommodation request and it contains neither 'accommodation' nor 'disability' nor any word a keyword rule would catch. Route it, acknowledge it, and say nothing about entitlements — an answer here is the capability giving advice on the exact matter it should have handed over." },
+    { "id": "t4", "text": "\"Is there a way to reduce my hours for a while? My mum isn't well.\"", "key": "route-silent",
+      "reasoning": "Reads as a scheduling question and may be FMLA notice. Same failure mode as t3 and even easier to answer wrongly, because 'here's our flexible working policy' feels helpful and complete. Proximity to leave plus a health mention is the routing signal, not vocabulary." },
+    { "id": "t5", "text": "\"What's the process for adding a newborn to my health plan?\"", "key": "answer-then-route",
+      "reasoning": "Genuinely factual and answerable from a current document — and it sits on a qualifying-event deadline where being wrong is expensive and irreversible. Answer it, then offer the human, because the cost of a stale answer here is a missed enrollment window rather than an inconvenience." },
+    { "id": "t6", "text": "\"I don't think I can keep working for him.\"", "key": "never",
+      "reasoning": "Could be a resignation, a harassment report, a management dispute, or distress. The capability cannot tell which, and every wrong guess is serious. This is the card where the channel itself is the problem: an employee reaching for this sentence should not be talking to a bot at all, and the human route needs to be obvious enough that they find it first." },
+    { "id": "t7", "text": "\"Can you tell me what my manager wrote in my review?\"", "key": "route-silent",
+      "reasoning": "The retrieval-permissions card, and a preview of Module 6. Even if the document is technically reachable, whether this employee may see this content at this moment is a decision with a policy behind it — not a lookup. The capability should not be the thing that decides." },
+    { "id": "t8", "text": "\"What's the mileage reimbursement rate?\"", "key": "answer",
+      "reasoning": "A number from a current document, no personal data, no deadline, trivially verifiable. Include it because a sorting exercise where everything is dangerous teaches the wrong lesson — most of the volume genuinely is this, and that is why the capability is worth having." },
+    { "id": "t9", "text": "\"Someone on my team keeps making comments about my accent. What are my options?\"", "key": "never",
+      "reasoning": "A potential discrimination or harassment report. Not routing this is a serious failure; routing it *silently* while the employee waits is nearly as bad, because a person who has just disclosed this needs a human acknowledgement rather than a ticket number. The bot should not be the front door for it." },
+    { "id": "t10", "text": "\"Am I eligible for the bonus if I resign before it pays out?\"", "key": "answer-then-route",
+      "reasoning": "The card most people sort as a clean answer. It is factual and governed by a plan document — and it also discloses possible resignation intent, which belongs on the must-route list. So: answer the plan question from the current document, and route the signal. Two things happening in one sentence is the normal case, not the exception.", "also": ["route-silent"] }
+  ],
+  "pattern": "The messages that carry a legal obligation are the ones written in ordinary language, with no trigger word anywhere in them.",
+  "postscript": "Check t3, t4 and t10 against your prediction. None of the three contains a word a keyword rule would catch, and all three carry something that has to reach a human — which is why the module argues for routing on topic proximity and uncertainty rather than vocabulary. **t10 is the one to sit with**: it is simultaneously a legitimate plan question and a disclosure of resignation intent, and a capability designed around one-intent-per-message will handle it wrongly by construction. If you sorted mostly toward the answering buckets, you have designed for the 94% — the module's argument is that the residual is where the whole exposure lives."
+}
