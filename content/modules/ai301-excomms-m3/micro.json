@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ai301-excomms-m3-micro-core",
+    "moduleId": "ai301-excomms-m3-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module 3 in two minutes\n\n**Workslop costs trust, not just time** `[V]`. AI-generated content that looks like work and isn't runs about two hours of rework per incident, with 42% of recipients rating the sender less trustworthy. The time cost closes when the rework is done. **The trust cost doesn't** — it attaches to the sender and prices every future interaction.\n\n**And your function is the one where that lands hardest.** Everywhere else workslop goes person-to-colleague and damages one recoverable relationship. Yours is broadcast, so the sender marked less trustworthy is the channel your next message depends on — and nobody tells you it happened. They just move you one notch down their attention hierarchy, permanently and silently. That's the mechanism behind the message that genuinely mattered, sent to a workforce that had already stopped reading.\n\n**Your volume trap isn't the familiar one.** The version aimed at decision-makers costs your own budget and is fixed by deciding better. Yours draws on an account held by every employee without their consent, where every individual decision can be defensible while the aggregate is still extractive."
+  },
+  {
+    "id": "ai301-excomms-m3-micro-rule",
+    "moduleId": "ai301-excomms-m3-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### The rule to carry\n\n**Principles scale with volume. Constraints don't — which is the point of them.** If the cost lands on your own budget, better judgment per decision is a sufficient fix. If it lands on someone else's, you need a hard limit: a fixed number of sends, a consolidation rule, a standing kill list. That's why this module's artifact is a list of things you'll stop and not a set of principles for deciding better.\n\nAnd the metric test: **would a bad result on this number change what you do next week?** Open rate almost never passes."
+  },
+  {
+    "id": "ai301-excomms-m3-micro-close",
+    "moduleId": "ai301-excomms-m3-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "**The full module adds** where volume actually originates — 61% of organizations have no formal change communication strategy while ranking it their top skill need `[V]`, so every change spawns its own ad hoc plan and **nobody is over-sending; twenty people each send a defensible amount and no one owns the sum.** The fix is upstream and proposable: a standing change communication standard turns twenty negotiations into one prior decision. Plus the three families of measure that beat open rate, the ten-message sort, and the kill list — where at least one of the three things you stop should be something you personally approved."
+  }
+]

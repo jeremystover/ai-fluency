@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why does the workslop trust finding land differently on internal communications than on other functions `[V]`?",
+      "options": [
+        "Because communicators use AI more heavily than other functions",
+        "Because it's broadcast rather than person-to-colleague, so the \"sender\" rated less trustworthy is the channel your next message depends on — and recipients never tell you it happened",
+        "Because communications output is more visible to executives",
+        "Because internal communications has no way to correct errors after publication"
+      ],
+      "correctIndex": 1,
+      "explanation": "A finance analyst who sends one slop deck damages one recoverable relationship, and the blast radius is the meeting. A slop all-company update makes a small withdrawal from every employment relationship at once, silently — recipients just move your channel down their attention hierarchy."
+    },
+    {
+      "id": "q2",
+      "prompt": "What distinguishes a time cost from a trust cost?",
+      "options": [
+        "Time costs are larger in aggregate",
+        "Trust costs can be measured; time costs cannot",
+        "The time cost closes when the rework is done; the trust cost attaches to the sender and prices every future interaction",
+        "Trust costs only apply to external communications"
+      ],
+      "correctIndex": 2,
+      "explanation": "Which is why the two-hours figure gets quoted and the 42% figure is the one that matters to a function whose entire asset is being believed."
+    },
+    {
+      "id": "q3",
+      "prompt": "How does the attention version of the volume trap differ from the decisions version?",
+      "options": [
+        "The attention version applies only to large organizations",
+        "The decisions version costs your own budget and is fixed by deciding better; the attention version draws on an account held by everyone else without consent, so each decision can be defensible while the aggregate is extractive",
+        "The decisions version is about quality; the attention version is about quantity",
+        "They are the same trap described at different altitudes"
+      ],
+      "correctIndex": 1,
+      "explanation": "And the difference dictates the remedy. Your own budget can be spent better. Someone else's needs a hard constraint, because better per-message judgment doesn't touch an aggregate nobody is looking at."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why does this module produce a kill list rather than a set of principles for deciding better?",
+      "options": [
+        "Because principles are harder to communicate to a team",
+        "Because executives respond better to concrete artifacts",
+        "Because principles scale with volume and constraints don't — a rule that applies per message can't fix an aggregate",
+        "Because the profession already has too many principles"
+      ],
+      "correctIndex": 2,
+      "explanation": "Every individual message can pass a principled test while the total remains extractive. That is exactly the failure a constraint is designed to catch and a principle is not."
+    },
+    {
+      "id": "q5",
+      "prompt": "61% of organizations have no formal change communication strategy while ranking change comms their top skill need `[V]`. What does this explain?",
+      "options": [
+        "That communicators are under-trained in change management",
+        "That change communication should be outsourced to specialists",
+        "That volume has no single author — every change generates its own ad hoc plan, twenty people each send a defensible amount, and nobody owns the sum",
+        "That organizations undervalue the communications function"
+      ],
+      "correctIndex": 2,
+      "explanation": "It reframes over-sending from a discipline failure by individuals into the predictable output of a system with no aggregate view and no standing rules, at a production cost that used to be self-limiting."
+    },
+    {
+      "id": "q6",
+      "prompt": "What makes a standing change communication standard the highest-leverage intervention?",
+      "options": [
+        "It reduces the number of people involved in communications decisions",
+        "It converts twenty separate per-change negotiations into one prior decision — and it's proposable to a sponsor, because it isn't \"send less\"",
+        "It allows the function to refuse requests without escalation",
+        "It improves the quality of individual change messages"
+      ],
+      "correctIndex": 1,
+      "explanation": "It works upstream of any individual message, which is where the volume originates, and it arrives as \"here is what good looks like, agreed once\" rather than as a restriction — which is why it survives contact with an executive."
+    },
+    {
+      "id": "q7",
+      "prompt": "What is the test for whether a metric is worth collecting?",
+      "options": [
+        "Whether it can be measured accurately and consistently",
+        "Whether it benchmarks against comparable organizations",
+        "Whether a bad result would change what you do next week",
+        "Whether executives ask for it"
+      ],
+      "correctIndex": 2,
+      "explanation": "Open rate fails almost everywhere: a 38% open rate usually changes the subject line, which is Produce-link tinkering on a problem that rarely lives at the Produce link. Comprehension, behaviour, and the attention bill pass."
+    },
+    {
+      "id": "q8",
+      "prompt": "What is the strongest argument *against* this module's claim?",
+      "options": [
+        "That employees can filter irrelevant messages at negligible cost",
+        "That attention is allocated against relevance rather than drawn from a fixed pool — so the variable was never volume, and a function that cuts ten messages will cut the easiest ten rather than the least relevant",
+        "That trust in leadership is driven by leadership behaviour, not communication volume",
+        "That measuring the attention bill is too imprecise to act on"
+      ],
+      "correctIndex": 1,
+      "explanation": "And it has a sharper edge the module states: a function that optimizes for restraint becomes invisible, and invisible functions get cut. If the relevance model is right, the kill list is the wrong artifact and targeting is the right one — which is why the activity asks you to engage it directly."
+    }
+  ]
+}
