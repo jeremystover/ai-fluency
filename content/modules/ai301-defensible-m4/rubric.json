@@ -1,0 +1,52 @@
+{
+  "promptVersion": "ai301-defensible-m4-rfp-fairness-section-v1",
+  "moduleId": "ai301-defensible-m4",
+  "minWords": 250,
+  "maxWords": 350,
+  "submitLabel": "Your RFP fairness section",
+  "intro": "Paste the evidence-on-file check, the one-page fairness section with acceptance standards and a proportionality line, and the renewal you'd use it on — followed by the 250–350 word write-up including your position on this module's claim. Resubmission is free and unlimited — the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, Defensible by Design. Module 4 applied activity, 'The RFP fairness section': a check of what validation or fairness evidence the organization actually holds in writing today for each system on its Module 2 inventory; a one-page reusable fairness section for RFPs and renewals built on the four questions (validation evidence for a population like ours; what it was trained on and what it optimizes; what happens to rejected candidates' data; what we'd need from you if we were sued), each with a stated acceptance standard; a proportionality line distinguishing what is required from large versus small vendors; and the next real renewal or purchase where the page could be used, with who it would go to.\n\n'Nothing on file' is the EXPECTED answer for most inventory entries and must score at full credit when recorded plainly. Most organizations hold sales material rather than validation evidence, and discovering that is the point of Step 1. Do not reward a learner who counts a vendor deck or a website claim as written validation evidence — name the difference in feedback.\n\nThe acceptance standard is what separates this from a list of questions. A question with no stated standard for what counts as an answer gets answered with a brochure, and the learner should say what they would accept — including that silence is a usable answer that tells them not to rely on the claim.\n\nThe proportionality line matters and should be scored. Without it, an outcome-evidence standard silently becomes a filter for vendors with large compliance budgets rather than for good products, which is the counter-argument this module takes seriously.\n\nWatch for the two failures the exercise teaches: accepting a management-system certification as fairness evidence, and accepting a validity claim (correlation with performance) as a fairness claim. If either appears in the learner's acceptance standards, name it directly.\n\nDo not require legal conclusions. Reward correctly identifying what a document is and what it does not establish.\n\nThis track scores the delta rather than the score. Grade the learner's ACCOUNT of the gap between how many systems they predicted they held evidence for and how many they actually do — direction, size, and what it reveals. NEVER grade prediction accuracy; discovering the number is near zero is the module working.",
+  "opening": [
+    {
+      "key": "evidenceOnFile",
+      "label": "Predicted — systems on your inventory you hold written validation or fairness evidence for",
+      "hint": "In writing, on file, today — without asking the vendor.",
+      "placeholder": "e.g. 3",
+      "min": 0,
+      "max": 100
+    }
+  ],
+  "calibration": [
+    {
+      "key": "evidenceOnFileActual",
+      "label": "Found — how many you actually hold evidence for",
+      "hint": "A vendor deck or a website claim is not validation evidence. Near zero is a common and creditable answer.",
+      "placeholder": "e.g. 0",
+      "min": 0,
+      "max": 100,
+      "actualFor": "evidenceOnFile"
+    }
+  ],
+  "dimensions": [
+    {
+      "name": "The file check is honest about what counts",
+      "criteria": "Each inventory system checked for evidence actually held in writing, with sales material and website claims correctly excluded. 'Nothing on file' recorded plainly across most entries is the expected and creditable result. A learner counting a capability deck as validation evidence has made the error the module exists to prevent and should be told so directly."
+    },
+    {
+      "name": "All four questions, phrased so a non-answer shows",
+      "criteria": "The four questions present and specific — particularly 'what does it optimize', which is the highest-value question and the one most often omitted, and the rejected-candidate data question framed as a data question rather than a fairness question. Generic phrasing like 'describe your approach to fairness' invites a brochure and should be named."
+    },
+    {
+      "name": "Acceptance standards are stated",
+      "criteria": "For each question, what the learner would accept as an answer. This is what converts a question list into a gate. Look for recognition that silence is itself a usable answer — it establishes that the claim cannot be relied on, which is the information the question was for. Standards that would accept a management-system certification as fairness evidence, or a validity correlation as a fairness claim, should be corrected."
+    },
+    {
+      "name": "The proportionality line exists",
+      "criteria": "An explicit distinction between what is required from a large established vendor and a small one. Without it the standard becomes a vendor-size filter rather than a quality filter — which is the strongest version of the counter-argument. Credit thoughtful answers such as accepting a pilot-based validation study, published input features, or contractual reproducibility commitments in place of an existing audit."
+    },
+    {
+      "name": "It is deployable, and the position engages the deployment counter",
+      "criteria": "A named real renewal or purchase and the named person the page would go to — an artifact with no route into a process is a document rather than a gate. Plus a committed position on the claim, engaging the strongest case against it: that disparity is a property of the deployment rather than the tool, so no pre-purchase evidence can establish it and the real work is post-deployment. The strongest submissions say what they would accept from a small vendor with no audit budget, and name the question they expect most resistance to from their OWN organization rather than from a vendor."
+    }
+  ]
+}
