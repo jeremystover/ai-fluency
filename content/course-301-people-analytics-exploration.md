@@ -380,3 +380,51 @@ audience's exposure runs the other way: they are the people best equipped to cat
   `ai301-hrbp`. Shipping this means a `peopleanalytics` choice alongside the `peopleops` one the
   other outline requires — and at that point `other` covers talent development, employee experience,
   and function leadership only.
+
+---
+
+# Verification record — run before drafting (v2)
+
+Six blocking items from the outline's Decision 9. All resolved. **Two changed the design, and one
+resolved itself into the best worked example in the track.**
+
+## M2 L5 — flight-risk model performance in deployment
+
+**The blocking question was whether any published evaluation shows a deployed attrition model
+reduces attrition. The answer is that the literature does not ask.** It is almost entirely about
+algorithmic performance on benchmark datasets, and the strongest available reading is that
+"research primarily focuses on algorithmic performance rather than real-world effectiveness."
+
+**And the benchmark is the finding.** The headline accuracies in this literature — 98.8% for XGBoost,
+98.7% for Random Forest, and a run of near-perfect scores from boosting variants — are largely
+measured on the **IBM HR Analytics Employee Attrition & Performance dataset**, which is **explicitly
+fictional: 1,470 fabricated employee records created by IBM data scientists**, 35 features, widely
+redistributed on Kaggle.
+
+So the module does not need a citation it cannot get. **It gets a worked example instead**, and a
+better one: a 98.8%-accurate model, on invented people, cited as evidence that flight-risk scoring
+works. Every question this course teaches — what's the evidence, what's the sample, what would
+falsify it — fails at the first one. **This is now M2 L5's anchor.** The honest statement stands
+alongside it: *nobody has published an evaluation of whether acting on these scores changes
+anything, and the intervention paradox is why that is hard rather than lazy.*
+
+## M5 — the floor, all of it
+
+| Item | Result |
+|---|---|
+| **California FEHA ADS** | Confirmed. Effective **1 October 2025**, employers with **5+ employees** in California. Records of selection criteria, ADS data and applicant-flow logs retained **four years** — up from two. Reach extended to **AI tool developers/agents**, which is the part that matters for an in-house model. |
+| **Illinois HB 3773** | Confirmed and sharper than expected. Effective **1 January 2026**, amending the Human Rights Act. **Strict liability for discriminatory effect — intent is not a defence.** Notice required when AI is used in recruitment, hiring, promotion, discipline, discharge or terms of employment. **Zip codes as proxies for protected classes are expressly prohibited.** One employee is enough to be covered. Implementing rules still in progress at IDHR. |
+| **Colorado** | **The brief's entry is wrong and the correction is a lesson.** SB 24-205 was postponed to 30 June 2026, then **enforcement was blocked by a federal magistrate on 27 April 2026** (xAI challenge, with DOJ intervening), and then **repealed and replaced by SB 26-189, signed 14 May 2026** — a scaled-back **disclosure-and-rights framework** for automated decision-making technology, effective **1 January 2027**. So the date survives and the law behind it does not. |
+| **Provider vs deployer** | Confirmed, and the mechanism is **Article 25**, not a general principle. A deployer *becomes* a provider — and picks up Article 16 obligations — by putting its name or trademark on a high-risk system, **making a substantial modification** to it, or **changing its intended purpose so it becomes high-risk.** That last limb is the one this audience walks into: taking a general model or a vendor tool and pointing it at an employment decision. |
+| **Co-determination for analysis vs deployment** | Confirmed, and the delta from People Ops M7 is real. **§87(1) no. 6 BetrVG turns on whether a technical system is *objectively suitable* for monitoring behaviour or performance — the employer's intent is irrelevant.** Manager dashboards, productivity scores and AI-driven workforce analytics are named examples. So "we're only analysing data we already have" is not a defence, the works council holds an enforceable veto rather than an opinion, and engagement belongs in design rather than after deployment. **This is the analytics-specific version People Ops M7 does not carry.** |
+
+## Two design consequences
+
+**M5's Colorado lesson changes shape.** It is no longer "a date to diarise." It is **a worked example
+of a regulatory map moving under you** — postponed, enjoined, repealed and replaced inside thirteen
+months — which is the argument for building an inventory that survives the statute rather than a
+compliance checklist keyed to one.
+
+**M5 L4's purpose-limitation lesson gains a second, sharper edge.** The German position means the
+analytics function's most common self-description — *purely observational* — is not a legal category.
+A dashboard is a technical device, and suitability is assessed objectively.
