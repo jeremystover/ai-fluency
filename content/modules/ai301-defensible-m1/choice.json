@@ -1,0 +1,31 @@
+{
+  "reviewedAt": "2026-08-12",
+  "title": "Four statements, one that stopped being true",
+  "intro": "*Five minutes. Commit before you look.*\n\nFour statements a competent practitioner might have made confidently eighteen months ago. Each is the kind of thing that appears in a compliance deck, a board briefing, or an answer to a nervous executive.\n\n**Three of them are still accurate. One is not, and organizations are still building plans on it.** Find it.\n\nThe question is not which sounds most outdated. It is which one, if you said it in a meeting tomorrow, would be wrong.",
+  "artifacts": [
+    {
+      "label": "Statement A",
+      "body": "\"Disparate impact liability applies to our hiring tools whether or not we intended any disadvantage, and a vendor's assurance that the tool is unbiased is not a defence — we'd need the validation evidence for a population like ours.\""
+    },
+    {
+      "label": "Statement B",
+      "body": "\"Colorado's AI Act is the comprehensive state standard for algorithmic employment decisions. If we build to Colorado, we're building to the most demanding regime in the country and we'll be ahead of whatever comes next.\""
+    },
+    {
+      "label": "Statement C",
+      "body": "\"Most employment discrimination cases in the US are brought by private plaintiffs rather than by federal agencies, so our exposure doesn't depend primarily on federal enforcement priorities.\""
+    },
+    {
+      "label": "Statement D",
+      "body": "\"Our EEO-1 filing gives us an annual, consistently-defined demographic snapshot that nobody in the business curated. That makes it more useful as evidence than anything we produce internally.\""
+    }
+  ],
+  "options": [
+    { "id": "a", "label": "A — disparate impact and vendor assurances" },
+    { "id": "b", "label": "B — Colorado as the standard" },
+    { "id": "c", "label": "C — private plaintiffs dominate" },
+    { "id": "d", "label": "D — EEO-1 as a baseline" }
+  ],
+  "key": "b",
+  "reasoning": "**B is the one, and it is still in live compliance plans.**\n\nColorado's AI Act became the shorthand for \"the serious state regime\" almost immediately after passage, and building to it was genuinely sensible advice. Then two things happened. Implementation was **postponed to June 2026** after a failed special session, and separately **a federal court paused enforcement on 27 April 2026** pending litigation. It is stalled twice over, by two independent mechanisms.\n\nWhat makes this the answer rather than a trivia question is the second half of the statement — *\"we'll be ahead of whatever comes next.\"* A team building to Colorado is building to a framework that is not operating, while **California has been in force since 1 October 2025** with rules that make anti-bias testing or its absence relevant to a claim, and **Illinois since 1 January 2026** with a notice requirement and an express prohibition on zip codes as proxies. Those two impose concrete, current obligations that a Colorado-shaped plan does not necessarily satisfy — and they apply based on where your applicants sit, not where you are headquartered.\n\nThere is also a credibility cost worth naming. If you have used Colorado to argue for budget, the first person who checks will find it stalled, and that discovery will attach to everything else in your briefing.\n\n**A is still exactly right.** Disparate impact is codified in Title VII by the Civil Rights Act of 1991 and an executive order cannot repeal it. The enforcement posture changed; the doctrine did not. And the vendor point holds independently — \"show me the validation evidence for a population like ours\" is the question, and it either produces evidence or produces silence.\n\n**C is more true than it was.** Most employment discrimination litigation has always come from the private bar, and with federal agency enforcement withdrawn, the private channel is now a larger share of a practitioner's realistic exposure rather than a smaller one. Reporting indicates private activity in Title VII disparate impact cases is rising.\n\n**D is accurate, and it is the most time-sensitive statement in the set.** The reasoning is sound — an uncurated, consistently-defined annual series is exactly what makes good evidence. The EEOC sent a proposed rescission to OIRA on 14 May 2026. It is **proposed, not final**, and the 30 September filing obligation still stands. Which makes D true today and a decision you need to make this quarter: if federal collection ends and nobody chose to maintain the series internally, the gap appears in the middle of your own record, on the dimensions a plaintiff's expert will ask about."
+}

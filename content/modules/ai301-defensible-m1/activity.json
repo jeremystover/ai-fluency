@@ -1,0 +1,11 @@
+[
+  {
+    "id": "ai301-defensible-m1-activity-applied-activity-the-exposure-map-10",
+    "moduleId": "ai301-defensible-m1-activity",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Applied activity — \"The exposure map\"\n\n**Time:** 20 minutes · **Submit:** the map plus a 250–350 word write-up · **Graded against the\nrubric below.** Score doesn't matter. Doing the work is where the learning lands.\n\n**Step 1 — Where are your people (5 min).** Every jurisdiction where you employ people or accept\napplications. States and countries. Not where you are headquartered — where they are.\n\n**Step 2 — What applies (8 min).** For each jurisdiction: is there a regime touching AI in\nemployment decisions, is it in force, and what does it require of you specifically — notice,\nrecordkeeping, testing, audit? Mark each **in force / coming / stalled / none / don't know.**\n**\"Don't know\" is a legitimate and expected entry**, and a map that has none is probably not honest.\n\n**Step 3 — Federal contract status (2 min).** Do you hold federal contracts or subcontracts,\nincluding lower-tier? If yes or unsure, flag it — EO 14398's flow-down and records-access provisions\nchange your position materially, and \"unsure\" is itself an answer worth escalating.\n\n**Step 4 — The EEO-1 decision (2 min).** Are you filing this year? And have you decided whether to\nmaintain the series internally if federal collection ends? If nobody has decided, write that down —\nit is the most time-sensitive item on this page.\n\n**Step 5 — One question for your GC (3 min).** One question, specific enough to be answered.\nNot \"are we compliant with AI law.\" Something like: *\"We use [named tool] to screen applicants in\nIllinois and California. What notice are we required to give, and does our current careers-page\nlanguage satisfy it?\"* The test: could a lawyer answer it in one email?\n\nThen the write-up: your jurisdiction count against your prediction, with direction and size of the\nmiss; your position on the claim above with the counter-argument addressed — **including the version\nthat says testing generates the evidence**; and the single entry on your map you were most surprised\nby."
+  }
+]
