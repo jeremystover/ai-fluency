@@ -1,0 +1,52 @@
+{
+  "promptVersion": "ai401-m1-one-structure-v1",
+  "moduleId": "ai401-m1",
+  "minWords": 300,
+  "maxWords": 450,
+  "submitLabel": "Your unit, the structure, and the count",
+  "intro": "Paste the unit you're threading through this course, the one structure AI is removing with a paragraph on what it was carrying, the real count you established, and your position on the module's claim. Resubmission is free and unlimited — the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for AI 401 · The Translator — the top rung of an AI-fluency ladder for People and HR professionals who have completed AI 101, AI 201, and one 301 role track. This is the Module 1 applied activity, 'One structure'.\n\nThe module's thesis is that AI lowers the cost of individual production and raises the cost of collective coherence. Its central claim is that the structures most likely to be load-bearing are the ones nobody designed — because designed structures get documented, documented structures get defended, and undesigned ones have no advocate at the moment they are removed. AI removes coordination structures first, and coordination is where the undesigned ones live.\n\nThe submission has four parts. (1) The unit the learner will thread through the whole course — one team, function, or workflow they have real visibility into and some standing with, named with their relationship to it. (2) One structure inside that unit that was load-bearing, that nobody designed, and that AI is removing, weakening, or making optional right now — something already happening, not a prediction — plus one paragraph on what load it bore. The module's distinction is that 'the Tuesday sync' is a structure while 'the only place three teams' assumptions collided before reaching a customer' is a load; a learner who cannot state the load has picked a decorative structure. (3) The result of going to check their opening count: how many people in their organization could name who is accountable for AI's effect on how teams work together. They were asked to establish this rather than estimate it — by asking people, or by looking for a charter, job description, or committee remit that contains it. (4) Their position on the module's claim.\n\nCRITICAL — where 'go and check' cannot settle it, that is a finding and earns full credit. If no charter exists, nobody will answer, or the question does not parse in their organization, an account of what they tried and what the silence tells them is a top-scoring answer, not a failed one. Do not mark down an honest negative result.\n\nScore the delta, never the score: grade the account of the gap between the predicted count and the real one — what moved and why — and never the accuracy of either number. A large miss with a specific, honest explanation is the intended finding and should score at the top. So should a defended non-revision from someone whose original estimate held up under checking.\n\nThis is a leadership course whose central risk is drift into vision-document cliché. Reward specificity, named structures, named people, and observable evidence. Mark down abstraction, maturity-model language, and anything that would be equally true at any organization.",
+  "opening": [
+    {
+      "key": "ownerCount",
+      "label": "Predicted — how many people in your organization could name who is accountable for AI's effect on how teams work together",
+      "hint": "A count, not an impression. Zero is a legitimate and common answer.",
+      "placeholder": "e.g. 3",
+      "min": 0,
+      "max": 500
+    }
+  ],
+  "calibration": [
+    {
+      "key": "ownerCountActual",
+      "label": "Actual — the count after you went and checked",
+      "hint": "Established by asking, or by finding it in a charter, remit, or job description. If the check couldn't settle it, enter your best evidenced figure and explain in the write-up.",
+      "placeholder": "e.g. 0",
+      "min": 0,
+      "max": 500,
+      "actualFor": "ownerCount"
+    }
+  ],
+  "dimensions": [
+    {
+      "name": "The unit is real, bounded, and theirs",
+      "criteria": "A named team, function, or workflow the learner has genuine visibility into and some standing with, stated with their actual relationship to it. Not the whole enterprise, not a hypothetical, not a unit they only hear about. This choice governs nine more modules, so a modest unit chosen deliberately outscores an ambitious one chosen for its scope. Credit an explicit statement of what standing they have and what they can influence."
+    },
+    {
+      "name": "The structure is undesigned and already dissolving",
+      "criteria": "Three tests, all of which must hold. It is specific and nameable rather than a category. Nobody designed it — it emerged, it lives in habits or in one person, it has no charter or owner. And the dissolution is happening now, with evidence, rather than being forecast. A designed structure with an owner, or a prediction about next year, has missed the module's category. The strongest submissions name something small and unglamorous."
+    },
+    {
+      "name": "The load is stated, not the structure restated",
+      "criteria": "This is the graded core. The paragraph must say what weight the structure bore, in terms of a consequence to the organization if it stops being borne — not what the structure was or how often it happened. 'The Tuesday sync' is a structure; 'the only place three teams' assumptions collided before reaching a customer' is a load. A submission that describes the ritual in more detail rather than naming its function has not done the work. Credit specificity about who would be affected and how the failure would first become visible."
+    },
+    {
+      "name": "The count was established, not estimated",
+      "criteria": "Evidence of an actual check: people asked and what they said, or documents searched and what was or wasn't in them. The method matters more than the number. An honest negative result — no charter exists, nobody would answer, the question doesn't parse here — is a full-credit outcome when the learner says what they tried and what it tells them. An unevidenced revised number scores low even if it is plausible; the module is about establishing facts rather than improving estimates."
+    },
+    {
+      "name": "The delta and the position",
+      "criteria": "The predicted count against the real one, with an account of what moved it. Grade the account of the gap, never the accuracy of either number — a large miss with a specific cause is the intended finding and scores at the top, as does a defended non-revision from someone whose estimate held. Plus a committed position on the claim that engages its real counter-argument: that most undesigned structures are undesigned because they are bad, that 'load-bearing' and 'should be load-bearing' are different claims, and that a course teaching leaders to preserve undesigned structures may teach them to defend dysfunction. A position that only restates the module scores low however well written."
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Which of the four building blocks of change is almost never available to someone at this rung?",
+      "options": [
+        "Fostering understanding and conviction",
+        "Role modeling",
+        "Developing talent and skills",
+        "Reinforcing through formal mechanisms — metrics, incentives, decision rights, promotion criteria"
+      ],
+      "correctIndex": 3,
+      "explanation": "You cannot influence your way to new promotion criteria. Three of the four are influence and capability work you already hold; the fourth requires authority, and it is where transformations die."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why does the module say going three-for-four is not eighty percent of the result?",
+      "options": [
+        "Because the blocks have different costs to implement",
+        "Because the eight-times finding is about using all four — and a change with conviction, role modeling and skills but no reinforcement is the one everyone remembers fondly and nobody does anymore",
+        "Because reinforcement mechanisms take longest to change",
+        "Because the blocks must be sequenced in a specific order"
+      ],
+      "correctIndex": 1,
+      "explanation": "The blocks reinforce one another, which is why the multiple applies to the combination rather than to each."
+    },
+    {
+      "id": "q3",
+      "prompt": "What is the instructive part of the £1m-for-a-million-prompts example?",
+      "options": [
+        "That the target was gamed by employees seeking the bonus",
+        "That hitting it more than four months early tells you nothing about whether it was worth hitting",
+        "That financial incentives are ineffective for behavior change",
+        "That prompt volume correlates poorly with license utilization"
+      ],
+      "correctIndex": 1,
+      "explanation": "There is no evidence it was gamed and the firm reports real adoption gains. A prompt count cannot distinguish someone who restructured their work from someone who had a model rewrite an email they had already written."
+    },
+    {
+      "id": "q4",
+      "prompt": "What do the metrics the module recommends have in common?",
+      "options": [
+        "They are all leading rather than lagging indicators",
+        "They can be collected automatically from existing systems",
+        "Every one requires you to know what the work produced, not what the tool did",
+        "They are benchmarked against industry peers"
+      ],
+      "correctIndex": 2,
+      "explanation": "Which is harder, which is why the usage list wins by default, and which makes it a leadership problem rather than an analytics one."
+    },
+    {
+      "id": "q5",
+      "prompt": "What must be agreed before a pilot starts for its result to be defensible?",
+      "options": [
+        "Budget, sponsor, scope, and timeline",
+        "A baseline agreed by the person who will judge it, a pre-committed decision rule, a stated tolerance for the trough, and a kill condition",
+        "Success criteria, a control group, a measurement plan, and a reporting cadence",
+        "Executive sponsorship, a communications plan, and a named owner"
+      ],
+      "correctIndex": 1,
+      "explanation": "A baseline established after the fact is a negotiation and you will lose it. And a pilot without a decision rule produces a discussion in which the most senior opinion wins."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why does a pilot need a stated tolerance for the trough?",
+      "options": [
+        "Because sponsors lose patience faster than transformations deliver",
+        "Because a threshold measured inside the expected decline will stop something that was working",
+        "Because early results are statistically unreliable",
+        "Because adoption curves vary too much between teams to predict"
+      ],
+      "correctIndex": 1,
+      "explanation": "Adoption gets worse before it gets better — people are slower with a new process and the reconciliation cost arrives before the production gain. Name the shape, the depth, and how long you will hold."
+    },
+    {
+      "id": "q7",
+      "prompt": "What is the anti-slogan test for a vision deck?",
+      "options": [
+        "Whether it fits on one page",
+        "Whether every claim is supported by data",
+        "Whether a reasonable person could disagree with it",
+        "Whether it avoids jargon and abstraction"
+      ],
+      "correctIndex": 2,
+      "explanation": "If nobody competent and well-intentioned could hold the opposite view, you have written a mission statement — true, unobjectionable, and inert."
+    },
+    {
+      "id": "q8",
+      "prompt": "What does the module say is the likely failure mode when you present the deck?",
+      "options": [
+        "Being rejected on cost grounds",
+        "Being asked for a roadmap instead",
+        "Being agreed with, warmly, with no behavior change — because agreement is free and reinforcement mechanisms are not",
+        "Being referred to a committee"
+      ],
+      "correctIndex": 2,
+      "explanation": "Leave with one commitment, from one named person, with a date. A compliment is not an outcome."
+    }
+  ]
+}

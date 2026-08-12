@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ai401-m10-micro-core",
+    "moduleId": "ai401-m10-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module 10 in two minutes\n\n**Four building blocks change behavior**, and successful transformations were nearly eight times more likely to use all four than one: fostering understanding and conviction, role modeling, developing talent and skills, and reinforcing through formal mechanisms.\n\nMap them onto what you actually hold. Understanding and role modeling are **influence** — yours, and available tomorrow. Talent and skills are **capability** — usually yours. Reinforcement is **authority**, and it is almost never yours. **You cannot influence your way to new promotion criteria.** If metrics, incentives, decision rights, and rituals keep rewarding the old behavior, the new behavior dies regardless of how well everything upstream went — and going three-for-four is not eighty percent of the result.\n\n**And when you do get the fourth block, Goodhart arrives.** Measure AI consumption and you get AI consumption. A UK law firm put a £1 million bonus pool against one million Copilot prompts and hit it more than four months early — and hitting it early says nothing about whether it was worth hitting. A prompt count cannot tell a restructured practice from a rewritten email.\n\nMost organizations measure log-ins, licences, prompt volume, training completions. What they should measure — cycle time, quality, decision speed, value per workflow — has one thing in common: **every item requires knowing what the work produced, not what the tool did.**"
+  },
+  {
+    "id": "ai401-m10-micro-rule",
+    "moduleId": "ai401-m10-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### The rules to carry\n\n**\"We can't tell if it worked\" and \"it didn't work\" produce an identical conversation with a CFO.** So four things exist before a pilot starts: a **baseline agreed in advance by the person who will judge it**; a **pre-committed decision rule** for scaling or stopping; a **stated tolerance for the trough**, because a threshold measured inside the expected decline will stop something that was working; and a **kill condition** that holds regardless of sunk cost. The test for the whole design: *would someone who did not want this result believe it?*\n\n**And a spec governs; a deck recruits.** They carry different loads — the deck's load is understanding, conviction, and role modeling, which are two of the four blocks and both of them yours. Four rules keep it from becoming a slogan: every claim traces to a line in the framework; at least one named thing you are **not** doing; at least one falsifiable trigger **on a slide, not in an appendix**; and the anti-slogan test — **could a reasonable person disagree with this?**\n\nThe likely failure is not rejection. **It is agreement, warmly, with no behavior change.** Leave with one commitment, one name, one date. A compliment is not an outcome."
+  },
+  {
+    "id": "ai401-m10-micro-close",
+    "moduleId": "ai401-m10-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "**The full module adds** how far behind the machinery actually is — even where AI reaches executive pay it usually arrives as a judgment call rather than a number — the exercise that finds the metric which produces itself, and the course close: the deck assembled from ten modules, the bet with today's baseline value and what you would turn off, and the reckoning across every opening claim you committed to. **Including the question that matters most: is there a direction to your errors?** Most people find one."
+  }
+]

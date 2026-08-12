@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What does the module say your 301 role track did to your view of the organization?",
+      "options": [
+        "It gave you depth at the cost of breadth across HR disciplines",
+        "It compressed the world into the shape of your own throughput — an advantage inside your function, and a silent substitution outside it",
+        "It made you overconfident about AI's capabilities in your domain",
+        "It taught you to see the organization through its risks rather than its opportunities"
+      ],
+      "correctIndex": 1,
+      "explanation": "Outside your function you see the load *you* would carry in their job, and nothing corrects you — they will not volunteer that you have misunderstood them. They will just stop bringing you things."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why does the module reject \"HR is non-technical\" as the diagnosis of the credibility gap?",
+      "options": [
+        "Because HR functions are more technical than they are given credit for",
+        "Because the real gap is the unit of account — HR reports activity and those functions think in consequence",
+        "Because technical literacy varies too much between HR roles to generalize",
+        "Because credibility is built through relationships rather than expertise"
+      ],
+      "correctIndex": 1,
+      "explanation": "It is a comfortable diagnosis because it suggests a comfortable fix, and following it produces a People leader who has learned some words and is still not being invited."
+    },
+    {
+      "id": "q3",
+      "prompt": "What does the module warn about when converting activity into consequence?",
+      "options": [
+        "That it can sound like spin to colleagues who know the underlying work",
+        "That a consequence you cannot evidence is worse than an activity you can, because it invites exactly one follow-up you can't answer",
+        "That it requires data most HR functions do not collect",
+        "That it works with finance but not with legal or IT"
+      ],
+      "correctIndex": 1,
+      "explanation": "\"We can staff the plan\" is a claim about the future. \"Two of the eleven roles have no viable pipeline, and here they are\" is a consequence you can defend."
+    },
+    {
+      "id": "q4",
+      "prompt": "Which item on the partner-load method does the module call the highest-value and least practiced?",
+      "options": [
+        "What they are measured on",
+        "What their year contains — cycles, closes, freezes, filings, renewals",
+        "Their real AI exposure",
+        "Whose unowned asks they are absorbing"
+      ],
+      "correctIndex": 1,
+      "explanation": "Asking finance for something material in the last week of a quarter is not a scheduling error, it is a credibility error — invisible to you and entirely visible to them. Four dates, one afternoon."
+    },
+    {
+      "id": "q5",
+      "prompt": "What is the one thing you cannot establish without asking?",
+      "options": [
+        "Which vendors they have already evaluated",
+        "What their leadership actually prioritizes",
+        "What they think the People function is for",
+        "How much budget they control"
+      ],
+      "correctIndex": 2,
+      "explanation": "The answer is usually narrower than you would like, and it is the actual starting position for every artifact in the rest of the course — working from the version you wish were true is how a good proposal lands in a room that already filed you under something else."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why does the module say being wrong about the load behind a question is useful?",
+      "options": [
+        "Because it lowers the stakes of the conversation",
+        "Because they correct you, and the correction is the most valuable thing you will learn about them",
+        "Because it demonstrates humility, which builds trust over time",
+        "Because most questions have several valid interpretations"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which is why the move is one sentence spoken out loud rather than a silent inference — a private guess cannot be corrected."
+    },
+    {
+      "id": "q7",
+      "prompt": "What is the failure mode of the question-behind-the-question technique?",
+      "options": [
+        "Being seen as slow to respond to simple requests",
+        "Reading depth into every question, which is exhausting to receive and reads as evasion when someone is asking you something simple",
+        "Misidentifying the load and acting on the wrong interpretation",
+        "Making partner functions defensive about their motives"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sometimes the number is just the number. The check is one sentence, and if the answer is \"no, I just need the number,\" you say \"on it.\""
+    },
+    {
+      "id": "q8",
+      "prompt": "Why does this module carry no anchor statistic?",
+      "options": [
+        "Because the material is conceptual rather than empirical",
+        "Because no credible study establishes the claim, and reaching for an adjacent number would imply something it doesn't say",
+        "Because partner-function research is proprietary to consulting firms",
+        "Because the relevant evidence is too dated to use"
+      ],
+      "correctIndex": 1,
+      "explanation": "The module argues from mechanism and asks the learner to run the test on themselves — which, in a course about making people check things, is the correct trade."
+    }
+  ]
+}

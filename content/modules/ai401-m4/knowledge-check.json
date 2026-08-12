@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What does the module identify as the actual mechanism behind rising turf conflict?",
+      "options": [
+        "AI made individual contributors more ambitious about scope",
+        "Org designs have not been refreshed to account for new AI-enabled roles",
+        "The interfaces were always badly defined, and the people absorbing that ambiguity stopped",
+        "Specialists are being deliberately excluded to speed up delivery"
+      ],
+      "correctIndex": 2,
+      "explanation": "Which changes the response: this is design work you can mostly do with a document, not conflict management."
+    },
+    {
+      "id": "q2",
+      "prompt": "In the Atlassian data, why are the two findings about heavy AI users read together rather than separately?",
+      "options": [
+        "Because both figures come from the same subgroup and share sampling error",
+        "Because they are the same behavior seen from two sides — a boundary that used to require a conversation now doesn't",
+        "Because taking on other teams' work is a precondition for handling specialist tasks",
+        "Because separately neither reaches statistical significance"
+      ],
+      "correctIndex": 1,
+      "explanation": "Not because anyone renegotiated the boundary — because the cost of crossing it fell to roughly zero."
+    },
+    {
+      "id": "q3",
+      "prompt": "What does \"large teams hide bad interfaces\" mean?",
+      "options": [
+        "Larger teams have more layers of management obscuring accountability",
+        "Big teams generate more handoffs, so problems are harder to trace",
+        "Slack gets spent absorbing ambiguity nobody designed away, so the bad design is never surfaced or fixed",
+        "Larger organizations invest less in process documentation"
+      ],
+      "correctIndex": 2,
+      "explanation": "A large team is not just a team with more capacity — it is a team with more capacity to absorb bad design, which is why the flaw is never even known about."
+    },
+    {
+      "id": "q4",
+      "prompt": "What does the module say about routing around a specialist?",
+      "options": [
+        "It is nearly always a mistake and should be prevented by policy",
+        "It is a reasonable efficiency when the specialist agrees in advance",
+        "Sometimes it is excellent and sometimes it is a disaster with a six-month delay — and on the day it happens the two look identical",
+        "It is acceptable for drafts but not for finished work"
+      ],
+      "correctIndex": 2,
+      "explanation": "That indistinguishability on the day is exactly why the boundary needs deciding in advance rather than judging case by case."
+    },
+    {
+      "id": "q5",
+      "prompt": "When does the module say you want redundancy rather than a single owner?",
+      "options": [
+        "Wherever two or more people are already capable of the work",
+        "Where the work is high-volume and low-stakes, where queueing is the biggest cost, or where a second person catches the first's errors",
+        "Wherever the work crosses a functional boundary",
+        "Where the team is too small to support specialization"
+      ],
+      "correctIndex": 1,
+      "explanation": "And the common reversal is worth checking for: redundancy on the judgment calls, single ownership on the throughput, which is backwards."
+    },
+    {
+      "id": "q6",
+      "prompt": "What distinguishes an ownership contract from a RACI matrix?",
+      "options": [
+        "It is shorter and easier to maintain",
+        "It is agreed bilaterally rather than imposed by management",
+        "It is written at the workflow — trigger to output, with the seam named — rather than at the reporting line",
+        "It includes escalation paths, which RACI matrices omit"
+      ],
+      "correctIndex": 2,
+      "explanation": "Org charts and RACI describe reporting and consultation. The contract describes the actual moment work passes between hands, and what is in hand when it does."
+    },
+    {
+      "id": "q7",
+      "prompt": "Which AI-specific question does the contract have to answer?",
+      "options": [
+        "Which tools each side is approved to use",
+        "What may be produced with AI without telling the other side",
+        "Whether AI-assisted work requires additional review",
+        "Who pays for the licenses at the seam"
+      ],
+      "correctIndex": 1,
+      "explanation": "The current answer in most organizations is \"whatever each person privately decided,\" which is cultural debt in one sentence."
+    },
+    {
+      "id": "q8",
+      "prompt": "How does the course grade a decision not to send the contract?",
+      "options": [
+        "Lower than sending, because the artifact has no effect until it is delivered",
+        "Identically to sending, when the condition that has to be true first is named",
+        "Higher than sending, because timing judgment is the harder skill",
+        "It is not graded; only the contract itself is assessed"
+      ],
+      "correctIndex": 1,
+      "explanation": "Timing is most of the skill in a boundary claim. What is not graded identically is never writing one — holding a contract for a stated reason is a position; avoiding the awkwardness is not."
+    }
+  ]
+}

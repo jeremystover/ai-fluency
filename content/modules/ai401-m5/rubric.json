@@ -1,0 +1,56 @@
+{
+  "promptVersion": "ai401-m5-invisible-work-inventory-v1",
+  "moduleId": "ai401-m5",
+  "minWords": 250,
+  "maxWords": 400,
+  "submitLabel": "Your inventory, the three decisions, and the covering note",
+  "intro": "Paste the inventory — task, who absorbs it, whose job description it's in, and what happens if their capacity drops 30% — the count of items with no named owner at all, your decisions about three of them including at least one deliberate drop, and the covering note. Resubmission is free and unlimited — the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for AI 401 · The Translator — the top rung of an AI-fluency ladder for People and HR professionals who have completed AI 101, AI 201, and one 301 role track. This is the Module 5 applied activity, 'The invisible work inventory'.\n\nThe module argues that span of control is a variable rather than a ratio; that the right question is coverage rather than headcount, producing a map from which the number falls out; and that on a lean team, work belonging to nobody either becomes an explicit ownership decision or silently stops happening — with silence as the default, because noticing requires spotting the absence of something never written down. Its central instruction: inventory the absorbed work before you shrink the team, because afterwards the evidence is gone.\n\nThe module explicitly carries NO anchor statistic, and says why in Lesson 3: work in nobody's job description is in nobody's dataset. The argument rests on mechanism and on this inventory, which can falsify it.\n\nThe submission has four parts. (1) An inventory of at least eight tasks being done that are in nobody's job description, each with four columns: the task, who absorbs it, whose job description it's in, and what happens if that person's capacity drops 30% — with the fourth column requiring specificity about WHEN the consequence would surface and WHERE it would show up, because the module's argument is that it surfaces elsewhere, later, attributed to something else. (2) A count of items with no named owner at all — nobody would say it was theirs if asked directly. (3) Decisions about three items: assign it (to whom), automate it (with what verification), or deliberately drop it — and at least one of the three must be a deliberate drop, because if nothing on the list deserves to stop, the learner has collected habits and called them load. (4) A covering note.\n\nCRITICAL — an inventory that comes back genuinely thin or empty is a legitimate finding against the module and must not be marked down as incomplete work, PROVIDED the learner shows they looked properly: used the module's three search prompts (what did the last leaver take with them, what do people ask a person rather than a system, what happens around a close or launch that nobody plans for) and reports what they found. Reward honest emptiness with an account; mark down thin lists with no evidence of searching.\n\nScore the delta, never the score: grade the account of the gap between the predicted number of items and what was found, never the accuracy of either. Almost everyone guesses low, and a specific explanation of why they guessed low is the intended finding.\n\nThis is a leadership course whose central risk is drift into cliché. Reward named tasks, named absorbers, and specific delayed consequences. Mark down category-level entries ('admin', 'communication'), and anything equally true at any organization.",
+  "opening": [
+    {
+      "key": "orphanedTaskCount",
+      "label": "Predicted — how many tasks you'll find being done that are in nobody's job description",
+      "hint": "For one team, before you look. Most people guess low.",
+      "placeholder": "e.g. 5",
+      "min": 0,
+      "max": 100
+    }
+  ],
+  "calibration": [
+    {
+      "key": "orphanedTaskCountActual",
+      "label": "Actual — how many you found, and of those, how many had no named owner at all",
+      "hint": "Enter the total you found. Report the no-named-owner subset in your covering note.",
+      "placeholder": "e.g. 11",
+      "min": 0,
+      "max": 100,
+      "actualFor": "orphanedTaskCount"
+    }
+  ],
+  "dimensions": [
+    {
+      "name": "The items are tasks, not categories",
+      "criteria": "At least eight entries, each a specific thing somebody actually does — 'tells new starters which of the two conflicting policies is enforced', not 'onboarding support'. Category-level entries are the most common failure and score at the bottom, because a category cannot be assigned, automated, or dropped. Credit unglamorous, interstitial items over impressive-sounding ones; the module's whole point is that the important ones are small and unwritten. A genuinely thin inventory scores well only when the learner shows how they searched."
+    },
+    {
+      "name": "The absorbers are named, and the pattern is read",
+      "criteria": "A real person or role against each item rather than 'the team'. Then the graded part: does the learner notice where the items concentrate? The module predicts middle management, because that layer's job is partly defined as handling whatever is not handled. Credit a learner who checks that prediction against their own data and reports it holding or failing — failing is an interesting result and should score at the top when it is evidenced."
+    },
+    {
+      "name": "The consequence column says when and where",
+      "criteria": "This is the graded core. For each item, what happens at 30% capacity loss must state when the consequence surfaces and where it shows up — not just that quality would suffer. The module's argument is that consequences surface elsewhere, later, attributed to something else, so 'offers go out at the wrong level and get fixed one at a time forever' scores far above 'things would slip'. Credit explicit distinction between consequences that are noticed and consequences that are noticed in time to act."
+    },
+    {
+      "name": "The orphan count was established honestly",
+      "criteria": "A count of items nobody would claim if asked directly, with evidence of how it was established — asked, or reasoned from a specific absence. The module predicts this number is higher than expected. Credit an honest count over a flattering one; a submission where every item turns out to have an owner should either show that the team is genuinely well-designed or acknowledge that the learner may have listed only work they already knew about."
+    },
+    {
+      "name": "Three decisions, including a real drop",
+      "criteria": "Three items decided: assigned to a named person, automated with a stated verification, or deliberately dropped. At least one must be a genuine drop with reasoning — and the reasoning is what is graded. A drop justified as 'this protects nothing now' or 'this was a check for a system we retired' scores at the top; a drop of something trivial chosen to satisfy the requirement scores low. If the learner argues that nothing on their list should stop, that position can score well only if it engages the module's own warning against treating all absorbed work as load-bearing."
+    },
+    {
+      "name": "The delta, the disclosure plan, and the position",
+      "criteria": "The predicted count against what was found, with an account of what moved — grade the account, never the accuracy. Plus a specific answer to who they would show the inventory to and in what order, given the counter-argument that it is also the most efficient target list a cost programme has ever been handed. A learner who says they would not show it to anyone, and defends that, scores as well as one with a disclosure sequence. Plus a committed position on the module's claim engaging the sharper objection: that some absorbed work should stop, and that treating all of it as load-bearing smuggles in an unargued conservatism."
+    }
+  ]
+}

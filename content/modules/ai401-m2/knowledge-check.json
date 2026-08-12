@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What distinguishes transformational from transitional change?",
+      "options": [
+        "Transformational change affects more people",
+        "Transformational change has a future state that is unknown at the outset and emerges as you go, so it cannot be planned as a linear route",
+        "Transformational change requires executive sponsorship",
+        "Transformational change takes longer to complete"
+      ],
+      "correctIndex": 1,
+      "explanation": "Transitional change has a destination you can specify in detail before you begin, which is what licenses a route, a sequence, and a date. AI adoption is the other kind."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why does the module call a roadmap for an unspecifiable destination a \"credibility loan\"?",
+      "options": [
+        "Because it commits budget that may not be available later",
+        "Because you gain the room's confidence today in exchange for being visibly wrong in a named quarter — and at this rung, belief is your only instrument",
+        "Because roadmaps are usually written by people who will have moved on",
+        "Because it transfers risk from the executive team to the People function"
+      ],
+      "correctIndex": 1,
+      "explanation": "The first miss is survivable. The second converts everything you say afterwards into something people discount before you finish saying it."
+    },
+    {
+      "id": "q3",
+      "prompt": "Which claim did the module decline to make, and why?",
+      "options": [
+        "That AI adoption is transformational rather than transitional — because the evidence is mixed",
+        "That leaders who admit they are still figuring it out accelerate adoption more than those issuing confident narratives — because it could not be sourced",
+        "That organizations manage AI adoption as transitional change — because it varies by sector",
+        "That triggers are more useful than roadmaps — because it depends on the planning cycle"
+      ],
+      "correctIndex": 1,
+      "explanation": "It is appealing and it fits everything else in the module, and no study behind it survived checking. The lesson argues from mechanism instead, which the learner can test against their own organization's history."
+    },
+    {
+      "id": "q4",
+      "prompt": "What is the difference between a spec and a drawing at Step 4?",
+      "options": [
+        "A spec is shorter and less detailed",
+        "A spec describes what must be true; a drawing describes what it must look like — and the test is whether two competent people could build different-looking things that both satisfy it",
+        "A spec is approved by leadership; a drawing is produced by the team",
+        "A spec includes measurement criteria; a drawing does not"
+      ],
+      "correctIndex": 1,
+      "explanation": "\"New starters find out what already failed here within their first month\" is a spec. \"A mentorship program with monthly check-ins\" is a drawing, and it forecloses the eleven better answers you would only find by trying."
+    },
+    {
+      "id": "q5",
+      "prompt": "What does the three-altitude table demonstrate about the framework?",
+      "options": [
+        "That different altitudes need different frameworks",
+        "That the columns change scope while the rows do not change at all",
+        "That enterprise-level planning is fundamentally harder than team-level planning",
+        "That the framework works best at the function-head altitude"
+      ],
+      "correctIndex": 1,
+      "explanation": "The dissolving row is also the same event at three sizes — in every column something that used to force two parties into contact stopped forcing it."
+    },
+    {
+      "id": "q6",
+      "prompt": "According to the module, why does the trigger row get harder as you climb altitudes?",
+      "options": [
+        "Because senior leaders have less time to monitor conditions",
+        "Because higher-altitude conditions are inherently less measurable",
+        "Because the higher the altitude, the more the trigger depends on someone telling you",
+        "Because enterprise metrics are reported on longer cycles"
+      ],
+      "correctIndex": 2,
+      "explanation": "Which is why the function-head trigger is the best-designed of the three: a 30% drop in consultation volume is visible in the COE's own calendar without anyone's cooperation."
+    },
+    {
+      "id": "q7",
+      "prompt": "What are the three properties of a real trigger?",
+      "options": [
+        "Ambitious, measurable, and time-bound",
+        "Observable, dated or counted, and owned — with a name attached to noticing, separately from the name attached to deciding",
+        "Agreed by stakeholders, documented, and reviewed quarterly",
+        "Leading rather than lagging, quantitative, and automated"
+      ],
+      "correctIndex": 1,
+      "explanation": "Triggers usually fail not because the condition never occurs but because it occurs and nobody whose job it was to look was looking. D names a real property — upstream rather than downstream — but not the three."
+    },
+    {
+      "id": "q8",
+      "prompt": "What does the module say about the Step 7 answer being someone other than you?",
+      "options": [
+        "It means the framework was run at the wrong altitude",
+        "It means the artifact should be escalated before it is written",
+        "It is the normal case at this rung, and it tells you which instrument the situation requires",
+        "It means the learner lacks the standing to complete the exercise"
+      ],
+      "correctIndex": 2,
+      "explanation": "Only the team-lead column answers \"me\" alone; everyone above answers with a compound. The rest of the course is largely about what you do when Step 7 names somebody else."
+    }
+  ]
+}

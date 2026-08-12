@@ -1,0 +1,31 @@
+{
+  "reviewedAt": "2026-08-12",
+  "title": "Four planning artifacts",
+  "intro": "*Five minutes. Commit before you look.*\n\nFour People leaders were asked for their unit's AI plan. All four produced something serious, and all four believe they have written a plan.\n\n**One of them cannot fail** — there is no observation anyone could make that would show it was wrong. Find it.",
+  "artifacts": [
+    {
+      "label": "Plan A",
+      "body": "\"Our COE exists so the business gets calibrated judgment on hard people decisions. That's currently carried by consultation volume — partners route the difficult cases to us. That's dissolving: partners are self-serving the analysis and the hard cases are stopping at their desk. So the replacement spec is *hard cases reach a specialist before a decision is made*, however that happens. Tolerance is two process changes a quarter. Trigger: COE consults drop 30% in a quarter — Priya owns watching the calendar data monthly. If it fires, the CPO and I decide together, because changing the routing rule needs her.\""
+    },
+    {
+      "label": "Plan B",
+      "body": "\"We're building an AI-enabled People function. By Q2 next year every team will have an AI champion, by Q3 we'll have a shared prompt library live, and by Q4 we'll be running quarterly enablement sessions across all four COEs. We've socialized it with the leadership team and there's real energy behind it. The measure of success is that AI becomes part of how we work rather than a separate initiative, and we'll move at a pace the organization can absorb.\""
+    },
+    {
+      "label": "Plan C",
+      "body": "\"We're replacing the current HRIS with a new platform. Discovery is done, the vendor's picked, and we go live 3 March. There's a full project plan — data migration, parallel run through two pay cycles, cutover, hypercare for six weeks. If the parallel run shows more than a 0.5% variance on gross pay we don't cut over, and that call is mine. The change management is training and comms; people's skills change, the work doesn't.\""
+    },
+    {
+      "label": "Plan D",
+      "body": "\"Honestly? We don't have a plan and I'm not going to pretend otherwise. What I have is a list of four things I think are dissolving in my function, ranked by how much I think they were holding up, and a standing half-hour with my two most senior partners every fortnight to check whether the list is still right. I've written down what I'd expect to see if I'm wrong about the top one — new joiners taking longer than six weeks to bring a real problem to anyone. I'll have a plan when I've stopped being surprised.\""
+    }
+  ],
+  "options": [
+    { "id": "a", "label": "Plan A" },
+    { "id": "b", "label": "Plan B" },
+    { "id": "c", "label": "Plan C" },
+    { "id": "d", "label": "Plan D" }
+  ],
+  "key": "b",
+  "reasoning": "**B is the one that cannot fail, and it is the most common artifact in this category.** Read it again looking only for an observation that would contradict it. There isn't one. \"AI becomes part of how we work rather than a separate initiative\" has no state in which it is false. \"A pace the organization can absorb\" is the unfalsifiable tolerance from Lesson 4, verbatim. The three dated milestones look like triggers and are not — they are *deliverables*, and a deliverable being late tells you the calendar slipped, never that the plan was wrong about the world.\n\nAnd notice what makes it feel like the strongest plan in the set: it has dates, scope, and executive buy-in. **It is the only one of the four that a planning cycle would fund**, which is exactly the counter-argument this module has to take seriously rather than dismiss.\n\n**A is the module's full framework** and the reference answer. All seven steps, a spec rather than a drawing (*however that happens* is doing real work), a counted tolerance, a trigger that is observable and windowed with a name attached to *noticing* separately from deciding — and a Step 7 that honestly names someone else. It can fail: consults might drop 30% and force a replan.\n\n**C is a good plan and not this kind of plan.** It is transitional change managed correctly: the destination is specifiable, so a route, a sequence, and a date are all legitimate, and the 0.5% variance gate is a genuinely well-built trigger with a named owner. C is here because the module's argument is easy to over-apply. **Not everything is transformational, and treating an HRIS migration as an emergent journey would be its own kind of malpractice.** The skill is telling which one you are in.\n\n**D looks like the weakest and is the second-strongest.** No plan, stated honestly, plus a ranked hypothesis list, a review cadence, and — the part that matters — **a written expectation of what would show the top hypothesis was wrong.** New joiners taking more than six weeks to bring anyone a real problem is observable, counted, and upstream of the damage. D has a trigger and no spec yet, which is an early and legitimate position. It fails on Step 7 only: nobody is named as deciding.\n\nThe transferable test is the one from Lesson 4, and it takes ten seconds: **name the observation that would make you replan.** A can answer it. C can answer it. D can answer it. B cannot, and no amount of detail added to B would change that, because the problem is not that B is vague — it is that B has no relationship to any possible future observation."
+}

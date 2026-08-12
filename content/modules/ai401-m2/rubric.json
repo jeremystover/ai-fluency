@@ -1,0 +1,56 @@
+{
+  "promptVersion": "ai401-m2-the-frame-v1",
+  "moduleId": "ai401-m2",
+  "minWords": 300,
+  "maxWords": 500,
+  "submitLabel": "Your seven steps, the altitude check, and the covering note",
+  "intro": "Paste the seven completed steps for the unit you named in Module 1, one row rewritten an altitude up, the person who would approve replanning with your prediction of which row they argue with first, and the covering note. Resubmission is free and unlimited — the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for AI 401 · The Translator — the top rung of an AI-fluency ladder for People and HR professionals who have completed AI 101, AI 201, and one 301 role track. This is the Module 2 applied activity, 'The frame, at your altitude'. It is the course's spine artifact: every later module contributes to it, and Module 10 assembles it into a vision deck.\n\nThe learner runs a seven-step framework on the unit they named in Module 1. (1) Name the load — what this unit is responsible for holding up, stated as what would fail if it stopped, not as what it does. (2) Find what's carrying it, including structures nobody designed. (3) Mark what's dissolving — present tense, with evidence, not forecast. (4) Specify the replacement as a structural spec rather than a drawing: what must be true, not what it must look like; the module's test is whether two competent people could build different-looking things that both satisfy it. (5) Set the tolerance — how much variation, speed, or volume the unit can absorb before it fails, stated as a rate. (6) Name the trigger. (7) Name the owner — who actually has authority to change the thing when the trigger fires.\n\nTwo requirements are explicit: at least one falsifiable trigger, and a real name at Step 7.\n\nA trigger is real when it is observable (someone who disagrees with the whole strategy could still agree it fired), dated or counted (a threshold and a window), and owned (a name attached to noticing, separately from the name attached to deciding). The module also teaches that a trigger should sit upstream of the damage — measuring an input or a behavior rather than a lagging outcome. The governing test is: if no condition would make you replan, you have written a hope.\n\nCRITICAL — naming someone other than the learner at Step 7 is a correct answer and must be graded as one. The module teaches that only the team-lead altitude answers 'me' alone and that everyone above answers with a compound. Do not reward learners who claim authority they do not have; reward accurate reporting of where the decision actually sits.\n\nAlso: if the learner's organization has no AI plan at all (their opening number was 0), an account of what that absence means for Step 7 is a full-credit answer, not a gap in the assignment.\n\nScore the delta, never the score: grade the account of what moved between the opening claim about their organization's plan and what they found in the real document, never the accuracy of either. A learner who discovers the plan says something different from what they remembered, and says why that matters, has produced the intended finding.\n\nThis is a leadership course whose central risk is drift into vision-document cliché. Reward specificity, counted thresholds, and named people. Mark down abstraction, maturity-model language, unfalsifiable tolerances ('a pace the organization can absorb'), and anything equally true at any organization.",
+  "opening": [
+    {
+      "key": "planHorizonMonths",
+      "label": "Predicted — how many months out the furthest date in your organization's AI plan sits",
+      "hint": "From memory, before you look. Enter 0 if there is no plan.",
+      "placeholder": "e.g. 18",
+      "min": 0,
+      "max": 120
+    }
+  ],
+  "calibration": [
+    {
+      "key": "planHorizonMonthsActual",
+      "label": "Actual — the furthest date in the real document, once you opened it",
+      "hint": "From the plan as written, not as remembered. Enter 0 if you looked and there is no plan.",
+      "placeholder": "e.g. 9",
+      "min": 0,
+      "max": 120,
+      "actualFor": "planHorizonMonths"
+    }
+  ],
+  "dimensions": [
+    {
+      "name": "The load is a consequence, not an activity",
+      "criteria": "Step 1 states what would fail if the unit stopped, not what the unit does. 'Filling requisitions' is an activity; 'the business can staff a plan it has already committed to' is a load. This distinction governs everything downstream, because activities and loads dissolve at different rates. A submission whose Step 1 is a job description has not started the framework, however well the later steps are written."
+    },
+    {
+      "name": "What's dissolving is present tense and evidenced",
+      "criteria": "Step 3 names something happening now with evidence a third party could check — a count that has moved, a behavior that has changed, a thing people have stopped doing — rather than a forecast about next year. Forecasts at this step produce a spec for a problem the learner does not have. Credit explicitly named evidence; mark down 'we expect that' and 'increasingly'."
+    },
+    {
+      "name": "Step 4 is a spec, not a drawing",
+      "criteria": "The replacement states what must be true rather than what it must look like. Apply the module's test directly: could two competent people build different-looking things that both satisfy this? If the answer names a specific program, tool, meeting, or role, it is a drawing and has foreclosed the better answers. Top marks for a spec that is demanding and genuinely open about implementation."
+    },
+    {
+      "name": "The trigger could actually fire, and someone is watching",
+      "criteria": "At least one trigger that is observable, has a threshold and a window, and has a name attached to noticing separately from the name attached to deciding. Apply the disagreement test: could someone who rejects the whole strategy still agree the trigger fired? Extra credit where the trigger sits upstream of the damage — an input or behavior rather than a lagging outcome like an annual engagement score. Unfalsifiable tolerances and deliverable dates dressed as triggers score at the bottom."
+    },
+    {
+      "name": "Step 7 is honest, and the altitude check holds",
+      "criteria": "A real name for who decides — and naming someone other than the learner is correct and scores at the top when it is accurate. Plus the person who would approve replanning, with a specific prediction of which of the seven rows they would argue with first; a generic 'they'd want more detail' scores low against a specific 'they'd contest the tolerance because it constrains their Q3 commitment'. Plus one row rewritten an altitude up that genuinely changes scope while keeping the row's function — a rewrite that just makes the same sentence bigger has missed the invariance."
+    },
+    {
+      "name": "The delta and the position",
+      "criteria": "The remembered plan horizon against what the real document says, with an account of what moved and why it matters — grade the account, never the accuracy. An organization with no plan is a legitimate and informative result when its consequence for Step 7 is named. Plus a committed position on the module's claim that engages the real counter-argument: that organizations fund destinations and dates rather than specifications, that the credibility loan may be a knowing price of entry, and that an epistemically superior posture which is politically inert is a poor recommendation in a course about leading without authority. A position that restates the module scores low however well written."
+    }
+  ]
+}

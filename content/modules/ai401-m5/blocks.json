@@ -1,0 +1,119 @@
+[
+  {
+    "id": "ai401-m5-calibration-prompt-before-you-start-10",
+    "moduleId": "ai401-m5",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Calibration prompt \u2014 before you start\n\n*One claim. Commit before you read.*\n\n> **\"If one specific person on my team dropped 30% of their capacity, I could name what would stop\n> happening.\"**\n\n**True of us, or not true of us?** Name the person in your head, and write the first thing you\nthink would stop.\n\nThen: **how many tasks do you think you would find that are being done by somebody and are in\nnobody's job description?** A count. You are going to go and inventory them, and almost everyone\nguesses low."
+  },
+  {
+    "id": "ai401-m5-module-brief-20",
+    "moduleId": "ai401-m5",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nModule 4 said the interfaces were always badly defined and the people absorbing that ambiguity\nstopped. This module is about those people, and about the specific thing that happens to their work\nwhen a team gets leaner.\n\nThere is a decision arriving in most organizations and it is being framed wrongly. The question on\nthe table is *how many people do we need now that AI does some of this.* It is the wrong question,\nand answering it well produces a team that is correctly sized and quietly missing four things\nnobody wrote down.\n\n**The right question is about coverage rather than headcount**, and the practical move underneath\nit is the most useful thing in this course:\n\n> **Inventory the absorbed work before you shrink the team. After you shrink it, the evidence is\n> gone** \u2014 because the person who was doing it is no longer there to tell you they were.\n\nAlmost nobody does this. It takes an afternoon and it is the difference between a lean team and a\nteam with four holes in it."
+  },
+  {
+    "id": "ai401-m5-learning-objectives-30",
+    "moduleId": "ai401-m5",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. Explain why one span-of-control ratio applied everywhere is an error, and name the factors that\n   should move it.\n2. Reframe a headcount question as a coverage question, including the two cases where AI argues for\n   a *larger* team.\n3. Describe what happens to orphaned work on a lean team versus a large one.\n4. Run an invisible work inventory for a team you know.\n5. Say why middle managers are the load-bearing failure point in this whole picture."
+  },
+  {
+    "id": "ai401-m5-lesson-1-span-of-control-is-a-variable-n-40",
+    "moduleId": "ai401-m5",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 \u00b7 Span of control is a variable, not a ratio\n\nMost organizations run one number. Seven direct reports, or eight, or whatever the last\nrestructuring settled on, applied across functions with entirely different work.\n\nThe established research is unambiguous that the right number moves, and it moves on properties of\nthe work rather than properties of the manager.\n\n**Spans widen** when work is modular and separable, quality standards are clear, metrics are\nreliable, tooling is integrated, and people have the judgment and experience to operate\nautonomously. A manager of fifteen experienced people doing well-defined, well-instrumented work is\nnot overloaded.\n\n**Spans narrow** when work is novel, cross-functional, ambiguous, high-risk, politically sensitive,\nor when talent is still developing. A manager of fifteen newly-formed specialists working on\nambiguous problems is not managing anybody; they are attending.\n\n**The error is one ratio everywhere**, and it is an expensive error in both directions \u2014 you get\nneglected teams where the work is hard and over-supervised teams where it isn't.\n\nNow add AI, and notice that it pushes on both sides of that list at once. It makes work **more**\nmodular and better instrumented, which argues for wider spans. It also makes the remaining human\nwork **more** novel, more ambiguous, and more cross-functional \u2014 because the routine, separable\npart is exactly what got absorbed \u2014 which argues for narrower ones.\n\n**Both are happening in the same team at the same time**, which is why \"AI means we need fewer\nmanagers\" and \"AI means we need more managers\" are both defensible and both useless. The question\nis which kind of work is left, and that is a question you have to answer per team."
+  },
+  {
+    "id": "ai401-m5-lesson-2-coverage-not-headcount-50",
+    "moduleId": "ai401-m5",
+    "ordinal": 50,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 \u00b7 Coverage, not headcount\n\nThe reframe, and it is one sentence:\n\n> **Stop asking how many people do I need. Start asking which functions genuinely require a human,\n> and which can AI absorb.**\n\nThat sounds like a rewording and it changes the output completely. A headcount question produces a\nnumber. A coverage question produces a **map** \u2014 a list of things the unit is responsible for, each\nmarked with whether a person has to do it, whether a person has to check it, or whether it can run\nwithout either. The number falls out of the map. It does not come first, and a number arrived at\nwithout a map is a guess wearing a spreadsheet.\n\nTwo complications, both of which cut against the direction everyone assumes.\n\n**AI can argue for a *larger* team, not a smaller one.** Where individual leverage rises faster\nthan coordination cost, adding a person now returns more than it did before \u2014 each one produces\nmore, and the work they produce still fits together. That is a real case and it is the case\nModule 6 tells you how to check: if your absorption limit is not the binding constraint, growth is\nback on the table in a way it was not two years ago.\n\n**And a four-person pod has no margin for a weak hire.** On a team of twelve, one person\nunderperforming is absorbed \u2014 often by exactly the absorbers this module is about. On a team of\nfour it is a quarter of the capacity and there is nowhere for it to go. **Leanness raises the\nconsequence of every individual hiring decision**, which is a talent-strategy implication of an AI\ndecision, and it will not appear in the business case."
+  },
+  {
+    "id": "ai401-m5-lesson-3-the-orphaned-task-answer-60",
+    "moduleId": "ai401-m5",
+    "ordinal": 60,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 \u00b7 The orphaned-task answer\n\nHere is the mechanism, and it is the reason this module exists.\n\nEvery organization has work that belongs to nobody. Not because of bad management \u2014 because no job\ndescription survives contact with a real week. Somebody notices the report is wrong before it goes\nout. Somebody tells the new starter which of the two conflicting policies is actually enforced.\nSomebody remembers to check whether the vendor renewal is coming. Somebody sits with the person who\nhas just had bad news.\n\n**On a large team, homeless work gets absorbed by whoever has slack.** It is invisible, it is\nunrewarded, and it is why the machine runs.\n\n**On a lean team there is no slack.** So the work goes one of two ways, and only one of them is\nvisible:\n\n1. **It becomes an explicit ownership decision.** Someone notices it is not being done, and it gets\n   assigned, automated, or consciously dropped. This is the good outcome and it requires somebody to\n   notice.\n2. **It silently stops happening.** Nobody assigned it, so nobody misses it. There is no ticket, no\n   metric, no complaint \u2014 until the consequence arrives somewhere else entirely, months later, and\n   gets attributed to something else.\n\nRoute two is the default, because **route one requires a person to notice the absence of something\nthat was never written down.**\n\n**And this is why the module has no statistic.** You would reasonably expect a figure here \u2014 the\nshare of work in a typical team that sits outside any job description, the cost when it stops. There\nisn't one, and the reason is the phenomenon itself: **work that is in nobody's job description is\nalso in nobody's dataset.** It is not measured because measuring it would require first knowing it\nexists, which is the exact problem. A course that demanded evidence for everything would have to\nleave this module out, and leaving it out would mean teaching leanness without teaching its main\nfailure mode.\n\nSo the argument here rests on mechanism, and on the inventory you are about to run. If your own\ninventory comes back empty, this module is wrong about your team, and that is a legitimate finding."
+  },
+  {
+    "id": "ai401-m5-try-70",
+    "moduleId": "ai401-m5",
+    "ordinal": 70,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### Try this \u2014 3 minutes\nThink of the last person who left your team or an adjacent one. Name one thing that stopped\nhappening after they left that nobody predicted. Now ask: **was it ever written down anywhere as\ntheir responsibility?** The answer is almost always no, and the fact that you can name it at all\nis because leaving is loud. Capacity dropping 30% is quiet, and produces the same effect."
+  },
+  {
+    "id": "ai401-m5-lesson-4-why-this-lands-on-middle-manage-80",
+    "moduleId": "ai401-m5",
+    "ordinal": 80,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 \u00b7 Why this lands on middle managers\n\nOne more structural point, because it determines where you should look.\n\nThe absorbers are disproportionately middle managers, and this is not a coincidence. Their job is\npartly defined as **handling whatever is not handled** \u2014 they sit at the point where strategy\nbecomes tasks and where the gaps between defined roles become visible. Much of what they do all\nweek is precisely the work that appears in no job description: the clarification, the routing, the\ntranslation, the noticing.\n\nThree consequences.\n\n**They are the layer where invisible work concentrates**, so an inventory that skips them will find\nvery little and conclude the problem does not exist.\n\n**They are also the layer most often targeted for flattening**, because their contribution is the\nhardest to state in output terms \u2014 which is what \"layers\" means when a consultant says it. A\nfunction whose main product is absorption cannot demonstrate its product, and it is being asked to\ndo exactly that.\n\n**And they are the ones who will implement whatever you decide**, which means an ownership decision\nmade without them is a decision that gets quietly reabsorbed. The contract in Module 4 held between\npeers. This one has to hold between altitudes, and the failure mode is not disagreement \u2014 it is\nagreement followed by absorption, because absorbing is what the layer does."
+  },
+  {
+    "id": "ai401-m5-exercise-embed-85",
+    "moduleId": "ai401-m5",
+    "ordinal": 85,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"sorting\"}"
+  },
+  {
+    "id": "ai401-m5-key-takeaways-90",
+    "moduleId": "ai401-m5",
+    "ordinal": 90,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **Span of control is a variable, not a ratio.** Widen where work is modular, standards are clear,\n  and people are experienced; narrow where work is novel, cross-functional, ambiguous, high-risk, or\n  talent is developing. **One ratio everywhere is expensive in both directions.**\n- **AI pushes both ways at once** \u2014 work gets more modular *and* the remaining human work gets more\n  ambiguous \u2014 which is why \"AI means fewer managers\" and \"AI means more managers\" are both\n  defensible and both useless.\n- **Coverage, not headcount.** A headcount question produces a number; a coverage question produces\n  a map, and the number falls out of the map.\n- **AI can argue for a larger team**, where individual leverage rises faster than coordination cost.\n  And **a four-person pod has no margin for a weak hire**, which raises the consequence of every\n  hiring decision.\n- **On a large team homeless work gets absorbed. On a lean team it either becomes an explicit\n  decision or it silently stops** \u2014 and silence is the default, because noticing requires spotting\n  the absence of something never written down.\n- **The module has no statistic because work in nobody's job description is also in nobody's\n  dataset.** The absence is the phenomenon.\n- **Inventory the absorbed work before you shrink the team.** Afterwards the evidence is gone.\n- **Middle managers are where invisible work concentrates** \u2014 and the layer most often flattened,\n  because absorption cannot be demonstrated as output."
+  },
+  {
+    "id": "ai401-m5-activity-link-95",
+    "moduleId": "ai401-m5",
+    "ordinal": 95,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"activity_link\", \"title\": \"Applied activity \\u2014 The invisible work inventory\", \"blurb\": \"Eight or more tasks being done that sit in nobody's job description: who absorbs each, and what happens if their capacity drops 30% \\u2014 including when the consequence surfaces and where. Then decide about three, and at least one has to be a deliberate drop.\", \"estMinutes\": \"30\"}"
+  },
+  {
+    "id": "ai401-m5-take-a-position-100",
+    "moduleId": "ai401-m5",
+    "ordinal": 100,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"Inventory the absorbed work before you shrink the team, because after you shrink\nit the evidence is gone.\"*\n\nThe strongest counter-argument is that **the inventory will be used against you.** Ask a team to\nlist everything they do that is not in their job description and you produce, in one document, the\nmost efficient target list a cost programme has ever been handed \u2014 every item annotated with who\ndoes it and what happens if they stop. You will have surfaced the work in order to protect it and\nhanded over the map. Worse, **the act of asking signals what is coming**, and the honest answers\nyou need are exactly what people stop giving once they suspect that.\n\nThere is a sharper version. Some of the absorbed work **should** stop. A meaningful share of any\ninventory will be habit, duplication, or a check that was needed once and now protects nothing \u2014\nand a module that teaches leaders to treat all absorbed work as load-bearing has smuggled in a\nconservatism it never argued for. Module 1 warned about exactly this slide, and this module may be\nthe place it happens.\n\nYour position has to say who you would show the inventory to, in what order, and how you would tell\nwhich absorbed work deserves to survive."
+  },
+  {
+    "id": "ai401-m5-sources-and-attribution-110",
+    "moduleId": "ai401-m5",
+    "ordinal": 110,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- **Span-of-control factors** are long-established management research and are used here in their\n  standard form: spans widen with modular, well-instrumented work and experienced people, and narrow\n  with novel, ambiguous, cross-functional, high-risk work or developing talent. Not attributed to a\n  single current study, because it is not a current finding.\n- **No anchor statistic for the module's central claim, and the module says why in Lesson 3.** Work\n  outside any job description is outside any dataset. The argument rests on mechanism and on the\n  learner's own inventory, which can falsify it.\n- The coverage-not-headcount reframe, the orphaned-task routing, the inventory's four columns, and\n  the middle-manager concentration argument are original to this course.\n- Continues Module 4 directly \u2014 these are the people who were absorbing the badly-defined\n  interfaces \u2014 and supplies the input Module 6 governs the pace against."
+  }
+]

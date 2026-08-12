@@ -1,0 +1,56 @@
+{
+  "promptVersion": "ai401-m6-absorption-limit-v1",
+  "moduleId": "ai401-m6",
+  "minWords": 250,
+  "maxWords": 400,
+  "submitLabel": "Your absorption limit, the exceedance, and the covering note",
+  "intro": "Paste what your unit actually absorbed last quarter and how much of it landed, your integration capacity stated as a rate, what would prove that rate wrong in either direction, the one thing currently exceeding it with who is paying for the reconciliation, who you'd address it to and their predicted response, and the covering note. Resubmission is free and unlimited — the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for AI 401 · The Translator — the top rung of an AI-fluency ladder for People and HR professionals who have completed AI 101, AI 201, and one 301 role track. This is the Module 6 applied activity, 'The absorption limit'.\n\nThe module's core finding: individual AI adoption can increase total coordination cost while decreasing production cost, because outputs arrive in greater volume needing reconciliation, decisions made faster in isolation take longer to stabilize when they collide, and local optimization increases variation — which is paid for in coordination by whoever has least slack. Therefore an organization has a maximum rate at which it can absorb individually-generated change, and almost nobody measures it. The reframe: you do not trade speed against risk, you govern speed against absorption.\n\nThe module is explicit that an absorption rate is only a discipline rather than a veto if it meets three conditions: it is a RATE rather than a limit (throughput can be raised by investing in reconciliation capacity); it is stated as a NUMBER IN ADVANCE so it binds the leader as much as the requesters; and it is FALSIFIABLE — exceeding it with no bad consequence means the rate was wrong and should rise.\n\nThe submission has five parts. (1) A real count of distinct process, tool, or workflow changes the unit absorbed last quarter — including unannounced ones — with each marked as landed (in steady use) or not, giving a landed-to-attempted ratio. (2) The unit's integration capacity as a rate with a unit of time, plus one observation that would make them RAISE it and one that would make them LOWER it. (3) One thing currently exceeding the limit: what it is, who absorbs the reconciliation, and what it costs them in hours, rework, or delay. (4) The artifact addressed to whoever controls the pace, with a predicted response including what that person thinks is actually being asked for. (5) A covering note.\n\nCRITICAL — 'nothing is currently exceeding my limit' is a legitimate, full-credit finding when the learner says what it implies: that they may have room to go faster. The module is equally happy to produce that result and must not be graded as though slowing down were the correct answer. Similarly, a learner who concludes that the right move is to raise reconciliation capacity rather than slow anyone down has understood the module, not evaded it.\n\nScore the delta, never the score: grade the account of the gap between the predicted count of absorbed changes and the real one, never the accuracy of either. People routinely undercount by half, and a specific explanation of what they missed — usually the unannounced changes — is the intended finding.\n\nThis is a leadership course whose central risk is drift into cliché, and this module's specific risk is that its vocabulary becomes an excuse for not moving. Reward counted evidence, named absorbers, and stated falsification conditions. Mark down 'we should be careful about pace', unfalsifiable tolerances, and any rate that binds only other people.",
+  "opening": [
+    {
+      "key": "changesAbsorbed",
+      "label": "Predicted — how many distinct process, tool, or workflow changes your unit absorbed last quarter",
+      "hint": "Include the small ones — a new template, an added approval step, a tool someone started using. Answer before you count.",
+      "placeholder": "e.g. 4",
+      "min": 0,
+      "max": 100
+    }
+  ],
+  "calibration": [
+    {
+      "key": "changesAbsorbedActual",
+      "label": "Actual — how many you found when you counted, including the unannounced ones",
+      "hint": "Report the landed-versus-attempted split in your covering note; that ratio is the real evidence.",
+      "placeholder": "e.g. 9",
+      "min": 0,
+      "max": 100,
+      "actualFor": "changesAbsorbed"
+    }
+  ],
+  "dimensions": [
+    {
+      "name": "The count is evidenced, and landing was assessed",
+      "criteria": "A real enumeration of what changed last quarter rather than a recollection, with the unannounced changes visibly included — a tool someone started using, a definition that shifted, an approval step that appeared. Each item marked landed or not, producing a ratio. The landed ratio is the graded part: a learner who counts nine changes and finds three landed has produced far more useful evidence than one who counts nine and asserts they all worked. Credit an explicit method for how they established the list."
+    },
+    {
+      "name": "The limit is a rate with a unit of time",
+      "criteria": "An actual number against an actual period — 'two process changes per quarter', 'one definition change per cycle' — fitted to the unit's real work rather than borrowed from the module's examples. 'As much as we can handle' and 'it depends on the change' fail this dimension. Credit a rate that is uncomfortable for the learner themselves, and credit distinguishing rates for different kinds of change where the unit genuinely has them."
+    },
+    {
+      "name": "The rate is falsifiable in both directions",
+      "criteria": "One named observation that would make them raise the rate and one that would make them lower it, both observable by someone who disagrees with them. This is what separates the module's discipline from the veto it could become, so grade it strictly. A learner who can only state what would make them slow down has written a brake, not a rate — say so. Top marks where the raise condition is as concrete as the lower condition."
+    },
+    {
+      "name": "The exceedance names who is paying",
+      "criteria": "A live, specific thing exceeding the limit, with the reconciliation cost attributed to named people or roles and quantified as far as honestly possible — hours, rework, delay. Vague systemic strain scores low. Where the learner reports that nothing currently exceeds the limit, that is a full-credit answer when they state the implication that they may have room to move faster; grade the reasoning, not the direction. Credit a learner who concludes the fix is to raise reconciliation capacity rather than slow the producer."
+    },
+    {
+      "name": "The address and the predicted response",
+      "criteria": "Named person who controls pace — which may be the learner — and a specific prediction of how they respond, including what that person thinks is actually being asked for. The module's warning is that a pace argument is often heard as a safety argument or as resistance; a prediction that engages that misreading scores at the top. 'They'd probably agree' scores at the bottom."
+    },
+    {
+      "name": "The delta and the position",
+      "criteria": "Predicted count against actual with an account of what moved — grade the account, never the accuracy — and specifically what was missed, since the undercount is usually the unannounced changes. Plus a committed position on the module's claim engaging its real counter-argument: that absorption capacity is an excuse dressed as a discipline, that the people who will use it most enthusiastically are the ones who did not want to move anyway, that a rate binds you only if someone will enforce it against you, and that integration debt may be retired by the tools themselves within two years. The position must say what would make them raise their rate rather than enforce it."
+    }
+  ]
+}
