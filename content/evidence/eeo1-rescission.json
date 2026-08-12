@@ -1,0 +1,31 @@
+{
+  "id": "eeo1-rescission",
+  "asOf": "2026-08-12",
+  "lastVerified": "2026-08-12",
+  "source": "EEOC notice of proposed rulemaking, Rescission of EEO-1 and related reports",
+  "sample": "Primary instrument — no survey sample applies",
+  "volatility": "high — this item moved between the drafting of ai301-defensible-m1 and 12 August 2026. Re-check before any deployment.",
+  "claims": [
+    {
+      "claim": "The EEOC voted to advance a notice of proposed rulemaking rescinding the EEO-1 and related reports; the NPRM was published in the Federal Register on 23 July 2026",
+      "figure": "23 July 2026"
+    },
+    {
+      "claim": "The comment period closes 24 August 2026",
+      "figure": "24 August 2026"
+    },
+    {
+      "claim": "The rule is proposed, not final. Current EEO-1 filing obligations stand until a final rule issues",
+      "figure": null,
+      "canonicalWording": "Never state this as an obligation that has ended. Proposed, not final; obligations stand."
+    }
+  ],
+  "cautions": [
+    "The teaching point is not the administrative relief. It is that a baseline may disappear and baselines cannot be reconstructed backwards — decide now whether to keep the series internally.",
+    "ai301-defensible-m1 currently describes an earlier stage of this rulemaking (submission to OIRA on 14 May 2026, review expected within 90 days). That is now superseded — tracked as S-12."
+  ],
+  "citedBy": [
+    "ai301-defensible-m1",
+    "ai301-cpo-m5"
+  ]
+}

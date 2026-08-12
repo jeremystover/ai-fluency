@@ -37,6 +37,34 @@ wrangler secret put RESEND_API_KEY     # optional: turns on email delivery
 npm run deploy
 ```
 
+### Publishing content
+
+**Deploying the Worker does not publish content.** The push-to-`main` deploy
+builds the SPA, applies D1 migrations and ships code; course content lives in
+`seed/seed.sql` and reaches the database only when the seed runs. A merge that
+adds a module changes nothing a learner can see until it does.
+
+Two ways to run it:
+
+```bash
+npm run seed:generate && npm run db:seed:remote     # from a machine with Cloudflare creds
+```
+
+Or, without local credentials, through the `seed-content` task in
+`.github/workflows/db-maintenance.yml` — either dispatched from the Actions tab,
+or by putting `seed-content` on the first line of `.github/maintenance-request`,
+which runs it on merge to `main`. That path checks the committed seed still
+matches `content/` before touching anything, applies migrations first so it is
+correct whichever order it lands in against the deploy, and verifies the module
+count afterwards — the seed opens with `DELETE` statements, so a run that fails
+partway leaves the site blank and should not report success.
+
+What a seed touches: `fd_content_block`, `fd_exercise`, `fd_module`, `fd_brand`
+and `fd_access_code` are deleted and rebuilt. **Learner data is never touched** —
+accounts, sessions, submissions, progress and calibration records live in other
+tables. Access codes keep working too: the plaintext comes from `DEMO_CODES`, so
+only the stored salt changes.
+
 Email is the one optional dependency with a prerequisite outside Cloudflare: the
 sending domain has to be verified with the provider (Resend → Domains → add the
 DKIM/SPF/DMARC records) before `EMAIL_FROM` will be accepted. Then set

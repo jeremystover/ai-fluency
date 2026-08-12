@@ -4,10 +4,10 @@ DELETE FROM fd_exercise;
 DELETE FROM fd_module;
 DELETE FROM fd_brand;
 DELETE FROM fd_access_code;
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-12T22:17:28.611Z');
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-12T22:17:28.611Z');
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('06566fab-2d83-4672-ac03-a86ed9188693', 'omnissa', 'pbkdf2$100000$K60uman4BQdV28vzJU0qHw==$ktvY5T08e7qhbkHyDUybh6B+IwA6pUIAaQB8zo+Soig=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('887de068-2d36-444f-a4da-5e2c4ab1c0ff', 'verdant', 'pbkdf2$100000$hs63txM80CCsl7cu/P6nfQ==$Sio5jMuuxTbTZfd7MSf0VOTO0+LYc1Z0UaH+mU2lEYQ=', 'Theming proof', NULL, 0, NULL, 1);
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-12T22:36:06.627Z');
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-12T22:36:06.627Z');
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('ae424a85-ac92-4c8c-9e81-d00b9bcd657e', 'omnissa', 'pbkdf2$100000$A8AfUuNBxtXjfBYNi1l5KQ==$ePDKgLbK37MXrXjisZKhPD9jzl7CpptqfPwtAcF1TZU=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('4781750a-f72b-4092-8a26-656a521a6ae5', 'verdant', 'pbkdf2$100000$/TalNDpTYATuJYb7NtEkzQ==$oiM9O+VtbcBKd8GsxqdDILS1gIpSCd5i90pucu2fbSc=', 'Theming proof', NULL, 0, NULL, 1);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m1', 'ai101', 1, 'What is AI?', 'A working mental model: what an LLM actually does, the vocabulary, why data decides everything, and a delegation heuristic you can carry under pressure.', 'open', 30, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m2', 'ai101', 2, 'Choosing the tool for the task', 'Chat assistants, copilots, and the AI already embedded in your HR stack — what each is actually for, and how to tell a language model from a scoring engine before you rely on either.', 'open', 25, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m3', 'ai101', 3, 'What it costs and how it scales', 'Tokens, context windows, and pricing — enough of the economics to size a use case, read a vendor quote, and know when a bigger model is worth it.', 'open', 25, NULL);
@@ -91,7 +91,7 @@ INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-cpo-m2', 'ai301-cpo', 2, 'The shape of your job is changing', 'One role described, three jobs performed — with different economics and now different exposure.', 'open', 25, '["ai301-cpo-m1"]');
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-cpo-m3', 'ai301-cpo', 3, 'The scope fight', 'A CEO convenes the executive team to settle who owns AI. Whether digital labor is workforce, and who owns the registry.', 'open', 25, '["ai301-cpo-m1"]');
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-cpo-m4', 'ai301-cpo', 4, 'The function you have to cut', 'Where the compression lands in your own operating system, and the cut you have to make credibly.', 'open', 25, '["ai301-cpo-m1"]');
-INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-cpo-m5', 'ai301-cpo', 5, 'The trust you own but don''t control', 'The one decision in the track that isn''t yours to make — and the deficit you are accountable for anyway.', 'open', 25, '["ai301-cpo-m1"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-cpo-m5', 'ai301-cpo', 5, 'The trust you own but don''t control', 'The trust you own but did not design — the US floor that did not move, the European one that deferred without giving you runway, and why a policy nobody has enforced is not governance.', 'open', 40, '["ai301-cpo-m1"]');
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-cpo-m6', 'ai301-cpo', 6, 'The number you''ll have to defend', 'The close: the position, and the figure you will be held to.', 'open', 25, '["ai301-cpo-m1"]');
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('m1-brief', 'ai101-m1', 10, 'prose', 'stable', '## Why this module exists
 
@@ -9614,11 +9614,14 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
 By the end of this module you should be able to:
 
 1. State the trust asymmetry accurately, with its sample.
-2. State the current EU position, including which obligations bind now and which were deferred.
-3. Explain why "AI is never the decision-maker" survives regulatory change when a compliance posture
+2. Explain why the US enforcement retreat did not reduce exposure, and name what it relocated to.
+3. Decide who commissions bias testing, and say why that is settled before the work rather than after.
+4. Name the four duties that recur across the state patchwork, and build for them rather than tracking statutes.
+5. State the current EU position, including which obligations bind now and which were deferred.
+6. Explain why "AI is never the decision-maker" survives regulatory change when a compliance posture
    does not.
-4. Distinguish having a policy from having governance.
-5. Locate one unreviewed decision about a person in your own organization.', NULL, '2026-08-12', NULL);
+7. Distinguish having a policy from having governance.
+8. Locate one unreviewed decision about a person in your own organization.', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-cpo-m5-lesson-1-the-asymmetry-40', 'ai301-cpo-m5', 40, 'prose', 'volatile', '## Lesson 1 · The asymmetry [V]
 
 Start with the population whose trust you are spending.
@@ -9648,7 +9651,130 @@ One honest note on the figures: these are candidate-side, and candidate trust is
 part of this because hiring is where the research money has gone. Employee-side trust in systems
 that touch pay, performance, and progression is less well measured and there is no reason to assume
 it is higher.', NULL, '2026-08-12', NULL);
-INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-cpo-m5-lesson-2-the-floor-and-why-deferral-is-n-50', 'ai301-cpo-m5', 50, 'prose', 'volatile', '## Lesson 2 · The floor, and why deferral is not runway [V]
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-cpo-m5-lesson-2-the-floor-at-home-45', 'ai301-cpo-m5', 45, 'prose', 'volatile', '## Lesson 2 · The floor at home [V]
+
+*Direction of travel, not legal advice. Verify every specific with counsel before relying on it —
+and if you hold federal contracts, before acting on any of it.*
+
+Most AI-and-employment commentary you will be handed is about Europe, and Europe is the next lesson.
+**This one is about the jurisdiction most of your people are in**, where the position is stranger and
+worse-reported: the ground moved in two directions at once, and almost all the coverage tracked only
+one of them.
+
+### What did not move
+
+**Disparate impact liability under Title VII is statutory.** Recognised in *Griggs v. Duke Power Co.*
+in 1971 and **codified by Congress in the Civil Rights Act of 1991**. A neutral practice that
+disproportionately excludes a protected group requires job-related justification — **whoever built
+it, and whatever it was marketed as.** No intent is required, which is why "we never told it to do
+that" is not a defence and never has been.
+
+**An executive order cannot repeal a statute.** Hold that sentence, because the next section is
+where boards get this wrong.
+
+### What did move — and why it is not relief
+
+The federal *enforcement posture* retreated, quickly and substantially. **EO 14281** (April 2025)
+directs agencies to eliminate disparate impact liability from civil-rights enforcement. The EEOC
+followed, dropping pending disparate impact cases, and in **June 2026 issued a National Enforcement
+Plan prioritising disparate *treatment* theories over disparate *impact* theories.**
+
+None of that binds the private plaintiffs'' bar, which brings most US employment discrimination
+litigation and is not subject to executive orders directing federal agencies. **The federal courts
+remain open to these claims.**
+
+> **Your exposure was not reduced. It was relocated** — from a regulator you could anticipate to a
+> plaintiffs'' bar you cannot, and from a compliance calendar to a discovery process.
+
+**And here is the executive error, which is currently common and which you are the person who makes
+or prevents.** The organisation reads the federal news, concludes the risk has fallen, and stands
+down its testing programme as a cost saving. What it has actually done is **stop generating the
+evidence that would defend it**, in an environment where the people bringing claims are more active
+and the agency that might once have resolved things quietly is no longer in the way. That decision
+will be made on your watch, it will look like prudent cost discipline in the moment, and it is the
+single most expensive thing in this module.
+
+The generalisable form, and the reason this sits in a leadership track:
+
+> **A compliance programme designed against an enforcement posture breaks when the posture flips.
+> Design against the duty instead.** Postures flip, in both directions, with regularity. Statutory
+> duties do not.
+
+### The vendor is not a shield
+
+In **Mobley v. Workday**, a court allowed claims to proceed on the theory that an AI screening vendor
+can act as an **agent of the employer** — customers having delegated the traditional function of
+rejecting candidates or advancing them. The employment-agency theory was dismissed; **the agent
+theory survived and went to discovery**, and the case has expanded rather than contracted: an ADEA
+collective conditionally certified, a **6 March 2026** ruling rejecting the argument that the ADEA
+does not reach job applicants, and further rulings on **22 June 2026**.
+
+The number that belongs in a board conversation is the scale. **Workday''s own filings put the figure
+at roughly 1.1 billion applications rejected through its tools in the relevant period**, which is why
+the potential collective has been described in the hundreds of millions. A theory that survives a
+motion is a legal development. A collective of that order is a commercial one, and it is the reason
+your procurement terms are now a governance question rather than a purchasing one.
+
+**Neither party gets to point at the other.** "That''s the vendor''s problem" and "we only make the
+software" both weaken under this theory. If a tool performs a function you would otherwise perform,
+it may carry your obligations with it — so **ask for the validation and bias-testing evidence before
+signature, in writing.** Afterwards you have no leverage and possibly an obligation.
+
+### The sequencing decision only you and your GC can make
+
+On **28 May 2026** the court in *Mobley* held that AI bias-testing data may be protected from
+discovery under attorney–client privilege.
+
+Read that carefully, because it is not a reason to test less. **It is a reason to decide, in advance,
+who commissions the testing.** The same analysis run by HR as an operational exercise and run under
+counsel as part of providing legal advice may sit in very different places when discovery arrives —
+and **that is determined at the moment the work is commissioned, not after you have read the
+result.** Nobody below you can make that call, and it cannot be made retroactively.
+
+### The patchwork, and the four things to build for
+
+A substantial number of US states now regulate AI in employment, with more each session, and they do
+not agree with each other. Chasing them statute by statute is not a strategy for a function your
+size. **Across the patchwork the same four duties keep recurring in different combinations:**
+
+1. **Notice** to candidates and employees that an AI tool is in use.
+2. **Bias auditing**, sometimes with publication.
+3. **A right to human review.**
+4. **Record-keeping** of how the tool was used and what it produced.
+
+**Build for those four and you are broadly positioned for regimes you have not read yet** — which is
+the only posture that scales across fifty jurisdictions and a legislature that meets every year.
+
+### And if you hold federal contracts
+
+A separate and heavier surface. **EO 14398** ("Addressing DEI Discrimination by Federal Contractors",
+signed **26 March 2026**) requires a contract clause on discriminatory DEI activities that **flows
+down to subcontractors**, obliges primes to disclose "reasonably knowable" subcontractor conduct that
+may violate it, and requires furnishing information and reports **including access to books, records
+and accounts** — enforced through compliance reviews, termination, debarment referrals, and **False
+Claims Act actions.** Litigation challenging these orders is live and the landscape is unsettled in
+both directions.
+
+Read the records-access and False Claims Act pieces together: **in that regime your analyses are
+evidence.** Which returns you to the sequencing decision two sections up, with more at stake.
+
+### One thing with a date on it, this quarter
+
+The EEOC has moved to rescind the EEO-1. The **notice of proposed rulemaking published 23 July 2026**,
+with comments due **24 August 2026**. It is proposed, not final — **current obligations stand until a
+final rule issues**, and a final rule must survive comments and likely challenge.
+
+The administrative relief is minor. **The thing to notice is that a baseline may be about to
+disappear, and baselines cannot be reconstructed backwards.** For many employers the EEO-1 is the
+only demographic snapshot produced annually, on a consistent definition, in a form nobody curated for
+a purpose — which is precisely what makes it credible as evidence of what a workforce looked like at
+a moment and whether a pattern predates something.
+
+**If collection stops and you have not decided to keep the series internally, you will have a hole in
+the middle of your own record**, on exactly the dimensions a claim would be argued on, and you will
+discover it in three years when someone asks. That is a decision with a date on it, it costs almost
+nothing, and it is yours.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-cpo-m5-lesson-2-the-floor-and-why-deferral-is-n-50', 'ai301-cpo-m5', 50, 'prose', 'volatile', '## Lesson 3 · The floor abroad, and why deferral is not runway [V]
 
 The statutory position, stated as of writing, with the warning that this is the passage most likely
 to be out of date and most likely to be misquoted to you by somebody selling something.
@@ -9687,7 +9813,7 @@ every version of every regime:
 A system may gather, structure, summarize, rank for human review, and flag. **A person decides, and
 that person is nameable.** That rule is stricter than the current law in most jurisdictions, which
 is precisely why it is durable — you will not have to rewrite it when the law moves again.', NULL, '2026-08-12', NULL);
-INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-cpo-m5-lesson-3-policy-is-not-governance-60', 'ai301-cpo-m5', 60, 'prose', 'volatile', '## Lesson 3 · Policy is not governance [V]
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-cpo-m5-lesson-3-policy-is-not-governance-60', 'ai301-cpo-m5', 60, 'prose', 'volatile', '## Lesson 4 · Policy is not governance [V]
 
 Here is the gap the numbers make visible.
 
@@ -9748,6 +9874,26 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
   behavioural, not attitudinal.
 - **And HR is absent from AI strategy in 52% of organizations** `[V]`, so the systems spending that
   trust are chosen by people who do not carry the consequence.
+- **The US duty did not move; the enforcement posture did** `[V]`. Disparate impact is statutory —
+  *Griggs* 1971, codified in the Civil Rights Act of 1991 — and an executive order cannot repeal a
+  statute. EO 14281 and the EEOC''s June 2026 National Enforcement Plan redirected *agencies*, not the
+  private plaintiffs'' bar. **Exposure relocated; it did not shrink.**
+- **So standing down bias testing because the federal news improved is the expensive mistake** — it
+  stops generating the evidence that would defend you, at the moment claimants are more active and no
+  regulator is in the way to settle things quietly.
+- **Design against the duty, not against the posture.** Postures flip in both directions; statutory
+  duties do not.
+- **The vendor is not a shield** `[V]`. *Mobley v. Workday*: the agent theory survived and went to
+  discovery, the ADEA collective was conditionally certified, and Workday''s own filings put roughly
+  **1.1 billion applications** rejected through its tools in the period. Ask for validation and
+  bias-testing evidence **before signature**.
+- **Who commissions the testing is your decision and cannot be made retroactively** `[V]` — the
+  28 May 2026 privilege holding turns on sequencing, not on content.
+- **Build for the four recurring state duties** — notice, bias audit, human review, record-keeping —
+  rather than tracking fifty statutes.
+- **The EEO-1 baseline has a date on it** `[V]`. NPRM published 23 July 2026, comments due 24 August
+  2026, obligations stand until a final rule. **Baselines cannot be reconstructed backwards** — decide
+  now whether you keep the series internally.
 - **Deferral is not runway** `[V]`. EU high-risk employment obligations moved to 2 December 2027
   under Regulation (EU) 2026/1744, but AI literacy and the absolute emotion-recognition prohibition
   have bound since February 2025, and the transparency obligations since 2 August 2026 — which puts
@@ -9814,7 +9960,27 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
   tools serve worst the people who need help most — appears as a design constraint rather than a
   governance problem.
 - **This module is not legal advice.** It is a guide to which questions have legal answers.
-  *Counsel review required before deployment-specific claims are added.* **[V]**', NULL, '2026-08-12', NULL);
+  *Counsel review required before deployment-specific claims are added.* **[V]**
+
+- **US federal posture and the statutory floor** `[V]` — *Griggs v. Duke Power Co.* (1971) and the
+  Civil Rights Act of 1991 codifying disparate impact under Title VII; **EO 14281** (April 2025)
+  directing agencies away from disparate impact enforcement; the EEOC''s **June 2026 National
+  Enforcement Plan** prioritising disparate treatment. **Deliberately consistent with
+  `ai301-defensible-m1`**, which teaches the same instruments at specialist depth.
+- ***Mobley v. Workday*** `[V]` — agent theory surviving dismissal and proceeding to discovery; ADEA
+  collective conditionally certified; **6 March 2026** ruling that the ADEA reaches job applicants;
+  further rulings **22 June 2026**; **28 May 2026** holding that AI bias-testing data may be
+  privileged. The ~1.1 billion figure is **Workday''s own representation in filings**, not a court
+  finding or a plaintiff estimate — stated that way on purpose. **Same facts as HRBP M6, the
+  recruiter floor module and Defensible M1/M3.**
+- **EO 14398** `[V]` — "Addressing DEI Discrimination by Federal Contractors", signed 26 March 2026:
+  flow-down clause, "reasonably knowable" subcontractor disclosure, books-and-records access, and
+  False Claims Act exposure. Challenges to these orders are live.
+- **EEO-1 rescission** `[V]` — NPRM published in the Federal Register **23 July 2026**, comment period
+  closing **24 August 2026**. **Proposed, not final; current filing obligations stand.** This item is
+  moving faster than the review cycle — verify before relying on it.
+  *Counsel review required before this module ships in any US deployment, and before any
+  federal-contractor claim is acted on.*', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-cpo-m5-activity-applied-activity-the-unreviewed-decision-10', 'ai301-cpo-m5-activity', 10, 'prose', 'stable', '## Applied activity — "The unreviewed decision"
 
 **Time:** 30 minutes · **Submit:** the finding plus a 300–400 word write-up · **Graded against the

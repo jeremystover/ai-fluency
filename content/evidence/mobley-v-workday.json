@@ -20,6 +20,11 @@
     {
       "claim": "A 28 May 2026 ruling held AI bias-testing data may be shielded from discovery by attorney-client privilege — a reason to involve counsel before testing, not after",
       "figure": "28 May 2026"
+    },
+    {
+      "claim": "Workday's own filings put the figure at roughly 1.1 billion applications rejected through its tools in the relevant period",
+      "figure": "1.1 billion",
+      "caution": "This is Workday's representation in filings, not a court finding and not a plaintiff estimate. Cite it that way or it becomes the thing this curriculum teaches learners to catch."
     }
   ],
   "cautions": [
@@ -27,6 +32,7 @@
   ],
   "citedBy": [
     "ai301-comp-m4",
+    "ai301-cpo-m5",
     "ai301-defensible-m1",
     "ai301-defensible-m3",
     "ai301-hrbp-m6",
