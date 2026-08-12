@@ -75,11 +75,23 @@ prohibit employers from using AI in ways that produce a discriminatory effect, a
 this is not a separate AI statute bolted on — it puts AI use inside existing civil-rights
 machinery, which is where the direction of travel points generally.
 
-**The EU AI Act.** Recruitment and selection are named high-risk uses. Those obligations were
-deferred to **December 2027** under the Digital Omnibus — but the **prohibition on emotion
-recognition in the workplace** has been in force since February 2025 and did not move. If anyone
-offers you sentiment or emotion inference from interview video and you have European operations,
-that is not a procurement conversation.
+**The EU AI Act, and why the deferral is not runway.** Recruitment and selection are named
+high-risk uses. Those obligations moved to **2 December 2027** under the Digital Omnibus on AI,
+**Regulation (EU) 2026/1744**, in force 27 July 2026 — six days before the original deadline. Read
+the headline alone and you would conclude you have until 2027. **Two sets of duties bind you now.**
+
+The **prohibition on emotion recognition in the workplace** has been in force since February 2025
+and did not move. If anyone offers you sentiment or emotion inference from interview video and you
+have European operations, that is not a procurement conversation.
+
+And since **2 August 2026**, the Act's **transparency obligations**, which apply *regardless of
+high-risk classification* — so they reach an organisation with no high-risk AI at all. The one that
+lands on this function: **a system interacting directly with a person must disclose that it is AI,
+at or before the start of the interaction.** A screening chatbot, a scheduling assistant, an
+outreach agent answering candidate questions — all squarely inside it, and the ceiling is
+**€15 million or 3% of worldwide turnover**. It is the obligation most likely to catch a TA function
+this year, and the one least likely to be on your legal team's radar, because it does not depend on
+anything being classified high-risk.
 
 **And the doctrine underneath all of it.** Disparate impact requires no intent. A neutral practice
 that disproportionately excludes a protected group needs job-related justification, whoever built
@@ -89,7 +101,9 @@ it. Every statute above sits on top of that; none replaces it.
 
 The development that changes how you buy.
 
-In **Mobley v. Workday**, a court allowed claims to proceed on the theory that an AI screening
+In **Mobley v. Workday** — now with an **ADEA collective conditionally certified at roughly
+14,000 opt-ins** and claims kept alive by rulings on **6 March and 22 June 2026** — a court allowed
+claims to proceed on the theory that an AI screening
 vendor can act as an **agent of the employer** — finding it plausibly alleged that customers had
 delegated their traditional function of rejecting candidates or advancing them to interview. The
 "employment agency" theory was dismissed; the agent theory survived to discovery, and claims have
@@ -303,13 +317,20 @@ counter-argument addressed, and the single question you're taking to counsel fir
   make-or-substantially-assist scope. **[V]**
 - **Illinois HB 3773**, effective 1 January 2026 — amends the Illinois Human Rights Act to
   prohibit discriminatory-effect AI use in employment decisions and requires notice. **[V]**
-- **EU AI Act and the Digital Omnibus** — recruitment and selection as named high-risk uses,
-  deferred to 2 December 2027; the workplace emotion-recognition prohibition in force since
-  February 2025 and unaffected by the deferral. **[V]**
-- **Mobley v. Workday** — agent theory permitted to proceed while the employment-agency theory was
-  dismissed; claims continuing across race, sex, age and disability; active discovery including
-  disputes over algorithmic code and testing data. Litigation posture changes between review
-  cycles. **[V]**
+- **EU AI Act and the Digital Omnibus** `[V]` — recruitment and selection as named high-risk uses,
+  deferred to **2 December 2027** by **Regulation (EU) 2026/1744**, published 24 July 2026 and in
+  force 27 July 2026. The workplace emotion-recognition prohibition and the AI-literacy obligation
+  have been in force since February 2025 and were unaffected. **Article 50 transparency obligations
+  apply from 2 August 2026 independent of high-risk classification**, with a ceiling of €15 million
+  or 3% of worldwide turnover. Canonical wording shared with HRBP M6, People Ops M7, Talent
+  Development M5 and the CPO track — see `content/evidence/eu-ai-act-timeline.json`.
+- **Mobley v. Workday** `[V]` — agent theory permitted to proceed while the employment-agency theory
+  was dismissed; **ADEA collective conditionally certified with roughly 14,000 opt-ins**; claims
+  kept alive across race, sex, age and disability by rulings on **6 March and 22 June 2026**; a
+  **28 May 2026** ruling held AI bias-testing data may be shielded from discovery by
+  attorney-client privilege. Active litigation — **the most staleness-prone citation in this
+  module**, and posture changes between review cycles. See
+  `content/evidence/mobley-v-workday.json`. Re-verified 12 August 2026.
 - The four-fifths rule and selection-rate analysis are long-standing US enforcement practice and
   predate AI entirely. The three audit-reading questions are original to this course.
 - **This module is not legal advice.** *Counsel review required before deployment-specific claims

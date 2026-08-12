@@ -4,10 +4,10 @@ DELETE FROM fd_exercise;
 DELETE FROM fd_module;
 DELETE FROM fd_brand;
 DELETE FROM fd_access_code;
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-12T21:39:31.686Z');
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-12T21:39:31.686Z');
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('e78d4e1e-44df-4d39-a05c-9839ff6d3383', 'omnissa', 'pbkdf2$100000$a6kGeAdd1Xke/ppx6qUR9w==$gQUO8BKgq1QWoP30WOwQVnbtuhvG38A0su/yfKDysN8=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('dfad0500-4b84-43d8-af21-c5fc12adef9f', 'verdant', 'pbkdf2$100000$7MCsbcu6B6Zh5G7FhfKRBw==$kgwjQGP1WSGSponwHDBvM1AmTUFGqUym8yxVr9MMfrk=', 'Theming proof', NULL, 0, NULL, 1);
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-12T21:46:38.973Z');
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-12T21:46:38.973Z');
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('587ba853-d51d-46a8-9697-c1b30bc4fbd6', 'omnissa', 'pbkdf2$100000$9D6AlHVsb4Bc6TqBR4B/Qg==$wdo5GrojGAApfBbY4sHx2Em/VcbKRDTxJ4BVMYWkD6I=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('50367943-9342-49db-a0f2-7a4293c5efe5', 'verdant', 'pbkdf2$100000$IW6ZCCrPI7sQR7FrO72qiA==$yh/0ihPZk1jHlobJD82PI0hwk2PJXp96rZIUpOk8kwo=', 'Theming proof', NULL, 0, NULL, 1);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m1', 'ai101', 1, 'What is AI?', 'A working mental model: what an LLM actually does, the vocabulary, why data decides everything, and a delegation heuristic you can carry under pressure.', 'open', 30, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m2', 'ai101', 2, 'Choosing the tool for the task', 'Chat assistants, copilots, and the AI already embedded in your HR stack — what each is actually for, and how to tell a language model from a scoring engine before you rely on either.', 'open', 25, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m3', 'ai101', 3, 'What it costs and how it scales', 'Tokens, context windows, and pricing — enough of the economics to size a use case, read a vendor quote, and know when a bigger model is worth it.', 'open', 25, NULL);
@@ -10352,12 +10352,19 @@ in employment decisions, states expressly that employers may not use AI in ways 
 and **prohibits the use of zip codes as proxies for protected classes.** That proxy prohibition is
 the first time a US state has named the mechanism rather than the outcome.
 
-**Colorado — not what you have been told.** Colorado''s AI Act (SB 24-205) is routinely described as
-the comprehensive state regime that arrived. It was **postponed to June 2026** following a failed
-special session, and separately **a federal court paused enforcement on 27 April 2026** pending
-litigation. It is stalled twice over. **If your compliance plan names Colorado as the operative
-state standard, it is built on something that is not currently operating** — and if you have been
-using Colorado to argue for budget, expect the first person who checks to notice.
+**Colorado — not what you have been told, and it is worse than stalled.** Colorado''s AI Act
+(SB 24-205) is routinely described as the comprehensive state regime that arrived. It was
+**postponed to 30 June 2026** following a failed special session; **a federal magistrate blocked
+enforcement on 27 April 2026** pending a constitutional challenge; and then it was **repealed and
+replaced outright by SB 26-189, signed 14 May 2026** — a scaled-back **disclosure-and-rights**
+framework for automated decision-making technology, effective **1 January 2027**.
+
+**Postponed, enjoined, repealed and replaced inside thirteen months.** The date survived and the
+statute behind it did not. **If your compliance plan names Colorado as the operative state
+standard, it is built on something that no longer exists** — and if you have been using Colorado to
+argue for budget, expect the first person who checks to notice. The transferable lesson is the one
+this track keeps returning to: build an inventory that survives the statute, not a checklist keyed
+to one.
 
 **Connecticut — the one to prepare for**, and Module 2 covers it in detail. Its AEDT framework takes
 effect **1 October 2026**, with the principal compliance obligations following on **1 October 2027**.
@@ -10420,7 +10427,8 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
   baselines cannot be reconstructed backwards.**
 - **States: California in force since 1 Oct 2025** (bias testing *or its absence* relevant to a
   claim; extended recordkeeping), **Illinois since 1 Jan 2026** (notice; zip codes prohibited as
-  proxies), **Colorado stalled twice** — postponed and enforcement-paused — and **Connecticut from
+  proxies), **Colorado repealed and replaced** — postponed, enjoined, then superseded by SB 26-189 effective
+  1 January 2027 — and **Connecticut from
   1 Oct 2026**.
 - **Two fronts.** *Mobley* is the discrimination front, in discovery, with a proxy-discrimination
   claim surviving. *Kistler* is an FCRA disclosure case that **doesn''t allege bias at all** — a
@@ -16121,7 +16129,10 @@ vendor can act as an **agent of the employer** — holding it plausibly alleged 
 delegated their traditional function of rejecting candidates or advancing them to interview. The
 employment-agency theory was dismissed; the agent theory survived and went to discovery. The
 litigation has continued to expand rather than contract, with claims proceeding across race, sex,
-age, and disability.
+age, and disability through rulings on **6 March and 22 June 2026** — and an **ADEA collective
+conditionally certified, with roughly 14,000 opt-ins**. That number is the part worth carrying: a
+theory that survives a motion is a legal development, and a collective that size is a commercial
+one.
 
 Three implications, in descending order of how much they should change your Monday.
 
@@ -16244,10 +16255,14 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
   2026; the AI literacy obligation and workplace emotion-recognition prohibition in force since
   February 2025; the Article 50 transparency obligations applicable from 2 August 2026,
   independent of high-risk classification. Re-verified 12 August 2026. **[V]**
-- **Mobley v. Workday** — the agent theory permitted to proceed while the employment-agency theory
-  was dismissed; claims continuing across race, sex, age, and disability; active discovery
-  including disputes over algorithmic code and testing data. Litigation posture changes between
-  review cycles. **[V]**
+- **Mobley v. Workday** `[V]` — the agent theory permitted to proceed while the employment-agency
+  theory was dismissed; **ADEA collective conditionally certified with roughly 14,000 opt-ins**;
+  claims kept alive across race, sex, age and disability by rulings on **6 March and 22 June 2026**;
+  a **28 May 2026** ruling held AI bias-testing data may be shielded from discovery by
+  attorney-client privilege — which is a reason to involve counsel *before* testing, not after.
+  Active discovery including disputes over algorithmic code and testing data. **The most
+  staleness-prone citation in this module**; posture changes between review cycles. See
+  `content/evidence/mobley-v-workday.json`. Re-verified 12 August 2026.
 - Disparate impact doctrine long predates AI and is not displaced by any of the above.
 - The ER documentation discipline — the completeness pass, the stopping line, and the
   provenance rule — is original to this course.
@@ -24109,11 +24124,24 @@ prohibit employers from using AI in ways that produce a discriminatory effect, a
 this is not a separate AI statute bolted on — it puts AI use inside existing civil-rights
 machinery, which is where the direction of travel points generally.
 
-**The EU AI Act.** Recruitment and selection are named high-risk uses. Those obligations were
-deferred to **December 2027** under the Digital Omnibus — but the **prohibition on emotion
-recognition in the workplace** has been in force since February 2025 and did not move. If anyone
+**The EU AI Act, and why the deferral is not runway.** Recruitment and selection are named
+high-risk uses. Those obligations moved to **2 December 2027** under the Digital Omnibus on AI,
+**Regulation (EU) 2026/1744**, in force 27 July 2026 — six days before the original deadline. Read
+the headline alone and you would conclude you have until 2027. **Two sets of duties bind you now.**
+
+The **prohibition on emotion recognition in the workplace** has been in force since February 2025
+and did not move. If anyone
 offers you sentiment or emotion inference from interview video and you have European operations,
 that is not a procurement conversation.
+
+And since **2 August 2026**, the Act''s **transparency obligations**, which apply *regardless of
+high-risk classification* — so they reach an organisation with no high-risk AI at all. The one that
+lands on this function: **a system interacting directly with a person must disclose that it is AI,
+at or before the start of the interaction.** A screening chatbot, a scheduling assistant, an
+outreach agent answering candidate questions — all squarely inside it, and the ceiling is
+**€15 million or 3% of worldwide turnover**. It is the obligation most likely to catch a TA function
+this year, and the one least likely to be on your legal team''s radar, because it does not depend on
+anything being classified high-risk.
 
 **And the doctrine underneath all of it.** Disparate impact requires no intent. A neutral practice
 that disproportionately excludes a protected group needs job-related justification, whoever built
@@ -24122,7 +24150,9 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
 
 The development that changes how you buy.
 
-In **Mobley v. Workday**, a court allowed claims to proceed on the theory that an AI screening
+In **Mobley v. Workday** — now with an **ADEA collective conditionally certified at roughly
+14,000 opt-ins** and claims kept alive by rulings on **6 March and 22 June 2026** — a court allowed
+claims to proceed on the theory that an AI screening
 vendor can act as an **agent of the employer** — finding it plausibly alleged that customers had
 delegated their traditional function of rejecting candidates or advancing them to interview. The
 "employment agency" theory was dismissed; the agent theory survived to discovery, and claims have
@@ -24238,13 +24268,19 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
   make-or-substantially-assist scope. **[V]**
 - **Illinois HB 3773**, effective 1 January 2026 — amends the Illinois Human Rights Act to
   prohibit discriminatory-effect AI use in employment decisions and requires notice. **[V]**
-- **EU AI Act and the Digital Omnibus** — recruitment and selection as named high-risk uses,
-  deferred to 2 December 2027; the workplace emotion-recognition prohibition in force since
-  February 2025 and unaffected by the deferral. **[V]**
-- **Mobley v. Workday** — agent theory permitted to proceed while the employment-agency theory was
-  dismissed; claims continuing across race, sex, age and disability; active discovery including
-  disputes over algorithmic code and testing data. Litigation posture changes between review
-  cycles. **[V]**
+- **EU AI Act and the Digital Omnibus** `[V]` — recruitment and selection as named high-risk uses,
+  deferred to **2 December 2027** by **Regulation (EU) 2026/1744**, published 24 July 2026 and in
+  force 27 July 2026. The workplace emotion-recognition prohibition and the AI-literacy obligation
+  have been in force since February 2025 and were unaffected. **Article 50 transparency obligations
+  apply from 2 August 2026 independent of high-risk classification**, ceiling €15 million or 3% of
+  worldwide turnover. Canonical wording shared with HRBP M6, People Ops M7, Talent Development M5
+  and the CPO track — see `content/evidence/eu-ai-act-timeline.json`.
+- **Mobley v. Workday** `[V]` — agent theory permitted to proceed while the employment-agency theory
+  was dismissed; **ADEA collective conditionally certified with roughly 14,000 opt-ins**; claims kept
+  alive across race, sex, age and disability by rulings on **6 March and 22 June 2026**; a
+  **28 May 2026** ruling held AI bias-testing data may be shielded from discovery by attorney-client
+  privilege. Active litigation — **the most staleness-prone citation in this module**. See
+  `content/evidence/mobley-v-workday.json`. Re-verified 12 August 2026.
 - The four-fifths rule and selection-rate analysis are long-standing US enforcement practice and
   predate AI entirely. The three audit-reading questions are original to this course.
 - **This module is not legal advice.** *Counsel review required before deployment-specific claims

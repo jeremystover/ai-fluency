@@ -109,7 +109,10 @@ vendor can act as an **agent of the employer** — holding it plausibly alleged 
 delegated their traditional function of rejecting candidates or advancing them to interview. The
 employment-agency theory was dismissed; the agent theory survived and went to discovery. The
 litigation has continued to expand rather than contract, with claims proceeding across race, sex,
-age, and disability.
+age, and disability through rulings on **6 March and 22 June 2026** — and an **ADEA collective
+conditionally certified, with roughly 14,000 opt-ins**. That number is the part worth carrying: a
+theory that survives a motion is a legal development, and a collective that size is a commercial
+one.
 
 Three implications, in descending order of how much they should change your Monday.
 
@@ -355,10 +358,14 @@ are taking to counsel first.
   2026; the AI literacy obligation and workplace emotion-recognition prohibition in force since
   February 2025; the Article 50 transparency obligations applicable from 2 August 2026,
   independent of high-risk classification. Re-verified 12 August 2026. **[V]**
-- **Mobley v. Workday** — the agent theory permitted to proceed while the employment-agency theory
-  was dismissed; claims continuing across race, sex, age, and disability; active discovery
-  including disputes over algorithmic code and testing data. Litigation posture changes between
-  review cycles. **[V]**
+- **Mobley v. Workday** `[V]` — the agent theory permitted to proceed while the employment-agency
+  theory was dismissed; **ADEA collective conditionally certified with roughly 14,000 opt-ins**;
+  claims kept alive across race, sex, age and disability by rulings on **6 March and 22 June 2026**;
+  a **28 May 2026** ruling held AI bias-testing data may be shielded from discovery by
+  attorney-client privilege — which is a reason to involve counsel *before* testing, not after.
+  Active discovery including disputes over algorithmic code and testing data. **The most
+  staleness-prone citation in this module**; posture changes between review cycles. See
+  `content/evidence/mobley-v-workday.json`. Re-verified 12 August 2026.
 - Disparate impact doctrine long predates AI and is not displaced by any of the above.
 - The ER documentation discipline — the completeness pass, the stopping line, and the
   provenance rule — is original to this course.
