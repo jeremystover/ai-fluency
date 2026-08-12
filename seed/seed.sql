@@ -4,10 +4,10 @@ DELETE FROM fd_exercise;
 DELETE FROM fd_module;
 DELETE FROM fd_brand;
 DELETE FROM fd_access_code;
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-12T22:36:06.627Z');
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-12T22:36:06.627Z');
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('ae424a85-ac92-4c8c-9e81-d00b9bcd657e', 'omnissa', 'pbkdf2$100000$A8AfUuNBxtXjfBYNi1l5KQ==$ePDKgLbK37MXrXjisZKhPD9jzl7CpptqfPwtAcF1TZU=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('4781750a-f72b-4092-8a26-656a521a6ae5', 'verdant', 'pbkdf2$100000$/TalNDpTYATuJYb7NtEkzQ==$oiM9O+VtbcBKd8GsxqdDILS1gIpSCd5i90pucu2fbSc=', 'Theming proof', NULL, 0, NULL, 1);
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-12T23:42:30.317Z');
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-12T23:42:30.317Z');
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('59a5a710-758f-4094-9e23-a24b04d5e6cb', 'omnissa', 'pbkdf2$100000$1RLqpWMmzMxnxfDK9S8NtQ==$Ky8fW45IxgHWIFj+k3TbROPREvLX+nCcR3R7hiXxLNQ=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('6802ab80-e8e8-4cc6-bed5-7e1b72a76605', 'verdant', 'pbkdf2$100000$247XCCFLTyeuKCeSjsHwug==$u7DWTSA50r7ozgl+IY1p6PcB3C2mSzeP/G2nRsBtwqA=', 'Theming proof', NULL, 0, NULL, 1);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m1', 'ai101', 1, 'What is AI?', 'A working mental model: what an LLM actually does, the vocabulary, why data decides everything, and a delegation heuristic you can carry under pressure.', 'open', 30, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m2', 'ai101', 2, 'Choosing the tool for the task', 'Chat assistants, copilots, and the AI already embedded in your HR stack — what each is actually for, and how to tell a language model from a scoring engine before you rely on either.', 'open', 25, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m3', 'ai101', 3, 'What it costs and how it scales', 'Tokens, context windows, and pricing — enough of the economics to size a use case, read a vendor quote, and know when a bigger model is worth it.', 'open', 25, NULL);
@@ -93,6 +93,16 @@ INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-cpo-m4', 'ai301-cpo', 4, 'The function you have to cut', 'Where the compression lands in your own operating system, and the cut you have to make credibly.', 'open', 25, '["ai301-cpo-m1"]');
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-cpo-m5', 'ai301-cpo', 5, 'The trust you own but don''t control', 'The trust you own but did not design — the US floor that did not move, the European one that deferred without giving you runway, and why a policy nobody has enforced is not governance.', 'open', 40, '["ai301-cpo-m1"]');
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-cpo-m6', 'ai301-cpo', 6, 'The number you''ll have to defend', 'The close: the position, and the figure you will be held to.', 'open', 25, '["ai301-cpo-m1"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai401-m1', 'ai401', 1, 'Load paths', 'The thesis: AI lowers the cost of individual production and raises the cost of collective coherence. Cultural debt, load-bearing versus decorative — and why the structures most likely to be load-bearing are the ones nobody designed. Names the unit the next nine modules thread.', 'open', 20, NULL);
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai401-m2', 'ai401', 2, 'The frame', 'The spine: transitional versus transformational change, and the seven steps — name the load, find what''s carrying it, mark what''s dissolving, spec the replacement, set the tolerance, name the trigger, name the owner. The same seven rows held at three altitudes, shown rather than asserted.', 'open', 35, '["ai401-m1"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai401-m3', 'ai401', 3, 'Somebody else''s load', 'The convergence point after ten role tracks. What your track made you unable to see, why HR''s credibility gap is a unit of account rather than technical literacy, and the four things findable about a partner function without their cooperation — plus the one you have to ask.', 'open', 25, NULL);
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai401-m4', 'ai401', 4, 'Ownership contracts', 'Large teams hide bad interfaces. AI didn''t create your turf problem — it removed the people papering over it. A contract written at the workflow rather than the reporting line, including what may be produced with AI without telling the other side.', 'open', 25, NULL);
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai401-m5', 'ai401', 5, 'The invisible work audit', 'Coverage, not headcount. On a lean team, work belonging to nobody either becomes an explicit decision or silently stops — and silence is the default. Inventory the absorbed work before you shrink the team, because afterwards the evidence is gone.', 'open', 25, NULL);
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai401-m6', 'ai401', 6, 'Integration capacity', 'Individual AI adoption can raise total coordination cost while lowering production cost. You don''t trade speed against risk, you govern speed against absorption — and procurement is a pace decision, because lock-in is integration debt with a contract attached.', 'open', 35, NULL);
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai401-m7', 'ai401', 7, 'Codification', 'Individual learning velocity rose sharply; collective learning velocity didn''t move. Codification is not documentation, a fossil is worse than an empty folder, and the test is who removes things. Design one trapped practice out of one person''s head.', 'open', 25, NULL);
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai401-m8', 'ai401', 8, 'Designed need', 'Asking a colleague did two jobs at once — moved information, and built the relationship. AI replaced the first and deleted the second. Why that''s a mobility problem rather than a wellbeing one, and how to design an interdependency that survives an efficiency review.', 'open', 25, '["ai401-m7"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai401-m9', 'ai401', 9, 'The floor', 'You are the deployer, and obligations arrive from purchases you weren''t part of. The four duties that recur, the European half that moved and the half that didn''t, and the rule that outlives any statute — plus why a floor with no exception path is a detour sign.', 'open', 25, NULL);
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai401-m10', 'ai401', 10, 'The operating system, and the bet', 'Where culture becomes real: three of the four building blocks are yours, and the fourth is authority. The metric that produces itself, the four things a pilot needs agreed before it starts — then the deck, the bet, and the reckoning across ten modules.', 'open', 30, NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('m1-brief', 'ai101-m1', 10, 'prose', 'stable', '## Why this module exists
 
 You almost certainly already use AI. You''ve probably asked something to tidy up a job description, turn a page of interview scrawl into a debrief a hiring manager can read, soften a rejection email, or explain a benefits provision in language an employee will actually understand. So opening a course with "what is AI?" is a strange move. The answer is on your screen already.
@@ -26887,3 +26897,3016 @@ The worked evidence-hygiene example: vendor ROI claims for AI role-play against 
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-talent-dev-m6-choice', 'ai301-talent-dev-m6', 'choice', '{"reviewedAt":"2026-08-12","title":"Four cases","intro":"*Five minutes. Commit before you look.*\n\nFour L&D leaders take a case to their CFO. All four are competent, all four are honest, and all four are asking for the same money.\n\n**One of them would actually get funded.** Find it.","artifacts":[{"label":"Case A","body":"\"We''re stopping the four generic compliance refreshers and the curated reading list — that''s roughly 30% of production hours. We''re moving those hours into the operational onboarding for the acquired business, which nobody outside this company can build.\n\nOne measure: time-to-first-independent-shift for acquired-site hires. Baseline today is 41 days, taken from the last 60 hires. If it hasn''t reached 32 days within two quarters of full rollout, we stop and I''ll tell you. The confident hires will move first, so I''m reporting the bottom quartile separately — that''s the group this is justified by.\n\nThe operational content expires in 12 months, the systems screenshots in 3.\""},{"label":"Case B","body":"\"AI role-play delivers 300–500% ROI in the first year and lifts completion from 15% to 85%. We want to deploy it across the manager population — 400 people. Payback inside twelve months on the vendor''s own modelling, which is based on customers in our sector.\n\nWe''ll track completion, satisfaction, and self-reported confidence pre and post, and report quarterly.\""},{"label":"Case C","body":"\"We''re reinvesting in leadership development, which is where the long-term capability gap is. The evidence base for structured leadership programs is strong and our exit interviews consistently name manager quality as the top driver of regretted attrition.\n\nWe''ll measure engagement scores on the manager-support items, 360 rating movement, and program NPS. We''ll review at twelve months and expect to see improvement across all three.\""},{"label":"Case D","body":"\"Production costs have fallen sharply. We can deliver the current catalog with about 30% fewer hours, and I want to bank that as a saving rather than reinvest it — it seems like the honest thing to do in this budget climate.\n\nWe''ll maintain current volume and quality, tracked through completion rates and satisfaction, which are both stable.\""}],"options":["Case A","Case B","Case C","Case D"],"key":0,"reasoning":"**A gets funded.** Everything the module asks for is present. A named stop with a quantified release of effort. A reinvestment into bucket-two material, argued on the grounds that nobody outside the company can build it. A business result rather than a learning objective. **A baseline that exists today, with its source and its n.** A threshold with a date and an explicit commitment to report a negative. Segmentation before averaging, aimed at the group the program was justified by — Module 4''s finding applied. And expiry dates split by layer. Note it is also the least impressive-sounding of the four, which is the point.\n\n**B is the vendor''s case with your name on it.** Round ranges — 300–500%, 15% to 85% — with no sample and no falsifier, and the payback modelling belongs to the party selling. Worse, the measures chosen (completion, satisfaction, self-reported confidence) are exactly the ones a tool reliably improves and that say nothing about whether behaviour changed. A CFO who has been sold anything before will recognize the shape, and the credibility damage outlasts the decision.\n\n**C is the most sympathetic failure, and it is the one most L&D functions actually submit.** The reasoning is sound, the exit-interview evidence is real, and the case is unfundable anyway — because **not one of its three measures can come back negative in a way anyone would act on.** Engagement items move for a dozen reasons, 360 ratings drift upward with familiarity, and NPS measures whether people enjoyed it. \"Expect to see improvement\" is not a threshold. There is no stop, no baseline, and no date. This is the case worth studying, because it is written by someone doing their job well.\n\n**D is honest and it is a resignation letter for the function.** It proposes a cost saving, which is a complete proposal that does not require an L&D function to execute. The organization will take the 30% and ask why it should not take more. Banking the saving without a reinvestment argument concedes that the freed capacity has no better use — which, if true, is worth knowing, and if untrue is the most expensive sentence in the document.\n\nThe transferable test: **for each case, name the finding that would make you stop.** A can stop. B, C and D cannot, for three different reasons — a threshold nobody set, measures that cannot fail, and no program to stop in the first place."}', '2026-08-12');
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-talent-dev-m6-rubric', 'ai301-talent-dev-m6', 'rubric', '{"promptVersion":"ai301-talent-dev-m6-the-case-v1","moduleId":"ai301-talent-dev-m6","minWords":350,"maxWords":450,"submitLabel":"Your case and the reckoning","intro":"Paste the one-page case — stop/protect/reinvest, the measure that can fail with its baseline and threshold, the segmentation, the expiry dates, and the claim you deliberately left out — plus the reckoning across all six opening positions, in 350–450 words. Resubmission is free and unlimited; the score is a mirror, not a gate.","activityContext":"You are grading the CLOSING submission for AI 301 · The Specialist, Talent Development / L&D track — for talent development and L&D professionals who have completed AI 101 and AI 201. Module 6 applied activity, ''The case'', in two parts. PART ONE, the one-page case written for a budget holder: (1) stop, protect and reinvest read off the Module 1 triage with NAMED programs rather than categories; (2) for one program, the chain worked backwards — business result, behaviour, capability, intervention — plus the baseline as it stands today (an actual number, or an honest statement that no baseline exists and what they will do about it before launch), plus a threshold: the observation that would tell them to stop, with a date; (3) segmentation, naming which population the program would serve worst given Module 4''s self-efficacy finding and whether the measure separates or averages them; (4) expiry dates per component, durable and volatile marked separately; (5) one impressive-sounding claim they could have made and deliberately left out, with the reason — the evidence-hygiene test applied to their own document. PART TWO, the reckoning: the learner committed a position at the start of each of the six modules (portfolio rebuildability; whether the last five requests were diagnosed; whether their review would catch a wrong assumption as reliably as a wrong fact; whether the human-versus-tool allocation was deliberate; whether their assets would pass an accessibility audit; whether they could produce a baseline a CFO would accept). They must say which moved, what moved them, and whether the movement ran in a consistent direction — most people find their positions were systematically optimistic in one specific way, and naming that pattern is the highest-value output of the course. SCORING: grade the ACCOUNT OF THE CHANGE, never the accuracy of any opening position. A learner whose six positions were all wrong and who can say precisely why has done better work than one who was right and cannot say how they knew. An honest ''no baseline exists and here is how I will get one'' scores at full credit; an invented baseline scores at the bottom. The module''s claim, which the write-up must take a position on, is that a program with no pre-committed losing condition is being reported on rather than evaluated; its real counter-argument is that falsifiability will systematically kill long-horizon programs whose payoff is invisible inside two quarters, and that demanding thresholds may just relocate the dishonesty into thresholds set where they are certain to be met. Strong positions say what they would do with a program they believe in that genuinely cannot produce a falsifiable measure in a budget cycle.","opening":[{"key":"falsifiablePrograms","label":"Predicted — how many of your programs have a pre-committed measure that could return a negative","hint":"A threshold agreed in advance that would tell you to stop. Zero is a common and honest answer.","placeholder":"e.g. 0","min":0,"max":100}],"calibration":[{"key":"falsifiableProgramsChecked","label":"Checked — how many actually do, after you looked","hint":"Count only thresholds set before launch. One set afterwards does not count.","placeholder":"e.g. 0","min":0,"max":100,"actualFor":"falsifiablePrograms"}],"dimensions":[{"name":"Stop, protect, reinvest — with named programs","criteria":"All three, read off the Module 1 triage, with specific named programs rather than categories. The stop is the load-bearing element: a case that adds a priority without removing one is a wish with a Gantt chart. The reinvestment must be argued on what bucket-two material produces that nothing else can, not on efficiency — a case proposing only a saving has proposed something that does not require an L&D function to execute, and should score low however well written."},{"name":"The chain runs backwards from a business result","criteria":"Business result, then behaviour, then capability, then intervention — in that order. A learning objective presented as the business result is the common failure and should score low. The result must be something the organization wants to be different, stated concretely enough that someone outside L&D would recognize it as their problem."},{"name":"The baseline is real or its absence is honest","criteria":"An actual current figure with its source, or an explicit statement that no baseline exists together with what the learner will do to establish one before launch. Both score at full credit. An invented, estimated, or vaguely-gestured baseline scores at the bottom — this is the dimension where the module''s entire argument is tested, since a threshold without a baseline is unmeasurable by construction."},{"name":"The threshold could actually stop the program","criteria":"A named observation, a number, and a date, such that a plausible real-world outcome would trigger it. Apply the test directly: is there a result that would lead to stopping? ''We will review and refine'' is not a threshold. Also check it is not set where it cannot fail — a threshold pre-committed but guaranteed to be met is the module''s own named failure mode and should score low even though it is technically compliant."},{"name":"Segmentation before averaging","criteria":"Which population this program would serve worst given that outcomes track starting self-efficacy and hope, and whether the proposed measure separates or averages them. The strongest submissions set the threshold on the segment the program was justified by rather than on the whole population. A case that reports only an average, having been taught why that hides the failure, has not applied Module 4."},{"name":"Expiry dates and the claim not made","criteria":"Per-component expiry dates with durable and volatile marked separately — an expiry, not a review date. Plus one impressive-sounding claim deliberately omitted, with the reason. This last step is the evidence-hygiene test turned on the learner''s own document and is the one most likely to be skipped; a specific omission named with a specific reason scores at the top, and skipping it should cost."},{"name":"The reckoning — direction and cause","criteria":"All six opening positions revisited: which moved, what moved them, and whether the movement ran in a consistent direction. Grade the account of the change and NEVER the accuracy of any position — a learner whose six positions were all wrong and who can name precisely what they were reading instead of the evidence has done the best work available here. The highest-value output is naming the systematic direction of their own optimism; a submission that lists six changes without looking for the pattern has done the arithmetic and missed the finding."}]}', '2026-08-12');
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-talent-dev-m6-knowledge_check', 'ai301-talent-dev-m6', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"Why does the module treat measurement as a design constraint rather than a reporting activity?","options":["Because reporting requirements are set by finance rather than by L&D","Because *\"we can''t tell if it worked\"* and *\"it didn''t work\"* produce an identical conversation with a CFO — so evidence arriving after the decision is an explanation, not evidence","Because evaluation methodology must be approved before a program launches","Because measurement designed afterwards is more expensive to implement"],"correctIndex":1,"explanation":"The two states are indistinguishable to the person holding the budget, which means an unmeasured program and a failed one are funded the same way: not again."},{"id":"q2","prompt":"What makes the reinvestment line the difference between a strategy and a cut?","options":["It demonstrates the function understands financial planning","Without it the case proposes producing the same catalog with less effort — and the organization will take the saving without the function","It allows the function to retain headcount during a restructure","It satisfies the requirement for a business case to show a return"],"correctIndex":1,"explanation":"A cost saving is a complete proposal on its own and it does not require you. Moving effort from bucket one to bucket two is a claim about what the function is for."},{"id":"q3","prompt":"What is the signature of a figure assembled to persuade rather than measured? `[V]`","options":["A very large effect size","An absence of a named author","A round range with round endpoints — 300–500%, 80–90%, 70–80%","Publication outside a peer-reviewed venue"],"correctIndex":2,"explanation":"The track has now shown this shape four times: the learning pyramid, 70-20-10, Module 2''s own environmental prior, and these vendor ROI claims. A is a distractor — large effects can be real and measured."},{"id":"q4","prompt":"What is the relationship between vendor claims and independent evidence for simulated practice? `[V]`","options":["The independent evidence contradicts the vendor claims, showing no effect","Both are unreliable and neither should inform a decision","Independent meta-analytic evidence supports simulation-based practice at gains of roughly 9–20%, around an order of magnitude below vendor ROI claims — which is the normal relationship between measured and marketed numbers","The vendor claims are supported by the independent evidence at a similar magnitude"],"correctIndex":2,"explanation":"The evidence is genuinely positive, which matters — this is not a debunking. The gap is what you get when one number has a comparison group and the other has selected happy customers."},{"id":"q5","prompt":"What is the laundering pattern the module warns about?","options":["Citing a study without naming its funder","A real, correctly-cited study of a neighbouring intervention offered as evidence for the product being sold","Republishing vendor research under an academic imprint","Aggregating multiple weak studies into a single strong claim"],"correctIndex":1,"explanation":"It defeats every check procurement runs: the source exists, the author is credible, the figure is accurately quoted. The question that catches it is whether the thing studied was the thing being sold."},{"id":"q6","prompt":"How does the module characterize the evaluation research it cites? `[V]`","options":["As robust and current, justifying strong conclusions about the field","As supporting a direction rather than a decimal — most measure reaction, few measure behaviour, fewer results — with the load-bearing figures roughly a decade old and inconsistent between sources","As too weak to support any conclusion about evaluation practice","As applicable only to organizations above a certain size"],"correctIndex":1,"explanation":"And it says so explicitly, because a lesson about evidence quality that concealed the weakness of its own evidence would fail its own test. The direction has been stable across every survey run, which is worth more than any single figure."},{"id":"q7","prompt":"What does a pre-committed threshold buy that a post-hoc evaluation does not?","options":["Regulatory defensibility for the program","It makes the evaluation capable of returning a negative, changes the CFO conversation into a bet with a stated losing condition, and fixes the standard while everyone is still optimistic","It reduces the cost of the evaluation","It allows the program to be extended without re-approval"],"correctIndex":1,"explanation":"The third is the underrated one: a threshold set afterwards will be set to whatever the program achieved, and everyone involved will believe they were being fair."},{"id":"q8","prompt":"Why does the module say a curriculum with no expiry dates is a liability rather than an asset?","options":["Because auditors require documented review cycles for training content","Because content depreciates in value over time like any capital asset","Because the maintenance cost has already been incurred and not budgeted — it will be paid as an unplanned rebuild or as content that quietly goes wrong in the catalog","Because learners disengage from content that has not been recently updated"],"correctIndex":2,"explanation":"Module 3''s stale specificity is that liability coming due. An expiry date is not a review date: it is the point at which a component is presumed stale unless someone confirms otherwise."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m1-calibration-prompt-before-you-start-10', 'ai401-m1', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One claim. Commit before you read.*
+
+> **"Someone in my organization is evaluating what AI is doing to how we work together — not to
+> our output, to our working relationships."**
+
+**True of us, or not true of us?** Commit in a sentence. If it''s true, name the person.
+
+Then: **how many people in your organization could name who is accountable for AI''s effect on how
+teams work together?** A count, not an impression — and if the honest count is zero, write zero.
+
+You will check this against evidence during the activity. Most people discover the answer is a
+number they have never had to say out loud.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m1-module-brief-20', 'ai401-m1', 20, 'prose', 'stable', '## Module brief
+
+Everything below this rung made you better at using AI. **This one is about what happens to the
+organization while everyone gets better at using AI.** Those turn out to be different problems, and
+the second one is not solved by more of the first.
+
+Here is the whole course in one sentence:
+
+> **AI lowers the cost of individual production and raises the cost of collective coherence.**
+
+Read it twice. It is not a warning about AI and it is not a productivity claim. It is an
+observation about where cost moved. Producing a first draft, a model, a plan, a summary, an
+analysis — all cheaper, in some cases by an order of magnitude. Getting six people''s cheaper
+outputs to agree with each other, arrive in a compatible format, rest on the same assumptions, and
+add up to something an organization can act on — **more expensive, because there is more of it,
+produced faster, by people who no longer had to consult anyone to make it.**
+
+That second cost lands on you. It does not show up on anyone''s dashboard, it has no line in the
+budget, and nobody has been assigned to it — which is precisely why it accumulates.
+
+**What this course excludes, and why.** No AI fundamentals, no prompting, no tool tour, no vendor
+showcase. Those are 101 and 201 and they did them properly. There is also **no change-management
+module**, which is a deliberate choice rather than an omission: a standalone change module is the
+most cliché-prone object in leadership training, and the material is better distributed to the
+places where it is load-bearing. Lesson 4 says where each piece went.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m1-learning-objectives-30', 'ai401-m1', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. State the course''s thesis and explain why seven familiar symptoms are one problem.
+2. Describe cultural debt and name the evidence that it goes unevaluated.
+3. Distinguish load-bearing structures from decorative ones — and explain why the load-bearing ones
+   are usually undesigned.
+4. Explain why this course''s deliverable is a spec with a tolerance rather than a plan with a date.
+5. Name one structure in your own organization that AI is currently removing.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m1-lesson-1-where-the-variance-actually-liv-40', 'ai401-m1', 40, 'prose', 'volatile', '## Lesson 1 · Where the variance actually lives [V]
+
+Two findings, and together they should unsettle you slightly about the three courses you just took.
+
+**The first: almost nobody is designing this.** In Deloitte''s 2026 Global Human Capital Trends,
+**only 6% of leaders say they are making progress on designing how humans and AI work together.**
+Not 6% who have finished. 6% who report progress. The majority approach is to layer AI onto the
+processes and systems that already existed and let the working arrangements sort themselves out.
+
+**The second explains why that matters.** Microsoft''s 2026 Work Trend Index tested organizational
+factors against individual ones for their relationship to reported AI impact — whether people say
+AI helps them produce better work, collaborate better, take on different work. **Organizational
+factors — culture, manager support, and whether talent practices reflect AI at all — accounted for
+more than twice the reported impact of individual factors: 67% against 32%.** The sample is 20,000
+knowledge workers across ten markets, fielded February to April 2026 by Edelman Data x
+Intelligence. It is self-reported impact rather than measured output, which is a real limitation
+and worth carrying: it tells you where people locate the difference, not where an economist would.
+
+Hold those two together and the uncomfortable implication is clear enough. **The ladder you just
+climbed — 101, 201, your 301 track — was building the 32%.** That was the right thing to build,
+because you cannot lead a change you cannot perform, and because the 67% is not available to
+someone with no craft of their own. But it was one third of the problem, and the two thirds are
+what this course is about.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m1-try-50', 'ai401-m1', 50, 'try_this', 'stable', '### Try this — 2 minutes
+Ask yourself who in your organization would receive an email titled *"AI is changing how our
+teams work together and I think it''s going badly."* Not who would care. Who would consider it
+theirs. If the answer takes more than ten seconds, you have found this course''s subject.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m1-lesson-2-cultural-debt-60', 'ai401-m1', 60, 'prose', 'volatile', '## Lesson 2 · Cultural debt [V]
+
+The name for what accumulates is **cultural debt**: the cost an organization takes on when it
+scales AI faster than the norms, trust, and accountability structures around it. Like technical
+debt, it is invisible in the quarter you incur it and expensive in the one where you pay.
+
+Three findings from the same research make it concrete rather than atmospheric.
+
+**Nobody is watching. 42% of workers say their organization rarely evaluates AI''s impact on
+people.** Not its impact on cost or throughput — on people. That is the measurement gap this
+course''s final module is about, arriving here as a symptom.
+
+**The norms are being renegotiated without anyone convening the negotiation. 80% of leaders,
+managers, and workers are concerned that their colleagues are using AI to appear more productive
+than they actually are.** Sit with that number. Four out of five people suspect the people around
+them of a specific kind of performance, and almost nowhere has anyone said out loud what counts as
+legitimate use. Underneath it sit four questions your organization has not answered: **is using AI
+cheating? What does hard work mean now? Who is to blame when AI is wrong? Does not using it cost
+me my job?** People are answering those privately, differently, and in ways that are already
+shaping who trusts whom.
+
+**And the decisions are moving faster than the competence. 60% of executives report using AI in
+decision-making; 5% say they manage it well.**
+
+*A note on this evidence, because this course asks you to interrogate other people''s numbers.*
+Deloitte''s primary page could not be reached from this course''s build environment, so these figures
+were confirmed through indexed summaries and secondary coverage rather than read off the source
+document. They are consistent across those sources and the concept is well attested. Treat the
+specific percentages as reliable-but-secondhand, and the pattern as solid.
+
+**Why it goes unpaid.** Every one of these is somebody''s problem in the abstract and nobody''s in
+the org chart. The work is real, the cost is real, and there is no owner — which, as you will see
+in Module 5, is the exact profile of work that silently stops happening.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m1-lesson-3-load-bearing-and-decorative-70', 'ai401-m1', 70, 'prose', 'stable', '## Lesson 3 · Load-bearing and decorative
+
+Here is the model the rest of the course runs on, and it comes from structural engineering rather
+than management.
+
+**An architect''s job is not to draw the finished building.** It is to determine what is
+load-bearing, specify the structure, and set tolerances for loads that cannot be predicted
+precisely. Nobody knows exactly how many people will stand on the third floor. Everybody knows the
+floor has to hold them.
+
+So the first question about any structure in your organization is not *is this good* or *is this
+modern.* It is: **what is this holding up?**
+
+Some things turn out to be holding up a great deal:
+
+- The weekly meeting nobody defends but everybody attends, which is where three teams discover
+  they made incompatible assumptions.
+- The person who has been there eleven years and gets asked everything, who is the only reason
+  new joiners find out what already failed.
+- The handoff that lives in one shared document and two people''s habits.
+- The escalation path that exists because someone once did it and it worked.
+
+And some things are decorative — real, visible, effortful, and holding up nothing. A dashboard
+nobody acts on. A quarterly report that gets produced and filed. A meeting whose function is
+attendance.
+
+**Here is the part that matters, and it is the module''s claim: the structures most likely to be
+load-bearing are the ones nobody designed.** That is not a paradox. Designed structures get
+documented, and documented structures get defended when someone proposes removing them. Undesigned
+structures have no documentation, no owner, and no advocate — so when a change removes them,
+**there is no step in the process at which anyone notices.**
+
+AI is unusually good at removing exactly this category, because undesigned structures are almost
+always **coordination** structures, and coordination is what gets optimized away first. The
+handoff document becomes unnecessary when either person can generate the whole deliverable. The
+eleven-year veteran gets asked less when the model answers faster and never sighs. The meeting
+where assumptions collided stops being necessary — right up until the moment two AI-accelerated
+workstreams collide at four times the speed and there is no longer a meeting where that would have
+surfaced.
+
+**Nothing was destroyed. Something was removed that nobody had written down as load-bearing.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m1-lesson-4-tolerances-not-drawings-80', 'ai401-m1', 80, 'prose', 'stable', '## Lesson 4 · Tolerances, not drawings
+
+Which brings us to what you will actually produce in this course, and what you will not.
+
+You cannot pre-specify the destination. Anyone who tells you where your organization''s work will
+be in three years is guessing, and the honest version of that sentence is that the future state
+**emerges** — you find it by doing the work, not before. Module 2 gives that its proper name and
+its consequences.
+
+But *"we can''t know"* is not a leadership position. It is an excuse with a true premise. The
+resolution is the architect''s:
+
+> **You cannot specify the destination. You can specify what must hold.**
+
+That single move is what keeps this course out of the swamp that every AI-leadership curriculum
+ends up in. From here on, your deliverable is never a vision document and never a roadmap. It is a
+**spec with a tolerance and a trigger**: what must be true, how much variation it can absorb before
+it fails, and the observable condition that tells you the spec was wrong.
+
+Notice the property that gives you. **A spec with a trigger can be wrong in a way you would
+notice.** A vision statement cannot. That is the entire difference, and it is why the rubric for
+every strategy artifact in this course requires at least one condition that would make you replan.
+
+**Where change management went.** You will not find a change-management module here, and you will
+find change management in six places:
+
+| Idea | Where it lives |
+|---|---|
+| Transitional vs. transformational change | Module 2, justifying triggers over roadmaps |
+| The four fears — being found out, accountability without control, stepping into the unknown, losing your professional edge | the casting brief for every rehearsal counterpart you will face |
+| The four building blocks of change | Module 10, mapped onto instruments |
+| Resistance as diagnosis rather than obstacle | Modules 4 and 6 |
+| Middle managers as the load-bearing failure point | Module 5, where their absorbed work is what the audit finds |
+| The trough, and setting tolerance before you enter it | Modules 6 and 10 |
+
+A module called "change management" would have taught all of it worse, in one place, disconnected
+from anything you were building. That is the trade, stated so you can disagree with it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m1-exercise-embed-85', 'ai401-m1', 85, 'exercise', 'stable', '{"type": "sorting"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m1-key-takeaways-90', 'ai401-m1', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **AI lowers the cost of individual production and raises the cost of collective coherence.** The
+  familiar symptoms — turf conflict, orphaned work, integration debt, stalled collective learning,
+  isolation, unowned decisions, metrics that produce themselves — are one problem seen from seven
+  positions.
+- **The variance is organizational, not individual.** 67% against 32% for organizational versus
+  individual factors — and the whole ladder below this rung was building the 32%. Necessary, and a
+  third of the problem.
+- **Only 6% of leaders report progress on designing human–AI interaction.** The default is to layer
+  AI onto what already existed and let the working arrangements sort themselves out.
+- **Cultural debt is real and unwatched.** 42% say their organization rarely evaluates AI''s impact
+  on people; 80% suspect colleagues of using AI to look more productive; 60% of executives use AI
+  in decisions and 5% say they manage it well.
+- **The structures most likely to be load-bearing are the ones nobody designed** — because
+  documented structures get defended and undesigned ones have no advocate. AI removes coordination
+  structures first, and coordination is exactly where the undesigned ones live.
+- **You cannot specify the destination. You can specify what must hold.** Tolerances, not drawings.
+- **A spec with a trigger can be wrong in a way you would notice. A vision statement cannot.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m1-activity-link-95', 'ai401-m1', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 One structure", "blurb": "Name the unit this course will thread, then one structure inside it that was load-bearing, that nobody designed, and that AI is removing right now. The work is stating what it was carrying \u2014 and going to count who in your organization owns any of this.", "estMinutes": "25"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m1-take-a-position-100', 'ai401-m1', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"The structures most likely to be load-bearing are the ones nobody designed."*
+
+The strongest counter-argument is that **this romanticizes accident.** Most undesigned structures
+are undesigned because they are bad — a meeting that persists through inertia, a person who is a
+single point of failure because nobody fixed the documentation, a handoff living in two people''s
+habits because no one did the work to make it a process. On that reading, AI removing them is not
+a loss to mourn but overdue cleanup, and a course that teaches leaders to preserve undesigned
+structures will teach them to defend exactly the dysfunction their organizations most need to
+lose. The sharper version: **"load-bearing" and "should be load-bearing" are different claims, and
+this lesson quietly slides from the first to the second.**
+
+Your position has to say what you would do about a structure that is genuinely load-bearing *and*
+genuinely bad — and whether the answer changes when the thing removing it is not a decision anyone
+made.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m1-sources-and-attribution-110', 'ai401-m1', 110, 'prose', 'stable', '## Sources and attribution
+
+- **Deloitte 2026 Global Human Capital Trends** `[V]` — the 6% designing human–AI interaction
+  figure, cultural debt as a named concept, and the 42% / 80% / 60%-and-5% findings. **These were
+  confirmed through indexed search summaries and secondary coverage** rather than read from the
+  primary page, which this build environment could not reach; Lesson 2 says so in the lesson.
+  Flagged for re-verification against the source document.
+- **Microsoft 2026 Work Trend Index** `[V]` — organizational versus individual factors, 67% vs 32%.
+  n=20,000 knowledge workers across 10 markets, fielded 18 February – 7 April 2026 by Edelman Data
+  x Intelligence. Self-reported AI impact.
+- The load-path model, the load-bearing/decorative distinction, the claim that undesigned
+  structures are the ones most likely to be load-bearing, and the tolerances-not-drawings framing
+  are original to this course.
+- Builds on 101 M1 (the delegation heuristic) and 201''s shipped build, and assumes a 301 role
+  track without depending on which one.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m1-activity-applied-activity-one-structure-10', 'ai401-m1-activity', 10, 'prose', 'stable', '## Applied activity — "One structure"
+
+**Time:** 25 minutes · **Submit:** the structure, its load, and your count · **Graded against the
+rubric below.** Score doesn''t matter. Doing the work is where the learning lands.
+
+This activity names the unit that the next nine modules will thread. Choose it deliberately.
+
+**Step 1 — Pick the unit (5 min).** One team, function, or workflow you have real visibility into
+and some standing with. Not the whole enterprise — you will run the framework at that altitude in
+Module 2, but the thing you carry through this course should be something you could actually
+change or influence. Name it in a sentence, including your relationship to it.
+
+**Step 2 — Name one structure AI is currently removing (10 min).** Something in that unit that
+was load-bearing, that nobody designed, and that AI is removing, weakening, or making optional
+right now. Not a prediction — something already happening.
+
+Then the part that is the actual work: **one paragraph on what it was carrying.** Not what it was
+— what load it bore. "The Tuesday sync" is a structure. "The only place where three teams''
+assumptions collided before they reached a customer" is a load. If you cannot state the load, you
+have picked a decorative structure, and finding that out is worth the ten minutes.
+
+**Step 3 — Go and count (7 min).** Your calibration answer was how many people in your
+organization could name who is accountable for AI''s effect on how teams work together. **Go and
+check.** Ask two or three people, or look at whether any charter, job description, or committee
+remit actually contains it. Record the real number and how you established it.
+
+**If the check cannot settle it** — no charter exists, nobody will answer, the question doesn''t
+parse in your organization — **that is a finding and it earns full credit.** Say what you tried and
+what the silence tells you.
+
+**Step 4 — Score the delta and take the position (3 min).** Your predicted count against the real
+one, with an account of what moved. Then your position on the module''s claim, engaging the
+counter-argument above rather than restating the claim.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m1-micro-core', 'ai401-m1-micro', 10, 'prose', 'stable', '## Module 1 in two minutes
+
+**AI lowers the cost of individual production and raises the cost of collective coherence.** That is the whole course in a sentence, and it is an observation about where cost moved rather than a warning or a productivity claim. Drafts, models, analyses, summaries — cheaper. Getting six people''s cheaper outputs to agree with each other, share assumptions, and add up to something an organization can act on — more expensive, because there is more of it, produced faster, by people who no longer had to consult anyone to make it.
+
+**The variance is organizational, not individual.** Organizational factors — culture, manager support, whether talent practices reflect AI at all — accounted for more than twice the reported AI impact of individual factors, 67% against 32%. Which means the ladder you just climbed was building the 32%. Necessary, and about a third of the problem.
+
+**And almost nobody is designing the other two thirds.** Only 6% of leaders report progress on designing how humans and AI work together. Meanwhile 42% of workers say their organization rarely evaluates AI''s impact on people, and 80% suspect colleagues of using AI to look more productive than they are — a norm being renegotiated privately, by everyone, with nobody convening the negotiation. That accumulating cost has a name: **cultural debt.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m1-micro-rule', 'ai401-m1-micro', 20, 'callout', 'stable', '### The rule to carry
+
+**The structures most likely to be load-bearing are the ones nobody designed.** Designed structures get documented, documented structures get defended, and undesigned ones have no owner and no advocate — so when something removes them, there is no step in the process at which anyone notices.
+
+AI removes exactly this category, because undesigned structures are almost always *coordination* structures: the handoff living in two people''s habits, the person everyone asks, the meeting where assumptions collided. Nothing gets destroyed. Something gets removed that nobody had written down as load-bearing.
+
+And the response is architectural, not visionary: **you cannot specify the destination, but you can specify what must hold.** Tolerances, not drawings — because a spec with a trigger can be wrong in a way you would notice, and a vision statement cannot.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m1-micro-close', 'ai401-m1-micro', 30, 'prose', 'stable', '**The full module adds** the evidence with its samples and its limits, the sorting exercise that shows you every dissolving structure in the set is a coordination structure, the six places change management went instead of getting a module of its own — and the activity that names the one unit the next nine modules will thread, plus a count you have to go and establish rather than estimate.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m1-sorting', 'ai401-m1', 'sorting', '{"reviewedAt":"2026-08-12","buckets":[{"id":"dissolving","label":"Load-bearing, dissolving","hint":"Carrying real weight — and AI is removing it","rank":0,"pct":5},{"id":"holding","label":"Load-bearing, holding","hint":"Carrying real weight, and still intact","rank":1,"pct":30},{"id":"decorative","label":"Decorative","hint":"Real, visible, effortful — holding up nothing","rank":2,"pct":90}],"tasks":[{"id":"t1","text":"The junior analyst who asks the senior analyst three questions a day","key":"dissolving","reasoning":"The archetype of the whole course. Those three questions were moving information *and* building the relationship that transmits norms, finds the newcomer a mentor, and tells them what already failed. The model answers faster and never sighs, so the questions stop. Module 8 is about the half of this transaction nobody assigned to anybody."},{"id":"t2","text":"The quarterly engagement dashboard that gets produced, circulated, and filed","key":"decorative","reasoning":"Effortful, visible, and holding up nothing — the test is whether any decision has ever changed because of it. If you can''t name one, it is not carrying load, and its production cost is now near zero, which makes it more likely to proliferate rather than less."},{"id":"t3","text":"The undocumented handoff between two people who ship a joint deliverable weekly","key":"dissolving","reasoning":"Nobody designed it, so nothing defends it. Once either person can produce the whole deliverable alone, the handoff stops — and with it the weekly moment where two views of the work had to reconcile. Module 4 turns this into an ownership contract."},{"id":"t4","text":"The employment counsel review before a termination goes out","key":"holding","reasoning":"Bearing enormous load and not dissolving — the legal exposure has not moved and no model absorbs it. Worth including because the reflex at this rung is to assume everything is under threat. Some structures are load-bearing and entirely intact, and knowing which is half of the diagnosis."},{"id":"t5","text":"The eleven-year veteran everyone asks before doing something new","key":"dissolving","reasoning":"The single point of institutional memory, and the only reason anyone learns what already failed here. They get asked less every month — not because anyone decided, but because the model responds instantly and without a raised eyebrow. Module 7 is about codifying what is in their head before the resignation, not after.","also":["holding"]},{"id":"t6","text":"The standing weekly meeting nobody defends but everybody attends","key":"dissolving","reasoning":"The hardest item here, and it splits by what actually happens in the room. If it is a status readout, it is decorative and AI will kill it, correctly. If it is the one place three teams discover incompatible assumptions, it is load-bearing and the discovery function has no other home. **The meeting is not the structure. The collision is.**","also":["decorative"]},{"id":"t7","text":"The monthly all-hands where leadership presents the roadmap","key":"decorative","reasoning":"Usually decorative in the strict sense — it transmits information that a document transmits better, and its real function is often ceremonial reassurance. Which is not nothing, but it is not load. Module 10''s deck exists because ceremony aimed at belief is a distinct instrument with a distinct job."},{"id":"t8","text":"The onboarding buddy assignment for new starters","key":"dissolving","reasoning":"Formally designed, so it looks safe. What is dissolving is not the assignment but its *function*: a new starter with a capable model asks their buddy far less, and the relationship that used to form around thirty small questions does not form. The structure survives on paper and stops carrying its load, which is the most deceptive pattern in this exercise."},{"id":"t9","text":"The comp committee''s review of executive pay recommendations","key":"holding","reasoning":"Governance with a named owner, a charter, and a legal reason to exist. Designed structures are the defended ones — this has documentation, an advocate, and a calendar. Load-bearing and not going anywhere."},{"id":"t10","text":"The escalation path that exists because someone once did it and it worked","key":"dissolving","reasoning":"Pure undesigned load-bearing structure: no charter, no owner, no documentation, and the only reason hard cases reach the person who can resolve them. When self-service resolves the easy cases, the path gets used rarely enough that people forget it exists — and it is not there on the day it is needed."},{"id":"t11","text":"The annual policy attestation everyone clicks through","key":"decorative","reasoning":"The clearest decorative item in the set and a useful contrast with item 4. It produces a record rather than a behavior. Worth noting that it is not worthless — the record has evidentiary value — but nothing about how the organization works is being held up by the clicking."},{"id":"t12","text":"The shared document where one team writes down why it rejected an approach","key":"holding","reasoning":"A rare designed coordination structure, and one AI makes *more* valuable rather than less: as production accelerates, the record of rejected approaches is what stops three people re-litigating a settled question at speed. Module 7 argues this is the shape codification should take.","also":["dissolving"]}],"pattern":"**Look at where the dissolving items came from.** Almost all of them are undesigned — a handoff, a habit, a person, a path someone improvised once. The two structures that are load-bearing and *safe* — counsel review, the comp committee — are the two with a charter, an owner, and a place on a calendar.\n\nThat is the module''s claim arriving as data rather than assertion. **Designed structures get documented, documented structures get defended, and undesigned structures have nobody to speak for them at the moment they are removed.**\n\nAnd notice what the dissolving items have in common beyond that: every one of them is a **coordination** structure. Not a production structure. Nothing on this list that dissolves was making a thing — they were all making sure separate people''s things fit together. That is exactly the category AI optimizes away first, and exactly the category whose absence you cannot see until two accelerated workstreams collide.","postscript":"**If you put item 6 in Decorative, you may be right.** The standing weekly meeting genuinely is decorative in a great many organizations, and the exercise scores it either way for that reason. The distinction worth carrying is that *the meeting is not the structure — the collision is.* Kill the meeting if you like. Then answer the question the meeting was answering, or find out in about four months that nobody is.\n\n**If you put item 5 in Holding, that is also defensible** and is the optimistic read: the veteran is still there and still answering. The reason the key says dissolving is that the load is not the person, it is the *asking* — and the asking is already down. The person leaving is the event everyone plans for. The asking stopping is the event nobody notices, and it happens first."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m1-rubric', 'ai401-m1', 'rubric', '{"promptVersion":"ai401-m1-one-structure-v1","moduleId":"ai401-m1","minWords":300,"maxWords":450,"submitLabel":"Your unit, the structure, and the count","intro":"Paste the unit you''re threading through this course, the one structure AI is removing with a paragraph on what it was carrying, the real count you established, and your position on the module''s claim. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for AI 401 · The Translator — the top rung of an AI-fluency ladder for People and HR professionals who have completed AI 101, AI 201, and one 301 role track. This is the Module 1 applied activity, ''One structure''.\n\nThe module''s thesis is that AI lowers the cost of individual production and raises the cost of collective coherence. Its central claim is that the structures most likely to be load-bearing are the ones nobody designed — because designed structures get documented, documented structures get defended, and undesigned ones have no advocate at the moment they are removed. AI removes coordination structures first, and coordination is where the undesigned ones live.\n\nThe submission has four parts. (1) The unit the learner will thread through the whole course — one team, function, or workflow they have real visibility into and some standing with, named with their relationship to it. (2) One structure inside that unit that was load-bearing, that nobody designed, and that AI is removing, weakening, or making optional right now — something already happening, not a prediction — plus one paragraph on what load it bore. The module''s distinction is that ''the Tuesday sync'' is a structure while ''the only place three teams'' assumptions collided before reaching a customer'' is a load; a learner who cannot state the load has picked a decorative structure. (3) The result of going to check their opening count: how many people in their organization could name who is accountable for AI''s effect on how teams work together. They were asked to establish this rather than estimate it — by asking people, or by looking for a charter, job description, or committee remit that contains it. (4) Their position on the module''s claim.\n\nCRITICAL — where ''go and check'' cannot settle it, that is a finding and earns full credit. If no charter exists, nobody will answer, or the question does not parse in their organization, an account of what they tried and what the silence tells them is a top-scoring answer, not a failed one. Do not mark down an honest negative result.\n\nScore the delta, never the score: grade the account of the gap between the predicted count and the real one — what moved and why — and never the accuracy of either number. A large miss with a specific, honest explanation is the intended finding and should score at the top. So should a defended non-revision from someone whose original estimate held up under checking.\n\nThis is a leadership course whose central risk is drift into vision-document cliché. Reward specificity, named structures, named people, and observable evidence. Mark down abstraction, maturity-model language, and anything that would be equally true at any organization.","opening":[{"key":"ownerCount","label":"Predicted — how many people in your organization could name who is accountable for AI''s effect on how teams work together","hint":"A count, not an impression. Zero is a legitimate and common answer.","placeholder":"e.g. 3","min":0,"max":500}],"calibration":[{"key":"ownerCountActual","label":"Actual — the count after you went and checked","hint":"Established by asking, or by finding it in a charter, remit, or job description. If the check couldn''t settle it, enter your best evidenced figure and explain in the write-up.","placeholder":"e.g. 0","min":0,"max":500,"actualFor":"ownerCount"}],"dimensions":[{"name":"The unit is real, bounded, and theirs","criteria":"A named team, function, or workflow the learner has genuine visibility into and some standing with, stated with their actual relationship to it. Not the whole enterprise, not a hypothetical, not a unit they only hear about. This choice governs nine more modules, so a modest unit chosen deliberately outscores an ambitious one chosen for its scope. Credit an explicit statement of what standing they have and what they can influence."},{"name":"The structure is undesigned and already dissolving","criteria":"Three tests, all of which must hold. It is specific and nameable rather than a category. Nobody designed it — it emerged, it lives in habits or in one person, it has no charter or owner. And the dissolution is happening now, with evidence, rather than being forecast. A designed structure with an owner, or a prediction about next year, has missed the module''s category. The strongest submissions name something small and unglamorous."},{"name":"The load is stated, not the structure restated","criteria":"This is the graded core. The paragraph must say what weight the structure bore, in terms of a consequence to the organization if it stops being borne — not what the structure was or how often it happened. ''The Tuesday sync'' is a structure; ''the only place three teams'' assumptions collided before reaching a customer'' is a load. A submission that describes the ritual in more detail rather than naming its function has not done the work. Credit specificity about who would be affected and how the failure would first become visible."},{"name":"The count was established, not estimated","criteria":"Evidence of an actual check: people asked and what they said, or documents searched and what was or wasn''t in them. The method matters more than the number. An honest negative result — no charter exists, nobody would answer, the question doesn''t parse here — is a full-credit outcome when the learner says what they tried and what it tells them. An unevidenced revised number scores low even if it is plausible; the module is about establishing facts rather than improving estimates."},{"name":"The delta and the position","criteria":"The predicted count against the real one, with an account of what moved it. Grade the account of the gap, never the accuracy of either number — a large miss with a specific cause is the intended finding and scores at the top, as does a defended non-revision from someone whose estimate held. Plus a committed position on the claim that engages its real counter-argument: that most undesigned structures are undesigned because they are bad, that ''load-bearing'' and ''should be load-bearing'' are different claims, and that a course teaching leaders to preserve undesigned structures may teach them to defend dysfunction. A position that only restates the module scores low however well written."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m1-knowledge_check', 'ai401-m1', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"What is the course''s central thesis?","options":["AI increases individual productivity, so organizations should adopt it faster","AI lowers the cost of individual production and raises the cost of collective coherence","AI adoption fails when leaders do not communicate a clear vision","AI is more disruptive to knowledge work than to physical work"],"correctIndex":1,"explanation":"It is neither a warning nor a productivity claim — it is an observation about where cost moved. The seven familiar symptoms are one problem seen from seven positions."},{"id":"q2","prompt":"What did the Work Trend Index finding about organizational versus individual factors (67% vs 32%) imply for the courses below this one?","options":["That individual fluency training is wasted effort","That the ladder below this rung was building the smaller share of the variance — necessary, and about a third of the problem","That organizations should stop training individuals and train managers instead","That self-reported impact is not a reliable measure"],"correctIndex":1,"explanation":"Individual craft is a precondition, not the lever. D names a real limitation of the evidence — it is self-reported impact, not measured output — but it is not the implication."},{"id":"q3","prompt":"What is cultural debt?","options":["The cost of retraining a workforce after a technology change","The gap between what an organization says about AI and what it does","The cost an organization takes on when it scales AI faster than the norms, trust, and accountability structures around it","Employee resistance that accumulates when change is poorly communicated"],"correctIndex":2,"explanation":"Like technical debt: invisible in the quarter you incur it, expensive in the one where you pay. The 42% who say their organization rarely evaluates AI''s impact on people is the measurement gap that lets it accumulate."},{"id":"q4","prompt":"Why does the module argue that undesigned structures are the ones most likely to be load-bearing?","options":["Because informal structures are usually more efficient than formal ones","Because designed structures get documented, documented structures get defended, and undesigned ones have no owner or advocate — so nothing in the process notices when they go","Because organizations systematically under-invest in process design","Because coordination work is harder to design than production work"],"correctIndex":1,"explanation":"It is a claim about *what happens when something is removed*, not about which kind of structure is better."},{"id":"q5","prompt":"Why is AI unusually good at removing this specific category of structure?","options":["Because AI tools are designed to eliminate meetings","Because undesigned structures are almost always coordination structures, and coordination is what gets optimized away first","Because AI adoption tends to start with administrative work","Because undesigned structures are not represented in any system AI can read"],"correctIndex":1,"explanation":"The handoff document stops being necessary when either person can produce the whole deliverable — and nothing was destroyed, something was removed that nobody had written down as load-bearing."},{"id":"q6","prompt":"What does \"tolerances, not drawings\" mean in practice?","options":["That plans should be revised quarterly rather than annually","That leaders should set targets rather than prescribe methods","That you specify what must hold and how much variation it can absorb, rather than specifying the destination","That change programs should be piloted before they are scaled"],"correctIndex":2,"explanation":"You cannot pre-specify the destination; you can specify what must hold. That is the move that keeps a strategy artifact from becoming a vision document."},{"id":"q7","prompt":"What property does a spec with a trigger have that a vision statement does not?","options":["It is easier for executives to approve","It can be wrong in a way you would notice","It requires less frequent revision","It assigns accountability to a named individual"],"correctIndex":1,"explanation":"That is the entire difference, and it is why every strategy artifact in this course requires at least one condition that would make you replan. D is a separate requirement (Step 7) rather than the property in question."},{"id":"q8","prompt":"Why does the course distribute change-management content rather than give it a module?","options":["Because change management is out of scope at this level","Because the audience has already covered it in AI 201","Because a standalone change module is the most cliché-prone object in leadership training, and the material is more useful attached to the thing being changed","Because there is not enough verified evidence to support a full module"],"correctIndex":2,"explanation":"The trade is stated in Lesson 4 so you can disagree with it: six placements, each next to the work it applies to."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m10-calibration-prompt-before-you-start-10', 'ai401-m10', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*The last claim of the course. Commit before you read.*
+
+> **"The metrics my organization uses to track AI would still look good if AI were producing no
+> value at all."**
+
+**True of us, or not true of us?** One sentence. This one is uncomfortable to answer honestly and
+that is the point.
+
+Then: **how many AI-related metrics does your organization currently report, and how many of them
+measure something other than usage?** Two numbers — total, and the non-usage subset. If the second
+is zero, write zero.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m10-module-brief-20', 'ai401-m10', 20, 'prose', 'stable', '## Module brief
+
+Nine modules have produced specs, contracts, inventories, limits, and rules. This one is about
+whether any of it survives contact with the machinery that actually governs behavior — and then it
+assembles everything you have built into the one artifact that can move people who will never read
+a spec.
+
+Two halves.
+
+**The operating system** is metrics, incentives, decision rights, and rituals. It is where culture
+stops being a value statement and becomes a set of things that are rewarded. **If those keep
+rewarding the old behavior, the new behavior dies regardless of how well everything upstream went** —
+which is a sentence worth sitting with, because everything upstream is what the last nine modules
+were.
+
+**And the deck.** Module 1 said your deliverable is a spec with a tolerance and a trigger. That is
+still true and it is not sufficient, because a spec is what you manage with and **a deck is what
+people follow.** The course closes by making you write both and understand why they are different
+instruments.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m10-learning-objectives-30', 'ai401-m10', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Map the four building blocks of change onto the instruments available to you, and say which ones
+   you actually hold.
+2. Recognize a metric that will produce itself.
+3. Design a pilot whose result would be believed by someone who did not want it.
+4. Write a vision deck that could be disagreed with.
+5. Read your own calibration record across ten modules and say what moved.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m10-lesson-1-where-culture-becomes-real-40', 'ai401-m10', 40, 'prose', 'volatile', '## Lesson 1 · Where culture becomes real [V]
+
+McKinsey''s influence model names four building blocks that change behavior, and the finding worth
+carrying is that **successful transformations were nearly eight times more likely to use all four
+than just one.** The blocks:
+
+1. **Fostering understanding and conviction** — people know what is being asked and why it matters.
+2. **Role modeling** — leaders and influential people visibly do the thing.
+3. **Developing talent and skills** — people can actually do what is required, practiced on real work.
+4. **Reinforcing through formal mechanisms** — systems, processes, metrics, and incentives align
+   with the new behavior.
+
+Now map them onto the instruments you actually have, because that mapping is this course''s whole
+argument arriving at its conclusion:
+
+| Block | Instrument | Do you hold it? |
+|---|---|---|
+| Understanding and conviction | **Influence** | Yes — this is your deck, your partner briefings, your rehearsals |
+| Role modeling | **Influence** | Yes, and cheaply — you can do it yourself tomorrow |
+| Talent and skills | **Capability** | Usually yes — Module 7''s codification, and enablement design |
+| Reinforcing mechanisms | **Authority** | **Almost never** |
+
+**You cannot influence your way to new promotion criteria.** You cannot persuade a compensation
+system. Metrics, incentives, decision rights, and promotion standards change when someone with
+authority changes them, and at this rung that person is not you.
+
+Three consequences, and they are the honest version of what this course has been teaching.
+
+**Three of the four blocks are genuinely available to you**, which is more than most people at this
+rung believe. Understanding, role modeling, and capability are influence and capability work, and
+you can do all of it without anyone''s permission.
+
+**The fourth is where transformations die**, and it is the one you have to get someone else to do.
+Which makes it a Module 2 Step 7 problem — name the owner — and a Module 3 problem — know what they
+are measured on before you ask.
+
+**And going three-for-four is not eighty percent of the result.** The eight-times finding is about
+using all four. A change with conviction, role modeling, and skills but no reinforcement is the
+change everyone remembers fondly and nobody does anymore.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m10-lesson-2-goodhart-hard-50', 'ai401-m10', 50, 'prose', 'volatile', '## Lesson 2 · Goodhart, hard [V]
+
+The specific way the fourth block goes wrong when you do get it.
+
+**Measure AI consumption and you will get AI consumption.** Longer prompts, repeat requests,
+unnecessary experimentation, and querying a model for things you already knew all become rational
+career behavior the moment usage is what counts.
+
+**The worked example, which is real and instructive.** A UK law firm — Shoosmiths — put a **£1
+million bonus pool** against the firm collectively hitting **one million Microsoft Copilot
+prompts** in a financial year, with usage tracked and shared internally and monthly updates to
+encourage adoption. **They hit the target more than four months early**, and the pool was released.
+
+Read that carefully, because the interesting part is not that the target was gamed. There is no
+evidence it was, and the firm reports genuine adoption gains. **The interesting part is that hitting
+it four months early tells you nothing about whether it was worth hitting.** A prompt count cannot
+distinguish a lawyer who restructured how they work from a lawyer who asked a model to rewrite an
+email they had already written. The metric succeeded completely and remains silent on the only
+question that matters.
+
+**And there is a real argument on the other side**, which you should be able to make before you
+dismiss it: a usage target is a *deliberately crude instrument for the earliest phase*, when the
+binding constraint is that people will not try the thing at all. As a permission signal with money
+attached, it may have been exactly right — and the failure would be leaving it in place once the
+constraint changed.
+
+**What most organizations measure:** log-ins, licenses, prompt volume, agent invocations, training
+completions.
+
+**What they should be measuring:** cycle time, quality, decision speed, risk reduction, value per
+workflow — and then, as it matures, value created per workflow, cost per task, human review burden,
+and quality improvement over time.
+
+**Notice what the second list has in common:** every item requires you to know what the work
+produced, not what the tool did. Which is harder, which is why the first list wins, and which is
+what makes this a leadership problem rather than an analytics one.
+
+**And how far behind the rhetoric the machinery actually is** `[V]`: as of 2025 proxy disclosures,
+roughly **5.9% of S&P 500 companies disclosed at least one AI-related metric in executive
+compensation, most often inside a strategic or individual performance assessment rather than as a
+standalone measure.** The qualifier is the more interesting half — even where AI reaches executive
+pay, it usually arrives as a judgment call rather than a number. **The reinforcement block, at the
+top of the house, is mostly still empty.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m10-try-60', 'ai401-m10', 60, 'try_this', 'stable', '### Try this — 3 minutes
+Take the AI metric your organization reports most often. Ask: **what would this number look like
+if the initiative were producing no value whatsoever, but everyone kept using the tools?** If the
+answer is "exactly the same," you have found a metric that produces itself.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m10-lesson-3-the-pilot-that-produces-a-defen-70', 'ai401-m10', 70, 'prose', 'stable', '## Lesson 3 · The pilot that produces a defensible number
+
+Which brings the thing this course promised and has not yet delivered: how to run something that
+produces evidence rather than an anecdote.
+
+**Start with the sentence that reframes it**, carried over from the CPO track because it is the
+sharpest statement of the problem:
+
+> **"We can''t tell if it worked" and "it didn''t work" produce an identical conversation with a
+> CFO.**
+
+That converts measurement from a reporting activity into a **design constraint that binds before
+the pilot starts.** Four things have to exist before anyone does any work.
+
+**1 · A baseline, agreed in advance, by the person who will judge the result.** Not measured
+afterwards — agreed beforehand, in writing, by the skeptic. A baseline established after the fact is
+a negotiation, and you will lose it. If no clean baseline exists, say so before you start and
+consider picking a different pilot: **place your first bets where you already have trusted
+baselines**, even when those are not the highest-value problems, because you have to survive the
+first review to get to the second.
+
+**2 · A pre-committed decision rule.** What result would make you scale this, and what result would
+make you stop? Written down, before. A pilot without a decision rule does not produce a decision; it
+produces a discussion in which the most senior opinion wins.
+
+**3 · A stated tolerance for the trough** — and this is the piece that connects to everything else
+in the course. **Adoption gets worse before it gets better.** People are slower with a new process,
+quality dips while judgment recalibrates, and the reconciliation cost from Module 6 arrives before
+the production gain does. **A threshold measured inside the expected decline will stop something
+that was working.** So name the shape you expect and the depth you will tolerate, in advance — and
+name how long you will hold.
+
+**4 · A kill condition.** The thing that makes you stop regardless of sunk cost, sponsor
+enthusiasm, or how much has already been announced. This is Module 2''s trigger, pointed at your own
+initiative rather than at the world, and it is the hardest one to write honestly because you are
+writing it about something you want to succeed.
+
+**The test for the whole design, in one question:** *would someone who did not want this result
+believe it?* If the answer is no, you have designed a demonstration rather than a pilot.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m10-lesson-4-the-deck-80', 'ai401-m10', 80, 'prose', 'stable', '## Lesson 4 · The deck
+
+Everything you have built in this course is a spec. Specs govern. **They do not recruit.**
+
+The market''s characteristic mistake is producing a deck and calling it a plan. The mistake this
+course would make without this lesson is the opposite one: producing a spec and calling it
+leadership. **They are different instruments carrying different loads**, and Lesson 1 tells you
+exactly which load the deck carries — understanding and conviction, and role modeling. Two of the
+four blocks, both of them yours.
+
+So the deck is not a summary of your spec. It is the argument for it, aimed at people who will never
+read it. Four rules keep it from becoming a slogan:
+
+**1 · Every claim traces to a line in the framework.** Load, what''s carrying it, what''s dissolving,
+the replacement, the tolerance, the trigger, the owner. If a slide traces to nothing, it is
+decoration — and Module 1 told you what decoration is.
+
+**2 · At least one named thing you are not doing.** A strategy that does not exclude anything is a
+list. This is also the slide that buys you the most credibility per word, because it is the one
+nobody else''s deck has.
+
+**3 · At least one falsifiable trigger, on a slide, not in an appendix.** Visible. Where an executive
+reads it. Putting your own failure condition in front of the room is the single most persuasive
+thing available to a person without authority, precisely because nobody does it.
+
+**4 · The anti-slogan test: could a reasonable person disagree with this?** Read every slide and ask
+whether someone competent and well-intentioned could hold the opposite view. If not, you have
+written a mission statement — true, unobjectionable, and inert.
+
+**And the failure mode to plan for, because it is the likely one.** You will not be rejected. You
+will be **agreed with.** Everyone will nod, several people will say this is exactly right, and
+nothing will change — because agreement is free and reinforcement mechanisms are not. Enthusiastic
+assent with no behavior change is the standard outcome for a good deck presented by someone without
+authority.
+
+**The counter is to leave with something specific rather than something warm.** One commitment, from
+one named person, with a date. If you cannot get that, the honest read is that you got a compliment,
+and a compliment is not an outcome.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m10-exercise-embed-85', 'ai401-m10', 85, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m10-key-takeaways-90', 'ai401-m10', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **Four building blocks change behavior, and successful transformations were nearly 8x more likely
+  to use all four than one.** Understanding and conviction, role modeling, talent and skills,
+  reinforcement through formal mechanisms.
+- **Three of the four are influence and capability work you already hold. The fourth is authority,
+  and it is almost never yours** — and it is where transformations die. **Going three-for-four is
+  not eighty percent of the result.**
+- **You cannot influence your way to new promotion criteria.**
+- **Measure AI consumption and you get AI consumption.** A £1m bonus pool against a million Copilot
+  prompts was hit four months early — and hitting it early says nothing about whether it was worth
+  hitting.
+- **Even where AI reaches executive pay it is usually a judgment call rather than a number** —
+  roughly 5.9% of S&P 500 companies disclosed any AI-related metric in 2025, mostly inside strategic
+  assessments. The reinforcement block at the top of the house is mostly still empty.
+- **"We can''t tell if it worked" and "it didn''t work" produce an identical conversation with a
+  CFO.** So a pilot needs four things agreed before it starts: **a baseline agreed by the skeptic, a
+  pre-committed decision rule, a stated tolerance for the trough, and a kill condition.**
+- **A threshold measured inside the expected decline will stop something that was working.**
+- **The test: would someone who did not want this result believe it?** If not, it is a demonstration.
+- **A spec governs; a deck recruits.** Every claim traces to the framework, one named thing you are
+  not doing, one falsifiable trigger on a slide, and it must be possible to disagree with.
+- **You will not be rejected — you will be agreed with.** Leave with one commitment, one name, one
+  date. A compliment is not an outcome.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m10-activity-link-95', 'ai401-m10', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 What we''re keeping standing", "blurb": "The course close: the deck assembled from ten modules and addressed to a named audience, the bet with today''s baseline value and a kill condition, what you''d turn off, and the reckoning across all ten opening claims \u2014 including whether your errors have a direction.", "estMinutes": "45"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m10-take-a-position-100', 'ai401-m10', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"A metric that cannot embarrass you is not a measurement, it is a mirror."*
+
+The strongest counter-argument is that **embarrassing metrics do not survive contact with an
+organization, so recommending them is advice that only works for people who do not need it.** The
+person who proposes a measure capable of showing their own initiative failing is proposing to hand
+their critics a weapon, in an environment where the initiatives that continue are the ones with
+favorable numbers. Usage metrics are not naive — they are **adaptive.** They keep funding flowing
+during the trough Lesson 3 tells you to expect, and funding through the trough is the actual
+precondition for anything working.
+
+The sharper version turns the course''s own tools on it: this module tells you to design a pilot a
+skeptic would believe, and Module 6 tells you the trough is normal and deep. **Those two
+instructions conflict.** A skeptic looking at honest month-four numbers sees a failure, because at
+month four it *is* a failure by every measure you agreed with them in advance. The rigor this module
+demands may be exactly what kills the initiative that would have worked.
+
+Your position has to say how you would hold both — what you would agree with a skeptic in advance
+that would still be true at the bottom of the J-curve.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m10-sources-and-attribution-110', 'ai401-m10', 110, 'prose', 'stable', '## Sources and attribution
+
+- **McKinsey''s four building blocks of change** `[V]` — fostering understanding and conviction,
+  role modeling, developing talent and skills, and reinforcing through formal mechanisms; with the
+  finding that successful transformations were nearly eight times more likely to use all four than
+  one. **A correction is recorded here rather than hidden:** an earlier draft of this course
+  attributed a five-stage "Awareness, Belief, Commit, Develop, Enforce" model to McKinsey. That is
+  not their model. The verified four blocks map onto the influence / capability / authority split
+  more cleanly than the five-stage list did, so the correction improved the lesson.
+- **Shoosmiths** `[V]` — £1 million firmwide bonus pool tied to one million Microsoft Copilot
+  prompts in a financial year, target reached more than four months early. Reported by the firm and
+  by multiple independent legal-sector sources.
+- **Executive compensation disclosure** `[V]` — roughly 5.9% of S&P 500 companies disclosed at least
+  one AI-related metric in 2025 proxy statements, most often within strategic or individual
+  performance assessments rather than as a standalone measure. **A claim was replaced here:** an
+  earlier draft carried "of ~2,500 proxy statements filed in 2026, about 2% incorporate AI into
+  executive incentives and 12% of those use an explicit AI metric." It did not verify and is not
+  used.
+- **"We can''t tell if it worked" and "it didn''t work" produce an identical conversation with a
+  CFO** is carried from the AI 301 CPO / CHRO track with credit; the baseline-first rule is shared
+  with it.
+- The instrument mapping, the pilot''s four preconditions, the trough-threshold interaction, the
+  four deck rules, and the agreed-with-no-action failure mode are original to this course.
+- **Deliberately not repeated from AI 201 M7:** measurement without theater and the three numbers
+  per workflow. That was measurement of your own build; this is measurement of work you do not
+  perform, inside an incentive system you do not control.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m10-activity-applied-activity-what-we-re-keeping-stan-10', 'ai401-m10-activity', 10, 'prose', 'stable', '## Applied activity — "What we''re keeping standing"
+
+**Time:** 45 minutes · **Submit:** the deck, the bet, and the reckoning · **Graded against the
+rubric below.** This is the course close, and the grade for the whole thing.
+
+Everything you have built across ten modules assembles here. Your prior submissions are on this
+screen — use them rather than starting over.
+
+**Step 1 — The deck (20 min).** *"What we''re keeping standing"* — five to eight slides, or their
+written equivalent, addressed to a **named audience**. Not "leadership." A person or a specific
+group, chosen because they hold something you need.
+
+It must contain, and the rubric checks each one:
+
+- **The load**, and what is dissolving — from Module 2.
+- **What you are keeping standing**, as a spec rather than a drawing.
+- **At least one named thing you are not doing.**
+- **At least one falsifiable trigger, on a slide.** Visible, not appended.
+- **The ask** — what you want this audience to do, specifically.
+
+Then apply the anti-slogan test yourself and report the result: **which slide is the one a
+reasonable person could disagree with?** If there isn''t one, say so — that is a finding about your
+deck, not a gap in the assignment.
+
+**Step 2 — The bet (10 min).** Four fields, and the third is the one that matters:
+
+1. **The bet.** One thing you will do, or one metric you would replace with a better one.
+2. **The baseline metric** it will be judged against.
+3. **Today''s value of that metric.** The actual number, today. **If you cannot fill this in, that
+   is the lesson** — say so explicitly, and say what you would have to do to be able to.
+4. **The date you will report against it.**
+
+Plus two more the course has earned: **what you would turn off** to make room for it, and **the kill
+condition** — what would make you stop regardless of sunk cost.
+
+**Step 3 — The reckoning (10 min).** Ten modules, ten opening claims about your own organization.
+Go back through them.
+
+- Which claims did you commit to as true and find were **not** true when you checked?
+- Which numbers moved most between your prediction and what you found?
+- **And the one that matters: is there a direction to your errors?** Most people find one — usually
+  overestimating how much is owned, named, written down, or known by someone. Name yours.
+
+**The rubric grades the account of the change, never the accuracy of either end.** A large,
+specifically-explained miss is the best possible result here.
+
+**Step 4 — The send decision (5 min).** Send the deck, or not yet. If not yet, the condition and the
+date. Then predict: **if you present this, what does agreement-with-no-action look like in your
+organization, and what one commitment would you push for instead?**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m10-micro-core', 'ai401-m10-micro', 10, 'prose', 'stable', '## Module 10 in two minutes
+
+**Four building blocks change behavior**, and successful transformations were nearly eight times more likely to use all four than one: fostering understanding and conviction, role modeling, developing talent and skills, and reinforcing through formal mechanisms.
+
+Map them onto what you actually hold. Understanding and role modeling are **influence** — yours, and available tomorrow. Talent and skills are **capability** — usually yours. Reinforcement is **authority**, and it is almost never yours. **You cannot influence your way to new promotion criteria.** If metrics, incentives, decision rights, and rituals keep rewarding the old behavior, the new behavior dies regardless of how well everything upstream went — and going three-for-four is not eighty percent of the result.
+
+**And when you do get the fourth block, Goodhart arrives.** Measure AI consumption and you get AI consumption. A UK law firm put a £1 million bonus pool against one million Copilot prompts and hit it more than four months early — and hitting it early says nothing about whether it was worth hitting. A prompt count cannot tell a restructured practice from a rewritten email.
+
+Most organizations measure log-ins, licences, prompt volume, training completions. What they should measure — cycle time, quality, decision speed, value per workflow — has one thing in common: **every item requires knowing what the work produced, not what the tool did.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m10-micro-rule', 'ai401-m10-micro', 20, 'callout', 'stable', '### The rules to carry
+
+**"We can''t tell if it worked" and "it didn''t work" produce an identical conversation with a CFO.** So four things exist before a pilot starts: a **baseline agreed in advance by the person who will judge it**; a **pre-committed decision rule** for scaling or stopping; a **stated tolerance for the trough**, because a threshold measured inside the expected decline will stop something that was working; and a **kill condition** that holds regardless of sunk cost. The test for the whole design: *would someone who did not want this result believe it?*
+
+**And a spec governs; a deck recruits.** They carry different loads — the deck''s load is understanding, conviction, and role modeling, which are two of the four blocks and both of them yours. Four rules keep it from becoming a slogan: every claim traces to a line in the framework; at least one named thing you are **not** doing; at least one falsifiable trigger **on a slide, not in an appendix**; and the anti-slogan test — **could a reasonable person disagree with this?**
+
+The likely failure is not rejection. **It is agreement, warmly, with no behavior change.** Leave with one commitment, one name, one date. A compliment is not an outcome.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m10-micro-close', 'ai401-m10-micro', 30, 'prose', 'stable', '**The full module adds** how far behind the machinery actually is — even where AI reaches executive pay it usually arrives as a judgment call rather than a number — the exercise that finds the metric which produces itself, and the course close: the deck assembled from ten modules, the bet with today''s baseline value and what you would turn off, and the reckoning across every opening claim you committed to. **Including the question that matters most: is there a direction to your errors?** Most people find one.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m10-choice', 'ai401-m10', 'choice', '{"reviewedAt":"2026-08-12","title":"Four proposed AI metrics","intro":"*Five minutes. Commit before you look.*\n\nFour People leaders each proposed one metric to their exec team for tracking whether AI is working. All four were approved.\n\n**One of them will produce itself** — it will look good whether or not anything of value is happening. Find it.","artifacts":[{"label":"Metric A","body":"**\"Percentage of the People team with weekly active AI usage, reported monthly.\"**\n\n\"We''re at 34% and I want us at 80% by year end. It''s simple, we can pull it from the licence admin console with no extra work, and it gives the exec team a line that goes up. My argument is that we can''t get value from something people aren''t using, so this comes first.\""},{"label":"Metric B","body":"**\"Median days from requisition approved to offer accepted, and the share of hires still in role at twelve months.\"**\n\n\"Two numbers, both of which we already collect and both of which predate any AI work — so nobody can accuse me of building the measure around the intervention. The second one is there so speed can''t be bought with worse hires. I''m not claiming AI caused any movement; I''m claiming this is what would have to move.\""},{"label":"Metric C","body":"**\"Hours saved per month across the function, self-reported quarterly by each team lead.\"**\n\n\"We ask each lead to estimate how many hours their team saved through AI in the quarter, and we aggregate. It''s rough but it gets us a number in the language finance uses, and I can put a rate against it. Last quarter came out at 340 hours, which is about £11,000.\""},{"label":"Metric D","body":"**\"Rework rate on people-facing documents, sampled — the share of drafts that need substantive revision before they can be used.\"**\n\n\"We sample twenty a month across ER write-ups, offer letters and policy drafts. It was 22% before we started and I expect it to get worse before it gets better as people learn the tools. I''ve told the exec team to expect that, and that I''ll be worried if it isn''t back below 22% by month nine.\""}],"options":[{"id":"a","label":"Metric A"},{"id":"b","label":"Metric B"},{"id":"c","label":"Metric C"},{"id":"d","label":"Metric D"}],"key":"a","reasoning":"**A produces itself, and the giveaway is the phrase \"a line that goes up.\"** Apply Lesson 2''s test directly: what would weekly active usage look like if the initiative were producing no value whatsoever but everyone kept opening the tools? **Exactly the same.** The metric cannot distinguish a team that restructured how it works from a team that asks a model to rewrite emails it had already written, and once 80% is the target, opening the tool becomes rational career behavior independent of any outcome.\n\nAnd notice the argument attached, because it is a good one and it is why this metric keeps getting approved: *we can''t get value from something people aren''t using.* True. **A usage target is a deliberately crude instrument for the earliest phase**, when the binding constraint really is that nobody will try the thing — and as a permission signal it can be exactly right. The failure is not choosing it. **The failure is leaving it in place after the constraint changes**, at which point it becomes the only number anyone reports and the reinforcement block is now rewarding consumption.\n\n**B is the strongest of the four, for a reason that is easy to miss.** *Both of which predate any AI work — so nobody can accuse me of building the measure around the intervention.* That is Lesson 3''s baseline-agreed-in-advance rule, satisfied by construction. The twelve-month retention number is there so speed cannot be bought with worse hires, which closes the obvious gaming route. And the honesty in the last sentence — *I''m not claiming AI caused any movement; I''m claiming this is what would have to move* — is what makes it survivable in front of a skeptic.\n\n**C is the most dangerous, and it is the most common.** Self-reported hours saved, aggregated, with a rate applied, produces a confident currency figure built on estimates by people whose programme it is. It cannot fail: the number exists because someone was asked to produce it. **And converting it to £11,000 gives it a false solidity** that will be quoted back long after anyone remembers it was an estimate. C is worse than A, because A is at least honestly measuring what it measures.\n\n**D is the best-designed and the bravest.** A sampled outcome measure, a real pre-intervention baseline, and — the part almost nobody does — **the trough named in advance, with a depth and a date.** *I expect it to get worse before it gets better, and I''ll be worried if it isn''t back below 22% by month nine.* That is Lesson 3''s tolerance and decision rule in one sentence, told to the exec team before the numbers move. It is the only one of the four that could embarrass its author, which is why it is the only one that could convince anyone.\n\nThe transferable test is Lesson 2''s, and it takes ten seconds: **what would this number look like if the initiative produced no value at all?** A: unchanged. C: unchanged, or better, since disappointed leads estimate generously. B and D: they would move, visibly, in the wrong direction."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m10-rubric', 'ai401-m10', 'rubric', '{"promptVersion":"ai401-m10-keeping-standing-v1","moduleId":"ai401-m10","minWords":400,"maxWords":700,"includeTrail":true,"submitLabel":"The deck, the bet, and the reckoning","intro":"The course close. Paste the deck addressed to a named audience, the bet with today''s baseline value and what you''d turn off, the reckoning across all ten opening claims, and your send decision. Your prior submissions and your whole calibration trail are on this screen — use them rather than starting over. Resubmission is free and unlimited.","activityContext":"You are grading the capstone submission for AI 401 · The Translator — the top rung of an AI-fluency ladder for People and HR professionals who have completed AI 101, AI 201, and one 301 role track. This is the Module 10 applied activity, ''What we''re keeping standing'', and it is the grade for the whole course. The learner''s prior submissions across ten modules and their full calibration trail are provided to you as context; use them.\n\nThe course''s thesis: AI lowers the cost of individual production and raises the cost of collective coherence. Its mental model is load paths — you cannot specify the destination, you can specify what must hold, so the deliverable is a spec with a tolerance and a trigger rather than a roadmap. Its seven-step framework is: name the load, find what''s carrying it, mark what''s dissolving, specify the replacement, set the tolerance, name the trigger, name the owner.\n\nThis module adds: the four building blocks of change map onto instruments, and the reinforcement block is authority the learner almost never holds. Measure AI consumption and you get AI consumption. A defensible pilot needs four things agreed before it starts — a baseline agreed by the person who will judge it, a pre-committed decision rule, a stated tolerance for the trough, and a kill condition. And a spec governs while a deck recruits: the deck''s rules are that every claim traces to the framework, at least one named thing you are not doing, at least one falsifiable trigger visible on a slide, and the anti-slogan test — could a reasonable person disagree with this.\n\nThe submission has four parts. (1) A five-to-eight-slide deck (or written equivalent) addressed to a NAMED audience — a person or specific group, not ''leadership'' — containing the load and what''s dissolving, what they''re keeping standing as a spec rather than a drawing, at least one named thing they are not doing, at least one falsifiable trigger on a slide, and a specific ask. Plus their own application of the anti-slogan test, identifying which slide a reasonable person could disagree with. (2) The bet: the bet itself, the baseline metric, TODAY''S VALUE of that metric, the report date, what they would turn off to make room, and the kill condition. (3) The reckoning across all ten modules'' opening claims: which claims they committed to as true and found were not, which numbers moved most, and whether there is a DIRECTION to their errors. (4) A send-or-not-yet decision with a prediction of what agreement-with-no-action would look like in their organization and what one commitment they would push for instead.\n\nCRITICAL — being unable to fill in today''s value of the baseline metric is explicitly the lesson, not a failure, PROVIDED the learner says so and says what they would have to do to be able to. Grade that answer at full credit. Similarly, a learner who applies the anti-slogan test and honestly reports that no slide in their deck could be disagreed with has produced a real finding about their own deck and should be credited for the honesty while being told plainly what it means.\n\nScore the delta, never the score. Across ten modules this learner made ten predictions and checked most of them. Grade the account of the gaps and especially the direction-of-error analysis — never the accuracy of any prediction. A learner who identifies a consistent directional bias (most people overestimate how much is owned, named, written down, or known) and evidences it from their own trail has produced the single best possible outcome of this course.\n\nThis is a leadership course whose central risk is drift into vision-document cliché, and this activity is where that risk peaks. Reward named audiences, specs that could be satisfied several ways, triggers someone could observe, and exclusions that cost something. Mark down maturity models, roadmaps with dates for an unspecifiable destination, decks whose every claim is unobjectionable, and anything equally true at any organization.","opening":[{"key":"nonUsageMetrics","label":"Predicted — of the AI-related metrics your organization reports, how many measure something other than usage","hint":"Answer before you check. Zero is a common and legitimate answer.","placeholder":"e.g. 2","min":0,"max":50}],"calibration":[{"key":"nonUsageMetricsActual","label":"Actual — how many measure something other than usage, once you looked at what is actually reported","hint":"Apply the test: would this number look the same if the initiative produced no value at all?","placeholder":"e.g. 0","min":0,"max":50,"actualFor":"nonUsageMetrics"}],"dimensions":[{"name":"The deck is addressed to someone, and asks for something","criteria":"A named audience chosen because they hold something the learner needs — not ''the leadership team'' — and a specific ask, stated as an action rather than an aspiration. The deck''s audience should be consistent with the Step 7 owner named back in Module 2; credit a learner who notices and explains any change. A deck addressed to nobody in particular is the failure this whole course is built to prevent, and should be marked down clearly whatever its content."},{"name":"Every claim traces to the framework, and it is a spec","criteria":"The load and what''s dissolving trace back to Modules 1 and 2; what they''re keeping standing is written as a spec — what must be true — rather than a drawing of a specific programme, tool, or meeting. Apply the module''s test: could two competent people build different-looking things that both satisfy it? Slides that trace to nothing are decoration. Check the deck against the learner''s earlier submissions in the trail: a deck that contradicts or ignores its own framework has assembled a document rather than an argument."},{"name":"The exclusion and the trigger are real and visible","criteria":"At least one named thing they are not doing — and the test is whether it costs something; excluding a thing nobody wanted is not an exclusion. And at least one falsifiable trigger, on a slide rather than in an appendix, that is observable, has a threshold and a window, and that someone who disagrees with the strategy could still agree had fired. Putting your own failure condition in front of the room is the module''s most-recommended move precisely because almost nobody does it; credit it heavily when it is real."},{"name":"The bet has a value today, or an honest account of why not","criteria":"The bet, the baseline metric, today''s actual value, the report date, what they would turn off, and the kill condition. Today''s value is the graded field: a real number scores at the top, and ''I cannot fill this in, here is why, and here is what I would have to do to be able to'' scores equally, because the module says that inability is the lesson. An estimate presented as a measured value scores at the bottom. The kill condition must hold regardless of sunk cost and sponsor enthusiasm — a kill condition the learner would obviously ignore is not one."},{"name":"The reckoning finds the direction of error","criteria":"The strongest single signal in this activity. Across ten opening claims and their checks, does the learner identify a consistent directional bias in their own beliefs about their organization — and evidence it from the trail rather than asserting it? The course predicts most people overestimate how much is owned, named, written down, or known by someone; a learner who confirms that with specifics, or who finds a different consistent direction and evidences it, has produced the best available outcome. Grade the account of the gaps, never the accuracy of any prediction. A reckoning that lists what moved without asking why, or that reports no pattern without having looked for one, scores in the lower half."},{"name":"The send decision anticipates agreement","criteria":"Send or not yet, with a condition and a date if not yet — both are full credit. Then the module''s specific prediction task: what does agreement-with-no-action look like in this organization, described concretely enough to be recognizable, and what one commitment from one named person with a date would they push for instead. ''They''ll be supportive'' is the answer the module is warning about; a learner who writes it without noticing has demonstrated the failure mode rather than anticipating it."},{"name":"The position, and the honesty of the anti-slogan test","criteria":"Their own application of the anti-slogan test, naming which slide a reasonable person could disagree with — or honestly reporting that none could, which is a real finding about the deck. Plus a committed position on the module''s claim engaging its real counter-argument: that embarrassing metrics do not survive contact with an organization, that usage metrics are adaptive rather than naive because they keep funding flowing through the trough, and — the sharper form — that designing a pilot a skeptic would believe conflicts with knowing the trough is deep, since at month four the honest numbers show failure. The position must say what they would agree with a skeptic in advance that would still be true at the bottom of the J-curve."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m10-knowledge_check', 'ai401-m10', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"Which of the four building blocks of change is almost never available to someone at this rung?","options":["Fostering understanding and conviction","Role modeling","Developing talent and skills","Reinforcing through formal mechanisms — metrics, incentives, decision rights, promotion criteria"],"correctIndex":3,"explanation":"You cannot influence your way to new promotion criteria. Three of the four are influence and capability work you already hold; the fourth requires authority, and it is where transformations die."},{"id":"q2","prompt":"Why does the module say going three-for-four is not eighty percent of the result?","options":["Because the blocks have different costs to implement","Because the eight-times finding is about using all four — and a change with conviction, role modeling and skills but no reinforcement is the one everyone remembers fondly and nobody does anymore","Because reinforcement mechanisms take longest to change","Because the blocks must be sequenced in a specific order"],"correctIndex":1,"explanation":"The blocks reinforce one another, which is why the multiple applies to the combination rather than to each."},{"id":"q3","prompt":"What is the instructive part of the £1m-for-a-million-prompts example?","options":["That the target was gamed by employees seeking the bonus","That hitting it more than four months early tells you nothing about whether it was worth hitting","That financial incentives are ineffective for behavior change","That prompt volume correlates poorly with license utilization"],"correctIndex":1,"explanation":"There is no evidence it was gamed and the firm reports real adoption gains. A prompt count cannot distinguish someone who restructured their work from someone who had a model rewrite an email they had already written."},{"id":"q4","prompt":"What do the metrics the module recommends have in common?","options":["They are all leading rather than lagging indicators","They can be collected automatically from existing systems","Every one requires you to know what the work produced, not what the tool did","They are benchmarked against industry peers"],"correctIndex":2,"explanation":"Which is harder, which is why the usage list wins by default, and which makes it a leadership problem rather than an analytics one."},{"id":"q5","prompt":"What must be agreed before a pilot starts for its result to be defensible?","options":["Budget, sponsor, scope, and timeline","A baseline agreed by the person who will judge it, a pre-committed decision rule, a stated tolerance for the trough, and a kill condition","Success criteria, a control group, a measurement plan, and a reporting cadence","Executive sponsorship, a communications plan, and a named owner"],"correctIndex":1,"explanation":"A baseline established after the fact is a negotiation and you will lose it. And a pilot without a decision rule produces a discussion in which the most senior opinion wins."},{"id":"q6","prompt":"Why does a pilot need a stated tolerance for the trough?","options":["Because sponsors lose patience faster than transformations deliver","Because a threshold measured inside the expected decline will stop something that was working","Because early results are statistically unreliable","Because adoption curves vary too much between teams to predict"],"correctIndex":1,"explanation":"Adoption gets worse before it gets better — people are slower with a new process and the reconciliation cost arrives before the production gain. Name the shape, the depth, and how long you will hold."},{"id":"q7","prompt":"What is the anti-slogan test for a vision deck?","options":["Whether it fits on one page","Whether every claim is supported by data","Whether a reasonable person could disagree with it","Whether it avoids jargon and abstraction"],"correctIndex":2,"explanation":"If nobody competent and well-intentioned could hold the opposite view, you have written a mission statement — true, unobjectionable, and inert."},{"id":"q8","prompt":"What does the module say is the likely failure mode when you present the deck?","options":["Being rejected on cost grounds","Being asked for a roadmap instead","Being agreed with, warmly, with no behavior change — because agreement is free and reinforcement mechanisms are not","Being referred to a committee"],"correctIndex":2,"explanation":"Leave with one commitment, from one named person, with a date. A compliment is not an outcome."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m2-calibration-prompt-before-you-start-10', 'ai401-m2', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One claim. Commit before you read.*
+
+> **"My organization''s AI plan names a destination and a date."**
+
+**True of us, or not true of us?** One sentence. If true, write the destination as it is actually
+worded somewhere — a deck, a memo, an OKR — rather than as you would word it.
+
+Then: **how many months out does the furthest date in that plan sit?** A number. If there is no
+plan, write 0 and say so.
+
+Hold both. Lesson 1 is going to argue the plan is a liability in proportion to that number, and
+you should be able to check the argument against the real document rather than a remembered one.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m2-module-brief-20', 'ai401-m2', 20, 'prose', 'stable', '## Module brief
+
+Module 1 said you cannot specify the destination but you can specify what must hold. This module
+is the instrument that does it.
+
+**One framework, seven steps, run three times** — at a team, at the function you sit in, and at
+the enterprise. It has to be altitude-invariant or the third pass is padding, so this module
+demonstrates the invariance rather than asserting it: you will see the same seven rows hold at all
+three altitudes, side by side, before you write your own.
+
+Two things to say before the steps.
+
+**This is not a strategy template.** Templates produce documents. This produces a specification
+with a failure condition attached, which is a different object — you can be wrong about it and
+find out. Everything in the course after this module is one application of it to a specific
+structure that is dissolving.
+
+**And Step 7 is the one that makes it honest.** Six steps of any framework can be completed by
+someone with no authority at all, producing a document nobody acts on. The seventh asks who
+actually decides when the trigger fires, and it will frequently not be you. That is not a failure
+of the exercise. **It is the exercise telling you which instrument the situation requires** — and
+the rest of this course is largely about what you do when the answer to Step 7 is somebody else.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m2-learning-objectives-30', 'ai401-m2', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Distinguish transitional from transformational change and explain what each one licenses you to
+   promise.
+2. Run all seven steps on a unit you have real visibility into.
+3. Explain why the framework holds at three altitudes and what changes between them.
+4. Write a trigger that is observable, dated, and owned — and recognize one that is none of those.
+5. Hold a position with an executive who wants a roadmap you cannot honestly give them.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m2-lesson-1-the-change-model-most-of-this-r-40', 'ai401-m2', 40, 'prose', 'volatile', '## Lesson 1 · The change model most of this room was trained on [V]
+
+Change management has a well-attested distinction at its center, and it decides what you are
+allowed to promise.
+
+**Transitional change has a destination you can specify before you begin.** You know the future
+state in detail, so you can plan a route to it, sequence it, date it, and manage the transition.
+Replacing an HRIS is transitional. So is moving to a new performance cycle. The destination exists
+before the journey does, and people are affected mostly at the level of skills and actions.
+
+**Transformational change has a future state that is unknown at the outset and emerges as you go.**
+You cannot plan a linear route to somewhere you cannot yet describe. You can hold an overarching
+direction, but the actual path has to be discovered — through trial, evidence, and revision — and
+people are affected at the level of mindset and identity rather than skills.
+
+**AI adoption is the second one, and almost every organization is managing it as the first.**
+
+That is the whole lesson, and here is why it costs you. A roadmap for a destination you cannot
+specify is not a plan. It is a **credibility loan**, and the repayment schedule is brutal: you get
+the room''s confidence today in exchange for being visibly wrong in a named quarter. The first miss
+is survivable. The second one converts every future statement you make into something people
+discount before you finish saying it — and at this rung your only real instrument is whether
+people believe you.
+
+
+**One claim this lesson does not make, and why.** There is a well-circulated idea that leaders who
+openly admit they are still figuring it out accelerate adoption more than those issuing confident
+narratives. It is appealing, it fits everything else here, and **it could not be sourced** — no
+study behind it survived checking. So this module does not assert it. The argument for triggers
+over roadmaps rests instead on the mechanism above, which you can test against your own
+organization''s history in three minutes: find the last confident AI timeline, and see what it cost
+when it slipped.
+
+That is a weaker-sounding foundation than a statistic and a sturdier one. A claim you can check
+beats a claim you have to trust.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m2-try-50', 'ai401-m2', 50, 'try_this', 'stable', '### Try this — 3 minutes
+Find the oldest AI-related plan in your organization that named a date. Compare what it said
+would be true by now against what is true now. You are not looking for whether it was wrong.
+You are looking for **whether anyone ever went back and said so** — because the cost of a
+credibility loan is only paid when someone notices, and organizations are often too polite to
+notice out loud. The unpaid ones are worse. They teach people that plans are decorative.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m2-lesson-2-the-seven-steps-60', 'ai401-m2', 60, 'prose', 'stable', '## Lesson 2 · The seven steps
+
+The framework. Each step is one question, and the order matters because each answer constrains the
+next.
+
+**1 · Name the load.** What is this unit actually responsible for holding up? Not what it does —
+what would fail if it stopped. A recruiting team''s load is not "filling requisitions"; it is
+something closer to "the business can staff a plan it has already committed to." The difference
+shows up immediately in Step 3, because activities and loads dissolve at different rates.
+
+**2 · Find what''s carrying it.** Which structures, roles, and rituals bear that load today —
+**including the ones nobody designed.** Module 1 was the training for this step. Expect the honest
+answer to include at least one person''s name and at least one thing that exists for no reason
+anyone can state.
+
+**3 · Mark what''s dissolving.** Which of those is AI removing, weakening, or making optional? Be
+strict about tense: happening now, with evidence, not forecast. A forecast at this step produces a
+spec for a problem you do not have.
+
+**4 · Specify the replacement.** **A structural spec, not a drawing.** What must be true — not what
+it must look like. "New starters find out what already failed here within their first month" is a
+spec. "A mentorship program with monthly check-ins" is a drawing, and it forecloses eleven better
+answers, including the ones you would only discover by trying.
+
+The test: could two competent people build different-looking things that both satisfy it? If not,
+you drew.
+
+**5 · Set the tolerance.** How much variation, speed, or volume can this absorb before it fails?
+This is the step everyone skips and the one that makes the spec operational. *One workflow change
+per sprint. Two process changes per quarter. One operating-model change per half.* A tolerance
+converts "we should be careful about pace" into something a person can be held to.
+
+**6 · Name the trigger.** What observable condition means the spec is wrong and you replan? Lesson
+4 is entirely about this step because it is the one people write badly.
+
+**7 · Name the owner.** When the trigger fires, who actually decides? Not who is interested, not
+who is consulted — **who has the authority to change the thing.** Write a name.
+
+**Why the order.** You cannot specify a replacement for a load you have not named. You cannot set
+a tolerance on a spec you have not written. And you cannot write a useful trigger without a
+tolerance, because a trigger is just the moment a tolerance is breached. Skipping to Step 4 — which
+is the natural instinct, because Step 4 feels like the work — produces a solution to an unstated
+problem, which is the most common failure mode of every strategy document you have ever been asked
+to read.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m2-lesson-3-the-same-seven-rows-three-altit-70', 'ai401-m2', 70, 'prose', 'stable', '## Lesson 3 · The same seven rows, three altitudes
+
+You will reasonably suspect that a framework this general dilutes at the top or the bottom. Here
+it is at three altitudes at once, on real examples. Read down the columns, then across the rows.
+
+| | **Team lead** | **Function head** | **CPO** |
+|---|---|---|---|
+| **Load** | Two people ship a joint deliverable weekly | The COE supplies calibrated judgment to the business | The organization can absorb structural change without losing coherence |
+| **Carrying it** | An undocumented handoff and a shared doc | Consultation volume; business partners routing hard cases in | Headcount slack, tenure, and informal escalation paths |
+| **Dissolving** | Either person can now produce the whole thing alone | Partners self-serve the analysis and stop routing | Slack is being cut; tenure is falling |
+| **Replacement** | A written handoff definition with one named owner per stage | A trigger that surfaces hard cases the COE never sees | Explicit integration limits per function |
+| **Tolerance** | One workflow change per sprint | Two process changes per quarter | One operating-model change per half |
+| **Trigger** | Two handoff errors in a sprint | COE consults drop 30% in a quarter | Any agent-ownership decision reaching the CIO before People |
+| **Owner** | Me | Me and the CPO | Me and the CEO |
+
+**The columns change scope. The rows do not change at all.** That is the point, and seeing it is
+worth more than being told it.
+
+Three things worth noticing, because they are what the table teaches beyond the invariance.
+
+**The dissolving row is the same event at three sizes.** In every column, something that used to
+force two parties into contact stopped forcing it. The handoff, the routed case, the informal
+escalation. Coordination structures, all three — Module 1''s finding, showing up at every altitude.
+
+**The trigger row gets harder as you climb, not easier.** "Two handoff errors in a sprint" is
+countable by one person on a Friday. "Any agent-ownership decision reaching the CIO before People"
+requires you to be in a room you may not be in. **The higher the altitude, the more the trigger
+depends on someone telling you** — which is a real limitation of the instrument and the reason the
+function-head trigger in the middle column is the best-designed of the three: a 30% drop in
+consultation volume is something the COE''s own calendar tells you without anyone''s cooperation.
+
+**And the owner row is where the honesty is.** Only the team lead answers "me" alone. Everyone
+above them answers with a compound — me and someone whose calendar I do not control. **That is the
+normal case at this rung, and it is what the rest of this course is for.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m2-lesson-4-what-makes-a-trigger-real-80', 'ai401-m2', 80, 'prose', 'stable', '## Lesson 4 · What makes a trigger real
+
+Step 6 is where good frames go to die, because most people write a trigger that cannot fire.
+
+**A real trigger has three properties.**
+
+**Observable.** Someone can look at something and say yes or no without a debate about
+interpretation. "Quality declines" is not observable. "Two handoff errors in a sprint" is. The
+test: could a person who disagrees with you about the whole strategy still agree the trigger has
+fired?
+
+**Dated or counted.** It has a threshold and a window. "Consults drop" is a direction; "consults
+drop 30% in a quarter" is a trigger. Without a window, a trigger fires whenever you feel like
+noticing it, which means it never fires when you would rather not.
+
+**Owned.** Somebody''s name is attached to *noticing*, separately from the name attached to
+deciding. This is the failure nobody expects: triggers usually fail not because the condition
+never occurs, but because it occurs and no one whose job it was to look was looking.
+
+**Then the test that does the most work:**
+
+> **If no condition would make you replan, you have not written a spec. You have written a hope.**
+
+Apply it honestly and a majority of strategy documents in your organization fail it, including
+some you wrote. That is not an indictment — it is the difference between the genre this course is
+in and the genre it is refusing.
+
+**Two failure patterns to recognize in your own drafts.**
+
+**The unfalsifiable tolerance.** "We will move at a pace the organization can absorb." Nothing
+could contradict it, so nothing will. Compare: "one process change per quarter, and the next one
+waits."
+
+**The trigger that only fires after it matters.** "If engagement scores drop." By the time an
+annual survey shows it, the structure dissolved three quarters ago and the people who noticed have
+left. A trigger has to be **upstream of the damage**, which usually means it measures an input or a
+behavior rather than an outcome. Consultation volume is upstream. Engagement is downstream. Both
+are real; only one gives you time.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m2-exercise-embed-85', 'ai401-m2', 85, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m2-key-takeaways-90', 'ai401-m2', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **Transitional change has a destination you can specify. Transformational change has a future
+  state that emerges.** AI adoption is the second, and nearly every organization is managing it as
+  the first.
+- **A roadmap for a destination you cannot specify is a credibility loan**, repaid in the quarter
+  you miss — and at this rung your only real instrument is whether people believe you.
+- **The seven steps:** name the load · find what''s carrying it · mark what''s dissolving · specify
+  the replacement · set the tolerance · name the trigger · name the owner.
+- **Step 4 is a spec, not a drawing.** The test: could two competent people build
+  different-looking things that both satisfy it?
+- **The columns change scope; the rows do not change at all.** The framework holds at team,
+  function, and enterprise — and the dissolving row is the same event at three sizes, always a
+  coordination structure.
+- **Triggers must be observable, dated or counted, and owned** — with a name attached to *noticing*
+  separately from the name attached to deciding. Triggers usually fail because nobody was looking.
+- **Put the trigger upstream of the damage.** Consultation volume is upstream; engagement scores
+  are downstream. Both are real; only one gives you time.
+- **If no condition would make you replan, you have written a hope.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m2-activity-link-95', 'ai401-m2', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 The frame, at your altitude", "blurb": "The seven steps run on the unit you named in Module 1, with at least one falsifiable trigger and a real name at Step 7. Then one row rewritten an altitude up, and a prediction of which row your approver argues with first.", "estMinutes": "35"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m2-take-a-position-100', 'ai401-m2', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"A roadmap for a destination you cannot specify is a credibility loan, and you
+repay it in the quarter you miss."*
+
+The strongest counter-argument is that **organizations do not fund specifications.** Budgets,
+headcount, and executive attention are allocated against destinations and dates, because that is
+what a planning cycle can process — and a leader who arrives with tolerances and triggers instead
+of a roadmap may be more honest and entirely unfunded. On this reading the credibility loan is not
+a mistake but a **price of entry**, knowingly paid by people who understand exactly what they are
+doing: they take the loan, get the resources, deliver something, and renegotiate. The sharper
+version cuts deeper: **this module may be teaching an epistemically superior posture that is
+politically inert**, and a course about leading without authority should be the last place to
+recommend one.
+
+Your position has to say what you would actually put in front of a budget committee next quarter —
+and if it is a date, what you have decided the loan is worth.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m2-sources-and-attribution-110', 'ai401-m2', 110, 'prose', 'stable', '## Sources and attribution
+
+- The transitional / transformational distinction is long-established change-management practice
+  and is used here in its standard form. `[V]` because its application to AI adoption is the
+  contested part, not the distinction.
+- **A claim that failed verification is named in the lesson rather than quietly dropped:** that
+  leaders admitting uncertainty accelerate adoption faster than those issuing confident narratives.
+  No source survived checking. The module argues from mechanism instead.
+- The seven steps, the credibility-loan framing, the spec-versus-drawing test, the three properties
+  of a real trigger, and the upstream/downstream distinction are original to this course.
+- The three-altitude invariance table is original and is the module''s central teaching device.
+- Builds on Module 1''s load-path model. Assumes 201''s shipped build only as evidence that the
+  learner has specified something before.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m2-activity-applied-activity-the-frame-at-your-altit-10', 'ai401-m2-activity', 10, 'prose', 'stable', '## Applied activity — "The frame, at your altitude"
+
+**Time:** 35 minutes · **Submit:** the completed seven steps plus a short covering note · **Graded
+against the rubric below.** Score doesn''t matter. Doing the work is where the learning lands.
+
+Run the framework on the unit you named in Module 1. This artifact is the spine of your final deck,
+so it is worth the full thirty-five minutes.
+
+**Step 1 — The seven rows (20 min).** Complete all seven for your unit. Write them as a table or
+as seven labeled lines; the format does not matter and the discipline does. Two requirements the
+rubric enforces:
+
+- **At least one falsifiable trigger** — observable, with a threshold and a window, and a name
+  attached to noticing it.
+- **A named owner** for Step 7. A real name. If the honest answer is that the decision belongs to
+  someone else, write their name — **that is a correct answer and it is graded as one.**
+
+**Step 2 — The altitude check (5 min).** Take one row — your choice — and write what it would say
+one altitude up. Not the whole column; one row. This is the test of whether you have written
+something invariant or something local.
+
+**Step 3 — Address it (5 min).** Name the person who would have to approve replanning if your
+trigger fired, and write one or two sentences predicting how they would respond to this document.
+Specifically: **which of the seven rows would they argue with first?**
+
+**Step 4 — The covering note (5 min).** 200–300 words: what you found in Step 3 of the framework
+that you had not consciously noticed; your calibration answer about your organization''s plan
+scored against what you found when you looked at the real document; and your position on the
+module''s claim, engaging the counter-argument above.
+
+**If your organization has no plan to check** — the calibration answer was 0 — say what that
+absence means for your Step 7. An organization with no plan has no owner either, and naming that
+is a finding rather than a gap in the assignment.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m2-micro-core', 'ai401-m2-micro', 10, 'prose', 'stable', '## Module 2 in two minutes
+
+**Transitional change has a destination you can specify before you begin.** Replacing an HRIS: you know the future state, so a route, a sequence, and a date are all legitimate. **Transformational change has a future state that is unknown at the outset and emerges as you go.** AI adoption is the second one, and nearly every organization is managing it as the first.
+
+Which costs you something specific. **A roadmap for a destination you cannot specify is a credibility loan**, and the repayment schedule is brutal — you get the room''s confidence today in exchange for being visibly wrong in a named quarter. The first miss is survivable. The second converts everything you say afterwards into something people discount before you finish saying it, and at this rung belief is your only real instrument.
+
+**So the deliverable is seven steps rather than a plan.** Name the load — what would fail if this unit stopped. Find what''s carrying it, including the structures nobody designed. Mark what''s dissolving, present tense, with evidence. Specify the replacement as a spec, not a drawing. Set the tolerance. Name the trigger. **Name the owner** — and at this rung the honest answer is usually somebody else, which is not a failure of the exercise but the exercise telling you which instrument the situation requires.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m2-micro-rule', 'ai401-m2-micro', 20, 'callout', 'stable', '### The rule to carry
+
+**If no condition would make you replan, you have not written a spec. You have written a hope.**
+
+A real trigger has three properties. **Observable** — someone who disagrees with your whole strategy could still agree it has fired. **Dated or counted** — a threshold and a window, because without one a trigger fires whenever you feel like noticing it, which means never when you would rather not. **Owned** — a name attached to *noticing*, separately from the name attached to deciding, because triggers usually fail not when the condition never occurs but when it occurs and nobody whose job it was to look was looking.
+
+And put it **upstream of the damage.** Consultation volume dropping is upstream. Engagement scores dropping is downstream — by the time the annual survey shows it, the structure dissolved three quarters ago. Both are real; only one gives you time.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m2-micro-close', 'ai401-m2-micro', 30, 'prose', 'stable', '**The full module adds** the three-altitude table — the same seven rows held at team, function, and enterprise, side by side, so you can see the invariance rather than take it on trust — the spec-versus-drawing test, the two trigger failure patterns to catch in your own drafts, the exercise that finds the plan which cannot fail, and the rehearsal with the executive who wants a three-year roadmap and hears *"I can''t tell you where we''ll be"* as weakness.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m2-choice', 'ai401-m2', 'choice', '{"reviewedAt":"2026-08-12","title":"Four planning artifacts","intro":"*Five minutes. Commit before you look.*\n\nFour People leaders were asked for their unit''s AI plan. All four produced something serious, and all four believe they have written a plan.\n\n**One of them cannot fail** — there is no observation anyone could make that would show it was wrong. Find it.","artifacts":[{"label":"Plan A","body":"\"Our COE exists so the business gets calibrated judgment on hard people decisions. That''s currently carried by consultation volume — partners route the difficult cases to us. That''s dissolving: partners are self-serving the analysis and the hard cases are stopping at their desk. So the replacement spec is *hard cases reach a specialist before a decision is made*, however that happens. Tolerance is two process changes a quarter. Trigger: COE consults drop 30% in a quarter — Priya owns watching the calendar data monthly. If it fires, the CPO and I decide together, because changing the routing rule needs her.\""},{"label":"Plan B","body":"\"We''re building an AI-enabled People function. By Q2 next year every team will have an AI champion, by Q3 we''ll have a shared prompt library live, and by Q4 we''ll be running quarterly enablement sessions across all four COEs. We''ve socialized it with the leadership team and there''s real energy behind it. The measure of success is that AI becomes part of how we work rather than a separate initiative, and we''ll move at a pace the organization can absorb.\""},{"label":"Plan C","body":"\"We''re replacing the current HRIS with a new platform. Discovery is done, the vendor''s picked, and we go live 3 March. There''s a full project plan — data migration, parallel run through two pay cycles, cutover, hypercare for six weeks. If the parallel run shows more than a 0.5% variance on gross pay we don''t cut over, and that call is mine. The change management is training and comms; people''s skills change, the work doesn''t.\""},{"label":"Plan D","body":"\"Honestly? We don''t have a plan and I''m not going to pretend otherwise. What I have is a list of four things I think are dissolving in my function, ranked by how much I think they were holding up, and a standing half-hour with my two most senior partners every fortnight to check whether the list is still right. I''ve written down what I''d expect to see if I''m wrong about the top one — new joiners taking longer than six weeks to bring a real problem to anyone. I''ll have a plan when I''ve stopped being surprised.\""}],"options":[{"id":"a","label":"Plan A"},{"id":"b","label":"Plan B"},{"id":"c","label":"Plan C"},{"id":"d","label":"Plan D"}],"key":"b","reasoning":"**B is the one that cannot fail, and it is the most common artifact in this category.** Read it again looking only for an observation that would contradict it. There isn''t one. \"AI becomes part of how we work rather than a separate initiative\" has no state in which it is false. \"A pace the organization can absorb\" is the unfalsifiable tolerance from Lesson 4, verbatim. The three dated milestones look like triggers and are not — they are *deliverables*, and a deliverable being late tells you the calendar slipped, never that the plan was wrong about the world.\n\nAnd notice what makes it feel like the strongest plan in the set: it has dates, scope, and executive buy-in. **It is the only one of the four that a planning cycle would fund**, which is exactly the counter-argument this module has to take seriously rather than dismiss.\n\n**A is the module''s full framework** and the reference answer. All seven steps, a spec rather than a drawing (*however that happens* is doing real work), a counted tolerance, a trigger that is observable and windowed with a name attached to *noticing* separately from deciding — and a Step 7 that honestly names someone else. It can fail: consults might drop 30% and force a replan.\n\n**C is a good plan and not this kind of plan.** It is transitional change managed correctly: the destination is specifiable, so a route, a sequence, and a date are all legitimate, and the 0.5% variance gate is a genuinely well-built trigger with a named owner. C is here because the module''s argument is easy to over-apply. **Not everything is transformational, and treating an HRIS migration as an emergent journey would be its own kind of malpractice.** The skill is telling which one you are in.\n\n**D looks like the weakest and is the second-strongest.** No plan, stated honestly, plus a ranked hypothesis list, a review cadence, and — the part that matters — **a written expectation of what would show the top hypothesis was wrong.** New joiners taking more than six weeks to bring anyone a real problem is observable, counted, and upstream of the damage. D has a trigger and no spec yet, which is an early and legitimate position. It fails on Step 7 only: nobody is named as deciding.\n\nThe transferable test is the one from Lesson 4, and it takes ten seconds: **name the observation that would make you replan.** A can answer it. C can answer it. D can answer it. B cannot, and no amount of detail added to B would change that, because the problem is not that B is vague — it is that B has no relationship to any possible future observation."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m2-rubric', 'ai401-m2', 'rubric', '{"promptVersion":"ai401-m2-the-frame-v1","moduleId":"ai401-m2","minWords":300,"maxWords":500,"submitLabel":"Your seven steps, the altitude check, and the covering note","intro":"Paste the seven completed steps for the unit you named in Module 1, one row rewritten an altitude up, the person who would approve replanning with your prediction of which row they argue with first, and the covering note. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for AI 401 · The Translator — the top rung of an AI-fluency ladder for People and HR professionals who have completed AI 101, AI 201, and one 301 role track. This is the Module 2 applied activity, ''The frame, at your altitude''. It is the course''s spine artifact: every later module contributes to it, and Module 10 assembles it into a vision deck.\n\nThe learner runs a seven-step framework on the unit they named in Module 1. (1) Name the load — what this unit is responsible for holding up, stated as what would fail if it stopped, not as what it does. (2) Find what''s carrying it, including structures nobody designed. (3) Mark what''s dissolving — present tense, with evidence, not forecast. (4) Specify the replacement as a structural spec rather than a drawing: what must be true, not what it must look like; the module''s test is whether two competent people could build different-looking things that both satisfy it. (5) Set the tolerance — how much variation, speed, or volume the unit can absorb before it fails, stated as a rate. (6) Name the trigger. (7) Name the owner — who actually has authority to change the thing when the trigger fires.\n\nTwo requirements are explicit: at least one falsifiable trigger, and a real name at Step 7.\n\nA trigger is real when it is observable (someone who disagrees with the whole strategy could still agree it fired), dated or counted (a threshold and a window), and owned (a name attached to noticing, separately from the name attached to deciding). The module also teaches that a trigger should sit upstream of the damage — measuring an input or a behavior rather than a lagging outcome. The governing test is: if no condition would make you replan, you have written a hope.\n\nCRITICAL — naming someone other than the learner at Step 7 is a correct answer and must be graded as one. The module teaches that only the team-lead altitude answers ''me'' alone and that everyone above answers with a compound. Do not reward learners who claim authority they do not have; reward accurate reporting of where the decision actually sits.\n\nAlso: if the learner''s organization has no AI plan at all (their opening number was 0), an account of what that absence means for Step 7 is a full-credit answer, not a gap in the assignment.\n\nScore the delta, never the score: grade the account of what moved between the opening claim about their organization''s plan and what they found in the real document, never the accuracy of either. A learner who discovers the plan says something different from what they remembered, and says why that matters, has produced the intended finding.\n\nThis is a leadership course whose central risk is drift into vision-document cliché. Reward specificity, counted thresholds, and named people. Mark down abstraction, maturity-model language, unfalsifiable tolerances (''a pace the organization can absorb''), and anything equally true at any organization.","opening":[{"key":"planHorizonMonths","label":"Predicted — how many months out the furthest date in your organization''s AI plan sits","hint":"From memory, before you look. Enter 0 if there is no plan.","placeholder":"e.g. 18","min":0,"max":120}],"calibration":[{"key":"planHorizonMonthsActual","label":"Actual — the furthest date in the real document, once you opened it","hint":"From the plan as written, not as remembered. Enter 0 if you looked and there is no plan.","placeholder":"e.g. 9","min":0,"max":120,"actualFor":"planHorizonMonths"}],"dimensions":[{"name":"The load is a consequence, not an activity","criteria":"Step 1 states what would fail if the unit stopped, not what the unit does. ''Filling requisitions'' is an activity; ''the business can staff a plan it has already committed to'' is a load. This distinction governs everything downstream, because activities and loads dissolve at different rates. A submission whose Step 1 is a job description has not started the framework, however well the later steps are written."},{"name":"What''s dissolving is present tense and evidenced","criteria":"Step 3 names something happening now with evidence a third party could check — a count that has moved, a behavior that has changed, a thing people have stopped doing — rather than a forecast about next year. Forecasts at this step produce a spec for a problem the learner does not have. Credit explicitly named evidence; mark down ''we expect that'' and ''increasingly''."},{"name":"Step 4 is a spec, not a drawing","criteria":"The replacement states what must be true rather than what it must look like. Apply the module''s test directly: could two competent people build different-looking things that both satisfy this? If the answer names a specific program, tool, meeting, or role, it is a drawing and has foreclosed the better answers. Top marks for a spec that is demanding and genuinely open about implementation."},{"name":"The trigger could actually fire, and someone is watching","criteria":"At least one trigger that is observable, has a threshold and a window, and has a name attached to noticing separately from the name attached to deciding. Apply the disagreement test: could someone who rejects the whole strategy still agree the trigger fired? Extra credit where the trigger sits upstream of the damage — an input or behavior rather than a lagging outcome like an annual engagement score. Unfalsifiable tolerances and deliverable dates dressed as triggers score at the bottom."},{"name":"Step 7 is honest, and the altitude check holds","criteria":"A real name for who decides — and naming someone other than the learner is correct and scores at the top when it is accurate. Plus the person who would approve replanning, with a specific prediction of which of the seven rows they would argue with first; a generic ''they''d want more detail'' scores low against a specific ''they''d contest the tolerance because it constrains their Q3 commitment''. Plus one row rewritten an altitude up that genuinely changes scope while keeping the row''s function — a rewrite that just makes the same sentence bigger has missed the invariance."},{"name":"The delta and the position","criteria":"The remembered plan horizon against what the real document says, with an account of what moved and why it matters — grade the account, never the accuracy. An organization with no plan is a legitimate and informative result when its consequence for Step 7 is named. Plus a committed position on the module''s claim that engages the real counter-argument: that organizations fund destinations and dates rather than specifications, that the credibility loan may be a knowing price of entry, and that an epistemically superior posture which is politically inert is a poor recommendation in a course about leading without authority. A position that restates the module scores low however well written."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m2-knowledge_check', 'ai401-m2', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"What distinguishes transformational from transitional change?","options":["Transformational change affects more people","Transformational change has a future state that is unknown at the outset and emerges as you go, so it cannot be planned as a linear route","Transformational change requires executive sponsorship","Transformational change takes longer to complete"],"correctIndex":1,"explanation":"Transitional change has a destination you can specify in detail before you begin, which is what licenses a route, a sequence, and a date. AI adoption is the other kind."},{"id":"q2","prompt":"Why does the module call a roadmap for an unspecifiable destination a \"credibility loan\"?","options":["Because it commits budget that may not be available later","Because you gain the room''s confidence today in exchange for being visibly wrong in a named quarter — and at this rung, belief is your only instrument","Because roadmaps are usually written by people who will have moved on","Because it transfers risk from the executive team to the People function"],"correctIndex":1,"explanation":"The first miss is survivable. The second converts everything you say afterwards into something people discount before you finish saying it."},{"id":"q3","prompt":"Which claim did the module decline to make, and why?","options":["That AI adoption is transformational rather than transitional — because the evidence is mixed","That leaders who admit they are still figuring it out accelerate adoption more than those issuing confident narratives — because it could not be sourced","That organizations manage AI adoption as transitional change — because it varies by sector","That triggers are more useful than roadmaps — because it depends on the planning cycle"],"correctIndex":1,"explanation":"It is appealing and it fits everything else in the module, and no study behind it survived checking. The lesson argues from mechanism instead, which the learner can test against their own organization''s history."},{"id":"q4","prompt":"What is the difference between a spec and a drawing at Step 4?","options":["A spec is shorter and less detailed","A spec describes what must be true; a drawing describes what it must look like — and the test is whether two competent people could build different-looking things that both satisfy it","A spec is approved by leadership; a drawing is produced by the team","A spec includes measurement criteria; a drawing does not"],"correctIndex":1,"explanation":"\"New starters find out what already failed here within their first month\" is a spec. \"A mentorship program with monthly check-ins\" is a drawing, and it forecloses the eleven better answers you would only find by trying."},{"id":"q5","prompt":"What does the three-altitude table demonstrate about the framework?","options":["That different altitudes need different frameworks","That the columns change scope while the rows do not change at all","That enterprise-level planning is fundamentally harder than team-level planning","That the framework works best at the function-head altitude"],"correctIndex":1,"explanation":"The dissolving row is also the same event at three sizes — in every column something that used to force two parties into contact stopped forcing it."},{"id":"q6","prompt":"According to the module, why does the trigger row get harder as you climb altitudes?","options":["Because senior leaders have less time to monitor conditions","Because higher-altitude conditions are inherently less measurable","Because the higher the altitude, the more the trigger depends on someone telling you","Because enterprise metrics are reported on longer cycles"],"correctIndex":2,"explanation":"Which is why the function-head trigger is the best-designed of the three: a 30% drop in consultation volume is visible in the COE''s own calendar without anyone''s cooperation."},{"id":"q7","prompt":"What are the three properties of a real trigger?","options":["Ambitious, measurable, and time-bound","Observable, dated or counted, and owned — with a name attached to noticing, separately from the name attached to deciding","Agreed by stakeholders, documented, and reviewed quarterly","Leading rather than lagging, quantitative, and automated"],"correctIndex":1,"explanation":"Triggers usually fail not because the condition never occurs but because it occurs and nobody whose job it was to look was looking. D names a real property — upstream rather than downstream — but not the three."},{"id":"q8","prompt":"What does the module say about the Step 7 answer being someone other than you?","options":["It means the framework was run at the wrong altitude","It means the artifact should be escalated before it is written","It is the normal case at this rung, and it tells you which instrument the situation requires","It means the learner lacks the standing to complete the exercise"],"correctIndex":2,"explanation":"Only the team-lead column answers \"me\" alone; everyone above answers with a compound. The rest of the course is largely about what you do when Step 7 names somebody else."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m3-calibration-prompt-before-you-start-10', 'ai401-m3', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One claim. Commit before you read.*
+
+> **"I could state the top metric my finance partner is measured on, in their words, without
+> looking it up."**
+
+**True of us, or not true of us?** And if true — write it now, in one line, before you read on.
+Writing it is the test; believing you could is not.
+
+Then: **out of the partner functions you deal with most — finance, legal, IT, and the business
+units you support — for how many could you do the same?** A count out of four.
+
+You will check this in the activity, against one of them, by going and finding out.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m3-module-brief-20', 'ai401-m3', 20, 'prose', 'stable', '## Module brief
+
+Nine role tracks sit below this one, and every learner arriving here took exactly one. That depth
+is the product — it is the reason a comp specialist can hold their own on a model and an ER
+specialist can write a report that survives being attacked.
+
+**It also produced a blind spot shaped exactly like the role.**
+
+This is the only module in the course that exists because of the ladder rather than because of AI.
+Module 2 handed you a framework whose first step is *what is this unit responsible for holding up?*
+You can answer that for your own unit from experience. **You cannot answer it for finance, legal,
+IT, or the business** — and every module after this one asks you to address an artifact to somebody
+in one of those functions. Module 4''s ownership contract goes to a peer. Module 6''s absorption
+limit goes to whoever controls pace. Module 9''s floor goes past counsel. Module 10''s metric
+proposal goes to whoever owns the metric.
+
+So this module is Step 1, run on a house you do not live in.
+
+**And it is deliberately the one module with no statistic behind it.** There is no credible study
+establishing that People leaders cannot state their partner functions'' metrics. There may be no
+such study because nobody has run it, or because it is a hard thing to measure honestly, and it
+would be easy to reach for an adjacent number and imply it says this. It doesn''t, so this module
+argues from mechanism and asks you to run the test on yourself instead — which, given that the
+whole course is about making people check things, is the correct trade.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m3-learning-objectives-30', 'ai401-m3', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Name the specific way your own role track compressed your view of the organization.
+2. Explain why HR''s credibility gap with partner functions is a unit-of-account problem rather than
+   a technical-literacy problem.
+3. Establish what another function is measured on, what its year contains, and what its real AI
+   exposure is — without needing its cooperation.
+4. Ask the one thing you cannot find out on your own.
+5. Identify the load a question is carrying, rather than answering the question as asked.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m3-lesson-1-what-your-track-made-you-unable-40', 'ai401-m3', 40, 'prose', 'stable', '## Lesson 1 · What your track made you unable to see
+
+Expertise does something specific and slightly unpleasant: **it compresses the world into the shape
+of your own throughput.**
+
+Look at the ladder you came up. Each 301 track taught a way of seeing that is genuinely superior
+inside the role and systematically partial outside it.
+
+- A recruiter sees the business as a **sequence of openings.** Headcount is the unit; time is
+  measured in requisition cycles; the year has a shape set by hiring plans.
+- A compensation specialist sees it as **a set of cycles.** The year is merit, benchmarking, and
+  planning; the unit is the population; the question is always *relative to what.*
+- An ER specialist sees it as **a series of matters.** The unit is the case; time is measured
+  against the risk window; the question is what survives being attacked.
+- A People analytics lead sees it as **a set of questions**, with a population and a confidence
+  interval attached to each.
+
+Every one of those is correct. Every one of them is **one load out of the six or seven that unit is
+actually carrying** — which is Module 1''s model, turned around and pointed at you.
+
+Here is why that matters more at this rung than at any rung below it. In your own function, the
+compression is an advantage: it is what lets you see quickly. **Outside your function, it silently
+substitutes.** You look at the finance team and see the load *you* would carry if you had their
+job, and you get a plausible, coherent, confidently-held picture that is wrong in ways nothing will
+correct — because they are not going to volunteer that you have misunderstood them. They will just
+gradually stop bringing you things.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m3-try-50', 'ai401-m3', 50, 'try_this', 'stable', '### Try this — 3 minutes
+Take the partner function you deal with most. Write down, in one sentence, what you believe they
+are responsible for holding up. Then write down where that belief came from. If the honest
+answer is "from what they ask me for," you have described **their interface with you**, which is
+a thin slice of their load and the slice most distorted by your own position.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m3-lesson-2-activity-and-consequence-60', 'ai401-m3', 60, 'prose', 'stable', '## Lesson 2 · Activity and consequence
+
+The standard explanation for HR''s credibility problem with finance, legal, and IT is that HR is
+non-technical. It is a comfortable explanation because it suggests a comfortable fix — learn some
+vocabulary, get better with data, and the problem eases.
+
+**It is the wrong diagnosis, and following it produces a People leader who has learned some words
+and is still not being invited.**
+
+The real gap is the unit of account. **HR reports activity. Those functions think in consequence.**
+
+| What gets reported | What the room is listening for |
+|---|---|
+| We ran 340 interviews | We can staff the plan, or we can''t, and here''s which |
+| We closed the merit cycle on time | Payroll is committed at this number, and this is the variance risk |
+| We delivered training to 800 people | This capability exists now where it didn''t, and here''s how we''d know |
+| Engagement is up two points | Attrition risk in the two teams that matter is here |
+
+Every row on the left is true, useful, and hard-won. Every row on the left also requires the
+listener to do a conversion, and **the conversion is where you lose them** — not because they are
+uncharitable, but because they are doing it for six functions and yours is the one where the
+arithmetic is least familiar.
+
+Three things follow.
+
+**The conversion is nearly always available to you.** You know what the 340 interviews were for.
+Stating the consequence is not spin and it is not inflation; it is finishing the sentence.
+
+**Do not overclaim in the conversion.** A consequence you cannot evidence is worse than an activity
+you can — it invites exactly one follow-up question and you will not have the answer. "We can staff
+the plan" is a claim about the future. "Two of the eleven roles in the plan have no viable pipeline
+and here they are" is a consequence you can defend, and it is more useful.
+
+**And this is where your 301 track pays off.** The reason you can make the conversion at all is
+that you know your own function''s mechanics deeply enough to know what its activity actually
+implies. Someone without that depth converting activity to consequence is guessing. **This is the
+first module where the ladder below you becomes a lever rather than a prerequisite.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m3-lesson-3-reading-another-function-s-load-70', 'ai401-m3', 70, 'prose', 'stable', '## Lesson 3 · Reading another function''s load
+
+The method. Four things you can establish without the other function''s cooperation, and one you
+have to ask for.
+
+**1 · What they are measured on.** Findable. Their stated goals, the metrics in their leadership
+updates, what their function head talks about in all-hands and externally. You are looking for the
+two or three numbers that appear every time, in that order. Note the order — it is information.
+
+**2 · What their year contains.** Findable, and **the highest-value item on this list**, because
+almost nobody in People does it. Finance has a close cycle, a budget cycle, and an audit window.
+Legal has filing dates, renewal dates, and litigation calendars. IT has release windows and freeze
+periods. Sales has a quarter that ends.
+
+Asking finance for something material in the last week of a quarter is not a scheduling error. **It
+is a credibility error**, and it is invisible to you and completely visible to them: it says you do
+not know what their job is. Learning four dates buys you more standing than a year of relationship
+building, and it takes an afternoon.
+
+**3 · What their real AI exposure is.** Findable, and usually surprising. They have their own
+version of every problem in this course — their own dissolving structures, their own shadow usage,
+their own unowned decisions — and they are typically either much further ahead of you or much
+further behind than you have assumed. Both are useful. Ahead means there is a precedent you can
+borrow rather than a fight you have to win. Behind means the thing you are about to propose will be
+the first of its kind in their world, and should be sized accordingly.
+
+**4 · Whose asks they are already absorbing.** Findable by asking around them rather than in them.
+Module 5''s audit, pointed outward: which requests do they field that belong to nobody? That queue
+is your real competition for their attention, and it is more informative than their org chart.
+
+**5 · And the one you have to ask: what do they think People is for?**
+
+Almost nobody asks this. It takes one sentence, it is not a difficult conversation, and the answer
+is usually narrower than you would like — *"you handle the hiring paperwork," "you''re who I call
+when someone has to go," "honestly, compliance."*
+
+That narrow answer is not a slight. **It is the actual starting position for every artifact in the
+rest of this course**, and working from the version you wish were true is how a well-written
+proposal lands in a room that had already filed you under something else.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m3-lesson-4-the-question-behind-the-questio-80', 'ai401-m3', 80, 'prose', 'stable', '## Lesson 4 · The question behind the question
+
+The technique, and it is Step 1 run conversationally in under two minutes.
+
+**When a partner function asks you something, the literal request is rarely the load.**
+
+- Finance asking for headcount detail by month is usually asking about **forecast risk** — whether
+  your numbers will move after they have committed theirs.
+- Legal asking which AI tool a team is using is usually asking **who signs**, and whether the answer
+  is them.
+- IT asking about a vendor is usually asking **who supports it in year two**, when the enthusiasts
+  have moved on and the tickets have not.
+- A business leader asking for an org chart is often asking **whether they are about to lose
+  someone.**
+
+So the move is: **before answering, name the load you think the question is carrying, and check.**
+Out loud, in one sentence. *"Happy to pull that — is this about whether the number moves after you
+lock the forecast, or about something else?"*
+
+Three things that buys you, in ascending order of value. You answer the real question rather than
+the proxy. You demonstrate, in one sentence, that you know what their job is. And when you are
+wrong about the load — which will happen, and should — **they correct you, and the correction is
+the most valuable thing you will learn about them all quarter.**
+
+**The discipline that keeps this from becoming a mannerism.** Sometimes the literal request *is* the
+load. Someone needs the number because they need the number. Reading depth into every question is
+its own failure — it is exhausting to be on the receiving end of, it reads as evasion when you are
+being asked something simple, and it can look like you are managing a person rather than answering
+them. **The check is one sentence, and if the answer is "no, I just need the number," you say "on
+it" and go get the number.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m3-exercise-embed-85', 'ai401-m3', 85, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m3-key-takeaways-90', 'ai401-m3', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **Expertise compresses the world into the shape of your own throughput.** Inside your function
+  that is speed; outside it, the compression silently substitutes — you see the load *you* would
+  carry in their job, and nothing corrects you.
+- **HR''s credibility gap is a unit-of-account problem, not a technical-literacy one.** HR reports
+  activity; finance, legal, and IT think in consequence, and the conversion is where you lose them.
+- **Do not overclaim in the conversion.** A consequence you cannot evidence is worse than an
+  activity you can.
+- **Four things are findable without their cooperation:** what they are measured on, what their year
+  contains, their real AI exposure, and whose unowned asks they are already absorbing.
+- **Their calendar is the highest-value item and nobody does it.** Asking finance for something
+  material in the last week of a quarter is a credibility error, invisible to you and entirely
+  visible to them.
+- **One thing you have to ask: what do they think People is for.** The answer is usually narrower
+  than you would like, and it is the real starting position for everything else in this course.
+- **Name the load a question is carrying, then check** — in one sentence. When you are wrong, the
+  correction is the most valuable thing you will learn about them.
+- **And sometimes the number is just the number.** Reading depth into every question is a mannerism
+  that reads as evasion.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m3-activity-link-95', 'ai401-m3', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 The partner load sheet", "blurb": "One function you depend on and don''t run: what they''re measured on, what their year contains, their real AI exposure, whose unowned asks they absorb \u2014 and the one thing you have to ask them, which is what they think People is for.", "estMinutes": "30"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m3-take-a-position-100', 'ai401-m3', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"You cannot name what another function is holding up, and you have been designing
+for them anyway."*
+
+The strongest counter-argument is that **this is a sophisticated way of telling HR to do homework
+nobody asks of finance about HR.** The asymmetry is real and it is not accidental: partner literacy
+is demanded of People far more than it is reciprocated, and every hour spent studying the finance
+close is an hour not spent being excellent at the thing you were hired for. A function that
+responds to low standing by studying everyone else''s metrics may simply be **deferring in a new
+costume** — and there is a version of this module that teaches People leaders to be endlessly
+accommodating and calls it partnership.
+
+The sharpest form of the objection: **credibility is not earned by knowing their numbers, it is
+earned by being right about yours.** Module 6 will give you an absorption discipline you can be
+demonstrably right about without knowing finance''s close calendar at all — and being right in front
+of people is historically a faster route to standing than being well-informed about them.
+
+Your position has to say where the line sits: what you would learn about a partner function, what
+you would decline to learn, and what you would do if the reciprocity never arrives.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m3-sources-and-attribution-110', 'ai401-m3', 110, 'prose', 'stable', '## Sources and attribution
+
+- **No anchor statistic, by design.** No credible source establishes that People leaders cannot
+  state their partner functions'' metrics, and the module says so in its brief rather than
+  substituting an adjacent figure.
+- The activity/consequence unit-of-account framing, the four findable things, the calendar-as-
+  credibility argument, the *what do they think People is for* question, and the question-behind-
+  the-question check are original to this course.
+- Runs Module 2''s Step 1 on a unit the learner does not own; supplies the counterpart research for
+  Modules 4, 6, 9, and 10, each of which addresses an artifact to another function.
+- The role compressions in Lesson 1 are drawn from the 301 tracks'' own framings of their audiences
+  and are illustrative rather than exhaustive.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m3-activity-applied-activity-the-partner-load-sheet-10', 'ai401-m3-activity', 10, 'prose', 'stable', '## Applied activity — "The partner load sheet"
+
+**Time:** 30 minutes · **Submit:** the load sheet plus the covering note · **Graded against the
+rubric below.** Score doesn''t matter. Doing the work is where the learning lands.
+
+Pick **one function you depend on and do not run** — finance, legal, IT, a business unit, security,
+procurement. Pick the one whose cooperation you will most need for the artifacts in Modules 4, 6,
+9, and 10, because you are going to use this sheet again.
+
+**Step 1 — The four findable things (12 min).** Without asking them:
+
+- **What they are measured on**, in their words, with your source named. Two or three metrics, in
+  the order they appear.
+- **What their year contains** — at least four dated things: cycles, closes, freezes, filings,
+  renewals, audits. Dates or windows, not "quarterly."
+- **Their real AI exposure** — what they are actually doing with AI now, and whether that puts them
+  ahead of or behind your function.
+- **Whose unowned asks they are absorbing.**
+
+**Step 2 — Ask the one thing (8 min).** Ask someone in that function what they think People is for.
+Ask it plainly. Record the answer close to verbatim, including any hesitation — **the hedge is
+data.**
+
+If you genuinely cannot ask before submitting, say so and write what you predict the answer will
+be, in their words. You will find out later whether you were right, and predicting it on the record
+is worth more than skipping it.
+
+**Step 3 — Step 7, outward (5 min).** When your work and theirs collide — and name a specific
+collision that is live or coming — **who decides?** A name. If the honest answer is that nobody
+does, write that; it is the most common answer and the most useful one.
+
+**Step 4 — The covering note (5 min).** 250–350 words. Your calibration count out of four, scored
+against what you found. The one thing on the sheet that most changed your picture of them. **The
+thing you had been getting wrong** — stated specifically, because a load sheet that confirms
+everything you already believed was probably filled in from memory. And your position on the
+module''s claim, engaging its counter-argument.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m3-micro-core', 'ai401-m3-micro', 10, 'prose', 'stable', '## Module 3 in two minutes
+
+**Expertise compresses the world into the shape of your own throughput.** A recruiter sees a sequence of openings, a comp specialist a set of cycles, an ER specialist a series of matters. Each is correct and each is one load out of the six or seven that unit actually carries. Inside your own function the compression is speed. **Outside it, the compression silently substitutes** — you look at finance and see the load *you* would carry in their job, and nothing corrects you, because they will not tell you that you have misunderstood them. They will just stop bringing you things.
+
+**And the credibility gap is not what it is usually said to be.** The comfortable diagnosis is that HR is non-technical, which suggests a comfortable fix. The real gap is the unit of account: **HR reports activity, and finance, legal, and IT think in consequence.** "We ran 340 interviews" versus "we can staff the plan, or we can''t, and here''s which." Both true. One of them makes the listener do the conversion, and the conversion is where you lose them.
+
+The conversion is nearly always available to you — you know what the interviews were for. Just don''t overclaim it: **a consequence you cannot evidence is worse than an activity you can.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m3-micro-rule', 'ai401-m3-micro', 20, 'callout', 'stable', '### The rule to carry
+
+**Four things about any partner function are findable without their cooperation:** what they are measured on, what their year contains, what their real AI exposure is, and whose unowned asks they are already absorbing.
+
+**The calendar is the highest-value one and almost nobody does it.** Closes, freezes, filings, renewals, audit windows. Asking finance for something material in the last week of a quarter is not a scheduling error — it is a credibility error, invisible to you and entirely visible to them. Four dates, one afternoon, more standing than a year of relationship building.
+
+**And one thing you have to ask: what do they think People is for?** The answer is usually narrower than you would like. That narrow answer is not a slight — it is the actual starting position for every artifact you will address to them.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m3-micro-close', 'ai401-m3-micro', 30, 'prose', 'stable', '**The full module adds** the question-behind-the-question check — name the load you think a request is carrying, in one sentence, and let them correct you — along with the discipline that stops it becoming a mannerism, since sometimes the number is just the number. Plus the exercise that catches you over-applying the technique, and the load sheet you will reuse in Modules 4, 6, 9, and 10. It is also the one module in the course with no statistic behind it, and it says why.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m3-choice', 'ai401-m3', 'choice', '{"reviewedAt":"2026-08-12","title":"Four questions from four functions","intro":"*Five minutes. Commit before you look.*\n\nFour partner functions each send you a short request in the same week. Three of them are carrying a load the words don''t state.\n\n**One of them means exactly what it says.** Find that one — because the technique in Lesson 4 is only useful if you can tell when not to use it.","artifacts":[{"label":"From Finance","body":"*\"Can you send me headcount by month for the next two quarters, broken out by team? Doesn''t need to be precise — ballpark is fine. Need it by Thursday.\"*\n\nContext: it is week nine of a thirteen-week quarter. This person has asked you for headcount twice before, both times about six weeks before a board meeting."},{"label":"From Legal","body":"*\"Which AI tool is the talent team using for the interview summaries? Someone mentioned it in a meeting and I don''t think I''ve seen it before.\"*\n\nContext: you were not in the meeting. Legal has not previously asked about any tool the talent team uses."},{"label":"From IT","body":"*\"Before we go further on this vendor — can you tell me who''s going to own it? Not the project. After.\"*\n\nContext: the vendor was chosen by a working group you sit on. IT has approved the security review already."},{"label":"From a business leader","body":"*\"Can you pull the org chart for my group with tenure and current level? I''m doing my headcount plan for next year and I want to check my spans before I put numbers in.\"*\n\nContext: it is planning season. They said the same thing last year and used it for the same purpose."}],"options":[{"id":"a","label":"From Finance"},{"id":"b","label":"From Legal"},{"id":"c","label":"From IT"},{"id":"d","label":"From a business leader"}],"key":"d","reasoning":"**D means what it says.** It is planning season, they told you the purpose, they used the same data for the same purpose last year, and the request is proportionate to the stated use. There is no hidden load, and the correct response is to send the org chart quickly and well. **Sending back \"help me understand what this is really about\" would be the mannerism Lesson 4 warns against** — it reads as evasion, it costs you a day, and it manages someone who was being straightforward with you.\n\nThis is the item most people get wrong, and they get it wrong in a specific direction: **once you have been given a technique for finding hidden questions, every question starts to look like it has one.** That is worth noticing about yourself now rather than in front of a business leader who just wanted a spreadsheet.\n\n**A is forecast risk.** The tell is \"ballpark is fine\" sitting next to a hard deadline — precision does not matter, timing does, and the pattern of asking six weeks before a board meeting completes it. Finance is not building a headcount model. **They are checking whether your number will move after they commit theirs.** Answer the real question and you say something like: *\"Here it is — and the two lines most likely to move are these, by about this much, and I''ll tell you before they do.\"* That sentence is worth more than the file.\n\n**B is who signs.** Legal did not ask what the tool does or whether it is any good. They asked which one it is, having heard about it secondhand, having never asked before. **The load is whether an obligation has attached to the company without anyone routing it through them** — and by extension whether their name is on it. Module 9 is this question, taught properly. The worst possible response is a tool name with no context; the best one names the tool, the data it touches, and who approved it, in three lines.\n\n**C is year-two ownership.** The giveaway is the explicit exclusion: *not the project. After.* IT has already done the security review, so this is not a risk question. It is the question every IT function learns to ask after being handed the third system whose enthusiastic sponsor moved on and whose tickets did not. **Module 6 calls this switchability and puts it inside procurement**; here it is arriving as a colleague''s entirely reasonable question, and the fact that you may not have an answer is itself the finding.\n\nThe transferable test is not \"what are they really asking.\" It is narrower and it is checkable: **is the request proportionate to the stated use, and does the context explain the timing?** When both hold — as in D — take it at face value. When either breaks, name the load you think is there in one sentence and let them correct you."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m3-rubric', 'ai401-m3', 'rubric', '{"promptVersion":"ai401-m3-partner-load-sheet-v1","moduleId":"ai401-m3","minWords":250,"maxWords":400,"submitLabel":"Your partner load sheet and covering note","intro":"Paste the load sheet for one function you depend on and don''t run — the four findable things, the answer to what they think People is for, and who decides when your work collides with theirs — plus the covering note. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for AI 401 · The Translator — the top rung of an AI-fluency ladder for People and HR professionals who have completed AI 101, AI 201, and one 301 role track. This is the Module 3 applied activity, ''The partner load sheet''.\n\nThe module is the course''s convergence point: nine role tracks sit below it, each learner took exactly one, and the depth that made them good produced a blind spot shaped like their role. The module runs Module 2''s Step 1 — name the load — on a function the learner does not own.\n\nIts two teaching claims. First, expertise compresses the world into the shape of your own throughput; outside your function that compression silently substitutes, so you see the load you would carry in their job. Second, HR''s credibility gap with finance, legal, and IT is a unit-of-account problem rather than a technical-literacy one: HR reports activity, those functions think in consequence, and the conversion is where the listener is lost.\n\nThe submission covers one partner function — finance, legal, IT, security, procurement, or a business unit — with: (1) what they are measured on, in their words, with a named source, two or three metrics in the order they appear; (2) what their year contains, at least four dated cycles, closes, freezes, filings, renewals, or audits — dates or windows, not ''quarterly''; (3) their real AI exposure and whether it puts them ahead of or behind the learner''s function; (4) whose unowned asks they are absorbing; (5) the answer to ''what do you think People is for'', recorded close to verbatim including hesitation, because the hedge is data; (6) a named specific collision between the learner''s work and theirs, and who decides — where ''nobody'' is the most common and most useful answer; and (7) a covering note.\n\nCRITICAL — several honest outcomes must score at full credit. If the learner could not ask the ''what is People for'' question before submitting, a recorded prediction of the answer in the partner''s words is a full-credit substitute. If the answer to who decides is that nobody does, that is the intended finding, not a gap. If a metric or a date genuinely could not be established, an account of where they looked and what wasn''t there scores above a plausible guess presented as fact.\n\nThe single strongest signal is dimension five: a load sheet that confirms everything the learner already believed was probably filled in from memory. Reward a specifically named thing they had been getting wrong.\n\nScore the delta, never the score: grade the account of the gap between the opening count (how many of four partner functions they could name the top metric for) and what they found, never the accuracy of either number.\n\nThis is a leadership course whose central risk is drift into cliché. Reward named sources, real dates, verbatim quotes, and named people. Mark down generic characterizations of what finance or legal ''cares about'' that would be true at any company.","opening":[{"key":"partnerMetricsKnown","label":"Predicted — how many of your four main partner functions you could name the top metric for, in their words","hint":"Out of four: finance, legal, IT, and the business units you support. Answer before you check.","placeholder":"e.g. 2","min":0,"max":4}],"calibration":[{"key":"partnerMetricsKnownActual","label":"Actual — how many you could still name correctly once you went and looked","hint":"Checked against their stated goals or leadership updates, not against memory.","placeholder":"e.g. 1","min":0,"max":4,"actualFor":"partnerMetricsKnown"}],"dimensions":[{"name":"The function chosen is the one they actually need","criteria":"A named function the learner genuinely depends on and does not run, chosen because its cooperation is needed for the artifacts in Modules 4, 6, 9, and 10 — and the submission says why this one. A convenient choice with a friendly contact scores below a harder choice made deliberately. Credit an explicit statement of what the learner needs from them in the next two quarters."},{"name":"The metrics and the calendar are established, not characterized","criteria":"Two or three metrics in the partner''s own words with a named source — a goals document, a leadership update, a public statement — rather than a plausible characterization. And at least four dated things in their year: closes, freezes, filings, renewals, audits, release windows, with actual dates or windows. ''Quarterly'' and ''at year end'' do not count. This is the module''s highest-value item and the one almost nobody does; grade it strictly, and credit an honest ''I looked here and could not find it'' above an invented specific."},{"name":"Their AI exposure is observed, and positioned","criteria":"What that function is actually doing with AI now — not what the learner assumes or what the category typically does — and an explicit judgment about whether it puts them ahead of or behind the learner''s function, with the consequence named. Ahead means there is a precedent to borrow; behind means the learner''s proposal will be the first of its kind in their world and should be sized accordingly. A submission that reports exposure without positioning it has done half the step."},{"name":"They asked the question, and recorded the real answer","criteria":"The answer to ''what do you think People is for'', close to verbatim, including hedges and hesitation. A narrow or unflattering answer recorded honestly is the intended result and should score at the top; a flattering paraphrase is the most likely sign the question was softened or not asked. Where the learner genuinely could not ask before submitting, a recorded prediction in the partner''s own words is a full-credit substitute — but a prediction offered without saying it is one is not."},{"name":"The thing they had been getting wrong","criteria":"The single strongest signal in this activity. A specifically named belief about this function that the sheet corrected — what they thought the partner was measured on, when they thought the partner was busy, what they thought the partner wanted from People. Vague acknowledgment that ''I learned a lot'' scores at the bottom. A sheet that confirms everything the learner already believed should be marked down on this dimension and told why: it was probably filled in from memory."},{"name":"The collision, the decider, and the position","criteria":"A specific live or imminent collision between the learner''s work and the partner''s — not a hypothetical — with a named decider or an explicit, evidenced ''nobody does'', which is the most common and most useful answer. Plus the delta between predicted and actual count with an account of what moved; grade the account, never the accuracy. Plus a committed position on the module''s claim engaging its real counter-argument: that partner literacy is demanded of People far more than reciprocated, that studying everyone else''s metrics may be deferring in a new costume, and that credibility is earned by being right about your own numbers rather than informed about theirs. The position must say where the line sits and what they would do if reciprocity never arrives."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m3-knowledge_check', 'ai401-m3', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"What does the module say your 301 role track did to your view of the organization?","options":["It gave you depth at the cost of breadth across HR disciplines","It compressed the world into the shape of your own throughput — an advantage inside your function, and a silent substitution outside it","It made you overconfident about AI''s capabilities in your domain","It taught you to see the organization through its risks rather than its opportunities"],"correctIndex":1,"explanation":"Outside your function you see the load *you* would carry in their job, and nothing corrects you — they will not volunteer that you have misunderstood them. They will just stop bringing you things."},{"id":"q2","prompt":"Why does the module reject \"HR is non-technical\" as the diagnosis of the credibility gap?","options":["Because HR functions are more technical than they are given credit for","Because the real gap is the unit of account — HR reports activity and those functions think in consequence","Because technical literacy varies too much between HR roles to generalize","Because credibility is built through relationships rather than expertise"],"correctIndex":1,"explanation":"It is a comfortable diagnosis because it suggests a comfortable fix, and following it produces a People leader who has learned some words and is still not being invited."},{"id":"q3","prompt":"What does the module warn about when converting activity into consequence?","options":["That it can sound like spin to colleagues who know the underlying work","That a consequence you cannot evidence is worse than an activity you can, because it invites exactly one follow-up you can''t answer","That it requires data most HR functions do not collect","That it works with finance but not with legal or IT"],"correctIndex":1,"explanation":"\"We can staff the plan\" is a claim about the future. \"Two of the eleven roles have no viable pipeline, and here they are\" is a consequence you can defend."},{"id":"q4","prompt":"Which item on the partner-load method does the module call the highest-value and least practiced?","options":["What they are measured on","What their year contains — cycles, closes, freezes, filings, renewals","Their real AI exposure","Whose unowned asks they are absorbing"],"correctIndex":1,"explanation":"Asking finance for something material in the last week of a quarter is not a scheduling error, it is a credibility error — invisible to you and entirely visible to them. Four dates, one afternoon."},{"id":"q5","prompt":"What is the one thing you cannot establish without asking?","options":["Which vendors they have already evaluated","What their leadership actually prioritizes","What they think the People function is for","How much budget they control"],"correctIndex":2,"explanation":"The answer is usually narrower than you would like, and it is the actual starting position for every artifact in the rest of the course — working from the version you wish were true is how a good proposal lands in a room that already filed you under something else."},{"id":"q6","prompt":"Why does the module say being wrong about the load behind a question is useful?","options":["Because it lowers the stakes of the conversation","Because they correct you, and the correction is the most valuable thing you will learn about them","Because it demonstrates humility, which builds trust over time","Because most questions have several valid interpretations"],"correctIndex":1,"explanation":"Which is why the move is one sentence spoken out loud rather than a silent inference — a private guess cannot be corrected."},{"id":"q7","prompt":"What is the failure mode of the question-behind-the-question technique?","options":["Being seen as slow to respond to simple requests","Reading depth into every question, which is exhausting to receive and reads as evasion when someone is asking you something simple","Misidentifying the load and acting on the wrong interpretation","Making partner functions defensive about their motives"],"correctIndex":1,"explanation":"Sometimes the number is just the number. The check is one sentence, and if the answer is \"no, I just need the number,\" you say \"on it.\""},{"id":"q8","prompt":"Why does this module carry no anchor statistic?","options":["Because the material is conceptual rather than empirical","Because no credible study establishes the claim, and reaching for an adjacent number would imply something it doesn''t say","Because partner-function research is proprietary to consulting firms","Because the relevant evidence is too dated to use"],"correctIndex":1,"explanation":"The module argues from mechanism and asks the learner to run the test on themselves — which, in a course about making people check things, is the correct trade."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m4-calibration-prompt-before-you-start-10', 'ai401-m4', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One claim. Commit before you read.*
+
+> **"Everyone on my team could name who owns the handoff between us and the team we work with
+> most."**
+
+**True of us, or not true of us?** One sentence. And name the handoff you have in mind, because
+the rest of this module is about it.
+
+Then: **if you asked three people on your team and three on theirs, how many of the six would give
+the same answer?** A number out of six. You are going to go and ask.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m4-module-brief-20', 'ai401-m4', 20, 'prose', 'stable', '## Module brief
+
+Something specific happened to job boundaries in the last two years and most organizations have
+diagnosed it wrong.
+
+The visible symptom is turf. Two teams both think they own a piece of work, or neither does. People
+are doing things that used to belong to someone else, sometimes well and sometimes not. Specialists
+are being routed around. The obvious reading is that AI made people ambitious, or careless, or that
+the org design needs a refresh.
+
+**The actual mechanism is more interesting and it changes what you do about it.** The turf was
+always undefined. What changed is that the people who were absorbing the undefinedness — clarifying
+requirements, chasing the data, translating between two systems, quietly deciding — got busy doing
+other things, or stopped being needed, or left and were not replaced.
+
+> **AI did not create your turf problem. It removed the people who were papering over it.**
+
+Which means the work in front of you is not conflict management. **It is design work you can do,
+mostly with a document**, and this module produces the document.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m4-learning-objectives-30', 'ai401-m4', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. State what has actually happened to role boundaries, with evidence and its sample.
+2. Explain why large teams hide bad interfaces and what that predicts as teams get leaner.
+3. Decide where you want redundancy and where you want a single owner — rather than letting the
+   fastest mover settle it.
+4. Write an ownership contract at the workflow rather than the reporting line.
+5. Judge when to send a boundary claim and when the right answer is *not yet*.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m4-lesson-1-what-actually-happened-to-job-b-40', 'ai401-m4', 40, 'prose', 'volatile', '## Lesson 1 · What actually happened to job boundaries [V]
+
+Atlassian''s Teamwork Lab surveyed 1,000 US knowledge workers between 27 May and 9 June 2026. Four
+findings, and the fourth is the one that matters.
+
+**92% say their responsibilities have grown beyond their original job description in the last
+year.** Nearly everyone. Whatever this is, it is not happening to a subset.
+
+**The heaviest AI users are nearly twice as likely to take on work from other teams.**
+
+**They are twice as likely to use AI to handle specialized tasks without looping in the
+specialist.**
+
+**And non-AI users are seven times more likely to say their role has not changed at all** — which
+makes AI adoption the single strongest signal in the data for whether someone''s job is moving.
+
+Carry the sample honestly: 1,000 US knowledge workers, self-reported, one point in time, and
+"heaviest AI users" is a self-described category. It establishes a strong association between
+AI use and scope expansion. It does not establish that the AI caused the expansion rather than
+both being caused by the kind of person who does this — and the module''s argument does not need
+causation, only the pattern.
+
+**Read the second and third findings together, because separately they are interesting and together
+they are the whole module.** People are taking on other teams'' work *and* handling specialist work
+without the specialist. Those are the same behavior seen from two sides: **a boundary that used to
+require a conversation now doesn''t.** Not because anyone renegotiated it — because the cost of
+crossing it fell to roughly zero.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m4-try-50', 'ai401-m4', 50, 'try_this', 'stable', '### Try this — 3 minutes
+Think of the last piece of work you did that would have required someone else''s involvement two
+years ago and didn''t this time. Now answer honestly: **did the person who used to be involved
+find out?** If not, ask yourself what they would have contributed — and whether the answer is
+"nothing, it was a formality" or "the thing I didn''t know I needed."', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m4-lesson-2-large-teams-hide-bad-interfaces-60', 'ai401-m4', 60, 'prose', 'stable', '## Lesson 2 · Large teams hide bad interfaces
+
+Here is the structural claim, and it explains why this arrived now rather than five years ago.
+
+**Interfaces between teams have always been badly defined.** Almost nowhere is it written down
+exactly where recruiting''s responsibility for a hiring manager''s decision ends and the manager''s
+begins, or where People operations'' ownership of a data field stops and analytics'' starts. The
+documents that purport to define it are org charts and RACI matrices, and both describe reporting
+and consultation rather than the actual seam where work passes between hands.
+
+**Organizations coped by staffing the seam.** Not deliberately — nobody has a headcount line called
+"absorbs ambiguity." But when there are enough people, somebody always ends up clarifying the
+requirement, chasing the missing field, translating between two systems, noticing that both teams
+assumed the other one was doing it. That absorption is invisible, unrewarded, and it is what made
+the badly-defined interface work.
+
+**So a large team is not just a team with more capacity. It is a team with more slack for
+absorbing bad design** — and the bad design is therefore never surfaced, never fixed, and never
+even known about.
+
+Two things then happen at once, and they compound.
+
+**The absorbers get busy or get leaner.** Module 5 is entirely about this, so take it here as a
+premise: the people with slack have less of it.
+
+**And the cost of crossing the boundary collapses.** Someone who would have had to ask the
+specialist can now produce a passable version themselves in twenty minutes. Sometimes that is
+excellent — the specialist was a bottleneck for work that did not need them. Sometimes it is a
+disaster with a six-month delay on it. **From the outside, on the day it happens, the two look
+identical**, and that is precisely the problem this module exists to address.
+
+The claim, stated so you can disagree with it:
+
+> **The turf conflict in your organization is not new. It is a pre-existing design flaw becoming
+> visible because the people who were absorbing it stopped.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m4-lesson-3-redundancy-is-sometimes-the-rig-70', 'ai401-m4', 70, 'prose', 'stable', '## Lesson 3 · Redundancy is sometimes the right answer
+
+The instinct once you accept the above is to define every boundary and assign every piece of work
+a single owner. Resist it, because it is wrong about half the time and the half is predictable.
+
+**Single ownership buys you accountability and consistency.** One name, one standard, one place the
+decision gets made. You want it where the cost of an inconsistent answer is high, where the work is
+irreversible, or where somebody has to be accountable to an outside party.
+
+**Redundancy buys you resilience and speed.** Two or more people can do it, so the work does not
+stop when one is unavailable, and nobody waits in a queue. You want it where the work is
+high-volume and low-stakes, where the queue itself is the biggest cost, or where the second person
+catches the first person''s errors.
+
+Most organizations have this backwards in a specific way: **redundancy on the judgment calls
+(because everyone feels entitled to have a view) and a single owner on the throughput (because
+that person "owns the system").** The reversal is worth checking for in your own unit.
+
+**The design question, then, is not "who owns this?" It is: where do we want redundancy, where do
+we want a single owner, and have we decided — or has it been settled by whoever moved fastest?**
+
+That last clause is the module''s real subject. In the absence of a decision, boundaries get
+resolved by speed, and AI has made some people much faster than others. **An interface settled by
+who got there first is not a design. It is an outcome.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m4-lesson-4-writing-the-contract-80', 'ai401-m4', 80, 'prose', 'stable', '## Lesson 4 · Writing the contract
+
+The artifact. It is short — a good one fits on a page — and it is written **at the workflow, not at
+the reporting line**, which is the single thing that distinguishes it from a RACI nobody reads.
+
+A workflow-level ownership contract names five things.
+
+**1 · The workflow, in one line, from trigger to output.** Not the function. Not the team. The
+actual sequence: *a hiring manager requests a level exception → someone assesses it against the
+architecture → someone decides → someone communicates it.*
+
+**2 · The seam.** The specific point where the work passes between you. Not "we collaborate
+throughout" — the moment, and what is in hand when it passes.
+
+**3 · Who owns each side, by name**, and where you have deliberately chosen redundancy, saying so
+explicitly, so it reads as a decision rather than an omission.
+
+**4 · What each side may decide alone**, and what requires the other. This is where the contract
+earns its existence, and where the AI-specific question lives: **what may be produced with AI
+without telling the other side?** A draft, probably. An assessment the other side will rely on,
+probably not. Write your answer down, because the current answer in most organizations is
+"whatever each person privately decided," and that is Module 1''s cultural debt in one sentence.
+
+**5 · What happens when it is contested.** Module 2''s Step 7, at the seam. When you disagree about
+who owns something, who decides? If the honest answer is that it escalates to two managers who
+will have a conversation, write that.
+
+**Then the part most people skip: send it, or decide not to.**
+
+A boundary claim to a peer is a political act. It says *I think this is mine, or ours, and I am
+putting it in writing.* Sending it at the wrong moment — mid-crisis, during their reorganization,
+a week after you took something else from them — can cost you more than the ambiguity was costing.
+
+> **"Not yet, and here is what has to be true first" is frequently the right answer, and this
+> course grades it identically to sending.**
+
+What it does not grade identically is *not deciding.* Holding a contract you have written, for a
+stated reason, with a condition attached, is a position. Never writing one because it might be
+awkward is the thing this module exists to prevent.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m4-exercise-embed-85', 'ai401-m4', 85, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m4-key-takeaways-90', 'ai401-m4', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **AI did not create your turf problem. It removed the people who were papering over it.** The
+  work is design, not conflict management.
+- **92% say their responsibilities grew beyond their job description in the last year.** The
+  heaviest AI users are ~2x as likely to take on other teams'' work and ~2x as likely to handle
+  specialist tasks without the specialist; non-users are 7x more likely to report no change.
+  n=1,000 US knowledge workers, self-reported, May–June 2026.
+- **Those two findings are one behavior from two sides:** a boundary that used to require a
+  conversation now doesn''t — not because anyone renegotiated, but because crossing it became free.
+- **Large teams hide bad interfaces.** Slack gets spent absorbing ambiguity nobody designed away,
+  so the bad design is never surfaced. Lean teams surface it immediately.
+- **From the outside, on the day it happens, routing around a specialist correctly and routing
+  around one disastrously look identical.**
+- **Decide where you want redundancy and where you want a single owner** — and check for the common
+  reversal: redundancy on judgment, single ownership on throughput.
+- **An interface settled by who got there first is not a design. It is an outcome.**
+- **Write the contract at the workflow, not the reporting line**, and include what may be produced
+  with AI without telling the other side.
+- **"Not yet, and here''s what has to be true first" is a position.** Never writing one is not.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m4-activity-link-95', 'ai401-m4', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 The ownership contract", "blurb": "One page at the workflow rather than the reporting line: the seam, who owns each side, what each may decide alone including what AI may produce unannounced \u2014 then the send decision, where ''not yet, and here''s what has to be true first'' scores the same as sending.", "estMinutes": "30"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m4-take-a-position-100', 'ai401-m4', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"AI did not create your turf problem. It removed the people who were absorbing
+it."*
+
+The strongest counter-argument is that **this is too flattering to the past.** It implies there was
+a functioning system that AI disturbed, when the more likely truth is that a lot of that absorption
+was never benign: it was invisible, gendered, unrewarded work that fell to whoever was least able
+to refuse it, and it made bad design survivable at the direct expense of specific people''s careers.
+On that view, the interfaces becoming visible is not damage — **it is a decade of hidden labor
+finally showing up in the light**, and the right response is to celebrate the surfacing rather than
+mourn the absorbers.
+
+The version that cuts hardest at the module: **if absorption was the problem all along, then this
+module''s careful ownership contracts are just a slower way of doing what the fast movers are
+already doing** — and the organizations that let boundaries get settled by speed may end up
+better-designed than the ones that convened working groups about it.
+
+Your position has to say who was doing the absorbing in your organization, whether you would want
+it back, and what that implies about the pace of the work you are about to do.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m4-sources-and-attribution-110', 'ai401-m4', 110, 'prose', 'stable', '## Sources and attribution
+
+- **Atlassian Teamwork Lab** `[V]` — 92% reporting responsibilities grown beyond their original job
+  description in the last year; heaviest AI users nearly 2x as likely to take on work from other
+  teams and 2x as likely to handle specialist tasks without the specialist; non-AI users 7x more
+  likely to report no change. n=1,000 US knowledge workers, fielded 27 May – 9 June 2026,
+  self-reported. The sample and its limits are stated in the lesson.
+- **A claim was dropped rather than left silently out.** An earlier draft carried "nearly half of
+  occupation-specific AI use involves tasks from other professions," attributed to the Anthropic
+  Economic Index. It could not be confirmed in that reporting and is not used. The Atlassian
+  figures cover the same ground with a stated sample.
+- The interface argument, the redundancy/single-owner reversal, the five-part contract, and the
+  send/don''t-send discipline are original to this course.
+- Applies Module 2''s Step 7 at a seam, and uses Module 3''s partner research as its counterpart
+  input. Sets up Module 5, which is about what happens to the absorbers.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m4-activity-applied-activity-the-ownership-contract-10', 'ai401-m4-activity', 10, 'prose', 'stable', '## Applied activity — "The ownership contract"
+
+**Time:** 30 minutes · **Submit:** the contract, the send decision, and the covering note ·
+**Graded against the rubric below.** Score doesn''t matter. Doing the work is where the learning
+lands.
+
+**Step 1 — Go and ask (8 min).** Your calibration answer was how many of six people would name the
+same owner for your handoff. **Ask them.** Three on your side, three on theirs, one question:
+*"Who owns X?"* Record the answers as given, including the ones that are questions back at you.
+
+If you cannot ask six, ask who you can and say so. **If the answers are so various that the
+question does not parse, that is the finding** and it earns full credit.
+
+**Step 2 — Write the contract (14 min).** One page, five parts, at the workflow:
+
+1. The workflow from trigger to output, in one line.
+2. The seam — the moment work passes, and what is in hand when it does.
+3. Who owns each side, by name, with any deliberate redundancy stated as a choice.
+4. What each side may decide alone — **including what may be produced with AI without telling the
+   other side.**
+5. What happens when it is contested, with a name.
+
+**Step 3 — The send decision (4 min).** Address it to the peer on the other side of the seam. Then
+decide: **send, or not yet.** Either is a full-credit answer. If not yet, name the condition — the
+specific thing that has to be true before you send — and the date you will check it. Then predict
+their response in one or two sentences: **which of the five parts do they push back on first?**
+
+**Step 4 — The covering note (4 min).** 200–300 words. Your calibration number against what the six
+people actually said. Whether the redundancy/single-owner pattern in your unit is reversed. And
+your position on the module''s claim, engaging the counter-argument about who was doing the
+absorbing.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m4-micro-core', 'ai401-m4-micro', 10, 'prose', 'stable', '## Module 4 in two minutes
+
+**AI did not create your turf problem. It removed the people who were papering over it.**
+
+The evidence: 92% of knowledge workers say their responsibilities grew beyond their original job description in the last year. The heaviest AI users are nearly twice as likely to take on work from other teams, and twice as likely to handle specialist tasks without looping in the specialist. Non-AI users are seven times more likely to say their role hasn''t changed. n=1,000 US knowledge workers, self-reported, May–June 2026.
+
+Read the middle two together and they are **one behavior seen from two sides: a boundary that used to require a conversation now doesn''t.** Nobody renegotiated it. The cost of crossing it fell to roughly zero.
+
+**And the interfaces were always badly defined.** Organizations coped by staffing the seam — not deliberately, but when there are enough people, somebody always ends up clarifying the requirement, chasing the missing field, noticing that both teams assumed the other one had it. That absorption is invisible and unrewarded, and it is what made bad design survivable. **A large team is a team with more capacity to absorb bad design, which is why the design flaw is never surfaced.** Lean teams surface it immediately.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m4-micro-rule', 'ai401-m4-micro', 20, 'callout', 'stable', '### The rule to carry
+
+**An interface settled by who got there first is not a design. It is an outcome.**
+
+So decide it: where do you want redundancy — high volume, low stakes, queueing is the real cost, a second pair of eyes catches errors — and where do you want a single owner — inconsistent answers are expensive, the work is irreversible, someone must be accountable to an outside party. Check for the common reversal, which is redundancy on the judgment calls and a single owner on the throughput.
+
+Then write it **at the workflow, not the reporting line**: the sequence from trigger to output, the seam where work passes and what is in hand when it does, who owns each side by name, what each side may decide alone — **including what may be produced with AI without telling the other side** — and who decides when it is contested.
+
+And before claiming a boundary, ask what you would do with it if you won. Sometimes the honest answer is that you would run it worse than the person already running it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m4-micro-close', 'ai401-m4-micro', 30, 'prose', 'stable', '**The full module adds** the send/don''t-send discipline — *"not yet, and here''s what has to be true first"* scores the same as sending, while never writing one does not — the exercise where the right move is to concede a boundary outright, and the rehearsal with a peer who believes they own it, roughly half of which should end with you correctly changing your mind. Plus the counter-argument worth sitting with: that the absorption this module mourns was often invisible, unrewarded work falling to whoever was least able to refuse it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m4-choice', 'ai401-m4', 'choice', '{"reviewedAt":"2026-08-12","title":"Four boundary claims","intro":"*Five minutes. Commit before you look.*\n\nFour People leaders are about to write an ownership contract for a seam that has become contested since AI arrived. Three of them should write it and send it.\n\n**In one of these, the right answer is to concede the boundary** — not defer it, not negotiate it. Hand it over. Find that one.","artifacts":[{"label":"Situation A","body":"**People analytics vs. Finance, on workforce forecasting.** Finance has started producing its own attrition projections using a model one of their analysts built, and presenting them to the exec team. Yours are more careful — you control for tenure and internal moves, and you state confidence intervals. Theirs are simpler and arrive two weeks earlier. Twice now the exec team has quoted their number back to you. Finance owns the forecast that goes in the plan; you own the one that goes in the People review."},{"label":"Situation B","body":"**Talent acquisition vs. hiring managers, on candidate assessment summaries.** Managers have started writing their own AI-assisted summaries of candidate interviews rather than waiting for the recruiter''s debrief pack. The summaries are fluent and arrive same-day. Two of them have contained characterizations of candidates that you would not have put in writing, and one is now in a file that could be requested."},{"label":"Situation C","body":"**People operations vs. IT, on the employee data dictionary.** Both teams now maintain a definition of what each HRIS field means, because both have been building AI tooling that needs one. The two definitions have diverged on four fields. Nobody has noticed downstream yet. IT''s version is better maintained; yours is better understood by the people who use the data."},{"label":"Situation D","body":"**Learning & development vs. an engineering director, on AI enablement for her team.** She has built her own internal enablement material — prompts, worked examples, a weekly practice slot — and it is being used far more than the central L&D offering. She did not ask, and she did not tell you. Her material contains nothing you would object to. Your team''s charter says enablement is yours."}],"options":[{"id":"a","label":"Situation A"},{"id":"b","label":"Situation B"},{"id":"c","label":"Situation C"},{"id":"d","label":"Situation D"}],"key":"d","reasoning":"**D is the concession, and it should be a fast and public one.** Run the module''s own design question rather than the ownership instinct: where do you want redundancy, and where do you want a single owner? Enablement material for a specific engineering team is high-volume, low-stakes, context-dependent work where the queue is the biggest cost — **the textbook case for redundancy.** She is closer to the work, her material is being used, and there is nothing in it you object to. The only argument on your side is a charter, and *\"my charter says so\"* is the weakest claim available to a function with no authority.\n\nWhat concession actually looks like here is not walking away. It is saying so out loud, quickly: *her material is the standard for her group, here is what I''d want to borrow from it, and here is the one thing central L&D will still own* — probably anything that touches evaluation of people, which is Module 9''s line. **Conceding a boundary while naming the narrow piece you keep is how the narrow piece survives.**\n\nAnd notice what you gain. Module 7 is about practice trapped in one person''s head; she has just codified something that works, unprompted. Fighting her for the territory is how you lose the artifact.\n\n**A is a real claim worth making, and it is not about the forecast.** You will not win \"our model is better\" — theirs is faster and the exec team has already voted with its behavior. The contract worth writing is about the *seam*: which number is the number, stated once, in advance, with what each is for. Two attrition projections in one organization is not a turf problem, it is a **decision-quality** problem, and it is the one framing finance will engage with.\n\n**B must be written and sent, and quickly.** This is not a redundancy question at all. There is a written characterization of a candidate in a file that could be requested, produced outside any review anyone designed. The contract''s fourth part — what may be produced with AI without telling the other side — exists for exactly this, and the answer here is a hard one. Note what makes it urgent: not that the summaries are bad, but that **the failure is already in a record.**\n\n**C is the quietest and the most expensive to leave.** Two diverging data dictionaries with nothing broken downstream *yet* is the profile of a problem that surfaces as four contradictory numbers in one board deck, eighteen months from now, with no way to reconstruct which was right. Single owner, obviously — and the module''s rule says pick the better-maintained one and fix the comprehension gap, rather than picking yours because it is yours.\n\nThe transferable test: **before claiming a boundary, ask what you would do with it if you won.** In D the honest answer is that you would run it worse and slower than the person already running it."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m4-rubric', 'ai401-m4', 'rubric', '{"promptVersion":"ai401-m4-ownership-contract-v1","moduleId":"ai401-m4","minWords":250,"maxWords":400,"submitLabel":"Your contract, the send decision, and the covering note","intro":"Paste what the six people actually said when you asked who owns the handoff, the one-page ownership contract, your send-or-not-yet decision with its condition and your predicted pushback, and the covering note. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for AI 401 · The Translator — the top rung of an AI-fluency ladder for People and HR professionals who have completed AI 101, AI 201, and one 301 role track. This is the Module 4 applied activity, ''The ownership contract''.\n\nThe module''s argument: AI did not create turf conflict, it removed the people who were absorbing badly-defined interfaces. Large teams hide bad interfaces because slack gets spent absorbing ambiguity nobody designed away. The evidence is Atlassian Teamwork Lab, n=1,000 US knowledge workers, May–June 2026: 92% report responsibilities grown beyond their job description; heaviest AI users ~2x as likely to take on other teams'' work and ~2x as likely to handle specialist tasks without the specialist; non-users 7x more likely to report no change.\n\nThe submission has four parts. (1) The result of asking three people on their side and three on the counterpart side who owns a specific handoff, recorded as given. (2) A one-page ownership contract with five parts: the workflow from trigger to output in one line; the seam — the specific moment work passes and what is in hand when it does; who owns each side by name, with any redundancy stated as a deliberate choice; what each side may decide alone, INCLUDING what may be produced with AI without telling the other side; and what happens when it is contested, with a name. (3) A send-or-not-yet decision addressed to the peer on the other side of the seam, with a predicted pushback naming which of the five parts they contest first. (4) A covering note.\n\nCRITICAL — ''not yet'' is graded identically to sending when the learner names the specific condition that has to be true first and a date to check it. Do not treat deferral as weakness. What is NOT equivalent is failing to decide, or avoiding the contract because it would be awkward. Similarly, if the six answers were so various that the question did not parse, that is the intended finding and earns full credit.\n\nThe module also teaches that conceding a boundary can be correct: before claiming one, ask what you would do with it if you won. A learner who concludes the right move is to concede, and says what narrow piece they keep, should score at the top — not be marked down for lack of ambition.\n\nScore the delta, never the score: grade the account of the gap between the predicted number of matching answers out of six and what people actually said, never the accuracy of either.\n\nThis is a leadership course whose central risk is drift into cliché. Reward named people, an actual seam, and a contract specific enough that a stranger could apply it. Mark down RACI-style abstraction, ''we will collaborate closely'', and anything equally true at any organization.","opening":[{"key":"sameOwnerOfSix","label":"Predicted — of six people (three on each side), how many would name the same owner for your handoff","hint":"Before you ask them. Answer for the specific handoff you named in the opening claim.","placeholder":"e.g. 4","min":0,"max":6}],"calibration":[{"key":"sameOwnerOfSixActual","label":"Actual — how many gave the same answer when you asked","hint":"As given, not as interpreted. Count answers that were questions back at you as non-matching.","placeholder":"e.g. 2","min":0,"max":6,"actualFor":"sameOwnerOfSix"}],"dimensions":[{"name":"They asked, and recorded what was said","criteria":"Evidence of actually asking six people — or as many as were reachable, with that stated — and the answers recorded as given rather than summarized into agreement. Answers that came back as questions, hedges, or ''I assumed you did'' are the valuable data and should be quoted. A learner who reports that the question did not parse, and says what that tells them, earns full credit. An unevidenced revised number scores low even if plausible."},{"name":"The workflow and the seam are specific","criteria":"A real sequence from trigger to output in one line, and a named moment where work passes hands with a statement of what is in hand when it does. ''We collaborate throughout'' is a failure of this dimension. The test: could someone who does not work there tell, from the contract alone, which side of the seam a given piece of work is on? Credit contracts written about a seam that is genuinely contested over one chosen because it is already tidy."},{"name":"Redundancy or single ownership is decided, not defaulted","criteria":"An explicit choice with a reason, tested against the module''s criteria — redundancy where volume is high, stakes are low, queueing is the biggest cost, or a second reader catches errors; single ownership where inconsistency is expensive, work is irreversible, or someone must answer to an outside party. Where the learner chose redundancy, it must read as a decision rather than an omission. Credit an explicit check for the common reversal (redundancy on judgment, single owner on throughput). Credit at the top a learner who concludes the right move is to concede the boundary and names the narrow piece they keep."},{"name":"The AI clause exists and takes a position","criteria":"Part four must answer what may be produced with AI without telling the other side, and must draw a line rather than gesture at judgment. A usable answer distinguishes between output kinds — a draft the other side will rework versus an assessment the other side will rely on — or between reversible and irreversible. ''Use good judgment'' and ''follow company policy'' score at the bottom, because the module''s point is that the current answer is whatever each person privately decided."},{"name":"The send decision is a decision","criteria":"Send or not yet, addressed to a named peer, with reasoning. ''Not yet'' scores identically to sending when it names the specific condition that must be true first and a date to check it; a vague intention to raise it sometime does not. Plus a specific prediction of which of the five parts the counterpart contests first, with why — ''they''d want more detail'' scores low against ''they''d contest part three because it names them as the single owner of something their team is already too thin to cover''."},{"name":"The delta and the position","criteria":"The predicted count of matching answers against what people actually said, with an account of what moved — grade the account, never the accuracy. Plus whether the redundancy/single-owner pattern in their unit is reversed. Plus a committed position on the module''s claim engaging its real counter-argument: that the absorption being mourned was often invisible, unrewarded work falling to whoever was least able to refuse it, that its surfacing may be overdue rather than damaging, and that careful ownership contracts may just be a slower version of what the fast movers are already doing. The position must say who was doing the absorbing in their organization and whether they would want it back."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m4-knowledge_check', 'ai401-m4', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"What does the module identify as the actual mechanism behind rising turf conflict?","options":["AI made individual contributors more ambitious about scope","Org designs have not been refreshed to account for new AI-enabled roles","The interfaces were always badly defined, and the people absorbing that ambiguity stopped","Specialists are being deliberately excluded to speed up delivery"],"correctIndex":2,"explanation":"Which changes the response: this is design work you can mostly do with a document, not conflict management."},{"id":"q2","prompt":"In the Atlassian data, why are the two findings about heavy AI users read together rather than separately?","options":["Because both figures come from the same subgroup and share sampling error","Because they are the same behavior seen from two sides — a boundary that used to require a conversation now doesn''t","Because taking on other teams'' work is a precondition for handling specialist tasks","Because separately neither reaches statistical significance"],"correctIndex":1,"explanation":"Not because anyone renegotiated the boundary — because the cost of crossing it fell to roughly zero."},{"id":"q3","prompt":"What does \"large teams hide bad interfaces\" mean?","options":["Larger teams have more layers of management obscuring accountability","Big teams generate more handoffs, so problems are harder to trace","Slack gets spent absorbing ambiguity nobody designed away, so the bad design is never surfaced or fixed","Larger organizations invest less in process documentation"],"correctIndex":2,"explanation":"A large team is not just a team with more capacity — it is a team with more capacity to absorb bad design, which is why the flaw is never even known about."},{"id":"q4","prompt":"What does the module say about routing around a specialist?","options":["It is nearly always a mistake and should be prevented by policy","It is a reasonable efficiency when the specialist agrees in advance","Sometimes it is excellent and sometimes it is a disaster with a six-month delay — and on the day it happens the two look identical","It is acceptable for drafts but not for finished work"],"correctIndex":2,"explanation":"That indistinguishability on the day is exactly why the boundary needs deciding in advance rather than judging case by case."},{"id":"q5","prompt":"When does the module say you want redundancy rather than a single owner?","options":["Wherever two or more people are already capable of the work","Where the work is high-volume and low-stakes, where queueing is the biggest cost, or where a second person catches the first''s errors","Wherever the work crosses a functional boundary","Where the team is too small to support specialization"],"correctIndex":1,"explanation":"And the common reversal is worth checking for: redundancy on the judgment calls, single ownership on the throughput, which is backwards."},{"id":"q6","prompt":"What distinguishes an ownership contract from a RACI matrix?","options":["It is shorter and easier to maintain","It is agreed bilaterally rather than imposed by management","It is written at the workflow — trigger to output, with the seam named — rather than at the reporting line","It includes escalation paths, which RACI matrices omit"],"correctIndex":2,"explanation":"Org charts and RACI describe reporting and consultation. The contract describes the actual moment work passes between hands, and what is in hand when it does."},{"id":"q7","prompt":"Which AI-specific question does the contract have to answer?","options":["Which tools each side is approved to use","What may be produced with AI without telling the other side","Whether AI-assisted work requires additional review","Who pays for the licenses at the seam"],"correctIndex":1,"explanation":"The current answer in most organizations is \"whatever each person privately decided,\" which is cultural debt in one sentence."},{"id":"q8","prompt":"How does the course grade a decision not to send the contract?","options":["Lower than sending, because the artifact has no effect until it is delivered","Identically to sending, when the condition that has to be true first is named","Higher than sending, because timing judgment is the harder skill","It is not graded; only the contract itself is assessed"],"correctIndex":1,"explanation":"Timing is most of the skill in a boundary claim. What is not graded identically is never writing one — holding a contract for a stated reason is a position; avoiding the awkwardness is not."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m5-calibration-prompt-before-you-start-10', 'ai401-m5', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One claim. Commit before you read.*
+
+> **"If one specific person on my team dropped 30% of their capacity, I could name what would stop
+> happening."**
+
+**True of us, or not true of us?** Name the person in your head, and write the first thing you
+think would stop.
+
+Then: **how many tasks do you think you would find that are being done by somebody and are in
+nobody''s job description?** A count. You are going to go and inventory them, and almost everyone
+guesses low.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m5-module-brief-20', 'ai401-m5', 20, 'prose', 'stable', '## Module brief
+
+Module 4 said the interfaces were always badly defined and the people absorbing that ambiguity
+stopped. This module is about those people, and about the specific thing that happens to their work
+when a team gets leaner.
+
+There is a decision arriving in most organizations and it is being framed wrongly. The question on
+the table is *how many people do we need now that AI does some of this.* It is the wrong question,
+and answering it well produces a team that is correctly sized and quietly missing four things
+nobody wrote down.
+
+**The right question is about coverage rather than headcount**, and the practical move underneath
+it is the most useful thing in this course:
+
+> **Inventory the absorbed work before you shrink the team. After you shrink it, the evidence is
+> gone** — because the person who was doing it is no longer there to tell you they were.
+
+Almost nobody does this. It takes an afternoon and it is the difference between a lean team and a
+team with four holes in it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m5-learning-objectives-30', 'ai401-m5', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Explain why one span-of-control ratio applied everywhere is an error, and name the factors that
+   should move it.
+2. Reframe a headcount question as a coverage question, including the two cases where AI argues for
+   a *larger* team.
+3. Describe what happens to orphaned work on a lean team versus a large one.
+4. Run an invisible work inventory for a team you know.
+5. Say why middle managers are the load-bearing failure point in this whole picture.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m5-lesson-1-span-of-control-is-a-variable-n-40', 'ai401-m5', 40, 'prose', 'stable', '## Lesson 1 · Span of control is a variable, not a ratio
+
+Most organizations run one number. Seven direct reports, or eight, or whatever the last
+restructuring settled on, applied across functions with entirely different work.
+
+The established research is unambiguous that the right number moves, and it moves on properties of
+the work rather than properties of the manager.
+
+**Spans widen** when work is modular and separable, quality standards are clear, metrics are
+reliable, tooling is integrated, and people have the judgment and experience to operate
+autonomously. A manager of fifteen experienced people doing well-defined, well-instrumented work is
+not overloaded.
+
+**Spans narrow** when work is novel, cross-functional, ambiguous, high-risk, politically sensitive,
+or when talent is still developing. A manager of fifteen newly-formed specialists working on
+ambiguous problems is not managing anybody; they are attending.
+
+**The error is one ratio everywhere**, and it is an expensive error in both directions — you get
+neglected teams where the work is hard and over-supervised teams where it isn''t.
+
+Now add AI, and notice that it pushes on both sides of that list at once. It makes work **more**
+modular and better instrumented, which argues for wider spans. It also makes the remaining human
+work **more** novel, more ambiguous, and more cross-functional — because the routine, separable
+part is exactly what got absorbed — which argues for narrower ones.
+
+**Both are happening in the same team at the same time**, which is why "AI means we need fewer
+managers" and "AI means we need more managers" are both defensible and both useless. The question
+is which kind of work is left, and that is a question you have to answer per team.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m5-lesson-2-coverage-not-headcount-50', 'ai401-m5', 50, 'prose', 'stable', '## Lesson 2 · Coverage, not headcount
+
+The reframe, and it is one sentence:
+
+> **Stop asking how many people do I need. Start asking which functions genuinely require a human,
+> and which can AI absorb.**
+
+That sounds like a rewording and it changes the output completely. A headcount question produces a
+number. A coverage question produces a **map** — a list of things the unit is responsible for, each
+marked with whether a person has to do it, whether a person has to check it, or whether it can run
+without either. The number falls out of the map. It does not come first, and a number arrived at
+without a map is a guess wearing a spreadsheet.
+
+Two complications, both of which cut against the direction everyone assumes.
+
+**AI can argue for a *larger* team, not a smaller one.** Where individual leverage rises faster
+than coordination cost, adding a person now returns more than it did before — each one produces
+more, and the work they produce still fits together. That is a real case and it is the case
+Module 6 tells you how to check: if your absorption limit is not the binding constraint, growth is
+back on the table in a way it was not two years ago.
+
+**And a four-person pod has no margin for a weak hire.** On a team of twelve, one person
+underperforming is absorbed — often by exactly the absorbers this module is about. On a team of
+four it is a quarter of the capacity and there is nowhere for it to go. **Leanness raises the
+consequence of every individual hiring decision**, which is a talent-strategy implication of an AI
+decision, and it will not appear in the business case.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m5-lesson-3-the-orphaned-task-answer-60', 'ai401-m5', 60, 'prose', 'stable', '## Lesson 3 · The orphaned-task answer
+
+Here is the mechanism, and it is the reason this module exists.
+
+Every organization has work that belongs to nobody. Not because of bad management — because no job
+description survives contact with a real week. Somebody notices the report is wrong before it goes
+out. Somebody tells the new starter which of the two conflicting policies is actually enforced.
+Somebody remembers to check whether the vendor renewal is coming. Somebody sits with the person who
+has just had bad news.
+
+**On a large team, homeless work gets absorbed by whoever has slack.** It is invisible, it is
+unrewarded, and it is why the machine runs.
+
+**On a lean team there is no slack.** So the work goes one of two ways, and only one of them is
+visible:
+
+1. **It becomes an explicit ownership decision.** Someone notices it is not being done, and it gets
+   assigned, automated, or consciously dropped. This is the good outcome and it requires somebody to
+   notice.
+2. **It silently stops happening.** Nobody assigned it, so nobody misses it. There is no ticket, no
+   metric, no complaint — until the consequence arrives somewhere else entirely, months later, and
+   gets attributed to something else.
+
+Route two is the default, because **route one requires a person to notice the absence of something
+that was never written down.**
+
+**And this is why the module has no statistic.** You would reasonably expect a figure here — the
+share of work in a typical team that sits outside any job description, the cost when it stops. There
+isn''t one, and the reason is the phenomenon itself: **work that is in nobody''s job description is
+also in nobody''s dataset.** It is not measured because measuring it would require first knowing it
+exists, which is the exact problem. A course that demanded evidence for everything would have to
+leave this module out, and leaving it out would mean teaching leanness without teaching its main
+failure mode.
+
+So the argument here rests on mechanism, and on the inventory you are about to run. If your own
+inventory comes back empty, this module is wrong about your team, and that is a legitimate finding.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m5-try-70', 'ai401-m5', 70, 'try_this', 'stable', '### Try this — 3 minutes
+Think of the last person who left your team or an adjacent one. Name one thing that stopped
+happening after they left that nobody predicted. Now ask: **was it ever written down anywhere as
+their responsibility?** The answer is almost always no, and the fact that you can name it at all
+is because leaving is loud. Capacity dropping 30% is quiet, and produces the same effect.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m5-lesson-4-why-this-lands-on-middle-manage-80', 'ai401-m5', 80, 'prose', 'stable', '## Lesson 4 · Why this lands on middle managers
+
+One more structural point, because it determines where you should look.
+
+The absorbers are disproportionately middle managers, and this is not a coincidence. Their job is
+partly defined as **handling whatever is not handled** — they sit at the point where strategy
+becomes tasks and where the gaps between defined roles become visible. Much of what they do all
+week is precisely the work that appears in no job description: the clarification, the routing, the
+translation, the noticing.
+
+Three consequences.
+
+**They are the layer where invisible work concentrates**, so an inventory that skips them will find
+very little and conclude the problem does not exist.
+
+**They are also the layer most often targeted for flattening**, because their contribution is the
+hardest to state in output terms — which is what "layers" means when a consultant says it. A
+function whose main product is absorption cannot demonstrate its product, and it is being asked to
+do exactly that.
+
+**And they are the ones who will implement whatever you decide**, which means an ownership decision
+made without them is a decision that gets quietly reabsorbed. The contract in Module 4 held between
+peers. This one has to hold between altitudes, and the failure mode is not disagreement — it is
+agreement followed by absorption, because absorbing is what the layer does.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m5-exercise-embed-85', 'ai401-m5', 85, 'exercise', 'stable', '{"type": "sorting"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m5-key-takeaways-90', 'ai401-m5', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **Span of control is a variable, not a ratio.** Widen where work is modular, standards are clear,
+  and people are experienced; narrow where work is novel, cross-functional, ambiguous, high-risk, or
+  talent is developing. **One ratio everywhere is expensive in both directions.**
+- **AI pushes both ways at once** — work gets more modular *and* the remaining human work gets more
+  ambiguous — which is why "AI means fewer managers" and "AI means more managers" are both
+  defensible and both useless.
+- **Coverage, not headcount.** A headcount question produces a number; a coverage question produces
+  a map, and the number falls out of the map.
+- **AI can argue for a larger team**, where individual leverage rises faster than coordination cost.
+  And **a four-person pod has no margin for a weak hire**, which raises the consequence of every
+  hiring decision.
+- **On a large team homeless work gets absorbed. On a lean team it either becomes an explicit
+  decision or it silently stops** — and silence is the default, because noticing requires spotting
+  the absence of something never written down.
+- **The module has no statistic because work in nobody''s job description is also in nobody''s
+  dataset.** The absence is the phenomenon.
+- **Inventory the absorbed work before you shrink the team.** Afterwards the evidence is gone.
+- **Middle managers are where invisible work concentrates** — and the layer most often flattened,
+  because absorption cannot be demonstrated as output.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m5-activity-link-95', 'ai401-m5', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 The invisible work inventory", "blurb": "Eight or more tasks being done that sit in nobody''s job description: who absorbs each, and what happens if their capacity drops 30% \u2014 including when the consequence surfaces and where. Then decide about three, and at least one has to be a deliberate drop.", "estMinutes": "30"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m5-take-a-position-100', 'ai401-m5', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"Inventory the absorbed work before you shrink the team, because after you shrink
+it the evidence is gone."*
+
+The strongest counter-argument is that **the inventory will be used against you.** Ask a team to
+list everything they do that is not in their job description and you produce, in one document, the
+most efficient target list a cost programme has ever been handed — every item annotated with who
+does it and what happens if they stop. You will have surfaced the work in order to protect it and
+handed over the map. Worse, **the act of asking signals what is coming**, and the honest answers
+you need are exactly what people stop giving once they suspect that.
+
+There is a sharper version. Some of the absorbed work **should** stop. A meaningful share of any
+inventory will be habit, duplication, or a check that was needed once and now protects nothing —
+and a module that teaches leaders to treat all absorbed work as load-bearing has smuggled in a
+conservatism it never argued for. Module 1 warned about exactly this slide, and this module may be
+the place it happens.
+
+Your position has to say who you would show the inventory to, in what order, and how you would tell
+which absorbed work deserves to survive.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m5-sources-and-attribution-110', 'ai401-m5', 110, 'prose', 'stable', '## Sources and attribution
+
+- **Span-of-control factors** are long-established management research and are used here in their
+  standard form: spans widen with modular, well-instrumented work and experienced people, and narrow
+  with novel, ambiguous, cross-functional, high-risk work or developing talent. Not attributed to a
+  single current study, because it is not a current finding.
+- **No anchor statistic for the module''s central claim, and the module says why in Lesson 3.** Work
+  outside any job description is outside any dataset. The argument rests on mechanism and on the
+  learner''s own inventory, which can falsify it.
+- The coverage-not-headcount reframe, the orphaned-task routing, the inventory''s four columns, and
+  the middle-manager concentration argument are original to this course.
+- Continues Module 4 directly — these are the people who were absorbing the badly-defined
+  interfaces — and supplies the input Module 6 governs the pace against.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m5-activity-applied-activity-the-invisible-work-inve-10', 'ai401-m5-activity', 10, 'prose', 'stable', '## Applied activity — "The invisible work inventory"
+
+**Time:** 30 minutes · **Submit:** the inventory plus the covering note · **Graded against the
+rubric below.** Score doesn''t matter. Doing the work is where the learning lands.
+
+Run this on one team — yours, or one you have real access to. Not the whole function.
+
+**Step 1 — The inventory (18 min).** List every task you can find that is being done and is in
+nobody''s job description. Aim for at least eight items; most people who look properly find more
+than they predicted.
+
+For each one, four columns:
+
+| Task | Who absorbs it | In whose job description | What happens if their capacity drops 30% |
+|---|---|---|---|
+
+The last column is the graded one. Be specific about **when the consequence would surface and where
+it would show up** — because the module''s whole argument is that it surfaces somewhere else, later,
+attributed to something else.
+
+**How to find them, since they are invisible by construction.** Three prompts that work: what did
+the last person who left take with them? What do people ask a specific person rather than a system?
+And what happens in the two weeks around a cycle — close, launch, review — that nobody plans for?
+
+**Step 2 — Count the orphans (4 min).** Of your items, how many have **no named owner at all** —
+nobody would say it is theirs if asked directly. That count is the finding, and it is the number
+you will report.
+
+**Step 3 — Decide about three of them (5 min).** Pick three. For each, one of: *assign it* (to whom),
+*automate it* (with what verification), or **drop it deliberately** — and at least one of your three
+should be a deliberate drop, because if nothing on your list deserves to stop, you have collected
+habits and called them load.
+
+**Step 4 — The covering note (3 min).** 200–300 words. Your predicted count against what you found.
+Who you would show this inventory to and in what order, given the counter-argument above. And your
+position on the module''s claim.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m5-micro-core', 'ai401-m5-micro', 10, 'prose', 'stable', '## Module 5 in two minutes
+
+**Span of control is a variable, not a ratio.** It widens where work is modular, standards are clear, and people are experienced; it narrows where work is novel, cross-functional, ambiguous, high-risk, or talent is still developing. Running one number everywhere is expensive in both directions. And AI pushes on both sides at once — it makes work more modular *and* makes the remaining human work more ambiguous, because the routine separable part is exactly what got absorbed. Which is why "AI means fewer managers" and "AI means more managers" are both defensible and both useless.
+
+**So ask about coverage, not headcount.** Not *how many people do I need* but *which functions genuinely require a human, which require a human to check, and which can run without either.* A headcount question produces a number. A coverage question produces a map, and the number falls out of the map.
+
+**Then the mechanism that makes this urgent.** On a large team, work that belongs to nobody gets absorbed by whoever has slack. On a lean team there is none — so it either becomes an explicit ownership decision or **it silently stops happening.** Silence is the default, because noticing requires spotting the absence of something that was never written down.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m5-micro-rule', 'ai401-m5-micro', 20, 'callout', 'stable', '### The rule to carry
+
+**Inventory the absorbed work before you shrink the team. After you shrink it, the evidence is gone** — the person who was doing it is no longer there to tell you they were.
+
+It takes an afternoon. Three prompts that find the items: what did the last person who left take with them? What do people ask a specific person rather than a system? What happens in the two weeks around a close, a launch, or a review that nobody plans for?
+
+And for each item, the test that predicts whether its absence will be noticed: **name who would be waiting.** Work with a deadline or an audience attached announces itself when it stops. Work with neither ends quietly and surfaces two quarters later, somewhere else, attributed to something else.
+
+One honest caveat the module makes in-content: **this claim has no statistic behind it, because work in nobody''s job description is in nobody''s dataset.** The absence is the phenomenon. If your own inventory comes back empty, the module is wrong about your team.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m5-micro-close', 'ai401-m5-micro', 30, 'prose', 'stable', '**The full module adds** the two complications that cut against the assumption of smaller teams — AI can argue for a *larger* one where individual leverage outruns coordination cost, and a four-person pod has no margin for a weak hire — plus why invisible work concentrates in middle management and why that layer is the one most often flattened. And the counter-argument worth taking seriously before you run the inventory: it is also the most efficient target list a cost programme has ever been handed, which is why the activity makes you say who you would show it to, and in what order.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m5-sorting', 'ai401-m5', 'sorting', '{"reviewedAt":"2026-08-12","buckets":[{"id":"silent","label":"Would silently stop","hint":"Nobody owns it, and nobody would notice it stopped","rank":0,"pct":5},{"id":"absorbed","label":"Absorbed, and someone would notice","hint":"Not in a job description, but its absence surfaces fast","rank":1,"pct":45},{"id":"owned","label":"Has a named owner","hint":"Someone would say ''that''s mine'' if asked directly","rank":2,"pct":90}],"tasks":[{"id":"t1","text":"Running payroll each cycle","key":"owned","reasoning":"The control item. It is named, dated, legally consequential, and somebody''s title contains it — and its absence is noticed within hours by everyone in the company. Included so the exercise has a floor: not everything is invisible, and a leader who cannot tell the difference will find twelve orphans on a team that has three."},{"id":"t2","text":"Telling a new starter which of two conflicting policies is actually enforced","key":"silent","reasoning":"The purest orphan on the list. No owner, no ticket, no metric — and when it stops, the new starter simply follows the written policy, gets it wrong in a way nobody connects to anything, and learns the real rule six months later from a mistake. **Nothing in any system records that this stopped happening.**"},{"id":"t3","text":"Noticing the board metric looks wrong before the deck goes out","key":"absorbed","reasoning":"Nobody''s job description says ''sanity-check the number'', but the absence surfaces fast and loudly — in the meeting, in front of the audience that matters most. Absorbed rather than silent, and it is the item most likely to be doing its work through one specific person''s habit rather than any process."},{"id":"t4","text":"Sitting with someone who has just had bad news","key":"silent","reasoning":"Never written down, never measured, and its absence is invisible for a long time — it surfaces as attrition, as a manager reputation, or as an exit interview comment eighteen months later, attributed to something else. Module 8 is about the structural version of this."},{"id":"t5","text":"Checking whether the vendor renewal is coming up","key":"absorbed","reasoning":"Usually orphaned in practice and rescued by whoever has the calendar habit — but when it stops, the auto-renewal fires and finance notices within a quarter. **A hard one, because the noticing is real and arrives too late to act on**, which is the difference between a consequence being visible and being preventable."},{"id":"t6","text":"Approving expenses over the manager threshold","key":"owned","reasoning":"A named delegation with a system enforcing it. Included because it is the kind of item people miscategorize as invisible — it is unglamorous and interstitial, which is not the same as unowned. The test is whether somebody would say ''that''s mine'' if asked directly."},{"id":"t7","text":"Translating what the business unit means by ''senior'' into what the comp architecture means by it","key":"silent","reasoning":"Module 4''s badly-defined interface, wearing its everyday clothes. Nobody owns the translation, and when it stops, offers go out at the wrong level and get fixed one at a time forever. **The consequence surfaces as a series of individual exceptions rather than as a systemic failure**, which is precisely why it never gets assigned."},{"id":"t8","text":"Keeping the shared prompt library from filling with things that no longer work","key":"silent","reasoning":"The newest orphan in most organizations and a direct handoff to Module 7. Someone set the library up, nobody owns pruning it, and its decay is invisible because a stale prompt still returns fluent output. Nothing breaks. The quality just drifts."},{"id":"t9","text":"Deciding which escalations are genuinely urgent when three arrive at once","key":"absorbed","reasoning":"Concentrated in the middle layer, and Lesson 4''s central example. It is real judgment work performed continuously by someone whose job description says ''manages the team'', and when their capacity drops the triage gets worse before anyone can name what changed.","also":["silent"]},{"id":"t10","text":"Making sure the two teams working on the same integration know about each other","key":"silent","reasoning":"The coordination structure from Module 1, in task form. Absorbed by whoever happens to sit in both conversations, owned by no one, and its absence produces exactly one visible event — a collision, months later, that gets attributed to poor planning rather than to the person who used to be in both rooms."},{"id":"t11","text":"Chasing the field that is missing from the HRIS export every month","key":"absorbed","reasoning":"Classic seam work: nobody''s job, everybody''s problem, and if it stops the monthly report is late and someone complains. **Absorbed rather than silent precisely because it has a deadline attached** — which is the single most reliable predictor of whether orphaned work gets noticed when it stops."},{"id":"t12","text":"Answering the three questions a junior analyst asks each day","key":"silent","reasoning":"The archetype from Module 1, and the reason this bucket matters. The asking has already declined in most teams, nobody logged it, and what stops is not the answering — it is the transmission of norms, the discovery of what already failed, and the relationship that would have made this person stay. **It is the highest-consequence item on this list and the least visible.**"}],"pattern":"**Look at what separates the silent column from the absorbed one.** It is not importance — item 12 is arguably the most consequential thing here and it is silent. It is not difficulty either.\n\nIt is **whether a deadline or an audience is attached.** Everything in the absorbed column has one: a deck goes out, a report is due, a renewal fires, an export is late. Somebody is waiting, so the absence announces itself. Everything in the silent column has neither — the consequence is diffuse, delayed, and lands somewhere other than where the work stopped.\n\nThat gives you a working test for your own inventory, and it is more useful than intuition: **for each item, name who would be waiting.** If nobody is waiting, it will stop silently, and it needs an explicit owner or an explicit decision to drop it — because the default is that it simply ends and gets attributed to something else two quarters later.","postscript":"**If you put item 9 in Silent, that is defensible and the exercise scores it.** Escalation triage genuinely degrades invisibly — nobody logs the escalation that was mis-prioritized. The reason the key says absorbed is that the degradation is *fast* and lands on people who complain. But this is the item that best shows the two buckets are ends of a spectrum rather than a binary.\n\n**And if you put item 5 in Silent, notice what you were tracking.** The auto-renewal does get noticed — in finance, one quarter later, after the money is committed. The distinction the exercise is drawing is between *noticed* and *noticed in time*, and for a live inventory the second one is what you actually care about. Add the column if it helps: not just what happens, but when, and whether anyone can still do anything about it."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m5-rubric', 'ai401-m5', 'rubric', '{"promptVersion":"ai401-m5-invisible-work-inventory-v1","moduleId":"ai401-m5","minWords":250,"maxWords":400,"submitLabel":"Your inventory, the three decisions, and the covering note","intro":"Paste the inventory — task, who absorbs it, whose job description it''s in, and what happens if their capacity drops 30% — the count of items with no named owner at all, your decisions about three of them including at least one deliberate drop, and the covering note. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for AI 401 · The Translator — the top rung of an AI-fluency ladder for People and HR professionals who have completed AI 101, AI 201, and one 301 role track. This is the Module 5 applied activity, ''The invisible work inventory''.\n\nThe module argues that span of control is a variable rather than a ratio; that the right question is coverage rather than headcount, producing a map from which the number falls out; and that on a lean team, work belonging to nobody either becomes an explicit ownership decision or silently stops happening — with silence as the default, because noticing requires spotting the absence of something never written down. Its central instruction: inventory the absorbed work before you shrink the team, because afterwards the evidence is gone.\n\nThe module explicitly carries NO anchor statistic, and says why in Lesson 3: work in nobody''s job description is in nobody''s dataset. The argument rests on mechanism and on this inventory, which can falsify it.\n\nThe submission has four parts. (1) An inventory of at least eight tasks being done that are in nobody''s job description, each with four columns: the task, who absorbs it, whose job description it''s in, and what happens if that person''s capacity drops 30% — with the fourth column requiring specificity about WHEN the consequence would surface and WHERE it would show up, because the module''s argument is that it surfaces elsewhere, later, attributed to something else. (2) A count of items with no named owner at all — nobody would say it was theirs if asked directly. (3) Decisions about three items: assign it (to whom), automate it (with what verification), or deliberately drop it — and at least one of the three must be a deliberate drop, because if nothing on the list deserves to stop, the learner has collected habits and called them load. (4) A covering note.\n\nCRITICAL — an inventory that comes back genuinely thin or empty is a legitimate finding against the module and must not be marked down as incomplete work, PROVIDED the learner shows they looked properly: used the module''s three search prompts (what did the last leaver take with them, what do people ask a person rather than a system, what happens around a close or launch that nobody plans for) and reports what they found. Reward honest emptiness with an account; mark down thin lists with no evidence of searching.\n\nScore the delta, never the score: grade the account of the gap between the predicted number of items and what was found, never the accuracy of either. Almost everyone guesses low, and a specific explanation of why they guessed low is the intended finding.\n\nThis is a leadership course whose central risk is drift into cliché. Reward named tasks, named absorbers, and specific delayed consequences. Mark down category-level entries (''admin'', ''communication''), and anything equally true at any organization.","opening":[{"key":"orphanedTaskCount","label":"Predicted — how many tasks you''ll find being done that are in nobody''s job description","hint":"For one team, before you look. Most people guess low.","placeholder":"e.g. 5","min":0,"max":100}],"calibration":[{"key":"orphanedTaskCountActual","label":"Actual — how many you found, and of those, how many had no named owner at all","hint":"Enter the total you found. Report the no-named-owner subset in your covering note.","placeholder":"e.g. 11","min":0,"max":100,"actualFor":"orphanedTaskCount"}],"dimensions":[{"name":"The items are tasks, not categories","criteria":"At least eight entries, each a specific thing somebody actually does — ''tells new starters which of the two conflicting policies is enforced'', not ''onboarding support''. Category-level entries are the most common failure and score at the bottom, because a category cannot be assigned, automated, or dropped. Credit unglamorous, interstitial items over impressive-sounding ones; the module''s whole point is that the important ones are small and unwritten. A genuinely thin inventory scores well only when the learner shows how they searched."},{"name":"The absorbers are named, and the pattern is read","criteria":"A real person or role against each item rather than ''the team''. Then the graded part: does the learner notice where the items concentrate? The module predicts middle management, because that layer''s job is partly defined as handling whatever is not handled. Credit a learner who checks that prediction against their own data and reports it holding or failing — failing is an interesting result and should score at the top when it is evidenced."},{"name":"The consequence column says when and where","criteria":"This is the graded core. For each item, what happens at 30% capacity loss must state when the consequence surfaces and where it shows up — not just that quality would suffer. The module''s argument is that consequences surface elsewhere, later, attributed to something else, so ''offers go out at the wrong level and get fixed one at a time forever'' scores far above ''things would slip''. Credit explicit distinction between consequences that are noticed and consequences that are noticed in time to act."},{"name":"The orphan count was established honestly","criteria":"A count of items nobody would claim if asked directly, with evidence of how it was established — asked, or reasoned from a specific absence. The module predicts this number is higher than expected. Credit an honest count over a flattering one; a submission where every item turns out to have an owner should either show that the team is genuinely well-designed or acknowledge that the learner may have listed only work they already knew about."},{"name":"Three decisions, including a real drop","criteria":"Three items decided: assigned to a named person, automated with a stated verification, or deliberately dropped. At least one must be a genuine drop with reasoning — and the reasoning is what is graded. A drop justified as ''this protects nothing now'' or ''this was a check for a system we retired'' scores at the top; a drop of something trivial chosen to satisfy the requirement scores low. If the learner argues that nothing on their list should stop, that position can score well only if it engages the module''s own warning against treating all absorbed work as load-bearing."},{"name":"The delta, the disclosure plan, and the position","criteria":"The predicted count against what was found, with an account of what moved — grade the account, never the accuracy. Plus a specific answer to who they would show the inventory to and in what order, given the counter-argument that it is also the most efficient target list a cost programme has ever been handed. A learner who says they would not show it to anyone, and defends that, scores as well as one with a disclosure sequence. Plus a committed position on the module''s claim engaging the sharper objection: that some absorbed work should stop, and that treating all of it as load-bearing smuggles in an unargued conservatism."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m5-knowledge_check', 'ai401-m5', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"Why is a single span-of-control ratio applied across an organization an error?","options":["Because managers vary widely in capability","Because the right number moves on properties of the work — modularity, clarity of standards, ambiguity, risk, and how developed the talent is","Because industry benchmarks are unreliable at the team level","Because it fails to account for remote and hybrid working patterns"],"correctIndex":1,"explanation":"And it is expensive in both directions: neglected teams where the work is hard, over-supervised ones where it isn''t."},{"id":"q2","prompt":"Why does the module say \"AI means fewer managers\" and \"AI means more managers\" are both defensible?","options":["Because the evidence is genuinely mixed across sectors","Because AI makes work more modular and better instrumented while making the remaining human work more novel and ambiguous — both at once, in the same team","Because the effect depends on whether the organization is growing or contracting","Because management is being redefined faster than it can be measured"],"correctIndex":1,"explanation":"Which is why the useful question is which kind of work is left, answered per team."},{"id":"q3","prompt":"What is the practical difference between a headcount question and a coverage question?","options":["Coverage questions are asked annually; headcount questions are asked in planning cycles","A headcount question produces a number; a coverage question produces a map, and the number falls out of the map","Coverage questions include contractors and headcount questions do not","Coverage questions are owned by People and headcount by Finance"],"correctIndex":1,"explanation":"A number arrived at without the map is a guess wearing a spreadsheet."},{"id":"q4","prompt":"Which complication cuts against the assumption that AI means smaller teams?","options":["That AI implementation itself requires headcount","That where individual leverage rises faster than coordination cost, adding a person returns more than it used to","That AI tools require ongoing vendor management","That regulatory oversight of AI increases compliance workload"],"correctIndex":1,"explanation":"Module 6 tells you how to check it: if your absorption limit is not the binding constraint, growth is back on the table in a way it wasn''t."},{"id":"q5","prompt":"What happens to orphaned work on a lean team?","options":["It is redistributed through the planning process","It becomes an explicit ownership decision, or it silently stops happening — and silence is the default","It moves to whoever is most junior","It is usually the first work to be automated"],"correctIndex":1,"explanation":"Route one requires someone to notice the absence of something that was never written down, which is why route two wins."},{"id":"q6","prompt":"Why does this module carry no statistic for its central claim?","options":["Because the research is too recent to be reliable","Because work in nobody''s job description is also in nobody''s dataset — measuring it would require first knowing it exists","Because the effect varies too much between industries to generalize","Because the available studies use incompatible definitions of invisible work"],"correctIndex":1,"explanation":"The absence is the phenomenon. The module argues from mechanism and asks the learner to run the inventory — and an inventory that comes back empty is a legitimate finding against it."},{"id":"q7","prompt":"Why does invisible work concentrate in middle management?","options":["Because middle managers have more discretionary time than individual contributors","Because their job is partly defined as handling whatever is not handled — they sit where the gaps between defined roles become visible","Because they are responsible for work their reports cannot complete","Because they are measured on team outcomes rather than individual output"],"correctIndex":1,"explanation":"Which is also why they are the layer most often flattened: a function whose main product is absorption cannot demonstrate its product."},{"id":"q8","prompt":"What is the failure mode when an ownership decision is made without the middle layer?","options":["Open resistance during implementation","Escalation to senior leadership for arbitration","Agreement followed by absorption — because absorbing is what the layer does","Inconsistent application across teams"],"correctIndex":2,"explanation":"Module 4''s contract held between peers. This one has to hold between altitudes, and the risk is not disagreement."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m6-calibration-prompt-before-you-start-10', 'ai401-m6', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One claim. Commit before you read.*
+
+> **"My organization could name the rate at which it can absorb change."**
+
+**True of us, or not true of us?** One sentence. "We go as fast as we can" is a *no*, written
+politely.
+
+Then: **how many distinct process, tool, or workflow changes has your unit absorbed in the last
+quarter?** A count. Include the small ones — a new template, a new approval step, a new tool
+someone started using. People routinely undercount this by half, and the undercount is the module.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m6-module-brief-20', 'ai401-m6', 20, 'prose', 'stable', '## Module brief
+
+This is the module with the finding that makes people argue, so here it is in the first paragraph
+where you can start disagreeing early:
+
+> **Individual AI adoption can increase total coordination cost while decreasing production cost.**
+
+Which means the enthusiastic early adopter, charging ahead independently and genuinely producing
+more than everyone else, can be making the organization slower. Not because they are doing anything
+wrong — because they are generating integration debt faster than the organization retires it.
+
+That is uncomfortable in a specific way. Everything about our instincts says the person producing
+more is helping, and everything about a People function''s usual posture says you support the
+enthusiast and worry about the laggards. **This module says the enthusiast is a governance question
+and the laggards mostly are not.**
+
+It also carries procurement, and the reason it lives here rather than in a module of its own is the
+argument itself: **lock-in is integration debt with a contract attached.** Buying is a pace
+decision. Once you see it that way, the vendor conversation changes shape.
+
+**One thing this module is not.** 101 M3 taught you to read a vendor quote — per-seat versus
+per-use, what "unlimited" means, the questions that expose a thin wrapper. That was the right
+lesson and it is not repeated here. **This is the layer above it:** not what the thing costs, but
+what it does to your ability to change your mind.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m6-learning-objectives-30', 'ai401-m6', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Explain why work speeds up at the edges and slows down where it comes together.
+2. State the coordination-cost finding and defend it against the obvious objection.
+3. Define your unit''s integration capacity and name one thing currently exceeding it.
+4. Treat switchability as an architectural property rather than a procurement footnote.
+5. Slow down a high performer without punishing excellence.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m6-lesson-1-faster-at-the-edges-slower-at-t-40', 'ai401-m6', 40, 'prose', 'stable', '## Lesson 1 · Faster at the edges, slower at the join
+
+Watch what actually happens when a team adopts AI well.
+
+**Outputs arrive in greater volume and take more effort to reconcile.** Four people produce four
+analyses in the time one used to take. Someone still has to determine whether they agree, and that
+someone is now doing four times the reconciliation with the same day.
+
+**Decisions get made faster in isolation and take longer to stabilize when they collide.** Two
+teams each reach a defensible conclusion quickly and independently. The conclusions are
+incompatible. The time saved on both is spent, with interest, discovering that.
+
+**And local optimization increases variation.** Each person, using their own tools in their own way
+against their own understanding of the goal, produces something slightly differently shaped. There
+was always variation; there is more of it now, because the constraint that used to suppress it —
+the cost of producing anything at all — is gone.
+
+**Variation is paid for in coordination.** That is the whole mechanism. Every increment of
+difference between two people''s outputs is an increment of work for whoever has to make them fit,
+and that work is nobody''s job, appears on no dashboard, and lands — as Module 5 established — on
+the people with the least slack.
+
+None of this is an argument against speed. It is an argument that **speed at the edges and speed
+overall are different quantities**, and that most organizations are measuring the first and
+assuming the second.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m6-try-50', 'ai401-m6', 50, 'try_this', 'stable', '### Try this — 3 minutes
+Think about a piece of work in your unit that involved three or more people''s outputs coming
+together in the last month. Estimate how long the *producing* took, and how long the
+*reconciling* took. Then ask which of those two numbers has changed in the last year, and in
+which direction. Most people find production halved and reconciliation grew — and that nobody
+has ever measured the second one.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m6-lesson-2-the-finding-and-the-objection-60', 'ai401-m6', 60, 'prose', 'stable', '## Lesson 2 · The finding, and the objection
+
+Put the pieces together and you get the claim:
+
+> **An organization has a maximum rate at which it can absorb individually-generated change, and
+> almost nobody measures it.**
+
+That rate is real, it is finite, and it is set by things you can actually name: how much
+reconciliation capacity exists, how much slack the absorbers have, how many decisions can be
+stabilized per cycle, how much variation the downstream can tolerate. Exceed it and the symptoms
+are recognizable — rework, contradictory versions circulating, decisions that get made twice, a
+growing queue of things that are *nearly* done, and people who are individually productive and
+collectively frustrated.
+
+**Now the objection, because it is a good one.** Isn''t this just an argument for slowing down that
+any incumbent could make about any improvement? Every organization that resisted anything has said
+"we can''t absorb that much change." The claim is unfalsifiable if you let it be, and it hands a
+veto to whoever is least comfortable.
+
+Three things separate this from that argument, and you should hold yourself to all three.
+
+**It is a rate, not a limit.** Nobody is saying don''t change. The claim is that change has a
+throughput, and throughput can be measured, raised, and planned against. An organization that
+invests in reconciliation capacity — shared definitions, better interfaces, actual integration
+work — raises its own ceiling. That is a growth strategy, not a brake.
+
+**It has to be stated as a number, in advance.** "We can''t absorb that" said in the meeting where
+someone proposes something is a veto. "Two process changes per quarter, agreed in January" is a
+constraint that binds you as well as them, and it is the only version this course accepts. Module
+2''s tolerance step exists for this.
+
+**And it has to be falsifiable.** If you exceed the rate and nothing bad happens, you were wrong
+about the rate and you raise it. Name in advance what exceeding it would look like.
+
+Which produces the honest answer to the speed-versus-risk question everyone asks at this altitude:
+
+> **You do not trade speed against risk. You govern speed against absorption.**
+
+Risk is what a compliance conversation is about, and Module 9 handles it. This is a different
+question with a different unit, and conflating them is how a pace argument turns into a safety
+argument that nobody believes.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m6-lesson-3-the-early-adopter-problem-70', 'ai401-m6', 70, 'prose', 'stable', '## Lesson 3 · The early adopter problem
+
+The specific case, because it is where this becomes a person rather than a principle.
+
+Somebody in your organization is genuinely excellent at this. They have built tooling, they produce
+more than their peers, they are visible and enthusiastic, and other people have started copying
+them badly. Two things are true at once and both matter:
+
+**They are creating real value.** Not theoretically. Their output is better and there is more of it.
+
+**And they are creating integration debt faster than the organization retires it.** Their outputs
+arrive in a shape only they use. Their decisions get made ahead of the people who have to live with
+them. The variation they introduce is absorbed downstream by people who have no idea why the shape
+changed.
+
+**The failure mode is treating this as a performance conversation.** It isn''t one. Their
+performance is excellent. Framing it as anything else is both wrong and — practically — the fastest
+way to lose them, and losing them is worse than the debt.
+
+What actually works is making the debt visible and shared. Three moves, in order:
+
+**Name the two truths out loud, in that order.** The value first, specifically. Then the debt,
+specifically — who is absorbing it, and what it is costing them. Not "you''re moving too fast." *"You
+produced eleven of these last quarter and the three people who consume them are each reformatting
+by hand, which is about a day a week between them."*
+
+**Make it their problem to solve, not yours.** The person who built the thing is the best-placed
+person in the organization to make it consumable, and asking them to is a promotion in disguise
+rather than a restraint. **The instruction "make this reusable by the three people downstream" is
+the highest-leverage sentence available to you here**, and it converts an integration liability into
+Module 7''s codification asset.
+
+**And be honest that the constraint might be wrong.** If the reconciliation capacity is the
+bottleneck, the answer may be to raise it rather than slow them. Slowing the best performer to
+protect a bad interface is how organizations preserve exactly the dysfunction Module 4 described.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m6-lesson-4-procurement-as-architecture-80', 'ai401-m6', 80, 'prose', 'volatile', '## Lesson 4 · Procurement as architecture [V]
+
+Now the buying decision, which is a pace decision.
+
+> **Lock-in is integration debt with a contract attached.**
+
+Once prompts, connectors, evaluation suites, and workflow logic live inside one platform, "we''ll
+move later" stops being a decision and becomes a quarter-long project. Nothing about that shows up
+in the pricing conversation, and it is the single largest cost in most of these deals.
+
+**So switchability is an architectural property, not a procurement footnote.** The question is not
+whether you could theoretically leave. It is what leaving would cost, expressed in the same units
+as the purchase: how much of what you build inside this thing comes out, in what form, and who
+would do the work.
+
+**Four questions that slow a deal down, and should.** Each one is a signal rather than a
+disqualification — but a vendor with no answer to any of them is telling you something.
+
+**"What is the safe mode?"** Autonomy claims without guardrails are the current market''s favorite
+shape. Ask what the system does when it is unsure, what it does when a dependency fails, and what a
+human sees at that moment. A vendor selling autonomy who cannot describe the failure state is
+selling the demo.
+
+**"What is the accuracy and hallucination rate for our use cases?"** Not benchmark numbers. Yours,
+on your data, measured how. The correct answer may honestly be *"we don''t know, and here is how
+we''d find out with you"* — that is a good answer. **"It''s highly accurate" is not an answer**, and
+101 M6 taught you why fluent output carries no signal about correctness.
+
+**"Who owns this in year two?"** After the launch team moves on and the tickets keep arriving. This
+is the question IT asks and People functions routinely cannot answer about their own purchases, and
+it is a fair question to be unable to answer only once.
+
+**"What comes out, and in what form?"** The exit question, asked at the start, when you have
+leverage. Prompts, configurations, evaluation data, logs, the model of your process that you
+encoded. Ask for the export format in writing before you sign.
+
+**And the HR-specific layer, which nobody else in the buying group will raise.**
+
+Ask for **bias audit results** — the actual document, not the assurance. Ask about **adverse impact
+testing by region**, because obligations differ by jurisdiction and a US-tested tool says nothing
+about your European operations. And ask the question vendors reliably deflect:
+
+> **Who holds liability when the system produces a discriminatory outcome?**
+
+Listen carefully to the deflection, because the deflection is the information. The honest answer,
+in most jurisdictions and under most contracts, is that **substantial exposure sits with you as the
+deployer regardless of what the contract says** — which is Module 9''s subject, carries a
+counsel-review gate, and is the reason that module exists rather than being folded in here.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m6-exercise-embed-85', 'ai401-m6', 85, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m6-key-takeaways-90', 'ai401-m6', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **Work moves faster at the edges and slower where it comes together.** Outputs arrive in greater
+  volume and take more effort to reconcile; decisions made faster in isolation take longer to
+  stabilize when they collide.
+- **Local optimization increases variation, and variation is paid for in coordination** — by
+  whoever has the least slack.
+- **Individual AI adoption can increase total coordination cost while decreasing production cost.**
+- **An organization has a maximum rate at which it can absorb individually-generated change, and
+  almost nobody measures it.** To be a discipline rather than a veto it must be a rate, stated in
+  advance as a number, and falsifiable.
+- **You do not trade speed against risk. You govern speed against absorption.** Risk is a different
+  question with a different unit.
+- **The early adopter is a governance question, not a performance conversation.** Name the value
+  first and specifically, then the debt and who is absorbing it — then hand them the problem, because
+  "make this reusable by the three people downstream" converts a liability into an asset.
+- **Slowing the best performer to protect a bad interface preserves the dysfunction.** Sometimes the
+  answer is to raise reconciliation capacity instead.
+- **Lock-in is integration debt with a contract attached**, and switchability is an architectural
+  property: what comes out, in what form, and who does the work.
+- **Ask who holds liability for a discriminatory outcome, and listen to the deflection.** Substantial
+  exposure sits with the deployer.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m6-activity-link-95', 'ai401-m6', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 The absorption limit", "blurb": "Count what your unit actually absorbed last quarter and how much of it landed, state your integration capacity as a rate, name what would prove the rate wrong in either direction, and name one thing currently exceeding it \u2014 with who is paying for the reconciliation.", "estMinutes": "30"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m6-take-a-position-100', 'ai401-m6', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"The person creating the most value in your organization this quarter may also be
+creating the most debt, and both are true at once."*
+
+The strongest counter-argument is that **absorption capacity is an excuse dressed as a discipline.**
+Every organization that has ever failed to adopt something has explained that it could not absorb
+the change, and this module hands that instinct a vocabulary, a metric, and a governance process.
+The people who will use it most enthusiastically are not the thoughtful integrators — they are the
+ones who did not want to move anyway, and who now have a defensible-sounding reason. **A rate stated
+in advance is only a constraint on you if someone is willing to enforce it against you**, and in
+most organizations nobody is.
+
+The sharper version: the organizations that will win this decade may be exactly the ones that let
+the early adopters run, ate the integration debt, and repaid it later out of a much larger base —
+because integration debt, unlike technical debt, is often retired by the tools themselves within
+two years. **On that reading, governing pace is optimizing for a coherence that will be free
+shortly, at the cost of a lead that will not be.**
+
+Your position has to say what would make you *raise* your unit''s absorption rate rather than
+enforce it — and what evidence would tell you your rate was set too low.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m6-sources-and-attribution-110', 'ai401-m6', 110, 'prose', 'stable', '## Sources and attribution
+
+- The coordination-cost argument, the integration-capacity discipline and its three conditions, the
+  speed-against-absorption reframe, the early-adopter sequence, and the switchability framing are
+  original to this course.
+- **Deliberately not repeated from 101 M3 Lesson 4:** reading a vendor quote, per-seat versus
+  per-use pricing, and the questions that expose a thin wrapper. This module is the layer above —
+  what a purchase does to your ability to change your mind. `[V]`
+- The liability question and the deployer position are stated here as a procurement signal only.
+  **The legal treatment, its jurisdictional differences, and the counsel-review gate are Module 9**,
+  and no purchasing decision should rest on this lesson alone.
+- Continues Module 5 — the absorbers are the reconciliation capacity this module says is finite —
+  and supplies the pace constraint Module 10''s thresholds are measured inside.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m6-activity-applied-activity-the-absorption-limit-10', 'ai401-m6-activity', 10, 'prose', 'stable', '## Applied activity — "The absorption limit"
+
+**Time:** 30 minutes · **Submit:** the limit, the exceedance, and the covering note · **Graded
+against the rubric below.** Score doesn''t matter. Doing the work is where the learning lands.
+
+**Step 1 — Count what you actually absorbed (8 min).** Your calibration answer was how many
+distinct process, tool, or workflow changes your unit took on last quarter. **Go and count.** Look
+at what actually changed: new templates, new approval steps, new tools people started using, new
+reports, a changed definition. Include the ones nobody announced.
+
+Then, for each one, mark whether it **landed** — is it in steady use — or whether it is still being
+half-used, worked around, or quietly abandoned. **The ratio of landed to attempted is your real
+absorption evidence**, and it is more informative than either number alone.
+
+**Step 2 — State the limit (7 min).** Your unit''s integration capacity, as a rate with a unit of
+time. *N process changes per quarter. One tool change per half. One definition change per cycle.*
+Whatever fits your unit''s actual work.
+
+Then the part that makes it a discipline rather than a veto: **what would tell you this rate is
+wrong, in either direction?** Name one observation that would make you raise it and one that would
+make you lower it.
+
+**Step 3 — Name one thing currently exceeding it (7 min).** Something live. What it is, who is
+absorbing the reconciliation, and what it is costing them — in hours, rework, or delay, as
+specifically as you can get.
+
+**If the honest answer is that nothing is currently exceeding your limit**, say so and say what
+that implies: you may have room to go faster, which is a finding this module is equally happy to
+produce.
+
+**Step 4 — Address it (5 min).** To whoever controls the pace for your unit — which may be you, a
+peer, or someone two levels up. Predict their response in a sentence: **do they think the constraint
+is real, and if not, what do they think you are actually asking for?**
+
+**Step 5 — The covering note (3 min).** 200–300 words. Predicted count against actual, with the
+landed ratio. And your position on the module''s claim, engaging the counter-argument that absorption
+capacity is an excuse with a vocabulary.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m6-micro-core', 'ai401-m6-micro', 10, 'prose', 'stable', '## Module 6 in two minutes
+
+**Individual AI adoption can increase total coordination cost while decreasing production cost.**
+
+Watch what happens when a team adopts AI well. Outputs arrive in greater volume and take more effort to reconcile — four analyses in the time one used to take, and someone still has to work out whether they agree. Decisions get made faster in isolation and take longer to stabilize when they collide. And local optimization increases variation, because the constraint that used to suppress it — the cost of producing anything at all — is gone. **Variation is paid for in coordination**, by whoever has the least slack, which Module 5 established is nobody with any to spare.
+
+So: **an organization has a maximum rate at which it can absorb individually-generated change, and almost nobody measures it.** Exceed it and the symptoms are recognizable — rework, contradictory versions circulating, decisions made twice, a queue of things that are *nearly* done, and people who are individually productive and collectively frustrated.
+
+Which gives the honest answer to the question everyone asks at this altitude. **You do not trade speed against risk. You govern speed against absorption.** Risk is a different question with a different unit, and it belongs in Module 9.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m6-micro-rule', 'ai401-m6-micro', 20, 'callout', 'stable', '### The rule to carry
+
+An absorption rate is a discipline rather than a veto only if it meets three conditions: **it is a rate, not a limit** — change has a throughput, and throughput can be raised; **it is stated as a number in advance**, so it binds you as much as the people asking; and **it is falsifiable** — if you exceed it and nothing bad happens, you were wrong and you raise it.
+
+And the person to apply it to is not the laggard. **The early adopter is a governance question, not a performance conversation.** Their performance is excellent; framing it otherwise is wrong and is the fastest way to lose them. Name the value first and specifically, then the debt and who is absorbing it — *"you produced eleven of these last quarter and the three people who consume them are each reformatting by hand."* Then hand them the problem: **"make this reusable by the three people downstream"** is the highest-leverage sentence available to you, and it converts a liability into an asset.
+
+And stay honest that the constraint may be wrong. **Slowing your best performer to protect a bad interface preserves the dysfunction.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m6-micro-close', 'ai401-m6-micro', 30, 'prose', 'stable', '**The full module adds** procurement, on the argument that **lock-in is integration debt with a contract attached** — switchability as an architectural property, the four questions that should slow a deal down, and the HR layer nobody else in the buying group will raise: bias audit results as a document, adverse impact testing by region, and who holds liability for a discriminatory outcome, where the deflection is the information. Plus the exercise that catches you admiring the fastest debt generator, and the rehearsal where you have to slow someone down without punishing excellence.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m6-choice', 'ai401-m6', 'choice', '{"reviewedAt":"2026-08-12","title":"Four adoption trajectories","intro":"*Five minutes. Commit before you look.*\n\nFour People functions of roughly the same size, twelve months into serious AI adoption. All four are producing more than they were.\n\n**One of them is generating integration debt faster than it can possibly retire it.** Find it — and notice, before you look at the answer, which one you *admire* most.","artifacts":[{"label":"Function A","body":"\"We''ve got about six people who''ve gone deep — they build their own tooling, they''re all over it, and honestly they''re producing two or three times what they were. We don''t standardize because we don''t want to slow them down; the whole point is to let people find what works. The rest of the team is picking it up from them gradually. Our COE leads meet monthly and swap what they''re doing. Output across the function is way up and everyone can see it.\""},{"label":"Function B","body":"\"We set a rule in January: two process changes per quarter, function-wide, and the queue is public. Anything else waits. It''s frustrating — there are four things in the queue right now that everyone agrees are good ideas. But when something ships, it ships properly: definitions agreed, the downstream teams know it''s coming, and we check eight weeks later whether it actually landed. Our throughput is lower than I''d like and I can tell you exactly what we''ve absorbed.\""},{"label":"Function C","body":"\"We bought a platform and put everything on it — prompts, the knowledge base, the workflow logic, the review steps. It took two quarters and it was painful, but now everybody''s working the same way and the variation problem is gone. We''re deep into their ecosystem at this point. Renewal''s in eighteen months and the pricing conversation is going to be interesting, but the consistency has been worth it.\""},{"label":"Function D","body":"\"Two teams are moving fast, two aren''t, and we made that explicit rather than pretending otherwise. The two fast ones are working on things where their output doesn''t feed anyone else — market research, first-draft policy work. The other two touch shared data and they''re going slower on purpose. We revisit which team is in which category every quarter. It''s uneven by design and I get asked why we''re not doing this consistently roughly once a month.\""}],"options":[{"id":"a","label":"Function A"},{"id":"b","label":"Function B"},{"id":"c","label":"Function C"},{"id":"d","label":"Function D"}],"key":"a","reasoning":"**A is generating debt fastest, and it is the one most people admire.** That reaction is the exercise. Everything in A''s description is a virtue in isolation: deep adopters, no artificial constraints, organic spread, visible output gains. And every one of those is also a variation generator.\n\nSix people building their own tooling produce six shapes. \"We don''t standardize because we don''t want to slow them down\" is Lesson 2''s veto in reverse — a pace decision made by declining to make one. \"The rest of the team is picking it up from them gradually\" is the copying-badly problem from Lesson 3, described as a benefit. And the monthly COE swap is not reconciliation capacity; **it is four people telling each other what they did, which retires no debt at all.**\n\nThe tell is the last sentence. *Output across the function is way up and everyone can see it.* That is production cost falling, measured. Nothing in A measures the other side of the equation, so nobody in A can know whether total coordination cost is rising — which is exactly the state the module says is the default.\n\n**B is the module''s discipline, and it is deliberately unglamorous.** A rate stated in advance, a public queue, a landing check eight weeks out. Note what makes it legitimate rather than a veto: the number was set in January, before anyone proposed anything, so it binds the leader as much as the requesters. **\"Our throughput is lower than I''d like and I can tell you exactly what we''ve absorbed\" is the sentence this whole module is arguing for** — and the four good ideas sitting in the queue are the real cost, honestly borne.\n\n**C solved variation by buying it away, and bought integration debt with a contract attached.** The consistency is real. So is the position they are now in: prompts, knowledge base, workflow logic, and review steps all live inside one vendor, and \"the pricing conversation is going to be interesting\" is a leader who can already feel it. C is not the wrong answer to this exercise, but it is the one whose bill arrives on a date somebody else set.\n\n**D is the strongest of the four and the hardest to sustain.** Pace governed per team by whether the team''s output feeds anyone else — which is precisely the right variable, since integration debt is only generated where outputs have to meet. Fast where nothing joins, slow where things do, revisited quarterly. The monthly \"why aren''t we doing this consistently\" is the price, and it is the correct price to be paying.\n\nThe transferable test: **for any adoption approach, name what it measures on the coordination side.** A measures nothing. C bought a single answer. B counts changes and checks landing. D routes by whether outputs join at all. Only a description that includes a coordination measure can tell you whether the speed is real."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m6-rubric', 'ai401-m6', 'rubric', '{"promptVersion":"ai401-m6-absorption-limit-v1","moduleId":"ai401-m6","minWords":250,"maxWords":400,"submitLabel":"Your absorption limit, the exceedance, and the covering note","intro":"Paste what your unit actually absorbed last quarter and how much of it landed, your integration capacity stated as a rate, what would prove that rate wrong in either direction, the one thing currently exceeding it with who is paying for the reconciliation, who you''d address it to and their predicted response, and the covering note. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for AI 401 · The Translator — the top rung of an AI-fluency ladder for People and HR professionals who have completed AI 101, AI 201, and one 301 role track. This is the Module 6 applied activity, ''The absorption limit''.\n\nThe module''s core finding: individual AI adoption can increase total coordination cost while decreasing production cost, because outputs arrive in greater volume needing reconciliation, decisions made faster in isolation take longer to stabilize when they collide, and local optimization increases variation — which is paid for in coordination by whoever has least slack. Therefore an organization has a maximum rate at which it can absorb individually-generated change, and almost nobody measures it. The reframe: you do not trade speed against risk, you govern speed against absorption.\n\nThe module is explicit that an absorption rate is only a discipline rather than a veto if it meets three conditions: it is a RATE rather than a limit (throughput can be raised by investing in reconciliation capacity); it is stated as a NUMBER IN ADVANCE so it binds the leader as much as the requesters; and it is FALSIFIABLE — exceeding it with no bad consequence means the rate was wrong and should rise.\n\nThe submission has five parts. (1) A real count of distinct process, tool, or workflow changes the unit absorbed last quarter — including unannounced ones — with each marked as landed (in steady use) or not, giving a landed-to-attempted ratio. (2) The unit''s integration capacity as a rate with a unit of time, plus one observation that would make them RAISE it and one that would make them LOWER it. (3) One thing currently exceeding the limit: what it is, who absorbs the reconciliation, and what it costs them in hours, rework, or delay. (4) The artifact addressed to whoever controls the pace, with a predicted response including what that person thinks is actually being asked for. (5) A covering note.\n\nCRITICAL — ''nothing is currently exceeding my limit'' is a legitimate, full-credit finding when the learner says what it implies: that they may have room to go faster. The module is equally happy to produce that result and must not be graded as though slowing down were the correct answer. Similarly, a learner who concludes that the right move is to raise reconciliation capacity rather than slow anyone down has understood the module, not evaded it.\n\nScore the delta, never the score: grade the account of the gap between the predicted count of absorbed changes and the real one, never the accuracy of either. People routinely undercount by half, and a specific explanation of what they missed — usually the unannounced changes — is the intended finding.\n\nThis is a leadership course whose central risk is drift into cliché, and this module''s specific risk is that its vocabulary becomes an excuse for not moving. Reward counted evidence, named absorbers, and stated falsification conditions. Mark down ''we should be careful about pace'', unfalsifiable tolerances, and any rate that binds only other people.","opening":[{"key":"changesAbsorbed","label":"Predicted — how many distinct process, tool, or workflow changes your unit absorbed last quarter","hint":"Include the small ones — a new template, an added approval step, a tool someone started using. Answer before you count.","placeholder":"e.g. 4","min":0,"max":100}],"calibration":[{"key":"changesAbsorbedActual","label":"Actual — how many you found when you counted, including the unannounced ones","hint":"Report the landed-versus-attempted split in your covering note; that ratio is the real evidence.","placeholder":"e.g. 9","min":0,"max":100,"actualFor":"changesAbsorbed"}],"dimensions":[{"name":"The count is evidenced, and landing was assessed","criteria":"A real enumeration of what changed last quarter rather than a recollection, with the unannounced changes visibly included — a tool someone started using, a definition that shifted, an approval step that appeared. Each item marked landed or not, producing a ratio. The landed ratio is the graded part: a learner who counts nine changes and finds three landed has produced far more useful evidence than one who counts nine and asserts they all worked. Credit an explicit method for how they established the list."},{"name":"The limit is a rate with a unit of time","criteria":"An actual number against an actual period — ''two process changes per quarter'', ''one definition change per cycle'' — fitted to the unit''s real work rather than borrowed from the module''s examples. ''As much as we can handle'' and ''it depends on the change'' fail this dimension. Credit a rate that is uncomfortable for the learner themselves, and credit distinguishing rates for different kinds of change where the unit genuinely has them."},{"name":"The rate is falsifiable in both directions","criteria":"One named observation that would make them raise the rate and one that would make them lower it, both observable by someone who disagrees with them. This is what separates the module''s discipline from the veto it could become, so grade it strictly. A learner who can only state what would make them slow down has written a brake, not a rate — say so. Top marks where the raise condition is as concrete as the lower condition."},{"name":"The exceedance names who is paying","criteria":"A live, specific thing exceeding the limit, with the reconciliation cost attributed to named people or roles and quantified as far as honestly possible — hours, rework, delay. Vague systemic strain scores low. Where the learner reports that nothing currently exceeds the limit, that is a full-credit answer when they state the implication that they may have room to move faster; grade the reasoning, not the direction. Credit a learner who concludes the fix is to raise reconciliation capacity rather than slow the producer."},{"name":"The address and the predicted response","criteria":"Named person who controls pace — which may be the learner — and a specific prediction of how they respond, including what that person thinks is actually being asked for. The module''s warning is that a pace argument is often heard as a safety argument or as resistance; a prediction that engages that misreading scores at the top. ''They''d probably agree'' scores at the bottom."},{"name":"The delta and the position","criteria":"Predicted count against actual with an account of what moved — grade the account, never the accuracy — and specifically what was missed, since the undercount is usually the unannounced changes. Plus a committed position on the module''s claim engaging its real counter-argument: that absorption capacity is an excuse dressed as a discipline, that the people who will use it most enthusiastically are the ones who did not want to move anyway, that a rate binds you only if someone will enforce it against you, and that integration debt may be retired by the tools themselves within two years. The position must say what would make them raise their rate rather than enforce it."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m6-knowledge_check', 'ai401-m6', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"What is the module''s counterintuitive core finding?","options":["AI adoption is slower in large organizations than small ones","Individual AI adoption can increase total coordination cost while decreasing production cost","Coordination costs rise faster than production costs fall in most AI deployments","Teams that adopt AI unevenly perform worse than teams that do not adopt it at all"],"correctIndex":1,"explanation":"Which means the enthusiastic early adopter, genuinely producing more, can be making the organization slower — not by doing anything wrong, but by generating integration debt faster than it is retired."},{"id":"q2","prompt":"Why does local optimization increase coordination cost?","options":["Because individuals choose tools their colleagues cannot access","Because it increases variation, and variation is paid for in coordination by whoever has the least slack","Because optimized processes are harder to document","Because individual improvements are rarely shared across teams"],"correctIndex":1,"explanation":"There was always variation; the constraint that suppressed it — the cost of producing anything at all — is gone."},{"id":"q3","prompt":"What three conditions make an absorption rate a discipline rather than a veto?","options":["Executive approval, documentation, and quarterly review","It is a rate rather than a limit; it is stated as a number in advance; and it is falsifiable","It is benchmarked externally, measured continuously, and owned by a named person","It is agreed with affected teams, published, and revisited annually"],"correctIndex":1,"explanation":"\"We can''t absorb that,\" said in the meeting where something is proposed, is a veto. \"Two process changes per quarter, agreed in January\" binds you as well as them."},{"id":"q4","prompt":"How does the module reframe the speed-versus-risk question?","options":["Speed and risk are both subordinate to quality","You do not trade speed against risk — you govern speed against absorption","Risk should be assessed per use case rather than per pace decision","Speed is a leadership choice; risk is a compliance one"],"correctIndex":1,"explanation":"Risk is a different question with a different unit and belongs in Module 9. Conflating the two turns a pace argument into a safety argument nobody believes."},{"id":"q5","prompt":"Why is the early adopter conversation not a performance conversation?","options":["Because performance conversations require a formal process","Because their performance is genuinely excellent — framing it otherwise is both wrong and the fastest way to lose them","Because integration debt is an organizational failure rather than an individual one","Because performance management is the manager''s job rather than the translator''s"],"correctIndex":1,"explanation":"And losing them is worse than the debt. Name the value first and specifically, then the debt and who is absorbing it."},{"id":"q6","prompt":"What does the module recommend doing with the early adopter''s integration debt?","options":["Pausing their work until the organization catches up","Assigning a coordinator to reconcile their outputs","Handing them the problem — \"make this reusable by the three people downstream\"","Standardizing their tooling across the team"],"correctIndex":2,"explanation":"They are the best-placed person to make it consumable, it reads as a promotion rather than a restraint, and it converts an integration liability into Module 7''s codification asset."},{"id":"q7","prompt":"What does \"lock-in is integration debt with a contract attached\" mean for procurement?","options":["That contract length should be minimized wherever possible","That switchability is an architectural property — what comes out, in what form, and who does the work — rather than a procurement footnote","That multi-vendor strategies are safer than single-platform ones","That pricing should be negotiated on a per-use basis"],"correctIndex":1,"explanation":"Once prompts, connectors, evaluation suites, and workflow logic live inside one platform, \"we''ll move later\" becomes a quarter-long project — and none of that appears in the pricing conversation."},{"id":"q8","prompt":"What is the correct reading of a vendor deflecting the discriminatory-outcome liability question?","options":["That the vendor''s legal team has not been consulted on the deal","That liability is genuinely unsettled and will be determined case by case","That the deflection is the information — substantial exposure sits with you as the deployer regardless of the contract","That the question should be raised with procurement rather than the vendor"],"correctIndex":2,"explanation":"Which is Module 9''s subject and why it carries a counsel-review gate rather than being folded in here."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m7-calibration-prompt-before-you-start-10', 'ai401-m7', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One claim. Commit before you read.*
+
+> **"There is a place where what my team has learned about using AI is written down, and someone
+> maintains it."**
+
+**True of us, or not true of us?** Both halves have to be true. A shared folder nobody has touched
+in four months is a *no*.
+
+Then: **what proportion of your team could find it in under two minutes if you asked them right
+now?** A percentage. You are going to check this by asking, and the gap between "it exists" and
+"people can find it" is most of this module.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m7-module-brief-20', 'ai401-m7', 20, 'prose', 'stable', '## Module brief
+
+**First, what this module is not, because you have met its neighbours.**
+
+AI 201 M2 taught you the context pack — reusable material that gives a model the standing
+information it needs so you stop re-explaining your world every session. AI 201 M7 taught library
+hygiene: a personal review cadence so your own packs and prompts do not rot. Both were correct and
+neither is repeated here.
+
+**This module is about the collective version, and it is a genuinely different problem.** Your
+personal library serves one person with consistent taste, a shared memory of why each item exists,
+and an obvious owner. A team''s shared practice has none of those. It serves people with different
+work and different standards, it contains items whose rationale nobody remembers, and its owner is
+usually "whoever set it up," which is not an owner.
+
+The gap the module exists to close:
+
+> **Individual learning velocity rose sharply. Collective learning velocity did not move.**
+
+Everyone in your organization is getting better at this, fast, in parallel, in private. Almost none
+of what they learn reaches anyone else. And the thing most organizations reach for — training —
+cannot fix it, for a structural reason worth stating plainly.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m7-learning-objectives-30', 'ai401-m7', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Explain why individual and collective learning velocity came apart.
+2. Say why one-time training cannot build habits for a technology that changes every few weeks.
+3. Distinguish codification from documentation, and name the test that separates them.
+4. Design the codification of one trapped practice, including who maintains it.
+5. State what codification restores and what it does not.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m7-lesson-1-two-velocities-40', 'ai401-m7', 40, 'prose', 'stable', '## Lesson 1 · Two velocities
+
+**Individual learning velocity is up, dramatically.** A person who wants to get better at using
+these tools has an unusually good environment for it: immediate feedback, zero cost to experiment,
+a tutor available at any hour, and a peer group posting techniques constantly. People are learning
+in weeks what would have taken a year to learn about a previous technology.
+
+**Collective learning velocity has not moved at all.** The organization knows almost nothing more
+than it did, because the mechanisms by which an organization learns — documentation, training,
+process, the transmission of practice between people — run at the speed they always ran at.
+
+**And the standard mechanism has a structural problem, not an execution problem.** One-time
+training builds a habit against a fixed target. It works for a system that will behave the same way
+next year. It cannot build durable habits for a technology whose capabilities change every few
+weeks — because the specific technique you taught in March is partly obsolete by July, and the
+learner has no way to know which part.
+
+This is worth being precise about, because it is often heard as "training doesn''t work," which is
+both wrong and unhelpful. Training works. **The half-life of what it transmits got much shorter,
+and the delivery cadence did not change to match.** A curriculum designed for annual delivery
+against a quarterly-changing subject will be wrong more often than it is right, and — this is the
+damaging part — **it will be confidently wrong, in a room, to people who then repeat it.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m7-try-50', 'ai401-m7', 50, 'try_this', 'stable', '### Try this — 3 minutes
+Think of the single most useful thing you personally learned about working with these tools in
+the last three months. Now ask: **how many people in your organization know it?** If the answer
+is "the two people I mentioned it to," you have just measured the gap between the two velocities
+in your own behavior — and you are the person in your organization most likely to be trying to
+close it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m7-lesson-2-codification-is-not-documentati-60', 'ai401-m7', 60, 'prose', 'stable', '## Lesson 2 · Codification is not documentation
+
+Prompt fluency is necessary and insufficient. The value shows up when individual practice becomes
+**collective capability**, and that transition has three parts:
+
+**Codified into shared artifacts.** The practice exists outside the person who developed it, in a
+form someone else can use without a conversation.
+
+**Measured through workflow telemetry.** You can tell whether it is being used, and whether the
+work it touches is better. Not a satisfaction score — usage and outcome on the actual workflow.
+
+**Circulated through tracked cycles.** There is a rhythm by which new practice enters and stale
+practice leaves, and somebody is accountable for it running.
+
+Miss any of the three and discoveries stay trapped with individuals, which means **collective
+learning depends on individual memory and goodwill — neither of which scales, and neither of which
+survives a resignation.**
+
+**Now the distinction that does the most work here.**
+
+> **Codification is not documentation. Documentation nobody maintains is a fossil of a practice —
+> and it is worse than nothing, because it looks like coverage.**
+
+A fossil actively costs you. Someone finds it, uses it, gets a worse result than the current
+practice would have given, and concludes the shared library is not worth checking. You have spent
+your one chance at that person''s attention. **A stale shared prompt is more expensive than an empty
+folder**, because an empty folder tells the truth.
+
+So the test that separates the two is not about quality or completeness. It is:
+
+> **Who removes things, and when did they last do it?**
+
+Ask that about any shared library in your organization. The answer is almost always nobody and
+never, and it tells you what you are looking at.
+
+**Three properties of a codified artifact that survives.** It has a **named maintainer**, not a
+team. It has a **decay condition** — a statement of what would make it wrong, which is Module 2''s
+trigger applied to knowledge. And it records **why**, not just what: a prompt without its rationale
+cannot be updated by anyone except its author, which means it is person-dependent wearing a shared
+folder''s clothes.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m7-lesson-3-embed-rather-than-teach-70', 'ai401-m7', 70, 'prose', 'volatile', '## Lesson 3 · Embed rather than teach [V]
+
+If the classroom cannot keep up, what does?
+
+The pattern that keeps being reported is **embedding rather than convening**: putting capability
+inside the team''s existing rhythm rather than pulling people out of it. Someone who sits in the
+team''s actual ceremonies — the planning session, the review, the retrospective — and works on the
+real thing in front of them, rather than a course delivered to a room of people from six functions.
+
+The mechanism is plausible and worth stating: it teaches against **this** work rather than a
+generic example, it updates continuously because the person embedded is learning too, and it
+produces artifacts as a by-product rather than as homework.
+
+**And now the honest part, because this course asks you to interrogate vendors'' evidence and owes
+you the same standard.**
+
+The applied evidence for embedded AI coaching is **largely vendor-supplied.** The figures in
+circulation — that embedded approaches drive multiples of the adoption of standalone portals, that
+retention of practice is far higher — come predominantly from organizations selling embedded
+coaching. They may well be right. They are not independent, and a course that repeated them as
+findings would be doing exactly what Module 6 tells you not to accept from a vendor.
+
+There is also a widely-repeated story about a large technology company placing AI coaches inside
+engineering teams at roughly one per five to ten people. **It could not be traced to a primary
+source and is not used here.** The pattern is worth teaching; the anecdote is not worth repeating.
+
+**So take this lesson at its actual strength.** Embedding is a well-motivated pattern with a
+plausible mechanism and weak independent evidence. That is enough to try it in one team with a
+measure attached — which is exactly what Module 10''s pilot design is for — and not enough to fund
+a programme on.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m7-lesson-4-what-codification-does-not-fix-80', 'ai401-m7', 80, 'prose', 'stable', '## Lesson 4 · What codification does not fix
+
+One more thing, and it is the handoff to the next module.
+
+Go back to the junior analyst asking the senior analyst three questions a day. Module 1 put it on
+the sorting exercise; here is what it was actually doing.
+
+**Asking a colleague a question was performing two jobs at once.** It moved information — the
+answer. And it built the relationship — the small, repeated, low-stakes contact through which trust
+forms, norms transmit, newcomers find mentors, and people learn what opportunities exist and who to
+ask about them.
+
+**One transaction was carrying both loads. AI replaced the first and deleted the second.**
+
+That is why collective learning and human connection in organizations decayed at the same time.
+Not two separate trends with a coincidental date — **one mechanism, doing two jobs, removed once.**
+
+Codification is the right response to the first job. Done well, it restores the information
+transmission and makes it better than it was, because it scales and it survives a resignation.
+
+**It does nothing at all about the second one.** A well-maintained shared library, with a named
+owner and a decay condition and genuine telemetry, transmits knowledge beautifully and builds no
+relationships whatsoever. Nobody is thanked, nobody is known, nobody discovers who to ask about the
+thing that is not in the library.
+
+Module 8 is about the load nobody has been assigned.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m7-exercise-embed-85', 'ai401-m7', 85, 'exercise', 'stable', '{"type": "sorting"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m7-key-takeaways-90', 'ai401-m7', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **Individual learning velocity rose sharply; collective learning velocity did not move.** Everyone
+  is getting better in parallel and in private.
+- **One-time training has a structural problem, not an execution one.** It builds habits against a
+  fixed target; the half-life of what it transmits got much shorter and the delivery cadence did
+  not change to match — so it is confidently wrong, in a room, to people who repeat it.
+- **Individual practice becomes collective capability through three things:** codified into shared
+  artifacts, measured through workflow telemetry, circulated through tracked cycles. Miss one and
+  it stays trapped.
+- **Collective learning that depends on individual memory and goodwill does not survive a
+  resignation.**
+- **Codification is not documentation. A fossil is worse than nothing because it looks like
+  coverage** — and a stale shared prompt costs more than an empty folder, which at least tells the
+  truth.
+- **The test is: who removes things, and when did they last do it?**
+- **A surviving artifact has a named maintainer, a decay condition, and its rationale** — because a
+  prompt without its reasoning can only be updated by its author.
+- **Embedding beats convening, on a plausible mechanism and weak independent evidence.** Enough to
+  pilot with a measure; not enough to fund a programme.
+- **Asking a colleague did two jobs. AI replaced one and deleted the other.** Codification restores
+  the information. It restores nothing else.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m7-activity-link-95', 'ai401-m7', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 The trapped practice", "blurb": "Ask four people to find your shared AI practice while you wait, then take one thing that works and lives in one person''s head and design its codification: where it lives, its rationale not just its content, a named maintainer, and a decay condition with someone watching for it.", "estMinutes": "30"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m7-take-a-position-100', 'ai401-m7', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"Documentation nobody maintains is a fossil of a practice, and it is worse than
+nothing because it looks like coverage."*
+
+The strongest counter-argument is that **stale artifacts are how institutional memory actually
+works, and always have been.** Every functioning organization is full of documents nobody
+maintains, and people use them the way people have always used old maps: as a starting point,
+adjusted by judgment, better than the blank page. On this view the module has set an unattainable
+standard — a named maintainer and a decay condition for every artifact — that will produce, in
+practice, **far less written down**, because the cost of writing anything now includes committing
+someone to maintain it forever.
+
+The sharper version turns the module''s own tool on it: **the decay condition is itself an artifact
+that will decay.** Nobody will maintain the maintenance metadata, and in eighteen months you will
+have a library of stale prompts each confidently labelled with a stale decay condition, which is
+worse than what you started with because now the fossils carry credentials.
+
+Your position has to say what you would actually require before something enters your shared
+library — and whether you would rather have twenty maintained items or two hundred unmaintained
+ones.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m7-sources-and-attribution-110', 'ai401-m7', 110, 'prose', 'stable', '## Sources and attribution
+
+- **Deliberately not repeated from AI 201:** M2''s context pack and M7 Lesson 3''s personal library
+  hygiene. This module is the collective version, which is a different problem with different
+  failure modes, and the brief says so before teaching anything.
+- **Evidence stated at its real strength.** `[V]` The applied evidence for embedded coaching is
+  largely vendor-supplied and the lesson says so. The frequently-repeated story about a large
+  technology company placing AI coaches inside engineering teams at roughly one per five to ten
+  people **could not be traced to a primary source and is not used** — the pattern is taught, the
+  anecdote is not.
+- The codification/documentation distinction, the who-removes-things test, the three properties of
+  a surviving artifact, and the two-jobs mechanism are original to this course.
+- Takes Module 6''s early-adopter output as its raw material and sets up Module 8 directly.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m7-activity-applied-activity-the-trapped-practice-10', 'ai401-m7-activity', 10, 'prose', 'stable', '## Applied activity — "The trapped practice"
+
+**Time:** 30 minutes · **Submit:** the practice, the codification design, and the covering note ·
+**Graded against the rubric below.** Score doesn''t matter. Doing the work is where the learning
+lands.
+
+**Step 1 — Ask (5 min).** Your calibration answer was what proportion of your team could find your
+shared AI practice in under two minutes. **Ask four or five of them to find it while you wait.**
+Not "does it exist" — *find it.* Record how many could, and how long it took.
+
+If nothing exists to find, that is the finding, and the rest of the activity is about building the
+first item rather than fixing the library.
+
+**Step 2 — Find one trapped practice (8 min).** One thing that works, that lives in one person''s
+head or one person''s files, that other people would benefit from. Module 6''s early adopter is the
+obvious hunting ground; so is anyone whose output people quietly ask for copies of.
+
+Name it specifically: what the practice is, who has it, and **what it is worth** — how much better
+the outcome is, or how much faster, as concretely as you can say honestly.
+
+**Step 3 — Design the codification (12 min).** Four things, and the last two are the graded ones:
+
+1. **Where it lives** — a real location, one people already open.
+2. **What form it takes** — and include the *why*, not just the *what*, because a prompt without
+   its rationale can only be updated by its author.
+3. **Who maintains it** — a name. Not a team, not a role, not "the COE." If you cannot get a name,
+   say so and say what that means for the artifact''s life expectancy.
+4. **Its decay condition** — what would make this wrong, stated observably. Module 2''s trigger,
+   applied to knowledge. And who is watching for it.
+
+**Step 4 — The covering note (5 min).** 200–300 words. Your calibration percentage against what
+happened when you asked people to find it. Whether anything in your current shared library is a
+fossil — **name one specifically if so.** And your position on the module''s claim, engaging the
+counter-argument that the standard is unattainable and will produce less written down rather than
+more.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m7-micro-core', 'ai401-m7-micro', 10, 'prose', 'stable', '## Module 7 in two minutes
+
+**Individual learning velocity rose sharply. Collective learning velocity did not move.** Everyone in your organization is getting better at this, fast, in parallel, in private — and almost none of what they learn reaches anyone else.
+
+Note what this module is *not*: 201 M2''s context pack and 201 M7''s library hygiene were the personal version, and they were right. The collective version is a different problem. Your personal library serves one person with consistent taste and an obvious owner. A team''s shared practice serves people with different work and different standards, contains items whose rationale nobody remembers, and is owned by "whoever set it up," which is not an owner.
+
+**And training cannot close the gap, for a structural reason rather than an execution one.** One-time training builds habits against a fixed target. The half-life of what it transmits got much shorter and the delivery cadence did not change to match — so a curriculum designed for annual delivery against a quarterly-changing subject is **confidently wrong, in a room, to people who then repeat it.**
+
+Individual practice becomes collective capability through three things: codified into shared artifacts, measured through workflow telemetry, circulated through tracked cycles. Miss one and it stays trapped — and **collective learning that depends on individual memory and goodwill does not survive a resignation.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m7-micro-rule', 'ai401-m7-micro', 20, 'callout', 'stable', '### The rule to carry
+
+**Codification is not documentation. Documentation nobody maintains is a fossil of a practice, and it is worse than nothing because it looks like coverage.**
+
+A stale shared prompt costs more than an empty folder. Someone finds it, uses it, gets a worse result than current practice would have given, and concludes the library is not worth checking — and you have spent your one chance at that person''s attention. The empty folder at least tells the truth.
+
+So the test is not quality or completeness. It is: **who removes things, and when did they last do it?** Ask that about any shared library in your organization. The answer is almost always nobody and never.
+
+Three properties make an artifact survive, and together they cost about three lines: a **named maintainer** rather than a team; a **decay condition** — what would make this wrong, stated observably, which is Module 2''s trigger applied to knowledge; and its **rationale**, because a prompt without its reasoning can only be updated by its author, which makes it person-dependent wearing a shared folder''s clothes.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m7-micro-close', 'ai401-m7-micro', 30, 'prose', 'stable', '**The full module adds** the embed-rather-than-convene pattern, stated at its real evidential strength — a plausible mechanism with largely vendor-supplied applied evidence, enough to pilot with a measure and not enough to fund a programme — and the sorting exercise where every durable artifact turns out to be cheap and unglamorous while the expensive ones are theater.
+
+And it ends on the handoff. **Asking a colleague a question was doing two jobs at once:** it moved information, and it built the relationship through which trust forms, norms transmit, and newcomers find mentors. One transaction, both loads. AI replaced the first and deleted the second — which is why collective learning and human connection decayed at the same time rather than for separate reasons. Codification restores the information half. It restores nothing else, and Module 8 is about the load nobody has been assigned.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m7-sorting', 'ai401-m7', 'sorting', '{"reviewedAt":"2026-08-12","buckets":[{"id":"theater","label":"Theater","hint":"Looks like coverage, transmits nothing","rank":0,"pct":5},{"id":"person","label":"Person-dependent","hint":"Real practice, and it leaves when they do","rank":1,"pct":45},{"id":"durable","label":"Durable","hint":"Survives a resignation and a quarter of neglect","rank":2,"pct":90}],"tasks":[{"id":"t1","text":"A shared prompt library with 140 entries, no owner, last edit six months ago","key":"theater","reasoning":"The fossil, exactly as Lesson 2 describes it. Someone finds it, uses a stale entry, gets a worse result than current practice would give, and stops checking the library. **The 140 is what makes it theater rather than merely empty** — volume reads as coverage, and coverage is what stops anyone building the thing that would work."},{"id":"t2","text":"A prompt in the library with its rationale written underneath, a named maintainer, and a note saying it stops applying if the vendor changes the summarization model","key":"durable","reasoning":"All three properties: named maintainer, decay condition stated observably, and the *why* recorded so somebody other than the author can update it. This is the module''s reference artifact, and note how little it costs — three extra lines."},{"id":"t3","text":"The one person on the team everyone messages before they try something new with AI","key":"person","reasoning":"Genuine, valuable, high-velocity practice — and it is entirely in one head and one message history. This is the module''s hunting ground rather than its failure: **the highest-quality practice in most organizations is person-dependent**, which is why the activity asks you to find one and codify it rather than to fix the library first."},{"id":"t4","text":"A quarterly all-hands slot where two people demo what they''ve been doing with AI","key":"theater","reasoning":"The hardest item, because it is genuinely enjoyable and people leave energized. It transmits nothing durable: no artifact survives the session, nothing is searchable afterwards, and the audience cannot act on a demo they watched in October when the situation arises in January. **Energy is not transmission.** It has a real function — visibility, permission, momentum — but it is not codification and should not be counted as it.","also":["person"]},{"id":"t5","text":"A recorded training session from March, still linked in the onboarding pack","key":"theater","reasoning":"Lesson 1''s structural problem in physical form. It was accurate in March. It is partly obsolete now, and the new starter watching it has no way to tell which part — so they learn the wrong technique with full confidence and repeat it. A dated artifact with no decay condition, presented as current, is worse than no artifact."},{"id":"t6","text":"A weekly fifteen-minute slot in an existing team meeting where whoever found something useful shows it, and the useful ones get written into the shared doc that day","key":"durable","reasoning":"The circulation cycle from Lesson 2, sized realistically. Note the two things that make it durable rather than theater: it rides an existing ritual so it survives a busy quarter, and **the artifact gets written the same day** rather than in a follow-up nobody does. It is item 4 with a write step attached, and that is the whole difference."},{"id":"t7","text":"A well-written internal guide to the approved tools, maintained by a named person in IT, last updated three weeks ago","key":"durable","reasoning":"Named maintainer, evidently current. Worth including because durable does not mean sophisticated — this is an ordinary maintained document doing its job. Note it also passes the who-removes-things test, which is the part most libraries fail."},{"id":"t8","text":"A Slack channel where people post interesting AI things they''ve found","key":"person","reasoning":"Higher value than it looks and lower than its supporters claim. It genuinely transmits — but only to whoever was reading that week, and it is unsearchable in practice because nobody knows what to search for. **A feed is transmission without retention.** Its useful contents are person-dependent: they live with whoever happened to see them.","also":["theater"]},{"id":"t9","text":"The document where one team writes down which AI approaches they tried and abandoned, and why","key":"durable","reasoning":"The most underrated artifact in this set. It records rationale by construction, it does not decay in the same way — a thing that did not work stays informative — and it prevents the most expensive failure in a fast-moving organization, which is three people separately rediscovering the same dead end at speed."},{"id":"t10","text":"An AI usage policy signed off by legal and posted on the intranet","key":"theater","reasoning":"Categorically not codification, and included to catch a real confusion. It is a governance artifact — Module 9''s territory — and it may be doing important work there. It transmits no practice: nobody has ever gotten better at anything by reading it. **Filing it under enablement is how organizations conclude they have covered this.**"},{"id":"t11","text":"A senior analyst''s personal folder of worked examples, which she shares with anyone who asks","key":"person","reasoning":"The clean case, and worth sitting with: she is being generous, the material is excellent, and it is still person-dependent — because access requires knowing she exists, knowing to ask, and her having time. Generosity is not a distribution mechanism, and it is the thing that disappears first when she gets busy."},{"id":"t12","text":"A dashboard showing weekly AI tool logins by team","key":"theater","reasoning":"Measurement of the wrong thing, which Module 10 takes apart properly. Lesson 2 asks for telemetry on **usage and outcome on the actual workflow** — is the practice being used, and is the work better. Logins tell you neither, and a rising line here is the most common evidence offered for a capability that does not exist."}],"pattern":"**Read the durable column and notice what its four items have in common.** None of them is impressive. A prompt with three extra lines. A fifteen-minute slot inside a meeting that already happens. An ordinary maintained guide. A list of things that did not work.\n\n**Durability is cheap and unglamorous, and the expensive items are mostly theater** — the 140-entry library, the recorded training, the all-hands demo, the dashboard. Every one of those cost real money or real time, and every one produces the *appearance* of collective capability while transmitting nothing that survives contact with a busy quarter.\n\nThe distinguishing property is not effort or polish. It is whether the artifact **can be updated by someone other than its author, and whether anyone is watching for the moment it goes wrong.** That is the named maintainer and the decay condition, and it costs about three lines.","postscript":"**If you put item 4 in Person-dependent, that is a fair read** and the exercise scores it. A demo does transmit — to the people watching, for as long as they remember it. The reason the key says theater is what happens to it institutionally: it gets counted as enablement, it appears in a plan as a deliverable, and it displaces the thing that would have worked. Compare it directly with item 6, which is the same event with a write step attached and lands in a different column entirely.\n\n**And if you put item 8 in Theater, you are arguing something reasonable** — that an unsearchable feed transmits so little it is functionally decorative. The key says person-dependent because real value does move through those channels, to real people, who then carry it. But you are right that it is the least durable form of genuine transmission there is, and both readings survive."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m7-rubric', 'ai401-m7', 'rubric', '{"promptVersion":"ai401-m7-trapped-practice-v1","moduleId":"ai401-m7","minWords":250,"maxWords":400,"submitLabel":"The trapped practice, its codification design, and the covering note","intro":"Paste what happened when you asked people to find your shared AI practice, the one trapped practice you found and what it''s worth, the four-part codification design, and the covering note. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for AI 401 · The Translator — the top rung of an AI-fluency ladder for People and HR professionals who have completed AI 101, AI 201, and one 301 role track. This is the Module 7 applied activity, ''The trapped practice''.\n\nIMPORTANT CONTEXT ON SCOPE: this module is deliberately NOT AI 201 M2 (the personal context pack) or 201 M7 (personal library hygiene). It is the collective version — shared practice across people with different work, different standards, and no obvious owner. Do not credit a submission that produces a personal context pack; that was two rungs ago.\n\nThe module''s argument: individual learning velocity rose sharply while collective learning velocity did not move. One-time training cannot close the gap for a structural reason — the half-life of what it transmits got much shorter while the delivery cadence did not change. Individual practice becomes collective capability only through three things: codified into shared artifacts, measured through workflow telemetry, circulated through tracked cycles.\n\nIts central distinction: codification is not documentation, and documentation nobody maintains is a fossil — worse than nothing because it looks like coverage. The test that separates them is ''who removes things, and when did they last do it?'' A surviving artifact has three properties: a named maintainer (not a team), a decay condition stated observably (Module 2''s trigger applied to knowledge), and its rationale recorded, because a prompt without its reasoning can only be updated by its author.\n\nThe submission has four parts. (1) The result of asking four or five people to FIND the shared practice while the learner waits — not whether it exists, whether they can find it — with how many could and how long it took. (2) One trapped practice: what it is, who has it, and what it is worth, stated as concretely as they can honestly manage. (3) A four-part codification design: where it lives (a real location people already open), what form it takes INCLUDING the why not just the what, who maintains it BY NAME, and its decay condition with someone watching for it. (4) A covering note.\n\nCRITICAL — if nothing exists to find, that is the finding, and the activity becomes about building the first item rather than fixing a library; grade it as a full-credit path. Equally, if the learner cannot get a named maintainer and says so, and states what that means for the artifact''s life expectancy, that honesty scores above an invented name.\n\nScore the delta, never the score: grade the account of the gap between the predicted percentage who could find the practice and what happened when asked, never the accuracy of either number.\n\nThis is a leadership course whose central risk is drift into cliché. Reward real locations, real names, and decay conditions someone could observe. Mark down ''the team will maintain it'', ''we''ll review periodically'', and any design that would produce another 140-entry library with no owner.","opening":[{"key":"canFindPct","label":"Predicted — what percentage of your team could find your shared AI practice in under two minutes","hint":"Not whether it exists — whether they could find it, right now, while you watched.","placeholder":"e.g. 60","min":0,"max":100}],"calibration":[{"key":"canFindPctActual","label":"Actual — the percentage who found it when you asked them to, while you waited","hint":"Out of the four or five you asked. Enter 0 if there was nothing to find.","placeholder":"e.g. 20","min":0,"max":100,"actualFor":"canFindPct"}],"dimensions":[{"name":"They ran the find test, not the exists test","criteria":"Evidence of actually asking people to locate the shared practice while the learner waited, with how many succeeded and how long it took. The distinction is the point: ''it exists'' and ''people can find it'' are different facts and the gap between them is most of the module. A learner who reports that nothing existed to find has a full-credit result and should proceed to build the first item. Reported times and the routes people took — searching, asking a person, giving up — are the valuable detail."},{"name":"The practice is collective in scope and its value is stated","criteria":"A specific practice that works, lives with one person or in one person''s files, and would benefit others — named concretely, with who has it and what it is worth in outcome quality, speed, or avoided rework. Mark down anything that is really a personal context pack, which was 201 M2''s assignment two rungs ago. Credit hunting in the places the module names: the early adopter from Module 6, or anyone whose output people quietly ask for copies of."},{"name":"The form records the why, not only the what","criteria":"The artifact''s design must include its rationale — why this approach, what it is for, what it assumes — and not only the content. This is the property that decides whether anyone other than the author can ever update it. A submission that specifies a prompt, a template, or a checklist without its reasoning has designed something person-dependent wearing a shared folder''s clothes, and should be told so specifically."},{"name":"A named maintainer, or an honest account of not having one","criteria":"A person''s name. ''The COE'', ''the team'', ''whoever owns the library'' all fail this dimension, because the module''s whole test is who removes things. Where the learner genuinely cannot commit a name, an explicit statement of that and of what it means for the artifact''s life expectancy scores well — better than an invented owner. Credit a learner who names themselves and says what they will actually do and when."},{"name":"The decay condition is observable and watched","criteria":"A statement of what would make this artifact wrong, in terms someone could observe — a vendor model change, a policy change, a process it depends on being retired, a date by which it must be re-tested — plus who is watching for it. ''Review quarterly'' is a cadence, not a decay condition, and scores in the middle at best. Top marks where the condition is specific to this artifact rather than generic, and where the watcher is a different consideration from the maintainer."},{"name":"The delta, the fossil, and the position","criteria":"Predicted findability against what happened, with an account of what moved — grade the account, never the accuracy. Plus a specifically named fossil in their current shared library, or a defended statement that there isn''t one; naming a real stale artifact is the intended finding and a general acknowledgment that ''some things are out of date'' scores low. Plus a committed position on the module''s claim engaging its real counter-argument: that stale artifacts are how institutional memory has always worked, that the maintainer-plus-decay-condition standard will produce far less written down, and that the decay condition is itself an artifact that will decay. The position must say what they would require before something enters their library, and whether they would rather have twenty maintained items or two hundred unmaintained ones."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m7-knowledge_check', 'ai401-m7', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"What is the gap this module addresses?","options":["That AI training budgets have not kept pace with adoption","That individual learning velocity rose sharply while collective learning velocity did not move","That organizations lack the tooling to share prompts effectively","That senior staff learn AI more slowly than junior staff"],"correctIndex":1,"explanation":"Everyone is getting better in parallel and in private, and almost none of it reaches anyone else."},{"id":"q2","prompt":"Why does the module say one-time training has a structural rather than an execution problem?","options":["Because most training is delivered by people who are not practitioners","Because the half-life of what it transmits got much shorter and the delivery cadence did not change to match","Because adults retain little from classroom instruction","Because AI capabilities vary too much between vendors to teach generically"],"correctIndex":1,"explanation":"Training works. A curriculum designed for annual delivery against a quarterly-changing subject will be confidently wrong, in a room, to people who then repeat it."},{"id":"q3","prompt":"What are the three parts of turning individual practice into collective capability?","options":["Documented, approved, and distributed","Codified into shared artifacts, measured through workflow telemetry, circulated through tracked cycles","Piloted, standardized, and mandated","Written down, trained out, and audited"],"correctIndex":1,"explanation":"Miss any one and discoveries stay trapped — which means collective learning depends on individual memory and goodwill, and neither survives a resignation."},{"id":"q4","prompt":"Why is an unmaintained shared artifact worse than nothing?","options":["Because it consumes storage and search results","Because it looks like coverage — someone uses it, gets a worse result than current practice, and concludes the library isn''t worth checking","Because it creates a false record for audit purposes","Because maintaining it later costs more than starting fresh"],"correctIndex":1,"explanation":"You have spent your one chance at that person''s attention. An empty folder at least tells the truth."},{"id":"q5","prompt":"What is the module''s test for whether a library is codification or documentation?","options":["Whether its contents are version-controlled","Whether usage is measured","Who removes things, and when they last did it","Whether it has an approval process for new entries"],"correctIndex":2,"explanation":"The answer is almost always nobody and never, and that tells you what you are looking at."},{"id":"q6","prompt":"Why must a codified artifact record its rationale rather than just its content?","options":["Because rationale is required for compliance documentation","Because a prompt without its reasoning can only be updated by its author — which makes it person-dependent wearing a shared folder''s clothes","Because rationale helps new users decide whether it applies to them","Because it demonstrates the artifact was reviewed before publication"],"correctIndex":1,"explanation":"C is true and secondary. The failure the property prevents is an artifact that looks shared and is not."},{"id":"q7","prompt":"How does the module characterize the evidence for embedded AI coaching?","options":["Strong and independently replicated","A plausible mechanism with largely vendor-supplied applied evidence — enough to pilot with a measure, not enough to fund a programme","Contested, with equally strong evidence on both sides","Too recent to assess"],"correctIndex":1,"explanation":"And a widely-repeated story about a technology company''s coach-to-engineer ratio could not be traced to a primary source, so the module teaches the pattern without the anecdote."},{"id":"q8","prompt":"What does codification restore, and what does it not?","options":["It restores speed but not quality","It restores consistency but not innovation","It restores the information half of what asking a colleague used to do, and does nothing about the relationship half","It restores individual capability but not team performance"],"correctIndex":2,"explanation":"One transaction was carrying both loads. AI replaced the first and deleted the second, which is why collective learning and connection decayed together — and why Module 8 exists."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m8-calibration-prompt-before-you-start-10', 'ai401-m8', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One claim. Commit before you read.*
+
+> **"Most people on my team had a conversation with a colleague last week that went beyond
+> transactional work."**
+
+**True of us, or not true of us?** One sentence — and notice, before you answer, whether you are
+reasoning from evidence or from what you would like to be true.
+
+Then: **what proportion of your team had one, to your knowledge?** A percentage.
+
+**Most people do not know**, and if that is your honest answer, say so in the activity rather than
+estimating. **Not knowing is the finding**, and it is a more useful result than a confident number.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m8-module-brief-20', 'ai401-m8', 20, 'prose', 'stable', '## Module brief
+
+**Read this paragraph before the rest of the module, because this material is routinely misread.**
+
+This is not an argument against AI adoption. It is not a wellbeing module, it is not a plea for
+more team socials, and nothing in it should be used to slow anyone down. The productivity gains are
+real, they are large, and Lesson 1 leads with them for exactly that reason.
+
+**It is a module about a structural load that used to be carried by something that has been
+removed, and that nobody has been assigned.**
+
+Module 7 ended on the mechanism. Asking a colleague a question was doing two jobs at once — moving
+information, and building the relationship. Codification handles the first job well. This module is
+about the second, and the design question it produces is uncomfortable enough to state plainly at
+the start:
+
+> **Why does anyone on your team still need anyone else on your team?**
+
+If the honest answer is "they don''t," you do not have a culture problem. You have a **retention and
+mobility problem that will not appear in any dashboard for eighteen months.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m8-learning-objectives-30', 'ai401-m8', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. State what AI is measurably doing for the people using it, with the sample.
+2. State what the same study found about connection, with the same sample.
+3. Explain why help-seeking functioned as social infrastructure.
+4. Explain why this is a mobility and retention problem rather than a wellbeing one.
+5. Design one genuine interdependency that is structural rather than recreational.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m8-lesson-1-lead-with-what-is-working-40', 'ai401-m8', 40, 'prose', 'volatile', '## Lesson 1 · Lead with what is working [V]
+
+Workday''s Human Connection Workplace Index surveyed **2,150 full-time employees across seven
+countries, at organizations of 3,500 people or more, all of whom actively use AI.** Fielded by
+Hanover Research in March and April 2026.
+
+**Hold that sample, because it is doing a lot of work.** These are not workers in general. They are
+AI users at large employers — the population *most* exposed to whatever AI is doing, in both
+directions. That makes the good news less surprising and the bad news considerably more serious.
+
+The good news first, and it is substantial:
+
+- **62% say AI has decreased their stress levels and burnout risk.**
+- **86% report feeling more productive.**
+- **64% feel more confident about their future success.**
+
+Take those seriously and take them at face value. Sixty-two percent of a population reporting lower
+burnout is not a small effect, and anyone framing AI adoption as primarily a wellbeing threat is
+arguing against the evidence.
+
+**Which is precisely what makes the rest of this module hard.** If the finding were "AI makes
+people miserable," the response would be obvious and the politics would be easy. The actual
+situation is that **the same people, in the same survey, report both** — and a leader who only
+carries the second half into a room will be correctly accused of telling half a story by anyone who
+has read the first half.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m8-lesson-2-the-rest-of-the-same-study-50', 'ai401-m8', 50, 'prose', 'volatile', '## Lesson 2 · The rest of the same study [V]
+
+Same 2,150 people. Same seven countries. Same survey.
+
+- **33% rarely or never have a workplace conversation that goes beyond transactional work tasks in
+  a given week.** A third of people, whose entire contact with colleagues is the task.
+- **14% took time off in the past year due to loneliness or isolation.** Time off. From work.
+- **Among Gen Z that figure is 20%**, and **Gen Z are 12 times more likely than Gen X to report
+  feeling completely disconnected** from colleagues.
+- In the last twelve months, **76% used an AI tool to get advice, 52% to brainstorm, and 37% for
+  companionship** — with many citing AI''s judgment-free, always-available support as the reason
+  they turned to it instead of a colleague.
+- **More than a fifth say AI tools have made their relationships with colleagues worse**, and
+  **16% report having less patience for small talk** since adopting AI.
+
+**Read the 76/52/37 line again slowly, because it is the mechanism rather than a symptom.** Advice.
+Brainstorming. Companionship. Every one of those is something people used to get from a person.
+Getting it from a model is not a moral failure and it is frequently a better experience — the model
+is available at 11pm, it does not judge, it has no view about whether you should have known this
+already, and it never mentions it to anyone.
+
+**Those are exactly the frictions that made asking a colleague costly. They are also what made it
+work.** The small humiliation of admitting you did not know something is the same event as somebody
+learning who you are.
+
+And the generational split is the part that should move a People leader most. A 12x gap between Gen
+Z and Gen X on complete disconnection is not a generational preference. It is **what happens when
+you enter an organization at the moment the mechanism for entering it stopped operating.** Gen X
+built their networks before this. Gen Z are being asked to build theirs without the transaction
+that used to do it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m8-lesson-3-help-seeking-was-infrastructure-60', 'ai401-m8', 60, 'prose', 'stable', '## Lesson 3 · Help-seeking was infrastructure
+
+Here is the mechanism stated properly, because "AI reduced connection" is a correlation and this is
+a structure.
+
+**Asking a colleague a question was the organization''s social infrastructure**, and it did four
+jobs beyond producing an answer:
+
+**It built trust incrementally, at low stakes.** You cannot trust someone you have never needed.
+Small, repeated, survivable dependence is how trust actually forms in a workplace — not through
+team-building, through *needing something and being helped.*
+
+**It transmitted norms.** The answer to "how do we do this here?" always carries more than the
+procedure. It carries what matters, what is tolerated, what got someone in trouble last year, and
+what everyone has quietly agreed to ignore. **None of that is in any document, and all of it rides
+along with the answer.**
+
+**It was how newcomers found mentors.** Nobody is assigned a mentor who matters. You ask three
+people, one of them is unusually generous or unusually interesting, and a relationship starts. **The
+asking was the search.**
+
+**And it was how people learned what existed.** Which projects were starting, which team was
+struggling, which role was about to open. That information moves through casual professional
+contact and essentially nowhere else.
+
+> **AI removed the need for the transaction without replacing the function it served.**
+
+That is the whole module. Nothing malicious, nothing anyone decided — a mechanism that was quietly
+doing four jobs got optimized away because it was visibly doing one.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m8-try-70', 'ai401-m8', 70, 'try_this', 'stable', '### Try this — 3 minutes
+Think about who in your organization you would call if you needed a favor that was not in
+anyone''s job description. Now ask **how that relationship started.** For most people the honest
+answer traces back to one of them needing something small from the other, years ago. Then ask
+whether the equivalent transaction still happens on your team today.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m8-lesson-4-why-this-is-structural-not-past-80', 'ai401-m8', 80, 'prose', 'stable', '## Lesson 4 · Why this is structural, not pastoral
+
+The objection to everything above is that it is soft — a wellbeing concern, real but secondary, for
+a different function on a different agenda. **Here is why it is not.**
+
+The relationships being lost are the ones that carry access to opportunity, and that is one of the
+better-established findings in the social sciences. **Weak ties — the casual, non-close
+professional relationships — are how people learn about opportunities**, because they bridge into
+networks and information you do not already have. Granovetter''s original thesis has since been
+tested causally at large scale, and the effect holds: it is the moderately weak ties, not the close
+friendships, that most move job mobility.
+
+Two consequences that make this a People leader''s problem specifically.
+
+**Weak ties are exactly what casual professional contact produces.** Not friendships — the
+colleague two teams over who knows what you are good at. That contact was mostly happening through
+the transaction this module is about, and it is the first thing to disappear when the transaction
+does.
+
+**And the loss is not evenly distributed.** For women and for people from underrepresented groups,
+weak ties are disproportionately the bridge into networks where opportunity is concentrated —
+because the strong-tie networks are more often already closed. **A mechanism that quietly stops
+producing weak ties will narrow access unevenly, and it will do so without any decision anyone
+could point to.** Every equity programme you run assumes people find out about things. This is
+about whether they do.
+
+So the honest framing:
+
+> **This is a mobility and retention problem with a two-year fuse.** It will surface as attrition
+> among people who never felt they belonged, as internal-mobility numbers that quietly flatten, and
+> as a diversity outcome that gets attributed to hiring.
+
+**Which brings the design question, and it is not a nice question to ask:**
+
+> **Why does anyone on your team still need anyone else on your team?**
+
+Ask it seriously about a real team. If everyone can now produce their whole deliverable alone, get
+advice from a model, and reach their goals without depending on a colleague, then you have built a
+group of people who work adjacently. **That is a legitimate design.** It is also one where nobody
+has a reason to stay that is not compensation, and compensation is the easiest thing for a
+competitor to beat.
+
+**And what the answer must not be.** Manufactured social time is not a fix. A mandatory coffee
+roulette, a virtual escape room, a Friday drinks slot — these are attempts to produce the *output*
+of interdependency (people know each other) without the *input* (people need each other). They fail
+for a reason you can now state precisely: **the relationship was a by-product of dependence, and
+you cannot manufacture the by-product without the process.**
+
+A designed interdependency is **structural**. Two people must work together because the work
+genuinely requires both of them — different information, different authority, different judgment —
+and neither can complete it alone. That is designable. It is also, notably, the opposite of what
+most efficiency programmes are trying to achieve, which is the tension this module leaves you with
+rather than resolving.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m8-exercise-embed-85', 'ai401-m8', 85, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m8-key-takeaways-90', 'ai401-m8', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **Lead with what is working:** among AI users at large organizations, 62% report decreased stress
+  and burnout risk, 86% feel more productive, 64% feel more confident about their future. n=2,150,
+  seven countries, organizations of 3,500+, all active AI users, March–April 2026.
+- **The same people, in the same survey:** 33% rarely or never have a non-transactional workplace
+  conversation in a given week; 14% took time off due to loneliness or isolation, 20% among Gen Z;
+  Gen Z are 12x more likely than Gen X to feel completely disconnected; 76% / 52% / 37% used AI for
+  advice, brainstorming, and companionship.
+- **The frictions that made asking a colleague costly are the same frictions that made it work.**
+  The small humiliation of admitting you did not know is the same event as somebody learning who
+  you are.
+- **Help-seeking was infrastructure**, doing four jobs beyond producing an answer: building trust at
+  low stakes, transmitting norms that are in no document, letting newcomers find mentors, and
+  telling people what existed.
+- **AI removed the need for the transaction without replacing the function it served.**
+- **This is structural, not pastoral.** Weak ties are how people learn about opportunity — a
+  well-evidenced finding — and they are disproportionately the bridge for people whose strong-tie
+  networks are already closed. **The narrowing happens with no decision anyone could point to.**
+- **A mobility and retention problem with a two-year fuse**, which will surface as attrition,
+  flattened internal mobility, and a diversity outcome attributed to hiring.
+- **Manufactured social time cannot work**, because the relationship was a by-product of dependence
+  and you cannot manufacture the by-product without the process.
+- **Ask: why does anyone on your team still need anyone else on it?**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m8-activity-link-95', 'ai401-m8', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 One designed interdependency", "blurb": "Answer the hard question about a real team \u2014 why does anyone here still need anyone else \u2014 sorting the remaining dependencies into genuine and residual. Then design one that is structural rather than recreational, and could survive an efficiency review without mentioning connection.", "estMinutes": "30"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m8-take-a-position-100', 'ai401-m8', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"Ask why anyone on your team still needs anyone else on it. If the honest answer is
+''they don''t,'' that is a retention problem with a two-year fuse."*
+
+The strongest counter-argument is that **designed interdependency is manufactured friction wearing
+a better suit.** The module condemns coffee roulette for producing the output without the input,
+then proposes engineering dependence into work that no longer requires it — which is the same move
+one layer down, and considerably more expensive, because it degrades the actual work rather than
+just an hour of it. Requiring two people to complete a task one could finish is a real cost, paid
+every time, and the benefit is a relationship that might form.
+
+The sharper version is about consent. **People are choosing this.** 76% went to AI for advice and
+37% for companionship because it was better — judgment-free, always available, no social debt
+incurred. A leader who responds by re-engineering work to force the old dependencies back is
+overriding a preference a large majority has expressed with their behavior, on the theory that they
+will thank you in two years. **That is a serious thing to do, and this module does not have the
+evidence to justify it** — the two-year-fuse claim is a mechanism argument, not a measured outcome.
+
+Your position has to say whether you would design an interdependency into work that does not
+require one, and what evidence would tell you the fuse is real.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m8-sources-and-attribution-110', 'ai401-m8', 110, 'prose', 'stable', '## Sources and attribution
+
+- **Workday Human Connection Workplace Index** `[V]` — all figures in Lessons 1 and 2. Workday
+  Foundation, fielded by Hanover Research, March–April 2026. **n=2,150 full-time employees, seven
+  countries, organizations of 3,500+ employees, all active AI users.** The sample qualifier is
+  stated twice in the module because it changes how both halves of the finding should be read.
+- **The weak-ties argument** rests on Granovetter''s *strength of weak ties* thesis and the
+  large-scale causal test of it published subsequently, which found the effect holds and is
+  strongest for moderately weak ties. Used here for the mechanism — that weak ties carry access to
+  opportunity — rather than for a specific effect size.
+- **One claim was dropped rather than left in.** An earlier draft carried an experimental finding
+  that AI use drove people to try harder to connect afterwards while still reporting isolation. It
+  could not be verified and is not used; the module''s structural argument rests on the weak-ties
+  literature instead.
+- The four jobs of help-seeking, the designed-interdependency tests, the genuine/residual
+  distinction, and the two-year-fuse framing are original to this course.
+- Continues Module 7''s closing mechanism directly.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m8-activity-applied-activity-one-designed-interdepen-10', 'ai401-m8-activity', 10, 'prose', 'stable', '## Applied activity — "One designed interdependency"
+
+**Time:** 30 minutes · **Submit:** the finding, the design, and the covering note · **Graded against
+the rubric below.** Score doesn''t matter. Doing the work is where the learning lands.
+
+**Step 1 — Find out, or find out that you cannot (8 min).** Your calibration answer was what
+proportion of your team had a non-transactional conversation with a colleague last week.
+
+**Establish it if you can** — ask a few people, plainly, without explaining why in a way that
+produces the answer you want. And **if you cannot establish it, say so and say why.** Most leaders
+cannot, and the reasons are the interesting part: no visibility, wrong question to ask directly, the
+team is remote, or it would seem strange coming from you. **That is a full-credit answer** and it is
+the honest one.
+
+**Step 2 — Answer the question about a real team (7 min).** *Why does anyone on this team still need
+anyone else on it?* Write the honest answer, listing the actual dependencies that remain — and mark
+each one as either **genuine** (the work truly requires both) or **residual** (it is a dependency
+only because nobody has removed it yet, and someone will).
+
+The residual column is the one to look at. Those are the dependencies that will be gone within a
+year.
+
+**Step 3 — Design one interdependency (12 min).** One genuine reason two named people must work
+together. It must be **structural, not recreational**, and it must pass three tests:
+
+- **The work genuinely requires both** — different information, different authority, or different
+  judgment, such that neither could complete it well alone.
+- **It would survive an efficiency review.** If someone whose job is removing steps looked at it,
+  could you defend it on the work''s own terms, without mentioning connection? If not, it is
+  manufactured friction and it will be removed.
+- **It is repeated.** A one-off collaboration builds nothing. The relationship forms through
+  recurrence.
+
+Name the two people. Name the work. Name what each brings that the other cannot.
+
+**Step 4 — The covering note (3 min).** 200–300 words. What you found in Step 1, including if what
+you found was that you could not find out. Your genuine-to-residual ratio and what it predicts. And
+your position on the module''s claim, engaging the consent objection specifically.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m8-micro-core', 'ai401-m8-micro', 10, 'prose', 'stable', '## Module 8 in two minutes
+
+**Start with what is working, because it is the same people.** Among AI users at large organizations — n=2,150, seven countries, employers of 3,500+, fielded March–April 2026 — **62% say AI decreased their stress and burnout risk** and **86% feel more productive.** This is not an argument against AI adoption and must not be used as one.
+
+**And the same survey, the same 2,150 people.** 33% rarely or never have a workplace conversation that goes beyond the task in a given week. **14% took time off in the past year due to loneliness or isolation — 20% among Gen Z, who are 12 times more likely than Gen X to report feeling completely disconnected.** In the last year, 76% used AI for advice, 52% to brainstorm, and 37% for companionship, many citing its judgment-free, always-available support as the reason they went there instead of a colleague.
+
+**Those frictions are the mechanism.** The model is available at 11pm, does not judge, and never mentions it to anyone — and the small humiliation of admitting you did not know something is the same event as somebody learning who you are.
+
+**Asking a colleague was infrastructure.** It built trust at low stakes, transmitted norms that are in no document, let newcomers find mentors, and told people what existed. **AI removed the need for the transaction without replacing the function it served.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m8-micro-rule', 'ai401-m8-micro', 20, 'callout', 'stable', '### The rule to carry
+
+**Ask: why does anyone on your team still need anyone else on your team?** If the honest answer is "they don''t," you do not have a culture problem — you have a **retention and mobility problem with a two-year fuse.**
+
+This is structural rather than pastoral, and the reason is well evidenced: **weak ties are how people learn about opportunity.** Not friendships — the colleague two teams over who knows what you are good at. That contact was mostly happening through the transaction this module is about. And the loss is uneven: for women and people from underrepresented groups, weak ties are disproportionately the bridge into networks where opportunity is concentrated. **Access narrows with no decision anyone could point to.**
+
+And what the answer must not be: **manufactured social time cannot work**, because it tries to produce the output of interdependency — people knowing each other — without the input, which is people needing each other. The relationship was a by-product of dependence.
+
+The test for a real design: **if you deleted the connection benefit entirely, would you still do this?**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m8-micro-close', 'ai401-m8-micro', 30, 'prose', 'stable', '**The full module adds** the four jobs help-seeking was doing beyond producing an answer, why the Gen Z gap is a structural fact rather than a generational preference, the three tests a designed interdependency has to pass — and the exercise that catches the manufactured one hiding behind a business justification.
+
+It also puts the strongest objection in writing rather than around it: **people are choosing this.** 76% went to AI for advice and 37% for companionship because it was better, and a leader who re-engineers work to force the old dependencies back is overriding a preference a large majority has expressed with their behavior, on a mechanism argument rather than a measured outcome. The activity makes you take a position on that.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m8-choice', 'ai401-m8', 'choice', '{"reviewedAt":"2026-08-12","title":"Four proposed interdependencies","intro":"*Five minutes. Commit before you look.*\n\nFour People leaders read this module and each designed one interdependency for a team where people had stopped needing each other.\n\n**One of them is manufactured social time with a business justification bolted on.** It will be removed by the first person whose job is removing steps. Find it.","artifacts":[{"label":"Design A","body":"\"Our two comp analysts each own their own client groups end to end, and since they started using AI for benchmarking they basically never speak. So I''ve made the final band recommendation for any role above level 6 require both of them to sign — one builds it, the other has to be able to reconstruct it and disagree in writing if they do. It adds maybe forty minutes per case. There are about eight of those a quarter.\""},{"label":"Design B","body":"\"The team had stopped talking, so I''ve started a fortnightly ''AI show and tell'' — thirty minutes, two people share something they''ve figured out, and I''ve made attendance an expectation rather than optional. It''s on the calendar for the year. People have said they enjoy it and I''ve seen two of them start working together on something afterwards, which is exactly what I was hoping for.\""},{"label":"Design C","body":"\"Our ER specialists were each handling their own caseload with no contact. Now any case where the recommendation is termination gets a second specialist who has to be briefed verbally, not by document, and who signs the consistency check against comparable prior cases. They can''t do the comparison without a conversation, because the comparable cases are in each other''s heads and half of them aren''t written down.\""},{"label":"Design D","body":"\"Nobody on the analytics team needed anyone anymore, so I''ve rotated ownership: every quarter each analyst hands their main recurring report to a colleague and picks up someone else''s. The handover has to be live — they walk each other through the quirks in the data. It''s slower for about three weeks each quarter and it means two people always understand every report.\""}],"options":[{"id":"a","label":"Design A"},{"id":"b","label":"Design B"},{"id":"c","label":"Design C"},{"id":"d","label":"Design D"}],"key":"b","reasoning":"**B is manufactured social time, and the tell is in the last sentence.** *\"People have said they enjoy it and I''ve seen two of them start working together afterwards, which is exactly what I was hoping for.\"* The connection is the goal, and the work is the pretext — which is the exact inversion the module describes. Apply the efficiency-review test: someone whose job is removing steps asks what this thirty minutes produces, and the honest answer is that people like it and sometimes a collaboration starts. **That is not defensible on the work''s own terms, so it will be removed** — probably in the first busy quarter, by the calendar rather than by a decision.\n\nAnd note what makes it seductive: it is the cheapest of the four, the most popular with the team, and it produces visible signs of success. It is also the only one where **nobody needs anybody.** Attendance is not dependence. Two people choosing to work together afterwards is a nice outcome and it is not a designed interdependency; it is a hoped-for one.\n\n**C is the strongest of the four**, and the reason is precise: *the comparable cases are in each other''s heads and half of them aren''t written down.* The dependency is not designed in — **it already exists and had simply stopped being used.** The verbal briefing requirement is not friction for its own sake; it is the only way to access information that has no other form. It would survive any efficiency review, because the alternative is inconsistent discipline decisions, which is the thing ER exists to prevent.\n\n**A is genuine and correctly sized.** Different judgment, a real check, eight cases a quarter rather than every case — and the requirement to *reconstruct and disagree in writing* means the second analyst cannot rubber-stamp it. This is Module 4''s redundancy-on-judgment argument arriving as a connection design. Forty minutes on a level-7 band recommendation is defensible in front of anyone.\n\n**D is genuine and carries a real cost the leader has stated honestly.** Rotation produces dependence — you must talk to hand over quirks that live nowhere else — and it produces a second benefit that has nothing to do with connection: no report has a single point of failure. That is a business case on its own. The three slow weeks per quarter are a real price and D is the design most likely to be cut in a downturn, which is worth knowing in advance.\n\nThe transferable test, and it takes one question: **if you deleted the connection benefit entirely, would you still do this?** A yes — better decisions, no single point of failure, consistency that survives scrutiny. C yes, emphatically. D yes. **B, no.** And a design that only survives when you are allowed to say the quiet part is a design that does not survive."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m8-rubric', 'ai401-m8', 'rubric', '{"promptVersion":"ai401-m8-designed-interdependency-v1","moduleId":"ai401-m8","minWords":250,"maxWords":400,"submitLabel":"What you found, the dependency audit, and the design","intro":"Paste what you established (or could not establish) about non-transactional conversations on your team, your honest answer to why anyone here still needs anyone else with dependencies marked genuine or residual, the one interdependency you designed, and the covering note. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for AI 401 · The Translator — the top rung of an AI-fluency ladder for People and HR professionals who have completed AI 101, AI 201, and one 301 role track. This is the Module 8 applied activity, ''One designed interdependency''.\n\nCRITICAL FRAMING — this module is NOT an argument against AI adoption and must not be graded as one. It leads with the productivity findings deliberately: among AI users at large organizations (n=2,150, seven countries, employers of 3,500+, March–April 2026), 62% report decreased stress and burnout risk and 86% feel more productive. The same survey found 33% rarely or never have a non-transactional workplace conversation in a given week, 14% took time off due to loneliness (20% among Gen Z, who are 12x more likely than Gen X to feel completely disconnected), and 76%/52%/37% used AI for advice, brainstorming, and companionship. A learner who concludes the answer is to slow AI adoption has misread the module; so has one who treats this as a wellbeing programme.\n\nThe module''s mechanism: asking a colleague a question did four jobs beyond producing an answer — built trust at low stakes, transmitted norms in no document, let newcomers find mentors, and told people what existed. AI removed the need for the transaction without replacing the function it served. It is structural rather than pastoral because weak ties carry access to opportunity (Granovetter''s thesis, since tested causally at scale), and weak ties are disproportionately the bridge for people whose strong-tie networks are already closed — so access narrows with no decision anyone could point to.\n\nThe submission has four parts. (1) What they established about non-transactional conversations on their team — or an account of why they could not establish it. (2) The honest answer to ''why does anyone on this team still need anyone else on it'', listing remaining dependencies marked GENUINE (the work truly requires both) or RESIDUAL (a dependency only because nobody has removed it yet). (3) One designed interdependency naming two real people, the work, and what each brings the other cannot — passing three tests: the work genuinely requires both; it would survive an efficiency review, defensible on the work''s own terms without mentioning connection; and it is repeated rather than one-off. (4) A covering note.\n\nCRITICAL — ''I could not establish this'' is a full-credit answer for part one when the learner says why: no visibility, wrong question to ask directly, remote team, or it would seem strange coming from them. The module says explicitly that most leaders cannot and that not knowing is the finding. Do not mark down an honest inability; mark down an unevidenced estimate presented as fact.\n\nScore the delta, never the score: grade the account of the gap between the predicted percentage and what they found or could not find, never the accuracy of either.\n\nThis is a leadership course whose central risk is drift into cliché, and this module''s specific risk is drift into wellbeing language. Reward structural designs with named people and real work. Mark down anything that is a social event with a justification attached.","opening":[{"key":"nonTransactionalPct","label":"Predicted — what percentage of your team had a non-transactional conversation with a colleague last week","hint":"To your knowledge. If you genuinely don''t know, give your best estimate now and say so in the write-up.","placeholder":"e.g. 70","min":0,"max":100}],"calibration":[{"key":"nonTransactionalPctActual","label":"Actual — what you established when you tried to find out","hint":"From asking, not from impression. If you could not establish it, enter your best evidenced figure and explain what stopped you.","placeholder":"e.g. 40","min":0,"max":100,"actualFor":"nonTransactionalPct"}],"dimensions":[{"name":"They tried to find out, and were honest about the result","criteria":"Evidence of an actual attempt — who was asked, how the question was framed, what came back — or a clear account of why establishing it was not possible. Both paths earn full credit. What scores at the bottom is an estimate presented as a finding. Credit a learner who notices that asking the question in a way that produces the answer they wanted is itself a risk, and says how they avoided it."},{"name":"The dependency audit is honest and specific","criteria":"A real list of the dependencies that remain on a named team, each marked genuine or residual, with the residual ones being dependencies that exist only because nobody has removed them yet. The graded signal is honesty about the residual column: a learner who lists five dependencies and marks four residual has done the work; one who marks everything genuine has probably protected the answer. Credit an explicit read of what the genuine-to-residual ratio predicts for that team in a year."},{"name":"The design is structural, not recreational","criteria":"Two named people, named work, and a statement of what each brings that the other cannot — different information, different authority, or different judgment. Apply the module''s decisive test directly: if the connection benefit were deleted entirely, would the learner still do this? A design that only survives when you are allowed to say the quiet part is manufactured friction and should be marked down explicitly as such, however well intentioned. Meetings, socials, show-and-tells, and attendance expectations all fail this dimension."},{"name":"It would survive an efficiency review, and it recurs","criteria":"Two further tests. Could the learner defend this in front of someone whose job is removing steps, on the work''s own terms — better decisions, no single point of failure, consistency that survives scrutiny — without mentioning connection? And does it repeat, since a one-off collaboration builds nothing. Credit a learner who states the real ongoing cost honestly (minutes per case, slow weeks per quarter) rather than presenting the design as free; an unstated cost usually means it was not thought through."},{"name":"The delta and the position","criteria":"The predicted percentage against what they found or could not find, with an account of what moved — grade the account, never the accuracy, and treat ''I discovered I have no way of knowing this'' as a strong result. Plus a committed position on the module''s claim engaging its real counter-arguments: that designed interdependency is manufactured friction one layer down and more expensive because it degrades the work itself; and — the sharper one — that people are choosing this, that 76% went to AI for advice and 37% for companionship because it was better, and that re-engineering work to force old dependencies back overrides an expressed preference on a mechanism argument rather than a measured outcome. The position must say what evidence would tell them the two-year fuse is real."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m8-knowledge_check', 'ai401-m8', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"Why does the module lead with the productivity and burnout findings?","options":["To establish credibility before making a harder argument","Because they are the same people in the same survey, and a leader who carries only the second half will be correctly accused of telling half a story","Because burnout reduction is the more robust of the two findings","Because wellbeing gains offset the connection losses"],"correctIndex":1,"explanation":"62% reporting lower stress is a large effect. If the finding were simply \"AI makes people miserable,\" the politics would be easy — the difficulty is that both halves are true of the same population."},{"id":"q2","prompt":"What is unusual about the sample in this study, and why does it matter?","options":["It surveyed only managers, so it reflects a supervisory perspective","It surveyed AI users at large organizations — the population most exposed in both directions, which makes the good news less surprising and the bad news more serious","It was fielded across seven countries, so national differences are averaged out","It relied on self-reported data rather than observed behavior"],"correctIndex":1,"explanation":"n=2,150, seven countries, organizations of 3,500+, all active AI users. D is a real limitation of the study and not the answer to this question."},{"id":"q3","prompt":"What does the module say about people using AI for advice, brainstorming, and companionship?","options":["It is a warning sign that should be addressed through policy","It is a moral failure of workplace culture","It is frequently a better experience — and those same frictions are what made asking a colleague work","It is a temporary behavior that will normalize as tools mature"],"correctIndex":2,"explanation":"The model is available at 11pm, does not judge, and never mentions it to anyone. The small humiliation of admitting you did not know something is the same event as somebody learning who you are."},{"id":"q4","prompt":"What four jobs did help-seeking do beyond producing an answer?","options":["Trained juniors, surfaced errors, documented process, and distributed workload","Built trust at low stakes, transmitted norms that are in no document, let newcomers find mentors, and told people what existed","Created accountability, reinforced hierarchy, spread expertise, and built culture","Validated decisions, escalated risks, shared context, and reduced duplication"],"correctIndex":1,"explanation":"A mechanism quietly doing four jobs got optimized away because it was visibly doing one."},{"id":"q5","prompt":"Why does the module argue this is structural rather than a wellbeing concern?","options":["Because loneliness has measurable effects on productivity","Because weak ties are how people learn about opportunity — a well-evidenced finding — and they are disproportionately the bridge for people whose strong-tie networks are already closed","Because time off due to isolation has a direct cost that can be calculated","Because engagement scores are a board-level metric"],"correctIndex":1,"explanation":"The narrowing of access happens with no decision anyone could point to, which is what makes it a design problem rather than a programme problem."},{"id":"q6","prompt":"Why is the Gen Z / Gen X gap significant to the argument?","options":["Because younger workers use AI more heavily than older ones","Because it shows the effect is generational preference rather than structural","Because it is what happens when you enter an organization at the moment the mechanism for entering it stopped operating","Because Gen Z have higher turnover rates generally"],"correctIndex":2,"explanation":"Gen X built their networks before this. Gen Z are being asked to build theirs without the transaction that used to do it."},{"id":"q7","prompt":"Why can''t manufactured social time solve the problem?","options":["Because participation is usually voluntary and uptake is low","Because it attempts to produce the output of interdependency — people knowing each other — without the input, which is people needing each other","Because it takes time away from productive work","Because remote and hybrid teams cannot participate equally"],"correctIndex":1,"explanation":"The relationship was a by-product of dependence, and you cannot manufacture the by-product without the process."},{"id":"q8","prompt":"What test must a designed interdependency pass to count as structural?","options":["That both participants agree it is valuable","That it appears in both people''s objectives","That it would survive an efficiency review — defensible on the work''s own terms without mentioning connection","That it occurs at least monthly"],"correctIndex":2,"explanation":"If someone whose job is removing steps could not be answered on the work''s own terms, it is manufactured friction and it will be removed. D is one of the three tests — repetition — but not the one that separates structural from manufactured."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m9-counsel-review-required-10', 'ai401-m9', 10, 'prose', 'volatile', '## Counsel review required [V]
+
+**This module states legal positions that are jurisdiction-specific, actively moving, and in one
+case changed nine days before the material it replaced was written.**
+
+Nothing here is legal advice. **No procurement, deployment, or policy decision should rest on this
+module**, and no statement in it should be repeated to a colleague as settled without checking it
+against your own employment counsel first.
+
+Where this module is useful is in telling you **which questions are live** — what to ask, of whom,
+and why the answer matters more than it did last year. Take the questions to counsel. Take the
+answers from them.
+
+Three specific things to verify locally before acting on anything below: **the jurisdictions your
+organization actually operates in** and which instruments apply there; **the current status of the
+European timeline**, which moved once already in 2026 and carries a review date on this block; and
+**your own contracts** with any vendor whose system touches a decision about a person, because the
+allocation of liability in those contracts is not what this module can tell you.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m9-calibration-prompt-before-you-start-20', 'ai401-m9', 20, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One claim. Commit before you read.*
+
+> **"I could name, today, one decision about a person in my organization that is being shaped by a
+> system nobody in People has reviewed."**
+
+**True of us, or not true of us?** If true, name it now — a screening tool, a scheduling system, a
+scoring model, a routing rule, a flag in a case management system.
+
+If you cannot name one, do not write "there aren''t any." Write **"I can''t name one,"** because those
+are different statements and the difference is this module''s subject.
+
+Then: **how many systems in your organization touch a decision about a person?** A count. Almost
+everyone undercounts, and the reason is that the ones you forget are the ones nobody bought.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m9-module-brief-30', 'ai401-m9', 30, 'prose', 'stable', '## Module brief
+
+Every course on this ladder has a floor module, and this is 401''s. It is different from the ones
+below it in a specific way.
+
+101 M7 and M8 taught you where the line sits for **your own** work and gave you a policy skeleton
+for **your own** function. Your 301 track taught the legal edges of **your own** role. This module
+is about the rules that govern work you do not perform, in functions you do not run, using systems
+you did not buy — and about the enforcement problem that creates, which is genuinely 401''s and
+appears nowhere below it.
+
+Two things frame it.
+
+**You are the deployer, and that is a load-bearing word.** Most obligations in this area attach to
+the organization that puts a system in front of people, not the one that built it. Module 6 taught
+you to ask a vendor who holds liability for a discriminatory outcome and to listen to the
+deflection. This module tells you what the deflection is deflecting.
+
+**And a floor nobody can comply with is not a floor.** The organizations that write the strictest
+AI policies frequently have the most unsanctioned AI use, and those two facts are causally related.
+Lesson 4 is about that, and it is the module''s real contribution.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m9-learning-objectives-40', 'ai401-m9', 40, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Explain what being the deployer means for where obligations land.
+2. Name the four duties that recur across regimes, and design for them without reading each one.
+3. State the current European position accurately, including which half moved and which did not.
+4. Explain the agent theory and what it changes about how you buy.
+5. Write a floor that includes an exception path, and say why one without it fails.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m9-lesson-1-you-are-the-deployer-50', 'ai401-m9', 50, 'prose', 'volatile', '## Lesson 1 · You are the deployer [V]
+
+The distinction that decides who carries the obligation.
+
+**A developer builds the system. A deployer puts it in front of people.** You are the second one,
+and across most of the regimes in this area, **the duties that matter attach to the deployer** —
+notice, assessment, record-keeping, human review — regardless of what the vendor''s marketing says
+and frequently regardless of what the contract says.
+
+This has a practical consequence that catches People functions repeatedly: **you can inherit an
+obligation from a purchase you were not part of.** IT bought the scheduling system. A business unit
+signed up for the screening tool. Somebody''s team enabled a feature inside a platform you already
+owned. In each case the system is now making or shaping decisions about people, and the exposure is
+the employer''s.
+
+**The four duties that recur.** Across the patchwork of jurisdictions and instruments, the same
+obligations keep appearing in different combinations:
+
+- **Notice** to candidates and employees that an AI tool is being used.
+- **Bias auditing**, sometimes with publication.
+- **The right to request human review.**
+- **Record-keeping** about how the tool was used and what it produced.
+
+**If you build for those four, you are broadly positioned for regimes you have not read yet.** That
+is the single most useful sentence in this module for someone operating across jurisdictions, and
+it is why the activity asks for a floor rather than a compliance matrix.
+
+**And the doctrine that predates all of it.** Disparate impact requires no intent. A neutral
+practice that disproportionately excludes a protected group needs job-related justification,
+whoever built it and whatever it was marketed as. Every AI statute sits on top of that; none
+replaces it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m9-lesson-2-the-european-position-and-which-60', 'ai401-m9', 60, 'prose', 'volatile', '## Lesson 2 · The European position, and which half moved [V]
+
+Stated carefully, because both of the confident summaries circulating are wrong.
+
+The EU AI Act classifies employment uses — recruitment, selection, promotion, termination, task
+allocation, and performance monitoring — as **high-risk**.
+
+**Then the timeline moved, and only partly.** **Regulation (EU) 2026/1744, the Digital Omnibus on
+AI, was published in the Official Journal on 24 July 2026 and entered into force on 27 July 2026** —
+six days before the AI Act''s original high-risk deadline. Employment high-risk obligations moved
+from 2 August 2026 to **2 December 2027**; Annex I embedded systems to **August 2028**.
+
+**But most Article 50 transparency obligations still applied from 2 August 2026.**
+
+And two things never moved at all: the **AI literacy obligation** and the **prohibition on emotion
+recognition in the workplace**, both in force since February 2025. The emotion-recognition ban is
+not a risk to manage — it is a prohibition on inferring emotional states of employees or candidates
+from facial expression, voice, or similar signals. **If a vendor is selling you sentiment-from-video
+in an interview context and you have European operations, that is not a procurement question.**
+
+So: **the leader who thinks the deadline passed and they are exposed is wrong. The leader who thinks
+it all got delayed is also wrong.** Knowing which half moved is the literacy this lesson is for, and
+it is exactly the kind of fact that will have changed again by the time you read this — which is
+why the block carries a volatile marker and a review date.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m9-lesson-3-the-agent-theory-70', 'ai401-m9', 70, 'prose', 'volatile', '## Lesson 3 · The agent theory [V]
+
+The most consequential development for how you buy rather than how you comply.
+
+In **Mobley v. Workday**, a court allowed claims to proceed on the theory that an AI screening
+vendor can act as an **agent of the employer** — holding it plausibly alleged that customers had
+delegated their traditional function of rejecting candidates or advancing them to interview. The
+employment-agency theory was dismissed; the agent theory survived and went to discovery. The
+litigation has continued to expand rather than contract, with claims proceeding across race, sex,
+age, and disability.
+
+Two implications for a Translator specifically.
+
+**Neither party gets to point at the other.** The employer''s *"that''s the vendor''s problem"* and the
+vendor''s *"we only make the software"* both weaken under this theory. **If a tool performs a
+function you would otherwise perform, it may carry your obligations with it** — which is the answer
+to the question Module 6 told you to ask, and the reason the deflection was a deflection.
+
+**And discovery reaches the model.** The most instructive part of the case is the ongoing fight over
+access to algorithmic code and testing data. Whatever its outcome, the direction is clear enough to
+plan around: **"we don''t know how it works" is not going to be a durable position**, and the time to
+find out how it works is before you are asked.
+
+Which gives you the procurement consequence in one line: **the bias audit you did not ask for at
+purchase is the document you will be asked for at discovery.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m9-lesson-4-the-floor-that-people-can-actua-80', 'ai401-m9', 80, 'prose', 'stable', '## Lesson 4 · The floor that people can actually stand on
+
+Everything above is the law. This lesson is the part that is your job rather than counsel''s, and it
+is the module''s real contribution.
+
+**Start with the rule that outlives every statute.**
+
+> **AI is never the decision-maker. Automate the assembly, not the reasoning.**
+
+That rule survives every rollback, deferral, and amendment above, because it is not derived from any
+of them. It is derived from what your organization''s product actually is — manager judgment — and a
+policy built on it will still be right when the timeline moves again. A policy built on a compliance
+date expires on that date.
+
+**Now the enforcement problem, which is the one nobody teaches.**
+
+Organizations with the strictest AI policies frequently have the most unsanctioned AI use. That is
+not irony, it is mechanism: **a prohibition nobody can comply with produces concealment rather than
+compliance.** If the rule is "no AI on any employee data" and the alternative is missing a deadline
+you cannot miss, people will use AI on employee data and stop telling you.
+
+You then have the worst of both worlds. The usage continues, the risk is unchanged, and **you have
+destroyed your visibility into it** — which was the one thing you actually had.
+
+So a floor has to be enforceable by something other than hope, and at this rung you do not have a
+police force. Three properties make one operate:
+
+**It must be compliable.** For every prohibition, there is a stated thing to do instead. A rule that
+forbids without providing an alternative is a rule that gets routed around, and the routing is
+invisible to you by design.
+
+**It must have an exception path with a real owner and a real turnaround.** Not "raise it with your
+manager" — a named route with a stated response time. **The exception path is what converts
+concealment into a queue**, and a queue is information: it tells you where the floor is wrong, which
+teams are under pressure, and what is coming.
+
+**And it must be versioned, with a date and a next review.** Everything in Lessons 1 to 3 will move.
+A policy with no version is one people cannot tell is current, which means they will treat all of it
+as equally stale — including the parts that matter most.
+
+> **A floor with no exception path is not a floor. It is a detour sign.**
+
+**One more thing, and it is the honest limit of your position.** You will write this and someone
+will not follow it, and you will not find out. Your instrument is not enforcement, it is **making
+compliance cheaper than concealment** — which is a design problem, and the one thing in this module
+that is squarely yours rather than counsel''s.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m9-exercise-embed-85', 'ai401-m9', 85, 'exercise', 'stable', '{"type": "sorting"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m9-key-takeaways-90', 'ai401-m9', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **You are the deployer.** Obligations attach to the organization putting a system in front of
+  people, not the one that built it — and **you can inherit an obligation from a purchase you were
+  not part of.**
+- **Four duties recur across regimes:** notice, bias auditing, a right to human review, and
+  record-keeping. Build for those and you are broadly positioned for regimes you have not read.
+- **Disparate impact requires no intent**, and every AI statute sits on top of that rather than
+  replacing it.
+- **In Europe, one half moved and one did not.** Employment high-risk obligations deferred to
+  2 December 2027 by the Digital Omnibus; most Article 50 transparency obligations applied from
+  2 August 2026; the AI literacy obligation and the workplace emotion-recognition prohibition have
+  been in force since February 2025 and never moved.
+- **The agent theory means neither party gets to point at the other**, and *"we don''t know how it
+  works"* is not a durable position. **The bias audit you did not ask for at purchase is the
+  document you will be asked for at discovery.**
+- **AI is never the decision-maker. Automate the assembly, not the reasoning** — a rule that
+  outlives any statute, because it is derived from what your organization''s product is.
+- **A prohibition nobody can comply with produces concealment rather than compliance**, and you lose
+  the visibility you had.
+- **A floor must be compliable, have an exception path with a named owner and a response time, and
+  be versioned.** The exception path converts concealment into a queue, and a queue is information.
+- **Your instrument is making compliance cheaper than concealment**, not enforcement.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m9-activity-link-95', 'ai401-m9', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 The unreviewed decision", "blurb": "Count the systems touching a decision about a person \u2014 including the AI features switched on inside platforms you already owned \u2014 and name one nobody in People has reviewed. A documented failed search is a full-credit answer. Then write the exception path, and one rule you would give no exception at all.", "estMinutes": "30"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m9-take-a-position-100', 'ai401-m9', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"A floor with no exception path is not a floor. It is a detour sign."*
+
+The strongest counter-argument is that **some floors should have no exception path, and saying so
+is the point of having one.** There are things that should simply never happen — inferring emotional
+state from a candidate''s face, letting a model make a termination decision, running employee health
+data through a consumer tool — and an exception process communicates, structurally, that these are
+negotiable given sufficient business pressure. **A queue is an invitation.** Every exception granted
+becomes the precedent for the next one, the turnaround time becomes the real policy, and within a
+year the floor is wherever the exception approver''s tolerance happens to sit.
+
+The sharper version: this module''s own framing concedes it. Lesson 2 describes the
+emotion-recognition ban as *"not a risk to manage"* — a prohibition, full stop, with no exception
+path contemplated by the legislature. **So the module already believes some floors are absolute**,
+and has not said how you tell those from the ones that need a queue.
+
+Your position has to draw that line: which prohibitions in your own floor get an exception path,
+which get none, and what distinguishes them.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m9-sources-and-attribution-110', 'ai401-m9', 110, 'prose', 'stable', '## Sources and attribution
+
+- **Counsel-review gate stated at the top of the module**, in the content itself. Nothing here is
+  legal advice; the module''s usefulness is in identifying which questions are live.
+- **The EU AI Act timeline, the Digital Omnibus deferral, and *Mobley v. Workday* are reused
+  verbatim rather than re-derived** — from `content/ai301-hrbp-m6-the-line.md` and the CPO track''s
+  correction, per the course''s shared-evidence rule. Six independently worded copies of the same
+  statute will drift, and this surface moves faster than any other in the curriculum. `[V]`
+- The Omnibus specifics — **Regulation (EU) 2026/1744, published 24 July 2026, in force 27 July
+  2026, employment high-risk moved to 2 December 2027, Annex I embedded systems to August 2028,
+  most Article 50 transparency obligations applying from 2 August 2026** — carry the corrected
+  wording established during the CPO track''s verification, which found the pre-correction phrasing
+  described the deferral as a proposal rather than adopted law.
+- **Deliberately not repeated from 101 M7 and M8:** where the assist/decide line sits, and the
+  five-question policy skeleton for your own function. This module is about work you do not perform
+  in functions you do not run, and about enforcement without authority.
+- The deployer framing as an inheritance problem, the compliable/exception-path/versioned test, and
+  the *make compliance cheaper than concealment* rule are original to this course. The concealment
+  mechanism is shared with the Labor & Employee Relations 301 track, where it appears in its
+  investigations form.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m9-activity-applied-activity-the-unreviewed-decision-10', 'ai401-m9-activity', 10, 'prose', 'stable', '## Applied activity — "The unreviewed decision"
+
+**Time:** 30 minutes · **Submit:** the search, the finding, and the exception path · **Graded against
+the rubric below.** Score doesn''t matter. Doing the work is where the learning lands.
+
+> **Before you start:** nothing you submit should contain identifiable information about a named
+> individual, an open matter, or a live investigation. This is a systems exercise, not a case
+> exercise.
+
+**Step 1 — Count the systems (8 min).** How many systems in your organization touch a decision about
+a person? Go and look rather than recall. Include: anything in the hiring path, anything that scores
+or ranks, scheduling and shift allocation, performance and calibration tooling, case management,
+learning recommendations, and **any AI feature switched on inside a platform you already owned** —
+which is the category everyone forgets, because nobody bought it.
+
+**Step 2 — Name one nobody in People has reviewed (10 min).** One system, one decision it shapes,
+and what "reviewed" would have meant — who would have looked, at what, against what standard.
+
+**If you cannot find one, do not conclude there are none.** Record the search: where you looked, who
+you asked, and what you were told. **A documented failed search is a full-credit answer** and often a
+more alarming one than finding something, because it usually means nobody can enumerate the systems
+at all.
+
+**Step 3 — Write the exception path (10 min).** For one rule in your organization''s current AI
+policy — or one you would write if there is no policy — specify:
+
+- **The rule**, in one line.
+- **What to do instead** — because a prohibition without an alternative gets routed around.
+- **The exception route:** a named owner, and a **stated turnaround time.**
+- **What gets recorded** when an exception is granted, so the queue becomes evidence.
+- **And one rule you would give no exception path at all**, with your reason.
+
+**Step 4 — The covering note (2 min).** 150–250 words. Your predicted system count against the real
+one, and specifically what you had forgotten. Then your position on the module''s claim, engaging the
+argument that a queue is an invitation.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m9-micro-core', 'ai401-m9-micro', 10, 'prose', 'volatile', '## Module 9 in two minutes
+
+**Counsel review required.** Nothing here is legal advice, the positions are jurisdiction-specific and moving, and no procurement or policy decision should rest on this. What it is good for is telling you which questions are live.
+
+**You are the deployer, and that word is load-bearing.** A developer builds the system; a deployer puts it in front of people. Across most regimes the duties attach to the deployer — which means **you can inherit an obligation from a purchase you were not part of.** IT bought the scheduling system. A business unit signed up for the screening tool. Someone switched on an AI feature inside a platform you already owned.
+
+**Four duties recur across the patchwork:** notice that an AI tool is being used, bias auditing, a right to request human review, and record-keeping. Build for those four and you are broadly positioned for regimes you have not read. And **disparate impact requires no intent** — every AI statute sits on top of that doctrine rather than replacing it.
+
+**In Europe, one half moved and one did not.** Employment high-risk obligations deferred to 2 December 2027 under the Digital Omnibus; most Article 50 transparency obligations applied from 2 August 2026; the AI literacy obligation and the workplace emotion-recognition prohibition have been in force since February 2025 and never moved.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m9-micro-rule', 'ai401-m9-micro', 20, 'callout', 'stable', '### The rule to carry
+
+**AI is never the decision-maker. Automate the assembly, not the reasoning.** That rule outlives every deferral and amendment, because it is derived from what your organization''s product is — manager judgment — rather than from a compliance date. A policy built on a date expires on that date.
+
+Then the enforcement problem, which is the part that is yours rather than counsel''s. **A prohibition nobody can comply with produces concealment rather than compliance.** If the rule is "no AI on employee data" and the alternative is missing a deadline you cannot miss, people will use AI on employee data and stop telling you — and you have destroyed the one thing you actually had, which was visibility.
+
+So a floor has to be **compliable** (every prohibition names what to do instead), **have an exception path with a named owner and a stated turnaround**, and be **versioned with a next review date.** The exception path converts concealment into a queue, and a queue is information.
+
+**A floor with no exception path is not a floor. It is a detour sign.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai401-m9-micro-close', 'ai401-m9-micro', 30, 'prose', 'stable', '**The full module adds** the agent theory from *Mobley v. Workday* and what it changes about buying — neither party gets to point at the other, *"we don''t know how it works"* is not a durable position, and **the bias audit you did not ask for at purchase is the document you will be asked for at discovery.** Plus the sorting exercise that shows how short the prohibited column actually is and how much lives under the same four duties.
+
+And the honest limit of your position: **your instrument is not enforcement, it is making compliance cheaper than concealment.** Which is a design problem, and the one thing here that is squarely yours.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m9-sorting', 'ai401-m9', 'sorting', '{"reviewedAt":"2026-08-12","buckets":[{"id":"prohibited","label":"Prohibited","hint":"Do not do this — no exception path","rank":0,"pct":5},{"id":"conditions","label":"Permitted with conditions","hint":"Allowed once specific duties are met","rank":1,"pct":50},{"id":"permitted","label":"Permitted","hint":"Ordinary use, ordinary care","rank":2,"pct":90}],"tasks":[{"id":"t1","text":"A tool that infers a candidate''s emotional state from their facial expression during a recorded interview, used by a company with European operations","key":"prohibited","reasoning":"Workplace emotion recognition has been prohibited in the EU since February 2025 and did not move under the Digital Omnibus. **This is not a risk to manage or a control to add — it is a prohibition**, and it is the clearest example in the set of a rule that should carry no exception path."},{"id":"t2","text":"Using AI to draft the first version of a job description, which the hiring manager then rewrites","key":"permitted","reasoning":"Assembly, not reasoning. No decision about a person is being made or shaped, the output is a draft with a named human owner, and this is 101 territory rather than 401''s. Included so the exercise has a floor: **not everything AI touches is a governance question**, and a leader who cannot say so quickly will not be believed about the things that are."},{"id":"t3","text":"A scheduling system that allocates shifts, bought by operations two years ago, which now has an AI optimization feature switched on","key":"conditions","reasoning":"The category everyone forgets, because nobody bought it. Shift allocation is a named employment use, the feature arrived without a purchase decision, and **the obligations attach to you as the deployer regardless.** Notice, a review route, and a record of how it allocates are the minimum. The activity asks you to count these precisely because they are invisible in any procurement register."},{"id":"t4","text":"A model that produces a ranked shortlist of candidates, where a recruiter reviews the list before anyone is rejected","key":"conditions","reasoning":"The hardest item, and the one most people place too permissively. **101 M7 already warned that \"the human reviewed it\" is not automatically a defense when the human reviewed a ranked list** — the ranking itself shapes the decision. Permitted in most jurisdictions with notice, bias auditing, a human-review right, and records; and under the agent theory the vendor performing a function you would otherwise perform may carry your obligations with it.","also":["prohibited"]},{"id":"t5","text":"Summarizing a completed engagement survey''s free-text responses into themes for a leadership readout","key":"permitted","reasoning":"Transformation of supplied material with no decision about any individual attached. Ordinary care applies — check the themes against the verbatims, and watch the re-identification risk in small teams — but this is not a floor question. 201 M3 taught the pipeline; nothing here changes it."},{"id":"t6","text":"Letting a model produce the final termination decision, with a manager signing the output","key":"prohibited","reasoning":"**AI is never the decision-maker. Automate the assembly, not the reasoning.** A signature on a decision you did not make is not human review, it is the appearance of it — and this is the rule that outlives every statutory change in Lessons 1–3, because it is derived from what the organization''s product is rather than from any timeline."},{"id":"t7","text":"An AI feature inside your case management system that flags which employee relations matters look similar to prior ones","key":"conditions","reasoning":"Locating is permitted; resolving is not. A flag that surfaces comparable prior matters is a search aid and a genuine consistency benefit. The condition is that **it may not be allowed to characterize credibility or produce the finding** — a line the Labor & Employee Relations track draws in detail, and the reason this belongs in the conditions column rather than the permitted one."},{"id":"t8","text":"Running employee health or accommodation information through a consumer-tier AI account to draft a response","key":"prohibited","reasoning":"Two failures at once — the most sensitive category of employee data, and a tier with no data processing agreement. 101 M4 tiered this and 201 M6 operationalized it; what 401 adds is that **this is exactly the rule people break when the compliant path is slower than the deadline**, which is why Lesson 4 insists a prohibition without a stated alternative produces concealment."},{"id":"t9","text":"A learning platform that recommends courses to employees based on their role and history","key":"conditions","reasoning":"Genuinely useful and quietly consequential. Recommendations shape which opportunities people see, and Module 8''s weak-ties argument applies directly — **a recommender that systematically shows fewer stretch opportunities to one group narrows access with no decision anyone made.** Notice and a periodic distribution check are proportionate; prohibition is not."},{"id":"t10","text":"Using AI to check a draft policy against your own handbook for internal contradictions","key":"permitted","reasoning":"Document-to-document work with no person in it. Verification still applies — 101 M6''s rules about fabricated citations do not go away — but there is no employment decision, no personal data, and no obligation triggered. **Three permitted items in this set is deliberate:** a floor that marks everything as conditional teaches people that the categories are meaningless."}],"pattern":"**Look at what actually put items in the prohibited column.** Not sensitivity, and not stakes — item 4''s ranked shortlist is higher-stakes than item 8 and it is not prohibited.\n\nThree things did it: **an explicit legal prohibition** (item 1), **the model making rather than assembling the decision** (item 6), and **the most restricted data class in an unprotected place** (item 8). That is the whole prohibited category, and it is short by design.\n\nThe conditions column is where nearly everything real lives, and every item in it is governed by the same four duties from Lesson 1 — notice, bias auditing, a human-review right, and records. **You did not have to know which jurisdiction each item falls under to place it.** That is the lesson: build for the four duties and you are broadly positioned for regimes you have not read.\n\nAnd notice item 3. Nobody bought it, nobody decided, and it carries the same obligations as a system you ran a procurement for.","postscript":"**If you put item 4 in Prohibited, you are making a serious argument and the exercise scores it.** The case is that a ranked list shapes the decision so strongly that downstream human review is decorative, which is precisely the concern 101 M7 raised. The key says conditions because ranked shortlisting is lawful in most jurisdictions with the four duties met, and a floor that prohibits it will be routed around within a quarter — Lesson 4''s mechanism. **But \"lawful\" and \"we should\" are different questions, and this is the item where your organization has to answer the second one deliberately.**\n\n**And if you put item 7 in Permitted**, check what you assumed about where the flag stops. Surfacing comparable matters is a search aid. The same feature summarizing what those matters concluded, or characterizing an account, has crossed from locating into resolving — and the two are usually one setting apart in the same product."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m9-rubric', 'ai401-m9', 'rubric', '{"promptVersion":"ai401-m9-unreviewed-decision-v1","moduleId":"ai401-m9","minWords":200,"maxWords":350,"submitLabel":"The system count, the unreviewed decision, and the exception path","intro":"Paste your system count and how you established it, the one system nobody in People has reviewed — or the record of the search that failed — the exception path you''d write, the one rule you''d give no exception at all, and the covering note. No identifiable information about a named individual, an open matter, or a live investigation. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for AI 401 · The Translator — the top rung of an AI-fluency ladder for People and HR professionals who have completed AI 101, AI 201, and one 301 role track. This is the Module 9 applied activity, ''The unreviewed decision''. Module 9 is the course''s floor module and carries a counsel-review gate stated in the content.\n\nYOU ARE NOT GRADING LEGAL ACCURACY. The module is explicit that nothing in it is legal advice and that positions are jurisdiction-specific and moving. Grade the quality of the search, the honesty of the finding, and the design of the exception path. If a learner states a legal position you believe is wrong, do not correct it as though you were counsel — note that it is the kind of claim the module says to verify with counsel, and grade the reasoning around it.\n\nSAFETY: if the submission contains identifiable information about a named individual, an open matter, or a live investigation, say so plainly at the top of your feedback and ask them to resubmit with it removed. Do not quote the identifying content back.\n\nThe module teaches: the learner is the deployer, so obligations attach to the organization putting a system in front of people regardless of who built it — meaning obligations can be inherited from purchases they were not part of. Four duties recur across regimes: notice, bias auditing, a right to request human review, and record-keeping. The rule that outlives any statute is that AI is never the decision-maker — automate the assembly, not the reasoning. And the enforcement argument that is the module''s real contribution: a prohibition nobody can comply with produces concealment rather than compliance, so a floor must be compliable (every prohibition names an alternative), have an exception path with a named owner and a stated turnaround, and be versioned. A floor with no exception path is a detour sign. The learner''s instrument at this rung is making compliance cheaper than concealment, not enforcement.\n\nThe submission has four parts. (1) A count of systems touching a decision about a person, established by looking rather than recalling, explicitly including AI features switched on inside platforms the organization already owned — the category everyone forgets because nobody bought it. (2) One system nobody in People has reviewed: the decision it shapes, and what ''reviewed'' would have meant — who would have looked, at what, against what standard. (3) An exception path for one rule: the rule in one line, what to do instead, a named owner with a stated turnaround, what gets recorded, and one rule they would give NO exception path at all with their reason. (4) A covering note.\n\nCRITICAL — a documented failed search is a FULL-CREDIT answer for part two and is often the more alarming result, because it usually means nobody can enumerate the systems at all. Grade where they looked, who they asked, and what they were told. Do not treat ''I could not find one'' as incomplete work. What scores at the bottom is concluding there are none without searching.\n\nScore the delta, never the score: grade the account of the gap between the predicted system count and the real one — specifically what they had forgotten — never the accuracy of either number.\n\nReward specificity: named systems, named owners, real turnaround times. Mark down compliance-matrix abstraction and any exception path whose owner is a committee.","opening":[{"key":"peopleSystemCount","label":"Predicted — how many systems in your organization touch a decision about a person","hint":"Hiring path, scoring or ranking, scheduling, performance tooling, case management, learning recommendations. Answer before you look.","placeholder":"e.g. 6","min":0,"max":200}],"calibration":[{"key":"peopleSystemCountActual","label":"Actual — how many you found when you went and counted","hint":"Include AI features switched on inside platforms you already owned — that''s the category almost everyone misses.","placeholder":"e.g. 14","min":0,"max":200,"actualFor":"peopleSystemCount"}],"dimensions":[{"name":"The count was established by looking","criteria":"Evidence of an actual enumeration — a register consulted, people asked, a platform''s feature list checked — rather than recall. The graded signal is whether they found the invisible category: AI features enabled inside systems the organization already owned, which appear in no procurement record. A learner who reports that no one in the organization can produce a list of these systems has found something important and should score at the top for it."},{"name":"The unreviewed system is named, or the search is documented","criteria":"Either a specific system with the specific decision it shapes, or a documented failed search — where they looked, who they asked, what they were told. Both are full credit. What must be marked down is asserting that no unreviewed systems exist without evidence of searching. Credit precision about what the system actually does: ''ranks applicants'' and ''orders the queue a recruiter works through'' are different claims with different consequences."},{"name":"''Reviewed'' is defined, not assumed","criteria":"A statement of what review would have meant: who would have looked, at what artifact, against what standard. This is the part most submissions skip, and without it ''unreviewed'' is just a complaint. Strong answers name a specific artifact — a bias audit, a distribution check, a sample of outputs, a vendor''s testing documentation — and a specific standard rather than ''someone in People should have signed off''."},{"name":"The exception path could actually run","criteria":"A named owner — a person or a specific role, never a committee — and a stated turnaround time. Plus what gets recorded when an exception is granted, so the queue becomes evidence about where the floor is wrong. And crucially, what to do INSTEAD of the prohibited thing, because the module''s mechanism is that a prohibition without an alternative gets routed around invisibly. A path with no turnaround time is a suggestion; say so."},{"name":"The absolute rule is chosen and defended","criteria":"One rule given no exception path at all, with reasoning that distinguishes it from the rules that get a queue. This is where the module''s own tension is resolved by the learner: the module concedes some prohibitions are absolute (workplace emotion recognition) without saying how to tell. Credit a stated principle — irreversibility, a statutory prohibition, the model deciding rather than assembling — over an intuition. A learner who argues that no rule should be absolute, and defends it, can score well if they engage what that means for the prohibited category."},{"name":"The delta and the position","criteria":"Predicted system count against actual, with specific naming of what they had forgotten — grade the account, never the accuracy. Plus a committed position on the module''s claim engaging its real counter-argument: that an exception process communicates structurally that a prohibition is negotiable given enough business pressure, that a queue is an invitation, that every exception becomes the precedent for the next and the turnaround time becomes the real policy — and that the module already concedes some floors are absolute without saying how to tell which. The position must draw that line rather than restate the claim."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai401-m9-knowledge_check', 'ai401-m9', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"What does being the \"deployer\" mean for where obligations land?","options":["That the organization shares liability proportionally with the vendor","That duties attach to the organization putting the system in front of people, regardless of who built it — so you can inherit an obligation from a purchase you were not part of","That obligations transfer once the system is customized for your organization","That the deploying manager rather than the function carries the exposure"],"correctIndex":1,"explanation":"IT bought the scheduling system, a business unit signed up for the screening tool, someone enabled a feature in a platform you already owned. The exposure is the employer''s in each case."},{"id":"q2","prompt":"Which four duties recur across regimes?","options":["Registration, certification, audit, and insurance","Notice, bias auditing, a right to request human review, and record-keeping","Consent, minimization, retention limits, and deletion rights","Impact assessment, board approval, vendor attestation, and annual reporting"],"correctIndex":1,"explanation":"Build for those four and you are broadly positioned for regimes you have not read — which is why the activity asks for a floor rather than a compliance matrix."},{"id":"q3","prompt":"What is the accurate statement of the current European position on employment uses?","options":["High-risk obligations applied from 2 August 2026 as originally scheduled","The entire regime was postponed under the Digital Omnibus","Employment high-risk obligations were deferred to 2 December 2027, but most Article 50 transparency obligations still applied from 2 August 2026","Employment uses were reclassified out of the high-risk category"],"correctIndex":2,"explanation":"The leader who thinks the deadline passed is wrong, and so is the leader who thinks it all got delayed. The AI literacy obligation and the workplace emotion-recognition prohibition never moved and have been in force since February 2025."},{"id":"q4","prompt":"What does the module say about a vendor selling sentiment-from-video in an interview context, for an organization with European operations?","options":["It requires a documented impact assessment before deployment","It is permitted with candidate notice and a human review option","It is not a procurement question — workplace emotion recognition is prohibited, not a risk to manage","It depends on whether the inference affects the hiring decision"],"correctIndex":2,"explanation":"The prohibition covers inferring emotional states from facial expression, voice, or similar signals, and it has been in force since February 2025."},{"id":"q5","prompt":"What does the agent theory in *Mobley v. Workday* change?","options":["It makes vendors primarily liable for discriminatory outcomes","Neither party gets to point at the other — if a tool performs a function you would otherwise perform, it may carry your obligations with it","It requires vendors to publish bias audit results","It extends employment-agency obligations to software providers"],"correctIndex":1,"explanation":"The employment-agency theory was dismissed; the agent theory survived and went to discovery. D describes the theory that was dismissed."},{"id":"q6","prompt":"What is the procurement consequence of discovery reaching the model?","options":["Contracts should include indemnification for algorithmic decisions","Vendors should be required to hold errors-and-omissions coverage","\"We don''t know how it works\" is not a durable position — the bias audit you didn''t ask for at purchase is the document you''ll be asked for at discovery","Model documentation should be retained for the statutory limitation period"],"correctIndex":2,"explanation":"Which is why Module 6 puts the bias audit request at purchase, when you still have leverage."},{"id":"q7","prompt":"Why does a prohibition nobody can comply with produce concealment rather than compliance?","options":["Because employees resent rules they were not consulted on","Because if the rule is \"no AI on employee data\" and the alternative is missing a deadline you cannot miss, people will use AI and stop telling you","Because enforcement resources are always insufficient","Because policies written by legal are rarely understood by practitioners"],"correctIndex":1,"explanation":"And you get the worst of both worlds: the usage continues, the risk is unchanged, and you have destroyed the visibility you had."},{"id":"q8","prompt":"What does an exception path with a named owner and a stated turnaround actually buy you?","options":["Legal defensibility if an exception is later challenged","It converts concealment into a queue — and a queue is information about where the floor is wrong and which teams are under pressure","Faster adoption of approved tools","A record that satisfies the record-keeping duty"],"correctIndex":1,"explanation":"Your instrument at this rung is making compliance cheaper than concealment, not enforcement."}]}', '2026-08-12');
