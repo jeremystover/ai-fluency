@@ -27,9 +27,15 @@ sees exactly one — resolved from the role they pick at intake (`src/shared/rol
 | Track | Course id | State |
 |---|---|---|
 | HR Business Partner | `ai301-hrbp` | **Authored and shipped** — 7 modules |
-| Recruiting / TA | `ai301-recruiter` | Outlined, not drafted |
+| Recruiting / TA | `ai301-recruiter` | Outlined · R1–R3 drafted with packages, unregistered |
 | Compensation & Benefits | `ai301-comp` | Outlined, not drafted |
+| Employee Experience / Internal Comms | `ai301-excomms` | Outlined (integrated), not drafted |
+| Defensible by Design | `ai301-defensible` | Outlined (integrated), not drafted |
 | Everything else | — | **Not started. This brief is for these.** |
+
+> **Before outlining or drafting anything, also read `301-cross-track-alignment.md`.** This brief
+> says how to build a track. That register says what the track next to yours already owns, which
+> corrections are outstanding against live content, and which boundaries are still unsettled.
 
 ---
 
@@ -67,6 +73,16 @@ pattern from explorations.
 Two that recur: a "document pipelines" module (that's 201 M3, whose worked example is literally
 survey verbatims → themes → exec summary) and an "AI in your annual calendar" module (that's
 201 M7, the operating rhythm). Both feel role-specific and are not.
+
+**But subtract on designs, not topics — the same discipline, one step earlier, and it is easy to
+miss.** The DEI exploration subtracted "adverse impact computation" because recruiter R6 has a
+lesson with that name, and concluded there was no track. R6 teaches a recruiter to *read* a vendor's
+bias audit; the track that survived teaches someone to *design and run the testing protocol under
+privilege*. Same topic, different designs, and subtracting the first killed the second. The lesson
+above about explorations-versus-outlines applies to the subtraction table too: **a shared topic is
+not a shared design, and the subtraction step is where that mistake is cheapest to make and most
+expensive to keep.** When a candidate topic appears to be owned, check what the owning module
+actually *does* with it before crossing it off.
 
 **Depth modules are discovered from the role, never derived from a convention.** This rule
 produced the three best modules in the curriculum — the recruiter track's intake module and
@@ -150,9 +166,10 @@ also where 101 M7's assist/decide line either gets operationalized or quietly ig
 content production is the most AI-saturated work in the entire function, which likely inverts the
 diagnosis module the way the comp track's did.
 
-**Employee Experience / Internal Communications.** Note the likely overlap with the volume trap
-(201 and the HRBP track's M3): cheaper content production is this role's central risk, not its
-opportunity.
+**~~Employee Experience / Internal Communications~~ — DONE.** Outlined as `ai301-excomms` ·
+"After the Draft." The overlap hypothesis was right and the resolution is recorded as B-06 in the
+alignment register: HRBP M3 owns the volume trap as a cost in *decisions*; this track re-aims it at
+*attention* and states the delta rather than re-teaching it.
 
 **People Ops / HR shared services.** High-volume, process-heavy, closest to being a 201 re-run —
 which makes it the weakest test of the role-depth thesis and the one most at risk of failing the
@@ -163,10 +180,20 @@ job is cross-functional leadership, change management, and governance, which is 
 The Translator is defined. **Check whether this audience belongs at 401 rather than as a 301
 track** before outlining it as one.
 
+**~~DEI~~ — RESOLVED, as a track, under a different name.** The overlap hypothesis was tested and
+initially came back "no track" (`course-301-dei-assessment.md`, kept and marked superseded). That
+was wrong — see the subtraction-on-designs lesson in §3. The track is `ai301-defensible` ·
+"Defensible by Design," reframed away from program ownership toward the technical compliance
+function for algorithmic people decisions. **Named for the capability, not the identity**, for
+three reasons worth carrying to any future renaming question: "Culture and Belonging" mis-routes at
+intake toward ERG and engagement work, which is the EX/comms track; it contradicts a module in its
+own course that says relabeling isn't cover; and "DEI" in a course title is a deployment blocker for
+a federal contractor certifying under EO 14173.
+
 Also raised and unresolved: **Talent Management** (performance, succession, calibration — is it
-inside Talent Development or homeless?), **Labor & Employee Relations** (distinct in unionized
-environments; ER documentation currently lives in HRBP M6), and **DEI** (heavy overlap with pay
-equity and adverse impact; may be lessons rather than a track).
+inside Talent Development or homeless?) and **Labor & Employee Relations** (distinct in unionized
+environments; ER documentation currently lives in HRBP M6, so a separate ER track would have to take
+it — a change to live content).
 
 ---
 
@@ -187,7 +214,10 @@ whenever" dead-end, which is the bug this whole body of work started from.
 
 | File | Why |
 |---|---|
+| `content/301-cross-track-alignment.md` | **Read first, with this brief.** Boundaries, outstanding corrections, unsettled lines. |
 | `content/course-301-hrbp-outline.md` | The reference outline. Shipped. |
+| `content/course-301-ex-comms-outline.md` | Best example of a track whose diagnosis *inverts*, and of splitting the legal floor across two modules. |
+| `content/course-301-defensible-outline.md` | Best example of naming a track for its capability, and of verification changing four claims in a source brief. |
 | `content/course-301-recruiter-outline.md` | Best example of integrating a human outline; see its Decisions section. |
 | `content/course-301-comp-benefits-outline.md` | Contains the **spine test** — the honest analysis of what recurs. Read §"The spine test, revised". |
 | `content/course-301-hrbp-exploration.md` | What a role exploration looks like, including the subtraction table. |
