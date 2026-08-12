@@ -1,0 +1,52 @@
+{
+  "promptVersion": "ai301-excomms-m6-your-trust-line-v1",
+  "moduleId": "ai301-excomms-m6",
+  "minWords": 250,
+  "maxWords": 350,
+  "submitLabel": "Your trust line, voice floor and test",
+  "intro": "Paste the five-message check against the brief trail, the trust line by category, the voice input floor for two leaders, and the retrospective test — followed by the 250–350 word write-up including your position on this module's claim. Resubmission is free and unlimited — the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, Employee Experience / Internal Comms track. Module 6 applied activity, 'Your trust line': the last five messages published in their most-ghostwritten leader's name, checked against the actual brief trail to determine whether that leader SUPPLIED THE POSITION or merely approved the wording; a trust line written as categories using the message-type gradient; a voice input floor for two leaders (position, specific, stakes — plus what happens when one is missing and the message is due today); and a retrospective application of that floor to one already-published message.\n\nScore at full credit: a learner who cannot reconstruct the brief trail for some or all of the five and says so. That is a finding about their process — briefs that leave no trace mean nobody can later establish whether a leader stood behind a message — and it is more valuable than a confident reconstruction from memory.\n\nAlso score at full credit: a learner who applies their own floor retrospectively and finds their published message would have FAILED it. That is the activity working. Submissions where the retrospective test conveniently passes should be probed in feedback.\n\nThe fallback clause is the part that makes the floor real. 'What we do when the position is missing and the message is due today' is the rule; everything above it is aspiration. A floor with no fallback should be named as such.\n\nWatch for the perception gap in the submission itself: a learner arguing that heavy AI assistance in their own function's leadership messages is fine because they personally reviewed it is exhibiting the finding rather than applying it. Name it gently in feedback.\n\nThis track scores the delta rather than the score. Grade the learner's ACCOUNT of the gap between how many positions they predicted were leader-supplied and how many the brief trail showed — direction, size, and what it reveals. NEVER grade prediction accuracy, and never treat a low count as a poor result; discovering that one of five positions was genuinely supplied is exactly what this module exists to surface.",
+  "opening": [
+    {
+      "key": "positionsSupplied",
+      "label": "Predicted — of the last five messages in that leader's name, how many did they supply the position for",
+      "hint": "Supplied, not approved. A number from 0 to 5.",
+      "placeholder": "e.g. 3",
+      "min": 0,
+      "max": 5
+    }
+  ],
+  "calibration": [
+    {
+      "key": "positionsSuppliedActual",
+      "label": "Found — how many the brief trail actually shows",
+      "hint": "Count only those where you can point at what the leader supplied. Unreconstructable counts as not supplied, and say so.",
+      "placeholder": "e.g. 1",
+      "min": 0,
+      "max": 5,
+      "actualFor": "positionsSupplied"
+    }
+  ],
+  "dimensions": [
+    {
+      "name": "The five messages are checked against evidence, not memory",
+      "criteria": "Each of the five traced to an actual brief artifact — an email, meeting note, recording, briefing document — with a judgement about whether the leader supplied a position or approved wording. 'I can't reconstruct the trail for three of these' is a strong and creditable answer that says something real about the process. A confident reconstruction from memory of what the leader probably contributed is the weakest form."
+    },
+    {
+      "name": "The trust line uses the gradient and is written as categories",
+      "criteria": "Categories placed along the relational gradient rather than a blanket rule or a list of specific message names, with a sentence of reasoning for each placement. Look for the load-bearing distinction: what the message claims, not how sensitive the topic is. A learner who places the layoff message as human-first because it is emotionally heavy has half the idea; one who places it there because employees read it forensically for tells has the whole one."
+    },
+    {
+      "name": "The voice floor has all three elements and a fallback",
+      "criteria": "Position, specific, and stakes, stated concretely enough to apply on a Tuesday — plus the fallback for when an element is missing and the message is due today. The fallback is the rule; without it the floor is aspiration and should be scored as such. The strongest submissions make the fallback something other than 'send it anyway', and atomization is a legitimate answer to a missing specific."
+    },
+    {
+      "name": "The retrospective test is honest",
+      "criteria": "The learner's own floor applied to a message they already published, with a clear verdict. A message that would have failed, named as such with the missing element identified and an alternative described, is the strongest possible answer here. A test that conveniently passes should be probed; the floor was written by the same person who approved the message, and a floor calibrated to pass its author's existing practice is not a floor."
+    },
+    {
+      "name": "The position engages the attribution counter",
+      "criteria": "A committed position on the claim that ghostwriting was fine because the executive had to show up with a position, engaging the strongest case against it: that the requirement was never real, that communicators have inferred positions for decades, and that the honest response is to stop attributing institutional messages to individuals at all — publishing from the function instead. The strongest submissions say what would actually happen in their organization if they proposed attributing a major announcement to the function rather than a named leader, because that answer reveals what the signature is really doing. Plus the message from the last year they'd most want back."
+    }
+  ]
+}
