@@ -4,10 +4,10 @@ DELETE FROM fd_exercise;
 DELETE FROM fd_module;
 DELETE FROM fd_brand;
 DELETE FROM fd_access_code;
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-12T17:43:55.234Z');
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-12T17:43:55.234Z');
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('73ab6b3d-fc0d-4c90-b5a7-ea0a8332f254', 'omnissa', 'pbkdf2$100000$KEVOi8S7QH+CEIToihr58g==$vGsHuTvm1lGhIH2QUzfzn1/k51gQjdz8NmxlNSN+hIE=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('b07113d6-0fd2-46ce-9b83-7d3fe8be62fa', 'verdant', 'pbkdf2$100000$B47NJH0rdEsmNN67VgF//w==$LgS41NTvhTxXwvjbc4xmq5nhZG84cq/WJkO8yeAkRAM=', 'Theming proof', NULL, 0, NULL, 1);
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-12T17:45:39.228Z');
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-12T17:45:39.228Z');
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('01b07cc3-5a8a-41e2-a3ab-b60c6c4839c7', 'omnissa', 'pbkdf2$100000$gPeDX3gFHg5LZkR8llHWUA==$Zpf0v3pUjFtYY92D5NwVd+s0xUCoT1aFbbsMuWBk8fA=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('aa6ebd47-e95c-44cc-82d4-6b9de78cc17d', 'verdant', 'pbkdf2$100000$X3W3Vr+ZSTuklVloDrEniw==$/m4U5QbS/z4XKJHYJjcx5aiHO/65HmkapQ2jfegj/FQ=', 'Theming proof', NULL, 0, NULL, 1);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m1', 'ai101', 1, 'What is AI?', 'A working mental model: what an LLM actually does, the vocabulary, why data decides everything, and a delegation heuristic you can carry under pressure.', 'open', 30, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m2', 'ai101', 2, 'Choosing the tool for the task', 'Chat assistants, copilots, and the AI already embedded in your HR stack — what each is actually for, and how to tell a language model from a scoring engine before you rely on either.', 'open', 25, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m3', 'ai101', 3, 'What it costs and how it scales', 'Tokens, context windows, and pricing — enough of the economics to size a use case, read a vendor quote, and know when a bigger model is worth it.', 'open', 25, NULL);
@@ -1854,11 +1854,22 @@ your conversation with counsel better, not to replace it.*
 The shape, in four strokes. **Employment decisions are a named high-risk category** in
 the emerging regulatory landscape — the EU AI Act treats AI systems used in employment,
 worker management, and access to self-employment as high-risk, with obligations to
-match; U.S. federal enforcement agencies have signaled that existing employment law
-fully applies to algorithmic decisions; and a growing patchwork of state and city rules
-targets automated employment decision tools specifically — audit requirements,
-disclosure requirements, and definitions that turn on whether a tool *substantially
-assists or replaces* discretionary decisions. **[V]**
+match; and a fast-growing body of state and city rules targets automated employment
+decision tools specifically — audit requirements, disclosure requirements, and
+definitions that turn on whether a tool *substantially assists or replaces* discretionary
+decisions. **[V]**
+
+**And the U.S. federal picture moved, in a way worth reading carefully, because the
+obvious reading is wrong.** In January 2025 the EEOC removed its AI guidance documents —
+the 2023 technical assistance on Title VII and the 2022 material on the ADA — following a
+change of administration and the rescission of the prior executive order. It would be easy
+to read that as the rules relaxing. **They didn''t. Guidance was withdrawn; the statutes
+were not.** Title VII, the ADA and the ADEA apply to an algorithmic decision exactly as
+they applied before, because they were never AI-specific in the first place — and private
+plaintiffs, who bring most employment litigation, do not need an agency''s guidance
+document to sue. What actually changed is that **the federal government stopped telling
+you how it reads the law, while the states started telling you how they read theirs.** You
+have less warning, not less exposure. **[V]**
 
 **Disparate impact doesn''t need intent.** The doctrine long predates AI: a neutral-seeming
 practice that disproportionately excludes a protected group needs job-related
@@ -1882,7 +1893,7 @@ evidence** in writing; and **bring counsel a specific list** — "these three sy
 touch hiring and performance; here''s what each decides" — because "is our AI compliant?"
 gets you a shrug, and the specific list gets you an answer. The questions for counsel:
 which of our jurisdictions regulate these tools today, what do they require of us this
-year, and what''s coming that we should build for now? **[V]**', NULL, '2026-08-11', NULL);
+year, and what''s coming that we should build for now? **[V]**', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m7-lesson-4-saying-no-so-it-sticks-80', 'ai101-m7', 80, 'prose', 'stable', '## Lesson 4 · Saying no so it sticks
 
 You now own an argument. This lesson is about deploying it so it survives contact with
@@ -1951,14 +1962,18 @@ This module draws on the following material:
   employment context.
 - The disparate-impact framing follows long-standing U.S. employment-law doctrine;
   the high-risk categorization of employment AI follows the EU AI Act''s published
-  framework; agency guidance on algorithmic employment decisions continues to evolve.
-  **This lesson is direction-of-travel, not legal advice — verify all specifics with
-  counsel before relying on them. Flagged for counsel review before any
+  framework. **US federal guidance `[V]`:** the EEOC removed its AI technical assistance
+  documents in January 2025 — the May 2023 Title VII material and the May 2022 ADA
+  material — following Executive Order 14179 and the rescission of the prior
+  administration''s AI executive order. **The underlying statutes were not amended**, and
+  the agency''s Strategic Enforcement Plan listing AI remained in place; what withdrew was
+  guidance, not law. **This lesson is direction-of-travel, not legal advice — verify all
+  specifics with counsel before relying on them. Flagged for counsel review before any
   deployment-specific claims are added. [V]**
 - The proxy-variable problem and the standardization-of-bias argument reflect the
   published algorithmic-fairness research consensus.
 - The assist/decide line, the traveling test, the review-theater argument, and the
-  four properties of a line that holds are original to this course.', NULL, '2026-08-11', NULL);
+  four properties of a line that holds are original to this course.', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai101-m7-activity-applied-activity-draw-the-line-10', 'ai101-m7-activity', 10, 'prose', 'stable', '## Applied activity — "Draw the Line"
 
 **Time:** 20–25 minutes · **Submit:** your one-pager plus a 250–350 word reflection ·

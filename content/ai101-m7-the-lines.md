@@ -176,11 +176,22 @@ your conversation with counsel better, not to replace it.*
 The shape, in four strokes. **Employment decisions are a named high-risk category** in
 the emerging regulatory landscape — the EU AI Act treats AI systems used in employment,
 worker management, and access to self-employment as high-risk, with obligations to
-match; U.S. federal enforcement agencies have signaled that existing employment law
-fully applies to algorithmic decisions; and a growing patchwork of state and city rules
-targets automated employment decision tools specifically — audit requirements,
-disclosure requirements, and definitions that turn on whether a tool *substantially
-assists or replaces* discretionary decisions. **[V]**
+match; and a fast-growing body of state and city rules targets automated employment
+decision tools specifically — audit requirements, disclosure requirements, and
+definitions that turn on whether a tool *substantially assists or replaces* discretionary
+decisions. **[V]**
+
+**And the U.S. federal picture moved, in a way worth reading carefully, because the
+obvious reading is wrong.** In January 2025 the EEOC removed its AI guidance documents —
+the 2023 technical assistance on Title VII and the 2022 material on the ADA — following a
+change of administration and the rescission of the prior executive order. It would be easy
+to read that as the rules relaxing. **They didn't. Guidance was withdrawn; the statutes
+were not.** Title VII, the ADA and the ADEA apply to an algorithmic decision exactly as
+they applied before, because they were never AI-specific in the first place — and private
+plaintiffs, who bring most employment litigation, do not need an agency's guidance
+document to sue. What actually changed is that **the federal government stopped telling
+you how it reads the law, while the states started telling you how they read theirs.** You
+have less warning, not less exposure. **[V]**
 
 **Disparate impact doesn't need intent.** The doctrine long predates AI: a neutral-seeming
 practice that disproportionately excludes a protected group needs job-related
@@ -412,9 +423,13 @@ This module draws on the following material:
   employment context.
 - The disparate-impact framing follows long-standing U.S. employment-law doctrine;
   the high-risk categorization of employment AI follows the EU AI Act's published
-  framework; agency guidance on algorithmic employment decisions continues to evolve.
-  **This lesson is direction-of-travel, not legal advice — verify all specifics with
-  counsel before relying on them. Flagged for counsel review before any
+  framework. **US federal guidance `[V]`:** the EEOC removed its AI technical assistance
+  documents in January 2025 — the May 2023 Title VII material and the May 2022 ADA
+  material — following Executive Order 14179 and the rescission of the prior
+  administration's AI executive order. **The underlying statutes were not amended**, and
+  the agency's Strategic Enforcement Plan listing AI remained in place; what withdrew was
+  guidance, not law. **This lesson is direction-of-travel, not legal advice — verify all
+  specifics with counsel before relying on them. Flagged for counsel review before any
   deployment-specific claims are added. [V]**
 - The proxy-variable problem and the standardization-of-bias argument reflect the
   published algorithmic-fairness research consensus.
