@@ -1,0 +1,24 @@
+{
+  "reviewedAt": "2026-08-12",
+  "buckets": [
+    { "id": "redesign", "label": "Redesign", "hint": "Changing what the process measures", "rank": 0, "pct": 10 },
+    { "id": "insight", "label": "Insight", "hint": "Reading a situation — AI assists, can't do", "rank": 1, "pct": 45 },
+    { "id": "throughput", "label": "Throughput", "hint": "Volume, no recruiting judgment", "rank": 2, "pct": 90 }
+  ],
+  "tasks": [
+    { "id": "t1", "text": "Coordinating a four-person panel across two time zones", "key": "throughput", "reasoning": "Pure coordination, no recruiting judgment, immediately measurable. The clearest throughput win in the set and exactly where AI spend belongs." },
+    { "id": "t2", "text": "Deciding what the hiring manager actually means by 'not senior enough'", "key": "insight", "reasoning": "Reading a situation — the judgment is the work. AI can structure the conversation and surface patterns across their past feedback; it cannot make the call, and vendors claiming otherwise are selling into the loud tier." },
+    { "id": "t3", "text": "Replacing the résumé screen with a structured work sample", "key": "redesign", "reasoning": "Changing what the process measures rather than how fast it runs. Almost no spend goes here and nearly all the leverage is — this is Module 4's subject." },
+    { "id": "t4", "text": "Sending status updates to candidates stuck between stages", "key": "throughput", "reasoning": "Rules-based, high volume, and a genuine candidate-experience win. Note it needs no agent: the flowchart is drawable, so this is automation." },
+    { "id": "t5", "text": "Summarizing five interview scorecards into a debrief packet", "key": "throughput", "reasoning": "Transformation of supplied material with a known output shape — 101's delegation heuristic at its center. It feels like insight because the content is judgment-laden, but the judgment already happened when the scorecards were written.", "also": ["insight"] },
+    { "id": "t6", "text": "Working out why a pipeline that looked healthy produced no offers", "key": "insight", "reasoning": "Diagnosis on sparse, confounded, small-n evidence. AI can lay out the funnel and pose hypotheses; the read is yours, and the small numbers make confident answers dangerous." },
+    { "id": "t7", "text": "Deciding which stages your loop should have at all", "key": "redesign", "reasoning": "The highest-leverage question in the track and the one nobody schedules time for. If the loop's stages were set before AI-assisted candidates existed, they were designed for a signal environment that no longer exists." },
+    { "id": "t8", "text": "Formatting offer letters from the approved template", "key": "throughput", "reasoning": "Deterministic, repeatable, zero judgment. If this consumes recruiter attention it's the first thing the friction map should surface." },
+    { "id": "t9", "text": "Writing the intake questions you'll ask hiring managers from now on", "key": "redesign", "reasoning": "Changing the input to the whole downstream process — Module 3's subject, and the highest-leverage hour in the function. Easy to mis-sort as throughput because the artifact is a short document." },
+    { "id": "t10", "text": "Reading an inbound candidate reply and deciding if it's interest, a deferral, or a decline", "key": "insight", "reasoning": "Interpretation of unstructured input — and the rare case where an agent is genuinely warranted, at a low rung on the autonomy ladder. The judgment step in the middle is what distinguishes it from t4." },
+    { "id": "t11", "text": "Chasing hiring managers for overdue scorecard feedback", "key": "throughput", "reasoning": "Nobody's judgment is involved and everybody hates it. Reliable automation win — with the caveat from the diagnostic that the friction hurts the person who has to change behaviour, which is why nagging tools underperform." },
+    { "id": "t12", "text": "Choosing which of two archetypes your process should be optimized for", "key": "redesign", "reasoning": "A structural decision that determines whether every other tooling choice is right or backwards. Most teams never make it explicitly and end up with a blended process optimized for neither." }
+  ],
+  "pattern": "Redesign is where the leverage is, and it is where nobody spends anything — including attention.",
+  "postscript": "Count your redesign cards. Most people place two or three and are surprised the tier exists at all, because nothing in a normal week forces the question. Cards placed toward throughput credit AI with more reach than the key does; toward insight and redesign, less. Watch t5 and t9 in particular — t5 looks like insight because the content is judgment-laden, and t9 looks like throughput because the artifact is short. The applied activity now runs this on your team's real week, where redesign usually comes out at or near zero."
+}

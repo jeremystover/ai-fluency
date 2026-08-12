@@ -76,6 +76,8 @@ import type {
   Badge,
   CalibrationRecord,
   Credential,
+  CohortResponse,
+  CohortStat,
   MasteryStage,
   ModuleMastery,
   RecordResponse,
@@ -1885,6 +1887,81 @@ app.post('/api/module/:id/calibration', async (c) => {
   if (!text && !saved.length) return c.json({ error: 'Write the prediction before saving it.' }, 400);
   if (text) await logEvent(db, session.id, 'module_calibration_recorded', { moduleId, text: text.slice(0, 1000) });
   return c.json({ ok: true, saved });
+});
+
+// A module's cohort comparison: how everyone else answered the same opening
+// prediction. Two rules are enforced here rather than in the UI, because both
+// are about the integrity of the measurement rather than the look of it.
+//
+// 1. A field is returned only once THIS session has committed its own number.
+//    Showing the crowd first would anchor the learner and destroy the very
+//    prediction the comparison exists to measure.
+// 2. Nothing is returned below COHORT_MIN_N other respondents. That is the
+//    minimum-cell-size rule this curriculum teaches, applied to itself — with
+//    an n of one or two, "the cohort median" is one person's answer.
+const COHORT_MIN_N = 5;
+
+const quantile = (sorted: number[], q: number) => {
+  if (!sorted.length) return 0;
+  const pos = (sorted.length - 1) * q;
+  const lo = Math.floor(pos);
+  const hi = Math.ceil(pos);
+  return lo === hi ? sorted[lo] : sorted[lo] + (sorted[hi] - sorted[lo]) * (pos - lo);
+};
+
+app.get('/api/module/:id/cohort', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const moduleId = c.req.param('id');
+  const rubric = await getExercise<RubricPayload>(db, moduleId, 'rubric');
+  const fields = rubric?.opening ?? [];
+  const empty: CohortResponse = { minN: COHORT_MIN_N, stats: [] };
+  if (!fields.length) return c.json(empty);
+
+  const contexts = fields.map((f) => `${moduleId}:cal:${f.key}`);
+  const rows = await db
+    .select({
+      sessionId: t.fdCalibration.sessionId,
+      context: t.fdCalibration.context,
+      predictedPct: t.fdCalibration.predictedPct,
+      delta: t.fdCalibration.delta,
+    })
+    .from(t.fdCalibration)
+    .where(inArray(t.fdCalibration.context, contexts));
+
+  const stats: CohortStat[] = [];
+  for (const field of fields) {
+    const context = `${moduleId}:cal:${field.key}`;
+    const forField = rows.filter((r) => r.context === context);
+    // Rule 1: no own answer, no comparison.
+    if (!forField.some((r) => r.sessionId === session.id)) continue;
+    const others = forField.filter((r) => r.sessionId !== session.id);
+    // Rule 2: minimum cell size.
+    if (others.length < COHORT_MIN_N) continue;
+
+    const predicted = others.map((r) => r.predictedPct).sort((a, b) => a - b);
+    const closedRows = others.filter((r) => r.delta !== null && r.delta !== undefined);
+    const stat: CohortStat = {
+      key: field.key,
+      n: others.length,
+      median: Math.round(quantile(predicted, 0.5)),
+      p25: Math.round(quantile(predicted, 0.25)),
+      p75: Math.round(quantile(predicted, 0.75)),
+    };
+    if (closedRows.length >= COHORT_MIN_N) {
+      const absDeltas = closedRows.map((r) => Math.abs(r.delta as number)).sort((a, b) => a - b);
+      // delta = actual - predicted, so a negative delta means they predicted high.
+      const over = closedRows.filter((r) => (r.delta as number) < 0).length;
+      stat.closed = {
+        n: closedRows.length,
+        medianAbsDelta: Math.round(quantile(absDeltas, 0.5)),
+        overPct: Math.round((over / closedRows.length) * 100),
+      };
+    }
+    stats.push(stat);
+  }
+  return c.json({ minN: COHORT_MIN_N, stats } satisfies CohortResponse);
 });
 
 // ---------- voice ----------

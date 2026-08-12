@@ -1,0 +1,79 @@
+{
+  "title": "Knowledge check — 6 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why does workslop cost a recruiter more than it costs most other functions? `[V]`",
+      "options": [
+        "Recruiters produce more written output than other functions",
+        "The recipient is the hiring manager, whose trust is the input to intake — and intake is the highest-leverage hour in the function",
+        "Recruiting output is more likely to be publicly visible",
+        "Candidates can detect AI-generated communication easily"
+      ],
+      "correctIndex": 1,
+      "explanation": "~42% of recipients trust the sender less afterwards, and your recipient is the person whose willingness to give you forty-five honest minutes determines whether everything downstream works. It's a trust balance you draw down with every unread-worthy send."
+    },
+    {
+      "id": "q2",
+      "prompt": "Which element of the one-page case is usually missing, and why does its absence sink the proposal?",
+      "options": [
+        "The owner — proposals often name a team rather than a person",
+        "The review date — teams avoid committing to a verdict",
+        "The baseline — without a before-number, success is unprovable and the request is indistinguishable from a preference",
+        "The measure — most cases choose one that can't come back badly"
+      ],
+      "correctIndex": 2,
+      "explanation": "And it's why Module 5's capture layer matters: you cannot retroactively measure what you didn't record. A, B and D are real failures, and D is a close second — a measure that can only confirm was never a measure."
+    },
+    {
+      "id": "q3",
+      "prompt": "What makes a case land harder with an executive?",
+      "options": [
+        "Framing it as a transformation programme with a multi-year horizon",
+        "Asking for something small enough to be believed, and naming what you'd stop doing to fund it",
+        "Benchmarking against what competitors are doing",
+        "Including vendor case studies as supporting evidence"
+      ],
+      "correctIndex": 1,
+      "explanation": "Small can be evaluated; large can only be believed. And naming the trade converts a request for additional resource into a reallocation, which is a far easier approval."
+    },
+    {
+      "id": "q4",
+      "prompt": "What's the failure mode in the headcount conversation with your team?",
+      "options": [
+        "Sharing too much detail about executive discussions",
+        "False comfort — \"nothing's going to change\" is a sentence they'll remember when something does, and it costs the credibility you need to lead through it",
+        "Moving too quickly to reassign responsibilities",
+        "Involving HR before the situation is clear"
+      ],
+      "correctIndex": 1,
+      "explanation": "The honest version has three parts: coordination is compressing, judgment work survives, here's how we move — and then you have to actually reallocate the freed time visibly, or the statement was a slogan."
+    },
+    {
+      "id": "q5",
+      "prompt": "What does the module say about the limits of evidence in the headcount conversation with an exec?",
+      "options": [
+        "Evidence reliably prevents ratio changes when it's strong enough",
+        "Evidence is irrelevant to headcount decisions, which are made on budget alone",
+        "Evidence influences who is kept and what the remaining function is asked to do — which is worth influencing, and isn't the same as control",
+        "Evidence matters only when presented by the CHRO rather than TA"
+      ],
+      "correctIndex": 2,
+      "explanation": "The honest limit. Ratios move for reasons unrelated to your case; what your record changes is the shape of what survives. Overpromising here would be the same error the module warns against with your team."
+    },
+    {
+      "id": "q6",
+      "prompt": "What does the module say a TA function's product actually is?",
+      "options": [
+        "Filled requisitions, delivered at or below target time-to-fill",
+        "Qualified pipeline delivered to hiring managers",
+        "Decisions nobody has to redo",
+        "Candidate experience that protects the employer brand"
+      ],
+      "correctIndex": 2,
+      "explanation": "A hire that works out is a decision that stays made; one that doesn't gets made again at full cost eighteen months later. It's the only version of the function that requires judgment, which is the version that survives compression — and with Module 5's record, the one you can prove."
+    }
+  ]
+}

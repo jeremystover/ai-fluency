@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What makes data assembly the safest genuine AI transformation in this function?",
+      "options": [
+        "It involves no sensitive data, unlike the other types",
+        "Its output is verifiable against something that isn't the model — row counts, control totals, reconciliations",
+        "Errors in data assembly have the lowest consequences",
+        "It requires no domain expertise to review"
+      ],
+      "correctIndex": 1,
+      "explanation": "You aren't trusting fluency, you're checking arithmetic, and nothing else in the five has that property. A is the opposite of true — assembly touches the most sensitive data in the building, which is Module 3's subject."
+    },
+    {
+      "id": "q2",
+      "prompt": "Which work type do practitioners most commonly under-predict in their own week?",
+      "options": [
+        "Data assembly, because it's tedious and easy to forget",
+        "Governance, because it happens in short bursts",
+        "Explanation, because analysis is what the job feels like it's about",
+        "Judgment, because decisions are made quickly"
+      ],
+      "correctIndex": 2,
+      "explanation": "Explanation hides inside \"answering a question,\" which nobody logs as work — while analysis is what required the training and what practitioners identify with. That gap is why the module gates the prediction before Lesson 1."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why does AI change explanation work more than the other types?",
+      "options": [
+        "Because explanation has the lowest accuracy requirements",
+        "Because producing a clear draft for a specific audience is what these tools do well, and you already hold the raw material — your decision and its reasoning",
+        "Because explanation work is not subject to 101 M7's line",
+        "Because explanation outputs are rarely reviewed"
+      ],
+      "correctIndex": 1,
+      "explanation": "The supply-the-material condition from 101 is already satisfied: you know why you decided what you decided. C is wrong in an important way — explaining a decision about a named person's pay still sits under the line; what makes it safer is visibility, not exemption."
+    },
+    {
+      "id": "q4",
+      "prompt": "A comp analysis produces a confident, well-formatted, wrong answer. Why is this function especially exposed?",
+      "options": [
+        "Because comp data is more error-prone than other HR data",
+        "Because practitioners here are trained to read formatted output for shape, and shape is the thing the model always gets right",
+        "Because analysis outputs are rarely checked by anyone else",
+        "Because comp models are more complex than other HR models"
+      ],
+      "correctIndex": 1,
+      "explanation": "The numeracy that makes this function capable is what makes it exposed — you read a formatted model the way you read a formatted sentence. That inversion is the track's through-line and Module 3's whole subject."
+    },
+    {
+      "id": "q5",
+      "prompt": "What can AI legitimately do in governance work?",
+      "options": [
+        "Serve as the system of record, if properly configured",
+        "Attest that an approval occurred, based on the conversation log",
+        "Draft documentation and check a record for completeness — but it cannot be the record, and cannot attest that something happened",
+        "Nothing — governance work excludes AI entirely"
+      ],
+      "correctIndex": 2,
+      "explanation": "Drafting and completeness-checking are real help at the edges. The centre — being the record, or vouching that an event occurred — is a category error, and in fiduciary contexts a dangerous one."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why does the module call the five-type map a \"buying instrument\"?",
+      "options": [
+        "Because vendors price their products by work type",
+        "Because vendors sell by product category, which maps to their engineering rather than to your hours — so the question is which type a product touches and whether that's where your week is",
+        "Because it produces a budget estimate for AI spend",
+        "Because procurement requires a documented evaluation framework"
+      ],
+      "correctIndex": 1,
+      "explanation": "In that order the evaluation answers itself. In the other order you're assessing a demo against a job description you've never written down."
+    },
+    {
+      "id": "q7",
+      "prompt": "What does the module identify as the single most common mismatch in AI buying for this function?",
+      "options": [
+        "Buying benefits tools when the pain is in compensation",
+        "Buying enterprise platforms when point solutions would do",
+        "Buying a product that speeds up analysis when the bottleneck is explanation",
+        "Buying tools that duplicate existing HRIS capability"
+      ],
+      "correctIndex": 2,
+      "explanation": "And it's common for a legible reason: analysis is what everyone thinks the job is, so it's what everyone builds for — including the buyer evaluating the demo."
+    },
+    {
+      "id": "q8",
+      "prompt": "What's the strongest counter-argument to the module's claim about explanation?",
+      "options": [
+        "That explanation work is too varied for AI to help with reliably",
+        "That explanation volume is a symptom of upstream design failure — better bands, a documented philosophy and trained managers would eliminate most of it, so getting faster at explaining optimizes structural debt instead of fixing it",
+        "That analysis work will grow as data availability increases",
+        "That explanation is properly the manager's job rather than the comp team's"
+      ],
+      "correctIndex": 1,
+      "explanation": "It's the strongest because it accepts the measurement and disputes the conclusion: the hours are real, and reallocating toward them may be the wrong response. A good structural comp person will make this argument, and a position that doesn't engage it hasn't survived contact."
+    }
+  ]
+}

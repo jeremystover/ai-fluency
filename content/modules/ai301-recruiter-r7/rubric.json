@@ -1,0 +1,21 @@
+{
+  "promptVersion": "ai301-recruiter-r7-the-case-v1",
+  "moduleId": "ai301-recruiter-r7",
+  "minWords": 300,
+  "maxWords": 400,
+  "submitLabel": "Your one-page case and the reckoning",
+  "intro": "Paste the one-page case — change, baseline, measure, owner, review date, trade — followed by the 300–400 word close including the calibration reckoning across all seven modules. This is the last submission in the track.",
+  "activityContext": "You are grading the CLOSING submission of AI 301 · The Specialist, Recruiting/TA track. Part 1: a one-page case for ONE change to the live requisition's process, carrying six elements — a specific small change traceable to something the track surfaced, a measured baseline (or, if genuinely unavailable, what they'd start recording today to have one in 90 days, which is an acceptable and honest answer), a measure reportable at 90 days that IS CAPABLE OF COMING BACK BADLY, a named person as owner, an actual date, and what they'd stop doing to fund it. A case asking for something small and evaluable outscores an ambitious one; a measure that could only confirm the change worked is the failure to name. Part 2 is the reckoning across the track: predictions gathered from the modules completed, the systematic direction of miss named (over-crediting their existing process, under-crediting it, or scattered), and the final question — what they believe about hiring now that they didn't in Module 1, specific enough that it couldn't have been written beforehand. Generic closings ('AI is changing recruiting') fail that question outright regardless of everything else. This track scores the delta, not the score: grade the honesty and specificity of the account of change, never the accuracy of any prediction. Learners who completed only some modules should be graded on the pattern in what they did complete.",
+  "opening": [
+    { "key": "hmTrust", "label": "Predicted — % of your hiring managers who'd call your team's AI-assisted output trustworthy", "hint": "The last prediction of the course. Answer honestly.", "placeholder": "e.g. 60", "min": 0, "max": 100 }
+  ],
+  "calibration": [
+    { "key": "hmTrustActual", "label": "Your revised estimate, having finished the track", "hint": "If it moved, the reckoning should say why.", "placeholder": "e.g. 45", "min": 0, "max": 100, "actualFor": "hmTrust" }
+  ],
+  "dimensions": [
+    { "name": "The case has all six elements", "criteria": "Change, baseline, measure, owner (a person, not a team), review date (an actual date), and the trade. A missing baseline is only acceptable with a stated plan to have one in 90 days. Check that the measure could come back badly — one that can only confirm should be named as the failure it is." },
+    { "name": "It asks small and names the trade", "criteria": "One change to one stage, traceable to something the track surfaced, and small enough that an executive could evaluate rather than merely believe it. The stated trade — what stops to fund it — converts the ask from additional resource into reallocation and is the strongest single move in the case." },
+    { "name": "The reckoning names a direction", "criteria": "Predictions gathered across the modules completed, with the systematic direction of miss named and a real attempt to explain why their reading leaned that way. Accuracy is never graded; a learner who missed badly in a consistent direction and can account for it scores at the top." },
+    { "name": "What changed, specifically", "criteria": "The heaviest dimension in the track. Something they believe about hiring now that they didn't in Module 1, specific enough that it could not have been written beforehand. Generic closings fail this outright. Also grades the position on the claim, including its counter-argument that baselines are a luxury of stable environments and insisting on one can function as delay." }
+  ]
+}

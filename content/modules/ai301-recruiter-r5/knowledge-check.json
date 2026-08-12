@@ -1,0 +1,79 @@
+{
+  "title": "Knowledge check — 6 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Which stage of the loop does the module say everyone skips, and what happens?",
+      "options": [
+        "Instrument — teams start capturing without deciding what matters",
+        "Capture — data ends up in formats queries can't reach",
+        "Analyze — nobody has time to read the accumulated records",
+        "Feed back — insight gets produced and nothing changes, which converts a learning system into a reporting system nobody reads"
+      ],
+      "correctIndex": 3,
+      "explanation": "And the second-order effect is what kills it: people learn the insight doesn't lead anywhere and stop reading it. B and C are real failure modes that have become much cheaper to solve; the fourth stage is a decision and hasn't got any easier."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why does the module say integration beats invention? `[V]`",
+      "options": [
+        "Custom builds are prohibitively expensive for TA functions",
+        "The capture layer wants to live where the data already is — a system requiring double entry is inconsistent within a month and abandoned within three",
+        "ATS vendors provide better analytics than custom tools",
+        "Integration projects have higher success rates than greenfield builds"
+      ],
+      "correctIndex": 1,
+      "explanation": "It's about adoption, not cost — though the $200-a-month-and-one-engineer example makes both points at once. Buy the boring; build only the part that's yours."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why is time-to-fill described as close to a vanity metric?",
+      "options": [
+        "It's difficult to measure consistently across requisitions",
+        "It moves with req difficulty and market conditions, and can always be improved by lowering the bar — so it doesn't measure whether hiring is working",
+        "It's no longer tracked by modern ATS platforms",
+        "Candidates don't care about process speed"
+      ],
+      "correctIndex": 1,
+      "explanation": "It stays useful as an operational diagnostic and fails as a headline measure of success. The improvable-by-lowering-the-bar property is the disqualifying one."
+    },
+    {
+      "id": "q4",
+      "prompt": "What makes \"quality of signal per stage\" a useful measure?",
+      "options": [
+        "It can be reported weekly, unlike retention data",
+        "It shows which stage removes the most candidates",
+        "It reveals whether each stage's advanced candidates went on to succeed at the next — and a stage that advances everyone is measuring nothing",
+        "It correlates strongly with candidate satisfaction"
+      ],
+      "correctIndex": 2,
+      "explanation": "It turns Module 1's diagnosis into an ongoing measurement: a stage with no discriminating power shows up in the data rather than only in an audit. B is throughput, which is what you're trying to stop headlining."
+    },
+    {
+      "id": "q5",
+      "prompt": "What are the two rules governing hiring manager calibration from the record?",
+      "options": [
+        "Anonymize interviewers, and report only aggregate patterns",
+        "It's about the interviewer's process rather than their worth; and the output goes to the interviewer first, before anywhere else",
+        "Only calibrate interviewers with at least twenty interviews; and exclude senior leaders",
+        "Require interviewer consent; and delete records after twelve months"
+      ],
+      "correctIndex": 1,
+      "explanation": "The first keeps it assist-side under 101 M7 — auditing consistency of a professional practice, not judging a person. The second is practical: an interviewer whose report reached their manager first will disengage, and everyone else hears about it by Friday."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why does the activity require you to say what changes under each possible answer?",
+      "options": [
+        "To satisfy stakeholders who need a business case",
+        "Because if you can't say what you'd do under either outcome, the question wasn't decision-relevant and a different one should be chosen",
+        "Because it makes the analysis faster to run",
+        "Because pre-registering conclusions prevents bias in interpretation"
+      ],
+      "correctIndex": 1,
+      "explanation": "It's the cheapest available test of whether a measurement is worth building. D describes a real scientific practice but isn't why this step exists here."
+    }
+  ]
+}

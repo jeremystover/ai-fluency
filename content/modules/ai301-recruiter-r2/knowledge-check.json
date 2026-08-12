@@ -1,0 +1,79 @@
+{
+  "title": "Knowledge check — 6 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Where does most AI spend in recruiting go, and where is most of the leverage?",
+      "options": [
+        "Spend and leverage both concentrate in insight work",
+        "Spend goes to throughput and mostly belongs there; leverage is in redesign, where almost no spend goes",
+        "Spend goes to redesign, which is why returns disappoint",
+        "Both are evenly distributed across the three tiers"
+      ],
+      "correctIndex": 1,
+      "explanation": "Throughput spend is genuinely well-placed — the wins are real and nobody's judgment is replaced. The problem is that redesign, where the funnel's actual defect lives, gets almost nothing."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why is optimizing throughput on an early-stage screen described as the most expensive mistake available?",
+      "options": [
+        "Because throughput tools are the most costly category",
+        "Because Module 1 established those stages measure nothing — so you get faster at doing something that isn't working",
+        "Because early-stage automation has the highest failure rate",
+        "Because candidates notice automated screening and disengage"
+      ],
+      "correctIndex": 1,
+      "explanation": "Speed applied to a stage with no information content produces more of the same non-result, faster, while feeling like progress — and it consumes the attention redesign needed."
+    },
+    {
+      "id": "q3",
+      "prompt": "A vendor case study reports a 60% reduction in time-to-first-contact. What should you ask first?",
+      "options": [
+        "Which AI model the product uses",
+        "Whether the customer was high-volume hourly or professional/senior",
+        "What the implementation cost was",
+        "Whether the result has been independently audited"
+      ],
+      "correctIndex": 1,
+      "explanation": "In high-volume hourly, speed-to-contact is the binding constraint and this is a genuine win. In professional hiring it solves a non-problem — and if the archetype isn't stated, assume high-volume, since that's where countable wins are easiest to produce."
+    },
+    {
+      "id": "q4",
+      "prompt": "Which diagnostic question does the module say kills the most bad projects?",
+      "options": [
+        "What's the friction, specifically?",
+        "Who does it hurt most?",
+        "What does solved look like, in one sentence?",
+        "Should it even be an agent?"
+      ],
+      "correctIndex": 2,
+      "explanation": "Because if the sentence needs an \"and,\" there are two problems and neither will be solved well. B is the most-skipped question, which is different from the most decisive one."
+    },
+    {
+      "id": "q5",
+      "prompt": "When does an agent earn its place over plain automation?",
+      "options": [
+        "When the volume exceeds what automation can process",
+        "When the workflow spans multiple systems",
+        "When a step requires interpreting unstructured input, so the right next action can't be drawn as a flowchart",
+        "When the process needs to run outside business hours"
+      ],
+      "correctIndex": 2,
+      "explanation": "If you can draw it, it's automation — cheaper, debuggable, and it fails visibly. Most \"agents\" sold into recruiting are rule-based flows with a language model attached for no reason."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why does recruiting sit low on the autonomy ladder specifically?",
+      "options": [
+        "Because recruiting data is more sensitive than other HR data",
+        "Because agent actions here are frequently visible to candidates and rarely reversible — a wrongly-sent rejection can't be unsent",
+        "Because ATS platforms don't support higher autonomy levels",
+        "Because compliance requires human approval of all candidate communications"
+      ],
+      "correctIndex": 1,
+      "explanation": "The recipient of the error is a member of the public with no relationship to protect and a LinkedIn account. That combination is rarer in other People functions and is why this track defaults to the lower rungs."
+    }
+  ]
+}

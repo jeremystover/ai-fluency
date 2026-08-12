@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What do the benefits adoption figures actually describe? `[V]`",
+      "options": [
+        "An industry that has largely completed its AI transition",
+        "Roughly 20% operationalizing against ~72% planning within two years — an industry that has decided to transform rather than one that has",
+        "An industry where adoption has stalled and intention is falling",
+        "Adoption concentrated in analytics rather than communication"
+      ],
+      "correctIndex": 1,
+      "explanation": "The 52-point gap between practice and intention is the informative part, and nearly every article describes the intention while implying the practice. D inverts the finding — planned investment leads on communication at 68%, which is Module 1's explanation work."
+    },
+    {
+      "id": "q2",
+      "prompt": "Which is a tell that a piece is a product roadmap presented as an industry trend?",
+      "options": [
+        "It cites a named survey with a stated sample",
+        "It quotes practitioners at organizations that don't buy from the author",
+        "The trend has no subject other than the vendor's product — \"compensation is becoming continuous\" with no answer to who, how many, or since when",
+        "It appears in a trade publication rather than a peer-reviewed journal"
+      ],
+      "correctIndex": 2,
+      "explanation": "A real trend has practitioners in it who aren't customers. A and B are the opposite — they're what a credible piece looks like — and D confuses venue with rigor."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why is \"sample\" the sharpest of the three teardown questions in comp-tech marketing?",
+      "options": [
+        "Because sample sizes are usually too small to be statistically significant",
+        "Because the customers who agree to be case studies are the ones for whom it worked — so a vendor with 400 customers and 3 case studies has told you something other than what the case studies say",
+        "Because vendors rarely disclose sample sizes at all",
+        "Because comp data samples are harder to construct than other HR data"
+      ],
+      "correctIndex": 1,
+      "explanation": "The selection effect is the point, not the size. A vendor doesn't have to misrepresent anything for a case-study set to be systematically unrepresentative."
+    },
+    {
+      "id": "q4",
+      "prompt": "A vendor claims \"AI improves compensation decision quality.\" What's the verdict, and why?",
+      "options": [
+        "Supported, since decision quality improvement is well-established in the literature",
+        "Unverifiable — it may be true but no published evidence exists",
+        "Unfalsifiable — no observation could contradict it as stated, so it's a slogan rather than a finding",
+        "Supported, provided the vendor can produce a customer reference"
+      ],
+      "correctIndex": 2,
+      "explanation": "Nothing you could observe would count against it. Note the distinction the activity insists on: unverifiable means *may be true, cannot be checked*, which is different from unfalsifiable and different again from false."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why does the module say the public literature skews even when nobody is dishonest?",
+      "options": [
+        "Because journalists lack the expertise to evaluate comp-tech claims",
+        "Because nobody is funded to tell you your existing process is mostly fine — consultancies sell engagements, vendors sell products, and ambiguous results don't get published",
+        "Because negative findings are suppressed by vendors before publication",
+        "Because trade publications depend on vendor advertising revenue"
+      ],
+      "correctIndex": 1,
+      "explanation": "A selection effect in who is motivated to publish, not a conspiracy. D is a real pressure and a weaker, more cynical version of the same point."
+    },
+    {
+      "id": "q6",
+      "prompt": "What was already true about market data before AI touched it?",
+      "options": [
+        "It was consistently biased upward by vendor incentives",
+        "Match quality varies, cuts can rest on a handful of incumbents, aging assumptions are invisible, and everyone's submission goes in under deadline",
+        "It was accurate but presented in unhelpful formats",
+        "It excluded the majority of employers in most industries"
+      ],
+      "correctIndex": 1,
+      "explanation": "All four are ordinary and known, and every experienced practitioner half-knows them while presenting to three significant figures anyway. That's the honest starting point."
+    },
+    {
+      "id": "q7",
+      "prompt": "What did AI actually change about soft market data?",
+      "options": [
+        "It made the underlying data less reliable",
+        "It made matching more accurate, reducing the softness",
+        "The speed and confidence with which soft data becomes a presented conclusion — prose sounds firmer than a table, a chart firmer than prose, a recommendation firmer than a chart",
+        "Nothing — the data pipeline is unchanged"
+      ],
+      "correctIndex": 2,
+      "explanation": "The data is exactly as soft as it was; the distance from thin cut to confident recommendation collapsed. Hence the discipline: carry the softness forward, at a cost of one sentence."
+    },
+    {
+      "id": "q8",
+      "prompt": "What's the strongest counter-argument to this module's claim about vendor content?",
+      "options": [
+        "That vendors are legally required to substantiate marketing claims",
+        "That vendors sit across hundreds of customers and often see real shifts before any survey captures them — so a function that discounts their content learns about genuine changes late",
+        "That most vendor content is written by independent analysts",
+        "That practitioners have no better source of information available"
+      ],
+      "correctIndex": 1,
+      "explanation": "It's strongest because it's frequently true: the roadmap can be a leading indicator rather than a fiction. The right response is to read vendor material carefully, not to discount it — which is a different conclusion from the module's and has to be argued against on its merits."
+    }
+  ]
+}
