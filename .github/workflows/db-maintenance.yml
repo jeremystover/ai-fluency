@@ -12,6 +12,7 @@ on:
         type: choice
         options:
           - reset-podcasts
+          - seed-content
   # Merge-to-run lane: a PR that changes .github/maintenance-request (first
   # line = task name) runs that task on merge. Exists because the API
   # integration can't dispatch workflows directly.
@@ -48,3 +49,91 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: d1 execute fluency-demo --remote --command "DELETE FROM fd_podcast"
+
+      # ---- seed-content -------------------------------------------------
+      # Publishes course content to the remote D1. Deploying the Worker does
+      # NOT do this: deploy.yml builds the SPA, applies migrations and ships
+      # code, but content lives in seed/seed.sql and only reaches the database
+      # through this task. A merge that adds a module changes nothing a learner
+      # can see until this runs.
+      #
+      # What it touches: fd_content_block, fd_exercise, fd_module, fd_brand,
+      # fd_access_code — deleted and rebuilt. Learner data is in other tables
+      # (accounts, sessions, submissions, calibration) and is never touched.
+      # Access codes survive too: the plaintext comes from DEMO_CODES, so only
+      # the salt is regenerated.
+
+      # The seed is a generated artifact, so it can be committed stale — someone
+      # edits a module, forgets `npm run seed:generate`, and the publish silently
+      # ships the previous content. Regenerating here and comparing catches that
+      # before anything is deleted. Brand and access-code rows are excluded from
+      # the comparison because they carry a fresh timestamp and salt on every
+      # generate and would always differ.
+      - name: seed-content · check seed/seed.sql is current
+        if: ${{ inputs.task == 'seed-content' || (github.event_name == 'push' && steps.req.outputs.task == 'seed-content') }}
+        run: |
+          cp seed/seed.sql /tmp/seed.committed.sql
+          npm run seed:generate
+          filter() { grep -v -e 'INSERT INTO fd_brand' -e 'INSERT INTO fd_access_code' "$1"; }
+          if ! diff <(filter /tmp/seed.committed.sql) <(filter seed/seed.sql) > /tmp/seed.diff; then
+            echo "::error::seed/seed.sql does not match content/ — run 'npm run seed:generate' and commit the result before publishing."
+            echo "First 40 lines of the difference:"
+            head -40 /tmp/seed.diff
+            exit 1
+          fi
+          echo "seed/seed.sql matches content/ ($(grep -c '^INSERT INTO fd_module' seed/seed.sql) modules)"
+          cp /tmp/seed.committed.sql seed/seed.sql
+
+      # Migrations first, so this task is correct whichever order it lands in
+      # relative to deploy.yml. Applying them twice is a no-op; seeding into a
+      # schema that predates a new column is not.
+      - name: seed-content · apply migrations
+        if: ${{ inputs.task == 'seed-content' || (github.event_name == 'push' && steps.req.outputs.task == 'seed-content') }}
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: d1 migrations apply fluency-demo --remote
+
+      - name: seed-content · publish
+        if: ${{ inputs.task == 'seed-content' || (github.event_name == 'push' && steps.req.outputs.task == 'seed-content') }}
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: d1 execute fluency-demo --remote --file=./seed/seed.sql
+
+      # The seed opens with DELETE statements, so a run that fails partway
+      # leaves the content tables empty and the site blank. Fail loudly here
+      # rather than let a green check imply a healthy publish.
+      - name: seed-content · verify
+        if: ${{ inputs.task == 'seed-content' || (github.event_name == 'push' && steps.req.outputs.task == 'seed-content') }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          EXPECTED=$(grep -c '^INSERT INTO fd_module' seed/seed.sql)
+          OUT=$(npx wrangler d1 execute fluency-demo --remote --json \
+            --command "SELECT COUNT(*) AS n FROM fd_module")
+          # wrangler can print a banner ahead of the JSON, and the banner itself
+          # may contain a bracket, so try each '[' until one parses rather than
+          # trusting the first.
+          ACTUAL=$(echo "$OUT" | node -e "
+            let s='';
+            process.stdin.on('data', (d) => (s += d)).on('end', () => {
+              for (let i = s.indexOf('['); i !== -1; i = s.indexOf('[', i + 1)) {
+                try {
+                  const n = JSON.parse(s.slice(i))[0]?.results?.[0]?.n;
+                  if (n !== undefined) { console.log(n); return; }
+                } catch { /* not the payload — keep looking */ }
+              }
+              console.error('no parseable result in wrangler output:', s.slice(0, 400));
+              process.exit(1);
+            });
+          ")
+          echo "modules in seed: $EXPECTED · modules in D1: $ACTUAL"
+          if [ "$EXPECTED" != "$ACTUAL" ]; then
+            echo "::error::Seed published $ACTUAL of $EXPECTED modules — the database is in a partial state. Re-run this task."
+            exit 1
+          fi
+          echo "Content published: $ACTUAL modules."
