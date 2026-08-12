@@ -515,7 +515,8 @@ Four of these changed the design rather than confirming it: the Article 50 timin
 obligations as configuration settings, the chatbot-notice problem, and the Eightfold data-provenance
 question — none of which were on the candidate list before the searches.
 
-**8. One intended anchor was removed by verification.** M5 was going to open on "37.6% of HR leaders
+**8. One intended anchor was removed by verification** — and drafting resolved it by *not* replacing
+it. See Decision 14. M5 was going to open on "37.6% of HR leaders
 say better data quality would most increase their willingness to expand AI in talent decisions," plus
 two supporting figures. All three trace to the **Fuel50 Q1 2026 State of AI Readiness in Talent
 Decisions** survey — a vendor instrument whose sample size could not be established after a targeted
@@ -563,6 +564,74 @@ coaching trials (HRBP M7 and M2 here, with genuinely different readings — allo
 here), *Mobley* and the agent doctrine (HRBP M6, recruiter R6, M7 here), and SHRM's 52% (HRBP's
 unsettled debates, M8 here). The brief already recommends authoring these once and referencing them;
 this track is the point at which not doing so starts producing drift.
+
+**14. What drafting changed — the track is now built, and eight things in this outline were wrong.**
+Recorded here rather than silently fixed, because the pattern is more useful than the corrections.
+
+- **M1 gained a better fact than it had.** Sapient Insights' *28th Annual HR Systems Survey* (9,886 HR
+  professionals, 4,670 organizations) finds **nearly one-third of organizations do not know whether AI
+  features exist in their current HR systems.** That is the evidence for the three-doors argument,
+  it is HR-systems-specific rather than function-wide, and it is sharper than anything the outline
+  had. Decision 8 named Sapient as the instrument to mine for M5; it was the right instrument and its
+  useful finding belongs in **M1**.
+- **M2's anchor arrived from a place the outline did not look.** IBM's AskHR was mandated to 20,000+
+  employees in 2018 after nobody used it voluntarily, and HR satisfaction fell from **+19 to −35 within
+  the first year** — visible only because a pre-mandate baseline existed on a metric measuring
+  experience rather than usage. It recovered to the +80s after a rebuild. The most-cited HR AI success
+  in the field is also a documented 54-point failure, from the same company. The module labels the
+  success figures as unaudited self-report and leans on the failure, since self-reporting a failure is
+  the more credible direction.
+- **M3's Lesson 1 was reframed by the second half of a statistic the outline used only the first half
+  of.** 51% with no AI policy is a compliance gap; the finding is that among those *with* one, 54% say
+  it is too tied to today's tools and 23% say it is too broad — three in four of the organizations that
+  did the work think the artifact does not function. That produced the real distinction: **a policy
+  governs people, an enablement decision governs a system, and most organizations wrote the first
+  believing it covered the second.**
+- **M4's blocking citation resolved, and its activity had to be redesigned.** Gartner's own release
+  supplies the primary figure — ~14% of customer service issues fully resolved in self-service,
+  n=5,728, fielded December 2023 — so the lesson presents the widely-quoted 45%-deflected pairing as
+  mechanism and explicitly tells learners not to reuse the 31-point gap as their own number. The useful
+  IBM figure turned out to be **the residual 6%, not the 94%.** And the activity as outlined would have
+  had learners reading real employee conversations: it now has them ask ten real question *topics*
+  themselves from a test account, and the rubric refuses to grade any submission containing
+  employee-identifying content.
+- **M5 has no anchor, and that is the module now.** Three search angles found no credible measurement
+  of HR data quality — vendor content citing itself, the undisclosed-sample Fuel50 figure, consultancy
+  claims ranging 8–25% with no methodology, an unattributed anecdote, and no peer-reviewed measurement
+  of employee master-data error rates. So Lesson 2 says so plainly, and then makes the absence the
+  argument: **work nobody measures is work nobody funds, and unfunded unowned work generates no
+  research.** What is measured is the downstream symptom — EY's payroll survey has a disclosed sample
+  (508 practitioners, companies of 250–10,000, 2022) and finds roughly one in five US payrolls
+  containing errors. That asymmetry is why remediation never gets funded and how the business case gets
+  built. This is a better module than either a borrowed number or a shrug.
+- **M6's sourcing improved from security-vendor marketing to platform documentation.** The retrieval
+  mechanism — a semantic index scoped to what the asking user may see, creating no new access — is
+  vendor-documented, which lets the lesson hold both halves at once: the reassurance is true and it is
+  the entire problem. The vendor's own validation guidance also confirms the module's highest-yield
+  move (test per persona), and the dramatic incident counts are named in Sources and deliberately
+  unused. The activity gained two method constraints the outline lacked: **authorization with a
+  designated test account, and results reported by category rather than content.**
+- **M7 turned a research artifact into a lesson.** A large body of commentary still describes the
+  Digital Omnibus as awaiting Council adoption — writing that predates the 24 July 2026 Official
+  Journal publication and was never revised. Rather than just citing correctly, the module teaches the
+  habit: **check whether what you rely on is in force, on what date, from a primary source** — holding
+  the learner's own legal understanding to the standard the track demands of vendors. And *Mobley*'s
+  privilege ruling is stated narrowly, because the loose version is wrong: a motion to compel was
+  denied on these facts because counsel curated the analysis and used it in legal advice, which makes
+  **structure the thing that determines protection.** The counter-argument also forced a change to the
+  artifact — the signature block now requires an explicit statement of what the signature attests to,
+  because a signature from someone who cannot audit a model converts a capability gap into apparent
+  assurance.
+- **M8's premise was wrong in the track's favour.** The outline said nobody has a convention for where
+  an agent sits in an org structure. One has emerged, and it is **this track's own answer arriving from
+  org design**: an agent occupies no headcount box, and what goes on the chart is the accountable human
+  owner. The chart question resolves into the register question.
+
+**Also resolved:** every item on Decision 9's blocking list except one. The deflection primary source
+is found, IBM's AskHR figures are corroborated and labelled, and M1's statutory clocks are verified
+for I-9, COBRA and ACA furnishing. **Federal new-hire reporting was dropped from the worked examples**
+— the 20-day figure did not verify, and a list of four verified deadlines beats five with one guess.
+Worxogo remains unverified and stays omitted, as Decision 9 anticipated.
 
 ## Open questions for review
 
