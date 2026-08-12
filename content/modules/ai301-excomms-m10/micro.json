@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ai301-excomms-m10-micro-core",
+    "moduleId": "ai301-excomms-m10-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module 10 in two minutes\n\n**The work is already arriving** `[V]`. 45% of internal communications practitioners are heavily involved in or solely responsible for communicating and supporting AI rollouts; 40% for creating AI strategies; 40% for adoption workstreams (n=448, North America, December 2025). Meanwhile only around 16% of HR professionals think HR should lead change management for AI.\n\nTwo facts pointing opposite ways, and that's the opportunity. **A responsibility that is arriving anyway, and that its obvious owner has declined, gets assigned rather than competed for** — and it gets assigned to whoever holds the most credible account of how it should work when somebody senior finally asks.\n\nAfter ten modules you hold four artifacts almost nobody else in the building has: an attention ledger, a compression map, a kill list, and a listening charter."
+  },
+  {
+    "id": "ai301-excomms-m10-micro-rule",
+    "moduleId": "ai301-excomms-m10-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### The rule to carry\n\n**A bet without a funding line is a wish, and an executive can tell the difference in about four seconds.**\n\nThe proposal is four elements: the mandate scoped tightly enough to be refused; the evidence from your own compression map; a dated baseline with a 90-day measure that would actually change what you do; and **what you will stop doing to fund it.** Your kill list already contains the last one — which is why Module 3 asked for three specific things and their sponsors rather than a principle."
+  },
+  {
+    "id": "ai301-excomms-m10-micro-close",
+    "moduleId": "ai301-excomms-m10-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "**The full module adds the costs, honestly** — you become the messenger for the thing people fear most, drawing down a credibility stock you spend faster than you build; you'll be asked to assert things you can't verify; and you'll use AI to communicate about AI to an audience that can check every claim against its own Tuesday. Plus the three messages that don't survive a reader who checks, including the self-inflicted one: **your function is the most-observed user of AI in the organization**, so a gap between the AI policy you announce and the newsletter you publish is evidence against yourself, in your own channel.\n\nAnd the reckoning across all ten modules — which claims you committed to and found were wrong, which direction your predictions missed in, and what you now think about your function that you didn't in Module 1. **The account of the change is what's graded. Never the accuracy.**"
+  }
+]

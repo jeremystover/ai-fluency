@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ai301-excomms-m8-micro-core",
+    "moduleId": "ai301-excomms-m8-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module 8 in two minutes\n\n**This is the only AI in the curriculum that speaks to employees unsupervised.** No draft stage, no reviewer, published the instant it's said, to an audience of one who has every reason to treat it as the company answering. **You didn't deploy a tool — you published a colleague, without an editor.**\n\n**And there are no numbers in this module on purpose.** Independent evidence about employee-facing HR assistants doesn't appear to exist: the available material is vendor blogs, vendor case studies and vendor statistics with no stated methodology, and the two cases that circulate in the practitioner literature couldn't be traced to any primary source. That's worth knowing before a procurement cycle — every number you'll be shown was produced by someone selling something.\n\n**The corpus is the product.** A wrong answer about parental leave isn't a model failure; it's a content failure with a model's confidence attached. The stale page was always there. What the assistant removed was the difficulty of finding it and the visual cues — old formatting, a 2019 date, a departed author — that used to make someone check."
+  },
+  {
+    "id": "ai301-excomms-m8-micro-rule",
+    "moduleId": "ai301-excomms-m8-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### The rule to carry\n\n**A bot that helpfully answers a harassment question has intercepted a report.**\n\nAn employee typing *what happens if my manager keeps making comments about how I look* is not making a policy query. They are testing whether this organization is safe to tell. A well-built assistant retrieves the policy and renders a clear four-paragraph summary of the complaints procedure — and the moment closes. Nobody is alerted, no case exists, no record shows anyone asked. **The accuracy is the trap: a wrong answer would have produced a complaint, and a complaint produces a human.**\n\nSo refuse three categories: the employee's own case, anything touching leave or medical, and anything that is a disclosure wearing a question's clothes."
+  },
+  {
+    "id": "ai301-excomms-m8-micro-close",
+    "moduleId": "ai301-excomms-m8-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "**The full module adds** escalation design as the actual product — context travels so the employee doesn't retype, a named destination rather than a queue, and a *designed silence* on disclosures, because every extra helpful sentence is another reason to feel the matter is dealt with. Plus reliance: when someone acts on a wrong answer and loses a year of coverage, what do you owe them? The vendor answer — *the audit log is your defence* — reframes an employee's harm as the employer's litigation exposure and does nothing for the person who missed their window. **Decide the make-good before launch**, because a named remedy chosen in the calm is the difference between a system with accountability and a system with a disclaimer."
+  }
+]

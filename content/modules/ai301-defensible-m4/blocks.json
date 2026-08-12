@@ -1,0 +1,119 @@
+[
+  {
+    "id": "ai301-defensible-m4-calibration-prompt-before-you-start-10",
+    "moduleId": "ai301-defensible-m4",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Calibration prompt — before you start\n\n*One claim. Commit before you read anything.*\n\nHere is a factual assertion about your own organization:\n\n> **\"For the systems that screen or score candidates here, we hold written validation evidence from\n> the vendor — not a claim in a deck, a document.\"**\n\n**True of us, or not true of us?** Commit to one, in a sentence.\n\nThen predict one number: **of the systems on your Module 2 inventory, how many could you produce\nwritten validation or fairness evidence for today, without asking the vendor?** You'll check the\nfiles in the activity."
+  },
+  {
+    "id": "ai301-defensible-m4-module-brief-20",
+    "moduleId": "ai301-defensible-m4",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nEverything in Modules 2 and 3 is remediation. You found systems that were already running and\ndesigned testing for decisions already being made. This module is the only one in the track that\noperates before the exposure exists.\n\nProcurement is where the terms are set, where you have leverage you will never have again, and where\na question costs nothing. After signature you are asking a vendor to do you a favour. Before it, you\nare a buyer.\n\nAnd the work has moved. Half of HR buyers now run some form of pre-purchase evaluation of AI\nsystems, which is a genuine change in practice. The problem is what those evaluations contain,\nbecause the single most common failure is not skipping the diligence — it is **accepting a document\nthat answers a different question than the one asked.** A vendor asked whether its tool is fair will\nfrequently produce something that is real, verifiable, expensive to obtain, and silent on fairness.\n\nThis module is about asking questions that can only be answered one way, and reading what comes back."
+  },
+  {
+    "id": "ai301-defensible-m4-learning-objectives-30",
+    "moduleId": "ai301-defensible-m4",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. State what the available evidence on procurement practice does and doesn't establish.\n2. Ask the four questions a fairness claim has to survive.\n3. Distinguish a fairness audit from a management-system certification, and say what ISO/IEC 42001\n   does and does not tell you.\n4. Explain why the agent doctrine puts this gate in your hands rather than procurement's."
+  },
+  {
+    "id": "ai301-defensible-m4-lesson-1-the-state-of-practice-and-who-c-40",
+    "moduleId": "ai301-defensible-m4",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 · The state of practice, and who counted it [V]\n\nThe most-cited figures on AI procurement diligence in HR: roughly **50% of HR buyers now run formal\npre-purchase evaluations of AI systems**, against about **17%** relying mainly on vendor reputation,\nand **75% of HR leaders naming bias a top concern** when evaluating AI tools — second only to data\nprivacy.\n\n**Now read the funder, because this course does not exempt its own numbers.** Those figures come\nfrom a vendor whose business is bias auditing, reporting on its own audit book. That is precisely the\nteardown pattern taught elsewhere in this curriculum — a supplier publishing research whose finding\nis that more organizations should buy what it sells.\n\nWhich does not make the numbers false. It makes them a claim with an interest attached, and the\ncorrect handling is to use them for direction rather than magnitude: **pre-purchase evaluation has\nmoved from unusual to common, and buyers say bias is near the top of their concerns.** Both are\nconsistent with everything else in this track. Neither should be quoted to an executive as a precise\nbenchmark, because you cannot show the sample, the population or the question wording.\n\nStating this in the lesson rather than the footnote is deliberate. A module that teaches you to\ninterrogate a vendor's evidence while quoting a vendor's evidence uncritically would have failed its\nown test in its first paragraph."
+  },
+  {
+    "id": "ai301-defensible-m4-lesson-2-the-four-questions-50",
+    "moduleId": "ai301-defensible-m4",
+    "ordinal": 50,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 · The four questions\n\nWhat to actually ask, in writing, before signature. Each is designed so that a non-answer is\nrecognizable as a non-answer.\n\n**1. Validation evidence for a population like ours, in writing.**\n\nNot \"the tool is validated.\" *Show me the study: what outcome was predicted, on what population, at\nwhat sample size, with what result — and how similar is that population to ours?* A model validated\non national data for a role you hire in one region, or on a workforce with a very different\ncomposition, may be validated and irrelevant.\n\nThis question either produces a document or produces silence, **and both are answers.** Silence is\nnot proof of a bad product; it is proof you cannot rely on the claim, which is what you needed to\nknow.\n\n**2. What was it trained on, and what does it optimize?**\n\nThe second is the more revealing and the less often asked. A model optimizing for \"candidates\nsimilar to current high performers\" has an explicit objective of reproducing your existing\nworkforce's composition — which is a design decision, not a defect, and one you may be unable to\ndefend. A model optimizing for time-to-fill is optimizing something else entirely. Vendors will\nusually answer this, because they are proud of it.\n\n**3. What happens to the data of people who are rejected?**\n\nThe *Kistler* question from Module 1. If the system assembles information about a person from\nsources beyond what they submitted, retains it, or uses it across employers, you are in territory\nthat may implicate consumer-report obligations regardless of whether the model is fair. **Ask it as\na data question, not a fairness question**, because the fairness answer will not surface it.\n\n**4. What would we need from you if we were sued?**\n\nThe question that changes the room. Can they produce the model version in effect on a given date?\nThe configuration you were running? The audit contemporaneous with that version? Will they support\nyou, and is that written into the contract or dependent on goodwill?\n\nAsk it before signature and it is a procurement term. Ask it after, and it is a request."
+  },
+  {
+    "id": "ai301-defensible-m4-try-60",
+    "moduleId": "ai301-defensible-m4",
+    "ordinal": 60,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### Try this — 3 minutes\nTake the most recent AI-touching contract your organization signed. Search it for the words\n\"audit,\" \"validation,\" \"bias,\" and \"records.\" Most contracts of this kind contain none of them,\nwhich tells you what was negotiated and what was assumed."
+  },
+  {
+    "id": "ai301-defensible-m4-lesson-3-an-audit-is-not-a-certification-70",
+    "moduleId": "ai301-defensible-m4",
+    "ordinal": 70,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 · An audit is not a certification [V]\n\nThe most consequential distinction in this module, and the one most often collapsed in a sales\nconversation.\n\n**A fairness audit measures a system's outcomes on a population.** It asks whether *this tool*\nproduced disparate results for *these people* at *this time*. It is empirical, specific, and it can\ncome back bad.\n\n**A certification attests that an organization runs a process.** It asks whether the *company* has\nmanagement practices of a defined shape. It is procedural, organizational, and it does not have an\noutcome to come back bad.\n\n**ISO/IEC 42001** is the standard you will be shown, and it is worth understanding precisely because\nit is legitimate. It specifies requirements for establishing, implementing, maintaining and\nimproving **an AI management system** — governance, roles, competence, risk identification, controls\nacross the AI lifecycle, internal audit, management review. It is a **management system standard,\nnot a technical specification for an individual AI system.** It certifies organizational processes\nand governance; it does not certify the fairness or performance characteristics of any particular\nmodel. Nor does certification amount to compliance with the EU AI Act.\n\nSo:\n\n> **ISO/IEC 42001 tells you the vendor has a process for thinking about this. It does not tell you\n> the tool is fair. A vendor answering a fairness question with a certification has changed the\n> subject — usually without intending to.**\n\nThat last clause matters. This is rarely deception. A salesperson asked \"is it fair?\" reaches for the\nmost rigorous-looking evidence available, and a certification *is* rigorous evidence — of something\nelse. Your job is to notice the substitution and re-ask, which works better when you can name what\neach document is.\n\n**Reading an audit summary.** When you do get one, five things determine whether it is usable:\n\n**The population.** On whose data? A general-population audit tells you little about your\napplicant pool.\n\n**The date, and the version.** Audits describe a model at a moment. A 2024 audit of a product\nupdated three times since is a historical document.\n\n**What was measured.** Selection rates by group? Which groups? Both four-fifths and a significance\ntest, or one? Any intersections?\n\n**What was not measured.** The scope exclusions, which is where the interesting content usually is.\n\n**And what the vendor did about the result.** An audit that found something and produced a change is\nworth more than a clean one, because it demonstrates the finding-to-action pathway that Connecticut\nweighs and that Module 3 built."
+  },
+  {
+    "id": "ai301-defensible-m4-lesson-4-why-this-gate-is-yours-80",
+    "moduleId": "ai301-defensible-m4",
+    "ordinal": 80,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 · Why this gate is yours\n\nA short lesson about ownership, and it follows from a doctrine rather than a preference.\n\nA tool that screens candidates on your behalf can be treated as acting **as your agent**. The\npractical consequence: the employer does not get to say \"that was the vendor's system,\" and the\nvendor does not get to say \"we only make the software.\" Responsibility for the outcome sits with the\ndeployer, jointly with whoever built it.\n\nWhich means **your exposure is set at procurement**, by terms negotiated by someone whose success is\nusually measured in price and delivery date — and it is set most decisively by the questions nobody\nasked.\n\nThat is the argument for this gate belonging to whoever can read the answers. Procurement can obtain\na document. Legal can review a contract. **Neither can tell you that a validation study used the\nwrong comparison population, or that an audit reported four-fifths without a significance test, or\nthat a certification answered a different question.** Module 3 gave you that capability, and this\nmodule is the highest-leverage place to spend it, because it is the only point in the lifecycle where\nthe answer is cheap.\n\nThe practical ask is small and it is the ask to make: **one page of fairness questions, owned by\nyou, that goes into every RFP and every renewal.** Not a veto, not a committee — a page. It costs the\norganization nothing, it is easy to say yes to, and it changes what arrives."
+  },
+  {
+    "id": "ai301-defensible-m4-key-takeaways-90",
+    "moduleId": "ai301-defensible-m4",
+    "ordinal": 90,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **Half of HR buyers now run pre-purchase evaluations of AI systems** `[V]`, with about 17% relying\n  mainly on vendor reputation and 75% naming bias a top concern — **published by a vendor selling\n  bias auditing**, so use it for direction, not magnitude.\n- **Four questions:** validation evidence for a population like ours in writing; what it was trained\n  on and **what it optimizes**; what happens to rejected candidates' data (the *Kistler* question,\n  asked as a data question); and **what we'd need from you if we were sued** — which is a\n  procurement term before signature and a favour after.\n- **Silence is an answer.** A question that produces no document has told you that you cannot rely\n  on the claim, which is what you needed to know.\n- **An audit measures a system's outcomes; a certification attests that an organization runs a\n  process.** **ISO/IEC 42001 certifies an AI management system — governance, roles, controls,\n  review — not the fairness of any model**, and is not equivalent to EU AI Act compliance. A vendor\n  answering a fairness question with a certification has changed the subject, usually without\n  intending to.\n- **Read an audit on five things:** population, date and version, what was measured, what was **not**\n  measured, and what the vendor did about the result. An audit that found something and produced a\n  change is worth more than a clean one.\n- **The agent doctrine puts this gate in your hands.** The deployer owns the outcome, so exposure is\n  set at procurement — by the questions nobody asked. Procurement can obtain a document; only you can\n  tell that it answers a different question."
+  },
+  {
+    "id": "ai301-defensible-m4-exercise-embed-95",
+    "moduleId": "ai301-defensible-m4",
+    "ordinal": 95,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\":\"choice\"}"
+  },
+  {
+    "id": "ai301-defensible-m4-take-a-position-100",
+    "moduleId": "ai301-defensible-m4",
+    "ordinal": 100,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"A certification is a vendor telling you they have a process. You asked whether the\ntool is fair.\"*\n\nThe strongest counter-argument is that **process evidence is the only kind that scales, and demanding\noutcome evidence from every vendor is a standard that would eliminate most of the market.** A\nfairness audit on your population requires your data, which you cannot give a vendor before you buy;\naudits on the vendor's population are of limited relevance to you; and small vendors — often the\nones building the most careful products — cannot fund per-customer validation. On that reading a\nmanagement-system certification is not a substitution but a **reasonable proxy for the thing you\nactually want, which is a supplier that will behave well when a problem is found** — and insisting\non model-level fairness evidence at procurement filters for vendors with large compliance budgets\nrather than for good products.\n\nThere is a sharper version. **You cannot audit your way to a fair outcome at the gate, because the\ndisparity is a property of the deployment, not the tool** — your applicant pool, your job, your\nweighting, your configuration. On that argument the gate is close to theatre, and the real work is\nall post-deployment, in Module 3.\n\nTake a position on that, in writing, in the activity. The strongest submissions say what they'd\naccept from a small vendor with no audit budget — because that is the case where a standard either\nholds or reveals itself as a proxy for vendor size."
+  },
+  {
+    "id": "ai301-defensible-m4-activity-link-105",
+    "moduleId": "ai301-defensible-m4",
+    "ordinal": 105,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\":\"activity_link\",\"title\":\"Applied activity — The RFP fairness section\",\"blurb\":\"What validation evidence you actually hold on file today for each system in your inventory, then one reusable page for every RFP and renewal: four questions phrased so a non-answer is recognizable, what you'll accept as an answer to each, and a proportionality line so the standard doesn't become a vendor-size filter. Graded against a five-dimension rubric. Free unlimited resubmission.\",\"estMinutes\":\"20\"}"
+  },
+  {
+    "id": "ai301-defensible-m4-sources-and-attribution-110",
+    "moduleId": "ai301-defensible-m4",
+    "ordinal": 110,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- **Procurement practice figures** — approximately 50% of HR buyers running formal pre-purchase\n  evaluations of AI systems, ~17% relying mainly on vendor reputation, and 75% of HR leaders naming\n  bias a top concern. **Published by a vendor whose business is AI bias auditing**, reporting on its\n  own audit book; identified as such in Lesson 1 and used for direction rather than magnitude.\n  **[V]**\n- **ISO/IEC 42001:2023** — an AI management system standard specifying requirements for\n  establishing, implementing, maintaining and improving an AI management system. A management\n  system standard rather than a technical specification for individual AI systems; it certifies\n  organizational processes and governance, not the fairness or performance of a model, and is not\n  equivalent to EU AI Act compliance. **[V]**\n- **The agent doctrine** — that a tool screening candidates on an employer's behalf may be treated\n  as its agent, with the deployer owning the outcome jointly with the builder. Carried from the\n  shipped wording used in the HRBP and Recruiting tracks rather than re-derived, so the three stay\n  reconcilable. **[V]**\n- ***Kistler v. Eightfold AI*** supplies the rejected-candidate-data question; see Module 1. **[V]**\n- The four questions, the silence-is-an-answer rule, the audit-versus-certification distinction as\n  applied here, and the five-point audit reading are original to this course.\n- Structure and topic coverage follow the AI Fluency Framework (Dakan & Feller, in collaboration\n  with Anthropic, CC BY-NC-SA 4.0); prose is original."
+  }
+]

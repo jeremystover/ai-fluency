@@ -1,0 +1,31 @@
+{
+  "reviewedAt": "2026-08-12",
+  "title": "Four testing designs, one that produces knowledge you cannot use",
+  "intro": "*Five minutes. Commit before you look.*\n\nFour organizations design an adverse impact testing programme. All four genuinely intend to find problems, and all four will find some.\n\n**One of them will generate discoverable evidence of a disparity that it has structurally disabled itself from acting on.** Find it.\n\nDon't ask which is most rigorous. Ask what happens on the day it finds something.",
+  "artifacts": [
+    {
+      "label": "Design A",
+      "body": "The people analytics team runs four-fifths and standard deviation tests quarterly across screening, assessment and promotion, with intersectional cuts where cell sizes allow. Results go to a dashboard visible to HR leadership and the DEI lead. Legal is copied on the quarterly summary. Remediation is decided case by case when something is flagged."
+    },
+    {
+      "label": "Design B",
+      "body": "Counsel commissions the analysis, specifies the populations and decision points, and receives the results directly. Two named analysts run it under that instruction; output lives in a legal-hold workspace. Thresholds for escalation, the decision-maker for remediation, and what constitutes an acceptable response are agreed in writing **before the first run**. Re-run on any material system change, and at minimum annually."
+    },
+    {
+      "label": "Design C",
+      "body": "The organization buys a continuous fairness-monitoring platform from its ATS vendor. It computes four-fifths ratios in real time across all requisitions, alerts when a ratio drops below 0.8, and benchmarks results against the vendor's anonymized customer base. Alerts route to the recruiting operations manager."
+    },
+    {
+      "label": "Design D",
+      "body": "Counsel commissions a comprehensive annual audit from an outside expert covering every system in the AEDT inventory, with full methodology, intersectional analysis, and proxy testing. The report goes to counsel and the CHRO. There is no pre-agreed escalation threshold and no named decision-maker for remediation — those are handled when the report arrives."
+    }
+  ],
+  "options": [
+    { "id": "a", "label": "A — quarterly internal, legal copied" },
+    { "id": "b", "label": "B — counsel-commissioned with pre-commitment" },
+    { "id": "c", "label": "C — continuous vendor monitoring" },
+    { "id": "d", "label": "D — counsel-commissioned annual audit" }
+  ],
+  "key": "d",
+  "reasoning": "**D is the one, and it is the most sophisticated design in the set — which is what makes it the answer.**\n\nEverything about D's protection is right. Counsel commissions it, an outside expert performs it, the methodology is comprehensive, privilege is properly structured on the *Mobley* reasoning. It will find things A and C never would.\n\nAnd then it fails on Connecticut's sixth criterion, which is the one an organization most easily fails: **the response to results.** There is no pre-agreed threshold and no named decision-maker. So on the day a serious disparity lands, the organization is deciding *how to react to a finding while looking at the finding* — with counsel in the room, privilege attached, and every incentive pointing toward describing it narrowly and moving slowly.\n\nThat is the worst combination available. **Comprehensive knowledge, properly protected, with no mechanism to act on it.** The record it builds is documented awareness alongside no documented response — and it took the trouble to make the awareness thorough. Privilege protects the analysis, not the practice, and a programme optimized for the first while unprepared for the second has bought protection for the wrong thing.\n\n**B is the design this module teaches, and the difference is one paragraph.** Same privilege structure, same methods — plus thresholds, a decision-maker and an acceptable-response definition **agreed before the first run**. That paragraph is what converts protected knowledge into a programme that scores on all six criteria, and it is only writable before you have a result, because an organization deciding remediation policy while staring at its own disparity will decide badly.\n\n**A is the common design and its problem is protection, not intent.** Quarterly, methodologically fine, and entirely discoverable — a dashboard visible across HR leadership with legal copied afterwards is not counsel curating data to inform advice. It generates exactly the record Module 2's counter-argument warns about. Case-by-case remediation is also weaker than it sounds, though at least someone is looking.\n\n**C is the weakest and the most likely to be bought.** Four-fifths with no standard deviation test means alerting on noise at every low-volume requisition, which trains recruiters to dismiss alerts. Benchmarking against the vendor's customer base is the concealment problem from Lesson 3, sold as a feature. And routing findings to a recruiting operations manager places a legal-exposure signal with someone who has neither authority nor privilege — real-time, continuous, and unprotected."
+}

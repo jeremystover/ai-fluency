@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ai301-excomms-m5-micro-core",
+    "moduleId": "ai301-excomms-m5-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module 5 in two minutes\n\n**Verification used to be free, and nobody knew it was there.** The person writing the benefits summary had read the plan documents — that was why they were writing it. Their knowledge ran as a silent check. A model hasn't read the plan documents; it has read a great deal *like* them, which is what makes the output feel trustworthy. **Remove the writer, remove the check — and because it was never a formal step, its removal is invisible.**\n\n**Two failure modes 101's taxonomy doesn't have**, because neither is an error. **Voice flattening**: accurate, competent prose in the median corporate register. Not a quality problem, an identity one — the tell is *could any employer have sent this?* And **lost nuance**: compression discards by textual salience rather than by consequence, so the qualifier appearing once in a long document is exactly what goes, and it may be the only reason the statement was true."
+  },
+  {
+    "id": "ai301-excomms-m5-micro-rule",
+    "moduleId": "ai301-excomms-m5-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### The rule to carry\n\n**Omission is worse than fabrication.** A fabrication leaves evidence in the text and your existing verification catches it. An omission leaves no artifact and no string to search for — the failure *is* the absence of a string. And the consequences run the same direction: a fabricated number embarrasses the function and gets corrected; a dropped eligibility condition costs a real employee something real, and they never learn it was your omission.\n\nSo the question to ask of every summary is not *is anything wrong* — that's answerable from the draft. It's **what was in the source that isn't in the draft, and who does that hurt?**"
+  },
+  {
+    "id": "ai301-excomms-m5-micro-close",
+    "moduleId": "ai301-excomms-m5-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "**The full module adds** why your ear is the wrong instrument — it reads for fluency, which used to be a costly signal correlated with competence and no longer is, and fluency is the one thing the model always gets right, so a flattened lossy draft feels *better* than the messy correct thing an expert would have written. Plus the boring method (source, then draft, then source again — never draft first, or it becomes the frame), the contested-source finding (summaries of difficult decisions read more settled than the decision was), and **stop-rules as categories rather than instances**, named not roled, attached to a source, with a stated fallback."
+  }
+]

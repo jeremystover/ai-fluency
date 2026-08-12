@@ -1,0 +1,110 @@
+[
+  {
+    "id": "ai301-defensible-m5-calibration-prompt-before-you-start-10",
+    "moduleId": "ai301-defensible-m5",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Calibration prompt — before you start\n\n*One claim. Commit before you read anything.*\n\nHere is a factual assertion about your own organization:\n\n> **\"If our CEO asked tomorrow who owns whether our AI-assisted employment decisions are\n> defensible, they would get one name — and it would be a name, not a committee.\"**\n\n**True of us, or not true of us?** Commit to one, in a sentence. And if you're claiming true, say\nwhether the name is yours.\n\nThen predict one number: **out of ten, how likely is it that you will be the person your\norganization turns to the next time an algorithmic fairness question arrives?** Honest estimate."
+  },
+  {
+    "id": "ai301-defensible-m5-module-brief-20",
+    "moduleId": "ai301-defensible-m5",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nFour modules of capability. This one is about whether anybody knows you have it.\n\nHere is the situation you are actually in. AI governance is being assigned in most organizations\nright now — some of it deliberately, most of it by default, and almost all of it to people whose\nqualification is proximity rather than expertise. It will land with Legal, or IT, or a\ncross-functional committee, or an enthusiastic executive with a mandate and no method.\n\n**None of those can define a four-fifths analysis. None of them can recognize a proxy. None of them\ncan tell you that an audit reporting a ratio without a significance test is incomplete, or that a\nmanagement-system certification answered a different question.** Those are the specific,\nnon-obvious, hard-to-acquire capabilities this track just built, and they are scarce in a way that\nis easy to underestimate from inside a role where everyone around you has them.\n\nThe gap between *holding a scarce capability* and *being the person it gets routed to* is not\ntechnical. It is a communication problem, it is entirely solvable, and this module is about solving\nit — including by being honest about what the capability is worth and what it doesn't buy."
+  },
+  {
+    "id": "ai301-defensible-m5-learning-objectives-30",
+    "moduleId": "ai301-defensible-m5",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. Describe where AI governance is actually landing in organizations, and what that assignment\n   lacks.\n2. Assess a title change honestly — what restructuring protects and what relabeling doesn't.\n3. Evaluate labour-market signals about this capability without relying on anecdote.\n4. Write a 90-day plan and a one-paragraph pitch to whoever owns AI governance in your building."
+  },
+  {
+    "id": "ai301-defensible-m5-lesson-1-who-is-getting-this-and-what-th-40",
+    "moduleId": "ai301-defensible-m5",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 · Who is getting this, and what they can't do\n\nAsk where AI governance sits and you get one of four answers, each with a predictable failure.\n\n**Legal.** The most common, and the most sensible-looking. Legal can read the statute, assess the\nregime, and structure privilege — which is real and is exactly what Module 3 depends on. What legal\ncannot generally do is compute a selection rate, evaluate whether a vendor's audit measured anything\nuseful, or recognize that graduation year is doing the work of age. Legal knows what the standard\nis; it does not usually know whether you meet it.\n\n**IT or security.** Owns the systems, the integrations, the access model, and increasingly the model\ninventory. Frames the problem as one of controls and vendor risk, which is correct and incomplete —\nan AI system can be perfectly governed on every dimension IT measures and still select at very\ndifferent rates by group, because nothing IT tracks would show it.\n\n**A cross-functional committee.** Legal, IT, HR, sometimes procurement. Produces principles,\nmeets monthly, and has the structural property that **nobody's performance review is affected by\nwhether it works.** Module 2's ownership question applies to governance itself: if this fails, whose\nreview does it appear in? For most committees the answer is nobody's.\n\n**An executive with a mandate.** Energetic, well-supported, and reliant on whoever briefs them.\nThat last property is an opportunity rather than a criticism — the briefer has more influence than\nthe title implies.\n\n**In every one of those four, the same thing is missing.** Someone who can look at a system and say:\nhere is what to measure, here is what the measurement showed, here is what it doesn't establish,\nhere is what we'd need to defend this. Not an opinion about AI. **A method.**\n\nThat is what you now have, and it is worth being precise about why it is scarce. It is not\ninaccessible — the four-fifths rule is arithmetic and the standard deviation test is a first-year\nstatistics procedure. It is scarce because it sits at an intersection almost nobody occupies:\nstatistical method, employment law fluency, and enough operational knowledge of hiring and\nperformance systems to know where the decisions actually happen. Any one of those is common. The\ncombination is not."
+  },
+  {
+    "id": "ai301-defensible-m5-lesson-2-the-naming-question-honestly-50",
+    "moduleId": "ai301-defensible-m5",
+    "ordinal": 50,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 · The naming question, honestly\n\nThis track is called Defensible by Design and not something with DEI in the title, for reasons\nworth stating in the open — because you will face the same question about your own role, and the\nreasoning transfers.\n\n**Restructuring is cover. Relabeling isn't.**\n\nRestructuring means the work changed: different activities, different outputs, a different\nrelationship to decisions. If a function moves from running representation programmes to running\nadverse impact testing under privilege and gating procurement, that is a genuine change in what the\nrole does, and its new name describes something true.\n\nRelabeling means the work is identical and the sign changed. That fools nobody who looks — not a\nregulator, not a plaintiff's lawyer, not a hostile board member, and not your own colleagues. **A\neuphemism is a liability with a friendly name**, and in a discovery context a renamed programme with\nunchanged activities is worse than an honestly named one, because the renaming itself becomes an\nexhibit about intent.\n\nThe honest test for your own situation: **has what you do on a Tuesday changed?** If yes, the new\nname is describing something real and you should use it confidently. If no, the new name is a\ndecision your organization made about optics, and you should know that's what it is rather than\nmistaking it for protection.\n\nWhich is also the argument for how this course is named. The content is AEDT inventories, selection\nrate statistics, proxy detection, privilege sequencing and vendor audit literacy. **A name describing\nthe capability rather than an identity routes correctly, survives a political reversal in either\ndirection, and is what a buyer would actually search for.** It is not an evasion. It is the same\nprinciple applied to itself — and a course that told you relabeling isn't cover while wearing a\nrelabel would have failed its own test."
+  },
+  {
+    "id": "ai301-defensible-m5-lesson-3-reading-the-market-signal-witho-60",
+    "moduleId": "ai301-defensible-m5",
+    "ordinal": 60,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 · Reading the market signal without anecdote [V]\n\nYou will be told that roles combining AI governance with employment-fairness expertise are\nappearing — titles that pair algorithmic accountability with hiring, or governance with people\nanalytics. That is broadly true and it is the kind of claim this track has spent four modules\nteaching you to distrust when it arrives without evidence.\n\n**So this module does not give you a job posting to rely on.** A single advertisement is not a\ndurable citation: it disappears, it may reflect one company's idiosyncrasy, and by the time you read\nthis it is history. Quoting one to you would be exactly the borrowed-anecdote reasoning that Module\n4 tears apart in vendor claims.\n\n**Do it properly instead, in ten minutes**, and it is the activity's first step:\n\nSearch your own market — your country, your sector, your salary band — for postings pairing\n**AI or algorithmic** with **governance, assurance, audit or compliance**, and separately for\npostings pairing those with **hiring, employment, talent or people**. Then read what they ask for.\n\nThree things to look for, and each tells you something different:\n\n**Do they ask for statistical method, or only for policy?** Postings asking for adverse impact\nanalysis, disparate impact, or validation study experience are describing this capability. Postings\nasking for \"familiarity with AI governance frameworks\" are describing a reader of frameworks, which\nis a different and more crowded job.\n\n**Where do they sit?** Legal, IT, HR, or a standalone function. That tells you where your\norganization will probably put it too, which tells you who to talk to.\n\n**And what are they paying**, relative to what your current title pays? That is the most honest\nsingle measure of whether the capability is scarce, and it is available to you for free.\n\nWhatever you find is better evidence than anything this module could assert, because it is current,\nlocal, and about your own market rather than someone else's."
+  },
+  {
+    "id": "ai301-defensible-m5-lesson-4-the-pitch-70",
+    "moduleId": "ai301-defensible-m5",
+    "ordinal": 70,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 · The pitch\n\nYou are not asking for a mandate. You are offering a capability that cannot be bought quickly, to\nsomeone who has just been handed responsibility for something they cannot yet do.\n\nThat framing matters because it inverts the power dynamic of the usual request. A person asking for\nscope is a cost. A person offering to solve a problem their reader already owns is a resource — and\nwhoever holds AI governance in your organization right now is, with high probability, quietly aware\nthat they do not have a method.\n\n**One paragraph. Four moves.**\n\n**Name what they own.** Specifically, in their words, so it is clear you understand their problem\nrather than your own ambition.\n\n**Name the gap without insulting anyone.** \"The part nobody currently has is the measurement\" is\ntrue, non-accusatory, and lands. Not \"Legal can't do statistics.\"\n\n**Show, briefly, that you can close it.** One concrete artifact does more than any description. You\nhave four: an exposure map, an AEDT inventory, a testing protocol, and an RFP fairness section.\n**Attach the one that is most obviously useful to that specific reader** — the inventory for an IT\nowner, the exposure map for legal, the RFP section for procurement.\n\n**Ask for something small and specific.** Not the mandate. A thirty-minute conversation, or a\nstanding slot at the governance forum, or that your fairness page goes into the next RFP. Small asks\nget yes, and a yes creates a relationship in which the larger question can be asked later.\n\nThen the 90-day plan, which is what you bring to that conversation. Three things you will have\nfinished, each with a date and each producing an artifact somebody else can use. Not \"establish a\ngovernance framework\" — *\"the AEDT inventory covering hiring and promotion systems, complete and\nvalidated with system owners, by 30 November.\"*\n\n### And the honest part\n\n**This capability does not guarantee you a role, and it may not save your function.** Organizations\nrestructure for reasons that have nothing to do with whether someone holds a scarce skill, and a\nfunction can be eliminated while the individual with the method is retained somewhere else — or\nneither.\n\nWhat it does is make you **legible**. The failure mode this module is actually addressing is not\nlack of skill; it is holding a scarce capability that nobody in the building knows exists, in a\nfunction whose value is described in terms that have become politically difficult. **Legibility is\nwhat the pitch buys**, and legibility is a precondition for everything else without being a\nguarantee of any of it. Saying otherwise would be the kind of claim this track has spent five\nmodules teaching you to check."
+  },
+  {
+    "id": "ai301-defensible-m5-key-takeaways-80",
+    "moduleId": "ai301-defensible-m5",
+    "ordinal": 80,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **AI governance is landing with Legal, IT, a committee, or an executive** — and each is missing\n  the same thing: someone who can say what to measure, what the measurement showed, what it doesn't\n  establish, and what would be needed to defend it. **A method, not an opinion about AI.**\n- **The capability is scarce because of its intersection**, not its difficulty — statistical method,\n  employment law fluency, and operational knowledge of where decisions actually happen. Each is\n  common; the combination isn't.\n- **A committee's structural defect is ownership.** If governance fails, whose performance review\n  does it appear in? For most committees, nobody's.\n- **Restructuring is cover; relabeling isn't.** The test is whether what you do on a Tuesday\n  changed. **A euphemism is a liability with a friendly name**, and in discovery a renamed programme\n  with unchanged activities becomes an exhibit about intent.\n- **Read the market yourself** `[V]`. Do postings ask for statistical method or only policy\n  familiarity? Where do they sit? What do they pay relative to your title? Current, local evidence\n  beats any anecdote a course could give you — which is why this one doesn't.\n- **The pitch is one paragraph and four moves:** name what they own, name the gap without insulting\n  anyone, attach one artifact chosen for that reader, and ask for something small enough to get a\n  yes.\n- **This makes you legible, not safe.** Legibility is a precondition, not a guarantee — and the\n  failure mode being addressed is a scarce capability nobody knows you have."
+  },
+  {
+    "id": "ai301-defensible-m5-exercise-embed-85",
+    "moduleId": "ai301-defensible-m5",
+    "ordinal": 85,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\":\"choice\"}"
+  },
+  {
+    "id": "ai301-defensible-m5-take-a-position-90",
+    "moduleId": "ai301-defensible-m5",
+    "ordinal": 90,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"Nobody is going to hand you this. The capability is scarce, the work is growing,\nand the only question is whether you ask before someone less qualified is assigned it.\"*\n\nThe strongest counter-argument is that **this advises visibility in a year when visibility is the\nrisk.** A practitioner who spends 2026 making themselves the named owner of algorithmic fairness has\nattached their career to the most politically contested function in the organization, at a moment\nwhen federal contractors are certifying about DEI activities and boards are asking what exposure\nthey carry. The quieter version — build the capability, keep it useful, stay attached to a function\nnobody is arguing about — may be the better career strategy, and this module's advice may be optimal\nfor the organization and bad for the individual giving it.\n\nThere is a sharper version aimed at the whole track. **Everything you have built here is a\nliability-management capability, and liability management is a cost centre.** Cost centres do not\nwin mandates; they get outsourced to counsel, who can do it under privilege with no headcount. On\nthat reading the natural home for all five modules is a law firm, and the honest advice to a\npractitioner is to acquire the capability and then go somewhere it is billable.\n\nTake a position on that, in writing, in the activity. The strongest submissions engage the second\nversion, because it is the one that would change what you do next."
+  },
+  {
+    "id": "ai301-defensible-m5-activity-link-95",
+    "moduleId": "ai301-defensible-m5",
+    "ordinal": 95,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\":\"activity_link\",\"title\":\"Applied activity — The 90-day plan and the pitch\",\"blurb\":\"The course close. A scan of your own market, three things finished in 90 days each producing a usable artifact, and a one-paragraph pitch to a named person who owns AI governance — with one of your four artifacts attached, chosen for that reader. A reasoned decision not to pitch is a full-credit submission. Then the reckoning across all five modules. Graded against a six-dimension rubric. Free unlimited resubmission.\",\"estMinutes\":\"30\"}"
+  },
+  {
+    "id": "ai301-defensible-m5-sources-and-attribution-100",
+    "moduleId": "ai301-defensible-m5",
+    "ordinal": 100,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- **No external statistics are load-bearing in this module, deliberately.** Lesson 3 explains why:\n  labour-market claims about emerging roles are typically supported by individual job postings,\n  which are not durable citations. The activity has the learner run their own market scan instead,\n  which produces current and local evidence. **[V]** on the market-signal framing, since what a scan\n  returns will change.\n- The four-owners analysis, the intersection account of scarcity, the\n  restructuring-versus-relabeling test, and the four-move pitch are original to this course.\n- The ownership question applied to governance in Lesson 1 is Module 2's test, reused deliberately.\n- Structure and topic coverage follow the AI Fluency Framework (Dakan & Feller, in collaboration\n  with Anthropic, CC BY-NC-SA 4.0); prose is original."
+  }
+]

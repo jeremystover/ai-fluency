@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "The benchmark finding that high-volume communication environments show a 30% increase in leadership-trust risk and a 24% rise in audience burnout `[V]` comes from a survey of over 1,300 respondents. Who were they?",
+      "options": [
+        "Employees across 40 countries, reporting on their own trust and burnout",
+        "Communications and HR professionals, reporting on their organizations",
+        "Chief executives, reporting on their communications functions",
+        "A matched panel of employees and their managers"
+      ],
+      "correctIndex": 1,
+      "explanation": "It is a practitioner survey, which makes the finding a strong directional signal from people well positioned to see the pattern rather than a controlled measurement of employee trust. This course asks you to interrogate other people's evidence, so it states the limitation of its own."
+    },
+    {
+      "id": "q2",
+      "prompt": "What did AI actually remove from the internal communications system?",
+      "options": [
+        "The need for editorial judgment, which was always the real constraint",
+        "The cost of distribution, which had been falling for a decade anyway",
+        "The time cost of writing, which had been functioning as a crude rationing mechanism on volume",
+        "The requirement to target messages to specific audiences"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ninety minutes of drafting forced somebody to decide the message was worth ninety minutes. The decision was made badly and inconsistently, but it was made. AI removed the ninety minutes without replacing the decision with anything."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why is employee attention described as a budget you don't own?",
+      "options": [
+        "Because the CFO controls the communications budget",
+        "Because it is finite and shared, you draw on it without the holders' consent, and the cost lands diffusely on people who cannot attribute it to you",
+        "Because legal restricts what you may send to employees",
+        "Because managers control whether their teams read anything"
+      ],
+      "correctIndex": 1,
+      "explanation": "Spending attention feels free at the moment of spending. Nobody replies to say an update cost them four minutes they needed — they just read the next one less carefully, which is why the cost is invisible to the sender."
+    },
+    {
+      "id": "q4",
+      "prompt": "According to the maturity split `[V]`, what distinguishes high-maturity internal comms teams from low-maturity ones in how they use AI?",
+      "options": [
+        "High-maturity teams use more advanced models",
+        "High-maturity teams use AI to measure outcomes and generate insight; low-maturity teams use it to draft content",
+        "High-maturity teams have larger budgets for AI tooling",
+        "High-maturity teams use AI across more channels"
+      ],
+      "correctIndex": 1,
+      "explanation": "And that is the diagnosis, because drafting is production, production drives volume, and volume is the measured risk. The most common use accelerates the hazard; the uses that would reduce it sit at the far end of a curve three-quarters of the profession hasn't started climbing."
+    },
+    {
+      "id": "q5",
+      "prompt": "The benchmark reports 36% of respondents feeling AI-ready, rising to 61% among those with formal governance `[V]`. What is the lesson?",
+      "options": [
+        "Governance slows adoption but improves compliance",
+        "AI-readiness is mostly a function of budget",
+        "The variable separating teams getting value is governance rather than tooling — deciding how AI will be used before scaling its use",
+        "Readiness surveys overstate capability in every function"
+      ],
+      "correctIndex": 2,
+      "explanation": "The teams pulling ahead are not the ones experimenting most, which is the opposite of what every product demonstration implies. High-governance teams are reported as roughly ten times more likely to reach enabled maturity."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why does this course refuse to teach prompting, voice packs, and survey pipelines?",
+      "options": [
+        "Because they are not useful skills for communicators",
+        "Because they are already taught at 101 M5, 201 M2 and 201 M3 — and a 300-level course that re-teaches them is selling remediation with a seniority label",
+        "Because AI tools change too fast for that material to stay current",
+        "Because they belong to the People Analytics track"
+      ],
+      "correctIndex": 1,
+      "explanation": "The survey-verbatims-to-themes-to-executive-summary pipeline is literally 201 M3's worked example. Most material aimed at communicators spends half its runtime on remedial content because it is written for people who have never used the tools."
+    },
+    {
+      "id": "q7",
+      "prompt": "In the send audit, you find that no single person in your organization can see across all channels to produce a total. What should you record?",
+      "options": [
+        "Your best estimate, presented as the count",
+        "That the count is unavailable, with an account of what you tried — this is a finding and scores at full credit",
+        "Only the channels you personally own, presented as the total",
+        "Nothing, and repeat the audit when the data becomes available"
+      ],
+      "correctIndex": 1,
+      "explanation": "In many organizations no single person can see across all channels, and discovering that is worth more than a tidy estimate. The audit is partly an instrument for finding out whether the number exists at all — which is exactly what the opening claim asked you to commit to."
+    },
+    {
+      "id": "q8",
+      "prompt": "What is the strongest argument *against* this module's claim that over-sending is the function's central AI risk?",
+      "options": [
+        "That hallucinated facts in an all-company message would be more damaging",
+        "That employees have adapted to high message volume and filter effectively",
+        "That internal comms carries traffic other functions demand, on deadlines it doesn't set — so volume is a symptom of upstream demand and a kill list is a fantasy about power the function lacks",
+        "That measurement of attention is too imprecise to act on"
+      ],
+      "correctIndex": 2,
+      "explanation": "It is the real counter-argument and it is strong. A position worth submitting names the traffic you genuinely cannot refuse, then says what you would do about the traffic you can. A is a 101 M6 concern and not specific to this function; B is contradicted by the overload finding."
+    }
+  ]
+}

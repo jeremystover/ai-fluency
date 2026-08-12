@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ai301-excomms-m6-micro-core",
+    "moduleId": "ai301-excomms-m6-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module 6 in two minutes\n\n**The divergence** `[V]`. In a two-by-four study of 1,100 people evaluating a manager's message with the AI-assisted sections highlighted, perceived sincerity fell to 40–52% at high assistance against 83% at low — while professionalism fell only from 95% to 69–73%. Two curves that should move together come apart. **AI makes the writing better and the writer less believable at the same time**, and every quality check in your function is pointed at the curve that didn't move. At higher assistance readers questioned the manager's authorship, integrity, caring and competence — four things, only one about writing.\n\n**And you can't feel it from the inside.** The same research found people rate their own AI use similarly at any level, and judge others' by magnitude. So the communicator and the executive — the two people who could stop it — are structurally unable to detect it, and the workforce, who can, has no channel to say so. They just adjust what they think of the leader."
+  },
+  {
+    "id": "ai301-excomms-m6-micro-rule",
+    "moduleId": "ai301-excomms-m6-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### The rule to carry\n\n**Acceptable AI involvement is inversely proportional to how much the message claims a relationship.** Logistics claim nothing. *I noticed what you did* claims everything, and generating it hollows out the only thing it was carrying.\n\nAnd the **voice input floor** — what a leader must personally supply for a message to be theirs: **the position** (the stance, not the topic), **one specific** only they could have contributed, and **the stakes** they're committing to. All three present, ghostwrite at any level of AI assistance. One missing, and you don't have a drafting problem — you have a message that shouldn't be sent yet."
+  },
+  {
+    "id": "ai301-excomms-m6-micro-close",
+    "moduleId": "ai301-excomms-m6-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "**The full module adds** the constructive half — **atomize, don't synthesize.** Capture twenty minutes of a leader thinking out loud, then let AI multiply it into transcript, summary, pull quotes, FAQ, clips, kits and translations. Enormous AI leverage, zero invented positions, and the transcript is the source Module 5 needs. It's the one place in this track where more AI output is straightforwardly right.\n\nPlus the legal edge `[V]`: **Article 50 has been applicable since 2 August 2026**, and its deepfake disclosure duty for synthetic audio and video of a real person is *not* limited to public-interest publishing — so the AI-dubbed exec video shown to employees is in scope. **Counsel review required.** The carve-out generalizes though: the text obligation falls away where a named person holds editorial responsibility. The law's question turns out to be this module's question — *who owns this sentence?*"
+  }
+]

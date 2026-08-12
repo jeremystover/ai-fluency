@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What did EO 14281 actually do `[V]`?",
+      "options": [
+        "Repealed disparate impact liability under Title VII",
+        "Directed federal agencies to eliminate disparate impact liability from their civil rights enforcement — which is a change to enforcement, not to the statute",
+        "Prohibited employers from conducting adverse impact analyses",
+        "Required federal contractors to certify they run no DEI programs"
+      ],
+      "correctIndex": 1,
+      "explanation": "D describes EO 14173. The distinction in B is the foundation of this track: disparate impact is codified in Title VII by the Civil Rights Act of 1991, and an executive order cannot repeal a statute — nor does it claim to."
+    },
+    {
+      "id": "q2",
+      "prompt": "Who still enforces disparate impact liability `[V]`?",
+      "options": [
+        "Nobody, until a future administration reverses the current orders",
+        "State agencies only, in states with their own civil rights statutes",
+        "The private plaintiffs' bar, which brings most employment discrimination litigation, is not bound by executive orders directing agencies, and the federal courts remain open",
+        "The EEOC, which retains authority despite the enforcement plan"
+      ],
+      "correctIndex": 2,
+      "explanation": "And reporting indicates private activity in Title VII disparate impact cases is increasing — which is what you'd expect when a regulatory channel closes and the underlying cause of action doesn't."
+    },
+    {
+      "id": "q3",
+      "prompt": "What is the practical error this module warns against?",
+      "options": [
+        "Over-investing in compliance during a period of reduced enforcement",
+        "Reading the federal news, concluding risk fell, and standing down testing — which means ceasing to generate the evidence that would defend you, while the people bringing claims are more active",
+        "Applying California's standards in jurisdictions that don't require them",
+        "Relying on vendor certifications instead of independent audits"
+      ],
+      "correctIndex": 1,
+      "explanation": "And it compounds: the regulator who might have investigated and resolved matters quietly is no longer in the way, so what remains is the channel with the least predictable timing and the highest cost."
+    },
+    {
+      "id": "q4",
+      "prompt": "What is the most important consequence of the proposed EEO-1 rescission `[V]`?",
+      "options": [
+        "The administrative relief of no longer filing",
+        "That employers may lose a consistent annual demographic baseline they did not curate — and baselines cannot be reconstructed backwards",
+        "That demographic data collection becomes unlawful",
+        "That state reporting obligations automatically replace it"
+      ],
+      "correctIndex": 1,
+      "explanation": "It is proposed, not final, and the 30 September obligation still stands. The decision to maintain the series internally has to be made while the definitions, the process and this year's data all still exist."
+    },
+    {
+      "id": "q5",
+      "prompt": "Which statement about the state landscape is accurate `[V]`?",
+      "options": [
+        "Colorado's AI Act is the operative comprehensive state regime",
+        "California and Illinois are in force; Colorado is stalled twice over — postponed, and enforcement paused by a federal court in April 2026",
+        "No state regime touching AI in employment is currently in force",
+        "Connecticut's obligations are already fully in effect"
+      ],
+      "correctIndex": 1,
+      "explanation": "Colorado is routinely described as the regime that arrived, and a compliance plan naming it as the operative standard is built on something not currently operating. Connecticut's framework begins 1 October 2026 with principal obligations in 2027."
+    },
+    {
+      "id": "q6",
+      "prompt": "What makes California's regulations distinctive for this track `[V]`?",
+      "options": [
+        "They require an annual third-party audit of every automated decision system",
+        "They prohibit automated decision systems in hiring entirely",
+        "They make anti-bias testing — **or its absence** — explicitly relevant to a discrimination claim, and impose extended recordkeeping on automated-decision data",
+        "They apply only to employers headquartered in California"
+      ],
+      "correctIndex": 2,
+      "explanation": "Which is the closest thing in American law to a statement that this track's subject is legally load-bearing: not testing is itself evidence."
+    },
+    {
+      "id": "q7",
+      "prompt": "What distinguishes *Kistler v. Eightfold* from *Mobley v. Workday* `[V]`?",
+      "options": [
+        "Kistler is a federal case; Mobley is in state court",
+        "Kistler alleges disparate treatment; Mobley alleges disparate impact",
+        "Kistler doesn't allege the algorithm was biased at all — it alleges an FCRA disclosure failure, which is a far cheaper thing to prove",
+        "Kistler was brought by the EEOC"
+      ],
+      "correctIndex": 2,
+      "explanation": "Proving disparate impact needs data, statistics, an expert and a defensible comparison group. Proving a disclosure failure needs only the absence of a notice. As the expensive route narrowed, a cheaper one opened."
+    },
+    {
+      "id": "q8",
+      "prompt": "What is the sharpest argument *against* this module's position?",
+      "options": [
+        "That most employers have never faced an EEOC audit anyway",
+        "That testing produces the evidence — so if exposure now runs through discovery, a rationally self-interested employer should stop generating analyses, and this track may be advising against its learners' institutional interest",
+        "That state regimes will be preempted by future federal action",
+        "That the private bar only pursues large employers"
+      ],
+      "correctIndex": 1,
+      "explanation": "It is the strongest version and Module 3 exists to answer it. D is part of the weaker base-rate argument, which is also real — for a small employer in a state with no AEDT law, measurable exposure may genuinely have fallen."
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What does California's \"or its absence\" clause mean for an organization that has never tested `[V]`?",
+      "options": [
+        "It is protected, since there are no findings to disclose",
+        "It has not avoided the question — the absence of testing is itself relevant to a discrimination claim",
+        "It must begin testing within a defined period",
+        "It is presumed compliant until a complaint is filed"
+      ],
+      "correctIndex": 1,
+      "explanation": "Not testing is an answer rather than an avoidance. Set alongside Connecticut's mitigation framework, the direction is unmistakable: the existence and quality of your programme is legally consequential."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why must you run both the four-fifths rule and a standard deviation test?",
+      "options": [
+        "Because different jurisdictions require different tests",
+        "Because four-fifths applies to hiring and standard deviation to promotion",
+        "Because four-fifths tells you whether a gap is large and standard deviation tells you whether it is real — only the first chases noise, only the second dismisses real harm in small populations",
+        "Because vendors compute one and regulators the other"
+      ],
+      "correctIndex": 2,
+      "explanation": "The two failure modes point in opposite directions, which is why a vendor report containing only one is incomplete regardless of which one it contains."
+    },
+    {
+      "id": "q3",
+      "prompt": "200 men apply and 60 are selected; 100 women apply and 21 are selected. What is the four-fifths ratio, and what should you do next?",
+      "options": [
+        "0.35 — investigate immediately",
+        "0.70 — flagged, and the next step is a standard deviation test to establish whether the result is statistically meaningful",
+        "0.21 — the disparity is severe",
+        "1.43 — men are disadvantaged"
+      ],
+      "correctIndex": 1,
+      "explanation": "21/100 = 21%, 60/200 = 30%, ratio 0.70, below the 0.8 threshold. With 300 applicants the standard deviation test is likely to be meaningful; at 25 applicants it typically wouldn't be, even with an alarming ratio."
+    },
+    {
+      "id": "q4",
+      "prompt": "Which step of proxy detection produces evidence about a less-discriminatory alternative?",
+      "options": [
+        "Listing the model's inputs including derived features",
+        "Testing each input's association with protected characteristics in your own population",
+        "Testing the model with the variable removed, and comparing what happens to accuracy and to the disparity",
+        "Asking whether the variable is job-related"
+      ],
+      "correctIndex": 2,
+      "explanation": "That comparison is the most useful artifact the method produces, because less-discriminatory alternatives are precisely the ground on which disparate impact cases are contested."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why does external benchmarking conceal the problem it appears to measure?",
+      "options": [
+        "Because benchmark data is usually out of date",
+        "Because when a problem concentrates in a minority of firms, a firm in the bad tail benchmarks as normal — the tail is inside the average it's compared against",
+        "Because industries define protected groups inconsistently",
+        "Because benchmarks exclude small employers"
+      ],
+      "correctIndex": 1,
+      "explanation": "Plus three compounding issues: comparators self-select, denominator definitions drift, and — decisively — the legal standard was never comparative. Being average is not a defence and never has been."
+    },
+    {
+      "id": "q6",
+      "prompt": "What changed when AI removed the friction from adverse impact analysis?",
+      "options": [
+        "The analysis became more accurate",
+        "The question moved from whether to run it to who may run it, under what protection, and what happens to the output — because in an organization where forty people can, somebody will",
+        "Testing became legally required in more jurisdictions",
+        "The results became admissible in a way they previously weren't"
+      ],
+      "correctIndex": 1,
+      "explanation": "Friction was never a good control — it suppressed useful analysis alongside risky analysis — but it was a control, and its removal means the realistic choice is between deliberate protected generation and casual unprotected generation."
+    },
+    {
+      "id": "q7",
+      "prompt": "On what reasoning did a court hold bias-testing data privileged `[V]`?",
+      "options": [
+        "Because it was marked confidential and stored with legal records",
+        "Because trade secret protection covered the underlying methodology",
+        "Because counsel curated the data and used the results in providing legal advice",
+        "Because the data was produced after litigation commenced"
+      ],
+      "correctIndex": 2,
+      "explanation": "That is a structure you build deliberately in advance. An analysis run on a Tuesday and forwarded to legal on Friday was not commissioned by counsel to inform advice, and labelling it later does not make it privileged."
+    },
+    {
+      "id": "q8",
+      "prompt": "What does privilege *not* do?",
+      "options": [
+        "It does not apply to data held by third-party vendors",
+        "It does not survive more than one litigation",
+        "It does not make the problem go away, does not survive waiver, does not cover underlying facts, and does not immunize the practice — only the analysis",
+        "It does not apply where a regulator rather than a plaintiff requests the material"
+      ],
+      "correctIndex": 2,
+      "explanation": "An organization using privilege to keep knowing about a disparity while doing nothing has built exactly the record Connecticut's sixth criterion punishes — with the additional feature that it did so on legal advice."
+    }
+  ]
+}

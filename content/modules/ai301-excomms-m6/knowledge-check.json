@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is the divergence this module is named for `[V]`?",
+      "options": [
+        "Employees trust written communication less than video",
+        "Perceived professionalism holds up under AI assistance while perceived sincerity collapses — two curves that should move together coming apart",
+        "Managers and employees disagree about whether AI should be used",
+        "AI-assisted writing is rated higher by senior staff than junior staff"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sincerity fell to 40–52% at high assistance against 83% at low, while professionalism fell only from 95% to 69–73%. Professionalism is what you optimize when reviewing a draft; sincerity is what the reader is actually scoring — and every quality check in the function points at the curve that didn't move."
+    },
+    {
+      "id": "q2",
+      "prompt": "Beyond writing quality, what did readers begin questioning at higher levels of perceived AI assistance?",
+      "options": [
+        "The accuracy of the facts in the message",
+        "Whether the organization could afford the tools",
+        "The manager's authorship, integrity, caring and competence",
+        "Whether the message had been approved by legal"
+      ],
+      "correctIndex": 2,
+      "explanation": "Four things, only one of which is about writing. Which is the point: the cost isn't to the artifact, it's to the person whose name is on it."
+    },
+    {
+      "id": "q3",
+      "prompt": "What does the perception gap mean for a communicator?",
+      "options": [
+        "That different generations perceive AI use differently",
+        "That people rate their own AI use similarly at any level but judge others' by magnitude — so the communicator and the executive are structurally unable to detect the problem the workforce can see",
+        "That perceptions of AI use vary by industry",
+        "That disclosure eliminates the perception difference"
+      ],
+      "correctIndex": 1,
+      "explanation": "From the inside, heavy assistance feels like light assistance — you know what you meant and the message is accurate. That sense that nothing is wrong is genuine and it is not evidence. It's also why the answer can't be \"use judgment\": judgment is the instrument the finding says is unreliable here."
+    },
+    {
+      "id": "q4",
+      "prompt": "What governs the gradient of acceptable AI involvement?",
+      "options": [
+        "The seniority of the person whose name is on the message",
+        "The size of the audience",
+        "How much the message claims a relationship — the claim is the payload, and generating it hollows out the only thing being carried",
+        "Whether the message is internal or external"
+      ],
+      "correctIndex": 2,
+      "explanation": "A system-maintenance notice claims nothing. A message that says *I noticed what you did* or *I know this is hard* claims a relationship. Logistics are free; recognition, condolence and apology are human-first."
+    },
+    {
+      "id": "q5",
+      "prompt": "What is the difference between synthesizing and atomizing?",
+      "options": [
+        "Synthesizing uses AI, atomizing does not",
+        "Synthesizing generates a message in a leader's voice from a topic; atomizing captures one real human moment and multiplies it into every format needed",
+        "Synthesizing is for long-form content, atomizing for short-form",
+        "Atomizing requires the leader's approval at each stage"
+      ],
+      "correctIndex": 1,
+      "explanation": "Twenty minutes of unscripted conversation produces a transcript, summary, pull quotes, FAQ, clips, kits and translations — enormous AI leverage with zero invented positions, because the position already exists in the source. It also gives Module 5 the source document by construction."
+    },
+    {
+      "id": "q6",
+      "prompt": "What are the three elements of the voice input floor?",
+      "options": [
+        "Approval, disclosure, and a review date",
+        "The topic, the audience, and the deadline",
+        "The position, one specific only that person could supply, and the stakes they're personally committing to",
+        "A briefing meeting, a draft review, and a sign-off"
+      ],
+      "correctIndex": 2,
+      "explanation": "If all three exist, ghostwrite at any level of AI assistance — the message is theirs and the craft is yours. If one is missing, you don't have a drafting problem; you have a message that shouldn't be sent yet, and drafting it well is the worst available response."
+    },
+    {
+      "id": "q7",
+      "prompt": "Which is in scope for the EU AI Act's Article 50 deepfake disclosure obligation `[V]`?",
+      "options": [
+        "Only content published externally on matters of public interest",
+        "An AI-dubbed video of your CEO shown to employees internally — the deepfake obligation, unlike the one on AI-generated text, is not limited to public-interest publishing",
+        "Any internal communication drafted with AI assistance",
+        "Nothing internal; the Act applies only to consumer-facing systems"
+      ],
+      "correctIndex": 1,
+      "explanation": "Applicable since 2 August 2026. Synthetic audio and video of a real person carries the duty regardless of audience, which puts the dubbed exec video, the synthetic voiceover and the AI avatar in the onboarding module all in scope. This is the fastest-moving material in the track — verify before relying on it."
+    },
+    {
+      "id": "q8",
+      "prompt": "Why does Article 50's human-review carve-out matter beyond compliance?",
+      "options": [
+        "Because it means most organizations are exempt",
+        "Because it makes disclosure optional in all cases",
+        "Because the regulation's test is whether a named person holds editorial responsibility — not how much AI was used — which is the same answer this module reached from the trust research",
+        "Because it shifts liability from the deployer to the model provider"
+      ],
+      "correctIndex": 2,
+      "explanation": "*Who owns this sentence?* A message with a named owner who supplied the position and stands behind it is fine at any level of AI assistance. A message with no owner is a problem at any level, disclosed or not — and Modules 5 and 8 arrive at the same test from different directions."
+    }
+  ]
+}

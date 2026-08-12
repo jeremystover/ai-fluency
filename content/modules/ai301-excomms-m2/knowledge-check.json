@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What distinguishes Sense from Interpret on the chain?",
+      "options": [
+        "Sense is automated; Interpret requires a human",
+        "Sense is collection — getting signal somewhere it can be read at all; Interpret is making meaning of it",
+        "Sense is quantitative; Interpret is qualitative",
+        "Sense happens before a decision; Interpret happens after"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pulling unanswered intranet searches into one place is Sense. Turning four hundred of them into a ranked list of what the workforce cannot find is Interpret. The distinction matters because they fail differently: Sense fails as silence mistaken for consent; Interpret fails as a confident story about a signal that isn't there."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why does the chain having a *direction* matter?",
+      "options": [
+        "Because work should always be done in order",
+        "Because it shows which links can be automated first",
+        "Because errors flow downstream and get more expensive as they go — a bad Sense produces a confident wrong Interpret, a Decide about a problem you don't have, and beautiful Produce nobody needed",
+        "Because measurement is only possible at the end of the chain"
+      ],
+      "correctIndex": 2,
+      "explanation": "And the practical consequence is that speed at Produce cannot recover an error made upstream. It arrives faster."
+    },
+    {
+      "id": "q3",
+      "prompt": "Which two links has AI transformed while the profession has barely worked them?",
+      "options": [
+        "Produce and Distribute",
+        "Decide and Verify",
+        "Sense and Interpret",
+        "Distribute and Verify"
+      ],
+      "correctIndex": 2,
+      "explanation": "The function has always held the highest-fidelity record of what employees don't understand — search logs, tickets, open text — and could never read it at volume. That capability now exists and is largely unclaimed. Produce collapsed and is heavily worked; Decide is untouched by AI entirely."
+    },
+    {
+      "id": "q4",
+      "prompt": "Practitioners using AI report the highest impact in content strategy (49%), planning (48%), and channel strategy (41%) `[V]`. Why is that finding pointed?",
+      "options": [
+        "Because those percentages are higher than for drafting",
+        "Because those are Decide and Interpret work — so practitioners report the most impact in the links they invest in least, while the dominant use remains drafting",
+        "Because it shows AI is more useful for strategy than for writing",
+        "Because it contradicts the maturity findings from Module 1"
+      ],
+      "correctIndex": 1,
+      "explanation": "It corroborates Module 1's maturity split from a different direction. Note the limitation: self-reported impact, vendor-commissioned, n=448 North American IC professionals, December 2025 — what practitioners believe about their own experience, not a measured outcome."
+    },
+    {
+      "id": "q5",
+      "prompt": "What does \"being excellent at Produce was a career; it is now a feature\" claim, precisely?",
+      "options": [
+        "That production skill no longer has value",
+        "That AI produces better work than skilled communicators",
+        "That excellence at Produce no longer differentiates, because the floor rose to meet it — not that the skill is worthless",
+        "That production work should be outsourced entirely"
+      ],
+      "correctIndex": 2,
+      "explanation": "Judgment about what makes a sentence land is exactly what makes someone good at reviewing a model's output and at knowing when a message must be human. The claim is about differentiation, not worth."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why is Verify described as *newly* expensive?",
+      "options": [
+        "Because verification tools are costly to license",
+        "Because when a human wrote the draft, the drafter's own knowledge was a check — and when a model writes it, that check is gone and has to be reinstated deliberately",
+        "Because regulations now require verification of internal communications",
+        "Because AI output contains more factual errors than human output"
+      ],
+      "correctIndex": 1,
+      "explanation": "The check was never a formal step; it was a side effect of the writer knowing the subject. Remove the writer and you remove the check, without anyone noticing it was there."
+    },
+    {
+      "id": "q7",
+      "prompt": "A communicator spends an hour choosing which four of eleven items make the weekly digest and telling seven sponsors no. Which link is that?",
+      "options": [
+        "Produce, because the output is the digest",
+        "Distribute, because it determines what reaches the audience",
+        "Decide — choosing what gets said, to whom, and whether at all",
+        "Interpret, because it requires judgment about relevance"
+      ],
+      "correctIndex": 2,
+      "explanation": "And this is the most common misfiling in the function: Decide work logged as Produce because it happened while a document was open. Naming it is the first step to being resourced for it."
+    },
+    {
+      "id": "q8",
+      "prompt": "What is the sharpest argument *against* this module's chain framing?",
+      "options": [
+        "That six links is too many to be useful in practice",
+        "That if AI had genuinely collapsed Produce, quality would have converged across organizations — and it hasn't, suggesting the floor rose while the ceiling stayed exactly where it was",
+        "That Sense and Interpret belong to People Analytics rather than communications",
+        "That the chain describes agency work rather than in-house work"
+      ],
+      "correctIndex": 1,
+      "explanation": "It is the hardest version of the counter and the module says so. If the ceiling is unchanged, then craft at Produce still differentiates, and a framing that calls it a commodity is a status argument dressed as an analysis."
+    }
+  ]
+}

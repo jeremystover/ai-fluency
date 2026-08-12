@@ -1,0 +1,52 @@
+{
+  "promptVersion": "ai301-excomms-m3-the-kill-list-v1",
+  "moduleId": "ai301-excomms-m3",
+  "minWords": 250,
+  "maxWords": 350,
+  "submitLabel": "Your kill list and write-up",
+  "intro": "Paste the list — the defend/don't pass over Module 1's audit, the three things you'll stop with what you'll say to each sponsor, the attention returned in person-hours, and the metric you're replacing — followed by the 250–350 word write-up including your position on this module's claim. Resubmission is free and unlimited — the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, Employee Experience / Internal Comms track. Module 3 applied activity, 'The kill list': a defend-or-don't pass over every item in their Module 1 thirty-day send audit; THREE things they will actually stop sending (not merge, not shorten — stop), each with its sponsor named and the sentence they will say to that sponsor; the attention returned quantified as recipients × minutes in person-hours per month; and one vanity metric replaced with one from the comprehension, behaviour, or cost families.\n\nThe hardest and most valuable part is that at least one of the three should be something the learner PERSONALLY APPROVED. A submission that kills only other people's work has avoided the point. A learner who says plainly that none of their own work made the list, and supports why, is giving a legitimate answer and should be graded on the quality of that support — but feedback should name the pattern.\n\nA kill list without the sponsor sentence is a wish, and should be scored as one. The sentence is what converts an intention into a decision.\n\n'Consolidate' is not a kill. If all three items are consolidations, the learner has done the easier version of the exercise and feedback should say so — the module is explicitly about subtraction, which is the least practised skill in this profession.\n\nThis track scores the delta rather than the score. Grade the learner's ACCOUNT of the gap between their predicted defensible percentage and what the item-by-item pass actually showed — direction, size, and what they think it reveals. NEVER grade prediction accuracy, and never treat a low defensible percentage as a poor result; a learner who discovers they'd defend 40% of their own sends and says so honestly is demonstrating exactly what this module is for.",
+  "opening": [
+    {
+      "key": "defensiblePct",
+      "label": "Predicted — share of your last 30 days' sends you'd defend to the recipients' faces",
+      "hint": "Not whether it was approved. Whether you'd defend the spend to the people who paid for it.",
+      "placeholder": "e.g. 70",
+      "min": 0,
+      "max": 100
+    }
+  ],
+  "calibration": [
+    {
+      "key": "defensiblePctActual",
+      "label": "Marked — what the item-by-item pass actually gave",
+      "hint": "Yeses divided by total. A low number honestly arrived at is the point of the exercise, not a failure.",
+      "placeholder": "e.g. 52",
+      "min": 0,
+      "max": 100,
+      "actualFor": "defensiblePct"
+    }
+  ],
+  "dimensions": [
+    {
+      "name": "The defend-or-don't pass is item by item",
+      "criteria": "Every item from the Module 1 audit marked individually against the recipients'-faces test, not a global estimate. The test applied should be the one stated — would you defend the spend to the people who paid for it — rather than whether the message was approved or well made. A single summary percentage with no per-item working has skipped the exercise."
+    },
+    {
+      "name": "Three real stops, with the sponsor sentence",
+      "criteria": "Three things that stop, not merge and not shorten, each with the sponsor named and the actual sentence the learner will say to them. The sentence is what makes this a decision rather than an intention, and its absence should cost significantly. If all three are consolidations rather than stops, name that in feedback — this module is about subtraction specifically."
+    },
+    {
+      "name": "One of them is theirs",
+      "criteria": "At least one of the three should be something the learner personally approved or originated. A list composed entirely of other people's work has avoided the module's hardest move. A learner who states plainly that none of their own work made the list, and supports that with reasoning, is answering legitimately and should be graded on the support — but the pattern should be named."
+    },
+    {
+      "name": "The return is counted and the metric is replaced",
+      "criteria": "Attention returned quantified per item and totalled — recipients × minutes, in person-hours per month — with the minute basis stated, since this figure carries into the Module 10 proposal. Plus one currently-reported measure identified as failing the 'would a bad result change what we do next week' test, and a named replacement from the comprehension, behaviour, or cost families with an honest account of whether the data already exists."
+    },
+    {
+      "name": "The position engages the relevance model",
+      "criteria": "A committed position on the claim that every message is a withdrawal from an account you don't own, engaging the strongest case against it: that attention is allocated against relevance rather than drawn from a fixed pool, so the variable was never volume — and that a function cutting ten messages will cut the easiest ten rather than the least relevant. Plus the sharper edge: a function that optimizes for restraint becomes invisible, and invisible functions get cut. Agreement or disagreement both score well. A submission that ignores the relevance model has engaged a strawman."
+    }
+  ]
+}

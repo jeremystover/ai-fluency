@@ -1,0 +1,70 @@
+{
+  "reviewedAt": "2026-08-12",
+  "buckets": [
+    { "id": "stop", "label": "Don't send", "hint": "The attention costs more than the message is worth", "rank": 0, "pct": 12 },
+    { "id": "consolidate", "label": "Consolidate", "hint": "Real, but not worth its own send", "rank": 1, "pct": 50 },
+    { "id": "send", "label": "Send it", "hint": "Earns a dedicated send to this audience", "rank": 2, "pct": 88 }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "text": "The enrollment window for a benefits change closes in nine days, and missing it costs an employee money for a year",
+      "key": "send",
+      "reasoning": "A hard deadline with an irreversible personal cost attached. This is the clearest send in the set, and it is the message every other item on this list is competing with. Note the test it passes: a bad result — people miss the window — is measurable, and it would change what you do."
+    },
+    {
+      "id": "t2",
+      "text": "A project team hit an internal milestone that has no bearing on anyone outside the team",
+      "key": "stop",
+      "reasoning": "Recognition matters and this is not the channel for it. Congratulate the team where the team is; broadcasting it spends everyone's attention to reward twelve people, and the sponsor's real goal — the team feeling seen — is better served by something that doesn't scale."
+    },
+    {
+      "id": "t3",
+      "text": "Four separate policy updates land the same month, each from a different owner, each requesting an all-company note",
+      "key": "consolidate",
+      "reasoning": "The canonical consolidation case, and the one that reveals the mechanism from Lesson 3: four defensible requests, four separate negotiations, nobody owning the sum. One policy-update note with four sections costs the workforce one interruption instead of four and loses nothing the sponsors actually needed."
+    },
+    {
+      "id": "t4",
+      "text": "A senior leader is leaving. It will be visible within a day, and the reason will be speculated about",
+      "key": "send",
+      "reasoning": "Send, and quickly. The alternative to your message is not silence — it's a rumour that will fill the space and then have to be corrected, which costs more attention than the original message would have. When the information will circulate anyway, the only question is whether the accurate version arrives first."
+    },
+    {
+      "id": "t5",
+      "text": "The intranet is being upgraded overnight. There is no user-visible change and no action required",
+      "key": "stop",
+      "reasoning": "No action, no impact, no decision. This exists because the team doing the work wants their work acknowledged, which is legitimate and is not the workforce's problem. If something breaks, communicate then — an accurate message at the moment of impact beats a pre-emptive one nobody remembers."
+    },
+    {
+      "id": "t6",
+      "text": "A quarterly business update the CEO wants sent, which repeats what was said at the all-hands two weeks ago",
+      "key": "consolidate",
+      "reasoning": "The hardest card in the set, because you cannot simply refuse it. Consolidate the redundancy rather than the request: fold it into an existing recurring channel, or make it the record of the all-hands rather than a second telling. This is Decide work from Module 2 — you are changing what gets said, not writing it."
+    },
+    {
+      "id": "t7",
+      "text": "A heritage-month campaign of eleven separate posts across four weeks, as run every year",
+      "key": "consolidate",
+      "reasoning": "The intent is real and the format is the residue of a decision nobody has revisited. Eleven posts is a volume decision made once and repeated annually. Consolidate to the two or three with substance behind them — and note that reducing the count is usually what the people it's meant to honour would prefer to eleven low-effort posts."
+    },
+    {
+      "id": "t8",
+      "text": "A safety notice affecting one site's night shift, sent to the whole company because that's the list the platform has",
+      "key": "consolidate",
+      "reasoning": "Not a stop — the message is genuinely urgent for its audience. It is a targeting failure, which is Module 2's Distribute link. Segment it. Sending safety notices to people they don't apply to is how a workforce learns to ignore safety notices, which is the most expensive habit on this list."
+    },
+    {
+      "id": "t9",
+      "text": "A survey asking employees to rate the internal communications function",
+      "key": "stop",
+      "reasoning": "Not because feedback is unwanted, but because this spends the workforce's attention on the function's own measurement problem, and open-text pulse data is not the cheapest instrument available. The Sense sources from Module 2 — search queries, tickets, unanswered questions — answer the same question without an interruption. Ask for attention when you have nothing cheaper."
+    },
+    {
+      "id": "t10",
+      "text": "A reminder about the enrollment window, sent to the 30% who haven't completed it",
+      "key": "send",
+      "reasoning": "Send — and note why it survives while item 9 doesn't. It goes only to people for whom it is actionable, it has a deadline, and the alternative is a real cost to the recipient. This is what targeting buys you: a message that would be extractive at full distribution becomes clearly worth sending at 30% of it."
+    }
+  ]
+}

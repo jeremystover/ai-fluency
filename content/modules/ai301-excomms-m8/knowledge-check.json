@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why does this module carry no anchor statistic or worked case study?",
+      "options": [
+        "Because the technology is too new for research to exist",
+        "Because independent evidence about this product category does not appear to exist — the available material is vendor-produced, and the two circulating cases could not be verified",
+        "Because statistics about chatbots become stale too quickly to publish",
+        "Because the module's argument is ethical rather than empirical"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which is itself the most useful thing to know before a procurement cycle: every number you'll be shown was produced by someone selling something, so the burden of proof is entirely yours and the only evidence that will exist about your deployment is evidence you generate."
+    },
+    {
+      "id": "q2",
+      "prompt": "What makes an employee-facing assistant categorically different from other AI uses in this curriculum?",
+      "options": [
+        "It uses a larger model than drafting tools",
+        "It processes personal data, which drafting tools don't",
+        "It speaks to employees in the organization's voice, unsupervised, with no draft stage and no reviewer — published the instant it's said",
+        "It operates outside the communications function's control"
+      ],
+      "correctIndex": 2,
+      "explanation": "Every other AI use produces a draft a human owns before anyone sees it. This one is a publishing surface with no editor, which is why the module's framing is that you published a colleague rather than deployed a tool."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why is a wrong answer about parental leave described as a content failure rather than a model failure?",
+      "options": [
+        "Because models rarely make factual errors in retrieval systems",
+        "Because the assistant retrieves from a corpus you supplied — the answer is only as good as that corpus, and the fluency is constant regardless",
+        "Because the vendor is responsible for model accuracy under most contracts",
+        "Because content errors are easier to fix than model errors"
+      ],
+      "correctIndex": 1,
+      "explanation": "A confident, well-structured, completely wrong answer costs exactly the same to generate as a right one. What the assistant changed is not the correctness of your content but the reachability of it."
+    },
+    {
+      "id": "q4",
+      "prompt": "What did the assistant remove that used to buffer stale content?",
+      "options": [
+        "The requirement to log in before accessing policy documents",
+        "The difficulty of finding the stale page, and the visual cues — old formatting, an outdated date, a departed author — that used to prompt someone to check",
+        "The ability of HR to correct wrong answers before employees saw them",
+        "Version control on the underlying documents"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nothing about the content debt changed. The blast radius did — which is why content debt converts from annoyance to liability on the day the assistant goes live."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why should the knowledge base have an editorial owner rather than an IT owner?",
+      "options": [
+        "Because IT lacks access to HR policy documents",
+        "Because IT owns whether retrieval works; somebody has to own whether the retrieved thing is true, which is an editorial function and therefore needs a name",
+        "Because employees trust HR-owned content more",
+        "Because content ownership determines platform licensing"
+      ],
+      "correctIndex": 1,
+      "explanation": "And it's a standing job rather than a launch task, because the corpus is accurate the day it's curated and degrades from then on at the rate your policies change."
+    },
+    {
+      "id": "q6",
+      "prompt": "What is the most serious refusal category, and why?",
+      "options": [
+        "Questions about the employee's own entitlements, because the cost of error lands on an identifiable person",
+        "Questions touching leave or medical matters, because the answers are legally consequential",
+        "Questions that are disclosures wearing a question's clothes — a bot that helpfully answers a harassment question has intercepted a report",
+        "Questions about compensation, because the data is most sensitive"
+      ],
+      "correctIndex": 2,
+      "explanation": "A and B are real refusals and matter. C is worse because the failure is invisible: nobody is alerted, no case exists, no record shows anyone asked. The employee was handled instead of heard, by a system performing exactly as designed."
+    },
+    {
+      "id": "q7",
+      "prompt": "What are the three properties of good escalation design?",
+      "options": [
+        "Speed, accuracy, and availability",
+        "Context travels so the employee doesn't retype, a named destination rather than a queue, and a designed silence on disclosure categories",
+        "Automated ticketing, priority routing, and service-level agreements",
+        "Manager notification, HR notification, and an audit record"
+      ],
+      "correctIndex": 1,
+      "explanation": "A refusal that dead-ends into \"please contact HR\" leaves the employee worse off than if the bot hadn't existed — they made the effort once and were rebuffed. And on disclosures, every additional helpful sentence is another reason to feel the matter is dealt with."
+    },
+    {
+      "id": "q8",
+      "prompt": "How should the vendor position \"if an employee claims they were given wrong information, the audit log is your defence\" be read?",
+      "options": [
+        "As sound risk management that every deployment should adopt",
+        "As a reframing of an employee's harm into the employer's litigation exposure — it establishes what they were told, which helps only in a dispute, and does nothing for the person who missed their window",
+        "As a legal requirement in most jurisdictions",
+        "As evidence that these systems are too risky to deploy"
+      ],
+      "correctIndex": 1,
+      "explanation": "It tells you what the product is optimized for. The alternative is a make-good decided before launch — a named remedy chosen in the calm, which is the difference between a system with accountability and a system with a disclaimer."
+    }
+  ]
+}
