@@ -88,7 +88,9 @@ convention punishes the honest answer in the one track built to teach it.
 *15 min, before any content · no teaching — the honest answer is wanted before the framework biases
 it*
 
-Classify last quarter's **actual** output against the five scarcities. Then two questions:
+Classify last quarter's **actual** output against the five scarcities. **No teaching yet** — the
+layers are supplied as bare labels with one line each, because the honest answer is wanted before
+M1's argument biases it. Then two questions:
 
 - **What percentage of your team's hours went to things a competent generalist with a good model
   could now produce?**
@@ -120,14 +122,31 @@ the part that should not be normalized against a median.
 **Claim to contest:** *"Most of what your function publishes is description wearing explanation's
 clothes — and the people who used to need you for it don't need you anymore."*
 
-- **Lesson 1:** The five-layer stack. `[AUTHOR'S INPUT NEEDED — see Open Questions.]` The brief names
-  the frame and the modules imply its shape; the layers themselves are not enumerated in the brief
-  and this outline will not invent the load-bearing structure of someone else's model. My
-  reconstruction, offered to be corrected rather than adopted: **definitional authority** (what the
-  metric means), **methodological judgment** (when to stop), **causal and evaluative design** (what
-  would actually settle this), **governance standing** (who is accountable for a model about people),
-  and **trust** (whose number the room believes). Each maps to a module, which is why I think the
-  reconstruction is close; the naming and ordering are the author's.
+- **Lesson 1:** The five-layer stack. Each layer is something a competent generalist with a good
+  model **cannot** do, and they are ordered by how fast the layer below them is disappearing. The
+  test for every layer is the same: *if analysis were free, would this still be scarce?*
+  1. **Production** — running the query, building the cut, writing the chart. **This is the layer
+     that just went to zero**, and it is the one most of the function's hours and nearly all of its
+     job descriptions sit in. It is in the stack so it can be crossed out, and crossing it out is
+     the module's whole move.
+  2. **Definitional authority** — what the metric *means*: which denominator, which population,
+     which date basis, how internal transfers count. A model asked an attrition question resolves
+     every one of those silently. Somebody has to have decided, and that somebody is a person with
+     standing, not a function call. *(M3.)*
+  3. **Methodological judgment** — knowing when to stop. Which analysis should not be run, which
+     finding the data cannot support, which model should not be built. Purely subtractive, invisible
+     when done well, and **the layer the whole track argues is now the core of the job.** *(M2.)*
+  4. **Evaluative design** — knowing what would actually settle a question. Comparisons, holdouts,
+     natural experiments, and the difference between adoption, impact and displacement. The layer
+     with the most immediate unclaimed territory attached to it. *(M4.)*
+  5. **Accountable standing** — being the person answerable for a claim about people, to a regulator,
+     a works council, or the individual it was about. A model cannot hold this, and it is the layer
+     that converts methodological judgment into organizational authority. *(M5.)*
+  Above all five sits **trust**, which is not a sixth layer but the **residual** — what accrues to a
+  function that holds the other four and is the last thing to commoditize. M6 is about claiming it.
+  **The stack and the module sequence are the same object read twice**, which is the strongest
+  argument that the frame is right: layer 1 is what M1 crosses out, and layers 2–5 are M2 through M5
+  in the order their scarcity compounds.
 - **Lesson 2:** The evidence, in three tiers, each honest about what it establishes `[V]`. **The
   module does not try to prove a trend, because the available sources cannot carry one** — and a
   track whose first module teaches evidence-versus-sample-versus-falsifier cannot open by
@@ -583,7 +602,7 @@ though it now carries the prediction material: it is a design and ethics module,
 counsel would let an organization treat the individual-consequence question as a compliance matter,
 which is the failure the module exists to prevent.
 
-**9. Still blocking before drafting.** The five scarcity layers (Open Questions, and it blocks M1).
+**9. Still blocking before drafting.** *(The five scarcity layers are settled — M1 L1.)*
 M5 in its entirety — the California FEHA retention specifics, Illinois, Colorado's January 2027
 scope, Article 26(7) as it applies to analytics rather than systems, the provider/deployer
 classification for an in-house employment model, and whether *analysis* of existing data engages
@@ -623,13 +642,13 @@ changes:
 
 ## Open questions for review
 
-- **The five scarcity layers, and this is the one genuine blocker.** The brief names the stack as the
-  organizing frame and the modules imply its shape, but the layers are not enumerated, and this
-  outline will not invent the load-bearing structure of someone else's model. My reconstruction, for
-  correction rather than adoption: **definitional authority** (M3), **methodological judgment /
-  knowing when to stop** (M2), **causal and evaluative design** (M4), **governance standing** (M5),
-  and **trust** (M6). If that is close, the stack and the module sequence are the same object read
-  twice, which is a strong sign; if it is wrong, M1 and the pre-work both change.
+- **~~The five scarcity layers.~~ Settled and written into M1 L1** — production (crossed out),
+  definitional authority, methodological judgment, evaluative design, accountable standing, with
+  trust as the residual rather than a sixth layer. The open part is now a drafting question rather
+  than a design one: **layer 1 has to be crossed out convincingly in about four sentences**, because
+  the audience's instinct will be to defend it, and the module has five more layers to get through.
+  The learner-generated existence proof in the activity is what does that work, which is an argument
+  for putting it early in the module rather than at the end.
 - **~~Does the cross-cohort dataset get built?~~ Built — see Decision 5.** What remains open is
   whether it should segment by brand or cohort once deployments are large enough to clear the
   threshold, and whether the pre-work's free-text questions should ever be aggregated. Current lean
