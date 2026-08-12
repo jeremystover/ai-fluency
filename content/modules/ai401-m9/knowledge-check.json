@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What does being the \"deployer\" mean for where obligations land?",
+      "options": [
+        "That the organization shares liability proportionally with the vendor",
+        "That duties attach to the organization putting the system in front of people, regardless of who built it — so you can inherit an obligation from a purchase you were not part of",
+        "That obligations transfer once the system is customized for your organization",
+        "That the deploying manager rather than the function carries the exposure"
+      ],
+      "correctIndex": 1,
+      "explanation": "IT bought the scheduling system, a business unit signed up for the screening tool, someone enabled a feature in a platform you already owned. The exposure is the employer's in each case."
+    },
+    {
+      "id": "q2",
+      "prompt": "Which four duties recur across regimes?",
+      "options": [
+        "Registration, certification, audit, and insurance",
+        "Notice, bias auditing, a right to request human review, and record-keeping",
+        "Consent, minimization, retention limits, and deletion rights",
+        "Impact assessment, board approval, vendor attestation, and annual reporting"
+      ],
+      "correctIndex": 1,
+      "explanation": "Build for those four and you are broadly positioned for regimes you have not read — which is why the activity asks for a floor rather than a compliance matrix."
+    },
+    {
+      "id": "q3",
+      "prompt": "What is the accurate statement of the current European position on employment uses?",
+      "options": [
+        "High-risk obligations applied from 2 August 2026 as originally scheduled",
+        "The entire regime was postponed under the Digital Omnibus",
+        "Employment high-risk obligations were deferred to 2 December 2027, but most Article 50 transparency obligations still applied from 2 August 2026",
+        "Employment uses were reclassified out of the high-risk category"
+      ],
+      "correctIndex": 2,
+      "explanation": "The leader who thinks the deadline passed is wrong, and so is the leader who thinks it all got delayed. The AI literacy obligation and the workplace emotion-recognition prohibition never moved and have been in force since February 2025."
+    },
+    {
+      "id": "q4",
+      "prompt": "What does the module say about a vendor selling sentiment-from-video in an interview context, for an organization with European operations?",
+      "options": [
+        "It requires a documented impact assessment before deployment",
+        "It is permitted with candidate notice and a human review option",
+        "It is not a procurement question — workplace emotion recognition is prohibited, not a risk to manage",
+        "It depends on whether the inference affects the hiring decision"
+      ],
+      "correctIndex": 2,
+      "explanation": "The prohibition covers inferring emotional states from facial expression, voice, or similar signals, and it has been in force since February 2025."
+    },
+    {
+      "id": "q5",
+      "prompt": "What does the agent theory in *Mobley v. Workday* change?",
+      "options": [
+        "It makes vendors primarily liable for discriminatory outcomes",
+        "Neither party gets to point at the other — if a tool performs a function you would otherwise perform, it may carry your obligations with it",
+        "It requires vendors to publish bias audit results",
+        "It extends employment-agency obligations to software providers"
+      ],
+      "correctIndex": 1,
+      "explanation": "The employment-agency theory was dismissed; the agent theory survived and went to discovery. D describes the theory that was dismissed."
+    },
+    {
+      "id": "q6",
+      "prompt": "What is the procurement consequence of discovery reaching the model?",
+      "options": [
+        "Contracts should include indemnification for algorithmic decisions",
+        "Vendors should be required to hold errors-and-omissions coverage",
+        "\"We don't know how it works\" is not a durable position — the bias audit you didn't ask for at purchase is the document you'll be asked for at discovery",
+        "Model documentation should be retained for the statutory limitation period"
+      ],
+      "correctIndex": 2,
+      "explanation": "Which is why Module 6 puts the bias audit request at purchase, when you still have leverage."
+    },
+    {
+      "id": "q7",
+      "prompt": "Why does a prohibition nobody can comply with produce concealment rather than compliance?",
+      "options": [
+        "Because employees resent rules they were not consulted on",
+        "Because if the rule is \"no AI on employee data\" and the alternative is missing a deadline you cannot miss, people will use AI and stop telling you",
+        "Because enforcement resources are always insufficient",
+        "Because policies written by legal are rarely understood by practitioners"
+      ],
+      "correctIndex": 1,
+      "explanation": "And you get the worst of both worlds: the usage continues, the risk is unchanged, and you have destroyed the visibility you had."
+    },
+    {
+      "id": "q8",
+      "prompt": "What does an exception path with a named owner and a stated turnaround actually buy you?",
+      "options": [
+        "Legal defensibility if an exception is later challenged",
+        "It converts concealment into a queue — and a queue is information about where the floor is wrong and which teams are under pressure",
+        "Faster adoption of approved tools",
+        "A record that satisfies the record-keeping duty"
+      ],
+      "correctIndex": 1,
+      "explanation": "Your instrument at this rung is making compliance cheaper than concealment, not enforcement."
+    }
+  ]
+}
