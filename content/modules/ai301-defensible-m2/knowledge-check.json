@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why start from decision points rather than from systems?",
+      "options": [
+        "Because decision points are easier to enumerate",
+        "Because a system inventory built from a software inventory inherits its blind spots — including sourcing and selection for reduction",
+        "Because regulators define obligations by decision type",
+        "Because systems change more often than decisions do"
+      ],
+      "correctIndex": 1,
+      "explanation": "The question \"what AI do we use\" gets answered with what somebody bought. Sourcing — who sees the posting at all — shapes the applicant pool before anyone applies, and is skipped constantly."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why is a manager's weekend scoring spreadsheet an automated employment decision tool?",
+      "options": [
+        "Because spreadsheets contain formulas, which are algorithms",
+        "Because it ranks people against criteria and determines outcomes — and it will be produced in discovery, despite having no vendor, contract or procurement record",
+        "Because most regulations define AEDTs to include any software",
+        "It isn't — the definition requires machine learning"
+      ],
+      "correctIndex": 1,
+      "explanation": "No procurement record is exactly why it needs to be on your inventory. It is also, in a reduction, likely to be the highest-stakes scoring instrument in the organization."
+    },
+    {
+      "id": "q3",
+      "prompt": "What defines the shadow stack?",
+      "options": [
+        "Systems purchased by departments outside HR",
+        "Unapproved tools employees use without permission",
+        "AI capability delivered inside products bought before the capability existed — no procurement event, no owner who thinks of it as AI, no documentation, and frequently on by default",
+        "Vendors' subprocessors and downstream model providers"
+      ],
+      "correctIndex": 2,
+      "explanation": "Which means the deployment decision may have been made by a vendor's product team rather than by anyone in your organization."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why do the five discovery questions avoid the word \"AI\"?",
+      "options": [
+        "Because the term is legally ambiguous",
+        "Because asking \"do you use AI\" gets a no from people configuring a tool — the questions route around the word by asking about scores, sorts, release notes and defaults",
+        "Because vendors dispute whether their products qualify",
+        "Because it avoids alarming stakeholders"
+      ],
+      "correctIndex": 1,
+      "explanation": "\"Is there a default sort, and is it chronological?\" gets an answer. \"Do you use AI in screening?\" gets a denial from someone who genuinely believes it."
+    },
+    {
+      "id": "q5",
+      "prompt": "A recruiter reviews 400 applications in 90 minutes against a ranked list, without seeing the ranking rationale. Which of the four questions does this fail?",
+      "options": [
+        "Authority and incentive",
+        "Information and time — they cannot see why the system ranked as it did, and fourteen seconds per item is enough to confirm an ordering, not challenge one",
+        "Time only",
+        "None — the review is genuine as long as they can override"
+      ],
+      "correctIndex": 1,
+      "explanation": "And note that the time question is arithmetic rather than opinion, which is why it most often produces an uncomfortable silence in the room."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why does the incentive question matter?",
+      "options": [
+        "Because reviewers should be compensated for review work",
+        "Because reviewers who follow the system and get a bad outcome are fine, while reviewers who override it and get a bad outcome are answerable — so the structure punishes the behaviour you're claiming as your safeguard",
+        "Because incentives determine how much time reviewers allocate",
+        "Because performance metrics are themselves an AEDT"
+      ],
+      "correctIndex": 1,
+      "explanation": "Along with authority, it's the usual failing pair. Most of these failures are fixable — time can be budgeted, authority granted, rationale surfaced. What can't be fixed is a review layer nobody ever examined."
+    },
+    {
+      "id": "q7",
+      "prompt": "What does Connecticut's framework do beyond removing the tool as a defence `[V]`?",
+      "options": [
+        "It requires annual third-party audits of all AEDTs",
+        "It creates a private right of action for algorithmic discrimination",
+        "It makes evidence of anti-bias testing a mitigating factor, and identifies what gets weighed — quality, efficacy, recency, scope, results, and the employer's response to them",
+        "It prohibits AEDTs in hiring decisions entirely"
+      ],
+      "correctIndex": 2,
+      "explanation": "Which is close to a specification rather than general encouragement. Statutory framework effective 1 October 2026; principal compliance obligations from 1 October 2027."
+    },
+    {
+      "id": "q8",
+      "prompt": "Under that framework, why is testing that found a disparity and produced no action worse than not testing?",
+      "options": [
+        "Because it wastes resources that could fund remediation",
+        "Because the employer's response to results is among the factors weighed — so you have documented knowledge and inaction in the same file",
+        "Because untested systems are presumed compliant",
+        "Because testing without remediation violates the notice requirements"
+      ],
+      "correctIndex": 1,
+      "explanation": "It is the factor an organization can most easily fail, and it is why Module 3 asks you to decide what you'll do with a bad result *before* you have one."
+    }
+  ]
+}
