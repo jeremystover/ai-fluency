@@ -4,10 +4,10 @@ DELETE FROM fd_exercise;
 DELETE FROM fd_module;
 DELETE FROM fd_brand;
 DELETE FROM fd_access_code;
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-12T10:56:40.376Z');
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-12T10:56:40.376Z');
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('105f9446-b9c5-4125-96bc-20620cf15701', 'omnissa', 'pbkdf2$100000$GAVUieCYg3ZpH2IsC+KLJw==$9facKmL7p3u5qACYdKFOc7XTEy/2RMxFCdihmCwNs7o=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('95d12ab0-bd52-420c-93fb-c3568729fba7', 'verdant', 'pbkdf2$100000$Wp/nvF6L8YBXS7e9/SWMxA==$YfRJUvrmJD95kFIHV3dAmfZxK7ch1Ht5KsbcgUBerxY=', 'Theming proof', NULL, 0, NULL, 1);
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-12T16:06:59.962Z');
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-12T16:06:59.962Z');
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('fef9cbe0-8826-43ee-8ca0-9a39be56fb9c', 'omnissa', 'pbkdf2$100000$+IW1wDmKiCBWWoMTGJhvzA==$p2OClmDsdGE406trmyIZi7ejisd1NFkj4WrWJnFjYgI=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('11407acf-d1aa-43fe-9b0c-99cb57d6076f', 'verdant', 'pbkdf2$100000$AoIs+9lK6mkmB/3q9BBWoA==$Sb6k+DjS9RSc1sDejLYHn7SadmE2MP3iZaUS9OevKlk=', 'Theming proof', NULL, 0, NULL, 1);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m1', 'ai101', 1, 'What is AI?', 'A working mental model: what an LLM actually does, the vocabulary, why data decides everything, and a delegation heuristic you can carry under pressure.', 'open', 30, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m2', 'ai101', 2, 'Choosing the tool for the task', 'Chat assistants, copilots, and the AI already embedded in your HR stack — what each is actually for, and how to tell a language model from a scoring engine before you rely on either.', 'open', 25, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m3', 'ai101', 3, 'What it costs and how it scales', 'Tokens, context windows, and pricing — enough of the economics to size a use case, read a vendor quote, and know when a bigger model is worth it.', 'open', 25, NULL);
@@ -44,6 +44,12 @@ INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-comp-m4', 'ai301-comp', 4, 'The exclusion zone', 'AI for speed, human-built tooling for accountability — the four zones, the circular one, and a legal floor that is moving. Counsel review required.', 'open', 25, '["ai301-comp-m3"]');
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-comp-m5', 'ai301-comp', 5, 'The counterparty', 'Candidates arrive briefed by a model that gives your two sides different numbers, and your proxy is now read by machines against every peer at once.', 'open', 25, '["ai301-comp-m4"]');
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-comp-m6', 'ai301-comp', 6, 'The bet', 'The leverage ladder, why efficiency is the weakest case a small function has, and a bet with a funding line — plus the reckoning against Module 1.', 'open', 25, '["ai301-comp-m5"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-analytics-m1', 'ai301-analytics', 1, 'The Scarcity Stack', 'Five layers with production crossed out, what the evidence actually establishes, and the timed reproduction that settles it on your own data.', 'open', 25, NULL);
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-analytics-m2', 'ai301-analytics', 2, 'Designing constraints', 'The expert move is stopping the model, not accelerating it — halt conditions, the confounders endemic to HR data, and prediction about individuals.', 'open', 25, '["ai301-analytics-m1"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-analytics-m3', 'ai301-analytics', 3, 'The semantic layer', 'The ambiguity didn''t appear, it became executable — plus the verification problem and the apprenticeship it used to come bundled with.', 'open', 25, '["ai301-analytics-m1"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-analytics-m4', 'ai301-analytics', 4, 'Measuring the AI transformation', 'The largest unclaimed territory available to this role, why self-report is worse than nothing, and adoption, impact and displacement as three measurements.', 'open', 25, '["ai301-analytics-m2"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-analytics-m5', 'ai301-analytics', 5, 'Governing AI used on people', 'The obligations are legal and the evidence is statistical — provider not just deployer, purpose limitation, and disclosure control. Counsel review required.', 'open', 25, '["ai301-analytics-m2"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-analytics-m6', 'ai301-analytics', 6, 'Claiming it', 'Adoption is where these investments die, trust as the residual, and a 90-day plan for one undeniable win — plus the reckoning.', 'open', 25, '["ai301-analytics-m5"]');
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('m1-brief', 'ai101-m1', 10, 'prose', 'stable', '## Why this module exists
 
 You almost certainly already use AI. You''ve probably asked something to tidy up a job description, turn a page of interview scrawl into a debrief a hiring manager can read, soften a rejection email, or explain a benefits provision in language an employee will actually understand. So opening a course with "what is AI?" is a strange move. The answer is on your screen already.
@@ -4442,6 +4448,2027 @@ Would a reasonable colleague trust it? Not "is it impressive" — verification r
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai201-m8-micro-close', 'ai201-m8-micro', 30, 'prose', 'stable', '**The full module adds** the shipping checklist, the peer-exchange mechanics, the manager one-pager — and the quiet news that the build reached past its own rung — into the role depth 301 goes after, and the credibility 401''s Translator work runs on.', NULL, '2026-08-07', NULL);
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m8-rubric', 'ai201-m8', 'rubric', '{"promptVersion":"ai201-m8-capstone-v1","moduleId":"ai201-m8","minChars":600,"submitLabel":"Your capstone-stage submission","intro":"Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). The AI 201 capstone portfolio: the index page and consistent binder, two real runs with intermediates, the four numbers in executive-sentence form, both directions of the peer exchange with the calibration score, and the closing reflection. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.","calibration":[],"dimensions":[{"name":"Engagement with real work","criteria":"The runs are real, the material is real, the fixes were actually made. A portfolio assembled for the grade reads exactly like one — and scores like one."},{"name":"Observation of mechanics","criteria":"The reflection connects what happened — the stalls, the deltas, the numbers — to how the systems work: context, verification, decay, transfer."},{"name":"Calibration","criteria":"The handoff prediction was made, scored, and folded into the course-long direction honestly. Accuracy isn''t graded; the named lean and its consequence are."},{"name":"Practical insight","criteria":"The next build is specific: named workflow, starting rung, budget size — each traceable to something this course measured about *you*."},{"name":"Would a colleague trust it?","criteria":"The test of the whole course: guardrails a reasonable peer would rely on — verification real, boundary defensible, autonomy evidenced, documentation a stranger has run. Not \"is it impressive.\" Is it *trustworthy*."}],"includeTrail":true}', '2026-08-12');
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m8-knowledge_check', 'ai201-m8', 'knowledge_check', '{"title":"Knowledge check — 6 questions","note":"Unlocks after the portfolio is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-07","questions":[{"id":"q1","prompt":"The proof of the Practitioner level is:","options":["A workflow running at rung 3 autonomy","Transferability — a stranger can run the build, read its boundaries, and trust its guardrails from the documentation alone","Measured time savings above five hours a month","Completion of all eight capstone stages"],"correctIndex":1,"explanation":"Rungs, savings, and stages are properties a good build might have. The level is about whether the judgment left the builder''s head and survived in writing."},{"id":"q2","prompt":"The consistency pass exists because:","options":["Reviewers require a single document format","Artifacts written across seven modules drift apart as the workflow evolves — and contradictions are where cold readers stall and trust dies","The portfolio must fit in one file","Each artifact must be re-approved before shipping"],"correctIndex":1,"explanation":"The binder was written longitudinally; the workflow kept moving. The pass reconciles them — spec to rhythm, runbook to budget, pack to census — before the stranger reads."},{"id":"q3","prompt":"During the handoff run, the reader may not ask the builder questions because:","options":["The exchange is graded as a test of the reader","The documentation must answer or fail visibly — a question answered aloud is a gap that ships unfixed","Peers are anonymous in the exchange","Questions would take too long"],"correctIndex":1,"explanation":"The cold read is the instrument. Every question the builder answers in person is a stall the binder no longer gets credit for revealing — and documentation debt that survives to the *next* reader, who won''t have the builder''s number."},{"id":"q4","prompt":"Builders mispredict where readers stall in a specific direction:","options":["They predict stalls at complex parts; readers stall at obvious ones, where the builder''s expertise has gone invisible","They predict too many stalls overall","They predict stalls at the beginning; readers stall at the end","There is no systematic direction"],"correctIndex":0,"explanation":"The tacit-knowledge tax: obviousness is what expertise can no longer see. It''s the course''s last calibration lesson, and the core diagnostic of the coaching work ahead."},{"id":"q5","prompt":"The executive sentence — \"saves N hours a month against a measured baseline, at a running cost of $X and Y% sampled error, with a boundary security has seen\" — is powerful because:","options":["It uses precise numbers","Each clause is backed by an artifact that exists and can be audited: the baseline, the cost estimate, the sample tallies, the boundary sheet","It''s short enough for an executive to remember","It avoids technical vocabulary"],"correctIndex":1,"explanation":"The sentence is a claim with receipts — which is what separates it from every AI-enthusiasm anecdote in the same meeting. The numbers matter because the artifacts behind them do."},{"id":"q6","prompt":"The fifth rubric dimension — \"would a colleague trust it?\" — is the course''s test because:","options":["Peer approval is required for shipping","It integrates everything: verification that''s real, boundaries that are defensible, autonomy that''s evidenced, documentation that''s been run — trustworthy, not impressive","Colleagues will maintain the workflow after handoff","Trust is easier to grade than quality"],"correctIndex":1,"explanation":"Any single module can be performed; trust is what the whole system either earns or doesn''t. It''s also the property every rung above spends: role depth needs a practice that holds, and a Translator''s credibility starts at their own shipped, trustworthy build."},{"id":"q7","prompt":"The index page — new in this module — is written for two readers. They are:","options":["The builder, as a personal reference, and the review queue","A successor, as the first page they read, and an executive, as the only page they read","The deployment owner and the legal team","The peer reviewer and the hiring manager"],"correctIndex":1,"explanation":"One page: what the workflow is, what it saves, where everything lives, who owns it. A successor starts there and reads deeper; an executive reads it and stops — which is why the numbers on it carry their baseline and cost."},{"id":"q8","prompt":"Your paired peer''s review hasn''t arrived within a week. Under the course''s design, your shipping:","options":["Stalls until the peer delivers — the exchange is a hard gate","Skips the exchange; the consistency pass covers the same ground","Proceeds — your binder goes to the review queue, where an experienced reviewer runs the same cold read","Proceeds only if you review your own binder with fresh eyes"],"correctIndex":2,"explanation":"No single person can deadlock the course. The queue''s reviewer runs the identical protocol — and having seen many binders, their stalls are better-aimed than a peer''s. A feature, not a compromise."}]}', '2026-08-07');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m1-claim-to-contest-before-you-start-10', 'ai301-analytics-m1', 10, 'calibration_prompt', 'stable', '## Claim to contest — before you start
+
+*Commit before you read anything. One line, thirty seconds.*
+
+> **"Most of what your function publishes is description wearing explanation''s clothes — and the
+> people who used to need you for it don''t need you anymore."**
+
+**True of us, or not true of us?** Write the answer down, then write the one piece of evidence from
+your own systems that would settle it.
+
+You will go and check during the activity. **If the evidence you have cannot settle it, that is a
+finding** — say so and say why, and it scores the same as a resolved answer. It will happen more
+than once in this track.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m1-module-brief-20', 'ai301-analytics-m1', 20, 'prose', 'stable', '## Module brief
+
+This is a 300-level course, which means it refuses to do the 100-level job. No explanation of what a
+language model is, no prompting primer, no tour of a tool you would have opened yourself. It also
+assumes something the other tracks don''t: **that you already have the craft.** You can write the
+query. You know what a confidence interval is. You have been burned by a stakeholder before.
+
+So here is what this course refuses to be, said in its first paragraph: **it is not a course about
+producing analysis faster.** That capability just stopped being scarce, and selling it to you would
+be selling the thing that lost its value.
+
+Your capability did not change this year. **Everyone else''s did.** An HRBP with a CSV now produces a
+cut, a chart, a regression and a confident paragraph in an afternoon — and most of those paragraphs
+are wrong in ways only you can see. Which is the problem, because being the only person who can see
+it is not the same as being the person anyone asks.
+
+The scarce thing moved. It moved quietly, nobody sent a memo, and most analytics functions are still
+competing on the layer that just went to zero.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m1-learning-objectives-30', 'ai301-analytics-m1', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Name the five layers of the scarcity stack and say what each one is that production isn''t.
+2. Apply the test — *if analysis were free, would this still be scarce?* — to any deliverable.
+3. State what the available evidence about the collapse does and does not establish `[V]`.
+4. Reconcile the claim that analysis got cheap with the finding that measured productivity barely
+   moved.
+5. Run the three evidence questions on your own published work rather than on someone else''s.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m1-lesson-1-the-five-layers-40', 'ai301-analytics-m1', 40, 'prose', 'stable', '## Lesson 1 · The five layers
+
+Every layer here is something a competent generalist with a good model **cannot** do. They are
+ordered by how fast the layer below them is disappearing, and the test for each one is the same:
+
+> **If analysis were free, would this still be scarce?**
+
+**Layer 1 — Production.** Running the query. Building the cut. Making the chart. Writing the
+paragraph under it.
+
+This is the layer that just went to zero, and it is where most of your function''s hours and nearly
+all of its job descriptions live. **It is in the stack so that it can be crossed out**, and crossing
+it out is the only thing this module needs you to accept.
+
+You will want to argue. The argument will be that *your* production is not generic — that it
+requires knowing the HRIS, the quirks, the effective dating, which field lies. That is true and it is
+a smaller moat than it feels like, because most of it is knowledge that can be written down once and
+handed to a model, and the rest of it belongs to Layer 2 rather than to production. **The activity
+will settle this better than an argument can:** you are going to take a real deliverable from last
+quarter and try to reproduce it in thirty minutes.
+
+Four layers survive. Each is a module.
+
+**Layer 2 — Definitional authority.** What the metric *means*. Which denominator. Which population.
+Which date basis. Whether an internal transfer is attrition. Whether a fixed-term end is a leaver.
+Whether contractors count.
+
+A model asked an attrition question resolves every one of those — **silently, plausibly, and
+differently on Tuesday than it did on Monday.** Somebody has to have decided, and to be able to say
+why, and to defend it when Finance uses a different number. That is a person with standing, not a
+function call. *(Module 3.)*
+
+**Layer 3 — Methodological judgment.** Knowing when to stop. Which analysis should not be run. Which
+finding this data cannot support. Which model should not be built at all.
+
+Purely subtractive, invisible when done well, and **the layer this whole track argues is now the core
+of the job.** It is also the hardest to get credit for, because the deliverable is a number that
+didn''t get produced. *(Module 2.)*
+
+**Layer 4 — Evaluative design.** Knowing what would actually settle a question. What to compare
+against. Whether a holdout is available. Whether the natural experiment already happened and nobody
+kept the comparison. And the distinction almost everyone collapses: adoption, impact and displacement
+are three separate measurements.
+
+This is the layer with the most unclaimed territory attached to it right now, and Module 4 is about
+going and taking it.
+
+**Layer 5 — Accountable standing.** Being the person answerable for a claim about people — to a
+regulator, a works council, or the individual the claim was about.
+
+A model cannot hold this. It is not a capability question; it is a question about who can be asked
+*why* and made to answer. This is the layer that converts methodological judgment into
+organizational authority, and it is the reason the governance work in Module 5 belongs to you rather
+than to Legal. *(Module 5.)*
+
+**And above all five: trust.** Not a sixth layer — **the residual.** What accrues to a function that
+holds the other four, and the last thing in this job to commoditize. You cannot build it directly,
+which is why Module 6 is about *claiming* it rather than constructing it.
+
+**Read the stack and the module list side by side.** Layer 2 is Module 3, Layer 3 is Module 2, Layer
+4 is Module 4, Layer 5 is Module 5. The stack and the course are the same object read twice — which
+is either a good sign about the frame or a sign we arranged it that way, and you should decide which
+by the end.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m1-lesson-2-what-the-evidence-actually-esta-50', 'ai301-analytics-m1', 50, 'prose', 'volatile', '## Lesson 2 · What the evidence actually establishes [V]
+
+This module is about to ask you to accept that a layer of your work has collapsed in value. So the
+evidence for that has to be handled the way you would want your own evidence handled — which means
+being explicit about what each piece establishes and what it doesn''t.
+
+**It does not establish a trend.** Nobody has measured the rate at which analytical production is
+being displaced in this function, and the sources available cannot carry that claim. **What they
+establish is that it is possible** — and possible is enough, because you can test the rest yourself
+in half an hour.
+
+**Tier one — an existence proof.** Ludek Stehlík commoditizing an organizational network analysis
+product in two or three hours. An existence proof needs no sample. It establishes that the thing can
+be done, full stop, and that is the strongest form this particular evidence can take. **Read it as
+an existence proof, never as a rate.**
+
+**Tier two — an argument, labeled as one.** Cole Napper''s case that analysis is collapsing as a
+distinct capability. Engage with it as an argument, not as data.
+
+And say the awkward part out loud, because this course is going to ask you to check whether your
+sources are independent: **Napper and Stehlík co-author on causal inference in people analytics.**
+Two names, one intellectual circle. That is closer to one source than to two, and a module that
+didn''t tell you would be failing its own test in its own opening.
+
+**Tier three — the counterweight, which narrows the claim and makes it survivable.** On **DABstep**,
+a benchmark of 450+ real multi-step data analysis tasks requiring reasoning across heterogeneous
+documentation, **the best agents reach roughly 14.55% on the hardest tier.**
+
+So the honest claim is not *analysis is free.* It is:
+
+> **Routine analysis is free. The hard tier is not — and the hard tier is not where your hours are.**
+
+That is narrower, more defensible, and it argues *for* the stack rather than around it. The layers
+above production are exactly the ones that make an analysis hard in the DABstep sense: knowing what
+the question means, knowing what would settle it, knowing when to stop.
+
+**Tier four — an indirect signal.** Insight222''s finding that HR technology investment is migrating
+away from dashboards and specialist analytics platforms toward AI. Subscription research; treat it
+as directional and check the date on the version you can reach.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m1-lesson-3-the-tension-you-will-hit-in-mod-60', 'ai301-analytics-m1', 60, 'prose', 'stable', '## Lesson 3 · The tension you will hit in Module 4, resolved now
+
+There is a contradiction sitting in this course and it is better to walk into it deliberately.
+
+This module says the cost of producing analysis collapsed. **Module 4 will show you that the measured
+productivity effect of AI is close to nothing** `[V]`: about **0.29%** average firm-level gain over
+three years across a survey of more than 5,000 executives in four countries, with **89% of firms
+reporting no impact at all** — and a controlled trial in which experienced developers were **19%
+slower** with AI while believing they were 20% faster.
+
+Both are true. Hold them together and you get the most useful sentence in this course:
+
+> **Production was never the bottleneck.**
+
+If producing analysis had been the constraint on organizational performance, making it nearly free
+would show up in output. It doesn''t. Which is **evidence for the stack, not against it** — the value
+was always in the layers above production, and nobody itemized them because nobody had to.
+
+That yields a premise sharper and more uncomfortable than *you are about to be replaced*:
+
+> **Your function is funded for the thing that just became free, and valued for things that were
+> never written down.**
+
+Nobody is coming to replace you. The risk is subtler: a budget conversation in which the visible
+output looks reproducible and the invisible output has no name. **This course is substantially about
+giving those four layers names, so that they can be argued for.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m1-try-70', 'ai301-analytics-m1', 70, 'try_this', 'stable', '### Try this — 3 minutes
+Take the last thing your team published. Ask: which layer was it *sold* on, and which layer did the
+work actually live in? If the answer is Layer 1 both times, that is today''s finding.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m1-lesson-4-the-three-questions-pointed-at--80', 'ai301-analytics-m1', 80, 'prose', 'stable', '## Lesson 4 · The three questions, pointed at you
+
+You already know the teardown from AI 101 and from your own training: **what''s the evidence, what''s
+the sample, what would falsify it.** You run it on vendors. You run it on the article somebody
+forwarded. You have probably run it on a consultant.
+
+**Turn it around.** Take the last finding your function published — the attrition insight, the
+engagement driver, the manager-quality conclusion — and run all three on it.
+
+- *What''s the evidence?* Not the chart. The observation that supports the claim the chart was used
+  to make.
+- *What''s the sample?* Who is in it, who is out, and who selected themselves out by leaving before
+  you measured.
+- *What would falsify it?* If you cannot answer this one, the finding was not a finding. It was a
+  description with a causal verb in it.
+
+Most practitioners find this uncomfortable in a specific way: **the standard they apply to incoming
+evidence is higher than the standard their own output would survive.** That is not hypocrisy, it is
+structural — nobody audits you, so the audit never happened.
+
+**And now the same move on the field itself.** Go looking for a primary source on whether people
+analytics functions improve organizational decisions, or whether deploying an attrition model reduces
+attrition. Ten minutes is enough.
+
+What comes back is vendor maturity models, practitioner posts, and self-reported case studies.
+**The evidence base about people analytics is worse than the evidence base people analytics demands
+of everyone else.**
+
+That is not a cheap shot and it is not an argument that the work doesn''t matter. It is the reason
+this course starts here rather than with a capability tour — because a function whose standing rests
+on methodological rigor has an unexamined exception, and the exception is itself.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m1-exercise-embed-85', 'ai301-analytics-m1', 85, 'exercise', 'stable', '{"type": "sorting", "title": "Calibration exercise \u2014 The five layers", "intro": "Ten minutes, twelve real analytics deliverables. Sort each into the layer it actually belongs to: production, definitional authority, methodological judgment, evaluative design, or accountable standing.\n\nCommit every card before the reveal. Watch for the ones that feel like judgment and are rulings \u2014 and for how much of the visible, high-prestige work turns out to be production."}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m1-key-takeaways-90', 'ai301-analytics-m1', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **Five layers, and the test is one sentence:** if analysis were free, would this still be scarce?
+- **Layer 1, production, is in the stack so it can be crossed out.** It is where the hours and the
+  job descriptions are, and it is the layer that went to zero.
+- **The four that survive:** definitional authority (what the metric means), methodological judgment
+  (when to stop), evaluative design (what would settle it), accountable standing (who answers for a
+  claim about people). **Trust is the residual, not a sixth layer.**
+- **The evidence establishes possible, not a rate** `[V]` — an existence proof, an argument from
+  authors who co-author with each other, and a benchmark counterweight. **DABstep''s ~14.55% on the
+  hardest tier** narrows the claim to the one worth defending: **routine analysis is free, the hard
+  tier is not, and the hard tier is not where your hours are.**
+- **Production was never the bottleneck** `[V]`. That is why making it free produced ~0.29% average
+  firm-level gain with 89% of firms reporting nothing — and it is evidence *for* the stack.
+- **The real risk is not replacement.** It is being funded for the thing that just became free and
+  valued for things nobody wrote down.
+- **The three questions cut hardest when pointed inward**, and the field''s evidence about itself
+  would not survive them.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m1-activity-link-95', 'ai301-analytics-m1', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 The function, scored", "blurb": "Take one real deliverable from last quarter and try to reproduce it with a model in thirty minutes, timed. Where it broke, and which layer that break belongs to, is worth more than any citation in the module. Then score your function against the stack and name the capability you''d lose least by giving up.", "estMinutes": "30"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m1-take-a-position-100', 'ai301-analytics-m1', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"Production was never the bottleneck — so making it free changes your job description
+without changing your output."*
+
+The strongest counter-argument is that **this underrates production as the path to everything
+above it.** The four surviving layers are not learned in a seminar; they are learned by building
+things and being wrong in front of people. Definitional authority comes from having discovered the
+hard way that the transfer rule breaks the denominator. Methodological judgment comes from having
+run the analysis that fell apart. **If production is where the judgment was manufactured, then
+automating it doesn''t free the higher layers — it starves them**, on a delay long enough that nobody
+attributes the damage correctly. On that view the stack describes a static snapshot of value and
+misses the pipeline that produces it, and the right response is to protect some production work
+deliberately rather than to celebrate its disappearance. Your position has to say whether the stack
+survives that, and if it does, what replaces the apprenticeship. *(Module 3 comes back to this and
+does not fully solve it.)*', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m1-sources-and-attribution-110', 'ai301-analytics-m1', 110, 'prose', 'stable', '## Sources and attribution
+
+- **The scarcity stack, the "if analysis were free" test, and the production-was-never-the-bottleneck
+  resolution** are original to this course, built on a human-authored brief whose framing they follow.
+- **The collapse-of-analysis argument `[V]`:** Cole Napper; and Napper & Stehlík on causal inference
+  in people analytics. Cited as argument. **The two authors co-author, and the lesson says so.**
+- **The ONA existence proof `[V]`:** Ludek Stehlík. Cited as an existence proof only.
+- **DABstep `[V]`:** a benchmark of 450+ real multi-step data analysis tasks over heterogeneous
+  documentation; best agents ~14.55% on the hardest tier.
+- **Firm-level productivity `[V]`:** Yotzov, Barrero, Bloom, Bunn, Davis, Foster *et al.* — stratified
+  survey of 5,000+ CFOs, CEOs and executives across the US, UK, Germany and Australia. ~0.29%
+  realized gain over three years; 89% of firms reporting no impact; 1.4% forecast for the next three.
+  Detail in Module 4.
+- **The developer RCT `[V]`:** METR, July 2025 — 16 experienced open-source developers, 246 tasks in
+  repositories they knew well; 19% slower with AI, believing they were 20% faster. Scope caveat and
+  the authors'' own reading in Module 4.
+- **Technology investment migration `[V]`:** Insight222. Subscription research; directional.
+- Builds on 101 M4 (data tiers, which govern Step 1), 101 M6 (confident wrongness) and comp M2''s
+  teardown, which this module inverts rather than repeats.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m1-activity-applied-activity-the-function-scored-10', 'ai301-analytics-m1-activity', 10, 'prose', 'stable', '## Applied activity — "The function, scored"
+
+**Time:** 30 minutes · **Submit:** the reproduction result, the scored stack, and a 300–400 word
+write-up · **Graded against the rubric below.** Score doesn''t matter. Doing the work is where the
+learning lands.
+
+**Step 1 — The reproduction, and do this first (12 min, timed).** Take **one real deliverable your
+team produced last quarter** — a recurring report, a cut, an analysis with a conclusion. Give a model
+whatever context it needs about your data structure, **without moving restricted data**; a schema, a
+column dictionary and synthetic or aggregate rows are enough, and 101 M4''s tiers still apply.
+
+**Set a timer for thirty minutes and try to reproduce it.** Then record three things: how far it got,
+**where exactly it broke**, and which layer that break belongs to.
+
+This is the whole activity. Everything else is bookkeeping. You are generating an existence proof on
+your own data, which is worth more than any citation in Lesson 2 — and **where it broke is the single
+most informative sentence you will write in this module.** If it broke on a definitional question,
+that is Layer 2 and it is your moat. If it broke because the model did not know which field lies,
+write down whether that is genuinely unwriteable or merely unwritten.
+
+**Step 2 — Score the function (8 min).** Across last quarter''s output, estimate the share of your
+team''s hours that sat in each of the five layers. Rough is fine; honest is required. Then name
+**the single capability you would lose least by giving up** — and if that is hard, notice that the
+difficulty is itself the finding.
+
+**Step 3 — Check the claim (5 min).** Go back to the claim you contested before Lesson 1. What
+evidence from your own systems settles it? Publication counts by layer, requester lists, the ratio of
+recurring to bespoke work. **If your evidence cannot settle it, say so and say what you would need
+to.** That scores in full.
+
+**Step 4 — The two questions (5 min).** Answered honestly, because they set up Module 6:
+
+- What percentage of your team''s hours went to things a competent generalist with a good model could
+  now produce?
+- **Make the strongest case your organization would notice if your team vanished on Monday. Then make
+  the case against.**
+
+Then the write-up: where the reproduction broke and which layer that is, your scored stack, the
+capability you would give up, your answer on the claim, your position on the module''s claim with its
+counter-argument addressed, and — the honest one — **whether the case against your team is stronger
+than you expected it to be.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m1-micro-core', 'ai301-analytics-m1-micro', 10, 'prose', 'stable', '## Module 1 in two minutes
+
+**Your capability didn''t change this year. Everyone else''s did.** An HRBP with a CSV now produces a cut, a chart, a regression and a confident paragraph in an afternoon — most of them wrong in ways only you can see. Which is the problem, because being the only person who can see it is not the same as being the person anyone asks.
+
+**Five layers, one test: if analysis were free, would this still be scarce?**
+
+**Layer 1 — Production.** Running the query, building the cut, writing the paragraph. **This is in the stack so it can be crossed out** — and it is where most of your hours and nearly all of your job descriptions live.
+
+Four survive. **Definitional authority** — what the metric means, which denominator, whether a transfer is attrition; a model resolves all of that silently and may resolve it differently next week. **Methodological judgment** — knowing when to stop, which is purely subtractive and impossible to get credit for, because the deliverable is a number that didn''t get produced. **Evaluative design** — knowing what would actually settle a question. **Accountable standing** — being the person who can be asked *why* about a claim concerning people, and made to answer.
+
+**Trust isn''t a sixth layer. It''s the residual** — what accrues to a function holding the other four, and the last thing here to commoditize.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m1-micro-rule', 'ai301-analytics-m1-micro', 20, 'callout', 'volatile', '### The rule to carry
+
+**Production was never the bottleneck.** `[V]`
+
+Hold two facts together. The cost of producing analysis collapsed. And the measured firm-level effect of AI is close to nothing — about **0.29%** average gain over three years across 5,000+ executives in four countries, with **89% of firms reporting no impact at all**, plus a controlled trial where experienced developers were **19% slower** while believing they were 20% faster.
+
+Both true. If production had been the constraint, making it free would show up in output. It doesn''t. **That is evidence *for* the stack** — the value always sat in the layers above production, and nobody itemized them because nobody had to.
+
+Which gives you a sharper premise than *you''re about to be replaced*: **your function is funded for the thing that just became free, and valued for things that were never written down.** Nobody is coming to replace you. The risk is a budget conversation where the visible output looks reproducible and the invisible output has no name.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m1-micro-close', 'ai301-analytics-m1-micro', 30, 'prose', 'stable', '**The full module adds** an unusually careful treatment of its own evidence, because it is asking you to accept that a layer of your work collapsed. It establishes **possible, not a rate** — an existence proof (an ONA product commoditized in two or three hours), an argument, and the admission that **the two practitioners cited co-author with each other**, which makes them closer to one source than two. Then the counterweight that narrows the claim into something defensible: on **DABstep**, a benchmark of 450+ real multi-step analysis tasks, the best agents reach about **14.55% on the hardest tier**. So: **routine analysis is free, the hard tier is not — and the hard tier is not where your hours are.**
+
+It also turns the teardown inward. Run *what''s the evidence, what''s the sample, what would falsify it* on your own last published finding, then on the field: go looking for a primary source on whether analytics functions improve decisions, or whether deployed attrition models reduce attrition. **The evidence base about people analytics is worse than the one people analytics demands of everyone else** — ten minutes to check, which is why the module asks you to check rather than asserting it.
+
+Plus the twelve-card layer sort, and the activity that settles the argument better than any citation: **reproduce one of last quarter''s real deliverables in thirty minutes, timed, and record where it broke.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-analytics-m1-sorting', 'ai301-analytics-m1', 'sorting', '{"reviewedAt":"2026-08-12","buckets":[{"id":"production","label":"Production","hint":"Running it, building it, writing it up","rank":0,"pct":90},{"id":"definitional","label":"Definitional authority","hint":"Deciding what the metric means","rank":1,"pct":45},{"id":"judgment","label":"Methodological judgment","hint":"Knowing when to stop","rank":2,"pct":30},{"id":"evaluative","label":"Evaluative design","hint":"Knowing what would settle it","rank":3,"pct":25},{"id":"standing","label":"Accountable standing","hint":"Being answerable for a claim about people","rank":4,"pct":15}],"tasks":[{"id":"t1","text":"Building the monthly headcount and attrition scorecard from the standard extract","key":"production","reasoning":"The clearest case in the set, and the one that consumes the most hours in most functions. Recurring, specified, and reproducible by anyone with the schema. If analysis were free, this would not still be scarce — which is the whole test."},{"id":"t2","text":"Deciding that an internal transfer does not count as attrition, and that a fixed-term end does","key":"definitional","reasoning":"Two rulings that change every attrition number the company will publish for years. A model asked an attrition question resolves both silently and may resolve them differently next week. **Somebody has to have decided, and be able to defend it when Finance uses a different number.**"},{"id":"t3","text":"Telling the CHRO the engagement data cannot support the claim that the manager programme worked","key":"judgment","reasoning":"Purely subtractive, and the deliverable is a number that didn''t get produced. This is the layer the track argues is now the core of the job, and the one that is hardest to get credit for — nothing appears in the output log."},{"id":"t4","text":"Writing the SQL that joins the ATS extract to the HRIS record on employee ID","key":"production","reasoning":"Feels like a moat because it requires knowing your systems. Most of that knowledge can be written down once and handed over — and the part that can''t is usually a definitional ruling wearing a technical costume. **If it is genuinely unwriteable, say so; if it is merely unwritten, that is a task not a moat.**"},{"id":"t5","text":"Realising the RTO policy hit one region three months before the others, and that the comparison is still recoverable","key":"evaluative","reasoning":"Knowing what would settle a question, which is a different skill from being able to run the analysis once you know. The comparison was sitting in the data the whole time and nobody preserved it — a process failure rather than a methodological one, and the layer with the most unclaimed territory attached to it."},{"id":"t6","text":"Signing the works council submission describing what the new manager dashboard measures","key":"standing","reasoning":"Not a capability question. It is a question about who can be asked *why* and made to answer, in front of a body with an enforceable veto. A model cannot hold this position, and it is what converts methodological judgment into organisational authority."},{"id":"t7","text":"Producing the quarterly board slide on representation from the agreed definitions","key":"production","reasoning":"High-visibility production is still production. The stakes changed; the scarcity didn''t. Note that the *definitions* underneath it are Layer 2 and were set once — which is exactly the asymmetry the module is about: the reputation sits on the slide and the value sat in the ruling."},{"id":"t8","text":"Deciding not to build the flight-risk model that was requested, and writing down why","key":"judgment","reasoning":"The hardest card to file honestly, because refusing work does not feel like output. **Which model should not be built at all** is the sharpest version of knowing when to stop, and Module 2 turns it into a written halt condition rather than a judgment call made under pressure."},{"id":"t9","text":"Setting the minimum cell size below which survey results are suppressed","key":"definitional","reasoning":"The trap card. It looks like methodological judgment and it is a definitional ruling — you are deciding what the published number *means* and what it is entitled to reveal. It is also a promise to respondents with a number under it, which is why Module 5 treats disclosure control as a professional obligation rather than a preference."},{"id":"t10","text":"Specifying that the onboarding evaluation needs a holdout, and which cohort it comes from","key":"evaluative","reasoning":"Design, not execution. Anyone can run the comparison once it exists; knowing that a comparison is required, is available, and would have to be arranged *before* the programme launches is the scarce part. Module 6 is built on this."},{"id":"t11","text":"Answering the individual who asks why a model flagged them, and on what basis","key":"standing","reasoning":"The layer at its most concrete. Not the explanation — the answerability. Somebody has to be the person the question lands on, and a model cannot be that person however good its feature attributions are."},{"id":"t12","text":"Reformatting the workforce report into the new brand template","key":"production","reasoning":"The free one, filed here to make a point. Four of twelve cards are production, which is roughly the share most functions guess — and far below the share the activity usually measures. **If your hours land where your prestige doesn''t, that gap is the module.**"}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-analytics-m1-rubric', 'ai301-analytics-m1', 'rubric', '{"promptVersion":"ai301-analytics-m1-function-scored-v1","moduleId":"ai301-analytics-m1","minWords":300,"maxWords":400,"submitLabel":"Your reproduction result, scored stack and write-up","intro":"Paste the reproduction result — how far it got, where exactly it broke, and which layer that break belongs to — plus your scored stack, the capability you''d give up, your answer on the opening claim, and the 300–400 word write-up. Resubmission is free and unlimited. A claim your evidence cannot settle scores in full when you say why.","activityContext":"You are grading a learner submission for AI 301 · The Specialist, People Analytics track — for people analytics analysts, managers and directors who have completed AI 101 and AI 201, and who already have the craft (SQL, statistics, an HRIS, stakeholder scar tissue). Module 1 applied activity, ''The function, scored''. Step 1 and the graded core: the learner takes one real deliverable their team produced last quarter and tries to reproduce it with a model in thirty minutes, timed, supplying schema and column context without moving restricted data (101 M4''s tiers apply), then records how far it got, where exactly it broke, and which layer of the scarcity stack that break belongs to. This is a learner-generated existence proof on their own data, and it exists because the module''s cited evidence for the collapse establishes possibility rather than rate — Napper''s argument and Stehlik''s ONA demonstration come from co-authors, so the module deliberately routes around its own sourcing weakness by having the learner produce the proof. Step 2: estimate the share of last quarter''s hours across the five layers — production, definitional authority, methodological judgment, evaluative design, accountable standing — and name the single capability they would lose least by giving up. Step 3: return to the opening claim (''most of what your function publishes is description wearing explanation''s clothes, and the people who used to need you for it don''t need you anymore'') and settle it against evidence from their own systems, or state that their evidence cannot settle it and what they would need. Step 4: two questions that set up Module 6 — what percentage of team hours a competent generalist with a good model could now produce, and the strongest case their organization would notice if the team vanished on Monday, followed by the case against. The module''s claim, which the write-up must take a position on, is that production was never the bottleneck so making it free changes the job description without changing output; its real counter-argument is that production is where the higher layers'' judgment was manufactured, so automating it starves them on a delay long enough that nobody attributes the damage correctly — which argues for deliberately protecting some production work. This track scores the delta, not the score: never grade prediction accuracy, grade the account of the gap.","opening":[{"key":"automatablePct","label":"Predicted — % of your team''s hours a competent generalist with a good model could now produce","hint":"Your honest estimate before the reproduction test. Whole percent.","placeholder":"e.g. 35","min":0,"max":100}],"calibration":[{"key":"productionPct","label":"Measured — % of last quarter''s hours that sat in the production layer","hint":"From your scored stack in Step 2.","placeholder":"e.g. 60","min":0,"max":100,"actualFor":"automatablePct"}],"dimensions":[{"name":"The reproduction was actually run, and timed","criteria":"A real deliverable from last quarter, a genuine thirty-minute attempt, and a concrete account of how far it got. The failure mode to catch is a described-rather-than-run attempt — a learner reasoning about what a model would probably do. Evidence of an actual run (what was supplied as context, what came back, what was wrong with it) is the difference between a full mark and a low one. Also check the perimeter: schema, dictionaries and synthetic or aggregate rows are correct; moving restricted individual-level data to make the test more realistic is a fail on this dimension regardless of the rest, and should be said plainly."},{"name":"Where it broke is diagnosed, not just reported","criteria":"The most informative sentence in the submission. A specific break point — not ''it struggled with our data'' — mapped to a layer with an argument for that mapping. The distinction to reward: a break on a definitional question is Layer 2 and is a genuine moat; a break because the model didn''t know which field lies needs the learner to say whether that knowledge is genuinely unwriteable or merely unwritten. **A learner who concedes ''merely unwritten'' about something they had claimed as a moat has done the hardest thing this activity asks.** A reproduction that fully succeeded is a legitimate and strong result if the learner says what that means for them."},{"name":"The stack is scored honestly and the give-up is named","criteria":"A distribution across all five layers, rough but not evasive, covering the quarter rather than a flattering week. Then the single capability they''d lose least by giving up, named specifically. Watch for the two evasions: a stack that puts most hours in the upper layers without evidence, and a give-up answer so peripheral it costs nothing. A learner who reports difficulty naming a give-up, and treats that difficulty as the finding, should score at the top."},{"name":"The claim is settled or honestly declared unsettleable","criteria":"The opening claim answered against actual evidence from their systems — publication counts by layer, requester lists, the recurring-to-bespoke ratio — rather than by impression. **''Our evidence cannot settle this'' is a full-credit answer when accompanied by what specifically is missing and what they would need to collect.** It is the outcome this track exists to make sayable, and it must never be scored below a resolved claim. What does score low is not checking at all and calling that an unsettleable claim."},{"name":"The delta and the position","criteria":"The predicted automatable percentage compared against the measured production share, with an account of the direction and what produced it — accuracy is never graded, and both over- and under-estimates are informative. Plus the vanish-on-Monday pair, where the graded part is whether the case *against* was written with real force rather than as a rhetorical setup. Plus a committed position on the module''s claim that engages its real counter-argument: that production is where judgment is manufactured, so automating it may starve the higher layers rather than free them. Strong answers say what would replace the apprenticeship."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-analytics-m1-knowledge_check', 'ai301-analytics-m1', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"What is the test that sorts a capability into the scarcity stack?","options":["Whether it requires domain knowledge of the HRIS","If analysis were free, would this still be scarce?","Whether a model can perform it today at acceptable accuracy","Whether it appears in the function''s job descriptions"],"correctIndex":1,"explanation":"C is the tempting one and it is a moving target that dates instantly; the stack is built on what remains scarce under an assumption, not on a current capability snapshot."},{"id":"q2","prompt":"Why is production included in the stack at all, if it has collapsed in value?","options":["Because some production work remains too specialized to automate","So that it can be crossed out — it is where the hours and the job descriptions sit, and naming it is what makes the other four layers visible","Because it is the foundation the other layers are built on","Because production quality still differentiates strong analytics functions"],"correctIndex":1,"explanation":"C is the module''s own counter-argument and it is a serious one — see the position you took. But its role *in the stack* is to be the layer that goes."},{"id":"q3","prompt":"Which layer is trust?","options":["The fifth layer, above accountable standing","The first layer, since nothing else works without it","Not a layer — the residual that accrues to a function holding the other four","A precondition that has to be established before the stack applies"],"correctIndex":2,"explanation":"Which is why Module 6 is about claiming it rather than building it. You cannot work on trust directly; you can only work on the things that produce it."},{"id":"q4","prompt":"What does the available evidence for the collapse actually establish? `[V]`","options":["The rate at which analytical production is being displaced in HR","That it is possible — an existence proof plus an argument, and neither supports a claim about rate or breadth","That most analytics functions have already lost the production layer","That AI outperforms human analysts on people data"],"correctIndex":1,"explanation":"And the module says out loud that its two practitioner sources co-author with each other, which makes them closer to one source than two."},{"id":"q5","prompt":"How does DABstep''s ~14.55% on the hardest tier change the module''s claim? `[V]`","options":["It contradicts the claim, since agents perform poorly on real analysis","It narrows it usefully: routine analysis is free, the hard tier is not — and the hard tier is not where your hours are","It shows the benchmark is poorly designed for business analysis","It suggests the collapse is two or three years away rather than current"],"correctIndex":1,"explanation":"The counterweight makes the claim survivable instead of weakening it, and the tasks agents fail on are precisely the ones requiring the upper layers."},{"id":"q6","prompt":"How do you reconcile \"analysis got cheap\" with a ~0.29% average firm-level productivity gain? `[V]`","options":["The productivity gains are real but take longer than three years to appear","Production was never the bottleneck — so making it free changes the job description without changing firm output, which is evidence for the stack","The survey measured the wrong firms","Analysis did not actually get cheap; the existence proofs are unrepresentative"],"correctIndex":1,"explanation":"With **89% of firms reporting no impact at all**, the average is a near-zero mass with a concentrated tail, not a small uniform gain."},{"id":"q7","prompt":"What is the risk the module says you actually face?","options":["Being replaced by a model that produces analysis","Being funded for the thing that just became free and valued for things nobody wrote down","Producing analysis faster than the organization can absorb it","Losing methodological rigor as tooling improves"],"correctIndex":1,"explanation":"Subtler and more likely than replacement — a budget conversation in which the visible output looks reproducible and the invisible output has no name."},{"id":"q8","prompt":"What happens when the three evidence questions are pointed at the people analytics field itself?","options":["The field''s evidence base is comparable to adjacent management disciplines","It holds up on efficacy but not on ethics","The evidence base about people analytics is worse than the one people analytics demands of everyone else — mostly vendor maturity models and self-reported case studies","There is strong evidence for analytics maturity models and weak evidence for predictive models"],"correctIndex":2,"explanation":"Checkable in ten minutes, which is why the module asks you to check rather than asserting it. A function whose standing rests on rigor has an unexamined exception, and it is itself."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m2-claim-to-contest-before-you-start-10', 'ai301-analytics-m2', 10, 'calibration_prompt', 'stable', '## Claim to contest — before you start
+
+*Commit before you read anything.*
+
+> **"Your team has never written down a condition under which an analysis should stop rather than
+> produce a number."**
+
+**True of us, or not true of us?** If you think it is not true, name where the condition is written
+down and who would find it.
+
+You will check during the activity. **If you cannot find it in writing, "we all know it" is the
+finding**, not a defence — and it scores in full when you say so.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m2-module-brief-20', 'ai301-analytics-m2', 20, 'prose', 'stable', '## Module brief
+
+Module 1 crossed out production and named four layers above it. This module is about the third one —
+**methodological judgment, which is knowing when to stop** — and it is the module that turns that
+from a virtue into a thing you can write down on a Tuesday.
+
+Here is the thesis, and it is the whole course in one line:
+
+> **The expert move is stopping the model, not accelerating it.**
+
+Everything else here is machinery for making that affordable. Because "be more rigorous" is advice
+nobody can act on, and "below this cell size the analysis halts and reports that it halted" is a
+condition a junior analyst can apply at 4pm on a Thursday without your being in the room.
+
+There is a second reason this module matters more than it looks. **You are about to be the bottleneck
+for other people''s analysis, not just your own.** When an HRBP produces a regression, you are the one
+who has to say whether it holds. Doing that case by case does not scale, and doing it by reputation
+makes you an obstacle. **Encoding it is the only version that works** — and it is the version that
+turns your judgment into something the organization owns rather than something it queues for.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m2-learning-objectives-30', 'ai301-analytics-m2', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. State the difference between comp M3''s construction rule and this module''s inference rule.
+2. Write a halt condition with a threshold, a trigger and a consequence.
+3. Name the five general failure modes worth encoding for people data.
+4. Identify the confounders endemic to HR data that no general model will flag.
+5. Do the base-rate arithmetic on a predictive score about individuals, and state the intervention
+   paradox as a written invariant.
+6. Use a model to enumerate alternatives rather than to produce conclusions.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m2-lesson-1-two-rules-two-layers-40', 'ai301-analytics-m2', 40, 'prose', 'stable', '## Lesson 1 · Two rules, two layers
+
+You already have one of these and it is not this one.
+
+The comp track''s craft module gives the construction rule: **never present a number you couldn''t
+rebuild from its inputs, in front of the person asking.** That governs whether the table is right —
+whether the join dropped 340 rows, whether a filter persisted, whether the reconciliation ties. It is
+necessary here and it is **assumed, not repeated.** If you have not got that discipline, this module
+is premature.
+
+This module''s rule is its sibling and governs the layer above:
+
+> **Never present a finding whose alternative explanations you haven''t stated.**
+
+**A perfectly constructed table licenses nothing on its own.** The most dangerous artifact in this
+function is a correct number under a causal sentence — because the number survives every check
+anyone will run, and the sentence is the part that gets believed, funded and repeated for three
+years.
+
+The two rules fail differently, which is why both exist. A construction failure produces a wrong
+number, and wrong numbers get caught — eventually, by someone rebuilding them. **An inference failure
+produces a right number under a wrong claim, and there is no procedure that catches it**, because
+there is nothing to rebuild. The check has to happen before the claim is made, and it has to be
+designed in.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m2-lesson-2-the-design-that-works-and-it-is-50', 'ai301-analytics-m2', 50, 'prose', 'volatile', '## Lesson 2 · The design that works, and it is real [V]
+
+The pattern this module teaches is not aspirational. It is published, deployed, and open-sourced, and
+the team that built it arrived at this module''s thesis independently — which is a better argument for
+it than anything this course could assert.
+
+**Netflix''s `oci-agent`** (*A Human-Augmenting Agentic Workflow for Observational Causal Inference*,
+arXiv 2607.22443, June 2026) has orchestrated **more than 100 causal analyses per month** since
+release. Its architecture is an actor–critic loop with three roles:
+
+- **A principal** supplies the analysis plan — the question, the assumptions, the estimand.
+- **An actor** produces a spec and executes a templated notebook with diagnostics.
+- **A critic** synthesises the results and reports a **credibility level** back to the principal.
+
+Now look at what it automates versus what it refuses to.
+
+**Automated:** covariate balance checking, propensity score trimming, sensitivity analysis. The
+laborious, mechanical, error-prone middle of applied causal inference — the part that takes a day and
+that a tired analyst skips.
+
+**Reserved for humans:** framing the question, scrutinising assumptions, evaluating diagnostics.
+
+**That division is the module''s thesis, built by people shipping it at scale.** They did not automate
+the hard part and leave humans the typing. They automated the typing and left humans the part where
+being wrong is expensive — and then made the machine **report a credibility level** rather than an
+answer, which is a halt condition wearing a number.
+
+Two things to take from it.
+
+**The templated notebook is the invariants file in code.** Agents adhere to comprehensive analysis
+templates and check design diagnostics because the template makes them, not because they were asked
+nicely. **Encoded constraints beat instructed ones**, every time, and this is the practical form of
+that.
+
+**"Credibility level" is the output shape to copy.** Not *here is your effect estimate* but *here is
+your effect estimate and how much weight it will bear.* An analysis pipeline that can only return
+answers will always return an answer.
+
+Ludek Stehlík has applied the same pattern in a people analytics context, which is the closest thing
+to a domain-specific precedent available. Treat that as an existence proof, per Module 1''s discipline.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m2-lesson-3-the-five-failure-modes-worth-en-60', 'ai301-analytics-m2', 60, 'prose', 'stable', '## Lesson 3 · The five failure modes worth encoding
+
+Not a statistics refresher — you have that. These are the five that recur in people data and that
+belong in a file rather than in your head. Each is stated as a **halt condition**, because a caution
+is something you override under deadline and a threshold is something you have to argue with.
+
+**Small n.** Below some cell size the estimate is noise with a decimal point. *Halt:* below the
+threshold, the analysis stops and reports that it stopped — it does not report a number with a wider
+interval, because nobody reads the interval. This is also a disclosure obligation, which Module 5
+picks up.
+
+**Post-treatment covariates.** Controlling for something that happened *after* the thing you''re
+studying, and is affected by it. Adjust for post-promotion engagement when studying promotion and you
+have controlled away the effect. *Halt:* every covariate gets a date relative to treatment, and
+anything after it stops the analysis pending a human ruling.
+
+**Positivity violations.** Some combinations of covariates have no variation in treatment — nobody in
+that stratum ever got the programme, so there is no counterfactual and the model is extrapolating.
+*Halt:* check the overlap; where a stratum has no support, it is excluded and the exclusion is
+reported, which changes the population the finding is about.
+
+**Staggered adoption.** The intervention arrived at different times for different groups, which is
+the normal case in HR and which breaks naive difference-in-differences in ways that were not widely
+understood until recently. *Halt:* if rollout timing varies and the design does not account for it,
+stop.
+
+**Contested estimands.** The question does not have one answer because it does not have one meaning.
+*What is the effect of the manager programme* — on whom, compared to what, over what horizon, for
+those who took it or those offered it? *Halt:* if the estimand is not written down and agreed before
+the analysis runs, the analysis does not run. **This is the most common failure on the list and the
+least technical.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m2-lesson-4-the-confounders-endemic-to-hr-d-70', 'ai301-analytics-m2', 70, 'prose', 'stable', '## Lesson 4 · The confounders endemic to HR data
+
+The five above are general. These are yours, they recur constantly, and **no general model will flag
+any of them**, because flagging them requires knowing how the data was made.
+
+**Exit reasons are what people were willing to say on the way out, to someone who might be a
+reference.** Any analysis whose outcome variable is a coded exit reason is measuring disclosure
+behaviour at least as much as it is measuring cause.
+
+**Performance data is a rating produced by the system you are evaluating.** Use it as the outcome in
+a study of that system and you have built the circularity the comp track''s exclusion zone warns
+about, one function over. If ratings carry the disparity you are looking for, controlling for them
+removes the finding.
+
+**Promotion data is censored by everyone who left first.** A promotion-rate analysis silently
+conditions on survival, and the people whose absence would have changed the answer are the ones who
+are not in the file.
+
+**Survivorship runs through nearly every tenure analysis ever presented in this function.** *Our
+long-tenured employees are more engaged* is a sentence about who stayed. So is most of what gets said
+about culture fit, about the value of internal mobility, and about the characteristics of "top
+performers."
+
+**And regression to the mean, which deserves its own paragraph because it explains more "our
+intervention worked" findings in People than any other single mechanism.** You target the
+lowest-engagement teams. The worst-attrition function. The managers with the poorest scores. Then you
+measure improvement. **Selection on an extreme guarantees movement toward the middle with no
+intervention at all** — and the more extreme your selection criterion, the larger the improvement you
+will observe from nothing. Almost every targeted programme evaluation in this function is exposed to
+it, and almost none of them mention it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m2-try-80', 'ai301-analytics-m2', 80, 'try_this', 'stable', '### Try this — 4 minutes
+Take the last programme evaluation your function published. Was the population selected because it
+scored badly on the outcome you then measured? If yes, you have not yet established that anything
+happened.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m2-lesson-5-prediction-about-individuals-as-90', 'ai301-analytics-m2', 90, 'prose', 'volatile', '## Lesson 5 · Prediction about individuals, as a constraint problem [V]
+
+Flight risk. Performance forecasting. Promotion readiness. "High potential" scoring. This is where
+the halt conditions earn their keep, because the failure is not statistical — it lands on a named
+person.
+
+**Start with the arithmetic, done out loud.** A flight-risk model reported at 78% accuracy, in a
+population with 12% annual attrition. Accuracy against a 12% base rate is a low bar: a model that
+predicts "nobody leaves" scores 88%. So 78% accuracy is not evidence of anything, and the questions
+that matter are how many of the flagged actually leave, how many leavers were never flagged, and what
+a manager does after three false positives in a row. **Aggregate accuracy is not the property the
+intervention runs on.**
+
+**Now the literature, and this is the worked example the module is built on** `[V]`. Go and look for
+evidence that attrition models work. What you find is an active research literature reporting
+excellent numbers — **98.8% for XGBoost, 98.7% for Random Forest**, a run of near-perfect scores from
+boosting variants.
+
+Run Module 1''s three questions on that.
+
+*What''s the sample?* Overwhelmingly the **IBM HR Analytics Employee Attrition & Performance dataset**
+— which is **explicitly fictional. 1,470 fabricated employee records created by IBM data scientists**,
+35 features, redistributed endlessly on Kaggle.
+
+**A 98.8%-accurate model, on invented people, cited as evidence that flight-risk scoring works.** The
+evidence question fails at the first step. Nobody is being dishonest — the papers say what their data
+is — but the number travels into vendor decks and business cases without it.
+
+*And what would falsify it?* Here is the honest answer, and the module states it rather than papering
+over it: **there is essentially no published evaluation of whether deploying these models reduces
+attrition.** The literature is about algorithmic performance, not about deployment effect.
+
+**That absence is not laziness. It is the intervention paradox**, and it is this role''s structural
+trap:
+
+> Act on the prediction and you destroy the ability to evaluate it. Preserve the evaluation and you
+> withheld something from a named person.
+
+If the model flags someone, you intervene, and they stay — the model reads as *wrong*, and you did
+the right thing. The only clean evaluation requires not acting on some flags. **You cannot both act
+on the prediction and cleanly evaluate it**, and every honest design here is a compromise: a holdout,
+a staggered rollout, or flying on a validation set that predates deployment and decays.
+
+**Naming which compromise you chose is the professional act**, and it belongs in the invariants file,
+not in a footnote.
+
+**Then the two questions before anything gets built.** Neither requires a legal opinion and both
+belong before a line of code.
+
+- **What decision changes?** Recruiter R5''s test, and the one that kills most flight-risk projects,
+  because the honest answer is usually *we would have a conversation we could have had anyway.*
+- **What would we do differently if the score were wrong about this person?** The fairness question in
+  a form an analyst can act on — and if the answer is "nothing, because they''d never know," that is
+  Module 5''s territory and it is arriving early for a reason.
+
+**And a design fact people miss: the score is not a passive observation of a system it sits inside.**
+A manager told their report is 78% likely to leave behaves differently toward that person. Some of
+those behaviours — a withheld stretch assignment, a quiet succession conversation — make the
+prediction more likely to come true.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m2-lesson-6-what-the-model-is-genuinely-exc-100', 'ai301-analytics-m2', 100, 'prose', 'stable', '## Lesson 6 · What the model is genuinely excellent at
+
+This module has spent five lessons on stopping. Here is the affirmative half, and it is the
+highest-value AI move available to this role.
+
+**Ask a model why attrition rose and it produces a coherent, well-organised, plausible causal
+account.** It will not volunteer the confound — not because it is hiding one, but because nothing in
+what it is doing corresponds to looking for one. **Its silence carries no information** (101 M6, and
+comp M3''s version of the same point).
+
+**Now ask it the opposite question.** *What else could explain this pattern? Argue against my
+conclusion. What would have to be true for this to be wrong? Which of my controls is
+post-treatment?*
+
+Asked that way, it enumerates better than most analysts working alone — faster, more exhaustively,
+and without the motivated reasoning of someone who has already told a stakeholder what they found.
+**The failure is in what you ask for, not in what it can do.**
+
+That is why the alternatives list belongs in the workflow rather than in your character. It is also
+why the discipline is stateable as a single instruction: **the model may generate the alternatives;
+only you may dismiss them** — and each dismissal needs a reason written next to it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m2-exercise-embed-105', 'ai301-analytics-m2', 105, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m2-key-takeaways-110', 'ai301-analytics-m2', 110, 'takeaways', 'stable', '## Key takeaways
+
+- **The expert move is stopping the model, not accelerating it.** "Be more rigorous" is advice nobody
+  can act on; a threshold with a consequence is a thing a junior can apply without you in the room.
+- **Two rules, two layers.** Comp M3 governs construction — *never present a number you couldn''t
+  rebuild.* This module governs the leap — **never present a finding whose alternative explanations
+  you haven''t stated.** A construction failure gets caught eventually. **An inference failure has no
+  procedure that catches it.**
+- **The pattern is deployed, not aspirational** `[V]`. Netflix''s `oci-agent` automates covariate
+  balance, propensity trimming and sensitivity analysis; it reserves framing, assumptions and
+  diagnostics for humans, and returns a **credibility level** rather than an answer.
+- **Encoded constraints beat instructed ones.** The templated notebook is the invariants file in code.
+- **Five general halt conditions:** small n, post-treatment covariates, positivity violations,
+  staggered adoption, contested estimands. **The last is the most common and the least technical.**
+- **Five HR-endemic confounders no general model will flag:** exit reasons are disclosure behaviour;
+  performance ratings are produced by the system under study; promotion data is censored by leavers;
+  survivorship runs through every tenure analysis; and **regression to the mean explains most
+  "our intervention worked" findings**, because selecting on an extreme guarantees movement toward
+  the middle with no intervention at all.
+- **78% accuracy against a 12% base rate is not evidence** — predicting "nobody leaves" scores 88%.
+- **The headline attrition-model accuracies are measured on fabricated people** `[V]`, and there is
+  essentially **no published evaluation of whether deployment reduces attrition** — because of the
+  intervention paradox, not laziness. **Naming the compromise you chose is the professional act.**
+- **The model may generate the alternatives; only you may dismiss them**, with a reason written next
+  to each.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m2-activity-link-115', 'ai301-analytics-m2', 115, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 The invariants file", "blurb": "For one recurring analysis you actually run: the estimand written so two people couldn''t disagree, five halt conditions with thresholds and consequences, the protocol for asking a model to refute rather than confirm, and \u2014 where a predictive score is involved \u2014 the base-rate arithmetic and the evaluation compromise you chose.", "estMinutes": "35"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m2-take-a-position-120', 'ai301-analytics-m2', 120, 'callout', 'stable', '## Take a position
+
+**The claim:** *"An analysis pipeline that can only return answers will always return an answer."*
+
+The strongest counter-argument is that **encoded halt conditions relocate judgment rather than
+preserving it, and relocate it downward.** A threshold is a judgment made once, in the abstract,
+before the case existed — and cases are exactly where the exceptions live. The n of 30 that halts a
+genuinely informative analysis of a small critical population; the post-treatment covariate that is
+the only available proxy for something real; the estimand that cannot be agreed in advance because the
+stakeholder does not yet know what they are asking. **A file of thresholds gives a junior analyst
+permission to stop thinking at the boundary**, which is the opposite of methodological judgment even
+though it produces more halts. On that view the invariants file is a competence *substitute* wearing
+competence''s clothes, and what actually transfers is apprenticeship — which Module 1''s counter-argument
+already warned is the thing being starved. Your position has to say how a halt condition avoids
+becoming a rule that thinks for people, and what the override procedure looks like.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m2-sources-and-attribution-130', 'ai301-analytics-m2', 130, 'prose', 'stable', '## Sources and attribution
+
+- **The guardrail thesis, the invariants file, and the two-rules-two-layers framing** come from a
+  human-authored brief for this track and are original to this course.
+- **The agentic causal inference workflow `[V]`:** *A Human-Augmenting Agentic Workflow for
+  Observational Causal Inference* (Netflix, arXiv 2607.22443, June 2026) — `oci-agent`, open-sourced,
+  100+ analyses per month; principal / actor / critic; automates covariate balance, propensity
+  trimming and sensitivity analysis; reports a credibility level. Ludek Stehlík''s people-analytics
+  application is cited as an existence proof.
+- **Attrition-model accuracies `[V]`:** reported figures of ~98.8% (XGBoost) and ~98.7% (Random
+  Forest) in the published literature, measured substantially on the **IBM HR Analytics Employee
+  Attrition & Performance** dataset — **1,470 fictional records created by IBM data scientists**,
+  35 features. **Verification found no published evaluation of whether deploying such a model
+  reduces attrition**; the module states that absence and explains it.
+- The HR-endemic confounder list and the halt-condition format are original to this course.
+- Builds on comp M3 (construction, cited not repeated), comp M4 (the circular zone, whose logic the
+  performance-rating confounder mirrors), 101 M6 (silence carries no information), and recruiter R5
+  (*what decision changes*).', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m2-activity-applied-activity-the-invariants-file-10', 'ai301-analytics-m2-activity', 10, 'prose', 'stable', '## Applied activity — "The invariants file"
+
+**Time:** 35 minutes · **Submit:** the file plus a 300–400 word write-up · **Graded against the rubric
+below.** Score doesn''t matter. Doing the work is where the learning lands.
+
+Pick **one recurring analysis you actually run** — the attrition report, the engagement driver
+analysis, a programme evaluation, a predictive score. Recurring matters: the file''s entire value is
+that it is there next time, under deadline, when you are not the one running it.
+
+**Step 1 — The estimand (5 min).** Write the question the analysis answers, precisely enough that two
+people could not disagree about what would count as an answer. On whom, compared to what, over what
+horizon. **If you cannot write it, you have found your first halt condition** and that is a legitimate
+result for this step.
+
+**Step 2 — The halt conditions (12 min).** At least five, each with three parts: **a threshold**
+(the specific value or state), **a trigger** (what checks it, and when), and **a consequence** (what
+happens — stops entirely, proceeds with a stated caveat, escalates to a named person). Cover the five
+general modes where they apply, and at least two of the HR-endemic confounders.
+
+The test to apply to each one: **is there a real, plausible run of this analysis that would trip it?**
+A condition that can never fire is decoration.
+
+**Step 3 — The alternatives protocol (6 min).** How your team will use a model to enumerate
+alternatives rather than to produce conclusions. The actual prompt or standing instruction, and the
+rule about who may dismiss an alternative and what they must write when they do.
+
+**Step 4 — If your analysis involves a predictive score (7 min).** The base-rate arithmetic worked in
+full for your population. Who sees the output. Whether the subject knows it exists. What decision
+changes. And **the evaluation compromise you have chosen, named** — holdout, staggered, or
+pre-deployment validation with its decay acknowledged. If your analysis has no predictive component,
+run this step against a score your organization has been pitched.
+
+**Step 5 — Check the claim (5 min).** Go back to the claim you contested. Did a written halt condition
+exist anywhere before today? **"We all know it" is a finding, not a defence.**
+
+Then the write-up: the halt condition you expect to be least popular and why, the confounder from
+Lesson 4 that is live in your analysis right now, whether a real past run would have tripped any of
+your conditions, your position on the module''s claim with its counter-argument addressed, and — the
+honest one — **the analysis you have published that would not survive this file.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m2-micro-core', 'ai301-analytics-m2-micro', 10, 'prose', 'stable', '## Module 2 in two minutes
+
+**The expert move is stopping the model, not accelerating it.** "Be more rigorous" is advice nobody can act on. "Below this cell size the analysis halts and reports that it halted" is a condition a junior can apply at 4pm without you in the room.
+
+**Two rules, two layers.** Comp M3 governs construction — *never present a number you couldn''t rebuild from its inputs.* Assumed here, not repeated. This module governs the leap: **never present a finding whose alternative explanations you haven''t stated.** A perfectly constructed table licenses nothing on its own, and **the most dangerous artifact in this function is a correct number under a causal sentence.**
+
+They fail differently, which is why both exist. A construction failure produces a wrong number and gets caught eventually by someone rebuilding it. **An inference failure produces a right number under a wrong claim, and there is no procedure that catches it** — there is nothing to rebuild. The check has to be designed in before the claim is made.
+
+There''s a second reason this matters more than it looks: **you are now the bottleneck for other people''s analysis, not just your own.** When an HRBP produces a regression, you have to say whether it holds. Case by case doesn''t scale, and by reputation makes you an obstacle. **Encoding it is the only version that works.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m2-micro-rule', 'ai301-analytics-m2-micro', 20, 'callout', 'stable', '### The rules to carry
+
+**Five halt conditions worth encoding**, each with a threshold, a trigger and a consequence — never a caution, because a caution is what you override under deadline. **Small n.** **Post-treatment covariates** (every covariate gets a date relative to treatment). **Positivity violations** (strata with no untreated comparison get dropped, and the drop changes the population the finding is about). **Staggered adoption.** And **contested estimands** — *on whom, compared to what, over what horizon* — which is the most common failure on the list and the least technical.
+
+**Then the five that are yours, and no general model will flag any of them:** exit reasons are what people were willing to say to someone who might be a reference; performance ratings are produced by the system you''re evaluating; promotion data is censored by everyone who left first; survivorship runs through every tenure analysis — *our long-tenured employees are more engaged* is a sentence about who stayed. And **regression to the mean**, which explains more "our intervention worked" findings in People than anything else: **you targeted the worst-scoring teams, and selection on an extreme guarantees movement toward the middle with no intervention at all.**
+
+And the one-line discipline: **the model may generate the alternatives; only you may dismiss them** — with a reason written next to each.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m2-micro-close', 'ai301-analytics-m2-micro', 30, 'prose', 'volatile', '**The full module adds the proof that this design works, because it is deployed** `[V]`. Netflix''s `oci-agent` has run 100+ causal analyses a month since June 2026: a **principal** sets the plan, an **actor** executes a templated notebook with diagnostics, a **critic** reports a **credibility level** back. It automates covariate balance, propensity trimming and sensitivity analysis — the laborious middle a tired analyst skips — and **reserves framing, assumptions and diagnostics for humans.** They automated the typing and left people the part where being wrong is expensive. Two things to steal: **the templated notebook is the invariants file in code**, and *credibility level* is the output shape — an pipeline that can only return answers will always return one.
+
+Then prediction about individuals, as a constraint problem `[V]`. **78% accuracy against a 12% base rate is not evidence** — predicting "nobody leaves" scores 88%. And the worked example the module is built on: the attrition literature''s headline scores (**98.8%**, **98.7%**) are measured largely on the **IBM HR Analytics dataset — 1,470 explicitly fictional employees created by IBM data scientists.** A near-perfect model, on invented people, cited as evidence that flight-risk scoring works.
+
+**And there is essentially no published evaluation of whether deployment reduces attrition** — because of the **intervention paradox**, not laziness: act on the prediction and you destroy the ability to evaluate it; preserve the evaluation and you withheld something from a named person. Every honest design is a compromise, and **naming which one you chose is the professional act.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-analytics-m2-choice', 'ai301-analytics-m2', 'choice', '{"reviewedAt":"2026-08-12","title":"Four workflows, one that can''t fail","intro":"*Five minutes. Commit before you look.*\n\nFour analytics teams ran the same question — *did the manager development programme reduce attrition?* — and all four have something they call a check.\n\n**One has guardrails that would actually fire.** The test isn''t sophistication. It''s whether there is a plausible run of the analysis that gets stopped.","artifacts":[{"label":"Workflow A","body":"\"Estimand agreed in writing before we start: effect on 12-month voluntary attrition for managers offered the programme, versus matched managers not offered it. Halt conditions in the template: any cell under 30 stops and reports that it stopped; every covariate carries a date relative to programme start and anything post-start stops pending a ruling; strata with no untreated comparison are dropped and the exclusion is reported as a change in population; if rollout timing varies and the design doesn''t account for it, stop. Selection check: the programme targeted the lowest-scoring managers, so we pre-registered a regression-to-the-mean adjustment and a pre-period trend. We ask a model to argue against the finding and log every alternative with who dismissed it and why.\""},{"label":"Workflow B","body":"\"Full pipeline with automated diagnostics — covariate balance, propensity score trimming, sensitivity analysis, all run on every job and logged. The reviewer checks the diagnostic output before results are released, and we''ve caught real problems this way. Nothing goes out without a sign-off from the analytics lead, and we''ve built up a good sense over time of what looks off.\""},{"label":"Workflow C","body":"\"We ran a matched comparison on participants versus non-participants, controlling for level, function, tenure, engagement score, and post-programme manager effectiveness rating. Attrition among participants was 6.2 points lower. We asked a model to review the analysis and check for issues with the methodology; it confirmed the approach was sound and noted the effect size was consistent with the literature on manager development.\""},{"label":"Workflow D","body":"\"We didn''t have a clean comparison group, so rather than overclaim we''re reporting descriptively: attrition among participants was 6.2 points lower than among non-participants, stated as an association with no causal language anywhere in the deck. We''ve flagged in the appendix that participants were selected by their directors and that this limits interpretation. The exec summary says ''participants showed lower attrition'' and nothing more.\""}],"options":[{"id":"a","label":"Workflow A"},{"id":"b","label":"Workflow B"},{"id":"c","label":"Workflow C"},{"id":"d","label":"Workflow D"}],"key":"a","reasoning":"**A is the only one with conditions that can stop it.** Estimand agreed in writing before the run, so the most common and least technical failure mode is closed off. Four of the five general halt conditions encoded with thresholds and consequences, not cautions. And the one that shows they understood the domain rather than the checklist: **they noticed the programme targeted the lowest-scoring managers and pre-registered a regression-to-the-mean adjustment.** That is the mechanism that explains most \"our intervention worked\" findings in People, and A is the only workflow that saw it coming. The alternatives protocol also gets the rule right — **the model generates, only a human dismisses, and the dismissal is logged with a reason.**\n\n**B is the hardest distractor and it is the one most good teams actually are.** Automated diagnostics on every job, a real reviewer, a genuine track record of catching problems. Every component is worth having. What it lacks is the thing this module is about: **no threshold, no trigger, no consequence.** \"The reviewer checks the diagnostic output\" and \"a good sense over time of what looks off\" are judgment applied case by case — which does not scale, does not survive the reviewer''s holiday, and cannot be applied by a junior at 4pm without them in the room. **Encoded constraints beat instructed ones**, and B has instructed ones performed by a good person. Ask the test question: name the run this workflow stops. There isn''t one; there is only a run this workflow *might* stop if the right person is looking.\n\n**C fails twice, and the second failure is the module''s whole subject.** First, **manager effectiveness rating is measured after the programme** — a post-treatment covariate, and controlling for it partly controls away the effect being estimated. Second, and worse: **they asked the model to confirm rather than to refute**, and it confirmed. It was never going to do anything else. Its silence about the post-treatment control carries no information, because nothing it was doing corresponded to looking for one. The sentence \"consistent with the literature\" is the tell — that is a plausibility check, and plausibility is what a well-constructed wrong answer has.\n\n**D is the interesting one, and most learners will rank it too low.** It is genuinely more honest than C: no causal language, a stated limitation, a restrained exec summary. **But the limitation is in the appendix and the finding is in the summary**, and \"participants showed lower attrition\" is a sentence every reader will convert to causation on the way to the next slide. Selection by directors is not a footnote here — it is the whole explanation, since directors nominate managers they think will benefit or managers they are already investing in. **Refusing to say \"caused\" is not the same as stating the alternative explanation.** D avoids the inference rather than satisfying it, which is a real improvement on C and still not the discipline.\n\nThe transferable test: **name the run that gets stopped.** A stops on four named conditions. B stops if someone notices. C cannot stop — its review step was built to agree. D never started, and then reported anyway."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-analytics-m2-rubric', 'ai301-analytics-m2', 'rubric', '{"promptVersion":"ai301-analytics-m2-invariants-v1","moduleId":"ai301-analytics-m2","minWords":300,"maxWords":400,"submitLabel":"Your invariants file and write-up","intro":"Paste the estimand, the halt conditions with their thresholds and consequences, the alternatives protocol, the predictive-score arithmetic if it applies, your answer on the opening claim, and the 300–400 word write-up. Resubmission is free and unlimited. ''We all know it'' is a finding, not a defence — and it scores in full when you say so.","activityContext":"You are grading a learner submission for AI 301 · The Specialist, People Analytics track — for people analytics practitioners who have completed AI 101, AI 201, and Module 1 of this track, and who already have the craft. Module 2 applied activity, ''The invariants file'', for one recurring analysis they actually run. Step 1: write the estimand precisely enough that two people could not disagree about what would count as an answer — on whom, compared to what, over what horizon — with the note that failing to write it is itself the first halt condition and a legitimate result. Step 2: at least five halt conditions, each with a threshold (the specific value or state), a trigger (what checks it and when), and a consequence (stops entirely, proceeds with a stated caveat, or escalates to a named person), covering the module''s five general failure modes where applicable — small n, post-treatment covariates, positivity violations, staggered adoption, contested estimands — and at least two of the HR-endemic confounders: exit reasons as disclosure behaviour, performance ratings produced by the system under study, promotion data censored by leavers, survivorship in tenure analysis, and regression to the mean, which explains most ''our intervention worked'' findings because selecting on an extreme guarantees movement toward the middle. Step 3: an alternatives protocol — the actual prompt or standing instruction for using a model to enumerate alternatives rather than produce conclusions, plus the rule that the model may generate alternatives but only a human may dismiss one, with a written reason. Step 4, if a predictive score is involved: the base-rate arithmetic worked in full (the module''s worked case is 78% accuracy against 12% attrition, where predicting ''nobody leaves'' scores 88%), who sees the output, whether the subject knows, what decision changes, and the named evaluation compromise — holdout, staggered rollout, or pre-deployment validation with its decay acknowledged — since the intervention paradox means acting on a prediction destroys the ability to evaluate it. Step 5: settle the opening claim that the team has never written down a condition under which an analysis should stop. The module''s claim, which the write-up must take a position on, is that an analysis pipeline that can only return answers will always return an answer; its real counter-argument is that encoded thresholds relocate judgment downward and give a junior permission to stop thinking at the boundary, making the file a competence substitute rather than competence. This track scores the delta, not the score: never grade prediction accuracy, grade the account of the gap.","opening":[{"key":"haltConditionsPredicted","label":"Predicted — how many written halt conditions exist across your team''s analyses today","hint":"Written down somewhere a colleague could find. Your honest count before you go looking.","placeholder":"e.g. 2","min":0,"max":100}],"calibration":[{"key":"haltConditionsFound","label":"Found — how many you could actually locate in writing","hint":"From Step 5. Zero is a common and honest answer.","placeholder":"e.g. 0","min":0,"max":100,"actualFor":"haltConditionsPredicted"}],"dimensions":[{"name":"The estimand is unambiguous","criteria":"A question stated so that two competent people could not disagree about what would count as an answer: population, comparison, horizon, and — where relevant — whether the effect is for those treated or those offered treatment. This is the module''s most common and least technical failure mode, so grade it strictly. Vague-but-confident (''the impact of the programme on retention'') scores low. A learner who tried, could not write it, and reports that as their first halt condition has produced the intended finding and should score well."},{"name":"The halt conditions could actually fire","criteria":"At least five, each with all three parts — threshold, trigger, consequence. Apply the module''s own test to every one: **is there a real, plausible run of this analysis that would trip it?** A condition that can never fire is decoration and should be named as such in the feedback. Coverage of the five general modes where applicable, plus at least two HR-endemic confounders instantiated for their actual data rather than restated from the module. Reward specificity over quantity: three conditions with real thresholds beat eight generic ones. Watch for the common miss — a caution phrased as a condition (''be careful with small samples'') with no numeric threshold and no stated consequence."},{"name":"The alternatives protocol inverts the ask","criteria":"An actual prompt or standing instruction that asks the model to refute, enumerate alternatives, or identify post-treatment controls — not to review, check, or validate. The distinction is the whole lesson: a model asked to confirm will confirm, and its silence about a confound carries no information. Plus the dismissal rule: the model may generate alternatives, only a human may dismiss one, and each dismissal carries a written reason. A protocol without the dismissal rule has automated the enumeration and left the motivated reasoning intact."},{"name":"The predictive-score section is worked, not asserted","criteria":"If a score is involved: the base-rate arithmetic done in full for their own population — not the module''s example repeated — including what share of flagged people actually leave and what a manager experiences after consecutive false positives. Who sees the output, whether the subject knows it exists, and what decision changes, with credit for the honest answer that the decision would often have been available anyway. And the evaluation compromise **named**, since the intervention paradox means there is no clean option; a submission claiming clean evaluation of a deployed score has missed the module. Where no score exists, the same analysis run against one they have been pitched is full credit."},{"name":"The delta and the position","criteria":"Predicted versus found halt conditions, with an account of the gap — a learner who predicted several and found none, and can say what they had been mistaking for written practice, has extracted the most from this. Accuracy is never graded, and ''we all know it'' identified as a finding rather than defended scores at the top. Plus the honest disclosure the write-up asks for: **an analysis they have published that would not survive this file.** Naming one specifically outscores a general concession. Plus a committed position on the module''s claim that engages the real counter-argument — that thresholds can become rules that think for people — where strong answers specify an override procedure rather than denying the risk."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-analytics-m2-knowledge_check', 'ai301-analytics-m2', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"How does this module''s rule differ from the construction rule it assumes?","options":["It applies to causal analysis rather than to descriptive analysis","Construction governs whether the table is right; this governs the leap from a right table to a claim — and a perfectly built table licenses nothing on its own","It requires documentation rather than verification","It applies to models rather than to queries"],"correctIndex":1,"explanation":"They also fail differently, which is why both exist: a construction failure produces a wrong number and gets caught eventually. **An inference failure produces a right number under a wrong claim, and there is no procedure that catches it.**"},{"id":"q2","prompt":"In the deployed causal-inference workflow, what is reserved for humans? `[V]`","options":["Final approval of the effect estimate before publication","Covariate balance checking and sensitivity analysis, since these require judgment","Framing the question, scrutinising assumptions, and evaluating diagnostics — while the laborious mechanical middle is automated","Selecting which statistical method to apply"],"correctIndex":2,"explanation":"They automated the typing and left humans the part where being wrong is expensive. Note the output shape too: it returns a **credibility level**, not just an answer."},{"id":"q3","prompt":"Why does the module insist halt conditions carry a threshold rather than a caution?","options":["Because thresholds are easier to audit","Because a caution is something you override under deadline, and a threshold is something you have to argue with","Because cautions cannot be encoded in code","Because regulators require documented thresholds"],"correctIndex":1,"explanation":"Which is also why encoded constraints beat instructed ones — the templated notebook makes the check happen rather than asking for it."},{"id":"q4","prompt":"Which failure mode does the module call the most common and the least technical?","options":["Small n","Positivity violations","Contested estimands — the question has no single answer because it has no single meaning, and nobody wrote down what would count as one","Post-treatment covariates"],"correctIndex":2,"explanation":"On whom, compared to what, over what horizon, for those who took it or those offered it. If the estimand is not agreed before the analysis runs, the analysis does not run."},{"id":"q5","prompt":"Why is regression to the mean singled out among the HR confounders?","options":["Because it is the hardest to detect statistically","Because it explains more \"our intervention worked\" findings in People than any other mechanism — you select the worst-scoring teams and then measure improvement, and selection on an extreme guarantees movement toward the middle with no intervention","Because it only affects longitudinal analyses","Because it invalidates difference-in-differences designs"],"correctIndex":1,"explanation":"And the more extreme your targeting criterion, the larger the improvement you observe from nothing. Almost every targeted programme evaluation is exposed; almost none mention it."},{"id":"q6","prompt":"A flight-risk model reports 78% accuracy in a population with 12% annual attrition. What does that establish? `[V]`","options":["That the model correctly identifies roughly four out of five leavers","Very little — predicting \"nobody leaves\" would score 88%, so accuracy against a low base rate is not evidence, and the questions that matter are the flag rates and what a manager does after three false positives","That the model is well calibrated but poorly discriminating","That the model would perform better with more features"],"correctIndex":1,"explanation":"Aggregate accuracy is not the property the intervention runs on, because the intervention lands on named people."},{"id":"q7","prompt":"What do the headline accuracies in the attrition-prediction literature actually measure? `[V]`","options":["Deployed model performance across multiple client organizations","Cross-validated performance on anonymized real employee records","Performance largely on the IBM HR Analytics dataset — 1,470 explicitly fictional employee records created by IBM data scientists","Performance on simulated data calibrated to industry attrition rates"],"correctIndex":2,"explanation":"A 98.8%-accurate model, on invented people, cited as evidence that flight-risk scoring works. Nobody is being dishonest — the papers state their data — but the number travels without it."},{"id":"q8","prompt":"What is the intervention paradox?","options":["That interventions to retain flagged employees usually fail","That acting on a prediction destroys the ability to evaluate it, while preserving the evaluation means withholding something from a named person — so every honest design is a compromise","That models become less accurate as more managers see their outputs","That retention interventions are more expensive than the attrition they prevent"],"correctIndex":1,"explanation":"It is why the deployment literature is thin — that is structural, not laziness. **Naming which compromise you chose is the professional act.** C is real (Lesson 5''s last point) and is a different problem."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m3-claim-to-contest-before-you-start-10', 'ai301-analytics-m3', 10, 'calibration_prompt', 'stable', '## Claim to contest — before you start
+
+*Commit before you read anything.*
+
+> **"Two people in your company can ask the same attrition question today and get different numbers,
+> and neither of them will know."**
+
+**True of us, or not true of us?** Then the harder half: **name the metric where it is most likely to
+be happening.**
+
+You will go and test it in the activity — actually test it, by asking the same question two ways.
+Most people who commit to "not true of us" change their answer.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m3-module-brief-20', 'ai301-analytics-m3', 20, 'prose', 'stable', '## Module brief
+
+Module 1 called definitional authority the second layer of the stack: what the metric *means*, which
+denominator, which population, which date basis, whether an internal transfer is attrition.
+
+That has always been part of the job and it has always been slightly unglamorous — the memo nobody
+reads, the footnote on the slide, the argument with Finance that gets settled and then unsettled when
+someone leaves. What changed is not that the ambiguity appeared. **The ambiguity became executable.**
+
+When a CFO asks a natural-language question about attrition and gets a number back in nine seconds,
+somebody decided which denominator to use. That somebody was not a person, it was a resolution step,
+it left no record, and it may resolve differently next Tuesday because the model changed underneath.
+**The decision still gets made. It just stopped being made by anyone.**
+
+This module is about reclaiming that decision, and about the two harder problems that follow from
+it — one about checking, one about how anyone learns to check.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m3-learning-objectives-30', 'ai301-analytics-m3', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Explain what a model does with an underspecified metric question, and why it is worse than an
+   error.
+2. Write a definition precise enough to be machine-executable, including its edge cases.
+3. State the verification problem — why knowing enough to check is a different skill from knowing the
+   method.
+4. Describe the apprenticeship problem and evaluate the second-brain pattern as a partial answer.
+5. Distinguish an executable definition from a valid one, and say why a precise metric can still
+   measure the wrong thing.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m3-lesson-1-definitions-become-executable-40', 'ai301-analytics-m3', 40, 'prose', 'stable', '## Lesson 1 · Definitions become executable
+
+Take one question: *what''s our attrition rate in engineering?*
+
+Here is what has to be decided before that has an answer.
+
+- **Numerator.** Voluntary only, or all exits? Are terminations for cause in? Redundancies? Deaths and
+  retirements? Fixed-term contracts reaching their end date — a leaver, or an expiry?
+- **Denominator.** Headcount at period start, at period end, or average? Average of what — month-ends,
+  or a daily average? Does the denominator include people who joined mid-period?
+- **Population.** Is "engineering" the cost centre, the reporting line, or the job family? What about
+  engineers embedded in product teams? Contractors? The team acquired last year still on legacy job
+  codes?
+- **Movement.** Is an internal transfer out of engineering attrition? It is a loss to engineering and
+  not to the company, and both answers are defensible — which is exactly the problem.
+- **Time.** Rolling twelve months, calendar year to date, or annualised from a shorter window? Is
+  someone who joined and left within the period in both the numerator and the denominator?
+
+Six families of decision, a dozen defensible combinations, and **a spread between the highest and
+lowest defensible answer that is routinely larger than the year-over-year change everyone is
+discussing.**
+
+**None of this is new.** What is new is that all of it now gets resolved without a person. The model
+picks the most common convention, or the one implied by your column names, or the one it used last
+time in a different conversation — silently, plausibly, and with a confident sentence underneath.
+
+**And this is worse than an error, for three reasons.**
+
+It is **invisible**: the answer is well-formed and in the right range, so nothing prompts a check. It
+is **unstable**: the same question next month, or from a different person, or after a model update,
+can resolve differently, and now two true-looking numbers disagree with no way to trace why. And it
+is **unattributable**: when Finance''s number differs from yours, the conversation used to be a
+disagreement between two people who each had a reason. Now it may be a disagreement between two
+resolutions nobody made.
+
+**The fix is not to stop people asking.** They will ask, the tooling will answer, and a function whose
+response is *route all questions through us* has volunteered to be a queue. **The fix is that the
+decisions are made in advance, written down in a form the machine reads, and owned by a named
+person.** That is what a semantic layer is, whether or not you have a product called one — and it is
+Layer 2 of the stack, made operational.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m3-lesson-2-the-verification-problem-50', 'ai301-analytics-m3', 50, 'prose', 'stable', '## Lesson 2 · The verification problem
+
+Now the harder one, and it is the sharpest observation in this module.
+
+> **Knowing enough to check is a different skill from knowing the method — and the second used to
+> imply the first.**
+
+That implication is what has quietly broken. For most of the history of this profession, the only way
+to be able to evaluate a cohort curve was to have built one, badly, several times. The checking skill
+came bundled with the production skill, free, as a side effect. Nobody had to design for it.
+
+Now a competent analyst can receive a cohort curve they did not build, in a format they did not
+choose, computed by a process they did not specify. What can they actually do with it?
+
+**They can check plausibility** — is the shape right, are the magnitudes sane, does it match what
+they''d expect. Module 2 spent five lessons explaining why that is not a check: **plausibility is
+exactly the property a well-constructed wrong answer has.**
+
+Three things do work, and they are worth naming because they are what the job becomes.
+
+**Check the inputs, not the output.** You may not be able to re-derive the curve, but you can ask what
+population went in and confirm the count against a number you already know. Comp M3''s reconciliation
+discipline, arriving here as the thing that survives when re-derivation is not available.
+
+**Check the edges.** Ask for the same figure on a subgroup where you know the answer. Ask for last
+year, where you have a published number. **Rebuilding a number you already know is the strongest
+check available to anyone** and it does not require rebuilding the method.
+
+**Check the resolution, not the arithmetic.** Ask the system *what did you assume?* — which
+denominator, which population, which date basis. This is the check that is specific to this era and
+it is the one most people never run, because the output does not invite it. And notice: **if you have
+done Lesson 1''s work, the answer is checkable against a written definition rather than against your
+memory.** The semantic layer is what makes verification possible for someone who did not build the
+thing.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m3-lesson-3-the-apprenticeship-problem-60', 'ai301-analytics-m3', 60, 'prose', 'stable', '## Lesson 3 · The apprenticeship problem
+
+Follow Lesson 2 forward one generation and you get the problem this module cannot fully solve.
+
+If juniors no longer do the grunt work, **the path by which they learned to check disappears** — and
+they will still be the people expected to check, five years from now, with none of the wrong turns
+that used to produce the instinct.
+
+Say precisely what is lost, because "juniors learn by doing" is too vague to act on. What the grunt
+work taught was: the feel of a distribution that has been contaminated, the memory of the specific
+join that dropped the contractors, the experience of presenting a number and being wrong in front of
+someone who mattered. **The first two are knowledge. The third is a formative experience, and it is
+the one that actually calibrates people.**
+
+This is also the slowest-moving risk in the course. Capability does not fall next quarter; it falls
+in four years, and by then nobody attributes it correctly — it presents as "we can''t hire good
+analysts any more," which is a story about the labour market rather than about a decision you made.
+
+**The second-brain pattern is a partial answer, and the module is going to be honest that it is
+partial.** Capture reasoning, decisions and dead ends in a durable, queryable form — not just the
+final analysis but *why the first three approaches failed*, what the data turned out to be, which
+assumption broke. Done well, it preserves the first two things on the list. A junior can query why
+the transfer rule exists, and get the reasoning rather than the rule.
+
+**What it does not reproduce is the third thing.** No repository gives you the experience of having
+been confidently wrong in front of a stakeholder. If that is where calibration comes from — and the
+counter-argument in Module 1 says it is — then the pattern buys you knowledge transfer and not
+judgment transfer, and the gap has to be closed deliberately.
+
+Which suggests the uncomfortable practical conclusion: **some production work should be protected
+rather than automated, and assigned to the people who don''t need to be doing it.** That is a real
+cost with no short-term return, which is exactly the kind of cost that does not survive a budget
+cycle unless somebody names it in advance. Naming it is your job, because you are the only person who
+can see the mechanism.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m3-try-70', 'ai301-analytics-m3', 70, 'try_this', 'stable', '### Try this — 4 minutes
+Take a rule your team follows that a junior could not derive — the transfer rule, the contractor
+exclusion, the reason one field is never trusted. Is the *reasoning* written down anywhere, or only
+the rule? If only the rule, you have found the first entry for the second brain.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m3-lesson-4-executable-is-not-valid-80', 'ai301-analytics-m3', 80, 'prose', 'stable', '## Lesson 4 · Executable is not valid
+
+The last one, and it is the trap that sits at the end of doing everything else right.
+
+**A definition precise enough for a machine to execute is not thereby a definition of the thing you
+meant.** Precision and validity are independent properties, and this module has spent three lessons
+making you better at precision.
+
+*Engagement.* *Inclusion.* *Manager effectiveness.* *Productivity.* *Potential.* Every one is a latent
+construct measured by proxy, and the proxy is a design choice that travels invisibly into every
+downstream finding. You can define your engagement index to six decimal places and have it remain a
+weighted average of answers to questions somebody chose in 2019.
+
+Two consequences that are specific to a listening programme and that this function owns.
+
+**AI-written survey items are psychometrics wearing a drafting task''s clothes.** Asking a model to
+improve the wording of a survey item produces something clearer, better balanced, and often genuinely
+better written — and **a reworded item is a different item.** It breaks comparability with every prior
+wave, which is usually the entire value of the instrument. A trend line across a wording change is
+not a trend line. If you change items, you change them deliberately, you say so, and you either
+re-baseline or run both.
+
+**And employees answer open-text questions with AI now.** Nobody has measured what that does to your
+signal, and this module is not going to invent a number for it. What it means practically is
+immediate: **verbatim volume and polish have stopped being evidence of engagement with the survey.**
+A long, well-structured, articulate comment used to indicate someone who cared enough to write it.
+That inference is no longer safe, and any process that weights comments by length or fluency — yours,
+or a model''s summarisation — is now weighting something else.
+
+**The check that survives all of this is the oldest one in measurement:** can you state what would
+have to be true for this metric to be measuring something other than what it is named after? If you
+cannot, you have a number, not a measure.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m3-exercise-embed-85', 'ai301-analytics-m3', 85, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m3-key-takeaways-90', 'ai301-analytics-m3', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **The ambiguity did not appear. It became executable.** One attrition question has six families of
+  decision under it, and the spread across defensible answers routinely exceeds the year-over-year
+  change being discussed.
+- **The decision still gets made — it just stopped being made by anyone**, silently, plausibly, and
+  possibly differently next Tuesday.
+- **Worse than an error in three ways:** invisible (well-formed, in range, nothing prompts a check),
+  unstable (two true-looking numbers disagreeing with no traceable why), and unattributable (a
+  disagreement between two resolutions nobody made).
+- **The fix is not routing questions through you** — that volunteers your function as a queue. It is
+  decisions made in advance, written where the machine reads them, owned by a named person.
+- **Knowing enough to check is a different skill from knowing the method, and the second used to imply
+  the first.** What works now: check the inputs, check the edges by rebuilding a number you already
+  know, and **check the resolution — ask what it assumed.**
+- **The apprenticeship problem is the slowest-moving risk in the course.** It presents in four years
+  as "we can''t hire good analysts any more," which is a story about the labour market rather than
+  about a decision.
+- **The second brain is a partial answer** — it transfers knowledge, not the experience of having been
+  confidently wrong in front of someone who mattered.
+- **Executable is not valid.** A metric defined to six decimals can still be a weighted average of
+  questions somebody chose in 2019. **A reworded item is a different item**, and **verbatim polish
+  has stopped being evidence of engagement.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m3-activity-link-95', 'ai301-analytics-m3', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 The three contested metrics", "blurb": "First test the claim: ask your most contested metric two ways and record both numbers. Then define your three most-argued-about metrics precisely enough for a machine to execute \u2014 edge cases ruled on, not listed, and an owner by name. Plus one second-brain entry, so you can feel what the full practice would cost.", "estMinutes": "30"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m3-take-a-position-100', 'ai301-analytics-m3', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"A function whose answer to natural-language analytics is ''route all questions through
+us'' has volunteered to be a queue."*
+
+The strongest counter-argument is that **the queue is the control, and giving it up is how the
+definitional layer gets lost.** Self-service was sold to this profession once already, as dashboards,
+and what it produced was a decade of stakeholders confidently misreading their own filters — the
+semantic layer is a better version of the same bet, and it has the same failure mode: **a written
+definition governs only the questions somebody anticipated.** Real questions arrive underspecified in
+ways no dictionary covers, and the moment a system answers them without a human, the function has
+handed away Layer 2 in exchange for looking responsive. On that view a deliberate queue — slower,
+resented, and correct — is the only mechanism that reliably keeps the decision with the person
+accountable for it, and the module has mistaken a governance question for a UX one. Your position has
+to say what happens to a question the semantic layer does not cover, and who finds out.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m3-sources-and-attribution-110', 'ai301-analytics-m3', 110, 'prose', 'stable', '## Sources and attribution
+
+- **The semantic layer framing, the verification problem, and the second-brain pattern as a partial
+  answer to the apprenticeship problem** come from a human-authored brief for this track.
+- **The six families of decision under an attrition question, the three checks that survive, and
+  "executable is not valid"** are original to this course.
+- Builds on Module 1 (definitional authority as Layer 2), Module 2 (plausibility is not a check),
+  comp M3 (reconciliation, which is what survives when re-derivation is unavailable), and recruiter
+  R5''s closed loop — which teaches capturing data against a decision and does not reach construct
+  validity, which is why Lesson 4 exists.
+- The measurement-validity material is standard psychometrics; the application to AI-assisted
+  instrument design is this course''s.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m3-activity-applied-activity-the-three-contested-met-10', 'ai301-analytics-m3-activity', 10, 'prose', 'stable', '## Applied activity — "The three contested metrics"
+
+**Time:** 30 minutes · **Submit:** the three definitions plus a 300–400 word write-up · **Graded
+against the rubric below.** Score doesn''t matter. Doing the work is where the learning lands.
+
+**Step 1 — Test the claim first (6 min).** Before defining anything, go and find out whether the
+opening claim is true of you. Take your most contested metric and **ask for it two ways** — through
+whatever natural-language or self-service surface your stakeholders actually use, phrased as two
+different people would phrase it. A CFO''s version and an HRBP''s version. Record both numbers and, if
+the tooling will tell you, both resolutions.
+
+If you have no such surface, the test still works: **ask two colleagues to define the metric from
+memory, separately.** The disagreement rate is the finding either way.
+
+**Step 2 — Define three metrics (15 min).** Your **three most-contested metrics** — the ones that
+generate arguments, not the ones that are hardest to compute. For each: numerator, denominator,
+population, movement treatment, time basis, and the owner by name.
+
+**Then the graded part: the edge cases.** At least four per metric, because that is where the contest
+actually lives. The internal transfer. The fixed-term expiry. The person who joined and left inside
+the period. The acquired population on legacy codes. The contractor who converted. The leave of
+absence that spans the boundary. **Write the ruling, not the question** — "we don''t currently handle
+this" is an honest entry and is better than silence, but it is a ruling you now owe someone.
+
+**Step 3 — One second-brain entry (5 min).** Take one of the rulings above and write down **why** —
+the reasoning, what it was decided against, what would make you revisit it. Not the rule; the
+argument. This is one entry, and it should tell you how expensive the full practice would be.
+
+**Step 4 — The validity check (4 min).** For one of the three, answer the oldest question in
+measurement: **what would have to be true for this metric to be measuring something other than what
+it is named after?** If you cannot answer, say so — you have a number rather than a measure, and
+knowing which is the point.
+
+Then the write-up: what the two-ways test returned, the edge case that was hardest to rule on and why,
+whether your rulings existed anywhere before today, your position on the module''s claim with its
+counter-argument addressed, and — the honest one — **which of your three definitions you expect
+someone to disagree with, and whether you have the standing to make it stick.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m3-micro-core', 'ai301-analytics-m3-micro', 10, 'prose', 'stable', '## Module 3 in two minutes
+
+**The ambiguity didn''t appear. It became executable.**
+
+One question — *what''s our attrition rate in engineering?* — has six families of decision under it. Numerator (voluntary only? cause? redundancy? fixed-term expiry?). Denominator (start, end, average of what?). Population (cost centre, reporting line, or job family? contractors? the acquired team on legacy codes?). Movement (is an internal transfer out of engineering attrition? both answers are defensible, which is the problem). Time basis. And whether someone who joined and left inside the period is in both halves.
+
+**The spread between the highest and lowest defensible answer routinely exceeds the year-over-year change everyone is discussing.**
+
+When a CFO gets a number back in nine seconds, every one of those was resolved. **The decision still gets made — it just stopped being made by anyone.** And that is worse than an error in three ways: **invisible** (well-formed, in range, nothing prompts a check), **unstable** (same question next month can resolve differently, so two true-looking numbers disagree with no traceable why), and **unattributable** (a disagreement with Finance used to be between two people who each had a reason).
+
+**The fix is not routing questions through you** — that volunteers your function as a queue. It is decisions made in advance, written where the machine reads them, owned by a named person.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m3-micro-rule', 'ai301-analytics-m3-micro', 20, 'callout', 'stable', '### The rule to carry
+
+**Knowing enough to check is a different skill from knowing the method — and the second used to imply the first.**
+
+For the whole history of this profession, the only way to be able to evaluate a cohort curve was to have built one badly, several times. The checking skill came bundled with the production skill, free. That implication has quietly broken, and plausibility is not a substitute — **plausibility is exactly the property a well-constructed wrong answer has.**
+
+Three checks survive when you cannot re-derive the thing. **Check the inputs**, not the output: confirm the population count against a number you already know. **Check the edges**: ask for last year, where you have a published figure — rebuilding a number you already know is the strongest check available to anyone and doesn''t require rebuilding the method. And the one specific to this era, which almost nobody runs because the output doesn''t invite it: **ask what it assumed.** Which denominator, which population, which date basis.
+
+That last check only becomes real once the definitions are written — the semantic layer is what makes verification possible for someone who didn''t build the thing.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m3-micro-close', 'ai301-analytics-m3-micro', 30, 'prose', 'stable', '**The full module adds the two problems that follow.**
+
+**The apprenticeship problem**, which is the slowest-moving risk in the course. If juniors no longer do the grunt work, the path by which they learned to check disappears — and they will still be the people expected to check in five years. What the grunt work taught was the feel of a contaminated distribution, the memory of the join that dropped the contractors, and **the experience of being confidently wrong in front of someone who mattered.** The first two are knowledge; the third is what actually calibrates people. Capability doesn''t fall next quarter — it falls in four years and presents as *"we can''t hire good analysts any more,"* which is a story about the labour market rather than about a decision you made. **The second-brain pattern transfers the knowledge and not the third thing**, which is why the module lands on the uncomfortable conclusion that some production work should be protected rather than automated, and why naming that cost in advance is your job.
+
+**And then: executable is not valid.** A definition precise enough for a machine to run is not thereby a definition of what you meant — engagement, inclusion, potential are latent constructs measured by a proxy somebody chose in 2019. Two consequences for a listening programme: **a reworded survey item is a different item**, and improved wording still breaks comparability with every prior wave, which is usually the instrument''s entire value. And **verbatim volume and polish have stopped being evidence of engagement**, which matters for any process — including a model''s summarisation — that weights comments by length or fluency.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-analytics-m3-choice', 'ai301-analytics-m3', 'choice', '{"reviewedAt":"2026-08-12","title":"Four answers to the same question","intro":"*Five minutes. Commit before you look.*\n\nThe CFO typed *\"what''s our attrition rate in engineering this year?\"* into four different companies'' analytics surfaces. All four returned a number in under ten seconds. All four numbers were defensible.\n\n**One of these is the failure this module is about** — and it is not the one that got the number wrong.","artifacts":[{"label":"Answer A","body":"\"**Engineering attrition, YTD: 14.2%.** Voluntary exits only, annualised from 7 months. Denominator: average of month-end headcount. Population: job family = Engineering, excluding contractors. Internal transfers out of Engineering are counted as attrition per the definition owned by People Analytics (last reviewed March 2026). Note: the 2024 acquisition population is included from January, when their job codes were migrated — before that they are excluded, which affects comparability with prior years.\""},{"label":"Answer B","body":"\"**Engineering attrition is running at 11.8% year to date, down from 13.1% last year.** The improvement is most visible in the senior bands, which suggests the retention measures introduced in Q1 are having an effect — particularly the revised equity refresh, which targeted exactly this population.\""},{"label":"Answer C","body":"\"**Engineering attrition YTD: 9.4%.** I''ve used voluntary exits over starting headcount for the calendar year to date. Let me know if you''d prefer a different basis — average headcount and rolling-12-month are both common and would give somewhat different figures.\""},{"label":"Answer D","body":"\"I can''t answer that as asked — ''attrition'' and ''engineering'' are both defined more than one way here and the choice changes the number materially. Engineering by job family, voluntary only, average headcount, rolling 12 months is **12.6%**. Engineering by reporting line, all exits, starting headcount, YTD is **17.1%**. Tell me which decision you want and I''ll hold it for the rest of this conversation.\""}],"options":[{"id":"a","label":"Answer A"},{"id":"b","label":"Answer B"},{"id":"c","label":"Answer C"},{"id":"d","label":"Answer D"}],"key":"b","reasoning":"**B is the failure, and it is the one that will make everyone in the room happiest.** It resolved six families of decision without naming one, and then went further and **attributed the change to a cause.** Notice what it did *not* say: which exits count, which population, which denominator, or that a 1.3-point movement is well inside the spread between defensible definitions — so the trend it is explaining may not exist. It also selected on the senior bands *after* seeing the result, and the equity refresh targeted that population, which is Module 2''s regression-to-the-mean setup arriving in a chat window.\n\nThis is the module''s whole subject in one artifact: **invisible** (well-formed, in range, nothing prompts a check), **unstable** (ask again next month and the resolution can differ), and **unattributable** (when Finance''s number disagrees, there is no reason to compare — only two resolutions nobody made). And the causal sentence is what will survive into the board deck.\n\n**A is the reference answer**, and the tell that it is the product of Layer 2 work rather than good luck is the last sentence: it volunteers a **comparability caveat about the acquired population** that nobody asked for. Every decision is named, the definition has an owner and a review date, and the caveat is the kind of thing only a written ruling produces — a model reasoning from scratch has nothing to know it from.\n\n**C is honest and insufficient, which makes it the interesting distractor.** It states its basis and offers alternatives, and that is genuinely better than B. But **\"let me know if you''d prefer a different basis\" hands a definitional decision to the person least equipped to make it**, framed as helpfulness. The CFO will pick the one that sounds right, or the first one listed, and now the organization has a second number with a different owner. C has surfaced the ambiguity without resolving it, which is where most well-intentioned self-service lands.\n\n**D refuses, and refusing is right here — but notice its limit.** It names the decision, shows the spread (**12.6% against 17.1%**, which is far larger than any year-over-year change anyone was discussing), and offers to hold the choice for the session. That is the correct behaviour from a *system*. What it cannot do is make the ruling, and it will ask this same question forever. **D is what good tooling looks like in the absence of a semantic layer; A is what tooling looks like when the layer exists.** The difference between them is a person having decided, once, in advance.\n\nThe transferable test: **for each answer, ask who made the decision and whether it is written anywhere.** A: a named owner, in March. D: nobody, deferred to the asker, every time. C: the asker, unknowingly. B: nobody, invisibly, and then it explained the result."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-analytics-m3-rubric', 'ai301-analytics-m3', 'rubric', '{"promptVersion":"ai301-analytics-m3-contested-metrics-v1","moduleId":"ai301-analytics-m3","minWords":300,"maxWords":400,"submitLabel":"Your three definitions and write-up","intro":"Paste the two-ways test result, the three metric definitions with their edge-case rulings and named owners, the one second-brain entry, the validity check, and the 300–400 word write-up. Resubmission is free and unlimited. ''We don''t currently handle this'' is an honest ruling and scores as one.","activityContext":"You are grading a learner submission for AI 301 · The Specialist, People Analytics track — for people analytics practitioners who have completed AI 101, AI 201, and Module 1 of this track. Module 3 applied activity, ''The three contested metrics''. Step 1: before defining anything, test the opening claim by asking their most contested metric two ways through whatever natural-language or self-service surface their stakeholders actually use — a CFO''s phrasing and an HRBP''s phrasing — recording both numbers and both resolutions; where no such surface exists, asking two colleagues to define the metric from memory, separately, and recording the disagreement. Step 2: define their three most-contested metrics (the ones that generate arguments, not the ones hardest to compute), each with numerator, denominator, population, movement treatment, time basis and a named owner, plus at least four edge-case rulings each — the internal transfer, the fixed-term expiry, the person who joined and left inside the period, the acquired population on legacy codes, the converted contractor, the leave of absence spanning the boundary. The instruction is to write the ruling rather than the question; ''we don''t currently handle this'' is an honest entry and is a ruling they now owe someone. Step 3: one second-brain entry — taking one ruling and writing down why, what it was decided against, and what would make them revisit it, so they can feel the cost of the full practice. Step 4: the validity check on one metric — what would have to be true for this metric to be measuring something other than what it is named after — where inability to answer means they have a number rather than a measure, and knowing which is the point. The module''s context: the ambiguity did not appear, it became executable, and a model resolving an attrition question silently is worse than an error because it is invisible, unstable and unattributable. Its claim, which the write-up must take a position on, is that a function whose answer to natural-language analytics is ''route all questions through us'' has volunteered to be a queue; the real counter-argument is that the queue is the control, a written definition governs only anticipated questions, and giving it up hands away definitional authority in exchange for looking responsive. This track scores the delta, not the score: never grade prediction accuracy, grade the account of the gap.","opening":[{"key":"metricAgreementPredicted","label":"Predicted — % chance two people asking your most contested metric get the same number","hint":"Your honest estimate before you test it. Whole percent.","placeholder":"e.g. 80","min":0,"max":100}],"calibration":[{"key":"metricSpreadFound","label":"Measured — the % gap between the two answers you actually got","hint":"From Step 1. Zero if they matched exactly, which is a real and reportable result.","placeholder":"e.g. 24","min":0,"max":100,"actualFor":"metricAgreementPredicted"}],"dimensions":[{"name":"The two-ways test was run, not reasoned about","criteria":"Evidence of an actual test — two real phrasings put to a real surface, or two colleagues asked separately — with both numbers recorded and, where available, both resolutions. The failure mode is a learner explaining what would probably happen. A result of ''they matched'' is a genuine and valuable finding **if the test was run**, and should score at the top when the learner says what that tells them about their existing definitional discipline. Score down a submission that skipped to Step 2 because the answer seemed obvious."},{"name":"The metrics chosen are contested, not merely complex","criteria":"Three metrics that generate arguments in their organization — the ones Finance disputes, the ones that get re-cut before a board meeting. Technically difficult but uncontested metrics miss the point of the activity. Each definition must carry numerator, denominator, population, movement treatment, time basis, and a named human owner. An unowned definition is not a definition; it is a note."},{"name":"The edge cases carry rulings","criteria":"The graded core, because the contest lives here. At least four per metric, and each must state what the answer **is**, not what the question is. Reward the specific and locally-real cases — the acquired population still on legacy codes, the contractor conversion, the leave spanning the period boundary — over generic ones restated from the module. **''We don''t currently handle this'' is an honest ruling and scores as one**, provided the learner acknowledges it is now a decision they owe someone. Watch for edge cases listed as open questions with no ruling attached, which is the most common way this step gets performed rather than done."},{"name":"The second-brain entry captures reasoning, not the rule","criteria":"One entry containing the argument: why this ruling, what it was decided against, what would make them revisit it. The test is whether a junior who read it could reconstruct the decision rather than merely comply with it. A restatement of the rule in longer form fails this dimension. Credit a learner who reports what the exercise revealed about the cost of doing this at scale — that realization is the point of limiting it to one entry."},{"name":"The delta and the position","criteria":"Predicted agreement compared against the measured spread, with an account of what moved — learners who predicted high agreement and found a large gap are the intended case, and the useful part is what they had been assuming. Accuracy is never graded. Plus the validity check, where inability to answer, stated honestly, scores above a hand-waved answer. Plus a committed position on the module''s claim that engages the real counter-argument — that the queue is the control and a written definition only governs anticipated questions — where strong answers say what happens to a question the semantic layer does not cover, and who finds out. And the honest disclosure: which definition they expect disagreement on, and whether they have the standing to make it stick."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-analytics-m3-knowledge_check', 'ai301-analytics-m3', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"What actually changed about metric ambiguity?","options":["Models introduce new ambiguities that did not exist in dashboards","Nothing changed about the ambiguity — it became executable, so the decision still gets made but stopped being made by anyone","Stakeholders now ask more sophisticated questions than the definitions anticipated","Natural-language interfaces are less precise than SQL"],"correctIndex":1,"explanation":"The six families of decision under an attrition question were always there. What is new is a resolution step that leaves no record and may resolve differently next Tuesday."},{"id":"q2","prompt":"Why is a silent resolution worse than an error?","options":["Because errors are logged and resolutions are not","Because it is invisible (well-formed and in range, so nothing prompts a check), unstable (two true-looking numbers that disagree with no traceable why), and unattributable","Because models resolve ambiguity less consistently than junior analysts","Because it produces numbers outside the expected range"],"correctIndex":1,"explanation":"D is the opposite of the problem — a number outside the range would get checked. The danger is precisely that it looks right."},{"id":"q3","prompt":"Why does the module reject \"route all questions through us\" as the fix?","options":["Because stakeholders will ignore the policy","Because it volunteers the function as a queue — the tooling will answer regardless, and the fix is decisions made in advance, written where the machine reads them, owned by a named person","Because it slows the organization down more than the errors cost","Because it conflicts with self-service analytics strategy"],"correctIndex":1,"explanation":"Though see the module''s own counter-argument, which makes the serious case that the queue is the control. C is a real consideration and is not the module''s reason."},{"id":"q4","prompt":"What is the verification problem?","options":["That AI-generated analyses cannot be reproduced","That checking requires more expertise than producing","That knowing enough to check is a different skill from knowing the method — and the second used to imply the first, because the checking skill came bundled with the production skill","That verification tooling has not kept pace with generation tooling"],"correctIndex":2,"explanation":"The implication broke quietly. Nobody had to design for the checking skill before, because it arrived free as a side effect of having built things badly several times."},{"id":"q5","prompt":"Which check is specific to this era and most often skipped?","options":["Reconciling the input population against a known count","Rebuilding a figure you already know, on a prior period","Asking the system what it assumed — which denominator, which population, which date basis","Comparing the output against the previous month''s report"],"correctIndex":2,"explanation":"The output does not invite it. And it only becomes a real check once Lesson 1''s work exists, because then the answer is checkable against a written definition rather than against your memory."},{"id":"q6","prompt":"What does the second-brain pattern transfer, and what does it not?","options":["It transfers method but not domain knowledge","It transfers knowledge — the reasoning, the dead ends, what the data turned out to be — but not the experience of having been confidently wrong in front of someone who mattered","It transfers judgment but requires ongoing curation to stay current","It transfers both, provided the capture is disciplined enough"],"correctIndex":1,"explanation":"Which is why the module calls it a partial answer, and why it lands on the uncomfortable conclusion that some production work should be protected rather than automated."},{"id":"q7","prompt":"Why is a reworded survey item a problem even when the new wording is better?","options":["Because employees notice changes and respond to them","Because a reworded item is a different item, and it breaks comparability with every prior wave — which is usually the entire value of the instrument","Because AI-written items are less psychometrically valid on average","Because item wording must be approved by the vendor"],"correctIndex":1,"explanation":"Improved wording is still a change. If you change items you do it deliberately, say so, and either re-baseline or run both."},{"id":"q8","prompt":"What has stopped being evidence of engagement with a survey?","options":["Response rate","Completion time","Verbatim volume and polish — a long, articulate comment no longer indicates someone who cared enough to write it","The proportion of respondents who leave open text blank"],"correctIndex":2,"explanation":"Which matters most for any process that weights comments by length or fluency — including a model''s summarisation of them."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m4-claim-to-contest-before-you-start-10', 'ai301-analytics-m4', 10, 'calibration_prompt', 'stable', '## Claim to contest — before you start
+
+*Commit before you read anything.*
+
+> **"Your company has an AI deployment running right now with no baseline, and nobody has asked you
+> about it."**
+
+**True of us, or not true of us?** Then name the deployment you are thinking of — and if you cannot
+name one, that is your first finding, because it means you do not know what is running.
+
+You will go and check during the activity. **This is the module where "go and check" most often turns
+into a conversation you were not previously in**, which is the point of it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m4-module-brief-20', 'ai301-analytics-m4', 20, 'prose', 'stable', '## Module brief
+
+Your organization is spending money on AI. Somebody has promised a return. And **nobody has been
+asked to measure whether it is happening** — not because the question is unimportant, but because
+measuring the effect of an intervention on a workforce is a hard empirical problem and there is
+exactly one function that does hard empirical problems about the workforce.
+
+That is you, and this is the largest piece of unclaimed territory available to this role right now.
+
+It is also the module where this track stops being defensive. Modules 2 and 3 are about what your
+analysis is not entitled to say. **This one is about a question your organization urgently needs
+answered, that you can answer better than anyone else in the building, and that nobody has asked you
+for.**
+
+One warning up front, because it determines whether you get invited back. **The honest answer to
+"has AI helped us?" is usually going to be "less than the deck said, and here is how we would know."**
+If you are not prepared to report that, do not claim the territory — a function that only reports
+what the sponsor wanted has spent its Layer 5 standing to buy nothing.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m4-learning-objectives-30', 'ai301-analytics-m4', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. State what the current evidence says about AI''s measured productivity effect, with samples `[V]`.
+2. Explain why self-report is not just weak evidence here but actively misleading `[V]`.
+3. Design an evaluation using the units an HR function actually has — staggered rollout,
+   encouragement, difference-in-differences.
+4. Separate adoption, impact and displacement as three distinct measurements.
+5. Decline a forecast honestly and substitute something you can support.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m4-lesson-1-the-evidence-gap-laid-out-cold-40', 'ai301-analytics-m4', 40, 'prose', 'volatile', '## Lesson 1 · The evidence gap, laid out cold [V]
+
+Three findings. Read them together, because separately each one is arguable and together they are a
+pattern.
+
+**The developer trial.** METR, July 2025. Sixteen experienced open-source developers, 246 real tasks
+in repositories they knew deeply, each task randomly assigned to AI-allowed or AI-disallowed.
+
+- Beforehand, they forecast AI would make them **24% faster**.
+- Afterward, they estimated it had made them **20% faster**.
+- Measured, they were **19% slower**.
+
+State the scope honestly, as the authors do: deeply-understood repositories are close to a worst case
+for these tools, because the work requires bespoke output and the developer holds local knowledge the
+model lacks. *(METR published an update in February 2026 changing their experiment design; treat the
+specific figure as of its date.)* **The finding that transfers is not the 19%. It is the sign error** —
+the gap between perceived and measured direction, in expert practitioners, on their own work.
+
+**The firm-level picture.** A stratified survey of **more than 5,000 CFOs, CEOs and executives across
+the US, UK, Germany and Australia** (Yotzov, Barrero, Bloom, Bunn, Davis, Foster and colleagues):
+
+- Average productivity gain attributed to AI over the past three years: **0.29%**.
+- **89% of firms report no productivity impact at all.**
+- Firms forecast **1.4%** over the next three years.
+
+The second number is the one to carry. **A 0.29% mean is not a small uniform gain — it is a near-zero
+mass with a concentrated tail.** Most firms got nothing; a few got something real. Which is a
+completely different management problem from "AI produces modest gains," and it is the problem your
+organization actually has: *are we in the 11%, and how would we know?*
+
+**The economy-level picture.** Humlum and Vestergaard, on Danish worker- and workplace-level data
+(NBER w33777; revised and retitled — cite the current version). Denmark is a good test case: adoption
+comparable to the US, a flexible labour market with low hiring and firing costs and decentralised
+bargaining, so firms *could* adjust if there were something to adjust to.
+
+- **Precise null effects on earnings and hours**, ruling out effects larger than **2%**.
+- Users self-report average time savings of **2.8% of work hours**.
+- RCTs in the same occupations document gains **exceeding 15%**.
+
+**That last pair is the whole module in two numbers.** The controlled trials are not wrong. The
+15% is real *for the task studied, under trial conditions*. It arrives at the level of the worker as
+2.8%, and at the level of the firm as approximately nothing — and every step of that attenuation is
+a place your organization is currently not looking.
+
+**What none of this establishes:** that AI does not work. **What it does establish:** that the effect
+does not survive the trip from task to firm on its own, that the people experiencing it cannot feel
+its direction, and that anyone claiming a firm-level return without a design is claiming something
+the best available evidence says is uncommon.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m4-lesson-2-why-self-report-is-worse-than-n-50', 'ai301-analytics-m4', 50, 'prose', 'volatile', '## Lesson 2 · Why self-report is worse than nothing [V]
+
+Your organization is going to run a survey asking employees whether AI has made them more
+productive. It may already have. You will be asked to help.
+
+**That survey does not measure productivity. It measures how AI feels**, and those move independently
+— which is not a hypothesis, it is METR''s result. Sixteen expert practitioners, working on their own
+code, could not detect a 19% slowdown; they reported the opposite sign. The 2.8%-versus-15% gap says
+the same thing from the other end.
+
+Why the perception runs high is worth understanding, because it tells you what your survey will
+actually pick up. Using these tools **reduces the felt effort of starting**, removes the blank page,
+and produces visible output quickly. All three are real experiences and none is throughput. Meanwhile
+the costs are diffuse and unattributed: the review that took longer than writing it would have, the
+subtly wrong thing that cost an hour on Thursday, the meeting spent reconciling two AI-drafted
+documents that disagreed.
+
+**So "worse than nothing" is precise, not rhetorical.** Nothing leaves you uncertain. A 71%-say-it-
+helps result leaves you confident and wrong, it is quotable, it will appear in a board deck, and
+**you will be the function that produced it.** Module 1''s warning about the durable wrong belief
+applies with full force, and this is the most likely one your organization will acquire this year.
+
+**What to do when you are asked for it** — because "don''t run the survey" is not available to you.
+Run it, and **change what it claims to measure.** Ask about specific tasks and specific frequencies
+rather than about productivity. Ask what people stopped doing. Ask where output goes next and who
+reviews it. **Report it as adoption and experience data, labelled as such**, and never let the words
+"productivity" or "ROI" attach to it. That is a defensible artifact, and it is the honest half of
+Lesson 4''s three measurements.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m4-try-60', 'ai301-analytics-m4', 60, 'try_this', 'stable', '### Try this — 4 minutes
+Find the most recent internal claim about AI''s benefit at your company — a slide, a wiki page, an
+all-hands line. What is the evidence class: measured outcome, self-report, vendor projection, or
+anecdote? Most of them are the middle two.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m4-lesson-3-designs-that-work-with-the-unit-70', 'ai301-analytics-m4', 70, 'prose', 'stable', '## Lesson 3 · Designs that work with the units you have
+
+You will not get a randomized controlled trial. You do not need one. **You need a comparison, and
+your organization keeps producing them and throwing them away.**
+
+**Staggered rollout — the one you almost certainly already have.** Licences went to one function
+first. A region got early access. Pilot teams were chosen in March and everyone else got it in
+September. **That is a natural experiment**, and the comparison was available for six months while
+nobody preserved it.
+
+The requirement is small and it is entirely about timing: **before the next wave, write down what you
+will compare and take the baseline.** Not a study design — a measurement taken before a thing
+happens. Module 2''s staggered-adoption halt condition applies to the analysis afterward; this is the
+one action that makes the analysis possible at all.
+
+Say the uncomfortable part: **the reason pilots are not evaluated is rarely methodological.** It is
+that the pilot group was selected — volunteers, enthusiasts, the team whose director asked — and
+selected groups are where AI looks best. Which is the finding, not an obstacle to it.
+
+**Encouragement designs — when you cannot withhold access.** You often can''t; licences are
+enterprise-wide and withholding a tool from a control group is a real ethical and practical problem.
+So randomise **the encouragement** rather than the access: training invitations, onboarding sessions,
+prompts to try a workflow. Everyone can use it; some are actively nudged. Take-up differs, and the
+difference in outcomes across the randomised encouragement is an honest estimate. **This is the single
+most underused design in HR** and it fits how AI rollouts actually happen.
+
+**Difference-in-differences, with its assumption stated.** Where a group got something and another
+didn''t, and you have data before and after, compare the *changes* rather than the levels. The
+assumption is parallel trends — that both groups would have moved together absent the intervention —
+and it is an assumption, not a property. **Check the pre-period.** If the trends were already
+diverging, DiD will hand you a confident number that is an artifact.
+
+**And the ethics of the holdout**, plainly. Withholding something valuable is a real cost. Two things
+make it defensible: you do not yet know it is valuable, which is the entire reason for the study; and
+the holdout is usually a **delay** rather than a denial, since the second wave was coming anyway. What
+is not defensible is a permanent holdout for a tool you have already concluded works.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m4-lesson-4-three-measurements-not-one-80', 'ai301-analytics-m4', 80, 'prose', 'stable', '## Lesson 4 · Three measurements, not one
+
+The distinction almost everyone collapses, and the sentence that earns your function its seat.
+
+**Adoption.** Who is using it, how often, for what. Licence activations, weekly actives, task
+coverage. Easy to measure, immediately available, and it is what every dashboard reports. **Adoption
+is not impact and does not imply it.** A tool can be used daily and change nothing.
+
+**Impact.** Did output, quality, speed or cost change. Hard, requires a comparison, and it is the
+only one of the three that answers the question leadership thinks it is asking.
+
+**Displacement.** What work went away, what work appeared, and who is doing it now. Almost nobody
+measures this and it is where the organizational consequences live. Humlum and Vestergaard found
+firms absorbing AI through **task reorganisation** — new work in content generation, AI oversight and
+integration — rather than through hours or earnings. **The work moved. It did not vanish.** If you
+only measure adoption and impact, you will miss the fact that your review burden has quietly shifted
+onto senior people, or that a junior task disappeared and took its training value with it. *(Which is
+Module 3''s apprenticeship problem, arriving with a measurement attached.)*
+
+Three units, three timescales, three audiences. **A dashboard reporting licence activations has
+measured none of them**, and saying so — with the alternative attached — is how this conversation
+starts.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m4-lesson-5-declining-the-forecast-honestly-90', 'ai301-analytics-m4', 90, 'prose', 'stable', '## Lesson 5 · Declining the forecast honestly
+
+The question you will be asked most in the next two years, and can least answer:
+
+> *What will AI do to our headcount and our skills?*
+
+It arrives looking like a forecasting question. It is mostly not one. There is **no base period** —
+the technology, its capability and its cost have all moved inside any window you would fit on. The
+**intervention is undefined** — "AI" is not a treatment, and what you adopt next year is a choice
+nobody has made. And **the outcome depends on decisions your leadership has not taken**, which makes
+your forecast a prediction about their behaviour dressed as a prediction about technology.
+
+Produce a number anyway and one of two things happens. It is wrong and your credibility pays. Or it
+is right by luck and becomes the anchor for a headcount decision you did not intend to make. **The
+second is worse.**
+
+**So decline — and the decline is only professional if something arrives with it.** Three things you
+can support:
+
+- **Exposure analysis.** Which roles contain tasks the technology can plausibly do, sized by hours
+  rather than headcount. A statement about *tasks*, not about jobs, and the distinction is the whole
+  honesty of it.
+- **Scenario ranges with assumptions exposed.** Not a forecast — two or three futures with the
+  decisions that produce each one written on the front, so leadership can see they are choosing
+  rather than receiving.
+- **A monitoring plan.** The leading indicators you will actually watch, the cadence, and the
+  threshold at which you would come back and say something changed. This is the one that converts a
+  refusal into an ongoing engagement.
+
+**The sentence, and it is the most professionally valuable one in this role:**
+
+> *"I can''t answer that with what we have. Here is what I can support, and here is what would let me
+> answer it properly."*
+
+A function that never declines has told its organization that its findings mean nothing in
+particular. **The decline is what makes the other findings load-bearing.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m4-exercise-embed-95', 'ai301-analytics-m4', 95, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m4-key-takeaways-100', 'ai301-analytics-m4', 100, 'takeaways', 'stable', '## Key takeaways
+
+- **The largest unclaimed territory available to this role** is measuring the AI transformation your
+  company is already paying for — and the honest answer is usually "less than the deck said."
+- **The evidence, together** `[V]`: experts were **19% slower** while believing they were **20%
+  faster**; **0.29%** average firm-level gain with **89% of firms reporting nothing**; and **precise
+  nulls on earnings and hours** in Denmark, with **2.8% self-reported savings against 15%+ in RCTs.**
+- **A 0.29% mean is a near-zero mass with a concentrated tail**, not a modest uniform gain. The
+  question is *are we in the 11%, and how would we know.*
+- **Self-report is worse than nothing.** It measures how AI feels, which moves independently of
+  throughput — nothing leaves you uncertain; a confident wrong number gets into a board deck with your
+  name on it. **If you must run it, change what it claims to measure** and label it adoption.
+- **Your organization keeps producing natural experiments and throwing them away.** Staggered
+  rollouts, regional sequencing, pilot cohorts. **Before the next wave, write down what you''ll compare
+  and take the baseline.**
+- **Randomise the encouragement when you can''t withhold the access** — the most underused design in
+  HR, and it fits how rollouts actually happen.
+- **Adoption, impact and displacement are three measurements**, and displacement is where the
+  organizational consequences live. **The work moved; it did not vanish.**
+- **Decline the headcount forecast, and bring three things with you:** exposure analysis by task,
+  scenario ranges with assumptions exposed, and a monitoring plan with a threshold.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m4-activity-link-105', 'ai301-analytics-m4', 105, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 The measurement design", "blurb": "One page for an AI deployment already running in your company: the sponsor''s promise in their words, the baseline and whether you can still get it, the design matched to what actually happened, adoption/impact/displacement, and the result that would make you report it isn''t working. Write it so it can be sent.", "estMinutes": "35"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m4-take-a-position-110', 'ai301-analytics-m4', 110, 'callout', 'stable', '## Take a position
+
+**The claim:** *"A survey asking employees whether AI made them more productive is worse than not
+measuring at all."*
+
+The strongest counter-argument is that **this holds self-report to a standard nothing in this function
+would survive.** Engagement, inclusion, manager effectiveness, psychological safety, intent to stay —
+the entire listening programme is self-report, and this course''s own track on it treats those as
+legitimate measures with known limitations rather than as anti-evidence. Perceived productivity is a
+real construct: it predicts adoption, retention of the tool, and willingness to invest effort in
+learning it, all of which are things you need to know. **Refusing to collect it does not produce a
+better number — it produces a decision made on vendor claims instead**, which is the only other
+evidence in the room. On that view the module has confused *a bad proxy for productivity* with *a bad
+measure of something else*, and the fix is labelling rather than abstention. Your position has to say
+whether labelling is sufficient in an organization where the label will be dropped by the second
+slide.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m4-sources-and-attribution-120', 'ai301-analytics-m4', 120, 'prose', 'stable', '## Sources and attribution
+
+- **The measurement mandate, the three-measurement distinction, and the artifact-that-gets-you-in-a-room
+  framing** come from a human-authored brief for this track.
+- **The developer trial `[V]`:** METR, *Measuring the Impact of Early-2025 AI on Experienced
+  Open-Source Developer Productivity*, July 2025 — 16 developers, 246 tasks, own repositories;
+  forecast 24% faster, felt 20% faster, measured 19% slower. Authors'' own scope caveat included.
+  METR published a design update in February 2026; treat the figure as of its date.
+- **The firm-level survey `[V]`:** Yotzov, Barrero, Bloom, Bunn, Davis, Foster *et al.* — stratified
+  samples of 5,000+ CFOs, CEOs and executives across the US, UK, Germany and Australia. 0.29%
+  realized gain over three years; 89% reporting no impact; 1.4% forecast.
+- **The economy-level study `[V]`:** Humlum & Vestergaard, Danish worker- and workplace-level data,
+  NBER w33777 — precise null effects on earnings and hours ruling out effects above 2%; 2.8%
+  self-reported time savings against RCT gains exceeding 15%; absorption via task reorganisation.
+  Revised and retitled — cite the current version.
+- The encouragement-design recommendation, the displacement measurement, and the
+  decline-with-three-things pattern are original to this course.
+- Builds on Module 1 (the durable wrong belief), Module 2 (halt conditions, and the test that an
+  evaluation must be able to fail) and Module 3 (the apprenticeship problem, which displacement
+  measurement makes visible).', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m4-activity-applied-activity-the-measurement-design-10', 'ai301-analytics-m4-activity', 10, 'prose', 'stable', '## Applied activity — "The measurement design"
+
+**Time:** 35 minutes · **Submit:** the one-page design plus a 300–400 word write-up · **Graded against
+the rubric below.** Score doesn''t matter. Doing the work is where the learning lands.
+
+**This is the artifact that gets you into a room you are not currently in.** Write it so it can be
+sent, not so it can be graded.
+
+**Step 1 — Find the deployment (5 min).** An AI deployment **already underway** in your company —
+running or committed, not hypothetical. A copilot licence rollout, a service-desk assistant, an
+AI feature switched on inside a system you already own, a recruiting tool. Name the sponsor and what
+they have promised, in their words if you can find them.
+
+If you genuinely cannot find one, **find out why you cannot** — that is a finding about your position
+in the organization, and it is the most useful thing this activity could tell you.
+
+**Step 2 — The baseline (8 min).** What you would measure before, where the data lives, and **whether
+you can still get it.** Be specific: the query, the report, the system. Then the honest part — **if
+the baseline window has already passed, say so.** That is the single most common finding in this
+activity and it is more valuable than a design built on a baseline you cannot obtain.
+
+**Step 3 — The design (10 min).** Which of Lesson 3''s designs fits what actually happened — staggered
+rollout, encouragement, difference-in-differences — and why. Name the comparison group and how it came
+to exist. **If it was self-selected, say so and say what that does to the estimate.** Attach the halt
+conditions from Module 2 that apply: staggered adoption, positivity, the estimand.
+
+**Step 4 — The three measurements (7 min).** One line each for **adoption**, **impact** and
+**displacement**, with the metric and the source. Displacement is the one to spend the time on,
+because it is the one nobody else will have thought about — what work went away, what appeared, and
+who is doing it now.
+
+**Step 5 — What would count as failure (5 min).** The result that would make you report that this
+deployment is not working. **If no result would produce that report, you have written a
+justification, not an evaluation** — and Module 2''s test applies here exactly as it did there.
+
+Then the write-up: the sponsor''s promise in their words and what would actually test it, whether the
+baseline is still obtainable, the design and its weakest assumption, your answer on the opening claim,
+your position on the module''s claim with its counter-argument addressed, and — the honest one —
+**whether you are willing to report the failure result if you get it, and what it would cost you.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m4-micro-core', 'ai301-analytics-m4-micro', 10, 'prose', 'volatile', '## Module 4 in two minutes
+
+**Your organization is spending money on AI, somebody promised a return, and nobody has been asked to measure it.** That is the largest piece of unclaimed territory available to this role — because measuring the effect of an intervention on a workforce is a hard empirical problem, and there is exactly one function that does those.
+
+**The evidence, read together** `[V]`. METR, July 2025: 16 experienced developers, 246 tasks in repos they knew deeply, randomised. They forecast **24% faster**, felt **20% faster**, and measured **19% slower**. A stratified survey of **5,000+ executives** across four countries: **0.29%** average productivity gain over three years, with **89% of firms reporting no impact at all** — so the mean is a near-zero mass with a concentrated tail, not a modest uniform gain. And Humlum & Vestergaard on Danish worker-level data: **precise nulls on earnings and hours**, ruling out anything above 2%, with users self-reporting **2.8%** time savings against RCT gains **exceeding 15%** in the same occupations.
+
+**That last pair is the module in two numbers.** The 15% is real for the task under trial conditions. It reaches the worker as 2.8% and the firm as approximately nothing — **and every step of that attenuation is somewhere your organization is not looking.**
+
+None of it says AI doesn''t work. It says the effect doesn''t survive the trip from task to firm on its own, and that the people experiencing it cannot feel its direction.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m4-micro-rule', 'ai301-analytics-m4-micro', 20, 'callout', 'stable', '### The rules to carry
+
+**Adoption, impact and displacement are three measurements, not one.** Adoption is who used it — easy, immediate, and what every dashboard reports. **A tool can be used daily and change nothing.** Impact is whether output, quality, speed or cost moved, and it needs a comparison. **Displacement is what work went away, what appeared, and who is doing it now** — almost nobody measures it, and it is where the organizational consequences live. Firms absorb AI through **task reorganisation** rather than through hours or earnings: **the work moved, it did not vanish**, including onto senior reviewers and out of the junior tasks that carried training value.
+
+**Self-report is worse than nothing here.** A survey asking whether AI made people more productive measures how AI *feels* — reduced effort of starting, no blank page, quick visible output — and none of those is throughput. Nothing leaves you uncertain; a confident 71%-say-it-helps is quotable, reaches a board deck, and carries your name. **If you''re told to run it, run it and change what it claims to measure**: specific tasks, frequencies, what people stopped doing, where the output goes next. Report it as adoption, never as productivity or ROI.
+
+And **your organization keeps producing natural experiments and throwing them away.** Before the next rollout wave: write down what you''ll compare, and take the baseline.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m4-micro-close', 'ai301-analytics-m4-micro', 30, 'prose', 'stable', '**The full module adds the designs that fit the units you actually have.** Staggered rollout as the natural experiment you probably already had and let expire — and the uncomfortable note that pilots go unevaluated for a non-methodological reason: **the pilot group was selected, and selected groups are where AI looks best**, which is the finding rather than an obstacle to it. **Encouragement designs** for when you cannot withhold access — randomise the training invitation rather than the licence, which is the most underused design in HR and fits how rollouts actually happen. **Difference-in-differences** with parallel trends named as an assumption and the pre-period checked, because if trends were already diverging DiD hands you a confident artifact.
+
+Then the question you''ll be asked most and can least answer: **what will AI do to our headcount?** No base period, an undefined intervention, and an outcome depending on decisions leadership hasn''t made — so a forecast is a prediction about their behaviour dressed as one about technology. Produce a number and either it''s wrong and your credibility pays, or **it''s right by luck and becomes the anchor for a headcount decision you never intended to make**, which is worse.
+
+**Decline — and bring three things:** exposure analysis sized by task-hours rather than headcount, scenario ranges with the assumptions on the front so leadership sees it is choosing, and a monitoring plan with a threshold that would bring you back. **A function that never declines has told its organization its findings mean nothing in particular.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-analytics-m4-choice', 'ai301-analytics-m4', 'choice', '{"reviewedAt":"2026-08-12","title":"Four evaluation plans for the same rollout","intro":"*Five minutes. Commit before you look.*\n\nSame company, same deployment: an AI assistant licensed to 2,000 people, rolled out to Customer Operations in March and to everyone else in September. The CFO wants to know whether it worked.\n\n**One plan measures change. The others measure activity and call it change** — and the most expensive-looking plan is not the best one.","artifacts":[{"label":"Plan A","body":"\"Weekly active users, queries per user, and licence utilisation by department, on a live dashboard. Plus a quarterly pulse survey: ''has the assistant made you more productive?'' with a 5-point scale, and an open-text box for examples. We''ll report utilisation against the 80% target in the business case and pull the strongest verbatims for the steering group.\""},{"label":"Plan B","body":"\"March gave us a natural experiment and we still have the window. Baseline pulled now for both groups from the ticketing system — handle time, first-contact resolution, reopen rate, and backlog age — for the six months before March. Design is difference-in-differences, Customer Ops versus the September cohort, and we''ve checked the pre-period: the two groups'' handle times were tracking in parallel through the prior year, which is the assumption, so we''re stating it and showing the chart. Halt condition: if pre-trends diverge on re-check, we drop DiD and report descriptively. We''ll also track what work moved — reopen rate and escalations to tier 2 are where rework would show up if it''s being pushed downstream. Failure condition stated up front: if handle time improves and reopen rate rises by more than the handle-time gain, we report that the work moved rather than reduced.\""},{"label":"Plan C","body":"\"We''re commissioning a proper study: a 12-week randomised trial with a holdout group of 200 people who won''t get licences, matched on role, tenure and prior performance. Primary outcome is a composite productivity index we''re building from six weighted measures. We''ll also run a validated engagement instrument pre and post to capture wellbeing effects, and a time-diary study on a subsample. Estimated cost is a vendor engagement plus about 0.4 FTE of analyst time for a quarter.\""},{"label":"Plan D","body":"\"Track output per head in Customer Operations, monthly, from January through December, and compare the second half against the first. If tickets closed per FTE rises after March, that''s the effect. Simple, uses data we already have, and the whole team can see the chart. We''ll annotate the rollout date on the time series so the inflection is visible.\""}],"options":[{"id":"a","label":"Plan A"},{"id":"b","label":"Plan B"},{"id":"c","label":"Plan C"},{"id":"d","label":"Plan D"}],"key":"b","reasoning":"**B is the only plan that could come back negative, and it is built entirely from things the company already has.** The staggered rollout was a natural experiment and B is claiming it before the window closes. The baseline is specified by system and measure. The design names its assumption — parallel trends — **checks the pre-period rather than asserting it**, shows the chart, and carries a halt condition for when the check fails. And it measures **displacement**: reopen rate and tier-2 escalations are where rework shows up if the work is being pushed downstream rather than eliminated. **Its failure condition is written before the analysis runs**, which is Module 2''s test applied here exactly.\n\n**A is the most common plan in the market and it measures adoption while claiming impact.** Weekly actives and licence utilisation against an 80% target tell you people opened the thing. **A tool can be used daily and change nothing.** Then the pulse survey, which is the specific artifact Lesson 2 warns about: it measures how the assistant *feels*, and expert practitioners could not detect a 19% slowdown in their own work. \"Pull the strongest verbatims\" is selection on the outcome, performed deliberately. This plan cannot fail — utilisation will hit some number and some verbatims will be positive — and it will produce a confident sentence for a board deck with your function''s name on it.\n\n**C is the trap for careful people, and it fails on two counts.** First, it is **buying a design the company already had for free** — the March/September split is a natural experiment sitting in the data, and C spends a vendor engagement and 0.4 FTE to build a worse version with 200 people. Second, the **permanent holdout is the one Lesson 3 says is not defensible**: withholding licences from 200 named people for a tool the organization has already committed to is a denial rather than a delay. The composite index is a further problem — six weighted measures, with the weights chosen by whoever built it, is a definitional decision (Module 3) that will be contested the moment the result is unwelcome. Rigour is not the same as design fit, and **the most expensive plan here is the least well-aimed.**\n\n**D is the honest-looking one that is almost pure artifact.** A before-and-after on a single group with no comparison attributes to the rollout everything else that happened in the second half of the year — seasonality, headcount changes, a process fix, the ticket mix. Customer Operations volume is seasonal in almost every business. And the annotated inflection is worse than nothing, because **a vertical line on a time series is a causal claim drawn as a formatting choice.** D would have been B if someone had asked \"compared to what?\"\n\nThe transferable test: **name the result that would make you report the deployment isn''t working.** B has one, written down. A cannot produce one. C could in principle, at ten times the cost, having created an ethical problem to get there. D will produce a number either way and call the sign the answer."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-analytics-m4-rubric', 'ai301-analytics-m4', 'rubric', '{"promptVersion":"ai301-analytics-m4-measurement-design-v1","moduleId":"ai301-analytics-m4","minWords":300,"maxWords":400,"submitLabel":"Your measurement design and write-up","intro":"Paste the one-page design — deployment and sponsor''s promise, baseline and whether it''s still obtainable, the design and its comparison group, the three measurements, and the failure condition — plus the 300–400 word write-up. Write it so it can be sent, not so it can be graded. Resubmission is free and unlimited.","activityContext":"You are grading a learner submission for AI 301 · The Specialist, People Analytics track — for people analytics practitioners who have completed AI 101, AI 201, and Modules 1–3 of this track. Module 4 applied activity, ''The measurement design'': a one-page evaluation design for an AI deployment already underway in their company, written as a sendable artifact rather than a course exercise. Step 1: name a real running or committed deployment, its sponsor, and what the sponsor has promised in their own words — and if no deployment can be found, find out why not, which is a finding about the learner''s position in the organization. Step 2: the baseline — what would be measured before, which system and query it comes from, and whether it is still obtainable, with the note that a passed baseline window is the most common finding in this activity and is more valuable than a design resting on data they cannot get. Step 3: the design — staggered rollout, encouragement design, or difference-in-differences — matched to what actually happened, naming the comparison group and how it came to exist, saying so if it was self-selected and what that does to the estimate, with Module 2''s applicable halt conditions attached (staggered adoption, positivity, the estimand). Step 4: one line each for adoption, impact and displacement with metric and source, where displacement is what work went away, what appeared and who is doing it now — the one nobody else will have considered, and where Humlum & Vestergaard found firms absorbing AI through task reorganisation rather than hours or earnings. Step 5: the result that would make them report the deployment is not working, since a design with no failure condition is a justification rather than an evaluation. Background evidence in the module: METR''s 16 developers measured 19% slower while believing 20% faster; a 5,000+ executive survey showing 0.29% average firm-level gain with 89% reporting none; Danish precise nulls with 2.8% self-reported savings against 15%+ in RCTs. The module''s claim, which the write-up must take a position on, is that a survey asking employees whether AI made them more productive is worse than not measuring at all; its real counter-argument is that this holds self-report to a standard the entire listening programme would fail, that perceived productivity is a real construct predicting adoption and effort, and that refusing to collect it means deciding on vendor claims instead — so the fix may be labelling rather than abstention. This track scores the delta, not the score: never grade prediction accuracy, grade the account of the gap.","opening":[{"key":"deploymentsPredicted","label":"Predicted — how many AI deployments are currently live in your organization","hint":"Touching any part of the business, not just HR. Your honest count before you go looking.","placeholder":"e.g. 3","min":0,"max":200}],"calibration":[{"key":"deploymentsFound","label":"Found — how many you could actually identify","hint":"From Step 1. Finding more than you predicted is the common result.","placeholder":"e.g. 7","min":0,"max":200,"actualFor":"deploymentsPredicted"}],"dimensions":[{"name":"The deployment is real and the promise is quoted","criteria":"A named deployment that is running or committed, with a named sponsor and — the graded part — **what they promised, in their words where obtainable.** A paraphrased benefit (''efficiency gains'') scores below a quoted one (''30% reduction in time-to-resolution by year end''), because the quoted version is what the design has to test. Where the learner could not find a deployment, an account of *why* they could not — no visibility, no invitation, no inventory — is a full-credit outcome and often the most useful result in the activity; it should be read as a finding about their standing rather than a failure to complete."},{"name":"The baseline is specific and its availability is faced","criteria":"Named system, named measure, named query or report — not ''we''d use ticketing data''. Then the honest determination: is the pre-period data still obtainable, and has the window already passed? **A submission reporting that the baseline is gone, with what it would have needed, scores above one that assumes availability it has not checked.** Look for whether the learner distinguished data that exists from data they can actually get, which are different questions in most organizations."},{"name":"The design fits what actually happened","criteria":"One of the three designs, chosen for the rollout that occurred rather than for methodological prestige. Reward recognising a natural experiment the organization already produced and did not preserve. The comparison group must be named with an account of how it came to exist, and **self-selection stated plainly with its effect on the estimate** — pilot groups are volunteers and enthusiasts, which is where AI looks best, and saying so is the finding rather than an obstacle. For DiD, the parallel-trends assumption must be named as an assumption with a stated intention to check the pre-period. Score down an elaborate design that ignores an available comparison, and score down a permanent holdout for a tool already committed to."},{"name":"Three measurements, with displacement taken seriously","criteria":"Adoption, impact and displacement each with a metric and a source, and clearly distinguished — a submission that reports usage under ''impact'' has collapsed the distinction the module exists to teach. Displacement carries the most weight because it is the one nobody else in their organization will have considered: what work went away, what appeared, who is doing it now. Strong answers name a specific place rework would surface — reopen rates, escalations, senior review load, or a junior task that disappeared and took its training value with it."},{"name":"The delta, the failure condition, and the position","criteria":"Predicted versus found deployment count, with an account of the gap — most learners find more than they predicted, and what that says about their visibility is the point. Accuracy is never graded. Then the failure condition: a named result that would make them report the deployment is not working. **If no result would produce that report, say so in the feedback — they have written a justification rather than an evaluation.** Plus the honest disclosure the write-up requires: whether they are willing to report the failure result and what it would cost them, where a candid account of the cost outscores a confident yes. Plus a committed position on the module''s claim engaging the real counter-argument about self-report and labelling — strong answers address whether a label survives to the second slide."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-analytics-m4-knowledge_check', 'ai301-analytics-m4', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"What is the finding from the developer trial that transfers beyond software? `[V]`","options":["That AI tools slow experienced practitioners by roughly 19%","The sign error — the gap between perceived and measured *direction*, in expert practitioners working on their own familiar work","That AI tools are least useful in codebases the developer knows well","That practitioners overestimate AI benefits by about 4 percentage points"],"correctIndex":1,"explanation":"A and C are true of that study and are scope-limited; the authors say so themselves. What generalises is that experts could not feel the direction of their own productivity change."},{"id":"q2","prompt":"What does a 0.29% average firm-level productivity gain actually describe? `[V]`","options":["A small but broadly distributed improvement across most firms","A near-zero mass with a concentrated tail — 89% of firms report no impact at all, and a few got something real","A measurement too noisy to interpret","Gains offset by implementation costs in the same period"],"correctIndex":1,"explanation":"Which is a different management problem from \"modest gains,\" and it is the one your organization has: *are we in the 11%, and how would we know?*"},{"id":"q3","prompt":"How do you reconcile 15%+ gains in RCTs with precise nulls on earnings and hours? `[V]`","options":["The RCTs are methodologically flawed","The effect is real for the task under trial conditions, arrives at the worker as ~2.8% of hours, and reaches the firm as approximately nothing — and each step of that attenuation is somewhere nobody is looking","Firms are capturing the gains as profit rather than passing them through","The Danish labour market is too rigid to show the effect"],"correctIndex":1,"explanation":"D is specifically wrong — Denmark was chosen because it is flexible, with low hiring and firing costs, so firms could adjust if there were something to adjust to."},{"id":"q4","prompt":"Why is a \"did AI make you more productive?\" survey called worse than nothing? `[V]`","options":["Because response rates on AI surveys are typically too low to interpret","Because nothing leaves you uncertain, while a confident wrong number is quotable, reaches a board deck, and carries your function''s name","Because employees have incentives to overstate their AI usage","Because perceived productivity cannot be measured reliably"],"correctIndex":1,"explanation":"It measures how AI feels — reduced felt effort of starting, no blank page, visible output quickly — all real experiences, none of them throughput."},{"id":"q5","prompt":"What should you do when asked to run that survey anyway?","options":["Decline and explain the evidence","Run it and report the results with a caveat about self-report","Run it and change what it claims to measure — specific tasks and frequencies, what people stopped doing, where output goes next — reported as adoption and experience data, never as productivity or ROI","Run it alongside a productivity metric so the two can be compared"],"correctIndex":2,"explanation":"\"Don''t run it\" is not available to you. A is unavailable in practice and B leaves the label attached, which is what travels."},{"id":"q6","prompt":"What is the requirement for using a staggered rollout as a natural experiment?","options":["Random assignment of which group goes first","Writing down what you will compare and taking the baseline *before* the next wave — a measurement taken before a thing happens, not a study design","A minimum of three rollout waves for statistical power","Equivalent group sizes across waves"],"correctIndex":1,"explanation":"And the reason pilots go unevaluated is rarely methodological: the pilot group was selected, selected groups are where AI looks best, and that is the finding rather than an obstacle to it."},{"id":"q7","prompt":"Which of the three measurements is the module most concerned that nobody runs?","options":["Adoption, because licence data is often incomplete","Impact, because it requires a comparison group","Displacement — what work went away, what appeared, and who is doing it now, which is where the organizational consequences live","All three are equally neglected"],"correctIndex":2,"explanation":"Firms absorb AI through task reorganisation rather than through hours or earnings. **The work moved; it did not vanish** — including onto senior reviewers, and out of the junior tasks that used to carry training value."},{"id":"q8","prompt":"Why is the headcount-impact question not really a forecasting question?","options":["Because headcount decisions are made by leadership rather than by analytics","Because there is no base period, the intervention is undefined, and the outcome depends on decisions leadership hasn''t made — so a forecast is a prediction about their behaviour dressed as one about technology","Because the time horizon is too long for workforce planning models","Because AI capability is improving faster than any model can incorporate"],"correctIndex":1,"explanation":"And producing a number anyway risks the worse outcome: being right by luck and becoming the anchor for a headcount decision you did not intend to make."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m5-claim-to-contest-before-you-start-10', 'ai301-analytics-m5', 10, 'calibration_prompt', 'stable', '## Claim to contest — before you start
+
+*Commit before you read anything.*
+
+> **"Nobody in your organization can produce a list of the AI systems currently touching a decision
+> about a person."**
+
+**True of us, or not true of us?** If you believe someone can, name them — and note whether you think
+the list would include the model your own team built.
+
+You will go and build that list in the activity. It is the artifact this module exists to produce.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m5-module-brief-20', 'ai301-analytics-m5', 20, 'prose', 'stable', '## Module brief
+
+Three tracks in this curriculum have a floor module, and all three tell the learner to find out who
+the deployer is. **This one is different, because the obligations land on you and the evidence that
+discharges them is statistical.**
+
+That is the argument for the whole module and it is worth stating plainly:
+
+> **Legal cannot do this alone. They can read the statute. They cannot run an adverse impact
+> analysis, validate an instrument against the Uniform Guidelines, or tell you whether a model''s
+> disparity is real or an artifact of the control set.**
+
+The obligations are legal. **The evidence is statistical.** That combination exists in exactly one
+function, and it is a stronger claim to territory than any org-chart argument you could make.
+
+A subtraction note, so this module stays in its lane. Three shipped tracks already carry a regulatory
+map — the HRBP track on state AI employment law and the agent doctrine, the recruiter track on adverse
+impact and bias auditing **in a selection context**, the People Ops track on deployer obligations,
+logs and works councils. **This module cross-references all three and re-teaches none of them.** What
+is here is the analytics-specific surface: the three ways you acquire obligations that a systems owner
+does not, and the disclosure problem that is yours alone.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m5-learning-objectives-30', 'ai301-analytics-m5', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. State why the legal obligation and the discharging evidence sit in different professions.
+2. Read the current map well enough to know what has to be retained, testable and documented `[V]`.
+3. Explain how building or repurposing a model makes you a provider rather than only a deployer `[V]`.
+4. Identify purpose-limitation violations in secondary use of HR data `[V]`.
+5. Apply disclosure control — thresholds, suppression, and the differencing attack — as distinct from
+   access control.
+6. Draw the surveillance line deliberately, before it is drawn by default.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m5-lesson-1-why-this-is-yours-40', 'ai301-analytics-m5', 40, 'prose', 'stable', '## Lesson 1 · Why this is yours
+
+Start with the mechanism rather than the claim.
+
+A regulator, a works council, or a claimant asks: *does this system disadvantage a protected group?*
+That question has a legal frame and a statistical answer. Somebody has to define the comparison
+groups, choose the selection rate measure, decide what counts as a practical difference, determine
+whether an observed gap survives controls, and say which controls are legitimate rather than
+laundering. **Every one of those is a modelling decision with a fairness consequence**, and comp M4''s
+lesson applies at full force: *"explained" variance is a modelling decision, not a statistical fact.*
+
+Your Legal team cannot make those decisions. They can tell you the standard. **They cannot tell you
+whether you have met it**, and if they try, they will do it by asking whoever built the model — which
+is either you or a vendor with an interest in the answer.
+
+Two consequences.
+
+**You will be asked for evidence you have not been asked to keep.** Retention obligations attach to
+records that only exist if somebody decided to create them. A model''s training population, the
+selection rates it produced, the version that ran in March — none of these are automatic.
+
+**And the reverse: involve counsel before you test, not after.** Where an analysis might surface a
+disparity, whether it is privileged depends on how it was commissioned. The comp track''s Module 4
+covers this properly and it is the same lesson here — **the sophisticated posture is to run the
+analysis at the direction of counsel**, and that has to be arranged in advance because privilege is a
+fact about commissioning, not about content.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m5-lesson-2-the-map-compressed-50', 'ai301-analytics-m5', 50, 'prose', 'volatile', '## Lesson 2 · The map, compressed [V]
+
+Three tracks carry the detail. Here is what an analytics function has to *do* about each.
+
+**California FEHA automated-decision systems.** In force since **1 October 2025**, applying to
+employers with **five or more employees** in California. Records of selection criteria, ADS data and
+applicant-flow logs must be retained for **four years** — doubled from two. And the reach extends to
+**AI tool developers and agents**, which is the limb that matters here: if your team built it, the
+regulation is looking at your team.
+
+*What you do:* the four-year clock runs on records somebody has to be creating. Selection rates by
+group, per version, per period. **If your model changed in June and you cannot say what the previous
+version did, the record does not exist and the retention obligation cannot be met retrospectively.**
+
+**Illinois.** In force since **1 January 2026**, amending the Human Rights Act. **Strict liability for
+discriminatory effect — intent is not a defence.** Notice required where AI is used in recruitment,
+hiring, promotion, discipline, discharge, or the terms of employment. **Zip codes as proxies for
+protected classes are expressly prohibited.** One employee is enough to be covered, and implementing
+rules are still being written.
+
+*What you do:* the zip-code prohibition is the analytics-specific one, and it generalises further than
+its text. **Any geographic, educational or behavioural feature can function as a proxy**, and strict
+liability means you do not get to argue you did not mean to. Feature-by-feature proxy review belongs
+in your model documentation, not in Legal''s.
+
+**Colorado — and this one is the lesson.** SB 24-205 was the landmark state AI act. It was postponed
+to 30 June 2026. Its enforcement was **blocked by a federal magistrate on 27 April 2026** following a
+constitutional challenge with the Department of Justice intervening. It was then **repealed and
+replaced by SB 26-189, signed 14 May 2026** — a scaled-back **disclosure-and-rights framework** for
+automated decision-making technology, effective **1 January 2027**.
+
+*What you do:* notice what would have happened to a compliance programme built to SB 24-205''s specific
+requirements. **Postponed, enjoined, repealed and replaced inside thirteen months.** The date survived
+and the law behind it did not. **Build an inventory that survives the statute rather than a checklist
+keyed to one** — which is exactly what this module''s activity produces, and why it asks for a risk
+classification rather than a compliance status.
+
+**And the EU timing, which the People Ops track carries in full.** The Annex III deferral to December
+2027 is **not a repeal**, and the transparency duties that were not deferred are already in force.
+Article 26(7)''s works council obligations bind now.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m5-lesson-3-you-may-be-the-provider-not-onl-60', 'ai301-analytics-m5', 60, 'prose', 'volatile', '## Lesson 3 · You may be the provider, not only the deployer [V]
+
+Every other floor module in this curriculum assumes the model arrived from a vendor. **Yours may not
+have**, and the obligations that attach to building are not the ones that attach to buying.
+
+The mechanism is specific rather than a general principle. **Article 25** transfers provider
+obligations to a deployer or third party in three circumstances:
+
+1. **Putting your own name or trademark** on a high-risk system already on the market.
+2. **Making a substantial modification** to one while it remains high-risk.
+3. **Changing the intended purpose** of a system so that it becomes high-risk.
+
+**The third limb is the one this audience walks into**, and it does not feel like a legal act when you
+do it. You take a general-purpose model, or a tool licensed for something else, and you point it at a
+question about employment — promotion readiness, flight risk, performance forecasting. Nobody signed
+anything. Nobody called it a deployment. **You have changed a system''s intended purpose so that it
+became high-risk, and the obligations that follow are the builder''s, not the buyer''s.**
+
+The practical version, stated as a question to ask before any model gets built or repurposed:
+
+> **If a regulator asked who is responsible for this system''s design, is the honest answer "us"?**
+
+If it is, the vendor''s documentation is not your documentation, the vendor''s indemnity does not
+discharge your obligation, and the conformity questions belong to you. **An in-house model is not the
+safe option because it was built by people you trust.** It is the option where nobody else is holding
+the paperwork.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m5-lesson-4-purpose-limitation-70', 'ai301-analytics-m5', 70, 'prose', 'volatile', '## Lesson 4 · Purpose limitation [V]
+
+This function''s most common quiet violation, and it is quiet because every individual step looked
+reasonable.
+
+Data was collected to run payroll. To administer benefits. To field an engagement survey. To operate
+a performance cycle. Each collection had a stated purpose and, usually, a lawful basis tied to it.
+
+**Then it becomes a feature in a model predicting who will quit.** Nobody re-consented anyone. Nobody
+issued notice. The data was already in the warehouse, the join was trivial, and the analysis was
+authorised by whoever authorised the analysis.
+
+**The engagement survey case is the sharpest, and it is the one to carry.** You told respondents their
+answers were confidential and would be used to improve the organization. Using those answers as a
+feature in an individual-level flight-risk model **breaks that promise even where it clears the legal
+bar** — and it breaks it in a way that is unrecoverable, because the next survey is answered by people
+who now know.
+
+Three questions before any feature enters a model about people:
+
+- **What was this collected for, and was that stated to the person?**
+- **Would they recognise this use as consistent with what they were told?**
+- **If the use became public inside the company tomorrow, what happens?**
+
+The third is not a legal test and it is the one that predicts the outcome best. It is 101 M8''s
+reader''s-stake disclosure test, applied to a data lineage rather than to a document.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m5-lesson-5-disclosure-control-which-is-you-80', 'ai301-analytics-m5', 80, 'prose', 'volatile', '## Lesson 5 · Disclosure control, which is yours [V]
+
+The People Ops track owns **access control**: who can *retrieve* what, where an assistant inherits its
+user''s rights, and the fix is permissions, indexing scope and least-privileged testing. Its failure
+mode is *someone reached a document they shouldn''t have.*
+
+**This track owns disclosure control: what a legitimately-permissioned aggregate reveals about an
+individual.** Its failure mode is *nobody''s permissions were violated and the individual was
+identified anyway.* Different mechanism, different remedy, and the professional obligation for the
+second one is yours because you are the person publishing the aggregate.
+
+**Minimum cell size** is the basic instrument, and every listening programme has a number. What
+matters is that it is applied to **every published cut**, not to the primary table — which brings us
+to the failure everybody misses.
+
+**The differencing attack.** You publish engagement by department: Engineering, n=48, score 3.9. Later
+you publish engagement by department and tenure band: Engineering with 5+ years, n=47, score 4.0.
+Both cleared your threshold. **Subtract them and you have one person''s score**, and depending on the
+organization you may also know who they are.
+
+Nobody violated a permission. Both publications were individually compliant. **Disclosure control is
+about the set of things you have published, not about each thing you publish** — which means it is a
+property of a process rather than of a report, and it requires somebody tracking what has already gone
+out.
+
+**And the new failure, in open text.** Thematic analysis of thousands of verbatims is a genuine and
+large AI win — say that plainly, because it is one of the few unambiguous ones in this course. The new
+failure is specific: **a model asked for themes with supporting quotes returns the quotes intact.** A
+verbatim naming a team, a manager, an incident, a disability or a leave identifies its author to
+anyone who was there. A human summariser smoothed that away as a side effect of being human; a model
+has no such side effect.
+
+So: **paraphrase rather than quote by default**, apply the same threshold to a quote that you apply to
+a cell, and understand what is at stake — **an employee who reads their own words in a results deck
+learns something about the confidentiality promise that no policy statement will unteach.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m5-lesson-6-draw-the-surveillance-line-deli-90', 'ai301-analytics-m5', 90, 'prose', 'stable', '## Lesson 6 · Draw the surveillance line deliberately
+
+The closing move, and the one that has to happen before it happens by default.
+
+**Start with the German position, because it destroys the sentence this function reaches for most
+often** `[V]`. Under §87(1) no. 6 BetrVG, a works council holds co-determination — an enforceable
+veto, not an opinion — over any technical system **objectively suitable** for monitoring employee
+behaviour or performance. **The employer''s intent is irrelevant.** Manager dashboards, productivity
+scores and AI-driven workforce analytics are named examples.
+
+So *"we''re only analysing data we already have"* is not a legal category. **A dashboard is a technical
+device and suitability is assessed objectively**, which means the analytics function''s most common
+self-description — *purely observational* — has no standing. This is the delta from the People Ops
+track: they cover co-determination for systems being deployed; **for you, the analysis output is
+itself the monitoring device.**
+
+Then the questions Module 2 raised and deliberately did not answer, which belong here:
+
+- **Does the individual know the score exists?**
+- **Is there a route to contest it?**
+- **Would you be comfortable telling them?**
+
+And the design question underneath all three: **where is the line between understanding the
+organization and monitoring the people in it?** It is a real line, it is not obvious, and it will be
+drawn either way — by you, deliberately, in advance; or by accumulation, one reasonable-seeming
+request at a time, until somebody outside the function draws it for you in a worse place.
+
+**What you can do this quarter without waiting for counsel.** Build the inventory. Classify by risk.
+Identify which systems your team built or repurposed. Check what records exist and how far back.
+Review features for proxies. Write down the surveillance line as you currently understand it.
+
+**And the list to bring counsel**, so the conversation is not a shrug: which systems you believe make
+you a provider rather than a deployer; where retention obligations exceed what you currently keep;
+where a secondary use may exceed its collection purpose; and the analyses you would want run under
+privilege before they are run at all.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m5-exercise-embed-95', 'ai301-analytics-m5', 95, 'exercise', 'stable', '{"type": "sorting", "title": "Calibration exercise \u2014 Proceed, proceed with the record, stop and ask", "intro": "Ten minutes, ten analytics activities. Sort each into proceed, proceed with the record, or stop and ask.\n\nCommit every card before the reveal. At least two of the ones that feel purely observational are not \u2014 and one of them is a publication you have probably already made."}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m5-key-takeaways-100', 'ai301-analytics-m5', 100, 'takeaways', 'stable', '## Key takeaways
+
+- **Legal cannot do this alone.** The obligations are legal and **the evidence that discharges them is
+  statistical** — a combination that exists in one function. That is a stronger claim to the territory
+  than any org-chart argument.
+- **You will be asked for evidence you were never asked to keep**, and **you should involve counsel
+  before you test, not after**, because privilege is a fact about commissioning.
+- **The map, as things you must do** `[V]`: California''s four-year retention on records somebody has
+  to be creating; Illinois''s **strict liability with intent no defence** and the zip-code proxy ban,
+  which generalises to any proxy feature; and Colorado, **postponed, enjoined, repealed and replaced
+  inside thirteen months** — so **build an inventory that survives the statute, not a checklist keyed
+  to one.**
+- **Article 25 makes you a provider** `[V]` if you put your name on it, substantially modify it, or
+  **change its intended purpose so it becomes high-risk** — which is what pointing a general model at
+  an employment question does, without anyone signing anything.
+- **Purpose limitation is the quiet violation**, and the engagement survey is the sharpest case:
+  survey answers as model features break the promise even where they clear the legal bar, and break it
+  unrecoverably.
+- **Disclosure control is yours; access control is People Ops''.** The failure mode is *nobody''s
+  permissions were violated and the individual was identified anyway.* **The differencing attack**
+  means disclosure control is a property of everything you have published, not of each publication.
+- **A model asked for themes with supporting quotes returns the quotes intact.** Paraphrase by
+  default; apply the cell threshold to quotes.
+- **"Purely observational" is not a legal category** `[V]`. Suitability for monitoring is assessed
+  objectively and intent is irrelevant — **for you, the analysis output is the monitoring device.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m5-activity-link-105', 'ai301-analytics-m5', 105, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 The inventory", "blurb": "Every AI system touching a decision about a person in your organization \u2014 wider than HR''s own stack \u2014 classified by exposure, with three questions worked across it: which ones did we build or repurpose, where does a secondary use exceed its collection purpose, and what records exist. Then draw the surveillance line. Counsel review before adoption.", "estMinutes": "30"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m5-take-a-position-110', 'ai301-analytics-m5', 110, 'callout', 'stable', '## Take a position
+
+**The claim:** *"Legal can read the statute. They cannot tell you whether you have met it — which
+makes AI governance an analytics obligation, not a legal one."*
+
+The strongest counter-argument is that **this is a function arguing itself into liability it is not
+resourced to carry.** Accountability should sit where authority sits, and a three-person analytics
+team reporting into HR Ops has neither the mandate to stop a deployment nor the standing to survive
+being wrong about one. Claiming the obligation without the authority produces the worst available
+outcome: **you own the failure and someone else owns the decision.** There is also a competence
+argument — adverse impact analysis under the Uniform Guidelines is a specialist discipline with
+established expert practitioners, and a generalist analytics function doing it in-house because it
+owns the data may produce work that is worse than an external assessment while carrying more weight
+internally because it is ours. On that view the right move is to be the *commissioner and critic* of
+this evidence rather than its author. Your position has to say where accountability without authority
+becomes untenable, and what you would need before accepting it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m5-sources-and-attribution-120', 'ai301-analytics-m5', 120, 'prose', 'stable', '## Sources and attribution
+
+- **The Legal-cannot-do-this-alone argument and the inventory artifact** come from a human-authored
+  brief for this track.
+- **California `[V]`:** FEHA automated-decision-system regulations, effective 1 October 2025;
+  employers with 5+ employees; four-year retention of selection criteria, ADS data and applicant-flow
+  logs, doubled from two; reach extended to AI tool developers and agents.
+- **Illinois `[V]`:** HB 3773, amending the Human Rights Act, effective 1 January 2026. Strict
+  liability for discriminatory effect; notice obligations; zip codes as proxies expressly prohibited;
+  implementing rules in progress at the Department of Human Rights.
+- **Colorado `[V]`:** SB 24-205 postponed to 30 June 2026; enforcement blocked by a federal magistrate
+  27 April 2026; repealed and replaced by SB 26-189, signed 14 May 2026 — a disclosure-and-rights
+  framework effective 1 January 2027.
+- **EU AI Act `[V]`:** Article 25 (responsibilities along the value chain — name/trademark,
+  substantial modification, change of intended purpose). Article 26(7) works council obligations and
+  the Annex III deferral are carried in full by the People Ops track and cross-referenced here.
+- **Germany `[V]`:** BetrVG §87(1) no. 6 — enforceable co-determination over technical systems
+  **objectively suitable** for monitoring behaviour or performance, intent irrelevant; manager
+  dashboards and workforce analytics named as examples.
+- The disclosure-control/access-control split is a cross-track convention agreed with the People Ops
+  track and stated in both. The differencing-attack framing and the verbatim-quote failure are
+  original to this course.
+- Builds on comp M4 (privilege, and "explained variance is a modelling decision"), recruiter R6
+  (adverse impact in a selection context), HRBP M6 (state employment law), 101 M8 (the reader''s-stake
+  test), and Module 2 (the questions this module answers).
+- **This module is not legal advice, and its surface is volatile.** Counsel review is required before
+  your organization adopts anything built from it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m5-activity-applied-activity-the-inventory-10', 'ai301-analytics-m5-activity', 10, 'prose', 'stable', '## Applied activity — "The inventory"
+
+**Time:** 30 minutes · **Submit:** the inventory plus a 300–400 word write-up · **Graded against the
+rubric below.** Score doesn''t matter. Doing the work is where the learning lands.
+
+**Counsel review before anything here is adopted.** You are producing the practitioner''s version; the
+lawyer''s version comes after, and the point of this artifact is to make that conversation specific.
+
+**Step 1 — Find them (10 min).** Every AI system currently touching a decision about a person in your
+organization. Go wider than HR''s own stack — recruiting tools, screening or assessment vendors,
+scheduling and workforce management, performance or engagement platforms with scoring features,
+anything in a system you already own that got switched on in a release, and **anything your own team
+built or fitted.**
+
+**Expect to find more than you predicted, and expect the list to be incomplete.** Note explicitly what
+you could not find out and who would know.
+
+**Step 2 — Classify (8 min).** For each: what decision it touches, whether it recommends or decides,
+who the subject is, whether the subject knows it exists, and a **first-pass risk rating** with your
+reason. Risk here is exposure to a person, not technical sophistication.
+
+**Step 3 — The three analytics-specific questions (7 min).** Across the inventory:
+
+- **Which of these did we build or repurpose?** Those are the Article 25 candidates, and the honest
+  test is whether a regulator asking who is responsible for the design would get "us" as the answer.
+- **Where does a secondary use exceed its collection purpose?** Especially anything drawing on survey
+  data.
+- **What records exist, and how far back?** Against the retention obligations that apply to you.
+  Blanks here are the most common finding and are worth more than a confident yes.
+
+**Step 4 — The line (5 min).** One paragraph: **where is the line between understanding the
+organization and monitoring the people in it, in your organization, as you would draw it today?** Then
+name one thing currently on the wrong side of it, or explain why you believe nothing is.
+
+**Blanks get an owner and a date**, following the convention the People Ops track uses — an unassigned
+gap is a note, and an assigned one is a plan.
+
+Then the write-up: how many systems you found against how many you expected, the one that surprised
+you, whether anything on the list makes you a provider rather than a deployer, your answer on the
+opening claim, your position on the module''s claim with its counter-argument addressed, and — the
+honest one — **the system you would most prefer nobody asked you about.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m5-micro-core', 'ai301-analytics-m5-micro', 10, 'prose', 'stable', '## Module 5 in two minutes
+
+**Legal cannot do this alone.** They can read the statute. **They cannot run an adverse impact analysis, validate an instrument against the Uniform Guidelines, or tell you whether a model''s disparity is real or an artifact of the control set.**
+
+That is the argument for the whole module. Somebody has to define the comparison groups, choose the selection-rate measure, decide what counts as a practical difference, and say which controls are legitimate rather than laundering — **every one of those is a modelling decision with a fairness consequence.** The obligations are legal. The evidence that discharges them is statistical. That combination exists in exactly one function, and it is a stronger claim to the territory than any org-chart argument you could make.
+
+Two consequences follow immediately. **You will be asked for evidence you were never asked to keep** — a model''s training population, the selection rates it produced, what the March version did — none of which exist unless somebody decided to create them. And **involve counsel before you test, not after**, because whether an analysis is privileged depends on how it was commissioned, and that has to be arranged in advance.
+
+Three shipped tracks already carry the regulatory map. This module cross-references them and teaches only what is yours: the three ways you acquire obligations a systems owner doesn''t, and the disclosure problem nobody else can solve.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m5-micro-rule', 'ai301-analytics-m5-micro', 20, 'callout', 'volatile', '### The rules to carry
+
+**You may be the provider, not only the deployer** `[V]`. Article 25 transfers provider obligations if you put your name on a high-risk system, substantially modify one, or **change a system''s intended purpose so that it becomes high-risk.** That third limb is the one this audience walks into: you point a general-purpose model at promotion readiness or flight risk, nobody signs anything, nobody calls it a deployment. **An in-house model is not the safe option because people you trust built it — it is the option where nobody else is holding the paperwork.**
+
+**Purpose limitation is the quiet violation.** Data collected to run payroll, administer benefits or field a survey, then used as a model feature. The engagement survey is the sharpest case: **survey answers as features break the promise even where they clear the legal bar**, and break it unrecoverably, because the next survey is answered by people who now know.
+
+**And "purely observational" is not a legal category** `[V]`. Under BetrVG §87(1) no. 6, co-determination turns on whether a technical system is **objectively suitable** for monitoring behaviour or performance — **the employer''s intent is irrelevant**, and manager dashboards are a named example. For you, the analysis output *is* the monitoring device.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m5-micro-close', 'ai301-analytics-m5-micro', 30, 'prose', 'volatile', '**The full module adds the map as things you must do** `[V]`. **California**: in force since 1 October 2025, five-plus employees, **four-year retention** of selection criteria, ADS data and applicant-flow logs — records somebody has to be creating, and which cannot be reconstructed retrospectively when a model version changes. **Illinois**: since 1 January 2026, **strict liability for discriminatory effect with intent no defence**, notice obligations, and zip codes expressly banned as proxies — which generalises, since any geographic, educational or behavioural feature can do the same work. **Colorado**: postponed, **enjoined**, repealed and replaced inside thirteen months, landing as a scaled-back disclosure framework for 1 January 2027. The date survived; the law behind it did not. **So build an inventory that survives the statute rather than a checklist keyed to one.**
+
+Then **disclosure control, which is yours** — as against People Ops'' access control. Their failure is *someone reached a document they shouldn''t have.* Yours is **nobody''s permissions were violated and the individual was identified anyway.** The one everybody misses is **the differencing attack**: engagement by department (n=48) and engagement by department and tenure (n=47) each clear your threshold, and subtract to one person. **Disclosure control is a property of everything you have published, not of each publication.** Plus the new failure in open text — **a model asked for themes with supporting quotes returns the quotes intact**, and a verbatim naming a team or an incident identifies its author. Paraphrase by default.
+
+And the closing move: **draw the surveillance line deliberately, before it gets drawn by accumulation.** Counsel review before anything ships.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-analytics-m5-sorting', 'ai301-analytics-m5', 'sorting', '{"reviewedAt":"2026-08-12","buckets":[{"id":"stop","label":"Stop and ask","hint":"Don''t proceed without counsel or a works council","rank":0,"pct":30},{"id":"record","label":"Proceed with the record","hint":"Fine, with documentation, retention or notice attached","rank":1,"pct":45},{"id":"proceed","label":"Proceed","hint":"Ordinary analysis — Modules 2 and 3 apply, nothing more","rank":2,"pct":25}],"tasks":[{"id":"t1","text":"Publishing headcount and voluntary attrition by department for the quarterly scorecard, using agreed definitions","key":"proceed","reasoning":"Ordinary description against written definitions. Module 3''s semantic layer governs it and Module 2''s halt conditions apply to the analysis; this module adds nothing. Most of what the function publishes should land here, and if very little of your work does, that is worth noticing."},{"id":"t2","text":"Adding last year''s engagement survey responses as features to the flight-risk model, since the data is already in the warehouse","key":"stop","reasoning":"The sharpest purpose-limitation case in the module. Respondents were told the data was confidential and would be used to improve the organization; using it to score individuals **breaks that promise even where it clears the legal bar** — and breaks it unrecoverably, because the next survey is answered by people who now know. The trivial join and the existing warehouse access are exactly what make this feel authorised."},{"id":"t3","text":"Publishing engagement by department and tenure band, having already published engagement by department","key":"stop","reasoning":"The differencing attack, and the card most learners get wrong because each publication clears the threshold on its own. Engineering n=48 and Engineering-with-5-years n=47 subtract to one person''s score. **Disclosure control is a property of everything you have published, not of each thing you publish** — so this stops until somebody checks the set."},{"id":"t4","text":"Fitting a promotion-readiness model in-house using a general-purpose model your company already licenses for other work","key":"stop","reasoning":"Article 25''s third limb, and it does not feel like a legal act. **Changing a system''s intended purpose so it becomes high-risk makes you the provider**, not the deployer — the vendor''s documentation is not your documentation and their indemnity does not discharge your obligation. Nobody signed anything, which is precisely why this needs a conversation before a line of code."},{"id":"t5","text":"Reconciling headcount across the HRIS, the payroll file and the finance ledger, and reporting the discrepancies","key":"proceed","reasoning":"No decision about a person, no inference about an individual, no publication of a small cell. This is the safest analytical work in the function — and the module includes it to make the point that the answer is not \"everything is fraught.\" Most of the caution here attaches to inference and disclosure, not to analysis."},{"id":"t6","text":"Running an adverse impact analysis on the promotion process, having found early signs of a disparity","key":"stop","reasoning":"Not because the analysis is wrong — because of **when counsel gets involved.** Whether the work is privileged depends on how it was commissioned, and that has to be arranged in advance. Run it first and you may have created a discoverable record of a disparity you have not yet remediated. **Involve counsel before you test, not after.**"},{"id":"t7","text":"Building a manager dashboard showing team-level activity and response-time metrics, for a company with a German works council","key":"stop","reasoning":"**\"We''re only analysing data we already have\" is not a legal category.** §87(1) no. 6 turns on whether a technical system is *objectively suitable* for monitoring behaviour or performance, and **the employer''s intent is irrelevant.** Manager dashboards are a named example, and the works council holds an enforceable veto rather than an opinion. Engagement belongs at design, not at launch."},{"id":"t8","text":"Publishing the top five themes from 3,000 open-text survey responses, with two supporting verbatims per theme","key":"record","reasoning":"The thematic analysis is a genuine AI win and should proceed. The record is what happens to the quotes: **a model asked for themes with supporting quotes returns them intact**, and a verbatim naming a team, a manager or an incident identifies its author to anyone who was there. Paraphrase by default, apply the cell threshold to quotes, and have a person review the selected ones."},{"id":"t9","text":"Deploying a vendor''s flight-risk score to managers, with the vendor''s fairness audit on file","key":"record","reasoning":"Proceeding is defensible; the record is not optional. Retention obligations run on selection rates by group **per version, per period** — records somebody has to be creating, and which cannot be reconstructed retrospectively when the model changes. The vendor''s audit is evidence about the vendor''s population, not yours, so the base-rate work from Module 2 belongs in the file too."},{"id":"t10","text":"Including commute distance as a feature in a retention model, since it predicts well","key":"record","reasoning":"The subtle one, and it should proceed only with proxy review documented. Illinois expressly prohibits zip codes as proxies for protected classes, and **the prohibition generalises to any geographic feature doing the same work** — commute distance is a geographic feature with a strong relationship to residential patterns. **Strict liability means \"it predicts well\" and \"we didn''t mean to\" are both unavailable as defences.** Predictive power is the reason to look harder, not a justification."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-analytics-m5-rubric', 'ai301-analytics-m5', 'rubric', '{"promptVersion":"ai301-analytics-m5-inventory-v1","moduleId":"ai301-analytics-m5","minWords":300,"maxWords":400,"submitLabel":"Your inventory and write-up","intro":"Paste the inventory — systems, what each decides, subject awareness, risk rating with reasons — plus the three analytics-specific questions worked across it, your surveillance-line paragraph, and the 300–400 word write-up. Blanks get an owner and a date. Counsel review before adoption; this is the practitioner''s version, and its job is to make that conversation specific.","activityContext":"You are grading a learner submission for AI 301 · The Specialist, People Analytics track — for people analytics practitioners who have completed AI 101, AI 201, and Modules 1–4 of this track. Module 5 applied activity, ''The inventory''. Step 1: find every AI system currently touching a decision about a person in their organization, deliberately wider than HR''s own stack — recruiting and assessment vendors, scheduling and workforce management, performance or engagement platforms with scoring features, features switched on inside systems they already own, and anything their own team built or fitted — noting explicitly what they could not find out and who would know. Step 2: classify each by what decision it touches, whether it recommends or decides, who the subject is, whether the subject knows it exists, and a first-pass risk rating with reasons, where risk means exposure to a person rather than technical sophistication. Step 3: three analytics-specific questions across the inventory — which systems they built or repurposed (the Article 25 candidates, tested by whether a regulator asking who is responsible for the design would get ''us''; the third limb, changing a system''s intended purpose so it becomes high-risk, is the one this audience walks into without anyone signing anything); where a secondary use exceeds its collection purpose, especially anything drawing on survey data; and what records exist and how far back, against retention obligations such as California''s four years on selection criteria, ADS data and applicant-flow logs. Step 4: one paragraph drawing the line between understanding the organization and monitoring the people in it, plus one thing currently on the wrong side of it or an argument that nothing is. Relevant background: Illinois imposes strict liability for discriminatory effect with intent no defence and expressly prohibits zip codes as proxies, which generalises to any proxy feature; Colorado''s SB 24-205 was postponed, enjoined, repealed and replaced within thirteen months, which is why the artifact is an inventory with risk ratings rather than a checklist keyed to one statute; and under German BetrVG §87(1) no. 6 co-determination turns on whether a system is objectively suitable for monitoring, with the employer''s intent irrelevant, so ''purely observational'' is not a legal category. The module''s claim, which the write-up must take a position on, is that AI governance is an analytics obligation rather than a legal one because Legal can state the standard but cannot tell you whether you met it; its real counter-argument is that this claims liability without authority — a small team reporting into HR Ops can neither stop a deployment nor survive being wrong about one, producing the worst outcome where they own the failure and someone else owns the decision — and that commissioning and critiquing this evidence may beat authoring it. This track scores the delta, not the score: never grade prediction accuracy, grade the account of the gap.","opening":[{"key":"systemsPredicted","label":"Predicted — how many AI systems touch a decision about a person in your organization","hint":"Your honest count before you go looking. Wider than HR''s own stack.","placeholder":"e.g. 4","min":0,"max":200}],"calibration":[{"key":"systemsFound","label":"Found — how many you could actually identify","hint":"From Step 1. Most learners find more than they expected, and some cannot complete the list at all.","placeholder":"e.g. 9","min":0,"max":200,"actualFor":"systemsPredicted"}],"dimensions":[{"name":"The search went wider than HR''s own stack","criteria":"Evidence of looking beyond the obvious: features switched on inside existing systems, vendors owned by other functions, scheduling and workforce management, assessment tools, and anything the learner''s own team built or fitted. An inventory containing only the HR technology roadmap has searched the place the answer wasn''t. **Equally important: an explicit account of what they could not find out and who would know.** A short inventory with a clear statement of its own boundary scores above a longer one that implies completeness it cannot have."},{"name":"The classification is about exposure to a person","criteria":"Each entry names the decision touched, whether the system recommends or decides, who the subject is, and — the one most often skipped — **whether the subject knows it exists.** Risk ratings must be reasoned and must track exposure to a person rather than technical sophistication; a simple rules engine that gates promotion eligibility outranks a sophisticated model that summarises documents. Watch for ratings assigned by vendor prominence or by how new the technology is."},{"name":"The provider question is answered honestly","criteria":"Which systems the team built, fitted, or repurposed, tested against the module''s question: would a regulator asking who is responsible for this system''s design get ''us'' as the answer? The graded insight is recognising the third Article 25 limb — that pointing a general-purpose or otherwise-licensed model at an employment question changes its intended purpose without anyone signing anything. **A learner who identifies an in-house or repurposed model they had been treating as low-risk precisely because it was built internally has found the thing this lesson exists for.** ''We build nothing'' is acceptable only where the search covered fitted models and repurposed general tools, not just procured products."},{"name":"Purpose limitation and records are checked, not assumed","criteria":"A real pass over secondary use — where data collected for payroll, benefits, a survey or a performance cycle now feeds something else — with the survey case treated as the sharpest, since the promise can be broken even where the law is satisfied. And a records check against the retention obligations that apply: what exists, how far back, and per model version where relevant. **Blanks are the expected and valuable finding here**, and must carry an owner and a date to score — an unassigned gap is a note, an assigned one is a plan. A confident claim that records are complete, without saying how it was checked, scores below an honest set of blanks."},{"name":"The line is drawn, not deferred","criteria":"A paragraph that actually commits to where understanding the organization ends and monitoring the people in it begins, in their organization, as of today — plus one thing currently on the wrong side of it, or a defended argument that nothing is. Vague principles (''we balance insight with privacy'') fail this dimension. Credit engagement with the German position: if ''purely observational'' has no standing because suitability for monitoring is assessed objectively, the learner''s line has to be drawn on something other than intent."},{"name":"The delta and the position","criteria":"Predicted versus found system count, with an account of the gap — most find more than expected, and what that says about the function''s visibility is the point. Accuracy is never graded, and an incomplete inventory reported as incomplete, with what blocked it, is a full-credit finding about their standing in the organization. Plus the honest disclosure: **the system they would most prefer nobody asked them about** — naming one specifically outscores a general concession. Plus a committed position on the module''s claim engaging the real counter-argument about accountability without authority, where strong answers state the conditions under which they would accept the obligation and what they would need first."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-analytics-m5-knowledge_check', 'ai301-analytics-m5', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"What is the argument for AI governance belonging to analytics rather than Legal?","options":["That analytics teams have better access to the underlying data","That the obligations are legal but the evidence that discharges them is statistical — Legal can state the standard and cannot tell you whether you met it","That Legal teams are typically under-resourced for AI work","That analytics owns the vendor relationships for most HR AI tools"],"correctIndex":1,"explanation":"Defining comparison groups, choosing the selection-rate measure, and deciding which controls are legitimate rather than laundering are modelling decisions with fairness consequences. See the module''s own counter-argument for the serious case against claiming this."},{"id":"q2","prompt":"Why does the module treat Colorado as a lesson rather than a date? `[V]`","options":["Because the January 2027 date is likely to move again","Because SB 24-205 was postponed, enjoined, repealed and replaced within thirteen months — so a compliance programme keyed to one statute''s requirements would have been rebuilt twice","Because the replacement framework is materially stricter","Because Colorado''s law conflicts with federal guidance"],"correctIndex":1,"explanation":"The date survived and the law behind it did not. **Build an inventory that survives the statute rather than a checklist keyed to one.**"},{"id":"q3","prompt":"What makes Illinois''s zip-code provision analytics-specific? `[V]`","options":["That it requires geographic data to be excluded from all models","That it generalises — any geographic, educational or behavioural feature can function as a proxy, and strict liability means intent is not a defence, so feature-by-feature proxy review is a modelling task","That it applies only to models built in-house","That it requires notice to be given before geographic data is collected"],"correctIndex":1,"explanation":"A is too strong and misses the mechanism. The prohibition names zip codes; the obligation reaches every feature that could do the same work."},{"id":"q4","prompt":"Which limb of Article 25 does this audience most often trigger? `[V]`","options":["Putting your name or trademark on a high-risk system already on the market","Making a substantial modification to an existing high-risk system","Changing a system''s intended purpose so that it becomes high-risk — pointing a general model at an employment question","Distributing a high-risk system to another organization"],"correctIndex":2,"explanation":"And it does not feel like a legal act when you do it. Nobody signed anything and nobody called it a deployment. **An in-house model is not the safe option; it is the one where nobody else is holding the paperwork.**"},{"id":"q5","prompt":"Why is the engagement survey the sharpest purpose-limitation case?","options":["Because survey data is legally protected in most jurisdictions","Because the promise made to respondents is broken even where the secondary use clears the legal bar — and broken unrecoverably, since the next survey is answered by people who now know","Because survey responses are more identifying than transactional HR data","Because consent for survey participation cannot cover model training"],"correctIndex":1,"explanation":"The legal question and the promise question can come apart, and the promise is the one that destroys the instrument."},{"id":"q6","prompt":"What distinguishes disclosure control from access control?","options":["Disclosure control applies to external publication, access control to internal","Access control governs who can retrieve what and is fixed with permissions; disclosure control governs what a legitimately-permissioned aggregate reveals and is fixed with thresholds and suppression","Disclosure control is a legal obligation, access control is a security practice","They are the same problem addressed at different layers of the stack"],"correctIndex":1,"explanation":"Two failure modes: *someone reached a document they shouldn''t have* versus **nobody''s permissions were violated and the individual was identified anyway.** The second is yours."},{"id":"q7","prompt":"Why does the differencing attack make disclosure control a process rather than a report property?","options":["Because thresholds must be recalculated for each publication","Because two individually-compliant published cuts can be subtracted to isolate one person, so what matters is the set of everything you have published, not each thing","Because aggregate suppression rules vary by jurisdiction","Because open-text responses cannot be suppressed by cell size"],"correctIndex":1,"explanation":"Which requires somebody tracking what has already gone out — a role most listening programmes have not assigned to anyone."},{"id":"q8","prompt":"What does \"we''re only analysing data we already have\" establish under German co-determination? `[V]`","options":["That the analysis falls outside §87(1) no. 6, since no new system is deployed","Nothing — co-determination turns on whether a technical system is objectively suitable for monitoring behaviour or performance, and the employer''s intent is irrelevant","That consultation is advisory rather than binding for existing data","That the works council''s rights attach only once results are shared with managers"],"correctIndex":1,"explanation":"Manager dashboards, productivity scores and AI-driven workforce analytics are named examples. **\"Purely observational\" is not a legal category, and for you the analysis output is the monitoring device.**"}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m6-claim-to-contest-before-you-start-10', 'ai301-analytics-m6', 10, 'calibration_prompt', 'stable', '## Claim to contest — before you start
+
+*The last one. Commit before you read anything.*
+
+> **"Your team has been waiting to be given a mandate that nobody is going to give you."**
+
+**True of us, or not true of us?** And then the question that makes it real: **when did you last ask
+for something and get told no?** If the answer is "we haven''t asked," the claim is true of you and
+the module is about what to do next.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m6-module-brief-20', 'ai301-analytics-m6', 20, 'prose', 'stable', '## Module brief
+
+Five modules of method. This one asks what you are going to do with it, and it starts from an
+uncomfortable observation about how this usually ends.
+
+**Adoption is where AI investments in HR die — not technology.** The tool works, the pilot goes well,
+the business case is approved, and eighteen months later nobody uses it and nobody can say exactly
+when that happened. The same is true of analytics findings, which is the version that concerns you:
+**a correct analysis that nobody acts on has the same organizational footprint as no analysis at
+all.** You have probably produced several.
+
+So the closing module is not *make your case.* It is **make it land** — which is a harder problem and
+a different skill, and it is the one nobody in this profession was hired for.
+
+Then the honest part, which the rest of the course has been building toward. **Nobody hands you AI
+measurement or AI governance.** Module 4 identified unclaimed territory and Module 5 identified an
+obligation nobody else can discharge, and neither of those comes with an invitation. **A three-person
+team reporting into HR Ops does not win a mandate by asking for one.** It wins it by producing one
+artifact somebody needed and could not get anywhere else — which is what Modules 4 and 5 just had you
+produce.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m6-learning-objectives-30', 'ai301-analytics-m6', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Say why adoption rather than technology is where these investments fail `[V]`.
+2. Describe product orientation and why this function was not selected for it.
+3. Explain trust as the residual at the top of the scarcity stack, and what erodes it.
+4. Hold a finding against a stakeholder who has run their own analysis and disagrees.
+5. Write a 90-day plan for one undeniable win, with a baseline and something you stop.
+6. Account for how far you moved across the whole track.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m6-lesson-1-adoption-is-the-failure-mode-40', 'ai301-analytics-m6', 40, 'prose', 'volatile', '## Lesson 1 · Adoption is the failure mode [V]
+
+The evidence from Module 4 has a second reading, and it is the one this module needs.
+
+**0.29% average firm-level productivity gain. 89% of firms reporting no impact at all.** The
+conventional interpretation is that the technology underdelivers. But hold it next to the RCT
+finding — **gains exceeding 15% for the same tasks under trial conditions** — and a different reading
+becomes available.
+
+**The capability is real and it is not reaching the organization.** Something between the demonstrated
+task-level gain and the firm-level result is absorbing nearly all of it, and that something is not
+technical. It is workflow, incentive, habit, review burden, and the fact that a tool nobody was
+trained on gets used the way the last tool was used.
+
+**That is an adoption problem, and adoption problems are diagnosable.** Which means the gap between
+15% and 0.29% is not an argument that AI does not work. **It is the largest available diagnostic
+opportunity in your organization**, and you are the function that diagnoses things.
+
+It also applies to you, which is the uncomfortable turn. Every finding your team has published that
+changed nothing failed at exactly this step. **You have been running an adoption problem for years
+without calling it one.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m6-lesson-2-product-orientation-50', 'ai301-analytics-m6', 50, 'prose', 'stable', '## Lesson 2 · Product orientation
+
+The competency nobody in people analytics was hired for.
+
+**This function selected for being right.** The interview asks about methods. The credibility comes
+from rigour. The pride is in the analysis that survives scrutiny. All of that is correct and none of
+it is sufficient, because **shipping something people use is a different discipline from producing
+something that is correct**, and the two are only weakly related.
+
+Three things product orientation means here, stated concretely.
+
+**A finding is not a product.** A product has a user, a moment of use, and a decision it changes. A
+finding has an author and a distribution list. When you present attrition drivers to a leadership team
+with no decision attached, you have produced a document — and the reason it changed nothing is not
+that they did not understand it.
+
+**A dashboard nobody opens is a correct artifact that failed.** This is worth sitting with, because
+the instinct is to treat non-use as a user problem. It is a design problem, and the standard response —
+training, a comms push, a reminder in the monthly meeting — is what you do when you have decided the
+artifact is fine.
+
+**The unit of delivery is the decision, not the insight.** Recruiter R5''s test — *name the decision
+that changes* — arrives here as a product question rather than a measurement one. If you cannot name
+the decision, the finding has no user, however true it is.
+
+**And the uncomfortable diagnostic:** go back through last year''s outputs and ask, for each, *what
+decision did this change, and who made it?* Most functions find the honest answer is "none, and
+nobody" for the majority of what they published — including the things they are proudest of. **That
+ratio is the product problem, and it is not fixed by better analysis.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m6-try-60', 'ai301-analytics-m6', 60, 'try_this', 'stable', '### Try this — 3 minutes
+Take the analysis you are proudest of from the last year. Name the decision it changed and the
+person who made it. If you can do both, that is the model for the 90-day plan.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m6-lesson-3-trust-is-the-residual-70', 'ai301-analytics-m6', 70, 'prose', 'stable', '## Lesson 3 · Trust is the residual
+
+Module 1 put trust at the top of the scarcity stack and said it is not a sixth layer — it is what
+accrues to a function that holds the other four. Here is what that means in practice, and why it is
+the last thing to commoditize.
+
+**Trust is not the belief that your numbers are right.** Everyone assumes that, and it buys you less
+than you think. **Trust is the belief that you will say something the room does not want to hear**,
+and that when you do not object, that silence is informative.
+
+That is why the declining move from Module 4 matters so much. **A function that never declines has
+told its organization that its findings mean nothing in particular** — because if you produce a
+supportive number for every request, your supportive number carries no information. **The refusals are
+what make the assertions load-bearing.**
+
+Three things erode it faster than a wrong number:
+
+- **Producing what was wanted.** Once, visibly. It is remembered for years.
+- **Confidence that does not vary.** If every finding arrives with the same certainty, the audience
+  learns your confidence is a style rather than a signal.
+- **Silence about a limitation the audience later discovers.** The limitation was survivable; the
+  discovery is not.
+
+And the thing that builds it fastest is the least comfortable: **being right about something
+unwelcome, early, in writing.** Which requires having written it down before you knew you were right,
+and is the reason Module 2''s invariants file and Module 4''s failure condition are both dated
+artifacts.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m6-lesson-4-the-stakeholder-who-ran-their-o-80', 'ai301-analytics-m6', 80, 'prose', 'stable', '## Lesson 4 · The stakeholder who ran their own numbers
+
+The specific encounter this course has been preparing you for, and it is now routine.
+
+An executive arrives having asked a model the same question you were asked. They have an answer. It
+is **more confident than yours**, because it has no alternatives list, no stated limitation, and no
+halt condition — Module 2''s whole apparatus is missing, and its absence reads as clarity.
+
+**What does not work:** more rigour, a longer methods appendix, or a defence of your credentials.
+Nobody in the room can adjudicate a methods dispute, so it resolves on confidence, and you have
+deliberately spent yours on caveats.
+
+**What works is three moves, in order.**
+
+**Say where your number comes from, in one sentence.** Not the method — the *decision*. "Ours counts
+internal transfers as attrition, theirs almost certainly doesn''t, and that is most of the gap." This
+is Module 3 paying off: if the definitions are written, you can locate a disagreement instead of
+having one.
+
+**Name the confound in theirs, specifically.** Not "there are limitations," which sounds defensive and
+generic. *"That comparison is between people who volunteered for the programme and people who
+didn''t."* One sentence, one mechanism, checkable. You can find it quickly because Module 2 gave you
+the list — and because you can ask a model to enumerate alternatives faster than they can defend
+against one.
+
+**Then offer the resolution, not the rebuttal.** *"Here is what would settle it, and it would take two
+weeks."* This converts a status contest into a question, which is the only frame where being right
+helps you. It is also Module 4''s design work arriving where it does the most good.
+
+**And the case you must prepare for: they are right and you are wrong.** It happens. **Conceding
+immediately, specifically, and in front of the same audience is the single highest-return move
+available to you** — it is the strongest possible evidence that your objections are about the evidence
+rather than about your position, which is the whole basis of Lesson 3.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m6-lesson-5-the-bet-and-what-you-stop-90', 'ai301-analytics-m6', 90, 'prose', 'stable', '## Lesson 5 · The bet, and what you stop
+
+The close, and it takes the shape every track in this curriculum ends on, with one term added that is
+specific to this role.
+
+**Which layer.** From Module 1''s stack — definitional authority, methodological judgment, evaluative
+design, or accountable standing. One. The honest choice is usually the highest layer whose
+prerequisite you already have, and for most functions that is not the most exciting one.
+
+**One undeniable win.** Not a programme — a single artifact somebody needed and could not get
+anywhere else. **Undeniable means it is obviously good and obviously yours**, and the test is whether
+its absence would have been noticed. Modules 4 and 5 both produced candidates: a measurement design
+for a deployment nobody was evaluating, an inventory nobody else could assemble.
+
+**A baseline and a 90-day measure.** Taken this week, reportable either way. Module 4''s standard
+applies to your own bet exactly as it applies to everyone else''s — **if no result would make you call
+it a failure, you have written a justification.**
+
+**And this role''s fourth term: which recurring report you stop publishing.**
+
+That last one is not a rhetorical flourish. **Description is where the hours are and the least
+defended thing in the portfolio**, and Module 1 asked you to name the capability you would lose least
+by giving up. This is where that answer becomes a decision.
+
+Say the practical part, because "stop the report" is easy to write and hard to do. Somebody receives
+it. They may not read it, but they will notice it stopping, and the safest version is a stated pause
+with a named date to review — *we are pausing this for a quarter; tell me if you miss it.* **Nearly
+nobody does.** The information from that experiment is worth more than the report was.
+
+**And a closing warning about the whole track.** You now have halt conditions, alternatives lists,
+disclosure thresholds and a decline script. **Every one of them is a way to say no, and a function
+that arrives with five new ways to say no and no new thing to offer has made itself easier to route
+around.** The methods in Modules 2, 3 and 5 are only defensible in an organization where Module 4''s
+territory has been claimed. **Do the offering first.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m6-exercise-embed-95', 'ai301-analytics-m6', 95, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m6-key-takeaways-100', 'ai301-analytics-m6', 100, 'takeaways', 'stable', '## Key takeaways
+
+- **Adoption is where these investments die, not technology** `[V]` — and the gap between 15% in
+  trials and 0.29% at firm level is **the largest available diagnostic opportunity in your
+  organization**, not evidence that AI fails. **You have been running an adoption problem for years
+  without calling it one.**
+- **Product orientation is the competency this function was not hired for.** A finding is not a
+  product; a dashboard nobody opens is a correct artifact that failed; **the unit of delivery is the
+  decision, not the insight.**
+- **Ask of last year''s outputs: what decision did this change, and who made it?** The ratio is the
+  product problem, and better analysis does not fix it.
+- **Trust is not the belief that your numbers are right** — everyone assumes that. **It is the belief
+  that you will say something the room does not want to hear**, which is why the refusals are what
+  make the assertions load-bearing.
+- **Three things erode it faster than a wrong number:** producing what was wanted, confidence that
+  never varies, and silence about a limitation the audience later discovers.
+- **Against the executive who ran their own numbers:** locate the definitional difference, name one
+  confound specifically, offer the resolution rather than the rebuttal. **And when they are right,
+  concede immediately and in front of the same audience** — the highest-return move available.
+- **The bet has four terms here:** one layer, one undeniable win, a 90-day measure you would report
+  either way, and **which recurring report you stop.**
+- **A function that arrives with five new ways to say no and nothing new to offer has made itself
+  easier to route around.** Claim the territory first.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m6-activity-link-105', 'ai301-analytics-m6', 105, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 The 90-day plan (course close)", "blurb": "One page: which layer, one undeniable win with a named recipient, a baseline you can take this week, the result that would make you call it a failure, and what recurring report comes off to fund it. Then the reckoning \u2014 every claim you contested since Module 1, what moved, and where you now disagree with this course.", "estMinutes": "35"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m6-take-a-position-110', 'ai301-analytics-m6', 110, 'callout', 'stable', '## Take a position
+
+**The claim:** *"Nobody hands you AI measurement or AI governance. A three-person team reporting into
+HR Ops does not win a mandate by asking."*
+
+The strongest counter-argument is that **this is advice to work around your own organization, and it
+tends to produce exactly one good quarter.** Claiming territory by producing an unrequested artifact
+is a real tactic and it is also, seen from above, a function that decided its own priorities and spent
+budget on them without asking. It works once, when the artifact is undeniable and the timing is
+lucky. It does not build a mandate, because **a mandate is a durable allocation of authority and those
+are granted, not taken** — and the version taken by initiative can be revoked the moment a sponsor
+changes. On that view the module has mistaken a tactic for a strategy, and the real work is the
+unglamorous thing it skips: finding the executive whose problem this is, making it their idea, and
+accepting a slower path to a claim that survives you. Your position has to say what happens to the
+undeniable win when its sponsor leaves.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m6-sources-and-attribution-120', 'ai301-analytics-m6', 120, 'prose', 'stable', '## Sources and attribution
+
+- **Adoption as the failure mode, product orientation, trust as the residual asset, and the
+  nobody-hands-you-a-mandate close** come from a human-authored brief for this track.
+- **The productivity evidence `[V]`** is carried in full by Module 4 — the 5,000+ executive survey
+  (0.29% realized, 89% reporting no impact), the METR developer trial, and Humlum & Vestergaard''s
+  Danish nulls against 15%+ RCT gains. Cited here for its second reading, not re-derived.
+- The three-move response to a disagreeing stakeholder, the trust-erosion list, and the
+  stop-a-report term are original to this course.
+- Builds on every prior module: Module 1 (the stack, and the capability you''d give up), Module 2 (the
+  alternatives list, and that an evaluation must be able to fail), Module 3 (written definitions,
+  which are what let you locate a disagreement rather than have one), Module 4 (the declining move,
+  and the measurement design as a candidate win), Module 5 (the inventory as the other candidate).
+  Also recruiter R5''s *name the decision that changes*, arriving here as a product question.
+- The delta reckoning — open on a contested claim, close by measuring whether the learner moved and
+  whether they can account for it — is the assessment philosophy shared across all AI 301 tracks.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m6-activity-applied-activity-the-90-day-plan-course--10', 'ai301-analytics-m6-activity', 10, 'prose', 'stable', '## Applied activity — "The 90-day plan" *(course close)*
+
+**Time:** 35 minutes · **Submit:** the one-page plan plus a 400–500 word reckoning · **Graded against
+the rubric below.** Score doesn''t matter — and it matters least here, because **the thing being
+assessed is whether you moved.**
+
+### Part 1 — The plan (one page, 20 min)
+
+**The layer.** Which layer of the stack you are betting on, and why that one — the honest answer is
+usually the highest layer whose prerequisite you already have.
+
+**The undeniable win.** One artifact, named specifically. **Who receives it**, by name and role. What
+makes it undeniable — and the test to apply: **would its absence have been noticed?** Modules 4 and 5
+both produced candidates; you may use one.
+
+**The baseline and the 90-day measure.** One number, takeable this week, with its current value or a
+plan to establish it. **And the result that would make you call this a failure** — if there isn''t one,
+you have written a justification.
+
+**What you stop.** The recurring report, or the standing commitment, that comes off to fund this.
+Specific enough that someone would notice. **A stated pause with a review date is a legitimate and
+often smarter version.**
+
+**The sponsor.** Who has to not-object for this to happen, and whether you have told them. If you have
+not, say when you will.
+
+### Part 2 — The reckoning (400–500 words, 15 min)
+
+The point of the whole track. You contested five claims before you read anything; go back and settle
+them.
+
+**Where you started.** Your Module 1 automatable-hours prediction against your measured production
+share. Your Module 2 halt-conditions count against what you actually found in writing. Your Module 3
+metric-agreement prediction against the spread you measured. Your Module 4 deployment count. Your
+Module 5 system count.
+
+**What moved, and why.** Not a list — an account. Which claim turned out to be most true of your
+organization, which was least, and **what you had been assuming that made the gap.** The direction of
+your errors matters more than their size.
+
+**Where the evidence could not settle it.** At least one of these five checks probably came back
+unresolvable. **Say which, why, and what you would need** — that is a finding about your instrumentation
+and it scores in full.
+
+**Where you now disagree with this course.** At least one place. Every module handed you a
+counter-argument written at its strongest. Name the one you think wins, and say why. **A learner who
+finished agreeing with everything either did not take the positions seriously or was not asked hard
+enough questions**, and the rubric rewards the disagreement over the assent.
+
+**The honest close.** Whether you will actually send the plan. If not, what stops you — and whether it
+is the organization or you.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m6-micro-core', 'ai301-analytics-m6-micro', 10, 'prose', 'volatile', '## Module 6 in two minutes
+
+**Adoption is where AI investments in HR die — not technology.** And the same is true of analytics findings, which is the version that concerns you: **a correct analysis nobody acts on has the same organizational footprint as no analysis at all.** You have probably produced several.
+
+**The evidence has a second reading** `[V]`. Hold the firm-level result — 0.29% average gain, **89% of firms reporting no impact** — next to the RCTs showing **15%+ for the same tasks under trial conditions.** The conventional read is that the technology underdelivers. The better one: **the capability is real and it is not reaching the organization.** Something between the task and the firm is absorbing nearly all of it, and that something is workflow, incentive, habit and review burden — not technology.
+
+**That is an adoption problem, and adoption problems are diagnosable.** Which makes the gap between 15% and 0.29% the largest available diagnostic opportunity in your company, and you are the function that diagnoses things.
+
+It also applies to you. **You have been running an adoption problem for years without calling it one.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m6-micro-rule', 'ai301-analytics-m6-micro', 20, 'callout', 'stable', '### The rules to carry
+
+**Trust is not the belief that your numbers are right** — everyone assumes that, and it buys less than you think. **It is the belief that you will say something the room does not want to hear**, so that when you don''t object, the silence is informative. **The refusals are what make the assertions load-bearing**, which is why a function that never declines has told its organization its findings mean nothing in particular.
+
+Three things erode it faster than a wrong number: **producing what was wanted** (once, visibly — remembered for years), **confidence that never varies** (the audience learns your certainty is a style rather than a signal), and **silence about a limitation they later discover** (the limitation was survivable; the discovery isn''t).
+
+**And the closing warning about this whole track.** You now hold halt conditions, alternatives lists, disclosure thresholds and a decline script. **Every one is a way to say no — and a function that arrives with five new ways to say no and nothing new to offer has made itself easier to route around.** The methods are only defensible in an organization where the measurement territory has been claimed. **Do the offering first.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m6-micro-close', 'ai301-analytics-m6-micro', 30, 'prose', 'stable', '**The full module adds product orientation — the competency nobody in this function was hired for.** This profession selected for *being right*: the interview asks about methods, the credibility comes from rigour. **Shipping something people use is a different discipline, and the two are only weakly related.** A finding is not a product — a product has a user, a moment of use, and a decision it changes; a finding has an author and a distribution list. **A dashboard nobody opens is a correct artifact that failed**, and treating non-use as a user problem is what you do when you''ve decided the artifact is fine. The diagnostic: go through last year''s outputs and ask *what decision did this change, and who made it?* **Most functions find the honest answer is "none, and nobody" for the majority — including the work they''re proudest of.**
+
+Then the encounter this course prepares you for: **the executive who ran their own numbers** and arrived more confident than you, because their analysis has no alternatives list and its absence reads as clarity. Three moves — **locate the definitional difference in one sentence** ("ours counts internal transfers as attrition, theirs doesn''t, and that''s most of the gap"), **name one confound in theirs specifically**, then **offer what would settle it rather than a rebuttal.** And when they''re right: **concede immediately, specifically, in front of the same audience.** It is the highest-return move available to you.
+
+Plus the close — the bet, with this role''s fourth term: **which recurring report you stop publishing** — and the reckoning across every claim you contested since Module 1.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-analytics-m6-choice', 'ai301-analytics-m6', 'choice', '{"reviewedAt":"2026-08-12","title":"Four 90-day plans","intro":"*Five minutes. Commit before you look.*\n\nFour people analytics leads finished this track and wrote a 90-day plan. All four are going to their CHRO next month.\n\n**One of them is a request for permission wearing a plan''s clothes.** It is not the vaguest one on the page — read for the four terms, and for whether the artifact would be missed if it never arrived.","artifacts":[{"label":"Plan A","body":"\"Layer 4, evaluative design. The win: a measurement design for the Copilot rollout, which went to Finance in March and goes company-wide in October — nobody is evaluating it and the March baseline is still recoverable from the ticketing and document systems. Goes to the CIO and the CFO''s chief of staff, who owns the business case and has been asked twice for a number he doesn''t have. Baseline pulled this week. 90-day measure: whether the October wave decision cites our numbers — binary, and I''ll report it either way. Failure: if the October decision is made without reference to it, the artifact wasn''t wanted and I''ll say so rather than repeat it. What stops: the monthly HR scorecard goes to a quarterly cadence — three days a month back, and I''ve told the two people who open it. Sponsor: the CIO doesn''t know yet; I''m sending it Thursday whether or not he asks.\""},{"label":"Plan B","body":"\"Layer 5, accountable standing. We''re proposing that People Analytics be formally designated the owner of AI governance for people decisions, with a seat on the AI steering committee and a dotted line into the Legal AI working group. Once the mandate is confirmed we''ll build the inventory, the risk framework, and the model documentation standard. I''ve drafted a one-page proposal making the case that Legal can''t run adverse impact analysis and we can. Timeline: proposal in month one, mandate confirmed by month two, inventory delivered by month three. This is the biggest gap in the company and we''re the only function that can fill it.\""},{"label":"Plan C","body":"\"Layer 2, definitional authority. The win: a semantic layer for our six most-contested metrics, with edge cases ruled and owners named, wired into the self-service tool so the natural-language surface resolves them our way instead of guessing. Goes to the Finance BP team, who currently maintain a shadow set of definitions and argue with us quarterly. 90-day measure: number of metric disputes escalated to my team, currently averaging 11 a quarter — target under 5, reported either way. Failure: if disputes don''t fall, the problem was never definitional and I''ll say so. What stops: we retire the weekly headcount email and fold it into the scorecard. Sponsor: the Finance BP lead co-signs the definitions, which is why this works — she''s been asking for it.\""},{"label":"Plan D","body":"\"Layer 3, methodological judgment. We''re establishing an analytical standards function: an invariants file for each recurring analysis, a review gate before any finding is published, halt conditions encoded in our templates, and a quarterly quality report on adherence. Over 90 days we''ll roll this across all twelve recurring analyses and train the team on it. Measure: percentage of analyses with a completed invariants file — target 100%. This raises the floor on everything we produce and it''s the foundation for everything else in the track.\""}],"options":[{"id":"a","label":"Plan A"},{"id":"b","label":"Plan B"},{"id":"c","label":"Plan C"},{"id":"d","label":"Plan D"}],"key":"b","reasoning":"**B is the request for permission, and it is the plan most people who take this course would write** — because the track spent a module telling them Legal cannot do this alone, and B is that argument turned into a proposal.\n\nRead its sequence: **proposal in month one, mandate confirmed by month two, inventory delivered by month three.** Every deliverable is gated on being granted something. **Nobody hands you AI governance** — and B''s entire first two months consist of waiting to be handed it. If the mandate does not come, month three does not happen and there is no artifact to show for the quarter.\n\nIt also has no baseline, no measure that could come back negative (\"mandate confirmed\" is a status, not a result), and nothing that stops. And notice the inversion: **it has the inventory — the undeniable artifact — sitting *after* the mandate**, when the inventory is the thing that would have won the mandate. B could become A or C by deleting its first two months and building the inventory on Tuesday.\n\n**A and C are both strong**, and the difference between them is worth naming because it is a real strategic choice rather than a quality gap.\n\n**A is the higher-variance bet and the better-aimed one.** It claims Module 4''s territory: an evaluation nobody is running, on a deployment with a real sponsor who has been asked for a number twice and does not have one. The baseline is recoverable **now** and will not be in October, which makes the timing genuine rather than rhetorical. Its measure is binary and slightly brutal — *does the October decision cite it* — and its failure condition accepts that the artifact might simply not be wanted. The sponsor line is the tell that this learner understood the module: **\"the CIO doesn''t know yet; I''m sending it Thursday whether or not he asks.\"**\n\n**C is the lower-variance bet and is arguably the smarter first move.** It picks the highest layer whose prerequisite it already has, its measure has a real current value (11 disputes a quarter), and its sponsor **already wants it** — the Finance BP lead co-signs, which converts the classic quarterly argument into a shared artifact. C will almost certainly succeed and will build less territory than A. Both are legitimate; a learner who chose C for a function with no standing has read the room correctly.\n\n**D is the trap for people who liked Module 2 most, and it is the module''s closing warning made concrete.** Invariants files, review gates, halt conditions, adherence reporting — **five new ways to say no and nothing new to offer.** Its measure is compliance with its own process (100% of analyses have a file), which cannot fail in any way that matters and measures activity rather than change. Nothing stops. And no stakeholder outside the team receives anything. **The methods in Modules 2, 3 and 5 are only defensible in an organization where Module 4''s territory has been claimed** — D does the internal work first and will be experienced as the analytics team becoming slower and more difficult. It is good work in the wrong order.\n\nThe transferable test: **for each plan, name what arrives on someone else''s desk in 90 days, and what happens if nobody says yes.** A: an evaluation, sent Thursday regardless. C: a co-signed definition set, already wanted. D: a process the team follows. B: nothing, unless permission arrives first."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-analytics-m6-rubric', 'ai301-analytics-m6', 'rubric', '{"promptVersion":"ai301-analytics-m6-ninety-day-plan-v1","moduleId":"ai301-analytics-m6","minWords":400,"maxWords":500,"submitLabel":"Your 90-day plan and your reckoning","intro":"Paste the one-page plan — layer, the undeniable win and who receives it, baseline and 90-day measure, the failure result, what stops, and the sponsor — plus the 400–500 word reckoning across all five contested claims. Resubmission is free and unlimited. This is the course close, and the thing being assessed is whether you moved.","activityContext":"You are grading the closing submission for AI 301 · The Specialist, People Analytics track — for people analytics practitioners who have completed AI 101, AI 201 and Modules 1–5 of this track. Part 1 is a one-page 90-day plan with six elements: (1) which layer of the scarcity stack they are betting on — definitional authority, methodological judgment, evaluative design, or accountable standing — where the honest choice is usually the highest layer whose prerequisite they already have; (2) one undeniable win, a single artifact named specifically with the recipient by name and role, tested by whether its absence would have been noticed, and where Modules 4 and 5 both produced candidates (a measurement design for an unevaluated deployment, an inventory of AI systems touching people decisions); (3) a baseline takeable this week with its current value or a plan to establish it, and a 90-day measure they would report either way; (4) the result that would make them call it a failure, since a plan with no such result is a justification; (5) what recurring report or standing commitment stops to fund it, specific enough that someone would notice, where a stated pause with a review date is a legitimate and often smarter version; (6) the sponsor who has to not-object, and whether they have been told. Part 2 is the reckoning across all five contested claims — Module 1''s automatable-hours prediction against measured production share, Module 2''s halt-conditions count against what was found in writing, Module 3''s metric-agreement prediction against the measured spread, Module 4''s deployment count, Module 5''s system count — asking which claim was most true of their organization, which least, what they had been assuming that made the gap, at least one check that came back unresolvable with what they would need, at least one place they now disagree with the course, and whether they will actually send the plan. The module''s closing warning is that the track''s methods are all ways to say no, and a function arriving with five new refusals and nothing new to offer has made itself easier to route around — so claiming territory precedes raising standards. The module''s claim, which the write-up must take a position on, is that nobody hands you AI measurement or governance and a small team does not win a mandate by asking; its real counter-argument is that this is a tactic mistaken for a strategy, since a mandate is a durable allocation of authority and the version taken by initiative can be revoked when a sponsor changes. This track scores the delta, not the score: never grade prediction accuracy, grade the account of the change. A learner who finished agreeing with everything should score below one who disagrees well.","opening":[{"key":"mandateConfidence","label":"Predicted — % confidence you could get leadership to fund the layer you''d bet on","hint":"The last prediction of the course. Answer honestly.","placeholder":"e.g. 35","min":0,"max":100}],"calibration":[{"key":"mandateConfidenceRevised","label":"Revised — the same number, having written the plan","hint":"If it moved in either direction, the reckoning should say why.","placeholder":"e.g. 60","min":0,"max":100,"actualFor":"mandateConfidence"}],"dimensions":[{"name":"The win is an artifact, not a request","criteria":"The single most important dimension, because it is the module''s whole subject. Something that lands on a named person''s desk within 90 days **whether or not anyone approves it first.** The failure to catch is a plan whose deliverables are gated on being granted a mandate, a seat, or a budget — those sequence the artifact after the permission, when the artifact is what wins the permission. Apply the module''s test explicitly: **would its absence have been noticed?** Reward a modest artifact with a real recipient over an ambitious programme with a distribution list. Reward equally a learner who chose a lower-variance win because their function has no standing yet — reading the room correctly is not timidity."},{"name":"The measure could come back negative","criteria":"A number with a baseline takeable this week, its current value stated or a concrete plan to establish it, and a named result that would count as failure. Apply Module 4''s standard to the learner''s own bet: is there an outcome of this measure that would make them report the bet did not work? Process-compliance measures (''100% of analyses have an invariants file'') and status measures (''mandate confirmed'') both fail this dimension — they measure activity or permission rather than change, and cannot fail in any way that matters."},{"name":"Something real stops","criteria":"A named recurring report or standing commitment coming off, specific enough that a colleague would notice, with an account of who receives it now. A stated pause with a review date scores at the top — it is the practical version and it generates information. **''We''ll absorb it'' and ''this replaces work we already do'' are the failure modes**, since the module is explicit that capacity is not free and the merit of stopping is partly the experiment it runs. Credit a learner who connects this to Module 1''s named give-up capability; that answer has been waiting five modules for this sentence."},{"name":"The reckoning accounts for the movement","criteria":"The heaviest dimension. An account rather than a table: which contested claim was most true of their organization, which least, and **what they had been assuming that produced the gap.** Direction matters more than size — a learner who consistently underestimated how many AI systems were live has learned something about their visibility; one who overestimated their own written discipline has learned something else. Accuracy is never graded and must not be praised or penalized. A learner whose predictions were close but who cannot say why scores below one who was badly wrong and understands the mechanism."},{"name":"The unresolvable check is named","criteria":"At least one of the five checks that could not be settled with available evidence, stated with why and with what they would need. **This scores in full and must never be treated as an incomplete activity** — it is the outcome this track was built to make sayable, and for this audience it is a real finding about their instrumentation rather than an excuse. What scores low is claiming everything resolved cleanly across all five, which in most organizations indicates the checks were reasoned about rather than run."},{"name":"The disagreement and the honest close","criteria":"At least one place the learner now thinks a counter-argument beats the course''s position, argued rather than asserted — each module supplied one at its strongest, and picking one to defend is the intended move. **A submission that agrees with everything scores below one that disagrees well, and the feedback should say so plainly.** Plus the close: whether they will actually send the plan, and if not, an honest answer about whether the obstacle is the organization or themselves. Score the honesty, not the answer — ''I won''t, because I''m not willing to own the failure condition in public'' is a stronger close than a confident yes."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-analytics-m6-knowledge_check', 'ai301-analytics-m6', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"What is the second reading of the 15%-in-trials versus 0.29%-at-firm-level gap? `[V]`","options":["That the trial results were not replicable outside controlled conditions","That the capability is real and is not reaching the organization — which is an adoption problem, and adoption problems are diagnosable","That firms adopted the technology too slowly to show effects within three years","That the productivity gains were captured as profit rather than measured output"],"correctIndex":1,"explanation":"Which makes the gap the largest available diagnostic opportunity in your organization rather than evidence that AI fails — and you are the function that diagnoses things."},{"id":"q2","prompt":"What does the module mean by \"a finding is not a product\"?","options":["That findings should be delivered through tooling rather than documents","That a product has a user, a moment of use, and a decision it changes, while a finding has an author and a distribution list","That findings must be productized to justify analytics headcount","That analytical outputs should be versioned and maintained like software"],"correctIndex":1,"explanation":"Which is why presenting attrition drivers with no decision attached changes nothing — and the reason is not that the audience failed to understand it."},{"id":"q3","prompt":"How should a dashboard nobody opens be diagnosed?","options":["As a communication failure requiring training and promotion","As a design problem — and the standard response of training, a comms push and a meeting reminder is what you do when you have decided the artifact is fine","As evidence the underlying metrics are not decision-relevant","As a normal outcome, since most dashboards have low utilisation"],"correctIndex":1,"explanation":"The instinct is to treat non-use as a user problem. C is often true downstream and is a consequence of the same design failure."},{"id":"q4","prompt":"What is trust, in the module''s definition?","options":["The belief that your numbers are accurate","The belief that you will say something the room does not want to hear — so that your silence is informative","The reputation accrued from consistently meeting delivery commitments","Stakeholder confidence in the analytics function''s technical competence"],"correctIndex":1,"explanation":"Everyone assumes A, and it buys less than you think. **The refusals are what make the assertions load-bearing** — which is why a function that never declines has said its findings mean nothing in particular."},{"id":"q5","prompt":"Which erodes trust faster than a wrong number?","options":["Delivering analysis later than promised","Producing what was wanted, confidence that never varies, and silence about a limitation the audience later discovers","Presenting findings that contradict leadership''s stated strategy","Using methods the audience cannot follow"],"correctIndex":1,"explanation":"A wrong number is recoverable. Producing what was wanted — once, visibly — is remembered for years, and a limitation the audience discovers for itself was survivable until they discovered it."},{"id":"q6","prompt":"An executive arrives with a more confident answer from their own analysis. What works?","options":["A detailed methods appendix demonstrating your approach is more rigorous","Locate the definitional difference in one sentence, name one confound in theirs specifically, then offer what would settle it","Establishing your function''s authority over workforce metrics before discussing the numbers","Running their analysis yourself to demonstrate the error"],"correctIndex":1,"explanation":"Nobody in the room can adjudicate a methods dispute, so it resolves on confidence — and you spent yours on caveats. Offering the resolution converts a status contest into a question."},{"id":"q7","prompt":"What is the fourth term the module adds to the closing bet?","options":["The executive sponsor who will champion it","The risk that would cause you to abandon the bet","Which recurring report you stop publishing","The headcount required to sustain it"],"correctIndex":2,"explanation":"Description is where the hours are and the least defended thing in the portfolio. A stated pause with a review date is the practical version — **and nearly nobody asks for it back**, which is information worth more than the report was."},{"id":"q8","prompt":"What is the module''s closing warning about the track as a whole?","options":["That the methods require organizational maturity most companies lack","That the halt conditions and thresholds are all ways to say no, and a function arriving with five new refusals and nothing new to offer has made itself easier to route around","That governance work will consume the capacity freed by AI","That the track''s evidence will date quickly and needs re-checking"],"correctIndex":1,"explanation":"The methods in Modules 2, 3 and 5 are only defensible in an organization where Module 4''s territory has been claimed. **Do the offering first.**"}]}', '2026-08-12');
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m1-calibration-prompt-before-you-start-10', 'ai301-comp-m1', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
 
 *This one is a gate. Answer it before reading Lesson 1.*

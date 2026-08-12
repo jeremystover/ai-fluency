@@ -436,6 +436,82 @@
         "ai301-comp-m5"
       ],
       "microMinutes": 2
+    },
+    {
+      "id": "ai301-analytics-m1",
+      "courseId": "ai301-analytics",
+      "ordinal": 1,
+      "title": "The Scarcity Stack",
+      "blurb": "Five layers with production crossed out, what the evidence actually establishes, and the timed reproduction that settles it on your own data.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-analytics-m2",
+      "courseId": "ai301-analytics",
+      "ordinal": 2,
+      "title": "Designing constraints",
+      "blurb": "The expert move is stopping the model, not accelerating it — halt conditions, the confounders endemic to HR data, and prediction about individuals.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-analytics-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-analytics-m3",
+      "courseId": "ai301-analytics",
+      "ordinal": 3,
+      "title": "The semantic layer",
+      "blurb": "The ambiguity didn't appear, it became executable — plus the verification problem and the apprenticeship it used to come bundled with.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-analytics-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-analytics-m4",
+      "courseId": "ai301-analytics",
+      "ordinal": 4,
+      "title": "Measuring the AI transformation",
+      "blurb": "The largest unclaimed territory available to this role, why self-report is worse than nothing, and adoption, impact and displacement as three measurements.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-analytics-m2"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-analytics-m5",
+      "courseId": "ai301-analytics",
+      "ordinal": 5,
+      "title": "Governing AI used on people",
+      "blurb": "The obligations are legal and the evidence is statistical — provider not just deployer, purpose limitation, and disclosure control. Counsel review required.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-analytics-m2"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-analytics-m6",
+      "courseId": "ai301-analytics",
+      "ordinal": 6,
+      "title": "Claiming it",
+      "blurb": "Adoption is where these investments die, trust as the residual, and a 90-day plan for one undeniable win — plus the reckoning.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-analytics-m5"
+      ],
+      "microMinutes": 2
     }
   ],
   "courses": [
@@ -472,6 +548,13 @@
       "title": "AI 301 · The Specialist — Comp & Benefits",
       "level": "L3 → L4",
       "blurb": "Numbers that hold: you are the most numerate function in HR, and that is exactly what makes fluent output dangerous here. A wrong sentence gets caught. A wrong model gets presented.",
+      "status": "open"
+    },
+    {
+      "id": "ai301-analytics",
+      "title": "AI 301 · The Specialist — People Analytics",
+      "level": "L3 → L4",
+      "blurb": "What's left when analysis is free: everyone can produce the analysis now, so the scarce thing is knowing when to stop — and being the person whose stopping the organization believes.",
       "status": "open"
     },
     {
