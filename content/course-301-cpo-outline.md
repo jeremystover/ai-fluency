@@ -1,4 +1,4 @@
-# AI 301 · The Specialist — CPO / CHRO track · "The Decision Series" (draft v1)
+# AI 301 · The Specialist — CPO / CHRO track · "Irreversible" (draft v2)
 
 **Audience:** Sitting Chief People Officers and CHROs — P&L exposure, a board relationship, a peer
 C-suite fight to win, and accountability for decisions that cannot be walked back.
@@ -455,6 +455,33 @@ surface and need a targeted check — M3 works without them, since the org-desig
    argument that does not need propping up. The number stays, stated with its sample and its
    causal limit; the argument leads.
 
+## What drafting changed (v2 — recorded during the build)
+
+M1 is drafted; M2–M6 are outlined and verified but not yet drafted. Five things changed and are
+recorded here so the remaining modules inherit them.
+
+11. **Renamed from "The Decision Series."** That name belongs to the Talent Development track, which
+    took it from its own human brief. "Irreversible" comes from this track's positioning — the
+    altitude at which decisions cannot be walked back.
+12. **The opening mechanism is a contested claim, not the five-number gate.** The brief's §5 changed
+    course-wide: a confidence rating is self-report, and self-report is not evidence. Each module now
+    opens on a factual assertion about the learner's own organization, committed before content and
+    checked against their own systems, with a numeric field retained where an honest measurable
+    exists. The five original predictions survive **distributed across the six modules' gates**
+    rather than stacked in M1 — which is better, because each one now sits next to the content that
+    settles it.
+13. **The named-executive anecdotes are out of M1.** The widely-circulated stories about specific
+    CHROs' personal practices could not be verified to a primary source. M1 teaches the three
+    practices as patterns instead. **This track does not repeat unsourced stories about named
+    individuals** — a standing rule for the remaining modules, which is relevant to M3's Moderna
+    material and M4's IBM material.
+14. **Decision 4 is reversed, for the same reason as the Talent Development track's.** That outline
+    said the coaching RCT moved and HRBP M7 kept a pointer. Under the brief's revised §3a no learner
+    sees two role tracks, so horizontal duplication is an authoring concern rather than a learner
+    one. **Nothing in this track requires an edit to shipped content.**
+15. **M6's Gartner figure is not what the brief assumed, and the correction is the lesson.** See the
+    verification table.
+
 ## Verification status
 
 **Confirmed:** the SHRM exclusion figures with sample (n=1,908, December 2025); the CHRO skepticism
@@ -468,8 +495,8 @@ methodological critique.
 
 **Unverified and blocking before drafting:**
 
-- **The Bersin CHRO anecdote and the Walmart senior-search example** — M1 Lesson 2's concrete
-  material. Both are second-hand as stated.
+- ~~The Bersin CHRO anecdote and the Walmart senior-search example~~ — **resolved by removal.** Could
+  not be traced to a primary source; M1 teaches the practices as patterns instead (Decision 13).
 - **Moderna's 3,000+ custom GPTs and ~5,800 headcount.**
 - **IBM's +19 starting satisfaction score** and the 21,000-manager figure.
 - **Gartner's 28% of use cases meeting ROI, and 47% of CHROs with no clear measurement.**
