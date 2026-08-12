@@ -7,6 +7,11 @@ import { track } from '../api';
 
 const DIFFERENTIATORS: { title: string; body: string; tag: 'in this demo' | 'roadmap' }[] = [
   {
+    title: 'Built for People teams',
+    body: 'Not a general AI course with an HR example bolted on. The whole ladder is written for one function, and at 301 it splits by role — the role you pick at intake resolves to your own specialist track, and the others disappear from your path. Each track is discovered from the job rather than adapted from a template, so the recruiter\'s intake module and the comp lead\'s craft layer exist in no other track. Three tracks are live here; People Ops, People Analytics, and Labor & Employee Relations are outlined next.',
+    tag: 'in this demo',
+  },
+  {
     title: 'Hyper-personalization',
     body: 'Nothing launches at you until you\'ve said how you want this to go: where to start, how much time you have, how you like to learn, what you\'re after. The course composes a plan around your answers — and recomposes it whenever you change them.',
     tag: 'in this demo',
@@ -81,8 +86,8 @@ export default function DifferenceModal({ open, onClose }: { open: boolean; onCl
           </button>
         </div>
         <p className="text-ink text-sm mt-3">
-          It's a course built AI-first — the model is in the architecture, not the margins. Five things you won't find in an
-          LMS:
+          It's a course built AI-first, for one function — the model is in the architecture, not the margins. Six things you
+          won't find in an LMS:
         </p>
         <ol className="mt-5 flex flex-col gap-4">
           {DIFFERENTIATORS.map((d, i) => (

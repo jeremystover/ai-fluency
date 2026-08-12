@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ai401-m1-micro-core",
+    "moduleId": "ai401-m1-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module 1 in two minutes\n\n**AI lowers the cost of individual production and raises the cost of collective coherence.** That is the whole course in a sentence, and it is an observation about where cost moved rather than a warning or a productivity claim. Drafts, models, analyses, summaries — cheaper. Getting six people's cheaper outputs to agree with each other, share assumptions, and add up to something an organization can act on — more expensive, because there is more of it, produced faster, by people who no longer had to consult anyone to make it.\n\n**The variance is organizational, not individual.** Organizational factors — culture, manager support, whether talent practices reflect AI at all — accounted for more than twice the reported AI impact of individual factors, 67% against 32%. Which means the ladder you just climbed was building the 32%. Necessary, and about a third of the problem.\n\n**And almost nobody is designing the other two thirds.** Only 6% of leaders report progress on designing how humans and AI work together. Meanwhile 42% of workers say their organization rarely evaluates AI's impact on people, and 80% suspect colleagues of using AI to look more productive than they are — a norm being renegotiated privately, by everyone, with nobody convening the negotiation. That accumulating cost has a name: **cultural debt.**"
+  },
+  {
+    "id": "ai401-m1-micro-rule",
+    "moduleId": "ai401-m1-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### The rule to carry\n\n**The structures most likely to be load-bearing are the ones nobody designed.** Designed structures get documented, documented structures get defended, and undesigned ones have no owner and no advocate — so when something removes them, there is no step in the process at which anyone notices.\n\nAI removes exactly this category, because undesigned structures are almost always *coordination* structures: the handoff living in two people's habits, the person everyone asks, the meeting where assumptions collided. Nothing gets destroyed. Something gets removed that nobody had written down as load-bearing.\n\nAnd the response is architectural, not visionary: **you cannot specify the destination, but you can specify what must hold.** Tolerances, not drawings — because a spec with a trigger can be wrong in a way you would notice, and a vision statement cannot."
+  },
+  {
+    "id": "ai401-m1-micro-close",
+    "moduleId": "ai401-m1-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "**The full module adds** the evidence with its samples and its limits, the sorting exercise that shows you every dissolving structure in the set is a coordination structure, the six places change management went instead of getting a module of its own — and the activity that names the one unit the next nine modules will thread, plus a count you have to go and establish rather than estimate."
+  }
+]

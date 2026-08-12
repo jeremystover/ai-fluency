@@ -1,0 +1,119 @@
+[
+  {
+    "id": "ai401-m1-calibration-prompt-before-you-start-10",
+    "moduleId": "ai401-m1",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Calibration prompt \u2014 before you start\n\n*One claim. Commit before you read.*\n\n> **\"Someone in my organization is evaluating what AI is doing to how we work together \u2014 not to\n> our output, to our working relationships.\"**\n\n**True of us, or not true of us?** Commit in a sentence. If it's true, name the person.\n\nThen: **how many people in your organization could name who is accountable for AI's effect on how\nteams work together?** A count, not an impression \u2014 and if the honest count is zero, write zero.\n\nYou will check this against evidence during the activity. Most people discover the answer is a\nnumber they have never had to say out loud."
+  },
+  {
+    "id": "ai401-m1-module-brief-20",
+    "moduleId": "ai401-m1",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nEverything below this rung made you better at using AI. **This one is about what happens to the\norganization while everyone gets better at using AI.** Those turn out to be different problems, and\nthe second one is not solved by more of the first.\n\nHere is the whole course in one sentence:\n\n> **AI lowers the cost of individual production and raises the cost of collective coherence.**\n\nRead it twice. It is not a warning about AI and it is not a productivity claim. It is an\nobservation about where cost moved. Producing a first draft, a model, a plan, a summary, an\nanalysis \u2014 all cheaper, in some cases by an order of magnitude. Getting six people's cheaper\noutputs to agree with each other, arrive in a compatible format, rest on the same assumptions, and\nadd up to something an organization can act on \u2014 **more expensive, because there is more of it,\nproduced faster, by people who no longer had to consult anyone to make it.**\n\nThat second cost lands on you. It does not show up on anyone's dashboard, it has no line in the\nbudget, and nobody has been assigned to it \u2014 which is precisely why it accumulates.\n\n**What this course excludes, and why.** No AI fundamentals, no prompting, no tool tour, no vendor\nshowcase. Those are 101 and 201 and they did them properly. There is also **no change-management\nmodule**, which is a deliberate choice rather than an omission: a standalone change module is the\nmost clich\u00e9-prone object in leadership training, and the material is better distributed to the\nplaces where it is load-bearing. Lesson 4 says where each piece went."
+  },
+  {
+    "id": "ai401-m1-learning-objectives-30",
+    "moduleId": "ai401-m1",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. State the course's thesis and explain why seven familiar symptoms are one problem.\n2. Describe cultural debt and name the evidence that it goes unevaluated.\n3. Distinguish load-bearing structures from decorative ones \u2014 and explain why the load-bearing ones\n   are usually undesigned.\n4. Explain why this course's deliverable is a spec with a tolerance rather than a plan with a date.\n5. Name one structure in your own organization that AI is currently removing."
+  },
+  {
+    "id": "ai401-m1-lesson-1-where-the-variance-actually-liv-40",
+    "moduleId": "ai401-m1",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 \u00b7 Where the variance actually lives [V]\n\nTwo findings, and together they should unsettle you slightly about the three courses you just took.\n\n**The first: almost nobody is designing this.** In Deloitte's 2026 Global Human Capital Trends,\n**only 6% of leaders say they are making progress on designing how humans and AI work together.**\nNot 6% who have finished. 6% who report progress. The majority approach is to layer AI onto the\nprocesses and systems that already existed and let the working arrangements sort themselves out.\n\n**The second explains why that matters.** Microsoft's 2026 Work Trend Index tested organizational\nfactors against individual ones for their relationship to reported AI impact \u2014 whether people say\nAI helps them produce better work, collaborate better, take on different work. **Organizational\nfactors \u2014 culture, manager support, and whether talent practices reflect AI at all \u2014 accounted for\nmore than twice the reported impact of individual factors: 67% against 32%.** The sample is 20,000\nknowledge workers across ten markets, fielded February to April 2026 by Edelman Data x\nIntelligence. It is self-reported impact rather than measured output, which is a real limitation\nand worth carrying: it tells you where people locate the difference, not where an economist would.\n\nHold those two together and the uncomfortable implication is clear enough. **The ladder you just\nclimbed \u2014 101, 201, your 301 track \u2014 was building the 32%.** That was the right thing to build,\nbecause you cannot lead a change you cannot perform, and because the 67% is not available to\nsomeone with no craft of their own. But it was one third of the problem, and the two thirds are\nwhat this course is about."
+  },
+  {
+    "id": "ai401-m1-try-50",
+    "moduleId": "ai401-m1",
+    "ordinal": 50,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### Try this \u2014 2 minutes\nAsk yourself who in your organization would receive an email titled *\"AI is changing how our\nteams work together and I think it's going badly.\"* Not who would care. Who would consider it\ntheirs. If the answer takes more than ten seconds, you have found this course's subject."
+  },
+  {
+    "id": "ai401-m1-lesson-2-cultural-debt-60",
+    "moduleId": "ai401-m1",
+    "ordinal": 60,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 \u00b7 Cultural debt [V]\n\nThe name for what accumulates is **cultural debt**: the cost an organization takes on when it\nscales AI faster than the norms, trust, and accountability structures around it. Like technical\ndebt, it is invisible in the quarter you incur it and expensive in the one where you pay.\n\nThree findings from the same research make it concrete rather than atmospheric.\n\n**Nobody is watching. 42% of workers say their organization rarely evaluates AI's impact on\npeople.** Not its impact on cost or throughput \u2014 on people. That is the measurement gap this\ncourse's final module is about, arriving here as a symptom.\n\n**The norms are being renegotiated without anyone convening the negotiation. 80% of leaders,\nmanagers, and workers are concerned that their colleagues are using AI to appear more productive\nthan they actually are.** Sit with that number. Four out of five people suspect the people around\nthem of a specific kind of performance, and almost nowhere has anyone said out loud what counts as\nlegitimate use. Underneath it sit four questions your organization has not answered: **is using AI\ncheating? What does hard work mean now? Who is to blame when AI is wrong? Does not using it cost\nme my job?** People are answering those privately, differently, and in ways that are already\nshaping who trusts whom.\n\n**And the decisions are moving faster than the competence. 60% of executives report using AI in\ndecision-making; 5% say they manage it well.**\n\n*A note on this evidence, because this course asks you to interrogate other people's numbers.*\nDeloitte's primary page could not be reached from this course's build environment, so these figures\nwere confirmed through indexed summaries and secondary coverage rather than read off the source\ndocument. They are consistent across those sources and the concept is well attested. Treat the\nspecific percentages as reliable-but-secondhand, and the pattern as solid.\n\n**Why it goes unpaid.** Every one of these is somebody's problem in the abstract and nobody's in\nthe org chart. The work is real, the cost is real, and there is no owner \u2014 which, as you will see\nin Module 5, is the exact profile of work that silently stops happening."
+  },
+  {
+    "id": "ai401-m1-lesson-3-load-bearing-and-decorative-70",
+    "moduleId": "ai401-m1",
+    "ordinal": 70,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 \u00b7 Load-bearing and decorative\n\nHere is the model the rest of the course runs on, and it comes from structural engineering rather\nthan management.\n\n**An architect's job is not to draw the finished building.** It is to determine what is\nload-bearing, specify the structure, and set tolerances for loads that cannot be predicted\nprecisely. Nobody knows exactly how many people will stand on the third floor. Everybody knows the\nfloor has to hold them.\n\nSo the first question about any structure in your organization is not *is this good* or *is this\nmodern.* It is: **what is this holding up?**\n\nSome things turn out to be holding up a great deal:\n\n- The weekly meeting nobody defends but everybody attends, which is where three teams discover\n  they made incompatible assumptions.\n- The person who has been there eleven years and gets asked everything, who is the only reason\n  new joiners find out what already failed.\n- The handoff that lives in one shared document and two people's habits.\n- The escalation path that exists because someone once did it and it worked.\n\nAnd some things are decorative \u2014 real, visible, effortful, and holding up nothing. A dashboard\nnobody acts on. A quarterly report that gets produced and filed. A meeting whose function is\nattendance.\n\n**Here is the part that matters, and it is the module's claim: the structures most likely to be\nload-bearing are the ones nobody designed.** That is not a paradox. Designed structures get\ndocumented, and documented structures get defended when someone proposes removing them. Undesigned\nstructures have no documentation, no owner, and no advocate \u2014 so when a change removes them,\n**there is no step in the process at which anyone notices.**\n\nAI is unusually good at removing exactly this category, because undesigned structures are almost\nalways **coordination** structures, and coordination is what gets optimized away first. The\nhandoff document becomes unnecessary when either person can generate the whole deliverable. The\neleven-year veteran gets asked less when the model answers faster and never sighs. The meeting\nwhere assumptions collided stops being necessary \u2014 right up until the moment two AI-accelerated\nworkstreams collide at four times the speed and there is no longer a meeting where that would have\nsurfaced.\n\n**Nothing was destroyed. Something was removed that nobody had written down as load-bearing.**"
+  },
+  {
+    "id": "ai401-m1-lesson-4-tolerances-not-drawings-80",
+    "moduleId": "ai401-m1",
+    "ordinal": 80,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 \u00b7 Tolerances, not drawings\n\nWhich brings us to what you will actually produce in this course, and what you will not.\n\nYou cannot pre-specify the destination. Anyone who tells you where your organization's work will\nbe in three years is guessing, and the honest version of that sentence is that the future state\n**emerges** \u2014 you find it by doing the work, not before. Module 2 gives that its proper name and\nits consequences.\n\nBut *\"we can't know\"* is not a leadership position. It is an excuse with a true premise. The\nresolution is the architect's:\n\n> **You cannot specify the destination. You can specify what must hold.**\n\nThat single move is what keeps this course out of the swamp that every AI-leadership curriculum\nends up in. From here on, your deliverable is never a vision document and never a roadmap. It is a\n**spec with a tolerance and a trigger**: what must be true, how much variation it can absorb before\nit fails, and the observable condition that tells you the spec was wrong.\n\nNotice the property that gives you. **A spec with a trigger can be wrong in a way you would\nnotice.** A vision statement cannot. That is the entire difference, and it is why the rubric for\nevery strategy artifact in this course requires at least one condition that would make you replan.\n\n**Where change management went.** You will not find a change-management module here, and you will\nfind change management in six places:\n\n| Idea | Where it lives |\n|---|---|\n| Transitional vs. transformational change | Module 2, justifying triggers over roadmaps |\n| The four fears \u2014 being found out, accountability without control, stepping into the unknown, losing your professional edge | the casting brief for every rehearsal counterpart you will face |\n| The four building blocks of change | Module 10, mapped onto instruments |\n| Resistance as diagnosis rather than obstacle | Modules 4 and 6 |\n| Middle managers as the load-bearing failure point | Module 5, where their absorbed work is what the audit finds |\n| The trough, and setting tolerance before you enter it | Modules 6 and 10 |\n\nA module called \"change management\" would have taught all of it worse, in one place, disconnected\nfrom anything you were building. That is the trade, stated so you can disagree with it."
+  },
+  {
+    "id": "ai401-m1-exercise-embed-85",
+    "moduleId": "ai401-m1",
+    "ordinal": 85,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"sorting\"}"
+  },
+  {
+    "id": "ai401-m1-key-takeaways-90",
+    "moduleId": "ai401-m1",
+    "ordinal": 90,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **AI lowers the cost of individual production and raises the cost of collective coherence.** The\n  familiar symptoms \u2014 turf conflict, orphaned work, integration debt, stalled collective learning,\n  isolation, unowned decisions, metrics that produce themselves \u2014 are one problem seen from seven\n  positions.\n- **The variance is organizational, not individual.** 67% against 32% for organizational versus\n  individual factors \u2014 and the whole ladder below this rung was building the 32%. Necessary, and a\n  third of the problem.\n- **Only 6% of leaders report progress on designing human\u2013AI interaction.** The default is to layer\n  AI onto what already existed and let the working arrangements sort themselves out.\n- **Cultural debt is real and unwatched.** 42% say their organization rarely evaluates AI's impact\n  on people; 80% suspect colleagues of using AI to look more productive; 60% of executives use AI\n  in decisions and 5% say they manage it well.\n- **The structures most likely to be load-bearing are the ones nobody designed** \u2014 because\n  documented structures get defended and undesigned ones have no advocate. AI removes coordination\n  structures first, and coordination is exactly where the undesigned ones live.\n- **You cannot specify the destination. You can specify what must hold.** Tolerances, not drawings.\n- **A spec with a trigger can be wrong in a way you would notice. A vision statement cannot.**"
+  },
+  {
+    "id": "ai401-m1-activity-link-95",
+    "moduleId": "ai401-m1",
+    "ordinal": 95,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"activity_link\", \"title\": \"Applied activity \\u2014 One structure\", \"blurb\": \"Name the unit this course will thread, then one structure inside it that was load-bearing, that nobody designed, and that AI is removing right now. The work is stating what it was carrying \\u2014 and going to count who in your organization owns any of this.\", \"estMinutes\": \"25\"}"
+  },
+  {
+    "id": "ai401-m1-take-a-position-100",
+    "moduleId": "ai401-m1",
+    "ordinal": 100,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"The structures most likely to be load-bearing are the ones nobody designed.\"*\n\nThe strongest counter-argument is that **this romanticizes accident.** Most undesigned structures\nare undesigned because they are bad \u2014 a meeting that persists through inertia, a person who is a\nsingle point of failure because nobody fixed the documentation, a handoff living in two people's\nhabits because no one did the work to make it a process. On that reading, AI removing them is not\na loss to mourn but overdue cleanup, and a course that teaches leaders to preserve undesigned\nstructures will teach them to defend exactly the dysfunction their organizations most need to\nlose. The sharper version: **\"load-bearing\" and \"should be load-bearing\" are different claims, and\nthis lesson quietly slides from the first to the second.**\n\nYour position has to say what you would do about a structure that is genuinely load-bearing *and*\ngenuinely bad \u2014 and whether the answer changes when the thing removing it is not a decision anyone\nmade."
+  },
+  {
+    "id": "ai401-m1-sources-and-attribution-110",
+    "moduleId": "ai401-m1",
+    "ordinal": 110,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- **Deloitte 2026 Global Human Capital Trends** `[V]` \u2014 the 6% designing human\u2013AI interaction\n  figure, cultural debt as a named concept, and the 42% / 80% / 60%-and-5% findings. **These were\n  confirmed through indexed search summaries and secondary coverage** rather than read from the\n  primary page, which this build environment could not reach; Lesson 2 says so in the lesson.\n  Flagged for re-verification against the source document.\n- **Microsoft 2026 Work Trend Index** `[V]` \u2014 organizational versus individual factors, 67% vs 32%.\n  n=20,000 knowledge workers across 10 markets, fielded 18 February \u2013 7 April 2026 by Edelman Data\n  x Intelligence. Self-reported AI impact.\n- The load-path model, the load-bearing/decorative distinction, the claim that undesigned\n  structures are the ones most likely to be load-bearing, and the tolerances-not-drawings framing\n  are original to this course.\n- Builds on 101 M1 (the delegation heuristic) and 201's shipped build, and assumes a 301 role\n  track without depending on which one."
+  }
+]

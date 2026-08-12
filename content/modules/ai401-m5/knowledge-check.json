@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why is a single span-of-control ratio applied across an organization an error?",
+      "options": [
+        "Because managers vary widely in capability",
+        "Because the right number moves on properties of the work — modularity, clarity of standards, ambiguity, risk, and how developed the talent is",
+        "Because industry benchmarks are unreliable at the team level",
+        "Because it fails to account for remote and hybrid working patterns"
+      ],
+      "correctIndex": 1,
+      "explanation": "And it is expensive in both directions: neglected teams where the work is hard, over-supervised ones where it isn't."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why does the module say \"AI means fewer managers\" and \"AI means more managers\" are both defensible?",
+      "options": [
+        "Because the evidence is genuinely mixed across sectors",
+        "Because AI makes work more modular and better instrumented while making the remaining human work more novel and ambiguous — both at once, in the same team",
+        "Because the effect depends on whether the organization is growing or contracting",
+        "Because management is being redefined faster than it can be measured"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which is why the useful question is which kind of work is left, answered per team."
+    },
+    {
+      "id": "q3",
+      "prompt": "What is the practical difference between a headcount question and a coverage question?",
+      "options": [
+        "Coverage questions are asked annually; headcount questions are asked in planning cycles",
+        "A headcount question produces a number; a coverage question produces a map, and the number falls out of the map",
+        "Coverage questions include contractors and headcount questions do not",
+        "Coverage questions are owned by People and headcount by Finance"
+      ],
+      "correctIndex": 1,
+      "explanation": "A number arrived at without the map is a guess wearing a spreadsheet."
+    },
+    {
+      "id": "q4",
+      "prompt": "Which complication cuts against the assumption that AI means smaller teams?",
+      "options": [
+        "That AI implementation itself requires headcount",
+        "That where individual leverage rises faster than coordination cost, adding a person returns more than it used to",
+        "That AI tools require ongoing vendor management",
+        "That regulatory oversight of AI increases compliance workload"
+      ],
+      "correctIndex": 1,
+      "explanation": "Module 6 tells you how to check it: if your absorption limit is not the binding constraint, growth is back on the table in a way it wasn't."
+    },
+    {
+      "id": "q5",
+      "prompt": "What happens to orphaned work on a lean team?",
+      "options": [
+        "It is redistributed through the planning process",
+        "It becomes an explicit ownership decision, or it silently stops happening — and silence is the default",
+        "It moves to whoever is most junior",
+        "It is usually the first work to be automated"
+      ],
+      "correctIndex": 1,
+      "explanation": "Route one requires someone to notice the absence of something that was never written down, which is why route two wins."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why does this module carry no statistic for its central claim?",
+      "options": [
+        "Because the research is too recent to be reliable",
+        "Because work in nobody's job description is also in nobody's dataset — measuring it would require first knowing it exists",
+        "Because the effect varies too much between industries to generalize",
+        "Because the available studies use incompatible definitions of invisible work"
+      ],
+      "correctIndex": 1,
+      "explanation": "The absence is the phenomenon. The module argues from mechanism and asks the learner to run the inventory — and an inventory that comes back empty is a legitimate finding against it."
+    },
+    {
+      "id": "q7",
+      "prompt": "Why does invisible work concentrate in middle management?",
+      "options": [
+        "Because middle managers have more discretionary time than individual contributors",
+        "Because their job is partly defined as handling whatever is not handled — they sit where the gaps between defined roles become visible",
+        "Because they are responsible for work their reports cannot complete",
+        "Because they are measured on team outcomes rather than individual output"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which is also why they are the layer most often flattened: a function whose main product is absorption cannot demonstrate its product."
+    },
+    {
+      "id": "q8",
+      "prompt": "What is the failure mode when an ownership decision is made without the middle layer?",
+      "options": [
+        "Open resistance during implementation",
+        "Escalation to senior leadership for arbitration",
+        "Agreement followed by absorption — because absorbing is what the layer does",
+        "Inconsistent application across teams"
+      ],
+      "correctIndex": 2,
+      "explanation": "Module 4's contract held between peers. This one has to hold between altitudes, and the risk is not disagreement."
+    }
+  ]
+}

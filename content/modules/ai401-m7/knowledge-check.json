@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is the gap this module addresses?",
+      "options": [
+        "That AI training budgets have not kept pace with adoption",
+        "That individual learning velocity rose sharply while collective learning velocity did not move",
+        "That organizations lack the tooling to share prompts effectively",
+        "That senior staff learn AI more slowly than junior staff"
+      ],
+      "correctIndex": 1,
+      "explanation": "Everyone is getting better in parallel and in private, and almost none of it reaches anyone else."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why does the module say one-time training has a structural rather than an execution problem?",
+      "options": [
+        "Because most training is delivered by people who are not practitioners",
+        "Because the half-life of what it transmits got much shorter and the delivery cadence did not change to match",
+        "Because adults retain little from classroom instruction",
+        "Because AI capabilities vary too much between vendors to teach generically"
+      ],
+      "correctIndex": 1,
+      "explanation": "Training works. A curriculum designed for annual delivery against a quarterly-changing subject will be confidently wrong, in a room, to people who then repeat it."
+    },
+    {
+      "id": "q3",
+      "prompt": "What are the three parts of turning individual practice into collective capability?",
+      "options": [
+        "Documented, approved, and distributed",
+        "Codified into shared artifacts, measured through workflow telemetry, circulated through tracked cycles",
+        "Piloted, standardized, and mandated",
+        "Written down, trained out, and audited"
+      ],
+      "correctIndex": 1,
+      "explanation": "Miss any one and discoveries stay trapped — which means collective learning depends on individual memory and goodwill, and neither survives a resignation."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why is an unmaintained shared artifact worse than nothing?",
+      "options": [
+        "Because it consumes storage and search results",
+        "Because it looks like coverage — someone uses it, gets a worse result than current practice, and concludes the library isn't worth checking",
+        "Because it creates a false record for audit purposes",
+        "Because maintaining it later costs more than starting fresh"
+      ],
+      "correctIndex": 1,
+      "explanation": "You have spent your one chance at that person's attention. An empty folder at least tells the truth."
+    },
+    {
+      "id": "q5",
+      "prompt": "What is the module's test for whether a library is codification or documentation?",
+      "options": [
+        "Whether its contents are version-controlled",
+        "Whether usage is measured",
+        "Who removes things, and when they last did it",
+        "Whether it has an approval process for new entries"
+      ],
+      "correctIndex": 2,
+      "explanation": "The answer is almost always nobody and never, and that tells you what you are looking at."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why must a codified artifact record its rationale rather than just its content?",
+      "options": [
+        "Because rationale is required for compliance documentation",
+        "Because a prompt without its reasoning can only be updated by its author — which makes it person-dependent wearing a shared folder's clothes",
+        "Because rationale helps new users decide whether it applies to them",
+        "Because it demonstrates the artifact was reviewed before publication"
+      ],
+      "correctIndex": 1,
+      "explanation": "C is true and secondary. The failure the property prevents is an artifact that looks shared and is not."
+    },
+    {
+      "id": "q7",
+      "prompt": "How does the module characterize the evidence for embedded AI coaching?",
+      "options": [
+        "Strong and independently replicated",
+        "A plausible mechanism with largely vendor-supplied applied evidence — enough to pilot with a measure, not enough to fund a programme",
+        "Contested, with equally strong evidence on both sides",
+        "Too recent to assess"
+      ],
+      "correctIndex": 1,
+      "explanation": "And a widely-repeated story about a technology company's coach-to-engineer ratio could not be traced to a primary source, so the module teaches the pattern without the anecdote."
+    },
+    {
+      "id": "q8",
+      "prompt": "What does codification restore, and what does it not?",
+      "options": [
+        "It restores speed but not quality",
+        "It restores consistency but not innovation",
+        "It restores the information half of what asking a colleague used to do, and does nothing about the relationship half",
+        "It restores individual capability but not team performance"
+      ],
+      "correctIndex": 2,
+      "explanation": "One transaction was carrying both loads. AI replaced the first and deleted the second, which is why collective learning and connection decayed together — and why Module 8 exists."
+    }
+  ]
+}
