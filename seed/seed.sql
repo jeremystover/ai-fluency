@@ -4,10 +4,10 @@ DELETE FROM fd_exercise;
 DELETE FROM fd_module;
 DELETE FROM fd_brand;
 DELETE FROM fd_access_code;
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-12T05:26:36.694Z');
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-12T05:26:36.694Z');
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('e8e09402-fd64-4899-a749-e061c8ec1742', 'omnissa', 'pbkdf2$100000$sLxFU8EuL4sl7z9Txigq0Q==$iV8mPvro94P1Qbt/UsGHIn9vr3PlB82rP5rSauEYlOA=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('1977918a-e8c3-4442-a7f9-f3b2733e289c', 'verdant', 'pbkdf2$100000$2CkHf+k8Lv4GPaZZtR1Hng==$H4t+s9yqtvVMgDF5GpFieCCsd45DPnY+mDB2pZVxz1E=', 'Theming proof', NULL, 0, NULL, 1);
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-12T10:56:40.376Z');
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-12T10:56:40.376Z');
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('105f9446-b9c5-4125-96bc-20620cf15701', 'omnissa', 'pbkdf2$100000$GAVUieCYg3ZpH2IsC+KLJw==$9facKmL7p3u5qACYdKFOc7XTEy/2RMxFCdihmCwNs7o=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('95d12ab0-bd52-420c-93fb-c3568729fba7', 'verdant', 'pbkdf2$100000$Wp/nvF6L8YBXS7e9/SWMxA==$YfRJUvrmJD95kFIHV3dAmfZxK7ch1Ht5KsbcgUBerxY=', 'Theming proof', NULL, 0, NULL, 1);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m1', 'ai101', 1, 'What is AI?', 'A working mental model: what an LLM actually does, the vocabulary, why data decides everything, and a delegation heuristic you can carry under pressure.', 'open', 30, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m2', 'ai101', 2, 'Choosing the tool for the task', 'Chat assistants, copilots, and the AI already embedded in your HR stack — what each is actually for, and how to tell a language model from a scoring engine before you rely on either.', 'open', 25, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m3', 'ai101', 3, 'What it costs and how it scales', 'Tokens, context windows, and pricing — enough of the economics to size a use case, read a vendor quote, and know when a bigger model is worth it.', 'open', 25, NULL);
@@ -38,6 +38,12 @@ INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-recruiter-r5', 'ai301-recruiter', 5, 'The closed loop', 'Instrument, capture, analyze, feed back — and the one asset in recruiting you can''t rent.', 'open', 25, '["ai301-recruiter-r2"]');
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-recruiter-r6', 'ai301-recruiter', 6, 'The floor and the audit', 'Bias-audit regimes, the agent theory, and computing a selection rate so an audit is a control rather than a document.', 'open', 25, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-recruiter-r7', 'ai301-recruiter', 7, 'Arguing for your function', 'Workslop lands on the hiring manager, the one-page case, and the headcount conversation with your team and your exec.', 'open', 25, '["ai301-recruiter-r5"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-comp-m1', 'ai301-comp', 1, 'What this job actually is', 'Five work types across comp and benefits, and the finding most practitioners get wrong about their own week — run as a buying instrument.', 'open', 25, NULL);
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-comp-m2', 'ai301-comp', 2, 'Reading the evidence', 'The real adoption picture, the three tells of a product roadmap wearing an industry trend, and the teardown applied to a vendor you pay.', 'open', 25, '["ai301-comp-m1"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-comp-m3', 'ai301-comp', 3, 'The craft layer', 'Why numerate people are more exposed, audit files and reconciliation named in advance, the Python-then-Excel double-pass, and a reusable starter kit.', 'open', 25, '["ai301-comp-m1"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-comp-m4', 'ai301-comp', 4, 'The exclusion zone', 'AI for speed, human-built tooling for accountability — the four zones, the circular one, and a legal floor that is moving. Counsel review required.', 'open', 25, '["ai301-comp-m3"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-comp-m5', 'ai301-comp', 5, 'The counterparty', 'Candidates arrive briefed by a model that gives your two sides different numbers, and your proxy is now read by machines against every peer at once.', 'open', 25, '["ai301-comp-m4"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-comp-m6', 'ai301-comp', 6, 'The bet', 'The leverage ladder, why efficiency is the weakest case a small function has, and a bet with a funding line — plus the reckoning against Module 1.', 'open', 25, '["ai301-comp-m5"]');
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('m1-brief', 'ai101-m1', 10, 'prose', 'stable', '## Why this module exists
 
 You almost certainly already use AI. You''ve probably asked something to tidy up a job description, turn a page of interview scrawl into a debrief a hiring manager can read, soften a rejection email, or explain a benefits provision in language an employee will actually understand. So opening a course with "what is AI?" is a strange move. The answer is on your screen already.
@@ -4436,6 +4442,1913 @@ Would a reasonable colleague trust it? Not "is it impressive" — verification r
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai201-m8-micro-close', 'ai201-m8-micro', 30, 'prose', 'stable', '**The full module adds** the shipping checklist, the peer-exchange mechanics, the manager one-pager — and the quiet news that the build reached past its own rung — into the role depth 301 goes after, and the credibility 401''s Translator work runs on.', NULL, '2026-08-07', NULL);
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m8-rubric', 'ai201-m8', 'rubric', '{"promptVersion":"ai201-m8-capstone-v1","moduleId":"ai201-m8","minChars":600,"submitLabel":"Your capstone-stage submission","intro":"Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). The AI 201 capstone portfolio: the index page and consistent binder, two real runs with intermediates, the four numbers in executive-sentence form, both directions of the peer exchange with the calibration score, and the closing reflection. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.","calibration":[],"dimensions":[{"name":"Engagement with real work","criteria":"The runs are real, the material is real, the fixes were actually made. A portfolio assembled for the grade reads exactly like one — and scores like one."},{"name":"Observation of mechanics","criteria":"The reflection connects what happened — the stalls, the deltas, the numbers — to how the systems work: context, verification, decay, transfer."},{"name":"Calibration","criteria":"The handoff prediction was made, scored, and folded into the course-long direction honestly. Accuracy isn''t graded; the named lean and its consequence are."},{"name":"Practical insight","criteria":"The next build is specific: named workflow, starting rung, budget size — each traceable to something this course measured about *you*."},{"name":"Would a colleague trust it?","criteria":"The test of the whole course: guardrails a reasonable peer would rely on — verification real, boundary defensible, autonomy evidenced, documentation a stranger has run. Not \"is it impressive.\" Is it *trustworthy*."}],"includeTrail":true}', '2026-08-12');
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai201-m8-knowledge_check', 'ai201-m8', 'knowledge_check', '{"title":"Knowledge check — 6 questions","note":"Unlocks after the portfolio is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-07","questions":[{"id":"q1","prompt":"The proof of the Practitioner level is:","options":["A workflow running at rung 3 autonomy","Transferability — a stranger can run the build, read its boundaries, and trust its guardrails from the documentation alone","Measured time savings above five hours a month","Completion of all eight capstone stages"],"correctIndex":1,"explanation":"Rungs, savings, and stages are properties a good build might have. The level is about whether the judgment left the builder''s head and survived in writing."},{"id":"q2","prompt":"The consistency pass exists because:","options":["Reviewers require a single document format","Artifacts written across seven modules drift apart as the workflow evolves — and contradictions are where cold readers stall and trust dies","The portfolio must fit in one file","Each artifact must be re-approved before shipping"],"correctIndex":1,"explanation":"The binder was written longitudinally; the workflow kept moving. The pass reconciles them — spec to rhythm, runbook to budget, pack to census — before the stranger reads."},{"id":"q3","prompt":"During the handoff run, the reader may not ask the builder questions because:","options":["The exchange is graded as a test of the reader","The documentation must answer or fail visibly — a question answered aloud is a gap that ships unfixed","Peers are anonymous in the exchange","Questions would take too long"],"correctIndex":1,"explanation":"The cold read is the instrument. Every question the builder answers in person is a stall the binder no longer gets credit for revealing — and documentation debt that survives to the *next* reader, who won''t have the builder''s number."},{"id":"q4","prompt":"Builders mispredict where readers stall in a specific direction:","options":["They predict stalls at complex parts; readers stall at obvious ones, where the builder''s expertise has gone invisible","They predict too many stalls overall","They predict stalls at the beginning; readers stall at the end","There is no systematic direction"],"correctIndex":0,"explanation":"The tacit-knowledge tax: obviousness is what expertise can no longer see. It''s the course''s last calibration lesson, and the core diagnostic of the coaching work ahead."},{"id":"q5","prompt":"The executive sentence — \"saves N hours a month against a measured baseline, at a running cost of $X and Y% sampled error, with a boundary security has seen\" — is powerful because:","options":["It uses precise numbers","Each clause is backed by an artifact that exists and can be audited: the baseline, the cost estimate, the sample tallies, the boundary sheet","It''s short enough for an executive to remember","It avoids technical vocabulary"],"correctIndex":1,"explanation":"The sentence is a claim with receipts — which is what separates it from every AI-enthusiasm anecdote in the same meeting. The numbers matter because the artifacts behind them do."},{"id":"q6","prompt":"The fifth rubric dimension — \"would a colleague trust it?\" — is the course''s test because:","options":["Peer approval is required for shipping","It integrates everything: verification that''s real, boundaries that are defensible, autonomy that''s evidenced, documentation that''s been run — trustworthy, not impressive","Colleagues will maintain the workflow after handoff","Trust is easier to grade than quality"],"correctIndex":1,"explanation":"Any single module can be performed; trust is what the whole system either earns or doesn''t. It''s also the property every rung above spends: role depth needs a practice that holds, and a Translator''s credibility starts at their own shipped, trustworthy build."},{"id":"q7","prompt":"The index page — new in this module — is written for two readers. They are:","options":["The builder, as a personal reference, and the review queue","A successor, as the first page they read, and an executive, as the only page they read","The deployment owner and the legal team","The peer reviewer and the hiring manager"],"correctIndex":1,"explanation":"One page: what the workflow is, what it saves, where everything lives, who owns it. A successor starts there and reads deeper; an executive reads it and stops — which is why the numbers on it carry their baseline and cost."},{"id":"q8","prompt":"Your paired peer''s review hasn''t arrived within a week. Under the course''s design, your shipping:","options":["Stalls until the peer delivers — the exchange is a hard gate","Skips the exchange; the consistency pass covers the same ground","Proceeds — your binder goes to the review queue, where an experienced reviewer runs the same cold read","Proceeds only if you review your own binder with fresh eyes"],"correctIndex":2,"explanation":"No single person can deadlock the course. The queue''s reviewer runs the identical protocol — and having seen many binders, their stalls are better-aimed than a peer''s. A feature, not a compromise."}]}', '2026-08-07');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m1-calibration-prompt-before-you-start-10', 'ai301-comp-m1', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*This one is a gate. Answer it before reading Lesson 1.*
+
+Total rewards work divides into five kinds of activity: **data assembly, analysis, judgment,
+explanation, and governance.**
+
+**What percentage of your week goes to each?** Five numbers, summing to 100. Commit them now,
+before the module tells you anything about how they usually distribute.
+
+This track scores the delta, not the score. In Module 6 you''ll gather every prediction you made
+and read the pattern — and this one is the anchor, because what you believe your job consists of
+determines every buying decision you make about it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m1-module-brief-20', 'ai301-comp-m1', 20, 'prose', 'stable', '## Module brief
+
+This is a 300-level course, which means it refuses to do the 100-level job. There is no
+explanation of what a language model is, no prompting primer, no tour of tools. AI 101 and AI 201
+covered that, and if you need them, take them first. **The refusal is the point** — most material
+sold to this audience spends half its runtime on remedial content because it is written for
+novices, and you are not one.
+
+What this module does instead is describe your function accurately enough to make decisions
+about, because most AI buying in total rewards goes wrong at exactly this step. A team buys a
+product category — "AI for comp planning," "AI for benefits admin" — without ever having asked
+which *kind of work* in their week the product touches. The result is predictable and extremely
+common: three tools serving the work type that needed the least help.
+
+The five-type breakdown below is not a taxonomy for its own sake. It is a buying instrument, a
+delegation instrument, and — as Module 3 will show — a risk instrument, because the five types
+have completely different relationships with a technology that produces fluent output. And there
+is one finding in it that most comp leaders get wrong about their own week, which is why you
+committed your numbers first.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m1-learning-objectives-30', 'ai301-comp-m1', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Describe total rewards as it is actually practised, across both the comp and benefits halves.
+2. Sort any task in your function into one of five work types.
+3. Say which types AI genuinely changes, which it assists, and which it must not touch.
+4. Explain why explanation work is larger and more transformed than most practitioners predict.
+5. Convert your own week into a work-type map, and use it as a buying instrument rather than a
+   description.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m1-lesson-1-the-function-reconstructed-hone-40', 'ai301-comp-m1', 40, 'prose', 'stable', '## Lesson 1 · The function, reconstructed honestly
+
+Not the org chart — the work.
+
+**The compensation half.** *Job architecture* — levelling, job families, career paths, the
+structure everything else hangs on. *Market intelligence* — survey participation, job matching,
+market pricing, and the judgment about which cuts to trust. *Structure* — band design, ranges,
+progression rules. *Cycle execution* — merit planning, budget modelling, manager guidance, the
+exception queue. *Variable pay* — bonus plan design, target setting, payout modelling. *Equity* —
+grant guidelines, refresh strategy, the mechanics that nobody outside the function understands.
+*Executive compensation* — LTI design, proxy inputs, comp committee materials. And *pay equity* —
+analysis, remediation, reporting, increasingly under legal supervision.
+
+**The benefits half**, which is a different job wearing the same title in most organizations.
+*Plan design and funding* — what you offer, self-insured or fully insured, and what that costs.
+*Renewals and vendor leverage* — the annual negotiation that is genuinely a negotiation.
+*Retirement and fiduciary work* — the part that carries personal duty. *Leave and accommodation
+administration.* And *enrollment* — the highest-volume communication event in the People calendar.
+
+Two things about that list are worth naming before we sort it.
+
+**It is unusually structured work.** Compared to employee relations or organizational design,
+total rewards runs on tables, rules, cycles, and defined outputs. That makes it more tractable
+for these tools than most of HR — which is genuinely good news, and it is also why the failure
+mode here is over-confidence rather than under-adoption.
+
+**And the consequences are unusually asymmetric.** A merit cycle touches everyone''s pay. A
+mispriced band propagates for years. A retirement decision carries fiduciary duty. There are few
+functions in a company where an error is simultaneously this quiet and this durable.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m1-lesson-2-the-five-work-types-50', 'ai301-comp-m1', 50, 'prose', 'stable', '## Lesson 2 · The five work types
+
+Every task in the function is one of these. The distinction that matters is not difficulty — it
+is what a wrong answer costs and who would notice.
+
+**Data assembly.** Getting the numbers into one place. Pulling from the HRIS, joining survey
+files to your job catalogue, reconciling headcount between two systems, cleaning a submission
+file. Enormous volume, no judgment, and — importantly — **verifiable**: a row count is a row
+count, a join either matched or didn''t.
+
+**Analysis.** Turning assembled data into a finding. Compa-ratios, distribution analysis, cost
+modelling, regression on pay outcomes. Judgment enters here in the choice of method and the
+framing of the question, but the output is checkable in principle by anyone who can rebuild it.
+
+**Judgment.** Deciding. Where to set the band. Whether this exception is warranted. Which plan
+design to recommend. What the remediation should be. Not checkable, because there is no ground
+truth — only a defensible reasoning chain and an accountable person.
+
+**Explanation.** Making someone else understand a decision. A band to a manager who thinks their
+report is underpaid. A merit outcome to an employee who expected more. An equity grant to a
+candidate who has never held equity. A renewal to a CFO. **This is the type people
+systematically underestimate in their own week**, and it is the one AI changes most.
+
+**Governance.** Documenting, controlling, and being able to show your work. Approval trails, plan
+documents, audit responses, evidence that a decision was made the way you say it was. Low volume,
+high consequence, and the type where "we did it, we just can''t show it" is indistinguishable from
+not having done it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m1-lesson-3-where-ai-actually-lands-and-the-60', 'ai301-comp-m1', 60, 'prose', 'stable', '## Lesson 3 · Where AI actually lands — and the finding you probably got wrong
+
+Run the five types against the technology.
+
+**Data assembly — genuinely transformed, and safely.** This is the best AI use in the function,
+and Module 3 is largely about doing it properly. Why it''s safe is the important part: **the
+output is verifiable against something that isn''t the model.** Row counts, control totals,
+reconciliations. You are not trusting fluency; you are checking arithmetic. Nothing else in this
+list has that property.
+
+**Analysis — assisted, with a specific hazard.** AI structures a model, names the variable you
+forgot, and produces the sensitivity table quickly. It also produces a *confident, plausible,
+formatted* wrong answer at exactly the same speed, and you are trained to read formatted output
+for shape. That is Module 3''s whole subject.
+
+**Judgment — not delegable, and the boundary is sharper here than elsewhere in HR.** Whether this
+exception is warranted is a decision about a person''s pay. 101 M7''s line applies at full force,
+and Module 4 maps where it falls.
+
+**Explanation — the largest and most transformed, and the one you probably under-predicted.**
+Here is the case. Count the actual hours: the manager conversations in every cycle, the FAQ
+document, the enrollment communications, the exception responses, the "why is my band what it is"
+emails, the deck that explains the recommendation to leadership, the one-pager for the comp
+committee. In most weeks that outweighs analysis substantially — and almost nobody''s predicted
+split says so, because *analysis is what the job feels like it''s about*. It is the part that
+required training, and it is the part practitioners identify with.
+
+AI changes explanation work more than any other type, because producing a clear draft aimed at a
+specific audience is precisely what these tools do well — and because the raw material (your
+decision and its reasoning) is something you already hold. Explanation is also the type where a
+bad output is *most visible* and *least dangerous*: a confusing FAQ gets questions, and the
+questions are the correction.
+
+**Governance — assisted at the edges, never at the centre.** AI can draft the documentation and
+check a record for completeness. It cannot be the record, and it cannot attest that something
+happened.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m1-try-70', 'ai301-comp-m1', 70, 'try_this', 'stable', '### Try this — 3 minutes
+Take yesterday. Write down the four longest things you did and assign each a type. If
+explanation didn''t appear, look again at the messages you sent — most explanation work hides
+inside "answering a question," which nobody logs as work.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m1-lesson-4-why-this-is-a-buying-instrument-80', 'ai301-comp-m1', 80, 'prose', 'stable', '## Lesson 4 · Why this is a buying instrument
+
+The reason the map matters is that it is the thing missing from almost every AI purchase in this
+function.
+
+Vendors sell by *product category*, which maps to their engineering, not to your week. "AI for
+compensation planning" describes a market segment. Your week is five different jobs with five
+different risk profiles, and a product touches one or two of them.
+
+So the question to ask of anything you''re shown is not "does this help with comp?" It is:
+**which work type does this touch, and is that the type where my hours actually are?** Three
+consequences follow immediately.
+
+**A product that speeds up analysis when your bottleneck is explanation buys you nothing** — and
+this is the single most common mismatch in the function, because analysis is what everyone thinks
+the job is and therefore what everyone builds for.
+
+**A product that touches judgment should be assumed over the line until proven otherwise**, and
+Module 4 tells you where that line sits.
+
+**And a product that touches data assembly deserves the most attention and gets the least**,
+because it is unglamorous, it is where the volume is, and it is the one type whose output you can
+actually verify.
+
+The buying rule this produces: **map your week first, then look at products.** In that order the
+question answers itself; in the other order you evaluate a demo against a job description you
+have never written down.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m1-exercise-embed-85', 'ai301-comp-m1', 85, 'exercise', 'stable', '{"type": "sorting", "title": "Calibration exercise \u2014 Five work types", "intro": "Ten minutes, twelve real total-rewards tasks. Sort each into the work type it belongs to: data assembly, analysis, judgment, explanation, or governance.\n\nCommit every card before the reveal. Watch how many of them are explanation wearing another type''s clothes."}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m1-key-takeaways-90', 'ai301-comp-m1', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **Total rewards is unusually structured work with unusually asymmetric consequences.** That
+  combination makes it tractable for these tools *and* makes over-confidence the failure mode
+  rather than under-adoption.
+- **Five work types:** data assembly, analysis, judgment, explanation, governance. The
+  distinction that matters is what a wrong answer costs and who would notice.
+- **Data assembly is the safest genuine transformation**, because its output is verifiable against
+  something that isn''t the model — row counts, control totals, reconciliations. Nothing else in
+  the list has that property.
+- **Analysis is assisted with a specific hazard:** a confident, plausible, formatted wrong answer
+  arrives at the same speed as a right one, and you read formatted output for shape.
+- **Explanation is the largest and most transformed type, and the one practitioners
+  under-predict** — because analysis is what the job *feels* like it''s about, while explanation
+  hides inside "answering a question."
+- **Judgment is not delegable and governance can be assisted only at the edges** — AI can draft
+  the record; it cannot be the record.
+- **Map your week, then look at products.** Vendors sell by product category, which maps to their
+  engineering rather than to your hours.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m1-activity-link-95', 'ai301-comp-m1', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 Work-type map", "blurb": "A real week logged and sorted into the five types, compared against the split you committed before Lesson 1 \u2014 then run as a buying instrument against the tools your function already uses or is evaluating.", "estMinutes": "25"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m1-take-a-position-100', 'ai301-comp-m1', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"You think this job is analysis. It''s explanation with analysis attached."*
+
+The strongest counter-argument is that **explanation volume is a symptom of upstream failure, not
+the job.** If your bands were well-designed, your philosophy documented, and your managers
+trained, most of that explanation work would not exist — so a function that reallocates toward
+explanation is optimizing the consequence of its own structural debt rather than fixing it. On
+that view, the correct response to discovering you spend 40% of your week explaining is to fix
+the design, not to get faster at explaining. Your position has to engage that, because it is the
+argument a good structural comp person will make.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m1-sources-and-attribution-110', 'ai301-comp-m1', 110, 'prose', 'stable', '## Sources and attribution
+
+- The five work types, the buying-instrument framing, and the explanation-underprediction finding
+  are original to this course, developed for the total rewards context.
+- Builds on 101 M6 (confidence and correctness decoupled), 101 M7 (decisions about people), and
+  201 M1 (the workflow audit) — none of which this track re-teaches.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m1-activity-applied-activity-work-type-map-10', 'ai301-comp-m1-activity', 10, 'prose', 'stable', '## Applied activity — "Work-type map"
+
+**Time:** 25 minutes · **Submit:** the map plus a 250–350 word write-up · **Graded against the
+rubric below.** Score doesn''t matter. Doing the work is where the learning lands.
+
+**Step 1 — Log a real week (10 min).** Last week, not a typical one. Every block of thirty minutes
+or more, plus an honest estimate of the interrupt-driven work — the questions answered, the
+"quick" explanations, the Slack threads. Approximate hours are fine; completeness matters more
+than precision.
+
+**Step 2 — Assign types (5 min).** Every item into one of the five. Where a block genuinely spans
+two — a cycle meeting that is half analysis and half explanation — split the hours rather than
+rounding to the one that sounds better. Produce a percentage distribution.
+
+**Step 3 — Compare to your prediction (3 min).** Your committed five numbers against the actual
+five. Name the largest gap and the direction.
+
+**Step 4 — Run it as a buying instrument (7 min).** List the AI tools your function currently uses
+or is evaluating. For each: **which work type does it touch, and is that where your hours are?**
+Name any mismatch you find — a tool serving a type that turns out to be 8% of your week is the
+finding this activity exists to produce.
+
+Then the write-up: what the map showed, your position on the claim above with its
+counter-argument addressed, and **the one work type you would most want help with that nothing in
+your current stack touches.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m1-micro-core', 'ai301-comp-m1-micro', 10, 'prose', 'stable', '## Module 1 in two minutes
+
+**This is a 300-level course, which means it refuses to do the 100-level job** — no explanation of what a language model is, no prompting primer, no tool tour. The refusal is the point.
+
+**Five work types, and every task in total rewards is one of them.** *Data assembly* (getting numbers in one place — high volume, no judgment, and **verifiable against something that isn''t the model**, which nothing else here is). *Analysis* (data into a finding — assisted, with the hazard that a confident formatted wrong answer arrives at the same speed as a right one). *Judgment* (deciding — not delegable, 101 M7''s line at full force). *Explanation* (making someone else understand). *Governance* (showing your work — AI can draft the record, it cannot **be** the record).
+
+**The finding most practitioners get wrong about their own week: explanation is the largest type and the most transformed.** It hides inside "answering a question" — the manager email, the enrollment FAQ, the leadership deck, the equity conversation — while analysis is what the job *feels* like it''s about, because analysis is what required the training.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m1-micro-rule', 'ai301-comp-m1-micro', 20, 'callout', 'stable', '### The rule to carry
+
+**Map your week, then look at products.** Vendors sell by product category, which maps to their engineering rather than your hours — so ask which work type a product touches and whether that''s where your week actually is. A tool that speeds up analysis when your bottleneck is explanation buys you nothing, and it''s the commonest mismatch in the function.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m1-micro-close', 'ai301-comp-m1-micro', 30, 'prose', 'stable', '**The full module adds** the function reconstructed honestly across both halves — comp and benefits are different jobs wearing one title — why unusually structured work with unusually asymmetric consequences makes over-confidence the failure mode rather than under-adoption, the twelve-card work-type sort, and the week-mapping activity run as a buying instrument against the tools you already have.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-comp-m1-sorting', 'ai301-comp-m1', 'sorting', '{"reviewedAt":"2026-08-12","buckets":[{"id":"judgment","label":"Judgment","hint":"Deciding — no ground truth","rank":0,"pct":5},{"id":"governance","label":"Governance","hint":"Showing your work","rank":1,"pct":25},{"id":"analysis","label":"Analysis","hint":"Data into a finding","rank":2,"pct":55},{"id":"explanation","label":"Explanation","hint":"Making someone understand","rank":3,"pct":80},{"id":"assembly","label":"Data assembly","hint":"Getting numbers in one place","rank":4,"pct":95}],"tasks":[{"id":"t1","text":"Joining the survey submission file to your job catalogue and reconciling the match rate","key":"assembly","reasoning":"Volume, no judgment, and fully verifiable — the match rate is a number you can check. The safest genuine AI transformation in the function, and Module 3''s territory."},{"id":"t2","text":"Deciding whether an out-of-cycle increase request is warranted","key":"judgment","reasoning":"No ground truth, only a defensible reasoning chain and an accountable person. A decision about one named person''s pay — 101 M7''s line at full force."},{"id":"t3","text":"Writing the FAQ for open enrollment","key":"explanation","reasoning":"The highest-volume explanation artifact in the benefits calendar, and one of the clearest AI wins in the function — you hold the decisions, the model drafts for the audience, and confusion generates questions that correct it."},{"id":"t4","text":"Running compa-ratio distributions by function and flagging outliers","key":"analysis","reasoning":"Data into a finding. Checkable in principle by anyone who can rebuild it — which is exactly the standard Module 3 says to hold yourself to before presenting it."},{"id":"t5","text":"Answering a manager''s email about why their report''s band is what it is","key":"explanation","reasoning":"The card most people mis-sort, and the reason the prediction gate exists. This looks like ''answering a question'' and nobody logs it as work — but multiply it across a cycle and it outweighs most analysis."},{"id":"t6","text":"Assembling the approval trail showing who signed off on each exception this cycle","key":"governance","reasoning":"Being able to show your work. AI can draft the summary and check it for gaps; it cannot be the record, and ''we did it, we just can''t show it'' is indistinguishable from not having done it."},{"id":"t7","text":"Choosing which market cut to price the role against when three are defensible","key":"judgment","reasoning":"Analysis produced the three options; picking one is judgment, and it propagates into every offer made against that band. Easy to mis-sort as analysis because it happens inside a spreadsheet."},{"id":"t8","text":"Pulling headcount from the HRIS and reconciling it against payroll","key":"assembly","reasoning":"Two systems, one control total. Tedious, high-volume, verifiable — and the type that deserves the most AI attention while getting the least, because it''s unglamorous."},{"id":"t9","text":"Building the deck that explains your merit recommendation to the leadership team","key":"explanation","reasoning":"The analysis is already done; this is making someone else understand it well enough to approve it. Practitioners routinely file this under analysis because it contains charts.","also":["analysis"]},{"id":"t10","text":"Modelling three merit budget scenarios at 3%, 3.5% and 4%","key":"analysis","reasoning":"Genuine analysis with real AI leverage on the scaffolding and the sensitivity table — and the place a confident wrong number is most likely to reach a CFO, which is the track''s through-line."},{"id":"t11","text":"Drafting the plan document language for a new bonus structure","key":"governance","reasoning":"It becomes the controlling record — what the plan says is what the plan is. Drafting help is legitimate; every clause still needs an accountable human who can defend its origin.","also":["explanation"]},{"id":"t12","text":"Telling a candidate what their equity grant is actually worth and how vesting works","key":"explanation","reasoning":"Pure explanation, high stakes, and full of the vocabulary models fumble — grant date versus vest date, FMV versus strike. Module 3''s terminology file exists because of cards like this."}],"pattern":"Explanation is bigger than it looks, because most of it arrives disguised as answering a question.","postscript":"Count your explanation cards against your prediction. The five that belong there — the FAQ, the manager email, the leadership deck, the plan-document drafting''s readable half, and the equity conversation — are the ones practitioners most often file elsewhere, because they contain charts, or arrive as email, or feel like a favour rather than work. Cards placed toward assembly and explanation credit AI with more reach than the key does; toward judgment and governance, less. Note t7 especially: judgment that happens inside a spreadsheet still isn''t analysis."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-comp-m1-rubric', 'ai301-comp-m1', 'rubric', '{"promptVersion":"ai301-comp-m1-work-type-map-v1","moduleId":"ai301-comp-m1","minWords":250,"maxWords":350,"submitLabel":"Your work-type map and write-up","intro":"Paste the week''s log with its five-type distribution, the comparison against your committed prediction, the tool audit, and the 250–350 word write-up including your position on this module''s claim. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for AI 301 · The Specialist, Comp & Benefits track — for compensation and benefits professionals who have completed AI 101 and AI 201. Module 1 applied activity, ''Work-type map'': a real week (last week, not a typical one) logged in blocks including interrupt-driven work — questions answered, quick explanations, Slack threads — sorted into five types (data assembly, analysis, judgment, explanation, governance) with hours split rather than rounded where a block spans two, producing a percentage distribution; compared against the five percentages they committed BEFORE Lesson 1; then run as a buying instrument against the AI tools their function uses or is evaluating, naming which work type each touches and whether that is where their hours actually are. The finding the activity is engineered to produce is that explanation is larger than predicted, because it hides inside ''answering a question'' — a learner who discovers this and says so plainly has succeeded. A mismatch found between a tool and the learner''s actual hour distribution is the second intended finding. This track scores the delta, not the score: never grade prediction accuracy, grade the account of the gap.","opening":[{"key":"explanationPct","label":"Predicted — % of your week that is explanation work","hint":"Making someone else understand a decision. One of your five committed numbers.","placeholder":"e.g. 15","min":0,"max":100}],"calibration":[{"key":"explanationPctActual","label":"Measured — what the logged week actually shows","hint":"Including the explanation hiding inside answered questions.","placeholder":"e.g. 35","min":0,"max":100,"actualFor":"explanationPct"}],"dimensions":[{"name":"The week is real and complete","criteria":"An actual week rather than a representative one, including interrupt-driven work that never reached a calendar. A messy honest log outscores a tidy reconstruction, and admitting untracked hours outscores rounding them away."},{"name":"The types are applied with discipline","criteria":"Blocks spanning two types split rather than rounded to the flattering one, and a full percentage distribution. Watch for the module''s named mis-sorts: explanation filed as analysis because it contains charts, and judgment filed as analysis because it happened inside a spreadsheet."},{"name":"The map was used as a buying instrument","criteria":"Current or evaluated tools listed with the work type each touches and whether that matches where the hours are. A named mismatch — a tool serving a type that turns out to be a small share of the week — is the finding this step exists to produce and should score at the top. ''We don''t use any tools yet'' is acceptable only with the same analysis applied to what they''re being pitched."},{"name":"The delta and the position","criteria":"Predicted split compared against measured, largest gap named with its direction, and an account of why their reading leaned that way. Accuracy is never graded. Plus a committed position on the claim that engages its real counter-argument — that explanation volume is a symptom of upstream design failure, so getting faster at explaining optimizes structural debt rather than fixing it."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-comp-m1-knowledge_check', 'ai301-comp-m1', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"What makes data assembly the safest genuine AI transformation in this function?","options":["It involves no sensitive data, unlike the other types","Its output is verifiable against something that isn''t the model — row counts, control totals, reconciliations","Errors in data assembly have the lowest consequences","It requires no domain expertise to review"],"correctIndex":1,"explanation":"You aren''t trusting fluency, you''re checking arithmetic, and nothing else in the five has that property. A is the opposite of true — assembly touches the most sensitive data in the building, which is Module 3''s subject."},{"id":"q2","prompt":"Which work type do practitioners most commonly under-predict in their own week?","options":["Data assembly, because it''s tedious and easy to forget","Governance, because it happens in short bursts","Explanation, because analysis is what the job feels like it''s about","Judgment, because decisions are made quickly"],"correctIndex":2,"explanation":"Explanation hides inside \"answering a question,\" which nobody logs as work — while analysis is what required the training and what practitioners identify with. That gap is why the module gates the prediction before Lesson 1."},{"id":"q3","prompt":"Why does AI change explanation work more than the other types?","options":["Because explanation has the lowest accuracy requirements","Because producing a clear draft for a specific audience is what these tools do well, and you already hold the raw material — your decision and its reasoning","Because explanation work is not subject to 101 M7''s line","Because explanation outputs are rarely reviewed"],"correctIndex":1,"explanation":"The supply-the-material condition from 101 is already satisfied: you know why you decided what you decided. C is wrong in an important way — explaining a decision about a named person''s pay still sits under the line; what makes it safer is visibility, not exemption."},{"id":"q4","prompt":"A comp analysis produces a confident, well-formatted, wrong answer. Why is this function especially exposed?","options":["Because comp data is more error-prone than other HR data","Because practitioners here are trained to read formatted output for shape, and shape is the thing the model always gets right","Because analysis outputs are rarely checked by anyone else","Because comp models are more complex than other HR models"],"correctIndex":1,"explanation":"The numeracy that makes this function capable is what makes it exposed — you read a formatted model the way you read a formatted sentence. That inversion is the track''s through-line and Module 3''s whole subject."},{"id":"q5","prompt":"What can AI legitimately do in governance work?","options":["Serve as the system of record, if properly configured","Attest that an approval occurred, based on the conversation log","Draft documentation and check a record for completeness — but it cannot be the record, and cannot attest that something happened","Nothing — governance work excludes AI entirely"],"correctIndex":2,"explanation":"Drafting and completeness-checking are real help at the edges. The centre — being the record, or vouching that an event occurred — is a category error, and in fiduciary contexts a dangerous one."},{"id":"q6","prompt":"Why does the module call the five-type map a \"buying instrument\"?","options":["Because vendors price their products by work type","Because vendors sell by product category, which maps to their engineering rather than to your hours — so the question is which type a product touches and whether that''s where your week is","Because it produces a budget estimate for AI spend","Because procurement requires a documented evaluation framework"],"correctIndex":1,"explanation":"In that order the evaluation answers itself. In the other order you''re assessing a demo against a job description you''ve never written down."},{"id":"q7","prompt":"What does the module identify as the single most common mismatch in AI buying for this function?","options":["Buying benefits tools when the pain is in compensation","Buying enterprise platforms when point solutions would do","Buying a product that speeds up analysis when the bottleneck is explanation","Buying tools that duplicate existing HRIS capability"],"correctIndex":2,"explanation":"And it''s common for a legible reason: analysis is what everyone thinks the job is, so it''s what everyone builds for — including the buyer evaluating the demo."},{"id":"q8","prompt":"What''s the strongest counter-argument to the module''s claim about explanation?","options":["That explanation work is too varied for AI to help with reliably","That explanation volume is a symptom of upstream design failure — better bands, a documented philosophy and trained managers would eliminate most of it, so getting faster at explaining optimizes structural debt instead of fixing it","That analysis work will grow as data availability increases","That explanation is properly the manager''s job rather than the comp team''s"],"correctIndex":1,"explanation":"It''s the strongest because it accepts the measurement and disputes the conclusion: the hours are real, and reallocating toward them may be the wrong response. A good structural comp person will make this argument, and a position that doesn''t engage it hasn''t survived contact."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m2-calibration-prompt-before-you-start-10', 'ai301-comp-m2', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One prediction, thirty seconds.*
+
+**What share of employers do you think are currently operationalizing AI within their benefits
+programs?** Not experimenting, not planning — actually running it in production. Whole percent.
+
+Then, a second number: **what share do you think plan to within two years?**
+
+The gap between those two is the most useful thing in this module, and how you predicted it says
+something about which story you''ve been reading.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m2-module-brief-20', 'ai301-comp-m2', 20, 'prose', 'stable', '## Module brief
+
+You are the most skeptical function in HR about numbers, and the least skeptical about *the
+numbers in AI articles* — because those arrive in a register you don''t audit. A compa-ratio gets
+interrogated. A statistic in a thought-leadership piece about the future of total rewards gets
+absorbed.
+
+This module fixes that asymmetry, and it starts with an uncomfortable admission about the
+material you are reading right now.
+
+**Most published writing about AI in compensation is vendor content describing a product roadmap
+as an industry trend.** Not fraudulent — it''s usually accurate about what the vendor is building.
+The sleight is in the framing: *"total rewards is moving toward AI-driven pay decisioning"*
+describes what one company shipped last quarter, presented as a current fact about the industry. And
+the reason this works on a numerate audience is that it never states a number you could check.
+
+So this module does two things. It gives you the actual adoption picture — which is less
+dramatic and more useful than the narrative — and it gives you a method for reading any claim in
+this space, including the ones in this course. **We are asking you to apply the teardown to us
+too.** Where our figures come from a small sample or a vendor''s own research, the modules say so.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m2-learning-objectives-30', 'ai301-comp-m2', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. State the actual adoption picture for AI in benefits and total rewards `[V]`.
+2. Recognize a product roadmap presented as an industry trend, and name the three tells.
+3. Tear down any claim with three questions: what''s the evidence, what''s the sample, what would
+   falsify it.
+4. Explain why market data was soft before AI touched it — and what AI changed about that.
+5. Tear down a live claim from a vendor you currently pay.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m2-lesson-1-the-adoption-picture-40', 'ai301-comp-m2', 40, 'prose', 'volatile', '## Lesson 1 · The adoption picture [V]
+
+The numbers, with their samples attached — because a module about reading evidence has to model
+it.
+
+**Benefits, specifically.** WTW''s *2026 AI Use in Health and Benefits Survey* — 312 employers
+covering 4.6 million US employees, fielded January–February 2026 — found that **20% currently
+report actively operationalizing AI within their benefits programs**, while **72% plan to embed
+AI in benefits within the next two years.** Planned investment concentrates in communication
+(68%), data analytics and insights (59%), and personalized support (57%).
+
+Read that pairing carefully, because it is the most informative thing in the lesson. **One in five
+doing it; nearly three in four intending to.** A 52-point gap between practice and intention is
+not a description of an industry that has transformed. It is a description of an industry that
+has *decided to*. Those are different states, and almost every article you have read about AI in
+benefits describes the second while implying the first.
+
+Note also where the planned investment goes: communication first, at 68%. That is Module 1''s
+explanation work, and it is a rare case of the market pointing at the right thing.
+
+**The wider picture.** Gartner reports that **88% of HR leaders say their organizations have not
+realized significant business value from AI tools.** Adoption and payoff are different milestones
+and most of the field sits in the gap between them.
+
+**What this should do to your reading.** When a piece opens *"as AI reshapes total rewards…"* the
+honest translation is *"as one in five benefits functions runs something in production and most
+report no significant value yet."* Both describe the same world. Only one of them is trying to
+make you feel late.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m2-lesson-2-roadmaps-wearing-trends-50', 'ai301-comp-m2', 50, 'prose', 'stable', '## Lesson 2 · Roadmaps wearing trends
+
+The meta-lesson, and the transferable one.
+
+Three tells that a piece is a product roadmap in an industry trend''s clothing:
+
+**The trend has no subject other than the vendor''s product.** *"Compensation is becoming
+continuous rather than annual"* — who is doing this? How many? Since when? If the answer is "our
+customers, in our product," you are reading a launch announcement. A real trend has practitioners
+in it who don''t buy from the author.
+
+**The evidence is an anecdote scaled by an adjective.** "Leading organizations are…", "forward-
+thinking teams have…", "many companies now…". These are quantifiers with no quantity, and they
+appear precisely where a number would be if there were one. Watch how often the sentence would
+collapse if you asked *how many*.
+
+**The problem being described was invented to fit the product.** The strongest version of this is
+subtle and effective: a piece establishes that your merit cycle produces inconsistent manager
+decisions — true — then proposes AI-driven recommendation as the fix, without ever asking whether
+the inconsistency comes from bad guidance, bad training, or bad ranges. **The diagnosis is
+selected to make one cure obvious.**
+
+And the structural point underneath: **almost nobody in this field is funded to tell you that
+your existing process is mostly fine.** Consultancies sell engagements, vendors sell products,
+conference speakers need something to announce, and practitioners who tried something ambiguous
+don''t publish. The literature you assemble from public sources is systematically skewed, and no
+one had to be dishonest for that to happen.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m2-try-60', 'ai301-comp-m2', 60, 'try_this', 'stable', '### Try this — 3 minutes
+Take the last "AI in comp" article you read. Find one sentence with an adjective-quantifier in
+it — *leading, many, increasingly* — and ask what number would have to be true for it to hold.
+Then check whether the piece has an author affiliated with something being sold.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m2-lesson-3-the-teardown-70', 'ai301-comp-m2', 70, 'prose', 'stable', '## Lesson 3 · The teardown
+
+Three questions. They take two minutes and they work on anything.
+
+**1. What''s the evidence?** Not what''s the claim — what observation supports it. A named study? A
+customer''s self-reported result? An internal analysis? A projection? The most common answer is
+that there is no evidence at all, only a plausible mechanism, and a plausible mechanism is a
+hypothesis wearing a conclusion''s clothing.
+
+**2. What''s the sample?** How many, of whom, when, and *selected how*. This is the question that
+kills the most claims in comp-tech marketing, for a specific reason: **the customers who agree to
+be case studies are the ones for whom it worked.** A vendor with 400 customers and 3 case studies
+has told you something, and it is not what the case studies say.
+
+**3. What would falsify it?** If the claim is true, what would we see that we wouldn''t otherwise?
+And has anyone looked? An unfalsifiable claim — "AI improves decision quality" — is not a finding.
+It is a slogan with a chart next to it.
+
+**Apply it to us.** This course cites Gartner figures drawn from surveys of around 114 HR leaders,
+which is a small sample, and the modules say so where they use them. It cites a benefits survey of
+312 employers, which is solid for its scope. Module 5 will cite a negotiation survey whose
+respondents had *already used AI* — so it describes AI-using candidates, not all candidates, and
+the module states that plainly rather than letting the number do more work than it can carry.
+**If we ask you to interrogate a vendor''s sample and hide our own, the lesson is worthless.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m2-lesson-4-data-that-was-soft-before-ai-to-80', 'ai301-comp-m2', 80, 'prose', 'volatile', '## Lesson 4 · Data that was soft before AI touched it [V]
+
+A different kind of evidence problem, and the one closest to your daily work.
+
+Market data was never as precise as its presentation implied, and every experienced comp
+practitioner half-knows this while presenting it to three significant figures anyway.
+
+**Match quality.** Your "Senior Financial Analyst" and the survey''s "Senior Financial Analyst"
+are two job descriptions that overlap somewhere between 60% and 95%, and nobody records which.
+The match was a judgment made by a person under time pressure during submission season.
+
+**Thin cuts.** The 75th percentile for a specific geography, industry, and revenue band may rest
+on six incumbents at four companies. The number has two decimal places and a sample you would
+never accept in any other context.
+
+**Aging.** Survey data is aged forward with an assumed movement rate. That assumption is doing
+real work in the number and is invisible by the time it reaches a band.
+
+**Submission quality.** Everyone''s data goes in under deadline. Yours does too.
+
+None of this is new, and none of it is a reason to stop using market data — it remains the best
+available instrument. **What AI changed is the speed and confidence with which soft data becomes
+a presented conclusion.** You can now go from a thin cut to a formatted recommendation with a
+narrative in minutes, and every step of that pipeline makes the number look firmer than it is:
+prose sounds more certain than a table, a chart sounds more certain than prose, and a
+recommendation sounds more certain than a chart.
+
+**The practical discipline: carry the softness forward.** If the cut had six incumbents, the
+recommendation says so. If the match was loose, the band note records it. That habit costs one
+sentence and is the difference between a number that survives challenge and one that collapses
+under the first informed question.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m2-exercise-embed-85', 'ai301-comp-m2', 85, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m2-key-takeaways-90', 'ai301-comp-m2', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **You audit compa-ratios and absorb article statistics.** The asymmetry is the problem this
+  module fixes.
+- **The real adoption picture** `[V]`: ~20% of employers operationalizing AI in benefits against
+  ~72% planning to within two years, with 88% of HR leaders reporting no significant business
+  value yet. **A 52-point gap between practice and intention** — an industry that has decided to
+  transform, not one that has.
+- **Three tells of a roadmap wearing a trend:** the trend has no subject but the vendor''s product;
+  evidence is an anecdote scaled by an adjective; and the problem was selected to make one cure
+  obvious.
+- **Nobody is funded to tell you your existing process is mostly fine** — so the public literature
+  skews without anyone being dishonest.
+- **Three questions kill most claims:** what''s the evidence, what''s the sample, what would falsify
+  it. Sample is the sharpest, because case-study customers are the ones for whom it worked.
+- **Apply it to this course too.** Where our figures rest on small samples or self-selected
+  respondents, the modules say so.
+- **Market data was soft before AI** — match quality, thin cuts, aging, submission pressure. What
+  changed is how fast soft data becomes a confident presented conclusion. **Carry the softness
+  forward; it costs one sentence.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m2-activity-link-95', 'ai301-comp-m2', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 Teardown", "blurb": "One claim, quoted verbatim, from a vendor whose invoice you approve \u2014 run through the three questions, given a committed verdict, and turned into the one question you''d ask at renewal. A teardown that concludes the vendor is fine is a good outcome; one that finds nothing because you didn''t look isn''t.", "estMinutes": "25"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m2-take-a-position-100', 'ai301-comp-m2', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"Most of what you''ve read about AI in comp is a product roadmap wearing an
+industry trend''s clothes."*
+
+The strongest counter-argument is that **vendors are often the only people who can see the trend
+first.** They sit across hundreds of customers and observe patterns before any survey captures
+them, so their roadmaps are frequently a *leading indicator* rather than a fiction — and a
+function that dismisses vendor content as marketing will consistently learn about real shifts
+eighteen months late. On that view the answer is to read vendor material carefully rather than
+discount it. Your position has to engage that, because it''s true often enough to matter.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m2-sources-and-attribution-110', 'ai301-comp-m2', 110, 'prose', 'stable', '## Sources and attribution
+
+- **WTW, *2026 AI Use in Health and Benefits Survey*** — 312 employers covering 4.6 million US
+  employees, fielded January–February 2026: 20% currently operationalizing AI in benefits, 72%
+  planning within two years, with planned investment in communication (68%), data analytics
+  (59%), and personalized support (57%). Scope is health and benefits specifically, not total
+  rewards generally. **[V]**
+- **Gartner** — 88% of HR leaders reporting no significant business value from AI tools. **[V]**
+- The three tells, the three-question teardown, and the carry-the-softness-forward discipline are
+  original to this course.
+- Builds on 101 M2 (vendor claim teardown) and 101 M6 (confident wrongness), aimed here at a
+  literature rather than a product.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m2-activity-applied-activity-teardown-10', 'ai301-comp-m2-activity', 10, 'prose', 'stable', '## Applied activity — "Teardown"
+
+**Time:** 25 minutes · **Submit:** the teardown plus a 250–350 word write-up · **Graded against
+the rubric below.** Score doesn''t matter. Doing the work is where the learning lands.
+
+**Step 1 — Pick a claim from a vendor you currently pay (3 min).** Not a hypothetical, and not a
+competitor''s — someone whose invoice you approve. A capability claim, an ROI claim, or an
+efficacy claim from their marketing, a QBR deck, or a renewal conversation. Quote it verbatim.
+
+**Step 2 — The three questions (12 min).** Evidence: what observation supports it, and where did
+you have to look to find out? Sample: how many, of whom, when, selected how — and if the answer
+isn''t published, say that, because **an unpublished sample is itself the finding**. Falsifier: what
+would we observe if the claim were false, and has anyone checked?
+
+**Step 3 — Score the claim (5 min).** One of three verdicts, and commit to one: **supported**
+(evidence and sample hold up), **unverifiable** (may be true, cannot be checked — which is not
+the same as false), or **unfalsifiable** (constructed so no observation could contradict it).
+
+**Step 4 — Write the question you''d ask them (3 min).** One question for your next renewal
+conversation, specific enough that the vendor could answer it and consequential enough that the
+answer would change something you do.
+
+**Step 5 — Score the prediction (2 min).** Your two adoption predictions against the figures in
+Lesson 1. Which direction did you lean, and what does that suggest about what you''ve been reading?
+
+Then the write-up: the claim, the verdict, your position on the claim above with its
+counter-argument addressed, and — the honest one — **whether this changes anything about the
+renewal.** A teardown that concludes the vendor is fine is a perfectly good outcome; a teardown
+that finds nothing because you didn''t look hard is not.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m2-micro-core', 'ai301-comp-m2-micro', 10, 'prose', 'volatile', '## Module 2 in two minutes
+
+**You audit compa-ratios and absorb article statistics.** A number in a thought-leadership piece arrives in a register you don''t interrogate, and this module fixes that asymmetry.
+
+**The actual adoption picture** `[V]`: WTW''s 2026 survey of 312 employers covering 4.6 million US employees found **20% currently operationalizing AI within their benefits programs** against **72% planning to within two years** — with planned investment leading on communication (68%). Gartner separately reports **88% of HR leaders seeing no significant business value** from AI tools yet.
+
+**The 52-point gap between practice and intention is the whole finding.** That is not an industry that has transformed. It is one that has *decided to*. Nearly every article you''ve read describes the second while implying the first — which is what makes you feel late.
+
+**Three tells that a piece is a product roadmap wearing an industry trend''s clothes.** The trend has no subject other than the vendor''s product ("compensation is becoming continuous" — who? how many? since when?). The evidence is an anecdote scaled by an adjective — *leading*, *forward-thinking*, *many* — quantifiers with no quantity, sitting exactly where a number would be. And the problem was selected to make one cure obvious.
+
+**Nobody is funded to tell you your existing process is mostly fine.** Consultancies sell engagements, vendors sell products, and practitioners whose pilot came out ambiguous don''t publish. The literature skews without anyone being dishonest.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m2-micro-rule', 'ai301-comp-m2-micro', 20, 'callout', 'stable', '### The rule to carry
+
+**Three questions, two minutes, works on anything: what''s the evidence, what''s the sample, what would falsify it.**
+
+Sample is the sharpest in this market, and not because samples are small — because **the customers who agree to be case studies are the ones for whom it worked.** A vendor with 400 customers and 3 case studies has told you something, and it isn''t what the case studies say. When a claim hands you a numerator, ask for the denominator.
+
+And apply it here too. Where this course''s figures rest on small samples or self-selected respondents, the modules say so — if we ask you to interrogate a vendor''s sample and hide our own, the lesson is worthless.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m2-micro-close', 'ai301-comp-m2-micro', 30, 'prose', 'stable', '**The full module adds** the distinction between *unverifiable* and *unfalsifiable* and why collapsing either into "false" is the error; the four-claim sort where only one vendor publishes its own denominator; the case that market data was soft long before AI touched it — match quality, thin cuts, invisible aging assumptions, submission-deadline pressure — and that what AI changed is the **speed and confidence with which soft data becomes a presented conclusion**, since prose sounds firmer than a table and a recommendation firmer than a chart. Hence the discipline: **carry the softness forward.** It costs one sentence and it''s the difference between a number that survives challenge and one that collapses under the first informed question. Plus the teardown run live against a vendor you currently pay.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-comp-m2-choice', 'ai301-comp-m2', 'choice', '{"reviewedAt":"2026-08-12","title":"Four claims from four vendors","intro":"*Five minutes. Commit before you look.*\n\nFour comp-tech vendors, four claims lifted from a website, a QBR deck, a conference stage, and a renewal email. **One of them has evidence behind it.**\n\nThe test isn''t which claim is most plausible, or which product you''d rather buy. It''s which one survives the three questions: what''s the evidence, what''s the sample, what would falsify it.","artifacts":[{"label":"Claim A","body":"\"Leading total rewards organizations are moving from annual to continuous compensation decisioning. Forward-thinking teams have already made the shift, and the gap between them and everyone else is widening.\""},{"label":"Claim B","body":"\"Our AI job-matching engine improves the quality of your market pricing decisions.\""},{"label":"Claim C","body":"\"In a 2025 test across 41 customers, job descriptions drafted with our tool went through 1.4 rounds of manager revision on average versus 2.6 for the prior manual process. Customers were the 41 who agreed to instrument the workflow; median org size 2,400 employees; we did not measure downstream offer acceptance.\""},{"label":"Claim D","body":"\"Three of our customers cut their merit cycle from six weeks to under three. One of them is a Fortune 500 retailer — read the case studies on our site.\""}],"options":[{"id":"a","label":"Claim A"},{"id":"b","label":"Claim B"},{"id":"c","label":"Claim C"},{"id":"d","label":"Claim D"}],"key":"c","reasoning":"**C is the only one you could check, and notice how unimpressive it sounds.** It names a measurement (rounds of manager revision), a number of subjects (41), a period, a size profile, *and its own selection mechanism* — customers who agreed to instrument the workflow, which is not a random sample and the vendor says so. It also states what it didn''t measure. That last sentence is worth more than the headline: a vendor who tells you the boundary of their evidence is a vendor whose evidence has a boundary.\n\nIt is still not proof. The 41 self-selected, the comparison is against their own prior process rather than a control, and \"fewer revision rounds\" may or may not be a thing you want. But it is falsifiable and checkable, which puts it in a different category from the other three.\n\n**A is the roadmap wearing a trend — all three tells at once.** The trend has no subject: who is doing continuous decisioning, how many, since when? The evidence is an anecdote scaled by an adjective — *leading*, *forward-thinking* — quantifiers with no quantity, sitting exactly where a number would be if one existed. And the widening gap is there to make you feel late. Ask *how many* and the sentence collapses.\n\n**B is unfalsifiable, and it''s the most seductive of the four because it''s the most reasonable-sounding.** \"Improves the quality of your decisions\" — what observation would contradict it? None, as stated. There''s no definition of quality, no baseline, no counterfactual. It''s a slogan with a chart next to it, and it is the single most common sentence in this market.\n\n**D is the case-study trap, and this is where numerate people get caught.** Three real customers, one of them named, with a specific and verifiable-sounding result. The problem is arithmetic: **how many customers does this vendor have?** If it''s 400, then three case studies tell you that at least three worked and the other 397 are unaccounted for — including the ones who churned. The customers who agree to be case studies are the ones for whom it worked. D isn''t false. It''s a sample of survivors presented as a result.\n\nThe transferable move: **when a claim gives you a numerator, ask for the denominator.** A, B and D never offer one. C hands it to you unprompted."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-comp-m2-rubric', 'ai301-comp-m2', 'rubric', '{"promptVersion":"ai301-comp-m2-teardown-v1","moduleId":"ai301-comp-m2","minWords":250,"maxWords":350,"submitLabel":"Your teardown and write-up","intro":"Paste the verbatim claim, the three questions worked through, your verdict, the question you''d ask at renewal, your prediction scored against Lesson 1, and the 250–350 word write-up including your position on this module''s claim. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for AI 301 · The Specialist, Comp & Benefits track — for compensation and benefits professionals who have completed AI 101 and AI 201. Module 2 applied activity, ''Teardown'': a capability, ROI, or efficacy claim quoted verbatim from a vendor the learner''s organization currently pays (not a hypothetical, not a competitor), run through three questions — what''s the evidence (what observation supports it, and how hard was it to find), what''s the sample (how many, of whom, when, selected how — with an unpublished sample treated as itself a finding), and what would falsify it (what we''d observe if it were false, and whether anyone checked). Then a committed verdict of supported, unverifiable (may be true, cannot be checked), or unfalsifiable (constructed so no observation could contradict it). Then one question specific enough for the vendor to answer and consequential enough to change something. Then their two adoption predictions scored against Lesson 1''s figures — roughly 20% of employers operationalizing AI in benefits against 72% planning within two years. The module''s own claim, which the write-up must take a position on, is that most published writing about AI in comp is a product roadmap presented as an industry trend; its real counter-argument is that vendors sit across hundreds of customers and often see genuine shifts before any survey captures them, so discounting vendor content means learning about real changes late. A teardown concluding the vendor is fine is a legitimate outcome and must not be penalized; a teardown that finds nothing because the learner didn''t look is the failure. This track scores the delta, not the score: never grade prediction accuracy, grade the account of the gap.","opening":[{"key":"operationalizingPct","label":"Predicted — % of employers currently operationalizing AI in benefits","hint":"Running it in production, not experimenting or planning. Whole percent.","placeholder":"e.g. 45","min":0,"max":100}],"calibration":[{"key":"operationalizingPctActual","label":"Actual — the figure from Lesson 1","hint":"WTW''s 2026 survey of 312 employers covering 4.6 million US employees.","placeholder":"e.g. 20","min":0,"max":100,"actualFor":"operationalizingPct"}],"dimensions":[{"name":"The claim is real and has a cost attached","criteria":"A verbatim quote from a vendor whose invoice the learner''s organization actually approves — not a hypothetical, not a competitor, not a generic industry article. Sourced somewhere specific: marketing page, QBR deck, renewal conversation. A claim the learner has money riding on outscores a safer, more interesting one from a vendor they don''t buy from."},{"name":"The three questions were actually worked","criteria":"Evidence: what observation supports the claim, and an account of where they had to look to find out — ''I could not locate any'' is a strong answer when it''s true. Sample: how many, of whom, when, and selected how, with an unpublished sample explicitly recorded as a finding rather than a dead end. Falsifier: what we would observe if the claim were false, and whether anyone has checked. Watch for the common shortcut of restating the claim as its own evidence."},{"name":"The verdict is committed and the distinctions hold","criteria":"One of the three verdicts chosen, not hedged across two. The distinction between unverifiable (may be true, cannot be checked) and unfalsifiable (constructed so no observation could contradict it) applied correctly — collapsing either into ''false'' is the error to catch. A ''supported'' verdict scores at the top when the evidence genuinely holds up; a teardown that concludes the vendor is fine is a good outcome, not a weak one."},{"name":"The question and the consequence","criteria":"One question specific enough that the vendor could answer it — a denominator, a sample definition, a measurement boundary — and consequential enough that the answer would change something the learner does. Vague challenges (''can you prove the ROI?'') score low. Plus an honest statement of whether this changes anything about the renewal, including a straight ''no, and here''s why''."},{"name":"The delta and the position","criteria":"Both adoption predictions compared against Lesson 1, with the direction of the lean named and an account of what that suggests about what they''ve been reading — the gap between practice and intention is the point, not the accuracy. Accuracy is never graded. Plus a committed position on the module''s claim that engages its real counter-argument: that vendors often see genuine shifts first, so their roadmaps can be leading indicators rather than fictions, and the answer may be to read vendor material carefully rather than discount it."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-comp-m2-knowledge_check', 'ai301-comp-m2', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"What do the benefits adoption figures actually describe? `[V]`","options":["An industry that has largely completed its AI transition","Roughly 20% operationalizing against ~72% planning within two years — an industry that has decided to transform rather than one that has","An industry where adoption has stalled and intention is falling","Adoption concentrated in analytics rather than communication"],"correctIndex":1,"explanation":"The 52-point gap between practice and intention is the informative part, and nearly every article describes the intention while implying the practice. D inverts the finding — planned investment leads on communication at 68%, which is Module 1''s explanation work."},{"id":"q2","prompt":"Which is a tell that a piece is a product roadmap presented as an industry trend?","options":["It cites a named survey with a stated sample","It quotes practitioners at organizations that don''t buy from the author","The trend has no subject other than the vendor''s product — \"compensation is becoming continuous\" with no answer to who, how many, or since when","It appears in a trade publication rather than a peer-reviewed journal"],"correctIndex":2,"explanation":"A real trend has practitioners in it who aren''t customers. A and B are the opposite — they''re what a credible piece looks like — and D confuses venue with rigor."},{"id":"q3","prompt":"Why is \"sample\" the sharpest of the three teardown questions in comp-tech marketing?","options":["Because sample sizes are usually too small to be statistically significant","Because the customers who agree to be case studies are the ones for whom it worked — so a vendor with 400 customers and 3 case studies has told you something other than what the case studies say","Because vendors rarely disclose sample sizes at all","Because comp data samples are harder to construct than other HR data"],"correctIndex":1,"explanation":"The selection effect is the point, not the size. A vendor doesn''t have to misrepresent anything for a case-study set to be systematically unrepresentative."},{"id":"q4","prompt":"A vendor claims \"AI improves compensation decision quality.\" What''s the verdict, and why?","options":["Supported, since decision quality improvement is well-established in the literature","Unverifiable — it may be true but no published evidence exists","Unfalsifiable — no observation could contradict it as stated, so it''s a slogan rather than a finding","Supported, provided the vendor can produce a customer reference"],"correctIndex":2,"explanation":"Nothing you could observe would count against it. Note the distinction the activity insists on: unverifiable means *may be true, cannot be checked*, which is different from unfalsifiable and different again from false."},{"id":"q5","prompt":"Why does the module say the public literature skews even when nobody is dishonest?","options":["Because journalists lack the expertise to evaluate comp-tech claims","Because nobody is funded to tell you your existing process is mostly fine — consultancies sell engagements, vendors sell products, and ambiguous results don''t get published","Because negative findings are suppressed by vendors before publication","Because trade publications depend on vendor advertising revenue"],"correctIndex":1,"explanation":"A selection effect in who is motivated to publish, not a conspiracy. D is a real pressure and a weaker, more cynical version of the same point."},{"id":"q6","prompt":"What was already true about market data before AI touched it?","options":["It was consistently biased upward by vendor incentives","Match quality varies, cuts can rest on a handful of incumbents, aging assumptions are invisible, and everyone''s submission goes in under deadline","It was accurate but presented in unhelpful formats","It excluded the majority of employers in most industries"],"correctIndex":1,"explanation":"All four are ordinary and known, and every experienced practitioner half-knows them while presenting to three significant figures anyway. That''s the honest starting point."},{"id":"q7","prompt":"What did AI actually change about soft market data?","options":["It made the underlying data less reliable","It made matching more accurate, reducing the softness","The speed and confidence with which soft data becomes a presented conclusion — prose sounds firmer than a table, a chart firmer than prose, a recommendation firmer than a chart","Nothing — the data pipeline is unchanged"],"correctIndex":2,"explanation":"The data is exactly as soft as it was; the distance from thin cut to confident recommendation collapsed. Hence the discipline: carry the softness forward, at a cost of one sentence."},{"id":"q8","prompt":"What''s the strongest counter-argument to this module''s claim about vendor content?","options":["That vendors are legally required to substantiate marketing claims","That vendors sit across hundreds of customers and often see real shifts before any survey captures them — so a function that discounts their content learns about genuine changes late","That most vendor content is written by independent analysts","That practitioners have no better source of information available"],"correctIndex":1,"explanation":"It''s strongest because it''s frequently true: the roadmap can be a leading indicator rather than a fiction. The right response is to read vendor material carefully, not to discount it — which is a different conclusion from the module''s and has to be argued against on its merits."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m3-calibration-prompt-before-you-start-10', 'ai301-comp-m3', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One prediction, and be honest — nobody sees this but you.*
+
+Think about the last analysis you handed to someone who acted on it. A market pricing round, a
+merit model, a plan cost projection, an equity refresh.
+
+**If someone asked you today to rebuild it from its raw inputs, in front of them, how confident
+are you that every join and every filter would come out the same? Give a percent.**
+
+Not "would the answer be roughly right." Would the *construction* reproduce.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m3-module-brief-20', 'ai301-comp-m3', 20, 'prose', 'stable', '## Module brief
+
+This is the module the rest of the track leans on, and it''s the one nothing else in this market
+teaches, because it isn''t about AI. It''s about what has to be true around AI for a number to be
+worth presenting.
+
+The premise is uncomfortable and it''s aimed directly at you: **your analytical training is the
+reason you''ll miss it.** You have spent years learning to read a model quickly — scanning for
+shape, for whether the magnitudes look plausible, for whether the distribution behaves. That is a
+genuinely expert skill and it is exactly the wrong one here, because **shape is the one thing a
+model always gets right.** The output will be well-formed. The columns will be sensible, the
+percentages will sum, the summary will read like something a good analyst wrote. The failure lives
+underneath the shape, in a join that dropped 340 rows or a filter that silently excluded everyone
+hired after October.
+
+So this module builds toward one rule, and everything in it is machinery for making the rule
+affordable:
+
+> **Never present a number you couldn''t rebuild from its inputs, in front of the person asking.**
+
+That rule is not new. What''s new is that AI makes it much easier to violate and much cheaper to
+satisfy — and which of those two happens is entirely a matter of craft.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m3-learning-objectives-30', 'ai301-comp-m3', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Explain why analytical fluency increases rather than decreases exposure to model error.
+2. Set the perimeter for comp data — what leaves the building, what doesn''t, and what gets
+   dropped before either question arises.
+3. Specify verification explicitly: audit files, row counts, documented joins, reconciliation
+   checks the model will not propose on its own.
+4. Run the Python-then-Excel double-pass so a finance partner can review formulas the way they
+   always have.
+5. Build a durable starter kit — insights file, data map, terminology file, reconciliation spec —
+   for an analysis you actually run.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m3-lesson-1-why-numerate-people-are-more-ex-40', 'ai301-comp-m3', 40, 'prose', 'stable', '## Lesson 1 · Why numerate people are more exposed
+
+The standard story about AI risk in HR is that non-technical people will be fooled by confident
+output. For this function, invert it.
+
+**You read a formatted model the way you read a formatted sentence — quickly, and for shape.**
+When a table arrives with the right columns, the right row count *approximately*, magnitudes in
+the range you expected, and a summary paragraph that says what you thought it would say, your
+expert pattern-matcher signs it off in about four seconds. That pattern-matcher was trained on
+work produced by humans, where formatting quality correlated with care. A polished deck meant
+someone had spent time. **AI severed that correlation.** Polish is now free and care is not, so the
+signal you''ve relied on for a decade points at nothing.
+
+Three specific failures that survive the shape check:
+
+**The silent join.** You join headcount to comp data on employee ID. 340 people fail to match —
+international IDs formatted differently, contractors converted mid-year, a rehire with two records.
+The join completes. The output is beautifully formatted. Your population is now 340 people short
+and every percentage in the analysis is computed on a denominator you didn''t choose. Nothing about
+the shape of the result tells you this.
+
+**The silent filter.** Somewhere in a multi-step analysis, a step applies a condition that made
+sense for that step and then persists. Active employees only — which quietly removes everyone who
+left, which is exactly the population a turnover-cost analysis needed.
+
+**The plausible coefficient.** A regression returns a gender coefficient of −1.8%. That is an
+entirely believable number. It is believable if the model is right and it is believable if the
+model controlled for job level in a way that absorbed the effect you were looking for. **The
+number''s plausibility is what makes it dangerous** — an implausible number gets checked.
+
+None of these are AI-specific failures. Every one of them has happened in Excel for thirty years.
+What changed is the ratio: the analysis that used to take four hours, during which you touched
+every step and would have noticed the row count, now takes eleven minutes, during which you touched
+nothing. **The errors are the same. The number of eyes on them collapsed.**
+
+And the consequence is asymmetric in a way it isn''t elsewhere in HR. A wrong sentence in a policy
+draft gets caught by the next reader. **A wrong model gets presented** — to a leadership team, a
+comp committee, a board — by someone who is trusted precisely because they''re good at this.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m3-try-50', 'ai301-comp-m3', 50, 'try_this', 'stable', '### Try this — 3 minutes
+Open the last analysis you ran with AI assistance. Find the row count at the start and the row
+count at the end. If you can''t find either, you''ve learned the lesson without needing the rest
+of the module.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m3-lesson-2-the-perimeter-and-the-data-60', 'ai301-comp-m3', 60, 'prose', 'stable', '## Lesson 2 · The perimeter and the data
+
+Before any of the verification craft, the question of what should be in the tool at all.
+
+101 M4 gave you the data tiers, and individual pay data sits in Tier 4 — the most restricted
+material in the building. It is also the core of your work, which means this function has the
+worst version of the general problem: **the data you most need to analyze is the data you can
+least freely move.**
+
+Three controls, in order of how much they buy you per unit of effort.
+
+**1. Stay inside the perimeter — but know what that actually means.** Enterprise deployments with
+zero-retention terms, or a model running in your own cloud tenancy, are a genuinely different risk
+posture from a consumer account, and this is the single highest-leverage decision your
+organization makes about your work. But the perimeter is a contractual and architectural fact, not
+a feeling. Someone in your organization can name your terms. **If you don''t know whether your
+deployment retains prompts, you don''t know your perimeter** — and the correct action is a
+ten-minute conversation with whoever signed the contract, this week, before Lesson 3 becomes
+relevant.
+
+**2. Drop columns you don''t need.** This is the cheapest control in the discipline and it is
+routinely skipped in favor of more sophisticated ones. If the analysis is about pay by level and
+tenure, then name, employee ID, home address, date of birth, manager name, and job title free-text
+are not inputs — they''re liability you carried along because they came in the export. **The most
+reliable protection for a data element is its absence.** No retention policy, encryption scheme, or
+access control is as strong as not having sent it.
+
+Say the quiet part: the reason people don''t do this is that dropping columns takes four minutes and
+feels like busywork, while anonymization feels like security work. One of them actually reduces the
+data at risk.
+
+**3. Pseudonymize, and hold the mapping outside the session.** When you need to trace a record back
+— and in comp work you often do, because the outlier is the whole point — replace identifiers with
+sequential keys and keep the mapping in a file that never enters the tool. You get individual-level
+analysis and re-identification capability, and the tool holds neither name nor real ID.
+
+Two warnings that matter specifically here. **Pseudonymization is not anonymization.** In a
+600-person company, "Level 7, Engineering, San Francisco, hired 2019, $340k" identifies one person
+regardless of what you called them, and small cuts in comp data are re-identifiable almost by
+construction. And **executive comp resists all of this** — there are five of them, their pay is
+public in a proxy, and no pseudonym helps. Treat executive analysis as a category where the
+perimeter question is the only question.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m3-lesson-3-verification-as-craft-70', 'ai301-comp-m3', 70, 'prose', 'stable', '## Lesson 3 · Verification as craft
+
+This is the heart of the module. The rule from the brief — never present a number you couldn''t
+rebuild in front of the person asking — is satisfiable, but only if you specify how.
+
+**The load-bearing fact: the model will not propose these checks itself, and its silence is not
+reassurance.** It is not withholding a concern. It has no state in which it noticed the 340
+dropped rows and decided not to mention them. **Absence of a warning carries no information**,
+which is a different thing from a colleague not raising a concern, and it is the single most
+common misreading of a model''s confidence.
+
+**Demand an audit file.** Not a summary — a file. For every analysis, ask for a companion output
+that states: input row count, output row count, and the difference explained; every join with the
+key used, match count, and unmatched count on both sides; every filter applied with the rows it
+removed; and every record excluded for missing data, listed. This is thirty seconds of asking and
+it converts the three failures from Lesson 1 from invisible into visible. **A join that dropped 340
+rows is undetectable in the output and unmissable in the audit file.**
+
+Then read it. An audit file you don''t read is worse than none, because it feels like control.
+
+**Specify reconciliation explicitly.** State the checks up front, in the instructions, before the
+analysis runs: total compensation in the output must equal total compensation in the source; the
+headcount must match the HRIS number you already know; the sum of the level bands must equal the
+population; last year''s figure must reproduce within a stated tolerance. **A reconciliation you
+name in advance is a test. One you invent afterward is a rationalization**, because you will
+construct it to pass.
+
+The strongest single check available to you: **rebuild a number you already know.** Run the new
+pipeline against last cycle''s data and see whether it reproduces last cycle''s published figure. If
+it doesn''t, you have learned something before it mattered.
+
+**The Python-then-Excel double-pass.** This one is specific to your function and it is the most
+practically useful thing in the module.
+
+Analytical work with AI naturally lands in code — a script that loads, joins, computes, outputs.
+That is fast, reproducible, and auditable line by line, and it is also completely unreviewable by
+your finance partner, your comp committee, and most of the people whose sign-off you need. They
+review formulas. They click a cell and see what feeds it. That is how they have checked work for
+their entire careers, and **asking them to trust a script is asking them to stop reviewing your
+work, which they will experience as being cut out.**
+
+So do both. Build the analysis in code, then produce a workbook where the calculation is visible in
+cells — real formulas, not pasted values — and reconcile the two. Three things fall out of this,
+and only one of them is political:
+
+- The reconciliation between the two passes is itself a verification. Two implementations agreeing
+  is meaningfully stronger evidence than one implementation looking right.
+- Your reviewers keep their method. Nobody is asked to trust a black box.
+- Building the visible version forces you to state the logic in a form a human can follow, which
+  is where you catch the step you accepted without reading.
+
+The cost is real — this is maybe 30% more work than the code alone. It is also the difference
+between a number that survives a comp committee and a number that gets tabled.
+
+**The rule, restated with its teeth in:** if someone asked you to rebuild the number in front of
+them, could you? Not "do you trust it." Could you *reconstruct* it, from inputs, live. If not,
+you''re not presenting an analysis — you''re relaying one, and relaying is a thing you do with
+someone else''s number, under someone else''s name.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m3-lesson-4-durability-80', 'ai301-comp-m3', 80, 'prose', 'stable', '## Lesson 4 · Durability
+
+Everything above is per-analysis. This lesson is what makes it survive to the next cycle.
+
+201 M2 taught the context pack: reusable material that gives a model the standing information it
+needs so you stop re-explaining your world every session. Comp is the domain where that pays back
+hardest, because **your vocabulary is a minefield and the model steps on it consistently.**
+
+Four files. Together they''re the starter kit, and building one is this module''s activity.
+
+**The insights file.** Standing facts about how your organization works that are not in any data
+export: your levels and what they mean, your compensation philosophy and target positioning, your
+merit cycle timing and mechanics, your geographic differentials and their logic, which populations
+are on which plans, the acquisition in 2023 whose employees are still on legacy bands. Every one of
+these is something you currently re-explain in every session, and every session you forget one is a
+session with a subtly wrong premise.
+
+**The data map.** What each file contains, what each column means, which system it came from, the
+key it joins on, the known quirks. *"The `comp_ratio` field in the HRIS export is calculated
+against last year''s midpoint, not the current one"* is the sentence that prevents an entire class of
+wrong answer, and it currently lives in your head.
+
+**The terminology file** — the one that is specific to this function and the reason this lesson
+exists. There is a set of terms models reliably fumble because they carry a general-usage meaning
+that differs from your technical one:
+
+- **Target vs. actual** compensation. Target bonus is what the plan provides at 100%; actual is
+  what paid out. A model asked about "bonus" will drift between them, and a merit model that mixes
+  them is wrong in a way that looks fine.
+- **Grant date vs. vest date vs. exercise date.** Three dates, three different analyses, and the
+  general-usage collapse of all three into "when they got the stock" is a real hazard in equity
+  work.
+- **FMV vs. strike vs. exercise price.** Related, distinct, and consequential.
+- **Range penetration vs. compa-ratio.** Different denominators. Both get called "where they sit in
+  the range."
+- **Base vs. total cash vs. total compensation vs. total rewards.** Four scopes, routinely
+  interchanged, and the difference between them is the entire content of most pay conversations.
+- **Merit vs. market adjustment vs. promotion increase vs. equity adjustment.** Distinct budget
+  pools with distinct governance. Collapsing them is how a merit budget gets silently overspent.
+
+The file states your definition for each term and instructs the model to ask rather than infer when
+a request is ambiguous between two of them. This costs you an hour once.
+
+**The reconciliation spec.** For each recurring analysis, the checks that must pass before the
+output is trusted, written down. Not remembered — written. This is what makes Lesson 3''s discipline
+survive a busy cycle, which is the only condition under which it matters.
+
+**Why bundle them.** The kit converts craft from something you perform when you have time into
+something that happens by default, and comp work is seasonal — the merit cycle is the moment your
+care is scarcest and your consequences are largest. **A discipline that only operates when you''re
+not busy is not a discipline.** It''s an intention.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m3-exercise-embed-85', 'ai301-comp-m3', 85, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m3-key-takeaways-90', 'ai301-comp-m3', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **Your analytical training increases your exposure.** You read models for shape, quickly, and
+  shape is the one thing the model always gets right. AI severed the correlation between polish
+  and care that your judgment was calibrated on.
+- **Three failures survive the shape check:** the silent join (rows dropped, denominators changed),
+  the silent filter (a condition that made sense once and persisted), and the plausible coefficient
+  (believable whether or not it''s right, which is why it doesn''t get checked).
+- **A wrong sentence gets caught. A wrong model gets presented** — by someone trusted because
+  they''re good at this.
+- **Dropping columns beats anonymizing them.** The most reliable protection for a data element is
+  its absence. Pseudonymize when you need traceability and hold the mapping outside the session —
+  and remember that small cuts in comp data are re-identifiable regardless of what you called
+  people.
+- **The model will not propose verification, and its silence carries no information.** Demand audit
+  files with row counts, documented joins with match and unmatch counts, and every filter''s effect.
+  Then read them.
+- **A reconciliation named in advance is a test; one invented afterward is a rationalization.** The
+  strongest check available is rebuilding a number you already know.
+- **Python-then-Excel double-pass:** build in code, produce reviewable formulas, reconcile the two.
+  Roughly 30% more work, and it keeps your reviewers'' method intact rather than asking them to
+  trust a black box.
+- **The starter kit — insights, data map, terminology, reconciliation spec** — makes the craft
+  survive the merit cycle, which is the only time it matters.
+- **The rule: never present a number you couldn''t rebuild from its inputs, in front of the person
+  asking.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m3-activity-link-95', 'ai301-comp-m3', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 The starter kit", "blurb": "Four files for one recurring analysis you actually run: the standing facts no export carries, the data map with its quirks, the terminology models reliably fumble, and a reconciliation spec that could fail. Built once, and it''s there next merit cycle when your care is scarcest.", "estMinutes": "35"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m3-take-a-position-100', 'ai301-comp-m3', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"Your analytical training is why you''ll miss it. You read models for shape, and
+shape is the one thing the model always gets right."*
+
+The strongest counter-argument is that **this inverts a real and well-evidenced advantage.**
+Numerate practitioners catch magnitude errors, distributional weirdness, and impossible
+relationships that non-analytical readers sail past — and they catch them *because* of fast shape
+reading, which is a genuine expert skill rather than a bias. On that view the module has taken a
+strength and rebranded it as a vulnerability, and the honest correction is narrower: analytical
+training protects you against wrong *answers* and does nothing about wrong *construction*, which
+is a real gap but a much smaller claim than the one on the tin. Your position has to say whether
+the claim as stated survives that narrowing, or whether the narrower version is simply the true
+one.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m3-sources-and-attribution-110', 'ai301-comp-m3', 110, 'prose', 'stable', '## Sources and attribution
+
+- The three failures that survive the shape check, the audit-file specification, the
+  reconciliation-in-advance rule, the Python-then-Excel double-pass, and the four-file starter kit
+  are original to this course.
+- Builds on 101 M4 (data tiers — individual pay as Tier 4), 101 M6 (confident wrongness), and 201
+  M2 (the context pack), specialized here to a domain where the vocabulary itself is a hazard.
+- The terminology list is drawn from standard total rewards practice; definitions vary by
+  organization, which is the activity''s point.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m3-activity-applied-activity-the-starter-kit-10', 'ai301-comp-m3-activity', 10, 'prose', 'stable', '## Applied activity — "The starter kit"
+
+**Time:** 35 minutes · **Submit:** the four files plus a 300–400 word write-up · **Graded against
+the rubric below.** Score doesn''t matter. Doing the work is where the learning lands.
+
+Pick **one recurring analysis you actually run** — market pricing refresh, merit modeling, plan
+cost projection, pay equity review, equity refresh. Recurring matters: the kit''s whole value is
+that it''s there next time.
+
+**Step 1 — The insights file (8 min).** The standing facts about your organization someone would
+need to interpret this analysis correctly and that appear in no data export. Levels, philosophy,
+positioning, cycle mechanics, differentials, legacy populations. Aim for the things you re-explain
+every time.
+
+**Step 2 — The data map (8 min).** Every input file: what it contains, what the non-obvious columns
+mean, source system, join key, known quirks. **The quirks are the valuable part** — write down at
+least two things that are true about your data that would mislead someone who didn''t know them.
+
+**Step 3 — The terminology file (8 min).** At least six terms from your actual work where your
+technical meaning differs from general usage, each with your definition and the ambiguity it
+resolves. Use the module''s list as a starting point, then add the ones specific to your
+organization — every comp function has internal terms that mean something local.
+
+**Step 4 — The reconciliation spec (8 min).** The checks that must pass before you''d present this
+analysis. Row counts, totals that must tie to a known figure, a prior-period result that must
+reproduce within tolerance, populations that must sum. **Include at least one check against a
+number you already know**, because that''s the strongest one available.
+
+**Step 5 — Score the prediction (3 min).** Your calibration percent against what you now think.
+Would your current workflow survive an audit of its joins? Most people revise this number
+downward, and the revision is the finding.
+
+Then the write-up: what the kit covers, the two data quirks you''d forgotten were quirks, whether
+your workflow would survive the audit, your position on the claim above with its counter-argument
+addressed, and — the honest one — **which of Lesson 3''s checks you have not been doing.** Naming
+one specifically is worth more than a general commitment to rigor.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m3-micro-core', 'ai301-comp-m3-micro', 10, 'prose', 'stable', '## Module 3 in two minutes
+
+**Your analytical training is why you''ll miss it.** You read a formatted model the way you read a formatted sentence — fast, and for shape. Shape is the one thing the model always gets right. And AI severed the correlation your judgment was calibrated on: polish used to mean someone spent time on it. Polish is now free; care isn''t.
+
+**Three failures survive the shape check.** The *silent join* — 340 people fail to match on employee ID, the join completes, and every percentage is now computed on a denominator you didn''t choose. The *silent filter* — a condition that made sense at one step and persisted into every step after. The *plausible coefficient* — a −1.8% gender effect is believable if the model is right and believable if a control absorbed the effect, and **plausibility is exactly what stops it being checked.**
+
+None of these are new; they''ve happened in Excel for thirty years. What changed is that the four-hour analysis where you touched every step now takes eleven minutes where you touch nothing. **The errors are the same. The number of eyes on them collapsed.**
+
+And the consequence is asymmetric: a wrong sentence gets caught by the next reader. **A wrong model gets presented** — to a leadership team, a comp committee, a board — by someone trusted precisely because they''re good at this.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m3-micro-rule', 'ai301-comp-m3-micro', 20, 'callout', 'stable', '### The rule to carry
+
+**Never present a number you couldn''t rebuild from its inputs, in front of the person asking.** Not "do you trust it" — could you *reconstruct* it, live. If not, you''re relaying an analysis, and relaying is what you do with someone else''s number under someone else''s name.
+
+Two things make that rule affordable. **Demand an audit file** — input and output row counts, every join with matched and unmatched counts on both sides, every filter''s row effect. Thirty seconds to ask, and it turns the three invisible failures visible. Then read it, before you look at the results.
+
+And **name your reconciliation checks before the analysis runs.** A reconciliation specified in advance is a test; one invented afterward is a rationalization, because you''ll construct it to pass. The strongest check available: rebuild a number you already know.
+
+The model will not propose any of this itself, and **its silence carries no information** — there is no state in which it noticed the dropped rows and chose not to mention them.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m3-micro-close', 'ai301-comp-m3-micro', 30, 'prose', 'stable', '**The full module adds** the perimeter question in its practical form — if you don''t know whether your deployment retains prompts, you don''t know your perimeter — and the cheapest control in the discipline: **drop columns rather than anonymize them**, because the most reliable protection for a data element is its absence. Pseudonymize when you need traceability, hold the mapping outside the session, and remember that small cuts in comp data are re-identifiable no matter what you called people.
+
+Then the **Python-then-Excel double-pass**: build in code, produce a workbook with real visible formulas, reconcile the two. Roughly 30% more work, and it means your finance partner keeps reviewing the way they always have rather than being asked to trust a black box.
+
+And the **four-file starter kit** — insights, data map, terminology (target vs. actual, grant vs. vest, compa-ratio vs. range penetration: the terms models reliably fumble), and the reconciliation spec. It exists because comp work is seasonal, and **a discipline that only operates when you''re not busy is an intention, not a discipline.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-comp-m3-choice', 'ai301-comp-m3', 'choice', '{"reviewedAt":"2026-08-12","title":"Four analysis workflows","intro":"*Five minutes. Commit before you look.*\n\nFour comp teams ran the same pay equity refresh with AI assistance. All four have something they call verification.\n\n**One of them is theater** — it produces the feeling of a check without the possibility of failing one. Find it.","artifacts":[{"label":"Workflow A","body":"\"We drop every column the analysis doesn''t need before anything leaves the perimeter, and pseudonymize the rest with the mapping held offline. We write the reconciliation checks into the instructions before the run — total comp must tie to the GL figure, headcount must match the HRIS number, and last cycle''s published gap must reproduce within 0.2 points. We request an audit file with input and output row counts, every join with matched and unmatched counts on both sides, and every filter''s row effect. Then the analyst reads the audit file before looking at the results.\""},{"label":"Workflow B","body":"\"We ask the model to double-check its own work and flag any concerns about the analysis. We also ask it to rate its confidence in the output. If it raises nothing and reports high confidence, we proceed. We''ve found it''s quite good at catching its own errors — it flagged a data issue for us last quarter.\""},{"label":"Workflow C","body":"\"Two analysts run the same analysis independently — one in Python, one building it out in Excel with visible formulas — and we reconcile the two before anything goes to the comp committee. Where they disagree we trace it back. We don''t ask for audit files; the reconciliation between the two builds is our check.\""},{"label":"Workflow D","body":"\"Everything runs inside our enterprise tenancy under zero-retention terms, so no comp data leaves the perimeter. Access is restricted to the three people on the comp team. All AI-assisted analyses are logged in a register with the date, the analyst, and the business purpose, and the register is reviewed quarterly by HR ops.\""}],"options":[{"id":"a","label":"Workflow A"},{"id":"b","label":"Workflow B"},{"id":"c","label":"Workflow C"},{"id":"d","label":"Workflow D"}],"key":"b","reasoning":"**B is the theater, and it''s the most popular workflow in the market.** Asking a model to check its own work and report its confidence produces an output that looks exactly like verification and cannot fail. There is no state in which it noticed the 340 dropped rows and chose not to mention them — **absence of a warning carries no information**, so \"it raised nothing\" is not evidence. Self-reported confidence is worse than useless here, because it is generated by the same process that produced the error and correlates with fluency rather than correctness.\n\nAnd notice the sentence that makes it feel earned: *\"it flagged a data issue for us last quarter.\"* True, probably. A check that sometimes fires is not a check that would have fired. The question is never whether it has ever caught something — it''s whether there''s an error it *couldn''t* miss. B has no such error.\n\n**A is the module''s full discipline** and the reference answer: perimeter and column-dropping before anything moves, reconciliation named in advance (including reproducing a number they already know), an audit file specified at the level of joins and filters, and — the part people skip — **somebody actually reads it, before looking at the results.** Reading the audit file after seeing the answer is how you talk yourself past a row count.\n\n**C is genuinely strong and slightly incomplete**, which is why it''s the hard distractor. The double-pass is real verification: two implementations agreeing is meaningfully better evidence than one looking right, and the Excel build keeps the comp committee''s review method intact. What it misses is that **two builds can share an input error.** If the extract itself dropped 340 people, both passes reconcile perfectly against a population that''s already wrong. The audit file is what catches that, and C explicitly declines it. Strong workflow, one blind spot, and it''s the blind spot that changes every denominator.\n\n**D isn''t verification at all — it''s governance, and it''s good governance.** Perimeter, access control, a use register with a review cadence. Every one of those is worth having and not one of them says anything about whether the number is right. **A well-governed wrong number is still presented.** D is the failure of the category confusion this whole module is about: controls on *who can run the analysis* are not controls on *whether the analysis is sound*.\n\nThe transferable test: **name the finding that would make the check fail.** A can fail (a total doesn''t tie). C can fail (the passes disagree). D can fail an audit of process, never of arithmetic. B cannot fail anything."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-comp-m3-rubric', 'ai301-comp-m3', 'rubric', '{"promptVersion":"ai301-comp-m3-starter-kit-v1","moduleId":"ai301-comp-m3","minWords":300,"maxWords":400,"submitLabel":"Your starter kit and write-up","intro":"Paste the four files — insights, data map, terminology, reconciliation spec — plus your calibration percent scored against your revised view, and the 300–400 word write-up including your position on this module''s claim. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for AI 301 · The Specialist, Comp & Benefits track — for compensation and benefits professionals who have completed AI 101 and AI 201. Module 3 applied activity, ''The starter kit'': for one recurring analysis the learner actually runs (market pricing refresh, merit modeling, plan cost projection, pay equity review, equity refresh), a complete reusable kit of four files. (1) Insights file — standing facts about their organization needed to interpret the analysis that appear in no data export: levels and what they mean, compensation philosophy and target positioning, cycle mechanics, geographic differentials and their logic, legacy populations from acquisitions. (2) Data map — every input file''s contents, non-obvious column meanings, source system, join key, and known quirks; at least two quirks that would mislead someone who didn''t know them, and the quirks are the valuable part. (3) Terminology file — at least six terms where their technical meaning differs from general usage, each with a definition and the ambiguity it resolves; the module''s examples are target vs. actual, grant/vest/exercise date, FMV vs. strike, range penetration vs. compa-ratio, base vs. total cash vs. total comp vs. total rewards, merit vs. market adjustment vs. promotion vs. equity adjustment, and the learner is asked to add organization-specific local terms. (4) Reconciliation spec — checks that must pass before presenting, including at least one check against a number they already know, since reproducing a prior published figure is the strongest check available. The module''s rule is: never present a number you couldn''t rebuild from its inputs, in front of the person asking. Its claim, which the write-up must take a position on, is that analytical training increases exposure because experts read models for shape and shape is what the model always gets right; the real counter-argument is that fast shape-reading genuinely does catch magnitude and distributional errors, so the honest version may be the narrower one — analytical training protects against wrong answers and not against wrong construction. The write-up must also name a specific Lesson 3 check the learner has not been doing; a named omission is worth more than a general commitment to rigor. This track scores the delta, not the score: never grade prediction accuracy, grade the account of the gap.","opening":[{"key":"rebuildConfidence","label":"Predicted — % confidence your last analysis would rebuild identically from its inputs","hint":"Every join and every filter reproducing, not just the answer coming out roughly right.","placeholder":"e.g. 85","min":0,"max":100}],"calibration":[{"key":"rebuildConfidenceRevised","label":"Revised — the same number after building the kit","hint":"Most people move this downward. The revision is the finding.","placeholder":"e.g. 55","min":0,"max":100,"actualFor":"rebuildConfidence"}],"dimensions":[{"name":"The analysis is real and recurring","criteria":"A named analysis the learner personally runs on a cycle, not a hypothetical or a one-off. Recurrence is the point — the kit''s value is that it exists next time, during the merit cycle, when care is scarcest. A modest analysis worked concretely outscores an ambitious one described in the abstract."},{"name":"The insights file carries what no export does","criteria":"Standing organizational facts a competent outsider could not derive from the data: level definitions, philosophy and positioning, cycle mechanics, differential logic, legacy or acquired populations. The test is whether these are things the learner currently re-explains every session. Generic statements about compensation practice that would be true at any company score low."},{"name":"The data map records quirks, not just structure","criteria":"Files, columns, source systems, and join keys are table stakes. The graded part is at least two quirks that are true about their data and would mislead someone who didn''t know them — a field calculated against a stale midpoint, a system that nulls rather than zeroes, IDs that format differently for one population. Specific, checkable quirks score at the top; ''the data is sometimes messy'' does not."},{"name":"The terminology file resolves real ambiguity","criteria":"At least six terms, each with the learner''s definition and — crucially — a statement of what it would otherwise be confused with. Credit organization-specific local terms above the module''s supplied list, since those are the ones nobody else could have written. A file that defines terms without naming the collision it prevents has missed the mechanism."},{"name":"The reconciliation spec could actually fail","criteria":"Named checks with stated tolerances, specified in advance rather than described in general. At least one check against a number they already know — a prior published figure that must reproduce, a total that must tie to the GL or HRIS. The test to apply: for each check, is there an outcome that would stop the analysis from being presented? Checks that cannot fail are the exercise''s theater answer in another form."},{"name":"The delta and the position","criteria":"Calibration percent compared against the revised view with an account of what moved it — a downward revision with a specific cause is the intended finding and should score at the top; so should a defended non-revision from someone whose workflow genuinely holds. Accuracy is never graded. Plus a named Lesson 3 check they have not been doing, stated specifically. Plus a committed position on the module''s claim that engages its real counter-argument: that shape-reading is a genuine expert skill catching real errors, and the honest claim may be the narrower one about construction rather than answers."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-comp-m3-knowledge_check', 'ai301-comp-m3', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"Why does the module argue that analytical training increases exposure to model error?","options":["Because analysts use AI more heavily than other HR functions","Because expert readers scan formatted output quickly and for shape — and shape is the one thing the model always gets right, so the fast check passes while the construction underneath goes unexamined","Because analysts are more likely to trust statistical output uncritically","Because comp data is more complex than other HR data"],"correctIndex":1,"explanation":"The skill is real; it''s aimed at the wrong layer. AI also severed the correlation between polish and care that the fast check was calibrated on — polish is now free."},{"id":"q2","prompt":"What makes the \"plausible coefficient\" dangerous?","options":["That regression coefficients are frequently miscalculated by language models","That it''s believable whether the model is right or whether a control absorbed the effect you were looking for — and plausibility is exactly what stops it being checked","That coefficients are hard for non-statisticians to interpret","That small coefficients are usually statistically insignificant"],"correctIndex":1,"explanation":"An implausible number gets checked. That''s the asymmetry, and it''s why the failures that survive are the ones that look fine."},{"id":"q3","prompt":"Which data control does the module call the cheapest in the discipline?","options":["Pseudonymizing identifiers before upload","Negotiating zero-retention terms with the vendor","Dropping columns the analysis doesn''t need — the most reliable protection for a data element is its absence","Restricting tool access to a named group of analysts"],"correctIndex":2,"explanation":"And it''s routinely skipped because it takes four minutes and feels like busywork, while anonymization feels like security work. Only one of them actually reduces the data at risk."},{"id":"q4","prompt":"What does it mean that the model didn''t flag a problem with your analysis?","options":["That the analysis probably passed the model''s internal checks","Nothing — absence of a warning carries no information, because there is no state in which it noticed the dropped rows and chose not to mention them","That the problem is below the model''s confidence threshold for reporting","That the analysis was well-specified enough not to trigger a warning"],"correctIndex":1,"explanation":"This is the most common misreading of model confidence, and it''s different from a colleague not raising a concern — a colleague was looking."},{"id":"q5","prompt":"Why does the module insist reconciliation checks be specified *before* the analysis runs?","options":["Because the model performs better when given checks up front","Because a reconciliation named in advance is a test, while one invented afterward is a rationalization — you''ll construct it to pass","Because retrospective checks are technically harder to implement","Because auditors require documented controls to predate the work"],"correctIndex":1,"explanation":"The order is the whole control. D is a real compliance consideration and not the module''s reason."},{"id":"q6","prompt":"What''s the primary argument for the Python-then-Excel double-pass?","options":["Excel is more accurate than code for compensation calculations","Two implementations that agree is stronger evidence than one that looks right, and it keeps reviewers'' method intact rather than asking a finance partner to trust a black box","It''s required for SOX compliance in most organizations","Code-based analysis can''t be version-controlled effectively"],"correctIndex":1,"explanation":"Building the visible version also forces you to state the logic in a form a human can follow, which is where you catch the step you accepted without reading. It costs roughly 30% more work."},{"id":"q7","prompt":"Why does the terminology file matter more in compensation than in most functions?","options":["Because compensation uses more jargon than other HR disciplines","Because a set of terms carry a general-usage meaning that differs from the technical one — target vs. actual, grant vs. vest, compa-ratio vs. range penetration — so the model drifts between them and produces work that is wrong in a way that looks fine","Because compensation terminology varies more between organizations","Because models have less training data on compensation topics"],"correctIndex":1,"explanation":"C is also true and is why the activity asks for your organization''s local terms as well. But the drift between two real, close meanings is the failure the file exists to prevent."},{"id":"q8","prompt":"Why bundle the four files into a reusable kit rather than build them per analysis?","options":["Because reusable context produces better model output on average","Because comp work is seasonal — the merit cycle is when your care is scarcest and your consequences are largest, and a discipline that only operates when you''re not busy is an intention rather than a discipline","Because it reduces the time spent on each individual analysis","Because auditors prefer standardized documentation"],"correctIndex":1,"explanation":"The point isn''t efficiency, it''s survival under load. A is true and much weaker."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m4-calibration-prompt-before-you-start-10', 'ai301-comp-m4', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*Two predictions, one minute.*
+
+**What share of employers do you think now have a formal written AI policy?** Whole percent.
+
+**And of those that have one, what share do you think believe their own policy is clear and
+future-proof?**
+
+The first number is probably higher than you expect. The second is the module.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m4-module-brief-20', 'ai301-comp-m4', 20, 'prose', 'stable', '## Module brief
+
+101 M7 gave you the lines that don''t move — the general ones, for everyone in HR. This module is
+about the specific ones for your function, and there are three reasons this track needs its own
+version rather than a reference back.
+
+**First, you hold fiduciary duties nobody else in HR holds.** If you touch retirement plan
+administration or health plan claims, you are operating under a statute that is unusually
+interested in *how* you reached a decision, not merely what you decided.
+
+**Second, your analysis becomes a legal document more often than you think.** A pay equity study is
+either privileged or it is a plaintiff''s exhibit, and which one it becomes is decided by how it was
+commissioned and conducted — not by what it found.
+
+**Third, and this is the one specific to AI: your data is the thing you''re auditing.** A model
+trained or fitted on your historical pay learns what you have paid. If you then use it to recommend
+what to pay, it will reproduce the pattern you built the audit to detect, and it will do so
+fluently, with a rationale attached.
+
+The governing claim of the module, which you''ll be asked to take a position on:
+
+> **"The tool recommended it" is not a defense anywhere in HR. Where you hold a fiduciary duty,
+> it''s an admission.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m4-learning-objectives-30', 'ai301-comp-m4', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Apply the speed/accountability line to decide which side of it a task sits on.
+2. Name the four zones in comp and benefits where the answer changes, and say why for each.
+3. Explain why a model fitted on historical pay is structurally unsuited to recommending pay.
+4. Read a regression''s control set critically enough to see what it smuggles in `[V]`.
+5. State the current statutory and case-law floor well enough to know when to call counsel `[V]`.
+6. Draft an operating policy that names red lines specific to comp work.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m4-lesson-1-the-governing-principle-40', 'ai301-comp-m4', 40, 'prose', 'stable', '## Lesson 1 · The governing principle
+
+One line, and everything else in this module follows from deciding which side of it a task sits on.
+
+> **AI for speed. Human-built tooling for accountability.**
+
+The distinction is not about difficulty or sensitivity. It is about **what you will be asked to
+produce if someone challenges the outcome.**
+
+If the challenge would be answered by showing the result — *here''s the summary, here''s the draft,
+here''s the comparison* — the work is a speed problem and AI belongs in it. If the challenge would
+be answered by showing **the method**, and specifically by showing that a competent person applied
+a defensible method and can explain each choice in it, then the work is an accountability problem.
+Accountability work runs on tooling you built, whose logic you can state, whose inputs you can
+produce, and whose decisions were made by a person who can be asked why.
+
+The test that operationalizes it: **imagine the deposition.** Not because you expect one, but
+because it''s the cleanest way to surface what the artifact has to survive. "Why is this employee''s
+adjustment 4% and that one''s 2%?" has an answer or it doesn''t. **"The model suggested it" is not
+an answer** — it''s a description of how you avoided having one.
+
+And note that this line does not put AI outside the accountability work. It puts AI *underneath* a
+human decision inside it. Drafting the memo that explains a pay equity finding is a speed problem
+even though the finding is accountability work. **Separating the two inside a single piece of work
+is most of the skill.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m4-lesson-2-the-four-zones-50', 'ai301-comp-m4', 50, 'prose', 'stable', '## Lesson 2 · The four zones
+
+Where the answer changes for this function specifically.
+
+**Zone 1 — Pay equity analysis under privilege.** The sophisticated posture in US practice is to
+conduct pay equity analysis **at the direction of counsel**, so that the analysis and its
+intermediate findings are protected as privileged attorney-client communication or work product.
+The reason is blunt: an unprivileged study that identifies an unexplained gap and sits unremediated
+in a shared drive is a plaintiff''s exhibit with your name on it.
+
+What AI changes is that every step of the analysis now potentially involves a third party. Which
+brings us to the part of this module that is genuinely unsettled — see Lesson 4. **Before you put
+pay equity data into any tool, the question "is counsel directing this work, and in writing?" comes
+first.** Not because a tool is unsafe, but because privilege is a fragile status that depends on
+facts about how the work was commissioned.
+
+**Zone 2 — Fiduciary duty on benefit plans `[V]`.** If you administer retirement or health plans,
+ERISA''s duties of prudence and loyalty apply to your process, and there is no AI carve-out. There
+is also, at present, no AI-specific ERISA rule — the ordinary duties do all the work, which is
+worth understanding as a feature rather than a gap. Prudence, loyalty, monitoring, documentation,
+and the exclusive benefit rule already reach this.
+
+The practitioner consensus is consistent and narrow: **AI sits in a decision-support role with
+final authority in human hands, and adverse benefit determinations require human involvement.**
+Delegating claim denials to an opaque model is the paradigm case of what the duty forbids. And
+because courts examine *how* fiduciaries reached decisions rather than only what they decided,
+**your process record is the asset** — which is exactly Module 3''s craft layer, arriving here with
+a statute behind it.
+
+**Zone 3 — Comp committee and proxy inputs.** Material that goes into executive compensation
+disclosure is subject to a level of scrutiny nothing else in your work faces. The audience includes
+your compensation committee, your external counsel, your compensation consultant, institutional
+investors, proxy advisors, and eventually anyone who reads the filing. Drafting assistance is
+fine. **Analysis that determines a number in the filing needs to be reconstructible by a human
+who can testify to it**, which is Module 3''s rule with a securities law consequence attached.
+
+**Zone 4 — The circular one, and the sharpest.** Disparate impact exposure when a model trained on
+historical pay recommends adjustments.
+
+Take it slowly, because the failure is elegant. Your historical pay data encodes every decision
+your organization has made — including the ones a pay equity audit exists to find. A model fitted
+on that data learns the pattern. Ask it to recommend an adjustment and it will produce one
+consistent with the pattern, because consistency with the training data is what fitting means.
+**The model reproduces the disparity and calls it a recommendation.**
+
+Two things make this worse than an ordinary bias problem. It is **fluent** — the recommendation
+arrives with a rationale, and the rationale is coherent because it was generated to be. And it is
+**scaled** — a biased human manager affects their own team, while a biased model applied across the
+population affects everyone at once, in the same direction, which is precisely the fact pattern
+disparate impact doctrine is built for.
+
+The general-purpose version of this is worth knowing too: a controlled audit of general models used
+for salary advice found statistically significant differences by gender, and substantial gaps by
+university and major that were inconsistent across model versions. Module 5 covers that from the
+counterparty''s side. **From your side the implication is simpler: a comp team using the same
+general tool to set pay would be introducing exactly the disparity this zone is about.**
+
+The rule: **a model may describe your pay patterns. It may not recommend your pay decisions.**
+Description is analysis and analysis is what you want. Recommendation is the circularity.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m4-lesson-3-method-literacy-60', 'ai301-comp-m4', 60, 'prose', 'volatile', '## Lesson 3 · Method literacy [V]
+
+The zones tell you where to be careful. This lesson is about the thing you are most likely to be
+handed and least likely to challenge: a regression.
+
+You will be asked to interpret one — from a vendor''s pay equity product, from an external
+consultant, or from your own analysis. **Reading it critically is the job, and the critical
+questions are not statistical.**
+
+**What does it control for, and what does that choice smuggle in?** A pay equity regression
+typically controls for job level, function, location, tenure, and performance rating. Each of those
+is defensible and each is also a potential channel for the disparity you''re measuring. If women are
+systematically leveled lower at hire, then controlling for job level **absorbs the effect into a
+control variable** and the residual gap shrinks toward zero. The model is not wrong. It is
+answering a narrower question than the one people will think it answered: *within level, is pay
+equitable* — not *is our pay equitable*.
+
+That is the single most consequential thing in this lesson. **"Explained" variance is a modeling
+decision with fairness consequences, not a statistical fact.** When a result says 94% of the pay
+gap is explained by legitimate factors, the operative word is "legitimate," and it was defined by
+whoever chose the control set — often before anyone looked at the data.
+
+**What is performance rating doing in there?** It is the most common control and the most
+contestable, because it''s a human judgment produced by the same organization whose pay decisions
+you''re auditing. Controlling for it treats it as exogenous and legitimate. If ratings themselves
+carry disparity, you have controlled away part of what you were looking for.
+
+**What''s the unit and how thin is it?** Regressions on small populations produce unstable
+coefficients. A −1.8% gender effect on 180 employees with 14 job families is a number that will
+move if you re-cut it, and Module 3''s plausible-coefficient problem applies at full force.
+
+**And what does the vendor''s product actually compute?** Ask for the specification. Which variables,
+which functional form, how missing data is handled, what population is included and excluded. A
+vendor who won''t tell you has told you something. This is Module 2''s teardown, applied to the
+technical artifact you''re most likely to accept on authority.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m4-try-70', 'ai301-comp-m4', 70, 'try_this', 'stable', '### Try this — 4 minutes
+Take your most recent pay equity analysis — yours or a vendor''s. Write down its control
+variables. For each, ask: could the disparity we''re looking for travel through this variable?
+Then ask who chose the list, and when.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m4-lesson-4-the-floor-80', 'ai301-comp-m4', 80, 'prose', 'volatile', '## Lesson 4 · The floor [V]
+
+Two moving surfaces. Both change while you''re reading this, which is why the module teaches you
+where to look rather than a memorized state of the law.
+
+### The privilege question is genuinely unsettled
+
+In February 2026, two US federal courts reached **opposite results in the same week** on whether
+using a generative AI tool waives privilege or work product protection. This is worth knowing in
+detail, because the reconciliation is what tells you how to behave.
+
+In ***United States v. Heppner*** (S.D.N.Y., written opinion February 17, 2026), a criminal
+defendant who had retained counsel put information he''d learned from his lawyers into a public
+conversational AI platform — **acting independently, not at counsel''s direction.** The court held
+that neither attorney-client privilege nor work product protection applied, on three independent
+grounds: the platform is not a lawyer, so there was no attorney-client communication; the
+platform''s terms defeated any reasonable expectation of confidentiality; and the purpose was not
+to obtain legal advice from something that disclaims giving it. It was a question of first
+impression nationwide.
+
+A week earlier, in ***Warner v. Gilbarco, Inc.***, a court reached the other result on work
+product: a pro se plaintiff''s use of generative AI in litigation **did not** waive protection,
+because AI programs are "tools, not persons," disclosure to a tool is not disclosure to an
+adversary, and holding otherwise "would nullify work-product protection in nearly every modern
+drafting environment."
+
+**These are reconcilable, and the reconciliation is the practical rule.** Heppner turns on consumer
+terms of service *plus* the absence of counsel''s direction. Gilbarco turns on a tool used as a
+drafting instrument in the ordinary course. What follows for you: **enterprise deployment with
+confidentiality terms, plus documented direction of counsel.** That is the posture with the best
+current argument.
+
+And the honest part, which a module about evidence has to say: **no court has yet ruled on the case
+where counsel expressly directs a client to use an AI tool as part of the representation** — which
+is exactly the pay equity posture this track teaches. The floor here is being built, and anyone
+who tells you it''s settled is selling something.
+
+### Pay transparency, on two continents `[V]`
+
+**In the US**, 18 states plus Washington DC have pay transparency laws, with penalties running from
+$100 to $250,000 per violation depending on jurisdiction. The regimes are not uniform: some require
+a range in every posting, others only on request or after an interview. Most require a **good-faith
+estimate** of what you actually expect to pay — which is a substantive standard, not a formatting
+one. And remote postings are generally subject to the law of any state where the work could be
+performed, so a multi-state employer is effectively complying with the strictest applicable rule.
+
+Where AI touches this: **generating ranges for postings.** A model that produces a plausible range
+from market data has produced a number that must be a good-faith estimate of what you''d actually
+pay. Those are different standards, and only one of them is legally operative.
+
+**In the EU**, the Pay Transparency Directive''s transposition deadline of 7 June 2026 has passed,
+and only four of twenty-seven member states had complete national legislation in force — Italy,
+Slovakia, Lithuania, and Malta — while Germany, France, Spain, the Netherlands, Sweden and Denmark
+missed it. **Late transposition does not mean no obligation**; it means you are tracking twenty-odd
+national implementations arriving on different schedules with different details.
+
+The substance: employers above the size threshold report the median gender pay gap, the gap in
+variable components, and the proportion of each gender in each quartile pay band. Where a gap of
+**5% or more** exists in a category of workers, cannot be justified on objective gender-neutral
+criteria, and is not remedied within six months, **Article 10 requires a joint pay assessment
+conducted in cooperation with worker representatives.**
+
+**And here is the collision, which is the most role-specific thing in this module.** The joint pay
+assessment **cannot be conducted confidentially** — it is produced with worker representatives and
+made available to workers, equality bodies, and labour inspectorates. That is the exact opposite of
+the US privilege posture in Zone 1, where the sophisticated move is to run the analysis under
+counsel precisely to keep it out of discovery.
+
+If your organization operates on both sides, **you have to hold two opposite postures at once**:
+privileged and protected in the US, mandatory and published in the EU. Not sequentially — at the
+same time, on the same underlying pay data. That is a governance design problem, not a compliance
+checkbox, and it is worth raising with counsel before it arrives as a surprise.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m4-exercise-embed-85', 'ai301-comp-m4', 85, 'exercise', 'stable', '{"type": "sorting", "title": "Calibration exercise \u2014 Run it, run it with the record, never", "intro": "Ten minutes, ten real uses across comp and benefits. Sort each into run it, run it with the record, or never.\n\nCommit every card before the reveal. Two of the nevers are obvious and one of them happens in your function most weeks."}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m4-key-takeaways-90', 'ai301-comp-m4', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **AI for speed. Human-built tooling for accountability.** The test is what you''d have to produce
+  if challenged: the result, or the method. Imagine the deposition.
+- **"The tool recommended it" is not an answer** — it''s a description of how you avoided having
+  one.
+- **Four zones:** pay equity under privilege; ERISA fiduciary duty on benefit plans; comp committee
+  and proxy inputs; and the circular one.
+- **ERISA has no AI carve-out and needs none** `[V]` — prudence, loyalty, monitoring and the
+  exclusive benefit rule already reach it. AI in decision support, final authority human, adverse
+  determinations involving a person. Courts examine *how* you decided, so the process record is the
+  asset.
+- **A model fitted on historical pay learns what you paid, which is the thing you''re auditing.** It
+  reproduces the disparity fluently and at scale. **A model may describe your pay patterns; it may
+  not recommend your pay decisions.**
+- **"Explained" variance is a modeling decision with fairness consequences, not a statistical
+  fact.** Controlling for job level answers *within level, is pay equitable* — a narrower question
+  than the one people hear. Performance rating is the most common control and the most contestable.
+- **Privilege and AI is unsettled** `[V]`. Two federal courts split in one week; the reconcilable
+  rule is enterprise deployment plus documented direction of counsel — and no court has yet reached
+  the case where counsel directs the AI use.
+- **18 states plus DC on pay transparency** `[V]`, mostly on a good-faith-estimate standard, with
+  remote postings pulling you to the strictest applicable rule.
+- **The EU deadline passed with 4 of 27 in force** `[V]`, and its joint pay assessment **cannot be
+  confidential** — which collides head-on with the US privilege posture. Both at once, on the same
+  data.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m4-activity-link-95', 'ai301-comp-m4', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 The operating policy", "blurb": "Not a whole-organization AI policy \u2014 68% of employers already have one of those. The comp and benefits appendix to it: red lines specific enough to test, approved uses named as precisely as the prohibitions, review checkpoints, and an escalation path that isn''t \"consult Legal.\" Counsel review before adoption.", "estMinutes": "30"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m4-take-a-position-100', 'ai301-comp-m4', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"''The tool recommended it'' is not a defense anywhere in HR. Where you hold a
+fiduciary duty, it''s an admission."*
+
+The strongest counter-argument is that **this proves too much, and taken seriously it would freeze
+the function.** Every professional relies on instruments they cannot fully reconstruct — actuarial
+tables, survey methodologies, the statistical packages behind every regression you''ve ever
+presented. Nobody calls it an admission when a comp analyst can''t derive a survey provider''s aging
+methodology from first principles; they call it reasonable reliance on a recognized instrument.
+On that view the distinction isn''t human-versus-AI at all, it''s whether the instrument is
+**professionally recognized and appropriately validated** — and AI tools will cross that threshold
+in some uses, at which point relying on them will be prudent rather than negligent, and refusing to
+may be the harder position to defend. Your position has to say where that threshold sits and how
+you''d know it had been crossed.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m4-sources-and-attribution-110', 'ai301-comp-m4', 110, 'prose', 'stable', '## Sources and attribution
+
+- **Privilege `[V]`:** *United States v. Heppner* (S.D.N.Y., ordered Feb 10, 2026; written opinion
+  Feb 17, 2026) — no privilege or work product over AI documents; three independent grounds; matter
+  of first impression. *Warner v. Gilbarco, Inc.* (Feb 10, 2026) — work product **not** waived; AI
+  programs are "tools, not persons." The reconciliation offered here is this course''s reading, not
+  a holding.
+- **ERISA `[V]`:** practitioner consensus on prudence, loyalty, monitoring, documentation and the
+  exclusive benefit rule as applied to AI; no AI-specific rule in force. *Note:* DOL EBSA Technical
+  Release 2026-01 (April 1, 2026) concerns **proxy advisory services, not AI** — it is relevant to
+  Module 5, and should not be cited as AI guidance.
+- **US pay transparency `[V]`:** 18 states plus DC; penalties $100–$250,000 per violation by
+  jurisdiction; good-faith-estimate standard predominant; remote postings generally subject to any
+  state where work could be performed.
+- **EU Pay Transparency Directive (EU) 2023/970 `[V]`:** 7 June 2026 transposition deadline passed
+  with four member states in force (Italy, Slovakia, Lithuania, Malta); Article 10 joint pay
+  assessment triggered at a 5% unjustified gap unremedied within six months, conducted with worker
+  representatives and not confidential.
+- **AI policy prevalence `[V]`:** 68% of employers with a formal AI policy, roughly double the
+  prior year (Littler, May 2026 Annual Employer Survey); about a quarter of policy-holders believe
+  their policy is clear and future-proof; 44% of US workers report no clear policy or don''t know.
+- The four zones, the speed/accountability line, the description-not-recommendation rule, and the
+  control-set critique are original to this course.
+- Builds on 101 M7 (the lines that don''t move) and Module 3 (the process record as the asset).
+- **This module is not legal advice, and its legal surface is volatile.** Counsel review is
+  required before your organization adopts anything built from it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m4-activity-applied-activity-the-operating-policy-10', 'ai301-comp-m4-activity', 10, 'prose', 'stable', '## Applied activity — "The operating policy"
+
+**Time:** 30 minutes · **Submit:** the policy plus a 300–400 word write-up · **Graded against the
+rubric below.** Score doesn''t matter. Doing the work is where the learning lands.
+
+**A word about what this is worth, because Module 2 requires the honesty.** You may have been told
+that written AI policies are rare and that you''ll be ahead of the field by having one. That isn''t
+true: roughly **68% of employers now have a formal AI policy** `[V]`, about double the share a year
+earlier. So the policy itself is not the differentiator.
+
+**Here is the real gap.** Of the organizations that have a policy, only about a quarter believe it
+is clear and future-proof, and **44% of US workers say their employer has no clear AI policy or
+they don''t know whether one exists** `[V]`. Policies exist and they are generic — written by
+Legal or IT for the whole organization, at a level of abstraction that answers no question a comp
+analyst actually has at 4pm during merit cycle. Your organization''s policy almost certainly does
+not mention pay equity, fiduciary decisions, or proxy inputs.
+
+**So you are not writing a policy. You are writing the comp and benefits appendix to one, and it
+has to be specific enough to be usable under time pressure.**
+
+**Step 0 — Find the existing policy (3 min).** Read it. Note what it already covers and what it
+says nothing about. If there isn''t one, say so — that''s a finding, and you write the section
+anyway.
+
+**Step 1 — Red lines (8 min).** Things your function will not do, stated so specifically that
+someone could tell whether they''d crossed one. Not "we won''t use AI for sensitive decisions" —
+**"individual pay adjustment amounts are not generated or recommended by a model"** is a red line.
+Cover at minimum: the four zones, individual pay data movement, and anything touching a benefit
+plan determination.
+
+**Step 2 — Approved uses (7 min).** What your function *may* do, named as specifically as the red
+lines. This half matters more than people expect: a policy that only forbids gets ignored, because
+the work still has to get done and everyone knows the tools help. **Give people somewhere to go.**
+
+**Step 3 — Review checkpoints (7 min).** For uses that sit between the two — which is most real
+work — what has to happen before the output leaves your hands. Which of Module 3''s checks are
+mandatory. Who reviews. What gets recorded, and where.
+
+**Step 4 — Escalation (3 min).** Who gets called, for what, and how fast. Name roles, not
+departments. **"Consult Legal" is not an escalation path** — it''s what people write when they don''t
+know who to call.
+
+**Step 5 — Score the predictions (2 min).** Your two numbers against the figures above. Most people
+underestimate how many organizations have a policy and overestimate how good those policies are.
+
+Then the write-up: what your existing policy already covered, the single most important red line
+and why it''s the one you''d defend, your position on the claim above with its counter-argument
+addressed, and — the honest one — **which red line your function has probably already crossed.**
+The policy that admits one is more useful than the one that reads like nobody has ever been
+tempted.
+
+**Before this goes anywhere near adoption: counsel review.** You are drafting the practitioner''s
+version. The lawyer''s version comes after.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m4-micro-core', 'ai301-comp-m4-micro', 10, 'prose', 'stable', '## Module 4 in two minutes
+
+**AI for speed. Human-built tooling for accountability.** The test isn''t sensitivity or difficulty — it''s what you''d have to produce if the outcome were challenged. The *result*, or the *method* with each choice explained. Imagine the deposition: "why is this employee''s adjustment 4% and that one''s 2%?" has an answer or it doesn''t, and **"the model suggested it" is not an answer** — it''s a description of how you avoided having one.
+
+**Four zones where the answer changes for this function.** Pay equity conducted under privilege, where an unprivileged study finding an unremediated gap is a plaintiff''s exhibit with your name on it. ERISA fiduciary duty on benefit plans. Comp committee and proxy inputs. And the circular one.
+
+**The circular zone is the sharpest, and it''s specific to AI.** Your historical pay data encodes every decision your organization has made — including the ones a pay equity audit exists to find. A model fitted on it learns the pattern, then reproduces the pattern as a recommendation, because consistency with the training data is what fitting means. Worse than ordinary bias in two ways: it''s **fluent**, arriving with a coherent rationale, and it''s **scaled** — a biased manager affects their team, a biased model affects everyone at once in the same direction, which is exactly the fact pattern disparate impact doctrine is built for.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m4-micro-rule', 'ai301-comp-m4-micro', 20, 'callout', 'stable', '### The rule to carry
+
+**A model may describe your pay patterns. It may not recommend your pay decisions.** Description is analysis, and analysis is what you want. Recommendation is the circularity.
+
+And when you''re handed a pay equity regression — from a vendor, a consultant, or your own team — the critical questions are not statistical. **What does it control for, and what does that choice smuggle in?** If women are systematically leveled lower at hire, controlling for job level absorbs the effect into a control variable and the residual gap shrinks toward zero. The model isn''t wrong; it''s answering *within level, is pay equitable* — a narrower question than the one everyone in the room will hear.
+
+**"Explained" variance is a modeling decision with fairness consequences, not a statistical fact.** When a result says 94% of the gap is explained by legitimate factors, the operative word is *legitimate*, and it was defined by whoever chose the control set — often before anyone looked at the data.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m4-micro-close', 'ai301-comp-m4-micro', 30, 'prose', 'volatile', '**The full module adds the floor, and it is moving** `[V]`. **Privilege is genuinely unsettled**: in February 2026 two US federal courts split in the same week — *Heppner* (S.D.N.Y.) found no privilege or work product over documents a defendant generated in a public AI platform acting independently of counsel; *Warner v. Gilbarco* found work product **not** waived, because AI programs are "tools, not persons." They reconcile into a practical posture — **enterprise deployment plus documented direction of counsel** — and the honest coda is that no court has yet reached the case where counsel expressly directs the AI use, which is exactly the pay equity posture this track teaches.
+
+On transparency: **18 states plus DC**, mostly on a *good-faith estimate* standard, which is substantive rather than formatting — a model''s plausible range is not automatically a compliant one. And in the EU, the 7 June 2026 deadline passed with four of twenty-seven member states in force; Article 10''s **joint pay assessment cannot be conducted confidentially**, which collides head-on with the US privilege strategy. Operate on both sides and you hold two opposite postures at once, on the same data.
+
+Plus the ten-card run-it / run-it-with-the-record / never sort, and the comp-specific operating policy. **Counsel review before anything ships. This is not legal advice.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-comp-m4-sorting', 'ai301-comp-m4', 'sorting', '{"reviewedAt":"2026-08-12","buckets":[{"id":"never","label":"Never","hint":"Outside the line — no record makes it acceptable","rank":0,"pct":25},{"id":"record","label":"Run it — with the record","hint":"Fine, but only with counsel, review, or a documented process","rank":1,"pct":40},{"id":"run","label":"Run it","hint":"Ordinary speed work — Module 3''s craft applies, nothing more","rank":2,"pct":35}],"tasks":[{"id":"t1","text":"Drafting the open enrollment communication that explains this year''s plan changes to employees","key":"run","reasoning":"Pure speed work. You made the plan decisions; the model helps you explain them. If challenged, you show the result — nobody asks how the sentence was constructed. This is the easiest yes in the function and the highest-volume one."},{"id":"t2","text":"Generating individual pay adjustment amounts for the merit cycle from a model fitted on your historical pay data","key":"never","reasoning":"Zone 4, the circular one, and the clearest never in the module. The model learns what you have paid — including the disparities the audit exists to find — and reproduces them as recommendations, fluently and across the whole population at once. **A model may describe your pay patterns. It may not recommend your pay decisions.** No amount of documentation fixes this, because the record would document the wrong thing correctly."},{"id":"t3","text":"Running a pay equity regression on individual-level data, at the written direction of outside counsel, in your enterprise deployment","key":"record","reasoning":"This is the posture the module teaches, and the record is what makes it work. Counsel''s direction in writing, enterprise terms rather than consumer, and a documented process. Note honestly that **no court has yet ruled on this exact fact pattern** — Heppner turned on consumer terms plus the absence of counsel''s direction, and this is the case nobody has decided. It has the best current argument, which is not the same as a settled answer."},{"id":"t4","text":"Reconciling the survey submission file against your job catalogue and flagging unmatched jobs","key":"run","reasoning":"Data assembly with a verifiable output — the match rate is a number you can check against something that isn''t the model. Module 3''s audit file and reconciliation spec apply, and that''s the whole obligation. This is the safest genuine transformation available to the function."},{"id":"t5","text":"Making the final determination on a health plan claim appeal","key":"never","reasoning":"An adverse benefit determination under ERISA. The practitioner consensus is narrow and consistent: AI in decision support, **final authority with a human**, and human involvement in any adverse determination. Delegating claim denials to an opaque model is the paradigm case of what the fiduciary duty forbids — and a well-documented automated denial is still an automated denial."},{"id":"t6","text":"Summarizing three benefits vendors'' proposals into a comparison table for your own review","key":"run","reasoning":"Speed work on material you''ll verify yourself before it goes anywhere. The decision that follows is yours and is made on the underlying documents. Check the summary against the sources — that''s Module 3, not Module 4."},{"id":"t7","text":"Generating the salary range for a job posting in a state with pay transparency requirements","key":"record","reasoning":"The trap card, and most people run it. The legal standard is a **good-faith estimate of what you actually expect to pay** — a substantive standard, not a formatting one. A model produces a *plausible* range from market data, and plausible is a different thing. The record is a human confirming the range reflects real intent, and for a remote posting, that it satisfies the strictest state whose law could apply."},{"id":"t8","text":"Drafting the memo that explains a completed pay equity finding to the leadership team","key":"record","reasoning":"The distinction Lesson 1 asks you to make inside a single piece of work. Drafting the explanation is a speed problem even though the finding underneath is accountability work. The record here is the privilege question: if the analysis was conducted under counsel, the memo about it may carry the same protection — and drafting it outside that perimeter can be how the protection gets lost."},{"id":"t9","text":"Building the analysis that determines an executive compensation figure disclosed in the proxy","key":"record","reasoning":"Zone 3. AI in the workflow is fine; what''s required is that the number be **reconstructible by a human who can testify to it** — Module 3''s rule with a securities law consequence attached. Note also that executive comp defeats every anonymization control: there are five of them and their pay is public, so the perimeter question is the only question."},{"id":"t10","text":"Pasting the individual-level pay file into a personal consumer AI account to get a quick distribution check before a meeting","key":"never","reasoning":"Two failures at once, and it''s the one that actually happens — at 4pm, under time pressure, with good intentions. Tier 4 data leaves the perimeter, and consumer terms are precisely what defeated the expectation of confidentiality in *Heppner*. The quick check is real and the answer is Module 3''s kit, not the personal account."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-comp-m4-rubric', 'ai301-comp-m4', 'rubric', '{"promptVersion":"ai301-comp-m4-operating-policy-v1","moduleId":"ai301-comp-m4","minWords":300,"maxWords":400,"submitLabel":"Your operating policy and write-up","intro":"Paste the policy — red lines, approved uses, review checkpoints, escalation — with a note on what your organization''s existing policy already covered, your two predictions scored, and the 300–400 word write-up including your position on this module''s claim. Resubmission is free and unlimited — the score is a mirror, not a gate. Counsel review before adoption; this is the practitioner''s draft, not the lawyer''s.","activityContext":"You are grading a learner submission for AI 301 · The Specialist, Comp & Benefits track — for compensation and benefits professionals who have completed AI 101 and AI 201. Module 4 applied activity, ''The operating policy'': not a whole-organization AI policy but the **comp and benefits appendix** to one, specific enough to be usable under time pressure during a merit cycle. The activity is deliberately framed against the real data — roughly 68% of employers now have a formal AI policy, so having one is not the differentiator; the gap is clarity and function-specificity, with only about a quarter of policy-holders believing their policy is clear and future-proof and 44% of US workers reporting no clear policy or not knowing whether one exists. Step 0 is reading the organization''s existing policy and noting what it covers and omits (finding that none exists is itself a finding). Step 1 red lines, stated so specifically that someone could tell whether they had crossed one — ''individual pay adjustment amounts are not generated or recommended by a model'' is the model example; ''we won''t use AI for sensitive decisions'' is the failure mode. Coverage must reach the module''s four zones (pay equity under privilege, ERISA fiduciary duty on benefit plans, comp committee and proxy inputs, and the circular zone where a model fitted on historical pay recommends pay), plus individual pay data movement and benefit plan determinations. Step 2 approved uses, named as specifically as the red lines — a policy that only forbids gets ignored because the work still has to get done. Step 3 review checkpoints for the in-between cases, naming which of Module 3''s checks are mandatory, who reviews, and what gets recorded where. Step 4 escalation naming roles rather than departments; ''consult Legal'' is explicitly called out as a non-path. The module''s claim, which the write-up must take a position on, is that ''the tool recommended it'' is not a defense anywhere in HR and is an admission where a fiduciary duty is held; its real counter-argument is that professionals routinely rely on instruments they cannot reconstruct — actuarial tables, survey aging methodologies, statistical packages — and call it reasonable reliance, so the true distinction is whether an instrument is professionally recognized and validated, a threshold AI tools will cross for some uses. The write-up must also name a red line the learner''s function has probably already crossed. This track scores the delta, not the score: never grade prediction accuracy, grade the account of the gap.","opening":[{"key":"policyPrevalence","label":"Predicted — % of employers with a formal written AI policy","hint":"Your honest guess before reading. Whole percent.","placeholder":"e.g. 30","min":0,"max":100}],"calibration":[{"key":"policyPrevalenceActual","label":"Actual — the figure from the activity","hint":"Littler''s May 2026 Annual Employer Survey, roughly double the prior year.","placeholder":"e.g. 68","min":0,"max":100,"actualFor":"policyPrevalence"}],"dimensions":[{"name":"It engages the policy that already exists","criteria":"Evidence the learner actually read their organization''s current AI policy, with a specific note on what it covers and what it says nothing about — and, almost certainly, that it does not mention pay equity, fiduciary decisions, or proxy inputs. ''No policy exists'' is an acceptable and reportable finding, but the section still has to be written. A submission that drafts from scratch without checking has skipped the step the activity opens with."},{"name":"The red lines are testable","criteria":"Each red line stated so specifically that a person could tell whether they had crossed it. The test to apply: could two colleagues disagree about whether a given action violated it? If yes, it''s too vague. ''Individual pay adjustment amounts are not generated or recommended by a model'' passes; ''we won''t use AI for sensitive decisions'' fails. Coverage must reach the four zones, individual pay data movement, and benefit plan determinations — score down for a policy that covers data handling and is silent on the circular zone, which is the one most likely to be missed."},{"name":"Approved uses are as specific as the prohibitions","criteria":"A named set of things the function may do, at the same level of specificity as the red lines. This half is weighted deliberately: a policy that only forbids gets ignored, because the work still has to get done and everyone knows the tools help. Generic permission (''routine drafting is fine'') scores low; named artifacts and workflows score high. A policy that is all red lines and no green ones has designed for a compliance audit rather than for a Tuesday."},{"name":"Checkpoints and escalation are operable under load","criteria":"For the in-between cases — which is most real work — what must happen before output leaves the learner''s hands: which of Module 3''s checks are mandatory, who reviews, what is recorded and where. Escalation names roles, with a rough timeframe. ''Consult Legal'' is explicitly a non-answer. The standard is whether this would function at 4pm during merit cycle, not whether it reads well in a policy binder."},{"name":"The delta and the position","criteria":"Both predictions compared against the figures with an account of what the gap suggests — most learners underestimate policy prevalence and overestimate policy quality, and naming which way they leaned matters more than the numbers. Accuracy is never graded. Plus an honest statement of a red line the function has probably already crossed; a policy that admits one is worth more than one that reads as though nobody has ever been tempted. Plus a committed position on the module''s claim that engages its real counter-argument about reasonable reliance on recognized instruments — the strong answers say where the recognition threshold sits and how they would know it had been crossed."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-comp-m4-knowledge_check', 'ai301-comp-m4', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"What determines which side of the speed/accountability line a task sits on?","options":["How sensitive the underlying data is","What you would have to produce if the outcome were challenged — the result, or the method with each choice explained","Whether the task is legally regulated","How much time the task currently takes"],"correctIndex":1,"explanation":"Sensitivity and regulation both correlate with it and neither is the test. The deposition question surfaces it fastest: does \"why is this person''s adjustment 4%?\" have an answer."},{"id":"q2","prompt":"Why is a model fitted on historical pay structurally unsuited to recommending pay?","options":["Because historical pay data is usually incomplete","Because it learns the pattern in what you have paid — including the disparities a pay equity audit exists to find — and reproduces them fluently and at scale, with a rationale attached","Because pay decisions require contextual judgment models can''t access","Because compensation data changes too quickly for a fitted model to stay accurate"],"correctIndex":1,"explanation":"Consistency with the training data is what fitting means. C is true and much weaker; the circularity is the specific problem. **A model may describe your pay patterns; it may not recommend your pay decisions.**"},{"id":"q3","prompt":"A pay equity regression controls for job level, and the residual gap is near zero. What does this establish? `[V]`","options":["That pay is equitable across the organization","That, within level, pay is equitable — which is a narrower question, and if women are systematically leveled lower at hire the control has absorbed the effect you were looking for","That job level is the primary driver of pay in the organization","That the analysis was correctly specified"],"correctIndex":1,"explanation":"The model isn''t wrong; it''s answering something narrower than people will hear. **\"Explained\" variance is a modeling decision with fairness consequences, not a statistical fact** — and \"legitimate\" was defined by whoever chose the control set."},{"id":"q4","prompt":"What does ERISA require of AI use in benefit plan administration? `[V]`","options":["A specific AI disclosure filed with the Department of Labor","Nothing yet — no AI-specific rule has been issued","Nothing AI-specific, because the ordinary duties already reach it: AI in decision support, final authority with a human, and human involvement in adverse benefit determinations","That any AI vendor be a named plan fiduciary"],"correctIndex":2,"explanation":"B is half-right and misleads — the absence of an AI-specific rule is not an absence of obligation. Prudence, loyalty, monitoring and the exclusive benefit rule do the work, and courts examine *how* you decided, which makes the process record the asset."},{"id":"q5","prompt":"What''s the practical rule that reconciles *Heppner* and *Warner v. Gilbarco*? `[V]`","options":["That AI use always waives privilege in criminal matters but not civil ones","That work product survives AI use but attorney-client privilege never does","Enterprise deployment with confidentiality terms plus documented direction of counsel — Heppner turned on consumer terms and the absence of counsel''s direction, Gilbarco on a tool used as an ordinary drafting instrument","That pro se litigants receive greater protection than represented parties"],"correctIndex":2,"explanation":"And the honest coda: **no court has yet ruled on counsel expressly directing the AI use**, which is exactly the pay equity posture. The floor is being built."},{"id":"q6","prompt":"What''s the operative standard for a salary range in a posting under most US pay transparency laws? `[V]`","options":["The range must match the approved band in the compensation structure","A good-faith estimate of what the employer actually expects to pay — which is a substantive standard, not a formatting one","The range must be within 20% of market median for the role","The range must reflect the actual pay of current incumbents"],"correctIndex":1,"explanation":"Which is why a model producing a plausible-looking range from market data hasn''t necessarily produced a compliant one. Plausible and good-faith are different standards, and only one is legally operative."},{"id":"q7","prompt":"Why does the EU joint pay assessment collide with US pay equity practice? `[V]`","options":["Because the EU uses a different definition of the gender pay gap","Because it cannot be conducted confidentially — it''s produced with worker representatives and available to workers and labour inspectorates — while the US posture runs the analysis under counsel precisely to protect it from discovery","Because the EU threshold of 5% is stricter than any US requirement","Because EU member states transposed the directive on different schedules"],"correctIndex":1,"explanation":"Two opposite postures, at the same time, on the same underlying pay data. C and D are both true and neither is the collision."},{"id":"q8","prompt":"What''s the strongest counter-argument to \"the tool recommended it is an admission\"?","options":["That AI recommendations are often more consistent than human ones","That professionals routinely rely on instruments they can''t reconstruct — actuarial tables, survey aging methodologies, statistical packages — and we call that reasonable reliance, so the real distinction is whether the instrument is professionally recognized and validated","That fiduciary standards were written before AI existed and don''t contemplate it","That vendors indemnify customers against errors in their models"],"correctIndex":1,"explanation":"It''s strongest because it points at a threshold AI tools will cross for some uses, after which relying on them is prudent rather than negligent. The position you owe is where that threshold sits and how you''d know it had been crossed."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m5-calibration-prompt-before-you-start-10', 'ai301-comp-m5', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*Two predictions. Be honest — this is the module where the gap is the lesson.*
+
+**Think of the last five external candidates you made an offer to. How many do you think used AI
+to prepare for the negotiation?**
+
+And the second, which is the harder one: **think of your most recent pay decision that you had to
+justify to the person it affected. If they had run your rationale past a capable model, asking it
+to find the weakest part — what would it have found?**
+
+Write the answer down before Lesson 1. You will be asked to actually run it in the activity.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m5-module-brief-20', 'ai301-comp-m5', 20, 'prose', 'stable', '## Module brief
+
+Every module so far has been about your side of the table: your work, your evidence, your craft,
+your floor. This one is about the fact that **the other side has the same tools, and in one respect
+better access to them than you do.**
+
+You are constrained. Your data is Tier 4, your analysis has to survive a comp committee, your legal
+floor is real, and Module 4 just spent fifty minutes telling you what you can''t do. **Your
+counterparty has none of those constraints.** A candidate preparing for a negotiation can put
+anything into anything, at 11pm, with no policy, no counsel, and no record.
+
+That asymmetry is the module. And it runs in three directions:
+
+- **The employee and the candidate**, arriving briefed by a model.
+- **The model itself**, which briefs them inconsistently — and gives *your* side different numbers
+  than theirs.
+- **The institutional investor**, who now reads your executive compensation disclosure
+  algorithmically, against every peer at once.
+
+The claim you''ll take a position on:
+
+> **Your pay story is already being audited by a model. You just haven''t read the report.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m5-learning-objectives-30', 'ai301-comp-m5', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. State what the evidence actually says about candidate AI use in negotiation — and what it
+   doesn''t `[V]`.
+2. Explain why inconsistent advice is harder to negotiate against than good advice `[V]`.
+3. Name the mechanism by which the same model gives the two sides of a negotiation different
+   numbers, and what that implies for your own use of it `[V]`.
+4. Describe how executive compensation disclosure is now read at scale, and what that changes
+   about how you write it `[V]`.
+5. Build a pay rationale that survives an adversary holding the same tools.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m5-lesson-1-the-employee-side-40', 'ai301-comp-m5', 40, 'prose', 'volatile', '## Lesson 1 · The employee side [V]
+
+The headline finding, with its sample attached — because Module 2 committed us to that.
+
+A survey of 899 professionals conducted for Eastern Washington University — **488 hiring managers
+and 411 workers** — found that **85% used ChatGPT to prepare for salary negotiation**, **63% said
+it produced a stronger offer**, 78% felt more confident negotiating with AI preparation, and 55%
+said they secured higher base pay.
+
+**Now read the sample the way Module 2 taught you, because it changes the claim materially.** The
+411 workers had **already used AI** for negotiation preparation. So the finding is *85% of
+AI-using candidates used ChatGPT specifically* — a statement about which tool, among people already
+using one. It is **not** "85% of candidates arrive AI-prepared." Anyone quoting this figure as
+general candidate behavior is quoting it wrong, and you will see it quoted that way.
+
+What it does support, which is enough: **among candidates who prepare with AI, a large majority
+believe it worked, and a majority report a concrete outcome.** Belief and outcome are different
+evidentiary weights and both are self-reported, so read 63% as "63% believe" and 55% as "55%
+report." Neither is verified against an offer letter.
+
+**So what should you actually update?** Not to a number, but to a direction. The population of
+candidates arriving with a prepared range, a set of comparables, and rehearsed counter-language is
+larger than it was and growing, and it is not concentrated in senior or technical roles the way
+sophisticated negotiation used to be. **The distribution of negotiation preparedness has
+flattened**, and if your process quietly relied on most candidates not pushing back — which many
+processes did, without anyone deciding it — that assumption is expiring.
+
+There is an equity implication worth sitting with, and it cuts in your favor. Negotiation outcomes
+have historically varied by who was coached, who had a network, and who had been told it was
+acceptable to ask. **A widely available preparation tool erodes some of that.** If your pay
+structure is sound, more prepared candidates is a good thing for you: it means fewer people
+accepting a first number they shouldn''t have, which is where a lot of internal inequity was
+manufactured. If your structure is not sound, this module is going to be uncomfortable, and that''s
+the correct response.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m5-lesson-2-and-the-briefing-is-unreliable-50', 'ai301-comp-m5', 50, 'prose', 'volatile', '## Lesson 2 · And the briefing is unreliable [V]
+
+Here is where it gets harder rather than easier, and it''s the part nobody writes about because it
+doesn''t fit either narrative.
+
+A controlled audit published in *PLOS ONE* in February 2025 (Geiger et al.) submitted **98,800
+prompts to each of four ChatGPT versions**, systematically varying gender, university, and major
+— and, critically, varying whether the prompt was voiced as **the employee or the employer**.
+
+The findings, in order of how much they should change your behavior:
+
+**Statistically significant salary differences by gender, in all four model versions.** Smaller than
+the other effects measured, and present throughout.
+
+**Substantial differences by university and major, inconsistent across versions.** The same profile
+gets different advice depending on which version answered.
+
+**The largest gaps were between model versions, and between employee-voiced and employer-voiced
+prompts.** Read that twice. **The same model gives the two sides of your negotiation different
+numbers** — not because it is taking sides, but because the framing of the question shifts the
+answer, and neither party can see the other''s framing.
+
+**And it confidently prices universities that do not exist.** The audit included fictional and
+fraudulent institutions and got wildly inconsistent results — which is 101 M6''s confident wrongness,
+in your domain, on the exact task your counterparty is using it for.
+
+**Two consequences, and the second one is about you.**
+
+*Consequence one: you are not negotiating against good advice. You are negotiating against
+confident, inconsistent advice, which is harder.* Good advice converges — two well-advised
+candidates for the same role arrive near the same number and the conversation is about that number.
+Inconsistent advice diverges, so you get one candidate anchored 12% high on a hallucinated
+comparable and another anchored low, both equally certain, and **your response cannot be a script.**
+What actually works is the ability to say where a number comes from, in a form that survives being
+checked — which is the whole content of Lesson 4.
+
+*Consequence two, which is the one this course cares about more: everything above applies to you.*
+The gender effect, the university effect, the version instability — that is a general model
+producing salary numbers. **A comp team using the same kind of tool to set pay would be introducing
+exactly the disparity Module 4''s circular zone is about**, and it would arrive fluently, in a
+version that may behave differently next quarter. Module 4 told you a model may describe your pay
+patterns but not recommend your pay decisions. **This is the evidence for that rule**, and it
+happens to have come from studying your counterparty.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m5-try-60', 'ai301-comp-m5', 60, 'try_this', 'stable', '### Try this — 4 minutes
+Take a live req. Ask a model, voiced as the candidate, what it should expect to be offered. Then
+ask it, voiced as the employer, what a fair offer is. Note the gap. That gap is sitting in your
+next negotiation whether or not you looked at it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m5-lesson-3-the-third-counterparty-70', 'ai301-comp-m5', 70, 'prose', 'volatile', '## Lesson 3 · The third counterparty [V]
+
+The one nobody in your function has fully absorbed, because it arrived quietly.
+
+**Your executive compensation disclosure is now read by machines, at scale, against every peer at
+once.**
+
+Institutional investors have begun applying AI to ingest proxy statements, pay tables, and peer
+data across whole portfolios. The concrete example: **JPMorgan Asset Management moved in 2026 from
+relying on proxy advisory firms for vote recommendations to an internally developed AI-based model,
+"Proxy IQ," aggregating data from filings across more than 3,000 companies to inform its votes.**
+
+Three shifts follow, and each one changes something about how you do your work.
+
+**From sampling to census.** A human analyst covering a large portfolio reads your proxy carefully
+only if something flags it. A model reads all of them, every year, at the same depth. **Your
+disclosure is no longer competing for attention — it is being compared.** Any structural oddity in
+your pay design is now visible against the full peer set rather than against whoever happened to
+get read.
+
+**From "what did you set" to "was it hard."** Investors are increasingly evaluating not just what
+performance goals were set but **whether those goals were challenging given the business
+environment** — a question that was expensive to ask across a portfolio and is now cheap. A target
+that was comfortably beatable is a finding that can be surfaced systematically.
+
+**From advisor recommendations to in-house analysis.** Proxy advisors remain important voices, but
+institutional investors are building their own approaches and the influence of a negative advisor
+recommendation appears to be declining. Practically: **the number of independent analyses your pay
+program faces is going up**, and they don''t share a methodology you can learn.
+
+*(One note for accuracy, since it''s easy to conflate: US Department of Labor guidance issued in
+2026 addressing proxy advisory services under ERISA is about proxy advisors and fiduciary voting
+duties — it is not AI guidance, and shouldn''t be cited as such. It is relevant here only as
+evidence that the outsourced-advisor model is under pressure from more than one direction.)*
+
+**What this changes about your work, concretely.** Clarity and structure in disclosure now have a
+mechanical payoff, not just a rhetorical one. Precision, consistent terminology, and information
+that is where a reader expects it are what let a parsing system extract your rationale correctly
+— and **narrative that only works on a sympathetic human reader is worth less than it used to be.**
+A pay program with a genuinely defensible design and a clearly written explanation gains from this
+shift. One that depended on complexity absorbing scrutiny loses.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m5-lesson-4-what-survives-contact-80', 'ai301-comp-m5', 80, 'prose', 'stable', '## Lesson 4 · What survives contact
+
+Everything above converges here: what does a pay rationale need to be, when the other side has the
+same tools?
+
+**Three properties, and none of them is about being more persuasive.**
+
+**1. The range logic is defensible on its own terms.** Not "this is the range," but why the range
+is what it is: which survey sources, which cut, which peer group, what positioning philosophy,
+aged how. A candidate who asks a model *"is this range reasonable for this role in this market?"*
+gets an answer, and if your logic is sound you can survive that comparison **by explaining it**.
+If your range came from a thin cut you''d rather not describe, Module 3 already told you what to do
+and this is the consequence of not having done it.
+
+**2. The rationale doesn''t depend on the listener not checking.** This is the practical test and it
+kills a specific class of thing comp functions have said for years. *"That''s above our range for
+this level"* — checkable, and fine if true. *"The market for this role is around X"* — now checkable
+in ninety seconds, and if your X is defensible you are better off than before, because the check
+confirms you. **Anything that worked only because verification was expensive has stopped working.**
+
+Say the harder version: some of what your function has historically said in pay conversations was
+technically true and structured to discourage follow-up. That was never great practice and it is
+now actively bad strategy, because the follow-up is free and being caught in it costs you the
+credibility that carries the true parts.
+
+**3. You know what you can say out loud — and you''ve decided in advance.** This is the discipline
+people skip. There is information you cannot share: other individuals'' pay, the full band in some
+jurisdictions, the internal equity analysis, the budget. **Deciding what''s disclosable in the
+moment, under pressure, from a prepared counterparty, is how mistakes happen.** Decide it before
+the conversation, per role and per jurisdiction, and know the sentence you use when you''ve hit the
+limit. "I can''t share that, and here''s what I can tell you" is a complete answer. Improvising
+around the limit is where people either disclose too much or sound evasive about something they
+could have simply said.
+
+**The synthesis, and the thing to carry out of this module:** the tools have not made your
+counterparty smarter. They have made **the cost of checking you approximately zero**. Every
+property above is what a pay story looks like when it was built for a world where checking is free.
+
+And the good news, which is real: **a well-designed pay program is now easier to defend, not
+harder.** The check confirms it. The functions that suffer here are the ones whose stories relied
+on the cost of verification, and the module''s uncomfortable question is which one you are.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m5-exercise-embed-85', 'ai301-comp-m5', 85, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m5-key-takeaways-90', 'ai301-comp-m5', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **You are constrained and your counterparty is not.** Tier 4 data, a comp committee, a legal
+  floor — versus a candidate with any tool, at 11pm, with no policy and no record.
+- **Read the negotiation survey correctly** `[V]`: 85% is *of AI-using candidates*, not of all
+  candidates, and 63%/55% are beliefs and self-reports. What to update is a direction, not a
+  number: **the distribution of negotiation preparedness has flattened**, and a process that
+  relied on most people not pushing back is expiring.
+- **You are negotiating against confident, inconsistent advice, which is harder than good advice**
+  `[V]`. Good advice converges; inconsistent advice diverges, so no script works.
+- **The same model gives the two sides different numbers** `[V]` — the audit found the largest gaps
+  between model versions and between employee- and employer-voiced prompts. It also confidently
+  prices universities that don''t exist.
+- **The audit is also evidence about you.** Gender effects, university effects, version
+  instability — a comp team using the same tool to set pay introduces exactly Module 4''s circular
+  zone. This is the evidence behind *describe, don''t recommend*.
+- **Your proxy is read by machines now** `[V]`, at census rather than sample, comparing every peer
+  at once, and increasingly asking **whether the goals were hard** rather than what they were.
+- **A rationale survives contact if** the range logic is defensible on its own terms, it doesn''t
+  depend on the listener not checking, and you decided in advance what you can say out loud.
+- **The cost of checking you is now approximately zero.** A well-designed program gains from that.
+  A story that relied on verification being expensive does not.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m5-activity-link-95', 'ai301-comp-m5', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 First contact", "blurb": "Your own pay rationale, in your actual words, run through the adversary''s prompt as the employee \u2014 then run again as the employer, and the gap recorded. What comes back gets triaged into fair hits, wrong, and unanswerable. Role and range only; the perimeter still holds.", "estMinutes": "30"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m5-take-a-position-100', 'ai301-comp-m5', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"Your pay story is already being audited by a model. You just haven''t read the
+report."*
+
+The strongest counter-argument is that **this overstates the audit''s quality and therefore its
+authority.** Lesson 2 is the module''s own witness against Lesson 4: the models give inconsistent
+answers, price fictional institutions confidently, and shift with version and framing. An
+"audit" that unreliable isn''t an audit — it''s noise with a confident voice, and building your pay
+communications to satisfy it means **letting an unreliable instrument set your standard**, which is
+precisely the error this course spends six modules warning against. On that view the right posture
+is a sound, well-documented pay structure and the willingness to say plainly that a model''s number
+is wrong when it is — not defensive redesign around a tool that can''t hold a consistent position.
+Your position has to engage that, because the module has already conceded the premise it rests on.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m5-sources-and-attribution-110', 'ai301-comp-m5', 110, 'prose', 'stable', '## Sources and attribution
+
+- **Negotiation survey `[V]`:** 899 professionals surveyed for Eastern Washington University — 488
+  hiring managers, 411 workers. 85% used ChatGPT for negotiation preparation, 63% said it produced
+  a stronger offer, 78% felt more confident, 55% reported securing higher base pay. **Critical
+  qualifier: the surveyed workers had already used AI for negotiation prep**, so the figures
+  describe AI-using candidates, not all candidates.
+- **Negotiation-advice audit `[V]`:** Geiger et al., *PLOS ONE*, February 2025 — 98,800 prompts
+  submitted to each of four ChatGPT versions, systematically varying gender, university, and major,
+  and testing employee- versus employer-voiced framing. Statistically significant gender
+  differences in all four versions; largest gaps between versions and between voicings; wildly
+  inconsistent results for fictional and fraudulent institutions.
+- **Institutional investors `[V]`:** JPMorgan Asset Management''s 2026 shift from proxy advisory
+  recommendations to an internally developed AI model ("Proxy IQ") covering filings from more than
+  3,000 companies; declining influence of negative proxy advisor recommendations as investors build
+  in-house approaches; growing evaluation of whether performance goals were challenging.
+- *For accuracy:* DOL EBSA Technical Release 2026-01 (April 2026) concerns **proxy advisory
+  services and ERISA fiduciary voting duties, not AI**, and should not be cited as AI guidance.
+- The three-property test for a surviving rationale, the fair-hit / wrong / unanswerable triage,
+  and the cost-of-checking framing are original to this course.
+- Builds on 101 M6 (confident wrongness), Module 2 (reading a sample), and Module 4 (the circular
+  zone).', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m5-activity-applied-activity-first-contact-10', 'ai301-comp-m5-activity', 10, 'prose', 'stable', '## Applied activity — "First contact"
+
+**Time:** 30 minutes · **Submit:** the transcript excerpts plus a 300–400 word write-up · **Graded
+against the rubric below.** Score doesn''t matter. Doing the work is where the learning lands.
+
+This is the activity people resist, and the resistance is the point. **You are going to run your
+own pay rationale through the adversary''s prompt, as the employee.**
+
+**Step 0 — Check your perimeter first (2 min).** Module 3 and Module 4 both apply here and this
+step is not optional. Use a role, a level, and a range — **not a named individual, not real
+individual pay data.** If you can only do this with a generalized version of a real rationale, do
+that; the exercise still works. Nothing about this activity justifies moving Tier 4 data.
+
+**Step 1 — Write the rationale as you''d actually say it (6 min).** Take a real recent pay
+conversation — an offer, a merit outcome, a promotion increase, an internal equity question — and
+write out the explanation you gave or would give. Your actual words, including the parts that were
+a little smooth. **A sanitized version teaches you nothing.**
+
+**Step 2 — Run it as the employee (8 min).** Put the rationale to a model in the candidate''s or
+employee''s voice: *"My employer told me this. Is it reasonable? What''s the weakest part of their
+argument? What should I ask them?"* Keep what it says, including anything wrong.
+
+**Step 3 — Run it as the employer (5 min).** Same role, same market, now voiced as you: *"What''s a
+fair offer for this role in this market?"* Compare the numbers to what step 2 produced. **Record
+the gap** — that gap is Lesson 2 in your own req.
+
+**Step 4 — Triage what came back (6 min).** Sort the challenges into three piles. **Fair hits** —
+where your rationale is genuinely weak and you''d change it. **Wrong** — where the model is
+factually mistaken, hallucinating a comparable, or misreading the market, and you can say why.
+**Unanswerable** — where the challenge is legitimate but the answer is information you can''t
+disclose, which is the pile that needs a prepared sentence rather than an improvised one.
+
+**Step 5 — Score the predictions (3 min).** Your two numbers from the calibration prompt. Did the
+model find the weakness you predicted, or a different one? **The different one is the finding.**
+
+Then the write-up: the biggest fair hit and what you''d change, one thing the model got confidently
+wrong and how you''d say so in the room, the sentence you''d use for the unanswerable pile, your
+position on the claim above with its counter-argument addressed, and — the honest one — **whether
+any part of your rationale was relying on the listener not checking.** Naming one specifically is
+worth more than concluding that your rationale held up fine.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m5-micro-core', 'ai301-comp-m5-micro', 10, 'prose', 'volatile', '## Module 5 in two minutes
+
+**You are constrained and your counterparty is not.** Tier 4 data, a comp committee, a legal floor, and a module that just spent fifty minutes on what you can''t do — versus a candidate who can put anything into anything at 11pm, with no policy, no counsel, and no record.
+
+**Read the headline survey correctly** `[V]`. Of 899 professionals surveyed for Eastern Washington University, 85% used ChatGPT for negotiation prep and 63% said it produced a stronger offer — **but the surveyed workers had already used AI**, so it describes AI-using candidates, not all candidates. What to update is a direction, not a number: **the distribution of negotiation preparedness has flattened**, and it''s no longer concentrated in senior or technical roles. A process that quietly relied on most people not pushing back is expiring.
+
+**And the briefing they arrive with is unreliable in the way that matters** `[V]`. A controlled audit (Geiger et al., *PLOS ONE*, Feb 2025) put 98,800 prompts through each of four ChatGPT versions: statistically significant gender differences in all four, and **the largest gaps between model versions and between employee- and employer-voiced prompts.** The same model gives the two sides of your negotiation different numbers. It also confidently prices universities that don''t exist.
+
+So **you are not negotiating against good advice — you''re negotiating against confident, inconsistent advice, which is harder.** Good advice converges and no script covers divergence.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m5-micro-rule', 'ai301-comp-m5-micro', 20, 'callout', 'stable', '### The rule to carry
+
+**The tools haven''t made your counterparty smarter. They''ve made the cost of checking you approximately zero.**
+
+Three properties survive that. **Range logic defensible on its own terms** — sources, cut, peer group, positioning, aging — so the check confirms you. **A rationale that doesn''t depend on the listener not checking**: "the market is around X" is verifiable in ninety seconds now, and anything that worked only because verification was expensive has stopped working. And **knowing in advance what you can say out loud**, per role and per jurisdiction, with the sentence ready — "I can''t share that, and here''s what I can tell you" is a complete answer, while improvising around the limit is how people either overshare or sound evasive about something they could simply have said.
+
+The good news is real: **a well-designed pay program is now easier to defend, not harder.** The functions that suffer are the ones whose stories relied on verification being expensive.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m5-micro-close', 'ai301-comp-m5-micro', 30, 'prose', 'volatile', '**The full module adds the third counterparty, the one nobody in the function has absorbed** `[V]`: **your executive compensation disclosure is now read by machines, at scale, against every peer at once.** JPMorgan Asset Management moved in 2026 from proxy advisory recommendations to an internally developed AI model covering filings from more than 3,000 companies. Three shifts follow — from **sampling to census**, so your proxy is no longer competing for attention but being compared; from *what goals did you set* to **were they actually hard**, a question that used to be too expensive to ask across a portfolio; and from advisor recommendations to in-house analyses that don''t share a methodology you can learn. Precision and structure now have a mechanical payoff, and **narrative that only works on a sympathetic human reader is worth less than it used to be.**
+
+It also turns the audit back on you: gender effects, university effects, version instability — **a comp team using the same general tool to set pay introduces exactly Module 4''s circular zone.** That''s the evidence behind *describe your pay patterns, don''t recommend your pay decisions*.
+
+Plus the four-rationale sort, and the activity people resist: running your own pay story through the adversary''s prompt, **as the employee**.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-comp-m5-choice', 'ai301-comp-m5', 'choice', '{"reviewedAt":"2026-08-12","title":"Four rationales, one prepared candidate","intro":"*Five minutes. Commit before you look.*\n\nSame role, same offer, four comp partners explaining it. The candidate has spent an hour with a model and arrives with a range, three comparables, and a question about the weakest part of your argument.\n\n**One rationale survives that. Find it** — and notice that surviving is not the same as sounding strongest in the room.","artifacts":[{"label":"Rationale A","body":"\"The market for this role is around $145,000, and we''re offering $148,000, so you''re above market. We benchmark carefully and we''re confident in our data. I''d encourage you to look at the whole package rather than focusing on base — our benefits are excellent and the equity upside here is significant.\""},{"label":"Rationale B","body":"\"Our range for this level is $138,000–$172,000, built from two survey sources at the 50th percentile for our industry and revenue band, aged forward to January. That particular cut had 14 incumbents, which is thinner than I''d like, so I''ve cross-checked it against our internal distribution for the level. We''re offering $148,000, which is the lower half of the range, because you''d be joining without direct experience in the regulated side of this work. If you can show me a market source that says otherwise, I want to see it. What I can''t share is what specific colleagues earn.\""},{"label":"Rationale C","body":"\"$148,000 is what we can do. It''s a firm number — it''s been approved and I don''t have flexibility on it. I understand you may have seen other figures, but every company benchmarks differently and comparing across companies isn''t really apples to apples. This is a strong offer and I''d hate to lose you over a few thousand dollars.\""},{"label":"Rationale D","body":"\"$148,000 puts you at a 0.94 compa-ratio against our midpoint, which is exactly where we target new hires — we bring people in below midpoint so there''s room to grow through the range. It''s a well-established practice and it''s how we maintain internal equity across the level. Everyone at your level came in the same way.\""}],"options":[{"id":"a","label":"Rationale A"},{"id":"b","label":"Rationale B"},{"id":"c","label":"Rationale C"},{"id":"d","label":"Rationale D"}],"key":"b","reasoning":"**B survives, and it survives by conceding things the other three protect.**\n\nRun the three properties. *Range logic defensible on its own terms* — sources, percentile, peer definition, aging, and the offer''s position within the range with a stated reason. *Doesn''t depend on the listener not checking* — every element is checkable, and checking confirms it. *Knows what it can say out loud, decided in advance* — one clean sentence on colleagues'' pay, delivered without evasion.\n\nThe part people flinch at is the strongest part: **\"that cut had 14 incumbents, which is thinner than I''d like.\"** That is Module 3''s carry-the-softness-forward discipline in a live negotiation, and it costs one sentence. It also does something tactical — a candidate whose model says \"ask how many incumbents were in that benchmark\" gets an answer you already gave, which ends that line of attack rather than starting it. **Volunteering your weakest point is how you keep control of it.** And \"show me a source that says otherwise\" is the move a prepared counterparty cannot punish; you''ve made their preparation useful to you.\n\n**A fails on the checkable claim, which is the specific thing that stopped working.** \"The market is around $145,000\" is now verifiable in ninety seconds, and if the candidate''s model says $161,000 — right or wrong — you have a fight about a number you presented with no derivation. \"We benchmark carefully\" is an adjective standing where a method should be. And the pivot to total package the moment base is questioned reads, to a prepared candidate, as exactly what it is.\n\n**C is the one that used to work and now backfires hardest.** \"It''s firm\" without a reason, plus \"comparing across companies isn''t really apples to apples\" — which is *true*, and is being deployed to discourage a follow-up rather than to inform. A prepared candidate will ask why, and \"it''s approved\" is not a why. **The soft threat at the end is the tell**: it moves the conversation from the number''s merits to the candidate''s risk appetite, which is a trade you lose against someone who has rehearsed.\n\n**D is the hard distractor, and it fails in a way specific to your function.** It''s precise, internally coherent, and uses real technical language — and it never says what the range is or where it came from. Compa-ratio against an undisclosed midpoint is a ratio to a secret. Worse, \"everyone at your level came in the same way\" is offered as fairness and is **an internal equity claim you have just put on the record**, which a candidate can test against any public range you post. D is the sound of a function that has confused internal consistency with external defensibility.\n\nThe transferable test: **for each sentence, ask what happens if they check it.** B gets confirmed. A gets contradicted. C gets nothing to check and reads as evasion. D gets checked against your own job postings."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-comp-m5-rubric', 'ai301-comp-m5', 'rubric', '{"promptVersion":"ai301-comp-m5-first-contact-v1","moduleId":"ai301-comp-m5","minWords":300,"maxWords":400,"submitLabel":"Your first-contact transcript and write-up","intro":"Paste the rationale as you''d actually say it, excerpts from both runs — employee-voiced and employer-voiced — the gap between the two numbers, your three-pile triage, your predictions scored, and the 300–400 word write-up including your position on this module''s claim. Use a role and a range, never a named individual or real individual pay data. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for AI 301 · The Specialist, Comp & Benefits track — for compensation and benefits professionals who have completed AI 101 and AI 201. Module 5 applied activity, ''First contact'': the learner runs their own pay rationale through the adversary''s prompt, as the employee. Step 0 is a perimeter check — role, level and range only, never a named individual or real individual pay data, since Modules 3 and 4 both apply and a generalized rationale still works. Step 1 is writing out a real recent pay conversation''s explanation in their actual words including the parts that were a little smooth, because a sanitized version teaches nothing. Step 2 runs it in the employee''s voice (''my employer told me this — is it reasonable, what''s the weakest part, what should I ask them''). Step 3 runs the same role and market in the employer''s voice and records the gap between the two numbers, which is the module''s Lesson 2 finding reproduced on the learner''s own req: the audit (Geiger et al., PLOS ONE, Feb 2025, 98,800 prompts per version across four ChatGPT versions) found the largest gaps between model versions and between employee- and employer-voiced prompts. Step 4 triages what came back into three piles — fair hits where the rationale is genuinely weak, wrong where the model is factually mistaken or hallucinating a comparable and the learner can say why, and unanswerable where the challenge is legitimate but the answer is undisclosable information needing a prepared sentence. Step 5 scores their two calibration predictions, and the intended finding is that the model surfaced a different weakness than the one they predicted. Lesson 4''s three properties are the grading frame: range logic defensible on its own terms, a rationale that doesn''t depend on the listener not checking, and knowing in advance what can be said out loud. The module''s claim, which the write-up must take a position on, is that the learner''s pay story is already being audited by a model; its real counter-argument is that the module''s own Lesson 2 undercuts it — an instrument that shifts with version and framing and confidently prices fictional universities is noise with a confident voice, and redesigning around it lets an unreliable instrument set the standard. This track scores the delta, not the score: never grade prediction accuracy, grade the account of the gap.","opening":[{"key":"aiPreparedCandidates","label":"Predicted — of your last 5 external offers, how many candidates used AI to prepare","hint":"Your honest estimate. A number from 0 to 5.","placeholder":"e.g. 2","min":0,"max":5}],"calibration":[{"key":"voicingGapPct","label":"Measured — the % gap between the employee-voiced and employer-voiced numbers","hint":"From Step 3, on your own req. Lesson 2 reproduced in your market.","placeholder":"e.g. 11","min":0,"max":100}],"dimensions":[{"name":"The perimeter held","criteria":"Role, level, market and range only — no named individual, no real individual pay data, no Tier 4 material. A learner who generalized a real rationale to protect the perimeter and said so has done this correctly and should not be marked down for the abstraction. A submission that moved individual pay data to make the exercise more realistic fails this dimension outright regardless of how good the rest is, and the feedback should say so plainly."},{"name":"The rationale is unsanitized","criteria":"Their actual words from a real conversation, including the smooth parts — the hedges, the pivots to total package, the ''the market is around X'' delivered without a derivation. The whole activity depends on this. A rationale that arrives already meeting Lesson 4''s three properties is either genuinely excellent practice or a rewrite, and the write-up should make clear which; an admitted rewrite scores below an honest messy original."},{"name":"Both runs happened and the gap is recorded","criteria":"Evidence of the employee-voiced run and the employer-voiced run on the same role and market, with the numeric gap between them stated. Step 3 is the one most likely to be skipped because Step 2 feels like the whole exercise — it isn''t. The gap is Lesson 2 reproduced on their own req, and a learner who found a large gap and reasoned about which number their candidate is anchored to has extracted the most from this activity."},{"name":"The triage discriminates","criteria":"Three genuinely distinct piles. Fair hits must name a specific weakness with what they''d change. The ''wrong'' pile must include the reason it''s wrong — a hallucinated comparable identified as such, a misread market with the correct read stated — because ''the model was wrong'' without a why is the same uncritical acceptance in reverse. The ''unanswerable'' pile is the one that separates strong submissions: it requires recognizing that a challenge is legitimate while the answer is undisclosable, and having a prepared sentence rather than an improvisation. An empty ''wrong'' pile or an empty ''unanswerable'' pile usually means the triage wasn''t really run."},{"name":"The delta and the position","criteria":"Predictions compared with an account of what moved — and specifically whether the model found the weakness they predicted or a different one, since **the different one is the intended finding**. Accuracy is never graded. Plus an honest statement of whether any part of the rationale was relying on the listener not checking; naming one specifically outscores concluding it all held up. Plus a committed position on the module''s claim that engages the counter-argument the module itself supplies — that Lesson 2''s unreliable instrument is a poor standard to redesign around — with a view on how a sound structure plus willingness to say ''that number is wrong'' compares to defensive redesign."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-comp-m5-knowledge_check', 'ai301-comp-m5', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"What does the \"85% used ChatGPT for salary negotiation\" figure actually support? `[V]`","options":["That 85% of candidates now arrive at negotiations AI-prepared","That among candidates who already prepare with AI, 85% used ChatGPT specifically — the surveyed workers had all already used AI, so it''s a statement about which tool, not about how many candidates","That AI preparation improves negotiation outcomes in 85% of cases","That 85% of hiring managers encountered an AI-prepared candidate"],"correctIndex":1,"explanation":"The sample is the finding, which is Module 2''s whole method applied to a number this course itself uses. You will see this quoted as A, and A is wrong."},{"id":"q2","prompt":"Why is inconsistent AI advice harder to negotiate against than good advice? `[V]`","options":["Because inconsistent advice is more likely to be aggressive","Because good advice converges — two well-advised candidates arrive near the same number — while inconsistent advice diverges, so one candidate is anchored high on a hallucinated comparable and another low, both equally certain, and no script covers both","Because candidates trust inconsistent advice more strongly","Because it takes longer to correct a wrong number than to agree with a right one"],"correctIndex":1,"explanation":"Convergence is what makes a counterparty predictable. What works instead isn''t a script, it''s the ability to say where your number comes from in a form that survives checking."},{"id":"q3","prompt":"What was the largest source of variation in the negotiation-advice audit? `[V]`","options":["Gender of the profile in the prompt","The candidate''s stated years of experience","Differences between model versions, and between prompts voiced as the employee versus the employer","The geographic market named in the prompt"],"correctIndex":2,"explanation":"Gender effects were statistically significant in all four versions and *smaller* than these. The employee/employer voicing gap means **the same model gives the two sides of your negotiation different numbers**, and neither party can see the other''s framing."},{"id":"q4","prompt":"What does the audit imply about your own function''s use of these tools? `[V]`","options":["That comp teams should use a different model than candidates use","That a comp team using the same kind of general tool to set pay would be introducing exactly the disparate impact of Module 4''s circular zone — fluently, in a version that may behave differently next quarter","That model outputs should be averaged across several versions to reduce variance","That the findings apply only to candidate-side use, since employers use structured data"],"correctIndex":1,"explanation":"This is the evidence behind *describe your pay patterns, don''t recommend your pay decisions*. C treats a validity problem as a variance problem."},{"id":"q5","prompt":"What changes when institutional investors read proxy statements with AI? `[V]`","options":["Proxy advisor recommendations become more influential","Analysis moves from sampling to census — every peer read every year at the same depth — with growing focus on whether performance goals were actually challenging, and more independent analyses that don''t share a methodology","Executive compensation disclosure requirements become more detailed","Compensation committees lose discretion over pay design"],"correctIndex":1,"explanation":"A is backwards — advisor influence appears to be declining as investors build in-house approaches. Your disclosure is no longer competing for attention; it''s being compared."},{"id":"q6","prompt":"What does the shift to machine-read disclosure reward? `[V]`","options":["More extensive narrative explaining the compensation philosophy","Precision, consistent terminology, and information where a reader expects it — because narrative that only works on a sympathetic human reader is worth less than it used to be","Shorter proxy statements with fewer disclosed metrics","Greater use of infographics in place of tables"],"correctIndex":1,"explanation":"A well-designed program with a clearly written explanation gains from this. One that depended on complexity absorbing scrutiny loses."},{"id":"q7","prompt":"What''s the practical test for whether a pay rationale survives contact?","options":["Whether it has been reviewed by legal counsel","Whether it can be delivered consistently by every manager","Whether it depends on the listener not checking — anything that worked only because verification was expensive has stopped working","Whether it aligns with the organization''s stated compensation philosophy"],"correctIndex":2,"explanation":"\"The market for this role is around X\" is now checkable in ninety seconds. If your X is defensible, the check confirms you and you''re better off than before."},{"id":"q8","prompt":"What''s the strongest counter-argument to \"your pay story is already being audited by a model\"?","options":["That most candidates don''t actually use AI for negotiation preparation","That the module''s own Lesson 2 undercuts it — an instrument that gives inconsistent answers, shifts with version and framing, and confidently prices fictional universities isn''t an audit, and redesigning around it lets an unreliable instrument set your standard","That institutional investors are legally required to use human analysts for voting decisions","That pay decisions are too context-dependent for any external analysis to evaluate"],"correctIndex":1,"explanation":"It''s strongest because the module concedes the premise itself. The position you owe is how a sound structure plus a willingness to say \"that number is wrong\" compares to defensive redesign."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m6-calibration-prompt-before-you-start-10', 'ai301-comp-m6', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*The last prediction of the course, and the one that matters most.*
+
+Back in Module 1 you split your week across five work types and predicted the shares before you
+measured them. **Look at that prediction again now, before reading anything in this module.**
+
+**If you re-ran the exercise today — same job, same week structure — which work type would you now
+say holds the largest realistic opportunity for your function this year?** Name one.
+
+Then: **how confident are you, as a percent, that you could get your leadership to fund it?**
+
+Hold both. The activity closes on the distance between where you started this track and where you
+are standing now.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m6-module-brief-20', 'ai301-comp-m6', 20, 'prose', 'stable', '## Module brief
+
+Five modules of method. This one asks what you''re going to do with it, and it holds you to a
+standard most AI business cases never meet.
+
+**A bet is not a wish, and the difference is a funding line.** Anyone can name a use case. What
+separates a proposal that gets resourced from one that gets nodded at is the sentence that says
+**what you would stop doing to pay for it** — and that sentence is missing from nearly every AI
+proposal written inside an HR function, because writing it requires admitting that something you
+currently do is worth less than the thing you want.
+
+There is also a specific trap waiting for a comp function here, and it is the one your CFO will
+hand you. The standard AI value case is efficiency — hours saved, headcount avoided. **For your
+function that case is not just weak, it''s a distraction**, and Lesson 2 explains why in a way you
+can use in the room.
+
+The claim you''ll take a position on:
+
+> **A bet without a funding line is a wish.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m6-learning-objectives-30', 'ai301-comp-m6', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Place any proposed use on the leverage ladder — compress, continuous, explain, design — and say
+   what each rung actually requires.
+2. Say which rungs a comp function can realistically reach this year, and why the ladder is not a
+   maturity model.
+3. Decompose the value case by role, and explain why efficiency is the weakest argument available
+   to a small function `[V]`.
+4. Explain why *explain* is the rung this function systematically undervalues.
+5. Write a bet with a 90-day measure and a funding line.
+6. Account for the distance between your Module 1 prediction and your position now.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m6-lesson-1-the-leverage-ladder-40', 'ai301-comp-m6', 40, 'prose', 'stable', '## Lesson 1 · The leverage ladder
+
+Four rungs. Each requires something the one below it doesn''t, and **the requirement is
+organizational far more often than technical.**
+
+**Rung 1 — Compress.** Do what you already do, faster. Assemble the survey submission in a day
+instead of a week. Draft the enrollment FAQ in an hour instead of an afternoon. Produce the cycle
+deck without the weekend.
+
+*What it requires:* Module 3''s craft, and nothing else. No new process, no approvals, no change to
+how anyone else works.
+
+*What it''s worth:* real and bounded. You get time back, and the honest question is what you do with
+it. **Compression that returns hours into the same work backlog produces no visible value at all** —
+it produces a slightly less exhausted team, which matters and which no CFO will fund.
+
+**Rung 2 — Continuous.** Do a periodic thing on a rolling basis. Market position monitored monthly
+rather than reviewed annually. Pay equity checked quarterly rather than once a year in a panic.
+Range health tracked rather than discovered.
+
+*What it requires:* not more capability — **a decision that someone will act on the output.** A
+quarterly pay equity check with no remediation mechanism is a quarterly report on a problem you
+have decided not to fix, and it is worse than an annual one, because now the record shows you knew
+for longer. **This rung is where good intentions become documented inaction**, and Module 4 should
+be loud in your ear.
+
+*What it''s worth:* substantial, if and only if the loop closes.
+
+**Rung 3 — Explain.** Change the volume and quality of understanding your organization has about
+its own pay. Managers who can articulate why a band is what it is. Employees who understand their
+total rewards. Leaders who can defend a structure they didn''t design.
+
+*What it requires:* your decisions and your logic, made explicit enough that a model can render
+them for different audiences — which means you have to have them. **The bottleneck is not the
+drafting. It''s that the logic often isn''t written down anywhere.**
+
+*What it''s worth:* this is Module 1''s finding arriving with a ladder to stand on. More on it in
+Lesson 3.
+
+**Rung 4 — Design.** Change what your programs *are*, because analysis that was previously too
+expensive is now feasible. Modeling plan designs against your actual population instead of three
+scenarios. Testing structures rather than inheriting them. Understanding what your benefits
+spending actually buys.
+
+*What it requires:* the most, and mostly not from you. Data your organization may not have. Time
+your function doesn''t have during cycle. And a leadership appetite for redesigning something that
+currently works.
+
+*What it''s worth:* the most, eventually, and almost nobody starts here. **A function that proposes
+Rung 4 without having demonstrated Rung 1 is asking for trust it hasn''t earned yet** — not because
+the idea is wrong, but because nobody in the room has seen your work with these tools.
+
+**The ladder is not a maturity model.** You are not supposed to climb it in order and you don''t get
+points for altitude. It sorts proposals by what they require, so that you can pick the rung whose
+requirement you can actually satisfy this year. **The right rung is the highest one whose
+prerequisite you already have** — and for most comp functions that is Rung 3, which is also the
+one they systematically overlook.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m6-lesson-2-the-role-decomposition-50', 'ai301-comp-m6', 50, 'prose', 'volatile', '## Lesson 2 · The role decomposition [V]
+
+Who gains what, and the argument you should stop making.
+
+**Analysts gain productivity.** The data assembly, the reconciliation, the first-pass analysis, the
+deck. This is Rung 1 and it''s the most certain gain in the function — it''s also the one your CFO
+will translate into headcount, which is where the trouble starts.
+
+**Partners gain coverage.** A comp partner supporting eight business units at a level they can
+currently sustain for three. This is the gain that matters most to the business and it is the
+hardest to evidence, because coverage improvements show up as **an absence of complaints** rather
+than a metric.
+
+**Operations gain efficiency.** Cycle administration, exception tracking, approval trails, the
+enrollment machinery.
+
+**And here is the argument to stop making: efficiency matters least, because your function is not
+big enough for headcount savings to matter.**
+
+Do the arithmetic in the room. A comp and benefits function at a mid-sized company is perhaps four
+to eight people. Suppose you achieve a genuinely impressive 25% productivity gain across all of
+them. You have produced one to two FTEs of capacity in an organization of several thousand people.
+**As a cost story, that rounds to nothing.** Your CFO will not restructure anything for it and
+shouldn''t.
+
+Now run the other side. Those same one to two FTEs of capacity, pointed at a pay structure that is
+drifting, or a benefits spend nobody has interrogated in four years, or a manager population that
+cannot explain its own compensation decisions — **those are seven-figure problems in the same
+organization.** The value of a comp function has never been its cost. It''s the quality of decisions
+it enables about a spend that is typically the largest line in the business.
+
+So the honest value case for a small function is: **not cheaper, better.** And you have to say it
+that way deliberately, because efficiency is the frame everyone will hand you — it''s the frame the
+whole market sells in, and it is the one frame in which your function can never win. Accepting it
+means arguing for your own smallness, which is a strange thing to spend your credibility on.
+
+**One caution, so this isn''t self-serving.** "Not cheaper, better" is exactly what every function
+says when asked to justify itself, and a CFO has heard it many times. It only lands with a measure
+attached. Which is Lesson 4.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m6-lesson-3-why-explain-is-the-undervalued--60', 'ai301-comp-m6', 60, 'prose', 'stable', '## Lesson 3 · Why *explain* is the undervalued rung
+
+The callback, now with somewhere to put it.
+
+Module 1''s finding was that **explanation is the largest work type in this function and the most
+transformed — and the one practitioners consistently underpredict**, because it hides inside
+"answering a question." The manager email. The band question in a hallway. The enrollment FAQ. The
+equity conversation nobody logged as work.
+
+Place that on the ladder and something becomes obvious. **Rung 3 is where your hours actually are,
+and it is the rung with the lowest technical prerequisite** — no new data, no new systems, no
+change to anyone else''s process. It is also the rung nearly every comp function skips when asked
+what AI could do for them, because they answer with analysis. Analysis is what the training was
+for. Analysis is what the job *feels* like it''s about.
+
+Three reasons the undervaluation is systematic rather than accidental:
+
+**It''s invisible in the work log.** Nothing counts explanation. There is no metric for "manager
+understood the answer," so a function optimizing what it measures will never optimize this.
+
+**It feels like overhead rather than the job.** Every practitioner has thought some version of *I
+could get real work done if people stopped asking me questions.* But 90% of your function''s
+influence on how pay is experienced runs through those questions, and **a technically excellent
+structure that nobody can explain produces exactly the same employee experience as a bad one.**
+
+**Its failure mode is silent.** A bad analysis gets caught. A manager who half-understood the band
+logic goes and explains it badly to their team, and you never hear about it — the cost lands as
+diffuse mistrust that gets attributed to the pay program rather than to the explanation of it.
+
+And there is a Module 5 argument that closes this one. Your counterparty is now prepared. Every
+employee can ask a model to interrogate the explanation you gave them, **and the quality of your
+explanation is now checkable in ninety seconds.** Rung 3 stopped being a soft benefit at the same
+moment verification got free.
+
+**The caveat that keeps this honest**, and it''s the counter-argument to Module 1''s claim: high
+explanation volume can be a symptom of upstream design failure. If managers ask the same question
+four hundred times, the answer might be a clearer structure rather than a faster explanation
+engine. **Getting better at explaining a confusing system can entrench the confusion** by removing
+the pain that would have forced a redesign. Any bet on Rung 3 should say which questions it expects
+to *eliminate*, not just answer faster.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m6-lesson-4-betting-honestly-70', 'ai301-comp-m6', 70, 'prose', 'stable', '## Lesson 4 · Betting honestly
+
+Four elements. Anything missing one is a wish.
+
+**1. One rung, one use case, named specifically.** Not "use AI in compensation." *"Manager-facing
+band explanations, generated from our documented range logic, available before every comp
+conversation."* Specific enough that someone could tell whether you''d done it.
+
+**2. A 90-day measure that could come back negative.** This is the element people fake. "Improved
+manager understanding" is not a measure. **A measure is something with a number attached, taken
+before and after, that you would report even if it moved the wrong way.** Manager survey on
+confidence explaining pay decisions, taken now and at 90 days. Volume of escalated band questions
+reaching your team. Time from manager question to answer. Pick one you can take a baseline on
+**this week** — a measure you can''t baseline before you start is a measure you''ll define
+retrospectively to look good, which is Module 2''s rationalization arriving in your own proposal.
+
+**3. The funding line.** What you will stop doing, or do less well, to pay for this.
+
+This is the whole module. Every proposal has a cost in attention, and your function does not have
+slack — Module 3 was explicit that the merit cycle is when your care is scarcest. **A proposal
+without a funding line is a request for someone else to find the capacity**, which is why so many
+of them die quietly rather than being rejected.
+
+Real funding lines sound like giving something up, because they are: *"We''ll stop producing the
+monthly headcount-cost deck nobody reads."* *"We''ll run market pricing on a two-year cycle for the
+70% of roles where the market doesn''t move."* *"I''ll accept a slower turnaround on ad-hoc analysis
+requests in Q3."*
+
+**Say the uncomfortable part.** The most common real funding line in a comp function is *some
+analysis will be done less thoroughly.* If that''s yours, say it out loud and say which analysis and
+what you''d accept losing. A proposal that admits a real trade is more credible than one that claims
+none, and everyone in the room knows there is one.
+
+**4. What would make you stop.** The condition under which you''d call it off. Not a hedge — the
+opposite. **Naming your kill condition is the strongest credibility move available to you**,
+because it demonstrates you''re running an experiment rather than defending a position, and it makes
+the 90-day review a real decision point rather than a status update.
+
+**And the discipline this whole track was building toward:** you now have four modules of method
+sitting under whatever you propose. The bet is not "let''s try AI." It''s a specific use, on a named
+rung, with the craft layer under it, inside the exclusion zone''s lines, communicated to a
+counterparty who can check you. **That is what a specialist proposes. It''s the difference between
+this course and a webinar.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m6-exercise-embed-75', 'ai301-comp-m6', 75, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m6-key-takeaways-80', 'ai301-comp-m6', 80, 'takeaways', 'stable', '## Key takeaways
+
+- **Four rungs: compress, continuous, explain, design.** Each requires something the one below
+  doesn''t, and the requirement is organizational more often than technical.
+- **Continuous is where good intentions become documented inaction.** A quarterly pay equity check
+  with no remediation mechanism is a quarterly record that you knew.
+- **The ladder is not a maturity model.** The right rung is **the highest one whose prerequisite you
+  already have** — usually Rung 3.
+- **Analysts gain productivity, partners gain coverage, operations gain efficiency** `[V]` — and
+  coverage matters most while being hardest to evidence, because it shows up as an absence of
+  complaints.
+- **Efficiency is the weakest argument you have.** A 25% gain across a six-person function is one
+  to two FTEs; as a cost story it rounds to nothing. Pointed at a drifting structure or an
+  uninterrogated benefits spend, it''s a seven-figure question. **Not cheaper, better** — and it only
+  lands with a measure attached.
+- **Explain is where your hours are and where the prerequisite is lowest**, and it''s systematically
+  undervalued because nothing counts it, it feels like overhead, and its failure mode is silent.
+  **A structure nobody can explain produces the same experience as a bad one.**
+- **But high explanation volume can be a symptom of bad design.** A Rung 3 bet should say which
+  questions it expects to eliminate, not just answer faster.
+- **Four elements of a bet:** one rung and one named use, a 90-day measure you can baseline this
+  week and would report if it went negative, a funding line, and a kill condition.
+- **A bet without a funding line is a wish.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m6-activity-link-85', 'ai301-comp-m6', 85, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 The bet (course close)", "blurb": "One page: which rung, which named use, the prerequisite faced honestly, a 90-day measure you can baseline this week, what you''d stop doing to fund it, and what would make you call it off. Then the reckoning \u2014 every prediction you''ve made since Module 1, what moved, and where you now disagree with this course.", "estMinutes": "35"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m6-take-a-position-90', 'ai301-comp-m6', 90, 'callout', 'stable', '## Take a position
+
+**The claim:** *"A bet without a funding line is a wish."*
+
+The strongest counter-argument is that **demanding a funding line up front is how good ideas die in
+small functions.** Capacity is not always zero-sum: early AI work often runs on genuine slack —
+evenings, the gap after cycle close, curiosity — and requiring someone to name a sacrifice before
+they''ve demonstrated value inverts the order. You learn what a use case is worth by doing a small
+version of it, and **the funding conversation is properly a consequence of evidence, not a
+precondition for gathering it.** On that view the rule is right for a scaled commitment and
+actively harmful for a pilot, and a function that applies it uniformly will never start anything.
+Your position has to say where the threshold sits — at what size or visibility a proposal stops
+being an experiment you can run on slack and starts needing a real trade.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m6-sources-and-attribution-100', 'ai301-comp-m6', 100, 'prose', 'stable', '## Sources and attribution
+
+- The leverage ladder, the role decomposition, the four elements of a bet, and the
+  not-cheaper-better framing are original to this course.
+- **Role decomposition `[V]`** reflects observed patterns in comp function staffing rather than a
+  published study; the arithmetic in Lesson 2 is illustrative and should be re-run with your own
+  function''s headcount before you use it in a room.
+- Builds on Module 1 (the five work types and the explanation finding), Module 3 (the craft layer
+  as the prerequisite under any bet), Module 4 (the floor every bet sits inside), and Module 5
+  (verification is free now, which is what changed Rung 3''s value).
+- The delta assessment — open with a committed prediction, close by measuring movement and the
+  account of it — is the assessment philosophy shared across all AI 301 tracks.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m6-activity-applied-activity-the-bet-course-close-10', 'ai301-comp-m6-activity', 10, 'prose', 'stable', '## Applied activity — "The bet" *(course close)*
+
+**Time:** 35 minutes · **Submit:** the one-page bet plus a 400–500 word reckoning · **Graded
+against the rubric below.** Score doesn''t matter — and it matters least here, because **the thing
+being assessed is whether you moved.**
+
+### Part 1 — The bet (one page, 20 min)
+
+**The rung and the use case.** Which rung, and one specific use named tightly enough that someone
+could tell whether you''d done it. If you pick Rung 3, say which questions the bet is meant to
+*eliminate*, not just answer faster.
+
+**The prerequisite, and whether you have it.** What the rung requires — the closed loop for Rung 2,
+the written-down logic for Rung 3, the data and appetite for Rung 4 — and an honest statement of
+whether that exists in your organization today. **If it doesn''t, either the bet changes or the bet
+starts with building the prerequisite**, and saying so is a stronger answer than assuming it away.
+
+**The 90-day measure.** One number, with a baseline you can take **this week**, that you would
+report even if it moved the wrong way. State the current baseline value, or state that you''d have
+to establish it and how.
+
+**The funding line.** What stops, or gets done less well. Specific, and something a colleague would
+notice.
+
+**The kill condition.** What result at 90 days would make you stop.
+
+**The floor.** One sentence confirming this bet sits inside Module 4''s lines — and if it touches a
+zone, what the review checkpoint is.
+
+### Part 2 — The reckoning (400–500 words, 15 min)
+
+This is the part the track has been building toward since Module 1''s prediction gate.
+
+**Where you started.** Your Module 1 work-type prediction and what you actually measured. Your
+Module 2 adoption predictions. Your Module 3 confidence that your analysis would rebuild. Your
+Module 4 policy predictions. Your Module 5 negotiation prediction and the voicing gap you found.
+
+**What moved, and why.** Not a list of numbers — an account. Which prediction was furthest off, and
+what you had been reading, assuming, or avoiding that made it so. **The direction of your errors is
+more informative than their size:** a person who consistently overestimated adoption was reading
+vendor material; a person who overestimated their own rigor had never audited a join.
+
+**Where you now disagree with this course.** At least one place. You have five committed positions
+behind you and each came with a counter-argument the modules said was real. Name one where you
+think the counter-argument wins, and say why. **A learner who finished this track agreeing with
+everything either didn''t take the positions seriously or wasn''t asked hard enough questions**, and
+the rubric rewards the disagreement over the assent.
+
+**The honest close.** Whether the bet you just wrote is one you will actually propose. If not, say
+what stops you — and whether it''s the organization or you.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m6-micro-core', 'ai301-comp-m6-micro', 10, 'prose', 'stable', '## Module 6 in two minutes
+
+**The leverage ladder — compress, continuous, explain, design.** Each rung requires something the one below it doesn''t, and **the requirement is organizational far more often than technical.**
+
+*Compress* needs only Module 3''s craft — but compression that returns hours into the same backlog produces no visible value at all, just a slightly less exhausted team, which no CFO will fund. *Continuous* needs **a decision that someone will act on the output**: a quarterly pay equity check with no remediation mechanism is a quarterly record that you knew for longer, which is worse than an annual one. **This is where good intentions become documented inaction.** *Explain* needs your logic written down — the bottleneck is never the drafting. *Design* needs data you may not have, time you don''t have during cycle, and appetite for redesigning something that currently works.
+
+**The ladder is not a maturity model.** You get no points for altitude. **The right rung is the highest one whose prerequisite you already have** — and for most comp functions that''s *explain*, which is also the rung they skip when asked what AI could do for them, because they answer with analysis. Analysis is what the training was for.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m6-micro-rule', 'ai301-comp-m6-micro', 20, 'callout', 'stable', '### The rule to carry
+
+**A bet without a funding line is a wish.** Four elements, and anything missing one is the wish: one rung and one named use; a 90-day measure with a baseline you can take **this week** and that you''d report even if it moved the wrong way; **what you will stop doing to pay for it**; and the result that would make you call it off.
+
+The funding line is the whole thing. Every proposal costs attention, and your function has no slack — the merit cycle is exactly when your care is scarcest. A proposal without one is a request for someone else to find the capacity, which is why so many die quietly rather than being rejected. Real ones sound like giving something up, because they are. **The most common honest funding line in a comp function is "some analysis will be done less thoroughly"** — and saying which analysis is more credible than claiming no trade exists, because everyone in the room knows there is one.
+
+And **naming your kill condition is the strongest credibility move available to you**: it shows you''re running an experiment rather than defending a position.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m6-micro-close', 'ai301-comp-m6-micro', 30, 'prose', 'volatile', '**The full module adds the argument you should stop making** `[V]`. Analysts gain productivity, partners gain coverage, operations gain efficiency — **and efficiency is the weakest case you have.** A 25% gain across a six-person function is one to two FTEs; as a cost story it rounds to nothing and your CFO shouldn''t restructure anything for it. Point that same capacity at a drifting pay structure or a benefits spend nobody has interrogated in four years and it''s a seven-figure question. **Not cheaper, better** — said deliberately, because efficiency is the frame the whole market sells in and the one frame your function can never win.
+
+It also explains why *explain* is undervalued **systematically rather than accidentally**: nothing counts it, it feels like overhead rather than the job, and its failure mode is silent — the manager who half-understood explains it badly to their team and the cost lands as diffuse mistrust attributed to the pay program. **A structure nobody can explain produces the same employee experience as a bad one.** With the caveat that keeps it honest: high explanation volume can be a symptom of upstream design failure, so a bet here should name the questions it expects to **eliminate**.
+
+Plus the four-proposal sort, and the course close — the bet, and the reckoning against every prediction you made since Module 1.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-comp-m6-choice', 'ai301-comp-m6', 'choice', '{"reviewedAt":"2026-08-12","title":"Four proposals, one wish","intro":"*Five minutes. Commit before you look.*\n\nFour comp leaders took this course and wrote a proposal. All four are going to their CHRO next month.\n\n**One of them is a wish wearing a bet''s clothes.** It is not the vaguest one on the page — read for the four elements, not for polish.","artifacts":[{"label":"Proposal A","body":"\"Rung 3. Manager-facing band explanations generated from our documented range logic, available in the manager portal before every comp conversation. Prerequisite: our range logic isn''t written down anywhere outside two people''s heads — so the first six weeks of this bet is writing it down, and that''s worth doing regardless. Measure: escalated band questions reaching my team, currently averaging 34 a month (I pulled the inbox counts last week). Target under 20 at 90 days, and I''ll report the number either way. Funding line: we stop producing the monthly comp dashboard for the leadership team — three days a month, and I''ve confirmed with two of the four recipients that they don''t open it. Kill condition: if escalations don''t move at all by day 90, the problem is the structure and not the explanation, and I''ll say so and stop. Floor: no individual pay data involved; the logic is band-level.\""},{"label":"Proposal B","body":"\"Rung 4. We''d model our benefits plan designs against our actual claims population rather than the three scenarios our broker gives us, which should let us find design changes that cut spend without cutting perceived value. Benefits spend is $14M, so even a 3% improvement is $420,000 — the ROI case is obvious. We''d start with the medical plan in Q1 and expand from there. This is the highest-value opportunity in my function by a wide margin and it''s what the technology is genuinely for. I''d need the claims data extract and about a quarter of an analyst''s time.\""},{"label":"Proposal C","body":"\"Rung 1. Compress the survey submission cycle — assembly, matching, and reconciliation, which currently eats about three weeks of analyst time twice a year. Measure: elapsed days from data pull to submission, currently 19 days for the spring cycle, target 8. Funding line: none needed — this is the analyst''s own time and she''d rather spend it on the pay equity refresh, which is what the recovered days go to. Kill condition: if match quality drops, meaning our unmatched-job rate goes above the 4% we ran last cycle, we revert to the manual process. Floor: survey data, no individual pay leaving the perimeter, Module 3''s audit file on every run.\""},{"label":"Proposal D","body":"\"Rung 2. Move pay equity from an annual exercise to a quarterly check, so we catch drift as it happens instead of discovering it in a panic each spring. Measure: improved visibility into pay equity across the organization, reviewed with the HR leadership team each quarter. Funding line: this largely automates work we already do, so it should be roughly capacity-neutral once it''s running. Floor: conducted under counsel''s direction, enterprise deployment, consistent with our privilege posture. This is the single most important thing my function could be doing with these tools and it''s overdue.\""}],"options":[{"id":"a","label":"Proposal A"},{"id":"b","label":"Proposal B"},{"id":"c","label":"Proposal C"},{"id":"d","label":"Proposal D"}],"key":"d","reasoning":"**D is the wish, and it''s the one most people in this course would have written.** It''s the most important-sounding proposal on the page, it''s on the right rung for a serious function, and it gets the legal posture exactly right. It also fails three of the four elements.\n\n**The measure isn''t one.** \"Improved visibility into pay equity, reviewed quarterly\" has no number, no baseline, and — decisively — **no outcome that could come back negative.** You cannot fail at having more visibility. That''s the test.\n\n**The funding line is a denial of one.** \"Largely automates work we already do, so roughly capacity-neutral\" is the sentence Lesson 4 is written against. Quarterly is four times the analysis, four times the review, and four times the follow-up conversations. Someone is absorbing that, and refusing to name who is how the proposal dies quietly six months in rather than being rejected honestly.\n\n**And there''s no kill condition, because the proposal is framed as an obligation rather than an experiment.** \"Overdue\" and \"most important thing\" are moral pressure standing where evidence should be.\n\n**The worst part is the one nobody flags.** Rung 2''s actual prerequisite is *a decision that someone will act on the output*, and D never mentions remediation. A quarterly pay equity check with no remediation mechanism is a quarterly record that you knew about a gap for longer — **documented inaction, generated four times a year, under counsel''s direction so you can''t even claim you didn''t look.** The legal sophistication makes it worse, not better.\n\n**A is the reference answer** and notice how much less it promises. It names a rung and a use tightly enough to test. It admits the prerequisite doesn''t exist and makes building it part of the bet. Its measure has a baseline pulled last week from a real inbox. Its funding line is specific, costly, and **verified** — someone actually asked whether the dashboard gets opened. Its kill condition is a genuine hypothesis test: if escalations don''t move, the diagnosis was wrong and it''s the structure, which is Lesson 3''s own caveat written into the proposal.\n\n**C is the second-best and its weakness is a real one, honestly declared.** \"Funding line: none needed\" would be disqualifying — except C explains where the recovered capacity goes, which is the compression trap Lesson 1 names: compression that returns hours into the same backlog produces no visible value. C avoids it by naming the destination. It''s modest, and Rung 1 with a baseline and a revert condition beats Rung 4 with a spreadsheet.\n\n**B is not a wish; it''s a bet aimed at a rung it hasn''t earned.** The ROI arithmetic is genuine and the opportunity may well be the largest in the function. But it has no measure other than the ROI it''s assuming, no funding line, no kill condition, and it''s asking for claims data and analyst time on the strength of a projection — **Rung 4 proposed by a function that hasn''t demonstrated Rung 1.** Not because the idea is wrong, but because nobody in that room has seen this team''s work with these tools. B is a year-two proposal being made in year one, and the fix is to run C first.\n\nThe transferable test: **for each proposal, name the result that would end it.** A has one. C has one. B has none and would keep going on hope. D has none and would keep going on virtue."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-comp-m6-rubric', 'ai301-comp-m6', 'rubric', '{"promptVersion":"ai301-comp-m6-the-bet-v1","moduleId":"ai301-comp-m6","minWords":400,"maxWords":500,"submitLabel":"Your bet and your reckoning","intro":"Paste the one-page bet — rung and use case, prerequisite, 90-day measure with its baseline, funding line, kill condition, floor — plus the 400–500 word reckoning that accounts for the distance between your Module 1 prediction and where you stand now. Resubmission is free and unlimited. This is the course close, and the thing being assessed is whether you moved.","activityContext":"You are grading the closing submission for AI 301 · The Specialist, Comp & Benefits track — for compensation and benefits professionals who have completed AI 101, AI 201, and Modules 1–5 of this track. Module 6 applied activity, ''The bet'', has two parts. Part 1 is a one-page bet with six required elements: (1) one rung of the leverage ladder — compress, continuous, explain, design — and one use case named tightly enough that someone could tell whether it had been done, and if Rung 3, which questions it expects to eliminate rather than merely answer faster; (2) the rung''s prerequisite and an honest statement of whether it exists today — Rung 2 requires a decision that someone will act on the output, Rung 3 requires the pay logic actually being written down, Rung 4 requires data and leadership appetite — where ''it doesn''t exist so building it is part of the bet'' is a stronger answer than assuming it away; (3) a 90-day measure with a number, a baseline takeable this week, stated current value or a plan to establish it, and which they would report even if it moved the wrong way; (4) a funding line naming what stops or gets done less well, specific enough that a colleague would notice, with the module noting that the most common real funding line in a comp function is that some analysis gets done less thoroughly and that saying so outscores claiming no trade; (5) a kill condition — what result at 90 days would make them stop; (6) one sentence placing the bet inside Module 4''s floor with a review checkpoint if it touches a zone. Part 2 is the reckoning: where they started across all five modules'' predictions (Module 1 work-type split, Module 2 adoption figures, Module 3 rebuild confidence, Module 4 policy prevalence, Module 5 negotiation and voicing gap), what moved and why with the direction of error treated as more informative than its size, at least one place where they now disagree with the course and think a counter-argument wins, and whether they will actually propose the bet — and if not, whether what stops them is the organization or themselves. The module''s claim is that a bet without a funding line is a wish; its real counter-argument is that demanding a funding line before value is demonstrated inverts the order, since early work runs on genuine slack and the funding conversation should follow evidence, making the rule right for scaled commitments and harmful for pilots. This track scores the delta, not the score: never grade prediction accuracy, grade the account of the change. A learner who finished agreeing with everything should score below one who disagrees well.","opening":[{"key":"fundingConfidence","label":"Predicted — % confidence you could get leadership to fund the opportunity you named","hint":"The last prediction of the course. Answer honestly.","placeholder":"e.g. 40","min":0,"max":100}],"calibration":[{"key":"fundingConfidenceRevised","label":"Your revised confidence, having written the bet","hint":"If it moved in either direction, the reckoning should say why.","placeholder":"e.g. 65","min":0,"max":100,"actualFor":"fundingConfidence"}],"dimensions":[{"name":"The rung is right and the prerequisite is faced","criteria":"One rung, one use case named tightly enough to be testable — ''use AI in compensation'' fails, a named artifact for a named audience passes. Then the graded part: the rung''s actual prerequisite stated and honestly assessed. Rung 2 without a remediation mechanism is documented inaction and should be called out as such however sophisticated the rest is. Rung 3 where the pay logic isn''t written down anywhere is fine **if the bet includes writing it down**. Rung 4 from a function that has never demonstrated Rung 1 is asking for trust it hasn''t earned, and the feedback should say so. A learner who downgraded their rung after facing the prerequisite has done exactly what the lesson asks."},{"name":"The measure could come back negative","criteria":"A number, a baseline takeable this week with its current value stated or a concrete plan to establish it, and a commitment to report it either way. Apply the test directly: is there an outcome of this measure that would count as failure? ''Improved understanding'', ''better visibility'', ''increased adoption'' all fail because they cannot go wrong. A modest measure with a real baseline outscores an ambitious one that would be defined retrospectively — that''s Module 2''s rationalization arriving inside the learner''s own proposal."},{"name":"The funding line is a real trade","criteria":"Something specific that stops or gets done less well, at a grain a colleague would notice. ''Capacity-neutral'', ''this automates work we already do'', and ''no funding needed'' are the failure modes — with one exception the rubric should honor: a Rung 1 compression bet may legitimately fund itself **if it names where the recovered hours go**, since compression that returns hours into the same backlog produces no visible value. Credit the uncomfortable version highly: a learner who says which analysis will be done less thoroughly, and what they''d accept losing, is more credible than one who claims no trade exists."},{"name":"The kill condition and the floor","criteria":"A named result at 90 days that would end the bet — a genuine hypothesis test, not a hedge. Strong kill conditions often encode the module''s own caveats, such as: if escalations don''t fall, the problem was the structure rather than the explanation. Plus one sentence placing the bet inside Module 4''s lines, with a review checkpoint if it touches pay equity, fiduciary decisions, proxy inputs, or the circular zone. A bet with no kill condition is being defended rather than tested."},{"name":"The reckoning accounts for the movement","criteria":"The heaviest dimension, and the point of the track. An account rather than a list: which prediction was furthest off, in which direction, and what the learner had been reading, assuming, or avoiding that produced it. **Direction is more informative than size** — consistent overestimation of adoption means vendor material, overestimation of one''s own rigor means never having audited a join. Accuracy is never graded and should never be praised or penalized. A learner whose predictions were close but who cannot say why scores below one who was badly wrong and understands the mechanism."},{"name":"The disagreement and the honest close","criteria":"At least one specific place where the learner now thinks a counter-argument beats the course''s position, argued rather than asserted — the five modules each supplied one, and picking one and defending it is the intended move. **A submission that agrees with everything scores below one that disagrees well**, and the feedback should say that plainly. Plus the close: whether they will actually propose this bet, and if not, an honest answer about whether the obstacle is the organization or themselves. Score the honesty, not the answer — ''I won''t, because I don''t want to own the kill condition in public'' is a stronger close than a confident yes."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-comp-m6-knowledge_check', 'ai301-comp-m6', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"What does the \"continuous\" rung actually require?","options":["Better data infrastructure than most comp functions have","A decision that someone will act on the output — a quarterly pay equity check with no remediation mechanism is a quarterly record that you knew about a problem for longer","Real-time integration between the HRIS and the survey provider","Dedicated analyst headcount to maintain the cadence"],"correctIndex":1,"explanation":"The requirement is organizational, not technical, which is true of most of the ladder. This rung is where good intentions become documented inaction."},{"id":"q2","prompt":"Why is the leverage ladder explicitly not a maturity model?","options":["Because organizations progress through the rungs at different speeds","Because you don''t climb it in order and get no points for altitude — it sorts proposals by what they require, so the right rung is the highest one whose prerequisite you already have","Because the rungs apply differently to compensation than to benefits","Because Rung 4 is unreachable for most organizations"],"correctIndex":1,"explanation":"For most comp functions that means Rung 3, which is also the one they overlook when asked what AI could do for them."},{"id":"q3","prompt":"Why is efficiency the weakest value argument for a comp function? `[V]`","options":["Because productivity gains from AI are usually overstated by vendors","Because a 25% gain across a six-person function is one to two FTEs — which rounds to nothing as a cost story, while the same capacity pointed at a drifting structure or an uninterrogated benefits spend is a seven-figure question","Because efficiency gains are difficult to measure reliably","Because comp work cannot be meaningfully automated"],"correctIndex":1,"explanation":"Efficiency is the frame the whole market sells in and the one frame your function can never win. Accepting it means arguing for your own smallness."},{"id":"q4","prompt":"Which gain does the module say matters most to the business and is hardest to evidence? `[V]`","options":["Analyst productivity, because it''s the most certain","Operational efficiency in cycle administration","Partner coverage — supporting eight business units at a level currently sustainable for three — because coverage improvements show up as an absence of complaints rather than a metric","Design capability, because its value is realized over multiple years"],"correctIndex":2,"explanation":"The thing with no metric is the thing that goes unfunded, which is the same structural problem as Rung 3''s invisibility."},{"id":"q5","prompt":"Why is *explain* systematically undervalued rather than accidentally overlooked?","options":["Because explanation work is genuinely lower value than analysis","Because nothing counts it, it feels like overhead rather than the job, and its failure mode is silent — the manager who half-understood explains it badly and the cost lands as diffuse mistrust attributed to the pay program","Because managers rarely ask for help explaining compensation","Because explanation quality can''t be improved with AI assistance"],"correctIndex":1,"explanation":"Three structural reasons, none of them about the work''s actual value. **A structure nobody can explain produces the same employee experience as a bad one.**"},{"id":"q6","prompt":"What''s the honest caveat on betting the *explain* rung?","options":["That explanation quality is impossible to measure","That high explanation volume can be a symptom of upstream design failure — getting better at explaining a confusing system can entrench the confusion by removing the pain that would have forced a redesign","That employees prefer explanations from humans","That explanation work is seasonal and doesn''t justify year-round investment"],"correctIndex":1,"explanation":"Which is why a Rung 3 bet should name the questions it expects to **eliminate**, not just answer faster."},{"id":"q7","prompt":"What makes a 90-day measure real rather than decorative?","options":["That it''s tied to a financial outcome","That it''s approved by the CFO before the bet starts","That it has a number, a baseline you can take this week, and you''d report it even if it moved the wrong way","That it''s benchmarked against comparable organizations"],"correctIndex":2,"explanation":"A measure you can''t baseline before you start is one you''ll define retrospectively to look good — Module 2''s rationalization, arriving inside your own proposal."},{"id":"q8","prompt":"What''s the strongest counter-argument to \"a bet without a funding line is a wish\"?","options":["That funding decisions belong to Finance rather than to the proposing function","That early AI work often runs on genuine slack, so demanding a named sacrifice before value is demonstrated inverts the order — the funding conversation is properly a consequence of evidence, not a precondition for gathering it","That AI tools are inexpensive enough not to require trade-offs","That comp functions lack the authority to stop doing anything"],"correctIndex":1,"explanation":"It''s strongest because it''s right about pilots and wrong about scaled commitments. The position you owe is where the threshold sits — at what size a proposal stops being an experiment you can run on slack."}]}', '2026-08-12');
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m1-calibration-prompt-before-you-start-10', 'ai301-hrbp-m1', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
 
 *One prediction, thirty seconds. You''ll score it in the applied activity — and again in Module 7.*

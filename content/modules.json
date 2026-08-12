@@ -360,6 +360,82 @@
         "ai301-recruiter-r5"
       ],
       "microMinutes": 2
+    },
+    {
+      "id": "ai301-comp-m1",
+      "courseId": "ai301-comp",
+      "ordinal": 1,
+      "title": "What this job actually is",
+      "blurb": "Five work types across comp and benefits, and the finding most practitioners get wrong about their own week — run as a buying instrument.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-comp-m2",
+      "courseId": "ai301-comp",
+      "ordinal": 2,
+      "title": "Reading the evidence",
+      "blurb": "The real adoption picture, the three tells of a product roadmap wearing an industry trend, and the teardown applied to a vendor you pay.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-comp-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-comp-m3",
+      "courseId": "ai301-comp",
+      "ordinal": 3,
+      "title": "The craft layer",
+      "blurb": "Why numerate people are more exposed, audit files and reconciliation named in advance, the Python-then-Excel double-pass, and a reusable starter kit.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-comp-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-comp-m4",
+      "courseId": "ai301-comp",
+      "ordinal": 4,
+      "title": "The exclusion zone",
+      "blurb": "AI for speed, human-built tooling for accountability — the four zones, the circular one, and a legal floor that is moving. Counsel review required.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-comp-m3"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-comp-m5",
+      "courseId": "ai301-comp",
+      "ordinal": 5,
+      "title": "The counterparty",
+      "blurb": "Candidates arrive briefed by a model that gives your two sides different numbers, and your proxy is now read by machines against every peer at once.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-comp-m4"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-comp-m6",
+      "courseId": "ai301-comp",
+      "ordinal": 6,
+      "title": "The bet",
+      "blurb": "The leverage ladder, why efficiency is the weakest case a small function has, and a bet with a funding line — plus the reckoning against Module 1.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-comp-m5"
+      ],
+      "microMinutes": 2
     }
   ],
   "courses": [
@@ -389,6 +465,13 @@
       "title": "AI 301 · The Specialist — Recruiting",
       "level": "L3 → L4",
       "blurb": "Rebuilding the signal: the cost of producing a credible application collapsed on both sides of the table at once. This course is about building signal that's expensive to fake.",
+      "status": "open"
+    },
+    {
+      "id": "ai301-comp",
+      "title": "AI 301 · The Specialist — Comp & Benefits",
+      "level": "L3 → L4",
+      "blurb": "Numbers that hold: you are the most numerate function in HR, and that is exactly what makes fluent output dangerous here. A wrong sentence gets caught. A wrong model gets presented.",
       "status": "open"
     },
     {
