@@ -1052,7 +1052,7 @@ function Census() {
             onChange={(e) => setCsv(e.target.value)}
             rows={7}
             spellCheck={false}
-            placeholder={'name,email,role,manager,manager_email,level,location,start_date\nJane Doe,jane@acme.com,HRBP,Sam Lee,sam@acme.com,L5,Austin,2024-03-01'}
+            placeholder={'name,email,role,manager,manager_email,level,location,start_date\nJane Doe,jane@acme.com,HRBP,Sam Lee,sam@acme.com,L4,Austin,2024-03-01'}
             className="mt-2 w-full border border-line-strong bg-surface rounded-brand px-3 py-2 text-xs font-utility focus:border-accent placeholder:text-muted/60"
           />
           <div className="mt-2 flex items-center gap-3">

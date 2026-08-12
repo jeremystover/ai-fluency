@@ -1,7 +1,7 @@
 # AI 101 · The Foundation — Course Outline (draft v1)
 
 **Audience:** People leaders — HR business partners, talent and ER leads, People ops, CHROs and their benches. Same audience 201 inherits; 101 assumes no prior AI use and no technical background.
-**Level transition:** L1 The Avoider (the material's "The Risk") → L2 The Novice.
+**Level transition:** L1 The Novice → L2 The Practitioner.
 **Shape:** 8 modules × ~25–35 min, each with a module brief, four lessons, key takeaways, one applied AI-graded activity, and a knowledge check. No capstone thread — 101 builds the mental model; 201 is where a single build runs through all eight.
 **Tooling stance:** Tool-aware, not tool-taught. 101 names real tools where naming them is the point (M2, M3) but teaches properties, not clicks — the hands-on lab track starts in 201. **Every passage naming a model, price, feature, or regulation is volatile-layer** `[V]` so it refreshes without touching the concepts.
 

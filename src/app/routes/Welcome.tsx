@@ -7,7 +7,7 @@ import { api, ApiError, track } from '../api';
 import { useApp } from '../brand';
 import { GOAL_CHOICES, type GoalChoice } from '../../shared/goals';
 import { DEPTH_CHOICES } from '../../shared/depth';
-import { SELF_LEVEL_CHOICES } from '../../shared/levels';
+import { SELF_LEVEL_CHOICES, normalizeSelfLevel } from '../../shared/levels';
 import type { IntakePrefs } from '../../shared/types';
 
 // Course Crafting as an interview: one true question per screen, seven named
@@ -73,10 +73,9 @@ const TOOL_CHOICES: { id: string; label: string }[] = [
 // these so the level answer visibly shapes what comes next.
 const LEVEL_GOALS: Record<string, string[]> = {
   l1: ['fluency', 'confidence'],
-  l2: ['fluency', 'apply'],
-  l3: ['apply', 'workflows'],
+  l2: ['apply', 'workflows'],
+  l3: ['apply', 'safety'],
   l4: ['coach', 'strategy'],
-  l5: ['strategy', 'safety'],
 };
 
 // The seven steps, named — the map renders from this, and so does the
@@ -165,7 +164,7 @@ export default function Welcome() {
     setAiUsage(me.prefs?.aiUsage ?? '');
     setAiTools(me.prefs?.aiTools ?? []);
     setAiToolOther(me.prefs?.aiToolOther ?? '');
-    setSelfLevel(me.prefs?.selfLevel);
+    setSelfLevel(normalizeSelfLevel(me.prefs?.selfLevel));
     setMaxStep(TOTAL_STEPS - 1);
   }, [editing, me]);
 

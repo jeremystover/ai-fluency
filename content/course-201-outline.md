@@ -1,7 +1,7 @@
 # AI 201 · The Practitioner — Course Outline (draft v1)
 
 **Audience:** People leaders who completed AI 101 (or tested out).
-**Level transition:** L2 The Novice → L3 The Practitioner.
+**Level transition:** L2 The Practitioner → L3 The Specialist.
 **Shape:** 8 modules × ~30 min, each with a hands-on lab and an AI-graded activity. One capstone build threads through all eight — every module's activity advances the learner's own workflow, so by M8 they have shipped something real, not collected certificates.
 **Tooling stance:** Opinionated and hands-on. Reference stack is Claude (Projects for durable context, tool use / MCP for agent work), taught concretely with screenshots. Labs assume Claude access; deployments tailor the lab track to the organization's provisioned tools, so learners always see what they actually have. **Every tool-specific passage is volatile-layer** `[V]` so it refreshes without touching the concepts. Parity notes for ChatGPT equivalents ride along as `[V]` blocks.
 
@@ -106,7 +106,7 @@ The word "agent" from 101's vocabulary, now operational: a model that takes acti
 
 *~30 min · strong prereq for M8 — nothing ships without this sign-off*
 
-101 L4 asked "what can I paste?" once. A workflow asks it every run, forever, sometimes with nobody watching. Operationalizing the boundary: data tiers, redaction as a pipeline step, agreements (DPA vs. consumer tier — `[V]`), escalation, and the audit trail.
+101 M4 asked "what can I paste?" once. A workflow asks it every run, forever, sometimes with nobody watching. Operationalizing the boundary: data tiers, redaction as a pipeline step, agreements (DPA vs. consumer tier — `[V]`), escalation, and the audit trail.
 
 - **Lesson 1:** Tiering your inputs. Public / internal / person-identifying / protected — and what each tier permits.
 - **Lesson 2:** Redaction and minimization as *designed steps*, with the test: could this run be shown to the person it concerns?
@@ -135,7 +135,7 @@ Run the workflow for real, on real work, at least twice. Document the before/aft
 
 - **Lesson 1:** The shipping checklist — spec, pack, pipeline, verification, boundary sheet, rhythm, all in one place.
 - **Lesson 2:** The handoff test — run as a **minimal peer exchange**: each learner is paired with one other, runs the first step of their peer's workflow from the documentation alone, and returns a three-question structured review (Could I start? Where did I stall? What did the doc assume I knew?). Documentation quality measured by a stranger's success, not your satisfaction.
-- **Lesson 3:** What's next — which L4 (Translator) skills this build just quietly taught you.
+- **Lesson 3:** What's next — what the build seeded for the rungs above: 301's role depth, and the credibility 401's Translator work runs on.
 - **Activity (the capstone grade):** full portfolio submission, graded across the course's four inherited dimensions — engagement with real work, observation of mechanics, calibration honesty across all eight predictions, practical insight — plus one new: *would a reasonable colleague trust this workflow's guardrails?*
 - **Completion:** manager one-pager, 201 edition — what they built, the measured result, and the one question a manager should ask about it.
 

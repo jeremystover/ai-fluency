@@ -193,7 +193,7 @@
       "id": "ai101",
       "title": "AI 101 · Foundations",
       "level": "L1 → L2",
-      "blurb": "From The Risk to The Novice: a working mental model, honest calibration, and the judgment to know what to hand over.",
+      "blurb": "From Novice to Practitioner: a working mental model, honest calibration, and the judgment to know what to hand over.",
       "status": "open"
     },
     {
@@ -205,16 +205,16 @@
     },
     {
       "id": "ai301",
-      "title": "AI 301 · The Translator",
+      "title": "AI 301 · The Specialist",
       "level": "L3 → L4",
-      "blurb": "Leading adoption beyond your own desk: coaching other functions, evaluating vendors, and running pilots that produce evidence instead of anecdotes.",
+      "blurb": "Your actual role, in depth: the workflows, judgment calls, and edge cases specific to what you do — where generic advice runs out and the real applications begin.",
       "status": "locked"
     },
     {
       "id": "ai401",
-      "title": "AI 401 · The Steward",
-      "level": "L4 → L5",
-      "blurb": "Policy, risk, and governance: owning the organizational answer to what AI may touch, who verifies it, and how you'll know when it goes wrong.",
+      "title": "AI 401 · The Translator",
+      "level": "L4",
+      "blurb": "Leading the multiplayer game: coaching other functions, evaluating vendors, running pilots that produce evidence instead of anecdotes — and owning the policy for what AI may touch.",
       "status": "locked"
     }
   ]
