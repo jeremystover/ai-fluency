@@ -1,0 +1,11 @@
+[
+  {
+    "id": "ai301-hrbp-m6-activity-applied-activity-inventory-and-standard-10",
+    "moduleId": "ai301-hrbp-m6-activity",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Applied activity — \"Inventory and standard\"\n\n**Time:** 25–30 minutes · **Submit:** the inventory, the one-page standard, and a 250–350 word\nwrite-up · **Graded against the rubric below.**\n\n**Step 1 — The inventory (10 min).** Every AI system touching your population that screens,\nscores, ranks, filters, or characterizes a person. Include features switched on inside tools you\nalready had — the ATS ranking, the \"insights\" in the survey platform, anything in the HRIS. For\neach: what it decides, who the deployer is, and whether it has been bias-audited as far as you\nknow. **\"Don't know\" is a valid and informative entry** — a completed inventory full of honest\nunknowns is the point of the exercise.\n\n**Step 2 — Three vendor questions (5 min).** For your highest-risk system, the three questions\nyou'd put in writing, phrased so a vendor could actually answer and the answer would change\nsomething.\n\n**Step 3 — The documentation standard (10 min).** One page for your own team: what AI may do in\nER documentation, what it may never do, what gets recorded about how a document was produced, and\nwho signs off. Write it so a colleague could follow it without you in the room.\n\n**Step 4 — Score the prediction (2 min).** Your predicted share of HR professionals unaware of\ntheir state's law, against the real figure — and one sentence on whether you were in it.\n\nThen the write-up: what the inventory surfaced that you hadn't classified as a decision system,\nyour position on the claim above with its counter-argument addressed, and the single question you\nare taking to counsel first."
+  }
+]

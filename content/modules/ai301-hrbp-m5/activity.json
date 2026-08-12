@@ -1,0 +1,11 @@
+[
+  {
+    "id": "ai301-hrbp-m5-activity-applied-activity-one-case-stress-tested-10",
+    "moduleId": "ai301-hrbp-m5-activity",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Applied activity — \"One case, stress-tested\"\n\n**Time:** 25–30 minutes · **Submit:** the model plus a 250–350 word write-up · **Graded against\nthe rubric below.** Score doesn't matter. Doing the work is where the learning lands.\n\n**Step 1 — Pick a real argument (3 min).** Something you actually want and haven't got: a\nretention intervention, a role, a structural change, a program. It must be real and currently\nunresolved.\n\n**Step 2 — Build the model (12 min).** One of the three, adapted. Show every input, its source,\nand its provenance. Use AI for the skeleton, the variables you'd have missed, and the sensitivity\ntable — and say in your submission where you used it and where you didn't.\n\n**Step 3 — Interrogate your data (5 min).** For each input drawn from an HR system: how is that\nfield actually populated, and how does that differ from what its name implies? Name at least one\ninput you don't fully trust, and what you did about it.\n\n**Step 4 — Name your weakest assumption, first (5 min).** The one a hostile reader would attack.\nState it, state the range it could plausibly take, and show what happens to your conclusion at\nthe unfavourable end. **If the conclusion doesn't survive, say so** — a case that fails its own\nsensitivity test and is reported honestly scores higher here than one that passes because it was\nnever tested.\n\n**Step 5 — Score the prediction (2 min).** Your gut cost-per-regretted-departure against your\nbuilt figure. Direction and size of the miss.\n\nThen the write-up: the case in three sentences as you'd say it out loud, your position on the\nclaim above with its counter-argument addressed, and the one input you'd most want to improve\nbefore taking this into a real room."
+  }
+]

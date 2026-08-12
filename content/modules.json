@@ -186,6 +186,93 @@
         "ai201-m6"
       ],
       "microMinutes": 2
+    },
+    {
+      "id": "ai301-hrbp-m1",
+      "courseId": "ai301-hrbp",
+      "ordinal": 1,
+      "title": "Where you actually are",
+      "blurb": "Most of the urgency was manufactured: what the adoption data actually says, and the difference between a peer gap and an expectations gap.",
+      "status": "open",
+      "estMinutes": 20,
+      "prereqs": [],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-hrbp-m2",
+      "courseId": "ai301-hrbp",
+      "ordinal": 2,
+      "title": "Sort your own job",
+      "blurb": "Two questions — presence, contested judgment — and the four quadrants they produce. Least penetrated is not protected.",
+      "status": "open",
+      "estMinutes": 40,
+      "prereqs": [
+        "ai301-hrbp-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-hrbp-m3",
+      "courseId": "ai301-hrbp",
+      "ordinal": 3,
+      "title": "The honest arithmetic",
+      "blurb": "Botsitting, the four-question workflow audit, the volume trap, and tearing down a claim on evidence, sample, and falsifier.",
+      "status": "open",
+      "estMinutes": 45,
+      "prereqs": [
+        "ai301-hrbp-m2"
+      ],
+      "microMinutes": 3
+    },
+    {
+      "id": "ai301-hrbp-m4",
+      "courseId": "ai301-hrbp",
+      "ordinal": 4,
+      "title": "Adversarial rehearsal",
+      "blurb": "Five adversaries, five sting moves, and the model's job is to attack your work rather than make it. The tutor is the surface.",
+      "status": "open",
+      "estMinutes": 45,
+      "prereqs": [
+        "ai301-hrbp-m2"
+      ],
+      "microMinutes": 3
+    },
+    {
+      "id": "ai301-hrbp-m5",
+      "courseId": "ai301-hrbp",
+      "ordinal": 5,
+      "title": "Arguing with finance",
+      "blurb": "A story loses to a model. Three you can build, the ways your HR data lies, and why small numbers demand the n in the sentence.",
+      "status": "open",
+      "estMinutes": 40,
+      "prereqs": [
+        "ai301-hrbp-m3"
+      ],
+      "microMinutes": 3
+    },
+    {
+      "id": "ai301-hrbp-m6",
+      "courseId": "ai301-hrbp",
+      "ordinal": 6,
+      "title": "The line",
+      "blurb": "The law about systems and the law about your documents: the patchwork, the agent theory, and ER documentation that survives discovery.",
+      "status": "open",
+      "estMinutes": 45,
+      "prereqs": [],
+      "microMinutes": 3
+    },
+    {
+      "id": "ai301-hrbp-m7",
+      "courseId": "ai301-hrbp",
+      "ordinal": 7,
+      "title": "Manager capability as product",
+      "blurb": "Catching misuse without driving it underground, what the coaching evidence really says, and why allocating human support is an equity call.",
+      "status": "open",
+      "estMinutes": 40,
+      "prereqs": [
+        "ai301-hrbp-m4"
+      ],
+      "microMinutes": 2
     }
   ],
   "courses": [
@@ -201,6 +288,13 @@
       "title": "AI 201 · The Practitioner",
       "level": "L2 → L3",
       "blurb": "Workflows that stick: one real build advanced across eight modules. Module 1 is open — designed to follow AI 101, and open to the adventurous either way.",
+      "status": "open"
+    },
+    {
+      "id": "ai301-hrbp",
+      "title": "AI 301 · The Specialist — HRBP",
+      "level": "L3 → L4",
+      "blurb": "Judgment work: the HR business partner's role in depth. AI is improving HR's production, not HR's judgment — this course is about the second thing.",
       "status": "open"
     },
     {

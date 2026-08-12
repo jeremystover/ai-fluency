@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why does a story lose to a model in a budget conversation, even when the story is more accurate?",
+      "options": [
+        "Finance leaders are trained to distrust qualitative input",
+        "A model can be challenged, adjusted, and agreed — it converts a claim into a form comparable against competing claims on the same money",
+        "Stories take longer to present than models",
+        "Models are more likely to be correct than practitioner judgment"
+      ],
+      "correctIndex": 1,
+      "explanation": "Being arguable is the property that matters. A story can only be believed or not, and belief is a weak instrument against a spreadsheet. D is explicitly not the claim — the story is often more accurate."
+    },
+    {
+      "id": "q2",
+      "prompt": "Your attrition model gets challenged on the replacement-cost multiplier you used. What has actually happened?",
+      "options": [
+        "The model failed and should be rebuilt with defensible inputs",
+        "Finance is signalling they won't fund the request",
+        "The shape of your reasoning was accepted and only the parameters are in dispute — which is the conversation you wanted",
+        "You presented with too much precision and invited scrutiny"
+      ],
+      "correctIndex": 2,
+      "explanation": "Getting to a parameter argument means the model was taken seriously. That stage doesn't exist for a story, which is the entire point of bringing one."
+    },
+    {
+      "id": "q3",
+      "prompt": "In a regretted-attrition model, which input typically carries the most weight and receives the least scrutiny?",
+      "options": [
+        "Recruitment agency fees",
+        "Interviewer and hiring manager time",
+        "Onboarding and training cost",
+        "The productivity ramp — months until a replacement reaches the departed person's output"
+      ],
+      "correctIndex": 3,
+      "explanation": "For complex roles it often exceeds everything else combined, and most published per-hire figures omit it entirely. Which means a model that includes it explicitly is more defensible than one citing a headline industry number."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why is the \"regretted\" flag in your HRIS specifically unreliable? `[V]`",
+      "options": [
+        "It's usually left blank by default",
+        "It's set by whoever closed the requisition — sometimes the manager who caused the departure, recording a judgment under pressure as an interested party",
+        "Different HRIS vendors define it differently",
+        "It's a lagging indicator that only updates quarterly"
+      ],
+      "correctIndex": 1,
+      "explanation": "A judgment field populated by a party with an interest in the answer — and every attrition model in the organization rests on it. Knowing this about your own systems is the contribution an HRBP makes that neither analytics nor Finance can."
+    },
+    {
+      "id": "q5",
+      "prompt": "Three of six people have left a team in a year. What does the module recommend?",
+      "options": [
+        "Report it as 50% attrition, which is the accurate rate",
+        "Exclude the team from analysis, since the population is too small",
+        "State \"three of six,\" volunteer the coincidence test before being asked, and argue direction and mechanism rather than magnitude",
+        "Combine it with similar teams to reach a defensible sample"
+      ],
+      "correctIndex": 2,
+      "explanation": "\"50% attrition\" is arithmetically identical and rhetorically dishonest, because percentages imply a supporting population. Volunteering the limitation is the strongest credibility move available and costs nothing — everyone competent already knows."
+    },
+    {
+      "id": "q6",
+      "prompt": "What does the module mean by \"confident garbage in front of a CFO is worse than no model at all\"?",
+      "options": [
+        "CFOs prefer qualitative arguments from HR partners",
+        "A missing number costs one conversation; a wrong number that gets repeated and then corrected by someone else costs the next five",
+        "Financial models require certification that HR business partners don't hold",
+        "AI-assisted models are inherently less reliable than manual ones"
+      ],
+      "correctIndex": 1,
+      "explanation": "The asymmetry is about credibility over time, not about any single meeting. D misstates it — the danger isn't AI assistance, it's AI assistance on inputs that don't mean what the model assumes."
+    },
+    {
+      "id": "q7",
+      "prompt": "Where should AI be used in building these models, and where not?",
+      "options": [
+        "For the inputs, since it can access market benchmark data",
+        "Nowhere — financial modelling requires human construction throughout",
+        "For structure, forgotten variables, and sensitivity tables; not for supplying the numbers, which come from your systems with recorded provenance",
+        "For the final narrative only, after the model is complete"
+      ],
+      "correctIndex": 2,
+      "explanation": "Skeleton-building is genuinely what it's good at; input-supply is where the foundation problem bites. A is the specific trap — invented benchmarks are confident, plausible, and exactly what Module 3's teardown exists to catch."
+    },
+    {
+      "id": "q8",
+      "prompt": "Why does the activity ask you to name your weakest assumption first?",
+      "options": [
+        "To demonstrate humility to the reader",
+        "Because a hostile reader will find it anyway, and naming it first converts an attack into a stated limitation — and a case that fails its own sensitivity test, reported honestly, is worth more than one that passes untested",
+        "Because sensitivity analysis is required in financial submissions",
+        "To reduce the number of questions asked in the meeting"
+      ],
+      "correctIndex": 1,
+      "explanation": "It's a strength move, not a concession: you keep control of the framing and you learn whether your conclusion is robust. A submission that discovers its case doesn't survive is a success for this module."
+    }
+  ]
+}

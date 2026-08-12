@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What do the demand figures establish? `[V]`",
+      "options": [
+        "That managers are resistant to using AI in their work",
+        "That roughly 8% of HR leaders think managers can use AI effectively while ~14% of organizations give any support — an unoccupied space that sits at the HRBP's intersection",
+        "That manager AI training should be owned by L&D",
+        "That AI tools are too complex for non-technical managers"
+      ],
+      "correctIndex": 1,
+      "explanation": "The gap is wide enough to survive being substantially wrong in either direction. And nobody owns it: IT owns tools, L&D owns curriculum, neither owns how a manager should use AI in a performance conversation."
+    },
+    {
+      "id": "q2",
+      "prompt": "A manager submits a fluent, generic AI-written performance review. What should you ask?",
+      "options": [
+        "Whether they used AI to write it",
+        "For two examples of what they described and one thing the employee should do differently",
+        "Them to rewrite it without AI assistance",
+        "For the prompt they used, so you can improve it"
+      ],
+      "correctIndex": 1,
+      "explanation": "It's the diagnostic. If they have the specifics, the tool was briefed badly and the fix is easy. If they don't, the problem was never AI — they weren't paying attention and the model let them hide it. A and C treat the tool as the fault and never reach the diagnosis."
+    },
+    {
+      "id": "q3",
+      "prompt": "A manager tells you they pasted an employee grievance into a consumer chatbot. Why does the module say handle it as an incident rather than a betrayal?",
+      "options": [
+        "Because the data exposure is minor in practice",
+        "Because punishing the manager who told you trains everyone else to stop telling you — the four who didn't report are the actual problem",
+        "Because consumer tools are not covered by most organizational policies",
+        "Because the manager could not reasonably have known"
+      ],
+      "correctIndex": 1,
+      "explanation": "101 M8's blame-safe principle, applied to someone else's mistake. You cannot fix what you cannot see, and your reaction to the first case sets the visibility of the next twenty."
+    },
+    {
+      "id": "q4",
+      "prompt": "Which rule for managers is the module's model of a good one?",
+      "options": [
+        "\"Use AI responsibly and with good judgment\"",
+        "\"Don't use AI for anything involving employees\"",
+        "\"Every policy or legal reference in a document going to an employee gets traced to source before it ships\"",
+        "\"Check all AI output carefully before using it\""
+      ],
+      "correctIndex": 2,
+      "explanation": "A manager can follow it and you can audit it. A and D are aspirations with no observable behaviour attached; B is unenforceable and would be routed around within a month."
+    },
+    {
+      "id": "q5",
+      "prompt": "What does the coaching RCT actually show? `[V]`",
+      "options": [
+        "That AI coaching is ineffective for all purposes",
+        "That human coaching produced substantial effects across goal attainment and wellbeing while the AI arm did not, with far higher attrition — in one study of 114 mostly-senior managers",
+        "That AI coaching matches human coaching on goals but not wellbeing",
+        "That coaching in general has weak evidential support"
+      ],
+      "correctIndex": 1,
+      "explanation": "Stated with its scope, because overclaiming in the sceptical direction is the same error as overclaiming in the enthusiastic one. C describes the earlier goal-attainment research, which is a real and different finding — narrow and measurable performs better than broad and relational."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why does the module emphasize that one author co-authored the earlier, more favourable study?",
+      "options": [
+        "It suggests the researchers changed their commercial position",
+        "Because a researcher publishing a result that complicates their own earlier finding is the strongest and rarest form of evidence available",
+        "Because it means the two studies used identical methods",
+        "Because it undermines the credibility of both studies"
+      ],
+      "correctIndex": 1,
+      "explanation": "It is not one camp contradicting another. It is self-correction, which is exactly the intellectual honesty this course asks of the learner — and worth naming for that reason as much as for the finding."
+    },
+    {
+      "id": "q7",
+      "prompt": "Outcomes were predicted most strongly by the coachee's starting self-efficacy and hope. What follows?",
+      "options": [
+        "That development budgets should target high-potential employees, who will benefit most",
+        "That AI coaching should be reserved for senior populations",
+        "That the people who most need development are served worst by an unsupervised bot — making the allocation of scarce human support an equity decision",
+        "That self-efficacy should be screened before assigning any development resource"
+      ],
+      "correctIndex": 2,
+      "explanation": "And it inverts how most organizations allocate development. D is the dangerous near-miss: screening people on a psychological attribute to allocate resources is precisely the kind of decision 101 M7 warns about — the finding informs your judgment, it doesn't become a filter."
+    },
+    {
+      "id": "q8",
+      "prompt": "Why does the module apply its scepticism to Module 4's own technique?",
+      "options": [
+        "Because adversarial rehearsal has been shown ineffective",
+        "Because the rehearsal category is vendor-dominated and its effectiveness numbers trace to sellers — so this course holds its own recommendations to the standard it holds theirs, and Module 4 is argued from craft rather than an efficacy study",
+        "Because Module 4's technique requires tools most organizations lack",
+        "To satisfy disclosure requirements for training material"
+      ],
+      "correctIndex": 1,
+      "explanation": "A course teaching claim teardown that exempted itself would fail its own standard. The honest position is that Module 4's argument is mechanistic, not empirical, and the learner should weigh it accordingly."
+    }
+  ]
+}
