@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "You always attend your business unit's weekly leadership meeting, where you rarely speak but your absence would be noticed. Which quadrant?",
+      "options": [
+        "The room — you're senior and your presence is expected",
+        "The ritual — presence is genuinely expected, but no contested judgment is being exercised",
+        "The desk — the value is in what you do with the information afterward",
+        "The queue — if you rarely speak, the meeting isn't work"
+      ],
+      "correctIndex": 1,
+      "explanation": "Presence is real; contest isn't. This is the quadrant HRBPs over-defend because it feels like relationship work — and some of it genuinely is, which is exactly why it needs the two questions rather than instinct. A makes the module's most common error: treating seniority as presence."
+    },
+    {
+      "id": "q2",
+      "prompt": "A complex benefits cost model with one defensible answer, requiring six hours of careful work, is:",
+      "options": [
+        "Contested judgment, because it's difficult and consequential",
+        "Not contested judgment — difficulty and contest are different properties, and a determinate answer isn't contested",
+        "The room, because the stakes are high",
+        "Impossible to classify without knowing who requested it"
+      ],
+      "correctIndex": 1,
+      "explanation": "Contest means reasonable people could defensibly disagree, not that the work is hard. A determinate calculation with one right answer is difficult and uncontested — which is precisely the profile where AI assistance is most valuable and least fraught."
+    },
+    {
+      "id": "q3",
+      "prompt": "Across HR practice areas `[V]`, where has AI adoption actually concentrated?",
+      "options": [
+        "Employee relations and organizational design, where the documents are richest",
+        "Evenly across practice areas, tracking overall HR headcount",
+        "Recruiting, HR technology, L&D, and employee experience — with employee relations, talent management, org design, and compliance least adopted",
+        "Compliance first, since regulatory work is most rule-based"
+      ],
+      "correctIndex": 2,
+      "explanation": "The concentration is sharp, and the least-adopted list reads like an HRBP job description. A inverts the finding — those areas are least penetrated, partly because their data is exactly what nobody will let a vendor near."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why is \"least penetrated\" not the same as \"protected\"?",
+      "options": [
+        "Because vendors will eventually build for those areas regardless of difficulty",
+        "Because your ratio moves when the work that justified the headcount compresses — the hardest work never has to be automated for the coverage math to change",
+        "Because low adoption figures are unreliable and likely undercount actual usage",
+        "It is the same — low penetration is what job security looks like in practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "The module's central argument. Ratios are set by total workload, not by the hardest item in it, so \"AI can't do what I do\" is true and irrelevant to the budget conversation. A is plausible but is a slower and less certain mechanism than the one that's already operating."
+    },
+    {
+      "id": "q5",
+      "prompt": "Which quadrant is most likely to be reduced by an organizational decision rather than a technical capability?",
+      "options": [
+        "The queue — automation is already eating it",
+        "The room — ethical constraints could be relaxed",
+        "The desk — context handling keeps improving",
+        "The ritual — it shrinks when someone questions the calendar, which is a political event"
+      ],
+      "correctIndex": 3,
+      "explanation": "Nothing technical removes a standing meeting; a reorg does. That makes the ritual the quadrant most exposed to a decision you don't control and least exposed to a tool — the opposite of most people's intuition about it."
+    },
+    {
+      "id": "q6",
+      "prompt": "Gartner's projection `[V]` is that the HRBP ratio could move from roughly one per 423 employees to:",
+      "options": [
+        "One per 500–600 within a decade",
+        "One per 800–1,200 within one to five years",
+        "One per 2,000 within two years",
+        "No change in ratio, with the role's content shifting instead"
+      ],
+      "correctIndex": 1,
+      "explanation": "Roughly a doubling at the midpoint, on a short horizon, alongside the recommendation to replace fixed HRBP assignments with pods of strategic talent leaders. Treat the direction as real and the timing as soft — analyst projections routinely overshoot on schedule."
+    },
+    {
+      "id": "q7",
+      "prompt": "What is the strongest counter-argument to this module's claim about compression?",
+      "options": [
+        "That AI capability has plateaued and won't reach the desk quadrant",
+        "That analyst firms are financially motivated to predict disruption",
+        "That ratios are set by budget appetite and risk tolerance rather than workload — organizations have historically kept HRBP coverage above what workload math implied, because proximity to the business is itself the product",
+        "That HR headcount has never fallen in a sustained way"
+      ],
+      "correctIndex": 2,
+      "explanation": "It's the strongest because it doesn't dispute the compression — it disputes that compression determines coverage. B is worth noticing but it's an ad hominem about the source rather than an argument about the mechanism, and two independent firms agreeing weakens it."
+    },
+    {
+      "id": "q8",
+      "prompt": "What does the module conclude is the strategic response?",
+      "options": [
+        "Resist automation of HRBP work to protect headcount",
+        "Be excellent in the room quadrant and fast everywhere else — and spend recovered capacity on more room rather than more queue",
+        "Move toward recruiting or L&D, where AI adoption and investment are concentrated",
+        "Wait for the analyst timelines to clarify before changing how you work"
+      ],
+      "correctIndex": 1,
+      "explanation": "The compression is the argument *for* the rest of the track: use AI to buy back the hours that currently prevent you from being the consultative practitioner the strategic talent leader model describes. A defends the queue, which is the losing position; C abandons the quadrant where this role's actual value sits."
+    }
+  ]
+}
