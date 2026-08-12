@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ai301-hrbp-m1-micro-core",
+    "moduleId": "ai301-hrbp-m1-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module 1 in two minutes\n\n**You are probably not as far behind as you feel, and the feeling is partly manufactured.** Not maliciously — structurally. The only people motivated to publish about AI in HR are vendors selling a roadmap, consultancies selling an engagement, and practitioners describing the implementation that worked. Nobody publishes the ambiguous result, which is the modal one, so the picture you assemble from public sources skews hard toward completion.\n\n**What the data says instead** `[V]`: roughly three in ten organizations report *no plans at all* to launch AI initiatives, and a large majority of HR leaders say they have seen no significant business value from the tools they have adopted. Adoption and payoff are different milestones and most of the field sits in the gap.\n\n**And the distinction that changes your response:** around nine in ten CHROs expect more AI adoption while over half of organizations have implemented none. That is an *expectations* gap, not a peer gap — and the two feel identical while requiring opposite plays. Behind your peers, move faster. Behind your executive's expectations, have the conversation with evidence. Moving faster into an unevaluated purchase doesn't close that gap; it adds a failure to it."
+  },
+  {
+    "id": "ai301-hrbp-m1-micro-rule",
+    "moduleId": "ai301-hrbp-m1-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### The rule to carry\n\nComparison-driven adoption produces four errors: buying before you can evaluate, adopting what's marketed over what fits, skipping the baseline, and mistaking pilots launched for progress. The third is the expensive one — with no before-number, a working implementation and a useless one look identical afterward."
+  },
+  {
+    "id": "ai301-hrbp-m1-micro-close",
+    "moduleId": "ai301-hrbp-m1-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "**The full module adds** the four-statements exercise (three of them fail in different ways — inverted finding, subgroup presented as field, roadmap wearing a statistic), the honest inventory of what you actually did with AI in the last two weeks rather than what you have access to, and the claim you'll have to take a position on: that acting on manufactured urgency is the most expensive thing you'll do this year."
+  }
+]

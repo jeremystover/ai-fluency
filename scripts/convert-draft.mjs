@@ -42,6 +42,7 @@ const classify = (heading) => {
   const h = heading.toLowerCase();
   if (h.startsWith('calibration prompt')) return 'calibration_prompt';
   if (h.startsWith('learning objectives')) return 'callout';
+  if (h.startsWith('take a position')) return 'callout'; // 301 tracks close each module on a contestable claim
   if (h.startsWith('key takeaways')) return 'takeaways';
   if (h.includes('answer key') || h.startsWith('exercise key')) return 'reveal';
   if (h.startsWith('knowledge check')) return 'knowledge_check';
