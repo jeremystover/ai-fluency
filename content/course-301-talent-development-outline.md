@@ -1,8 +1,11 @@
 # AI 301 · The Specialist — Talent Development / L&D track · "The Decision Series" (draft v2)
 
-**Audience:** Talent development and L&D professionals who own what gets built, who it gets built
-for, and whether it worked — learning leaders, learning partners, program owners, and senior
-instructional designers with portfolio responsibility.
+**Audience:** Talent development and L&D professionals who decide what gets built, who it gets
+built for, and whether it worked — learning leaders and program owners primarily, and the
+designers and learning partners who will hold those jobs next. **Every artifact has a stated IC
+path** (see Decision 10): where the primary version assumes portfolio authority, the alternate
+scopes it to the programs the learner personally owns. The decisions are the same size either way;
+only the surface area changes.
 **Level transition:** L3 The Specialist → L4 The Translator.
 **Course id:** `ai301-talent-dev` (not yet registered in `src/shared/roles.ts` — register only when
 the track is complete, per the brief's rule about locked module rows).
@@ -93,9 +96,13 @@ free-form debate surface.
   once you sort it.
 - **Lesson 2:** The three questions. **Cheap now** / **ours only** / **needs a human on the hook.**
   What each bucket actually means, and why the second is smaller than anyone's first guess.
-- **Lesson 3:** Craft versus judgment, and where the gap actually sits. The honest version of the
-  argument — see Decision 7, because this lesson makes a claim about the future that this course's
-  own evidence standards require us to hold carefully rather than assert.
+- **Lesson 3:** Craft versus judgment, and where the gap actually sits. The mechanism: the judgment
+  the second bucket depends on is largely undocumented — it lives in decisions nobody wrote down,
+  which is why it is thin in training data rather than merely hard. That is an argument for why the
+  gap persists, **stated as an argument and not as a structural fact** (Decision 7). The lesson
+  names what would have to become true for it to close — the judgment getting captured somewhere a
+  model can read it, which is exactly what M6's capture discipline would do — and hands the learner
+  the position rather than the conclusion.
 - **Lesson 4:** What this course refuses to teach, and why. Content production with AI is 201 M3 —
   its worked gallery is literally transcript-to-structured-output. A style-and-standards pack is
   201 M2. An L&D calendar of workflows is 201 M7. **Three obvious modules, already yours.** A
@@ -104,6 +111,9 @@ free-form debate surface.
 - **Activity:** *"The triage"* — your actual portfolio sorted, a percentage in each bucket, and
   **the one program you would kill.** Naming it is the graded part; most people find bucket one
   lands north of 50%, and the number is not the learning — what you do about it is.
+  *IC path:* triage the programs you personally own or maintain, and name the one you would
+  recommend killing plus who would have to agree. The recommendation is graded the same way the
+  decision is — an IC who can name the program and the decision-maker has done the harder half.
 - **Claim:** *"More than half of what your function produces is now a weekend's work for someone
   outside it."*
   **The strongest counter:** rebuildable is not the same as replaceable. A competent outsider can
@@ -121,9 +131,11 @@ free-form debate surface.
 - **Lesson 2:** Knowledge versus willingness, and the prior `[V]`. Training only ever fixes people
   who *can't* — never people who *don't*. And the default assumption that should govern every
   intake: **environmental causes outnumber individual ones**, commonly put at 75–80% in the
-  performance-technology literature after Gilbert's Behavior Engineering Model. See Decision 8:
-  that figure needs a primary source or an in-lesson caveat, because it has the same texture as the
-  numbers M3 teaches learners to distrust, and this course does not get to exempt itself.
+  performance-technology literature after Gilbert's Behavior Engineering Model. **And the lesson
+  then turns on its own number** (Decision 8): a round range, widely repeated, attributed to a model
+  rather than to a study — the same texture as the figures M3 teaches learners to distrust. The
+  prior is directionally sound and worth carrying; the provenance is stated out loud, because a
+  course that exempts its own evidence from its own standard has taught nothing.
 - **Lesson 3:** The accidental safeguard. When a course cost six weeks, "this is a process problem"
   was an easy argument to win, because the alternative was expensive. **Production time was doing
   work nobody counted: it was the filter.** Now the honest diagnosis competes against an
@@ -220,6 +232,8 @@ Nearly everyone who runs the audit finds something.
 - **Activity:** *"The allocation policy"* — written, for your organization. Who gets a human, who
   gets a tool, **and the stated basis for the line.** Budget is a real basis; it just has to be
   said out loud rather than smuggled in. **Calibration:** score prediction 3.
+  *IC path:* write it for one program you own. The scope shrinks; the argument doesn't, and a
+  policy written for a single cohort is often the more defensible document.
 - **Claim:** *"Allocating human development time by budget is an equity decision you are making
   without admitting it."*
   **The strongest counter:** every resource allocation is an equity decision by this standard, which
@@ -300,6 +314,9 @@ description and becomes an admission.
   pre-committed threshold**, and expiry dates on each component. Then **the delta reckoning**: all
   five opening predictions, what moved, and why. The rubric grades the account of the change, never
   the accuracy of either end.
+  *IC path:* write the same page for your own leader rather than the CHRO. The audience changes what
+  you can assume, not what you have to prove — and the measure that can fail is the graded element
+  in both versions.
 - **Claim:** *"A case without a measure that can fail is a request for budget, not a defense of a
   function."*
   **The strongest counter:** learning is genuinely slow and confounded, and demanding falsifiable
@@ -403,9 +420,13 @@ Three things, plus one line.
    own; the chain explains why the value moved to the ends. M1 Lesson 1 is the chain, Lesson 2 is
    the triage. Neither works alone: the chain without the triage is a diagram, the triage without
    the chain is three buckets with no argument behind them.
-4. **The AI-coaching RCT moves to this track.** See the spine call. Requires a small edit to the
-   HRBP track's M7 to point here rather than carry the depth — a real cross-track change, flagged
-   rather than done.
+4. **The AI-coaching RCT moves to this track — settled.** The depth lives here: the two-studies
+   story, co-regulation, the allocation finding, and the hollowing-out risk. **HRBP M7 keeps a
+   short allocation lesson and a pointer**, losing the RCT walkthrough it currently carries. That
+   is an edit to authored, shipped content and it is the one piece of this work that touches a live
+   track — see the follow-up note below. The reason is maintenance, not territory: the RCT
+   literature is volatile and two full copies drift independently, which is exactly what the shared
+   evidence library exists to prevent.
 5. **Adversarial rehearsal stays a technique, not a module** — as in the recruiter track. It appears
    in M2 Lesson 4, aimed at the intake diagnosis. HRBP M4 owns model sycophancy as a *conversation*
    problem; M3 here owns it as a *content* problem. Same model property, two aims, stated rather
@@ -413,24 +434,44 @@ Three things, plus one line.
 6. **Talent Management is not a missing track.** Performance and calibration are HRBP territory;
    succession and high-potential identification are decision-about-people surfaces that land in M5
    Lesson 3. It is lessons already distributed, not a hole.
-7. **M1 Lesson 3's claim about the judgment gap needs care.** The human outline states that the
-   judgment gap is a training-data problem rather than a capability problem, "so it doesn't close
-   on its own." That may well be right, and it is doing real work in the module — it is the reason
-   bucket two is defensible over time. But it is a prediction about model progress stated as a
-   structural fact, in a course that spends M3 and M6 teaching learners to demand evidence and
-   falsifiers. **Recommendation: keep the argument, drop the certainty.** State the mechanism, state
-   what would have to be true for it to close, and let the learner take a position on it — which
-   makes it a strong module claim rather than a load-bearing assumption.
-8. **The 75–80% environmental-causes prior needs a primary source or an in-lesson caveat.** It is
-   confirmed as consensus in the performance-technology literature after Gilbert's Behavior
+7. **The judgment-gap claim keeps its argument and drops its certainty — settled.** The human
+   outline states that the gap is a training-data problem rather than a capability problem, "so it
+   doesn't close on its own." That is doing real work — it is why bucket two stays defensible over
+   time — but as written it is a prediction about model progress stated as a structural fact, in a
+   course that spends M3 and M6 teaching learners to demand falsifiers. M1 Lesson 3 now states the
+   mechanism (the judgment is undocumented, so it is thin in training data rather than merely
+   hard), names what would have to become true for the gap to close, and hands the learner the
+   position. The argument survives intact; only the certainty goes.
+8. **The 75–80% environmental-causes prior stays, with its provenance stated in-lesson — settled.**
+   It is confirmed as consensus in the performance-technology literature after Gilbert's Behavior
    Engineering Model, and it is almost certainly directionally right. It also has **exactly the
    texture of the numbers M3 teaches learners to distrust** — a round range, widely repeated,
-   attributed to a model rather than a study. This track does not get to exempt itself from its own
-   standard. Either we source it properly or M2 says so out loud, and saying so out loud is
-   arguably the better lesson.
+   attributed to a model rather than a study. Rather than source it or cut it, M2 says so out loud
+   and M3 uses it as the live test case for the backward read. **The track's own anchor becomes its
+   most self-consistent moment**, which is a better lesson than a cleaner citation would have been.
+   If a primary source surfaces later, it is a footnote, not a rescue.
 9. **One anchor per module.** M1 the 17%/71% pair; M2 the environmental prior *with its caveat*; M3
    the compliance findings, pending source; M4 the two RCTs; M5 the state mandate specifics; M6 the
    evaluation data *with its age and sample stated*. Everything else supporting or cut.
+10. **The track spans IC to leader, with stated alternate paths — settled.** The human outline is
+   written for portfolio owners, and that framing is what makes it a decision series rather than a
+   craft course, so it stays primary. But the other three tracks all span IC to lead in
+   `roles.ts`, and a track that silently excludes senior instructional designers excludes most of
+   the people whose work M3 is actually about. Three activities carry an IC path — M1's triage
+   (the programs you personally own, plus who would have to agree to kill one), M4's allocation
+   policy (one program rather than the org), and M6's case (your own leader rather than the CHRO).
+   M2, M3, and M5 need no alternate: a live request, a live catalog asset, and a floor pass are the
+   same work at any level. **The principle: the decision stays the same size, only the surface area
+   changes** — and where an IC can only recommend, naming the decision-maker is graded as the
+   equivalent of making the call.
+
+### Follow-up that touches shipped content
+
+Decision 4 requires an edit to the **HRBP track's M7**, which is authored and live: its Lesson 3
+currently walks through the coaching RCT in full. It becomes a short allocation lesson plus a
+pointer to this track. That is a small, contained change and it should ship *with* this track
+rather than before it — pointing at a course that does not exist yet is worse than the duplication
+it fixes.
 
 ## Verification status
 
@@ -447,7 +488,6 @@ result; the environmental-causes prior as literature consensus.
   is only as good as the specific claims it is run against.
 - **The earlier positive coaching RCT (M4 Lesson 1).** The null result is verified; its
   same-researcher predecessor needs the citation to make the self-correction story land.
-- **The 75–80% prior's primary source** — or the decision to caveat it in-lesson.
 - **The instructional-designer belief figure** (46% correctly identifying learning styles as false)
   — source and sample.
 - **A current replacement for the decade-old evaluation data**, or the decision to keep it with its
