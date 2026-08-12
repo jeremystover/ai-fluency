@@ -1,0 +1,128 @@
+[
+  {
+    "id": "ai301-peopleops-m2-calibration-prompt-the-claim-to-contest-10",
+    "moduleId": "ai301-peopleops-m2",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Calibration prompt — the claim to contest\n\n*Commit before you read anything. Thirty seconds.*\n\n**The claim:** *\"You have never measured whether any AI deployment in your function actually\nworked.\"*\n\nNot whether it launched. Not whether people use it. Whether it made anything better, against a\nnumber you wrote down beforehand.\n\n**Is that true of your organization?** *True of us* or *not true of us*, and the one sentence you\nwould defend it with.\n\n**And a number you will check:** of the AI capabilities you inventoried in Module 1, **how many had\na baseline recorded before they were switched on?**\n\nIf the answer is zero, this module is the most useful thirty minutes in the track. If it isn't\nzero, you are in a small minority and the module will tell you what to do next."
+  },
+  {
+    "id": "ai301-peopleops-m2-module-brief-20",
+    "moduleId": "ai301-peopleops-m2",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nThere is a reason this module sits at two rather than at seven.\n\nMeasurement is normally taught as a retrospective — you built the thing, now prove it worked. That\nordering is why almost nobody manages it, because **the most important measurement in any deployment\nis taken before the deployment exists**, and by the time you are asked to prove value, the\nopportunity has passed permanently. You cannot go back and observe the before.\n\nThis module is also the one where your function has an advantage nobody else in People has, and it\nis worth being blunt about it. When the talent team says they cannot measure whether their AI\nsourcing tool helped, that is often genuinely true — the outcome is a hire quality signal that\narrives in eighteen months, confounded by six other things. **When you say it, it means you didn't.**\nYou own the ticket system, the system logs, the transaction volumes, the cycle times, the case\ncategories. The instruments are already installed and pointed at the right things.\n\nSo the module does four things. It tells you which four numbers to save before you touch anything.\nIt shows you, using the most-cited HR AI implementation in the world, what happens when you measure\nadoption instead of experience. It gives you a rework detector nobody else in the function has. And\nit ends on the artifact that separates a pilot from an installation: **a written condition under\nwhich you would turn the thing off.**"
+  },
+  {
+    "id": "ai301-peopleops-m2-learning-objectives-30",
+    "moduleId": "ai301-peopleops-m2",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. Record a baseline that is usable later — a named query, a stated population, a date — and explain\n   why one taken after enablement is not a baseline.\n2. Distinguish activity metrics from change metrics, and name the leading indicator that survives\n   mandatory adoption.\n3. Explain where a deployment's rework actually lands `[V]` and why your queue detects it first.\n4. Argue why **task scope rather than technology** determines whether a deployment works `[V]`.\n5. Write a kill condition with all four parts, and test whether it could fire while a sponsor still\n   wants the project."
+  },
+  {
+    "id": "ai301-peopleops-m2-lesson-1-you-already-own-the-instruments-40",
+    "moduleId": "ai301-peopleops-m2",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 · You already own the instruments\n\nStart with what a baseline actually is, because the word is used loosely enough to be useless.\n\nA baseline is **a named query or report, run against a stated population, on a stated date, and\nsaved somewhere you will find it in six months.** \"We know roughly what our ticket volume runs at\"\nis not a baseline. It is a memory, and memories reshape themselves around outcomes — after a\ndeployment everyone remembers the before as worse than it was, uniformly and sincerely.\n\nThe timing rule is absolute and it is where most attempts fail:\n\n> **A baseline taken after you switch something on is not a baseline. It is a measurement of the new\n> state.**\n\nThere is no recovery from missing it. Every other mistake in this track can be fixed later; this one\ncannot, which is why it is the first lesson of the second module rather than a footnote in the\neighth.\n\n**The four numbers.** If you do nothing else, save these before any enablement. They take under an\nhour and they are the four you will wish you had:\n\n1. **Volume.** Cases, tickets, transactions, or requests per week for the affected process.\n2. **Cycle time.** Time from arrival to resolution — and separately, **time to first response**,\n   because those two move independently and conflating them hides the interesting result.\n3. **The repeat rate.** How often the same person comes back about the same thing. Reopens,\n   duplicates, follow-ups. This is the number that detects a wrong answer, and almost nobody\n   captures it.\n4. **The top five categories by count.** What people actually contact you about. If a deployment\n   changes the *mix* rather than the volume, that is the most important thing that happened and it is\n   invisible without this.\n\nTwo notes on doing it honestly. **Save the query, not the answer** — a number without the query that\nproduced it cannot be re-run, and a baseline you cannot re-run identically is a number you will\nargue about rather than compare against. And **write down the population**, because the temptation\nsix months later is to compare against a slightly different denominator that happens to flatter the\nresult. That is not fraud. It is what happens to everybody who did not write it down."
+  },
+  {
+    "id": "ai301-peopleops-m2-try-50",
+    "moduleId": "ai301-peopleops-m2",
+    "ordinal": 50,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### Try this — 3 minutes\nPick the decision you chose in Module 1. Can you produce, right now, the current weekly volume and\nthe repeat rate for the process it sits in — from a query, not from memory? If yes, you have a\nbaseline and most people don't. If no, you have found this module's homework, and it is an hour of\nwork rather than a project."
+  },
+  {
+    "id": "ai301-peopleops-m2-lesson-2-engagement-is-not-change-60",
+    "moduleId": "ai301-peopleops-m2",
+    "ordinal": 60,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 · Engagement is not change [V]\n\nNow the failure mode, and the best-documented case in the field happens to be the industry's\nfavourite success story.\n\nLogins, sessions, queries served, \"adoption rate\" — these are **activity metrics**. They move when\npeople use a thing. They do not move when a thing helps, and critically **they also move when a\nthing is compulsory**, which is why they are the metrics that survive a bad deployment.\n\nIBM's AskHR is the most cited HR AI implementation there is, and its early history is the reason\nthis lesson exists. The assistant launched in 2017 as a technical change, and **almost nobody used\nit** — the capability was there and the behaviour wasn't. So in 2018 the company required it: more\nthan 20,000 employees were told to use the assistant rather than contacting HR directly.\n\nAdoption, measured as usage, went to essentially everyone. On an adoption dashboard, that year is a\ntriumph.\n\n**HR's customer satisfaction score went from +19 before the mandate to −35 within the first year.**\n\nA fifty-four point collapse, and here is the part that matters for you: **the only reason anyone\nknows it happened is that IBM was already measuring satisfaction before the mandate.** With\nadoption metrics alone — and adoption metrics are what almost every deployment reports — that year\nis indistinguishable from success. Usage up, tickets to HR down, cost per interaction down. The\nexperience of four hundred thousand interactions got materially worse and every number on the\nproject's dashboard improved.\n\nThe rest of the story is why the case is worth teaching rather than just citing. IBM did not\nabandon it. They went back to what employees actually wanted, rebuilt around the end user rather\nthan around the HR team's desire to eliminate busywork, and satisfaction recovered into the +80s.\nToday the company reports AskHR settling roughly **94% of routine requests**, a **75% reduction in\ntickets since 2016**, and about **40% lower HR operating cost over four years**, with the residual\n— the complex and ethical calls — still landing with people.\n\nTwo things follow, and the second one is about our own honesty.\n\n**The most-cited HR AI success in the world is also a documented fifty-four-point satisfaction\nfailure, and both facts come from the same company.** The failure was recoverable because it was\ndetected. It was detected because somebody had a baseline on a metric that measured experience\nrather than usage.\n\nAnd **the labelling, applied to a number that flatters our argument.** The 94%, the 75%, the 40% are\nIBM's own figures and have not been independently audited — the same standard this curriculum\napplies to IBM's widely-repeated attrition-savings claim, which it treats as unverifiable rather\nthan false. The satisfaction collapse is *also* self-reported, and self-reporting a failure is the\nmore credible direction to self-report in, which is why the −35 is the number this module leans on.\n\n**Which produces the leading indicator.** If usage is mandatory, usage tells you nothing. The\nquestion that survives is:\n\n> **Do people come back when they have a choice?**\n\n**Self-initiated repeat use** is the cheapest available proxy for \"this actually helped,\" because it\nis a revealed preference rather than a reported one. Voluntary return, measured on a population that\ncould have gone elsewhere, is worth more than any satisfaction survey you would run — and it is\nprecisely the signal a mandate destroys your ability to read."
+  },
+  {
+    "id": "ai301-peopleops-m2-lesson-3-the-rework-tax-and-where-it-lan-70",
+    "moduleId": "ai301-peopleops-m2",
+    "ordinal": 70,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 · The rework tax, and where it lands [V]\n\nThe second thing your dashboard won't show you is the work your deployment created somewhere else.\n\nThe general finding is well evidenced. In a large multi-country study of digital workers, the\nsubstantial majority reported AI saving them on the order of **eleven hours a week**, while only\nabout **13%** said their organization was performing significantly better as a result — and the same\nresearch measured an average **6.4 hours a week of \"botsitting\"**: feeding context, supervising\noutput, debugging what went wrong, and cleaning up downstream.\n\nThe HRBP track measures that on your own desk, and that is the right frame for someone auditing\ntheir own workflow. **Your version is different and worse, because a deployment you run relocates\nrework onto people who are not you.** The employee who has to ask twice. The manager who rewrites\nthe AI-drafted letter. The coordinator who corrects the record afterwards. None of that appears in\nyour project's numbers. All of it appears in **your queue.**\n\nWhich is the advantage hiding in the problem:\n\n> **Your ticket queue is the rework detector for the entire function's AI, and you are the only\n> person who can read it.**\n\nRepeat contacts on the same issue, reopened cases, and tickets that begin \"the system told me…\" are\nthe leading edge of somebody's deployment failing — often a deployment in another team that reports\nits own metrics as healthy. You see it first, and typically nobody has asked you.\n\nMaking that readable costs almost nothing and has to be done in advance:\n\n- **One tag for AI-involved contacts.** Applied from the day before enablement, not retrofitted.\n- **One tag for repeat contact on the same issue.** Your existing reopen flag may not catch a person\n  who opens a fresh ticket rather than reopening the old one, and that is the common case.\n- **A weekly count of both, next to the baseline volume** from Lesson 1.\n\nTwo honest caveats. This measures *contacts*, not experience — someone who got a wrong answer and\ngave up never appears, which is the same structural blindness Module 4 is about. And being the\nperson who can demonstrate that another team's AI is generating rework is a **political** problem\nrather than a measurement one. It is real, it is not solved by better data, and Module 8 is where it\ngets addressed."
+  },
+  {
+    "id": "ai301-peopleops-m2-lesson-4-scope-is-the-variable-not-techn-80",
+    "moduleId": "ai301-peopleops-m2",
+    "ordinal": 80,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 · Scope is the variable, not technology [V]\n\nThe last reason deployments fail their evaluation is that the evaluation could never have succeeded,\nbecause the thing was scoped too broadly to be measurable.\n\nThe clearest evidence available comes from two randomized trials of AI coaching that reached\nopposite conclusions.\n\nThe **2022 trial** gave an AI chatbot a narrow, structured job: move a person through a defined\ngoal-attainment protocol. On that outcome the AI coach performed comparably to human coaches.\n\nThe **2026 trial** removed the guardrails and put an AI coach in the seat a human coach normally\noccupies — open-ended development work with predominantly middle and senior managers in a global\ncorporation, N=114. It found no significant improvement over control on its primary outcomes.\n\nSame class of technology, four years apart, opposite results. **The variable that changed was task\nscope.** And the detail that makes it trustworthy: one of the researchers on the 2022 positive study\nco-authored the 2026 null result. That is self-correction, and it is the standard this course is\nasking you to hold your own deployments to.\n\nFor a configurer, the operational reading is a rule about how to design the thing in the first\nplace:\n\n> **Narrow the scope until it works, rather than widening it until it fails.**\n\nThis is the opposite of how vendor pilots are usually shaped, and the reason is not cynicism. A\nnarrow pilot is unimpressive to demonstrate — *it answers one category of question about carryover\nbalances* — while a broad one is exciting and, not coincidentally, unfalsifiable. **A scope wide\nenough to be impressive is usually wide enough that no result can disconfirm it.**\n\nThe test to apply before you enable anything, and it is two questions:\n\n1. **What is the single task?** Stated narrowly enough that a person could say whether it was done.\n2. **What would failure look like on it?** If you cannot describe a specific observable outcome that\n   would mean this did not work, the scope is too wide and no amount of measurement discipline will\n   rescue it."
+  },
+  {
+    "id": "ai301-peopleops-m2-lesson-5-the-kill-condition-90",
+    "moduleId": "ai301-peopleops-m2",
+    "ordinal": 90,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 5 · The kill condition\n\nWhich brings us to the artifact, and to the sentence that distinguishes the two things this module\nis about.\n\n> **A deployment without a written condition under which you would turn it off is not a pilot. It is\n> an installation.**\n\n\"Pilot\" is the most over-claimed word in enterprise technology. It implies a decision point, and\nmost pilots do not contain one — they contain a launch, a period of enthusiasm, and an absorption\ninto normal operations that nobody ever formally approved.\n\nA real kill condition has four parts, and the fourth is the one people skip:\n\n**A threshold.** A number, not a feeling. *If the repeat rate on tagged contacts exceeds 15% in any\ntwo consecutive weeks.* Thresholds you cannot compute from Lesson 1's four numbers are not\nthresholds, they are sentiments — which is why the baseline comes first.\n\n**A date.** When it gets checked, on a calendar, before anyone is invested. \"We'll keep an eye on\nit\" is not a date and will not survive a busy month.\n\n**A named person who checks it.** Module 1 established why this is a person rather than a team. The\nsame reasoning applies harder here, because the check is a small unpleasant task and unpleasant\ntasks assigned to teams do not happen.\n\n**A rollback somebody has already performed.** Not a documented rollback — a performed one. In a\nsandbox if that is all you have, but performed, by a named person, with the time it took written\ndown. **An untested rollback is a hope**, and Module 1 already told you why: reversibility is a\nproperty you design beforehand, not one you discover under pressure.\n\nThen the test for whether yours is real, and it is uncomfortable by design:\n\n> **Could this condition fire while the project's sponsor still wants the project?**\n\nIf the honest answer is no — if the threshold is set where it would only trip in a scenario so bad\nthat everyone would already agree — then you have not written a kill condition. You have written a\nreview date with a number attached to it.\n\nAnd the timing, which is the reason this is Module 2 and not Module 8: **kill conditions are almost\nfree to write before anyone is invested and nearly impossible to write afterwards.** Every week\nbetween the decision and the launch makes the sentence harder to get agreed. Write it into the\nenablement decision, which is where Module 3 is going."
+  },
+  {
+    "id": "ai301-peopleops-m2-exercise-embed-95",
+    "moduleId": "ai301-peopleops-m2",
+    "ordinal": 95,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"choice\"}"
+  },
+  {
+    "id": "ai301-peopleops-m2-key-takeaways-100",
+    "moduleId": "ai301-peopleops-m2",
+    "ordinal": 100,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **A baseline is a named query, a stated population, and a date — saved.** Not a memory; memories\n  reshape around outcomes. And **a baseline taken after enablement is not a baseline** — it is the\n  only mistake in this track with no recovery.\n- **Four numbers, under an hour, before anything is switched on:** volume, cycle time (with time to\n  first response separated out), the repeat rate, and the top five categories by count. Save the\n  query, not just the answer.\n- **You have no excuse and other functions often do.** You own the ticket system, the logs, the\n  transaction volumes and the cycle times. When you say a deployment can't be measured, it means it\n  wasn't.\n- **Activity metrics survive bad deployments, and they also survive mandates** `[V]`. IBM's AskHR\n  went to near-universal usage by requirement in 2018 and HR's satisfaction fell from **+19 to −35\n  within the first year** — visible only because a pre-mandate baseline existed on a metric that\n  measured experience rather than usage. It recovered to the +80s after a rebuild centred on\n  employees, and now reportedly settles ~94% of routine requests. Both facts are the same company's,\n  and the success figures are unaudited self-report.\n- **Self-initiated repeat use is the leading indicator.** If usage is mandatory, usage tells you\n  nothing; voluntary return is a revealed preference and the cheapest honest proxy for \"it helped.\"\n- **A deployment relocates rework onto people who are not you** `[V]` — and your queue is the\n  function's rework detector. Tag AI-involved contacts and repeat contacts *before* enablement.\n- **Scope, not technology, decides whether it works** `[V]`. Narrow the scope until it works rather\n  than widening it until it fails: a scope wide enough to impress is usually wide enough that no\n  result can disconfirm it.\n- **A kill condition has four parts** — a computable threshold, a date, a named checker, and a\n  rollback somebody has actually performed. **An untested rollback is a hope.** The test: could it\n  fire while the sponsor still wants the project?"
+  },
+  {
+    "id": "ai301-peopleops-m2-activity-link-105",
+    "moduleId": "ai301-peopleops-m2",
+    "ordinal": 105,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"activity_link\", \"title\": \"Applied activity \\u2014 The evaluation plan\", \"blurb\": \"Four numbers saved before anything is switched on, one metric that moves only if this actually got better, a rework detector pointed at your own queue, and a kill condition with all four parts \\u2014 including a rollback somebody has performed. Submit the numbers and the queries, not descriptions of where they live.\", \"estMinutes\": \"25\"}"
+  },
+  {
+    "id": "ai301-peopleops-m2-take-a-position-110",
+    "moduleId": "ai301-peopleops-m2",
+    "ordinal": 110,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"A deployment without a written kill condition is not a pilot. It is an installation\nwith optimistic paperwork.\"*\n\nThe strongest counter-argument is that **kill conditions are theatre in most organizations, and\nwriting one you know will not be honoured is worse than writing none.** By the time a threshold\ntrips, the vendor has been paid, the announcement has gone out, employees have been trained, the\nsponsor's credibility is attached to the thing, and the person who would have to invoke the\ncondition reports to somebody who does not want it invoked. The organizational cost of reversing a\nvisible deployment exceeds almost any threshold you would realistically write, so what the document\nactually produces is a false sense of control plus a governance artifact the project can point at\nwhen challenged.\n\nOn that view the honest alternative is not a better kill condition but **reversibility by design** —\nscope so small, on a population so contained, for a window so short, that stopping is a non-event\nrather than a reversal requiring courage. Make it cheap to stop and you will not need permission to\nstop.\n\nYour position has to say whether the kill condition survives that critique or whether\nreversibility-by-design simply replaces it — and notice that the counter-argument is built out of\nModule 1's own rule that reversibility is the gate. If you want to keep both, you have to explain\nwhat the written condition adds once the deployment is already cheap to reverse."
+  },
+  {
+    "id": "ai301-peopleops-m2-sources-and-attribution-120",
+    "moduleId": "ai301-peopleops-m2",
+    "ordinal": 120,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- **IBM AskHR** — the 2017 launch with near-zero voluntary use, the 2018 mandate covering more than\n  20,000 employees, HR's customer satisfaction moving from +19 to −35 within the first year, the\n  recovery into the +80s after rebuilding around employee needs, and the current reported figures of\n  ~94% of routine requests settled, ~75% fewer tickets since 2016, and ~40% lower HR operating cost\n  over four years. Reported via IBM's CHRO in trade and business press. **All of these are the\n  company's own figures and none has been independently audited** — the same standard this\n  curriculum applies to IBM's widely-repeated attrition-savings claim in `ai301-hrbp-m3`, which it\n  treats as unverifiable rather than false. The satisfaction collapse is the figure this module leans\n  on, because self-reporting a failure is the more credible direction. **[V]**\n- **Glean, *The Work AI Index 2026*** — the ~11 hours perceived weekly saving, the ~13%\n  organizational performance figure, and the 6.4-hours-per-week botsitting measurement (n≈6,000\n  digital workers across the US, UK and Australia, fielded December 2025 – January 2026). Phrasing\n  aligned with `ai301-hrbp-m3`, which uses the same source, so the two do not drift. **[V]**\n- **de Haan, Terblanche & Nowack**, *Human Resource Development International* (2026) — the\n  randomized controlled comparison of human and AI chatbot coaching, N=114, predominantly middle and\n  senior managers in one global corporation; and **Terblanche et al. (2022)** on\n  goal-attainment-specific chatbot coaching, co-authored by one of the same researchers. Phrasing\n  aligned with `ai301-hrbp-m7`, which reads the same pair as an allocation question; this module\n  reads it as a scoping question. **[V]**\n- The four baseline numbers, the queue-as-rework-detector argument, the narrow-until-it-works design\n  rule, and the four-part kill condition with the sponsor test are original to this course.\n- Builds on 201 M7 (measurement without theatre, extended from a personal workflow to a population\n  deployment) and Module 1 of this track (reversibility as the gate, which the counter-argument in\n  *Take a position* turns against this module's own artifact)."
+  }
+]
