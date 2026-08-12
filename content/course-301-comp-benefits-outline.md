@@ -357,3 +357,45 @@ sophisticated posture is to run pay equity analysis under counsel to protect it 
 comp leader with operations on both sides has to hold two opposite postures at once: privileged
 and protected in the US, mandatory and published in the EU. Neither outline had this, and it is
 the most role-specific legal content available to this track.
+
+## Verified before drafting M4 (second pass)
+
+**US state pay transparency `[V]`.** 18 states plus Washington DC have pay transparency laws as of
+2026, with penalties running from $100 to $250,000 per violation depending on jurisdiction. The
+regimes are not uniform: some require a range in every posting (California, Colorado, New York),
+others only on request or after an interview. Most require a **good-faith estimate** of what the
+employer actually expects to pay. Remote postings are generally subject to the law of any state
+where the work could be performed, so multi-state employers effectively comply with the strictest
+applicable rule.
+
+**ERISA and AI `[V]`.** No AI-specific ERISA rule exists; the ordinary duties do the work —
+prudence, loyalty, monitoring, documentation, and the exclusive benefit rule. The practitioner
+consensus is that AI must sit in a **decision-support role with final authority in human hands**,
+and that adverse benefit determinations require human involvement. Courts examine *how*
+fiduciaries reached a decision, not only what they decided, which makes the process record the
+asset. Note for accuracy: **DOL EBSA Technical Release 2026-01 (April 1, 2026) is about proxy
+advisory services, not AI** — do not cite it as AI guidance. It is relevant to M5's institutional
+investor lesson instead.
+
+**Privilege and AI — two decisions, one week, opposite results `[V]`.** This is the strongest new
+material for M4 and neither outline had it.
+
+- ***United States v. Heppner*** (S.D.N.Y., Judge Rakoff; ordered orally Feb 10, 2026, written
+  opinion Feb 17, 2026). A criminal defendant, who had retained counsel but acted **independently
+  and not at counsel's direction**, put information learned from his lawyers into a public
+  conversational AI platform. Held: neither attorney-client privilege nor work product protection
+  applied. Three independent grounds — the platform is not a lawyer, so there was no
+  attorney-client communication; the platform's terms defeated any reasonable expectation of
+  confidentiality; and the purpose was not to obtain legal advice from an entity that disclaims
+  giving it. Question of first impression nationwide.
+- ***Warner v. Gilbarco, Inc.*** (Judge Patti, Feb 10, 2026). A pro se plaintiff's use of
+  generative AI in litigation **did not** waive work product protection. AI programs are "tools,
+  not persons," disclosure to a tool is not disclosure to an adversary, and holding otherwise
+  "would nullify work-product protection in nearly every modern drafting environment."
+
+The synthesis for the module: the two cases are reconcilable — Heppner turns on *consumer terms
+plus absence of counsel's direction*, Gilbarco on *a tool used as a drafting instrument*. The
+practical rule that follows is **enterprise deployment plus documented direction of counsel**, and
+the honest statement is that this floor is unsettled and moving. Courts have **not** yet ruled on
+the case where counsel expressly directs a client to use an AI tool, which is precisely the pay
+equity posture this track teaches.
