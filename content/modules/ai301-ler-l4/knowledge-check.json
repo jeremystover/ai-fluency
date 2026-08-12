@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Which of the six elements do most templates omit entirely?",
+      "options": [
+        "What was alleged",
+        "What evidence was gathered and from whom",
+        "What could not be established, and why",
+        "On what standard"
+      ],
+      "correctIndex": 2,
+      "explanation": "The deliberate record of the gaps, and its absence is what allows a gap to look like a transition. D is also commonly missing, which is why the standard has to be named and applied visibly rather than assumed."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why does an elements structure make gaps visible where a narrative hides them?",
+      "options": [
+        "Because elements reports are longer and more thorough",
+        "Because a gap in a narrative reads as a transition, while a gap in an elements report is a blank space with a heading over it — which you see first rather than last",
+        "Because narrative reports cannot be audited",
+        "Because elements reports are required by most disciplinary procedures"
+      ],
+      "correctIndex": 1,
+      "explanation": "*\"Following the meeting, the complainant raised further concerns…\"* — did you investigate the meeting? Prose carries the reader past the joint, including when the reader is you re-reading your own draft."
+    },
+    {
+      "id": "q3",
+      "prompt": "What is the specialist version of the completeness question?",
+      "options": [
+        "What did I fail to ask?",
+        "Which allegation did I fail to resolve?",
+        "Did I interview everyone named?",
+        "Is every finding supported by evidence?"
+      ],
+      "correctIndex": 1,
+      "explanation": "A is the generalist version and it is a good question. B catches the most common serious defect: the fourth allegation that is never mentioned again — not rejected, not found unsubstantiated, just gone."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why is the unaddressed allegation such a damaging defect?",
+      "options": [
+        "Because it usually indicates investigator bias",
+        "Because it is mechanical to detect so opposing counsel finds it first and free, it is unanswerable because no decision was made to describe, and it is frequently the allegation that mattered",
+        "Because it invalidates the findings on the other allegations",
+        "Because it breaches most internal investigation policies"
+      ],
+      "correctIndex": 1,
+      "explanation": "And the vague final-paragraph allegation is often the one about a protected characteristic or retaliation, which arrives last and least clearly precisely because it is hardest to say."
+    },
+    {
+      "id": "q5",
+      "prompt": "Which of these counts as resolving an allegation?",
+      "options": [
+        "Addressing it in the narrative without a separate finding",
+        "Determining it falls outside the scope of the investigation, and recording that",
+        "Concluding that it was not raised clearly enough to investigate",
+        "Not mentioning it, where the evidence was insufficient"
+      ],
+      "correctIndex": 1,
+      "explanation": "\"Outside scope\" and \"insufficient evidence to determine\" are both resolutions. **Silence is not.** And the check must run against the complainant's own framing — restating an allegation narrowly and resolving the narrower version is the same defect in a suit."
+    },
+    {
+      "id": "q6",
+      "prompt": "What is the exact permission for a model auditing your language?",
+      "options": [
+        "It may rewrite sentences neutrally where characterizations appear",
+        "It may flag sentences that have climbed a rung, but may never tell you which rung is right",
+        "It may assess whether each conclusion is supported by the evidence cited",
+        "It may not touch the language of an investigation report at all"
+      ],
+      "correctIndex": 1,
+      "explanation": "Flagging is a linguistic audit, checkable in seconds by reading the sentence. A hands the model the choice of what the neutral version asserts; C is rung four. D is over-broad — this is the one place in the track where a model may touch your language."
+    },
+    {
+      "id": "q7",
+      "prompt": "Which sentence pattern is a rung breach hiding in an observation's grammar?",
+      "options": [
+        "\"Raised his voice twice, according to two witnesses.\"",
+        "\"Two of four witnesses recall raised voices; no contemporaneous notes exist.\"",
+        "\"Was dismissive of the complainant's concerns during the meeting.\"",
+        "\"The complainant states that the respondent shouted.\""
+      ],
+      "correctIndex": 2,
+      "explanation": "\"Dismissive\" is an evaluative adjective doing the work of a finding — same length and tense as an observation, and no witness said it. Alongside state-of-mind verbs (intended, knew) and unattributed passives (\"it was felt that\")."
+    },
+    {
+      "id": "q8",
+      "prompt": "What separated the two 2026 privilege rulings the module describes? `[V]`",
+      "options": [
+        "Whether the material concerned employment or criminal matters",
+        "Whether the AI output was disclosed to a third party",
+        "Whether counsel directed the work — privilege failed where a party engaged a consumer tool on their own initiative, and held where attorneys curated the analysis for legal advice",
+        "Whether the tool retained the input data"
+      ],
+      "correctIndex": 2,
+      "explanation": "Structure determines protection: the analysis is the same either way, the discovery consequence is not. And neither ruling is a workplace-investigation holding — the practical move is that if a matter may be privileged, the AI question belongs in the engagement rather than afterwards."
+    }
+  ]
+}

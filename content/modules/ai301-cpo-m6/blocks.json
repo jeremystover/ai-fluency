@@ -1,0 +1,101 @@
+[
+  {
+    "id": "ai301-cpo-m6-calibration-prompt-before-you-start-10",
+    "moduleId": "ai301-cpo-m6",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Before you start — commit a position\n\n*One claim. Commit before you read. This is the last one.*\n\n> **\"If my CEO asked me tomorrow what our AI investment in People has returned, I could give a\n> number I would be willing to have checked.\"**\n\n**True of us, or not true of us?** Commit in a sentence.\n\nThen: **how many of the AI initiatives running in your function today have a baseline recorded\nbefore they started?** A count. **Zero is a common and honest answer**, and it is the answer this\nmodule is built for."
+  },
+  {
+    "id": "ai301-cpo-m6-module-brief-20",
+    "moduleId": "ai301-cpo-m6",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nEverything in this track has been building a position. This module is about the conversation where\nyou have to fund it, and it has one governing sentence:\n\n> ***\"We can't tell if it worked\"* and *\"it didn't work\"* produce an identical conversation with a\n> CFO.**\n\nNot similar. Identical. From the other side of the table there is no difference between an\ninitiative that failed and one whose result you cannot demonstrate — both are unfunded next year,\nand the second one costs you credibility as well, because you asked for money and cannot say what\nhappened to it.\n\nWhich relocates measurement entirely. **It is not a reporting activity that happens after. It is a\ndesign constraint that binds before**, because a baseline you did not take at the start cannot be\nreconstructed at the end. That is not a discipline problem. It is arithmetic.\n\nThis module asks for something narrower than rigour, because rigour is not available and pretending\notherwise would waste your time. **One measure, on one initiative, that could come back negative,\nwith a threshold you agreed before you started.** One.\n\nAnd it teaches the thing you need before you can do that honestly, which is how to tell a number you\ncan defend from a number you were handed."
+  },
+  {
+    "id": "ai301-cpo-m6-learning-objectives-30",
+    "moduleId": "ai301-cpo-m6",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. Explain why measurement binds before rather than after, and what that means for baselines.\n2. Distinguish a citable number from a vendor number, and recognize scope-laundering.\n3. Set a pre-committed threshold and say what it buys you.\n4. Make the argument to a board or comp committee, which is a different argument.\n5. Produce the case, and account for how your positions moved across the track."
+  },
+  {
+    "id": "ai301-cpo-m6-lesson-1-the-numbers-you-will-be-handed-40",
+    "moduleId": "ai301-cpo-m6",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 · The numbers you will be handed [V]\n\nYou are the target market for a great deal of confident measurement. Here is the method, and then a\nworked example that is uncomfortably close to home.\n\n**Three questions on any claim: what is the evidence, what is the sample, and what would falsify\nit?**\n\n### The example, and why it is in this module\n\nYou will be shown a figure along these lines: **\"only 28% of AI use cases meet ROI expectations.\"**\nIt circulates widely, it sounds like exactly the sober counterweight a skeptical executive wants,\nand it is frequently offered to People leaders as context for their own AI investment.\n\nRun the three questions.\n\n*What is the evidence?* A Gartner survey — a real one, competently conducted.\n*What is the sample?* **782 infrastructure-and-operations leaders**, fielded November–December 2025.\n*What would falsify it?* It is a survey finding; it is what it is.\n\n**And there is the problem. It is not about HR.** It is a finding about infrastructure and operations\n— server estates, platform migrations, the technology function's own AI projects. Quoting it in a\nPeople business case, or accepting it as context for your function's investment, is **using a real\nstudy of a neighbouring thing to support a claim it does not make.**\n\nThat is the most effective form of laundering available, because **every check anyone runs will\npass.** The source exists. Gartner is credible. The figure is accurately quoted. Nobody has done\nanything dishonest, and the number is still wrong for your purpose.\n\n**This module puts that example first rather than in a footnote, because the track has just spent\nfive modules telling you to be skeptical of vendors, and the figure most likely to mislead you is\none you would have reached for yourself** — precisely because it is sober, credible, and supports a\ncautious posture you already hold. Skepticism aimed only at optimistic claims is not skepticism.\n\nThe question that catches it every time: **was the thing studied the thing being claimed?**\n\n### What this means for your own case\n\nThe standard applies to you first. A CPO who puts a laundered figure in a board paper has done the\nthing this module warns about, and the person who catches it will be a director with an\ninfrastructure background who recognizes the survey.\n\n**The number you can defend is usually smaller, more local, and less impressive than the one you\nwere handed.** It is also the one that survives being checked, which is the only property that\nmatters in the room this module is about."
+  },
+  {
+    "id": "ai301-cpo-m6-lesson-2-a-measure-that-can-fail-50",
+    "moduleId": "ai301-cpo-m6",
+    "ordinal": 50,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 · A measure that can fail [V]\n\n### Where the function actually stands\n\nRoughly **47% of CHROs report they have not established clear productivity measurements** for AI —\nfrom the 2026 CHRO Survey Report, run by the CHRO Association with the University of South Carolina's\nDarla Moore School of Business. The same survey finds around **91% placing AI among their top\nconcerns.**\n\nHold those two together, because the combination is the module's problem stated as data. **Nine in\nten treat this as a top concern. Fewer than half can measure it.** That is not a measurement gap. It\nis an exposure: a function with its highest-priority initiative and no instrument, in front of a CFO\nwho will eventually ask.\n\n### The design\n\nWork backwards, and this part is not contested.\n\n**Start from the business result.** Not the initiative and not the adoption metric — the thing the\ncompany wants to be different. Time-to-productivity for new hires. Regretted attrition in a specific\npopulation. Cost per case in service delivery. Manager capability, if you can operationalize it.\n\n**Then the behaviour that produces it.** What has to happen differently for that result to move?\n\n**Then the intervention.** Now you know what you are buying and, often, that you are buying the\nwrong thing.\n\n**Then the baseline — today, before anything starts.** This is the step that cannot be recovered\nlater. If you cannot state today's number, **say so and go and get it**, because a case without a\nbaseline is a case whose result cannot be demonstrated, which we have established is the same as a\ncase that failed.\n\n### The threshold\n\nNow the part almost nobody does.\n\n**Name, before you start, the observation that would tell you this did not work — and the point at\nwhich you would stop.**\n\n*\"If cost per case in HR service delivery has not fallen by 20% within two quarters of full\ndeployment, we stop and reallocate.\"*\n\nThree things that sentence buys you.\n\n**It makes the evaluation capable of returning a negative.** If every possible outcome leads to\n\"continue and refine,\" you were never measuring.\n\n**It changes the conversation.** You are no longer asking for belief. You are proposing a bet with a\nstated losing condition, and that is a form of argument the CFO recognizes as their own — which is\nworth more than any figure you could quote.\n\n**And it protects you**, because a threshold agreed in advance was agreed while everyone was\noptimistic. Set afterwards, it will be set to whatever the initiative achieved, and everyone\ninvolved will believe they were being fair.\n\n**One warning, carried from Module 4.** Your threshold has to survive the J-curve. A service\ntransformation gets worse before it gets better, so a threshold measured at month three will trigger\nduring the trough and stop something that was working. **Set the measurement point past the trough,\nand say where the trough is expected**, or you have built a mechanism that kills your own\ninitiative on schedule."
+  },
+  {
+    "id": "ai301-cpo-m6-lesson-3-the-board-is-a-different-argume-60",
+    "moduleId": "ai301-cpo-m6",
+    "ordinal": 60,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 · The board is a different argument\n\nThe CFO wants a defensible number. **The board wants to know that somebody is in control of a risk\nthey cannot evaluate themselves.** Those are different asks and the second one is the one this\nfunction is worst at.\n\nThree things a board actually wants from you on this, and none of them is a productivity figure.\n\n**That the exposure is known.** Not eliminated — known. Module 5's inventory is the answer to this,\nand \"we have identified the systems making or shaping decisions about people, here is the list, here\nis who reviewed each\" is a better board answer than any ROI claim, because it demonstrates control\nof the thing they are actually worried about.\n\n**That somebody is accountable by name.** Boards do not accept diffuse accountability on a topic\nthey read about in the press. The question behind the question is *if this goes wrong, who do we\ncall* — and \"the AI steering group\" is not an answer.\n\n**That there is a decision rule rather than a set of decisions.** A board cannot evaluate individual\ndeployments. It can evaluate a rule, and Module 5's — *AI is never the decision-maker; a person\ndecides and that person is nameable* — is exactly the kind of thing a board can hold you to. **Give\nthem something to hold you to, deliberately**, because the alternative is that they invent one under\npressure and it will be worse.\n\n**And the thing not to do**, which is the most common failure in this room: **do not bring a\ntechnology briefing.** Boards do not need to be taught what a model is, they will not admit it if\nthey do, and the CPO who spends fifteen minutes explaining the technology has confirmed that they\nthink the board's problem is comprehension rather than control."
+  },
+  {
+    "id": "ai301-cpo-m6-key-takeaways-70",
+    "moduleId": "ai301-cpo-m6",
+    "ordinal": 70,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- ***\"We can't tell if it worked\"* and *\"it didn't work\"* produce an identical conversation with a\n  CFO** — and the second costs you credibility as well.\n- **So measurement binds before, not after.** A baseline not taken at the start cannot be\n  reconstructed. That is arithmetic, not discipline.\n- **Three questions on any claim: evidence, sample, falsifier.**\n- **The \"28% of AI use cases meet ROI\" figure is real and about infrastructure and operations** —\n  782 I&O leaders `[V]`. Quoting it about HR is scope-laundering, and it is the example most likely\n  to catch you because it is sober, credible, and supports a posture you already hold.\n- **Skepticism aimed only at optimistic claims is not skepticism.** The question: *was the thing\n  studied the thing being claimed?*\n- **Roughly 47% of CHROs have not established clear AI productivity measurement while around 91%\n  place AI among their top concerns** `[V]` — a top-priority initiative with no instrument.\n- **Work backwards: result, behaviour, intervention, and the baseline today.**\n- **Name the losing condition before you start.** It makes the evaluation capable of returning a\n  negative, converts the ask into a bet the CFO recognizes, and fixes the standard while everyone is\n  optimistic.\n- **Set the measurement point past the J-curve**, or you have built a mechanism that kills your own\n  initiative on schedule.\n- **The board wants known exposure, named accountability, and a decision rule** — not a productivity\n  figure and never a technology briefing."
+  },
+  {
+    "id": "ai301-cpo-m6-take-a-position-80",
+    "moduleId": "ai301-cpo-m6",
+    "ordinal": 80,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"A number you cannot baseline today is a number you will lose with in eighteen\nmonths, whatever the technology does.\"*\n\nThe strongest counter-argument is that **the baseline rule systematically selects for the trivial.**\nThe initiatives with clean baselines are the transactional ones — cost per case, time to hire,\nticket volume — and those are exactly the operating-system work Module 2 told you is compressing\nanyway. The things that would actually change the company, and the things only a CPO can drive —\nwhether managers are better, whether the culture survives a restructure, whether the succession\nbench is real — have no clean baseline and never will. **A function that only bets where it can\nmeasure has optimized for surviving budget reviews rather than for mattering**, which is a\nsophisticated way of becoming irrelevant on schedule.\n\nThere is a sharper version, and it should worry you more. **Demanding a threshold may just relocate\nthe dishonesty.** You will get thresholds set where they are certain to be met — agreed in advance,\ntechnically pre-committed, and meaningless by construction. That is worse than no threshold, because\nit carries the authority of having been committed to, and everyone involved can point at it.\n\nYour position has to survive both. Specifically: **what would you do with the initiative you believe\nin most, if it genuinely cannot produce a falsifiable measure inside a budget cycle?** That\ninitiative is in your portfolio right now, and this module has just told you it is indefensible."
+  },
+  {
+    "id": "ai301-cpo-m6-exercise-embed-85",
+    "moduleId": "ai301-cpo-m6",
+    "ordinal": 85,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"choice\"}"
+  },
+  {
+    "id": "ai301-cpo-m6-sources-and-attribution-90",
+    "moduleId": "ai301-cpo-m6",
+    "ordinal": 90,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- **Gartner** `[V]` — approximately 28% of AI use cases fully succeeding against ROI expectations,\n  from a survey of **782 infrastructure-and-operations leaders**, fielded November–December 2025.\n  **Presented in-lesson as the worked example of scope-laundering rather than as evidence about HR**,\n  which is the specific use it is put to here.\n- **2026 CHRO Survey Report** `[V]` — CHRO Association with the University of South Carolina's Darla\n  Moore School of Business: approximately 47% of CHROs reporting no clearly established AI\n  productivity measurement, and around 91% placing AI among their top concerns.\n- **The J-curve constraint on threshold timing** derives from Module 4 of this track and is original\n  to this course, as are the three-questions teardown applied to pessimistic claims, the\n  work-backwards chain with the baseline as an unrecoverable step, and the board's three asks.\n- Builds on 101 M6 (verification), 201 M7 (measurement without theatre), and Modules 1–5 of this\n  track, whose opening positions it gathers. **The Talent Development track's Module 6 makes a\n  structurally identical argument for a different role with a different worked example**; the two are\n  deliberately parallel and no learner sees both."
+  },
+  {
+    "id": "ai301-cpo-m6-activity-link-95",
+    "moduleId": "ai301-cpo-m6",
+    "ordinal": 95,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"activity_link\", \"title\": \"Applied activity \\u2014 The case (course close)\", \"blurb\": \"One page for whoever holds your budget: the chain worked backwards, a baseline taken today, a threshold set past the J-curve, the board version in three sentences, and the impressive figure you deliberately left out. Then the reckoning across all six positions.\", \"estMinutes\": \"35\"}"
+  }
+]

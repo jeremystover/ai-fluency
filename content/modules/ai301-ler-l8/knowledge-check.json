@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why are cycle time and closure rate described as blind to the product?",
+      "options": [
+        "Because they are lagging indicators and report too late to act on",
+        "Because both score the same on the day of closure regardless of whether the finding will hold, so a matter closed fast on a record that collapses appears as a success for years",
+        "Because they are not comparable across organizations",
+        "Because they measure the investigator rather than the investigation"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which is not an argument against speed — a matter left open is a harm continuing. It is an argument that the metrics you are measured on cannot see the thing you are for."
+    },
+    {
+      "id": "q2",
+      "prompt": "Which of these appears on the module's list of what makes a finding hold?",
+      "options": [
+        "A report under a defined page limit, so that decision-makers read it in full",
+        "A closure within the published timescale for the matter type",
+        "Every allegation has a resolution — including the ones that could not be resolved, recorded as unresolved, with why",
+        "Sign-off by a second investigator on every matter"
+      ],
+      "correctIndex": 2,
+      "explanation": "And note what the whole list omits: nothing about speed, volume, or tooling. A finding can hold in a matter that took four months and one that took eleven days."
+    },
+    {
+      "id": "q3",
+      "prompt": "What does the module say about the 38% figure? `[V]`",
+      "options": [
+        "38% of ER teams have deployed AI for investigations",
+        "38% of organizations operate without a required investigation process — the least glamorous number in the study and the most consequential, because every capability in this track sits on top of a process",
+        "38% track substantiation by issue type",
+        "38% of matters are closed within the published timescale"
+      ],
+      "correctIndex": 1,
+      "explanation": "And the consequence is stated plainly: if you are in that 38%, the highest-value change available to you is not AI."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why is time-to-first-contact described as a different instrument from time-to-close?",
+      "options": [
+        "Because it is easier to collect automatically",
+        "Because time-to-close measures how fast you finish, while time-to-first-contact measures how fast a person who raised something stops waiting in silence",
+        "Because it is the measure regulators ask for",
+        "Because it excludes matters that are withdrawn"
+      ],
+      "correctIndex": 1,
+      "explanation": "It correlates with trust in the process, willingness to report, and whether a matter escalates — and it is the one measure in the list you can start collecting this week."
+    },
+    {
+      "id": "q5",
+      "prompt": "What is the caution about the published benchmark figures? `[V]`",
+      "options": [
+        "They are unreliable because the study is vendor-sponsored",
+        "They describe organizations below 1,000 employees and so overstate small-employer maturity",
+        "They are aggregates about organizations, not targets — committing to reach a published rate commits you to a number rather than to accuracy",
+        "They should be treated as confidential to subscribers"
+      ],
+      "correctIndex": 2,
+      "explanation": "The study is vendor-sponsored *and* independently fielded with a disclosed sample, which is why it is usable; the real risk is turning a fact about the field into a goal, which is the failure Module 5 described."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why is AI in this function called a triage story rather than a productivity story?",
+      "options": [
+        "Because triage is the highest-value application available",
+        "Because the expensive parts of the work — deciding which account to believe, whether precedent governs, what conduct amounted to — are the parts that may not be delegated, so what you get is recovered minutes rather than the same work faster",
+        "Because case volumes have doubled and triage is the only way to keep up",
+        "Because a model can route matters more consistently than a person"
+      ],
+      "correctIndex": 1,
+      "explanation": "And D is the specific thing Module 1 forbids — intake triage is a rung-five determination in rung-one clothing."
+    },
+    {
+      "id": "q7",
+      "prompt": "Where does the track argue the recovered minutes should go, and why?",
+      "options": [
+        "Into closing more matters, since backlog is the most visible harm",
+        "Into better-written reports, since the report is the record",
+        "Into rung two, corroboration — least visible, first cut under pressure, where cases are won and lost, and the rung where AI is genuinely permitted at scale",
+        "Into training, since capability gaps cause most record defects"
+      ],
+      "correctIndex": 2,
+      "explanation": "A and B are two of the three places the minutes go on their own. The third is the queue, where they are absorbed invisibly and you cannot say what the deployment bought."
+    },
+    {
+      "id": "q8",
+      "prompt": "What is the second half of the bet's fourth term?",
+      "options": [
+        "Who signs off on the change",
+        "What you would turn off — including, honestly, anything your team is already using on case content without sanction",
+        "What you would do if the measure improved faster than expected",
+        "How the change would be communicated to employees"
+      ],
+      "correctIndex": 1,
+      "explanation": "For some readers the strongest bet available is not a deployment at all: a sanctioned tool replacing an unsanctioned one, and a conversation that surfaces what is already happening. A bet that ignores what your team is already doing is a bet on a fiction."
+    }
+  ]
+}

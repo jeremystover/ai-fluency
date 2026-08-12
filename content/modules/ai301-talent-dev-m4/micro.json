@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ai301-talent-dev-m4-micro-core",
+    "moduleId": "ai301-talent-dev-m4-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module 4 in two minutes\n\n**Two studies, one researcher, opposite headlines** `[V]`. A 2022 study of chatbot coaching aimed at *goal attainment specifically* found real effects. A 2026 randomized controlled comparison of human and AI coaching — N=114, mostly senior managers in one corporation — found substantial effects for human coaching and none for the AI arm, with far higher attrition. **One researcher co-authored both.** That is self-correction, and it is why the finding deserves weight.\n\n**The rule it produces: narrow and measurable delegates. Broad and relational does not.**\n\n**The mechanism is co-regulation.** What a good coach supplies is not information or technique — it is a witness whose opinion of you is at stake. That is what makes disclosure expensive, and the expense is what makes it work. Which also explains the attrition: people did not leave because it was unhelpful, but because **nothing was holding them there.**\n\n**The test: does this work because of the information exchanged, or because someone was watching?**\n\n**And the finding that should change what you build** `[V]`: outcomes track starting self-efficacy and hope. The people who most need development are served worst by an unsupervised tool — so a tool-only program produces bimodal results, and your evaluation will average the group it worked for with the group it failed."
+  },
+  {
+    "id": "ai301-talent-dev-m4-micro-rule",
+    "moduleId": "ai301-talent-dev-m4-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## The rule\n\n**Ask of any development program: who does this fail, and would my current evaluation show me?**\n\nThe group averaged away is usually the group the program was justified by. Baseline self-efficacy at entry and report outcomes split — an average is a choice not to see the finding."
+  },
+  {
+    "id": "ai301-talent-dev-m4-micro-more",
+    "moduleId": "ai301-talent-dev-m4-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## What the full module adds\n\nWhy the shared authorship makes the evidence stronger rather than weaker, and the three cheap readings it rules out. The trial's honest limits — N=114, one corporation, a senior population with high baseline capability, which is exactly where a tool has least to add. Three design consequences, including scoping narrowly *on purpose*. **The hollowing-out risk**: routing development conversations to a tool may preserve the content and remove the occasion, and the occasion was doing most of the work. Ten development needs to sort. And the activity: the allocation policy your organization does not have — where **budget is a legitimate basis, provided you write it down.**"
+  }
+]

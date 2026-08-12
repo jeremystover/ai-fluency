@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Two studies appear to disagree about AI adoption in employee relations. What does their difference actually measure? `[V]`",
+      "options": [
+        "One surveyed larger organizations than the other",
+        "One asked organizations where AI is deployed across HR practice areas — institutional adoption — while the other asked ER teams what they had done, where \"experimented with\" is a low bar; the gap between them is unsanctioned use",
+        "One measured intent and the other measured spending",
+        "They used incompatible definitions of artificial intelligence"
+      ],
+      "correctIndex": 1,
+      "explanation": "Both are sound. The organizational answer to \"have we deployed AI in employee relations\" is no, and it is wrong — which is the diagnosis: the function has adopted AI without adopting it."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why does the module say a prohibition produces concealment rather than compliance?",
+      "options": [
+        "Because employees resent restrictions on tools they find useful",
+        "Because the workload makes compliance impossible, so you end up with the same exposure plus no record of it and no way to know which case files were affected",
+        "Because prohibitions are unenforceable without monitoring software",
+        "Because AI use is difficult to detect in written work product"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which is why the audit has to be framed without penalty: you are not trying to find out whether somebody broke a rule, you are trying to find out which files are affected, and only one framing returns that."
+    },
+    {
+      "id": "q3",
+      "prompt": "What are the five rungs of the evidentiary ladder, in order?",
+      "options": [
+        "Intake, investigation, analysis, decision, appeal",
+        "Allegation, evidence, interview, report, outcome",
+        "Observation, corroboration, inference, finding, determination",
+        "Fact, context, judgment, conclusion, sanction"
+      ],
+      "correctIndex": 2,
+      "explanation": "It is how investigators are already trained to write, which is why it is a working instrument rather than a diagram — and AI's permission changes at every rung."
+    },
+    {
+      "id": "q4",
+      "prompt": "Where does AI's permission stop on the ladder?",
+      "options": [
+        "After observation — anything interpretive is off limits",
+        "After inference, and only for generating untested possibilities; nothing at finding or determination",
+        "After corroboration",
+        "At determination only, since findings are factual rather than evaluative"
+      ],
+      "correctIndex": 1,
+      "explanation": "At rung three it may generate candidate possibilities you then test — never rank them, never select one. Rungs four and five are the boundary, because both require weighing."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why is \"AI may help with summaries\" described as an unusable rule?",
+      "options": [
+        "Because summaries are not a defined work-product type",
+        "Because a summary can sit on any rung, and the same request produces rung-two output or rung-four output depending on how it was phrased",
+        "Because summarization is prohibited for confidential material",
+        "Because summaries cannot be verified against sources"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which is why the control is the rung boundary rather than the task: \"AI may establish what exists and may not weigh it\" is a rule you can apply to a single sentence."
+    },
+    {
+      "id": "q6",
+      "prompt": "Which rung does the module identify as the most valuable for AI?",
+      "options": [
+        "Observation, because transcription saves the most time",
+        "Corroboration — locating what exists, what conflicts, and what is missing, which is where cases are won and lost",
+        "Inference, because generating possibilities is where models are strongest",
+        "Finding, with human review"
+      ],
+      "correctIndex": 1,
+      "explanation": "The missing statement, the document nobody requested, the witness nobody interviewed. The ladder tells you where the leverage is, not only where AI stops."
+    },
+    {
+      "id": "q7",
+      "prompt": "Why is intake triage the highest-risk automation target in this function? `[V]`",
+      "options": [
+        "Because intake volumes are the highest of any process",
+        "Because it is a determination about whether an allegation is investigated at all, and the person whose complaint was downgraded never appears in your substantiation data — so the failure is structurally unmeasurable",
+        "Because intake records are the most likely to be discoverable",
+        "Because triage rules change frequently as policy changes"
+      ],
+      "correctIndex": 1,
+      "explanation": "And worse than the general case elsewhere in this curriculum, because this person had a right to be heard and knows they raised something. Your metrics show a healthy function; their experience is that nothing happened."
+    },
+    {
+      "id": "q8",
+      "prompt": "What does the module recommend adding regardless of how you handle triage? `[V]`",
+      "options": [
+        "A second reviewer on every intake decision",
+        "Automated keyword flagging for protected-characteristic language",
+        "Tracking downgraded and closed-at-intake matters as a category, with a reason and a named decider, and sampling them",
+        "A fixed minimum investigation for every complaint received"
+      ],
+      "correctIndex": 2,
+      "explanation": "Not to second-guess every call — to find out whether the pattern of \"no\" has a shape. It is the only way the invisible failure becomes visible, and 38% of organizations have no required process that would catch it otherwise."
+    }
+  ]
+}

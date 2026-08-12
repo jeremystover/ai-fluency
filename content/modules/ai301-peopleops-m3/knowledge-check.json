@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What does the module identify as the more revealing half of the AI-policy statistics? `[V]`",
+      "options": [
+        "That 51% of organizations have no formal AI use policy",
+        "That among organizations which do have one, 54% say it is too tied to today's specific tools and 23% say it is too broad — so roughly three in four that did the work think the artifact doesn't function",
+        "That policies are usually written by legal rather than HR",
+        "That employees are largely unaware their organization has a policy"
+      ],
+      "correctIndex": 1,
+      "explanation": "The 51% is a compliance gap. The 54%/23% split is a design failure, and it repeats because everyone makes the same mistake — naming products, which gives a policy a shelf life equal to the vendor's release cadence."
+    },
+    {
+      "id": "q2",
+      "prompt": "What is the difference between a policy and an enablement decision?",
+      "options": [
+        "A policy is mandatory; an enablement decision is advisory",
+        "A policy is written by HR; an enablement decision is written by IT",
+        "A policy governs people and succeeds if they can comply without asking anyone; an enablement decision governs a system and succeeds if it explains a choice somebody made to an auditor",
+        "They are the same document at different levels of detail"
+      ],
+      "correctIndex": 2,
+      "explanation": "Most organizations wrote the first and believe it covers the second. The missing document is the one this role owns, and Module 7 asks for its signature."
+    },
+    {
+      "id": "q3",
+      "prompt": "Which of the eight questions does the module say uncovers the most real problems?",
+      "options": [
+        "What population does it reach",
+        "What does it write versus read",
+        "What happens when it is wrong at 3am on a Saturday — because the answer is usually a named person who lacks the access they would need",
+        "Who is accountable by name"
+      ],
+      "correctIndex": 2,
+      "explanation": "The others surface design gaps. This one surfaces the gap between the named responder and their actual permissions, which only appears when you check."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why is \"with human oversight\" not an answer to the human-gate question?",
+      "options": [
+        "Because oversight must be documented in the contract",
+        "Because it names no person, no step, and says nothing about whether that person has the authority or the time to refuse — a gate staffed by someone with 400 items a day and no mandate to reject is not a gate",
+        "Because human oversight is prohibited under the EU AI Act",
+        "Because oversight should be automated for consistency"
+      ],
+      "correctIndex": 1,
+      "explanation": "It is a reassurance shaped like an answer. The test is whether refusal is actually available to the named person."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why does the autonomy ladder from 201 M5 need rethinking for a vendor-built capability?",
+      "options": [
+        "Because vendor capabilities are always more autonomous than self-built ones",
+        "Because the ladder still describes the risk exactly, but you control none of its rungs — what autonomy, evidence and stopping power you have are contractual facts fixed at signature",
+        "Because the ladder only applies to workflows involving employee data",
+        "Because vendors implement the middle rung by default"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which turns an engineering question into a procurement one, and your leverage exists exactly once — before you sign. Afterwards you have a renewal in eighteen months and an obligation today."
+    },
+    {
+      "id": "q6",
+      "prompt": "How should the *Kistler v. Eightfold* litigation be characterized? `[V]`",
+      "options": [
+        "A ruling establishing that AI hiring tools are consumer reporting agencies under FCRA",
+        "A settled case that changed employer obligations for candidate data",
+        "A pending complaint in the pleading stage with no ruling on a motion to dismiss — a live question rather than a holding",
+        "Irrelevant to People Operations, since it concerns recruiting tools"
+      ],
+      "correctIndex": 2,
+      "explanation": "Carry the posture accurately; anyone saying the law has changed is ahead of the record. And D is wrong for a specific reason: the questions it raises — where data came from, whether the subject was told, whether a dispute path exists — are data-flow and workflow questions, which are this role's artifacts."
+    },
+    {
+      "id": "q7",
+      "prompt": "What is the transferable provenance question the module extracts?",
+      "options": [
+        "Whether the vendor has a SOC 2 report covering its data sources",
+        "Whether the capability's output depends on data its subject has never seen — because a disclosure-and-dispute path will eventually be demanded, and retrofitting one across a live integration is a project",
+        "Whether third-party data is stored inside your tenancy",
+        "Whether the data was obtained with consent from the original platform"
+      ],
+      "correctIndex": 1,
+      "explanation": "It applies to every AI feature in the stack, not only candidate-facing ones. Asking before enablement costs one line in a review."
+    },
+    {
+      "id": "q8",
+      "prompt": "Why does the module say sandbox testing rarely answers the real question?",
+      "options": [
+        "Because sandbox environments run older software versions",
+        "Because sandboxes have synthetic data, no integration traffic and no real users — while the failures that matter are integration failures and human failures",
+        "Because sandbox results cannot be included in an audit trail",
+        "Because vendors restrict AI features in non-production environments"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sandbox proves the feature exists and functions. Use it for the rollback rehearsal, then pilot in production on a scoped population — which is only possible if the capability can be scoped, which is why that is question one."
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why is process quality not the primary defence in a disparate-treatment claim?",
+      "options": [
+        "Because procedural fairness is presumed unless challenged",
+        "Because the claim turns on whether a similarly situated person outside the protected class was treated differently — so you can run an impeccable investigation and lose because of a matter in another unit two years ago",
+        "Because process quality cannot be evidenced after the fact",
+        "Because tribunals defer to the employer on process questions"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nothing in your file is wrong. The problem is not in your file at all — which is why consistency rather than thoroughness is the thing to be able to demonstrate."
+    },
+    {
+      "id": "q2",
+      "prompt": "What is the information asymmetry the module describes?",
+      "options": [
+        "Opposing counsel has access to industry benchmarks you do not",
+        "Opposing counsel searches your case history systematically with discovery and weeks; you ask a colleague in the ten minutes before a decision meeting",
+        "Employees know their own history better than the employer does",
+        "Case management vendors withhold analytical features"
+      ],
+      "correctIndex": 1,
+      "explanation": "Same analysis, worse tools, less time — and a memory that reconstructs the past in the direction of the decision you are about to make."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why does substantiation by issue type matter more than an overall substantiation rate? `[V]`",
+      "options": [
+        "Because regulators require issue-level reporting",
+        "Because an aggregate rate hides the split that matters — 75% for policy breaches and 25% for harassment complaints are completely different institutional facts, and the second is the kind of number that appears in a claim",
+        "Because issue types correlate with investigation cost",
+        "Because it allows benchmarking against peers"
+      ],
+      "correctIndex": 1,
+      "explanation": "Only 32% of organizations track it at that granularity, which means for most, the pattern they most need to see is invisible in their own system."
+    },
+    {
+      "id": "q4",
+      "prompt": "Which of these is a permitted AI use in comparator work?",
+      "options": [
+        "\"Based on the three comparable matters, what outcome would be consistent?\"",
+        "\"What is the usual outcome for this conduct in our organization?\"",
+        "\"Find closed matters in this conduct category and extract the outcome, the stated factors, and the deciding manager for each.\"",
+        "\"Which of these prior matters is most similar to the current one?\""
+      ],
+      "correctIndex": 2,
+      "explanation": "Retrieval and extraction, rung two. A is a determination. B produces a central tendency and is the flattening failure. D is a similarity judgment that decides which precedent governs, which is the human's job."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why is asking for \"the usual outcome\" the wrong request?",
+      "options": [
+        "Because averages are statistically unreliable on small numbers",
+        "Because a central tendency erases the legitimate differences behind the distribution, so deviating from it now looks like an anomaly requiring justification — you have converted defensible individual decisions into a norm you can be measured against",
+        "Because outcome data is often incomplete",
+        "Because it requires access to matters outside your business unit"
+      ],
+      "correctIndex": 1,
+      "explanation": "An AI that flattens your case history into an average is manufacturing the disparate-treatment argument on your opponent's behalf. Ask for the matters and their factors — ten rows you can read beat one sentence you cannot check."
+    },
+    {
+      "id": "q6",
+      "prompt": "What does \"consistency is not uniformity\" mean in practice?",
+      "options": [
+        "That outcomes should vary to avoid appearing formulaic",
+        "That identical conduct with different aggravating factors properly produces different outcomes — and the file has to contain why, written by the person who decided",
+        "That consistency applies within business units but not across them",
+        "That precedent is advisory rather than binding in internal processes"
+      ],
+      "correctIndex": 1,
+      "explanation": "The comparator analysis tells you that a *why* is required. It does not supply the why."
+    },
+    {
+      "id": "q7",
+      "prompt": "How does a legal comparator differ from a statistical control group?",
+      "options": [
+        "A comparator must be from the same business unit; a control group need not be",
+        "A single comparator can carry a claim, while a single data point supports no inference — so dismissing a lone comparator as \"n of 1\" is how employers lose",
+        "Comparators are chosen by the employer; control groups by the claimant",
+        "They are the same concept applied in different forums"
+      ],
+      "correctIndex": 1,
+      "explanation": "And the error runs both ways: treating your case history as a dataset to be averaged is how employers manufacture the pattern against themselves. Same word, different instrument."
+    },
+    {
+      "id": "q8",
+      "prompt": "What is the scoping rule for a searchable case corpus?",
+      "options": [
+        "Index everything, and rely on access controls at query time",
+        "ER team access only, never joined to the general enterprise assistant, structured extracts preferred over full narrative documents, and raised with counsel before building",
+        "Retain only closed matters, and only for three years",
+        "Restrict it to matters where the employee has consented to their record being used"
+      ],
+      "correctIndex": 1,
+      "explanation": "An assistant retrieves what its user may reach, and years of accumulated access is wider than anyone intended. And the index is itself a thing that exists — which is what the module's counter-argument is about."
+    }
+  ]
+}

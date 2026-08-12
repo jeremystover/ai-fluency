@@ -1,0 +1,85 @@
+{
+  "reviewedAt": "2026-08-12",
+  "buckets": [
+    { "id": "sense", "label": "Sense", "hint": "Getting the signal somewhere it can be read", "rank": 0, "pct": 10 },
+    { "id": "interpret", "label": "Interpret", "hint": "Turning signal into meaning", "rank": 1, "pct": 26 },
+    { "id": "decide", "label": "Decide", "hint": "What gets said, to whom, when — and whether", "rank": 2, "pct": 42 },
+    { "id": "produce", "label": "Produce", "hint": "Making the artifact", "rank": 3, "pct": 58 },
+    { "id": "distribute", "label": "Distribute", "hint": "Right people, time, channel, language", "rank": 4, "pct": 74 },
+    { "id": "verify", "label": "Verify", "hint": "Was it true, and did it land", "rank": 5, "pct": 90 }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "text": "Setting up a weekly export of the intranet searches that returned no results",
+      "key": "sense",
+      "reasoning": "Collection, not conclusion. Nothing has been decided and no meaning has been made — you have simply moved a signal from somewhere unreadable to somewhere readable. That is the whole of Sense, and it is the cheapest high-value thing on this list."
+    },
+    {
+      "id": "t2",
+      "text": "Sitting in on the regional operations call to hear what supervisors are actually worried about",
+      "key": "sense",
+      "reasoning": "Unglamorous, unbillable, and the highest-fidelity instrument most communicators have. It is Sense because you are collecting raw signal in the place it occurs — before anyone has summarized it for you, which is where most of it is lost."
+    },
+    {
+      "id": "t3",
+      "text": "Turning four hundred unanswered search queries into a ranked list of what the workforce can't find",
+      "key": "interpret",
+      "reasoning": "The queries were Sense. Ranking them into a claim about what people can't find is Interpret — you have made meaning, and you could be wrong. This is the link where a model will happily theme forty tickets into five clean categories whether or not five categories exist."
+    },
+    {
+      "id": "t4",
+      "text": "Reading the pulse results and concluding the problem is one business unit's manager, not the policy",
+      "key": "interpret",
+      "reasoning": "A conclusion drawn from data, and a consequential one — it redirects the response from a policy rewrite to a management conversation. Interpret, and the most expensive place on the chain to be confidently wrong."
+    },
+    {
+      "id": "t5",
+      "text": "Telling the CFO that the \"efficiency\" framing will read as a layoff signal, and that the message should say what it means",
+      "key": "decide",
+      "reasoning": "The clearest Decide card in the set, and the one most often misfiled. You are not making the artifact and you are not distributing it — you are changing what the organization will say. This is counsel, it costs credit rather than building it, and it is the work nobody's job description mentions."
+    },
+    {
+      "id": "t6",
+      "text": "Choosing which four of eleven competing items make this week's digest, and telling seven sponsors no",
+      "key": "decide",
+      "reasoning": "Decide, though it feels like editing. The test: if you did this and produced nothing, would the organization be different? Yes — seven things didn't get said. That is a decision about the workforce's attention, and it is the everyday form of the work Module 3 turns into a kill list."
+    },
+    {
+      "id": "t7",
+      "text": "Drafting the CEO's all-hands script from a twenty-minute briefing",
+      "key": "produce",
+      "reasoning": "Produce, and the canonical example. Note what makes it Produce rather than Decide: the twenty-minute briefing already contained the position. If you also changed what the CEO was going to say, that part was Decide and should be logged separately — the two happen in the same hour and get recorded as one."
+    },
+    {
+      "id": "t8",
+      "text": "Building the manager talking-points kit from the executive message",
+      "key": "produce",
+      "reasoning": "Making an artifact from an existing decision. Module 9 argues this link is where AI's clearest return in the whole function sits — personalized manager enablement was economically impossible at scale and now isn't — but the work itself is Produce."
+    },
+    {
+      "id": "t9",
+      "text": "Scheduling the Slack post to land at 9am local in each region",
+      "key": "distribute",
+      "reasoning": "Distribute. Real work, genuinely necessary, and the link where the difficulty is tooling rather than craft — organizations that invested in a platform solved this years ago, and organizations that didn't are still doing it by hand at midnight."
+    },
+    {
+      "id": "t10",
+      "text": "Segmenting the benefits announcement so night-shift staff get the version about their enrollment window",
+      "key": "distribute",
+      "reasoning": "Distribute, and the version of it that AI genuinely improves — personalization at a finer grain than a channel platform could previously manage. It reduces the attention bill without reducing what anyone can find, which makes it one of the few uses that helps on Module 1's terms."
+    },
+    {
+      "id": "t11",
+      "text": "Confirming against the plan documents that the benefits summary is accurate before it publishes",
+      "key": "verify",
+      "reasoning": "Verify, in its factual half. This is the check that used to happen for free because the person writing the summary had read the plan documents. A model writes it without having read anything, so the check has to be reinstated as a deliberate step — which is Module 5."
+    },
+    {
+      "id": "t12",
+      "text": "Finding out, three weeks later, whether anyone actually understood the enrollment deadline",
+      "key": "verify",
+      "reasoning": "Verify, in its landing half — and the half that almost never has an owner. Note that it is also Sense for the next cycle: what you learn here is signal about what the workforce didn't understand, which is why the chain is worth drawing as a loop rather than a line."
+    }
+  ]
+}

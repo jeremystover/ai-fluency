@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is the difference between collaboration and diagnosis in this module's terms?",
+      "options": [
+        "Collaboration involves stakeholders; diagnosis is done independently by the L&D team",
+        "Collaboration accepts the problem statement as given and delivers well against it; diagnosis refuses the problem statement and establishes what is actually happening",
+        "Collaboration is appropriate for small requests and diagnosis for large ones",
+        "Collaboration is a soft skill and diagnosis is a technical one"
+      ],
+      "correctIndex": 1,
+      "explanation": "Both can be done well or badly. The distinction is whether the requester's framing survives contact — and L&D is rewarded for the first and unmeasured on the second, which is why diagnosis needs to be a scheduled step rather than a value."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why is training a willingness problem described as worse than doing nothing?",
+      "options": [
+        "Because it costs more than other interventions",
+        "Because it damages the credibility of the L&D function with senior stakeholders",
+        "Because it produces evidence that the problem was addressed — the course ran, attendance was high — which buys the real cause a long period of nobody looking",
+        "Because willingness problems always escalate if not addressed immediately"
+      ],
+      "correctIndex": 2,
+      "explanation": "The cost is real but secondary. The damage is the false negative it creates in the organizational record: a problem now marked as handled."
+    },
+    {
+      "id": "q3",
+      "prompt": "What does the money test establish?",
+      "options": [
+        "Whether the intervention is worth its budget",
+        "Whether the person could perform correctly if sufficiently motivated — which separates a knowledge gap from everything else",
+        "Whether incentives are the primary environmental cause",
+        "Whether the request came from a manager with budget authority"
+      ],
+      "correctIndex": 1,
+      "explanation": "If a large enough reward would produce the behaviour tomorrow, the capability is already there and instruction has nothing to add. C is a plausible-sounding distractor: the test rules knowledge in or out, it doesn't identify which environmental cause applies."
+    },
+    {
+      "id": "q4",
+      "prompt": "How does the module treat the 75–80% environmental-causes figure? `[V]`",
+      "options": [
+        "As a well-established empirical finding that should anchor the diagnosis method",
+        "As a fabrication that should be discarded entirely",
+        "As a number with weak provenance — a round range attributed to a model rather than a study — that is worth holding as a prior and not worth citing as evidence",
+        "As accurate for manufacturing environments but not for knowledge work"
+      ],
+      "correctIndex": 2,
+      "explanation": "Both halves matter. It has the same profile as the learning-pyramid percentages the next module dismantles, so it doesn't belong on a slide. But a prior only has to change which questions you ask first, and this one would do that at 60% or 85%."
+    },
+    {
+      "id": "q5",
+      "prompt": "What were the three jobs production time was performing?",
+      "options": [
+        "Quality control, stakeholder management, and budget justification",
+        "The economic filter that killed bad requests, the forced SME conversation that produced diagnosis as a by-product, and the rationing that made choosing necessary",
+        "Instructional design, content development, and review",
+        "Protecting designer headcount, maintaining vendor relationships, and setting expectations"
+      ],
+      "correctIndex": 1,
+      "explanation": "None of them were assigned; all three were side effects of the cost. Which is why removing the cost removes them silently — nobody decided to stop doing them."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why does the module say functions worst at deliberate diagnosis will feel the collapse hardest?",
+      "options": [
+        "Because they have the least experience negotiating with stakeholders",
+        "Because they were most dependent on the accidental diagnosis that slow production produced — being bad at this and slow was survivable, being bad at this and fast is not",
+        "Because they typically have smaller budgets and less political capital",
+        "Because they are more likely to have adopted AI tools early"
+      ],
+      "correctIndex": 1,
+      "explanation": "The protection was inefficiency. Remove it from a function with no deliberate practice underneath and there is nothing left holding the diagnosis in place."
+    },
+    {
+      "id": "q7",
+      "prompt": "What makes a refusal survive contact, according to Lesson 4?",
+      "options": [
+        "Escalating to a sponsor with more authority than the requester",
+        "Citing the research base for why training won't address the problem",
+        "Naming what you found, what training would and wouldn't do, and what you will own instead",
+        "Documenting the refusal formally so the decision is auditable"
+      ],
+      "correctIndex": 2,
+      "explanation": "The third part is load-bearing. A refusal that concludes in nothing you own is indistinguishable from avoidance, and a requester who can route around you in an afternoon will route around you."
+    },
+    {
+      "id": "q8",
+      "prompt": "A learner's diagnosis concludes that the problem belongs to another function and requires nothing from L&D. How should they treat that?",
+      "options": [
+        "As the correct outcome — clean handoffs are the goal of diagnosis",
+        "As a legitimate possible conclusion that becomes a warning sign if it is the systematic pattern, since a diagnosis costing you nothing cannot be distinguished from avoidance",
+        "As evidence the diagnosis was performed incorrectly and should be redone",
+        "As a reason to build the training anyway to preserve the stakeholder relationship"
+      ],
+      "correctIndex": 1,
+      "explanation": "Any single diagnosis can honestly land there. The module's discipline is about the pattern: if yours always do, the requester's suspicion that this is evasion is better evidenced than your claim that it's rigour."
+    }
+  ]
+}

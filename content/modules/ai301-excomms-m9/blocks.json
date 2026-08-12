@@ -1,0 +1,119 @@
+[
+  {
+    "id": "ai301-excomms-m9-calibration-prompt-before-you-start-10",
+    "moduleId": "ai301-excomms-m9",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Calibration prompt — before you start\n\n*One claim. Commit before you read anything.*\n\nHere is a factual assertion about your own organization:\n\n> **\"Our managers get something purpose-built from us when a significant change is announced — not\n> the all-company message with a covering note.\"**\n\n**True of us, or not true of us?** Commit to one, in a sentence.\n\nThen predict one number: **of the manager kit you build in this module's activity, what percentage\nwill the manager you test it with use unchanged?** You'll find out by asking them."
+  },
+  {
+    "id": "ai301-excomms-m9-module-brief-20",
+    "moduleId": "ai301-excomms-m9",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nEvery organization says managers are its most important communication channel. Almost none resources\nthem like one, and the gap between those two facts is the widest stated-priority-versus-investment\ngap in this profession's own data.\n\nThat gap existed for a reason that was, until recently, entirely legitimate: **the thing managers\nactually need was economically impossible to produce.** A generic talking-points document is cheap\nand nearly useless. What a manager needs is the version for *their* team — their people's specific\nexposure to the change, their likely questions, the two things that will land badly in their\ncontext, and language that sounds like a person rather than a corporate artifact read aloud.\n\nProducing that for four hundred managers was never a budget conversation. It was arithmetic, and\nthe arithmetic said no.\n\nThe arithmetic changed. That is the clearest, least contested return on AI anywhere in this track —\nand it comes with a failure mode attached, because the same capability that lets you personalize\nfour hundred kits also lets four hundred managers each generate their own version of your message,\nwhich is the opposite of what a cascade is for."
+  },
+  {
+    "id": "ai301-excomms-m9-learning-objectives-30",
+    "moduleId": "ai301-excomms-m9",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. State the manager enablement gap and why it persisted.\n2. Explain what personalized enablement is, and why it was economically impossible before.\n3. Distinguish sharing data *with* managers from sharing it *about* them, and say what makes the\n   first safe.\n4. Decide what in a cascade must stay identical, what should vary locally, and what shouldn't be in\n   the kit at all."
+  },
+  {
+    "id": "ai301-excomms-m9-lesson-1-the-widest-gap-in-the-data-40",
+    "moduleId": "ai301-excomms-m9",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 · The widest gap in the data [V]\n\nGallagher's *2026 Employee Communications Report* — the same benchmark as Module 1, over 1,300\ncommunications and HR professionals across 40 countries — reports that **87% identify line manager\neffectiveness as a significant risk**, while **21% provide managers with communication toolkits or\nresources.**\n\nSit with the distance between those. Nearly nine in ten organizations name this as a risk. One in\nfive does anything about it.\n\nIt is worth being precise about what that pairing is and isn't. It is not evidence that\ncommunicators are negligent — the same respondents naming the risk are the ones without the\nresources to close it. It is a **stated-priority-versus-investment gap**, and gaps of that shape\nalmost always mean the intervention was unaffordable rather than unwanted.\n\nWhich is exactly what was true here. And it is what makes this the strongest ROI argument in the\ntrack, because you are not asking for budget to do something new. **You are pointing at something\nyour organization already says is a top risk, which it has never resourced, and explaining that the\nreason it was unaffordable has gone away.**\n\nThat argument survives contact with a CFO in a way that \"we'd like to use AI for manager comms\"\nnever will."
+  },
+  {
+    "id": "ai301-excomms-m9-lesson-2-what-managers-actually-need-and-50",
+    "moduleId": "ai301-excomms-m9",
+    "ordinal": 50,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 · What managers actually need, and why you couldn't make it\n\nAsk a manager what they do with the talking points and you will hear some version of: skim them,\ndisagree with one, and improvise. That is not indiscipline. It's because the document was written\nfor the average manager, and no manager is average.\n\nWhat they need is the local version. Concretely:\n\n**Their team's specific exposure.** Not \"some roles will change\" — which of *their* people are\naffected, and how. A manager whose team is untouched has an entirely different conversation from one\nlosing two roles, and a single document cannot serve both.\n\n**The questions their people will actually ask.** Shaped by geography, shift pattern, tenure, and\nwhatever happened on this team last year. The FAQ that anticipates *their* room is worth more than a\ncomprehensive one that anticipates every room.\n\n**The two things that will land badly here**, which the central team often knows and rarely writes\ndown, because writing it down for four hundred managers means writing four hundred different things.\n\n**Language they can say out loud.** Most talking points fail the read-aloud test: a manager who\nreads corporate prose to their team sounds like they don't believe it, and the team is correct to\nnotice.\n\nNow the economics. Producing that for one manager takes a skilled communicator perhaps forty\nminutes — a conversation, a draft, a check. For four hundred managers, that is roughly two hundred\nand sixty person-days per significant change. No communications function on earth has that, which is\nwhy every organization ships the generic version and calls the gap a budget problem.\n\n**With AI, the input is the same forty minutes of thinking — done once, centrally — plus structured\ninputs about each team.** The generation is close to free. What you need instead is the thing this\ntrack has been building: the org data to segment on, the judgment about what varies, and the review\ndiscipline from Module 5 applied to output you didn't write.\n\nThis is the module where Module 2's argument pays off in the direction people find easiest to\nbelieve. The Produce link got cheap, and here that is straightforwardly good — because the thing\nbeing produced was never being produced at all."
+  },
+  {
+    "id": "ai301-excomms-m9-try-60",
+    "moduleId": "ai301-excomms-m9",
+    "ordinal": 60,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### Try this — 3 minutes\nTake the last cascade kit your function issued. Read the first paragraph out loud, in your normal\nspeaking voice. Most people stop halfway. That is the test every manager applies before deciding\nwhether to use your material or improvise."
+  },
+  {
+    "id": "ai301-excomms-m9-lesson-3-with-managers-not-about-them-70",
+    "moduleId": "ai301-excomms-m9",
+    "ordinal": 70,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 · With managers, not about them\n\nThe most useful shift in this module is a preposition, and it is the one that decides whether\nmanagers cooperate with you or route around you.\n\nMost people data reaching managers is **about** them. Their team's engagement score against the\ncompany average. Their attrition rate. Their completion percentages, red or green. It arrives as\nassessment, from above, usually without context and usually too late to act on. The rational\nresponse to a number that grades you is to manage the number, and communicators then wonder why\nengagement scores drift upward while nothing changes.\n\n**With** is different in kind. The same underlying data, delivered as material the manager can use:\n*here is what your team asked about most in the last quarter; here are the three things your people\nsearched for and didn't find; here is where your team's questions differ from the rest of the\nbusiness.* That is not a grade. It's intelligence — and it makes the manager better at a job they\nare already trying to do.\n\nTwo conditions make it work, and skipping either turns *with* back into *about*.\n\n**It must not be comparative by default.** The moment a manager's number sits next to their peers',\nit is assessment regardless of framing.\n\n**And it has to run inside the listening charter from Module 7.** Everything in this lesson is\nemployee signal being routed to the employee's direct supervisor — which is precisely the case the\nreporting floor exists for. A team of five does not get its verbatims forwarded to its manager,\nhowever useful that would be, and the promise made at collection governs. **If Module 7's charter\nand this module's ambition conflict, the charter wins.** A manager-enablement programme that quietly\nbreaches a listening promise will destroy the listening programme, and the listening programme is\nthe more valuable asset."
+  },
+  {
+    "id": "ai301-excomms-m9-lesson-4-the-consistency-problem-80",
+    "moduleId": "ai301-excomms-m9",
+    "ordinal": 80,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 · The consistency problem\n\nThe failure mode, which is the same capability aimed the wrong way.\n\n**Consistency was the entire purpose of a cascade.** Four hundred managers delivering one message so\nthat an employee in Manchester and an employee in Manila learn the same thing, in the same week,\nwith the same commitments attached. The kit existed to constrain variation.\n\nAI makes local variation free. Every manager can now take your kit and generate their own version —\nwarmer, shorter, in their voice, tuned to their team. Each individual result is often *better* than\nwhat you supplied. And in aggregate you have four hundred slightly different accounts of a\nrestructure, which is how an organization ends up with commitments it never made.\n\nThe response is not to forbid it, which won't work and shouldn't. It is to **build the distinction\ninto the kit** so that a manager improvising is improvising in the right places.\n\n**Must stay identical.** Anything that is a commitment, a number, a date, an entitlement, or a\nstatement about who is affected. These are load-bearing, they will be compared across teams, and a\nmanager rephrasing them creates a discrepancy that reads as either incompetence or concealment.\nMark them as fixed in the kit itself, and say why — managers comply with constraints they understand\nand route around ones they don't.\n\n**Should vary locally.** Framing, ordering, emphasis, examples, what to address first, and how much\ntime to spend. This is what the manager knows and you don't, and a kit that constrains it produces\nthe read-aloud failure from Lesson 2.\n\n**Shouldn't be in the kit at all.** Anything requiring judgment the manager isn't equipped to make —\nindividual employment consequences, legal characterizations, anything about a named person's\nsituation. Put in the kit: who to call. Every one of these that lands in a talking-points document\nbecomes four hundred improvised answers to a question that has exactly one correct answer.\n\nStating the three categories explicitly, inside the kit, is the entire intervention. It costs a\nparagraph and it is the difference between a cascade that holds and four hundred versions of your\nmessage you will spend the next month correcting."
+  },
+  {
+    "id": "ai301-excomms-m9-key-takeaways-90",
+    "moduleId": "ai301-excomms-m9",
+    "ordinal": 90,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **The widest gap in the profession's own data** `[V]`: 87% identify line manager effectiveness as\n  a significant risk; 21% provide toolkits. A stated-priority-versus-investment gap, which almost\n  always means the intervention was unaffordable rather than unwanted.\n- **What managers need is the local version** — their team's specific exposure, the questions their\n  people will actually ask, the two things that will land badly here, and language that passes the\n  read-aloud test.\n- **It was arithmetic, not budget.** Forty minutes per manager × four hundred managers ≈ 260\n  person-days per change. Now the forty minutes of thinking happens once and generation is close to\n  free — which makes this the strongest ROI argument in the track, because you're pointing at a\n  named top risk your organization has never resourced and explaining that the reason has gone away.\n- **With, not about.** Data that grades a manager gets managed; data that helps them gets used. Not\n  comparative by default — and **if the listening charter and this module's ambition conflict, the\n  charter wins**, because a breached listening promise destroys the more valuable asset.\n- **Consistency was the point of a cascade, and AI makes local variation free** — four hundred\n  better-sounding versions is how an organization acquires commitments it never made.\n- **Three categories, stated inside the kit:** must stay identical (commitments, numbers, dates,\n  entitlements, who's affected — with the reason given), should vary locally (framing, order,\n  emphasis, examples), and shouldn't be there at all (individual consequences, legal\n  characterizations — put in who to call instead)."
+  },
+  {
+    "id": "ai301-excomms-m9-exercise-embed-95",
+    "moduleId": "ai301-excomms-m9",
+    "ordinal": 95,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\":\"sorting\"}"
+  },
+  {
+    "id": "ai301-excomms-m9-take-a-position-100",
+    "moduleId": "ai301-excomms-m9",
+    "ordinal": 100,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"Your managers are your highest-bandwidth channel and your least-resourced one, and\nyou've been calling that a budget problem.\"*\n\nThe strongest counter-argument is that **the constraint was never production cost, and this module\nhas misdiagnosed a capability problem as a materials problem.** Managers don't fail to deliver\nchange messages because the talking points were generic. They fail because delivering bad news well\nis a hard interpersonal skill, because they often disagree with the decision, because they weren't\nconsulted and resent it, and because they are protecting relationships with people they'll manage\nfor years. **A better kit does not touch any of that.** On this reading, four hundred beautifully\npersonalized documents produce four hundred managers who still avoid the conversation, and the\nhonest intervention is manager development — which is somebody else's budget and somebody else's\nfunction.\n\nThere is a sharper edge for this audience specifically. **Personalized kits at scale may make it\nworse**, by making it easier for a manager to deliver a message they don't believe — smoothly,\nwithout engaging with it, and without the friction that used to force them to work out what they\nactually thought.\n\nTake a position on that, in writing, in the activity. The strongest submissions say what they saw\nin the real manager they tested with — because that manager's reaction is direct evidence about\nwhether the constraint was materials or something else."
+  },
+  {
+    "id": "ai301-excomms-m9-activity-link-105",
+    "moduleId": "ai301-excomms-m9",
+    "ordinal": 105,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\":\"activity_link\",\"title\":\"Applied activity — One asset, one manager\",\"blurb\":\"A local kit built for one real manager's team on one real change, marked must-stay-identical / vary-locally / not-in-the-kit — then given to them, with three questions asked and their actual response recorded. The only activity in this track you cannot verify alone. Graded against a five-dimension rubric. Free unlimited resubmission.\",\"estMinutes\":\"25\"}"
+  },
+  {
+    "id": "ai301-excomms-m9-sources-and-attribution-110",
+    "moduleId": "ai301-excomms-m9",
+    "ordinal": 110,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- **Gallagher, *2026 Employee Communications Report*** — 87% identifying line manager effectiveness\n  as a significant risk against 21% providing communication toolkits or resources. Sample and\n  verification note as recorded in Module 1's sources. **[V]**\n- The arithmetic of personalized enablement, the with-versus-about distinction and its two\n  conditions, and the three-category cascade split are original to this course.\n- **Cross-track note:** the HRBP track's Module 7 also works manager capability, from the other\n  side — coaching managers on their *own* AI use, and the allocation-as-equity argument about who\n  gets human support. This module arms managers with a message; that one fixes how they use the\n  tools. No learner sees both tracks, and the two are written to stay reconcilable.\n- Structure and topic coverage follow the AI Fluency Framework (Dakan & Feller, in collaboration\n  with Anthropic, CC BY-NC-SA 4.0); prose is original."
+  }
+]

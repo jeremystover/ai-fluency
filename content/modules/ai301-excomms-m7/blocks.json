@@ -1,0 +1,128 @@
+[
+  {
+    "id": "ai301-excomms-m7-counsel-review-required-10",
+    "moduleId": "ai301-excomms-m7",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## ⚖️ Counsel review required\n\n**This module is the counsel gate for this track.** Lessons 3 and 4 describe an absolute\nprohibition, a definitional limit on that prohibition, four separate legal regimes, and an\nenforcement posture that reversed within the last eighteen months. Every one of those is capable of\nmoving between review cycles, and two of them apply differently depending on where a single\nemployee happens to sit.\n\n**Before this module ships in any deployment**, Lessons 3 and 4 need a read by counsel qualified in\nthat deployment's jurisdictions. **Before you field anything you design here**, your own programme\nneeds the same — and in the EU, works council consultation is frequently a precondition rather than\na courtesy.\n\nNothing in this module is legal advice. What it is for is making sure that when you talk to counsel\nyou arrive with a specific, answerable question rather than \"are we allowed to do sentiment\nanalysis?\" — which gets you a shrug, and deserves one."
+  },
+  {
+    "id": "ai301-excomms-m7-calibration-prompt-before-you-start-20",
+    "moduleId": "ai301-excomms-m7",
+    "ordinal": 20,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Calibration prompt — before you start\n\n*One claim. Commit before you read anything.*\n\nHere is a factual assertion about your own organization:\n\n> **\"The promise we made when we last fielded an employee survey would survive an audit of what we\n> actually did with the responses.\"**\n\n**True of us, or not true of us?** Commit to one, in a sentence. The promise is whatever the\nintroduction, the privacy note, or the platform's default text actually said — not what you\nintended.\n\nThen predict one number: **how many distinct sources of unread employee signal does your\norganization already hold?** Not surveys — things nobody has ever analyzed. Intranet search logs,\nhelp-desk tickets, all-hands Q&A submissions, Slack help channels, exit interview text, unanswered\nquestions. You'll inventory them in the activity."
+  },
+  {
+    "id": "ai301-excomms-m7-module-brief-30",
+    "moduleId": "ai301-excomms-m7",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nThis is the module with the largest upside in the track, and the largest way to destroy the thing\nthe rest of the track is protecting. Both halves are the same capability.\n\nYour function has always been sitting on the highest-fidelity record in the organization of what\nemployees actually do not understand. Not what they say in a survey when asked a question you wrote\n— what they typed into a search box at 11pm because they genuinely needed to know something and\ncouldn't find it. Every organization holds this. Almost none reads it, because reading four hundred\nthousand unstructured strings was not a thing a communications team could do.\n\nIt is now. That is the unlock, and it is real.\n\nThe same capability, pointed slightly differently, reads what employees said to each other. And the\ndistance between those two things is smaller than it feels from inside a product demonstration:\nboth are \"analyze unstructured employee text at scale.\" One tells you the enrollment page is\nunfindable. The other tells you which team is unhappy, which sounds adjacent and is a different\nactivity with a different legal surface and a different effect on trust.\n\nThis module is about doing the first at full volume and knowing exactly where it becomes the second."
+  },
+  {
+    "id": "ai301-excomms-m7-learning-objectives-40",
+    "moduleId": "ai301-excomms-m7",
+    "ordinal": 40,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. Inventory the unread signal your organization already holds, and rank it by fidelity.\n2. Name the interpretation trap and the re-identification problem, and say how each differs from\n   the small-sample problem you already know.\n3. State what the EU AI Act's workplace emotion-recognition prohibition actually covers — and what\n   it does not.\n4. Name the four regimes that govern employee listening where that prohibition doesn't reach, and\n   explain why designing against enforcement posture is a mistake.\n5. Write a listening charter that binds what you may do to what you promised."
+  },
+  {
+    "id": "ai301-excomms-m7-lesson-1-the-unread-signal-50",
+    "moduleId": "ai301-excomms-m7",
+    "ordinal": 50,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 · The unread signal\n\nStart with the inventory, because most people underestimate what they already have.\n\n**Intranet and search logs.** Every query, including the ones that returned nothing. Zero-result\nsearches are the single highest-value dataset in this list: each one is a person who needed\nsomething specific enough to type it and did not get it. No survey produces information that clean.\n\n**Help-desk and HR service tickets.** What people asked, in their words, with a timestamp and a\nresolution. Volume spikes after a communication are a direct measure of whether it worked.\n\n**All-hands Q&A submissions**, especially the unanswered ones and the ones asked repeatedly across\nquarters. A question asked three quarters running is not a question; it is a finding.\n\n**Slack or Teams help channels** — the public ones people use to ask \"where do I find,\" which are\nfunctionally a help desk nobody instrumented.\n\n**Open text you already collected.** Exit interviews, onboarding surveys, pulse comments. Usually\nread once, summarized into a slide, and never touched again.\n\nTwo properties make this material different from a survey, and both matter.\n\n**It is unprompted.** A survey measures response to your question. This measures what someone\nneeded, unbidden, which means it is not shaped by what you already thought to ask — and the things\nyou didn't think to ask are precisely the gaps a communications function is blind to.\n\n**It is behavioural.** Somebody did something. Search is a costly signal in the technical sense:\ntyping a query takes effort and is only worth it if you actually need the answer.\n\nThe practical starting point is the cheapest one: **zero-result searches, ranked by frequency, for\nthe last quarter.** In most organizations this is a report somebody in IT can produce in an\nafternoon, and in the broadcast-desk shape from Module 4 it is already sitting inside the platform\nyou pay for. It is not a purchase. It is a request."
+  },
+  {
+    "id": "ai301-excomms-m7-try-60",
+    "moduleId": "ai301-excomms-m7",
+    "ordinal": 60,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### Try this — 3 minutes\nWrite down the three things you are most confident your workforce understands about a recent\nchange. Now write down what you would search for if you did *not* understand each one. Those are\nthe three queries to check first, and the check either confirms your confidence or is the most\nuseful thing you'll learn this month."
+  },
+  {
+    "id": "ai301-excomms-m7-lesson-2-the-interpretation-trap-and-the-70",
+    "moduleId": "ai301-excomms-m7",
+    "ordinal": 70,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 · The interpretation trap, and the other small-numbers problem\n\nTwo failure modes, and neither is the one you already know from 101.\n\n**The interpretation trap.** Give a model four hundred tickets and ask for themes, and you will get\nthemes. Five of them, cleanly named, plausibly distributed, with representative quotes. You will get\nthat output whether or not five themes exist, whether the underlying distribution is one dominant\nissue and noise, or four hundred unrelated individual problems.\n\nThe model is not lying. Thematic synthesis is a task with no natural failure signal — there is no\nequivalent of a hallucinated citation you can check. The output looks identical whether the\nstructure is real or imposed.\n\nThree defences, and they are cheap:\n\n**Ask for the distribution, not the themes.** How many of the four hundred fall into each? A theme\ncovering eleven items out of four hundred is a footnote presented as a finding.\n\n**Ask what doesn't fit.** A model asked for themes will assign everything. A model asked \"what\ndidn't fit any theme, and how much of it is there?\" reports the residual — and a large residual is\nthe most informative single number in the analysis.\n\n**Run it twice, separately, and compare.** Genuinely structured data themes consistently. Imposed\nstructure moves. This costs one extra run and catches most of it.\n\n**And re-identification, which is not the small-sample problem.** You have met small-N before: a\npopulation too small to support the inference, where the fix is a confidence interval or a refusal\nto conclude. This is different in kind.\n\nHere, the analysis may be perfectly sound and the problem is that **the output identifies people\nagainst a promise you made.** \"Three respondents from a team of five raised concerns about their\nmanager\" is not a statistical error — it may be entirely accurate. It is a disclosure. The manager\nreading it knows who the two silent ones probably are. And the promise made at fielding time said\nthis wouldn't happen.\n\nThe fix is not a confidence interval. It is a **reporting floor** — a minimum cell size below which\nresults are not reported at all, decided in advance, applied without exception, and stated in the\npromise itself. Set before you see the data, because a floor you can waive when the finding is\ninteresting is not a floor.\n\nFree text makes this much harder than counts, and it's worth saying plainly: **a verbatim can\nidentify someone even in a large group.** A comment referencing a specific project, a specific\nmeeting, or a distinctive turn of phrase is identifying regardless of how many people were in the\nsample. Which means a reporting floor on counts is necessary and not sufficient, and verbatims need\ntheir own rule."
+  },
+  {
+    "id": "ai301-excomms-m7-lesson-3-the-prohibition-read-properly-80",
+    "moduleId": "ai301-excomms-m7",
+    "ordinal": 80,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 · The prohibition, read properly [V]\n\nNow the law, starting with the thing everyone has half-heard.\n\n**The EU AI Act prohibits AI systems that infer emotions in the workplace.** Article 5(1)(f). In\nforce since **2 February 2025**. It is an outright prohibition, not a risk to manage — with narrow\nexceptions for medical or safety purposes. Prohibited practices carry the Act's heaviest penalties.\n\nMost people in this profession have heard some version of that and concluded that sentiment analysis\nof employee messages is illegal in Europe. **That conclusion is very probably wrong, and the reason\nis worth understanding properly, because the reasoning transfers.**\n\nThe text of the prohibition does not itself say \"biometric.\" But the European Commission's guidance\nties the prohibition to the Act's defined term — an *emotion recognition system* is defined as an\nAI system for identifying or inferring emotions or intentions of natural persons **on the basis of\ntheir biometric data**. Biometric data means data resulting from technical processing of physical,\nphysiological or behavioural characteristics: faces, voices, gait, physiological signals.\n\nSo the line falls in a place most summaries miss:\n\n- **A camera inferring engagement from faces in a town hall.** Squarely prohibited.\n- **Voice-stress analysis on recorded calls.** Squarely prohibited.\n- **Sentiment scoring of Slack messages or survey verbatims.** Text is not biometric data. Very\n  probably outside the prohibition — and genuinely unsettled at the edges, particularly where the\n  inference drives decisions about individuals.\n\nThree things follow, and the third is the one to carry.\n\n**First, the thing everyone assumes is banned mostly isn't** — which means \"we can't, it's illegal\nin the EU\" is not available to you as a reason, and if you have been using it, you have been winning\nan argument on a premise that won't survive the first person who checks.\n\n**Second, the thing nobody worries about is squarely prohibited.** Emotion analytics bundled into a\nvideo platform, a webcam-based engagement product, a voice tool in a contact centre — these arrive\nas features, get switched on by someone who never framed it as emotion recognition, and are exactly\nwhat Article 5(1)(f) is aimed at.\n\n**Third, and this is the transferable part: *not prohibited* is not *cleared*.** Text sentiment\nanalysis escaping this prohibition tells you nothing about whether it is lawful under data\nprotection law, whether it requires works council consultation, whether your monitoring notice\ncovers it, or whether it is a good idea. It clears exactly one gate of at least four."
+  },
+  {
+    "id": "ai301-excomms-m7-lesson-4-what-actually-governs-it-90",
+    "moduleId": "ai301-excomms-m7",
+    "ordinal": 90,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 · What actually governs it [V]\n\nFour regimes, and none of them is the one from Lesson 3.\n\n**Data protection, in the EU and increasingly elsewhere.** Employee data is processed under a legal\nbasis, and in the employment context consent is generally a weak basis because the power imbalance\nundermines its freeness. Profiling employees from their communications is high-risk processing that\ntypically demands a documented assessment before it starts. This is usually the binding constraint,\nand it is the one that gets skipped because it doesn't have a headline attached.\n\n**Works councils and co-determination.** In Germany, the Netherlands, France and elsewhere,\nintroducing a system capable of monitoring employee behaviour or performance is frequently subject\nto consultation or co-determination rights. Practically: **the works council can stop this, and\n\"we already built it\" is the worst possible position to consult from.** If your organization has\none, they are a stakeholder before the pilot, not after it.\n\n**US federal and state monitoring law.** Under the ECPA, employer monitoring generally proceeds on\nconsent, typically established through handbook acknowledgment. Layered on top are state notice\nregimes — and note what they require:\n\n- **New York** (effective May 2022): private employers monitoring telephone, email or internet usage\n  must give written or electronic notice on hire, obtain acknowledgment, and post it conspicuously.\n  Attorney-General enforced, with escalating penalties of $500, $1,000, and $3,000 per violation.\n- **Connecticut** (Gen. Stat. § 31-48d): written notice covering all forms of electronic monitoring,\n  a conspicuously posted notice describing the methods, and employee acknowledgment. Penalties from\n  $500 to $3,000.\n- **Delaware**: either a daily electronic reminder when employees log on to monitored systems, or a\n  single written notice with acknowledgment. $100 per violation.\n\n**These are notice regimes, not consent regimes.** They do not prohibit monitoring; they require you\nto have said you were doing it. Which turns the practical question into a specific and checkable\none: **does the notice your employees actually acknowledged cover what you are proposing to build?**\nA notice from 2019 saying \"telephone, email and internet usage may be monitored\" is not obviously a\nnotice that you will run sentiment inference across internal chat. That is a question for counsel,\nand it is answerable — unlike \"are we allowed to do this?\"\n\n**And the National Labor Relations Act, where the instructive thing is what changed.** Section 7\nprotects employees engaging in concerted activity, and surveillance that would tend to interfere\nwith it has long been unlawful under settled Board law. In October 2022 the NLRB General Counsel\nissued a memorandum, **GC 23-02**, signalling aggressive enforcement against intrusive electronic\nmonitoring and algorithmic management. Anyone designing a listening programme in 2023 or 2024 treated\nit as the governing constraint.\n\n**GC 23-02 was rescinded on 14 February 2025**, among 31 rescinded memoranda.\n\nRead what did and didn't happen there. **The statute did not change. Section 7 says exactly what it\nsaid. The Board's decisional law is where it was.** What changed was the enforcement appetite of one\noffice, which is a thing that changes with administrations, in both directions.\n\n> **A compliance programme designed against an enforcement posture breaks when the posture flips.\n> Design against the underlying duty instead.**\n\nThat principle is the most valuable thing in this module, and it outlives every specific in it. A\nteam that built its listening rules in 2023 around a General Counsel memo now has rules with no\nfoundation. A team that built them around \"don't build systems that would tend to chill protected\nconcerted activity\" has rules that are exactly as valid as they were, and will still be valid when\nthe posture flips back.\n\n### The rule that survives all four\n\nYou will not resolve four regimes, in every jurisdiction you operate in, from a module. What you can\ncarry is the rule that binds regardless:\n\n> **The promise you made when you fielded it governs what you may do with the answers — whatever the\n> tool is now capable of.**\n\nCapability arriving after the promise does not amend the promise. If the survey said responses are\nanonymous and reported only in aggregate, then a model that could now identify patterns by team does\nnot get to, and the fact that it is technically trivial is not an argument. This is not a legal\nstandard. It is the one that keeps the instrument working, because a listening programme people stop\ntrusting stops producing signal, at which point you have destroyed the asset to get one quarter's\ninsight out of it."
+  },
+  {
+    "id": "ai301-excomms-m7-key-takeaways-100",
+    "moduleId": "ai301-excomms-m7",
+    "ordinal": 100,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **The unread signal is already yours** — zero-result searches, help-desk tickets, repeated\n  all-hands questions, help channels, and open text collected once and never re-read. Unprompted and\n  behavioural, which is what makes it better than a survey. Start with zero-result searches; it's a\n  request, not a purchase.\n- **The interpretation trap:** thematic synthesis has no natural failure signal. Ask for the\n  distribution, ask what didn't fit and how much, and run it twice to see whether the structure\n  holds.\n- **Re-identification is not the small-sample problem.** The analysis can be sound and still\n  disclose. The fix is a **reporting floor** set before you see the data — and because a verbatim\n  can identify someone in any size group, verbatims need their own rule on top.\n- **Article 5(1)(f) is narrower than it reads** `[V]`. In force since 2 February 2025 and absolute,\n  but tied by Commission guidance to inference from **biometric data** — so faces in a town hall and\n  voice-stress analysis are squarely prohibited, while text sentiment very probably isn't. The thing\n  everyone assumes is banned mostly isn't; the thing nobody worries about squarely is.\n- **Not prohibited is not cleared.** Escaping Article 5 clears one gate of at least four.\n- **Four regimes actually govern it** `[V]`: data protection (usually the binding one, and the one\n  that gets skipped); works councils, who can stop this and should be consulted before the pilot;\n  US notice regimes in New York, Connecticut and Delaware — **notice, not consent**, so the question\n  is whether the notice your employees acknowledged covers what you're building; and NLRA §7.\n- **GC 23-02 was rescinded in February 2025** `[V]`. The statute didn't move; the enforcement\n  appetite did. **Design against the duty, not the posture** — that principle outlives every\n  specific in this module.\n- **The promise you made when you fielded it governs what you may do with the answers.** Capability\n  arriving later does not amend it."
+  },
+  {
+    "id": "ai301-excomms-m7-exercise-embed-105",
+    "moduleId": "ai301-excomms-m7",
+    "ordinal": 105,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\":\"sorting\"}"
+  },
+  {
+    "id": "ai301-excomms-m7-take-a-position-110",
+    "moduleId": "ai301-excomms-m7",
+    "ordinal": 110,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"'The tool could do it' and 'we told them we wouldn't' are both true. Only one of\nthem is a decision.\"*\n\nThe strongest counter-argument is that **this treats the promise as sacred when the promise was\nmostly boilerplate nobody read, and in doing so protects the organization's comfort rather than the\nemployee's interest.** Most survey anonymity language was written by a vendor, pasted by an\nadministrator, and skimmed by nobody. Treating it as a binding constraint means a real signal —\na team in genuine distress, a manager causing harm — goes unexamined because of a sentence nobody\nauthored and nobody relied on. On that reading, the ethical move is sometimes to look, and the\nhonest response is to *change the promise going forward* rather than let a dead sentence prevent\nyou from acting on something that matters.\n\nThere is a sharper version. **The promise-based rule systematically protects the powerful.** The\npatterns most likely to be suppressed by a reporting floor are the ones concentrated in small teams\n— which is exactly where a bad manager's effects show up, and exactly the population least able to\nescalate through normal channels. A floor set at five may be protecting the manager rather than the\nfive.\n\nTake a position on that, in writing, in the activity. The strongest submissions say what they would\nactually do with a small-team signal that suggests harm — because \"the floor forbids it\" is a\npolicy, not an answer, and every listening programme eventually meets this case."
+  },
+  {
+    "id": "ai301-excomms-m7-activity-link-115",
+    "moduleId": "ai301-excomms-m7",
+    "ordinal": 115,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\":\"activity_link\",\"title\":\"Applied activity — The unread signal inventory and charter\",\"blurb\":\"Every source of unread employee signal your organization already holds, one 30-day pilot answering a single named question, and the charter that binds it: what was promised (quoted exactly), the reporting floor, the separate rule for verbatims, and which of the four regimes you have not checked. Graded against a five-dimension rubric. Free unlimited resubmission.\",\"estMinutes\":\"25\"}"
+  },
+  {
+    "id": "ai301-excomms-m7-sources-and-attribution-120",
+    "moduleId": "ai301-excomms-m7",
+    "ordinal": 120,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- **EU AI Act, Article 5(1)(f)** — the workplace emotion-recognition prohibition, in force 2\n  February 2025, absolute save for medical and safety purposes; and the European Commission's\n  guidance linking it to the Act's definition of an emotion recognition system, which is limited to\n  inference from biometric data. **Counsel review required — see the gate at the top.** **[V]**\n- **NLRB General Counsel Memorandum GC 23-02** (October 2022) on electronic surveillance and\n  algorithmic management, **rescinded 14 February 2025** among 31 rescinded memoranda. Cited for the\n  posture-versus-duty lesson rather than as guidance. **[V]**\n- **US state electronic-monitoring notice regimes** — New York (notice on hire, acknowledgment,\n  conspicuous posting; AG-enforced at $500 / $1,000 / $3,000), Connecticut (Gen. Stat. § 31-48d;\n  $500–$3,000), Delaware (daily logon reminder or single acknowledged notice; $100 per violation).\n  Notice regimes, not consent regimes. **[V]**\n- **ECPA**, and EU data protection and works council consultation duties — described in outline\n  only, deliberately, because the specifics vary by member state and by employer. **[V]**\n- The unread-signal inventory, the three defences against the interpretation trap, the\n  reporting-floor-versus-confidence-interval distinction, the design-against-duty-not-posture\n  principle, and the promise rule are original to this course.\n- Structure and topic coverage follow the AI Fluency Framework (Dakan & Feller, in collaboration\n  with Anthropic, CC BY-NC-SA 4.0); prose is original."
+  }
+]

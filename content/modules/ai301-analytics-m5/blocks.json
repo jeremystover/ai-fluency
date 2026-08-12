@@ -1,0 +1,128 @@
+[
+  {
+    "id": "ai301-analytics-m5-claim-to-contest-before-you-start-10",
+    "moduleId": "ai301-analytics-m5",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Claim to contest — before you start\n\n*Commit before you read anything.*\n\n> **\"Nobody in your organization can produce a list of the AI systems currently touching a decision\n> about a person.\"**\n\n**True of us, or not true of us?** If you believe someone can, name them — and note whether you think\nthe list would include the model your own team built.\n\nYou will go and build that list in the activity. It is the artifact this module exists to produce."
+  },
+  {
+    "id": "ai301-analytics-m5-module-brief-20",
+    "moduleId": "ai301-analytics-m5",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nThree tracks in this curriculum have a floor module, and all three tell the learner to find out who\nthe deployer is. **This one is different, because the obligations land on you and the evidence that\ndischarges them is statistical.**\n\nThat is the argument for the whole module and it is worth stating plainly:\n\n> **Legal cannot do this alone. They can read the statute. They cannot run an adverse impact\n> analysis, validate an instrument against the Uniform Guidelines, or tell you whether a model's\n> disparity is real or an artifact of the control set.**\n\nThe obligations are legal. **The evidence is statistical.** That combination exists in exactly one\nfunction, and it is a stronger claim to territory than any org-chart argument you could make.\n\nA subtraction note, so this module stays in its lane. Three shipped tracks already carry a regulatory\nmap — the HRBP track on state AI employment law and the agent doctrine, the recruiter track on adverse\nimpact and bias auditing **in a selection context**, the People Ops track on deployer obligations,\nlogs and works councils. **This module cross-references all three and re-teaches none of them.** What\nis here is the analytics-specific surface: the three ways you acquire obligations that a systems owner\ndoes not, and the disclosure problem that is yours alone."
+  },
+  {
+    "id": "ai301-analytics-m5-learning-objectives-30",
+    "moduleId": "ai301-analytics-m5",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. State why the legal obligation and the discharging evidence sit in different professions.\n2. Read the current map well enough to know what has to be retained, testable and documented `[V]`.\n3. Explain how building or repurposing a model makes you a provider rather than only a deployer `[V]`.\n4. Identify purpose-limitation violations in secondary use of HR data `[V]`.\n5. Apply disclosure control — thresholds, suppression, and the differencing attack — as distinct from\n   access control.\n6. Draw the surveillance line deliberately, before it is drawn by default."
+  },
+  {
+    "id": "ai301-analytics-m5-lesson-1-why-this-is-yours-40",
+    "moduleId": "ai301-analytics-m5",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 · Why this is yours\n\nStart with the mechanism rather than the claim.\n\nA regulator, a works council, or a claimant asks: *does this system disadvantage a protected group?*\nThat question has a legal frame and a statistical answer. Somebody has to define the comparison\ngroups, choose the selection rate measure, decide what counts as a practical difference, determine\nwhether an observed gap survives controls, and say which controls are legitimate rather than\nlaundering. **Every one of those is a modelling decision with a fairness consequence**, and comp M4's\nlesson applies at full force: *\"explained\" variance is a modelling decision, not a statistical fact.*\n\nYour Legal team cannot make those decisions. They can tell you the standard. **They cannot tell you\nwhether you have met it**, and if they try, they will do it by asking whoever built the model — which\nis either you or a vendor with an interest in the answer.\n\nTwo consequences.\n\n**You will be asked for evidence you have not been asked to keep.** Retention obligations attach to\nrecords that only exist if somebody decided to create them. A model's training population, the\nselection rates it produced, the version that ran in March — none of these are automatic.\n\n**And the reverse: involve counsel before you test, not after.** Where an analysis might surface a\ndisparity, whether it is privileged depends on how it was commissioned. The comp track's Module 4\ncovers this properly and it is the same lesson here — **the sophisticated posture is to run the\nanalysis at the direction of counsel**, and that has to be arranged in advance because privilege is a\nfact about commissioning, not about content."
+  },
+  {
+    "id": "ai301-analytics-m5-lesson-2-the-map-compressed-50",
+    "moduleId": "ai301-analytics-m5",
+    "ordinal": 50,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 · The map, compressed [V]\n\nThree tracks carry the detail. Here is what an analytics function has to *do* about each.\n\n**California FEHA automated-decision systems.** In force since **1 October 2025**, applying to\nemployers with **five or more employees** in California. Records of selection criteria, ADS data and\napplicant-flow logs must be retained for **four years** — doubled from two. And the reach extends to\n**AI tool developers and agents**, which is the limb that matters here: if your team built it, the\nregulation is looking at your team.\n\n*What you do:* the four-year clock runs on records somebody has to be creating. Selection rates by\ngroup, per version, per period. **If your model changed in June and you cannot say what the previous\nversion did, the record does not exist and the retention obligation cannot be met retrospectively.**\n\n**Illinois.** In force since **1 January 2026**, amending the Human Rights Act. **Strict liability for\ndiscriminatory effect — intent is not a defence.** Notice required where AI is used in recruitment,\nhiring, promotion, discipline, discharge, or the terms of employment. **Zip codes as proxies for\nprotected classes are expressly prohibited.** One employee is enough to be covered, and implementing\nrules are still being written.\n\n*What you do:* the zip-code prohibition is the analytics-specific one, and it generalises further than\nits text. **Any geographic, educational or behavioural feature can function as a proxy**, and strict\nliability means you do not get to argue you did not mean to. Feature-by-feature proxy review belongs\nin your model documentation, not in Legal's.\n\n**Colorado — and this one is the lesson.** SB 24-205 was the landmark state AI act. It was postponed\nto 30 June 2026. Its enforcement was **blocked by a federal magistrate on 27 April 2026** following a\nconstitutional challenge with the Department of Justice intervening. It was then **repealed and\nreplaced by SB 26-189, signed 14 May 2026** — a scaled-back **disclosure-and-rights framework** for\nautomated decision-making technology, effective **1 January 2027**.\n\n*What you do:* notice what would have happened to a compliance programme built to SB 24-205's specific\nrequirements. **Postponed, enjoined, repealed and replaced inside thirteen months.** The date survived\nand the law behind it did not. **Build an inventory that survives the statute rather than a checklist\nkeyed to one** — which is exactly what this module's activity produces, and why it asks for a risk\nclassification rather than a compliance status.\n\n**And the EU timing, which the People Ops track carries in full.** The Annex III deferral to December\n2027 is **not a repeal**, and the transparency duties that were not deferred are already in force.\nArticle 26(7)'s works council obligations bind now."
+  },
+  {
+    "id": "ai301-analytics-m5-lesson-3-you-may-be-the-provider-not-onl-60",
+    "moduleId": "ai301-analytics-m5",
+    "ordinal": 60,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 · You may be the provider, not only the deployer [V]\n\nEvery other floor module in this curriculum assumes the model arrived from a vendor. **Yours may not\nhave**, and the obligations that attach to building are not the ones that attach to buying.\n\nThe mechanism is specific rather than a general principle. **Article 25** transfers provider\nobligations to a deployer or third party in three circumstances:\n\n1. **Putting your own name or trademark** on a high-risk system already on the market.\n2. **Making a substantial modification** to one while it remains high-risk.\n3. **Changing the intended purpose** of a system so that it becomes high-risk.\n\n**The third limb is the one this audience walks into**, and it does not feel like a legal act when you\ndo it. You take a general-purpose model, or a tool licensed for something else, and you point it at a\nquestion about employment — promotion readiness, flight risk, performance forecasting. Nobody signed\nanything. Nobody called it a deployment. **You have changed a system's intended purpose so that it\nbecame high-risk, and the obligations that follow are the builder's, not the buyer's.**\n\nThe practical version, stated as a question to ask before any model gets built or repurposed:\n\n> **If a regulator asked who is responsible for this system's design, is the honest answer \"us\"?**\n\nIf it is, the vendor's documentation is not your documentation, the vendor's indemnity does not\ndischarge your obligation, and the conformity questions belong to you. **An in-house model is not the\nsafe option because it was built by people you trust.** It is the option where nobody else is holding\nthe paperwork."
+  },
+  {
+    "id": "ai301-analytics-m5-lesson-4-purpose-limitation-70",
+    "moduleId": "ai301-analytics-m5",
+    "ordinal": 70,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 · Purpose limitation [V]\n\nThis function's most common quiet violation, and it is quiet because every individual step looked\nreasonable.\n\nData was collected to run payroll. To administer benefits. To field an engagement survey. To operate\na performance cycle. Each collection had a stated purpose and, usually, a lawful basis tied to it.\n\n**Then it becomes a feature in a model predicting who will quit.** Nobody re-consented anyone. Nobody\nissued notice. The data was already in the warehouse, the join was trivial, and the analysis was\nauthorised by whoever authorised the analysis.\n\n**The engagement survey case is the sharpest, and it is the one to carry.** You told respondents their\nanswers were confidential and would be used to improve the organization. Using those answers as a\nfeature in an individual-level flight-risk model **breaks that promise even where it clears the legal\nbar** — and it breaks it in a way that is unrecoverable, because the next survey is answered by people\nwho now know.\n\nThree questions before any feature enters a model about people:\n\n- **What was this collected for, and was that stated to the person?**\n- **Would they recognise this use as consistent with what they were told?**\n- **If the use became public inside the company tomorrow, what happens?**\n\nThe third is not a legal test and it is the one that predicts the outcome best. It is 101 M8's\nreader's-stake disclosure test, applied to a data lineage rather than to a document."
+  },
+  {
+    "id": "ai301-analytics-m5-lesson-5-disclosure-control-which-is-you-80",
+    "moduleId": "ai301-analytics-m5",
+    "ordinal": 80,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 5 · Disclosure control, which is yours [V]\n\nThe People Ops track owns **access control**: who can *retrieve* what, where an assistant inherits its\nuser's rights, and the fix is permissions, indexing scope and least-privileged testing. Its failure\nmode is *someone reached a document they shouldn't have.*\n\n**This track owns disclosure control: what a legitimately-permissioned aggregate reveals about an\nindividual.** Its failure mode is *nobody's permissions were violated and the individual was\nidentified anyway.* Different mechanism, different remedy, and the professional obligation for the\nsecond one is yours because you are the person publishing the aggregate.\n\n**Minimum cell size** is the basic instrument, and every listening programme has a number. What\nmatters is that it is applied to **every published cut**, not to the primary table — which brings us\nto the failure everybody misses.\n\n**The differencing attack.** You publish engagement by department: Engineering, n=48, score 3.9. Later\nyou publish engagement by department and tenure band: Engineering with 5+ years, n=47, score 4.0.\nBoth cleared your threshold. **Subtract them and you have one person's score**, and depending on the\norganization you may also know who they are.\n\nNobody violated a permission. Both publications were individually compliant. **Disclosure control is\nabout the set of things you have published, not about each thing you publish** — which means it is a\nproperty of a process rather than of a report, and it requires somebody tracking what has already gone\nout.\n\n**And the new failure, in open text.** Thematic analysis of thousands of verbatims is a genuine and\nlarge AI win — say that plainly, because it is one of the few unambiguous ones in this course. The new\nfailure is specific: **a model asked for themes with supporting quotes returns the quotes intact.** A\nverbatim naming a team, a manager, an incident, a disability or a leave identifies its author to\nanyone who was there. A human summariser smoothed that away as a side effect of being human; a model\nhas no such side effect.\n\nSo: **paraphrase rather than quote by default**, apply the same threshold to a quote that you apply to\na cell, and understand what is at stake — **an employee who reads their own words in a results deck\nlearns something about the confidentiality promise that no policy statement will unteach.**"
+  },
+  {
+    "id": "ai301-analytics-m5-lesson-6-draw-the-surveillance-line-deli-90",
+    "moduleId": "ai301-analytics-m5",
+    "ordinal": 90,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 6 · Draw the surveillance line deliberately\n\nThe closing move, and the one that has to happen before it happens by default.\n\n**Start with the German position, because it destroys the sentence this function reaches for most\noften** `[V]`. Under §87(1) no. 6 BetrVG, a works council holds co-determination — an enforceable\nveto, not an opinion — over any technical system **objectively suitable** for monitoring employee\nbehaviour or performance. **The employer's intent is irrelevant.** Manager dashboards, productivity\nscores and AI-driven workforce analytics are named examples.\n\nSo *\"we're only analysing data we already have\"* is not a legal category. **A dashboard is a technical\ndevice and suitability is assessed objectively**, which means the analytics function's most common\nself-description — *purely observational* — has no standing. This is the delta from the People Ops\ntrack: they cover co-determination for systems being deployed; **for you, the analysis output is\nitself the monitoring device.**\n\nThen the questions Module 2 raised and deliberately did not answer, which belong here:\n\n- **Does the individual know the score exists?**\n- **Is there a route to contest it?**\n- **Would you be comfortable telling them?**\n\nAnd the design question underneath all three: **where is the line between understanding the\norganization and monitoring the people in it?** It is a real line, it is not obvious, and it will be\ndrawn either way — by you, deliberately, in advance; or by accumulation, one reasonable-seeming\nrequest at a time, until somebody outside the function draws it for you in a worse place.\n\n**What you can do this quarter without waiting for counsel.** Build the inventory. Classify by risk.\nIdentify which systems your team built or repurposed. Check what records exist and how far back.\nReview features for proxies. Write down the surveillance line as you currently understand it.\n\n**And the list to bring counsel**, so the conversation is not a shrug: which systems you believe make\nyou a provider rather than a deployer; where retention obligations exceed what you currently keep;\nwhere a secondary use may exceed its collection purpose; and the analyses you would want run under\nprivilege before they are run at all."
+  },
+  {
+    "id": "ai301-analytics-m5-exercise-embed-95",
+    "moduleId": "ai301-analytics-m5",
+    "ordinal": 95,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"sorting\", \"title\": \"Calibration exercise \\u2014 Proceed, proceed with the record, stop and ask\", \"intro\": \"Ten minutes, ten analytics activities. Sort each into proceed, proceed with the record, or stop and ask.\\n\\nCommit every card before the reveal. At least two of the ones that feel purely observational are not \\u2014 and one of them is a publication you have probably already made.\"}"
+  },
+  {
+    "id": "ai301-analytics-m5-key-takeaways-100",
+    "moduleId": "ai301-analytics-m5",
+    "ordinal": 100,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **Legal cannot do this alone.** The obligations are legal and **the evidence that discharges them is\n  statistical** — a combination that exists in one function. That is a stronger claim to the territory\n  than any org-chart argument.\n- **You will be asked for evidence you were never asked to keep**, and **you should involve counsel\n  before you test, not after**, because privilege is a fact about commissioning.\n- **The map, as things you must do** `[V]`: California's four-year retention on records somebody has\n  to be creating; Illinois's **strict liability with intent no defence** and the zip-code proxy ban,\n  which generalises to any proxy feature; and Colorado, **postponed, enjoined, repealed and replaced\n  inside thirteen months** — so **build an inventory that survives the statute, not a checklist keyed\n  to one.**\n- **Article 25 makes you a provider** `[V]` if you put your name on it, substantially modify it, or\n  **change its intended purpose so it becomes high-risk** — which is what pointing a general model at\n  an employment question does, without anyone signing anything.\n- **Purpose limitation is the quiet violation**, and the engagement survey is the sharpest case:\n  survey answers as model features break the promise even where they clear the legal bar, and break it\n  unrecoverably.\n- **Disclosure control is yours; access control is People Ops'.** The failure mode is *nobody's\n  permissions were violated and the individual was identified anyway.* **The differencing attack**\n  means disclosure control is a property of everything you have published, not of each publication.\n- **A model asked for themes with supporting quotes returns the quotes intact.** Paraphrase by\n  default; apply the cell threshold to quotes.\n- **\"Purely observational\" is not a legal category** `[V]`. Suitability for monitoring is assessed\n  objectively and intent is irrelevant — **for you, the analysis output is the monitoring device.**"
+  },
+  {
+    "id": "ai301-analytics-m5-activity-link-105",
+    "moduleId": "ai301-analytics-m5",
+    "ordinal": 105,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"activity_link\", \"title\": \"Applied activity \\u2014 The inventory\", \"blurb\": \"Every AI system touching a decision about a person in your organization \\u2014 wider than HR's own stack \\u2014 classified by exposure, with three questions worked across it: which ones did we build or repurpose, where does a secondary use exceed its collection purpose, and what records exist. Then draw the surveillance line. Counsel review before adoption.\", \"estMinutes\": \"30\"}"
+  },
+  {
+    "id": "ai301-analytics-m5-take-a-position-110",
+    "moduleId": "ai301-analytics-m5",
+    "ordinal": 110,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"Legal can read the statute. They cannot tell you whether you have met it — which\nmakes AI governance an analytics obligation, not a legal one.\"*\n\nThe strongest counter-argument is that **this is a function arguing itself into liability it is not\nresourced to carry.** Accountability should sit where authority sits, and a three-person analytics\nteam reporting into HR Ops has neither the mandate to stop a deployment nor the standing to survive\nbeing wrong about one. Claiming the obligation without the authority produces the worst available\noutcome: **you own the failure and someone else owns the decision.** There is also a competence\nargument — adverse impact analysis under the Uniform Guidelines is a specialist discipline with\nestablished expert practitioners, and a generalist analytics function doing it in-house because it\nowns the data may produce work that is worse than an external assessment while carrying more weight\ninternally because it is ours. On that view the right move is to be the *commissioner and critic* of\nthis evidence rather than its author. Your position has to say where accountability without authority\nbecomes untenable, and what you would need before accepting it."
+  },
+  {
+    "id": "ai301-analytics-m5-sources-and-attribution-120",
+    "moduleId": "ai301-analytics-m5",
+    "ordinal": 120,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- **The Legal-cannot-do-this-alone argument and the inventory artifact** come from a human-authored\n  brief for this track.\n- **California `[V]`:** FEHA automated-decision-system regulations, effective 1 October 2025;\n  employers with 5+ employees; four-year retention of selection criteria, ADS data and applicant-flow\n  logs, doubled from two; reach extended to AI tool developers and agents.\n- **Illinois `[V]`:** HB 3773, amending the Human Rights Act, effective 1 January 2026. Strict\n  liability for discriminatory effect; notice obligations; zip codes as proxies expressly prohibited;\n  implementing rules in progress at the Department of Human Rights.\n- **Colorado `[V]`:** SB 24-205 postponed to 30 June 2026; enforcement blocked by a federal magistrate\n  27 April 2026; repealed and replaced by SB 26-189, signed 14 May 2026 — a disclosure-and-rights\n  framework effective 1 January 2027.\n- **EU AI Act `[V]`:** Article 25 (responsibilities along the value chain — name/trademark,\n  substantial modification, change of intended purpose). Article 26(7) works council obligations and\n  the Annex III deferral are carried in full by the People Ops track and cross-referenced here.\n- **Germany `[V]`:** BetrVG §87(1) no. 6 — enforceable co-determination over technical systems\n  **objectively suitable** for monitoring behaviour or performance, intent irrelevant; manager\n  dashboards and workforce analytics named as examples.\n- The disclosure-control/access-control split is a cross-track convention agreed with the People Ops\n  track and stated in both. The differencing-attack framing and the verbatim-quote failure are\n  original to this course.\n- Builds on comp M4 (privilege, and \"explained variance is a modelling decision\"), recruiter R6\n  (adverse impact in a selection context), HRBP M6 (state employment law), 101 M8 (the reader's-stake\n  test), and Module 2 (the questions this module answers).\n- **This module is not legal advice, and its surface is volatile.** Counsel review is required before\n  your organization adopts anything built from it."
+  }
+]

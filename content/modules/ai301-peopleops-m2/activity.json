@@ -1,0 +1,11 @@
+[
+  {
+    "id": "ai301-peopleops-m2-activity-applied-activity-the-evaluation-plan-10",
+    "moduleId": "ai301-peopleops-m2-activity",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Applied activity — \"The evaluation plan\"\n\n**Time:** 25 minutes · **Submit:** the plan, the baseline data, and a 300–400 word write-up ·\n**Graded against the rubric below.** Score doesn't matter. Doing the work is where the learning\nlands.\n\nFor the decision you chose in Module 1 — and if an AI capability is already live on it, all the\nbetter, because a retrospective baseline is the honest hard case.\n\n**Step 1 — The four numbers (10 min).** Volume, cycle time and time to first response, the repeat\nrate, and the top five categories by count. **Submit the actual numbers and the query or report that\nproduced each one**, not a description of where they could be found. If a number is genuinely\nunavailable, say which one, why, and what would have to change — that is a finding, not a gap.\n\n**Step 2 — The change metric (5 min).** One metric that would move if this got better and would not\nmove merely because people used it. State how you would compute it, from which system, and what\ncounts as a meaningful move. Then name the activity metric you are *not* going to report, and why —\nnaming the one you are declining is the graded part.\n\n**Step 3 — The rework check (3 min).** How you will detect rework landing on somebody else: the tag,\nthe field, or the query. And who reads it weekly.\n\n**Step 4 — The kill condition (5 min).** All four parts: threshold computable from Step 1, date,\nnamed person, and the rollback — including whether anyone has performed it and how long it took. If\nnobody has, say so and name when they will.\n\n**Step 5 — Score the prediction.** Your predicted count of capabilities with a pre-enablement\nbaseline against what you found. Direction and size of the miss, and one sentence on what it says.\n\nThen the write-up: your position on the claim above with its counter-argument addressed\nspecifically; whether the opening claim turned out to be true of your organization and what settled\nit; and the honest question — **would your kill condition fire while your sponsor still wanted the\nproject?** If not, rewrite it once and say what you changed."
+  }
+]

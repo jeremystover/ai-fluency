@@ -1,0 +1,31 @@
+{
+  "reviewedAt": "2026-08-12",
+  "title": "Four briefs",
+  "intro": "*Five minutes. Commit before you look.*\n\nFour briefs an L&D professional might plausibly write. All four are specific, well-structured, and would produce good-looking output.\n\n**Three of them carry a buried premise the model will silently build on. One does not.** Find the clean one.",
+  "artifacts": [
+    {
+      "label": "Brief A",
+      "body": "\"Build a 20-minute module on our new expense policy for the field sales team. Most of them are on the road and consume content on their phones between visits, so keep segments under three minutes. Attached: the policy document, the two most common error types from last quarter's audit, and the three questions finance gets asked most.\""
+    },
+    {
+      "label": "Brief B",
+      "body": "\"Our engineers are visual learners and the current security-awareness module is all text, which is why completion is poor. Rebuild it with diagrams and video as the primary channel, keeping the same content. Attached: the current module and the completion data.\""
+    },
+    {
+      "label": "Brief C",
+      "body": "\"Design a refresher on the incident escalation process for the ops team. They were trained on it at onboarding but have clearly forgotten the steps — escalations are going to the wrong queue about a third of the time. Attached: the process doc and the misroute stats.\""
+    },
+    {
+      "label": "Brief D",
+      "body": "\"Design a manager development program using a 70-20-10 structure, since most learning happens on the job. Weight it toward stretch assignments with a light formal component. Attached: our competency framework and last year's program feedback.\""
+    }
+  ],
+  "options": [
+    "Brief A",
+    "Brief B",
+    "Brief C",
+    "Brief D"
+  ],
+  "key": 0,
+  "reasoning": "**A is the clean one.** Everything it asserts is either a logistical fact the author is positioned to know (the sales team is mobile) or evidence supplied with the brief (the audit's error types, finance's most-asked questions). The three-minute segment constraint is a design decision, not a claim about how people learn — and note that it would have been a premise if it had been justified as *\"because attention spans are eight seconds.\"* The distinction is worth holding: **a constraint you own is not a premise; a constraint you justify with a claim about learners is.**\n\n**B carries the inherited premise in its purest form.** \"Our engineers are visual learners\" is the exact prompt shape the Richter study used. The model will build a well-made visual module and will not mention that learning-styles matching has no evidence behind it. Worse, the brief has already diagnosed the completion problem — *which is why completion is poor* — and the diagnosis is almost certainly wrong. Completion problems in security awareness are usually about relevance, length, timing, or the fact that nobody is checked. The module you get will be better-looking and no more completed.\n\n**C carries a Module 2 premise dressed as a fact.** \"They were trained at onboarding but have clearly forgotten\" asserts a knowledge decay explanation for a misroute rate. Apply the money test: could the ops team route correctly tomorrow for a large enough reward? If the queues are ambiguously named, or the process changed and the doc didn't, or routing correctly takes four extra minutes nobody has — this is not forgetting. The brief has ruled out every environmental cause in a subordinate clause, and the model will accept it without comment.\n\n**D is confident canon, cited as a design constraint.** 70-20-10 descends from a mid-1990s survey of roughly 200 executives self-reporting retrospectively, never replicated. The brief does not merely mention it — it *derives the program's weighting from it* and supplies the justification in the same sentence. This is the most expensive of the three, because the premise determines the architecture rather than the surface.\n\nThe transferable test: **read only your own words and underline every assertion about your learners** — what they know, why they aren't doing something, how they prefer to learn. In A, every underline traces to attached evidence. In B, C, and D, at least one traces to nothing."
+}

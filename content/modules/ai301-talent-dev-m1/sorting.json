@@ -1,0 +1,102 @@
+{
+  "reviewedAt": "2026-08-12",
+  "title": "Twelve pieces of a portfolio",
+  "intro": "*Five minutes. Commit before you look.*\n\nTwelve real items from a mid-size company's L&D catalog. Sort each into exactly one bucket — force the choice, because the forcing is where the judgment happens.\n\nRun question one harshly first, then rescue only what genuinely answers two or three.",
+  "buckets": [
+    {
+      "id": "cheap",
+      "label": "Cheap now",
+      "hint": "A competent outsider could rebuild it in a weekend",
+      "rank": 0,
+      "pct": 85
+    },
+    {
+      "id": "ours",
+      "label": "Ours only",
+      "hint": "Depends on something undocumented that only you hold",
+      "rank": 1,
+      "pct": 35
+    },
+    {
+      "id": "human",
+      "label": "Needs a human on the hook",
+      "hint": "Someone must be accountable in the room",
+      "rank": 2,
+      "pct": 10
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "text": "A 40-minute e-learning module on general principles of inclusive hiring",
+      "key": "cheap",
+      "reasoning": "Nothing in it depends on your organization. The content exists in a thousand versions, the source material is public, and the only local element is your logo. This is the clearest bucket-one card in the set — and it is also the one most likely to have cost someone six weeks."
+    },
+    {
+      "id": "t2",
+      "text": "Onboarding for the engineering team acquired in 2023, who are still on legacy systems and a different review cycle",
+      "key": "ours",
+      "reasoning": "The whole value is the undocumented mess: which systems they still use, why their review cycle differs, what nobody wrote down about the integration. A model cannot supply it because your own intranet does not contain it."
+    },
+    {
+      "id": "t3",
+      "text": "The quarterly session where the CFO explains the company's financial model to new managers",
+      "key": "human",
+      "reasoning": "The content could be recorded. The point is that the CFO showed up — the access is the value, and a recording of it is a different, lesser product. Accountability in the room, not information transfer."
+    },
+    {
+      "id": "t4",
+      "text": "A job aid summarizing the expense policy",
+      "key": "cheap",
+      "reasoning": "Your policy is the input, the summarizing is the work, and the summarizing is now near-free. Note that being genuinely useful and specific to your company does not rescue it — bucket two needs information that is *absent from the record*, and your expense policy is a document."
+    },
+    {
+      "id": "t5",
+      "text": "Manager training on how performance calibration actually runs here — who pushes back, what evidence carries weight, where ratings drift",
+      "key": "ours",
+      "reasoning": "The written process is public and boring. The real one lives in the heads of people who have run six cycles, and that is exactly what nobody has written down."
+    },
+    {
+      "id": "t6",
+      "text": "A compliance course on general anti-harassment principles, purchased from a vendor and rebranded",
+      "key": "cheap",
+      "reasoning": "You already outsourced it once, which is the tell. The module's line: general principles are bucket one; the same course rebuilt around three anonymized incidents that actually happened here, with your escalation path, moves to bucket two."
+    },
+    {
+      "id": "t7",
+      "text": "A facilitated conversation for a team after a difficult reorg",
+      "key": "human",
+      "reasoning": "Someone has to be answerable in the room for what gets said and what happens next. This is the bucket-three test in its purest form: not 'would a human do it better' but 'must a human be on the hook'."
+    },
+    {
+      "id": "t8",
+      "text": "A library of practice scenarios for difficult conversations, written from generic examples",
+      "key": "cheap",
+      "reasoning": "Generic scenarios are the definition of rebuildable — and this one is worth arguing about, because it is where most L&D functions have invested recently. Written from *your* incidents it would move; written from a template it has not."
+    },
+    {
+      "id": "t9",
+      "text": "The leadership program's 360 debrief conversations",
+      "key": "human",
+      "reasoning": "A judgment about a named individual delivered to that individual. Module 4 goes further into why an unsupervised tool serves the people who most need this the worst."
+    },
+    {
+      "id": "t10",
+      "text": "Slide decks and a facilitator guide for a time-management workshop",
+      "key": "cheap",
+      "reasoning": "Production of generic material — the exact centre of the collapsed middle. If this one felt hard to place, notice whether you were defending the artifact or the hours that went into it."
+    },
+    {
+      "id": "t11",
+      "text": "Documentation of why the 2024 leadership program was cancelled and what replaced it",
+      "key": "ours",
+      "reasoning": "Institutional memory nobody else holds, and the kind of thing that exists only because someone bothered. Note the tension this sets up with Lesson 4: writing it down is obviously good practice and it also moves the item toward bucket one."
+    },
+    {
+      "id": "t12",
+      "text": "Curating a reading list of external articles on organizational change",
+      "key": "cheap",
+      "reasoning": "Curation of public material was always thin value and is now close to zero. The uncomfortable version of this card: it may have been in your catalog because it was easy to produce, which is the volume trap arriving before AI did."
+    }
+  ]
+}

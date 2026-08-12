@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why does chilled candour matter more in an investigation than in most settings? `[V]`",
+      "options": [
+        "Because witnesses have a right to speak freely under employment law",
+        "Because the employer's own defence depends on the investigation having been prompt and effective, so a tool that reduces what witnesses will say attacks the thing you are relying on",
+        "Because reluctant witnesses produce inadmissible evidence",
+        "Because chilled witnesses are more likely to bring their own claims"
+      ],
+      "correctIndex": 1,
+      "explanation": "An investigation that reached no conclusion because two witnesses declined is not a neutral outcome — it is a weaker position for the employer and a worse one for the complainant."
+    },
+    {
+      "id": "q2",
+      "prompt": "Which mitigation does the module say costs the least and protects the most?",
+      "options": [
+        "Obtaining written consent from every participant in advance",
+        "Never transcribing the first contact, where chilling costs most and the record is worth least",
+        "Deleting transcripts once the summary is written",
+        "Using a human transcriber rather than an automated one"
+      ],
+      "correctIndex": 1,
+      "explanation": "The initial intake conversation is where somebody decides whether to proceed at all. Take notes. C is worse than useless once a hold may apply."
+    },
+    {
+      "id": "q3",
+      "prompt": "What is the exposure created by transcription that people most often miss?",
+      "options": [
+        "That transcripts can be inaccurate",
+        "That transcripts must be disclosed to the employee",
+        "That it creates a comprehensive timestamped record that would not otherwise have existed — every clumsy question, aside, and piece of preamble, now producible in full",
+        "That transcripts are harder to redact than notes"
+      ],
+      "correctIndex": 2,
+      "explanation": "Your notes were always a selective reconstruction. A transcript is everything, including the five minutes about a third party who is not involved in this matter."
+    },
+    {
+      "id": "q4",
+      "prompt": "What is the aid-not-substitute discipline?",
+      "options": [
+        "Machine transcripts should be produced by a human transcriber for verification",
+        "Keep contemporaneous notes separately, review the transcript against them for attribution and unmarked inaudibility before filing, and never file an unreviewed transcript",
+        "Transcripts should only be used for interviews conducted remotely",
+        "Notes should be destroyed once a transcript exists"
+      ],
+      "correctIndex": 1,
+      "explanation": "And corrections are visible and dated rather than silent — a silently edited transcript is worse than either the original or your notes."
+    },
+    {
+      "id": "q5",
+      "prompt": "In an all-party consent jurisdiction, what makes recording lawful? `[V]`",
+      "options": [
+        "A notice in the employee handbook",
+        "The visible presence of a notetaker bot in the meeting",
+        "Every participant's agreement — and the controlling question is where the participants are, not where you are",
+        "The employer's legitimate business interest in accurate records"
+      ],
+      "correctIndex": 2,
+      "explanation": "\"The bot joined the call\" is not consent, and a single witness in an all-party state can change what is lawful for that interview."
+    },
+    {
+      "id": "q6",
+      "prompt": "What does the February 2026 biometric class action theory make the exposure? `[V]`",
+      "options": [
+        "The content of the transcript",
+        "Who was given access to the recording",
+        "The transcription feature itself capturing voice biometric data without proper consent — independent of what the transcript says or whether anyone used it",
+        "The retention period applied to the recording"
+      ],
+      "correctIndex": 2,
+      "explanation": "Which means a recording you never used, in a matter that went nowhere, is still within the theory. Litigation is active; this is on the module's counsel list."
+    },
+    {
+      "id": "q7",
+      "prompt": "Why is unequal transcription accuracy a due-process problem as well as a discrimination one? `[V]`",
+      "options": [
+        "Because inaccurate transcripts are inadmissible",
+        "Because a materially worse transcript for a non-native-speaking respondent means their account reaches the decision-maker less accurately than their accuser's — and the transcript is the evidence of that",
+        "Because it violates data-accuracy obligations",
+        "Because it requires disclosure to the affected participant"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which is why quality has to be checked **by speaker** rather than in aggregate — an overall accuracy figure hides exactly the pattern that matters. And where it is poorer, the answer is your notes and a human review, not a better prompt."
+    },
+    {
+      "id": "q8",
+      "prompt": "What does Weingarten constrain about recording? `[V]`",
+      "options": [
+        "It prohibits recording without the representative's consent",
+        "It requires the employee's written consent before recording",
+        "Nothing — the decision does not forbid an employer from recording an investigatory interview; the real constraints are consent law, candour, your collective agreement, and possibly the duty to bargain",
+        "It permits recording only where discipline is not contemplated"
+      ],
+      "correctIndex": 2,
+      "explanation": "A common and useful thing to get right. Weingarten governs the right to representation on request in an investigatory interview that could lead to discipline — not the recording. And a representative in the room means your record is no longer the only record."
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is the finding from the developer trial that transfers beyond software? `[V]`",
+      "options": [
+        "That AI tools slow experienced practitioners by roughly 19%",
+        "The sign error — the gap between perceived and measured *direction*, in expert practitioners working on their own familiar work",
+        "That AI tools are least useful in codebases the developer knows well",
+        "That practitioners overestimate AI benefits by about 4 percentage points"
+      ],
+      "correctIndex": 1,
+      "explanation": "A and C are true of that study and are scope-limited; the authors say so themselves. What generalises is that experts could not feel the direction of their own productivity change."
+    },
+    {
+      "id": "q2",
+      "prompt": "What does a 0.29% average firm-level productivity gain actually describe? `[V]`",
+      "options": [
+        "A small but broadly distributed improvement across most firms",
+        "A near-zero mass with a concentrated tail — 89% of firms report no impact at all, and a few got something real",
+        "A measurement too noisy to interpret",
+        "Gains offset by implementation costs in the same period"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which is a different management problem from \"modest gains,\" and it is the one your organization has: *are we in the 11%, and how would we know?*"
+    },
+    {
+      "id": "q3",
+      "prompt": "How do you reconcile 15%+ gains in RCTs with precise nulls on earnings and hours? `[V]`",
+      "options": [
+        "The RCTs are methodologically flawed",
+        "The effect is real for the task under trial conditions, arrives at the worker as ~2.8% of hours, and reaches the firm as approximately nothing — and each step of that attenuation is somewhere nobody is looking",
+        "Firms are capturing the gains as profit rather than passing them through",
+        "The Danish labour market is too rigid to show the effect"
+      ],
+      "correctIndex": 1,
+      "explanation": "D is specifically wrong — Denmark was chosen because it is flexible, with low hiring and firing costs, so firms could adjust if there were something to adjust to."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why is a \"did AI make you more productive?\" survey called worse than nothing? `[V]`",
+      "options": [
+        "Because response rates on AI surveys are typically too low to interpret",
+        "Because nothing leaves you uncertain, while a confident wrong number is quotable, reaches a board deck, and carries your function's name",
+        "Because employees have incentives to overstate their AI usage",
+        "Because perceived productivity cannot be measured reliably"
+      ],
+      "correctIndex": 1,
+      "explanation": "It measures how AI feels — reduced felt effort of starting, no blank page, visible output quickly — all real experiences, none of them throughput."
+    },
+    {
+      "id": "q5",
+      "prompt": "What should you do when asked to run that survey anyway?",
+      "options": [
+        "Decline and explain the evidence",
+        "Run it and report the results with a caveat about self-report",
+        "Run it and change what it claims to measure — specific tasks and frequencies, what people stopped doing, where output goes next — reported as adoption and experience data, never as productivity or ROI",
+        "Run it alongside a productivity metric so the two can be compared"
+      ],
+      "correctIndex": 2,
+      "explanation": "\"Don't run it\" is not available to you. A is unavailable in practice and B leaves the label attached, which is what travels."
+    },
+    {
+      "id": "q6",
+      "prompt": "What is the requirement for using a staggered rollout as a natural experiment?",
+      "options": [
+        "Random assignment of which group goes first",
+        "Writing down what you will compare and taking the baseline *before* the next wave — a measurement taken before a thing happens, not a study design",
+        "A minimum of three rollout waves for statistical power",
+        "Equivalent group sizes across waves"
+      ],
+      "correctIndex": 1,
+      "explanation": "And the reason pilots go unevaluated is rarely methodological: the pilot group was selected, selected groups are where AI looks best, and that is the finding rather than an obstacle to it."
+    },
+    {
+      "id": "q7",
+      "prompt": "Which of the three measurements is the module most concerned that nobody runs?",
+      "options": [
+        "Adoption, because licence data is often incomplete",
+        "Impact, because it requires a comparison group",
+        "Displacement — what work went away, what appeared, and who is doing it now, which is where the organizational consequences live",
+        "All three are equally neglected"
+      ],
+      "correctIndex": 2,
+      "explanation": "Firms absorb AI through task reorganisation rather than through hours or earnings. **The work moved; it did not vanish** — including onto senior reviewers, and out of the junior tasks that used to carry training value."
+    },
+    {
+      "id": "q8",
+      "prompt": "Why is the headcount-impact question not really a forecasting question?",
+      "options": [
+        "Because headcount decisions are made by leadership rather than by analytics",
+        "Because there is no base period, the intervention is undefined, and the outcome depends on decisions leadership hasn't made — so a forecast is a prediction about their behaviour dressed as one about technology",
+        "Because the time horizon is too long for workforce planning models",
+        "Because AI capability is improving faster than any model can incorporate"
+      ],
+      "correctIndex": 1,
+      "explanation": "And producing a number anyway risks the worse outcome: being right by luck and becoming the anchor for a headcount decision you did not intend to make."
+    }
+  ]
+}

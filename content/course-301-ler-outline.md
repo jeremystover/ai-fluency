@@ -522,6 +522,62 @@ self-describe as either "HR" or "People."
     with that material has no published methodology and is not used.
 12. **Counsel review required for L3 and L7.** Second track needing two gates. L7's is the heavier and
     the content states it.
+13. **What drafting proved wrong, recorded after all eight modules shipped.** Seven items.
+
+    *(a)* **Decision 10 was right about which fact would move, and it moved further than expected.**
+    The waiver standard's status under the Board seated 7 January 2026 was flagged as the single item
+    most likely to have changed by the time L7 was drafted. It changed twice. In January 2026 the new
+    two-member majority declined to overturn a Biden-era precedent in *Lodi Volunteer Ambulance Rescue
+    Squad* under the Board's unwritten three-vote convention — which read as stability for six months.
+    Then on **7 August 2026**, five days before L7 was drafted, the Senate confirmed James Macy and
+    David Prouty, producing a **3–1 majority that satisfies the three-vote condition.** The module says
+    so in its own text: its subject moved during its production, and concealing that would have taught
+    the wrong lesson.
+
+    *(b)* **L7 has five layers, not three.** The outline's three — statute, Board doctrine, General
+    Counsel priority — are the ones that differ by *speed*. Drafting surfaced two more that practitioners
+    routinely mistake for law: **rulemaking**, which runs on a different clock and is undone by different
+    mechanisms, and **contract**, which binds regardless of who runs the Board. The contract layer had
+    to be a layer rather than a lesson, because L7's own Lesson 4 is entirely about obligations that
+    arrive by agreement, and the sorting exercise cannot test layer confusion without a bucket for the
+    kind of confusion practitioners actually have. The module title survived; its content is five.
+
+    *(c)* **The best fact in L7 was in the case's facts, not its holding.** *Endurance Environmental
+    Solutions* was outlined as a doctrine example. Drafting found that the employer had installed video
+    cameras in a fleet of roughly **400 trucks** and defended on a management-rights clause reserving
+    the right to *"implement changes in equipment"* — and lost. That single phrase is the module's
+    strongest teaching object, because every learner's clause contains language of about that
+    generality, and it converts an abstract standard into an instruction: go and read your own clause.
+
+    *(d)* **L7's sorting exercise needed five buckets and a durability axis.** The outline specified
+    four (statute / doctrine / GC priority / not established). With the contract layer added the count
+    is five, and the buckets had to be *ordered* — the schema uses rank to distinguish over- from
+    under-assignment. Ordering them by **durability** makes over-assignment mean *treated as more
+    settled than it is*, which is the module's expensive direction and matches L1's ladder, where
+    over-assignment is also the expensive direction.
+
+    *(e)* **L6's counterparty exercise found a better wrong answer than the one outlined.** The plan was
+    a team that visibly judged the tool — a note saying the submission looked AI-generated. Drafting
+    produced something worse and more likely: a team whose triage note reads *"the statutory
+    characterisations do not appear to reflect independent legal advice"*, which believes it assessed
+    merit, and which defends itself with *"the file says nothing about AI."* **A provenance judgment
+    does not stop being one because the word is left out.** That became a line in the module.
+
+    *(f)* **L6's *Take a position* counter-argument has an inequity limb the outline did not have.** The
+    resource objection was planned. Drafting surfaced the sharper version: under a strictly-equal-
+    attention rule, **the employee who wrote their own two pages in plain language gets the same
+    investigative resource as the person who generated forty** — and the plain-language complainant is
+    more likely to be the one without access to tools, advice, or the confidence to escalate. A rule
+    designed to prevent discrimination against AI users may disadvantage the people the process exists
+    to protect. It is the strongest counter in the track.
+
+    *(g)* **L8's choice exercise inverted.** The outline said *find the one that improves cycle time and
+    weakens the record*, and assumed that one would be the forbidden option. It is not. The forbidden
+    option — AI triage at intake — is easy to spot once L1 has landed. The genuinely hard answer is
+    **AI-drafted investigation reports**, where every number in the pilot is good, nothing is
+    prohibited, a human still reaches the finding, and the record degrades in three ways no pilot metric
+    can see. The exercise is stronger for it, and it makes L4's *polish is not strength* argument land
+    as a measurement problem rather than a stylistic preference.
 
 ## Open questions for review
 

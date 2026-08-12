@@ -1,0 +1,128 @@
+[
+  {
+    "id": "ai301-defensible-m1-counsel-review-required-10",
+    "moduleId": "ai301-defensible-m1",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## ⚖️ Counsel review required\n\n**This module describes executive orders, an agency enforcement plan, a proposed rule, three state\nregimes and two active lawsuits.** Every one of them is capable of moving between review cycles, and\nseveral were still moving when this was written.\n\n**Before this module ships in any deployment**, it needs a read by counsel qualified in that\ndeployment's jurisdictions. **Before you act on any of it**, so does your own organization's\nposition — particularly if you hold federal contracts, where the compliance surface described in\nLesson 1 carries False Claims Act exposure.\n\nNothing here is legal advice. This module exists so that you can ask counsel a specific, answerable\nquestion instead of \"are we compliant?\", which gets a shrug and deserves one."
+  },
+  {
+    "id": "ai301-defensible-m1-calibration-prompt-before-you-start-20",
+    "moduleId": "ai301-defensible-m1",
+    "ordinal": 20,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Calibration prompt — before you start\n\n*One claim. Commit before you read anything.*\n\nHere is a factual assertion about your own organization:\n\n> **\"Somebody here could tell me today, without going away to research it, which of our\n> jurisdictions require us to notify candidates or employees when AI is used in an employment\n> decision.\"**\n\n**True of us, or not true of us?** Commit to one, in a sentence.\n\nThen predict one number: **how many of the jurisdictions you employ people in have a law, in force,\ntouching AI in employment decisions?** You'll build the map in this module's activity."
+  },
+  {
+    "id": "ai301-defensible-m1-module-brief-30",
+    "moduleId": "ai301-defensible-m1",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nYou have spent two years reading that the ground moved. This module is about the fact that it moved\nin two directions at once, and that most of the commentary tracked only one of them.\n\nThe federal enforcement posture in the United States retreated, substantially and quickly. That part\nhas been well covered, and if you work in the US you have felt it — in the questions your executives\nask, in what your legal team will now sign off, and possibly in whether your role still has the same\ntitle.\n\nWhat has been covered much less is that **the underlying legal duty did not move at all**, that the\npeople who enforce it privately are not bound by any of the changes, that several states moved in\nthe opposite direction while the federal posture retreated, and that the two most consequential\nlawsuits in this field are both live — with one of them not alleging discrimination at all.\n\nThe net effect, for a practitioner, is not less exposure. It is **relocated** exposure, moving from\na regulator you could anticipate to a plaintiffs' bar you cannot, and from a compliance calendar to\na discovery process.\n\nBy the end of this module you will have a one-page exposure map: your jurisdictions, your\nobligations, the dates, and one specific question for your general counsel."
+  },
+  {
+    "id": "ai301-defensible-m1-learning-objectives-40",
+    "moduleId": "ai301-defensible-m1",
+    "ordinal": 40,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. Describe the federal retreat accurately, instrument by instrument.\n2. Explain why the underlying duty is unchanged, and who still enforces it.\n3. State what is happening to your federal demographic baseline, and what that means for evidence.\n4. Distinguish the state regimes that are in force from the one that is widely described as in force\n   and isn't.\n5. Explain the two litigation fronts, and why the second doesn't require proving bias."
+  },
+  {
+    "id": "ai301-defensible-m1-lesson-1-the-retreat-instrument-by-instr-50",
+    "moduleId": "ai301-defensible-m1",
+    "ordinal": 50,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 · The retreat, instrument by instrument [V]\n\nPrecision matters here, because \"DEI is under attack\" is not something you can act on and a list of\ninstruments is.\n\n**Executive Order 14173** (January 2025) requires federal contractors to certify that they do not\noperate illegal DEI programs, and directs the Attorney General toward identifying investigations and\npotential litigation.\n\n**Executive Order 14281** (April 2025) directs federal agencies to eliminate disparate impact\nliability from their civil rights enforcement, describing the theory as inconsistent with equal\nprotection.\n\n**The EEOC followed.** Within about a month of that order it dropped its pending disparate impact\ncases and withdrew financial support from state agencies bringing similar claims.\n\n**And in June 2026 the EEOC issued a new National Enforcement Plan** directing the agency to\nprioritize disparate *treatment* theories over disparate *impact* theories.\n\n**Then, most recently, Executive Order 14398** — \"Addressing DEI Discrimination by Federal\nContractors,\" signed **26 March 2026**. This one is operational rather than declaratory, and if you\nhold federal contracts it is the most consequential item on the list:\n\n- Contracts must include a clause under which the contractor **will not engage in racially\n  discriminatory DEI activities** as defined in the order, and agencies were directed to insert it\n  within 30 days.\n- **The clause flows down** to subcontractors and lower-tier subcontractors.\n- Prime contractors must disclose known or **\"reasonably knowable\"** subcontractor conduct that\n  *may* violate it.\n- The contractor must furnish information and reports, **including access to books, records and\n  accounts.**\n- Enforcement runs through compliance reviews, contract termination and suspension, suspension and\n  debarment referrals — and **False Claims Act actions.**\n\nRead those last two together, because they are the reason this module exists in this track rather\nthan in a policy course. **A regime built on records access and False Claims Act exposure is a\nregime in which your analyses are evidence** — which is Module 3's entire subject.\n\nLitigation challenging these orders on separation-of-powers and First Amendment grounds is live, and\nthe landscape is unsettled in both directions."
+  },
+  {
+    "id": "ai301-defensible-m1-lesson-2-what-did-not-move-and-who-still-60",
+    "moduleId": "ai301-defensible-m1",
+    "ordinal": 60,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 · What did not move, and who still enforces it [V]\n\nThis is the lesson the rest of the track is built on, and it is the one most commentary skips.\n\n**Disparate impact liability under Title VII is statutory.** It was recognized by the Supreme Court\nin *Griggs v. Duke Power Co.* in 1971 and **codified by Congress in the Civil Rights Act of 1991** —\none of whose stated purposes was to confirm statutory authority for the adjudication of disparate\nimpact suits under Title VII.\n\n**An executive order cannot repeal a statute.** EO 14281 did not eliminate disparate impact\nliability, and does not claim to. It directs *agencies* to deprioritize *enforcement*. Those are\ndifferent things, and the difference is the whole lesson.\n\nSo who is left?\n\n**The private plaintiffs' bar**, which brings most employment discrimination litigation in the\nUnited States, is not bound by executive orders directing federal agencies. **The federal courts\nremain open to these claims.** And reporting indicates private plaintiff attorneys are *increasing*\ntheir activity in Title VII disparate impact cases — which is what you would expect when a\nregulatory channel closes and the underlying cause of action doesn't.\n\nPut it plainly:\n\n> **Federal enforcement retreated. Private exposure did not, and may have concentrated — because\n> the regulator who would have investigated and possibly settled quietly is no longer in the way.**\n\nThis produces a practitioner error that is worth naming because it is currently common. An\norganization reads the federal news, concludes the risk has fallen, and stands down its testing\nprogramme. What it has actually done is stop generating the evidence that would defend it, in an\nenvironment where the people bringing claims are more active and the agency that might have resolved\nmatters early is absent.\n\n**And the principle generalizes past this particular reversal**, which is why it opens the track\nrather than closing it:\n\n> **A compliance programme designed against an enforcement posture breaks when the posture flips.\n> Design against the duty instead.**\n\nPostures flip in both directions and with predictable regularity. Duties, particularly statutory\nones, do not."
+  },
+  {
+    "id": "ai301-defensible-m1-lesson-3-your-baseline-is-disappearing-a-70",
+    "moduleId": "ai301-defensible-m1",
+    "ordinal": 70,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 · Your baseline is disappearing, and there is a date on it [V]\n\nA specific, time-bounded thing to act on.\n\nOn **14 May 2026**, the EEOC sent the Office of Information and Regulatory Affairs a proposed rule\ntitled *Rescission of EEO-1, EEO-2, EEO-3, EEO-4, EEO-5, and Reporting Requirement* under Title VII,\nthe ADA, GINA and the PWFA. Since 1966, the EEO-1 has required employers with 100 or more employees\nto report headcount by job category, sex, and race or ethnicity.\n\n**It is proposed, not final.** OIRA review is expected to take no more than 90 days, after which the\nrule would be published for the normal process. **Current regulations still require the EEO-1 to be\nfiled on or before 30 September**, and employers should prepare to file until the rescission is\nactually finalized.\n\nTwo consequences, and the second is the one people miss.\n\n**First, the obvious one:** a compliance obligation may be about to disappear, which for most\norganizations is a small administrative relief.\n\n**Second, and much more important: a baseline may be about to disappear, and baselines cannot be\nreconstructed backwards.** The EEO-1 is, for many employers, the only demographic snapshot that is\nproduced annually, on a consistent definition, in a form nobody in the organization curated for a\npurpose. That is exactly what makes it useful as evidence — of change over time, of the composition\nof a workforce at a moment, of whether a pattern predates something.\n\nIf federal collection stops and you have not decided to keep collecting the same series internally,\nthen in three years you will have a gap in the middle of your own record, on the exact dimensions a\nplaintiff's expert will ask about.\n\n**Deciding to maintain the series internally is a decision to make now**, while the definitions,\nthe process and this year's data all still exist. It is also — and this is where it connects to\nModule 3 — a decision with a privilege dimension, because the data you keep is data you can be asked\nto produce."
+  },
+  {
+    "id": "ai301-defensible-m1-lesson-4-the-states-corrected-80",
+    "moduleId": "ai301-defensible-m1",
+    "ordinal": 80,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 · The states, corrected [V]\n\nThe standard commentary is that states are filling the federal vacuum. That is partly true and it is\nwrong about the specific state most often named.\n\n**California — in force.** The Civil Rights Council's regulations on automated decision systems took\neffect **1 October 2025**. Two features matter enormously for this track: they make **anti-bias\ntesting, or its absence, explicitly relevant to a discrimination claim**, and they impose extended\nrecordkeeping duties covering automated-decision data. That first feature is the closest thing in\nAmerican law to a statement that Module 3's subject is legally load-bearing.\n\n**Illinois — in force.** HB 3773 took effect **1 January 2026**. It requires notice when AI is used\nin employment decisions, states expressly that employers may not use AI in ways that discriminate,\nand **prohibits the use of zip codes as proxies for protected classes.** That proxy prohibition is\nthe first time a US state has named the mechanism rather than the outcome.\n\n**Colorado — not what you have been told.** Colorado's AI Act (SB 24-205) is routinely described as\nthe comprehensive state regime that arrived. It was **postponed to June 2026** following a failed\nspecial session, and separately **a federal court paused enforcement on 27 April 2026** pending\nlitigation. It is stalled twice over. **If your compliance plan names Colorado as the operative\nstate standard, it is built on something that is not currently operating** — and if you have been\nusing Colorado to argue for budget, expect the first person who checks to notice.\n\n**Connecticut — the one to prepare for**, and Module 2 covers it in detail. Its AEDT framework takes\neffect **1 October 2026**, with the principal compliance obligations following on **1 October 2027**.\n\nThe practical instruction: your obligations are determined by where your *employees and applicants*\nsit, not where your headquarters sits. For most organizations of any size, that means more than one\nof the regimes above applies, and the exposure map is how you find out which."
+  },
+  {
+    "id": "ai301-defensible-m1-lesson-5-two-fronts-and-only-one-of-them-90",
+    "moduleId": "ai301-defensible-m1",
+    "ordinal": 90,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 5 · Two fronts, and only one of them is about bias [V]\n\nTwo lawsuits define the current litigation landscape, and the second is the one most practitioners\nhave not internalized.\n\n**Front one — *Mobley v. Workday*.** A federal class and collective action alleging that AI-powered\napplicant screening disparately harmed Black, older and disabled applicants. An ADEA collective was\npreliminarily certified in **May 2025**; the opt-in deadline passed in **March 2026**; and on **22\nJune 2026** the court allowed core discrimination claims to proceed, with California FEHA claims and\n**a proxy-discrimination disability claim** surviving. It is in discovery, heading toward trial.\n\nNote the proxy claim surviving. Illinois legislated against proxies; a court is now allowing a proxy\ntheory to proceed. Those are two independent signals that the mechanism Module 3 teaches you to\ndetect is the mechanism the system is converging on.\n\n**Front two — *Kistler v. Eightfold AI*.** Filed **January 2026** in California state court by\nformer EEOC chair Jenny Yang together with Towards Justice. It alleges that the platform scraped\npersonal data on more than a billion workers, scored applicants on a zero-to-five scale, and\ndiscarded low-ranked candidates before any human saw them — **without the disclosures required by\nthe Fair Credit Reporting Act**, on the theory that what was assembled amounts to a consumer report\nused for employment decisions.\n\n**It does not allege the algorithm was biased. It alleges it existed in secret.**\n\nSit with what that means strategically. Proving disparate impact is expensive: you need data,\nstatistics, an expert, and a defensible comparison group. Proving a disclosure failure is\ncomparatively cheap — either the required notice was given or it wasn't.\n\n> **As federal disparate-impact enforcement retreated, plaintiffs found a route that doesn't require\n> proving disparate impact at all.**\n\nThat is Lesson 2's principle arriving with a mechanism attached, and it is why an exposure map built\nonly around discrimination liability is incomplete. Ask the FCRA-shaped question about every tool in\nyour stack: *is this assembling information about a person, from third-party sources, to inform an\nemployment decision — and if so, what disclosure did we give?*"
+  },
+  {
+    "id": "ai301-defensible-m1-key-takeaways-100",
+    "moduleId": "ai301-defensible-m1",
+    "ordinal": 100,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **The retreat is a list of instruments, not a mood** `[V]`: EO 14173 (contractor certification),\n  EO 14281 (agencies to eliminate disparate impact enforcement), the EEOC dropping pending cases and\n  defunding state agencies, its June 2026 plan prioritizing disparate treatment, and **EO 14398**\n  (26 March 2026) with flow-down clauses, \"reasonably knowable\" subcontractor disclosure, records\n  access and **False Claims Act exposure**.\n- **The duty did not move.** Disparate impact is codified in Title VII by the Civil Rights Act of\n  1991. An executive order cannot repeal it, and does not claim to — it directs agencies to\n  deprioritize enforcement.\n- **Private exposure did not retreat and may have concentrated.** The plaintiffs' bar isn't bound by\n  executive orders, the courts remain open, and activity is reportedly rising. Standing down testing\n  because federal enforcement fell means ceasing to generate the evidence that would defend you.\n- **Design against the duty, not the posture.** Postures flip in both directions with regularity.\n  Statutory duties don't.\n- **The EEO-1 rescission is proposed, not final** `[V]`, and the 30 September filing obligation\n  stands. The real issue isn't the compliance relief — it's that **a baseline may vanish and\n  baselines cannot be reconstructed backwards.**\n- **States: California in force since 1 Oct 2025** (bias testing *or its absence* relevant to a\n  claim; extended recordkeeping), **Illinois since 1 Jan 2026** (notice; zip codes prohibited as\n  proxies), **Colorado stalled twice** — postponed and enforcement-paused — and **Connecticut from\n  1 Oct 2026**.\n- **Two fronts.** *Mobley* is the discrimination front, in discovery, with a proxy-discrimination\n  claim surviving. *Kistler* is an FCRA disclosure case that **doesn't allege bias at all** — a\n  cheaper route to liability that opened as the expensive one narrowed."
+  },
+  {
+    "id": "ai301-defensible-m1-exercise-embed-105",
+    "moduleId": "ai301-defensible-m1",
+    "ordinal": 105,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\":\"choice\"}"
+  },
+  {
+    "id": "ai301-defensible-m1-take-a-position-110",
+    "moduleId": "ai301-defensible-m1",
+    "ordinal": 110,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"The retreat you've been reading about is an enforcement story. Your exposure went\nup.\"*\n\nThe strongest counter-argument is that **this is risk-management reasoning dressed as legal\nanalysis, and it ignores the actual base rates.** Federal agency enforcement was, for most employers,\nthe realistic mechanism by which anything ever happened — audits, conciliation, consent decrees. The\nprivate plaintiffs' bar takes cases with large classes, clear damages and deep-pocketed defendants,\nwhich describes a small minority of employers. For a 900-person manufacturer in a state with no AEDT\nlaw, the honest assessment is that measurable exposure genuinely fell, and telling them otherwise to\npreserve a function's relevance is the kind of motivated reasoning this track claims to be against.\n\nThere is a sharper version aimed directly at this course. **Testing produces the evidence.** If your\nexposure now runs through discovery rather than agency audit, then the single most effective thing a\nrationally self-interested employer can do is *stop generating analyses* — and a track that\nrecommends more testing, into a discovery-driven risk environment, may be advising against its\nlearners' institutional interest while calling it professionalism.\n\nTake a position on that, in writing, in the activity. The strongest submissions engage the second\nversion, because Module 3 exists to answer it and you should decide now whether you find the answer\nconvincing."
+  },
+  {
+    "id": "ai301-defensible-m1-activity-link-115",
+    "moduleId": "ai301-defensible-m1",
+    "ordinal": 115,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\":\"activity_link\",\"title\":\"Applied activity — The exposure map\",\"blurb\":\"One page: every jurisdiction where you employ people or accept applications, what applies and whether it is in force, your federal contract status, the EEO-1 decision, and one question specific enough that your GC could answer it in a single email. \\\"Don't know\\\" is an expected entry. Graded against a five-dimension rubric. Free unlimited resubmission.\",\"estMinutes\":\"20\"}"
+  },
+  {
+    "id": "ai301-defensible-m1-sources-and-attribution-120",
+    "moduleId": "ai301-defensible-m1",
+    "ordinal": 120,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- **Executive Orders 14173** (January 2025), **14281** (April 2025), and **14398**, \"Addressing DEI\n  Discrimination by Federal Contractors\" (26 March 2026) — including the flow-down clause, the\n  \"reasonably knowable\" subcontractor disclosure duty, records access, and False Claims Act\n  exposure. **[V]**\n- **EEOC** — dropping pending disparate impact cases and withdrawing support from state agencies\n  following EO 14281; and the **June 2026 National Enforcement Plan** prioritizing disparate\n  treatment over disparate impact theories. **[V]**\n- **Disparate impact's statutory basis** — *Griggs v. Duke Power Co.*, 401 U.S. 424 (1971), codified\n  by the **Civil Rights Act of 1991**; and the private right of action that no executive order\n  binds. **[V]**\n- **Proposed EEO-1 rescission** — rule sent to OIRA 14 May 2026 covering EEO-1 through EEO-5 and the\n  reporting requirement under Title VII, the ADA, GINA and the PWFA. **Proposed, not final**; the 30\n  September filing obligation stands. **[V]**\n- **State regimes** — California Civil Rights Council automated-decision regulations effective 1\n  October 2025; Illinois HB 3773 effective 1 January 2026 including the zip-code proxy prohibition;\n  Colorado SB 24-205 postponed and enforcement paused by federal court 27 April 2026; Connecticut's\n  AEDT framework effective 1 October 2026. **[V]**\n- ***Mobley v. Workday*** — ADEA collective preliminarily certified May 2025, opt-in closed March\n  2026, core claims allowed to proceed 22 June 2026 with FEHA and proxy-discrimination disability\n  claims surviving. ***Kistler v. Eightfold AI*** — filed January 2026, brought by former EEOC chair\n  Jenny Yang with Towards Justice, pleaded under the **FCRA** rather than as a discrimination claim.\n  **[V]**\n- **Counsel review required — see the gate at the top of this module.**\n- The relocated-exposure framing, the design-against-the-duty principle, and the\n  baselines-cannot-be-reconstructed argument are original to this course.\n- Structure and topic coverage follow the AI Fluency Framework (Dakan & Feller, in collaboration\n  with Anthropic, CC BY-NC-SA 4.0); prose is original."
+  }
+]

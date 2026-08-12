@@ -1,0 +1,56 @@
+{
+  "promptVersion": "ai301-talent-dev-m1-the-triage-v1",
+  "moduleId": "ai301-talent-dev-m1",
+  "minWords": 300,
+  "maxWords": 400,
+  "submitLabel": "Your triage and write-up",
+  "intro": "Paste your portfolio triage — the three buckets with a percentage in each, your two defended boundaries, and the program you would stop — plus the 300–400 word write-up including your position on this module's claim. Resubmission is free and unlimited; the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, Talent Development / L&D track — for talent development and L&D professionals who have completed AI 101 and AI 201. Module 1 applied activity, 'The triage': the learner takes their actual twelve-month portfolio and sorts it with three questions in order — (1) cheap now: could a competent outsider rebuild it to an acceptable standard in a weekend with current tools; (2) ours only: does it depend on undocumented organizational information; (3) needs a human on the hook: must someone be accountable in the room. They give a percentage per bucket, defend the two items they found hardest to place, and name one program they would stop (not pause, not refresh) with what happens to the need it served and who would object. Individual contributors without portfolio authority run this on programs they personally own and name the decision-maker who would have to agree; naming the decision-maker is graded as the equivalent of making the call. IMPORTANT: if the learner reports they cannot produce a catalog inventory at all, that is a finding about the function and scores at FULL CREDIT provided they account for why and what it implies — an L&D function that cannot enumerate what it publishes has learned something structural, and the write-up becomes that. Do not penalize the absence of the artifact when the absence is the result. The module's claim, which the write-up must take a position on, is that the part of the job they were proudest of is the part that just became cheap; its real counter-argument is that rebuildable is not replaceable — question one measures artifact complexity and may quietly call it value, missing the political framing, the negotiated scope, and the deliverer's credibility that made the work land. This track scores the delta, not the score: never grade the accuracy of the opening position or percentage, grade the account of the gap between what they predicted and what the catalog showed.",
+  "opening": [
+    {
+      "key": "cheapBucketPct",
+      "label": "Predicted — % of your portfolio in bucket one, 'cheap now'",
+      "hint": "Rebuildable to an acceptable standard, in a weekend, by a competent person outside L&D.",
+      "placeholder": "e.g. 40",
+      "min": 0,
+      "max": 100
+    }
+  ],
+  "calibration": [
+    {
+      "key": "cheapBucketPctActual",
+      "label": "Measured — % in bucket one after running the triage on the real catalog",
+      "hint": "Most people revise this upward. The direction and the cause are the finding, not the number.",
+      "placeholder": "e.g. 65",
+      "min": 0,
+      "max": 100,
+      "actualFor": "cheapBucketPct"
+    }
+  ],
+  "dimensions": [
+    {
+      "name": "The portfolio is real and enumerated",
+      "criteria": "An actual twelve-month catalog with named items, not a description of what the function broadly does. Rough scale is fine; an asset register is not required. A modest portfolio worked concretely outscores a large one described in the abstract. If the learner reports they could not build the inventory, score at full credit where they state why, what they tried, and what the absence implies about the function — that is the intended finding, not a failure."
+    },
+    {
+      "name": "The three questions were run in order, and harshly",
+      "criteria": "Evidence that question one was applied without mercy before anything was rescued into two or three. The tell of a soft pass is a large bucket three justified by 'our people expect a human' or a large bucket two justified by 'our culture is unique'. Look for items the learner clearly did not enjoy placing in bucket one. Every item lands in exactly one bucket, and percentages are given."
+    },
+    {
+      "name": "Bucket two is defended on the right mechanism",
+      "criteria": "Items in 'ours only' should depend on information that is absent from any record — undocumented process, real incidents, institutional memory, how decisions actually get made. Items defended on the grounds that the judgment is subtle or the content is high-quality have used the wrong mechanism and should score low, however good the content is. Credit a learner who notices that documenting the information would move the item toward bucket one."
+    },
+    {
+      "name": "The two hard boundaries carry real reasoning",
+      "criteria": "The two items the learner found hardest to place, with the reasoning that resolved them. These are worth more than the items placed instantly. Look for a genuine competing consideration named on both sides. 'This was hard because it's important to us' is not a boundary argument; 'this is rebuildable as an artifact but the delivery depends on who runs it' is."
+    },
+    {
+      "name": "The kill is named, specific, and costed",
+      "criteria": "One named program the learner would stop — not pause, not refresh, not 'review'. Plus what happens to the need it was serving and who would object. A triage that ends without a named casualty has not been run and should score at the bottom of this dimension regardless of how good the sorting was. An IC who names the program plus the decision-maker who would have to agree scores full credit here."
+    },
+    {
+      "name": "The delta and the position",
+      "criteria": "The opening claim and percentage compared against what the catalog actually showed, with an account of what moved — a large gap with a specific cause is the intended finding and scores at the top; so does a defended non-revision from someone whose estimate genuinely held. Accuracy is never graded. Plus a committed position on the module's claim that engages its real counter-argument: that rebuildable is not replaceable, and question one may be measuring artifact complexity rather than value. A position that restates the claim without meeting that objection scores low."
+    }
+  ]
+}

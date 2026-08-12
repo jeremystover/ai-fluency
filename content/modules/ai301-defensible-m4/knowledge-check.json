@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "How should the 50% / 17% / 75% procurement figures be used `[V]`?",
+      "options": [
+        "As a benchmark to show executives how far behind the organization is",
+        "For direction rather than magnitude — they come from a vendor selling bias auditing, reporting on its own audit book",
+        "They should not be used at all, since vendor research is unreliable",
+        "As evidence that pre-purchase evaluation is now a legal expectation"
+      ],
+      "correctIndex": 1,
+      "explanation": "Not false — a claim with an interest attached. A module teaching you to interrogate vendor evidence cannot quote vendor evidence uncritically, and you cannot show the sample or the question wording to an executive."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why is \"what does it optimize?\" the more revealing of the training questions?",
+      "options": [
+        "Because vendors are reluctant to answer it",
+        "Because a model optimizing for candidates similar to current high performers has an explicit objective of reproducing your workforce's existing composition — a design decision you may not be able to defend",
+        "Because the optimization target determines the model's accuracy",
+        "Because it identifies whether the model uses protected characteristics"
+      ],
+      "correctIndex": 1,
+      "explanation": "And vendors usually answer it happily, because they are proud of it. The answer tells you what the tool is *for*, which is often not what the fairness discussion assumes."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why ask about rejected candidates' data as a data question rather than a fairness question?",
+      "options": [
+        "Because data teams answer more precisely than sales teams",
+        "Because the fairness answer will not surface it — and if the system assembles information from beyond what the candidate submitted, you may be in consumer-report territory regardless of whether the model is fair",
+        "Because retention periods are contractually negotiable",
+        "Because privacy regulators enforce more aggressively than employment regulators"
+      ],
+      "correctIndex": 1,
+      "explanation": "This is the *Kistler* question. That case doesn't allege the algorithm was biased — it alleges an FCRA disclosure failure, which is a liability route that runs entirely around fairness."
+    },
+    {
+      "id": "q4",
+      "prompt": "What makes \"what would we need from you if we were sued?\" worth asking before signature?",
+      "options": [
+        "It signals to the vendor that you are a sophisticated buyer",
+        "Because before signature it is a procurement term, and after signature it is a request that depends on goodwill",
+        "Because it establishes the vendor's litigation history",
+        "Because it is required under most state AEDT regimes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Can they produce the model version in effect on a given date, the configuration you ran, and the contemporaneous audit? That is either written into the contract or it isn't."
+    },
+    {
+      "id": "q5",
+      "prompt": "What does ISO/IEC 42001 certify `[V]`?",
+      "options": [
+        "That a specific AI model has been tested for bias and passed",
+        "That an organization has an AI management system — governance, roles, controls, review — rather than that any particular model is fair",
+        "Compliance with the EU AI Act",
+        "That the vendor's training data is representative"
+      ],
+      "correctIndex": 1,
+      "explanation": "It is a management system standard, not a technical specification for an individual system. Legitimate evidence — of something other than what a fairness question asked."
+    },
+    {
+      "id": "q6",
+      "prompt": "A vendor answers your fairness question by citing its ISO/IEC 42001 certification. What has happened?",
+      "options": [
+        "Deliberate deception that should end the procurement",
+        "A subject change, usually unintentional — a salesperson asked \"is it fair?\" reached for the most rigorous evidence available, and it is rigorous evidence of something else",
+        "An adequate answer, since certification implies fairness testing",
+        "A legal misrepresentation"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which is why naming what each document is matters: it lets you re-ask without accusing anyone of anything, and re-asking is the whole move."
+    },
+    {
+      "id": "q7",
+      "prompt": "Which finding in an audit summary is worth *more* than a clean result?",
+      "options": [
+        "A large sample size across multiple customer deployments",
+        "An audit conducted by a Big Four firm",
+        "An audit that found something and produced a change — it demonstrates the finding-to-action pathway",
+        "An audit covering every protected characteristic"
+      ],
+      "correctIndex": 2,
+      "explanation": "It shows the vendor's response-to-results mechanism works, which is the criterion Connecticut weighs and the thing Module 3's protocol is built around. A clean audit demonstrates nothing about what happens when it isn't clean."
+    },
+    {
+      "id": "q8",
+      "prompt": "What is the sharpest argument *against* this module's gate?",
+      "options": [
+        "That procurement teams lack the expertise to evaluate fairness claims",
+        "That the disparity is a property of the deployment — your pool, your job, your configuration — not of the tool, so no pre-purchase audit can establish it and the real work is all post-deployment",
+        "That vendors will refuse to answer these questions",
+        "That contract terms cannot bind model behaviour"
+      ],
+      "correctIndex": 1,
+      "explanation": "It has real force, and the weaker version of the counter is also worth holding: demanding model-level outcome evidence at the gate filters for vendors with large compliance budgets rather than for good products, which is why the activity asks for a proportionality line."
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "promptVersion": "ai301-talent-dev-m4-the-allocation-policy-v1",
+  "moduleId": "ai301-talent-dev-m4",
+  "minWords": 300,
+  "maxWords": 400,
+  "submitLabel": "Your allocation policy and write-up",
+  "intro": "Paste the allocation policy — populations, what each gets, the stated basis for each line, the co-regulation test applied, and the group you are failing — plus the 300–400 word write-up including your position on this module's claim. Resubmission is free and unlimited; the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, Talent Development / L&D track — for talent development and L&D professionals who have completed AI 101 and AI 201. Module 4 applied activity, 'The allocation policy': a one-page policy naming three to five populations, allocating each to human support, a tool, or neither, and stating the BASIS for each line so someone could disagree with it. Then applying the co-regulation test to each allocation (does this work because of information exchanged, or because someone is watching), naming which group the allocation serves worst given that outcomes track starting self-efficacy and hope, and saying whether current measurement would reveal that. Individual contributors write it for one program they own; the scope shrinks and the argument does not, and a single-cohort policy is often more defensible. CRITICAL SCORING NOTE: 'budget' is an entirely legitimate basis and must score at full credit when stated openly. The failure this module targets is a budget decision dressed as a developmental judgment — 'senior leaders get coaches because they have the highest leverage' when the real reason is cost. A learner who writes 'senior leaders get coaches because that is what we can afford' has done the harder and more honest thing. Equally, if the learner reports that nobody in the organization can say who currently has access to human development support, that is a finding — the allocation was made by default — and scores at full credit when accounted for. The module's claim, which the write-up must take a position on, is that deploying a tool as the only channel for a struggling population fails the people the program exists for and completion data will not show it. Its real counter-argument is scale and counterfactual: for most organizations the alternative to a tool is nothing, not a human, so insisting on human allocation may defend an existing inequity in the language of equity — and if tools work best for the already-confident, the efficient move might be to serve THAT group with tools and redirect human hours elsewhere. Strong positions say what they would actually do where the human channel does not exist and will not be funded. This track scores the delta, not the score: never grade the accuracy of the opening position or percentage, grade the account of the gap.",
+  "opening": [
+    {
+      "key": "humanSupportPct",
+      "label": "Predicted — % of your workforce with access to human development support",
+      "hint": "A coach, a mentor, or a manager who actually runs development conversations.",
+      "placeholder": "e.g. 30",
+      "min": 0,
+      "max": 100
+    }
+  ],
+  "calibration": [
+    {
+      "key": "humanSupportPctChecked",
+      "label": "Checked — the same figure after you went and looked",
+      "hint": "If nobody in the organization can answer it, say so in the write-up. That is the finding.",
+      "placeholder": "e.g. 12",
+      "min": 0,
+      "max": 100,
+      "actualFor": "humanSupportPct"
+    }
+  ],
+  "dimensions": [
+    {
+      "name": "Populations are real and actually differ",
+      "criteria": "Three to five groups split on lines the organization genuinely uses — level, tenure, transition point, function. The test is whether the groups have different development needs rather than different labels. 'All employees / managers / leaders' scores low unless the learner shows why those three differ in what they need rather than in what they cost."
+    },
+    {
+      "name": "Every line has a stated basis someone could argue with",
+      "criteria": "Not just the allocation but the reason, written so it could be contested. Budget stated plainly scores at FULL credit — it is the honest constraint and naming it is the harder move. What scores low is a basis that cannot be argued with because it is not stating its real reason: a cost decision presented as a judgment about leverage or readiness. Look for at least one line where the learner names an uncomfortable reason."
+    },
+    {
+      "name": "The co-regulation test was applied, not cited",
+      "criteria": "For each allocation, the activity named and the test run: does this work because of the information exchanged, or because someone is watching. The graded move is identifying at least one place where a tool has been allocated to a watched activity, and either justifying it or changing it. A submission that applies the test and finds no tension anywhere has probably not applied it."
+    },
+    {
+      "name": "The failed group is named, and the measurement question answered",
+      "criteria": "Which group this allocation serves worst, given that outcomes track starting self-efficacy and hope — and crucially whether current measurement would reveal it. The strongest submissions name a specific group, explain why the current data would hide the failure (non-completers disappearing, averages masking bimodality), and propose one concrete measurement change. 'We would monitor closely' is not an answer."
+    },
+    {
+      "name": "The default allocation is confronted",
+      "criteria": "The write-up asks whether any part of the current allocation exists because nobody ever decided it. Credit honesty here heavily — most organizations' allocations are historical accidents, and a learner who identifies one and says so has done the module's real work. Where the learner reports that nobody can even establish who has access to human support, score at full credit: the allocation was made by default, which is the module's point arriving as evidence."
+    },
+    {
+      "name": "The delta and the position",
+      "criteria": "The opening claim and percentage against what checking revealed, with an account of what moved and why. Accuracy is never graded. Plus a committed position on the module's claim that engages the real counter-argument — that the alternative to a tool is usually nothing rather than a human, and that the efficient allocation might invert the intuitive one. A position that endorses the module without addressing what to do where no human channel exists or will be funded scores low."
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is missing from all four common owners of AI governance?",
+      "options": [
+        "Budget authority to remediate findings",
+        "Someone who can say what to measure, what the measurement showed, what it doesn't establish, and what would be needed to defend it — a method rather than an opinion",
+        "Executive sponsorship",
+        "Access to the systems in question"
+      ],
+      "correctIndex": 1,
+      "explanation": "Legal knows what the standard is and generally cannot compute a selection rate. IT can govern a system perfectly on every dimension it measures while the system selects at very different rates by group."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why is this capability scarce?",
+      "options": [
+        "Because the statistical methods are technically difficult",
+        "Because few universities teach algorithmic fairness",
+        "Because it sits at an intersection — statistical method, employment law fluency, and operational knowledge of where decisions happen. Each is common; the combination isn't",
+        "Because the tooling is expensive to license"
+      ],
+      "correctIndex": 2,
+      "explanation": "The four-fifths rule is arithmetic and the significance test is first-year statistics. Scarcity comes from the combination, which is easy to underestimate from inside a role where everyone around you has it."
+    },
+    {
+      "id": "q3",
+      "prompt": "What is the structural defect of a cross-functional AI governance committee?",
+      "options": [
+        "It meets too infrequently to keep pace with system changes",
+        "Nobody's performance review is affected by whether it works — Module 2's ownership question applied to governance itself",
+        "It lacks the technical expertise to evaluate systems",
+        "Its recommendations are advisory rather than binding"
+      ],
+      "correctIndex": 1,
+      "explanation": "If this fails, whose review does it appear in? For most committees the answer is nobody's, which is the same test that found the ownerless systems in the inventory."
+    },
+    {
+      "id": "q4",
+      "prompt": "What distinguishes restructuring from relabeling?",
+      "options": [
+        "Whether the change was approved at board level",
+        "Whether the budget moved with the name",
+        "Whether the work changed — the test being whether what you do on a Tuesday is different",
+        "Whether the previous name is still used internally"
+      ],
+      "correctIndex": 2,
+      "explanation": "Relabeling fools nobody who looks, and in a discovery context a renamed programme with unchanged activities is worse than an honestly named one, because the renaming becomes an exhibit about intent."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why does this module refuse to cite a specific job posting `[V]`?",
+      "options": [
+        "Because job postings are proprietary information",
+        "Because a single advertisement isn't a durable citation — it disappears, may reflect one company's idiosyncrasy, and quoting it would be the borrowed-anecdote reasoning the track teaches you to reject",
+        "Because the roles vary too much across sectors",
+        "Because compensation data is more reliable than posting text"
+      ],
+      "correctIndex": 1,
+      "explanation": "The module has you run the scan yourself instead, which produces current, local evidence about your own market — better than anything a course could assert."
+    },
+    {
+      "id": "q6",
+      "prompt": "In a market scan, what distinguishes a posting describing this capability from one describing a more crowded job?",
+      "options": [
+        "Seniority level and reporting line",
+        "Whether it asks for statistical method — adverse impact analysis, disparate impact, validation studies — rather than only \"familiarity with AI governance frameworks\"",
+        "Whether it is in Legal or in HR",
+        "Whether it requires a technical degree"
+      ],
+      "correctIndex": 1,
+      "explanation": "Familiarity with frameworks describes a reader of frameworks. Asking for adverse impact analysis describes someone who can produce the number, which is a much smaller population."
+    },
+    {
+      "id": "q7",
+      "prompt": "Why ask for something small rather than for the mandate?",
+      "options": [
+        "Because large asks require board approval",
+        "Because small asks get yes, and a yes creates a relationship in which the larger question can be asked later",
+        "Because mandates are assigned rather than requested",
+        "Because incremental scope is easier to resource"
+      ],
+      "correctIndex": 1,
+      "explanation": "And the framing inverts the usual dynamic: a person asking for scope is a cost; a person offering to solve a problem their reader already owns is a resource."
+    },
+    {
+      "id": "q8",
+      "prompt": "What does this module claim the capability actually buys?",
+      "options": [
+        "Protection from restructuring",
+        "A defined career path into AI governance",
+        "Legibility — a precondition for everything else, and a guarantee of none of it",
+        "Leverage in compensation negotiations"
+      ],
+      "correctIndex": 2,
+      "explanation": "Organizations restructure for reasons unrelated to who holds a scarce skill. The failure mode being addressed is holding a capability nobody in the building knows exists — and claiming more than that would be exactly the unverifiable assertion this track teaches you to check."
+    }
+  ]
+}

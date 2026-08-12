@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What makes zero-result search logs higher-fidelity than a survey?",
+      "options": [
+        "They have a larger sample size",
+        "They are unprompted and behavioural — someone needed something enough to type it, and it isn't shaped by a question you thought to ask",
+        "They are easier to analyze with AI",
+        "They are anonymous by default"
+      ],
+      "correctIndex": 1,
+      "explanation": "A survey measures response to your question, so it is blind wherever your assumptions are. Search measures what someone needed unbidden, and typing a query is a costly signal — only worth it if you actually need the answer."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why is thematic synthesis particularly prone to false confidence?",
+      "options": [
+        "Models are trained mostly on formal writing",
+        "Because there is no natural failure signal — no equivalent of a checkable fabricated citation — so the output looks identical whether the structure is real or imposed",
+        "Because themes are inherently subjective",
+        "Because ticket data is usually incomplete"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ask for four hundred tickets to be themed and you'll get themes, whether or not themes exist. The three cheap defences: ask for the distribution, ask what didn't fit and how much, and run it twice to see whether the structure holds."
+    },
+    {
+      "id": "q3",
+      "prompt": "How does re-identification differ from the small-sample problem?",
+      "options": [
+        "It only applies to qualitative data",
+        "It affects large organizations rather than small ones",
+        "The analysis can be perfectly sound — the problem is that the output identifies people against a promise you made, so the fix is a reporting floor rather than a confidence interval",
+        "It is a statistical error rather than a disclosure"
+      ],
+      "correctIndex": 2,
+      "explanation": "\"Three of five raised concerns about their manager\" may be entirely accurate. It is also a disclosure, and the manager reading it knows who the silent two probably are."
+    },
+    {
+      "id": "q4",
+      "prompt": "What does the EU AI Act's workplace emotion-recognition prohibition actually cover `[V]`?",
+      "options": [
+        "Any AI system that infers employee sentiment, including from text",
+        "Inference from biometric data — so a camera reading faces in a town hall is prohibited, while text sentiment analysis very probably falls outside it",
+        "Only systems used in performance management decisions",
+        "Nothing yet; the obligations begin in 2027"
+      ],
+      "correctIndex": 1,
+      "explanation": "The prohibition's text doesn't say \"biometric,\" but Commission guidance ties it to the Act's defined term, which is limited to inference from biometric data. In force since 2 February 2025 and absolute, with narrow medical and safety exceptions."
+    },
+    {
+      "id": "q5",
+      "prompt": "What is the practical consequence of \"not prohibited is not cleared\"?",
+      "options": [
+        "That legal review is unnecessary where no prohibition applies",
+        "That escaping Article 5 clears one gate of at least four — data protection, works councils, monitoring notice, and §7 all still apply",
+        "That organizations should apply the strictest jurisdiction's rules everywhere",
+        "That prohibitions are less important than guidance"
+      ],
+      "correctIndex": 1,
+      "explanation": "And it cuts the other way too: \"we can't, it's illegal in the EU\" is not available as a reason for text analysis, so anyone who has been using it has been winning an argument on a premise that won't survive the first person who checks."
+    },
+    {
+      "id": "q6",
+      "prompt": "New York, Connecticut and Delaware require what, precisely `[V]`?",
+      "options": [
+        "Employee consent before any electronic monitoring",
+        "Notice — written or electronic, with acknowledgment and in some cases conspicuous posting. They do not prohibit monitoring; they require you to have said you were doing it",
+        "Annual reporting of monitoring activity to the state",
+        "A documented impact assessment before monitoring begins"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which turns the question into a specific, answerable one: does the notice your employees actually acknowledged cover what you're proposing to build? A 2019 notice about telephone, email and internet usage is not obviously notice of sentiment inference across internal chat."
+    },
+    {
+      "id": "q7",
+      "prompt": "GC 23-02 on electronic surveillance was rescinded in February 2025 `[V]`. What should a listening programme conclude?",
+      "options": [
+        "That electronic monitoring is now permitted under the NLRA",
+        "That §7 no longer applies to algorithmic management",
+        "That the statute and the Board's decisional law are unchanged — only the enforcement appetite of one office moved, and a programme designed against posture breaks when posture flips",
+        "That the rescission will likely be reversed, so the memo should still be followed"
+      ],
+      "correctIndex": 2,
+      "explanation": "A team that built its rules around the memo now has rules with no foundation. A team that built them around \"don't build systems that would tend to chill protected concerted activity\" has rules exactly as valid as before — and still valid when the posture flips back."
+    },
+    {
+      "id": "q8",
+      "prompt": "What is the strongest argument *against* the promise-based rule?",
+      "options": [
+        "That employees do not read privacy notices, so the promise has no effect",
+        "That it systematically protects the powerful — the patterns suppressed by a reporting floor are concentrated in small teams, which is exactly where a bad manager's effects show up, among the people least able to escalate",
+        "That anonymity cannot be guaranteed in any dataset",
+        "That competitors who analyze freely will gain an advantage"
+      ],
+      "correctIndex": 1,
+      "explanation": "A floor set at five may be protecting the manager rather than the five. That is why the activity asks what you'd actually do with a small-team signal suggesting harm — \"the floor forbids it\" is a policy, not an answer, and every listening programme eventually meets this case."
+    }
+  ]
+}

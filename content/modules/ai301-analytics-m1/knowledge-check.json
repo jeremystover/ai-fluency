@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is the test that sorts a capability into the scarcity stack?",
+      "options": [
+        "Whether it requires domain knowledge of the HRIS",
+        "If analysis were free, would this still be scarce?",
+        "Whether a model can perform it today at acceptable accuracy",
+        "Whether it appears in the function's job descriptions"
+      ],
+      "correctIndex": 1,
+      "explanation": "C is the tempting one and it is a moving target that dates instantly; the stack is built on what remains scarce under an assumption, not on a current capability snapshot."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why is production included in the stack at all, if it has collapsed in value?",
+      "options": [
+        "Because some production work remains too specialized to automate",
+        "So that it can be crossed out — it is where the hours and the job descriptions sit, and naming it is what makes the other four layers visible",
+        "Because it is the foundation the other layers are built on",
+        "Because production quality still differentiates strong analytics functions"
+      ],
+      "correctIndex": 1,
+      "explanation": "C is the module's own counter-argument and it is a serious one — see the position you took. But its role *in the stack* is to be the layer that goes."
+    },
+    {
+      "id": "q3",
+      "prompt": "Which layer is trust?",
+      "options": [
+        "The fifth layer, above accountable standing",
+        "The first layer, since nothing else works without it",
+        "Not a layer — the residual that accrues to a function holding the other four",
+        "A precondition that has to be established before the stack applies"
+      ],
+      "correctIndex": 2,
+      "explanation": "Which is why Module 6 is about claiming it rather than building it. You cannot work on trust directly; you can only work on the things that produce it."
+    },
+    {
+      "id": "q4",
+      "prompt": "What does the available evidence for the collapse actually establish? `[V]`",
+      "options": [
+        "The rate at which analytical production is being displaced in HR",
+        "That it is possible — an existence proof plus an argument, and neither supports a claim about rate or breadth",
+        "That most analytics functions have already lost the production layer",
+        "That AI outperforms human analysts on people data"
+      ],
+      "correctIndex": 1,
+      "explanation": "And the module says out loud that its two practitioner sources co-author with each other, which makes them closer to one source than two."
+    },
+    {
+      "id": "q5",
+      "prompt": "How does DABstep's ~14.55% on the hardest tier change the module's claim? `[V]`",
+      "options": [
+        "It contradicts the claim, since agents perform poorly on real analysis",
+        "It narrows it usefully: routine analysis is free, the hard tier is not — and the hard tier is not where your hours are",
+        "It shows the benchmark is poorly designed for business analysis",
+        "It suggests the collapse is two or three years away rather than current"
+      ],
+      "correctIndex": 1,
+      "explanation": "The counterweight makes the claim survivable instead of weakening it, and the tasks agents fail on are precisely the ones requiring the upper layers."
+    },
+    {
+      "id": "q6",
+      "prompt": "How do you reconcile \"analysis got cheap\" with a ~0.29% average firm-level productivity gain? `[V]`",
+      "options": [
+        "The productivity gains are real but take longer than three years to appear",
+        "Production was never the bottleneck — so making it free changes the job description without changing firm output, which is evidence for the stack",
+        "The survey measured the wrong firms",
+        "Analysis did not actually get cheap; the existence proofs are unrepresentative"
+      ],
+      "correctIndex": 1,
+      "explanation": "With **89% of firms reporting no impact at all**, the average is a near-zero mass with a concentrated tail, not a small uniform gain."
+    },
+    {
+      "id": "q7",
+      "prompt": "What is the risk the module says you actually face?",
+      "options": [
+        "Being replaced by a model that produces analysis",
+        "Being funded for the thing that just became free and valued for things nobody wrote down",
+        "Producing analysis faster than the organization can absorb it",
+        "Losing methodological rigor as tooling improves"
+      ],
+      "correctIndex": 1,
+      "explanation": "Subtler and more likely than replacement — a budget conversation in which the visible output looks reproducible and the invisible output has no name."
+    },
+    {
+      "id": "q8",
+      "prompt": "What happens when the three evidence questions are pointed at the people analytics field itself?",
+      "options": [
+        "The field's evidence base is comparable to adjacent management disciplines",
+        "It holds up on efficacy but not on ethics",
+        "The evidence base about people analytics is worse than the one people analytics demands of everyone else — mostly vendor maturity models and self-reported case studies",
+        "There is strong evidence for analytics maturity models and weak evidence for predictive models"
+      ],
+      "correctIndex": 2,
+      "explanation": "Checkable in ten minutes, which is why the module asks you to check rather than asserting it. A function whose standing rests on rigor has an unexamined exception, and it is itself."
+    }
+  ]
+}

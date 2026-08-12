@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why is Verify described as newly expensive rather than newly necessary?",
+      "options": [
+        "Because verification tools now require licensing",
+        "Because the check used to run for free inside the writer — they had read the source, that's why they were writing — and removing the writer removed a check nobody knew was there",
+        "Because AI output contains more errors than human drafts",
+        "Because regulators now require documented verification"
+      ],
+      "correctIndex": 1,
+      "explanation": "It was never a formal step, which is why its removal is invisible. And the output looks better than what you had before, which is the whole problem."
+    },
+    {
+      "id": "q2",
+      "prompt": "What makes voice flattening different from the failure types AI 101 taught?",
+      "options": [
+        "It only occurs in long documents",
+        "It is caused by the prompt rather than the model",
+        "It isn't an error at all — the prose is accurate and competent. It's an identity problem: the channel stops sounding like your organization, gradually enough that no single message is worth objecting to",
+        "It can be detected automatically"
+      ],
+      "correctIndex": 2,
+      "explanation": "The tell is a question: could this have been sent by any employer? It compounds and is invisible per instance, which is the worst combination a defect can have."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why does compression drop the qualifier that made a statement true?",
+      "options": [
+        "Because qualifiers are usually placed at the end of documents",
+        "Because the model discards by textual salience rather than by consequence, and a condition appearing once in a long document is low-salience",
+        "Because the model is optimizing for reading level",
+        "Because qualifiers are ambiguous and the model avoids ambiguity"
+      ],
+      "correctIndex": 1,
+      "explanation": "\"Employees may carry over up to five days\" survives; \"except in the first year of employment\" doesn't. The summary isn't false about what it says — it's false about what it omits, and it harms the new joiners least equipped to know."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why is a skilled communicator's ear the wrong instrument for reviewing AI output?",
+      "options": [
+        "Because it is slower than a structured checklist",
+        "Because it was trained on external communications rather than internal",
+        "Because it reads for fluency, which used to be a costly signal correlated with competence and no longer is — and fluency is the one thing the model always gets right",
+        "Because it cannot detect factual errors"
+      ],
+      "correctIndex": 2,
+      "explanation": "And it's worse than neutral: a flattened, lossy, confident draft feels *better* to that instrument than the messy, hedged, correct thing an expert would have written. The expertise pulls toward the failure."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why must you read the source before the draft rather than after?",
+      "options": [
+        "Because it is faster to work in that order",
+        "Because reading the draft first makes it the frame, so the source-read becomes confirmation and you're structurally unable to notice what the draft doesn't mention",
+        "Because sources contain information the draft cannot include",
+        "Because the draft may bias your assessment of the source's reliability"
+      ],
+      "correctIndex": 1,
+      "explanation": "You'll find the things the draft mentions. Omissions are only visible when the source is the frame."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why is omission more dangerous than fabrication in this function?",
+      "options": [
+        "Omissions occur more frequently than fabrications",
+        "A fabrication leaves evidence in the text and existing verification catches it; an omission leaves no artifact and no string to search for — and a dropped eligibility condition costs a real employee something real",
+        "Fabrications are usually caught by legal review",
+        "Omissions cannot be corrected after publication"
+      ],
+      "correctIndex": 1,
+      "explanation": "The consequences differ in the same direction as the detectability. A fabricated number embarrasses the function and gets corrected. A missed enrollment window costs an employee money, and they never learn it was your omission — only that your channel can't be relied on."
+    },
+    {
+      "id": "q7",
+      "prompt": "What happens to a source that recorded genuine disagreement when a model summarizes it?",
+      "options": [
+        "The model flags the disagreement explicitly",
+        "The summary omits the topic entirely",
+        "It compresses toward the settled version, because settled statements are more textually salient than qualified ones — so the summary reads more confident than the decision was",
+        "The model reproduces both positions at equal length"
+      ],
+      "correctIndex": 2,
+      "explanation": "In change communication, the gap between what leadership actually agreed and what the workforce is told is already the central risk. This is the failure mode most likely to end up in a lawyer's timeline."
+    },
+    {
+      "id": "q8",
+      "prompt": "Why must stop-rules be written as categories rather than instances?",
+      "options": [
+        "Because categories are shorter to write and easier to remember",
+        "Because instance rules cannot answer a case they didn't anticipate, and next month always brings one",
+        "Because named instances create single points of failure",
+        "Because categories are easier to audit for compliance"
+      ],
+      "correctIndex": 1,
+      "explanation": "\"The benefits email gets checked\" has nothing to say about the message that isn't on the list. Categories answer new cases, which is the entire reason to write them that way — alongside being named rather than roled, attached to a source, and carrying a stated fallback."
+    }
+  ]
+}

@@ -179,8 +179,10 @@ product has no free-form debate surface and shouldn't pretend otherwise.
 
 - **Lesson 1:** The legal floor `[V]`. NYC Local Law 144's bias-audit and notice regime; Illinois's
   2026 notification requirement; the EU AI Act's Annex III classification of recruitment and
-  selection — deferred to December 2027, though the emotion-recognition ban has been absolute
-  since February 2025. And the duty that survives every rollback: **don't run a hiring tool you
+  selection — deferred to 2 December 2027 by Regulation (EU) 2026/1744 (in force 27 July 2026),
+  though the emotion-recognition ban has been absolute since February 2025 **and the Article 50
+  transparency obligations took effect 2 August 2026 regardless of risk class** — which puts a
+  recruiting chatbot in scope now, not in 2027. And the duty that survives every rollback: **don't run a hiring tool you
   can't show is fair.** Most HR professionals in regulated states don't know their own state's
   law exists `[V]`.
 - **Lesson 2:** The agent doctrine `[V]`. A tool that screens candidates on your behalf can be

@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is structurally wrong with deflection as a metric?",
+      "options": [
+        "It is difficult to compute consistently across channels",
+        "It counts an abandoned conversation and a confidently wrong answer identically to a genuine fix, because all three look like \"didn't come back\"",
+        "It excludes contacts that arrive outside business hours",
+        "It cannot be benchmarked against other organizations"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which is why the module replaces it with repeat contact, escalation appropriateness, answer correctness against the governing document, and voluntary return."
+    },
+    {
+      "id": "q2",
+      "prompt": "Which of IBM's AskHR figures does the module say is the useful one, and why? `[V]`",
+      "options": [
+        "The 94% containment, because it demonstrates achievable scale",
+        "The 75% ticket reduction, because it is the longest-running measure",
+        "The residual ~6%, because that is where every hard case lives and it is the module's entire legal surface",
+        "The 40% cost reduction, because it is what funds the programme"
+      ],
+      "correctIndex": 2,
+      "explanation": "A design that handles 94% beautifully and routes the remaining 6% badly has concentrated the problem rather than solved it. Note also that the 94% is unaudited self-report."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why does the module say the model is not the variable for this use case?",
+      "options": [
+        "Because all current models perform equivalently on HR questions",
+        "Because a capable model reading a superseded document produces a fluent, confident, wrong answer, while a weaker model reading a current one produces a correct answer — the document set determines whether the answer is true",
+        "Because model quality cannot be evaluated without benchmarks",
+        "Because vendors do not disclose which model they use"
+      ],
+      "correctIndex": 1,
+      "explanation": "Model quality shows up in tone and edge cases. Document-set quality shows up in whether the answer is true, which is where the spending should go."
+    },
+    {
+      "id": "q4",
+      "prompt": "How does the module characterize an answer drawn from a superseded document?",
+      "options": [
+        "A retrieval error to be fixed in configuration",
+        "A misstatement made by the employer, in writing, to an employee, about their own money or health",
+        "A model hallucination",
+        "An acceptable risk if the error rate is low"
+      ],
+      "correctIndex": 1,
+      "explanation": "The model did not get it wrong; the corpus did, and the model repeated it faithfully. C is the specific misdiagnosis to avoid — nothing was fabricated."
+    },
+    {
+      "id": "q5",
+      "prompt": "Which corpus control does the module call the single best one?",
+      "options": [
+        "Removing superseded documents from the index rather than marking them superseded",
+        "An effective-date field on every retrievable document, with a rule that the capability may not answer from a document lacking one",
+        "A named owner per topic",
+        "Quarterly review of the full document set"
+      ],
+      "correctIndex": 1,
+      "explanation": "Because it converts an invisible failure into a refusal — a capability that says \"I can't answer that, here's who can\" is enormously better than one that answers from a 2021 wiki page. A is the highest-yield *hour*; B is the best standing control."
+    },
+    {
+      "id": "q6",
+      "prompt": "What does \"notice to the bot is notice to you\" mean in practice? `[V]`",
+      "options": [
+        "That all chatbot conversations must be reviewed by HR staff",
+        "That employees must be warned not to disclose medical information to the assistant",
+        "That an employee's message may put the employer on notice of an FMLA or ADA obligation whether or not anyone at the company reads it — which makes escalation routing a legal control rather than a design preference",
+        "That chatbots must be disabled for leave and accommodation topics"
+      ],
+      "correctIndex": 2,
+      "explanation": "Counsel frame this exposure in *may* and we found no controlling decision, which is why the module carries a counsel gate. D over-corrects: the answer is routing design, not prohibition."
+    },
+    {
+      "id": "q7",
+      "prompt": "Why does keyword-based escalation routing fail?",
+      "options": [
+        "Because employees deliberately avoid trigger words to bypass the system",
+        "Because people do not use the words — \"I'm struggling to get in for 9am since my treatment started\" is an accommodation request containing neither the word accommodation nor disability",
+        "Because keyword lists cannot be maintained across languages",
+        "Because models cannot reliably detect keywords in long messages"
+      ],
+      "correctIndex": 1,
+      "explanation": "So route on topic proximity and uncertainty rather than vocabulary, and accept an asymmetric false-positive rate: over-routing costs a coordinator's time, under-routing costs a statutory obligation nobody noticed."
+    },
+    {
+      "id": "q8",
+      "prompt": "Why does the module insist on keeping a human route no harder to find than the bot? `[V]`",
+      "options": [
+        "Because employees prefer human contact in most surveys",
+        "Because accessibility obligations, and the fact that a capability which is the only route to a deadline makes access the difference between meeting that deadline and missing it — while adoption pressure pushes the other way",
+        "Because AI disclosure requirements mandate an alternative channel",
+        "Because deflection targets should be capped"
+      ],
+      "correctIndex": 1,
+      "explanation": "And Module 2's IBM case is the evidence: removing the human route drove satisfaction from +19 to −35. C is not what Article 50 requires — that is about disclosure, not alternatives."
+    }
+  ]
+}

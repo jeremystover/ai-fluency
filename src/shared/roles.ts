@@ -39,9 +39,15 @@ export const ROLE_CHOICES: RoleChoice[] = [
     track: 'ai301-comp',
   },
   {
+    id: 'peopleanalytics',
+    label: 'People Analytics',
+    detail: 'Workforce analytics and planning, the reporting surface, the engagement survey programme, attrition and predictive work, DEI measurement.',
+    track: 'ai301-analytics',
+  },
+  {
     id: 'other',
     label: 'Something else in People',
-    detail: "Talent development, employee experience, People ops, analytics, or leading the function. Tell us below — you'll start on the business partner track while yours is built.",
+    detail: "Talent development, employee experience, People ops, or leading the function. Tell us below — you'll start on the business partner track while yours is built.",
     track: DEFAULT_TRACK,
   },
 ];

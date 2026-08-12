@@ -1,0 +1,31 @@
+{
+  "reviewedAt": "2026-08-12",
+  "title": "Four pitches, one that gets a meeting",
+  "intro": "*Five minutes. Commit before you look.*\n\nFour practitioners write to the person who has just been handed AI governance in their organization. All four hold the capability this track builds. All four are competent, and none is arrogant.\n\n**One of them gets a meeting.** Find it.\n\nDon't ask which is most impressive. Ask what the reader is being asked to do, and how much it costs them to say yes.",
+  "artifacts": [
+    {
+      "label": "Pitch A · to the General Counsel",
+      "body": "\"I know you've picked up AI governance on top of everything else. The part nobody currently has is the measurement — the statistics that show whether a screening tool is actually selecting at different rates, which is the thing our state regulations now make relevant either way.\n\nI've built an AEDT inventory covering hiring and promotion. It found nine systems; four of them arrived as features inside tools we already owned and aren't on any list. It's attached.\n\n**Could I have thirty minutes to walk you through it?** If it's useful, the natural next step is scoping what we'd test and how you'd want that commissioned.\""
+    },
+    {
+      "label": "Pitch B · to the Chief People Officer",
+      "body": "\"AI governance is one of the most significant challenges facing our organization, and I believe People should be leading it. My background in DEI and analytics positions me well to take this on.\n\nI'd like to propose establishing an AI Governance Centre of Excellence, reporting into the People function, with responsibility for policy, standards, vendor evaluation and ongoing monitoring across all AI systems touching employees.\n\n**I'd welcome the chance to discuss resourcing.**\""
+    },
+    {
+      "label": "Pitch C · to the CIO",
+      "body": "\"I've completed a 300-level specialist certification in algorithmic accountability covering adverse impact testing, proxy detection, privilege structuring and vendor audit literacy.\n\nI'm concerned that our current approach to AI governance doesn't adequately address employment discrimination risk. Legal is focused on contracts and IT on security, but neither is equipped to evaluate disparate impact, and the committee model has no accountable owner.\n\n**I'd like to discuss how my expertise could be better utilised.**\""
+    },
+    {
+      "label": "Pitch D · to the General Counsel",
+      "body": "\"Attaching a full analysis of our algorithmic employment risk: the exposure map across our eleven jurisdictions, the AEDT inventory, a testing protocol, and a fairness section for procurement.\n\nThe headline is that we're running four systems nobody has inventoried, our review layers fail on time and authority, and we hold written validation evidence for none of them. California makes the absence of testing relevant to a claim, and Connecticut's framework lands in October.\n\n**I think we need to move quickly, and I'd like to own it.**\""
+    }
+  ],
+  "options": [
+    { "id": "a", "label": "A — to the GC, inventory attached" },
+    { "id": "b", "label": "B — the Centre of Excellence" },
+    { "id": "c", "label": "C — to the CIO, certification first" },
+    { "id": "d", "label": "D — the full analysis" }
+  ],
+  "key": "a",
+  "reasoning": "**A gets the meeting, and it is the least ambitious thing in the set.**\n\nRun the four moves. **It names what the reader owns** — and acknowledges it landed on top of everything else, which is true and immediately signals that this is about their problem. **It names the gap without insulting anyone**: \"the part nobody currently has is the measurement.\" Not *legal can't do statistics*. Nobody in that sentence is deficient.\n\n**It shows rather than describes**, with the artifact chosen for this specific reader — a GC cares about undisclosed systems, and *four of nine arrived as features and aren't on any list* is a sentence that will get read twice. And **the ask is thirty minutes.** Saying yes costs the reader almost nothing, which is precisely why they will.\n\nNotice the last line. It gestures at scoping and commissioning without asking for it, which leaves the larger conversation available and lets the reader raise it — and a mandate the reader proposes is worth more than one you requested.\n\n**B asks for the most and offers the least.** A Centre of Excellence with policy, standards, vendor evaluation and monitoring across all systems is a large organizational commitment supported by an assertion about background. \"I believe People should be leading it\" is a territorial claim, and the ask — discuss resourcing — is expensive to say yes to before anything has been demonstrated.\n\n**C leads with the credential and diagnoses the reader.** The certification is real and it is the least interesting thing available; nobody grants scope because of a course. Worse, it tells the CIO that IT is not equipped — accurate, and it makes the reader defensive in the first paragraph. \"How my expertise could be better utilised\" makes the practitioner's career the subject, when the pitch works only when the reader's problem is.\n\n**D is the hardest call and the most instructive failure**, because the *work* is outstanding — it's the whole track, done well. Three problems. It delivers four artifacts at once, which is a reading assignment rather than a conversation. Its headline is a list of everything wrong, unsolicited, in writing, to a lawyer — **creating a discoverable record of documented awareness before any privileged structure exists**, which is precisely what Module 3 warned about. And \"I'd like to own it\" asks for the mandate in the first message. **D has better analysis than A and will get a worse response**, which is the whole lesson: the constraint here was never the quality of your work."
+}

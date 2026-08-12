@@ -1,0 +1,119 @@
+[
+  {
+    "id": "ai301-excomms-m4-calibration-prompt-before-you-start-10",
+    "moduleId": "ai301-excomms-m4",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Calibration prompt — before you start\n\n*One claim. Commit before you read anything.*\n\nHere is a factual assertion about your own organization:\n\n> **\"Our function's money is spent on the same links our function's time is spent on.\"**\n\n**True of us, or not true of us?** Commit to one, in a sentence.\n\nMost people commit to \"true of us\" without having looked, because it sounds like it ought to be\ntrue. It usually isn't, and the gap between where the time goes and where the money goes is the\nsingle most useful line in the map you're about to build.\n\n*This module also closes the prediction you left open in Module 2 — the share of your team's week\nspent producing. You'll measure it here against something real.*"
+  },
+  {
+    "id": "ai301-excomms-m4-module-brief-20",
+    "moduleId": "ai301-excomms-m4",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nModule 2 gave you the chain. This module puts your own function on it, with numbers, checked against\nsomething that isn't your memory.\n\nThat last clause is the whole module. Everyone who has read Module 2 can produce a plausible\nsix-link split in ninety seconds, and that split will be wrong in a predictable direction: it will\nunderstate Produce and overstate Decide, because Produce is unglamorous and Decide is what we would\nlike to be doing. Self-report on time allocation is one of the least reliable instruments in\nprofessional life, and it is unreliable in a flattering direction.\n\nSo the map has three columns — **time, headcount, budget** — and one rule: **each column comes from\nan artifact, not from recall.**\n\nWhat you leave with is a one-page compression map of your own function. It is the evidence base for\neverything in Part Three, and Module 10's proposal to an executive sponsor is argued from it\ndirectly. It is also, in most organizations, the first time anybody has drawn this."
+  },
+  {
+    "id": "ai301-excomms-m4-learning-objectives-30",
+    "moduleId": "ai301-excomms-m4",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. Choose an instrument for measuring where a function's time goes, and say what each instrument\n   over- and under-counts.\n2. Map headcount and budget across the chain, and read the gaps between the three columns.\n3. Recognize the common function shapes and what each one implies about where to invest.\n4. Identify the two entries every map gets wrong, and correct them."
+  },
+  {
+    "id": "ai301-excomms-m4-lesson-1-the-instrument-problem-40",
+    "moduleId": "ai301-excomms-m4",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 · The instrument problem\n\nYou need a source of truth about your own week that isn't your impression of your own week. Four\ncandidates, each with a known distortion.\n\n**Last week's calendar.** Cheap, honest about meetings, blind to everything else. It systematically\nover-counts Decide and Distribute — because those generate meetings — and under-counts Produce,\nbecause drafting happens in the gaps between meetings and never appears as an entry. Use it if you\nlead a team whose work is mostly coordination.\n\n**The last twenty items in your task tracker.** Better on Produce, worse on the invisible work.\nUnder-counts Decide almost completely, because \"told the CFO the framing was wrong\" is not a ticket.\nUse it if your function runs on intake requests, and correct for the missing counsel.\n\n**Module 1's send audit.** The only instrument that is complete for what it covers, and it covers\nProduce and Distribute only. Excellent for the two links it sees and silent on the other four. Use\nit as a cross-check on the Produce number rather than as the whole map.\n\n**A reconstruction of five working days.** Least reliable, most complete, and perfectly acceptable\n**if you label it as a reconstruction.** Write it day by day rather than as a total — day-by-day\nrecall is materially better than week-level recall, and the difference is visible in the answers.\n\nThe choice matters less than the labelling. **An acknowledged estimate is usable; a confident\ninvention is not** — which is the standard this whole track applies to vendors and therefore has to\napply to itself.\n\nOne more distortion, and it is the one that catches people who are doing the exercise properly:\n**an instrument that only sees your own time will miss the function's shape if you lead a team.**\nIf you have direct reports, map the team, not yourself. A director's week is mostly Decide, and a\nmap of it will tell you the function is in great shape while four people underneath are doing\nnothing but Produce."
+  },
+  {
+    "id": "ai301-excomms-m4-lesson-2-the-two-columns-that-aren-t-tim-50",
+    "moduleId": "ai301-excomms-m4",
+    "ordinal": 50,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 · The two columns that aren't time\n\nTime is the column everyone draws. The other two are where the findings are, because they are\nusually distributed differently — and a difference between columns is a diagnosis.\n\n**Headcount: which links have a named owner?** Not who touches the link — who is accountable for\nit. Ask it as a question with a person's name as the only acceptable answer: *if this link fails,\nwhose performance review does it appear in?*\n\nIn most functions this produces an uncomfortable pattern. Produce and Distribute have names.\nInterpret sometimes has one, usually shared with an analytics team. **Sense and Verify very often\nhave nobody**, which means nobody's review is affected by whether the organization was listened to\nor whether the message landed — and work that appears in nobody's review is work that stops\nhappening the first busy month.\n\n**Budget: where does the money go?** Platform licences, agency retainers, design tooling, video\nproduction, translation, survey instruments, the intranet contract. Assign each line to the link it\nserves.\n\nThis column almost always sits in a different place from the time column, and the most common\npattern is worth naming: **time in Produce, money in Distribute.** The function spends its hours\nmaking things and its budget on the platform that delivers them. Which means the largest lever the\nfunction controls financially is pointed at the link that was mostly solved before AI arrived, and\nthe links AI just opened — Sense and Interpret — have no budget line at all.\n\nThat sentence, with your own numbers in it, is the strongest single line in a Module 10 proposal."
+  },
+  {
+    "id": "ai301-excomms-m4-try-60",
+    "moduleId": "ai301-excomms-m4",
+    "ordinal": 60,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### Try this — 2 minutes\nName the person whose performance review is affected if nobody in the organization understood\nlast quarter's biggest announcement. If the answer takes more than five seconds, you have found\nyour ownerless link, and it is Verify."
+  },
+  {
+    "id": "ai301-excomms-m4-lesson-3-reading-your-own-map-70",
+    "moduleId": "ai301-excomms-m4",
+    "ordinal": 70,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 · Reading your own map\n\nFour shapes recur. Find yours, then read the prescription — and note that none of them is a failing\ngrade, because they are responses to real constraints.\n\n**The production shop.** Sixty to eighty percent of time in Produce, budget in tooling that makes\nproducing faster, no owner at Sense or Verify. The most common shape by a distance, and the one AI\nmost directly threatens — because it is the shape most exposed to a link whose cost just collapsed.\n*Prescription:* the fastest available return is Verify, not Sense. It's cheaper to start, it\nprotects the output you're already making, and it's the one Part Two of this track builds.\n\n**The broadcast desk.** Heavy Produce and Distribute, significant platform budget, sophisticated\nsegmentation, and still no Sense. Common in large distributed organizations that invested in a\ncommunications platform. *Prescription:* you already own the instrument. Most modern platforms\ncapture search and engagement data nobody in the function reads. Your Sense capability is a report\naway, not a purchase away.\n\n**The two-person function.** Everything, thinly, with Decide happening constantly and invisibly\nbecause the same person does all six links in the same hour. *Prescription:* the map's value here\nisn't reallocation, it's evidence — this is the shape where a compression map is most persuasive to\na sponsor, because it makes visible that six jobs are being done by two people.\n\n**The embedded advisor.** Real Decide time, genuine access to leadership, and no Sense\ninstrumentation at all — so counsel runs entirely on anecdote and the last conversation the advisor\nhappened to have. *Prescription:* the highest-leverage and most uncomfortable one. Your advice is\ncurrently as good as your sampling, and your sampling is whoever talks to you."
+  },
+  {
+    "id": "ai301-excomms-m4-lesson-4-the-two-entries-every-map-gets--80",
+    "moduleId": "ai301-excomms-m4",
+    "ordinal": 80,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 · The two entries every map gets wrong\n\nCorrect these before you submit, because they distort the map in opposite directions.\n\n**Proofreading is not Verify.** It is quality control on the artifact, which makes it Produce. Verify\nasks two different questions: *was what we published actually true*, and *did it land?* Checking a\nbenefits summary against the plan documents is Verify. Checking it for typos is Produce. Teams that\nlog proofreading as Verify produce maps showing healthy verification coverage over a function that\nhas never once asked whether a message worked — and that is the single most common error in this\nexercise.\n\n**Meetings about a message are usually Decide, not Produce** — and they get logged as Produce\nbecause a draft was on screen. The test from Module 2 applies: if you left that meeting and produced\nnothing, would the organization be different? If yes — a framing changed, a claim was removed, an\norder of announcement was altered, someone was told no — that was Decide. Most functions are doing\nsubstantially more Decide work than their maps show, which matters, because Module 10 asks you to\nargue for a mandate over exactly that link.\n\nCorrecting both usually moves five to fifteen percentage points around the map. It is worth the ten\nminutes."
+  },
+  {
+    "id": "ai301-excomms-m4-key-takeaways-90",
+    "moduleId": "ai301-excomms-m4",
+    "ordinal": 90,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **Each column comes from an artifact, not recall.** Self-report on time allocation is unreliable\n  in a flattering direction — it understates Produce and overstates Decide.\n- **Every instrument has a known distortion.** Calendars over-count Decide and Distribute and miss\n  drafting; task trackers miss counsel almost entirely; the send audit is complete for two links and\n  silent on four; a five-day reconstruction is fine **if labelled as one** and written day by day.\n- **If you lead a team, map the team.** A director's week is mostly Decide, and mapping it will show\n  a healthy function over four people doing nothing but Produce.\n- **Ownership is the question with a name as its only answer:** if this link fails, whose review\n  does it appear in? Sense and Verify usually have nobody — and work in nobody's review stops\n  happening the first busy month.\n- **The most common pattern is time in Produce, money in Distribute** — the financial lever pointed\n  at the link that was already solved, with no budget line at all against the two links AI just\n  opened.\n- **The two corrections:** proofreading is Produce, not Verify. Meetings that changed what gets said\n  are Decide, not Produce. Together they usually move five to fifteen points."
+  },
+  {
+    "id": "ai301-excomms-m4-exercise-embed-95",
+    "moduleId": "ai301-excomms-m4",
+    "ordinal": 95,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\":\"choice\"}"
+  },
+  {
+    "id": "ai301-excomms-m4-take-a-position-100",
+    "moduleId": "ai301-excomms-m4",
+    "ordinal": 100,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"You cannot argue for a mandate you can't draw.\"*\n\nThe strongest counter-argument is that **this is a demand for evidence that the people who grant\nmandates have never once required.** Functions win territory through relationships, timing, and\nbeing useful in a crisis — not through analysis. Nobody was ever handed budget because their map\nwas well drawn. And there is a real cost to the alternative: a map showing 70% of time in the\ncollapsing link is a document that makes an excellent case for cutting your headcount, produced by\nyou, at your own initiative. On this reading the compression map is not a mandate argument; it is\nevidence for the prosecution, and the sophisticated move is to build the capability quietly and\npresent it once it works.\n\nTake a position on that, in writing, in the activity. The version worth submitting is specific about\nwho in *your* organization would receive this document and what they would do with it — because the\ncounter-argument is strong in some rooms and weak in others, and knowing which room you're in is the\nactual skill."
+  },
+  {
+    "id": "ai301-excomms-m4-activity-link-105",
+    "moduleId": "ai301-excomms-m4",
+    "ordinal": 105,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\":\"activity_link\",\"title\":\"Applied activity — Your compression map\",\"blurb\":\"One page, three columns, six rows: time, headcount and budget across the chain, from an instrument rather than memory. Names the link with no owner and no budget line. This is the artifact Module 10's proposal is argued from. Graded against a five-dimension rubric. Free unlimited resubmission.\",\"estMinutes\":\"25\"}"
+  },
+  {
+    "id": "ai301-excomms-m4-sources-and-attribution-110",
+    "moduleId": "ai301-excomms-m4",
+    "ordinal": 110,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- No external statistics are load-bearing in this module. The instrument distortions, the four\n  function shapes, the ownership test, the time-versus-budget gap, and the two corrections are\n  original to this course, drawn from the chain established in Module 2.\n- The Produce-percentage prediction closed here was opened in Module 2.\n- Structure and topic coverage follow the AI Fluency Framework (Dakan & Feller, in collaboration\n  with Anthropic, CC BY-NC-SA 4.0); prose is original."
+  }
+]

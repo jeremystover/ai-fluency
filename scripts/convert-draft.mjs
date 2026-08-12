@@ -41,6 +41,11 @@ const slug = (s) =>
 const classify = (heading) => {
   const h = heading.toLowerCase();
   if (h.startsWith('calibration prompt')) return 'calibration_prompt';
+  // The opening gate, second generation. A numeric confidence rating is
+  // self-report; a claim about the learner's own organization is contested
+  // before the content and then checked against evidence from their systems.
+  // Same block kind — same commit-before-you-read affordance — new heading.
+  if (h.startsWith('claim to contest')) return 'calibration_prompt';
   if (h.startsWith('learning objectives')) return 'callout';
   if (h.startsWith('take a position')) return 'callout'; // 301 tracks close each module on a contestable claim
   if (h.startsWith('key takeaways')) return 'takeaways';

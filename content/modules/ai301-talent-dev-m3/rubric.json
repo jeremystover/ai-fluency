@@ -1,0 +1,60 @@
+{
+  "promptVersion": "ai301-talent-dev-m3-the-backward-read-v1",
+  "moduleId": "ai301-talent-dev-m3",
+  "minWords": 300,
+  "maxWords": 400,
+  "submitLabel": "Your backward read and write-up",
+  "intro": "Paste the audit — the instruction you located, the premises you surfaced, what each one tested to, the citation and currency check, your issue count against your prediction, and the stakeholder paragraph — plus the 300–400 word write-up including your position on this module's claim. Resubmission is free and unlimited; the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, Talent Development / L&D track — for talent development and L&D professionals who have completed AI 101 and AI 201. Module 3 applied activity, 'The backward read': the learner takes one piece of AI-assisted content ALREADY LIVE in their catalog and audits it from the instruction backwards — name the instruction the content is trying to produce; surface the premises it rests on including unstated ones; test each PREMISE rather than each fact (is it true, is it true here, who established it); follow every citation to what it actually says rather than whether it exists; check every specific for currency and jurisdiction; then classify findings into five clusters (inherited premise, laundered authority, confident canon, jurisdictional drift, stale specificity) and write one paragraph suitable for a senior stakeholder. IMPORTANT SCORING NOTES. (1) If the learner reports they cannot determine which of their live content was AI-assisted, that is a first-order finding about the function and scores at FULL CREDIT where they account for it — a function that cannot identify machine-assisted content has no route to auditing it. (2) If the learner cannot locate an instruction in the content at all, that is a larger finding than a premise error and should score at full credit when named as such. (3) A learner who finds NOTHING must not be penalized for it, but the write-up is required to say what would distinguish a true negative from a backward read that stayed forward; grade that reasoning, not the count. Never reward a high issue count as such — a rigorous audit finding two real problems beats a scattergun listing nine trivia. The module's claim, which the write-up must take a position on, is that an accuracy review is structurally incapable of catching the most expensive errors; its counter-argument turns the module's own technique on itself — the claim that L&D's canon is unusually wrong is itself an inherited premise from a debunking literature with its own incentives, 70-20-10's status is a live argument rather than settled, and this track kept a similarly-provenanced figure in Module 2 on the grounds that a prior is not a citation. The strongest positions say whether that distinction is real or whether the track has one rule for its own foundations and another for the learner's. This track scores the delta, not the score: never grade the accuracy of the predicted issue count, grade the account of the gap.",
+  "opening": [
+    {
+      "key": "predictedIssues",
+      "label": "Predicted — how many issues the backward read will find",
+      "hint": "Your honest expectation for one live piece of AI-assisted content, before you run it.",
+      "placeholder": "e.g. 2",
+      "min": 0,
+      "max": 50
+    }
+  ],
+  "calibration": [
+    {
+      "key": "actualIssues",
+      "label": "Found — how many issues the backward read actually surfaced",
+      "hint": "Count real findings, not trivia. A rigorous two beats a scattergun nine.",
+      "placeholder": "e.g. 5",
+      "min": 0,
+      "max": 50,
+      "actualFor": "predictedIssues"
+    }
+  ],
+  "dimensions": [
+    {
+      "name": "The content is live, and its provenance is stated",
+      "criteria": "A real published item from the learner's catalog, not a draft and not a hypothetical. Consequential content — compliance, policy, onboarding, anything with a legal or safety edge — scores above low-stakes material. Where the learner could not establish whether the item was AI-assisted and says so, score at full credit: that is the finding the module predicts and it is more useful than the audit would have been."
+    },
+    {
+      "name": "The instruction was located first",
+      "criteria": "One sentence naming what the content wants someone to do differently, stated before any premise work. This is what makes the read backward rather than forward. A learner who could not locate an instruction and says so has found something larger than a premise error and scores at full credit for this dimension. A submission that begins with a list of factual errors has run a proofread and should score low here however thorough it is."
+    },
+    {
+      "name": "Premises surfaced, including unstated ones",
+      "criteria": "At least five premises, with the unstated ones marked — those are where the failures live. Credit the learner for distinguishing premises that came from their own brief from those the model supplied, since the first category is the module's subject. A list that only contains explicit claims from the text has missed the layer."
+    },
+    {
+      "name": "Premises were tested, not facts",
+      "criteria": "For each premise: is it true, is it true here, and who established it. The discriminating move is testing whether something traces to evidence or to the field's canon. Look for at least one premise that survived a previous accuracy review and does not survive this one. A submission that verified facts and citations thoroughly but never interrogated an assumption has demonstrated the module's point rather than its method."
+    },
+    {
+      "name": "Citations followed to content, specifics checked for currency",
+      "criteria": "Sources followed to what they actually say rather than whether they resolve — the laundered-authority check. Specifics — dates, thresholds, statutory references, form names — checked for currency and jurisdiction. Where the content had no citations at all, credit the learner for naming that as a finding rather than skipping the step."
+    },
+    {
+      "name": "The stakeholder paragraph is usable",
+      "criteria": "One paragraph a senior stakeholder could act on: what was found, how serious it is, and what is proposed. Written as a risk note rather than a confession or an apology. Severity should be proportionate — a learner who found one jurisdictional problem in compliance content and escalates it appropriately outscores one who lists nine trivia at uniform urgency. This is the artifact most likely to be useful outside the course and it should read that way."
+    },
+    {
+      "name": "The delta and the position",
+      "criteria": "Predicted issue count against the real one with an account of the gap — direction and cause, never accuracy. A learner who found nothing must address what would distinguish a true negative from a read that stayed forward; grade that reasoning. Plus a committed position on the module's claim that engages the real counter-argument: that the module's own premise about L&D's canon is inherited, that 70-20-10's status is genuinely contested, and that Module 2 kept a similarly-sourced figure. A position that agrees with the module without meeting that objection scores low."
+    }
+  ]
+}

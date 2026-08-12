@@ -1,0 +1,100 @@
+{
+  "reviewedAt": "2026-08-12",
+  "buckets": [
+    {
+      "id": "yours",
+      "label": "Yours, as deployer",
+      "hint": "Cannot be contracted away",
+      "rank": 0,
+      "pct": 35
+    },
+    {
+      "id": "shared",
+      "label": "Genuinely shared",
+      "hint": "Neither party can discharge it alone",
+      "rank": 1,
+      "pct": 55
+    },
+    {
+      "id": "provider",
+      "label": "The provider's",
+      "hint": "Theirs to do, yours to verify",
+      "rank": 2,
+      "pct": 75
+    },
+    {
+      "id": "nobody",
+      "label": "Nobody's — and that's the finding",
+      "hint": "Everyone assumes the other party has it",
+      "rank": 3,
+      "pct": 20
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "text": "Assigning a named person with the knowledge and standing to intervene when the system is wrong",
+      "key": "yours",
+      "reasoning": "Article 26's competent human oversight, and the clearest non-transferable duty there is. No vendor can assign your staff. This is Module 1's accountability column with a statute behind it."
+    },
+    {
+      "id": "t2",
+      "text": "Setting log retention to at least six months where the system touches an employment decision",
+      "key": "yours",
+      "reasoning": "A configuration setting in a pane somebody has to open. The vendor supplies the capability; the number is yours, and the common 30- or 90-day default is probably already wrong."
+    },
+    {
+      "id": "t3",
+      "text": "Producing the technical documentation and conformity assessment for the system itself",
+      "key": "provider",
+      "reasoning": "Genuinely the provider's obligation — they built it, they declare its conformity. Yours is narrower and real: ask for it before signature, read it, and keep it. \"They have one\" and \"we have seen it\" are different states."
+    },
+    {
+      "id": "t4",
+      "text": "Ensuring input data is relevant and sufficiently representative for the system's intended purpose",
+      "key": "yours",
+      "reasoning": "The card people most often assign to the vendor, because it sounds like a model-quality question. It is your data going in. Module 5 is how you would actually discharge it, and it is the one duty here that comes with good news attached."
+    },
+    {
+      "id": "t5",
+      "text": "Telling employees at first contact that they are interacting with an AI system",
+      "key": "shared",
+      "reasoning": "Article 50 assigns transparency duties across provider and deployer. The provider has to make disclosure possible; you have to configure and verify it. Enforceable since 2 August 2026, and it catches you even with no high-risk AI at all."
+    },
+    {
+      "id": "t6",
+      "text": "Consulting the works council before deployment reaches a German population",
+      "key": "yours",
+      "reasoning": "Statutory and entirely yours — §90 puts it at the planning stage, not launch. A vendor cannot consult your works council, and no contract term changes the timing. It belongs on the project plan as a task with a duration."
+    },
+    {
+      "id": "t7",
+      "text": "Notifying the relevant authority of a serious incident",
+      "key": "shared",
+      "reasoning": "Article 26 requires the deployer to inform the provider and the authority; the provider has parallel duties. Both parties owe something, and in practice the failure mode is each assuming the other filed it. Write down who does what, before you need to."
+    },
+    {
+      "id": "t8",
+      "text": "Preserving AI conversation logs once litigation is reasonably anticipated",
+      "key": "yours",
+      "reasoning": "A legal hold is your obligation and it overrides your own retention schedule. And it cannot reach a system your legal team does not know produces records — which is why the module says telling them the system exists is often the most valuable sentence in the exercise."
+    },
+    {
+      "id": "t9",
+      "text": "Deciding the minimum group size below which the reporting interface refuses to return a figure",
+      "key": "nobody",
+      "reasoning": "The card that reveals the pattern. The vendor ships a configurable threshold or none at all and considers the matter closed. You assume the default is sensible. Analytics assumes someone in systems set it. Nobody owns it, nobody has checked what it currently is, and Module 6 explains what it costs when Design is three people."
+    },
+    {
+      "id": "t10",
+      "text": "Checking that the model has not degraded since the quarterly release changed it",
+      "key": "nobody",
+      "reasoning": "Nobody's, in most organizations, and it is the honest answer rather than a trick. The provider changed the model and considers the release note sufficient notice. You evaluated the capability that existed in March. Article 26's monitoring duty is the nearest owner, and monitoring is the duty most often written down and never operated.",
+      "also": [
+        "yours"
+      ]
+    }
+  ],
+  "pattern": "More of these are yours than a vendor conversation would suggest — and the two that are nobody's are the ones with a configuration screen and no owner.",
+  "postscript": "Five of the ten are yours outright, and the reason is Article 26's core structure: **duties attached to the deployer cannot be contracted away.** Check **t4** against your prediction — input-data representativeness sounds like a model-quality question and is your data going in. And sit with **t9 and t10**, the two 'nobody' cards. Both have a setting behind them, both are assumed by every party to belong to another party, and neither is discovered until somebody asks a question the system answers too helpfully. If you sorted more cards to the provider than the key does, you have found the vendor conversation you have been having — which is the point of the exercise rather than a criticism of it."
+}

@@ -1,0 +1,56 @@
+{
+  "promptVersion": "ai301-talent-dev-m2-the-request-diagnosed-v1",
+  "moduleId": "ai301-talent-dev-m2",
+  "minWords": 300,
+  "maxWords": 400,
+  "submitLabel": "Your diagnosis and write-up",
+  "intro": "Paste the diagnosis — the request as given, the observation underneath it, your knowledge-or-willingness call, two environmental candidates and how you'd check one, and your conclusion in the three-part shape — plus the 300–400 word write-up including your position on this module's claim. Resubmission is free and unlimited; the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, Talent Development / L&D track — for talent development and L&D professionals who have completed AI 101 and AI 201. Module 2 applied activity, 'The request, diagnosed': the learner takes one live request from their own queue and works it through six steps — state the request as given; find the observation underneath it (separating the symptom the requester reported from the prescription they attached); apply the money test to determine knowledge versus willingness; scan the environment for at least two candidate causes and say how they would check one; and conclude in the module's three-part shape (what you found, what training would and wouldn't do, what you will own instead). CRITICAL: 'this IS a training problem' is a fully legitimate conclusion and must not be penalized — the activity is not a trick, and a learner who applies the method rigorously and lands on training being correct has done the work. Equally, a learner who does not yet know what the requester observed and writes down the question they need to go ask has completed Step 2 honestly; treat that as full credit for that step, not as an omission. If the learner's function has no artifact that would record a diagnosis, that absence is itself a finding and should be scored as one. The module's claim, which the write-up must take a position on, is that most training requests should not become training and cheap production is why more of them will; its real counter-argument is that the economics genuinely changed — if a job aid costs two hours, the expected cost of building the wrong thing has collapsed too, so building more and learning empirically may beat spending a diagnostic hour protecting a resource that is no longer scarce. The strongest positions name what would distinguish 'build more and learn' from 'produce more and notice nothing'. This track scores the delta, not the score: never grade the accuracy of the opening position, grade the account of the gap.",
+  "opening": [
+    {
+      "key": "trainingProblemPct",
+      "label": "Predicted — % of the requests in your queue that are genuinely training problems",
+      "hint": "Genuine knowledge or skill gaps, where instruction is the right instrument.",
+      "placeholder": "e.g. 50",
+      "min": 0,
+      "max": 100
+    }
+  ],
+  "calibration": [
+    {
+      "key": "trainingProblemPctRevised",
+      "label": "Revised — the same estimate after diagnosing one for real",
+      "hint": "Most people revise downward. The direction and the cause are the finding, not the number.",
+      "placeholder": "e.g. 25",
+      "min": 0,
+      "max": 100,
+      "actualFor": "trainingProblemPct"
+    }
+  ],
+  "dimensions": [
+    {
+      "name": "The request is real, live, and stated as given",
+      "criteria": "An actual request from the learner's queue, quoted or closely paraphrased, with who asked and what they said the problem was. A hypothetical or a composite scores low — the method only bites on a request the learner has some stake in accepting. Extra credit where the learner picked one they had already agreed to and were uneasy about, since that is the case the module is aimed at."
+    },
+    {
+      "name": "Symptom separated from prescription",
+      "criteria": "The graded move is isolating what the requester actually observed from the solution they attached to it. Look for the observation stated independently of the ask. A learner who does not yet know what was observed and writes out the question they need to go ask has done this step correctly — score that at full credit. A submission that restates the request as the problem has not started the diagnosis."
+    },
+    {
+      "name": "Knowledge versus willingness, tested not asserted",
+      "criteria": "The money test applied to the target population with evidence, not a label. 'It's a mix' is acceptable and often right, but only when the learner says which parts are which. Look for the specific observation that discriminates — people who can describe the practice accurately, error patterns that are consistent and specific, a reward structure pointing the other way. An unevidenced classification scores low even when it is probably correct."
+    },
+    {
+      "name": "The environmental scan actually looked",
+      "criteria": "At least two named candidate causes from the environment — incentives, process, tooling, management behaviour, precedent — and a stated method for checking one. Being right is not required; having looked is. Generic lists ('culture, leadership, communication') score low. A candidate specific enough that a named person could confirm or refute it in a week scores at the top."
+    },
+    {
+      "name": "The conclusion costs the learner something",
+      "criteria": "The three-part shape, with the third part load-bearing: what they will own instead. A conclusion that hands the problem to another function and requires nothing of L&D is a legitimate outcome for one case and must be accompanied by an account of why it is not avoidance. 'This is a training problem and here is what I'll build' scores full credit when the method supports it. A conclusion with no owner and no next action scores at the bottom."
+    },
+    {
+      "name": "The delta and the position",
+      "criteria": "The opening claim and percentage against what the diagnosis showed, with an account of what moved and why — a specific cause for the revision is the intended finding; so is a defended non-revision. Accuracy is never graded. Plus a committed position on the module's claim that engages its real counter-argument: that cheap production may make 'build and learn' rational, and that diagnosis was partly a rationing mechanism. The strongest positions name what would distinguish building-and-learning from producing-and-noticing-nothing."
+    }
+  ]
+}
