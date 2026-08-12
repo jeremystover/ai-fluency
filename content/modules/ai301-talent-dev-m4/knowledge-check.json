@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why does shared authorship across the two coaching studies strengthen the evidence? `[V]`",
+      "options": [
+        "Because it demonstrates the researcher's expertise across both methods",
+        "Because a researcher publishing a null result that constrains a category they helped launch is self-correction, which is rare and is the opposite of the motivated reasoning you would suspect",
+        "Because it means the two studies used identical methodology",
+        "Because it rules out publication bias in the field"
+      ],
+      "correctIndex": 1,
+      "explanation": "The cheap readings — the early study was wrong, the later one is biased, two camps disagree — are all unavailable. One researcher published a positive narrow result and then a null broad one."
+    },
+    {
+      "id": "q2",
+      "prompt": "What distinguishes the application that worked from the one that didn't?",
+      "options": [
+        "Sample size and study duration",
+        "The seniority of the participants",
+        "Narrow and measurable versus broad and relational",
+        "Whether the intervention was voluntary or assigned"
+      ],
+      "correctIndex": 2,
+      "explanation": "Goal attainment is bounded, targeted, and checkable. Broad developmental coaching depends on a mechanism a tool cannot supply, which Lesson 2 names."
+    },
+    {
+      "id": "q3",
+      "prompt": "What is co-regulation, as the module uses it?",
+      "options": [
+        "A shared governance model between L&D and the business for development programs",
+        "The coach and coachee jointly setting and revising goals over time",
+        "A second nervous system in the room — a witness whose opinion of you is at stake, which makes disclosure expensive, and the expense is what makes it work",
+        "Matching the intervention's intensity to the learner's current capability"
+      ],
+      "correctIndex": 2,
+      "explanation": "And the consequence is that an interlocutor with no stake in you is not a cheaper version of one who has. It is a different intervention using the same words."
+    },
+    {
+      "id": "q4",
+      "prompt": "How does the module explain the higher attrition in the AI arm?",
+      "options": [
+        "The interface was harder to use than meeting a human coach",
+        "Nothing was holding participants there — nobody would notice if they stopped",
+        "Participants found the advice lower in quality and disengaged",
+        "Scheduling flexibility made it easier to defer sessions indefinitely"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which follows directly from co-regulation. The accountability was the mechanism, so removing the witness removed the thing keeping people in the programme."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why does the module treat the self-efficacy finding as a design constraint rather than an equity point? `[V]`",
+      "options": [
+        "Because equity considerations are covered elsewhere in the curriculum",
+        "Because for this role it predicts the shape of your results: an unsupervised tool-based program produces bimodal outcomes, and your evaluation will average a group it worked for with a group it failed",
+        "Because equity framing makes the finding harder to fund",
+        "Because the finding is about program design rather than about individuals"
+      ],
+      "correctIndex": 1,
+      "explanation": "It is an equity point too — the business partner track treats it that way. The version that changes what an L&D professional builds is the measurement one, because the group averaged away is the group the program was justified by."
+    },
+    {
+      "id": "q6",
+      "prompt": "What does the module recommend for evaluating a tool-based development program?",
+      "options": [
+        "Increase the sample size until the average is statistically reliable",
+        "Measure completion and satisfaction, which are the outcomes tools reliably improve",
+        "Baseline confidence or self-efficacy at entry and report outcomes split, because an average is a choice not to see the finding",
+        "Compare against a matched cohort receiving human coaching"
+      ],
+      "correctIndex": 2,
+      "explanation": "D is a fine study design and rarely available in practice. C is what makes the bimodal result visible with data you can actually collect."
+    },
+    {
+      "id": "q7",
+      "prompt": "What is the hollowing-out risk?",
+      "options": [
+        "That L&D loses headcount as development activities are automated",
+        "That routing development conversations to a tool may preserve the content while removing the scheduled occasion for a manager and their report to talk about the future — which was doing work far beyond development",
+        "That managers lose the skill of running development conversations through disuse",
+        "That employees disclose less over time as they learn the tool is not confidential"
+      ],
+      "correctIndex": 1,
+      "explanation": "C is a real and related risk; the module's point is stronger. The meeting produced a relationship, the agenda was just the reason for it, and nothing else on the calendar has that agenda."
+    },
+    {
+      "id": "q8",
+      "prompt": "A learner's allocation policy states that senior leaders get human coaches because that is what the budget allows. How should that be treated?",
+      "options": [
+        "As a failure to apply the module's evidence, since the self-efficacy finding argues the opposite",
+        "As a legitimate and more defensible basis than a claim about who benefits most, provided it is stated openly rather than smuggled in as a judgment",
+        "As acceptable only if paired with a plan to extend coaching to other groups",
+        "As evidence the organization has not made an allocation decision at all"
+      ],
+      "correctIndex": 1,
+      "explanation": "Budget is a real constraint and naming it is the honest move. The failure the module targets is a budget decision dressed as a developmental judgment, which cannot be argued with because it is not stating its actual reason."
+    }
+  ]
+}
