@@ -1,0 +1,128 @@
+[
+  {
+    "id": "ai301-ler-l5-calibration-prompt-the-claim-to-contest-10",
+    "moduleId": "ai301-ler-l5",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Calibration prompt — the claim to contest\n\n*Commit before you read anything. Thirty seconds.*\n\n**The claim:** *\"You cannot currently answer 'how have we handled this before?' without asking somebody\nwho remembers.\"*\n\n**Is that true of your function?** *True of us* or *not true of us*, and the one sentence you would\ndefend it with.\n\n**And the number you will check in your own system:** **what share of your closed matters have\nsubstantiation recorded at the level of the issue type** — harassment, discrimination, retaliation,\npolicy breach — rather than only as a single overall outcome?\n\nWhole percent. There is a published benchmark for this and Lesson 2 gives it, so commit before you\nread on."
+  },
+  {
+    "id": "ai301-ler-l5-module-brief-20",
+    "moduleId": "ai301-ler-l5",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nEvery module so far has been about restraint — what a model may not do with contested accounts, what\nyou must not let a transcript become, which rung a sentence has climbed. This one is the opposite, and\nit is worth saying plainly: **this is the highest-value AI use available to your function, it is\nentirely permitted, and almost nobody is doing it.**\n\nThe reason is not risk. It is that the work is invisible and the tooling has never been aimed at it.\nYour case management system is full of narrative text, which makes it a filing cabinet rather than a\nrecord you can interrogate. So the question every experienced practitioner asks — *how have we handled\nthis before?* — gets answered from memory, by whoever has been there longest, and their memory is\nselective in exactly the way memory is.\n\nWhich matters because there is somebody else who will run that analysis properly.\n\n**Disparate treatment is proven by comparators.** Not by whether your decision was fair, not by whether\nyour process was thorough — by whether a similarly situated person outside the protected class was\ntreated differently. That analysis will be run against your case history, with discovery, by somebody\nwith more time than you have. **The only question this module asks is whether you ran it first.**"
+  },
+  {
+    "id": "ai301-ler-l5-learning-objectives-30",
+    "moduleId": "ai301-ler-l5",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. Explain why comparator evidence rather than process quality decides disparate-treatment claims.\n2. State why most case management systems cannot answer the comparator question `[V]`, and what\n   granularity would change that.\n3. Apply the line: **AI surfaces the precedent; a human decides whether it governs** — and explain why\n   consistency is not uniformity.\n4. Distinguish a legal comparator from a statistical control group, and say why importing intuitions\n   between them is dangerous in both directions.\n5. Scope a searchable case corpus so that building it does not create a new exposure."
+  },
+  {
+    "id": "ai301-ler-l5-lesson-1-disparate-treatment-is-proven-b-40",
+    "moduleId": "ai301-ler-l5",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 · Disparate treatment is proven by comparators\n\nStart with the doctrine, because the operational conclusion is downstream of it.\n\nA disparate-treatment claim does not usually turn on whether your investigation was careful. It turns\non **comparison**: was a similarly situated employee outside the protected class treated more\nfavourably for materially the same conduct? Similarly situated is contested at the margins — same\nsupervisor, same rule, comparable seriousness, comparable record — and that contest is where these\ncases are actually fought.\n\nWhich produces a consequence that is uncomfortable and useful:\n\n> **Your process quality is not the primary defence. Your consistency is.**\n\nYou can run a thorough, well-documented, procedurally impeccable investigation and lose, because two\nyears ago somebody in a different business unit did materially the same thing and received a warning\nwhere your respondent was dismissed. Nothing in your file is wrong. The problem is not in your file at\nall.\n\n**And the asymmetry of information is the whole issue.** Opposing counsel will look for comparators\nsystematically, using discovery to obtain the case history, with weeks to do it. You will look for\ncomparators by asking a colleague whether anything like this has come up before, in the ten minutes\nyou have before the decision meeting.\n\nYou are running the same analysis with worse tools, less time, and a memory that reconstructs the\npast in the direction of your current decision. That is the gap this module closes, and closing it is\nalmost entirely a data problem rather than an AI problem."
+  },
+  {
+    "id": "ai301-ler-l5-lesson-2-most-teams-cannot-answer-the-qu-50",
+    "moduleId": "ai301-ler-l5",
+    "ordinal": 50,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 · Most teams cannot answer the question [V]\n\nHere is the specific reason the comparator question is hard, and it is measurable.\n\nHR Acuity's tenth annual benchmark — **274 US organizations of 1,000+ employees, representing 8.8\nmillion employees, fielded early 2026 on 2025 practice, ±5.9 points** — finds that **only 32% of\norganizations track substantiation by issue type.** Not whether matters are substantiated: whether the\nsubstantiation is recorded at the granularity of *harassment*, *discrimination*, *retaliation*, or\n*policy breach* separately.\n\nWhy that specific granularity is the one that matters: **without it, the pattern you most need to see\nis invisible.** An organization that substantiates 60% of matters overall may substantiate 75% of\npolicy breaches and 25% of harassment complaints — and those are completely different institutional\nfacts. The second is the kind of number that appears in a claim, and the aggregate hides it perfectly.\n\nThree other structural obstacles, all boring and all fixable:\n\n**Narrative fields.** The account of what happened lives in prose. Prose does not answer *find me\nmatters involving lateness and a first-instance warning*, which means the search you need is not a\nsearch your system supports.\n\n**No conduct taxonomy.** Two coordinators describing the same behaviour will file it under different\ncategories, or the same category will hold three unlike things. Comparability requires that similar\nconduct is labelled similarly, and most taxonomies were designed for reporting volume rather than for\nfinding comparators.\n\n**Outcomes recorded without the aggravating and mitigating factors.** The outcome is in the system.\n*Why* that outcome — the prior record, the admission, the seniority, the cooperation — is in the\nreport, which is a document rather than a field. So a query returns two dismissals and one warning and\ncannot tell you whether the difference was justified.\n\n**And this is exactly where AI is genuinely strong**, which is the good news the module is built on.\nRetrieval and structured extraction across a corpus you already own, producing candidates a human then\nchecks — that is precisely the shape of task where a model outperforms an overloaded person, and every\nresult is verifiable by opening the file."
+  },
+  {
+    "id": "ai301-ler-l5-lesson-3-ai-surfaces-the-precedent-a-hum-60",
+    "moduleId": "ai301-ler-l5",
+    "ordinal": 60,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 · AI surfaces the precedent; a human decides whether it governs\n\nThe line, and it is the same shape as the line in every other module of this track.\n\n> **AI surfaces the precedent. A human decides whether it governs.**\n\n**Permitted** — retrieval and extraction, which is rung two:\n\n- Find closed matters involving conduct in this category.\n- Extract, per matter: the conduct as recorded, the outcome, the stated aggravating and mitigating\n  factors, the decision-maker, the business unit, the date.\n- Flag matters where the recorded conduct is similar and the outcome differs.\n- List what could not be determined from the record.\n\n**Forbidden** — a recommended outcome, which is rung five however well-reasoned it looks. *\"Based on\nthe three comparable matters, a final written warning would be consistent\"* is a determination. It will\nbe fluent, it will cite the precedents, and it will have made your decision.\n\n**And the corollary that keeps this honest, because the rule above can be read the wrong way:**\n\n> **Consistency is not uniformity.**\n\nIdentical conduct with different aggravating factors properly produces different outcomes. A first\noffence and a third are not the same case. An admission and a denial that collapsed under evidence are\nnot the same case. **What the file has to contain is *why*, written by the person who decided** — and\nthe comparator analysis is what tells you that a *why* is required, not what supplies it.\n\nWhich gives you the failure mode to avoid, and it is a real one:\n\n**An AI that flattens your case history into an average is manufacturing the disparate-treatment\nargument on your opponent's behalf.** A model asked *what is the usual outcome for this conduct?*\nreturns a central tendency. Deviating from a central tendency now looks like an anomaly requiring\njustification, when in fact the distribution reflects legitimate differences the average has erased.\nYou have converted a defensible set of individual decisions into a norm you can be measured against.\n\nSo ask for **the matters and their factors**, never for the norm. Ten rows you can read beat one\nsentence you cannot check."
+  },
+  {
+    "id": "ai301-ler-l5-try-70",
+    "moduleId": "ai301-ler-l5",
+    "ordinal": 70,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### Try this — 3 minutes\nPick a conduct category your function handles regularly. Try to name, from memory, the last three\nmatters in it and their outcomes. Then ask yourself whether you could produce the *reasons* those\noutcomes differed. That second question is the one opposing counsel asks, and memory almost never\nhas it."
+  },
+  {
+    "id": "ai301-ler-l5-lesson-4-a-legal-comparator-is-not-a-con-80",
+    "moduleId": "ai301-ler-l5",
+    "ordinal": 80,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 · A legal comparator is not a control group\n\nA short lesson, and it exists because the vocabularies collide and the collision is expensive.\n\n**A comparator** is one similarly situated individual who was treated differently. **A single\ncomparator can carry a claim.** It is not a sample, it does not need to be representative, and its\nevidential force does not depend on how many other cases point the other way.\n\n**A control group** is a population assembled to support an inference about an average effect. One case\ntells you nothing. Variance matters, sample size matters, and a single deviation is noise.\n\nImporting intuitions between the two is dangerous **in both directions**, which is why this is a lesson\nrather than a footnote:\n\n**Dismissing a lone comparator as \"n of 1\" is how employers lose.** It is the statistically literate\ninstinct and it is legally wrong. One person, in the same unit, under the same supervisor, who did the\nsame thing and kept their job, is not an outlier to be averaged away. It is the case.\n\n**And treating your case history as a dataset to be averaged is how employers manufacture the pattern\nagainst themselves.** This is Lesson 3's flattening problem restated: aggregate analysis produces\ncentral tendencies, disparities, and rates — the vocabulary of the other kind of claim entirely — and\nhaving generated them, you now have to explain them.\n\nIf your organization has a People Analytics function, this distinction is worth sharing with them\nexplicitly, because their professional instincts run the other way and both of you will be more useful\nfor having noticed. Same word, different instrument."
+  },
+  {
+    "id": "ai301-ler-l5-lesson-5-where-this-corpus-may-and-may-n-90",
+    "moduleId": "ai301-ler-l5",
+    "ordinal": 90,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 5 · Where this corpus may and may not live\n\nThe last piece, and it is the one that determines whether building the capability is safe.\n\nMaking your case history searchable means creating an index over **investigation notes, disciplinary\nrecords, accommodation documentation and legal-hold material** — which is, in the general enterprise\ncase, the worst possible corpus to index. An assistant retrieves what its user may reach, and access\nthat has accumulated over years is wider than anybody intended.\n\nSo the scoping rule is the content:\n\n- **Scoped to the ER team's own access**, not to anybody with a licence.\n- **Never joined to the general enterprise assistant.** If your case corpus is reachable from the\n  same interface a manager uses to ask about policy, you have built something you cannot control.\n- **Structured extracts rather than full documents where possible.** A table of conduct, outcome and\n  factors is far less dangerous than an index over the narrative reports, and it answers the comparator\n  question better.\n- **And the discovery consideration, which is Lesson 5's real point:** a searchable comparator index\n  is itself a thing that exists. Raise it with counsel **before** you build it, not after somebody\n  requests the output of a query you ran. The *Take a position* section is about this exact trade."
+  },
+  {
+    "id": "ai301-ler-l5-exercise-embed-95",
+    "moduleId": "ai301-ler-l5",
+    "ordinal": 95,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"choice\"}"
+  },
+  {
+    "id": "ai301-ler-l5-key-takeaways-100",
+    "moduleId": "ai301-ler-l5",
+    "ordinal": 100,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **Disparate treatment is proven by comparators**, so **your process quality is not the primary\n  defence — your consistency is.** You can run an impeccable investigation and lose because of a matter\n  in another unit two years ago.\n- **The asymmetry is the issue:** opposing counsel searches systematically with discovery and weeks;\n  you ask a colleague in the ten minutes before a decision meeting, using a memory that reconstructs\n  the past in the direction of your current decision.\n- **Only 32% of organizations track substantiation by issue type** `[V]` — and without that\n  granularity, the pattern that matters is invisible, because an aggregate substantiation rate hides\n  a 75%-for-policy-breach, 25%-for-harassment split perfectly.\n- **Three fixable obstacles:** narrative fields that no query can search, no conduct taxonomy that\n  makes similar things comparable, and outcomes recorded without the aggravating and mitigating factors\n  that justified them.\n- **AI surfaces the precedent; a human decides whether it governs.** Retrieval and extraction are\n  rung two and permitted. A recommended outcome is rung five, however well it cites the precedents.\n- **Consistency is not uniformity.** Identical conduct with different factors properly produces\n  different outcomes; the file has to contain *why*, written by the decider. **An AI that flattens your\n  case history into an average is manufacturing the disparate-treatment argument for your opponent** —\n  so ask for the matters and their factors, never for the norm.\n- **A single comparator can carry a claim; a single data point cannot support an inference.**\n  Dismissing a lone comparator as \"n of 1\" is how employers lose. Averaging your case history is how\n  they manufacture the pattern against themselves.\n- **Scope the corpus:** ER team access only, never joined to the general assistant, structured extracts\n  over full narrative documents, and **raise it with counsel before you build it.**"
+  },
+  {
+    "id": "ai301-ler-l5-activity-link-105",
+    "moduleId": "ai301-ler-l5",
+    "ordinal": 105,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"activity_link\", \"title\": \"Applied activity \\u2014 The query you can't run\", \"blurb\": \"Write the one comparator question you most need answered, precisely enough to execute. Then actually try it, and report what your system returns \\u2014 aggregate numbers only. Plus what would have to be true for it to work, and the scoping rule for where such a corpus may live.\", \"estMinutes\": \"30\"}"
+  },
+  {
+    "id": "ai301-ler-l5-take-a-position-110",
+    "moduleId": "ai301-ler-l5",
+    "ordinal": 110,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"They will run this analysis on your case history. The question is whether you ran it\nfirst.\"*\n\nThe strongest counter-argument is that **running it first creates a discoverable asset that did not\npreviously exist — and this is the same trade as the transcript in Module 3, in a sharper form.**\n\nIf you build a comparator capability, you will run queries. Those queries produce outputs. Outputs are\nrecords. Which means opposing counsel can request **the analysis you ran before you made your\ndecision** — and if it showed an inconsistency and you proceeded anyway, you have handed them a\ndocument showing you knew. *\"We did not track that\"* is a weak position. *\"We tracked it, we saw the\npattern, and here is what we decided\"* can be far worse, because it converts a possible oversight into\na documented choice.\n\nOn that reading the module is advising you to manufacture the evidence against yourself, and the\nprotective move is genuinely not to look — you cannot be compelled to produce an analysis you never\ngenerated.\n\n**The honest response to that argument, which your position has to engage rather than accept:** the\npattern exists whether or not you can see it, discovery reaches the underlying case files regardless,\nand what you are actually choosing is **whether you find out before the decision or after the claim.**\nFinding out before is the only version in which you can still act — by justifying the difference in\nthe file, or by making a different decision.\n\nBut that response has a cost the module should not hide, and your position has to price it. So the\nquestion to answer is not whether the capability is good in principle. It is: **what will you do on\nthe day the first query returns a pattern you do not like?** If the answer is that you will document\nthe justification, say who writes it and to what standard. If the answer is that you do not know, then\nthe counter-argument is describing your situation accurately and you should decide that before you\nbuild anything."
+  },
+  {
+    "id": "ai301-ler-l5-sources-and-attribution-120",
+    "moduleId": "ai301-ler-l5",
+    "ordinal": 120,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- **HR Acuity, *Tenth Annual Employee Relations Benchmark Study*** — 32% of organizations tracking\n  substantiation by issue type. Conducted with Isurus Market Research, fielded 23 January to 24 March\n  2026 on calendar-2025 practice: **274 US organizations of 1,000+ employees representing 8.8 million\n  employees, ±5.9 points at 95% confidence.** Vendor-sponsored, independently fielded, disclosed\n  sample; **does not describe employers below 1,000 employees.** Same instrument as Module 1 of this\n  track. **[V]**\n- **Disparate-treatment comparator doctrine** — that a claim turns on whether a similarly situated\n  person outside the protected class was treated more favourably for materially the same conduct, and\n  that \"similarly situated\" is contested at the margins on factors including supervisor, rule,\n  seriousness and record. Long-settled and jurisdiction-specific in its detail; **the module teaches\n  why comparators matter operationally rather than how any jurisdiction defines them.**\n- The three structural obstacles, the surfaces-not-decides line, the flattening-manufactures-the-\n  argument argument, the comparator-versus-control-group distinction, and the corpus-scoping rule are\n  original to this course.\n- **Horizontal note.** `ai301-analytics` teaches natural experiments and causal inference, where\n  \"comparison\" means something incompatible with what it means here — a control group rather than a\n  comparator. Lesson 4 draws that boundary explicitly. Recorded so the two tracks do not drift, and\n  because a learner who has worked with a People Analytics function will encounter both vocabularies.\n- **Horizontal note.** The corpus-scoping rule in Lesson 5 is the ER-specific application of the\n  retrieval-permissions problem that `ai301-peopleops-m6` treats in general. That module argues an\n  investigation corpus is the worst case for a general enterprise assistant; this one wants it\n  searchable anyway, and the scoping rule is how both can be true. Whoever builds it should read both.\n- Builds on Module 1 of this track (a comparator search is a rung-two use, and the boundary has to come\n  first) and Module 3's discoverability argument, which the *Take a position* counter-argument\n  restates in a sharper form."
+  }
+]
