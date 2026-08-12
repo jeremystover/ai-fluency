@@ -37,14 +37,15 @@
     }
   ],
   "citedBy": [
-    "ai301-hrbp-m6",
-    "ai301-recruiter-r6",
-    "ai301-comp-m4",
     "ai301-analytics-m5",
-    "ai301-peopleops-m7",
-    "ai301-talent-dev-m5",
-    "ai301-excomms-m6",
     "ai301-cpo-m5",
-    "ai301-defensible-m1"
+    "ai301-defensible-m1",
+    "ai301-excomms-m6",
+    "ai301-hrbp-m6",
+    "ai301-ler-l7",
+    "ai301-peopleops-m4",
+    "ai301-peopleops-m7",
+    "ai301-recruiter-r6",
+    "ai301-talent-dev-m5"
   ]
 }

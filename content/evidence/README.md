@@ -29,13 +29,41 @@ content written this deliberately.
 
 ## Files
 
-| File | Fact | Tracks |
+| File | Fact | Citing modules |
 |---|---|---|
-| `shrm-ai-in-hr-2026.json` | Adoption concentration and policy findings | 7 |
-| `eu-ai-act-timeline.json` | Annex III deferral, Article 50, Article 25/26 | 8 |
-| `mobley-v-workday.json` | Agent theory and the 2026 posture | 5 |
+| `shrm-ai-in-hr-2026.json` | Adoption concentration and policy findings | 10 |
+| `eu-ai-act-timeline.json` | Annex III deferral, Article 50, Article 25/26 | 10 |
+| `mobley-v-workday.json` | Agent theory and the 2026 posture | 7 |
 | `nlrb-gc-memoranda.json` | GC 23-02 and its rescission | 2 |
-| `ai-policy-prevalence.json` | Two instruments that look contradictory and aren't | 3 |
-| `productivity-evidence.json` | METR, the firm-level survey, the Danish nulls | 3 |
+| `ai-policy-prevalence.json` | Two instruments that look contradictory and aren't | 2 |
+| `productivity-evidence.json` | METR, the firm-level survey, the Danish nulls | 4 |
 
-See `DIVERGENCE.md` for what the first extraction pass found.
+See `DIVERGENCE.md` for what each pass has found.
+
+## How the agent uses this
+
+`scripts/maintenance-agent.mjs` runs the library **before** the per-block pass, in three stages:
+
+1. **`citedBy` bookkeeping** — a string scan, no API calls. Every entry's figures are broken into
+   atoms (`2 December 2027` → `December 2027`, `2027`) and matched on word boundaries, then weighted:
+   a full date or a decimal percentage is strong evidence, a bare year or a round `20%` is not. It
+   reports modules listed in `citedBy` that no longer carry the fact, and modules that carry it
+   without being listed. Run it on any content change — `npm run evidence:check`.
+2. **Entry verification** — one web-searched call per entry, establishing ground truth.
+3. **Conformance** — each citing module compared against the verified entry, **with no search at
+   all**, because the entry was just verified.
+
+**That is the cost argument, made concrete.** A fact cited by ten tracks used to cost ten searches;
+it now costs one, plus nine cheap comparisons. And stage 3 is the only check that can see divergence
+at all: a block reviewed on its own is perfectly self-consistent while contradicting four other
+tracks — which is exactly how `1,908` survived review in five modules.
+
+The agent **never rewrites module prose from an entry.** Divergence is reported for a human, because
+which copy is right is a judgment about what the module teaches, not a lookup.
+
+| Command | Does |
+|---|---|
+| `npm run evidence:check` | bookkeeping only — free, fast, no API key |
+| `npm run evidence:verify` | library pass only: verify entries, compare citing modules |
+| `npm run maintain` | full run — library, then every volatile block |
+| `npm run maintain:write` | same, applying patches and bumping stamps |

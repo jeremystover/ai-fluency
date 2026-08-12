@@ -90,6 +90,46 @@ professionals, fielded Dec 2025).
 
 ---
 
+## Second pass — the agent, wired · 12 August 2026
+
+Stage 2 replaced the by-hand method below with `scripts/maintenance-agent.mjs`. Its first run found
+**seven `citedBy` mismatches**, all confirmed against the content, none of which any per-block review
+could have surfaced:
+
+| Entry | Finding |
+|---|---|
+| `ai-policy-prevalence` | `ai301-cpo-m5` listed but carries none of the figures — the entry was aspirational; that module argues *policy is not governance* without citing prevalence |
+| `eu-ai-act-timeline` | `ai301-comp-m4` listed but carries no EU token at all |
+| `eu-ai-act-timeline` | `ai301-ler-l7` and `ai301-peopleops-m4` cite it and were unlisted — peopleops-m4 carries Article 50 twice |
+| `mobley-v-workday` | `ai301-ler-l7` listed but never mentions the case |
+| `mobley-v-workday` | `ai301-defensible-m3` and `ai301-ler-l4` name it and were unlisted |
+
+All seven are fixed in the entries. **Why this matters more than it looks:** an entry whose `citedBy`
+has drifted stops protecting the modules it no longer names, while continuing to report as healthy.
+That is the failure mode where the library looks like it is working and isn't.
+
+**What the detector had to learn, recorded because the next person will hit it.** The first
+implementation counted matching tokens and produced 26 findings, 16 of them false. Two causes, both
+worth fixing rather than tuning around:
+
+- **Substring matching.** `2%` matches inside `42%` and `2.8%`; `2027` matches inside `12027`.
+  Everything is matched on a boundary now.
+- **Low-information tokens.** A whole-figure match is too coarse (`2 December 2027` never matches a
+  module that wrote `December 2027` — the exact imprecision this report flagged in its first pass),
+  and single common words are too loose: `General` and `Counsel` fall out of the NLRB source line and
+  then appear in ordinary prose everywhere. Figures are now split into atoms, tokens are dropped if
+  they appear in more than 20% of modules, and the remainder are **weighted** — a full date or a
+  decimal percentage is evidence, a bare year or a round `20%` is not.
+
+After both fixes: **7 findings, 0 false positives.**
+
+---
+
+## Method — superseded, kept for the record
+
+The by-hand procedure the first pass used. Stages 1 and 3 are now automated; stage 2's extraction
+still needs a model when new entries are being *created* rather than checked.
+
 ## Method, for the next run
 
 1. Enumerate blocks with `layer: "volatile"` from `content/modules/**/blocks.json` — the marker
