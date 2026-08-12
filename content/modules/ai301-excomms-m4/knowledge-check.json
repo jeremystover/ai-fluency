@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why must each column of the map come from an artifact rather than recall?",
+      "options": [
+        "Because artifacts are easier to share with executives",
+        "Because self-report on time allocation is unreliable in a flattering direction — it understates Produce and overstates Decide",
+        "Because recall cannot produce percentages",
+        "Because artifacts are required for the Module 10 proposal"
+      ],
+      "correctIndex": 1,
+      "explanation": "Everyone who has read Module 2 can produce a plausible split in ninety seconds, and it will be wrong predictably: Produce is unglamorous and Decide is what we'd like to be doing."
+    },
+    {
+      "id": "q2",
+      "prompt": "What does a calendar systematically over- and under-count?",
+      "options": [
+        "Over-counts Produce; under-counts Decide",
+        "Over-counts Verify; under-counts Sense",
+        "Over-counts Decide and Distribute because those generate meetings; under-counts Produce because drafting happens in the gaps and never appears as an entry",
+        "It counts all six links evenly, which is why it's the preferred instrument"
+      ],
+      "correctIndex": 2,
+      "explanation": "Every instrument has a known distortion, and the choice matters less than the labelling. An acknowledged estimate is usable; a confident invention is not."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why should someone who leads a team map the team rather than themselves?",
+      "options": [
+        "Because team data is more accurate than individual data",
+        "Because a director's week is mostly Decide, so mapping it shows a healthy function over a team doing nothing but Produce",
+        "Because individual maps cannot be compared across organizations",
+        "Because headcount and budget are team-level figures anyway"
+      ],
+      "correctIndex": 1,
+      "explanation": "The map is of the function, not the mapper. This is the distortion that catches people who are otherwise doing the exercise carefully."
+    },
+    {
+      "id": "q4",
+      "prompt": "How should link ownership be established?",
+      "options": [
+        "By asking who spends the most time on it",
+        "By asking who has the relevant skills",
+        "By asking whose performance review is affected if the link fails — a question whose only acceptable answer is a person's name",
+        "By checking the org chart"
+      ],
+      "correctIndex": 2,
+      "explanation": "Touching a link is not owning it. And work that appears in nobody's review is work that stops happening the first busy month, which is why \"nobody\" is the most important answer this column can produce."
+    },
+    {
+      "id": "q5",
+      "prompt": "What is the most common gap between the time column and the budget column?",
+      "options": [
+        "Time in Decide, money in Produce",
+        "Time in Produce, money in Distribute — the financial lever pointed at the link that was mostly solved before AI, with no budget line against Sense or Interpret",
+        "Time in Distribute, money in Verify",
+        "Time and money both concentrate in Produce"
+      ],
+      "correctIndex": 1,
+      "explanation": "The function spends its hours making things and its budget on the platform that delivers them. That sentence with your own numbers in it is the strongest single line in a Module 10 proposal."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why is proofreading classified as Produce rather than Verify?",
+      "options": [
+        "Because it is performed by the same person who drafts",
+        "Because it happens before publication rather than after",
+        "Because it is quality control on the artifact — Verify asks whether what was published was true, and whether it landed",
+        "Because it is too small a task to constitute its own link"
+      ],
+      "correctIndex": 2,
+      "explanation": "Teams that log proofreading as Verify produce maps showing healthy verification coverage over a function that has never once asked whether a message worked. It is the single most common error in this exercise."
+    },
+    {
+      "id": "q7",
+      "prompt": "A team has heavy Produce and Distribute, a significant platform budget, sophisticated segmentation, and no owner at Sense. Which shape is it, and what follows?",
+      "options": [
+        "The production shop — start with Verify",
+        "The broadcast desk — the Sense capability is a report away rather than a purchase away, because the platform already captures the data",
+        "The two-person function — use the map as evidence for headcount",
+        "The embedded advisor — the sampling problem is the priority"
+      ],
+      "correctIndex": 1,
+      "explanation": "Most modern communication platforms capture search and engagement data nobody in the function reads. This shape already owns the instrument and isn't using it."
+    },
+    {
+      "id": "q8",
+      "prompt": "What is the strongest argument *against* building a compression map at all?",
+      "options": [
+        "That six links is too granular to measure reliably",
+        "That mandates are won through relationships and crises rather than analysis — and a map showing 70% of time in the collapsing link is evidence for the prosecution, self-produced",
+        "That the data required is not available in most organizations",
+        "That executives prefer qualitative narratives to functional maps"
+      ],
+      "correctIndex": 1,
+      "explanation": "It is a genuinely strong counter and the module says so. Whether it holds depends entirely on who would receive the document in your organization, which is why the activity asks you to name them."
+    }
+  ]
+}
