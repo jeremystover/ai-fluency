@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What makes this role's source material different from every other role's in this curriculum?",
+      "options": [
+        "It is more sensitive and more heavily regulated",
+        "There is no ground truth — the material is incompatible accounts, and the incompatibility is the evidence rather than noise around a signal",
+        "It is unstructured rather than tabular",
+        "It arrives continuously rather than in batches"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which means \"accurate to the source\" stops being a sufficient standard: a summary can be faithful to all three statements and still be worse than useless."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why is harmonization not a hallucination?",
+      "options": [
+        "Because the model is following its instructions correctly",
+        "Because coherence is what summarization *is* — the operation compresses by finding a through-line, so nothing is fabricated and every sentence checks out against a source",
+        "Because the errors are small enough to fall within tolerance",
+        "Because the model discloses its uncertainty"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which is why 101 M6's answer — verify the claim against the source — does not work here. The error is in the relationship between the summary and the *state of the evidence*."
+    },
+    {
+      "id": "q3",
+      "prompt": "Which harmonization mechanism describes a summary landing on the middle version of a contested detail?",
+      "options": [
+        "Smoothing",
+        "Averaging",
+        "Confidence flattening",
+        "Narrative completion"
+      ],
+      "correctIndex": 1,
+      "explanation": "And it is a form of weighing performed invisibly, with no record that a choice was made. Smoothing merges accounts into a characterization nobody gave; flattening loses the hedge; completion supplies the joins a narrative needs."
+    },
+    {
+      "id": "q4",
+      "prompt": "Where exactly is the line this module draws?",
+      "options": [
+        "AI may not be used on investigation material at all",
+        "AI may summarize but a human must approve the summary",
+        "A model may locate conflicts; only a human may resolve them",
+        "AI may assess consistency but not assign credibility"
+      ],
+      "correctIndex": 2,
+      "explanation": "Locating is factual and checkable in seconds. Resolving is a credibility determination. D is the specific error the module warns about — consistency assessment *is* resolution."
+    },
+    {
+      "id": "q5",
+      "prompt": "Which request crosses the line while appearing analytical?",
+      "options": [
+        "\"List every point on which these accounts differ.\"",
+        "\"Which of these accounts is most consistent with the other evidence?\"",
+        "\"Quote the exact words each account uses about the meeting.\"",
+        "\"Which matters at issue does this account not address?\""
+      ],
+      "correctIndex": 1,
+      "explanation": "It takes conflicts you legitimately located and asks for a ranking against a standard, which is a finding. A, C and D are all rung-two requests about what the material says."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why does the module say a standard of proof makes this a bright line?",
+      "options": [
+        "Because standards of proof are set by statute and cannot be delegated",
+        "Because the balance of probabilities is not a threshold to check a number against — it is an instruction to weigh, so a model that weighs has applied your standard and you cannot say how",
+        "Because different jurisdictions apply different standards",
+        "Because standards of proof require documented reasoning for audit purposes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which leaves you with a conclusion, an impression of why, and no reconstructable path from evidence to finding — the one thing the report has to contain and the first thing the other side attacks."
+    },
+    {
+      "id": "q7",
+      "prompt": "What does the module say about an account that omits a matter at issue?",
+      "options": [
+        "It should be treated as agreement with the other accounts",
+        "It is not a denial — the statement looks identical whether the person wasn't there, doesn't remember, wasn't asked, or is avoiding it",
+        "It should be excluded until clarified",
+        "Omissions are only significant if the witness was directly asked"
+      ],
+      "correctIndex": 1,
+      "explanation": "Four completely different evidential states, one identical statement — and models fill gaps unmarked, which makes the omission the thing a fluent summary most reliably disappears."
+    },
+    {
+      "id": "q8",
+      "prompt": "What three questions does the module substitute for \"what does this account establish?\"",
+      "options": [
+        "Who, what, and when",
+        "Contains, omits, and contradicts — kept as three separate answers that are never merged",
+        "Reliable, unreliable, and unknown",
+        "Corroborated, uncorroborated, and disputed"
+      ],
+      "correctIndex": 1,
+      "explanation": "Merging them is harmonization performed by you rather than by the model, and the document is no better for having been assembled by hand. Question two also requires a list of matters at issue, which is why intake structure pays off here."
+    }
+  ]
+}
