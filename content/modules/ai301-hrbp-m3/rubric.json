@@ -1,0 +1,48 @@
+{
+  "promptVersion": "ai301-hrbp-m3-one-workflow-measured-v1",
+  "moduleId": "ai301-hrbp-m3",
+  "minWords": 250,
+  "maxWords": 350,
+  "submitLabel": "Your audit and write-up",
+  "intro": "Paste the audit — before-number, all four questions, and the named destination — followed by the 250–350 word write-up including your position on this module's claim. Resubmission is free and unlimited — the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, HRBP track. Module 3 applied activity, 'One workflow, measured': one real AI-assisted workflow audited end to end — a before-number (reconstructed and labelled as an estimate if never measured), then all four questions (total human time INCLUDING briefing, critical reading, fixing and rework; whether final quality moved against what mattered; where the work relocated to; and what the freed capacity actually became), a specifically named destination for recovered time, and a comparison against their predicted weekly botsitting hours. IMPORTANT: a workflow the learner measured honestly and concluded should be killed or reverted is the STRONGEST possible submission for this module and must score at the top — this module's entire purpose is making negative findings sayable. Reject 'more strategic work' as a destination; it is the phrase people use when the honest answer is 'I don't know.' An acknowledged estimate is usable; a confident invention is not. This track scores the delta rather than the score — never grade prediction accuracy.",
+  "opening": [
+    {
+      "key": "botsitHours",
+      "label": "Predicted — your own botsitting hours per week",
+      "hint": "Feeding context, supervising output, debugging, cleaning up downstream.",
+      "placeholder": "e.g. 3",
+      "min": 0,
+      "max": 40
+    }
+  ],
+  "calibration": [
+    {
+      "key": "botsitHoursActual",
+      "label": "Measured — what the audit suggests you actually spend",
+      "hint": "Extrapolated from this workflow's real numbers. Direction of the miss is the lesson.",
+      "placeholder": "e.g. 6",
+      "min": 0,
+      "max": 40,
+      "actualFor": "botsitHours"
+    }
+  ],
+  "dimensions": [
+    {
+      "name": "The before-number is honest",
+      "criteria": "A real prior baseline, or a reconstruction explicitly labelled as an estimate with its reasoning shown. An acknowledged estimate scores well; a confident invention scores poorly; 'we never measured and here's my best reconstruction' scores better than a suspiciously round remembered figure."
+    },
+    {
+      "name": "All four questions, including the expensive one",
+      "criteria": "Total human time counts briefing, critical reading, fixing, and rework — not generation time. Quality judged against what actually mattered about the output. Relocation identified rather than described as elimination. Any of the four skipped or answered in a sentence of generalities is the gap to name in feedback."
+    },
+    {
+      "name": "The destination is specific",
+      "criteria": "A named, checkable destination — a Module 2 quadrant, a piece of work previously skipped, hours returned to a named person or team. 'More strategic work' fails this dimension outright. 'I couldn't find where it went' is an honest and creditable answer that scores far above a vague one."
+    },
+    {
+      "name": "The verdict and the position",
+      "criteria": "A clear conclusion about whether the workflow survives its own audit, with a stated next action if it doesn't — a measured-and-killed workflow is the best possible submission here and should be scored as such. Plus a committed position on the claim that engages the strongest counter-argument (that some real value is legitimately unmeasurable — cognitive load, slack, lower activation cost), and the prediction compared with its miss direction named."
+    }
+  ]
+}
