@@ -6,7 +6,8 @@ say in your sources block that you did.
 **Why this exists.** Brief §3a sanctions horizontal duplication between sibling tracks — no learner
 sees two role tracks, so a well-aimed duplicate is better for them than a cross-track prerequisite.
 That removes the pedagogical objection to overlap and leaves exactly one real cost: **drift.** These
-tracks run ~80% volatile, and `scripts/maintenance-agent.mjs` re-checks each copy independently, so
+tracks carry a volatile block in roughly one block in eight — 122 of 905 across the 301 packages,
+measured rather than estimated — and `scripts/maintenance-agent.mjs` re-checks each copy independently, so
 ten tracks citing the EU AI Act timeline is ten copies diverging on their own schedule.
 
 **What this is not.** Module content is prose inside `blocks.json`; this is deliberately *not* a
