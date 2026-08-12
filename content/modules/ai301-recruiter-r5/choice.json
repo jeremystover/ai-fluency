@@ -1,0 +1,19 @@
+{
+  "reviewedAt": "2026-08-12",
+  "title": "Four capture designs",
+  "intro": "*Five minutes. Commit before you look.*\n\nFour TA teams designed a capture layer this quarter. **One will still be answering questions in six months.**\n\nThe test isn't ambition. It's whether the design survives contact with a busy recruiter in week three, and whether anyone has to change something because of what it says.",
+  "artifacts": [
+    { "label": "Design A", "body": "\"We'll capture everything — full interview transcripts, all scorecards, sourcing channel, comp data, candidate feedback surveys, recruiter time-per-req, and hiring manager satisfaction scores. Stored in a new analytics warehouse. We'll figure out the questions once we see what the data supports.\"" },
+    { "label": "Design B", "body": "\"Question: does our technical screen predict who passes the panel? Fields: screen score, panel outcome, screen interviewer, loop version. All four already exist in the ATS — we're adding one dropdown for loop version. Reviewed monthly by the TA lead in the ops meeting. If the screen doesn't predict, we cut it and save 3 hours per candidate. If it does, we push it earlier.\"" },
+    { "label": "Design C", "body": "\"We're recording all interviews and running AI analysis to score interviewer effectiveness, then ranking interviewers on a leaderboard shared with department heads to drive accountability.\"" },
+    { "label": "Design D", "body": "\"Quarterly recruiter survey on which sourcing channels feel most effective, plus a monthly report on applications, time-to-fill, and offer acceptance rate, circulated to the leadership team.\"" }
+  ],
+  "options": [
+    { "id": "a", "label": "Design A" },
+    { "id": "b", "label": "Design B" },
+    { "id": "c", "label": "Design C" },
+    { "id": "d", "label": "Design D" }
+  ],
+  "key": "b",
+  "reasoning": "**B closes the loop, and it's the least impressive one on the page.** One question, specific enough to have an answer. Four fields, three of which already exist — so nothing depends on a recruiter entering data twice. A named reviewer and a cadence. And, decisively, **a stated action under each possible outcome**: cut the screen or move it earlier. That last part is the feed-back stage, which is the one everyone skips, and it's why this design will still be alive in six months.\n\n**A is the most common failure and it sounds like rigour.** \"Capture everything and find the questions later\" produces a warehouse nobody queries, because a question you haven't asked can't tell you which fields matter — and half of what it lists requires recruiters to enter data that exists nowhere today. It will be inconsistently populated within a month.\n\n**C is the dangerous one.** It breaks both rules from Lesson 4: it treats the interviewer's *worth* rather than their process, and the output goes to department heads rather than to the interviewer first. A leaderboard of ranked people is a decision about people wearing an analytics costume — 101 M7's line — and practically, every interviewer will hear about it by Friday and behave accordingly. You'll have destroyed the honesty of your scorecards to gain a ranking.\n\n**D isn't a loop at all.** A recruiter opinion survey plus the two metrics Lesson 3 says to stop headlining, circulated to an audience with no decision attached. It's reporting, and reporting that nobody acts on trains everybody to stop reading it.\n\nThe transferable test: **name the decision that changes.** B has one under each branch. A, C and D have none — which is why only one of them survives."
+}

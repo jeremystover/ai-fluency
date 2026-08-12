@@ -1,0 +1,119 @@
+[
+  {
+    "id": "ai301-recruiter-r4-calibration-prompt-before-you-start-10",
+    "moduleId": "ai301-recruiter-r4",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Calibration prompt — before you start\n\n*One prediction, thirty seconds.*\n\nRank these five selection methods by how well they predict job performance, best first: **general\nmental ability tests · structured interviews · unstructured interviews · years of relevant\nexperience · biodata (structured background information).**\n\nWrite your ranking down before Lesson 1. Most people get the top two the wrong way round, for a\nreason that was the field's consensus until quite recently."
+  },
+  {
+    "id": "ai301-recruiter-r4-module-brief-20",
+    "moduleId": "ai301-recruiter-r4",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nModule 1 told you the signals collapsed. Module 3 told you the loop inherits the scorecard. This\nmodule is where you rebuild the loop so that what it measures survives contact with tools that\nboth sides now have.\n\nThe good news arrives from an unexpected direction: **the methods that survive AI are, almost\nexactly, the methods that were always better.** The selection science was re-examined recently and\nthe ranking changed — and the methods that came out on top are the ones a candidate cannot\noutsource, while the ones that fell are the ones AI makes free.\n\nThat's a rare piece of luck. You are not being asked to trade rigour for defensibility. You are\nbeing asked to stop doing the things that were never predictive and became indefensible.\n\nThen the decision this module forces: **your candidate AI policy.** There are two coherent\npositions and one losing one — and the losing one is the position most organizations currently\nhold by default."
+  },
+  {
+    "id": "ai301-recruiter-r4-learning-objectives-30",
+    "moduleId": "ai301-recruiter-r4",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. State what the revised selection science says about which methods predict performance.\n2. Design for expensive-to-fake rather than detection — and say what \"expensive\" means precisely.\n3. Choose between ban-and-verify and require-and-grade, and explain why incoherence is worse than\n   either.\n4. Handle verification at the right stage, through the right channel.\n5. Rebuild one interview loop and write a candidate-facing AI policy in under 150 words."
+  },
+  {
+    "id": "ai301-recruiter-r4-lesson-1-what-actually-predicts-performa-40",
+    "moduleId": "ai301-recruiter-r4",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 · What actually predicts performance [V]\n\nFor decades the field's consensus, from a foundational 1998 meta-analysis, was that general mental\nability was the strongest single predictor of job performance. A great deal of assessment product\nwas built on that.\n\nIn 2022, Sackett, Zhang, Berry and Lievens re-examined the underlying meta-analytic estimates and\nfound a **systematic overcorrection for range restriction** running through decades of the\nliterature. Correcting it re-ranked the field:\n\n| Method | Corrected validity `[V]` |\n|---|---|\n| **Structured interviews** | **≈ .42** |\n| Job knowledge tests | ≈ .40 |\n| **Biodata** | **≈ .38** |\n| **General mental ability** | **≈ .31** |\n| Years of experience | near the bottom |\n| Unstructured interviews | near the bottom |\n\nTwo things follow, and the second is the one this module is built on.\n\n**Structure is the active ingredient.** The same conversation, with defined competencies, the same\nquestions in the same order, and independent scoring against a rubric, roughly doubles the\npredictive value of an unstructured version of itself. That is a process change, not a purchase.\n\n**And the ranking maps almost perfectly onto fakeability.** Look again: the methods at the top\nrequire *demonstrated behaviour under observation*. The methods at the bottom — years of\nexperience, credentials, unstructured conversation — are the ones a language model can produce a\nconvincing version of in seconds. The evidence and the AI-resistance point the same way, which\nmeans you can make this argument to a hiring manager on effectiveness grounds without ever\nmentioning AI."
+  },
+  {
+    "id": "ai301-recruiter-r4-lesson-2-expensive-to-fake-by-design-50",
+    "moduleId": "ai301-recruiter-r4",
+    "ordinal": 50,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 · Expensive-to-fake by design\n\n\"Expensive\" is doing precise work here. Three costs a faker cannot compress:\n\n**Time they can't compress.** Not \"takes a long time\" — *cannot be produced faster with a tool*. A\ntake-home essay takes a candidate four hours or four minutes depending on their tooling. A live\nworking session takes forty minutes for everybody.\n\n**Presence they must supply.** Real-time, responsive, with follow-ups that depend on what they just\nsaid. The value isn't surveillance; it's that a conversation branches, and a branching conversation\ncannot be pre-generated.\n\n**Specificity they can't generate.** Details of work they actually did — what broke, what they'd\ndo differently, who disagreed and how it resolved. A model can produce a plausible project story;\nit cannot produce *their* project's second-order details under follow-up, because those details\nwere never written down anywhere.\n\nWhich yields three design moves:\n\n**Work-sample-first and observed.** The single highest-leverage change available. Give a realistic\ntask, watch some portion of it happen, and ask about the reasoning rather than the output. Note\nthat AI use during it is now *fine* — you're evaluating how they think with the tools they'll\nactually have, which is what the job involves.\n\n**Live defence over polished submission.** If a take-home stays, its function changes: it becomes\nthe material for a conversation rather than an artifact to be scored. \"Walk me through why you\nmade this choice, and what you'd do if the constraint changed\" is unfakeable in a way the\ndocument never was.\n\n**Follow-up depth over question breadth.** Three questions with four follow-ups each beats twelve\nquestions with none. Prepared answers survive the first question and fall apart on the third —\nand this costs nothing to implement.\n\n**And the thing to stop doing:** scoring polish. Written communication quality in an application\nis now approximately free and therefore approximately uninformative. If your rubric rewards it,\nyou are selecting for tool access."
+  },
+  {
+    "id": "ai301-recruiter-r4-try-60",
+    "moduleId": "ai301-recruiter-r4",
+    "ordinal": 60,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### Try this — 3 minutes\nTake the highest-scoring stage from your Module 1 signal audit. Add one follow-up question that\ncan only be answered from real experience — *\"what surprised you about that?\"* is a good default.\nThat single addition typically moves a stage from a 1 to a 2 on the audit scale."
+  },
+  {
+    "id": "ai301-recruiter-r4-lesson-3-the-policy-fork-70",
+    "moduleId": "ai301-recruiter-r4",
+    "ordinal": 70,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 · The policy fork [V]\n\nYour candidates are using AI. You need a stated position, and there are exactly two coherent ones.\n\n**Ban-and-verify.** AI use prohibited in assessment stages, and your process is built so that\nmatters — which means live, observed, follow-up-heavy stages where the prohibition is\n*structurally* enforced rather than trusted. The honest version says so plainly: *\"our assessment\nstages are live because we're evaluating you, not your tools.\"*\n\n**Require-and-grade.** AI use expected, and how well they use it is part of what you're\nevaluating. Canva requires candidates to use AI in parts of its process; Meta has permitted it in\na coding round with AI-generated code verification built into the evaluation. This is\nincreasingly the honest position for roles where the work itself involves these tools daily —\nwhich is most knowledge work now.\n\n**Incoherence is the only losing choice**, and it is the default state of most organizations: a\npolicy prohibiting AI, no stage where the prohibition is enforceable, and interviewers privately\nassuming everyone uses it. That teaches candidates that your stated process does not mean what it\nsays — and the ones who learn that fastest are the ones who read your process most carefully,\nwhich is a group you were trying to select *for*.\n\nTwo rules whichever fork you take. **Say it in the invitation, not in the fine print** — a\ncandidate who discovers your policy at the assessment has already prepared for a different one.\nAnd **apply it identically to everyone**, because inconsistently enforced policy is the ban's\ndisparate-impact problem arriving by a different route."
+  },
+  {
+    "id": "ai301-recruiter-r4-lesson-4-the-detection-trap-paid-off-80",
+    "moduleId": "ai301-recruiter-r4",
+    "ordinal": 80,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 · The detection trap, paid off\n\nModule 1 seeded this. Here is what to do instead.\n\n**Detection tools are vendor claims like any other**, and they get 101 M2's teardown: what's the\nevidence, what's the sample, what would falsify it. Recall the asymmetry — confidence is\nmeasurable and high, accuracy is not published. A tool sold on a capability with no error rate is\na tool you cannot size the risk of.\n\n**Their false positives are a screening decision with disparate impact**, landing predictably on\nnon-native speakers, neurodivergent candidates, and anyone who prepared unusually hard. Module 6\ncovers what that means when the regime requires a bias audit; the design answer is simpler —\n**a process that doesn't depend on detection has no false positives to defend.**\n\n**And verification belongs at screening, through official channels, not sprung at offer.**\nEmployment dates, credentials, references — verify through the issuing institution or the\nemployer, early enough that a discrepancy is a conversation rather than a rescinded offer.\nVerification of *facts* is legitimate and always was. Detection of *tool use* is a different\nactivity that has been quietly sold under the same word, and separating them is most of what this\nlesson is for."
+  },
+  {
+    "id": "ai301-recruiter-r4-exercise-embed-85",
+    "moduleId": "ai301-recruiter-r4",
+    "ordinal": 85,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"sorting\", \"title\": \"Calibration exercise \\u2014 What does it cost a faker?\", \"intro\": \"Ten minutes, ten screening signals. Sort each: expensive to fake, cheap to fake, or free.\\n\\nCommit every card before the reveal. Expensive means time they can't compress, presence they must supply, or specificity about work they actually did \\u2014 not \\\"takes effort\\\".\"}"
+  },
+  {
+    "id": "ai301-recruiter-r4-key-takeaways-90",
+    "moduleId": "ai301-recruiter-r4",
+    "ordinal": 90,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **The methods that survive AI are the methods that were always better** `[V]` — structured\n  interviews ≈.42, biodata ≈.38, general mental ability revised down to ≈.31, with experience and\n  unstructured interviews near the bottom. You can argue this on effectiveness without mentioning\n  AI.\n- **Structure is the active ingredient**, and it's a process change rather than a purchase: same\n  questions, same order, independent scoring against a rubric.\n- **Expensive means three things a faker can't compress:** time, presence, and specificity about\n  work they actually did.\n- **Work-sample-first and observed; live defence over polished submission; follow-up depth over\n  question breadth.** Prepared answers survive the first question and fall apart on the third.\n- **Stop scoring polish.** Written quality in an application is free, therefore uninformative — and\n  rewarding it selects for tool access.\n- **Two coherent policies, one losing default.** Ban-and-verify or require-and-grade; incoherence\n  teaches candidates your process doesn't mean what it says, and the most attentive ones learn it\n  first.\n- **A process that doesn't depend on detection has no false positives to defend.** Verify facts\n  through official channels at screening; that is a different activity from detecting tool use."
+  },
+  {
+    "id": "ai301-recruiter-r4-activity-link-95",
+    "moduleId": "ai301-recruiter-r4",
+    "ordinal": 95,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"activity_link\", \"title\": \"Applied activity \\u2014 Redesign the loop\", \"blurb\": \"Rebuild your live req's loop so at least one stage before the final costs a faker something \\u2014 each change mapped to a competency from your Module 3 scorecard, no stages added \\u2014 plus the candidate-facing AI policy in under 150 words.\", \"estMinutes\": \"25\"}"
+  },
+  {
+    "id": "ai301-recruiter-r4-take-a-position-100",
+    "moduleId": "ai301-recruiter-r4",
+    "ordinal": 100,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"Polished answers are free now. If your loop still rewards polish, you're\nselecting for tool access.\"*\n\nThe strongest counter-argument is that **for many roles, polish is the job.** A content marketer,\na customer-facing AE, or a communications hire will use exactly these tools in the work — so a\npolished application is a valid work sample rather than noise, and treating polish as\nuninformative discards a real signal about output quality. Your position has to engage that,\nbecause for some of your requisitions it's simply correct."
+  },
+  {
+    "id": "ai301-recruiter-r4-sources-and-attribution-110",
+    "moduleId": "ai301-recruiter-r4",
+    "ordinal": 110,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- **Sackett, Zhang, Berry & Lievens (2022)**, *Journal of Applied Psychology* — the corrected\n  meta-analytic estimates addressing systematic overcorrection for range restriction, re-ranking\n  structured interviews above general mental ability. The 1998 Schmidt & Hunter meta-analysis is\n  the prior consensus it revises. **[V]**\n- Published candidate AI policies from employers including Canva and Meta, cited as examples of\n  the two coherent forks. Policies change; verify current practice before citing them to a\n  hiring manager. **[V]**\n- The expensive-to-fake framing, the three design moves, and the\n  verification-versus-detection distinction are original to this course.\n- Builds on 101 M2 (vendor claim teardown), 101 M7 (screening decisions about people), and\n  Module 3 of this track (the loop inherits the scorecard)."
+  }
+]

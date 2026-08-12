@@ -1,0 +1,119 @@
+[
+  {
+    "id": "ai301-recruiter-r6-calibration-prompt-before-you-start-10",
+    "moduleId": "ai301-recruiter-r6",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Calibration prompt — before you start\n\n*One prediction, thirty seconds.*\n\n**How many AI systems currently touch your requisitions in a way that screens, scores, ranks, or\nfilters a candidate?** Count anything — your ATS's ranking feature, a sourcing tool's match\nscore, an assessment vendor, a scheduling bot that prioritizes. A number.\n\nThen predict how many of those you could name the *deployer* for, if a regulator asked."
+  },
+  {
+    "id": "ai301-recruiter-r6-module-brief-20",
+    "moduleId": "ai301-recruiter-r6",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nEvery other role in People deals with AI regulation at the edges. **You are the target.**\n\nLook at where the law has actually landed. New York City's bias-audit regime is a hiring rule.\nIllinois's new provision is a hiring rule. The EU AI Act's high-risk employment classification\nnames recruitment and selection explicitly. And the landmark US litigation on AI vendor liability\nis a hiring case. Employment decisions attracted the regulators first because that is where\nautomated systems most visibly decide things about people — and within employment, hiring is\nwhere the volume is.\n\nWhich produces an uncomfortable alignment. **The vendor market that sells hardest into your\nfunction sells precisely the capability the law is most focused on** — automated screening,\nranking, and scoring of candidates. 101 M7 told you not to let AI decide about people. This\nmodule tells you what happens when you do it anyway, and what the regulators now require of you\nwhen a vendor does it on your behalf.\n\nTwo halves: the statutory floor, and the audit skill that makes the floor meaningful — because a\nbias audit you cannot read is a document you file rather than a control you operate."
+  },
+  {
+    "id": "ai301-recruiter-r6-learning-objectives-30",
+    "moduleId": "ai301-recruiter-r6",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. Describe the regulatory shape well enough to identify which regimes apply to your reqs.\n2. Explain the agent theory and how it changes procurement rather than just compliance.\n3. Compute a selection rate and apply the four-fifths rule.\n4. Read a vendor's bias audit critically instead of filing it.\n5. Inventory every system touching your population and name its deployer."
+  },
+  {
+    "id": "ai301-recruiter-r6-lesson-1-the-statutory-floor-40",
+    "moduleId": "ai301-recruiter-r6",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 · The statutory floor [V]\n\n*Direction of travel, not legal advice. Verify every specific with counsel.*\n\n**New York City, Local Law 144.** The template most other regimes rhyme with. Any **automated\nemployment decision tool** — résumé screeners, assessment chatbots, video interview analytics —\nrequires an **annual bias audit** by an independent auditor, **public disclosure** of the results,\nand **ten business days' advance notice** to candidates before the tool is used. The audit\nmeasures **selection rate by group** across race, ethnicity and sex. Penalties run from $500 per\nviolation and escalate substantially for continuing ones.\n\nNote what \"assist\" means here: the definition reaches tools that *substantially assist* a\ndecision, not only those that make it. A ranking that determines review order is in scope even\nthough a human technically decides.\n\n**Illinois, HB 3773 — effective January 1, 2026.** Amends the Illinois Human Rights Act to\nprohibit employers from using AI in ways that produce a discriminatory effect, and requires\n**notice** to employees and candidates when AI is used in employment decisions. Note the shape:\nthis is not a separate AI statute bolted on — it puts AI use inside existing civil-rights\nmachinery, which is where the direction of travel points generally.\n\n**The EU AI Act.** Recruitment and selection are named high-risk uses. Those obligations were\ndeferred to **December 2027** under the Digital Omnibus — but the **prohibition on emotion\nrecognition in the workplace** has been in force since February 2025 and did not move. If anyone\noffers you sentiment or emotion inference from interview video and you have European operations,\nthat is not a procurement conversation.\n\n**And the doctrine underneath all of it.** Disparate impact requires no intent. A neutral practice\nthat disproportionately excludes a protected group needs job-related justification, whoever built\nit. Every statute above sits on top of that; none replaces it."
+  },
+  {
+    "id": "ai301-recruiter-r6-lesson-2-the-agent-theory-50",
+    "moduleId": "ai301-recruiter-r6",
+    "ordinal": 50,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 · The agent theory [V]\n\nThe development that changes how you buy.\n\nIn **Mobley v. Workday**, a court allowed claims to proceed on the theory that an AI screening\nvendor can act as an **agent of the employer** — finding it plausibly alleged that customers had\ndelegated their traditional function of rejecting candidates or advancing them to interview. The\n\"employment agency\" theory was dismissed; the agent theory survived to discovery, and claims have\ncontinued across race, sex, age and disability.\n\nThree consequences, most-actionable first.\n\n**Neither party gets to point at the other.** \"That's the vendor's problem\" and \"we only make the\nsoftware\" both weaken. A tool performing a function you would otherwise perform may carry your\nobligations with it.\n\n**Discovery reaches the model.** The case has featured sustained disputes over access to\nalgorithmic code and testing data. Whatever the outcome, the direction is set: **\"we don't know\nhow it works and the vendor won't tell us\" is a position you may have to defend, not a shield.**\nWhich converts a fairness principle into a procurement requirement — **get validation evidence\nbefore signature**, because afterwards you have no leverage and possibly an obligation.\n\n**And the privilege nuance.** Bias testing conducted *under counsel*, where the lawyer curates the\nanalysis and uses the results in providing legal advice, may be protected from discovery in a way\nthat identical testing run as an operational exercise is not. Not a reason to avoid testing — a\nreason to involve counsel in designing it, before you commission an audit rather than after."
+  },
+  {
+    "id": "ai301-recruiter-r6-lesson-3-adverse-impact-you-can-compute-60",
+    "moduleId": "ai301-recruiter-r6",
+    "ordinal": 60,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 · Adverse impact you can compute\n\n\"Don't run a tool you can't show is fair\" needs a method, or it is a slogan.\n\n**The selection rate** is the number who passed a stage divided by the number who entered it, for\neach group. That's it. If 200 men applied and 60 advanced, the rate is 30%. If 150 women applied\nand 27 advanced, the rate is 18%.\n\n**The four-fifths rule** compares each group's rate to the highest group's. 18 ÷ 30 = 0.60 — below\nthe 0.80 threshold, which is the long-standing rule-of-thumb trigger for scrutiny under US\nenforcement practice. It is not proof of discrimination and does not settle anything legally; it\nis the flag that says this stage requires job-related justification and probably a conversation\nwith counsel.\n\nThree things practitioners get wrong, and they matter:\n\n**Compute it per stage, not just at offer.** A funnel can look balanced at the end while a single\nearly stage does all the excluding — and that's usually the automated one.\n\n**Small numbers break it.** With eleven candidates in a group, one person changes the ratio\ndramatically. State the n, always. Module 5's capture layer is what eventually gives you samples\nlarge enough to mean something.\n\n**Passing four-fifths is not a clean bill of health**, and this is the most common misreading. It\nis a screening heuristic with a low bar, not a validation. A tool can clear it comfortably and\nstill be selecting on something indefensible.\n\nWhy you specifically need this: **it is what lets you read a vendor's audit rather than file\nit.** When an audit reports impact ratios, you can now ask whether they were computed per stage\nor only at the end, what the group sizes were, and which stages were excluded from the analysis.\nThose three questions separate a real audit from a compliance artifact."
+  },
+  {
+    "id": "ai301-recruiter-r6-try-70",
+    "moduleId": "ai301-recruiter-r6",
+    "ordinal": 70,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### Try this — 3 minutes\nTake your highest-volume req from the last year. For the résumé-screen stage, can you get the\nnumber who entered and the number who advanced, split by any demographic group you hold? If\nthe data doesn't exist, that's your finding — a stage you cannot audit is a stage you cannot\ndefend."
+  },
+  {
+    "id": "ai301-recruiter-r6-lesson-4-what-to-do-this-quarter-80",
+    "moduleId": "ai301-recruiter-r6",
+    "ordinal": 80,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 · What to do this quarter\n\nWithout waiting for anyone.\n\n**Inventory, and name the deployer.** Every system that screens, scores, ranks or filters. Include\nfeatures switched on inside tools you already had — the ATS ranking, the sourcing match score,\nthe \"recommended candidates\" panel. Most recruiters find at least one they'd never classified as\na decision tool.\n\n**Ask three questions in writing, of every vendor.** Has this tool been bias-audited, by whom, and\nmay we see the report? What does it do when it has insufficient data about a candidate? Which of\nour jurisdictions have you assessed it against? **The answers, or the silences, are the finding**\n— and asking before signature is the only moment you have leverage.\n\n**Check the notice obligations that already bind you.** If you operate in a regime requiring\ncandidate notice, that is an operational task with a deadline, not a policy debate.\n\n**Then bring counsel a list, not a worry.** Not \"are we compliant with AI hiring law?\" — which\ngets a shrug — but: *\"These five systems touch our reqs. Here's what each one decides and where we\nhire. Which regimes apply today, what do they require of us this year, and what's coming?\"* That\nquestion has answers."
+  },
+  {
+    "id": "ai301-recruiter-r6-exercise-embed-85",
+    "moduleId": "ai301-recruiter-r6",
+    "ordinal": 85,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"sorting\", \"title\": \"Calibration exercise \\u2014 Run it, audit it, or don't\", \"intro\": \"Ten minutes, ten tools and uses from a real TA stack. Sort each: run it with ordinary care, run it only with the audit in place, or don't run it at all.\\n\\nCommit every card before the reveal. The question underneath every card is whether the tool screens, scores, ranks or filters a person \\u2014 and whether you could show it's fair if asked.\"}"
+  },
+  {
+    "id": "ai301-recruiter-r6-key-takeaways-90",
+    "moduleId": "ai301-recruiter-r6",
+    "ordinal": 90,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **You are the target, not a bystander.** LL144, Illinois HB 3773, the EU's high-risk\n  classification, and the landmark vendor-liability case are all hiring rules `[V]` — and the\n  vendor market sells hardest into exactly the capability regulators focus on.\n- **\"Substantially assists\" is in scope.** A ranking that determines review order counts, even\n  though a human technically decides.\n- **Agent theory: neither party can point at the other** `[V]`, and discovery reaches the model.\n  Get validation evidence *before* signature; afterwards you have no leverage and possibly an\n  obligation.\n- **The EU emotion-recognition prohibition is already in force** and did not move with the rest.\n- **Selection rate is passed ÷ entered, per group. Four-fifths compares each group to the\n  highest.** Compute per stage, state the n, and remember that passing is a low bar rather than a\n  clean bill of health.\n- **This is what lets you read an audit instead of filing it:** was it computed per stage, what\n  were the group sizes, which stages were excluded.\n- **Bring counsel five named systems and what each decides.** \"Are we compliant?\" gets a shrug."
+  },
+  {
+    "id": "ai301-recruiter-r6-activity-link-95",
+    "moduleId": "ai301-recruiter-r6",
+    "ordinal": 95,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"activity_link\", \"title\": \"Applied activity \\u2014 Tool audit\", \"blurb\": \"Every system touching your reqs that screens, scores, ranks or filters \\u2014 deployer named, jurisdictions listed, \\\"don't know\\\" accepted as an honest entry \\u2014 plus one selection rate computed by hand, and three written vendor questions.\", \"estMinutes\": \"25\"}"
+  },
+  {
+    "id": "ai301-recruiter-r6-take-a-position-100",
+    "moduleId": "ai301-recruiter-r6",
+    "ordinal": 100,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"A vendor's bias audit is a marketing document until you can read it — and if you\ncan't compute a pass-through rate, you can't read it.\"*\n\nThe strongest counter-argument is **division of labour.** Bias auditing is a specialist\nstatistical discipline; an independent auditor and your own counsel are better equipped than a\nrecruiter with a calculator, and a little statistical knowledge deployed confidently is its own\nhazard — a recruiter who misreads an impact ratio in a vendor meeting has damaged their\ncredibility and possibly the analysis. On that view the skill to build is knowing *who to ask*,\nnot how to compute. Your position has to engage that."
+  },
+  {
+    "id": "ai301-recruiter-r6-sources-and-attribution-110",
+    "moduleId": "ai301-recruiter-r6",
+    "ordinal": 110,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- **NYC Local Law 144** — annual independent bias audit, public disclosure, ten business days'\n  candidate notice, selection-rate measurement by race, ethnicity and sex, and the\n  make-or-substantially-assist scope. **[V]**\n- **Illinois HB 3773**, effective 1 January 2026 — amends the Illinois Human Rights Act to\n  prohibit discriminatory-effect AI use in employment decisions and requires notice. **[V]**\n- **EU AI Act and the Digital Omnibus** — recruitment and selection as named high-risk uses,\n  deferred to 2 December 2027; the workplace emotion-recognition prohibition in force since\n  February 2025 and unaffected by the deferral. **[V]**\n- **Mobley v. Workday** — agent theory permitted to proceed while the employment-agency theory was\n  dismissed; claims continuing across race, sex, age and disability; active discovery including\n  disputes over algorithmic code and testing data. Litigation posture changes between review\n  cycles. **[V]**\n- The four-fifths rule and selection-rate analysis are long-standing US enforcement practice and\n  predate AI entirely. The three audit-reading questions are original to this course.\n- **This module is not legal advice.** *Counsel review required before deployment-specific claims\n  are added.* **[V]**"
+  }
+]

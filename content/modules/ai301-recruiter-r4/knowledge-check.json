@@ -1,0 +1,79 @@
+{
+  "title": "Knowledge check — 6 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What did the 2022 re-examination of the selection literature find? `[V]`",
+      "options": [
+        "That structured interviews had been overvalued relative to cognitive testing",
+        "A systematic overcorrection for range restriction, which re-ranked structured interviews (≈.42) above general mental ability (≈.31)",
+        "That all selection methods have roughly equivalent predictive validity",
+        "That validity coefficients cannot be meaningfully compared across methods"
+      ],
+      "correctIndex": 1,
+      "explanation": "Decades of estimates carried the same statistical overcorrection; correcting it inverted the top of the ranking. And usefully, the corrected ranking maps almost exactly onto fakeability — the evidence and the AI-resistance point the same way."
+    },
+    {
+      "id": "q2",
+      "prompt": "What does the module mean by \"structure is the active ingredient\"?",
+      "options": [
+        "That interviews should be longer and cover more competencies",
+        "That structured interviews require specialized assessment software",
+        "That defined competencies, the same questions in the same order, and independent rubric scoring roughly double an unstructured interview's predictive value — a process change, not a purchase",
+        "That structure matters mainly for legal defensibility"
+      ],
+      "correctIndex": 2,
+      "explanation": "The same conversation, structured, is a different instrument. D is a genuine side benefit that Module 6 covers, but leading with it makes the change a compliance chore rather than an effectiveness win."
+    },
+    {
+      "id": "q3",
+      "prompt": "Which best captures what \"expensive to fake\" means?",
+      "options": [
+        "Costly for the employer to administer",
+        "Time the candidate can't compress, presence they must supply, and specificity about work they actually did",
+        "Requiring specialized knowledge that can't be looked up",
+        "Long enough that candidates without genuine interest drop out"
+      ],
+      "correctIndex": 1,
+      "explanation": "Note that \"takes a long time\" isn't sufficient — a take-home takes four hours or four minutes depending on tooling. Forty minutes of live work takes forty minutes for everybody."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why does the module say a work sample should permit AI use during it?",
+      "options": [
+        "Because prohibiting it is unenforceable in a remote setting",
+        "Because you're evaluating how they think with the tools they'll actually have, which is what the job involves",
+        "Because AI use improves the quality of work samples",
+        "Because prohibiting it creates disparate impact"
+      ],
+      "correctIndex": 1,
+      "explanation": "The observed reasoning is the signal, not the artifact. A is true and is a weaker argument — enforceability is a reason the ban fails, not a reason the permission is right."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why is incoherence worse than either coherent policy?",
+      "options": [
+        "Because it creates legal exposure that a stated policy avoids",
+        "Because it teaches candidates your stated process doesn't mean what it says — and the ones who learn that first are the most attentive ones, whom you were trying to select for",
+        "Because interviewers apply it inconsistently across candidates",
+        "Because candidates will assume the strictest interpretation"
+      ],
+      "correctIndex": 1,
+      "explanation": "The selection effect is the sting: your policy is a signal about your organization, and the candidates who read it most carefully are the ones you claimed to want. C is a real consequence and Module 6 shows why it's also a disparate-impact problem."
+    },
+    {
+      "id": "q6",
+      "prompt": "What distinction does the module draw about verification?",
+      "options": [
+        "Verification should happen at offer stage, when the investment justifies the cost",
+        "Verification of facts through official channels is legitimate and always was; detection of tool use is a different activity sold under the same word",
+        "Verification is only defensible when disclosed to the candidate in advance",
+        "Verification should be outsourced to a specialist provider"
+      ],
+      "correctIndex": 1,
+      "explanation": "Separating the two is most of the lesson. And facts get verified at screening rather than at offer, so a discrepancy is a conversation instead of a rescinded offer."
+    }
+  ]
+}

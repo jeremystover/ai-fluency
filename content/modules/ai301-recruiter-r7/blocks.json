@@ -1,0 +1,110 @@
+[
+  {
+    "id": "ai301-recruiter-r7-calibration-prompt-before-you-start-10",
+    "moduleId": "ai301-recruiter-r7",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Calibration prompt — before you start\n\n*The last prediction of the course.*\n\n**What share of your hiring managers would describe your team's AI-assisted output as\ntrustworthy?** Whole percent, honestly.\n\nThen, in the activity, you'll gather every prediction you made across these seven modules and\nread the pattern — because this track scores the delta, not the score."
+  },
+  {
+    "id": "ai301-recruiter-r7-module-brief-20",
+    "moduleId": "ai301-recruiter-r7",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nSix modules have made you better at recruiting. This one is about keeping the function.\n\nThat framing is deliberate. TA is usually the first People team to grow in an expansion and the\nfirst to shrink in a contraction, and it is the People function whose work looks most automatable\nfrom the outside — because the visible part of it is coordination, and coordination is exactly\nwhat these tools do well. **A leadership team that sees your function as throughput will fund it\nlike throughput.**\n\nEverything in this track has been building the counter-argument. Module 1 established that the\nsignal collapsed; Module 4 rebuilt a loop that measures something; Module 5 built the record\nnobody else has. This module turns those into a case somebody will actually fund, and handles the\npart nobody wants to write down: **what to say to your team, and to your exec, about headcount.**\n\nOne warning first, because it's the fastest way to lose this argument before you make it."
+  },
+  {
+    "id": "ai301-recruiter-r7-learning-objectives-30",
+    "moduleId": "ai301-recruiter-r7",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. Explain why sloppy AI output costs a recruiter more than it costs most other functions.\n2. Build a one-page case with a baseline, a measure, an owner, and a review date.\n3. Have the headcount conversation with your team without lying, and with your exec without\n   pleading.\n4. State what the function is for in a form that survives compression.\n5. Read your calibration record across the course and say what moved."
+  },
+  {
+    "id": "ai301-recruiter-r7-lesson-1-workslop-lands-on-the-relations-40",
+    "moduleId": "ai301-recruiter-r7",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 · Workslop lands on the relationship you can't afford to damage [V]\n\nResearch from BetterUp Labs and Stanford named the thing: **workslop** — AI-generated output that\nlooks like work and lacks the substance to advance it. Roughly **two hours of rework per\nincident**, and **42% of recipients rate the sender as less trustworthy** afterwards, with about\nhalf rating them less capable or reliable.\n\nFor most functions that second number is a nuisance. For you it is the whole business model.\n\nConsider who receives your output. A recruiter's work product goes almost entirely to **hiring\nmanagers** — the people who decide whether your involvement is valuable, who can route around you\nby hiring through their network, and whose trust is the only thing that makes intake work.\nModule 3 established that intake is the highest-leverage hour in the function; **intake requires a\nhiring manager willing to give you forty-five honest minutes, and that willingness is a trust\nbalance you draw down every time you send them something that wasn't worth reading.**\n\nThe candidate summary that reads well and says nothing. The market map assembled from a model's\ngeneral knowledge rather than your search. The debrief synthesis that smooths five specific\ndisagreements into one bland paragraph. Each is fast, each is plausible, and each spends\ncredibility you need for the conversation where it actually matters.\n\n**The practical rule: your AI-assisted output goes to the person whose trust your function runs\non. Read it once more before you send it, or don't send it.** This is not a moral point. It's the\nhighest-return two minutes available to you."
+  },
+  {
+    "id": "ai301-recruiter-r7-lesson-2-the-one-page-case-50",
+    "moduleId": "ai301-recruiter-r7",
+    "ordinal": 50,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 · The one-page case\n\nFour elements, and a case missing any of them will not be funded.\n\n**The baseline.** What it is now, measured. Not estimated in the meeting — measured, or honestly\nreconstructed and labelled as such. **This is the element that's usually missing**, and its absence\nis why most TA proposals fail: without a before-number, success is unprovable and the request is\nindistinguishable from a preference. Module 5's capture layer exists so you have one.\n\n**The measure.** What you'll report at ninety days, chosen before you start. It should be capable\nof coming back badly — a measure that can only confirm you was never a measure.\n\n**The owner.** A named person. Not \"the TA team.\"\n\n**The review date.** When you'll say whether it worked, in the diary now. A case with a review\ndate is a proposal; one without is an aspiration, and executives can tell the difference\nimmediately.\n\nTwo things that make a case land harder. **Ask for something small enough to be believed** — a\nchange to one stage of one loop with a measured baseline beats a transformation programme,\nbecause the small one can be evaluated and the large one can only be believed. And **say what\nyou'd stop doing to fund it.** Nothing establishes seriousness faster, and it converts your\nrequest from \"additional resource\" into \"reallocation,\" which is a much easier thing to approve."
+  },
+  {
+    "id": "ai301-recruiter-r7-lesson-3-the-headcount-conversation-60",
+    "moduleId": "ai301-recruiter-r7",
+    "ordinal": 60,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 · The headcount conversation\n\nThe part nobody writes down.\n\n**With your team, the failure mode is false comfort.** \"Nothing's going to change\" is a sentence\nyour team will remember when something changes, and it costs you the credibility you'll need to\nlead through it. The honest version has three parts: *the coordination work is compressing and\nthat's real; the work that survives is the judgment work, which is most of what you actually\nenjoy; and here is what we're doing to move ourselves toward it.* That is truthful, it is not\ncatastrophizing, and it gives people something to do — which is what distinguishes leadership\nfrom a warning.\n\nThen act consistently with it: reallocate the time you free rather than absorbing it, and be\nvisible about where it goes. A team told the work is shifting, who then watches the recovered\nhours refill with more of the same coordination, learns that the statement was a slogan.\n\n**With your exec, the failure mode is pleading.** Arguments from effort, loyalty, or how hard the\nmarket is do not survive a budget meeting, because every function makes them. What survives is\nevidence — which is what Modules 4 and 5 exist to produce.\n\nThe shape that works: *\"Here's what our loop measures now that it didn't six months ago. Here's\nthe hire quality signal we can now see. Here's the number we couldn't produce before and can. The\nteam is smaller than it was and the signal is better than it was, and that's the trade I'd make\nagain.\"* You can only say that if you built the record — which is why Module 5 is the one with the\nlongest half-life.\n\nAnd the honest limit: **sometimes the decision is made regardless.** Ratios move for reasons that\nhave nothing to do with your evidence. The evidence changes who is kept and what the remaining\nfunction is asked to do, which is a real and worthwhile thing to influence, and is not the same\nas control."
+  },
+  {
+    "id": "ai301-recruiter-r7-lesson-4-what-the-function-is-for-70",
+    "moduleId": "ai301-recruiter-r7",
+    "ordinal": 70,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 · What the function is for\n\nThe argument that survives compression, stated plainly.\n\n**A TA function's product is not filled requisitions. It is decisions nobody has to redo.**\n\nA hire that works out is a decision that stays made. A hire that doesn't is a decision that gets\nmade again, at full cost, eighteen months later, with a damaged team and a departed person in\nbetween. Everything this track taught — signal that survives contact with tools, an intake that\ndoesn't poison the loop, a record that tells you which stages predict — points at that one output.\n\nThat is also the only version of the function that is safe from the compression, because it is\nthe version that requires judgment. Throughput has already left; the coordination work is\ncompressing whether you participate or not, and defending it is the losing position. **The\ndefensible claim is not \"we work hard\" or \"we're fast.\" It's \"our decisions hold.\"**\n\nAnd if you built Module 5's record, you can prove it — which is the difference between making the\nclaim and being believed."
+  },
+  {
+    "id": "ai301-recruiter-r7-key-takeaways-80",
+    "moduleId": "ai301-recruiter-r7",
+    "ordinal": 80,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **Workslop costs you more than most functions** `[V]`: ~2 hours rework per incident and 42% of\n  recipients trusting the sender less — and your recipient is the hiring manager whose willingness\n  to give you forty-five honest minutes is the input to everything.\n- **Four elements or it doesn't get funded:** baseline, measure, owner, review date. The baseline\n  is the one usually missing, and its absence makes success unprovable.\n- **Ask small and say what you'd stop.** A change to one stage with a measured baseline beats a\n  transformation programme, and naming the trade converts a request into a reallocation.\n- **With your team, don't promise nothing changes.** The coordination work is compressing, the\n  judgment work survives, here's how we move — then actually reallocate the freed time visibly.\n- **With your exec, don't plead — bring the record.** Effort and loyalty arguments lose because\n  every function makes them. And accept the limit: evidence influences who is kept and what the\n  function is asked to do, not always whether the ratio moves.\n- **The product is decisions nobody has to redo.** That's the version of the function that\n  requires judgment, which is the version that survives — and the one you can now prove."
+  },
+  {
+    "id": "ai301-recruiter-r7-exercise-embed-85",
+    "moduleId": "ai301-recruiter-r7",
+    "ordinal": 85,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"choice\"}"
+  },
+  {
+    "id": "ai301-recruiter-r7-take-a-position-90",
+    "moduleId": "ai301-recruiter-r7",
+    "ordinal": 90,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"If you can't name the baseline you're beating, you're building agent number\n1,998.\"*\n\nThe strongest counter-argument is that **baselines are a luxury of stable environments.** In a\nfast-moving function with shifting reqs, changing markets, and a team that turns over, insisting\non a measured before-number can be a recipe for never starting — while the teams that moved fast\nwithout one learned more by shipping. On that view, demanding a baseline is rigour that\nfunctions as delay. Your position has to engage that, because it is the argument you'll hear from\nyour most effective colleague."
+  },
+  {
+    "id": "ai301-recruiter-r7-activity-link-95",
+    "moduleId": "ai301-recruiter-r7",
+    "ordinal": 95,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"activity_link\", \"title\": \"Applied activity \\u2014 The case (course close)\", \"blurb\": \"One page for one change to your live req: the change, a measured baseline, a measure that can come back badly, a named owner, a review date, and what you'd stop doing to fund it. Then the reckoning across all seven modules.\", \"estMinutes\": \"30\"}"
+  },
+  {
+    "id": "ai301-recruiter-r7-sources-and-attribution-100",
+    "moduleId": "ai301-recruiter-r7",
+    "ordinal": 100,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- **BetterUp Labs and Stanford** — the workslop findings: roughly two hours of rework per incident,\n  42% of recipients rating the sender less trustworthy, and about half rating them less capable or\n  reliable. **[V]**\n- The one-page case structure, the headcount conversation framing, and the\n  decisions-nobody-has-to-redo formulation are original to this course.\n- Builds on Module 2 (the tiers), Module 4 (a loop that measures something), Module 5 (the record\n  that makes the case provable), and 201 M7 (measurement without theater)."
+  }
+]

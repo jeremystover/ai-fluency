@@ -4,10 +4,10 @@ DELETE FROM fd_exercise;
 DELETE FROM fd_module;
 DELETE FROM fd_brand;
 DELETE FROM fd_access_code;
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-12T05:03:45.354Z');
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-12T05:03:45.354Z');
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('26fc3847-7fd0-4e61-8852-8bc1328fbb88', 'omnissa', 'pbkdf2$100000$Ab3AZSP8n7qogB+j8tZfnw==$bXiL12r9IMuTp8llJzhKvyZO/ZDd8Tc0wCooywUFcrY=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('a50b0bb9-f817-4d26-99b9-3638fbf65c57', 'verdant', 'pbkdf2$100000$IUjYNv8CLxL3KHgUmrDq3g==$8uYq30m48pVu0SElDvg7lnrV+lQ9NiPNAdMENvjtanU=', 'Theming proof', NULL, 0, NULL, 1);
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-12T05:26:36.694Z');
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-12T05:26:36.694Z');
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('e8e09402-fd64-4899-a749-e061c8ec1742', 'omnissa', 'pbkdf2$100000$sLxFU8EuL4sl7z9Txigq0Q==$iV8mPvro94P1Qbt/UsGHIn9vr3PlB82rP5rSauEYlOA=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('1977918a-e8c3-4442-a7f9-f3b2733e289c', 'verdant', 'pbkdf2$100000$2CkHf+k8Lv4GPaZZtR1Hng==$H4t+s9yqtvVMgDF5GpFieCCsd45DPnY+mDB2pZVxz1E=', 'Theming proof', NULL, 0, NULL, 1);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m1', 'ai101', 1, 'What is AI?', 'A working mental model: what an LLM actually does, the vocabulary, why data decides everything, and a delegation heuristic you can carry under pressure.', 'open', 30, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m2', 'ai101', 2, 'Choosing the tool for the task', 'Chat assistants, copilots, and the AI already embedded in your HR stack — what each is actually for, and how to tell a language model from a scoring engine before you rely on either.', 'open', 25, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m3', 'ai101', 3, 'What it costs and how it scales', 'Tokens, context windows, and pricing — enough of the economics to size a use case, read a vendor quote, and know when a bigger model is worth it.', 'open', 25, NULL);
@@ -31,6 +31,13 @@ INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-hrbp-m5', 'ai301-hrbp', 5, 'Arguing with finance', 'A story loses to a model. Three you can build, the ways your HR data lies, and why small numbers demand the n in the sentence.', 'open', 40, '["ai301-hrbp-m3"]');
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-hrbp-m6', 'ai301-hrbp', 6, 'The line', 'The law about systems and the law about your documents: the patchwork, the agent theory, and ER documentation that survives discovery.', 'open', 45, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-hrbp-m7', 'ai301-hrbp', 7, 'Manager capability as product', 'Catching misuse without driving it underground, what the coaching evidence really says, and why allocating human support is an equity call.', 'open', 40, '["ai301-hrbp-m4"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-recruiter-r1', 'ai301-recruiter', 1, 'What broke', 'The two-sided collapse of signal cost, the symmetry rule, and why detection is a screening decision about people.', 'open', 25, NULL);
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-recruiter-r2', 'ai301-recruiter', 2, 'Sorting your own job', 'Throughput, insight, redesign — plus the archetype split that reverses every piece of advice.', 'open', 25, '["ai301-recruiter-r1"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-recruiter-r3', 'ai301-recruiter', 3, 'The highest-leverage hour is intake', 'Errors here compound and everything downstream inherits them. Four artifacts from one conversation, then get it marked wrong.', 'open', 25, '["ai301-recruiter-r2"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-recruiter-r4', 'ai301-recruiter', 4, 'Designing signal that''s expensive to fake', 'The corrected selection science, three design moves, and the candidate AI policy where incoherence is the only losing choice.', 'open', 25, '["ai301-recruiter-r3"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-recruiter-r5', 'ai301-recruiter', 5, 'The closed loop', 'Instrument, capture, analyze, feed back — and the one asset in recruiting you can''t rent.', 'open', 25, '["ai301-recruiter-r2"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-recruiter-r6', 'ai301-recruiter', 6, 'The floor and the audit', 'Bias-audit regimes, the agent theory, and computing a selection rate so an audit is a control rather than a document.', 'open', 25, NULL);
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-recruiter-r7', 'ai301-recruiter', 7, 'Arguing for your function', 'Workslop lands on the hiring manager, the one-page case, and the headcount conversation with your team and your exec.', 'open', 25, '["ai301-recruiter-r5"]');
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('m1-brief', 'ai101-m1', 10, 'prose', 'stable', '## Why this module exists
 
 You almost certainly already use AI. You''ve probably asked something to tidy up a job description, turn a page of interview scrawl into a debrief a hiring manager can read, soften a rejection email, or explain a benefits provision in language an employee will actually understand. So opening a course with "what is AI?" is a strange move. The answer is on your screen already.
@@ -6146,3 +6153,1590 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-hrbp-m7-sorting', 'ai301-hrbp-m7', 'sorting', '{"reviewedAt":"2026-08-12","buckets":[{"id":"neither","label":"Neither","hint":"Don''t deploy anything here","rank":0,"pct":10},{"id":"human","label":"Needs a human","hint":"Scarce support belongs here","rank":1,"pct":40},{"id":"bot","label":"Narrow AI tool","hint":"Measurable, bounded, works","rank":2,"pct":85}],"tasks":[{"id":"t1","text":"Helping a manager write clearer, more specific goals for their team","key":"bot","reasoning":"Narrow, measurable, bounded — the profile the goal-attainment research actually supports. The output is checkable by the manager and the stakes of a mediocre goal are low and recoverable."},{"id":"t2","text":"Supporting a first-time manager who doubts they should have taken the job","key":"human","reasoning":"Low starting self-efficacy is precisely the condition under which an unsupervised bot performs worst — and this is the person the equity argument is about. If your scarce human coaching is going anywhere, it goes here."},{"id":"t3","text":"A checklist for running a structured one-to-one","key":"bot","reasoning":"Not coaching at all — an asset. Bounded, reusable, and exactly the kind of one-page thing the module''s activity has you build. No relational component to lose."},{"id":"t4","text":"Rehearsing a difficult conversation before the manager has it","key":"bot","reasoning":"Module 4''s technique, and it works on mechanism — bounded scenario, the manager retains the judgment. Note the module''s own caveat: this category is vendor-dominated and its efficacy numbers come from sellers, so the argument here is craft, not evidence.","also":["human"]},{"id":"t5","text":"Deciding whether a manager should be moved out of people leadership","key":"neither","reasoning":"A decision about a person with consequences attached. 101 M7''s line — no tool, narrow or broad, and a coaching product is not the right instrument for a fitness judgment either."},{"id":"t6","text":"An org-wide AI coach rolled out to ''democratize access to development''","key":"neither","reasoning":"The exact deployment Lesson 4 warns about: the confident get help, the struggling get a chatbot, and the organization records equity it didn''t achieve. Not never-any-tool — never *this* framing, without an explicit decision about who still gets a human.","also":["bot"]},{"id":"t7","text":"Helping a manager understand why their team''s engagement scores dropped","key":"human","reasoning":"Contested interpretation about identifiable people on a small population — Module 5''s small-numbers trap and Module 2''s room quadrant at once. A tool will produce a confident explanation, which is the danger."},{"id":"t8","text":"Practising the mechanics of giving specific behavioural feedback","key":"bot","reasoning":"Skill drill with a right answer shape — narrow and measurable. The manager can tell whether their feedback got more specific, which is what makes the loop work without a human in it."},{"id":"t9","text":"A manager processing their own distress after conducting three redundancies","key":"human","reasoning":"Relational and unmeasurable — the broad category where the RCT found nothing and attrition was highest. Some participants in that study asked to switch to a human; this is why."},{"id":"t10","text":"Screening managers by self-efficacy to decide who receives human coaching","key":"neither","reasoning":"The dangerous near-miss, and the sharpest card in the set. Lesson 4''s finding should *inform your judgment* about allocation — it must not become a psychological screen applied to people to ration a resource. That is a decision about people made by an instrument, which is where this course started."}],"pattern":"Narrow and measurable beats broad and relational — and who gets the human is a judgment you make, never a screen you run.","postscript":"The bot cards share a shape: bounded task, checkable output, judgment retained by the manager. The human cards share the opposite: relational, unmeasurable, or landing on someone whose starting confidence is low — which is where the evidence says a bot serves worst. Card 10 is the one worth sitting with: it takes the module''s own finding and turns it into exactly the kind of instrument 101 M7 forbids. A true insight can still be misapplied, and recognizing that is the last thing this course teaches."}', '2026-08-12');
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-hrbp-m7-rubric', 'ai301-hrbp-m7', 'rubric', '{"promptVersion":"ai301-hrbp-m7-one-asset-one-manager-v1","moduleId":"ai301-hrbp-m7","minWords":300,"maxWords":400,"submitLabel":"Your asset, what happened, and the reckoning","intro":"Paste the one-page asset, an account of what the manager actually did with it, and the 300–400 word close including the calibration reckoning across all seven modules. This is the last submission in the track. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading the CLOSING submission of AI 301 · The Specialist, HRBP track. Two parts. Part 1: a one-page asset built for a real recurring manager AI failure, tested with one real manager, with an account of what they ACTUALLY DID with it — not whether they liked it, since liking is not use. The one-page constraint is deliberate and a longer asset should be marked down: managers don''t read more, and an unread asset has no leverage. Part 2 is the reckoning across the whole track: the learner gathers every prediction they made (no-plans share, presence/contested split, botsitting hours, unanticipated objections, cost per regretted departure, unaware share, manager-capability figure), names the DIRECTION of their systematic miss — over-crediting AI''s reach, under-crediting it, or scattered — and answers what they believe now that they didn''t in Module 1, specifically enough that it could not have been written before the track. Generic closings (''AI is a powerful tool with risks'') fail that question outright. This track scores the delta, not the score: grade the honesty and specificity of the account of change, never the accuracy of any prediction. A learner who completed only some modules should be graded on the pattern in what they did complete.","opening":[{"key":"managerSkillPct","label":"Predicted — % of HR leaders who think managers can use AI effectively","hint":"The last prediction of the course. Whole percent.","placeholder":"e.g. 25","min":0,"max":100}],"calibration":[{"key":"managerSkillPctActual","label":"Actual — the figure the module reports","hint":"Then gather the other six and read the pattern.","placeholder":"e.g. 8","min":0,"max":100,"actualFor":"managerSkillPct"}],"dimensions":[{"name":"The asset is one page and aimed at a real failure","criteria":"A specific recurring manager failure, and an asset a busy manager would actually read — one page, concrete, with the reasoning attached rather than assumed. Length beyond a page is a real deduction here, not a stylistic note: the constraint is the design."},{"name":"It met a real manager","criteria":"Tested with an actual person, with an account of what they did with it. ''They said it was helpful'' scores low; ''they used it for two reviews and ignored the third section'' scores high. A finding that the asset was ignored, honestly reported, scores well — that is data about the asset, not a failure of the submission."},{"name":"The reckoning is honest about direction","criteria":"Predictions gathered across the modules completed, with the systematic direction named — over-crediting AI''s reach, under-crediting it, or genuinely scattered — and a real attempt to explain why their reading leaned that way. Accuracy is never graded; a learner who missed badly in a consistent direction and can account for it should score at the top."},{"name":"What changed, specifically","criteria":"The final question is the heaviest thing in the track. The learner must name something they believe now that they didn''t in Module 1, specific enough that it could not have been written beforehand. Generic closings fail this dimension outright, regardless of the quality of everything else. Also grades the position on the allocation claim, including its strong counter-argument that for most organizations the alternative to an AI coach is nothing at all."}]}', '2026-08-12');
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-hrbp-m7-knowledge_check', 'ai301-hrbp-m7', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"What do the demand figures establish? `[V]`","options":["That managers are resistant to using AI in their work","That roughly 8% of HR leaders think managers can use AI effectively while ~14% of organizations give any support — an unoccupied space that sits at the HRBP''s intersection","That manager AI training should be owned by L&D","That AI tools are too complex for non-technical managers"],"correctIndex":1,"explanation":"The gap is wide enough to survive being substantially wrong in either direction. And nobody owns it: IT owns tools, L&D owns curriculum, neither owns how a manager should use AI in a performance conversation."},{"id":"q2","prompt":"A manager submits a fluent, generic AI-written performance review. What should you ask?","options":["Whether they used AI to write it","For two examples of what they described and one thing the employee should do differently","Them to rewrite it without AI assistance","For the prompt they used, so you can improve it"],"correctIndex":1,"explanation":"It''s the diagnostic. If they have the specifics, the tool was briefed badly and the fix is easy. If they don''t, the problem was never AI — they weren''t paying attention and the model let them hide it. A and C treat the tool as the fault and never reach the diagnosis."},{"id":"q3","prompt":"A manager tells you they pasted an employee grievance into a consumer chatbot. Why does the module say handle it as an incident rather than a betrayal?","options":["Because the data exposure is minor in practice","Because punishing the manager who told you trains everyone else to stop telling you — the four who didn''t report are the actual problem","Because consumer tools are not covered by most organizational policies","Because the manager could not reasonably have known"],"correctIndex":1,"explanation":"101 M8''s blame-safe principle, applied to someone else''s mistake. You cannot fix what you cannot see, and your reaction to the first case sets the visibility of the next twenty."},{"id":"q4","prompt":"Which rule for managers is the module''s model of a good one?","options":["\"Use AI responsibly and with good judgment\"","\"Don''t use AI for anything involving employees\"","\"Every policy or legal reference in a document going to an employee gets traced to source before it ships\"","\"Check all AI output carefully before using it\""],"correctIndex":2,"explanation":"A manager can follow it and you can audit it. A and D are aspirations with no observable behaviour attached; B is unenforceable and would be routed around within a month."},{"id":"q5","prompt":"What does the coaching RCT actually show? `[V]`","options":["That AI coaching is ineffective for all purposes","That human coaching produced substantial effects across goal attainment and wellbeing while the AI arm did not, with far higher attrition — in one study of 114 mostly-senior managers","That AI coaching matches human coaching on goals but not wellbeing","That coaching in general has weak evidential support"],"correctIndex":1,"explanation":"Stated with its scope, because overclaiming in the sceptical direction is the same error as overclaiming in the enthusiastic one. C describes the earlier goal-attainment research, which is a real and different finding — narrow and measurable performs better than broad and relational."},{"id":"q6","prompt":"Why does the module emphasize that one author co-authored the earlier, more favourable study?","options":["It suggests the researchers changed their commercial position","Because a researcher publishing a result that complicates their own earlier finding is the strongest and rarest form of evidence available","Because it means the two studies used identical methods","Because it undermines the credibility of both studies"],"correctIndex":1,"explanation":"It is not one camp contradicting another. It is self-correction, which is exactly the intellectual honesty this course asks of the learner — and worth naming for that reason as much as for the finding."},{"id":"q7","prompt":"Outcomes were predicted most strongly by the coachee''s starting self-efficacy and hope. What follows?","options":["That development budgets should target high-potential employees, who will benefit most","That AI coaching should be reserved for senior populations","That the people who most need development are served worst by an unsupervised bot — making the allocation of scarce human support an equity decision","That self-efficacy should be screened before assigning any development resource"],"correctIndex":2,"explanation":"And it inverts how most organizations allocate development. D is the dangerous near-miss: screening people on a psychological attribute to allocate resources is precisely the kind of decision 101 M7 warns about — the finding informs your judgment, it doesn''t become a filter."},{"id":"q8","prompt":"Why does the module apply its scepticism to Module 4''s own technique?","options":["Because adversarial rehearsal has been shown ineffective","Because the rehearsal category is vendor-dominated and its effectiveness numbers trace to sellers — so this course holds its own recommendations to the standard it holds theirs, and Module 4 is argued from craft rather than an efficacy study","Because Module 4''s technique requires tools most organizations lack","To satisfy disclosure requirements for training material"],"correctIndex":1,"explanation":"A course teaching claim teardown that exempted itself would fail its own standard. The honest position is that Module 4''s argument is mechanistic, not empirical, and the learner should weigh it accordingly."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r1-calibration-prompt-before-you-start-10', 'ai301-recruiter-r1', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One prediction, thirty seconds. You''ll score it in the applied activity.*
+
+Take one requisition you''re working right now. Walk its stages: application, résumé screen, phone
+screen, take-home or assessment, panel, references.
+
+**What share of those stages would cost a motivated faker anything at all?** Not "would be
+unpleasant" — would cost them time, presence, or something they can''t generate. Whole percent.
+
+Most people find their first three stages score zero.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r1-module-brief-20', 'ai301-recruiter-r1', 20, 'prose', 'stable', '## Module brief
+
+Everything you were taught about recruiting assumed a stable relationship: **it cost a candidate
+something to produce a credible application, and that cost carried information.** A tailored
+cover letter meant effort. A polished résumé meant care. A fluent interview answer meant
+preparation. None of those inferences were perfect, and all of them were load-bearing.
+
+That relationship has collapsed on both sides of the table at once, and the two collapses are not
+symmetrical in the way you''d hope.
+
+Greenhouse reports an average of **254 applicants per posting**, with applications per recruiter
+up **412%**. You got faster; the applicant pool got faster first, and by a wider margin — because
+a candidate can spend their new capacity on more applications while you spend yours on more
+screening of a pool that grew faster than your throughput did.
+
+So the screens you''re running now carry almost no information, and most funnels have not been
+redesigned to notice. This module is the diagnosis. It is also the inoculation, delivered up
+front rather than buried, because the market''s answer to this problem is to sell you detection —
+and detection is the one response that makes your position worse.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r1-learning-objectives-30', 'ai301-recruiter-r1', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. State what actually broke, in terms of signal cost rather than volume.
+2. Apply the symmetry rule and its corollary to any screening stage.
+3. Explain why detection is a screening decision about people, and what that implies.
+4. Recognize the market conditions that make an AI purchase feel urgent, and price that urgency
+   accurately.
+5. Audit a live requisition for what each stage would cost someone faking it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r1-lesson-1-the-two-sided-collapse-40', 'ai301-recruiter-r1', 40, 'prose', 'volatile', '## Lesson 1 · The two-sided collapse [V]
+
+The numbers first, then what they mean.
+
+**254 applicants per posting**, on average, across a large ATS''s live jobs. **Applications per
+recruiter up 412%.** A typical posting five years ago drew roughly a hundred; the figure has more
+than doubled and the growth is concentrated in the period since generative tools became free and
+ubiquitous.
+
+Volume is the visible half and the less interesting one. The invisible half is that **the cost of
+producing a credible-looking application fell to approximately zero**, which means the signals
+your funnel was built to read stopped being signals.
+
+Consider what a tailored cover letter used to tell you. It said: this person spent forty minutes
+on us specifically. That inference was doing real work in your screen, and it is now worthless —
+not because tailored letters became less common, but because they became *free*. The same is true
+of a keyword-aligned résumé, a well-structured take-home, and a fluent answer to "tell me about a
+time when."
+
+**Nothing in your funnel got worse. The information content of your funnel went to zero while the
+funnel stayed exactly the same.** That is a harder problem than volume, and it doesn''t respond to
+throughput solutions.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r1-lesson-2-the-symmetry-rule-50', 'ai301-recruiter-r1', 50, 'prose', 'stable', '## Lesson 2 · The symmetry rule
+
+Here is the rule that governs every design decision in the rest of this track:
+
+> **Any capability you gain, candidates gain faster.**
+
+Not "also gain" — *faster*, and the asymmetry has a mechanism. You are one recruiter against a
+pool; each candidate is one person against a handful of applications. A candidate can spend an
+hour of AI-assisted effort on a single application. You have minutes per applicant, against a
+pool that grew 412%. Their capability compounds per application; yours divides across the pool.
+
+Two corollaries do most of the work.
+
+**Any screen that can be beaten by a tool will be.** Not "might be" — will be, and quickly, and
+by exactly the candidates most attentive to the process, which is a group that overlaps
+uncomfortably with the one you want. A screen''s difficulty for an honest candidate is unrelated
+to its difficulty for a prepared one.
+
+**And you cannot out-run this with better tools.** Every tool you deploy is available to them
+sooner and applied more intensively. Which means the strategic response is never *more
+detection* or *faster screening* — it is redesigning what you measure so that the measurement
+survives contact with the tools. That is Module 4, and this module exists to make you willing to
+hear it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r1-lesson-3-detection-is-a-screening-decisi-60', 'ai301-recruiter-r1', 60, 'prose', 'volatile', '## Lesson 3 · Detection is a screening decision [V]
+
+The reflex response to all of this is to detect and filter. It is being sold to you hard, and it
+is worth understanding precisely why it fails.
+
+**The measurement problem, first.** Across nearly twenty thousand live interviews analyzed
+between mid-2025 and early 2026, **38.5% of candidates were flagged for AI-assisted behavior.**
+Meanwhile roughly **88% of hiring managers believe they can spot AI in applications.**
+
+Notice the shape of what''s available. Confidence is measurable and high. **Accuracy is not
+well-established at all** — there is no credible general figure for how often a human or a tool
+correctly identifies AI assistance, which is itself the most important fact in this lesson. You
+are being sold a capability whose error rate nobody publishes.
+
+**And now the part that should stop you.** A detection response is not a technical control. It is
+a decision about people, and 101 M7''s rules apply in full: **when the output is a flag attached
+to a candidate, the tool has decided something.** Every false positive removes a real person from
+your process for a reason nobody will ever audit, because rejected candidates don''t appear in
+your data.
+
+Whose false positives? Predictably: non-native English speakers, whose writing has been called
+"too polished" for decades before any of this; neurodivergent candidates, whose phrasing often
+reads as unusual to a classifier trained on typical prose; and anyone who prepared unusually
+hard, which is a trait you claimed to want. **A detection regime is a screening criterion with
+disparate impact and no validation study, deployed against a protected population.** Module 6
+will tell you what that means legally. Here it''s enough to see that the reflex response converts
+a signal problem into a fairness problem.
+
+The field has already started moving, incidentally. Among hiring teams responding to
+AI-assisted candidates **[V]**, roughly 47% updated their interview probing, 31% added practical
+tasks, and only around 14% deployed dedicated detection software. The majority answer is
+redesign, not detection — which is the right instinct arrived at empirically.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r1-try-70', 'ai301-recruiter-r1', 70, 'try_this', 'stable', '### Try this — 2 minutes
+Take the last candidate you rejected at résumé screen. Write one sentence on what specifically
+in that résumé produced the decision. Then ask: could a competent candidate with a free AI tool
+have produced that thing in four minutes? If yes, you didn''t screen on it — you screened on
+whether they bothered.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r1-lesson-4-the-inoculation-80', 'ai301-recruiter-r1', 80, 'prose', 'volatile', '## Lesson 4 · The inoculation [V]
+
+Before the rest of this track sells you anything, three findings that should govern how you buy.
+
+**Most enterprise AI pilots do not reach production value.** The widely-cited MIT figure — that
+only around 5% of enterprise AI pilots deliver measurable P&L impact — is the number the market
+would prefer you didn''t hold while reading a proposal. Treat it as directional rather than
+precise; the direction is well-corroborated by the broader finding that a large majority of HR
+leaders report no significant business value from AI tools yet.
+
+**Adoption creates work as well as removing it.** Roughly two hours of rework per incident of
+AI-generated output that looked fine and wasn''t — and 42% of recipients rate the sender as less
+trustworthy afterwards. For a recruiter that second number matters more than the first, because
+the recipient of your output is usually a hiring manager, which Module 7 returns to.
+
+**And most agent projects die quietly.** The pattern of thousands launched against a handful
+surviving is consistent across the market. This is not an argument against building. It is an
+argument for knowing what you''d measure at ninety days before you start, which is exactly what
+Module 7''s one-page case demands.
+
+**You are not behind.** You are in a market that profits from you believing you are, at a moment
+when the honest answer to most vendor claims is that nobody has measured it. Everything in this
+track is designed to be usable by someone who spends nothing.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r1-exercise-embed-85', 'ai301-recruiter-r1', 85, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r1-key-takeaways-90', 'ai301-recruiter-r1', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **The cost of producing a credible application fell to zero** `[V]` — 254 applicants per
+  posting, applications per recruiter up 412%. Volume is the visible half; the invisible half is
+  that your funnel''s signals stopped carrying information while the funnel stayed the same.
+- **The symmetry rule: any capability you gain, candidates gain faster** — because their capability
+  compounds per application while yours divides across the pool.
+- **Any screen that can be beaten by a tool will be**, and you cannot out-run it with better
+  tools. The response is redesigning what you measure.
+- **Detection''s accuracy is unmeasured while confidence is high** `[V]`: 38.5% of interviews
+  flagged, ~88% of hiring managers believe they can spot AI, and no credible error rate published.
+- **A detection response is a screening decision about people** with predictable disparate impact
+  — non-native speakers, neurodivergent candidates, and anyone who prepared hard — and no
+  validation study behind it.
+- **The field is already choosing redesign over detection** `[V]`: ~47% updated probing, ~31%
+  added practical tasks, ~14% bought detection.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r1-activity-link-95', 'ai301-recruiter-r1', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 Signal audit", "blurb": "One live requisition, stage by stage, scored on a single question: what would this cost someone who''s faking it? Then find the cliff \u2014 the first stage that costs anything \u2014 and count how many candidates you eliminate before reaching it.", "estMinutes": "20"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r1-take-a-position-100', 'ai301-recruiter-r1', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"Your résumé screen is now a contest between two language models, and you''re
+paying a recruiter to referee it."*
+
+The strongest counter-argument is not that résumés still carry signal. It is that **the screen was
+never measuring what you thought, and its real function was throughput rationing** — a defensible
+way to cut 254 applications to 20 that never claimed to be predictive. On that view nothing broke;
+a filter that was always arbitrary is now arbitrary in a new way, and the honest response is to
+stop pretending it was ever a signal stage. Your position has to engage that.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r1-sources-and-attribution-110', 'ai301-recruiter-r1', 110, 'prose', 'stable', '## Sources and attribution
+
+- **Greenhouse** — average applicants per posting and the rise in applications per recruiter, from
+  its live-jobs data. **[V]**
+- **Interview-integrity analysis** of ~19,368 live interviews (July 2025 – January 2026) — the
+  38.5% AI-assisted flagging rate; and survey data on hiring-manager confidence and the
+  distribution of responses (probing, practical tasks, detection software). **[V]**
+- **BetterUp Labs / Stanford** — the workslop findings: ~2 hours of rework per incident and 42% of
+  recipients rating the sender less trustworthy. **[V]**
+- **MIT** — the widely-cited figure that ~5% of enterprise AI pilots deliver measurable P&L
+  impact; treated as directional, corroborated by Gartner''s finding that 88% of HR leaders report
+  no significant business value. **[V]**
+- The symmetry rule, its corollaries, and the signal-audit method are original to this course.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r1-activity-applied-activity-signal-audit-10', 'ai301-recruiter-r1-activity', 10, 'prose', 'stable', '## Applied activity — "Signal audit"
+
+**Time:** 20 minutes · **Submit:** the stage-by-stage audit plus a 250–350 word write-up ·
+**Graded against the rubric below.** Score doesn''t matter. Doing the work is where the learning
+lands.
+
+Use **one live requisition** — the same one you''ll carry through all seven modules.
+
+**Step 1 — Map the stages (5 min).** Every stage from application to offer, in order, with roughly
+what share of candidates it removes.
+
+**Step 2 — Score each stage 0–3 (10 min).** One question per stage: **what would this cost
+someone who is faking it?** Cost means time they can''t compress, presence they must supply, or
+specificity they can''t generate.
+- **0** — free. A tool produces a passing artifact in minutes.
+- **1** — cheap. Some effort, fully automatable with preparation.
+- **2** — costly. Requires real-time presence or genuine specific knowledge.
+- **3** — expensive. Cannot be faked without another person''s sustained involvement.
+
+**Step 3 — Find the cliff (3 min).** Name the first stage scoring 2 or higher. Everything before
+it is currently rationing, not screening — say how many candidates you eliminate before reaching
+it.
+
+**Step 4 — Score the prediction (2 min).** Your predicted share of stages that cost a faker
+something, against what the audit found.
+
+Then the write-up: where your funnel''s real signal starts, what that means for the decisions you
+make before it, your position on the claim above with its counter-argument addressed, and the one
+stage you would redesign first.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r1-micro-core', 'ai301-recruiter-r1-micro', 10, 'prose', 'stable', '## Module 1 in two minutes
+
+**The cost of producing a credible application fell to zero** `[V]` — 254 applicants per posting, applications per recruiter up 412%. Volume is the visible half. The invisible half is that your screens stopped carrying information while the screens stayed the same: a tailored cover letter used to mean forty minutes of attention, and now means nothing — not because it got rarer, because it got free.
+
+**The symmetry rule: any capability you gain, candidates gain faster.** Their capability compounds per application; yours divides across a pool that grew 412%. Two corollaries — any screen a tool can beat will be beaten, and you cannot out-run this with better tools.
+
+**Detection is the reflex and it''s the wrong move.** ~38.5% of interviews get flagged for AI-assisted behaviour and ~88% of hiring managers believe they can spot AI — while no credible accuracy figure exists at all. That asymmetry is the point: you''re sold a capability whose error rate nobody publishes. And a flag attached to a candidate is a screening decision about a person, with predictable false positives among non-native speakers, neurodivergent candidates, and anyone who prepared hard.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r1-micro-rule', 'ai301-recruiter-r1-micro', 20, 'callout', 'stable', '### The rule to carry
+
+Ask of every stage: **what would this cost someone who''s faking it?** Most funnels score zero for their first three stages — which means those stages are rationing candidates, not screening them, and everyone involved has been calling it screening.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r1-micro-close', 'ai301-recruiter-r1-micro', 30, 'prose', 'stable', '**The full module adds** the inoculation — most enterprise pilots don''t reach measurable value, AI output creates rework, and most agent projects die quietly, so you''re not behind — the four-responses exercise where three proposals turn out to be screening decisions in process costumes, and the signal audit on a live req you''ll carry through all seven modules.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-recruiter-r1-choice', 'ai301-recruiter-r1', 'choice', '{"reviewedAt":"2026-08-12","title":"Four responses to volume","intro":"*Four minutes. Commit before you look.*\n\nA TA team facing 254 applicants per posting proposes four responses. Three of them are screening decisions about people wearing process costumes. **One is a redesign.**\n\nUse Lesson 3''s test: does the output attach a flag or a judgment to a candidate — and if it''s wrong, would anyone ever find out?","artifacts":[{"label":"Response A","body":"\"Deploy AI-detection scoring on résumés and cover letters. Anything above the threshold routes to a separate low-priority queue that we review if we run short of candidates.\""},{"label":"Response B","body":"\"Replace the take-home with a 30-minute live working session on a problem the candidate hasn''t seen, where they talk through their reasoning and we ask follow-ups.\""},{"label":"Response C","body":"\"Add a required attestation: candidates confirm they didn''t use AI. We spot-check the ones whose writing seems too polished for their background.\""},{"label":"Response D","body":"\"Raise the résumé screen bar — require exact keyword matches on the top five requirements so the volume becomes manageable.\""}],"options":[{"id":"a","label":"Response A"},{"id":"b","label":"Response B"},{"id":"c","label":"Response C"},{"id":"d","label":"Response D"}],"key":"b","reasoning":"**B is the redesign.** It changes what''s being measured to something that costs a faker real time and presence — live reasoning on an unseen problem, with follow-ups. No flag is attached to anyone, and a candidate who used AI to prepare is simply a candidate who prepared, which is fine. This is the direction ~47% of hiring teams took by updating probing and ~31% by adding practical tasks, and it''s what Module 4 formalizes.\n\n**A is detection with a euphemism.** \"Low-priority queue we review if we run short\" is rejection with extra steps — the false positives never surface, because a candidate deprioritized by a threshold nobody validated doesn''t appear in your data. It''s a screening criterion with disparate impact and no error rate published.\n\n**C is worse than A, and it''s the one people propose in good faith.** The attestation is unenforceable, and the enforcement mechanism — spot-checking writing that seems \"too polished for their background\" — is a proxy for non-native speakers and career-changers stated almost in the clear. Read that phrase back slowly; it has been used to screen people out for decades and predates AI entirely.\n\n**D solves volume by making the signal problem worse.** Exact keyword matching is the single most automatable screen in existence — it rewards precisely the candidates optimizing against your ATS and penalizes the ones describing their work in their own words. It''s rationing, and it''s rationing tuned to select for tool use.\n\nThe pattern: **three of the four made the funnel more hostile without making it more informative.** Only one changed what was being measured."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-recruiter-r1-rubric', 'ai301-recruiter-r1', 'rubric', '{"promptVersion":"ai301-recruiter-r1-signal-audit-v1","moduleId":"ai301-recruiter-r1","minWords":250,"maxWords":350,"submitLabel":"Your signal audit and write-up","intro":"Paste the stage-by-stage audit with its 0–3 scores, the cliff you identified, and the 250–350 word write-up including your position on this module''s claim. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for AI 301 · The Specialist, Recruiting/TA track — for recruiters who have completed AI 101 and AI 201. Module 1 applied activity, ''Signal audit'': one LIVE requisition (the same one they carry through all seven modules), every stage mapped in order with roughly what share it removes, each stage scored 0-3 on a single question — what would this cost someone who is faking it, where cost means time they can''t compress, presence they must supply, or specificity they can''t generate. Then they identify ''the cliff'': the first stage scoring 2 or higher, and count how many candidates are eliminated before reaching it. Then compare against their predicted share of stages that cost a faker something. The insight the activity is engineered to produce is that the first several stages typically score zero, meaning those stages are rationing rather than screening. A learner who discovers most of their funnel is rationing and says so plainly has succeeded. Watch for scores inflated to protect the existing process — if a stage is described as costly, the submission should say what specifically cannot be generated. This track scores the delta, not the score: never grade prediction accuracy.","opening":[{"key":"costlyStages","label":"Predicted — % of your funnel''s stages that cost a faker something","hint":"Time they can''t compress, presence they must supply, specificity they can''t generate.","placeholder":"e.g. 50","min":0,"max":100}],"calibration":[{"key":"costlyStagesActual","label":"Measured — what the audit found","hint":"Stages scoring 2 or 3, as a share of all stages.","placeholder":"e.g. 30","min":0,"max":100,"actualFor":"costlyStages"}],"dimensions":[{"name":"The requisition is real and fully mapped","criteria":"An actual live req, every stage in order including the ones that feel administrative, with rough elimination rates. A generic funnel or a partial map is the gap to name."},{"name":"The scores are honest about fakeability","criteria":"Each score justified by what specifically a faker could or couldn''t produce. Inflated scores protecting the existing process are the failure mode: if a stage is scored 2 or 3, the submission must name the thing that can''t be generated. Scoring a résumé screen above 1 requires an unusually good argument."},{"name":"The cliff is located and its cost stated","criteria":"The first genuinely costly stage identified, with the number of candidates eliminated before reaching it. The strongest submissions state plainly that everything before the cliff is rationing rather than screening — and don''t flinch from how large that share is."},{"name":"The position and the delta","criteria":"A committed position on the claim that engages its real counter-argument — that the screen was always throughput rationing and never claimed to be predictive, so nothing broke. Plus the prediction compared with the direction of the miss named, and one specific stage named for redesign."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-recruiter-r1-knowledge_check', 'ai301-recruiter-r1', 'knowledge_check', '{"title":"Knowledge check — 6 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"What is the harder problem created by AI-assisted applications?","options":["The volume increase, which exceeds recruiter capacity","The information content of existing screens fell to zero while the screens stayed the same","Candidates misrepresent their qualifications more often than before","Application quality has declined, making screening harder"],"correctIndex":1,"explanation":"Volume is the visible half and responds to throughput solutions. The signal collapse doesn''t — a tailored cover letter used to mean forty minutes of attention and now means nothing, because it became free rather than less common. D is the opposite of the problem: applications got *more* polished."},{"id":"q2","prompt":"Why does the symmetry rule say candidates gain capability faster than recruiters?","options":["Candidates adopt new tools earlier than enterprises can procure them","Consumer AI tools are more capable than enterprise recruiting tools","Their capability compounds per application while yours divides across a pool that grew 412%","Recruiters are constrained by compliance requirements candidates don''t face"],"correctIndex":2,"explanation":"It''s arithmetic, not attitude. A candidate can spend an hour on one application; you have minutes per applicant against a much larger pool. A is often true and is a weaker, temporary version of the same point."},{"id":"q3","prompt":"What does the module identify as the most important fact about AI detection?","options":["That detection tools have roughly 60% accuracy","That confidence is measurable and high — ~88% of hiring managers believe they can spot it — while accuracy is not well-established at all","That detection is prohibited under most state AI employment laws","That candidates can defeat detection tools by rephrasing output"],"correctIndex":1,"explanation":"You are being sold a capability whose error rate nobody publishes. A invents the very figure the lesson says doesn''t credibly exist — which is the trap."},{"id":"q4","prompt":"Why is a detection response a screening decision rather than a technical control?","options":["Because detection software is expensive and requires procurement approval","Because it must be disclosed to candidates under notice requirements","Because the output is a flag attached to a candidate — and every false positive removes a real person for a reason nobody audits, since rejected candidates never appear in your data","Because human reviewers make the final call on flagged applications"],"correctIndex":2,"explanation":"101 M7''s line, and the invisibility of the harm is what makes it worse than an ordinary error. D describes a workflow that doesn''t fix it — the reviewer sees the flagged, not the wrongly flagged."},{"id":"q5","prompt":"Whose applications are most likely to be false positives in a detection regime?","options":["Candidates applying to many roles simultaneously","Non-native English speakers, neurodivergent candidates, and anyone who prepared unusually hard","Candidates using the least sophisticated AI tools","Early-career candidates with limited work history"],"correctIndex":1,"explanation":"Which makes it a screening criterion with disparate impact and no validation study, applied to protected populations — and note the third group is a trait you claimed to want."},{"id":"q6","prompt":"How have hiring teams actually responded to AI-assisted candidates? `[V]`","options":["The majority deployed dedicated detection software","Most made no changes to their process","Roughly 47% updated interview probing and 31% added practical tasks, while only around 14% bought detection","Most reduced the number of interview stages to cut volume"],"correctIndex":2,"explanation":"The majority answer is redesign rather than detection — the right instinct, arrived at empirically before anyone argued it from principle. That''s the direction Module 4 formalizes."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r2-calibration-prompt-before-you-start-10', 'ai301-recruiter-r2', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One prediction, thirty seconds.*
+
+**What share of your team''s week goes to throughput work** — the coordinating, formatting,
+scheduling, chasing, and status-updating that has to happen and requires no recruiting judgment?
+Whole percent.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r2-module-brief-20', 'ai301-recruiter-r2', 20, 'prose', 'stable', '## Module brief
+
+Recruiting is the most AI-penetrated practice area in HR, at roughly 27% of deployed use cases —
+more than double employee relations or organizational design. That sounds like good news and
+mostly isn''t, because **penetration arrived by product rather than by design.** Your ATS shipped
+features. Your sourcing tool added a copilot. Somebody''s Chrome extension writes outreach. Almost
+none of it was chosen against a map of where your leverage actually is.
+
+This module builds the map. Three tiers of work, one split that changes all the advice, a
+diagnostic for deciding what to build, and a rule for when an agent is warranted rather than
+automation.
+
+The split matters most, so it''s worth stating up front: **high-volume hourly hiring and
+professional or senior hiring are different games**, and the same tactic is a win in one and a
+trap in the other. Most bad recruiting advice — including most vendor advice — is advice from the
+other archetype delivered without the qualifier.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r2-learning-objectives-30', 'ai301-recruiter-r2', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Sort recruiting work into throughput, insight, and redesign — and say where AI money usually
+   goes versus where the leverage is.
+2. Identify which hiring archetype you''re in, and why advice transfers badly between them.
+3. Run a five-question diagnostic on any friction point before proposing a solution to it.
+4. Decide whether a workflow wants automation or an agent, using the judgment-step rule.
+5. Name one narrow goal in a single sentence — the hardest step, and the one that makes the rest
+   possible.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r2-lesson-1-three-tiers-40', 'ai301-recruiter-r2', 40, 'prose', 'stable', '## Lesson 1 · Three tiers
+
+**Throughput.** Volume work with no recruiting judgment in it: scheduling, formatting, status
+updates, chasing feedback, moving candidates between stages, assembling the packet. High volume,
+low variance, immediately measurable. **This is where most AI spend goes and where most of it
+belongs** — the wins are real, they compound, and nobody''s judgment is being replaced.
+
+**Insight.** Work that requires reading a situation: which of these candidates is worth a
+conversation, why this pipeline is stalling, what the hiring manager actually means by "not
+senior enough." AI assists here — structuring, summarizing, surfacing patterns for you to judge —
+and cannot do it, because the judgment is the work. **Most vendor claims live here and most of
+them are the loud kind Module 1 warned about.**
+
+**Redesign.** Changing the process itself: what stages exist, what each measures, what the loop is
+for. Almost no AI spend goes here and it is where nearly all the leverage is, because Module 1
+established that your funnel''s stages stopped carrying information. **Optimizing the throughput of
+a stage that measures nothing is the most expensive mistake available to a TA function right
+now** — you get faster at doing something that isn''t working.
+
+The honest allocation: keep buying throughput, be sceptical of insight, and spend your own scarce
+attention on redesign. Modules 3, 4, and 5 are all redesign.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r2-lesson-2-the-archetype-split-50', 'ai301-recruiter-r2', 50, 'prose', 'stable', '## Lesson 2 · The archetype split
+
+Two hiring games, and the constraint is different in each.
+
+**High-volume hourly.** Retail, warehouse, hospitality, contact centre, care. Hundreds or
+thousands of hires, largely interchangeable requirements, and the binding constraint is
+**speed-to-contact** — the applicant who replies first often wins the candidate, because they''re
+applying to eight employers and accepting the first credible offer. Automation wins outright
+here. Instant scheduling, immediate responses, and compressed time-to-offer are straightforwardly
+good, and the signal-integrity problem is milder because the requirements are verifiable and the
+stakes per hire are lower.
+
+**Professional and senior.** Fewer hires, differentiated requirements, long consequences per
+decision. The binding constraint is **signal integrity** — the thing Module 1 says has collapsed.
+Here the high-volume playbook is actively harmful: faster screening of a signal-free funnel
+processes more candidates through a filter that isn''t measuring anything, and automated outreach
+at volume degrades your employer brand with exactly the passive candidates you most need.
+
+Same tool, opposite verdicts. A "reduce time-to-first-contact by 60%" case study is a real win in
+one archetype and a solution to a non-problem in the other.
+
+Two practical consequences. **Read every vendor case study for its archetype first** — if it isn''t
+stated, assume high-volume, because that''s where the countable wins are. And if you run both,
+**run them as separate processes with separate tooling decisions**, because a single blended
+process optimizes for neither.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r2-try-60', 'ai301-recruiter-r2', 60, 'try_this', 'stable', '### Try this — 2 minutes
+Take the last AI recruiting claim you saw. Which archetype was the customer in? If you can''t
+tell from the case study, notice that the omission is doing work — the numbers are almost
+always from the high-volume side, where they''re easiest to produce.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r2-lesson-3-the-diagnostic-70', 'ai301-recruiter-r2', 70, 'prose', 'stable', '## Lesson 3 · The diagnostic
+
+Five questions before you propose any solution. They take four minutes and they kill most ideas,
+which is the point.
+
+**1. What''s the friction, specifically?** Not "scheduling is painful" — *"coordinating a
+four-person panel across two time zones takes six emails and two days."* If you can''t state it
+with a number, you don''t understand it yet.
+
+**2. Who does it hurt most?** Recruiters, hiring managers, or candidates. This determines whether
+anyone will actually adopt the fix, and it''s the question most skipped. Friction that hurts the
+person who has to change their behaviour is much harder to solve than friction that hurts them.
+
+**3. What does solved look like, in one sentence?** If the sentence needs an "and," you have two
+problems and should pick one. This question kills more bad projects than the other four combined.
+
+**4. Should it even be an agent?** See Lesson 4. Most things shouldn''t.
+
+**5. Who owns it when it breaks?** Not who builds it — who gets the message at 7pm when it starts
+scheduling interviews on a public holiday. **An unowned automation is a future incident with a
+delay attached**, and this question is the one that quietly cancels projects that would have
+embarrassed you.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r2-lesson-4-automation-or-agent-80', 'ai301-recruiter-r2', 80, 'prose', 'stable', '## Lesson 4 · Automation or agent
+
+A distinction worth holding precisely, because the market blurs it deliberately.
+
+**If the flow is static and rule-based, you want automation.** Fixed inputs, deterministic
+outputs, an if-this-then-that you could draw. Send the rejection when the status changes. Move
+the candidate when the scorecard is submitted. Automation is cheaper, faster, debuggable, and
+fails visibly — and most of what gets sold as an agent in recruiting is this with a language
+model bolted on for no reason.
+
+**An agent earns its place only when there''s a genuine judgment step in the middle** — something
+where the right next action depends on interpreting unstructured input. Reading an inbound reply
+and deciding whether it''s interest, a deferral, or a decline. Triaging a hiring manager''s
+free-text feedback into a structured signal.
+
+And then 201 M5''s autonomy ladder applies unchanged: draft-only, propose-then-approve, or
+act-with-audit-trail. Recruiting has a specific reason to sit low on that ladder — **agent actions
+in this function are frequently visible to candidates and rarely reversible.** A wrongly-sent
+rejection cannot be unsent, and the person who received it is a member of the public with a
+LinkedIn account.
+
+The test that combines both ideas: **if you can draw the flowchart, don''t buy an agent. If you
+can''t draw it because a step requires reading something, an agent may be justified — at the
+lowest rung that works.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r2-exercise-embed-85', 'ai301-recruiter-r2', 85, 'exercise', 'stable', '{"type": "sorting", "title": "Calibration exercise \u2014 Three tiers", "intro": "Ten minutes, twelve pieces of recruiting work. Sort each into throughput, insight, or redesign.\n\nCommit every card before the reveal. The pattern to watch for is how little lands in redesign \u2014 and how much of what feels like insight is actually throughput with a judgment story attached."}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r2-key-takeaways-90', 'ai301-recruiter-r2', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **Three tiers: throughput, insight, redesign.** Most AI spend goes to throughput and mostly
+  belongs there. Most vendor claims live in insight. **Nearly all the leverage is in redesign, and
+  almost no spend goes there.**
+- **Optimizing the throughput of a stage that measures nothing is the most expensive mistake
+  available right now** — Module 1 established that most early stages measure nothing.
+- **The archetype split changes every verdict.** High-volume hourly is a speed-to-contact game
+  where automation wins outright; professional and senior is a signal-integrity game where the
+  same tactics are a trap. Read every case study for its archetype; if unstated, assume
+  high-volume.
+- **Five diagnostic questions**, of which two do the most work: what does solved look like *in one
+  sentence*, and who owns it when it breaks. An unowned automation is a future incident with a
+  delay attached.
+- **If you can draw the flowchart, it''s automation.** An agent earns its place only when a step
+  requires interpreting unstructured input — and recruiting sits low on the autonomy ladder
+  because agent actions here are visible to candidates and rarely reversible.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r2-activity-link-95', 'ai301-recruiter-r2', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 Friction map", "blurb": "Your team''s real week sorted into the three tiers, then one friction point through the five-question diagnostic \u2014 including the one-sentence goal with no \"and\" in it, and who owns it at 7pm when it breaks.", "estMinutes": "20"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r2-take-a-position-100', 'ai301-recruiter-r2', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"Most of what your team calls an AI opportunity is an automation project with
+better branding."*
+
+The strongest counter-argument is that **the branding is doing useful work.** "AI project" gets
+budget, attention, and executive sponsorship that "workflow automation" has never attracted, and
+a team that reframes its automation as AI may simply be reading its organization correctly.
+Insisting on the distinction may be technically right and strategically naive. Your position has
+to survive that.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r2-sources-and-attribution-110', 'ai301-recruiter-r2', 110, 'prose', 'stable', '## Sources and attribution
+
+- **SHRM, *The State of AI in HR 2026*** — recruiting as the most AI-penetrated practice area
+  (~27% of mapped use cases) and the practice-area distribution. **[V]**
+- The three tiers, the archetype split, and the automation-versus-agent test are original to this
+  course; the five-question diagnostic adapts a published practitioner framework for evaluating
+  AI project proposals.
+- Builds on 201 M1 (the workflow audit) and 201 M5 (the autonomy ladder), which this module
+  applies rather than re-teaches.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r2-activity-applied-activity-friction-map-10', 'ai301-recruiter-r2-activity', 10, 'prose', 'stable', '## Applied activity — "Friction map"
+
+**Time:** 20 minutes · **Submit:** the map plus a 250–350 word write-up · **Graded against the
+rubric below.**
+
+**Step 1 — Log the week (7 min).** Your team''s actual week, in blocks. Include the interrupt work
+that never hits a calendar — chasing feedback, re-sending, answering the same hiring manager
+question.
+
+**Step 2 — Sort into tiers (4 min).** Throughput, insight, redesign, with a percentage
+distribution. Most teams find redesign at or near zero, which is the finding.
+
+**Step 3 — Pick one friction and run the diagnostic (6 min).** All five questions on a single real
+friction point. Answer question 3 in **one sentence with no "and" in it** — if you can''t, split
+the problem and pick the half you''d solve first.
+
+**Step 4 — Name your archetype (1 min).** High-volume, professional/senior, or both — and if both,
+say which one your current tooling is actually optimized for.
+
+**Step 5 — Score the prediction (2 min).** Your predicted throughput share against what you found.
+
+Then the write-up: the one-sentence goal, whether it wants automation or an agent and why, who
+owns it when it breaks, your position on the claim above with the counter-argument addressed, and
+what you''d have to stop doing to make room for any redesign at all.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r2-micro-core', 'ai301-recruiter-r2-micro', 10, 'prose', 'stable', '## Module 2 in two minutes
+
+**Recruiting is the most AI-penetrated area in HR** `[V]` — and penetration arrived by product rather than by design. Your ATS shipped features; nobody chose them against a map.
+
+**Three tiers.** *Throughput* — coordinating, formatting, chasing — is where most AI spend goes and mostly belongs. *Insight* — reading a situation — is where most vendor claims live and where AI assists but cannot do. *Redesign* — changing what the process measures — is where nearly all the leverage is and almost no spend goes. **Optimizing the throughput of a stage that measures nothing is the most expensive mistake available right now.**
+
+**The archetype split changes every verdict.** High-volume hourly is a speed-to-contact game where automation wins outright. Professional and senior is a signal-integrity game where the same tactics are a trap — faster screening of a signal-free funnel just processes more people through a filter measuring nothing. Read every case study for its archetype; if it isn''t stated, assume high-volume.
+
+**And the build test:** if you can draw the flowchart, it''s automation — cheaper, debuggable, fails visibly. An agent earns its place only when a step requires interpreting unstructured input.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r2-micro-rule', 'ai301-recruiter-r2-micro', 20, 'callout', 'stable', '### The rule to carry
+
+Before proposing any fix: what''s the friction specifically, who does it hurt most, what does solved look like **in one sentence with no "and"**, should it even be an agent, and who owns it when it breaks at 7pm. An unowned automation is a future incident with a delay attached.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r2-micro-close', 'ai301-recruiter-r2-micro', 30, 'prose', 'stable', '**The full module adds** why recruiting sits low on 201''s autonomy ladder — agent actions here are visible to candidates and rarely reversible, and a wrongly-sent rejection can''t be unsent — the twelve-card tier sort, and the friction map on your team''s real week, where redesign usually comes out at or near zero.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-recruiter-r2-sorting', 'ai301-recruiter-r2', 'sorting', '{"reviewedAt":"2026-08-12","buckets":[{"id":"redesign","label":"Redesign","hint":"Changing what the process measures","rank":0,"pct":10},{"id":"insight","label":"Insight","hint":"Reading a situation — AI assists, can''t do","rank":1,"pct":45},{"id":"throughput","label":"Throughput","hint":"Volume, no recruiting judgment","rank":2,"pct":90}],"tasks":[{"id":"t1","text":"Coordinating a four-person panel across two time zones","key":"throughput","reasoning":"Pure coordination, no recruiting judgment, immediately measurable. The clearest throughput win in the set and exactly where AI spend belongs."},{"id":"t2","text":"Deciding what the hiring manager actually means by ''not senior enough''","key":"insight","reasoning":"Reading a situation — the judgment is the work. AI can structure the conversation and surface patterns across their past feedback; it cannot make the call, and vendors claiming otherwise are selling into the loud tier."},{"id":"t3","text":"Replacing the résumé screen with a structured work sample","key":"redesign","reasoning":"Changing what the process measures rather than how fast it runs. Almost no spend goes here and nearly all the leverage is — this is Module 4''s subject."},{"id":"t4","text":"Sending status updates to candidates stuck between stages","key":"throughput","reasoning":"Rules-based, high volume, and a genuine candidate-experience win. Note it needs no agent: the flowchart is drawable, so this is automation."},{"id":"t5","text":"Summarizing five interview scorecards into a debrief packet","key":"throughput","reasoning":"Transformation of supplied material with a known output shape — 101''s delegation heuristic at its center. It feels like insight because the content is judgment-laden, but the judgment already happened when the scorecards were written.","also":["insight"]},{"id":"t6","text":"Working out why a pipeline that looked healthy produced no offers","key":"insight","reasoning":"Diagnosis on sparse, confounded, small-n evidence. AI can lay out the funnel and pose hypotheses; the read is yours, and the small numbers make confident answers dangerous."},{"id":"t7","text":"Deciding which stages your loop should have at all","key":"redesign","reasoning":"The highest-leverage question in the track and the one nobody schedules time for. If the loop''s stages were set before AI-assisted candidates existed, they were designed for a signal environment that no longer exists."},{"id":"t8","text":"Formatting offer letters from the approved template","key":"throughput","reasoning":"Deterministic, repeatable, zero judgment. If this consumes recruiter attention it''s the first thing the friction map should surface."},{"id":"t9","text":"Writing the intake questions you''ll ask hiring managers from now on","key":"redesign","reasoning":"Changing the input to the whole downstream process — Module 3''s subject, and the highest-leverage hour in the function. Easy to mis-sort as throughput because the artifact is a short document."},{"id":"t10","text":"Reading an inbound candidate reply and deciding if it''s interest, a deferral, or a decline","key":"insight","reasoning":"Interpretation of unstructured input — and the rare case where an agent is genuinely warranted, at a low rung on the autonomy ladder. The judgment step in the middle is what distinguishes it from t4."},{"id":"t11","text":"Chasing hiring managers for overdue scorecard feedback","key":"throughput","reasoning":"Nobody''s judgment is involved and everybody hates it. Reliable automation win — with the caveat from the diagnostic that the friction hurts the person who has to change behaviour, which is why nagging tools underperform."},{"id":"t12","text":"Choosing which of two archetypes your process should be optimized for","key":"redesign","reasoning":"A structural decision that determines whether every other tooling choice is right or backwards. Most teams never make it explicitly and end up with a blended process optimized for neither."}],"pattern":"Redesign is where the leverage is, and it is where nobody spends anything — including attention.","postscript":"Count your redesign cards. Most people place two or three and are surprised the tier exists at all, because nothing in a normal week forces the question. Cards placed toward throughput credit AI with more reach than the key does; toward insight and redesign, less. Watch t5 and t9 in particular — t5 looks like insight because the content is judgment-laden, and t9 looks like throughput because the artifact is short. The applied activity now runs this on your team''s real week, where redesign usually comes out at or near zero."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-recruiter-r2-rubric', 'ai301-recruiter-r2', 'rubric', '{"promptVersion":"ai301-recruiter-r2-friction-map-v1","moduleId":"ai301-recruiter-r2","minWords":250,"maxWords":350,"submitLabel":"Your friction map and write-up","intro":"Paste the week''s log with its tier distribution, the five-question diagnostic on one friction point, your archetype, and the 250–350 word write-up including your position on this module''s claim.","activityContext":"You are grading a learner submission for AI 301 · The Specialist, Recruiting/TA track. Module 2 applied activity, ''Friction map'': their team''s real week logged in blocks including interrupt work that never hits a calendar, sorted into throughput / insight / redesign with a percentage distribution (most teams find redesign at or near zero — that is the intended finding, not a failure), then one real friction point through all five diagnostic questions. Question 3 — what does solved look like — must be answered in ONE SENTENCE WITH NO ''and'' in it; if the learner couldn''t manage that, they should have split the problem and picked a half, and doing so scores well. Question 5 (who owns it when it breaks at 7pm) must name a person or role, not a team. They also declare their hiring archetype (high-volume hourly, professional/senior, or both) and, if both, which one their current tooling is actually optimized for — a genuinely useful and uncomfortable question. Then compare against their predicted throughput share. This track scores the delta, not the score: never grade prediction accuracy.","opening":[{"key":"throughputShare","label":"Predicted — % of your team''s week that is throughput work","hint":"Coordinating, formatting, scheduling, chasing, status-updating.","placeholder":"e.g. 40","min":0,"max":100}],"calibration":[{"key":"throughputShareActual","label":"Measured — what the logged week shows","hint":"From your own distribution.","placeholder":"e.g. 65","min":0,"max":100,"actualFor":"throughputShare"}],"dimensions":[{"name":"The week is real and complete","criteria":"An actual week including the interrupt work — chasing, re-sending, answering the same question — with approximate hours. A tidy representative week scores below a messy honest one."},{"name":"The tiers are applied honestly","criteria":"A percentage distribution with borderline items reasoned rather than rounded. Watch for throughput work classified as insight because its content is judgment-laden (summarizing scorecards is transformation, not judgment) and redesign work classified as throughput because its artifact is short. A redesign share at or near zero, reported plainly, is the intended finding."},{"name":"The diagnostic is complete and the goal is one sentence","criteria":"All five questions answered on one real friction. Question 3 in a single sentence with no ''and'' — a learner who split a compound problem and picked a half has done the exercise correctly. Question 5 names a person or role, not ''the team''; an unowned automation should be flagged in feedback as a future incident."},{"name":"Archetype, position, and delta","criteria":"The archetype named, and if both, an honest answer about which one the current tooling actually serves. Plus a position on the claim engaging its real counter-argument — that ''AI project'' attracts budget and sponsorship ''workflow automation'' never has, so the reframe may be reading the organization correctly — and the prediction compared with the miss direction named."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-recruiter-r2-knowledge_check', 'ai301-recruiter-r2', 'knowledge_check', '{"title":"Knowledge check — 6 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"Where does most AI spend in recruiting go, and where is most of the leverage?","options":["Spend and leverage both concentrate in insight work","Spend goes to throughput and mostly belongs there; leverage is in redesign, where almost no spend goes","Spend goes to redesign, which is why returns disappoint","Both are evenly distributed across the three tiers"],"correctIndex":1,"explanation":"Throughput spend is genuinely well-placed — the wins are real and nobody''s judgment is replaced. The problem is that redesign, where the funnel''s actual defect lives, gets almost nothing."},{"id":"q2","prompt":"Why is optimizing throughput on an early-stage screen described as the most expensive mistake available?","options":["Because throughput tools are the most costly category","Because Module 1 established those stages measure nothing — so you get faster at doing something that isn''t working","Because early-stage automation has the highest failure rate","Because candidates notice automated screening and disengage"],"correctIndex":1,"explanation":"Speed applied to a stage with no information content produces more of the same non-result, faster, while feeling like progress — and it consumes the attention redesign needed."},{"id":"q3","prompt":"A vendor case study reports a 60% reduction in time-to-first-contact. What should you ask first?","options":["Which AI model the product uses","Whether the customer was high-volume hourly or professional/senior","What the implementation cost was","Whether the result has been independently audited"],"correctIndex":1,"explanation":"In high-volume hourly, speed-to-contact is the binding constraint and this is a genuine win. In professional hiring it solves a non-problem — and if the archetype isn''t stated, assume high-volume, since that''s where countable wins are easiest to produce."},{"id":"q4","prompt":"Which diagnostic question does the module say kills the most bad projects?","options":["What''s the friction, specifically?","Who does it hurt most?","What does solved look like, in one sentence?","Should it even be an agent?"],"correctIndex":2,"explanation":"Because if the sentence needs an \"and,\" there are two problems and neither will be solved well. B is the most-skipped question, which is different from the most decisive one."},{"id":"q5","prompt":"When does an agent earn its place over plain automation?","options":["When the volume exceeds what automation can process","When the workflow spans multiple systems","When a step requires interpreting unstructured input, so the right next action can''t be drawn as a flowchart","When the process needs to run outside business hours"],"correctIndex":2,"explanation":"If you can draw it, it''s automation — cheaper, debuggable, and it fails visibly. Most \"agents\" sold into recruiting are rule-based flows with a language model attached for no reason."},{"id":"q6","prompt":"Why does recruiting sit low on the autonomy ladder specifically?","options":["Because recruiting data is more sensitive than other HR data","Because agent actions here are frequently visible to candidates and rarely reversible — a wrongly-sent rejection can''t be unsent","Because ATS platforms don''t support higher autonomy levels","Because compliance requires human approval of all candidate communications"],"correctIndex":1,"explanation":"The recipient of the error is a member of the public with no relationship to protect and a LinkedIn account. That combination is rarer in other People functions and is why this track defaults to the lower rungs."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r3-calibration-prompt-before-you-start-10', 'ai301-recruiter-r3', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One prediction, thirty seconds.*
+
+The activity has you run a real intake, produce a scorecard, and send it back to the hiring
+manager asking them to mark what''s wrong.
+
+**How many items will they mark?** A number.
+
+Most recruiters predict one or two. The gap between that and what comes back is the most useful
+thing in this module, because every one of those corrections was previously going to surface
+somewhere much more expensive.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r3-module-brief-20', 'ai301-recruiter-r3', 20, 'prose', 'stable', '## Module brief
+
+There is one hour in every requisition where an error costs you the whole search, and it is the
+first one.
+
+Errors at intake compound. A vague scorecard produces a vague search, which produces candidates
+who are technically qualified and obviously wrong, which produces a hiring manager saying "I''ll
+know it when I see it," which produces four more weeks and a different vague search. Errors at
+scheduling do not compound — a mis-booked interview costs an apology and fifteen minutes.
+
+Yet the attention is allocated exactly backwards. Scheduling has tooling, process, and
+automation. Intake has a thirty-minute call that half the time is a hiring manager reading you
+their job description.
+
+AI changes the economics of that hour substantially — not because it can conduct the intake, but
+because **it collapses the cost of turning a conversation into artifacts.** A forty-five minute
+conversation can now produce a scorecard, calibration examples, a sourcing hypothesis, and an
+interview guide in the time it used to take to write up notes. Which means the constraint moves
+from *production* to *the quality of the conversation itself* — and that is a recruiting skill,
+not a tooling one.
+
+The unglamorous truth of this module: the most valuable thing you can do with AI in recruiting is
+prepare better for one conversation, and then have the nerve to challenge what you''re told in it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r3-learning-objectives-30', 'ai301-recruiter-r3', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Explain why intake errors compound and downstream errors don''t.
+2. Convert an intake conversation into four artifacts, with the judgment retained.
+3. Challenge a specification rather than taking an order — including the requirements that are
+   proxies for something unsaid.
+4. Rehearse an intake before running it, using an adversary set adapted for this conversation.
+5. Get your scorecard marked wrong by the person who has to live with it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r3-lesson-1-why-the-first-hour-is-different-40', 'ai301-recruiter-r3', 40, 'prose', 'stable', '## Lesson 1 · Why the first hour is different
+
+The compounding is mechanical, not rhetorical.
+
+Everything downstream **inherits** the scorecard. Your search string is derived from it. Your
+outreach messaging is derived from it. Your screening judgment is calibrated to it. The interview
+loop is built to test it. The debrief is scored against it. A defect at the top is copied into
+five downstream artifacts, each of which is then defended by someone who wasn''t in the original
+conversation.
+
+And the failure surfaces late. You don''t discover a bad scorecard at intake — you discover it at
+week five, when the hiring manager rejects three candidates who matched every stated requirement.
+By then you''ve spent the search''s budget on the wrong pipeline, and the correction costs a
+restart rather than an edit.
+
+Compare a scheduling error. It surfaces immediately, costs an apology, and corrects in minutes.
+Nothing inherits it.
+
+**So the allocation rule is: attention should follow compounding, not frequency.** Scheduling
+happens forty times per search and costs nothing when wrong. Intake happens once and costs
+everything. Most TA functions have this precisely inverted, because frequency is visible and
+compounding isn''t.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r3-lesson-2-the-conversion-50', 'ai301-recruiter-r3', 50, 'prose', 'stable', '## Lesson 2 · The conversion
+
+Forty-five minutes of conversation into four artifacts. The model does the production; you supply
+the judgment and the material.
+
+**The scorecard.** Four to six competencies, each with what "good" looks like *behaviourally* —
+not adjectives. "Strong communicator" is not a competency; "can explain a technical trade-off to
+a non-technical stakeholder such that they can restate it" is. The test: could two interviewers
+independently score the same candidate and agree within a point? If not, you have an adjective,
+not a competency.
+
+**Calibration examples.** Two or three profiles, ideally real and anonymized: one clear yes, one
+clear no, one genuinely borderline. **The borderline one does the most work** — it''s where the
+hiring manager''s actual bar lives, and it''s the artifact that will resolve the week-five argument
+before it happens.
+
+**The sourcing hypothesis.** Where these people currently are, what they''re currently called, and
+what would make them move. Stated as a hypothesis so it can be falsified in week two rather than
+defended for a month.
+
+**The interview guide.** Which stage tests which competency, with the questions. Every competency
+tested at least once, no competency tested three times, and — Module 4''s requirement arriving
+early — at least one stage where the answer can''t be pre-generated.
+
+Where AI genuinely helps: producing all four from your notes in minutes, flagging competencies
+that appear in the scorecard but nowhere in the guide, and generating the *questions* once you''ve
+named the competency. Where it doesn''t: choosing the competencies, setting the bar, or deciding
+what the role actually needs. **You supply the conversation; it supplies the paperwork.**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r3-lesson-3-challenging-the-spec-60', 'ai301-recruiter-r3', 60, 'prose', 'stable', '## Lesson 3 · Challenging the spec
+
+The difference between a recruiter and an order-taker is what happens when the requirement list
+arrives.
+
+**The must-have that isn''t.** Every intake produces requirements the hiring manager has not
+examined since the last time they hired. The move is not to argue — it''s to ask for the mechanism:
+*"What happens in the first ninety days that requires that?"* A real requirement has an answer.
+A inherited one produces a pause, and the pause is where the conversation gets useful.
+
+**The proxy requirement.** "Five years of experience" is almost never about five years. It''s a
+proxy for something the manager hasn''t articulated — usually autonomy, or having survived a
+specific kind of failure, or credibility with a particular stakeholder. Ask what the proxy is
+standing in for and you frequently discover the real requirement is both narrower and easier to
+source for. This is also where a great deal of avoidable adverse impact enters a search, which
+Module 6 returns to.
+
+**The unstated deal-breaker.** The thing that will actually reject candidates and that nobody
+wrote down — a personality fit with a specific team member, an unspoken seniority signal, a
+budget ceiling described as flexible. The question that surfaces it: *"Tell me about the last
+person you rejected late in a process. What was it?"* Late-stage rejections are where the real
+criteria live, because that''s where the stated ones had already been satisfied.
+
+This is business acumen, and it is the part of recruiting that AI has made *more* valuable rather
+than less — because everyone can now produce a competent job description, and almost nobody can
+tell you that the role as specified doesn''t exist in the market at that price.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r3-try-70', 'ai301-recruiter-r3', 70, 'try_this', 'stable', '### Try this — 3 minutes
+Take the requisition you''re carrying through this track. Pick its most demanding requirement and
+answer, honestly: what happens in the first ninety days that needs it? If you can''t answer, you
+have a question for your hiring manager and possibly a faster search.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r3-lesson-4-rehearse-it-first-80', 'ai301-recruiter-r3', 80, 'prose', 'stable', '## Lesson 4 · Rehearse it first
+
+Module 4 of the HRBP track establishes the technique; here it is aimed at one conversation.
+
+Before an intake that matters, run the conversation against three adversaries in a fresh
+conversation with a model. Commit your position first, forbid hedging, and ask for the strongest
+version rather than a list.
+
+**The manager who wants a unicorn.** *"You''re a hiring manager. I''m about to tell you this
+requirement list can''t be filled at this salary in this market. Push back on me as hard as you
+honestly can."* Surfaces which of your challenges you can actually support.
+
+**The exec who wants it in three weeks.** *"You want this filled by month-end. I''m telling you the
+realistic timeline is nine weeks. What do you say, and what do you offer to trade?"* Surfaces
+whether you have a trade ready — scope, level, comp, or interim cover — because "it''ll take
+longer" without an alternative loses every time.
+
+**The panel that will disagree in the debrief.** *"You''re an interviewer who scored this candidate
+a 2 while everyone else gave a 4. Argue your position."* Surfaces the competencies whose
+definitions haven''t been aligned, before three people discover it in a room.
+
+Ten minutes of this before an intake changes what you walk in able to say. And the tell that it
+worked is the same as everywhere in this curriculum: **what would you do differently in the
+meeting?** If nothing, the rehearsal produced confidence rather than preparation.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r3-exercise-embed-85', 'ai301-recruiter-r3', 85, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r3-key-takeaways-90', 'ai301-recruiter-r3', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **Attention should follow compounding, not frequency.** Intake happens once and everything
+  downstream inherits it; scheduling happens forty times and nothing inherits it. Most functions
+  have this inverted because frequency is visible and compounding isn''t.
+- **Four artifacts from one conversation:** scorecard with behavioural definitions, calibration
+  examples including a borderline one, a falsifiable sourcing hypothesis, and an interview guide.
+  AI produces them; you supply the conversation and the judgment.
+- **The scorecard test:** could two interviewers score the same candidate independently and agree
+  within a point? If not, you have adjectives.
+- **The borderline calibration example does the most work** — it''s where the real bar lives, and
+  it resolves the week-five argument before it happens.
+- **Challenge the spec with mechanisms, not opinions.** "What happens in the first ninety days that
+  requires that?" — a real requirement has an answer, an inherited one produces a pause.
+- **"Five years" is a proxy.** Find what it stands in for and the real requirement is usually
+  narrower, easier to source, and less exposed to adverse impact.
+- **Late-stage rejections reveal the real criteria**, because the stated ones had already been met.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r3-activity-link-95', 'ai301-recruiter-r3', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 Marked wrong", "blurb": "Run a real intake, produce the four artifacts, then send them to the hiring manager and ask them to mark what''s wrong \u2014 not whether it looks right. Twelve corrections is a better submission than none.", "estMinutes": "25"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r3-take-a-position-100', 'ai301-recruiter-r3', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"You cannot AI your way out of a bad scorecard. Everything downstream inherits
+it."*
+
+The strongest counter-argument is that **modern sourcing is increasingly iterative rather than
+specified** — you find candidates, show them to the manager, and the criteria emerge from
+reactions. On that view the scorecard is a formality, the real specification is discovered
+through the search, and front-loading precision optimizes a document nobody uses. Plenty of
+effective recruiters work exactly this way. Your position has to engage it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r3-sources-and-attribution-110', 'ai301-recruiter-r3', 110, 'prose', 'stable', '## Sources and attribution
+
+- The compounding argument, the four-artifact conversion, the scorecard agreement test, the
+  proxy-requirement move, and the late-stage-rejection question are original to this course.
+- The adversarial rehearsal technique in Lesson 4 is adapted from the HRBP track''s Module 4,
+  aimed at the intake conversation. Note that module''s own caveat: the rehearsal category is
+  vendor-dominated and its efficacy claims trace to sellers, so this is argued from craft and
+  mechanism rather than from an efficacy study.
+- Builds on 101 M5 (prompting as briefing), whose brief-a-capable-stranger discipline is what
+  makes the four-artifact conversion work.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r3-activity-applied-activity-marked-wrong-10', 'ai301-recruiter-r3-activity', 10, 'prose', 'stable', '## Applied activity — "Marked wrong"
+
+**Time:** 25 minutes · **Submit:** the four artifacts, the marked-up version, and a 250–350 word
+write-up · **Graded against the rubric below.**
+
+**Step 1 — Run a real intake (or use one you ran recently).** The requisition you''re carrying
+through the track.
+
+**Step 2 — Produce the four artifacts (12 min).** Scorecard, calibration examples, sourcing
+hypothesis, interview guide. Use AI for production; the competencies and the bar are yours.
+
+**Step 3 — Send it to the hiring manager and ask them to mark what''s wrong (10 min).** Exactly
+that framing — not "does this look right?", which produces "looks great." Ask them to mark
+anything they''d score differently, anything missing, and anything they''d reject a candidate for
+that isn''t written down.
+
+**Step 4 — Score the prediction (3 min).** Items you predicted they''d mark against what came back.
+
+Then the write-up: **what they marked**, what that reveals about the gap between the conversation
+and your understanding of it, your position on the claim above with its counter-argument
+addressed, and the one question you''ll add to every future intake.
+
+**The correction is the learning.** A submission where the hiring manager marked twelve things is
+a better submission than one where they marked none — and if they marked none, say honestly
+whether you think that''s alignment or disengagement.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r3-micro-core', 'ai301-recruiter-r3-micro', 10, 'prose', 'stable', '## Module 3 in two minutes
+
+**Attention should follow compounding, not frequency.** Everything downstream inherits the scorecard — your search string, your outreach, your screening calibration, the loop, the debrief — and the defect surfaces at week five when correction costs a restart. Scheduling happens forty times per search and nothing inherits it. Most TA functions have this exactly inverted, because frequency is visible and compounding isn''t.
+
+**Four artifacts from one conversation:** a scorecard with behavioural definitions, calibration examples, a falsifiable sourcing hypothesis, and an interview guide. AI collapses the cost of producing all four — which moves the constraint from production to the quality of the conversation, and that''s a recruiting skill.
+
+**The scorecard test:** could two interviewers score the same candidate independently and agree within a point? If not, you have adjectives. And **the borderline calibration example does the most work** — it''s where the real bar lives.
+
+**Challenge the spec with mechanisms.** "What happens in the first ninety days that requires that?" A real requirement has an answer; an inherited one produces a pause. "Five years" is almost always a proxy for autonomy, a survived failure, or credibility with someone — and the real requirement is usually narrower and easier to source.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r3-micro-rule', 'ai301-recruiter-r3-micro', 20, 'callout', 'stable', '### The rule to carry
+
+Ask the hiring manager to **mark what''s wrong** — never "does this look right?", which reliably produces "looks great" and surfaces nothing. The framing determines the response, exactly as it does when prompting a model.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r3-micro-close', 'ai301-recruiter-r3-micro', 30, 'prose', 'stable', '**The full module adds** the question that surfaces the unstated deal-breaker — *tell me about the last person you rejected late in a process* — because late-stage rejections are where the real criteria live; rehearsing the intake against three adversaries before you walk in; and the four-scorecards exercise, where the tell is to read the bar rather than the competency list.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-recruiter-r3-choice', 'ai301-recruiter-r3', 'choice', '{"reviewedAt":"2026-08-12","title":"Four scorecards","intro":"*Five minutes. Commit before you look.*\n\nFour recruiters ran intake for the same role — a first Product Marketing Manager at a 200-person B2B software company — and produced four scorecards. **One will survive contact with a real pipeline.**\n\nApply the test: could two interviewers score the same candidate independently and land within a point of each other?","artifacts":[{"label":"Scorecard A","body":"**Competencies:** Strategic thinking · Strong communication · Cross-functional collaboration · Bias for action · Executive presence\n\n*Bar: \"We''re looking for someone exceptional — a real A-player who can operate at pace.\"*"},{"label":"Scorecard B","body":"**Competencies (4):**\n1. *Positioning under ambiguity* — given a product with three plausible market segments and no research, can construct a defensible segment choice and state what would falsify it.\n2. *Technical translation* — can explain a technical differentiator to a salesperson such that the salesperson can restate it accurately.\n3. *Evidence habits* — reaches for customer conversations or usage data before opinion; names what they don''t know.\n4. *Building without a team* — has shipped marketing work with no designer, no writer, and no budget.\n\n*Calibration: one clear yes (ex-founder, 4 yrs PMM at seed stage), one clear no (enterprise PMM, always had a 6-person team), one borderline (strong technical translation, thin on evidence habits — HM says borderline is a yes if the segment answer is good).*"},{"label":"Scorecard C","body":"**Requirements:** 5+ years product marketing · B2B SaaS required · Experience with PLG motions · Bachelor''s degree · Experience at a company that scaled from $10M to $50M ARR · Strong written communication\n\n*Bar: \"Must have done this before at a similar-stage company.\"*"},{"label":"Scorecard D","body":"**Competencies:** Positioning · Messaging · Launch management · Competitive intelligence · Sales enablement · Analyst relations · Pricing · Content strategy\n\n*Each rated 1–5. Bar: average of 3.5 or above.*"}],"options":[{"id":"a","label":"Scorecard A"},{"id":"b","label":"Scorecard B"},{"id":"c","label":"Scorecard C"},{"id":"d","label":"Scorecard D"}],"key":"b","reasoning":"**B survives.** Four competencies, each defined behaviourally enough that two interviewers would land within a point — \"can explain a technical differentiator such that a salesperson can restate it\" is observable in an interview; \"strong communication\" is not. It carries all three calibration profiles including the borderline one, and crucially it records **what makes the borderline a yes**, which is the sentence that resolves the week-five argument before it happens.\n\n**A is adjectives with a pulse.** Every item is agreeable and unscoreable, which is exactly why hiring managers approve scorecards like this in thirty seconds. \"A-player who can operate at pace\" is not a bar, it''s a mood — and when the debrief disagrees, there is nothing written down to disagree *against*, so the loudest interviewer wins.\n\n**C is a requirements list, not a scorecard**, and it''s the most common real-world artifact of the four. Note what it''s actually doing: five years, a degree, and a specific ARR band are proxies stacked on proxies, none tied to what happens in the first ninety days. It will reject the ex-founder in B''s clear-yes column for having the wrong résumé shape, and it''s where avoidable adverse impact enters this search.\n\n**D looks rigorous and is unusable.** Eight competencies for a first PMM hire describes three jobs; nobody has all eight, so the 3.5 average silently rewards the well-rounded mediocre candidate over the one who is exceptional at the two things this role actually needs. An averaged score across too many dimensions is a machine for hiring nobody''s first choice.\n\nThe transferable tell: **read the bar, not the competency list.** A, C and D all have bars that can''t be applied by two people independently — which means the real criteria will get invented later, in a room, by whoever speaks first."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-recruiter-r3-rubric', 'ai301-recruiter-r3', 'rubric', '{"promptVersion":"ai301-recruiter-r3-marked-wrong-v1","moduleId":"ai301-recruiter-r3","minWords":250,"maxWords":350,"submitLabel":"Your four artifacts, the markup, and the write-up","intro":"Paste the scorecard, calibration examples, sourcing hypothesis, and interview guide; then the hiring manager''s marked-up version; then the 250–350 word write-up including your position on this module''s claim.","activityContext":"You are grading a learner submission for AI 301 · The Specialist, Recruiting/TA track. Module 3 applied activity, ''Marked wrong'': a real intake converted into four artifacts — a scorecard with behaviourally defined competencies, calibration examples including a genuinely borderline one, a falsifiable sourcing hypothesis, and an interview guide mapping stages to competencies — then sent to the actual hiring manager with the specific framing ''mark what''s wrong'' rather than ''does this look right'', and returned marked. CRITICAL GRADING STANCE: the corrections ARE the deliverable. A submission where the hiring manager marked twelve items scores HIGHER than one where they marked none. If nothing came back, the learner must say honestly whether they read that as alignment or disengagement, and an unexamined ''they approved it'' should be challenged in feedback. Apply the scorecard test: could two interviewers score the same candidate independently and agree within a point? Adjective competencies (''strong communicator'', ''strategic thinker'') fail it. Watch for requirements lists submitted as scorecards, and for proxy requirements (years of experience, degree, company stage) that were never challenged. This track scores the delta, not the score: never grade prediction accuracy.","opening":[{"key":"markedItems","label":"Predicted — items the hiring manager will mark","hint":"Corrections, additions, and things they''d reject for that aren''t written down.","placeholder":"e.g. 2","min":0,"max":50}],"calibration":[{"key":"markedItemsActual","label":"Actual — what came back","hint":"Every correction counts. More is better here.","placeholder":"e.g. 9","min":0,"max":50,"actualFor":"markedItems"}],"dimensions":[{"name":"The competencies are behavioural","criteria":"Each one observable enough that two interviewers would score within a point. Adjectives (''strong communicator'', ''bias for action'') fail this dimension regardless of how many there are. Four to six competencies; eight or more describes several jobs and should be flagged as an averaging machine that hires nobody''s first choice."},{"name":"The calibration includes a real borderline","criteria":"Three profiles with the borderline one carrying a stated reason it tips either way — that sentence is where the hiring manager''s real bar lives. A borderline profile that is obviously a yes or obviously a no means the bar wasn''t surfaced."},{"name":"The spec was challenged","criteria":"Evidence that at least one requirement was interrogated for its mechanism — what happens in the first ninety days that needs it — or identified as a proxy. A scorecard that transcribes the manager''s requirement list without challenge is order-taking, and should be named as such."},{"name":"The correction was harvested","criteria":"The markup is real and the write-up says what it revealed about the gap between the conversation and the learner''s understanding of it. Twelve corrections honestly reported is the top of this dimension. Zero corrections requires an honest read on whether that is alignment or disengagement. Also grades the position on the claim, including its counter-argument that criteria are often discovered iteratively through the search rather than specified up front."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-recruiter-r3-knowledge_check', 'ai301-recruiter-r3', 'knowledge_check', '{"title":"Knowledge check — 6 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"Why do intake errors compound while scheduling errors don''t?","options":["Intake happens earlier in the calendar","Everything downstream is derived from the scorecard — search, outreach, screening calibration, the loop, the debrief — and the defect surfaces at week five, when correction costs a restart","Scheduling errors are caught by automation","Hiring managers pay more attention to intake"],"correctIndex":1,"explanation":"Five downstream artifacts inherit the defect, each defended by someone who wasn''t in the original conversation. A scheduling error surfaces immediately, costs an apology, and nothing inherits it."},{"id":"q2","prompt":"What test tells you a scorecard competency is real rather than an adjective?","options":["Whether the hiring manager approved it","Whether it appears in the job description","Whether two interviewers could independently score the same candidate and agree within a point","Whether it can be assessed in under fifteen minutes"],"correctIndex":2,"explanation":"\"Strong communicator\" fails; \"can explain a technical trade-off to a non-technical stakeholder such that they can restate it\" passes. A is the trap — managers approve adjectives readily, because adjectives are agreeable."},{"id":"q3","prompt":"Which calibration example does the most work?","options":["The clear yes, since it defines the target","The clear no, since it prevents wasted pipeline","The genuinely borderline one — it''s where the hiring manager''s real bar lives","All three equally"],"correctIndex":2,"explanation":"The yes and no are usually already aligned. The borderline profile is where the bar actually sits, and surfacing it at intake resolves the week-five argument before it happens."},{"id":"q4","prompt":"A hiring manager insists on five years of experience. What''s the productive move?","options":["Accept it — experience requirements are the manager''s call","Ask what it''s a proxy for, since it''s rarely about the years and the real requirement is usually narrower and easier to source","Point out that it may create adverse impact","Propose three years as a compromise"],"correctIndex":1,"explanation":"Usually a proxy for autonomy, surviving a specific failure, or credibility with a stakeholder. C is true and Module 6 covers it, but leading with the compliance argument makes it a fight; leading with the mechanism makes it a conversation that produces a better search."},{"id":"q5","prompt":"Which question best surfaces the unstated deal-breaker?","options":["\"What are the must-have requirements?\"","\"What would make you say no to a candidate?\"","\"Tell me about the last person you rejected late in a process. What was it?\"","\"How would you rank these requirements?\""],"correctIndex":2,"explanation":"Late-stage rejections are where the real criteria live, because the stated ones had already been satisfied. B asks the manager to introspect about the future, which produces the written requirements back; C asks them to recall, which produces the truth."},{"id":"q6","prompt":"Why does the activity ask the hiring manager to \"mark what''s wrong\" rather than \"does this look right?\"","options":["It''s faster for the manager to respond to","\"Does this look right?\" reliably produces \"looks great,\" which surfaces nothing — the marked corrections are the entire point","It creates a written record for compliance purposes","It transfers responsibility for the scorecard to the manager"],"correctIndex":1,"explanation":"The framing determines the response, exactly as it does when prompting a model — asking for approval invites approval. A submission where twelve things came back is stronger than one where nothing did."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r4-calibration-prompt-before-you-start-10', 'ai301-recruiter-r4', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One prediction, thirty seconds.*
+
+Rank these five selection methods by how well they predict job performance, best first: **general
+mental ability tests · structured interviews · unstructured interviews · years of relevant
+experience · biodata (structured background information).**
+
+Write your ranking down before Lesson 1. Most people get the top two the wrong way round, for a
+reason that was the field''s consensus until quite recently.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r4-module-brief-20', 'ai301-recruiter-r4', 20, 'prose', 'stable', '## Module brief
+
+Module 1 told you the signals collapsed. Module 3 told you the loop inherits the scorecard. This
+module is where you rebuild the loop so that what it measures survives contact with tools that
+both sides now have.
+
+The good news arrives from an unexpected direction: **the methods that survive AI are, almost
+exactly, the methods that were always better.** The selection science was re-examined recently and
+the ranking changed — and the methods that came out on top are the ones a candidate cannot
+outsource, while the ones that fell are the ones AI makes free.
+
+That''s a rare piece of luck. You are not being asked to trade rigour for defensibility. You are
+being asked to stop doing the things that were never predictive and became indefensible.
+
+Then the decision this module forces: **your candidate AI policy.** There are two coherent
+positions and one losing one — and the losing one is the position most organizations currently
+hold by default.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r4-learning-objectives-30', 'ai301-recruiter-r4', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. State what the revised selection science says about which methods predict performance.
+2. Design for expensive-to-fake rather than detection — and say what "expensive" means precisely.
+3. Choose between ban-and-verify and require-and-grade, and explain why incoherence is worse than
+   either.
+4. Handle verification at the right stage, through the right channel.
+5. Rebuild one interview loop and write a candidate-facing AI policy in under 150 words.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r4-lesson-1-what-actually-predicts-performa-40', 'ai301-recruiter-r4', 40, 'prose', 'volatile', '## Lesson 1 · What actually predicts performance [V]
+
+For decades the field''s consensus, from a foundational 1998 meta-analysis, was that general mental
+ability was the strongest single predictor of job performance. A great deal of assessment product
+was built on that.
+
+In 2022, Sackett, Zhang, Berry and Lievens re-examined the underlying meta-analytic estimates and
+found a **systematic overcorrection for range restriction** running through decades of the
+literature. Correcting it re-ranked the field:
+
+| Method | Corrected validity `[V]` |
+|---|---|
+| **Structured interviews** | **≈ .42** |
+| Job knowledge tests | ≈ .40 |
+| **Biodata** | **≈ .38** |
+| **General mental ability** | **≈ .31** |
+| Years of experience | near the bottom |
+| Unstructured interviews | near the bottom |
+
+Two things follow, and the second is the one this module is built on.
+
+**Structure is the active ingredient.** The same conversation, with defined competencies, the same
+questions in the same order, and independent scoring against a rubric, roughly doubles the
+predictive value of an unstructured version of itself. That is a process change, not a purchase.
+
+**And the ranking maps almost perfectly onto fakeability.** Look again: the methods at the top
+require *demonstrated behaviour under observation*. The methods at the bottom — years of
+experience, credentials, unstructured conversation — are the ones a language model can produce a
+convincing version of in seconds. The evidence and the AI-resistance point the same way, which
+means you can make this argument to a hiring manager on effectiveness grounds without ever
+mentioning AI.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r4-lesson-2-expensive-to-fake-by-design-50', 'ai301-recruiter-r4', 50, 'prose', 'stable', '## Lesson 2 · Expensive-to-fake by design
+
+"Expensive" is doing precise work here. Three costs a faker cannot compress:
+
+**Time they can''t compress.** Not "takes a long time" — *cannot be produced faster with a tool*. A
+take-home essay takes a candidate four hours or four minutes depending on their tooling. A live
+working session takes forty minutes for everybody.
+
+**Presence they must supply.** Real-time, responsive, with follow-ups that depend on what they just
+said. The value isn''t surveillance; it''s that a conversation branches, and a branching conversation
+cannot be pre-generated.
+
+**Specificity they can''t generate.** Details of work they actually did — what broke, what they''d
+do differently, who disagreed and how it resolved. A model can produce a plausible project story;
+it cannot produce *their* project''s second-order details under follow-up, because those details
+were never written down anywhere.
+
+Which yields three design moves:
+
+**Work-sample-first and observed.** The single highest-leverage change available. Give a realistic
+task, watch some portion of it happen, and ask about the reasoning rather than the output. Note
+that AI use during it is now *fine* — you''re evaluating how they think with the tools they''ll
+actually have, which is what the job involves.
+
+**Live defence over polished submission.** If a take-home stays, its function changes: it becomes
+the material for a conversation rather than an artifact to be scored. "Walk me through why you
+made this choice, and what you''d do if the constraint changed" is unfakeable in a way the
+document never was.
+
+**Follow-up depth over question breadth.** Three questions with four follow-ups each beats twelve
+questions with none. Prepared answers survive the first question and fall apart on the third —
+and this costs nothing to implement.
+
+**And the thing to stop doing:** scoring polish. Written communication quality in an application
+is now approximately free and therefore approximately uninformative. If your rubric rewards it,
+you are selecting for tool access.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r4-try-60', 'ai301-recruiter-r4', 60, 'try_this', 'stable', '### Try this — 3 minutes
+Take the highest-scoring stage from your Module 1 signal audit. Add one follow-up question that
+can only be answered from real experience — *"what surprised you about that?"* is a good default.
+That single addition typically moves a stage from a 1 to a 2 on the audit scale.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r4-lesson-3-the-policy-fork-70', 'ai301-recruiter-r4', 70, 'prose', 'volatile', '## Lesson 3 · The policy fork [V]
+
+Your candidates are using AI. You need a stated position, and there are exactly two coherent ones.
+
+**Ban-and-verify.** AI use prohibited in assessment stages, and your process is built so that
+matters — which means live, observed, follow-up-heavy stages where the prohibition is
+*structurally* enforced rather than trusted. The honest version says so plainly: *"our assessment
+stages are live because we''re evaluating you, not your tools."*
+
+**Require-and-grade.** AI use expected, and how well they use it is part of what you''re
+evaluating. Canva requires candidates to use AI in parts of its process; Meta has permitted it in
+a coding round with AI-generated code verification built into the evaluation. This is
+increasingly the honest position for roles where the work itself involves these tools daily —
+which is most knowledge work now.
+
+**Incoherence is the only losing choice**, and it is the default state of most organizations: a
+policy prohibiting AI, no stage where the prohibition is enforceable, and interviewers privately
+assuming everyone uses it. That teaches candidates that your stated process does not mean what it
+says — and the ones who learn that fastest are the ones who read your process most carefully,
+which is a group you were trying to select *for*.
+
+Two rules whichever fork you take. **Say it in the invitation, not in the fine print** — a
+candidate who discovers your policy at the assessment has already prepared for a different one.
+And **apply it identically to everyone**, because inconsistently enforced policy is the ban''s
+disparate-impact problem arriving by a different route.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r4-lesson-4-the-detection-trap-paid-off-80', 'ai301-recruiter-r4', 80, 'prose', 'stable', '## Lesson 4 · The detection trap, paid off
+
+Module 1 seeded this. Here is what to do instead.
+
+**Detection tools are vendor claims like any other**, and they get 101 M2''s teardown: what''s the
+evidence, what''s the sample, what would falsify it. Recall the asymmetry — confidence is
+measurable and high, accuracy is not published. A tool sold on a capability with no error rate is
+a tool you cannot size the risk of.
+
+**Their false positives are a screening decision with disparate impact**, landing predictably on
+non-native speakers, neurodivergent candidates, and anyone who prepared unusually hard. Module 6
+covers what that means when the regime requires a bias audit; the design answer is simpler —
+**a process that doesn''t depend on detection has no false positives to defend.**
+
+**And verification belongs at screening, through official channels, not sprung at offer.**
+Employment dates, credentials, references — verify through the issuing institution or the
+employer, early enough that a discrepancy is a conversation rather than a rescinded offer.
+Verification of *facts* is legitimate and always was. Detection of *tool use* is a different
+activity that has been quietly sold under the same word, and separating them is most of what this
+lesson is for.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r4-exercise-embed-85', 'ai301-recruiter-r4', 85, 'exercise', 'stable', '{"type": "sorting", "title": "Calibration exercise \u2014 What does it cost a faker?", "intro": "Ten minutes, ten screening signals. Sort each: expensive to fake, cheap to fake, or free.\n\nCommit every card before the reveal. Expensive means time they can''t compress, presence they must supply, or specificity about work they actually did \u2014 not \"takes effort\"."}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r4-key-takeaways-90', 'ai301-recruiter-r4', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **The methods that survive AI are the methods that were always better** `[V]` — structured
+  interviews ≈.42, biodata ≈.38, general mental ability revised down to ≈.31, with experience and
+  unstructured interviews near the bottom. You can argue this on effectiveness without mentioning
+  AI.
+- **Structure is the active ingredient**, and it''s a process change rather than a purchase: same
+  questions, same order, independent scoring against a rubric.
+- **Expensive means three things a faker can''t compress:** time, presence, and specificity about
+  work they actually did.
+- **Work-sample-first and observed; live defence over polished submission; follow-up depth over
+  question breadth.** Prepared answers survive the first question and fall apart on the third.
+- **Stop scoring polish.** Written quality in an application is free, therefore uninformative — and
+  rewarding it selects for tool access.
+- **Two coherent policies, one losing default.** Ban-and-verify or require-and-grade; incoherence
+  teaches candidates your process doesn''t mean what it says, and the most attentive ones learn it
+  first.
+- **A process that doesn''t depend on detection has no false positives to defend.** Verify facts
+  through official channels at screening; that is a different activity from detecting tool use.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r4-activity-link-95', 'ai301-recruiter-r4', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 Redesign the loop", "blurb": "Rebuild your live req''s loop so at least one stage before the final costs a faker something \u2014 each change mapped to a competency from your Module 3 scorecard, no stages added \u2014 plus the candidate-facing AI policy in under 150 words.", "estMinutes": "25"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r4-take-a-position-100', 'ai301-recruiter-r4', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"Polished answers are free now. If your loop still rewards polish, you''re
+selecting for tool access."*
+
+The strongest counter-argument is that **for many roles, polish is the job.** A content marketer,
+a customer-facing AE, or a communications hire will use exactly these tools in the work — so a
+polished application is a valid work sample rather than noise, and treating polish as
+uninformative discards a real signal about output quality. Your position has to engage that,
+because for some of your requisitions it''s simply correct.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r4-sources-and-attribution-110', 'ai301-recruiter-r4', 110, 'prose', 'stable', '## Sources and attribution
+
+- **Sackett, Zhang, Berry & Lievens (2022)**, *Journal of Applied Psychology* — the corrected
+  meta-analytic estimates addressing systematic overcorrection for range restriction, re-ranking
+  structured interviews above general mental ability. The 1998 Schmidt & Hunter meta-analysis is
+  the prior consensus it revises. **[V]**
+- Published candidate AI policies from employers including Canva and Meta, cited as examples of
+  the two coherent forks. Policies change; verify current practice before citing them to a
+  hiring manager. **[V]**
+- The expensive-to-fake framing, the three design moves, and the
+  verification-versus-detection distinction are original to this course.
+- Builds on 101 M2 (vendor claim teardown), 101 M7 (screening decisions about people), and
+  Module 3 of this track (the loop inherits the scorecard).', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r4-activity-applied-activity-redesign-the-loop-10', 'ai301-recruiter-r4-activity', 10, 'prose', 'stable', '## Applied activity — "Redesign the loop"
+
+**Time:** 25 minutes · **Submit:** the redesigned loop, the policy, and a 250–350 word write-up ·
+**Graded against the rubric below.**
+
+Use the requisition you''re carrying through the track.
+
+**Step 1 — Score the current loop (5 min).** Carry forward your Module 1 audit: each stage 0–3 on
+what it costs a faker.
+
+**Step 2 — Redesign it (12 min).** Rebuild so that at least one stage before the final scores a 2
+or higher, using the three moves. For each change, name **which competency from your Module 3
+scorecard it tests** — a redesign that doesn''t map to the scorecard is a preference, not a design.
+Do not add stages: this is a redesign, not an escalation, and lengthening a loop is a real cost
+to candidates.
+
+**Step 3 — Write the candidate-facing AI policy (5 min).** **Under 150 words**, in plain language,
+stating which fork you chose and what candidates should actually expect. Write it as it would
+appear in the invitation email.
+
+**Step 4 — Score the prediction (3 min).** Your opening ranking of the five methods against the
+table in Lesson 1. Which pair did you invert, and what does that reveal about the model of
+hiring you''ve been carrying?
+
+Then the write-up: what the loop measures now that it didn''t, which stage you removed to make
+room, your position on the claim above with its counter-argument addressed, and what you''d tell a
+hiring manager who says the new loop is "too much process."', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r4-micro-core', 'ai301-recruiter-r4-micro', 10, 'prose', 'stable', '## Module 4 in two minutes
+
+**The methods that survive AI are the methods that were always better** `[V]`. A 2022 correction to decades of meta-analytic estimates re-ranked the field: structured interviews ≈.42, biodata ≈.38, general mental ability revised down to ≈.31, with years of experience and unstructured interviews near the bottom. The corrected ranking maps almost exactly onto fakeability — so you can make this argument on effectiveness grounds without mentioning AI at all.
+
+**Structure is the active ingredient**, and it''s a process change rather than a purchase: defined competencies, same questions in the same order, independent scoring against a rubric.
+
+**Expensive to fake means three specific things:** time they can''t compress, presence they must supply, and specificity about work they actually did. Hence work-sample-first and observed, live defence over polished submission, and follow-up depth over question breadth — prepared answers survive the first question and fall apart on the third.
+
+**And stop scoring polish.** Written quality in an application is free, therefore uninformative, and rewarding it selects for tool access.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r4-micro-rule', 'ai301-recruiter-r4-micro', 20, 'callout', 'stable', '### The rule to carry
+
+Two coherent AI policies — ban-and-verify or require-and-grade — and **incoherence is the only losing choice.** A stated ban with no stage that enforces it teaches candidates your process doesn''t mean what it says, and the ones who learn that first are the most attentive ones you were trying to select for.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r4-micro-close', 'ai301-recruiter-r4-micro', 30, 'prose', 'stable', '**The full module adds** the detection trap paid off from Module 1 — a process that doesn''t depend on detection has no false positives to defend — the distinction between verifying *facts* through official channels at screening and detecting *tool use*, which have been sold under the same word, the ten-signal fakeability sort, and the loop redesign with a candidate-facing policy in under 150 words.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-recruiter-r4-sorting', 'ai301-recruiter-r4', 'sorting', '{"reviewedAt":"2026-08-12","buckets":[{"id":"free","label":"Free","hint":"A tool produces it in minutes","rank":0,"pct":10},{"id":"cheap","label":"Cheap","hint":"Some effort, fully preparable","rank":1,"pct":45},{"id":"expensive","label":"Expensive","hint":"Time, presence, or real specificity","rank":2,"pct":90}],"tasks":[{"id":"t1","text":"A cover letter tailored to your company''s mission and recent announcements","key":"free","reasoning":"The canonical collapsed signal. It used to mean forty minutes of attention; it now means someone pasted your careers page into a chat window. Nothing about it got worse — it got free."},{"id":"t2","text":"A forty-minute live working session on a problem the candidate hasn''t seen, with follow-ups","key":"expensive","reasoning":"Time that can''t be compressed, presence that must be supplied, and a conversation that branches on what they just said. The single highest-leverage change available to most loops."},{"id":"t3","text":"A take-home case study submitted as a polished document","key":"free","reasoning":"Four hours or four minutes depending entirely on tooling — and you cannot tell which from the artifact. Keep the take-home if you like, but its function has to change to material for a live defence.","also":["cheap"]},{"id":"t4","text":"Three follow-up questions deep on a project they described","key":"expensive","reasoning":"Prepared answers survive the first question and fall apart on the third. The second-order details — what broke, who disagreed, what they''d change — were never written down anywhere, so there''s nothing to generate from. Costs nothing to implement."},{"id":"t5","text":"Years of relevant experience on the résumé","key":"cheap","reasoning":"Not free — the years are usually real and checkable — but near the bottom of the corrected validity table, and mostly a proxy for something the hiring manager hasn''t articulated. Cheap in signal, not in fabrication."},{"id":"t6","text":"A portfolio of past work, submitted as files","key":"cheap","reasoning":"The work is often genuine, but attribution isn''t verifiable from the artifact and the framing around it is free. Becomes expensive the moment you ask them to walk through a decision inside it — same artifact, different instrument.","also":["free"]},{"id":"t7","text":"Employment dates confirmed with the former employer","key":"expensive","reasoning":"Verification of fact through an official channel — legitimate, always was, and genuinely hard to fake. Note this is a different activity from detecting tool use, which is the distinction Lesson 4 exists to draw."},{"id":"t8","text":"A well-structured answer to ''tell me about a time you handled conflict''","key":"free","reasoning":"The most prepared-for question in existence, now generatable in seconds and previously rehearsable anyway. It survives only as a setup for follow-ups; scored on its own it measures preparation for interviews."},{"id":"t9","text":"A referral from someone who worked with them directly","key":"expensive","reasoning":"Requires another person''s sustained involvement and reputational stake — the definition of expensive. Worth noting the trade: referrals are the strongest cheap signal you have and also the most reliable way to reproduce the composition of your existing team."},{"id":"t10","text":"Correct, idiomatic written English in the application","key":"free","reasoning":"Free, uninformative, and actively harmful to score — rewarding it selects for tool access, and penalizing its absence is where detection''s disparate impact enters. This is the card the module most wants you to stop scoring."}],"pattern":"Expensive means time they can''t compress, presence they must supply, or specificity they never wrote down.","postscript":"The expensive cards all require something a model can''t supply on the candidate''s behalf: a live branching conversation, another person''s involvement, or details that exist only in their memory. The free cards were all real signals five years ago — which is the module''s point, since nothing about them degraded except their cost. Watch t3 and t6: both are artifacts that become expensive the instant you attach a live defence to them, which is the cheapest redesign in the set. And t10 is the one to act on this week."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-recruiter-r4-rubric', 'ai301-recruiter-r4', 'rubric', '{"promptVersion":"ai301-recruiter-r4-redesign-loop-v1","moduleId":"ai301-recruiter-r4","minWords":250,"maxWords":350,"submitLabel":"Your redesigned loop, the policy, and the write-up","intro":"Paste the before-and-after loop with fakeability scores, the candidate-facing AI policy (under 150 words), and the 250–350 word write-up including your position on this module''s claim.","activityContext":"You are grading a learner submission for AI 301 · The Specialist, Recruiting/TA track. Module 4 applied activity, ''Redesign the loop'': the live requisition''s loop rescored 0-3 per stage on what it costs a faker (carried from Module 1), then rebuilt so at least one stage before the final scores 2+, using three moves — work-sample-first and observed, live defence over polished submission, follow-up depth over question breadth. CONSTRAINTS THAT MATTER: each change must map to a named competency from their Module 3 scorecard (a change that maps to nothing is a preference, not a design), and NO STAGES MAY BE ADDED — lengthening a loop is a real cost to candidates and an escalation rather than a redesign, so a submission that adds a stage should be marked down and told why. Then a candidate-facing AI policy under 150 words, written as it would appear in an invitation email, committing to ban-and-verify or require-and-grade. Incoherence — a stated ban with no stage that enforces it — is the failure this module exists to prevent and must be named if present. Finally they compare their opening ranking of five selection methods against the corrected validity table. This track scores the delta, not the score: never grade ranking accuracy, grade what they say the inversion reveals.","opening":[],"calibration":[],"dimensions":[{"name":"The redesign costs a faker something","criteria":"At least one non-final stage moves to 2+, with the cost named specifically — time that can''t be compressed, presence that must be supplied, or specificity that was never written down. ''More rigorous'' or ''harder'' without naming the cost fails this dimension."},{"name":"It maps to the scorecard, and adds nothing","criteria":"Every change tied to a named competency from Module 3. No stages added — a longer loop is an escalation and a cost to candidates; if the learner added one, say so and ask what they''d remove. The strongest submissions remove a stage to make room."},{"name":"The policy is coherent and under 150 words","criteria":"A committed fork stated in plain language a candidate would actually understand, in invitation-email voice. A ban with no structurally enforcing stage is incoherence and must be named. Check it says what candidates should expect rather than what they''re forbidden — and that it would be seen before the assessment, not in fine print."},{"name":"The inversion and the position","criteria":"Which pair of methods they ranked backwards and what that reveals about the hiring model they''d been carrying — most people invert cognitive ability and structured interviews, which is the field''s own former consensus rather than a personal error, and saying so is a good answer. Plus a position on the claim engaging its real counter-argument: that for content, communications and customer-facing roles, polish IS the work and a polished application is a valid work sample."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-recruiter-r4-knowledge_check', 'ai301-recruiter-r4', 'knowledge_check', '{"title":"Knowledge check — 6 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"What did the 2022 re-examination of the selection literature find? `[V]`","options":["That structured interviews had been overvalued relative to cognitive testing","A systematic overcorrection for range restriction, which re-ranked structured interviews (≈.42) above general mental ability (≈.31)","That all selection methods have roughly equivalent predictive validity","That validity coefficients cannot be meaningfully compared across methods"],"correctIndex":1,"explanation":"Decades of estimates carried the same statistical overcorrection; correcting it inverted the top of the ranking. And usefully, the corrected ranking maps almost exactly onto fakeability — the evidence and the AI-resistance point the same way."},{"id":"q2","prompt":"What does the module mean by \"structure is the active ingredient\"?","options":["That interviews should be longer and cover more competencies","That structured interviews require specialized assessment software","That defined competencies, the same questions in the same order, and independent rubric scoring roughly double an unstructured interview''s predictive value — a process change, not a purchase","That structure matters mainly for legal defensibility"],"correctIndex":2,"explanation":"The same conversation, structured, is a different instrument. D is a genuine side benefit that Module 6 covers, but leading with it makes the change a compliance chore rather than an effectiveness win."},{"id":"q3","prompt":"Which best captures what \"expensive to fake\" means?","options":["Costly for the employer to administer","Time the candidate can''t compress, presence they must supply, and specificity about work they actually did","Requiring specialized knowledge that can''t be looked up","Long enough that candidates without genuine interest drop out"],"correctIndex":1,"explanation":"Note that \"takes a long time\" isn''t sufficient — a take-home takes four hours or four minutes depending on tooling. Forty minutes of live work takes forty minutes for everybody."},{"id":"q4","prompt":"Why does the module say a work sample should permit AI use during it?","options":["Because prohibiting it is unenforceable in a remote setting","Because you''re evaluating how they think with the tools they''ll actually have, which is what the job involves","Because AI use improves the quality of work samples","Because prohibiting it creates disparate impact"],"correctIndex":1,"explanation":"The observed reasoning is the signal, not the artifact. A is true and is a weaker argument — enforceability is a reason the ban fails, not a reason the permission is right."},{"id":"q5","prompt":"Why is incoherence worse than either coherent policy?","options":["Because it creates legal exposure that a stated policy avoids","Because it teaches candidates your stated process doesn''t mean what it says — and the ones who learn that first are the most attentive ones, whom you were trying to select for","Because interviewers apply it inconsistently across candidates","Because candidates will assume the strictest interpretation"],"correctIndex":1,"explanation":"The selection effect is the sting: your policy is a signal about your organization, and the candidates who read it most carefully are the ones you claimed to want. C is a real consequence and Module 6 shows why it''s also a disparate-impact problem."},{"id":"q6","prompt":"What distinction does the module draw about verification?","options":["Verification should happen at offer stage, when the investment justifies the cost","Verification of facts through official channels is legitimate and always was; detection of tool use is a different activity sold under the same word","Verification is only defensible when disclosed to the candidate in advance","Verification should be outsourced to a specialist provider"],"correctIndex":1,"explanation":"Separating the two is most of the lesson. And facts get verified at screening rather than at offer, so a discrepancy is a conversation instead of a rescinded offer."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r5-calibration-prompt-before-you-start-10', 'ai301-recruiter-r5', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One prediction, thirty seconds.*
+
+**Could you answer this today: which interview questions preceded your strong hires?** Not
+"could you find out eventually" — could you answer it this week, from something that already
+exists?
+
+Answer honestly: yes, roughly, or no. Then predict how many of your peers could.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r5-module-brief-20', 'ai301-recruiter-r5', 20, 'prose', 'stable', '## Module brief
+
+Every other module in this track improves a decision. This one is about the thing that makes all
+your future decisions better, and almost nobody builds it.
+
+Here is the situation the previous four modules leave you in. Everyone has the same tools. Your
+competitor can buy your ATS, your sourcing platform, your assessment vendor, and your scheduling
+automation tomorrow — most of them already have. **The only asset in recruiting that cannot be
+rented is your own record of who you hired and how they turned out.**
+
+That record is what turns a loop from a process into a system that learns. Without it, every
+requisition starts from the same place: the hiring manager''s intuition, the recruiter''s
+experience, and a scorecard nobody has ever validated against an outcome. With it, you can answer
+questions no vendor can sell you the answer to — which of your interviewers actually predicts
+performance, which questions preceded strong hires, which sourcing channel produces people who
+are still here in two years.
+
+The reason nobody builds it isn''t difficulty. It''s that the payoff is six months away and the
+work is unglamorous. This module makes the smallest version that works.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r5-learning-objectives-30', 'ai301-recruiter-r5', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Describe the four-stage loop and why breaking any stage collapses it.
+2. Design a capture layer that answers one specific question six months from now.
+3. Prefer integration over invention, and say why the boring version usually wins.
+4. Name what to stop counting and what to start.
+5. Run hiring manager calibration from transcripts — the highest-value use of the capture layer
+   and the one almost nobody does.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r5-lesson-1-the-loop-40', 'ai301-recruiter-r5', 40, 'prose', 'stable', '## Lesson 1 · The loop
+
+Four stages, and it only works closed.
+
+**Instrument.** Decide what gets recorded before the process runs. Retroactive capture doesn''t
+exist — you cannot go back and record what questions were asked in interviews you didn''t record.
+
+**Capture.** Store it somewhere a query can reach. Not in a recruiter''s notes app, not in
+individual scorecards nobody aggregates, and not in a format that requires a human to read fifty
+documents to answer one question.
+
+**Analyze.** Ask a question the data can answer. This is where AI genuinely helps — reading
+across hundreds of unstructured debriefs to surface patterns is precisely what it''s good at, and
+precisely what nobody had time to do before.
+
+**Feed back into design.** Change a stage, a question, a rubric — and record that you changed it,
+so the next analysis knows which period is which. **This is the stage everyone skips**, and
+skipping it converts a learning system into a reporting system: you produce insight nobody acts
+on, which trains everyone to stop reading the insight.
+
+The asymmetry worth internalizing: **stages one and four are decisions, stages two and three are
+increasingly cheap.** Storage and analysis used to be the hard parts and they aren''t anymore.
+Deciding what to record, and actually changing something because of it, remain exactly as hard as
+they always were — which is why the loop is still rare in a world of abundant tooling.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r5-lesson-2-worked-examples-50', 'ai301-recruiter-r5', 50, 'prose', 'volatile', '## Lesson 2 · Worked examples [V]
+
+Three real shapes, none of them exotic.
+
+**Structured capture from conversations at scale.** Zapier''s goal-setting practice runs the loop
+on a non-recruiting process — roughly 91% participation, around 800 conversations analyzed, with
+insights routed back into enablement. The relevant lesson isn''t the numbers; it''s that the
+analysis had a *destination* attached before it ran. Somebody was going to receive the output and
+change something.
+
+**Interview summaries as an archive.** Docebo''s interview summaries accumulate into a record of
+which questions preceded strong hires. That''s the exact question this module opened with, and the
+only reason they can answer it is that somebody decided to store the summaries in a form a query
+could reach — which was a decision, not a purchase.
+
+**Integration beats invention.** Landing Point''s build ran **inside the ATS**, on roughly $200 a
+month and one engineer. This is the example to hold when a vendor proposes a platform: the
+capture layer usually wants to live where the data already is, because a system requiring
+recruiters to enter information twice will be populated inconsistently within a month and
+abandoned within three.
+
+The pattern across all three: **buy the boring, build only the part that''s yours.** Storage,
+transcription, and search are commodities. The question you''re trying to answer in six months is
+not, and that''s the only part worth your engineering.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r5-try-60', 'ai301-recruiter-r5', 60, 'try_this', 'stable', '### Try this — 3 minutes
+Pick one question you''d want answered about your hiring in six months. Now ask: what would have
+to be recorded *starting today* for that question to be answerable? If the answer is "nothing
+new, it''s already there," you have a query to run this week. Most people find it''s one field.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r5-lesson-3-what-to-stop-counting-and-what--70', 'ai301-recruiter-r5', 70, 'prose', 'stable', '## Lesson 3 · What to stop counting, and what to start
+
+Metrics inherited from a different era, and what replaces them.
+
+**Stop treating time-to-fill as a headline.** At 254 applicants per posting it is close to a
+vanity metric — it moves with req difficulty, market conditions, and how aggressively you cut
+corners, and it can always be improved by lowering the bar. It remains useful as an operational
+diagnostic and useless as a measure of whether hiring is working.
+
+**Stop counting applications and pipeline volume as success.** Module 1 established that volume
+went up while signal went down. Reporting a 40% increase in applicants is reporting that the
+collapse reached you.
+
+**Start counting what survives contact with reality:**
+
+- **Quality of signal per stage** — for each stage, what share of the candidates it advanced went
+  on to succeed at the next one. A stage that advances everyone is measuring nothing, which is a
+  finding you can act on.
+- **Hiring manager rework** — how often a hire needed significant support in the first ninety
+  days that a better process would have predicted. Uncomfortable, and the closest available proxy
+  for whether your loop works.
+- **Retention at twelve months by sourcing channel and by loop version.** The single most valuable
+  number in recruiting, and it requires only that you record which loop version each hire went
+  through.
+- **Decline reasons, categorized.** Free capture, and it tells you whether you''re losing on comp,
+  process length, or something you can actually fix.
+
+The honest caveat: **all of these are slow.** You will not have twelve-month retention data for a
+year. Which is exactly why the instrument stage happens now rather than when someone asks.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r5-lesson-4-hiring-manager-calibration-80', 'ai301-recruiter-r5', 80, 'prose', 'stable', '## Lesson 4 · Hiring manager calibration
+
+The highest-value use of the capture layer, and the one almost nobody attempts.
+
+Once interview records accumulate, you can answer a question that changes how your loops run:
+**which of your interviewers are actually consistent, and which move the bar between candidates?**
+
+Specifically, from the record: who scores systematically higher or lower than the panel; whose
+scores correlate with subsequent performance and whose don''t; whose stated reasons shift between
+similar candidates; and who asks different questions of different candidates for the same role,
+which is both a signal problem and — Module 6''s territory — a disparate-impact problem waiting to
+be discovered by somebody less friendly.
+
+AI makes this tractable for the first time. Reading two hundred debriefs for consistency of
+reasoning is a task nobody had hours for; it is now an afternoon.
+
+**Two rules, and they''re what separate this from something dangerous.** First, it is about the
+*interviewer''s process*, not their worth — you''re auditing consistency of a professional
+practice, which is squarely assist-side under 101 M7. Second, **the output goes to the
+interviewer first**, as development, before it goes anywhere else. An interviewer who discovers
+their calibration report reached their manager before it reached them will disengage, and every
+other interviewer will hear about it by Friday.
+
+Handled well, this is the most valuable thing an experienced recruiter can offer a hiring
+manager: *"here''s how your interviewing actually behaves, and here''s the one change that would
+make it more predictive."* Nobody else in the organization can say that.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r5-exercise-embed-85', 'ai301-recruiter-r5', 85, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r5-key-takeaways-90', 'ai301-recruiter-r5', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **The only asset in recruiting you can''t rent is your own record of who you hired and how they
+  turned out.** Everything else your competitor can buy tomorrow.
+- **Four stages, and it only works closed:** instrument, capture, analyze, feed back. Everyone
+  skips the fourth, which converts a learning system into a reporting system nobody reads.
+- **Stages one and four are decisions; two and three are cheap now.** Storage and analysis stopped
+  being the hard part; deciding what to record and actually changing something did not.
+- **Integration beats invention** `[V]` — the capture layer wants to live where the data already
+  is. A system requiring double entry is inconsistent in a month and abandoned in three. Buy the
+  boring, build only the part that''s yours.
+- **Stop headlining time-to-fill and application volume.** Start on signal quality per stage,
+  hiring manager rework, twelve-month retention by channel and loop version, and categorized
+  decline reasons. All slow — which is why you instrument now.
+- **Hiring manager calibration from the record is the highest-value use and almost nobody does
+  it.** It''s about the interviewer''s process, not their worth — and the report goes to them
+  first.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r5-activity-link-95', 'ai301-recruiter-r5', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 The capture layer", "blurb": "One question you want answerable in six months, worked backwards to the smallest set of fields \u2014 with a named reviewer, a cadence, and what you''d change under each possible answer. Four fields that get built beats twenty that don''t.", "estMinutes": "25"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r5-take-a-position-100', 'ai301-recruiter-r5', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"The only asset here you can''t rent is your own record of who you hired and how
+they turned out."*
+
+The strongest counter-argument is **turnover and time-scale.** Recruiting teams, hiring managers,
+role definitions, and even business models change faster than the twelve-month outcome data
+accumulates — so by the time your record is large enough to be useful it may describe a company
+that no longer exists. On that view the record is an asset with a short half-life, and the
+resources it takes might be better spent on the loop design that Module 4 says matters more. Your
+position has to engage that.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r5-sources-and-attribution-110', 'ai301-recruiter-r5', 110, 'prose', 'stable', '## Sources and attribution
+
+- Implementation examples — the goal-setting capture practice at Zapier (participation and
+  conversation volume, with insights routed to enablement), interview summaries accumulating as
+  a question-to-outcome archive at Docebo, and an in-ATS build at Landing Point at roughly $200 a
+  month with one engineer. Publicly reported; re-verified each review cycle. **[V]**
+- The four-stage loop, the stop/start metric set, and the hiring-manager-calibration discipline
+  (process not worth; interviewer first) are original to this course.
+- Builds on 201 M7 (measurement without theater) and 101 M7 (what makes an analysis assist-side).', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r5-activity-applied-activity-the-capture-layer-10', 'ai301-recruiter-r5-activity', 10, 'prose', 'stable', '## Applied activity — "The capture layer"
+
+**Time:** 25 minutes · **Submit:** the design plus a 250–350 word write-up · **Graded against the
+rubric below.**
+
+Design the capture layer for your live requisition — and be ruthless about scope. **A design that
+records four things and gets built beats one that records twenty and doesn''t.**
+
+**Step 1 — Name the question (5 min).** **One** question you want answerable in six months. Specific
+enough to have an answer: not "is our hiring effective" but "does the technical screen predict
+who passes the panel?"
+
+**Step 2 — Work backwards to the fields (8 min).** What must be recorded, starting now, for that
+question to be answerable? For each: where it lives, who records it, and whether it''s captured
+today. If a field requires anyone to enter data twice, redesign it or cut it.
+
+**Step 3 — Name the reviewer and the cadence (5 min).** Who looks at this, how often, and what
+decision they''re expected to make. **A capture layer with no named reviewer is storage**, and the
+feed-back stage is the one everyone skips.
+
+**Step 4 — Say what changes (4 min).** If the answer comes back one way, what do you change? If it
+comes back the other way? If you can''t answer both, the question wasn''t decision-relevant and you
+should pick a different one.
+
+**Step 5 — Score the prediction (3 min).** Could you answer the strong-hires question today? What
+did you predict for your peers, and what does the gap suggest?
+
+Then the write-up: the question, the smallest set of fields that answers it, who owns it, your
+position on the claim above with its counter-argument addressed, and the one thing you could
+start recording **this week** with no tooling change at all.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r5-micro-core', 'ai301-recruiter-r5-micro', 10, 'prose', 'stable', '## Module 5 in two minutes
+
+**Everyone can rent the same tools. The only asset you can''t rent is your own record of who you hired and how they turned out.** That record is what turns a loop from a process into a system that learns — and it''s why you can answer questions no vendor can sell you the answer to.
+
+**Four stages, and it only works closed:** instrument, capture, analyze, feed back. Stages two and three got cheap; stages one and four are decisions and are exactly as hard as they always were. **Everyone skips the fourth** — producing insight nobody acts on, which trains everyone to stop reading it.
+
+**Integration beats invention** `[V]`. The capture layer wants to live where the data already is; a system requiring double entry is inconsistent within a month and abandoned within three. Buy the boring, build only the part that''s yours.
+
+**Stop headlining time-to-fill and application volume** — one improves by lowering the bar, the other went up because signal went down. Start on signal quality per stage, hiring manager rework, twelve-month retention by channel and loop version, and categorized decline reasons. All slow, which is why you instrument now.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r5-micro-rule', 'ai301-recruiter-r5-micro', 20, 'callout', 'stable', '### The rule to carry
+
+Before building any measurement: **name the decision that changes under each possible answer.** If you can''t say what you''d do under both, the question wasn''t decision-relevant — pick a different one. A capture layer with no named reviewer is storage.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r5-micro-close', 'ai301-recruiter-r5-micro', 30, 'prose', 'stable', '**The full module adds** hiring manager calibration from the record — which interviewers are consistent, whose scores predict performance, who asks different questions of different candidates — which AI makes tractable for the first time, with two rules that keep it safe: it''s about the interviewer''s *process* rather than their worth, and the output goes to the interviewer **first**. Plus the four-designs exercise, where the winner is the least impressive one on the page.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-recruiter-r5-choice', 'ai301-recruiter-r5', 'choice', '{"reviewedAt":"2026-08-12","title":"Four capture designs","intro":"*Five minutes. Commit before you look.*\n\nFour TA teams designed a capture layer this quarter. **One will still be answering questions in six months.**\n\nThe test isn''t ambition. It''s whether the design survives contact with a busy recruiter in week three, and whether anyone has to change something because of what it says.","artifacts":[{"label":"Design A","body":"\"We''ll capture everything — full interview transcripts, all scorecards, sourcing channel, comp data, candidate feedback surveys, recruiter time-per-req, and hiring manager satisfaction scores. Stored in a new analytics warehouse. We''ll figure out the questions once we see what the data supports.\""},{"label":"Design B","body":"\"Question: does our technical screen predict who passes the panel? Fields: screen score, panel outcome, screen interviewer, loop version. All four already exist in the ATS — we''re adding one dropdown for loop version. Reviewed monthly by the TA lead in the ops meeting. If the screen doesn''t predict, we cut it and save 3 hours per candidate. If it does, we push it earlier.\""},{"label":"Design C","body":"\"We''re recording all interviews and running AI analysis to score interviewer effectiveness, then ranking interviewers on a leaderboard shared with department heads to drive accountability.\""},{"label":"Design D","body":"\"Quarterly recruiter survey on which sourcing channels feel most effective, plus a monthly report on applications, time-to-fill, and offer acceptance rate, circulated to the leadership team.\""}],"options":[{"id":"a","label":"Design A"},{"id":"b","label":"Design B"},{"id":"c","label":"Design C"},{"id":"d","label":"Design D"}],"key":"b","reasoning":"**B closes the loop, and it''s the least impressive one on the page.** One question, specific enough to have an answer. Four fields, three of which already exist — so nothing depends on a recruiter entering data twice. A named reviewer and a cadence. And, decisively, **a stated action under each possible outcome**: cut the screen or move it earlier. That last part is the feed-back stage, which is the one everyone skips, and it''s why this design will still be alive in six months.\n\n**A is the most common failure and it sounds like rigour.** \"Capture everything and find the questions later\" produces a warehouse nobody queries, because a question you haven''t asked can''t tell you which fields matter — and half of what it lists requires recruiters to enter data that exists nowhere today. It will be inconsistently populated within a month.\n\n**C is the dangerous one.** It breaks both rules from Lesson 4: it treats the interviewer''s *worth* rather than their process, and the output goes to department heads rather than to the interviewer first. A leaderboard of ranked people is a decision about people wearing an analytics costume — 101 M7''s line — and practically, every interviewer will hear about it by Friday and behave accordingly. You''ll have destroyed the honesty of your scorecards to gain a ranking.\n\n**D isn''t a loop at all.** A recruiter opinion survey plus the two metrics Lesson 3 says to stop headlining, circulated to an audience with no decision attached. It''s reporting, and reporting that nobody acts on trains everybody to stop reading it.\n\nThe transferable test: **name the decision that changes.** B has one under each branch. A, C and D have none — which is why only one of them survives."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-recruiter-r5-rubric', 'ai301-recruiter-r5', 'rubric', '{"promptVersion":"ai301-recruiter-r5-capture-layer-v1","moduleId":"ai301-recruiter-r5","minWords":250,"maxWords":350,"submitLabel":"Your capture-layer design and write-up","intro":"Paste the question, the fields with their sources, the named reviewer and cadence, what changes under each answer, and the 250–350 word write-up including your position on this module''s claim.","activityContext":"You are grading a learner submission for AI 301 · The Specialist, Recruiting/TA track. Module 5 applied activity, ''The capture layer'': ONE specific question they want answerable in six months, worked backwards to the minimum fields — each with where it lives, who records it, and whether it exists today — plus a named reviewer, a cadence, and a stated action under EACH possible answer. Scope discipline is the point: a design recording four things that gets built beats one recording twenty that doesn''t, and a field requiring double entry should have been redesigned or cut. The decisive dimension is whether a decision changes under each branch — if the learner can''t say what they''d do under either outcome, the question wasn''t decision-relevant and they should have picked a different one. Watch for two specific failures: capture-everything-and-find-questions-later (produces a warehouse nobody queries), and any design that ranks or scores interviewers as people rather than auditing process consistency, or routes calibration output anywhere before the interviewer themselves. This track scores the delta, not the score.","opening":[{"key":"peersCanAnswer","label":"Predicted — % of your peers who could name which questions preceded strong hires","hint":"Answerable this week, from something that already exists.","placeholder":"e.g. 20","min":0,"max":100}],"calibration":[{"key":"peersCanAnswerActual","label":"Your own answer — could you, today?","hint":"0 = no, 50 = roughly, 100 = yes, from something that exists.","placeholder":"e.g. 0","min":0,"max":100,"actualFor":"peersCanAnswer"}],"dimensions":[{"name":"One question, specific enough to answer","criteria":"A single question with a determinate answer — ''does the technical screen predict who passes the panel'' rather than ''is our hiring effective''. Multiple questions, or a question whose answer would be a narrative rather than a finding, is the gap to name."},{"name":"The fields are minimal and already reachable","criteria":"Each field with its location, its recorder, and whether it exists today. Any field requiring double entry should be redesigned or cut — flag it if present. Four fields that will get captured beats twenty that won''t, and a design leaning on existing ATS fields plus one addition is the strongest shape."},{"name":"A named reviewer, a cadence, and a decision","criteria":"A person or role, how often they look, and — the decisive part — what changes under EACH possible answer. A capture layer with no named reviewer is storage. If the learner cannot state an action under both branches, say plainly that the question wasn''t decision-relevant."},{"name":"This week''s move, and the position","criteria":"One thing they could start recording this week with no tooling change — the test of whether they understood that instrumenting is a decision rather than a purchase. Plus a position on the claim engaging its real counter-argument: that teams, managers and business models turn over faster than twelve-month outcome data accumulates, so the record may describe a company that no longer exists."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-recruiter-r5-knowledge_check', 'ai301-recruiter-r5', 'knowledge_check', '{"title":"Knowledge check — 6 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"Which stage of the loop does the module say everyone skips, and what happens?","options":["Instrument — teams start capturing without deciding what matters","Capture — data ends up in formats queries can''t reach","Analyze — nobody has time to read the accumulated records","Feed back — insight gets produced and nothing changes, which converts a learning system into a reporting system nobody reads"],"correctIndex":3,"explanation":"And the second-order effect is what kills it: people learn the insight doesn''t lead anywhere and stop reading it. B and C are real failure modes that have become much cheaper to solve; the fourth stage is a decision and hasn''t got any easier."},{"id":"q2","prompt":"Why does the module say integration beats invention? `[V]`","options":["Custom builds are prohibitively expensive for TA functions","The capture layer wants to live where the data already is — a system requiring double entry is inconsistent within a month and abandoned within three","ATS vendors provide better analytics than custom tools","Integration projects have higher success rates than greenfield builds"],"correctIndex":1,"explanation":"It''s about adoption, not cost — though the $200-a-month-and-one-engineer example makes both points at once. Buy the boring; build only the part that''s yours."},{"id":"q3","prompt":"Why is time-to-fill described as close to a vanity metric?","options":["It''s difficult to measure consistently across requisitions","It moves with req difficulty and market conditions, and can always be improved by lowering the bar — so it doesn''t measure whether hiring is working","It''s no longer tracked by modern ATS platforms","Candidates don''t care about process speed"],"correctIndex":1,"explanation":"It stays useful as an operational diagnostic and fails as a headline measure of success. The improvable-by-lowering-the-bar property is the disqualifying one."},{"id":"q4","prompt":"What makes \"quality of signal per stage\" a useful measure?","options":["It can be reported weekly, unlike retention data","It shows which stage removes the most candidates","It reveals whether each stage''s advanced candidates went on to succeed at the next — and a stage that advances everyone is measuring nothing","It correlates strongly with candidate satisfaction"],"correctIndex":2,"explanation":"It turns Module 1''s diagnosis into an ongoing measurement: a stage with no discriminating power shows up in the data rather than only in an audit. B is throughput, which is what you''re trying to stop headlining."},{"id":"q5","prompt":"What are the two rules governing hiring manager calibration from the record?","options":["Anonymize interviewers, and report only aggregate patterns","It''s about the interviewer''s process rather than their worth; and the output goes to the interviewer first, before anywhere else","Only calibrate interviewers with at least twenty interviews; and exclude senior leaders","Require interviewer consent; and delete records after twelve months"],"correctIndex":1,"explanation":"The first keeps it assist-side under 101 M7 — auditing consistency of a professional practice, not judging a person. The second is practical: an interviewer whose report reached their manager first will disengage, and everyone else hears about it by Friday."},{"id":"q6","prompt":"Why does the activity require you to say what changes under each possible answer?","options":["To satisfy stakeholders who need a business case","Because if you can''t say what you''d do under either outcome, the question wasn''t decision-relevant and a different one should be chosen","Because it makes the analysis faster to run","Because pre-registering conclusions prevents bias in interpretation"],"correctIndex":1,"explanation":"It''s the cheapest available test of whether a measurement is worth building. D describes a real scientific practice but isn''t why this step exists here."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r6-calibration-prompt-before-you-start-10', 'ai301-recruiter-r6', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One prediction, thirty seconds.*
+
+**How many AI systems currently touch your requisitions in a way that screens, scores, ranks, or
+filters a candidate?** Count anything — your ATS''s ranking feature, a sourcing tool''s match
+score, an assessment vendor, a scheduling bot that prioritizes. A number.
+
+Then predict how many of those you could name the *deployer* for, if a regulator asked.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r6-module-brief-20', 'ai301-recruiter-r6', 20, 'prose', 'stable', '## Module brief
+
+Every other role in People deals with AI regulation at the edges. **You are the target.**
+
+Look at where the law has actually landed. New York City''s bias-audit regime is a hiring rule.
+Illinois''s new provision is a hiring rule. The EU AI Act''s high-risk employment classification
+names recruitment and selection explicitly. And the landmark US litigation on AI vendor liability
+is a hiring case. Employment decisions attracted the regulators first because that is where
+automated systems most visibly decide things about people — and within employment, hiring is
+where the volume is.
+
+Which produces an uncomfortable alignment. **The vendor market that sells hardest into your
+function sells precisely the capability the law is most focused on** — automated screening,
+ranking, and scoring of candidates. 101 M7 told you not to let AI decide about people. This
+module tells you what happens when you do it anyway, and what the regulators now require of you
+when a vendor does it on your behalf.
+
+Two halves: the statutory floor, and the audit skill that makes the floor meaningful — because a
+bias audit you cannot read is a document you file rather than a control you operate.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r6-learning-objectives-30', 'ai301-recruiter-r6', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Describe the regulatory shape well enough to identify which regimes apply to your reqs.
+2. Explain the agent theory and how it changes procurement rather than just compliance.
+3. Compute a selection rate and apply the four-fifths rule.
+4. Read a vendor''s bias audit critically instead of filing it.
+5. Inventory every system touching your population and name its deployer.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r6-lesson-1-the-statutory-floor-40', 'ai301-recruiter-r6', 40, 'prose', 'volatile', '## Lesson 1 · The statutory floor [V]
+
+*Direction of travel, not legal advice. Verify every specific with counsel.*
+
+**New York City, Local Law 144.** The template most other regimes rhyme with. Any **automated
+employment decision tool** — résumé screeners, assessment chatbots, video interview analytics —
+requires an **annual bias audit** by an independent auditor, **public disclosure** of the results,
+and **ten business days'' advance notice** to candidates before the tool is used. The audit
+measures **selection rate by group** across race, ethnicity and sex. Penalties run from $500 per
+violation and escalate substantially for continuing ones.
+
+Note what "assist" means here: the definition reaches tools that *substantially assist* a
+decision, not only those that make it. A ranking that determines review order is in scope even
+though a human technically decides.
+
+**Illinois, HB 3773 — effective January 1, 2026.** Amends the Illinois Human Rights Act to
+prohibit employers from using AI in ways that produce a discriminatory effect, and requires
+**notice** to employees and candidates when AI is used in employment decisions. Note the shape:
+this is not a separate AI statute bolted on — it puts AI use inside existing civil-rights
+machinery, which is where the direction of travel points generally.
+
+**The EU AI Act.** Recruitment and selection are named high-risk uses. Those obligations were
+deferred to **December 2027** under the Digital Omnibus — but the **prohibition on emotion
+recognition in the workplace** has been in force since February 2025 and did not move. If anyone
+offers you sentiment or emotion inference from interview video and you have European operations,
+that is not a procurement conversation.
+
+**And the doctrine underneath all of it.** Disparate impact requires no intent. A neutral practice
+that disproportionately excludes a protected group needs job-related justification, whoever built
+it. Every statute above sits on top of that; none replaces it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r6-lesson-2-the-agent-theory-50', 'ai301-recruiter-r6', 50, 'prose', 'volatile', '## Lesson 2 · The agent theory [V]
+
+The development that changes how you buy.
+
+In **Mobley v. Workday**, a court allowed claims to proceed on the theory that an AI screening
+vendor can act as an **agent of the employer** — finding it plausibly alleged that customers had
+delegated their traditional function of rejecting candidates or advancing them to interview. The
+"employment agency" theory was dismissed; the agent theory survived to discovery, and claims have
+continued across race, sex, age and disability.
+
+Three consequences, most-actionable first.
+
+**Neither party gets to point at the other.** "That''s the vendor''s problem" and "we only make the
+software" both weaken. A tool performing a function you would otherwise perform may carry your
+obligations with it.
+
+**Discovery reaches the model.** The case has featured sustained disputes over access to
+algorithmic code and testing data. Whatever the outcome, the direction is set: **"we don''t know
+how it works and the vendor won''t tell us" is a position you may have to defend, not a shield.**
+Which converts a fairness principle into a procurement requirement — **get validation evidence
+before signature**, because afterwards you have no leverage and possibly an obligation.
+
+**And the privilege nuance.** Bias testing conducted *under counsel*, where the lawyer curates the
+analysis and uses the results in providing legal advice, may be protected from discovery in a way
+that identical testing run as an operational exercise is not. Not a reason to avoid testing — a
+reason to involve counsel in designing it, before you commission an audit rather than after.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r6-lesson-3-adverse-impact-you-can-compute-60', 'ai301-recruiter-r6', 60, 'prose', 'stable', '## Lesson 3 · Adverse impact you can compute
+
+"Don''t run a tool you can''t show is fair" needs a method, or it is a slogan.
+
+**The selection rate** is the number who passed a stage divided by the number who entered it, for
+each group. That''s it. If 200 men applied and 60 advanced, the rate is 30%. If 150 women applied
+and 27 advanced, the rate is 18%.
+
+**The four-fifths rule** compares each group''s rate to the highest group''s. 18 ÷ 30 = 0.60 — below
+the 0.80 threshold, which is the long-standing rule-of-thumb trigger for scrutiny under US
+enforcement practice. It is not proof of discrimination and does not settle anything legally; it
+is the flag that says this stage requires job-related justification and probably a conversation
+with counsel.
+
+Three things practitioners get wrong, and they matter:
+
+**Compute it per stage, not just at offer.** A funnel can look balanced at the end while a single
+early stage does all the excluding — and that''s usually the automated one.
+
+**Small numbers break it.** With eleven candidates in a group, one person changes the ratio
+dramatically. State the n, always. Module 5''s capture layer is what eventually gives you samples
+large enough to mean something.
+
+**Passing four-fifths is not a clean bill of health**, and this is the most common misreading. It
+is a screening heuristic with a low bar, not a validation. A tool can clear it comfortably and
+still be selecting on something indefensible.
+
+Why you specifically need this: **it is what lets you read a vendor''s audit rather than file
+it.** When an audit reports impact ratios, you can now ask whether they were computed per stage
+or only at the end, what the group sizes were, and which stages were excluded from the analysis.
+Those three questions separate a real audit from a compliance artifact.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r6-try-70', 'ai301-recruiter-r6', 70, 'try_this', 'stable', '### Try this — 3 minutes
+Take your highest-volume req from the last year. For the résumé-screen stage, can you get the
+number who entered and the number who advanced, split by any demographic group you hold? If
+the data doesn''t exist, that''s your finding — a stage you cannot audit is a stage you cannot
+defend.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r6-lesson-4-what-to-do-this-quarter-80', 'ai301-recruiter-r6', 80, 'prose', 'stable', '## Lesson 4 · What to do this quarter
+
+Without waiting for anyone.
+
+**Inventory, and name the deployer.** Every system that screens, scores, ranks or filters. Include
+features switched on inside tools you already had — the ATS ranking, the sourcing match score,
+the "recommended candidates" panel. Most recruiters find at least one they''d never classified as
+a decision tool.
+
+**Ask three questions in writing, of every vendor.** Has this tool been bias-audited, by whom, and
+may we see the report? What does it do when it has insufficient data about a candidate? Which of
+our jurisdictions have you assessed it against? **The answers, or the silences, are the finding**
+— and asking before signature is the only moment you have leverage.
+
+**Check the notice obligations that already bind you.** If you operate in a regime requiring
+candidate notice, that is an operational task with a deadline, not a policy debate.
+
+**Then bring counsel a list, not a worry.** Not "are we compliant with AI hiring law?" — which
+gets a shrug — but: *"These five systems touch our reqs. Here''s what each one decides and where we
+hire. Which regimes apply today, what do they require of us this year, and what''s coming?"* That
+question has answers.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r6-exercise-embed-85', 'ai301-recruiter-r6', 85, 'exercise', 'stable', '{"type": "sorting", "title": "Calibration exercise \u2014 Run it, audit it, or don''t", "intro": "Ten minutes, ten tools and uses from a real TA stack. Sort each: run it with ordinary care, run it only with the audit in place, or don''t run it at all.\n\nCommit every card before the reveal. The question underneath every card is whether the tool screens, scores, ranks or filters a person \u2014 and whether you could show it''s fair if asked."}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r6-key-takeaways-90', 'ai301-recruiter-r6', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **You are the target, not a bystander.** LL144, Illinois HB 3773, the EU''s high-risk
+  classification, and the landmark vendor-liability case are all hiring rules `[V]` — and the
+  vendor market sells hardest into exactly the capability regulators focus on.
+- **"Substantially assists" is in scope.** A ranking that determines review order counts, even
+  though a human technically decides.
+- **Agent theory: neither party can point at the other** `[V]`, and discovery reaches the model.
+  Get validation evidence *before* signature; afterwards you have no leverage and possibly an
+  obligation.
+- **The EU emotion-recognition prohibition is already in force** and did not move with the rest.
+- **Selection rate is passed ÷ entered, per group. Four-fifths compares each group to the
+  highest.** Compute per stage, state the n, and remember that passing is a low bar rather than a
+  clean bill of health.
+- **This is what lets you read an audit instead of filing it:** was it computed per stage, what
+  were the group sizes, which stages were excluded.
+- **Bring counsel five named systems and what each decides.** "Are we compliant?" gets a shrug.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r6-activity-link-95', 'ai301-recruiter-r6', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 Tool audit", "blurb": "Every system touching your reqs that screens, scores, ranks or filters \u2014 deployer named, jurisdictions listed, \"don''t know\" accepted as an honest entry \u2014 plus one selection rate computed by hand, and three written vendor questions.", "estMinutes": "25"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r6-take-a-position-100', 'ai301-recruiter-r6', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"A vendor''s bias audit is a marketing document until you can read it — and if you
+can''t compute a pass-through rate, you can''t read it."*
+
+The strongest counter-argument is **division of labour.** Bias auditing is a specialist
+statistical discipline; an independent auditor and your own counsel are better equipped than a
+recruiter with a calculator, and a little statistical knowledge deployed confidently is its own
+hazard — a recruiter who misreads an impact ratio in a vendor meeting has damaged their
+credibility and possibly the analysis. On that view the skill to build is knowing *who to ask*,
+not how to compute. Your position has to engage that.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r6-sources-and-attribution-110', 'ai301-recruiter-r6', 110, 'prose', 'stable', '## Sources and attribution
+
+- **NYC Local Law 144** — annual independent bias audit, public disclosure, ten business days''
+  candidate notice, selection-rate measurement by race, ethnicity and sex, and the
+  make-or-substantially-assist scope. **[V]**
+- **Illinois HB 3773**, effective 1 January 2026 — amends the Illinois Human Rights Act to
+  prohibit discriminatory-effect AI use in employment decisions and requires notice. **[V]**
+- **EU AI Act and the Digital Omnibus** — recruitment and selection as named high-risk uses,
+  deferred to 2 December 2027; the workplace emotion-recognition prohibition in force since
+  February 2025 and unaffected by the deferral. **[V]**
+- **Mobley v. Workday** — agent theory permitted to proceed while the employment-agency theory was
+  dismissed; claims continuing across race, sex, age and disability; active discovery including
+  disputes over algorithmic code and testing data. Litigation posture changes between review
+  cycles. **[V]**
+- The four-fifths rule and selection-rate analysis are long-standing US enforcement practice and
+  predate AI entirely. The three audit-reading questions are original to this course.
+- **This module is not legal advice.** *Counsel review required before deployment-specific claims
+  are added.* **[V]**', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r6-activity-applied-activity-tool-audit-10', 'ai301-recruiter-r6-activity', 10, 'prose', 'stable', '## Applied activity — "Tool audit"
+
+**Time:** 25 minutes · **Submit:** the inventory, the vendor questions, and a 250–350 word
+write-up · **Graded against the rubric below.**
+
+**Step 1 — Inventory (10 min).** Every AI system touching your requisitions that screens, scores,
+ranks, filters, or characterizes a candidate. For each: what it decides, who the deployer is,
+whether it''s been bias-audited as far as you know, and which of your hiring locations it operates
+in. **"Don''t know" is a valid and informative entry** — an inventory full of honest unknowns is
+the point, and it''s the artifact you take to counsel.
+
+**Step 2 — Compute one rate (7 min).** Pick the stage with the most data on your live req or a
+recent one. Compute the selection rate per group for any demographic split you hold, and the
+four-fifths ratio. **If you can''t get the data, document exactly why** — that finding is worth as
+much as the number, because a stage you cannot audit is a stage you cannot defend.
+
+**Step 3 — Three vendor questions (5 min).** For your highest-risk system, written so a vendor
+could answer them and the answer would change something you do.
+
+**Step 4 — Score the prediction (3 min).** Systems you predicted against systems found, and how
+many you could name the deployer for.
+
+Then the write-up: what the inventory surfaced that you hadn''t classified as a decision tool, what
+the rate computation showed or why it couldn''t be done, your position on the claim above with its
+counter-argument addressed, and the single question you''re taking to counsel first.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r6-micro-core', 'ai301-recruiter-r6-micro', 10, 'prose', 'stable', '## Module 6 in two minutes
+
+**You are the target, not a bystander** `[V]`. NYC''s bias-audit regime, Illinois HB 3773, the EU''s high-risk classification, and the landmark vendor-liability case are all hiring rules — and the vendor market sells hardest into exactly the capability regulators focus on. Note the scope phrase: tools that make **or substantially assist** a decision, which means a ranking that determines review order is in, even though a human technically decides.
+
+**The agent theory** `[V]`: in Mobley v. Workday a court let claims proceed on the basis that customers had delegated the function of rejecting or advancing candidates to the vendor. "That''s the vendor''s problem" and "we only make the software" both weaken — and with discovery reaching algorithmic code, *"we don''t know how it works"* is a position to defend rather than a shield. **Get validation evidence before signature**; afterwards you have no leverage.
+
+**And the maths you need:** selection rate is passed ÷ entered, per group. Four-fifths compares each group to the highest. Compute it **per stage**, state the n, and remember that passing is a low bar rather than a clean bill of health.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r6-micro-rule', 'ai301-recruiter-r6-micro', 20, 'callout', 'stable', '### The rule to carry
+
+A bias audit you can''t read is a document you file. Three questions make it a control instead: **were rates computed per stage, what were the group sizes, and which stages were excluded?** Each one can hide the problem.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r6-micro-close', 'ai301-recruiter-r6-micro', 30, 'prose', 'stable', '**The full module adds** the EU emotion-recognition prohibition that''s already in force and didn''t move with the deferral, the privilege nuance (bias testing designed under counsel may be protected in ways operational testing isn''t — worth knowing *before* commissioning an audit), the ten-card run-it/audit-it/don''t sort, and the quarter''s homework: inventory what touches your reqs, name every deployer, and take counsel five named systems rather than a general worry.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-recruiter-r6-sorting', 'ai301-recruiter-r6', 'sorting', '{"reviewedAt":"2026-08-12","buckets":[{"id":"dont","label":"Don''t run it","hint":"Over the line","rank":0,"pct":5},{"id":"audit","label":"Only with the audit","hint":"In scope — audited, noticed, documented","rank":1,"pct":50},{"id":"run","label":"Run it","hint":"Ordinary care","rank":2,"pct":90}],"tasks":[{"id":"t1","text":"Your ATS''s \"recommended candidates\" panel, which reorders the review queue","key":"audit","reasoning":"The card most people get wrong. It doesn''t reject anyone, so it feels benign — but it substantially assists the decision by determining who gets looked at first, and in practice who gets looked at at all. Squarely in scope under a make-or-substantially-assist definition."},{"id":"t2","text":"Drafting a job description from the intake scorecard","key":"run","reasoning":"No candidate exists yet and nothing is being screened. Ordinary care — check it for proxy requirements per Module 3, but this is not a decision tool."},{"id":"t3","text":"Emotion or sentiment inference from recorded interview video","key":"dont","reasoning":"Prohibited outright in the EU workplace since February 2025, and that ban did not move with the high-risk deferral. Even outside the EU, it''s a characterization of a person from a signal with no established validity — 101 M7''s line and Module 4''s evidence both say no."},{"id":"t4","text":"Summarizing five interview scorecards into a debrief packet","key":"run","reasoning":"Transformation of material humans wrote, with the judgments already made. Assist-side and genuinely useful — the panel still decides, and nothing new is being scored."},{"id":"t5","text":"A vendor''s résumé-matching score used to auto-advance the top 20%","key":"audit","reasoning":"An automated employment decision tool in the plainest sense: it screens, it ranks, and the 80% below the cut are decided about by a system nobody reviewed. Needs the audit, the notice, and the deployer named — and if the vendor can''t produce validation evidence, it needs a different verdict.","also":["dont"]},{"id":"t6","text":"Scheduling interviews and sending logistics reminders","key":"run","reasoning":"Coordination with no judgment about a person. The clearest run-it card, and where automation belongs — Module 2''s throughput tier."},{"id":"t7","text":"AI-detection scoring that routes suspected AI-written applications to a low-priority queue","key":"dont","reasoning":"Module 1''s argument arriving with a legal consequence attached: a screening criterion with predictable disparate impact, no published error rate, and no validation study. It''s an automated employment decision tool that would fail an audit it has never had."},{"id":"t8","text":"Transcribing interviews so debriefs can be written from the record","key":"run","reasoning":"Capture, not judgment — and Module 5''s foundation. Notice and consent obligations for recording apply, which are ordinary employment practice rather than AI-specific."},{"id":"t9","text":"A chatbot that asks screening questions and advances candidates who answer correctly","key":"audit","reasoning":"Named explicitly in bias-audit regimes as an assessment tool. High-volume hourly teams run these effectively and legitimately — with the audit, the notice, and a documented answer key someone can defend as job-related."},{"id":"t10","text":"Analysing your own funnel''s pass-through rates by group to find where exclusion happens","key":"run","reasoning":"The inverse of the others: analysis *about* the process rather than a decision about a candidate, run to detect adverse impact rather than to cause it. This is what the module is teaching you to do — though Lesson 2''s privilege note means it''s worth asking counsel how to structure it before you commission a formal version."}],"pattern":"The question is never how clever the tool is — it''s whether it screens, ranks or filters a person, and whether you could show it''s fair.","postscript":"The audit cards all share one property: a system that decides who gets seen. Note t1 especially — reordering a queue feels like convenience and functions as selection, which is why ''substantially assists'' is the phrase regulators reached for. The don''t cards fail on validity as much as legality: emotion inference and AI detection are both characterizations of people with no published error rate. And t10 is the one to notice — the same statistical machinery that makes a tool dangerous makes your own funnel auditable, which is the whole point of Lesson 3."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-recruiter-r6-rubric', 'ai301-recruiter-r6', 'rubric', '{"promptVersion":"ai301-recruiter-r6-tool-audit-v1","moduleId":"ai301-recruiter-r6","minWords":250,"maxWords":350,"submitLabel":"Your inventory, rate computation, vendor questions, and write-up","intro":"Paste the system inventory, the selection-rate computation (or the documented reason it couldn''t be done), your three vendor questions, and the 250–350 word write-up including your position on this module''s claim.","activityContext":"You are grading a learner submission for AI 301 · The Specialist, Recruiting/TA track. Module 6 applied activity, ''Tool audit'': every AI system touching their requisitions that screens, scores, ranks, filters or characterizes a candidate — including features switched on inside existing tools (ATS ranking, sourcing match scores, ''recommended candidates'' panels) — with what each decides, the deployer named, audit status where known, and which hiring locations it operates in. ''Don''t know'' is explicitly valid and informative; penalize confident guesses, never admitted gaps. Then one selection rate computed by hand for a real stage — passed divided by entered, per group — plus the four-fifths ratio; and if the data doesn''t exist, a documented explanation of why, which is worth as much as the number because a stage you cannot audit is a stage you cannot defend. Then three written vendor questions for the highest-risk system. This module is NOT legal advice and the learner is not being graded as though producing legal analysis: grade the completeness of the inventory, the honesty about gaps, the correctness of the arithmetic, and the quality of the questions. Common errors to name in feedback: treating a ranking or queue-reordering feature as out of scope because a human technically decides, and reading a passing four-fifths ratio as a clean bill of health. This track scores the delta, not the score.","opening":[{"key":"systemsTouching","label":"Predicted — AI systems that screen, score, rank or filter your candidates","hint":"Include features inside tools you already had.","placeholder":"e.g. 3","min":0,"max":50}],"calibration":[{"key":"systemsTouchingActual","label":"Found — what the inventory actually surfaced","hint":"And how many could you name the deployer for?","placeholder":"e.g. 6","min":0,"max":50,"actualFor":"systemsTouching"}],"dimensions":[{"name":"The inventory found the quiet ones","criteria":"Real systems from their actual stack, with the embedded features nobody classifies as decision tools — ATS ranking, match scores, recommended-candidate panels. Honest ''don''t know'' entries score above confident guesses. Surfacing something they hadn''t thought of as a decision tool is the success condition; a list of only the obvious purchased tools is the gap."},{"name":"The arithmetic is right, or the gap is documented","criteria":"Selection rate as passed ÷ entered per group, and the four-fifths ratio computed against the highest group. Check the arithmetic. If the data doesn''t exist, a specific account of why — which system holds it, what''s missing — scores fully. Watch for a passing ratio being read as validation rather than as a low-bar heuristic, and for small group sizes reported without stating the n."},{"name":"The vendor questions would produce answers","criteria":"Specific enough for a vendor to answer and consequential enough that the answer changes something. ''Is your tool fair?'' scores low; ''has this been bias-audited, by whom, may we see it, and which of our jurisdictions have you assessed it against?'' scores high. Recognizing that silence is itself a finding is a sophisticated observation."},{"name":"The position and the delta","criteria":"A committed position on the claim engaging its real counter-argument — that bias auditing is a specialist discipline, and a recruiter misreading an impact ratio in a vendor meeting has damaged their credibility and possibly the analysis, so the skill to build may be knowing who to ask. Plus the prediction compared, including how many deployers they could actually name."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-recruiter-r6-knowledge_check', 'ai301-recruiter-r6', 'knowledge_check', '{"title":"Knowledge check — 6 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"Under a bias-audit regime like NYC''s LL144, which tools are in scope? `[V]`","options":["Only tools that make a final hire/no-hire decision without human involvement","Tools that make *or substantially assist* an employment decision — including a ranking that determines review order, even though a human technically decides","Only tools purchased after the regulation''s effective date","Only tools that process demographic data directly"],"correctIndex":1,"explanation":"\"Substantially assists\" is the phrase doing the work, and it''s why a recruiter''s instinct that \"a human still decides\" doesn''t take a tool out of scope. D is the field-removal fallacy from 101 M7 in regulatory clothing."},{"id":"q2","prompt":"What did the agent theory in Mobley v. Workday allow to proceed? `[V]`","options":["Claims that the vendor operated as an employment agency","Claims that the vendor acted as an agent of employers, on the basis that customers had delegated the function of rejecting or advancing candidates","A class action against employers using the tool","A regulatory enforcement action"],"correctIndex":1,"explanation":"The employment-agency theory was dismissed; the agent theory survived to discovery. That''s the distinction that matters, because agency is what makes \"we only make the software\" stop working."},{"id":"q3","prompt":"Why does the discovery dispute over algorithmic code matter to a practitioner?","options":["It will force vendors to publish their models publicly","Because \"we don''t know how it works and the vendor won''t tell us\" becomes a position to defend rather than a shield — making validation evidence a pre-signature ask","Because it establishes that employers own vendor training data","Because it delays enforcement until the case resolves"],"correctIndex":1,"explanation":"The practical translation is leverage: ask before you sign. Afterwards you have none, and possibly an obligation to have asked."},{"id":"q4","prompt":"200 candidates from Group A applied and 60 advanced; 150 from Group B applied and 27 advanced. What does the four-fifths rule say?","options":["0.90 — well within the threshold","0.60 — below the 0.80 threshold, flagging the stage for job-related justification and a conversation with counsel","0.45 — below the threshold, which constitutes proof of discrimination","The rule can''t be applied without knowing the roles involved"],"correctIndex":1,"explanation":"Rates are 30% and 18%; 18 ÷ 30 = 0.60. C gets the arithmetic wrong *and* overstates what the rule establishes — it is a trigger for scrutiny, not a finding of discrimination."},{"id":"q5","prompt":"Which misreading of the four-fifths rule does the module call out as most common?","options":["Applying it to stages other than the final offer","Using it with small group sizes","Treating a passing ratio as a clean bill of health, when it''s a low-bar screening heuristic rather than a validation","Computing it before an independent audit is complete"],"correctIndex":2,"explanation":"A tool can clear four-fifths comfortably and still select on something indefensible. A is backwards — per-stage computation is what the module *recommends*, because a funnel can look balanced at the end while one early stage does all the excluding."},{"id":"q6","prompt":"Which three questions separate a real bias audit from a compliance artifact?","options":["Who paid for it, when it was conducted, and whether it was published","Whether rates were computed per stage, what the group sizes were, and which stages were excluded","Which statistical software was used, the confidence intervals, and the auditor''s credentials","Whether the vendor agrees with the findings, and what remediation followed"],"correctIndex":1,"explanation":"These are answerable, and each one can hide a problem: end-of-funnel-only computation masks an excluding stage, small groups make ratios meaningless, and an excluded stage is usually the automated one. C sounds more rigorous and is harder to act on."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r7-calibration-prompt-before-you-start-10', 'ai301-recruiter-r7', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*The last prediction of the course.*
+
+**What share of your hiring managers would describe your team''s AI-assisted output as
+trustworthy?** Whole percent, honestly.
+
+Then, in the activity, you''ll gather every prediction you made across these seven modules and
+read the pattern — because this track scores the delta, not the score.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r7-module-brief-20', 'ai301-recruiter-r7', 20, 'prose', 'stable', '## Module brief
+
+Six modules have made you better at recruiting. This one is about keeping the function.
+
+That framing is deliberate. TA is usually the first People team to grow in an expansion and the
+first to shrink in a contraction, and it is the People function whose work looks most automatable
+from the outside — because the visible part of it is coordination, and coordination is exactly
+what these tools do well. **A leadership team that sees your function as throughput will fund it
+like throughput.**
+
+Everything in this track has been building the counter-argument. Module 1 established that the
+signal collapsed; Module 4 rebuilt a loop that measures something; Module 5 built the record
+nobody else has. This module turns those into a case somebody will actually fund, and handles the
+part nobody wants to write down: **what to say to your team, and to your exec, about headcount.**
+
+One warning first, because it''s the fastest way to lose this argument before you make it.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r7-learning-objectives-30', 'ai301-recruiter-r7', 30, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Explain why sloppy AI output costs a recruiter more than it costs most other functions.
+2. Build a one-page case with a baseline, a measure, an owner, and a review date.
+3. Have the headcount conversation with your team without lying, and with your exec without
+   pleading.
+4. State what the function is for in a form that survives compression.
+5. Read your calibration record across the course and say what moved.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r7-lesson-1-workslop-lands-on-the-relations-40', 'ai301-recruiter-r7', 40, 'prose', 'volatile', '## Lesson 1 · Workslop lands on the relationship you can''t afford to damage [V]
+
+Research from BetterUp Labs and Stanford named the thing: **workslop** — AI-generated output that
+looks like work and lacks the substance to advance it. Roughly **two hours of rework per
+incident**, and **42% of recipients rate the sender as less trustworthy** afterwards, with about
+half rating them less capable or reliable.
+
+For most functions that second number is a nuisance. For you it is the whole business model.
+
+Consider who receives your output. A recruiter''s work product goes almost entirely to **hiring
+managers** — the people who decide whether your involvement is valuable, who can route around you
+by hiring through their network, and whose trust is the only thing that makes intake work.
+Module 3 established that intake is the highest-leverage hour in the function; **intake requires a
+hiring manager willing to give you forty-five honest minutes, and that willingness is a trust
+balance you draw down every time you send them something that wasn''t worth reading.**
+
+The candidate summary that reads well and says nothing. The market map assembled from a model''s
+general knowledge rather than your search. The debrief synthesis that smooths five specific
+disagreements into one bland paragraph. Each is fast, each is plausible, and each spends
+credibility you need for the conversation where it actually matters.
+
+**The practical rule: your AI-assisted output goes to the person whose trust your function runs
+on. Read it once more before you send it, or don''t send it.** This is not a moral point. It''s the
+highest-return two minutes available to you.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r7-lesson-2-the-one-page-case-50', 'ai301-recruiter-r7', 50, 'prose', 'stable', '## Lesson 2 · The one-page case
+
+Four elements, and a case missing any of them will not be funded.
+
+**The baseline.** What it is now, measured. Not estimated in the meeting — measured, or honestly
+reconstructed and labelled as such. **This is the element that''s usually missing**, and its absence
+is why most TA proposals fail: without a before-number, success is unprovable and the request is
+indistinguishable from a preference. Module 5''s capture layer exists so you have one.
+
+**The measure.** What you''ll report at ninety days, chosen before you start. It should be capable
+of coming back badly — a measure that can only confirm you was never a measure.
+
+**The owner.** A named person. Not "the TA team."
+
+**The review date.** When you''ll say whether it worked, in the diary now. A case with a review
+date is a proposal; one without is an aspiration, and executives can tell the difference
+immediately.
+
+Two things that make a case land harder. **Ask for something small enough to be believed** — a
+change to one stage of one loop with a measured baseline beats a transformation programme,
+because the small one can be evaluated and the large one can only be believed. And **say what
+you''d stop doing to fund it.** Nothing establishes seriousness faster, and it converts your
+request from "additional resource" into "reallocation," which is a much easier thing to approve.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r7-lesson-3-the-headcount-conversation-60', 'ai301-recruiter-r7', 60, 'prose', 'stable', '## Lesson 3 · The headcount conversation
+
+The part nobody writes down.
+
+**With your team, the failure mode is false comfort.** "Nothing''s going to change" is a sentence
+your team will remember when something changes, and it costs you the credibility you''ll need to
+lead through it. The honest version has three parts: *the coordination work is compressing and
+that''s real; the work that survives is the judgment work, which is most of what you actually
+enjoy; and here is what we''re doing to move ourselves toward it.* That is truthful, it is not
+catastrophizing, and it gives people something to do — which is what distinguishes leadership
+from a warning.
+
+Then act consistently with it: reallocate the time you free rather than absorbing it, and be
+visible about where it goes. A team told the work is shifting, who then watches the recovered
+hours refill with more of the same coordination, learns that the statement was a slogan.
+
+**With your exec, the failure mode is pleading.** Arguments from effort, loyalty, or how hard the
+market is do not survive a budget meeting, because every function makes them. What survives is
+evidence — which is what Modules 4 and 5 exist to produce.
+
+The shape that works: *"Here''s what our loop measures now that it didn''t six months ago. Here''s
+the hire quality signal we can now see. Here''s the number we couldn''t produce before and can. The
+team is smaller than it was and the signal is better than it was, and that''s the trade I''d make
+again."* You can only say that if you built the record — which is why Module 5 is the one with the
+longest half-life.
+
+And the honest limit: **sometimes the decision is made regardless.** Ratios move for reasons that
+have nothing to do with your evidence. The evidence changes who is kept and what the remaining
+function is asked to do, which is a real and worthwhile thing to influence, and is not the same
+as control.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r7-lesson-4-what-the-function-is-for-70', 'ai301-recruiter-r7', 70, 'prose', 'stable', '## Lesson 4 · What the function is for
+
+The argument that survives compression, stated plainly.
+
+**A TA function''s product is not filled requisitions. It is decisions nobody has to redo.**
+
+A hire that works out is a decision that stays made. A hire that doesn''t is a decision that gets
+made again, at full cost, eighteen months later, with a damaged team and a departed person in
+between. Everything this track taught — signal that survives contact with tools, an intake that
+doesn''t poison the loop, a record that tells you which stages predict — points at that one output.
+
+That is also the only version of the function that is safe from the compression, because it is
+the version that requires judgment. Throughput has already left; the coordination work is
+compressing whether you participate or not, and defending it is the losing position. **The
+defensible claim is not "we work hard" or "we''re fast." It''s "our decisions hold."**
+
+And if you built Module 5''s record, you can prove it — which is the difference between making the
+claim and being believed.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r7-key-takeaways-80', 'ai301-recruiter-r7', 80, 'takeaways', 'stable', '## Key takeaways
+
+- **Workslop costs you more than most functions** `[V]`: ~2 hours rework per incident and 42% of
+  recipients trusting the sender less — and your recipient is the hiring manager whose willingness
+  to give you forty-five honest minutes is the input to everything.
+- **Four elements or it doesn''t get funded:** baseline, measure, owner, review date. The baseline
+  is the one usually missing, and its absence makes success unprovable.
+- **Ask small and say what you''d stop.** A change to one stage with a measured baseline beats a
+  transformation programme, and naming the trade converts a request into a reallocation.
+- **With your team, don''t promise nothing changes.** The coordination work is compressing, the
+  judgment work survives, here''s how we move — then actually reallocate the freed time visibly.
+- **With your exec, don''t plead — bring the record.** Effort and loyalty arguments lose because
+  every function makes them. And accept the limit: evidence influences who is kept and what the
+  function is asked to do, not always whether the ratio moves.
+- **The product is decisions nobody has to redo.** That''s the version of the function that
+  requires judgment, which is the version that survives — and the one you can now prove.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r7-exercise-embed-85', 'ai301-recruiter-r7', 85, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r7-take-a-position-90', 'ai301-recruiter-r7', 90, 'callout', 'stable', '## Take a position
+
+**The claim:** *"If you can''t name the baseline you''re beating, you''re building agent number
+1,998."*
+
+The strongest counter-argument is that **baselines are a luxury of stable environments.** In a
+fast-moving function with shifting reqs, changing markets, and a team that turns over, insisting
+on a measured before-number can be a recipe for never starting — while the teams that moved fast
+without one learned more by shipping. On that view, demanding a baseline is rigour that
+functions as delay. Your position has to engage that, because it is the argument you''ll hear from
+your most effective colleague.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r7-activity-link-95', 'ai301-recruiter-r7', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 The case (course close)", "blurb": "One page for one change to your live req: the change, a measured baseline, a measure that can come back badly, a named owner, a review date, and what you''d stop doing to fund it. Then the reckoning across all seven modules.", "estMinutes": "30"}', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r7-sources-and-attribution-100', 'ai301-recruiter-r7', 100, 'prose', 'stable', '## Sources and attribution
+
+- **BetterUp Labs and Stanford** — the workslop findings: roughly two hours of rework per incident,
+  42% of recipients rating the sender less trustworthy, and about half rating them less capable or
+  reliable. **[V]**
+- The one-page case structure, the headcount conversation framing, and the
+  decisions-nobody-has-to-redo formulation are original to this course.
+- Builds on Module 2 (the tiers), Module 4 (a loop that measures something), Module 5 (the record
+  that makes the case provable), and 201 M7 (measurement without theater).', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r7-activity-applied-activity-the-case-the-course-clo-10', 'ai301-recruiter-r7-activity', 10, 'prose', 'stable', '## Applied activity — "The case" *(the course close)*
+
+**Time:** 30 minutes · **Submit:** the one-page case and a 300–400 word close · **Graded against
+the rubric below.** This is the last thing you''ll make in this track.
+
+### Part 1 — The case (18 min)
+
+One page, for **one change to your live requisition''s process** — the req you''ve carried through
+all seven modules.
+
+- **The change.** Specific, small enough to be believed, and traceable to something this track
+  surfaced.
+- **The baseline.** Measured, or reconstructed and labelled as such. If you genuinely can''t get
+  one, say what you''d start recording today to have one in ninety days.
+- **The measure.** Reportable at ninety days, and capable of coming back badly.
+- **The owner.** A person.
+- **The review date.** An actual date.
+- **The trade.** What you''d stop doing to fund it.
+
+### Part 2 — The reckoning (12 min)
+
+Gather every prediction you made across the seven modules — the share of stages that cost a faker
+something, your throughput share, the hiring manager''s markups, your ranking of the five selection
+methods, whether you could answer the strong-hires question, the systems touching your reqs, and
+the trust figure at the top of this module.
+
+**In which direction did you systematically miss?** Over-crediting your existing process,
+under-crediting it, or scattered.
+
+And the last question, which is the one that matters: **what do you believe about hiring now that
+you didn''t in Module 1?** Specific enough that you couldn''t have written it before this track.
+"AI is changing recruiting" is not an answer to this question.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r7-micro-core', 'ai301-recruiter-r7-micro', 10, 'prose', 'stable', '## Module 7 in two minutes
+
+**Sloppy AI output costs you more than it costs most functions** `[V]`. Workslop runs ~2 hours of rework per incident and leaves 42% of recipients trusting the sender less — and your recipient is the hiring manager whose willingness to give you forty-five honest minutes is the input to everything Module 3 built. Read it once more before you send it, or don''t send it.
+
+**Four elements or it isn''t funded:** baseline, measure, owner, review date. **The baseline is the one usually missing**, and without a before-number success is unprovable and your request is indistinguishable from a preference. Ask small enough to be believed, and say what you''d stop doing to fund it — that converts a request for resource into a reallocation.
+
+**The headcount conversation has two failure modes.** With your team it''s false comfort: "nothing''s going to change" is a sentence they''ll remember when something does. With your exec it''s pleading — effort and loyalty arguments lose because every function makes them. Bring the record instead.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r7-micro-rule', 'ai301-recruiter-r7-micro', 20, 'callout', 'stable', '### The rule to carry
+
+**A TA function''s product is not filled requisitions. It''s decisions nobody has to redo.** That''s the version of the function that requires judgment, which is the version that survives the compression — and if you built the record, it''s the one you can prove.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r7-micro-close', 'ai301-recruiter-r7-micro', 30, 'prose', 'stable', '**The full module adds** the honest limit on what evidence buys you — it influences who is kept and what the function is asked to do, not always whether the ratio moves — the four-cases exercise where the test is whether a case could come back badly, and the course close: one page for one change to your live req, plus the reckoning across every prediction you made in seven modules.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-recruiter-r7-choice', 'ai301-recruiter-r7', 'choice', '{"reviewedAt":"2026-08-12","title":"Four cases on the CFO''s desk","intro":"*Five minutes. Commit before you look.*\n\nFour TA leaders each asked for roughly the same money this quarter. **One gets funded.**\n\nDon''t ask which is most deserving. Ask which one an executive could evaluate — and which ones they could only believe or not.","artifacts":[{"label":"Case A","body":"\"AI is transforming talent acquisition and we risk falling behind competitors who have already adopted. We''re requesting £60k for an AI sourcing and screening platform to modernize our function and improve efficiency across the funnel.\""},{"label":"Case B","body":"\"Our technical screen advances 71% of candidates and 68% of those fail the panel — so it''s costing 3.2 recruiter hours per hire and predicting almost nothing. I want to replace it with a 40-minute live working session for engineering reqs only. Baseline: current screen-to-panel pass correlation, measured over the last 40 hires. Measure at 90 days: same correlation, plus panel time saved. Owner: me. Review: 14 November. To fund it I''m dropping the quarterly sourcing-channel report nobody has referenced in two quarters.\""},{"label":"Case C","body":"\"We''ve reduced time-to-fill by 22% and increased applications per req by 40% since adopting AI screening. We''re requesting £60k to extend the platform to all requisitions.\""},{"label":"Case D","body":"\"The team is at breaking point — we''re carrying 40% more reqs than last year with the same headcount, and people are burning out. We need either two more recruiters or £60k of tooling to take the pressure off.\""}],"options":[{"id":"a","label":"Case A"},{"id":"b","label":"Case B"},{"id":"c","label":"Case C"},{"id":"d","label":"Case D"}],"key":"b","reasoning":"**B gets funded, and notice it asks for the least.** All four elements are there: a measured baseline (40 hires of real correlation data), a measure reportable at 90 days that **can come back badly** — if the live session doesn''t predict better, that shows — a named owner, a real date, and a stated trade. It''s also small: one stage, one req type. An executive can evaluate it, which is the only property that matters here. And the baseline exists because somebody built Module 5''s record.\n\n**A is a preference with a price attached.** \"Transforming,\" \"risk falling behind,\" \"improve efficiency\" — no baseline, no measure, no date, and the argument is Module 1''s manufactured urgency read back verbatim. It can only be believed or not believed.\n\n**C is the seductive one, because it has numbers.** But look at which: time-to-fill and application volume are precisely the two metrics Module 5 says to stop headlining — one improves by lowering the bar, the other went *up because signal went down*. A 40% increase in applications is a report that the collapse reached you, presented as an achievement. It''s also asking to extend a system whose effect on hire quality nobody measured.\n\n**D is the plea.** Effort, volume, and burnout are real and every function makes the same argument — which is exactly why it doesn''t survive a budget meeting. It also names two entirely different asks in one sentence, which tells the reader the problem hasn''t been diagnosed.\n\nThe transferable test: **could this come back badly?** B can. A, C and D are constructed so that no ninety-day result could falsify them — and an executive who has funded a few of those has learned to recognize the shape."}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-recruiter-r7-rubric', 'ai301-recruiter-r7', 'rubric', '{"promptVersion":"ai301-recruiter-r7-the-case-v1","moduleId":"ai301-recruiter-r7","minWords":300,"maxWords":400,"submitLabel":"Your one-page case and the reckoning","intro":"Paste the one-page case — change, baseline, measure, owner, review date, trade — followed by the 300–400 word close including the calibration reckoning across all seven modules. This is the last submission in the track.","activityContext":"You are grading the CLOSING submission of AI 301 · The Specialist, Recruiting/TA track. Part 1: a one-page case for ONE change to the live requisition''s process, carrying six elements — a specific small change traceable to something the track surfaced, a measured baseline (or, if genuinely unavailable, what they''d start recording today to have one in 90 days, which is an acceptable and honest answer), a measure reportable at 90 days that IS CAPABLE OF COMING BACK BADLY, a named person as owner, an actual date, and what they''d stop doing to fund it. A case asking for something small and evaluable outscores an ambitious one; a measure that could only confirm the change worked is the failure to name. Part 2 is the reckoning across the track: predictions gathered from the modules completed, the systematic direction of miss named (over-crediting their existing process, under-crediting it, or scattered), and the final question — what they believe about hiring now that they didn''t in Module 1, specific enough that it couldn''t have been written beforehand. Generic closings (''AI is changing recruiting'') fail that question outright regardless of everything else. This track scores the delta, not the score: grade the honesty and specificity of the account of change, never the accuracy of any prediction. Learners who completed only some modules should be graded on the pattern in what they did complete.","opening":[{"key":"hmTrust","label":"Predicted — % of your hiring managers who''d call your team''s AI-assisted output trustworthy","hint":"The last prediction of the course. Answer honestly.","placeholder":"e.g. 60","min":0,"max":100}],"calibration":[{"key":"hmTrustActual","label":"Your revised estimate, having finished the track","hint":"If it moved, the reckoning should say why.","placeholder":"e.g. 45","min":0,"max":100,"actualFor":"hmTrust"}],"dimensions":[{"name":"The case has all six elements","criteria":"Change, baseline, measure, owner (a person, not a team), review date (an actual date), and the trade. A missing baseline is only acceptable with a stated plan to have one in 90 days. Check that the measure could come back badly — one that can only confirm should be named as the failure it is."},{"name":"It asks small and names the trade","criteria":"One change to one stage, traceable to something the track surfaced, and small enough that an executive could evaluate rather than merely believe it. The stated trade — what stops to fund it — converts the ask from additional resource into reallocation and is the strongest single move in the case."},{"name":"The reckoning names a direction","criteria":"Predictions gathered across the modules completed, with the systematic direction of miss named and a real attempt to explain why their reading leaned that way. Accuracy is never graded; a learner who missed badly in a consistent direction and can account for it scores at the top."},{"name":"What changed, specifically","criteria":"The heaviest dimension in the track. Something they believe about hiring now that they didn''t in Module 1, specific enough that it could not have been written beforehand. Generic closings fail this outright. Also grades the position on the claim, including its counter-argument that baselines are a luxury of stable environments and insisting on one can function as delay."}]}', '2026-08-12');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-recruiter-r7-knowledge_check', 'ai301-recruiter-r7', 'knowledge_check', '{"title":"Knowledge check — 6 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"Why does workslop cost a recruiter more than it costs most other functions? `[V]`","options":["Recruiters produce more written output than other functions","The recipient is the hiring manager, whose trust is the input to intake — and intake is the highest-leverage hour in the function","Recruiting output is more likely to be publicly visible","Candidates can detect AI-generated communication easily"],"correctIndex":1,"explanation":"~42% of recipients trust the sender less afterwards, and your recipient is the person whose willingness to give you forty-five honest minutes determines whether everything downstream works. It''s a trust balance you draw down with every unread-worthy send."},{"id":"q2","prompt":"Which element of the one-page case is usually missing, and why does its absence sink the proposal?","options":["The owner — proposals often name a team rather than a person","The review date — teams avoid committing to a verdict","The baseline — without a before-number, success is unprovable and the request is indistinguishable from a preference","The measure — most cases choose one that can''t come back badly"],"correctIndex":2,"explanation":"And it''s why Module 5''s capture layer matters: you cannot retroactively measure what you didn''t record. A, B and D are real failures, and D is a close second — a measure that can only confirm was never a measure."},{"id":"q3","prompt":"What makes a case land harder with an executive?","options":["Framing it as a transformation programme with a multi-year horizon","Asking for something small enough to be believed, and naming what you''d stop doing to fund it","Benchmarking against what competitors are doing","Including vendor case studies as supporting evidence"],"correctIndex":1,"explanation":"Small can be evaluated; large can only be believed. And naming the trade converts a request for additional resource into a reallocation, which is a far easier approval."},{"id":"q4","prompt":"What''s the failure mode in the headcount conversation with your team?","options":["Sharing too much detail about executive discussions","False comfort — \"nothing''s going to change\" is a sentence they''ll remember when something does, and it costs the credibility you need to lead through it","Moving too quickly to reassign responsibilities","Involving HR before the situation is clear"],"correctIndex":1,"explanation":"The honest version has three parts: coordination is compressing, judgment work survives, here''s how we move — and then you have to actually reallocate the freed time visibly, or the statement was a slogan."},{"id":"q5","prompt":"What does the module say about the limits of evidence in the headcount conversation with an exec?","options":["Evidence reliably prevents ratio changes when it''s strong enough","Evidence is irrelevant to headcount decisions, which are made on budget alone","Evidence influences who is kept and what the remaining function is asked to do — which is worth influencing, and isn''t the same as control","Evidence matters only when presented by the CHRO rather than TA"],"correctIndex":2,"explanation":"The honest limit. Ratios move for reasons unrelated to your case; what your record changes is the shape of what survives. Overpromising here would be the same error the module warns against with your team."},{"id":"q6","prompt":"What does the module say a TA function''s product actually is?","options":["Filled requisitions, delivered at or below target time-to-fill","Qualified pipeline delivered to hiring managers","Decisions nobody has to redo","Candidate experience that protects the employer brand"],"correctIndex":2,"explanation":"A hire that works out is a decision that stays made; one that doesn''t gets made again at full cost eighteen months later. It''s the only version of the function that requires judgment, which is the version that survives compression — and with Module 5''s record, the one you can prove."}]}', '2026-08-12');

@@ -1,0 +1,19 @@
+{
+  "reviewedAt": "2026-08-12",
+  "title": "Four cases on the CFO's desk",
+  "intro": "*Five minutes. Commit before you look.*\n\nFour TA leaders each asked for roughly the same money this quarter. **One gets funded.**\n\nDon't ask which is most deserving. Ask which one an executive could evaluate — and which ones they could only believe or not.",
+  "artifacts": [
+    { "label": "Case A", "body": "\"AI is transforming talent acquisition and we risk falling behind competitors who have already adopted. We're requesting £60k for an AI sourcing and screening platform to modernize our function and improve efficiency across the funnel.\"" },
+    { "label": "Case B", "body": "\"Our technical screen advances 71% of candidates and 68% of those fail the panel — so it's costing 3.2 recruiter hours per hire and predicting almost nothing. I want to replace it with a 40-minute live working session for engineering reqs only. Baseline: current screen-to-panel pass correlation, measured over the last 40 hires. Measure at 90 days: same correlation, plus panel time saved. Owner: me. Review: 14 November. To fund it I'm dropping the quarterly sourcing-channel report nobody has referenced in two quarters.\"" },
+    { "label": "Case C", "body": "\"We've reduced time-to-fill by 22% and increased applications per req by 40% since adopting AI screening. We're requesting £60k to extend the platform to all requisitions.\"" },
+    { "label": "Case D", "body": "\"The team is at breaking point — we're carrying 40% more reqs than last year with the same headcount, and people are burning out. We need either two more recruiters or £60k of tooling to take the pressure off.\"" }
+  ],
+  "options": [
+    { "id": "a", "label": "Case A" },
+    { "id": "b", "label": "Case B" },
+    { "id": "c", "label": "Case C" },
+    { "id": "d", "label": "Case D" }
+  ],
+  "key": "b",
+  "reasoning": "**B gets funded, and notice it asks for the least.** All four elements are there: a measured baseline (40 hires of real correlation data), a measure reportable at 90 days that **can come back badly** — if the live session doesn't predict better, that shows — a named owner, a real date, and a stated trade. It's also small: one stage, one req type. An executive can evaluate it, which is the only property that matters here. And the baseline exists because somebody built Module 5's record.\n\n**A is a preference with a price attached.** \"Transforming,\" \"risk falling behind,\" \"improve efficiency\" — no baseline, no measure, no date, and the argument is Module 1's manufactured urgency read back verbatim. It can only be believed or not believed.\n\n**C is the seductive one, because it has numbers.** But look at which: time-to-fill and application volume are precisely the two metrics Module 5 says to stop headlining — one improves by lowering the bar, the other went *up because signal went down*. A 40% increase in applications is a report that the collapse reached you, presented as an achievement. It's also asking to extend a system whose effect on hire quality nobody measured.\n\n**D is the plea.** Effort, volume, and burnout are real and every function makes the same argument — which is exactly why it doesn't survive a budget meeting. It also names two entirely different asks in one sentence, which tells the reader the problem hasn't been diagnosed.\n\nThe transferable test: **could this come back badly?** B can. A, C and D are constructed so that no ninety-day result could falsify them — and an executive who has funded a few of those has learned to recognize the shape."
+}

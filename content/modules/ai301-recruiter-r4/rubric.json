@@ -1,0 +1,17 @@
+{
+  "promptVersion": "ai301-recruiter-r4-redesign-loop-v1",
+  "moduleId": "ai301-recruiter-r4",
+  "minWords": 250,
+  "maxWords": 350,
+  "submitLabel": "Your redesigned loop, the policy, and the write-up",
+  "intro": "Paste the before-and-after loop with fakeability scores, the candidate-facing AI policy (under 150 words), and the 250–350 word write-up including your position on this module's claim.",
+  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, Recruiting/TA track. Module 4 applied activity, 'Redesign the loop': the live requisition's loop rescored 0-3 per stage on what it costs a faker (carried from Module 1), then rebuilt so at least one stage before the final scores 2+, using three moves — work-sample-first and observed, live defence over polished submission, follow-up depth over question breadth. CONSTRAINTS THAT MATTER: each change must map to a named competency from their Module 3 scorecard (a change that maps to nothing is a preference, not a design), and NO STAGES MAY BE ADDED — lengthening a loop is a real cost to candidates and an escalation rather than a redesign, so a submission that adds a stage should be marked down and told why. Then a candidate-facing AI policy under 150 words, written as it would appear in an invitation email, committing to ban-and-verify or require-and-grade. Incoherence — a stated ban with no stage that enforces it — is the failure this module exists to prevent and must be named if present. Finally they compare their opening ranking of five selection methods against the corrected validity table. This track scores the delta, not the score: never grade ranking accuracy, grade what they say the inversion reveals.",
+  "opening": [],
+  "calibration": [],
+  "dimensions": [
+    { "name": "The redesign costs a faker something", "criteria": "At least one non-final stage moves to 2+, with the cost named specifically — time that can't be compressed, presence that must be supplied, or specificity that was never written down. 'More rigorous' or 'harder' without naming the cost fails this dimension." },
+    { "name": "It maps to the scorecard, and adds nothing", "criteria": "Every change tied to a named competency from Module 3. No stages added — a longer loop is an escalation and a cost to candidates; if the learner added one, say so and ask what they'd remove. The strongest submissions remove a stage to make room." },
+    { "name": "The policy is coherent and under 150 words", "criteria": "A committed fork stated in plain language a candidate would actually understand, in invitation-email voice. A ban with no structurally enforcing stage is incoherence and must be named. Check it says what candidates should expect rather than what they're forbidden — and that it would be seen before the assessment, not in fine print." },
+    { "name": "The inversion and the position", "criteria": "Which pair of methods they ranked backwards and what that reveals about the hiring model they'd been carrying — most people invert cognitive ability and structured interviews, which is the field's own former consensus rather than a personal error, and saying so is a good answer. Plus a position on the claim engaging its real counter-argument: that for content, communications and customer-facing roles, polish IS the work and a polished application is a valid work sample." }
+  ]
+}

@@ -273,6 +273,93 @@
         "ai301-hrbp-m4"
       ],
       "microMinutes": 2
+    },
+    {
+      "id": "ai301-recruiter-r1",
+      "courseId": "ai301-recruiter",
+      "ordinal": 1,
+      "title": "What broke",
+      "blurb": "The two-sided collapse of signal cost, the symmetry rule, and why detection is a screening decision about people.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-recruiter-r2",
+      "courseId": "ai301-recruiter",
+      "ordinal": 2,
+      "title": "Sorting your own job",
+      "blurb": "Throughput, insight, redesign — plus the archetype split that reverses every piece of advice.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-recruiter-r1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-recruiter-r3",
+      "courseId": "ai301-recruiter",
+      "ordinal": 3,
+      "title": "The highest-leverage hour is intake",
+      "blurb": "Errors here compound and everything downstream inherits them. Four artifacts from one conversation, then get it marked wrong.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-recruiter-r2"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-recruiter-r4",
+      "courseId": "ai301-recruiter",
+      "ordinal": 4,
+      "title": "Designing signal that's expensive to fake",
+      "blurb": "The corrected selection science, three design moves, and the candidate AI policy where incoherence is the only losing choice.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-recruiter-r3"
+      ],
+      "microMinutes": 3
+    },
+    {
+      "id": "ai301-recruiter-r5",
+      "courseId": "ai301-recruiter",
+      "ordinal": 5,
+      "title": "The closed loop",
+      "blurb": "Instrument, capture, analyze, feed back — and the one asset in recruiting you can't rent.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-recruiter-r2"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-recruiter-r6",
+      "courseId": "ai301-recruiter",
+      "ordinal": 6,
+      "title": "The floor and the audit",
+      "blurb": "Bias-audit regimes, the agent theory, and computing a selection rate so an audit is a control rather than a document.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [],
+      "microMinutes": 3
+    },
+    {
+      "id": "ai301-recruiter-r7",
+      "courseId": "ai301-recruiter",
+      "ordinal": 7,
+      "title": "Arguing for your function",
+      "blurb": "Workslop lands on the hiring manager, the one-page case, and the headcount conversation with your team and your exec.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-recruiter-r5"
+      ],
+      "microMinutes": 2
     }
   ],
   "courses": [
@@ -295,6 +382,13 @@
       "title": "AI 301 · The Specialist — HRBP",
       "level": "L3 → L4",
       "blurb": "Judgment work: the HR business partner's role in depth. AI is improving HR's production, not HR's judgment — this course is about the second thing.",
+      "status": "open"
+    },
+    {
+      "id": "ai301-recruiter",
+      "title": "AI 301 · The Specialist — Recruiting",
+      "level": "L3 → L4",
+      "blurb": "Rebuilding the signal: the cost of producing a credible application collapsed on both sides of the table at once. This course is about building signal that's expensive to fake.",
       "status": "open"
     },
     {
