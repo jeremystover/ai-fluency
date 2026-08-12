@@ -162,6 +162,36 @@ by someone else three weeks later, costs you the next five.
 > that differs from what its name implies. If you can't answer the first, you've found this
 > week's most useful question for your HRIS or analytics partner.
 
+## Lesson 3b · When they arrive with their own analysis
+
+Increasingly the leader you are briefing has already asked a model the same question and has an
+answer — **and it is more confident than yours**, because it has no alternatives list, no stated
+limitation and no small-numbers caveat. The absence of all three reads as clarity.
+
+**What does not work:** more rigour, a longer methods note, or your credentials. Nobody in the room
+can adjudicate a methods dispute, so it resolves on confidence, and you have deliberately spent
+yours on caveats.
+
+**Three moves, in order.**
+
+**Locate the definitional difference in one sentence.** Not the method — the *decision*. "Ours
+counts internal transfers as attrition, theirs almost certainly doesn't, and that is most of the
+gap." This is why written definitions matter: with them you can locate a disagreement instead of
+having one.
+
+**Name one confound in theirs, specifically.** Not "there are limitations," which sounds defensive
+and generic. *"That comparison is between people who volunteered for the programme and people who
+didn't."* One sentence, one mechanism, checkable.
+
+**Then offer the resolution, not the rebuttal.** *"Here's what would settle it, and it would take
+two weeks."* That converts a status contest into a question, which is the only frame where being
+right helps you.
+
+**And the case to prepare for: they are right and you are wrong.** Conceding immediately,
+specifically, in front of the same audience is the highest-return move available to you — it is the
+strongest evidence that your objections are about the evidence rather than your position, and that
+is the whole basis of being believed the next time you object.
+
 ## Lesson 4 · Small numbers
 
 Your unit is ninety people. The team you're worried about is six.
@@ -192,6 +222,21 @@ cannot support a quantified claim at all.** Then your contribution is the qualit
 explicitly as such — which is a different and more defensible thing than a quantitative case built
 on six people.
 
+**And the other reason you will be told no — which is not statistical.** When you ask People
+Analytics for engagement results for that six-person team, the refusal you get is usually about
+**disclosure**, not sample size. Published results carry a minimum cell size because respondents
+were promised confidentiality, and the promise has a number under it. Worse, the threshold applies
+to *everything already published together*: a cut by function and a cut by function-and-tenure can
+each clear it and still **subtract to one person's answer.** Nobody's permissions were violated;
+the individual was identified anyway.
+
+That is a professional obligation on their side, not obstruction, and knowing it changes the ask.
+**Do not ask for the cut — ask for the question.** *Is there anything in this team's results I
+should act on?* can often be answered by someone who has seen the data and is permitted to
+characterise it, when the table itself can never be released. If you read the refusal as
+gatekeeping you will escalate it, win, and destroy the confidentiality promise that makes next
+year's survey worth running.
+
 ## Key takeaways
 
 - **A story and a model are different objects.** Only a model can be argued with, and being
@@ -210,6 +255,13 @@ on six people.
 - **Small numbers demand the n in the sentence, a stated coincidence test, and direction over
   magnitude.** Sometimes the honest answer is that the population can't support a quantified
   claim, and saying so is stronger than manufacturing one.
+- **When a leader arrives with their own analysis, locate the definitional difference, name one
+  confound specifically, then offer what would settle it.** More rigour loses to more confidence;
+  a checkable question does not. And if they are right, concede immediately and in front of the
+  same audience — that is what buys your next objection.
+- **A refusal to give you results for a team of six is usually about disclosure, not sample size.**
+  Minimum cell sizes protect a promise made to respondents, and separately-published cuts can
+  subtract to one person. Ask for the question answered, not the table released.
 
 ## Take a position
 

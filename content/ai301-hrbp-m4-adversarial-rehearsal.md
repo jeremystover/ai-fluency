@@ -188,6 +188,39 @@ rule applies: **you're checking against something outside the model — your own
 organization — not asking the model to confirm itself.** "Are you sure?" is as useless here as it
 was there.
 
+## Lesson 5 · Calibration is a room you design
+
+Everything so far has you using a model on your own argument. Calibration inverts that: you are not
+the advocate, you are the person who built the room. And it is the highest-stakes room an HRBP
+designs, because what comes out of it is a permanent record about people's careers.
+
+**Most organisations treat calibration as a meeting. It is an instrument.** The evidence that counts
+as admissible, who is allowed in, how a disagreement gets closed, what gets written down — those are
+design decisions, and if nobody made them deliberately they got made by whoever talks most.
+
+A model is genuinely useful on three of those and must be kept off the fourth.
+
+**It can surface outliers.** Which managers rate consistently high, which teams' distributions moved
+this cycle, where a rating and the written evidence for it point different ways. That is pattern
+work over text and numbers, done faster and more evenly than a room can do it.
+
+**It can prepare the record.** Draft the evidence summaries in one shape, so the room compares
+comparable things instead of comparing writing quality — which is a real and under-noticed source of
+rating noise.
+
+**It can rehearse the hard case**, in exactly the way Lesson 2 describes: run the argument for a
+rating against the strongest objection to it before the meeting rather than during.
+
+**It may not resolve a disagreement between two managers about a person.** This is the same line the
+ER work draws, applied to ratings instead of witness accounts: *a model may locate conflicts; only a
+human may resolve them.* The tell is not the sophistication of the output — the output will be
+reasonable. It is that a rating is a decision about someone with consequences they can contest, and
+the answer to *who decided this* has to be a person who can be asked why.
+
+**The practical version:** write down what the model was allowed to do before the cycle, not after
+someone objects. A rule you can state in advance is a design. A rule you produce afterwards is a
+defence.
+
 ## Key takeaways
 
 - **The property that makes AI risky everywhere else makes it useful here**: it will argue any
@@ -205,6 +238,10 @@ was there.
   rather than a list, ask what you're avoiding asking, and start fresh without your own framing.
 - **A wrong objection is still data.** Trace how it got there: a false inference from your written
   plan is a communication defect you found for free.
+- **Calibration is an instrument, not a meeting.** A model may surface outliers, standardise the
+  evidence summaries and rehearse the hard case; it may not close a disagreement between two
+  managers about a person. Write down which before the cycle — a rule stated in advance is a
+  design, a rule produced afterwards is a defence.
 
 ## Take a position
 

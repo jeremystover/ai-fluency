@@ -147,10 +147,13 @@ measure how far the learner moved and whether they can account for it.
   directive requires.
 - **Interactive:** sorting — ten uses across comp and benefits: run it / run it with the record /
   never.
-- **Activity:** *"The operating policy"* — your team's actual written AI policy: red lines,
-  approved uses, review checkpoints, escalation path. Roughly 1% of organizations have one `[V]`;
-  the learner leaves with a draft. **Calibration:** predict how many of your peers' organizations
-  have one.
+- **Activity:** *"The operating policy"* — not a whole-organization AI policy but the comp and
+  benefits **appendix** to one: red lines, approved uses, review checkpoints, escalation path.
+  ~~Roughly 1% of organizations have one~~ — **corrected in verification: 68% of employers have a
+  formal AI policy** `[V]`, so existence is not the differentiator. The gap is **clarity and
+  function-specificity** — about a quarter of policy-holders believe theirs is clear, and 44% of US
+  workers report none or don't know. **Calibration:** predict the share of employers with a written
+  policy, and the share who think theirs is clear.
 - **Claim:** *"'The tool recommended it' is not a defense anywhere in HR. Where you hold a
   fiduciary duty, it's an admission."*
 
@@ -226,8 +229,10 @@ measure how far the learner moved and whether they can account for it.
 6. **The refusal is stated in the content, not just the outline.** The course opens by saying what
    it will not teach. That's a credibility move for this audience and it's true.
 7. **Verification: done, and it changed two modules.** See the verification record below.
-   Outstanding and still blocking: ERISA fiduciary specifics, US state pay-transparency regimes,
-   and whatever pay-equity-product claims we end up citing.
+   **All items subsequently resolved — nothing shipped unverified.** ERISA fiduciary specifics and
+   US state pay-transparency regimes were closed in the second pass (see *Verified before drafting
+   M4*). Pay-equity-product claims were **avoided rather than resolved**: M4's method lesson cites
+   no vendor product statistics, so the blocking item never became load-bearing.
 
 ## Open question: the time budget
 

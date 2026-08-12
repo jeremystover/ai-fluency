@@ -213,6 +213,39 @@ measurement you currently run.
 If you route it, route it knowing that. And if you route it, put something else on the calendar that
 serves the relationship, or accept that you have removed it.
 
+## Lesson 5 · The agreement problem
+
+One more thing the machine produces and cannot finish — and it is the one most likely to land on
+your desk this year, because it looks like a win.
+
+Ask a model for a capability framework for your organisation and you will get a good one. Coherent,
+well-levelled, better written than most in production, in about ninety seconds. The same is true of
+a rating rubric, a set of learning outcomes, a competency dictionary. **These artifacts are now
+free.**
+
+Then watch what happens to it. It goes to a leadership group, and somebody says *"that's not what we
+mean by judgment here,"* and somebody else says *"level 3 and level 4 are the same thing,"* and six
+months later there is a framework in production that is worse-written than the generated one and
+that people actually use. **The rewriting was not the point. The arguing was.**
+
+Here is the structure, and it generalises well beyond frameworks: **the artifact was never the
+scarce thing. The agreement was** — and the agreement is what made it operative. A framework is not
+a document, it is a set of commitments about what the organisation will reward, made by people with
+enough standing that others treat them as settled. You cannot generate standing.
+
+This has a sharp consequence for how you use the free version, and it is not *don't*. **Use it as a
+draft to argue with, and be explicit that this is what it is.** A generated framework put in front
+of a leadership team as a starting position gets you to the argument faster, which is real value.
+The same document circulated as *the new framework* skips the argument, and a framework nobody
+argued about is one nobody is committed to — it will be ignored in exactly the moments it was built
+for.
+
+**And the reason this bites harder here than in comp:** a pay structure has an external referent.
+You can benchmark it, and the market can tell you you are wrong. A competency framework and a
+definition of potential have no external referent at all. **They are true because the organisation
+agreed they were.** That makes agreement not a soft step before rollout but the entire source of the
+instrument's validity — which is why the free artifact saved you the cheapest part.
+
 ## Key takeaways
 
 - **Two studies, one researcher, opposite headlines** `[V]`. A narrow goal-attainment application
@@ -235,6 +268,10 @@ serves the relationship, or accept that you have removed it.
   run, or you have chosen not to see it.
 - **Routing development conversations to a tool may preserve the content and remove the occasion** —
   and the occasion was doing most of the work.
+- **The artifact was never the scarce thing — the agreement was.** A generated competency
+  framework is good and free; what made the old one operative was that people with standing
+  argued about it and then treated it as settled. Use the free version as a draft to argue with,
+  and say that is what it is.
 
 ## Take a position
 

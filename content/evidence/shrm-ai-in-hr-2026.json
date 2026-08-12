@@ -1,0 +1,42 @@
+{
+  "id": "shrm-ai-in-hr-2026",
+  "asOf": "2025-12-23",
+  "lastVerified": "2026-08-12",
+  "source": "SHRM, The State of AI in HR 2026",
+  "sample": "1,722 HR professionals (completed responses), fielded 5–23 December 2025 via SHRM's Voice of Work Research Panel",
+  "sampleNote": "1,908 STARTED the survey; 1,722 completed. The analytic sample is 1,722. Both numbers are real and they are not interchangeable — using 1,908 as the sample overstates it. Five modules across three tracks carried 1,908 before the first library pass.",
+  "claims": [
+    {
+      "claim": "Reported AI use concentrates in recruiting 27%, HR technology management 21%, learning and development 17%, employee experience 14%",
+      "figure": "27/21/17/14"
+    },
+    {
+      "claim": "54% of organizations have implemented no AI in HR and have no plans to in 2026",
+      "figure": "54%"
+    },
+    {
+      "claim": "51% of organizations have no formal AI use policy",
+      "figure": "51%",
+      "see": "ai-policy-prevalence"
+    },
+    {
+      "claim": "52% of organizations have no direct HR involvement in overall AI strategy",
+      "figure": "52%"
+    }
+  ],
+  "cautions": [
+    "'Use cases' counts where organizations report applying AI, not what share of work is machine-made. Establishes concentration, not depth."
+  ],
+  "citedBy": [
+    "ai301-hrbp-m1",
+    "ai301-hrbp-m2",
+    "ai301-peopleops-m1",
+    "ai301-peopleops-m3",
+    "ai301-peopleops-m8",
+    "ai301-ler-l1",
+    "ai301-talent-dev-m1",
+    "ai301-cpo-m2",
+    "ai301-cpo-m3",
+    "ai301-cpo-m5"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "ai-policy-prevalence",
+  "asOf": "2026-05-31",
+  "lastVerified": "2026-08-12",
+  "source": "Two instruments — see below",
+  "sample": "see per-claim",
+  "reconciliation": "These look contradictory and are not. Littler surveys EMPLOYERS on whether a formal AI policy exists anywhere in the organization. SHRM surveys HR PROFESSIONALS on whether a formal AI USE policy governs workforce use. Different populations, different question. Both may be cited; neither may be paraphrased as 'the share of organizations with an AI policy' without saying which instrument.",
+  "claims": [
+    {
+      "claim": "68% of employers have a formal AI policy, roughly double the 38% a year earlier",
+      "figure": "68%",
+      "source": "Littler, May 2026 Annual Employer Survey"
+    },
+    {
+      "claim": "51% of organizations have no formal AI use policy at all",
+      "figure": "51%",
+      "source": "SHRM, State of AI in HR 2026",
+      "sample": "1,722 HR professionals"
+    },
+    {
+      "claim": "Of organizations that have a policy, about a quarter believe it is clear and future-proof; 54% say theirs is too restrictive and tied to specific current tools; a further 23% say theirs is too broad to guide behaviour",
+      "figure": "~25% / 54% / 23%",
+      "source": "SHRM"
+    },
+    {
+      "claim": "44% of US workers say their employer has no clear AI policy, or they do not know whether one exists",
+      "figure": "44%"
+    }
+  ],
+  "cautions": [
+    "The failed figure: '~1% of organizations have a written AI policy' does NOT hold and must never be used. It appears in no shipped module; it survived only in a comp outline bullet until C-06."
+  ],
+  "citedBy": [
+    "ai301-comp-m4",
+    "ai301-peopleops-m3"
+  ]
+}

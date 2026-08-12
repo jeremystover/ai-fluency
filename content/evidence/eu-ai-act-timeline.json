@@ -1,0 +1,51 @@
+{
+  "id": "eu-ai-act-timeline",
+  "asOf": "2026-07-27",
+  "lastVerified": "2026-08-12",
+  "source": "Regulation (EU) 2026/1744 (the Digital Omnibus on AI); Regulation (EU) 2024/1689 (the AI Act)",
+  "sample": null,
+  "claims": [
+    {
+      "claim": "Annex III high-risk obligations — where employment sits — moved from 2 August 2026 to 2 December 2027 by the Digital Omnibus on AI, Regulation (EU) 2026/1744, published in the Official Journal 24 July 2026 and in force 27 July 2026",
+      "figure": "2 December 2027",
+      "canonicalWording": "Always name the instrument. 'December 2027' alone is insufficient — two tracks carried the bare date before the first library pass."
+    },
+    {
+      "claim": "The deferral is not a repeal, and it did not move Article 50",
+      "figure": null
+    },
+    {
+      "claim": "Article 50 transparency duties — including disclosing at first point of contact that a person is interacting with an AI system — became enforceable 2 August 2026, independent of high-risk classification, and catch an organization running only a chatbot",
+      "figure": "2 August 2026",
+      "penalties": "up to €15M or 3% of worldwide turnover"
+    },
+    {
+      "claim": "AI literacy obligation and the workplace emotion-recognition prohibition in force since February 2025",
+      "figure": "February 2025"
+    },
+    {
+      "claim": "Article 26 deployer duties include use per instructions, competent human oversight assigned to a named person, input-data governance, logs retained at least six months, and incident notification — and cannot be contracted away",
+      "figure": "6 months"
+    },
+    {
+      "claim": "Article 25 transfers provider obligations to a deployer who puts its name on a high-risk system, substantially modifies one, or changes its intended purpose so it becomes high-risk",
+      "figure": null
+    },
+    {
+      "claim": "Article 26(7) works council obligations bind now",
+      "figure": null
+    }
+  ],
+  "citedBy": [
+    "ai301-analytics-m5",
+    "ai301-cpo-m5",
+    "ai301-defensible-m1",
+    "ai301-excomms-m6",
+    "ai301-hrbp-m6",
+    "ai301-ler-l7",
+    "ai301-peopleops-m4",
+    "ai301-peopleops-m7",
+    "ai301-recruiter-r6",
+    "ai301-talent-dev-m5"
+  ]
+}

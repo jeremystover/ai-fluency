@@ -45,9 +45,56 @@ export const ROLE_CHOICES: RoleChoice[] = [
     track: 'ai301-analytics',
   },
   {
+    id: 'peopleops',
+    label: 'People Ops & HR Technology',
+    detail: 'The HCM, the integrations, lifecycle transactions, the employee support queue — and every AI feature that arrives switched on in a system you already own.',
+    track: 'ai301-peopleops',
+  },
+  {
+    id: 'ler',
+    label: 'Labor & Employee Relations',
+    detail: 'Investigations, employee relations, discipline and grievance, labor relations and bargaining — contested accounts and the records that outlive them.',
+    track: 'ai301-ler',
+  },
+  {
+    id: 'talentdev',
+    label: 'Talent Development / L&D',
+    detail: 'Learning design and delivery, curriculum and programmes, leadership development, the learning platform — deciding what gets built and whether it worked.',
+    track: 'ai301-talent-dev',
+  },
+  {
+    id: 'excomms',
+    label: 'Employee Experience & Internal Comms',
+    detail: 'Internal communications, employee experience and engagement programmes, the intranet and knowledge layer, manager enablement.',
+    track: 'ai301-excomms',
+  },
+  {
+    // Named for the capability rather than the function: the track is adverse
+    // impact testing and AEDT governance, not inclusion programming — and a
+    // "DEI"-titled course is a deployment blocker for some federal contractors.
+    id: 'defensible',
+    label: 'Pay Equity & Algorithmic Fairness',
+    // Named for the capability, not the function — a DEI-titled course is a
+    // deployment blocker for some federal contractors. But a DEI lead has to
+    // recognise themselves here or they pick `other`, so the discipline names
+    // live in the detail line where they aid routing without titling the course.
+    detail: 'Adverse impact testing, pay equity analysis, bias auditing and AEDT governance — owning whether the organisation’s people decisions can be defended. Where DEI measurement, equity analytics or algorithmic fairness sits with you, this is your track.',
+    track: 'ai301-defensible',
+  },
+  {
+    id: 'cpo',
+    label: 'CPO / CHRO / Head of People',
+    detail: 'Leading the function — the scope fight, the operating model, the cut you have to make credibly, and the number you will be held to.',
+    track: 'ai301-cpo',
+  },
+  {
+    // Talent management routes here deliberately rather than to a track of its
+    // own — see content/course-301-talent-management-exploration.md. The
+    // business partner track is the right landing: it owns calibration and
+    // contested judgment, which is the half of that job AI actually changes.
     id: 'other',
     label: 'Something else in People',
-    detail: "Talent development, employee experience, People ops, or leading the function. Tell us below — you'll start on the business partner track while yours is built.",
+    detail: "Talent management, org development, or something we haven't listed. Tell us below — you'll start on the business partner track, which is where calibration and contested judgment live.",
     track: DEFAULT_TRACK,
   },
 ];

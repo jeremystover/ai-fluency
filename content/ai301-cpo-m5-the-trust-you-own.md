@@ -374,7 +374,7 @@ acted.** That answer is common and it is the most useful thing in the submission
   in AI strategy; 28% regarding HR as a true strategic leader; 19% strategic partner still excluded
   from core decision forums; and, among organizations using or piloting AI, approximately 49% with a
   policy regulating workforce AI use, of which about a quarter believe it is clear and durable.
-  Survey of 1,908 HR professionals, fielded December 2025. **Same wording as Modules 2 and 3 and the
+  Survey of 1,722 HR professionals, fielded 5–23 December 2025. **Same wording as Modules 2 and 3 and the
   HRBP track**, deliberately, so the volatile copies do not drift.
 - **EU AI Act and the Digital Omnibus** `[V]` — Annex III employment classification deferred to
   2 December 2027 by **Regulation (EU) 2026/1744**, published 24 July 2026 and in force 27 July

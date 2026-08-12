@@ -113,7 +113,7 @@ the right end, and Modules 3 through 5 are what stops you from getting hurt in b
 
 The reason this track cannot open the way the others do.
 
-**Where AI actually landed in HR.** In SHRM's *State of AI in HR 2026* — a survey of 1,908 HR
+**Where AI actually landed in HR.** In SHRM's *State of AI in HR 2026* — a survey of 1,722 HR
 professionals fielded in December 2025 — reported AI use concentrates in recruiting (27%), HR
 technology (21%), **learning and development (17%)**, and employee experience (14%). L&D is third
 of sixteen practice areas, and the three ahead of or alongside it are all places where the work is
@@ -374,7 +374,7 @@ reading instead of the catalog when you formed it.**
 
 - **SHRM, *The State of AI in HR 2026*** — the practice-area concentration of reported AI use:
   recruiting 27%, HR technology 21%, learning and development 17%, employee experience 14%. Survey
-  of 1,908 HR professionals, fielded December 2025. The same survey is cited in the HRBP track; the
+  of 1,722 HR professionals, fielded 5–23 December 2025. The same survey is cited in the HRBP track; the
   phrasing here is deliberately consistent with it so the two do not drift. **[V]**
 - **LinkedIn, *Workplace Learning Report 2025*** — approximately 71% of L&D professionals
   experimenting with or integrating AI. The in-lesson caveats about what "use cases" and

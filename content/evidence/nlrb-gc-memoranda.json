@@ -1,0 +1,25 @@
+{
+  "id": "nlrb-gc-memoranda",
+  "asOf": "2025-02-14",
+  "lastVerified": "2026-08-12",
+  "source": "NLRB General Counsel memoranda GC 23-02 and GC 25-05",
+  "sample": null,
+  "claims": [
+    {
+      "claim": "GC 23-02, issued 31 October 2022, addressed electronic monitoring and algorithmic management of employees and their impact on Section 7 rights",
+      "figure": "31 October 2022"
+    },
+    {
+      "claim": "GC 23-02 was rescinded on 14 February 2025 in GC 25-05, among 29 memoranda withdrawn at once by the Acting General Counsel",
+      "figure": "29 memoranda",
+      "canonicalWording": "Twenty-nine, not thirty-one. One track carried 31 before the first library pass."
+    }
+  ],
+  "cautions": [
+    "Rescission of guidance is not repeal of doctrine — the underlying Section 7 analysis survives the memorandum. Same shape as the EEOC guidance withdrawal in ai101-m7."
+  ],
+  "citedBy": [
+    "ai301-excomms-m7",
+    "ai301-ler-l7"
+  ]
+}

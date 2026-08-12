@@ -341,7 +341,7 @@ predicted calendar split was flattering. Most people's is, in the same direction
 
 - **The concentration of reported AI use in HR** `[V]` — recruiting, HR technology, learning and
   development, and employee experience as the leading practice areas, from SHRM's *State of AI in HR
-  2026* (n=1,908, fielded December 2025). Cited here only to support the observation that the
+  2026* (n=1,722, fielded 5–23 December 2025). Cited here only to support the observation that the
   leading areas are operating-system functions; **the same survey is used with the same phrasing in
   the HRBP and Talent Development tracks** so the volatile copies do not drift.
 - **The three tiers, the compression thesis, the information-to-nerve argument, and the

@@ -207,12 +207,18 @@ in employment decisions, states expressly that employers may not use AI in ways 
 and **prohibits the use of zip codes as proxies for protected classes.** That proxy prohibition is
 the first time a US state has named the mechanism rather than the outcome.
 
-**Colorado — not what you have been told.** Colorado's AI Act (SB 24-205) is routinely described as
-the comprehensive state regime that arrived. It was **postponed to June 2026** following a failed
-special session, and separately **a federal court paused enforcement on 27 April 2026** pending
-litigation. It is stalled twice over. **If your compliance plan names Colorado as the operative
-state standard, it is built on something that is not currently operating** — and if you have been
-using Colorado to argue for budget, expect the first person who checks to notice.
+**Colorado — not what you have been told, and it is worse than stalled.** Colorado's AI Act
+(SB 24-205) is routinely described as the comprehensive state regime that arrived. It was
+**postponed to 30 June 2026** following a failed special session; **a federal magistrate blocked
+enforcement on 27 April 2026** pending a constitutional challenge; and then it was **repealed and
+replaced outright by SB 26-189, signed 14 May 2026** — a scaled-back **disclosure-and-rights**
+framework for automated decision-making technology, effective **1 January 2027**.
+
+**Postponed, enjoined, repealed and replaced inside thirteen months.** The date survived and the
+statute behind it did not. **If your compliance plan names Colorado as the operative state
+standard, it is built on something that no longer exists** — and if you have been using Colorado to
+argue for budget, expect the first person who checks to notice. The transferable lesson is Module
+2's: build an inventory that survives the statute, not a checklist keyed to one.
 
 **Connecticut — the one to prepare for**, and Module 2 covers it in detail. Its AEDT framework takes
 effect **1 October 2026**, with the principal compliance obligations following on **1 October 2027**.
@@ -277,7 +283,8 @@ employment decision — and if so, what disclosure did we give?*
   baselines cannot be reconstructed backwards.**
 - **States: California in force since 1 Oct 2025** (bias testing *or its absence* relevant to a
   claim; extended recordkeeping), **Illinois since 1 Jan 2026** (notice; zip codes prohibited as
-  proxies), **Colorado stalled twice** — postponed and enforcement-paused — and **Connecticut from
+  proxies), **Colorado repealed and replaced** — postponed, enjoined, then superseded by SB 26-189
+  effective 1 January 2027 — and **Connecticut from
   1 Oct 2026**.
 - **Two fronts.** *Mobley* is the discrimination front, in discovery, with a proxy-discrimination
   claim surviving. *Kistler* is an FCRA disclosure case that **doesn't allege bias at all** — a

@@ -231,7 +231,7 @@
       "title": "Adversarial rehearsal",
       "blurb": "Five adversaries, five sting moves, and the model's job is to attack your work rather than make it. The tutor is the surface.",
       "status": "open",
-      "estMinutes": 45,
+      "estMinutes": 50,
       "prereqs": [
         "ai301-hrbp-m2"
       ],
@@ -244,7 +244,7 @@
       "title": "Arguing with finance",
       "blurb": "A story loses to a model. Three you can build, the ways your HR data lies, and why small numbers demand the n in the sentence.",
       "status": "open",
-      "estMinutes": 40,
+      "estMinutes": 50,
       "prereqs": [
         "ai301-hrbp-m3"
       ],
@@ -257,7 +257,7 @@
       "title": "The line",
       "blurb": "The law about systems and the law about your documents: the patchwork, the agent theory, and ER documentation that survives discovery.",
       "status": "open",
-      "estMinutes": 45,
+      "estMinutes": 50,
       "prereqs": [],
       "microMinutes": 3
     },
@@ -512,6 +512,553 @@
         "ai301-analytics-m5"
       ],
       "microMinutes": 2
+    },
+    {
+      "id": "ai301-peopleops-m1",
+      "courseId": "ai301-peopleops",
+      "ordinal": 1,
+      "title": "The decision inventory",
+      "blurb": "Decisions, not tasks — and the register's six columns, including the reach × latency quadrant where the pitch and the danger occupy the same square.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-peopleops-m2",
+      "courseId": "ai301-peopleops",
+      "ordinal": 2,
+      "title": "How you'll know",
+      "blurb": "Baseline before deploy, why engagement is not change, the rework tax, and a written kill condition.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-peopleops-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-peopleops-m3",
+      "courseId": "ai301-peopleops",
+      "ordinal": 3,
+      "title": "The switch",
+      "blurb": "The pre-enablement review that decision never got — and why the contract is where the autonomy ladder's rungs are actually defined.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-peopleops-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-peopleops-m4",
+      "courseId": "ai301-peopleops",
+      "ordinal": 4,
+      "title": "The voice of the company",
+      "blurb": "AI speaking as the employer, unmediated. Deflection is the wrong metric, and notice to the bot is notice to you. Counsel review required.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-peopleops-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-peopleops-m5",
+      "courseId": "ai301-peopleops",
+      "ordinal": 5,
+      "title": "The foundation",
+      "blurb": "The one place AI sits unambiguously on the right side of the assist/decide line — and why the module's real content is the business case.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-peopleops-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-peopleops-m6",
+      "courseId": "ai301-peopleops",
+      "ordinal": 6,
+      "title": "What the assistant can reach",
+      "blurb": "The AI did not create the exposure; it gave it a search box. Summarization launders provenance, and you are the worst possible tester.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-peopleops-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-peopleops-m7",
+      "courseId": "ai301-peopleops",
+      "ordinal": 7,
+      "title": "Where to stop, and who signs",
+      "blurb": "Decision rights as design, deployer obligations as configuration settings, and the timing trap. Counsel review required.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-peopleops-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-peopleops-m8",
+      "courseId": "ai301-peopleops",
+      "ordinal": 8,
+      "title": "What the capacity buys",
+      "blurb": "Redeploy, don't strand — and the only capstone on the ladder that can legitimately end in “turn it off.”",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-peopleops-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-ler-l1",
+      "courseId": "ai301-ler",
+      "ordinal": 1,
+      "title": "The gap and the ladder",
+      "blurb": "The evidentiary ladder — observation, corroboration, inference, finding, determination — and where a model's permission changes at each rung.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-ler-l2",
+      "courseId": "ai301-ler",
+      "ordinal": 2,
+      "title": "Contested accounts",
+      "blurb": "A model may locate conflicts; only a human may resolve them. The line HRBP M6 approaches and declines to draw.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-ler-l1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-ler-l3",
+      "courseId": "ai301-ler",
+      "ordinal": 3,
+      "title": "The interview and the record",
+      "blurb": "What a transcript must never become, and the difference between what was said and what it means.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-ler-l1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-ler-l4",
+      "courseId": "ai301-ler",
+      "ordinal": 4,
+      "title": "The report as an instrument",
+      "blurb": "The thing most likely to be read years later by somebody whose job is to undermine it.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-ler-l1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-ler-l5",
+      "courseId": "ai301-ler",
+      "ordinal": 5,
+      "title": "What you've done before",
+      "blurb": "Comparators, consistency, and why one legal comparator can be dispositive where one data point is nothing.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-ler-l1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-ler-l6",
+      "courseId": "ai301-ler",
+      "ordinal": 6,
+      "title": "The counterparty, organized",
+      "blurb": "The other side has the same tools, and organized labor has more reason to use them well.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-ler-l1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-ler-l7",
+      "courseId": "ai301-ler",
+      "ordinal": 7,
+      "title": "Three layers of law",
+      "blurb": "Statute, Board doctrine and General Counsel priorities move at three different speeds — so advice built on the wrong layer expires. Counsel review required.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-ler-l1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-ler-l8",
+      "courseId": "ai301-ler",
+      "ordinal": 8,
+      "title": "Findings that hold",
+      "blurb": "The close: what survives challenge, and the bet with a baseline.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-ler-l1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-talent-dev-m1",
+      "courseId": "ai301-talent-dev",
+      "ordinal": 1,
+      "title": "The portfolio triage",
+      "blurb": "The course subtracts its own bulk work and says so — plus the program you name for the kill list.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-talent-dev-m2",
+      "courseId": "ai301-talent-dev",
+      "ordinal": 2,
+      "title": "Diagnosis as the job",
+      "blurb": "“Not a training problem” as a live option, and the request rewritten into the question it would have to be.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-talent-dev-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-talent-dev-m3",
+      "courseId": "ai301-talent-dev",
+      "ordinal": 3,
+      "title": "The silent failure audit",
+      "blurb": "You would expect there to be a number. One live asset audited backward, against the standard the field never applied to itself.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-talent-dev-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-talent-dev-m4",
+      "courseId": "ai301-talent-dev",
+      "ordinal": 4,
+      "title": "Where the machine stops",
+      "blurb": "The allocation policy — what needs a human on the hook, written across the portfolio rather than decided per request.",
+      "status": "open",
+      "estMinutes": 30,
+      "prereqs": [
+        "ai301-talent-dev-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-talent-dev-m5",
+      "courseId": "ai301-talent-dev",
+      "ordinal": 5,
+      "title": "The floor",
+      "blurb": "Mandate, accessibility, inference and licence. Where a recommendation becomes a decision about a person through a door nobody watched.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-talent-dev-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-talent-dev-m6",
+      "courseId": "ai301-talent-dev",
+      "ordinal": 6,
+      "title": "The defense",
+      "blurb": "The right end of the barbell, and the end this profession has never been able to hold — a case with a measure that can fail.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-talent-dev-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-excomms-m1",
+      "courseId": "ai301-excomms",
+      "ordinal": 1,
+      "title": "The budget nobody counts",
+      "blurb": "Your function is ahead on AI and on the wrong axis — attention is the budget nobody counts and you are already overspending it.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-excomms-m2",
+      "courseId": "ai301-excomms",
+      "ordinal": 2,
+      "title": "The Six Links",
+      "blurb": "The chain from intent to behaviour, and which links AI made cheaper versus which it made more expensive.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-excomms-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-excomms-m3",
+      "courseId": "ai301-excomms",
+      "ordinal": 3,
+      "title": "The volume trap",
+      "blurb": "Cheaper production is this role's central risk, not its opportunity.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-excomms-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-excomms-m4",
+      "courseId": "ai301-excomms",
+      "ordinal": 4,
+      "title": "Map your function",
+      "blurb": "Your function against the chain — where the hours are versus where the failures are.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-excomms-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-excomms-m5",
+      "courseId": "ai301-excomms",
+      "ordinal": 5,
+      "title": "The review discipline",
+      "blurb": "Verify is newly expensive, and the review step most teams deleted is the one that was load-bearing.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-excomms-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-excomms-m6",
+      "courseId": "ai301-excomms",
+      "ordinal": 6,
+      "title": "The trust line",
+      "blurb": "Where the two budgets meet: what disclosure costs, and what undisclosed synthesis costs more.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-excomms-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-excomms-m7",
+      "courseId": "ai301-excomms",
+      "ordinal": 7,
+      "title": "Listening at full fidelity",
+      "blurb": "The largest upside in the track, and the largest way to destroy what the rest of it protects.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-excomms-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-excomms-m8",
+      "courseId": "ai301-excomms",
+      "ordinal": 8,
+      "title": "The knowledge layer",
+      "blurb": "The first AI output in the curriculum that reaches an employee with no human owning the draft.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-excomms-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-excomms-m9",
+      "courseId": "ai301-excomms",
+      "ordinal": 9,
+      "title": "The manager multiplier",
+      "blurb": "Every organization says managers are its most important channel. This is what that costs to mean.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-excomms-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-excomms-m10",
+      "courseId": "ai301-excomms",
+      "ordinal": 10,
+      "title": "The mandate",
+      "blurb": "The close: nine modules of craft, and the claim you have to make for any of it to matter.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-excomms-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-defensible-m1",
+      "courseId": "ai301-defensible",
+      "ordinal": 1,
+      "title": "The ground has moved",
+      "blurb": "Two years of reading that the ground moved — and the specific direction it actually moved, which is toward discovery. Counsel review required.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-defensible-m2",
+      "courseId": "ai301-defensible",
+      "ordinal": 2,
+      "title": "Find the machines",
+      "blurb": "The AEDT inventory, including the shadow stack: AI enabled inside tools you already own, with no procurement event. Counsel review required.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-defensible-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-defensible-m3",
+      "courseId": "ai301-defensible",
+      "ordinal": 3,
+      "title": "Measure like it will be read in court",
+      "blurb": "Four-fifths and standard-deviation analysis, proxy detection, and privilege sequencing. Counsel review required.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-defensible-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-defensible-m4",
+      "courseId": "ai301-defensible",
+      "ordinal": 4,
+      "title": "The procurement gate",
+      "blurb": "Vendor audit literacy — and the questions that make a claim checkable before you are the one defending it.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-defensible-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-defensible-m5",
+      "courseId": "ai301-defensible",
+      "ordinal": 5,
+      "title": "Make yourself load-bearing",
+      "blurb": "Restructuring is cover; relabeling isn't. The capability is what survives the politics.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-defensible-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-cpo-m1",
+      "courseId": "ai301-cpo",
+      "ordinal": 1,
+      "title": "Fluency you can't delegate",
+      "blurb": "You can already use the tools. This is about the judgment that cannot move down.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-cpo-m2",
+      "courseId": "ai301-cpo",
+      "ordinal": 2,
+      "title": "The shape of your job is changing",
+      "blurb": "One role described, three jobs performed — with different economics and now different exposure.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-cpo-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-cpo-m3",
+      "courseId": "ai301-cpo",
+      "ordinal": 3,
+      "title": "The scope fight",
+      "blurb": "A CEO convenes the executive team to settle who owns AI. Whether digital labor is workforce, and who owns the registry.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-cpo-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-cpo-m4",
+      "courseId": "ai301-cpo",
+      "ordinal": 4,
+      "title": "The function you have to cut",
+      "blurb": "Where the compression lands in your own operating system, and the cut you have to make credibly.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-cpo-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-cpo-m5",
+      "courseId": "ai301-cpo",
+      "ordinal": 5,
+      "title": "The trust you own but don't control",
+      "blurb": "The one decision in the track that isn't yours to make — and the deficit you are accountable for anyway.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-cpo-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-cpo-m6",
+      "courseId": "ai301-cpo",
+      "ordinal": 6,
+      "title": "The number you'll have to defend",
+      "blurb": "The close: the position, and the figure you will be held to.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-cpo-m1"
+      ],
+      "microMinutes": 2
     }
   ],
   "courses": [
@@ -555,6 +1102,48 @@
       "title": "AI 301 · The Specialist — People Analytics",
       "level": "L3 → L4",
       "blurb": "What's left when analysis is free: everyone can produce the analysis now, so the scarce thing is knowing when to stop — and being the person whose stopping the organization believes.",
+      "status": "open"
+    },
+    {
+      "id": "ai301-peopleops",
+      "title": "AI 301 · The Specialist — People Ops & HR Technology",
+      "level": "L3 → L4",
+      "blurb": "The deployer: everyone else in People decides whether to use AI. You decide what four thousand people get, whether they asked for it or not — and every statute here names you.",
+      "status": "open"
+    },
+    {
+      "id": "ai301-ler",
+      "title": "AI 301 · The Specialist — Labor & Employee Relations",
+      "level": "L3 → L4",
+      "blurb": "Contested accounts: every other role feeds a model material with a fact behind it. Yours is two people who disagree — and a model may locate conflicts, but only a human may resolve them.",
+      "status": "open"
+    },
+    {
+      "id": "ai301-talent-dev",
+      "title": "AI 301 · The Specialist — Talent Development",
+      "level": "L3 → L4",
+      "blurb": "The expensive middle of your job just became free. The expense was doing work nobody counted — and it was the only thing stopping bad training from getting built.",
+      "status": "open"
+    },
+    {
+      "id": "ai301-excomms",
+      "title": "AI 301 · The Specialist — EX & Internal Comms",
+      "level": "L3 → L4",
+      "blurb": "Every other course opens by saying you're less behind than you fear. This one opens the other way: your function is ahead on AI, and on the wrong axis.",
+      "status": "open"
+    },
+    {
+      "id": "ai301-defensible",
+      "title": "AI 301 · The Specialist — Defensible by Design",
+      "level": "L3 → L4",
+      "blurb": "Adverse impact testing, algorithmic fairness and AEDT governance. Your exposure relocated to discovery, and the capability that makes you load-bearing is technical, not titular.",
+      "status": "open"
+    },
+    {
+      "id": "ai301-cpo",
+      "title": "AI 301 · The Specialist — CPO / CHRO",
+      "level": "L3 → L4",
+      "blurb": "The scarce resource moved from information to nerve. “We don't have the data” is no longer available as shelter.",
       "status": "open"
     },
     {

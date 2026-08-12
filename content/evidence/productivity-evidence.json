@@ -1,0 +1,36 @@
+{
+  "id": "productivity-evidence",
+  "asOf": "2026-08-12",
+  "lastVerified": "2026-08-12",
+  "source": "Three instruments — see per-claim",
+  "sample": "see per-claim",
+  "claims": [
+    {
+      "claim": "Experienced open-source developers were 19% slower with AI while believing they were 20% faster, having forecast 24% faster beforehand",
+      "figure": "19% slower / 20% faster",
+      "source": "METR, July 2025",
+      "sample": "16 developers, 246 real tasks in repositories they knew deeply, randomized per task",
+      "cautions": "Authors' own scope caveat: deeply-understood repos are close to a worst case for these tools. METR published a design update in February 2026 — treat the figure as of its date."
+    },
+    {
+      "claim": "AI raised productivity by about 0.29% on average over three years, with 89% of firms reporting no impact at all; firms forecast 1.4% over the next three",
+      "figure": "0.29% / 89% / 1.4%",
+      "source": "Yotzov, Barrero, Bloom, Bunn, Davis, Foster et al.",
+      "sample": "stratified survey of 5,000+ CFOs, CEOs and executives across the US, UK, Germany and Australia",
+      "cautions": "The mean is a near-zero mass with a concentrated tail, NOT a small uniform gain. Do not paraphrase as 'modest gains'."
+    },
+    {
+      "claim": "Precise null effects on earnings and hours, ruling out effects larger than 2%; users self-report 2.8% time savings against RCT gains exceeding 15% in the same occupations",
+      "figure": "2% / 2.8% / 15%",
+      "source": "Humlum & Vestergaard, NBER w33777",
+      "sample": "Danish worker- and workplace-level administrative data",
+      "cautions": "Paper has been revised and retitled — cite the current version."
+    }
+  ],
+  "citedBy": [
+    "ai301-analytics-m1",
+    "ai301-analytics-m4",
+    "ai301-analytics-m6",
+    "ai301-cpo-m6"
+  ]
+}
