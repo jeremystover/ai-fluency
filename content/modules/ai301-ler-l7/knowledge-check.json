@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What did *Endurance Environmental Solutions* change, and what were its facts? `[V]`",
+      "options": [
+        "It held that installing monitoring technology is a permissive rather than mandatory subject of bargaining",
+        "It restored the clear-and-unmistakable-waiver standard, retroactively, in a case where a clause reserving the right to \"implement changes in equipment\" did not permit installing cameras in 400 trucks without bargaining",
+        "It required employers to give notice before deploying AI that affects bargaining-unit work",
+        "It held that a general management-rights clause is sufficient where the technology is not novel"
+      ],
+      "correctIndex": 1,
+      "explanation": "373 NLRB No. 141, decided 10 December 2024, overruling *MV Transportation* (2019) and its contract-coverage test. The facts are the transferable part: your own clause almost certainly contains language of about that generality, and your technology is more capable than a dash camera."
+    },
+    {
+      "id": "q2",
+      "prompt": "What did the rescission of GC 23-02 change? `[V]`",
+      "options": [
+        "It removed the prosecutorial theory, not the statutory right — Section 7 did not move",
+        "It made intrusive electronic monitoring lawful",
+        "It reversed a Board decision on algorithmic management",
+        "Nothing, because General Counsel memoranda have no effect"
+      ],
+      "correctIndex": 0,
+      "explanation": "Both errors are available here and both are expensive. A practitioner who memorised the memo in 2024 is wrong today; one who concludes the exposure is gone is also wrong. A memorandum is a prosecutorial theory, and its withdrawal changes who brings a case, not whether conduct can interfere with protected activity."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why does the Board's three-vote convention matter to a planning assumption? `[V]`",
+      "options": [
+        "Because a Board decision requires three votes to issue",
+        "Because the Board does not reverse precedent without three votes for doing so — so a two-member majority declined to overturn precedent in January 2026, and the confirmations of 7 August 2026 satisfied the condition",
+        "Because three votes are needed for a quorum, which the Board lacked for eleven months",
+        "Because the convention is written into the Act and cannot be departed from"
+      ],
+      "correctIndex": 1,
+      "explanation": "The convention is unwritten and it is real. Its effect for six months of 2026 was stability; its effect now is that the standards restored by the previous majority are genuinely in play. Note that quorum — three sitting members — is a different requirement, which is answer C's trap."
+    },
+    {
+      "id": "q4",
+      "prompt": "Your organisation expects the waiver standard to loosen. What follows for a change you implement now? `[V]`",
+      "options": [
+        "You may implement now and rely on the expected standard, since the change post-dates the shift in composition",
+        "Nothing follows — the standard applies only prospectively either way",
+        "The change is judged under whatever standard exists when the case is decided, and doctrine in this line has been applied retroactively — so betting on a reversal is not a legal position",
+        "You should implement now, because conduct during a period of doctrinal uncertainty is not actionable"
+      ],
+      "correctIndex": 2,
+      "explanation": "*Endurance* itself applied retroactively. The asymmetry is worth internalising: a reversal helps you prospectively and tells you nothing about what you did while waiting for it."
+    },
+    {
+      "id": "q5",
+      "prompt": "What is settled, and what is not, about the duty to bargain over AI? `[V]`",
+      "options": [
+        "Both are settled — AI touching terms and conditions is a mandatory subject and the Board has so held",
+        "Neither is settled, since AI is not addressed anywhere in the Act",
+        "Settled that a change to terms and conditions is a mandatory subject that cannot be changed unilaterally; not settled because no Board decision applies it to an AI deployment",
+        "Settled by the SAG-AFTRA charge against Llama Productions"
+      ],
+      "correctIndex": 2,
+      "explanation": "A strong inference from settled doctrine, with a pending charge and no holding. Secondary sources routinely state the conclusion as law. The practical answer does not depend on resolving it: bargain it, or negotiate explicit language."
+    },
+    {
+      "id": "q6",
+      "prompt": "Which provision has a union already negotiated that restates this curriculum's assist-versus-decide line? `[V]`",
+      "options": [
+        "CWA's notice requirement at ZeniMax when AI implementation affects bargaining-unit work",
+        "The UPS–Teamsters prohibition on using sensor data as the sole basis for discipline, with required human review of context",
+        "NewsGuild-CWA's AI language across roughly 85–90 agreements",
+        "A requirement that employers disclose the training data of any performance-scoring model"
+      ],
+      "correctIndex": 1,
+      "explanation": "The distinction you have been learning as professional craft is, in some workplaces, a contractual obligation enforceable through grievance and arbitration. A is real and is the most common kind of provision; it is a notice term, not an assist/decide term."
+    },
+    {
+      "id": "q7",
+      "prompt": "What is the convergence the module identifies, and why is it useful? `[V]`",
+      "options": [
+        "Board doctrine and General Counsel priorities converge under a single administration",
+        "Notice, human review and records are both what the AI employment statutes keep landing on and what unions are winning at the table — so building all three satisfies several sources of obligation at once",
+        "US and EU law are converging on a single standard for algorithmic management",
+        "Contract and statute converge because collective agreements incorporate statutory minimums"
+      ],
+      "correctIndex": 1,
+      "explanation": "And in a represented workplace you may owe them years before a regulator asks, enforceable by grievance rather than investigation. Which makes your collective bargaining agreement an AI compliance document that somebody should read on purpose."
+    },
+    {
+      "id": "q8",
+      "prompt": "Why is this module not conditional on having a represented population?",
+      "options": [
+        "Because non-union employers are covered by the same Board rulemaking",
+        "Because protected concerted activity under Section 7 does not require a union, and the rescission of GC 23-02 removed the theory rather than the section",
+        "Because non-union workplaces are subject to the duty to bargain once a majority signs cards",
+        "Because *Weingarten* applies to unrepresented employees"
+      ],
+      "correctIndex": 1,
+      "explanation": "Concluding a non-union workplace is outside all of this is the layer error in its most expensive form. And D is the trap: *Epilepsy Foundation* (2000) extended *Weingarten* to unrepresented employees and *IBM Corp.* (2004) withdrew it, which is where the doctrine sits — a good illustration of how the doctrine layer behaves over twenty years."
+    }
+  ]
+}
