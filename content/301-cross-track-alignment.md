@@ -29,7 +29,7 @@ stated in the module, not assumed.
 | Talent Development / L&D | `ai301-talent-dev` | 6 modules, packages complete | No — unregistered |
 | CHRO / CPO | `ai301-cpo` | 6 modules, packages complete | No — unregistered |
 | Defensible by Design *(was DEI)* | `ai301-defensible` | 5 modules, packages complete | No — unregistered |
-| Labor & Employee Relations | `ai301-ler` | Outlined — 8 modules, 2 drafted | No — in progress |
+| Labor & Employee Relations | `ai301-ler` | 8 modules, packages complete | No — unregistered |
 
 **Live surface is 34 modules across four 301 tracks.** Corrections to live content are the
 highest-priority items in §3, and that list grew when Recruiting, Comp and Analytics went live —
@@ -171,6 +171,21 @@ what the employee was told** (including reliance). People Ops owns **deflection,
 throughput**.
 Settle before the People Ops track is outlined.
 
+### B-15 · LER ↔ HRBP M6 on ER documentation — `SETTLED` from the LER side
+
+**Labor & Employee Relations owns the craft.** The evidentiary ladder (observation → corroboration →
+inference → finding → determination) and its permission map, contested accounts and the four
+harmonization mechanisms, the report as an instrument, and comparator analysis over case history.
+Eight modules, packages complete.
+**HRBP M6 keeps ER documentation as one lesson inside a compliance module**, for a generalist partner
+who documents a matter occasionally rather than for a living.
+**The line:** occasional documenter vs. practitioner. This is the **cite-and-teach-the-delta** case
+from the rule of use, decided deliberately — the LER outline's Decision 2 reverses an earlier call to
+make HRBP M6 a prerequisite, on the §3a ground that a learner resolves to exactly one 301 track and
+will never see the sibling. **Horizontal duplication is permitted; the duplication is named in both
+directions.** LER L1–L4 teach the craft in full and do not assume M6.
+**Open half:** the pointer in the other direction is a change to live content — see C-09.
+
 ### B-14 · Comp ↔ Defensible on pay equity — `SETTLED` (see B-02), with one caveat
 
 Comp M4 L4's statutory floor names the EU Pay Transparency Directive. Defensible M1 L4 covers US
@@ -269,6 +284,29 @@ directly on point for M3's privilege sequencing and has not been read; ISO/IEC 4
 and the JPMorgan posting, which is a single job ad and needs an archived link and date or should be
 cut in favour of the learner finding their own.
 
+### C-09 · HRBP M6 — ER documentation now has a track behind it · **LIVE**
+
+M6's ER-documentation lesson stands on its merits for a generalist partner. What it lacks is a
+pointer: a learner who documents matters for a living needs the LER track, not one lesson. **Add a
+sentence in M6 and B-15 to the HRBP Decisions section.** No content in M6 is wrong and nothing needs
+removing — this is an additive change, which is why it is the cheapest item on this list.
+**Owner:** the LER↔HRBP integration pass. **Not blocked on counsel.**
+
+### C-10 ⚠️ · LER L7 — the fastest-moving material in the ladder · outline + drafted
+
+L7 (*Three layers of law*) teaches the US labor authority stack, and its own examples moved twice
+during the track's production. **Any maintenance pass should re-check this module first, before
+anything else in the ladder.** The specific items, each dated in the module: the NLRB reaching a
+**3–1 majority on 7 August 2026** that satisfies its own unwritten three-vote convention for
+reversing precedent, which puts ***Endurance Environmental Solutions*** (373 NLRB No. 141, 10 Dec
+2024, clear-and-unmistakable waiver) genuinely in play; whether any Board decision has yet applied
+the duty to bargain to an AI deployment (**none as of drafting** — SAG-AFTRA's May 2025 charge
+against Llama Productions is pending and the module states the absence as a finding); and whether
+General Counsel Crystal Carey has issued a memorandum on monitoring or algorithmic management to
+replace the rescinded GC 23-02. **The module is deliberately transparent about this** — it tells the
+learner its own subject moved five days before it was drafted, because concealing that would teach
+the wrong lesson. **Owner:** maintenance agent. Counsel review is required for L3 and L7 before ship.
+
 ---
 
 ## 4. The shared evidence library — build it now
@@ -287,6 +325,9 @@ copy:
 | EU AI Act Art. 5(1)(f), Art. 50, Annex III timing | HRBP M6, recruiter R6, EX/comms M6+M7, Defensible |
 | Disparate impact: codification, posture, private bar | 101 M7, recruiter R1+R6, comp M4, Defensible M1 |
 | Mobley v. Workday posture | HRBP M6, recruiter R6, Defensible M1 |
+| Notice / human review / records — the convergence sentence | People Ops M7, HRBP compliance, **LER L7** |
+| HR Acuity ER Benchmark (274 orgs, 8.8m employees, ±5.9) — 32% / 38% / 0.68 per 1,000 | **LER L1, L5, L8** |
+| NLRB layer stack — *Endurance*, GC 23-02 rescission, Board composition | **LER L7** — see C-10, re-check first |
 
 **Six tracks × these figures = a maintenance surface that will drift.** Author once with the
 citation, sample, and date; reference from any track. `scripts/maintenance-agent.mjs` then has one
@@ -330,6 +371,6 @@ Before the next tracks are outlined:
   before it is outlined, or it will be EX/comms with training nouns.
 - **Talent Management** — the brief records it as possibly homeless. Performance and calibration
   currently sit across HRBP M2/M5 and comp; succession sits nowhere.
-- **Labor & Employee Relations** — ER documentation lives in HRBP M6 today. A separate ER track
-  would have to take it, which is a change to live content.
+- **Labor & Employee Relations** — now settled from the LER side; see **B-15**. What remains is the
+  live-content half: HRBP M6 should gain a pointer, which is **C-09**.
 - **CHRO / CPO** — the brief says check 401 first. Still unchecked.
