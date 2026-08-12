@@ -51,7 +51,7 @@
     "kind": "try_this",
     "layer": "stable",
     "reviewedAt": "2026-08-12",
-    "body": "### Try this — 3 minutes\nTake the last significant thing your function shipped. Walk it backwards through the six links\nand name who did each one. You will usually find Produce and Distribute have names attached,\nVerify has a name only if something went wrong once before, and Sense and Decide either have\nsomebody else's name on them or no name at all."
+    "body": "### Try this — 3 minutes\nTake any message that landed badly in the last year — misread, ignored, or actively resented.\nWalk it back up the chain and find the earliest link where it went wrong. It is almost never\nProduce. Most badly-landed messages were written well and decided badly, and the writing gets\nblamed because the writing is the part everyone can see."
   },
   {
     "id": "ai301-excomms-m2-lesson-3-investing-in-the-collapsing-lin-70",
@@ -105,7 +105,7 @@
     "kind": "exercise",
     "layer": "stable",
     "reviewedAt": "2026-08-12",
-    "body": "{\"type\":\"activity_link\",\"title\":\"Applied activity — Where does your week sit?\",\"blurb\":\"Your function mapped across the six links — time, headcount and budget — checked against a real instrument rather than memory. The link with no owner at all is usually the finding. Graded against a five-dimension rubric. Free unlimited resubmission.\",\"estMinutes\":\"20\"}"
+    "body": "{\"type\":\"activity_link\",\"title\":\"Applied activity — One piece of work, traced\",\"blurb\":\"One real thing your function shipped, walked backwards from Verify to Sense with a name against each link. The links with no owner are the finding. Includes the hour where Decide and Produce happened at once. Graded against a five-dimension rubric. Free unlimited resubmission.\",\"estMinutes\":\"20\"}"
   },
   {
     "id": "ai301-excomms-m2-sources-and-attribution-110",

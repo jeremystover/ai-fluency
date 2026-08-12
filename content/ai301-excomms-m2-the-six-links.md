@@ -143,10 +143,10 @@ experience rather than a measured outcome. It is still a striking thing for a po
 about itself and act against.
 
 > ### Try this — 3 minutes
-> Take the last significant thing your function shipped. Walk it backwards through the six links
-> and name who did each one. You will usually find Produce and Distribute have names attached,
-> Verify has a name only if something went wrong once before, and Sense and Decide either have
-> somebody else's name on them or no name at all.
+> Take any message that landed badly in the last year — misread, ignored, or actively resented.
+> Walk it back up the chain and find the earliest link where it went wrong. It is almost never
+> Produce. Most badly-landed messages were written well and decided badly, and the writing gets
+> blamed because the writing is the part everyone can see.
 
 ## Lesson 3 · Investing in the collapsing link
 
@@ -257,34 +257,43 @@ the floor rose, and the ceiling is exactly where it was.
 Take a position on that, in writing, in the activity. The strongest submissions engage that last
 point specifically, because it is the hardest one for this module to answer.
 
-## Applied activity — "Where does your week sit?"
+## Applied activity — "One piece of work, traced"
 
-**Time:** 20 minutes · **Submit:** the map plus a 200–300 word write-up · **Graded against the
+**Time:** 20 minutes · **Submit:** the trace plus a 200–300 word write-up · **Graded against the
 rubric below.** Score doesn't matter. Doing the work is where the learning lands.
 
-Map your function — you, or your team if you lead one — against the six links.
+This module traces one real thing. Module 4 maps your whole function; don't do that work here.
 
-**Step 1 — Commit your split (2 min).** Before looking at anything, write your estimated percentage
-across the six links. They should total 100.
+**Step 1 — Pick it (2 min).** One significant thing your function shipped in the last quarter to the
+audience you chose in Module 1. Ideally one that mattered — a change announcement, a policy
+rollout, a benefits campaign. Not the weekly newsletter.
 
-**Step 2 — Check it against something real (10 min).** Pick one instrument you actually have: last
-week's calendar, the last twenty items in your task tracker, the last thirty days from Module 1's
-send audit, or a genuine reconstruction of five working days. Assign each entry to a link. Where an
-entry spans two links, split it and say so. Where you cannot tell which link something was, that is
-worth recording — **the confusion between Decide and Produce is the most common and the most
-interesting, and naming it scores well.**
+**Step 2 — Walk it backwards through the six links (10 min).** For each link, two questions: **what
+actually happened, and who did it — by name.** Start at Verify and work back to Sense, because
+working forwards from Produce is how the upstream links get skipped.
 
-**Step 3 — Add the two columns that aren't time (5 min).** Where does headcount sit — which links
-have a named owner and which have nobody? And where does budget sit — tooling, agency spend,
-licences? These are usually distributed differently from time, and the difference is the finding.
+Expect this to be uneven. In most functions Produce and Distribute have names attached
+immediately, Verify has a name only if something went wrong once before, and Sense and Decide have
+either somebody else's name or no name at all. **That unevenness is the finding, not a flaw in your
+recall.**
 
-**Step 4 — Score the prediction (3 min).** Your predicted Produce percentage against what the map
-shows. Name the direction and size of the miss, and one sentence on what it reveals.
+**Step 3 — Find the earliest weak link (5 min).** Where was the first point at which this could
+have gone wrong, and did it? If the piece landed well, name the link you'd be most worried about if
+you ran it again. If it landed badly, resist the answer "the wording" until you have checked
+everything upstream of it.
 
-Then the write-up: which link holds most of your time, which holds most of your value, your position
-on the claim above with the counter-argument addressed — including the "the floor rose, the ceiling
-didn't" version — and **the one link with no owner at all.** That last one is usually Verify or
-Sense, and naming it honestly is the strongest form of this submission.
+**Step 4 — Separate one hour (3 min).** Find one hour in this piece of work where **Decide and
+Produce happened at the same time, to the same person, with a document open.** Say what the Decide
+part actually was. Every real project has at least one; if you genuinely cannot find one, say so and
+say why.
+
+Then the write-up: which links had no owner, where the earliest weak point was, your position on
+the claim above with the counter-argument addressed — including the "the floor rose, the ceiling
+didn't" version — and one sentence on what you would change about **who is in the room**, not about
+what was written.
+
+*Your predicted Produce percentage stays open. Module 4 measures it against a real instrument and
+closes the loop there.*
 
 ## Knowledge check — 8 questions
 

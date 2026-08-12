@@ -461,6 +461,28 @@ and add module rows to `content/modules.json` **only when the track is complete.
     copy. The three acts survive as part labels rather than sub-courses — three course ids would
     break the one-role-one-track resolver in `roles.ts`.
 
+## Decisions (v2.1 — what drafting changed)
+
+12. **M2 and M4 were the same activity, and drafting proved it.** Written as outlined, M2's
+    activity ("Where does your week sit?" — commit a six-link split, check it against a calendar,
+    add headcount and budget) *is* M4's compression map. A separate M4 whose entire content was
+    "now do the map" would have been a module with no teaching in it, which is the collapse risk
+    the outline's own open questions flagged.
+    **Resolved by re-scoping rather than collapsing, because both jobs are real once separated:**
+    **M2 traces one artifact** backwards from Verify to Sense with a name against each link — which
+    surfaces the ownerless links and the Decide/Produce hour, and cannot be done from memory.
+    **M4 maps the whole function** — time, headcount, budget — against a real instrument, and
+    produces the artifact Module 10 argues from. Depth on one item, then breadth across the
+    function.
+    **The prediction now closes cross-module.** M2 opens the numeric field `producePct` and
+    deliberately leaves it open; M4's calibration field closes it with
+    `actualFor: "ai301-excomms-m2:producePct"`, which is a capability the data model already
+    supports for exactly this case. Track stays at ten modules.
+13. **M2's "Try this" was rewritten** because the outlined version — walk a shipped piece backwards
+    through the links — became the activity. It now points at a message that landed badly and asks
+    the learner to find the earliest link where it went wrong, which sets up the activity instead
+    of duplicating it.
+
 ## Verification ledger
 
 **Confirmed before writing.** Article 5(1)(f)'s in-force date and the Commission guidance limiting
