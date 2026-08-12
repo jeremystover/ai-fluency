@@ -1,0 +1,31 @@
+{
+  "reviewedAt": "2026-08-12",
+  "title": "Four transformations",
+  "intro": "*Five minutes. Commit before you look.*\n\nFour People functions begin the same consolidation of HR service delivery. Same technology, comparable organizations, all four sponsors genuinely committed at kickoff.\n\n**One of them will still be running in month six.** Find it.",
+  "artifacts": [
+    {
+      "label": "Function A",
+      "body": "\"We're keeping the HR inbox open through the transition — forcing people onto the portal before it's proven felt reckless. We'll monitor adoption monthly and switch off the old channel once we're seeing consistent usage. Satisfaction is our north-star metric and we've committed to the exec team it won't decline.\""
+    },
+    {
+      "label": "Function B",
+      "body": "\"I've told the CEO and the exec team: service satisfaction will fall, I expect it to bottom out around −20, and I expect recovery to start by month five. If it goes below −40, or hasn't turned by month six, we stop. Between those, we hold — and I've said that now specifically so that when I'm asked in month four, I can point at this conversation. The 30% we free up funds two things: the manager capability programme, and we're keeping the graduate intake.\""
+    },
+    {
+      "label": "Function C",
+      "body": "\"We're switching off the phone line and the inbox on day one — no half measures, that's what the IBM case shows. Nobody's set a floor because frankly if we start negotiating a floor we'll lose our nerve. We'll bank the savings; in this budget climate that's the responsible thing.\""
+    },
+    {
+      "label": "Function D",
+      "body": "\"We're doing this properly: full change programme, six months of comms, champions in every business unit, and a phased switch-off by region. We've modelled a small dip — maybe five points — and built contingency. If it's worse than that we'll pause, reassess and come back with a revised approach.\""
+    }
+  ],
+  "options": [
+    "Function A",
+    "Function B",
+    "Function C",
+    "Function D"
+  ],
+  "key": 1,
+  "reasoning": "**B survives, and the reason is the sentence about month four.** Everything else follows from it. A number set in advance, a floor, a date, and — critically — **socialized with the person who will ask.** That is the difference between having a tolerance and having discussed one. Note also that B names what the saving funds and includes the entry point in it, which is what makes the cut read as strategy rather than cost.\n\n**A has guaranteed its own failure at kickoff, and it looks like the responsible option.** Keeping the old channel open means the portal never gets used, because nobody changes a habit while the familiar route still works — that is exactly the phase IBM had to break. Then the fatal commitment: *satisfaction won't decline.* They have promised the exec team the one thing a transformation like this cannot deliver, so the first bad month is a broken promise rather than an expected trough.\n\n**C has the nerve and none of the discipline**, which is the most dangerous combination in the set. Switching off day one is defensible. Refusing to set a floor because setting one might weaken resolve inverts the argument — **the floor is what lets you hold**, because without it every bad number is an open question and the month-four conversation has no anchor. And banking the saving means that when the trough arrives, there is nothing to point at that the pain is buying. C will stop, and it will stop late and expensively.\n\n**D is the most professional-looking plan and it is designed to be abandoned.** Six months of comms and a phased switch-off delay the trough without removing it. The modelled five-point dip is roughly a seventh of what a serious organization actually absorbed, so the plan's own tolerance will be breached almost immediately — and the pre-agreed response to breaching it is *pause and reassess*, which is the one move that guarantees the full cost with none of the benefit. **D has written its own month-four exit into the plan and called it contingency.**\n\nThe transferable test: **has a number been set, and has the person who will ask in month four agreed to it?** Only B can answer yes to both."
+}
