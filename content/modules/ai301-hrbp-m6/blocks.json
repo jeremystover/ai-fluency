@@ -1,0 +1,119 @@
+[
+  {
+    "id": "ai301-hrbp-m6-calibration-prompt-before-you-start-10",
+    "moduleId": "ai301-hrbp-m6",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Calibration prompt — before you start\n\n*One prediction, thirty seconds.*\n\n**What share of HR professionals working in states that regulate AI in employment do you think\nare unaware their state has such a law?** Whole percent.\n\nThe number is high enough that it is worth knowing where you sit in it before you find out."
+  },
+  {
+    "id": "ai301-hrbp-m6-module-brief-20",
+    "moduleId": "ai301-hrbp-m6",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nTwo halves, and they belong together even though most treatments separate them.\n\nThe first half is the law about **systems** — the tools screening, scoring, and ranking people\nacross your organization, most of which you did not choose and some of which you may not know\nabout. That surface is moving fast: a growing patchwork of state statutes, a landmark case\nredrawing who is liable, and a European regime with one prohibition already absolute.\n\nThe second half is the law about **documents** — the investigation summary, the PIP language, the\ntermination rationale sitting on your desk right now. This is the writing an HRBP does that is\nmost likely to be read years later by someone hostile, and it is where AI assistance creates a\nquestion nobody was asking two years ago: *how was this produced, and can you say?*\n\nMost legal treatments of AI in HR cover the first half and skip the second, because the first is\nwhere the vendors and the statutes are. But the second is where **you** personally are exposed,\nmost weeks, in the ordinary course of your job.\n\nOne framing before we start, because it determines how to read everything here. **You are not\nbeing asked to become a lawyer.** You are being asked to become the person who knows which\nquestions have legal answers and brings them a specific list instead of a general worry. That is\na genuinely different and achievable skill, and counsel will thank you for it."
+  },
+  {
+    "id": "ai301-hrbp-m6-learning-objectives-30",
+    "moduleId": "ai301-hrbp-m6",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. Describe the shape of the regulatory surface for AI in employment `[V]` well enough to\n   identify which questions apply to your organization.\n2. Explain the agent theory and why it changes procurement rather than just compliance.\n3. Apply AI to ER documentation safely — including the use almost nobody thinks of — and name\n   precisely where it must stop.\n4. Say what uncertain provenance does to a document that later enters discovery.\n5. Take counsel a specific, answerable list rather than \"are we compliant?\""
+  },
+  {
+    "id": "ai301-hrbp-m6-lesson-1-the-regulatory-surface-40",
+    "moduleId": "ai301-hrbp-m6",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 · The regulatory surface [V]\n\n*Direction of travel, not legal advice. Verify every specific with counsel before relying on it.*\n\n**A patchwork, not a framework.** A substantial number of US states now have laws touching AI in\nemployment, with more each session — and the practical problem is not severity but *awareness*: a\nmajority of HR professionals working in regulated states do not know their state has such a law.\nThat statistic is the most actionable thing in this lesson, because it means the first question\nis not \"are we compliant\" but \"which regimes even apply to us?\"\n\n**The recurring obligations.** Across the patchwork, the same duties keep appearing in different\ncombinations: notice to candidates and employees that an AI tool is being used; bias auditing,\nsometimes with publication; the right to request human review; and record-keeping about how the\ntool was used and what it produced. If you build for those four, you are broadly positioned for\nregimes you haven't read yet.\n\n**The European regime has one absolute.** The EU AI Act classifies employment uses — recruitment,\nselection, promotion, termination, task allocation, and performance monitoring — as high-risk,\nand those obligations were deferred to **December 2027** under the Digital Omnibus agreement. But\ntwo things did not move: the **AI literacy obligation** and the **prohibition on emotion\nrecognition in the workplace**, both in force since February 2025. The emotion-recognition ban is\nnot a risk to manage — it is a prohibition on inferring emotional states of employees or\ncandidates from facial expression, voice, or similar signals. If a vendor is selling you\nsentiment-from-video in an interview context and you have European operations, that is not a\nprocurement question.\n\n**And the doctrine that predates all of it.** Disparate impact requires no intent. A neutral\npractice that disproportionately excludes a protected group needs job-related justification,\nwhoever built it and whatever it was marketed as. Every AI statute above sits on top of that; none\nreplaces it."
+  },
+  {
+    "id": "ai301-hrbp-m6-lesson-2-the-agent-theory-50",
+    "moduleId": "ai301-hrbp-m6",
+    "ordinal": 50,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 · The agent theory [V]\n\nThe most consequential development for how you buy, rather than how you comply.\n\nIn **Mobley v. Workday**, a court allowed claims to proceed on the theory that an AI screening\nvendor can act as an **agent of the employer** — holding it plausibly alleged that customers had\ndelegated their traditional function of rejecting candidates or advancing them to interview. The\nemployment-agency theory was dismissed; the agent theory survived and went to discovery. The\nlitigation has continued to expand rather than contract, with claims proceeding across race, sex,\nage, and disability.\n\nThree implications, in descending order of how much they should change your Monday.\n\n**Neither party gets to point at the other.** The employer's \"that's the vendor's problem\" and the\nvendor's \"we only make the software\" both weaken under this theory. If a tool performs a function\nyou would otherwise perform, it may carry your obligations with it.\n\n**Discovery reaches the model.** The most instructive part of the case is the ongoing fight over\naccess to algorithmic code and testing data. Whatever the outcome, the direction is clear: **\"we\ndon't know how it works, the vendor won't tell us\" is a position you may have to defend rather\nthan a shield you can hide behind.** Which converts a vague fairness principle into a concrete\nprocurement requirement — ask for the validation evidence *before* signature, in writing, because\nafterwards you have no leverage and possibly an obligation.\n\n**And the privilege nuance sophisticated employers are already using.** Bias-testing conducted\n*under counsel*, where the lawyer curates the analysis and uses the results in providing legal\nadvice, may be protected from discovery in a way that the same testing run by HR as an operational\nexercise is not. This is not a reason to avoid testing. It is a reason to involve counsel in\ndesigning it — a conversation worth having before you commission an audit, not after."
+  },
+  {
+    "id": "ai301-hrbp-m6-lesson-3-er-documentation-that-survives--60",
+    "moduleId": "ai301-hrbp-m6",
+    "ordinal": 60,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 · ER documentation that survives scrutiny\n\nNow the half that is actually on your desk.\n\n**Where AI genuinely helps.** Three uses, all safe, and one of them is underused to the point of\nbeing a competitive advantage:\n\n*Structure and consistency.* Turning your own notes into a coherently organized summary, with\nyour findings intact and your headings consistent with how your team writes them.\n\n*The completeness pass — the one almost nobody runs.* Give it your interview plan or your draft\nsummary and ask: **\"What did I fail to ask? What would a thorough investigator have covered that\nisn't here?\"** This is assist-side, entirely safe, and it catches the omission that becomes the\nproblem eighteen months later. It does not evaluate anyone; it audits your coverage.\n\n*Language discipline.* Flagging conclusory language, loaded adjectives, and characterizations that\nhave crept in where observations belong. A model is unusually good at spotting \"was hostile\" where\n\"raised his voice twice, per two witnesses\" belongs.\n\n**Where it stops, and this is not a caution — it is a stop.** Credibility determinations. Any\nconclusion about what happened. Any characterization of a person's character, motive, or\ntruthfulness. The moment a model contributes to *whether you believe someone*, you have crossed\n101 M7's line in the highest-stakes place it exists — and unlike a hiring screen, there is a named\nindividual with a specific consequence attached to the answer.\n\n**And the provenance problem.** ER documents can be read years later, under oath, by people whose\njob is to undermine them. The questions that get asked are: who wrote this, when, based on what,\nand did it change? **A document whose production you cannot describe is weaker than one you can**\n— which produces a discipline worth adopting now, before anyone requires it:\n\n- Record that AI assisted, in what role, on what date — one line in your file notes.\n- Keep the human-authored source material the summary was built from.\n- Never let a model's phrasing become a finding you didn't independently reach.\n- If a sentence in the final document is one you couldn't defend the origin of, rewrite it.\n\nThat last rule is the whole discipline in one line, and it is not really about AI at all."
+  },
+  {
+    "id": "ai301-hrbp-m6-try-70",
+    "moduleId": "ai301-hrbp-m6",
+    "ordinal": 70,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### Try this — 3 minutes\nTake a recent ER summary you wrote — mentally, no files needed. Could you say, for each\nconclusion in it, what evidence produced it and when you reached it? If yes, AI assistance adds\nspeed to a defensible process. If no, the process was already the problem and AI would only\nmake it faster."
+  },
+  {
+    "id": "ai301-hrbp-m6-lesson-4-what-you-can-do-this-quarter-80",
+    "moduleId": "ai301-hrbp-m6",
+    "ordinal": 80,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 · What you can do this quarter\n\nWithout waiting for anyone.\n\n**Inventory.** 101 M2's stack audit, re-read for a different purpose: which systems touching your\npopulation *screen, score, rank, or filter people*? Name the deployer for each. Most HRBPs find at\nleast one they'd never classified that way.\n\n**Ask three questions of each vendor, in writing.** Has this tool been bias-audited, by whom, and\nmay we see it? What does it do when it has insufficient data about a candidate? And: which of our\njurisdictions have you assessed this tool against? The answers — or the silences — are the finding.\n\n**Write the documentation standard.** One page for your own team, covering the ER discipline\nabove. It costs an afternoon and it is the artifact your organization will wish it had.\n\n**Then bring counsel a list, not a worry.** Not \"are we compliant with AI law?\" — which gets you a\nshrug — but: *\"These four systems touch hiring and performance. Here is what each one decides.\nWhich of our jurisdictions regulate these today, what do they require of us this year, and what's\ncoming that we should build for now?\"* That question has answers. The general one does not."
+  },
+  {
+    "id": "ai301-hrbp-m6-exercise-embed-85",
+    "moduleId": "ai301-hrbp-m6",
+    "ordinal": 85,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"sorting\", \"title\": \"Calibration exercise \\u2014 Ten uses in ER work\", \"intro\": \"Ten minutes, ten uses of AI in employee-relations and investigation work. Sort each: run it, run it with the discipline (recorded provenance, human source material, sign-off), or never.\\n\\nCommit every card before the reveal. The line you're applying is 101 M7's, in the highest-stakes place it exists.\"}"
+  },
+  {
+    "id": "ai301-hrbp-m6-key-takeaways-90",
+    "moduleId": "ai301-hrbp-m6",
+    "ordinal": 90,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **It's a patchwork, and awareness is the first problem** `[V]` — most HR professionals in\n  regulated states don't know their state regulates this. Start with which regimes apply, not\n  whether you comply.\n- **Four obligations recur** across regimes: notice, bias auditing, human review, record-keeping.\n  Build for those and you're positioned for statutes you haven't read.\n- **The EU emotion-recognition ban is already absolute** `[V]`, alongside the AI literacy\n  obligation — high-risk employment duties deferred to December 2027, those two did not move.\n- **Agent theory means neither party can point at the other** `[V]`, and discovery reaches the\n  model — \"we don't know how it works\" is a position to defend, not a shield. Get validation\n  evidence before signature; afterwards you have no leverage.\n- **AI in ER documentation: structure, the completeness pass — *what did I fail to ask?* — and\n  language discipline.** It stops absolutely at credibility, conclusions, and characterizing a\n  person.\n- **If you can't defend a sentence's origin, rewrite it.** Record that AI assisted, keep the\n  source material, and never let a model's phrasing become a finding you didn't reach.\n- **Bring counsel a specific list.** \"Are we compliant?\" gets a shrug; four named systems and\n  what each decides gets an answer."
+  },
+  {
+    "id": "ai301-hrbp-m6-activity-link-95",
+    "moduleId": "ai301-hrbp-m6",
+    "ordinal": 95,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"activity_link\", \"title\": \"Applied activity \\u2014 Inventory and standard\", \"blurb\": \"Every system touching your population that screens, scores, ranks or filters \\u2014 deployer named, audit status recorded, \\\"don't know\\\" accepted as an honest entry \\u2014 plus three written vendor questions and a one-page ER documentation standard your team could follow without you.\", \"estMinutes\": \"25\\u201330\"}"
+  },
+  {
+    "id": "ai301-hrbp-m6-take-a-position-100",
+    "moduleId": "ai301-hrbp-m6",
+    "ordinal": 100,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"An HRBP who cannot name every system that screens, scores, or ranks their\npopulation is not managing risk — they are hoping.\"*\n\nThe strongest counter-argument is that **this is not the HRBP's job.** Tool inventory and vendor\ndiligence sit with HR technology, procurement, and legal; an HRBP who takes it on is absorbing\nwork that belongs to functions with more authority and better information — and doing it badly,\npart-time, without the mandate to act on what they find. Your position has to survive that,\nbecause it's the argument you'll actually get from a colleague."
+  },
+  {
+    "id": "ai301-hrbp-m6-sources-and-attribution-110",
+    "moduleId": "ai301-hrbp-m6",
+    "ordinal": 110,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- **State AI employment statutes** — the patchwork of notice, bias-audit, human-review, and\n  record-keeping obligations, and the awareness finding among HR professionals in regulated\n  states. Fast-moving; verify current scope and effective dates with counsel. **[V]**\n- **EU AI Act and the Digital Omnibus** — Annex III employment classification deferred to\n  2 December 2027; the AI literacy obligation and workplace emotion-recognition prohibition in\n  force since February 2025. **[V]**\n- **Mobley v. Workday** — the agent theory permitted to proceed while the employment-agency theory\n  was dismissed; claims continuing across race, sex, age, and disability; active discovery\n  including disputes over algorithmic code and testing data. Litigation posture changes between\n  review cycles. **[V]**\n- Disparate impact doctrine long predates AI and is not displaced by any of the above.\n- The ER documentation discipline — the completeness pass, the stopping line, and the\n  provenance rule — is original to this course.\n- **This module is not legal advice.** It is a guide to which questions have legal answers.\n  *Counsel review required before deployment-specific claims are added.* **[V]**"
+  }
+]

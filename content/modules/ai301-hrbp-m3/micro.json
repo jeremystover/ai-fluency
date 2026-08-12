@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ai301-hrbp-m3-micro-core",
+    "moduleId": "ai301-hrbp-m3-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module 3 in two minutes\n\n**The paradox resolves without anyone lying** `[V]`. People report AI saving them around eleven hours a week; only 13% say their organization performs significantly better, and 88% of HR leaders report no significant business value. In between sits a measured 6.4 hours a week of **botsitting** — feeding context, supervising output, debugging, cleaning up downstream — which nobody budgets for. The relief is real; the organizational value is what's missing.\n\n**Four questions, applied end to end to one workflow.** Total human time *including review and rework* — this one flips more workflows negative than the other three combined. Whether quality actually moved. Where the work relocated to (relocation is often a win; relocation described as elimination is how a function claims capacity it never created). And what the freed capacity became — only about 7% of organizations tell anyone `[V]`, which is why saved time gets absorbed rather than recovered.\n\n**Then the same skepticism outward:** what's the evidence, what's the sample, what would falsify it? An unaudited CEO figure isn't false — it's unverifiable, which disqualifies it from load-bearing use."
+  },
+  {
+    "id": "ai301-hrbp-m3-micro-rule",
+    "moduleId": "ai301-hrbp-m3-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### The rule to carry\n\nCredible proof clusters at the front door and back office, where outcomes are countable and failures visible. The loudest claims live in assessment and prediction, where attribution is nearly impossible. **Automating the \"yes\" is comparatively safe; automating the \"no\" is where risk starts** — the people filtered out never appear in your data."
+  },
+  {
+    "id": "ai301-hrbp-m3-micro-close",
+    "moduleId": "ai301-hrbp-m3-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "**The full module adds** the volume trap — cheaper production means more production, so the constraint moves from making work to deciding which work matters, and a function producing more artifacts and no more decisions has gotten worse efficiently — the four-claims teardown exercise, and the workflow audit on something you actually run. A workflow you measured and killed is the strongest submission this module accepts."
+  }
+]

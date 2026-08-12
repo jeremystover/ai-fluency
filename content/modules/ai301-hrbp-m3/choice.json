@@ -1,0 +1,31 @@
+{
+  "reviewedAt": "2026-08-12",
+  "title": "Four claims, one you can use",
+  "intro": "*Five minutes. Commit before you look.*\n\nFour claims an HRBP could be shown in a single procurement cycle. Each is about a real category of product. **Only one is stated in a way you could actually build a decision on.**\n\nDon't ask which product sounds best. Ask the three questions: what's the evidence, what's the sample, and what would falsify it?",
+  "artifacts": [
+    {
+      "label": "Claim A · attrition prediction",
+      "body": "\"Our flight-risk model has saved enterprise customers hundreds of millions in avoided turnover costs — one Fortune 50 deployment alone reported over $300 million.\""
+    },
+    {
+      "label": "Claim B · interview assessment",
+      "body": "\"Our video assessment predicts job performance 3x better than unstructured interviews, validated across more than two million candidate sessions.\""
+    },
+    {
+      "label": "Claim C · HR service desk",
+      "body": "\"Across 40 deployments, median first-response time on tier-one employee queries fell from 6.2 hours to 11 minutes. Deflection rate averaged 34%, with the full distribution and the 6 deployments below 15% in the appendix.\""
+    },
+    {
+      "label": "Claim D · performance calibration",
+      "body": "\"Teams using our calibration assistant report 40% higher confidence in their ratings and significantly reduced bias in performance outcomes.\""
+    }
+  ],
+  "options": [
+    { "id": "a", "label": "Claim A — attrition prediction" },
+    { "id": "b", "label": "Claim B — interview assessment" },
+    { "id": "c", "label": "Claim C — HR service desk" },
+    { "id": "d", "label": "Claim D — performance calibration" }
+  ],
+  "key": "c",
+  "reasoning": "**C is the usable one, and notice how boring it is.** It sits at the back office where outcomes are countable and failures are immediately visible. It names the sample (40 deployments), reports a median rather than a flattering mean, gives a distribution, and — the tell that matters most — **discloses its own weak cases**: six deployments below 15% deflection. A vendor who shows you the deployments that went badly is a vendor whose good numbers you can use. It also has an obvious falsifier: run it and measure your own response times.\n\n**A is unverifiable, which is not the same as false.** A single unaudited customer figure, methodology unpublished, doing load-bearing work in a nine-figure claim. You don't need to allege dishonesty to refuse to build a case on a number nobody can check — and note the sales craft: attaching it to \"one Fortune 50 deployment\" makes it feel specific while making it impossible to verify.\n\n**B fails on its comparator and its outcome.** \"3x better than unstructured interviews\" is a comparison against nearly the weakest method in the selection literature — a low bar dressed as a high one. Two million *sessions* is a volume figure, not a validation sample; validation requires outcomes, and candidate sessions are inputs. And this sits in assessment, where outcomes are slow and confounded, which is exactly why the claim can be this loud. HireVue's own data eventually showed a widely-sold visual component added negligible predictive value.\n\n**D has no evidence in it at all.** \"Report 40% higher confidence\" measures a feeling, not an outcome — and confidence rising while accuracy stays flat is the precise failure 101 M6 describes. \"Significantly reduced bias\" has no measure, no group comparison, and no falsifier attached. This is also the claim closest to 101 M7's line: a product influencing ratings of individuals.\n\nThe pattern: **the credible claim was the one about a queue, and the loud claims were about judging people.** That is the module's asymmetry, arriving in your inbox."
+}

@@ -1,0 +1,119 @@
+[
+  {
+    "id": "ai301-comp-m1-calibration-prompt-before-you-start-10",
+    "moduleId": "ai301-comp-m1",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Calibration prompt — before you start\n\n*This one is a gate. Answer it before reading Lesson 1.*\n\nTotal rewards work divides into five kinds of activity: **data assembly, analysis, judgment,\nexplanation, and governance.**\n\n**What percentage of your week goes to each?** Five numbers, summing to 100. Commit them now,\nbefore the module tells you anything about how they usually distribute.\n\nThis track scores the delta, not the score. In Module 6 you'll gather every prediction you made\nand read the pattern — and this one is the anchor, because what you believe your job consists of\ndetermines every buying decision you make about it."
+  },
+  {
+    "id": "ai301-comp-m1-module-brief-20",
+    "moduleId": "ai301-comp-m1",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nThis is a 300-level course, which means it refuses to do the 100-level job. There is no\nexplanation of what a language model is, no prompting primer, no tour of tools. AI 101 and AI 201\ncovered that, and if you need them, take them first. **The refusal is the point** — most material\nsold to this audience spends half its runtime on remedial content because it is written for\nnovices, and you are not one.\n\nWhat this module does instead is describe your function accurately enough to make decisions\nabout, because most AI buying in total rewards goes wrong at exactly this step. A team buys a\nproduct category — \"AI for comp planning,\" \"AI for benefits admin\" — without ever having asked\nwhich *kind of work* in their week the product touches. The result is predictable and extremely\ncommon: three tools serving the work type that needed the least help.\n\nThe five-type breakdown below is not a taxonomy for its own sake. It is a buying instrument, a\ndelegation instrument, and — as Module 3 will show — a risk instrument, because the five types\nhave completely different relationships with a technology that produces fluent output. And there\nis one finding in it that most comp leaders get wrong about their own week, which is why you\ncommitted your numbers first."
+  },
+  {
+    "id": "ai301-comp-m1-learning-objectives-30",
+    "moduleId": "ai301-comp-m1",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. Describe total rewards as it is actually practised, across both the comp and benefits halves.\n2. Sort any task in your function into one of five work types.\n3. Say which types AI genuinely changes, which it assists, and which it must not touch.\n4. Explain why explanation work is larger and more transformed than most practitioners predict.\n5. Convert your own week into a work-type map, and use it as a buying instrument rather than a\n   description."
+  },
+  {
+    "id": "ai301-comp-m1-lesson-1-the-function-reconstructed-hone-40",
+    "moduleId": "ai301-comp-m1",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 · The function, reconstructed honestly\n\nNot the org chart — the work.\n\n**The compensation half.** *Job architecture* — levelling, job families, career paths, the\nstructure everything else hangs on. *Market intelligence* — survey participation, job matching,\nmarket pricing, and the judgment about which cuts to trust. *Structure* — band design, ranges,\nprogression rules. *Cycle execution* — merit planning, budget modelling, manager guidance, the\nexception queue. *Variable pay* — bonus plan design, target setting, payout modelling. *Equity* —\ngrant guidelines, refresh strategy, the mechanics that nobody outside the function understands.\n*Executive compensation* — LTI design, proxy inputs, comp committee materials. And *pay equity* —\nanalysis, remediation, reporting, increasingly under legal supervision.\n\n**The benefits half**, which is a different job wearing the same title in most organizations.\n*Plan design and funding* — what you offer, self-insured or fully insured, and what that costs.\n*Renewals and vendor leverage* — the annual negotiation that is genuinely a negotiation.\n*Retirement and fiduciary work* — the part that carries personal duty. *Leave and accommodation\nadministration.* And *enrollment* — the highest-volume communication event in the People calendar.\n\nTwo things about that list are worth naming before we sort it.\n\n**It is unusually structured work.** Compared to employee relations or organizational design,\ntotal rewards runs on tables, rules, cycles, and defined outputs. That makes it more tractable\nfor these tools than most of HR — which is genuinely good news, and it is also why the failure\nmode here is over-confidence rather than under-adoption.\n\n**And the consequences are unusually asymmetric.** A merit cycle touches everyone's pay. A\nmispriced band propagates for years. A retirement decision carries fiduciary duty. There are few\nfunctions in a company where an error is simultaneously this quiet and this durable."
+  },
+  {
+    "id": "ai301-comp-m1-lesson-2-the-five-work-types-50",
+    "moduleId": "ai301-comp-m1",
+    "ordinal": 50,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 · The five work types\n\nEvery task in the function is one of these. The distinction that matters is not difficulty — it\nis what a wrong answer costs and who would notice.\n\n**Data assembly.** Getting the numbers into one place. Pulling from the HRIS, joining survey\nfiles to your job catalogue, reconciling headcount between two systems, cleaning a submission\nfile. Enormous volume, no judgment, and — importantly — **verifiable**: a row count is a row\ncount, a join either matched or didn't.\n\n**Analysis.** Turning assembled data into a finding. Compa-ratios, distribution analysis, cost\nmodelling, regression on pay outcomes. Judgment enters here in the choice of method and the\nframing of the question, but the output is checkable in principle by anyone who can rebuild it.\n\n**Judgment.** Deciding. Where to set the band. Whether this exception is warranted. Which plan\ndesign to recommend. What the remediation should be. Not checkable, because there is no ground\ntruth — only a defensible reasoning chain and an accountable person.\n\n**Explanation.** Making someone else understand a decision. A band to a manager who thinks their\nreport is underpaid. A merit outcome to an employee who expected more. An equity grant to a\ncandidate who has never held equity. A renewal to a CFO. **This is the type people\nsystematically underestimate in their own week**, and it is the one AI changes most.\n\n**Governance.** Documenting, controlling, and being able to show your work. Approval trails, plan\ndocuments, audit responses, evidence that a decision was made the way you say it was. Low volume,\nhigh consequence, and the type where \"we did it, we just can't show it\" is indistinguishable from\nnot having done it."
+  },
+  {
+    "id": "ai301-comp-m1-lesson-3-where-ai-actually-lands-and-the-60",
+    "moduleId": "ai301-comp-m1",
+    "ordinal": 60,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 · Where AI actually lands — and the finding you probably got wrong\n\nRun the five types against the technology.\n\n**Data assembly — genuinely transformed, and safely.** This is the best AI use in the function,\nand Module 3 is largely about doing it properly. Why it's safe is the important part: **the\noutput is verifiable against something that isn't the model.** Row counts, control totals,\nreconciliations. You are not trusting fluency; you are checking arithmetic. Nothing else in this\nlist has that property.\n\n**Analysis — assisted, with a specific hazard.** AI structures a model, names the variable you\nforgot, and produces the sensitivity table quickly. It also produces a *confident, plausible,\nformatted* wrong answer at exactly the same speed, and you are trained to read formatted output\nfor shape. That is Module 3's whole subject.\n\n**Judgment — not delegable, and the boundary is sharper here than elsewhere in HR.** Whether this\nexception is warranted is a decision about a person's pay. 101 M7's line applies at full force,\nand Module 4 maps where it falls.\n\n**Explanation — the largest and most transformed, and the one you probably under-predicted.**\nHere is the case. Count the actual hours: the manager conversations in every cycle, the FAQ\ndocument, the enrollment communications, the exception responses, the \"why is my band what it is\"\nemails, the deck that explains the recommendation to leadership, the one-pager for the comp\ncommittee. In most weeks that outweighs analysis substantially — and almost nobody's predicted\nsplit says so, because *analysis is what the job feels like it's about*. It is the part that\nrequired training, and it is the part practitioners identify with.\n\nAI changes explanation work more than any other type, because producing a clear draft aimed at a\nspecific audience is precisely what these tools do well — and because the raw material (your\ndecision and its reasoning) is something you already hold. Explanation is also the type where a\nbad output is *most visible* and *least dangerous*: a confusing FAQ gets questions, and the\nquestions are the correction.\n\n**Governance — assisted at the edges, never at the centre.** AI can draft the documentation and\ncheck a record for completeness. It cannot be the record, and it cannot attest that something\nhappened."
+  },
+  {
+    "id": "ai301-comp-m1-try-70",
+    "moduleId": "ai301-comp-m1",
+    "ordinal": 70,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### Try this — 3 minutes\nTake yesterday. Write down the four longest things you did and assign each a type. If\nexplanation didn't appear, look again at the messages you sent — most explanation work hides\ninside \"answering a question,\" which nobody logs as work."
+  },
+  {
+    "id": "ai301-comp-m1-lesson-4-why-this-is-a-buying-instrument-80",
+    "moduleId": "ai301-comp-m1",
+    "ordinal": 80,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 · Why this is a buying instrument\n\nThe reason the map matters is that it is the thing missing from almost every AI purchase in this\nfunction.\n\nVendors sell by *product category*, which maps to their engineering, not to your week. \"AI for\ncompensation planning\" describes a market segment. Your week is five different jobs with five\ndifferent risk profiles, and a product touches one or two of them.\n\nSo the question to ask of anything you're shown is not \"does this help with comp?\" It is:\n**which work type does this touch, and is that the type where my hours actually are?** Three\nconsequences follow immediately.\n\n**A product that speeds up analysis when your bottleneck is explanation buys you nothing** — and\nthis is the single most common mismatch in the function, because analysis is what everyone thinks\nthe job is and therefore what everyone builds for.\n\n**A product that touches judgment should be assumed over the line until proven otherwise**, and\nModule 4 tells you where that line sits.\n\n**And a product that touches data assembly deserves the most attention and gets the least**,\nbecause it is unglamorous, it is where the volume is, and it is the one type whose output you can\nactually verify.\n\nThe buying rule this produces: **map your week first, then look at products.** In that order the\nquestion answers itself; in the other order you evaluate a demo against a job description you\nhave never written down."
+  },
+  {
+    "id": "ai301-comp-m1-exercise-embed-85",
+    "moduleId": "ai301-comp-m1",
+    "ordinal": 85,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"sorting\", \"title\": \"Calibration exercise \\u2014 Five work types\", \"intro\": \"Ten minutes, twelve real total-rewards tasks. Sort each into the work type it belongs to: data assembly, analysis, judgment, explanation, or governance.\\n\\nCommit every card before the reveal. Watch how many of them are explanation wearing another type's clothes.\"}"
+  },
+  {
+    "id": "ai301-comp-m1-key-takeaways-90",
+    "moduleId": "ai301-comp-m1",
+    "ordinal": 90,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **Total rewards is unusually structured work with unusually asymmetric consequences.** That\n  combination makes it tractable for these tools *and* makes over-confidence the failure mode\n  rather than under-adoption.\n- **Five work types:** data assembly, analysis, judgment, explanation, governance. The\n  distinction that matters is what a wrong answer costs and who would notice.\n- **Data assembly is the safest genuine transformation**, because its output is verifiable against\n  something that isn't the model — row counts, control totals, reconciliations. Nothing else in\n  the list has that property.\n- **Analysis is assisted with a specific hazard:** a confident, plausible, formatted wrong answer\n  arrives at the same speed as a right one, and you read formatted output for shape.\n- **Explanation is the largest and most transformed type, and the one practitioners\n  under-predict** — because analysis is what the job *feels* like it's about, while explanation\n  hides inside \"answering a question.\"\n- **Judgment is not delegable and governance can be assisted only at the edges** — AI can draft\n  the record; it cannot be the record.\n- **Map your week, then look at products.** Vendors sell by product category, which maps to their\n  engineering rather than to your hours."
+  },
+  {
+    "id": "ai301-comp-m1-activity-link-95",
+    "moduleId": "ai301-comp-m1",
+    "ordinal": 95,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"activity_link\", \"title\": \"Applied activity \\u2014 Work-type map\", \"blurb\": \"A real week logged and sorted into the five types, compared against the split you committed before Lesson 1 \\u2014 then run as a buying instrument against the tools your function already uses or is evaluating.\", \"estMinutes\": \"25\"}"
+  },
+  {
+    "id": "ai301-comp-m1-take-a-position-100",
+    "moduleId": "ai301-comp-m1",
+    "ordinal": 100,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"You think this job is analysis. It's explanation with analysis attached.\"*\n\nThe strongest counter-argument is that **explanation volume is a symptom of upstream failure, not\nthe job.** If your bands were well-designed, your philosophy documented, and your managers\ntrained, most of that explanation work would not exist — so a function that reallocates toward\nexplanation is optimizing the consequence of its own structural debt rather than fixing it. On\nthat view, the correct response to discovering you spend 40% of your week explaining is to fix\nthe design, not to get faster at explaining. Your position has to engage that, because it is the\nargument a good structural comp person will make."
+  },
+  {
+    "id": "ai301-comp-m1-sources-and-attribution-110",
+    "moduleId": "ai301-comp-m1",
+    "ordinal": 110,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- The five work types, the buying-instrument framing, and the explanation-underprediction finding\n  are original to this course, developed for the total rewards context.\n- Builds on 101 M6 (confidence and correctness decoupled), 101 M7 (decisions about people), and\n  201 M1 (the workflow audit) — none of which this track re-teaches."
+  }
+]

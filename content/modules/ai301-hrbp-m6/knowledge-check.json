@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What does the module identify as the first practical problem with the state-law patchwork? `[V]`",
+      "options": [
+        "The penalties are severe enough to threaten mid-size employers",
+        "Awareness — a majority of HR professionals in regulated states don't know their state has such a law, so the first question is which regimes apply rather than whether you comply",
+        "The statutes conflict with each other in ways that make compliance impossible",
+        "Enforcement is inconsistent across jurisdictions"
+      ],
+      "correctIndex": 1,
+      "explanation": "You cannot comply with a regime you don't know covers you, which is why the module's homework starts with inventory and jurisdiction rather than with policy."
+    },
+    {
+      "id": "q2",
+      "prompt": "Which EU AI Act obligations are already in force rather than deferred to December 2027? `[V]`",
+      "options": [
+        "All high-risk employment obligations",
+        "Bias auditing and candidate notice",
+        "The AI literacy obligation and the prohibition on emotion recognition in the workplace",
+        "None — the entire regime was postponed under the Digital Omnibus"
+      ],
+      "correctIndex": 2,
+      "explanation": "The high-risk employment duties moved; those two did not. And the emotion-recognition provision is a prohibition rather than a risk to manage — relevant the moment a vendor offers sentiment inference from interview video."
+    },
+    {
+      "id": "q3",
+      "prompt": "Under the agent theory in Mobley v. Workday `[V]`, what changed most for an employer?",
+      "options": [
+        "Employers became solely liable for vendor tool outputs",
+        "Vendors became solely liable, insulating employers",
+        "\"That's the vendor's problem\" and \"we only make the software\" both weaken — a tool performing a function you'd otherwise perform may carry your obligations",
+        "Nothing yet, since the case remains unresolved"
+      ],
+      "correctIndex": 2,
+      "explanation": "The court allowed the agent theory to proceed on the basis that customers had delegated the function of rejecting or advancing candidates. D is the tempting answer — the case is ongoing — but procurement behaviour should change on the theory surviving, not on final judgment."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why does the discovery fight over algorithmic code matter to a practitioner?",
+      "options": [
+        "It will produce a public standard for algorithmic transparency",
+        "Because \"we don't know how it works and the vendor won't tell us\" becomes a position to defend rather than a shield — which makes validation evidence a pre-signature requirement",
+        "Because employers can now compel vendors to disclose code on request",
+        "Because it establishes that proprietary models are exempt from disclosure"
+      ],
+      "correctIndex": 1,
+      "explanation": "The practical translation is procurement leverage: ask before signature, in writing. Afterwards you have no leverage and possibly an obligation."
+    },
+    {
+      "id": "q5",
+      "prompt": "Which use of AI in ER documentation does the module single out as underused and entirely safe?",
+      "options": [
+        "Drafting the summary from raw interview notes",
+        "Flagging inconsistencies between witness accounts",
+        "The completeness pass — \"what did I fail to ask that a thorough investigator would have covered?\"",
+        "Suggesting appropriate disciplinary outcomes based on precedent"
+      ],
+      "correctIndex": 2,
+      "explanation": "It audits your coverage rather than evaluating anyone, and it catches the omission that becomes a problem much later. B edges toward comparing accounts, which approaches credibility; D is squarely over the line."
+    },
+    {
+      "id": "q6",
+      "prompt": "Where does AI assistance in ER documentation stop absolutely?",
+      "options": [
+        "At any use involving employee names",
+        "At credibility determinations, conclusions about what happened, and characterizations of a person's motive or truthfulness",
+        "At documents that may become part of a legal proceeding",
+        "At investigations involving protected characteristics"
+      ],
+      "correctIndex": 1,
+      "explanation": "101 M7's line in its highest-stakes location — and unlike a hiring screen, there is a named individual with a specific consequence attached. A is over-broad (M4's redaction handles names); C would prohibit most ER documentation entirely."
+    },
+    {
+      "id": "q7",
+      "prompt": "What is the module's one-line provenance discipline?",
+      "options": [
+        "Never use AI on documents that might enter discovery",
+        "Disclose AI use to the employee who is the subject of the document",
+        "If you couldn't defend a sentence's origin, rewrite it",
+        "Retain all AI conversation logs for the statutory retention period"
+      ],
+      "correctIndex": 2,
+      "explanation": "And the module notes it isn't really about AI — a document whose production you can't describe was already weak. The supporting practices (record that AI assisted, keep the source material, don't let model phrasing become a finding) all serve it."
+    },
+    {
+      "id": "q8",
+      "prompt": "What makes \"are we compliant with AI law?\" the wrong question for counsel?",
+      "options": [
+        "It requires legal expertise the HRBP doesn't have",
+        "It has no answer — the useful version names the specific systems, what each decides, and asks which jurisdictions regulate them this year",
+        "Counsel cannot advise on AI matters without specialist certification",
+        "Compliance questions should go to the vendor first"
+      ],
+      "correctIndex": 1,
+      "explanation": "General questions get shrugs; specific lists get answers. Producing that list is exactly what the inventory and the three vendor questions are for."
+    }
+  ]
+}

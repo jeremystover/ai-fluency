@@ -1,0 +1,31 @@
+{
+  "reviewedAt": "2026-08-12",
+  "title": "Four things you've been told",
+  "intro": "*Four minutes. Commit before you look.*\n\nFour statements an HRBP could plausibly have encountered this quarter — in a deck, a webinar, a peer conversation, or a LinkedIn post. Each sounds like evidence. **Only one is supported by what the survey data actually says.**\n\nThe other three fail in different ways, and naming the failure is the skill: one inverts a real finding, one is true of a subgroup and presented as true of the field, and one is a product roadmap wearing a statistic.",
+  "artifacts": [
+    {
+      "label": "Statement A · from a vendor webinar",
+      "body": "\"Nearly every HR function has now deployed AI in some form — the laggards are a rounding error, and they're the ones losing talent to faster competitors.\""
+    },
+    {
+      "label": "Statement B · from a peer at a conference",
+      "body": "\"Adoption is real but payoff isn't yet — most HR leaders say they haven't seen significant business value from the AI tools they've put in.\""
+    },
+    {
+      "label": "Statement C · from a consultancy summary",
+      "body": "\"HR is one of the fastest-adopting functions in the enterprise. Recruiting teams in particular have moved decisively, which tells you where the rest of the function is headed within the year.\""
+    },
+    {
+      "label": "Statement D · from a platform's launch post",
+      "body": "\"Agentic AI is now standard in HR operations — the question is no longer whether your function runs agents, but how many.\""
+    }
+  ],
+  "options": [
+    { "id": "a", "label": "Statement A" },
+    { "id": "b", "label": "Statement B" },
+    { "id": "c", "label": "Statement C" },
+    { "id": "d", "label": "Statement D" }
+  ],
+  "key": "b",
+  "reasoning": "**B is the supported one.** It states the adoption-versus-payoff gap accurately and without inflating it: a large majority of HR leaders report no significant business value yet, and that is a statement about the distance between two milestones rather than about the technology's ceiling. Notice how unexciting it sounds. Accurate statements about this field mostly do.\n\n**A inverts the finding.** Roughly three in ten organizations report *no plans at all* — not late, not slow, no plans. \"Rounding error\" is the precise opposite of the data, and the talent-loss clause is a consequence asserted with no evidence attached, which is the tell.\n\n**C is true of a subgroup, presented as true of the field.** Recruiting genuinely is the most AI-penetrated practice area in HR. Everything after \"which tells you\" is extrapolation: the least-penetrated areas — employee relations, talent management, organizational design — are least penetrated because they're the hard part, not because they're merely next in line. This is the most dangerous of the three failures, because the first clause is true and buys credibility for the second.\n\n**D is a product roadmap wearing a statistic.** No number appears anywhere in it. \"Now standard\" and \"the question is no longer whether\" are rhetorical moves that presuppose the conclusion the vendor is selling — and the reframe from *whether* to *how many* is designed to skip the evaluation step this entire track exists to protect.\n\nThe portable test: ask what the claim would look like if it were false. B has an obvious falsifier — leaders would report business value. A, C, and D are built so that disagreeing with them makes you the laggard, which is how you recognize a claim engineered for urgency rather than accuracy."
+}

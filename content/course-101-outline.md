@@ -1,7 +1,7 @@
 # AI 101 · The Foundation — Course Outline (draft v1)
 
 **Audience:** People leaders — HR business partners, talent and ER leads, People ops, CHROs and their benches. Same audience 201 inherits; 101 assumes no prior AI use and no technical background.
-**Level transition:** L1 The Avoider (the material's "The Risk") → L2 The Novice.
+**Level transition:** L1 The Novice → L2 The Practitioner.
 **Shape:** 8 modules × ~25–35 min, each with a module brief, four lessons, key takeaways, one applied AI-graded activity, and a knowledge check. No capstone thread — 101 builds the mental model; 201 is where a single build runs through all eight.
 **Tooling stance:** Tool-aware, not tool-taught. 101 names real tools where naming them is the point (M2, M3) but teaches properties, not clicks — the hands-on lab track starts in 201. **Every passage naming a model, price, feature, or regulation is volatile-layer** `[V]` so it refreshes without touching the concepts.
 
@@ -141,7 +141,8 @@ Data agreements, disclosure, and accountability. What you're responsible for whe
 - **Lesson 2:** The agreement layer `[V]`. Consumer tier vs. enterprise terms, training on your inputs, retention. What to verify before your team is told it's fine.
 - **Lesson 3:** Disclosure. When AI involvement should be visible, to whom, and the honest test — would the person reading this feel misled to learn how it was made? Applied to candidate communications, ER documentation, and board material.
 - **Lesson 4:** The five questions to settle now. A short policy skeleton a People leader can bring to legal and IT rather than wait for.
-- **Interactive:** none — this module closes with the activity rather than an exercise.
+- **Try this (in Lesson 1):** *the excuse audit* — four sentences people reach for when AI-assisted work goes wrong ("the AI wrote it," "I reviewed it," "it was only a draft," "the vendor said it was compliant"). Which survives scrutiny, and what each one is actually admitting.
+- **Interactive:** sorting exercise — *"Would they feel misled?"* Six pieces of shipped work AI touched (a job posting, an ER summary forwarded to legal, a board slide, a candidate rejection note, a policy draft, a performance review narrative), sorted into *disclose / no disclosure needed / shouldn't have shipped at all*. The reveal shows the pattern: disclosure tracks the reader's stake in how it was made, not the amount of AI involved.
 - **Activity (course close):** *"The One-Pager"* — what you'll use AI for, what you won't, what you'll verify and how, and what you'd tell your team on Monday. Graded on specificity and whether the verification part exists at all. **Calibration:** score every prediction made across the eight modules; direction of error named.
 - **Knowledge check:** 8 questions.
 - **Completion:** manager one-pager, 101 edition — what changed in their model, and the one question a manager should ask them about it.
@@ -167,7 +168,7 @@ Each module ships a package under `content/modules/<id>/`, generated from a draf
 | `micro.json` | the 2-minute cut | hand-written; three blocks — core, one callout rule, what the full module adds |
 | `knowledge-check.json` | `capabilities.knowledgeCheck` | 8 questions (M1 has 10); keys stay server-side |
 | `rubric.json` | `capabilities.activity` | 4 dimensions incl. Calibration |
-| `sorting.json` *or* `choice.json` | `capabilities.sorting` | one per module except M8 |
+| `sorting.json` *or* `choice.json` | `capabilities.sorting` | one per module, all eight |
 | `activity.json` | the activity brief | generated from the draft |
 
 Then `status` flips to `open` in `content/modules.json` and `node scripts/generate-seed.mjs` regenerates `seed/seed.sql`.
@@ -179,11 +180,23 @@ Then `status` flips to `open` in `content/modules.json` and `node scripts/genera
 3. **No capstone thread in 101.** Deliberate: 101 builds the model, 201 builds the thing. Module activities stand alone so a learner can take M3 without having taken M2.
 4. **Knowledge checks at 8 questions**, matching 201. M1's existing 10 stays as-is rather than being trimmed for symmetry.
 5. **Tool naming is volatile-layer everywhere.** 101 names more tools than 201 does (M2 and M3 require it), so the `[V]` discipline matters more here, not less.
-6. **Source hygiene.** The Brainstorm reference material is CC BY-NC-SA 4.0, adapted from the AI Fluency Framework (Dakan & Feller, with Anthropic). We take structure and topic coverage, not prose. Any passage that ends up close to the source gets attributed in that module's sources block — open question flagged below.
+6. **Credit the sources, generously.** Every module ends with a sources-and-attribution block, following the reference material's own convention. Where a passage derives from the AI Fluency Framework (Dakan & Feller, in collaboration with Anthropic, CC BY-NC-SA 4.0) it says so by name; where it derives from published Anthropic research or another secondary source, that's cited inline and listed at the bottom. Standing instruction while drafting: when in doubt, credit. We are not trying to own every sentence.
+7. **Tool naming follows the learner's actual stack, when we know it.** Named products beat "your AI assistant" — a module that says *Claude* to someone provisioned Claude is doing its job, and a module hedging into the generic is wasting the one thing we know about them. See the mechanism note below: this is a small feature, not just an authoring style.
+8. **M8 gets an interactive after all** — the disclosure sort, above. It earns its place because disclosure judgment is the one call in M8 that reasonable people get wrong in both directions; the two alternatives considered (an agreement-terms matching drill, and the excuse audit) were recall and one-idea respectively. The excuse audit survives as a `try_this` inside Lesson 1, which is the right size for it.
+
+## Mechanism note: personalizing to the learner's stack (Decision 7)
+
+Today `aiTools` is collected but never reaches content. Brands declare it in `profile_json` (`content/brands/*.json` → `src/worker/index.ts:207`); when a brand doesn't, intake asks the learner (`Welcome.tsx:131`) and stores it in `fd_preference`. Nothing downstream reads it: blocks are static markdown, the volatile layer is a freshness stamp rather than a per-brand swap, and the tutor's learner context carries name, role, and objective only (`chat.ts:108-110`).
+
+Three ways to close that, cheapest first. Recommend doing the first two and skipping the third:
+
+1. **Pass `aiTools` into the tutor and podcast learner context.** A few lines each, alongside the existing name/role/objective. Highest payoff per unit of work — the conversational surfaces are where a learner asks "how do I do this in *my* tool," and today they answer generically for no reason.
+2. **A `[V]` "In your stack" callout per tool-naming module** (M2 Lesson 2, M3 Lesson 4, M5 Lesson 4, M8 Lesson 2). The lesson prose names the major assistants as it should; the callout names *theirs*. Needs a small substitution step at render — resolve the brand's tools, fall back to learner prefs, fall back to a generic line when neither exists. That fallback is not optional: `verdant.json` and any brand without a declared stack must still read cleanly.
+3. **Per-brand block variants** — authoring each tool passage N times. Skip. It multiplies the authoring surface and rots N times as fast.
+
+Sequencing: this doesn't block drafting. Author the prose with the callouts in place, and land the substitution mechanism as its own small PR before the modules go `open`.
 
 ## Open questions for review
 
-- **Brand examples.** M2 Lesson 2 and M3 Lesson 4 read much better with named products. Do we keep them generic, or lean on the seeded brand profile (`aiTools` in `content/brands/*.json`) so each deployment sees its own stack?
-- **M8's missing interactive.** Every other module has a sorting or choice exercise; M8 currently closes on the activity alone. Fine, or does it want one?
-- **Attribution.** Confirm whether any Brainstorm-derived passage stays close enough to require a CC BY-NC-SA credit line, and whether that license is compatible with this product's commercial posture.
-- **M7 and legal review.** The regulatory lesson `[V]` makes claims about employment as a high-risk category. Worth a counsel read before it ships, not after.
+- **M7 and legal review.** The regulatory lesson `[V]` makes claims about employment as a high-risk category and about the direction of EU/US regulation. Wants a counsel read before it ships, not after. *(Acknowledged — flagged here so it doesn't get lost between the draft and the seed.)*
+- **How far does the stack personalization go?** Decision 7 covers naming the learner's tools. It does not cover teaching to them — screenshots, click paths, feature-level guidance. That's 201's lab track, and 101 should probably stay on properties. Worth confirming that's the line.

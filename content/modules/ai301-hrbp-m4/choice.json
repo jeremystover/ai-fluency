@@ -1,0 +1,35 @@
+{
+  "reviewedAt": "2026-08-12",
+  "title": "Four rehearsals, one that worked",
+  "intro": "*Five minutes. Commit before you look.*\n\nFour HRBPs rehearsed the same decision with a model: **removing the mid-year promotion cycle, leaving one annual cycle.** Below is the key exchange from each.\n\nThree of these produced confidence. **One produced preparation.** Which one — and can you name the specific failure in each of the other three?",
+  "artifacts": [
+    {
+      "label": "Rehearsal A",
+      "body": "**HRBP:** \"We're consolidating to one promotion cycle a year. I think it'll reduce manager admin load and improve calibration quality. What do you think of this plan?\"\n\n**Model:** \"This is a thoughtful approach with real merit. Consolidating cycles can meaningfully reduce administrative burden and often improves calibration consistency by concentrating decisions. A few considerations to keep in mind: you'll want to think about communication timing, ensure managers understand the rationale, and monitor for any impact on retention. Overall, a defensible direction that many organizations have taken successfully.\""
+    },
+    {
+      "label": "Rehearsal B",
+      "body": "**HRBP:** \"We're consolidating to one promotion cycle. Play devil's advocate — be as critical as you can. Don't hold back.\"\n\n**Model:** \"Playing devil's advocate: some might argue this reduces flexibility for recognizing high performers promptly. Others could say it creates a bottleneck in decision-making. One might also question whether annual cycles align with modern talent expectations. That said, these concerns are manageable with good communication, and the efficiency gains are substantial. On balance the plan seems sound.\""
+    },
+    {
+      "label": "Rehearsal C",
+      "body": "**HRBP:** \"I've decided to consolidate to one annual promotion cycle, because mid-year promotions were creating calibration inconsistency and manager overhead. You are a senior engineer, two years in role, who was on track for a mid-year promotion that now won't happen for eight months. Do not give me balance and do not list strengths. Tell me what this does to you, in your voice, as strongly as you honestly can.\"\n\n**Model:** \"Eight months. I found out from a process change, not from my manager — which tells me the decision wasn't made with people like me in mind, it was made about a calendar. I've been told 'you're on track' twice; now 'on track' means nothing until next October, and I have no way to know if my case survived the delay or quietly died in it. The people who'll be fine with this are the ones not currently waiting. I'm going to take the recruiter call I've been ignoring — not because I'm angry, but because I now have eight months of ambiguity and one data point about how this place makes decisions.\"\n\n**HRBP:** \"What am I not asking you because I don't want to know the answer?\"\n\n**Model:** \"Whether my manager already told me it was happening. If they did, you haven't delayed a promotion — you've made my manager a liar, and I'll trust them less than I trust you.\""
+    },
+    {
+      "label": "Rehearsal D",
+      "body": "**HRBP:** \"We're consolidating promotion cycles. List every possible objection to this decision.\"\n\n**Model:** \"1. Reduced flexibility for high performers. 2. Potential retention risk. 3. Manager communication burden. 4. Perception of cost-cutting. 5. Misalignment with competitor practices. 6. Delay in recognizing internal mobility. 7. Impact on offer negotiations. 8. Possible morale effects. 9. Calibration session length increases. 10. Reduced ability to correct pay inequities promptly.\"\n\n**HRBP:** \"Good — that's comprehensive. I have answers for most of those.\""
+    },
+    {
+      "label": "The decision itself",
+      "body": "Consolidate two promotion cycles into one annual cycle. Rationale: mid-year cycles produced inconsistent calibration and significant manager overhead. Roughly 40 employees are currently mid-cycle."
+    }
+  ],
+  "options": [
+    { "id": "a", "label": "Rehearsal A" },
+    { "id": "b", "label": "Rehearsal B" },
+    { "id": "c", "label": "Rehearsal C" },
+    { "id": "d", "label": "Rehearsal D" }
+  ],
+  "key": "c",
+  "reasoning": "**C produced preparation. The other three produced confidence.**\n\nC does all five moves. The position is **committed in writing** as a decision, not floated as a draft. The adversary is a **specific person with something at stake** — not \"a critic\" but a named situation with eight months of consequence attached. Hedging is **explicitly forbidden**, twice. And the follow-up is the module's highest-yield prompt, which produces the objection the HRBP could not have reached alone: *the manager may have already promised it.* That's not a communications risk — it's a discovery that the plan damages a relationship the HRBP doesn't control and hasn't checked. It changes what you do on Monday, which is the test.\n\n**A is the default failure.** \"What do you think of this plan?\" invited a constructive-colleague response and got one: praise, three considerations, balanced close. It reads as critique and functions as endorsement. Nothing malfunctioned — the wrong thing was asked for.\n\n**B is the seductive one, because it looks like the right technique.** \"Devil's advocate, be as critical as you can\" is a *style* instruction, not a position, so it produced criticism-flavoured text — \"some might argue,\" \"others could say,\" nobody actually says. Then it did the thing the module warns about most: it neutralized its own critique with \"on balance the plan seems sound.\" A rehearsal that closes by endorsing you has done nothing.\n\n**D is thoroughness as avoidance.** Ten mild objections are easier to dismiss than one sharp one, and the list let the HRBP feel comprehensive while engaging with nothing — note the closing line, which is the actual failure: *\"I have answers for most of those.\"* That is rationalization completing itself. Item 10 on that list is arguably the most serious issue with the whole decision, and it received exactly as much attention as item 3.\n\nThe transferable tell: **ask what the HRBP would do differently on Monday.** After A, B, and D — nothing. After C — call the manager."
+}

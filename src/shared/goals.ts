@@ -25,7 +25,7 @@ export const GOAL_CHOICES: GoalChoice[] = [
     label: 'Put AI to work in my job',
     detail: 'Real tasks from a People leader\'s week — job descriptions, ER write-ups, policy drafts, survey summaries — done in minutes, checked by you.',
     modules: ['ai101-m2', 'ai101-m4', 'ai101-m5', 'ai201-m1', 'ai201-m3'],
-    courses: ['ai201'],
+    courses: ['ai201'], // 301 is assigned by role, not recommended by goal — see shared/roles.ts
   },
   {
     id: 'workflows',
@@ -46,7 +46,7 @@ export const GOAL_CHOICES: GoalChoice[] = [
     label: 'Make the big calls',
     detail: 'Understand enough to set direction: where your People org should use AI, where it must not, and how to decide.',
     modules: ['ai101-m7', 'ai101-m8'],
-    courses: ['ai301', 'ai401'],
+    courses: ['ai401'],
   },
   {
     id: 'safety',
@@ -60,7 +60,7 @@ export const GOAL_CHOICES: GoalChoice[] = [
     label: 'Bring everyone with me',
     detail: "Lead HR's adoption story — coach your team and the leaders you support instead of watching it happen to you.",
     modules: ['ai101-m7'],
-    courses: ['ai301'],
+    courses: ['ai401'],
   },
   {
     id: 'confidence',

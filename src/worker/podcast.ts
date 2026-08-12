@@ -37,6 +37,7 @@ export type LearnerContext = {
   calibrationHeadline: string | null; // from the diagnostic, when they took it
   goals: string[]; // selected goal labels, verbatim UI copy
   depth: Depth | null; // how much they want to invest
+  aiTools: string[]; // provisioned tools (brand profile first, else intake prefs) — [] when unknown
 };
 
 export type PodcastVisualDraft = {
@@ -153,6 +154,9 @@ function buildUserContent(
         ? 'Investment: they chose a deep dive — they are building mastery.'
         : null,
     learner.calibrationHeadline ? `Their diagnostic read: ${learner.calibrationHeadline}` : null,
+    learner.aiTools.length
+      ? `Their organization's AI tools: ${learner.aiTools.join(', ')} — when the hosts mention tools or how-tos, they name these instead of speaking generically.`
+      : null,
   ].filter(Boolean);
   return [
     ...heard.map((ep) => `<heard_episode title=${JSON.stringify(ep.title)}>\n${asDialogue(ep.lines)}\n</heard_episode>`),
@@ -713,6 +717,9 @@ export async function writeCustomBody(
         ? 'Investment: a deep dive — go a level deeper, push on nuance.'
         : null,
     learner.calibrationHeadline ? `Their diagnostic read: ${learner.calibrationHeadline}` : null,
+    learner.aiTools.length
+      ? `Their organization's AI tools: ${learner.aiTools.join(', ')} — when the hosts mention tools or how-tos, they name these instead of speaking generically.`
+      : null,
   ].filter(Boolean);
   const system: SystemBlock[] = [
     {

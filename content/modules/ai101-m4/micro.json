@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ai101-m4-micro-core",
+    "moduleId": "ai101-m4-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "## Module 4 in two minutes\n\n**Attach the source or expect invention.** The model has never seen your organization's documents; describe them and it generates fluent averages of other people's. Supplying the material improves the output *and* makes it checkable — every claim can now be verified against something you hold.\n\n**The paste question has a real answer: a tier and an agreement.** Public / internal / person-identifying / protected, run in seconds. What the first three permit depends on your tool's agreement; Tier 4 — medical, protected-class, investigations, individual comp — is *stop* under every agreement, because the obligations attach to the data itself. The test that catches what tiers miss: **could this run be shown to the person it concerns?** Discomfort is information.\n\n**Redaction that isn't theater:** identity lives in combinations, not names. 'A senior engineer in the Denver office who raised concerns after the reorg' names nobody and identifies one person. Generalize the quasi-identifiers, break the joins, paraphrase distinctive quotes — before the material enters the tool — and narrate what you removed so the judgment is reviewable."
+  },
+  {
+    "id": "ai101-m4-micro-rule",
+    "moduleId": "ai101-m4-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "### The rule to carry\n\nTier it, redact to the most-informed insider, run the shown-to-the-person test — and when unsure, round the tier up. If the redacted version would still make its subject flinch, the task is the problem, not the document."
+  },
+  {
+    "id": "ai101-m4-micro-close",
+    "moduleId": "ai101-m4-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "**The full module adds** the long-document failure modes (the lossy middle and silent truncation, with the working habits that defend against both), the twelve-artifact tier sort, and the Redaction Pass — the full discipline run on a real document of yours, scored against your prediction of how much survives."
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ai301-hrbp-m5-micro-core",
+    "moduleId": "ai301-hrbp-m5-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module 5 in two minutes\n\n**HRBPs lose budget arguments because they arrive with a story and Finance arrives with a model** — not because the story is less accurate, but because only a model can be challenged, adjusted, and agreed. Being arguable is what gets a claim compared against the eleven others competing for the same money.\n\n**Rough beats absent. The assumptions are the argument, not the answer** — getting challenged on your multiplier means your reasoning was accepted and only the parameters are in dispute. And **precision is not credibility**: £183,472 is less believable than \"roughly £180k, and here's the multiplier.\"\n\n**Three models to carry:** regretted attrition (the productivity ramp is the hidden bulk and most published per-hire figures omit it), the cost of an extra layer (the decision tax is where the real number lives — keep it conservative), and time-to-fill against plan (most persuasive, most attackable — state a share).\n\n**AI builds skeletons well and supplies inputs badly.** Use it for structure, forgotten variables, and sensitivity tables; supply the numbers yourself."
+  },
+  {
+    "id": "ai301-hrbp-m5-micro-rule",
+    "moduleId": "ai301-hrbp-m5-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### The rule to carry\n\nAI on bad HR data produces confident garbage at speed — and confident garbage in front of a CFO is worse than no model at all. A missing number costs one conversation; a wrong number that someone else corrects three weeks later costs the next five."
+  },
+  {
+    "id": "ai301-hrbp-m5-micro-close",
+    "moduleId": "ai301-hrbp-m5-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "**The full module adds** the inventory of how your HR data actually lies — regretted flags set by interested parties, ratings that drift across functions, tenure corrupted by migrations, systematically polite exit data — the small-numbers defences (state the n, volunteer the coincidence test, argue direction over magnitude), and the discipline of naming your weakest assumption first. A case that fails its own sensitivity test and says so beats one that passes untested."
+  }
+]

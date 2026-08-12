@@ -1,0 +1,119 @@
+[
+  {
+    "id": "ai101-m2-calibration-prompt-before-you-start-10",
+    "moduleId": "ai101-m2",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "## Calibration prompt — before you start\n\n*One prediction, thirty seconds. You'll score it during the applied activity.*\n\nBy the end of this module you'll audit the systems your People function actually runs — the ATS,\nthe HRIS, the survey platform, the docs suite, the chat tools — and find the AI already inside\nthem.\n\n**How many distinct systems in your stack have AI in them right now?** Count anything you or\nyour team touches in a normal month. Write the number down before you look.\n\nAlmost everyone guesses low. The gap between your number and the real one is the point: it\nmeasures how much AI is already making or shaping calls around you without ever having been\nchosen."
+  },
+  {
+    "id": "ai101-m2-module-brief-20",
+    "moduleId": "ai101-m2",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "## Module brief\n\nIn M1 you built a working model of one thing: the large language model. This module is about a\nharder, more practical problem — the word \"AI\" is currently stuck to at least three genuinely\ndifferent technologies, and a People leader meets all three in a single week, usually without\nlabels.\n\nHere's the week. Monday, someone on your team asks whether they can use a chat assistant to\ndraft interview questions. Wednesday, your HRIS vendor demos a new \"AI-powered\" panel that\nanswers employees' benefits questions. Friday, a different vendor shows you a dashboard that\nscores your open reqs' candidate pipelines and flags \"high-potential applicants.\" All three got\ncalled AI. Two of them are the technology you studied in M1. One is something else entirely —\nand it's the one that can quietly make decisions about people.\n\nConfusing them costs you in both directions. Treat a scoring engine like a chat assistant and\nyou'll under-scrutinize something with real adverse-impact exposure. Treat a drafting copilot\nlike a scoring engine and you'll wrap a harmless writing aid in three layers of approval nobody\nneeded. Over-trust and over-compliance are the same mistake — reasoning about the label instead\nof the thing.\n\nBy the end of this module you'll be able to look at any \"AI-powered\" product from the outside —\nin a demo, in your existing stack, in a teammate's excited Slack message — and answer the only\nquestion that matters: *what shape of thing is this, and what does that shape make it good for,\nbad at, and accountable to?*"
+  },
+  {
+    "id": "ai101-m2-learning-objectives-30",
+    "moduleId": "ai101-m2",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. Sketch the broad arc of AI as a field — the rule-based era, the shift to machine learning,\n   and what changed in 2017 — well enough to talk with a skeptical colleague without\n   overclaiming or dismissing.\n2. Distinguish the three shapes AI takes in a People leader's stack — assistants, copilots, and\n   decision engines — by what goes in, what comes out, and where the context lives.\n3. Identify which shape any product is from the outside, using four questions that need no\n   technical access.\n4. Explain why the failure modes differ by shape — and why the scoring shape carries the\n   regulatory exposure.\n5. Match a real task to the right shape, and name the one question you'd put to a vendor before\n   trusting their label."
+  },
+  {
+    "id": "ai101-m2-lesson-1-the-long-arc-briefly-40",
+    "moduleId": "ai101-m2",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "## Lesson 1 · The long arc, briefly\n\nThe term \"artificial intelligence\" was coined in 1956, at a summer workshop at Dartmouth\nCollege. The researchers there genuinely believed they could crack most of the problem within a\ngeneration. They were wrong — but their ambition set the field's agenda for decades, and the\nfield's history since is the fastest way to understand why this moment is different.\n\nThe first several decades were dominated by one approach: encode human knowledge as explicit\nrules, then write programs that reason over those rules. It worked in narrow domains and\ncollapsed everywhere else — the world holds more edge cases than any rulebook can. Twice the\ngap between promise and delivery grew wide enough that funding and attention drained away.\nThe field calls these the **AI winters**, and they're why some of your most experienced\ncolleagues reflexively file AI under \"hype cycle.\" They watched it happen before. Their\nskepticism is earned, and arguing with it head-on is both rude and ineffective.\n\nThe shift that ended the rules era was **machine learning**: instead of writing rules, show the\nsystem enormous numbers of examples and let it find the patterns itself. That's the lineage the\nM1 material comes from — and it's why *all training data carries bias* is a structural fact\nrather than a scandal. A system that learns from examples learns what the examples contain.\n\nThe breakthrough that produced the current moment came in 2017, when researchers published the\n**transformer** architecture — the design that made it practical to train language models at\nenormous scale. Combined with a stubborn empirical finding — bigger models trained on more data\nkept getting better, past every point where experts predicted the gains would flatten — it\nproduced the LLMs from M1. The \"GPT\" in ChatGPT stands for generative pre-trained *transformer*;\nClaude and Gemini are built on the same family of architecture.\n\nSo when the skeptic on your leadership team says \"we've seen AI hype before,\" the honest answer\nis: *yes, twice, and the pattern was real — and this wave is built on a different mechanism than\nthe ones that stalled.* The previous eras tried to hand-encode intelligence; this one grew a\ngeneral language capability from data at scale. That doesn't mean every product demo is real —\nmost of what you'll be pitched is thin wrapping around someone else's model. It means the\nunderlying capability is not going to un-happen. Holding both of those at once — no\noverclaiming, no dismissing — is the posture this whole course tries to build. You'll practice\nsaying it out loud in M8."
+  },
+  {
+    "id": "ai101-m2-try-50",
+    "moduleId": "ai101-m2",
+    "ordinal": 50,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "### Try this — 2 minutes\nThink of the most AI-skeptical person you work with. In two sentences — write them down —\nexplain what changed in 2017 without using the words \"transformer\" or \"architecture.\"\nIf your sentences survive their eye-roll, you've got the arc."
+  },
+  {
+    "id": "ai101-m2-lesson-2-the-three-shapes-60",
+    "moduleId": "ai101-m2",
+    "ordinal": 60,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-11",
+    "body": "## Lesson 2 · The three shapes [V]\n\nEvery \"AI\" a People leader meets is one of three shapes. The technology overlaps; the shape —\nwhat goes in, what comes out, where the context lives — is what determines how to treat it.\n\n**Shape 1: Assistants.** Claude, ChatGPT, Gemini, Copilot as a standalone chat. A general-purpose\nLLM in a conversation window. *You* supply the material and the briefing; it transforms,\ndrafts, summarizes, critiques. Its defining property is breadth with zero built-in knowledge of\nyour organization — everything M1 taught. It is the most capable shape and the most dependent\non how well you drive it. When this course says \"your AI tool,\" it means this shape.\n\n**Shape 2: Copilots.** The same LLM technology, embedded inside software you already use — the\ndrafting panel in your ATS that writes job descriptions, the summarizer in your docs suite, the\nbenefits-question bot inside the HRIS, the meeting notes in your video tool. The host\napplication supplies the context automatically, which is the convenience — and the constraint.\nA copilot sees what its host shows it and nothing else, does the narrow set of tasks the vendor\nbuilt, and quietly inherits every property of LLMs from M1: same fluency, same hallucination\nrisk, same decoupling of confidence from correctness. The danger with copilots isn't the\ntechnology — it's the packaging. Output that appears inside a trusted system of record borrows\nthat system's credibility without earning it.\n\n**Shape 3: Decision engines.** Resume screeners and rankers, \"candidate match\" scores,\nattrition-risk predictors, engagement-driver models, comp benchmarking. Mostly not language\nmodels at all — these are scoring and matching systems, often older than the current wave,\nrebranded \"AI\" because the label sells. Structured data about people goes in; a number, rank,\nor flag about a person comes out. This is the shape M1 warned about: it doesn't assist a\ndecision about a person, it *makes* one and hands you the output. It's also where regulatory\nframeworks concentrate — employment-related scoring is the canonical high-risk category **[V]**\n— and where adverse impact stops being abstract. You'll spend M7 on this shape. For now, one\nrule: when the output is a number attached to a person, everything in this course about\n\"drafts\" stops applying. A draft can be edited. A score has already decided something.\n\n> **In your stack [V]:** Your organization's provisioned tools slot into these shapes — the\n> assistants you've been given, the copilots already embedded in your HR systems, and any\n> scoring features switched on inside them. If you don't know which of the three shapes a given\n> system is, that's not a gap in your technical knowledge — it's the audit this module's\n> activity has you run."
+  },
+  {
+    "id": "ai101-m2-lesson-3-telling-them-apart-from-the-out-70",
+    "moduleId": "ai101-m2",
+    "ordinal": 70,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "## Lesson 3 · Telling them apart from the outside\n\nYou will never be shown a product's architecture, and you don't need it. Four questions,\nanswerable from a demo or a settings page, identify the shape of anything.\n\n**1. What goes in?** Material you choose to give it, per use (assistant). Whatever the host\napplication already holds (copilot). Structured records about people — resumes, performance\ndata, survey responses — flowing in automatically (decision engine).\n\n**2. What comes out?** Language you'll edit — a draft, a summary, an answer (assistant or\ncopilot). Or a number, rank, score, match percentage, or flag (decision engine). This is the\nsingle sharpest tell: **does it produce language, or a number about a person?** Language can be\nread, judged, and rewritten before it touches anyone. A number invites sorting, and sorted\nlists become decisions the moment someone is busy.\n\n**3. Where would an error land?** A bad draft lands on *your* desk, caught or not by your\nreview. A bad copilot answer lands on an employee who asked the benefits bot and believed it. A\nbad score lands on a candidate who never knows they were filtered. The further the output lands\nfrom your desk, the less \"human review\" describes anything real.\n\n**4. Who's accountable for the output?** If the honest answer is \"whoever edits and ships it,\"\nyou're looking at a drafting tool and M1's rules apply. If the honest answer is \"nobody edits\nit — it just routes people,\" you're looking at a decision engine, whatever the marketing says —\nand it's carrying accountability no one has consciously accepted.\n\nAsk these four in that vendor demo and watch what happens. A good vendor answers cleanly. A\ntelling vendor answers the language question with the score question's answer — \"our AI\nsurfaces the best candidates\" — and that blur is your cue to slow the meeting down."
+  },
+  {
+    "id": "ai101-m2-try-80",
+    "moduleId": "ai101-m2",
+    "ordinal": 80,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "### Try this — 3 minutes\nPick one system in your stack with an AI feature you've never examined. Answer the four\nquestions from what you already know. If you can't answer #3 — where an error would land —\nyou've found this week's most useful email to send."
+  },
+  {
+    "id": "ai101-m2-exercise-embed-85",
+    "moduleId": "ai101-m2",
+    "ordinal": 85,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "{\"type\": \"choice\"}"
+  },
+  {
+    "id": "ai101-m2-lesson-4-choosing-without-getting-paraly-90",
+    "moduleId": "ai101-m2",
+    "ordinal": 90,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "## Lesson 4 · Choosing without getting paralyzed\n\n\"Which AI tool is best?\" is the question everyone asks, and it's the wrong one — it assumes the\ntools compete on one axis. The right question is older and calmer: **what is this task actually\nasking for?** Run the task, not the tool, through the shapes.\n\n**Transformation of material you have** — rewrite this policy in plain language, structure these\ninterview notes, draft three versions of this announcement — wants an assistant. This is the\ndelegation heuristic's home ground: you supply everything it needs, and your review is the\nquality gate. When people ask \"which assistant,\" the honest answer **[V]** is that the leading\nones are close enough that *the one your organization has provisioned, used well,* beats the\nmarginally better one used through a personal account — because the provisioned one comes with\nan agreement about your data, and M8 will show you why that dwarfs any capability difference.\n\n**Work that lives inside a system** — JD drafting in the ATS, summaries in the docs suite —\nwants the copilot that's already there, with one habit attached: read its output with exactly\nthe M1 skepticism you'd give a chat window. The system of record it appears in vouches for\nnothing.\n\n**Anything that scores, ranks, or filters people** doesn't get a tool recommendation. It gets\nM7's question first: should any system be doing this at all — and under whose sign-off? That\none is never answered in a product demo.\n\nAnd a counterweight, because tool-shopping is a genuine failure mode: for the tasks in this\ncourse, the capability differences between major assistants are smaller than the difference\nbetween a thin brief and a good one. M5 — prompting as briefing — will move your results more\nthan any tool switch. If you're spending more time comparing tools than briefing them, the\ncomparison has become the procrastination."
+  },
+  {
+    "id": "ai101-m2-key-takeaways-100",
+    "moduleId": "ai101-m2",
+    "ordinal": 100,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "## Key takeaways\n\n- **\"AI\" currently names three different shapes** in a People leader's stack: assistants (you\n  supply material, it drafts), copilots (embedded in a host app, context comes along), and\n  decision engines (data about people in, scores about people out).\n- **The field's history explains the skeptics.** Two AI winters made \"hype cycle\" a reasonable\n  prior. What changed in 2017 — learned language capability at scale, not hand-coded rules — is\n  a different mechanism, which is the honest, non-dismissive answer.\n- **The sharpest tell is the output: language, or a number about a person?** Language gets\n  edited before it touches anyone. A number attached to a person has already decided something.\n- **Copilots borrow credibility from their host system without earning it.** Same LLM, same\n  failure modes, more trusted wrapper. Read them with chat-window skepticism.\n- **Errors land in different places by shape** — your desk, an employee's inbox, a candidate's\n  silent rejection. \"Human review\" only describes the first.\n- **Choose by task, not by leaderboard.** The provisioned assistant used well beats the\n  marginally better one used outside your data agreement — and briefing quality moves results\n  more than tool choice ever will."
+  },
+  {
+    "id": "ai101-m2-activity-link-105",
+    "moduleId": "ai101-m2",
+    "ordinal": 105,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "{\"type\": \"activity_link\", \"title\": \"Applied activity \\u2014 The Stack Audit\", \"blurb\": \"Inventory the systems your People function actually runs, classify every AI feature you find by shape, write the vendor question each one deserves \\u2014 and score the prediction you made at the top of the module. Graded against a four-dimension rubric with per-dimension feedback. Free unlimited resubmission.\", \"estMinutes\": \"20\\u201325\"}"
+  },
+  {
+    "id": "ai101-m2-sources-and-attribution-110",
+    "moduleId": "ai101-m2",
+    "ordinal": 110,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "## Sources and attribution\n\nThis module draws on the following material:\n\n- **The AI Fluency Framework** (Rick Dakan & Joseph Feller, in collaboration with Anthropic,\n  CC BY-NC-SA 4.0) — the historical arc in Lesson 1 and the overclaiming/dismissing framing\n  adapt its treatment of AI's history and of calibrated judgment about AI capability.\n- **\"Attention Is All You Need\"** (Vaswani et al., 2017) — the transformer paper behind\n  Lesson 1's account of what changed. **[V]**\n- The three-shapes taxonomy and the four outside questions are original to this course,\n  developed for the People-leader context.\n- Regulatory framing (employment as a high-risk category) follows the EU AI Act's treatment of\n  employment-related AI systems — introduced in M1, deepened in M7. *Verify current specifics\n  with counsel; this area moves.* **[V]**"
+  }
+]

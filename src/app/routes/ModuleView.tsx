@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import '@fontsource/caveat/700.css';
-import type { CalibrationField, ContentBlock, ModuleContentResponse } from '../../shared/types';
+import type { CalibrationField, CohortResponse, ContentBlock, ModuleContentResponse } from '../../shared/types';
 import { Screen, Markdown, Button, ErrorNote } from '../components/ui';
 import SortingExercise from '../components/SortingExercise';
 import ChoiceExercise from '../components/ChoiceExercise';
@@ -32,19 +32,31 @@ function CalibrationPrompt({
   const [text, setText] = useState('');
   const [values, setValues] = useState<Record<string, string>>({});
   const [saved, setSaved] = useState(Object.keys(savedValues).length > 0);
+  const [mine, setMine] = useState<Record<string, number>>(savedValues);
+  const [cohort, setCohort] = useState<CohortResponse | null>(null);
   const numbersReady = fields.every((f) => (values[f.key] ?? '').trim() !== '');
   const save = async () => {
     if (!text.trim() && !numbersReady) return;
+    const numeric: Record<string, number> = {};
+    for (const [k, v] of Object.entries(values)) if (v.trim() !== '') numeric[k] = Number(v);
     try {
-      const numeric: Record<string, number> = {};
-      for (const [k, v] of Object.entries(values)) if (v.trim() !== '') numeric[k] = Number(v);
       await api.post(`/api/module/${moduleId}/calibration`, { text, values: numeric });
+      setMine((prev) => ({ ...prev, ...numeric }));
       setSaved(true);
     } catch {
       // Non-blocking: the prediction's value is in the writing, not the saving.
       setSaved(true);
     }
   };
+  // Only ever fetched once the learner's own number is committed — the server
+  // enforces that too, and refuses to answer for a field they haven't answered.
+  useEffect(() => {
+    if (!saved || !fields.length || cohort) return;
+    api
+      .get<CohortResponse>(`/api/module/${moduleId}/cohort`)
+      .then(setCohort)
+      .catch(() => {});
+  }, [saved, fields.length, cohort, moduleId]);
   return (
     <div
       className="relative border border-line-strong bg-surface px-5 pt-5 pb-4 my-7 shadow-sm -rotate-[0.4deg]"
@@ -57,14 +69,38 @@ function CalibrationPrompt({
           {text.trim() && (
             <p className="text-ink-strong text-2xl" style={{ fontFamily: HAND_FONT, lineHeight: '28px' }}>{text}</p>
           )}
-          {Object.keys(savedValues).length > 0 && (
+          {Object.keys(mine).length > 0 && (
             <p className="font-utility text-xs text-ink-strong mt-1.5">
               {fields
-                .filter((f) => savedValues[f.key] !== undefined)
-                .map((f) => `${f.label}: ${savedValues[f.key]}`)
+                .filter((f) => mine[f.key] !== undefined)
+                .map((f) => `${f.label}: ${mine[f.key]}`)
                 .join(' · ')}
             </p>
           )}
+          {cohort?.stats.length ? (
+            <div className="mt-3 border-t border-line pt-2.5 flex flex-col gap-1.5">
+              {cohort.stats
+                .filter((s) => mine[s.key] !== undefined)
+                .map((s) => {
+                  const field = fields.find((f) => f.key === s.key);
+                  const you = mine[s.key];
+                  const lean = you > s.median ? 'higher than' : you < s.median ? 'lower than' : 'level with';
+                  return (
+                    <p key={s.key} className="font-utility text-xs text-muted">
+                      <span className="text-ink-strong">{field?.label ?? s.key}</span> · you said{' '}
+                      <span className="text-ink-strong">{you}</span>, {lean} the median of{' '}
+                      <span className="text-ink-strong">{s.median}</span> from {s.n} others (middle half {s.p25}–{s.p75}).
+                      {s.closed && (
+                        <>
+                          {' '}Of the {s.closed.n} who have since measured it, the typical miss was{' '}
+                          <span className="text-ink-strong">{s.closed.medianAbsDelta}</span> and {s.closed.overPct}% predicted high.
+                        </>
+                      )}
+                    </p>
+                  );
+                })}
+            </div>
+          ) : null}
           <p className="label-utility mt-2">Recorded · it comes back at the capstone.</p>
         </div>
       ) : (

@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-11",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why is bias in an employment-trained model a property rather than a bug?",
+      "options": [
+        "Vendors deliberately train models on biased data because it's cheaper",
+        "The training records contain merit tangled with every systematic skew in how organizations actually decided — and the system learns that tangle as the definition",
+        "Models are programmed with the biases of their developers",
+        "It is a bug — sufficiently careful data cleaning removes the bias"
+      ],
+      "correctIndex": 1,
+      "explanation": "The records are what organizations *did*, not what merit *was* — who got hired, rated, promoted, with every pattern in those calls included. A system that predicts \"strong candidate\" from history reproduces the history. D is the contamination model this lesson exists to break: you can't clean intentions out of outcomes."
+    },
+    {
+      "id": "q2",
+      "prompt": "A vendor explains their screening tool can't be biased because gender, race, and age were removed from the inputs. What's wrong with this reassurance?",
+      "options": [
+        "Nothing — removing protected fields is the accepted standard for fairness",
+        "The fields can be reconstructed from metadata the vendor forgot to strip",
+        "The patterns live in everything correlated with those fields — names, schools, gaps, word choice, career shapes — and a capable learner finds the proxies",
+        "Removing fields reduces accuracy, which is itself a form of bias"
+      ],
+      "correctIndex": 2,
+      "explanation": "Protected characteristics survive field-removal the way identity survives name-deletion in M4 — through combinations. The tangle doesn't live in labeled columns; it lives in the correlated everything-else, which is why field-removal is the first false reassurance of Lesson 1."
+    },
+    {
+      "id": "q3",
+      "prompt": "\"Our model is less biased than human reviewers\" is best treated as:",
+      "options": [
+        "True on principle — algorithms don't have feelings, so they can't discriminate",
+        "False on principle — software is always more biased than people",
+        "Irrelevant — bias comparisons between humans and models are meaningless",
+        "An empirical claim requiring demonstration for the specific system on a relevant population — because a model standardizes one bias pattern at scale rather than transcending it"
+      ],
+      "correctIndex": 3,
+      "explanation": "The premise is even true — human review is biased; that's what the training data proves. But the model doesn't rise above the pattern, it runs one instance of it on every candidate identically, fluently, at scale. So the claim is checkable, sometimes even true — and never a property the technology gets for free. Ask for the validation evidence, in writing."
+    },
+    {
+      "id": "q4",
+      "prompt": "A manager uses AI to turn their own written observations into a clear, well-structured performance review. A second manager pastes an employee's tickets and asks the model to \"summarize their performance,\" then edits the result. The line says:",
+      "options": [
+        "Both are fine — a human shipped the final text in both cases",
+        "The first is assist (AI formats the manager's judgment); the second crossed the line (AI originated the judgment, and the human formatted it)",
+        "Both crossed it — AI should never touch performance documents",
+        "The second is safer, because tickets are objective data"
+      ],
+      "correctIndex": 1,
+      "explanation": "The direction of origination is the whole test: judgment from the human, formatting from the machine is assist; judgment from the machine, formatting from the human is decide — even though a person typed the final version in both. D is the seductive one: \"objective\" inputs don't make the characterization of a person any less a characterization."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why isn't \"a human makes the final call\" automatically a defense for a résumé-ranking system?",
+      "options": [
+        "Because regulations prohibit humans from overriding algorithmic outputs",
+        "Humans always agree with the machine, so review changes nothing",
+        "The reviewer sees only the survivors, can't re-derive the scores, and is anchored by them — review is a defense only where the human could actually catch the error",
+        "It is a defense — human review resolves the concern in full"
+      ],
+      "correctIndex": 2,
+      "explanation": "M6's principle, sharpened: verification requires the checker to be capable of catching the failure. The filtered-out candidates never reach the reviewer; the score's reasoning isn't re-derivable by anyone, vendor included; and disagreeing with a fluent number now requires a reason. Review of the unreviewable is theater."
+    },
+    {
+      "id": "q6",
+      "prompt": "\"Summarize the themes in these 400 redacted exit interviews\" sits on the assist side. What moves this kind of work across the line?",
+      "options": [
+        "Using more than one model to generate the summary",
+        "The population getting small enough to point at individuals, or themes getting re-attached to named people — anything that could change one identifiable person's outcome",
+        "Nothing — aggregate analysis is always safe regardless of size",
+        "Using the summary in any meeting where decisions are made"
+      ],
+      "correctIndex": 1,
+      "explanation": "The traveling test. Aggregates characterize populations, and that's assist-side work with M4 and M6 riding along — until the aggregate thins into de-facto individual assessment. C ignores M4's small-population flag; D would outlaw using analysis for anything, which isn't the line — informing decisions about *policies* is what analysis is for."
+    },
+    {
+      "id": "q7",
+      "prompt": "Per the regulatory shape **[V]**, why does \"the vendor assured us their tool is unbiased\" fail as a defense under disparate-impact doctrine?",
+      "options": [
+        "Vendor statements are inadmissible in legal proceedings",
+        "Disparate impact turns on outcomes, not intent — so the question is validation evidence for this system on a population like yours, and the employer owns the outcome either way",
+        "It doesn't fail — good-faith reliance on vendor assurances transfers the liability",
+        "Because all vendor tools are in fact biased"
+      ],
+      "correctIndex": 1,
+      "explanation": "No malice is required — a neutral-seeming practice that disproportionately excludes needs job-related justification, whoever built it. Accountability doesn't outsource: buying a biased system is doing a biased thing. Hence the module's homework — validation evidence in writing, and a specific list for counsel rather than \"are we compliant?\""
+    },
+    {
+      "id": "q8",
+      "prompt": "Which version of the line is most likely to actually hold inside an organization?",
+      "options": [
+        "\"We take an appropriately cautious approach to AI in talent processes\"",
+        "\"No AI anywhere near anything involving people, effective immediately\"",
+        "\"No system ranks, scores, or filters candidates — screening stays human. AI does structure intake, draft kits, and clean up debriefs; [Name] clears any new people-touching tool before pilot\"",
+        "Whichever version the vendor's legal team is comfortable signing"
+      ],
+      "correctIndex": 2,
+      "explanation": "The four properties: specific (checkable against any new tool in seconds), attached to its assist-side trade (adoptable, not just prohibitive), reasoned, and owned by a name. A re-litigates per vendor; B routes around by Q3 because it blocks the assist side too — the blanket version is the *weaker* version, which is this module's least intuitive lesson."
+    }
+  ]
+}

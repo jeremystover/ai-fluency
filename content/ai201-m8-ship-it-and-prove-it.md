@@ -67,7 +67,8 @@ By the end of this module you should be able to:
    reader error.
 3. Give a structured, useful review of someone else's workflow as its cold-start reader.
 4. State your build's measured result in one sentence a skeptical executive would accept.
-5. Recognize which L4 (Translator) skills this course has already seeded in you.
+5. Name what the build seeded beyond this course's own rung — the role depth 301 goes
+   after, and the credibility 401's Translator work is built on.
 
 ---
 
@@ -143,7 +144,7 @@ precisely what expertise can no longer see. That miss, more than any fix, is the
 
 **Giving the review is a preview.** Reading someone else's build cold — seeing exactly where
 their expertise went invisible to them — is the core diagnostic skill of coaching adoption.
-You're doing L4 work already; Lesson 3 says so out loud.
+You're already working above this course's rung; Lesson 3 says so out loud.
 
 ---
 
@@ -165,16 +166,20 @@ an accounting, and a CFO hears the difference immediately.
 it was prompting: you priced trust in evidence (M4→M5), wrote boundaries a reviewer could
 audit (M6), measured your own judgment's lean and corrected for it (every module), read a
 colleague's build and diagnosed where their expertise went invisible (M2 of this module),
-and produced the org's first honest before/after. That skill set has a name in this
-curriculum: **The Translator** — the person who helps *other* functions adopt AI with
-judgment, evaluates vendors without being sold to, and runs pilots that produce evidence
-instead of anecdotes. AI 301 starts there, and it starts with an advantage most translators
-never get: you'll be teaching from a build you shipped, not a deck you read.
+and produced the org's first honest before/after. Those are the raw materials of both rungs
+above this one. **AI 301 · The Specialist** drives the practice you just built into the
+specifics of your actual role — where generic advice runs out and the real applications
+start, and where a shipped workflow beats a blank page as a starting point. Further up,
+**AI 401 · The Translator** is the multiplayer game: helping other functions adopt AI with
+judgment, evaluating vendors without being sold to, running pilots that produce evidence
+instead of anecdotes, and owning the policy for what AI may touch. Translators are made
+credible by exactly one thing — a build of their own they can point at — and you have one.
 
 **And the course keeps one promise on its way out.** 101 M1 said your two roles — using AI
 well, and leading others to — were different jobs needing different preparation, and that
 you couldn't credibly lead a change you can't perform. That debt is now paid. You can
-perform it. The next course is about the leading.
+perform it — and every rung above this one, from your role in depth to the leading itself,
+is built on exactly that.
 
 ---
 
@@ -249,8 +254,8 @@ The course's four inherited dimensions, plus one that belongs to this module alo
 >
 > **Where you can help.** The rarest thing they built is the baseline: honest before/after
 > numbers for AI work. When AI value comes up in your planning conversations, put their
-> numbers in the room — and put them in the room too. They've quietly started doing
-> Translator work; the next course makes it official.
+> numbers in the room — and put them in the room too. The credibility this curriculum's
+> Translator work runs on starts with exactly this: a build of their own, with numbers.
 
 ---
 
@@ -312,8 +317,8 @@ The course's four inherited dimensions, plus one that belongs to this module alo
 - D. Trust is easier to grade than quality
 
 > **B.** Any single module can be performed; trust is what the whole system either earns or
-> doesn't. It's also the property the next course spends: a Translator's credibility starts
-> at their own shipped, trustworthy build.
+> doesn't. It's also the property every rung above spends: role depth needs a practice that
+> holds, and a Translator's credibility starts at their own shipped, trustworthy build.
 
 ---
 
@@ -322,4 +327,5 @@ The course's four inherited dimensions, plus one that belongs to this module alo
 Builds on the entire course; the module is deliberately an integration with one new mechanic
 (the peer exchange) and one new artifact (the index). The tacit-knowledge-tax framing of
 handoff stalls, the consistency pass, and the trustworthy-not-impressive rubric dimension are
-original to this course. Stable layer throughout. The Translator framing continues in AI 301.
+original to this course. Stable layer throughout. The ladder framing — 301's role depth,
+401's Translator work — continues from here.

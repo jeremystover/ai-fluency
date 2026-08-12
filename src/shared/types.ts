@@ -254,6 +254,8 @@ export type IntakePrefs = {
   aiTools?: string[]; // claude | chatgpt | gemini | other — asked unless the company profile already says
   aiToolOther?: string; // free-text fill-in when 'other' is picked
   selfLevel?: string; // self-assessed fluency level — see shared/levels.ts
+  roleId?: string; // People role — see shared/roles.ts; resolves to the 301 specialist track
+  roleOther?: string; // free-text fill-in when 'other' is picked
   // Opt-in: lets a manager read this learner's graded activity submissions in
   // their team view. Off by default, and it never covers the tutor transcript,
   // the diagnostic self-assessment, or which questions were missed.
@@ -424,6 +426,24 @@ export type ModuleContentResponse = {
 // ("ai201-m1:savings"). Submitting it closes that prediction's loop —
 // actual recorded, delta computed — instead of opening a new one.
 export type CalibrationField = { key: string; label: string; hint?: string; placeholder?: string; min?: number; max?: number; actualFor?: string };
+
+// Cohort comparison for one opening prediction field: how everyone ELSE
+// answered. Returned only once this session has committed its own number —
+// seeing the crowd first would destroy the prediction it exists to measure.
+// Suppressed below COHORT_MIN_N respondents, which is this curriculum's own
+// disclosure-control rule applied to itself.
+export type CohortStat = {
+  key: string;
+  n: number; // other respondents, never including the asker
+  median: number;
+  p25: number;
+  p75: number;
+  // Present once enough of those respondents have closed the loop: how far
+  // off they were, and which way they leaned.
+  closed?: { n: number; medianAbsDelta: number; overPct: number };
+};
+
+export type CohortResponse = { minN: number; stats: CohortStat[] };
 
 // A human review from the operator's queue, surfaced back to the learner.
 // onLatest is false when the learner resubmitted after the review was written.

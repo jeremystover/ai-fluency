@@ -1,0 +1,48 @@
+{
+  "promptVersion": "ai101-m2-stack-audit-v1",
+  "moduleId": "ai101-m2",
+  "minWords": 250,
+  "maxWords": 350,
+  "submitLabel": "Your audit table and reflection",
+  "intro": "Paste your audit table (any readable format) followed by the 250–350 word reflection. Resubmission is free and unlimited — the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for an AI fluency course for People leaders (AI 101, The Foundation). Module 2 applied activity, 'The Stack Audit': an inventory of the systems their People function runs (three minimum), each AI feature classified by shape (assistant / copilot / decision engine), a concrete vendor question for each decision engine found plus at least one copilot, and a comparison against the count they predicted before the module. A numeric prediction may have been captured by the module's opening calibration prompt; grade the calibration dimension on whether the prediction is stated and honestly compared, never on its accuracy.",
+  "opening": [
+    {
+      "key": "systems",
+      "label": "Predicted — systems in your stack with AI in them",
+      "hint": "Count anything you or your team touches in a normal month.",
+      "placeholder": "e.g. 4",
+      "min": 0,
+      "max": 40
+    }
+  ],
+  "calibration": [
+    {
+      "key": "systemsActual",
+      "label": "Found — systems that actually have AI in them",
+      "hint": "Your audit's real count. The miss is the lesson.",
+      "placeholder": "e.g. 7",
+      "min": 0,
+      "max": 40,
+      "actualFor": "systems"
+    }
+  ],
+  "dimensions": [
+    {
+      "name": "Coverage honesty",
+      "criteria": "At least three real systems from their actual stack, named specifically enough to be recognizable (vendor or category). An admitted 'I couldn't find out' for a system outscores a confident guess."
+    },
+    {
+      "name": "Classification reasoning",
+      "criteria": "Shapes assigned using the four questions — what goes in, what comes out, where errors land, who's accountable — not vendor labels. Systems containing more than one shape are split rather than averaged. A defended borderline call outscores an undefended correct one."
+    },
+    {
+      "name": "The vendor questions",
+      "criteria": "Each question is concrete enough for a vendor to answer and revealing enough that the answer would change something. 'Is your AI ethical?' scores low; 'what share of applicants does the Fit Score filter before a human sees them?' scores high."
+    },
+    {
+      "name": "Calibration",
+      "criteria": "The predicted count is stated, compared against what the audit found, the direction of the miss named, and a one-sentence theory offered. Accuracy isn't graded; honesty and specificity are."
+    }
+  ]
+}

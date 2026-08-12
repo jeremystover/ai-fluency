@@ -1,0 +1,119 @@
+[
+  {
+    "id": "ai301-hrbp-m2-calibration-prompt-before-you-start-10",
+    "moduleId": "ai301-hrbp-m2",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Calibration prompt — before you start\n\n*One prediction, thirty seconds.*\n\nBy the end of this module you'll sort a real week of your own work into four quadrants, using two\nquestions.\n\n**What share of your week do you think requires either your physical or live presence, or a\njudgment call that reasonable people could disagree about?** One number, whole percent.\n\nMost HRBPs guess high. The number itself matters less than what you conclude when you see the\nreal one — and Module 7 will ask you what moved."
+  },
+  {
+    "id": "ai301-hrbp-m2-module-brief-20",
+    "moduleId": "ai301-hrbp-m2",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\n201 taught you to audit your week for workflows. This module asks a harder question about the\nsame week: **which parts of this job are actually yours?**\n\nNot \"which parts do you enjoy,\" and not \"which parts are senior.\" Which parts require something\na system cannot supply — and which parts you have been doing because you have always done them,\nbecause they arrive in your inbox, or because nobody has questioned whether they need a person\nwith your salary attached.\n\nThat question is uncomfortable, and this module makes it more so rather than less, because the\nmarket is asking it about you whether or not you ask it about yourself. Two major research firms\nhave independently published the same direction of travel for HR headcount, and it is not a\ngentle one. A course that taught you AI tactics without telling you that would be doing you a\ndisservice.\n\nThe good news is real and worth stating first: the core of HRBP work is the least AI-penetrated\nterritory in the entire HR function, by a wide margin. The bad news is that this is less\nprotective than it feels — and the reason why is the most important idea in this module."
+  },
+  {
+    "id": "ai301-hrbp-m2-learning-objectives-30",
+    "moduleId": "ai301-hrbp-m2",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. Sort any piece of your work using two questions — does it require presence, and does it\n   require contested judgment — without confusing either with seniority or difficulty.\n2. Name the four quadrants those questions produce and what each one implies about AI.\n3. State where AI has actually landed across HR practice areas, and where it hasn't.\n4. Explain why \"least penetrated\" is not the same as \"protected,\" and what would have to become\n   true for each quadrant to move.\n5. Describe the analyst consensus on HR headcount and ratios honestly enough to plan against it."
+  },
+  {
+    "id": "ai301-hrbp-m2-lesson-1-two-questions-four-quadrants-40",
+    "moduleId": "ai301-hrbp-m2",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 · Two questions, four quadrants\n\nTwo questions, asked of any task.\n\n**Does it require presence?** Not attendance — *presence*. Would something be lost if this\nhappened without a person in the room, live, able to read what isn't being said and change course\ninside the conversation? An investigation interview requires presence. A status meeting you\nalways attend usually does not, however senior you are.\n\n**Does it require contested judgment?** Not difficulty — *contest*. Is there a defensible range\nof answers that thoughtful people could disagree about, where the choice depends on values,\ncontext, or precedent rather than analysis? Deciding whether a performance issue is a coaching\nproblem or a fit problem is contested judgment. A complex but determinate calculation is hard,\nnot contested.\n\nBoth distinctions get missed in the same direction, so hold them precisely: **presence is not\nseniority, and contested judgment is not difficulty.** The most common self-assessment error\namong experienced HRBPs is to mark work as irreducible because it is important, when importance\nand irreducibility are unrelated properties.\n\nThe four quadrants:\n\n**The room** — presence and contested judgment. The termination conversation, the investigation\ninterview, coaching a leader who is failing and does not know it. Irreducible, and the smallest\nquadrant in most people's week.\n\n**The ritual** — presence, no contested judgment. Standing meetings, delivering a decision made\nelsewhere, being visible at the onboarding session. Presence is genuinely expected; the judgment\nisn't contested. **This is the quadrant HRBPs over-defend**, because it feels like relationship\nwork and some of it is — but a great deal of it is calendar inheritance.\n\n**The desk** — contested judgment, no presence required. Writing the recommendation, designing\nthe policy, preparing calibration, thinking through an org change. Real judgment, done alone,\nasync. **The highest-leverage quadrant for AI** — not because AI supplies the judgment, but\nbecause it can carry everything around the judgment: the structuring, the drafting, the\nwhat-am-I-missing pass.\n\n**The queue** — neither. Scheduling, formatting, standard comms, data pulls, summarizing what was\nsaid. Not unimportant. Just not yours."
+  },
+  {
+    "id": "ai301-hrbp-m2-lesson-2-where-ai-has-actually-landed-50",
+    "moduleId": "ai301-hrbp-m2",
+    "ordinal": 50,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 · Where AI has actually landed [V]\n\nNow the field data, which is unusually clear.\n\nAcross a mapped set of roughly 138 AI use cases spanning 16 HR practice areas, adoption\nconcentrates hard: recruiting around 27%, HR technology around 21%, learning and development\naround 17%, employee experience around 14%. Those four account for the large majority of\neverything deployed.\n\nAnd the least-adopted areas are, in order of how much they matter to you: employee relations,\ntalent management, organizational design, and compliance.\n\nRead that list again, because it is a description of an HRBP's job. **The core of your role is\nthe least AI-penetrated territory in the function.**\n\nTwo honest reasons for that, and they are different in kind:\n\n**It's the hard part.** Contested judgment on sparse, sensitive, context-dependent information is\ngenuinely difficult for these systems — and 101 M7 explains why a large slice of it *must not* be\ndelegated regardless of capability. That constraint is durable because it is ethical and legal\nrather than technical.\n\n**And it's the part with the worst data.** Recruiting has funnels, timestamps, and outcomes.\nEmployee relations has narrative documents that nobody would let a vendor train on. Low adoption\npartly reflects low tractability rather than high protection — and tractability changes."
+  },
+  {
+    "id": "ai301-hrbp-m2-lesson-3-least-penetrated-is-not-protect-60",
+    "moduleId": "ai301-hrbp-m2",
+    "ordinal": 60,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 · Least penetrated is not protected\n\nHere is the idea worth the whole module.\n\nYou do not need AI to do contested-judgment work for your ratio to move. **You only need it to\neat the work that justified the headcount.**\n\nFollow the arithmetic. If half of a typical HRBP week sits in the queue and the shallow end of\nthe desk — the drafting, the summarizing, the data pulls, the first-pass documents, the standing\nreport — and that half compresses substantially, then the same number of HRBPs can cover\nmaterially more population. Nothing in the room quadrant was touched. Nobody automated a\ntermination conversation. The ratio moves anyway, because ratios are set by total workload, not\nby the hardest thing in it.\n\nThis is why \"AI can't do what I do\" is a true statement that provides no protection whatsoever.\nIt answers a question nobody in a budget meeting is asking.\n\nWhat actually follows from it, though, is more interesting than fatalism. If your defensible\nwork is the room and the deep end of the desk, then **the strategic move is to be excellent\nthere and fast everywhere else** — and being fast everywhere else is exactly what this track\nteaches. The HRBPs who struggle in the next few years will not be the ones who used AI. They\nwill be the ones who spent their compressed capacity on more queue work rather than more room.\n\nWhat would have to become true for each quadrant to move further?\n\n- **The queue** is already moving and will keep moving. Assume it goes.\n- **The desk** moves as context handling improves and as organizations get better at supplying\n  organizational knowledge — 201's whole subject. Expect the shallow end to compress and the deep\n  end to hold.\n- **The ritual** moves when someone questions the calendar, which is a political event rather\n  than a technical one. It is the quadrant most likely to be cut by a reorg and least likely to\n  be cut by a tool.\n- **The room** holds — for capability reasons that may erode and for ethical and legal reasons\n  that will not."
+  },
+  {
+    "id": "ai301-hrbp-m2-try-70",
+    "moduleId": "ai301-hrbp-m2",
+    "ordinal": 70,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### Try this — 3 minutes\nTake the three things you did yesterday that felt most like \"real HRBP work.\" Run each through\nboth questions honestly. If any of them lands in the ritual or the shallow desk, you have\nfound the gap between how the work feels and what it is — which is the gap this module exists\nto close."
+  },
+  {
+    "id": "ai301-hrbp-m2-lesson-4-the-pressure-said-plainly-80",
+    "moduleId": "ai301-hrbp-m2",
+    "ordinal": 80,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 · The pressure, said plainly [V]\n\nYou are owed the numbers rather than the euphemism.\n\nGartner recommends replacing the fixed HRBP model with flexible **pods of strategic talent\nleaders** — consultative, AI-supported, with few administrative responsibilities — and projects\nthat within one to five years the ratio could move from roughly **one HRBP per 423 employees to\none per 800–1,200.** That is not an efficiency nudge. At the midpoint it is half the HRBPs\ncovering the same population.\n\nJosh Bersin, independently, describes HR teams operating with **30–40% fewer people.**\n\nTwo firms, different methods, same direction. You should not treat either as prophecy — analyst\nprojections routinely overshoot on timing, and \"could rise to\" is doing real work in that\nsentence. But you also should not treat the agreement as noise. When independent analyses\nconverge on direction, the direction is usually right even when the timeline isn't.\n\nThe honest read: **the work isn't disappearing, the headcount ratio is changing, and the\ndistribution of what remains will favour whoever is credible in the room quadrant.** The\nstrategic talent leader Gartner describes is not a new profession. It is an HRBP who spends most\nof their week on contested judgment — which is a description of what the best ones already do\nwhen their calendar allows it.\n\nThat is the actual argument for everything in the five modules that follow. Not \"use AI because\nit's the future.\" Use it to buy back the hours that currently prevent you from being the person\nthat model describes."
+  },
+  {
+    "id": "ai301-hrbp-m2-key-takeaways-90",
+    "moduleId": "ai301-hrbp-m2",
+    "ordinal": 90,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **Two questions sort everything: does it require presence, does it require contested judgment.**\n  Presence is not seniority; contested judgment is not difficulty. Most self-assessment errors\n  come from confusing importance with irreducibility.\n- **Four quadrants:** the room (irreducible), the ritual (over-defended calendar inheritance),\n  the desk (highest AI leverage — AI carries everything around the judgment), the queue (not\n  yours).\n- **The core of HRBP work is the least AI-penetrated part of HR** `[V]` — employee relations,\n  talent management, org design, compliance — while recruiting, HR tech, L&D, and employee\n  experience carry most deployed use cases.\n- **Least penetrated is not protected.** Your ratio moves when the work that *justified* the\n  headcount compresses, not when the hardest work gets automated. \"AI can't do what I do\" answers\n  a question nobody in a budget meeting is asking.\n- **The analyst consensus is directionally consistent** `[V]`: pods of strategic talent leaders,\n  one HRBP per 800–1,200 within one to five years, HR teams 30–40% smaller. Treat the direction\n  as real and the timeline as soft.\n- **The strategic move is excellence in the room, speed everywhere else** — and spending the\n  recovered capacity on more room rather than more queue."
+  },
+  {
+    "id": "ai301-hrbp-m2-exercise-embed-95",
+    "moduleId": "ai301-hrbp-m2",
+    "ordinal": 95,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"sorting\", \"title\": \"Calibration exercise \\u2014 Sort the week\", \"intro\": \"Ten minutes, twelve pieces of real HRBP work. Sort each into the quadrant it belongs to, using both questions: does it require presence, and does it require contested judgment?\\n\\nCommit every card before the reveal. The pattern in your misses \\u2014 whether you place work higher or lower than the key \\u2014 is what the exercise actually measures.\"}"
+  },
+  {
+    "id": "ai301-hrbp-m2-take-a-position-100",
+    "moduleId": "ai301-hrbp-m2",
+    "ordinal": 100,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"Your core work being hard for AI is not job security. The ratio moves when the\neasy half of your week compresses — and the easy half is compressing whether you participate or\nnot.\"*\n\nCommit before you write the activity. The strongest counter-argument is not that the work is\nirreplaceable. It is **that ratios are set by budget appetite and risk tolerance, not by\nworkload** — organizations have historically kept HRBP coverage well above what pure workload\nmath implied, because proximity to the business is itself the product. If that's true, the\ncompression argument proves less than it appears to."
+  },
+  {
+    "id": "ai301-hrbp-m2-activity-link-105",
+    "moduleId": "ai301-hrbp-m2",
+    "ordinal": 105,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"activity_link\", \"title\": \"Applied activity \\u2014 One week, sorted\", \"blurb\": \"A real week logged and sorted into the four quadrants, with one piece of work you'll defend and one you'll surrender \\u2014 plus your position on whether the hard part of your job is actually protecting you. Graded against a four-dimension rubric. Free unlimited resubmission.\", \"estMinutes\": \"20\\u201325\"}"
+  },
+  {
+    "id": "ai301-hrbp-m2-sources-and-attribution-110",
+    "moduleId": "ai301-hrbp-m2",
+    "ordinal": 110,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- **SHRM, *The State of AI in HR 2026*** — the practice-area adoption map, the use-case count,\n  and the concentration and least-adopted findings. **[V]**\n- **Gartner** — the HR operating model work: strategic talent leader pods replacing fixed HRBP\n  assignments, and the ratio projection from ~1:423 toward 1:800–1,200 within one to five years.\n  **[V]**\n- **Josh Bersin** — the independent projection of HR teams operating with 30–40% fewer people.\n  **[V]**\n- The two-question test, the four quadrants, and the compression argument (that the ratio moves\n  when the justifying work compresses rather than when the hardest work is automated) are\n  original to this course.\n- **The AI Fluency Framework** (Rick Dakan & Joseph Feller, in collaboration with Anthropic,\n  CC BY-NC-SA 4.0) — the delegation stance this module operationalizes for one role."
+  }
+]

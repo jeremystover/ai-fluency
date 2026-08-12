@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ai301-hrbp-m4-micro-core",
+    "moduleId": "ai301-hrbp-m4-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module 4 in two minutes\n\n**Every other AI use in this curriculum makes your work. This one attacks it** — and the output isn't a document, it's a better version of you walking into the room. The property that makes AI risky everywhere else is exactly what makes it useful here: it will argue any position convincingly without believing it, which is a sparring partner no colleague can be.\n\n**The trap is that models want to agree with you.** \"What do you think of this plan?\" produces praise, three considerations, and a balanced close — critique-flavoured endorsement that feels like having been reviewed. Nothing malfunctioned; you asked for the wrong thing.\n\n**Five adversaries, five different failures:** the high performer you can't afford to lose (retention), the frontline manager who has to deliver it (implementability), the executive who wants the number (your evidence gap), the person with the least power affected (what you normalized — and the one an HRBP is structurally supposed to represent), and the headline (what everyone internal has stopped seeing).\n\n**Five moves make it sting:** commit your position in writing first, forbid hedging explicitly, demand the single strongest objection rather than a list, ask *\"what am I not asking you because I don't want to know the answer?\"*, and start in a fresh conversation so you don't brief your adversary with your own defence."
+  },
+  {
+    "id": "ai301-hrbp-m4-micro-rule",
+    "moduleId": "ai301-hrbp-m4-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### The rule to carry\n\nAssign a role with an interest, not a critical stance. \"Be critical\" is a style instruction and produces criticism-flavoured text. \"You are this person, and here is what you lose\" produces objections you can use. And the test of any rehearsal: what would you do differently on Monday?"
+  },
+  {
+    "id": "ai301-hrbp-m4-micro-close",
+    "moduleId": "ai301-hrbp-m4-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "**The full module adds** the champion map (feed real leadership Q&A and ask who'd advocate for this in rooms you're not in), reading the model's logic when an objection is wrong — a false inference from your written plan is a communication defect you found for free — the four-rehearsals exercise, and the claim the module makes against itself: preparation and confidence move independently, and most rehearsals deliver only the second."
+  }
+]

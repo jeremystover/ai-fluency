@@ -1,0 +1,119 @@
+[
+  {
+    "id": "ai301-comp-m3-calibration-prompt-before-you-start-10",
+    "moduleId": "ai301-comp-m3",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Calibration prompt — before you start\n\n*One prediction, and be honest — nobody sees this but you.*\n\nThink about the last analysis you handed to someone who acted on it. A market pricing round, a\nmerit model, a plan cost projection, an equity refresh.\n\n**If someone asked you today to rebuild it from its raw inputs, in front of them, how confident\nare you that every join and every filter would come out the same? Give a percent.**\n\nNot \"would the answer be roughly right.\" Would the *construction* reproduce."
+  },
+  {
+    "id": "ai301-comp-m3-module-brief-20",
+    "moduleId": "ai301-comp-m3",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nThis is the module the rest of the track leans on, and it's the one nothing else in this market\nteaches, because it isn't about AI. It's about what has to be true around AI for a number to be\nworth presenting.\n\nThe premise is uncomfortable and it's aimed directly at you: **your analytical training is the\nreason you'll miss it.** You have spent years learning to read a model quickly — scanning for\nshape, for whether the magnitudes look plausible, for whether the distribution behaves. That is a\ngenuinely expert skill and it is exactly the wrong one here, because **shape is the one thing a\nmodel always gets right.** The output will be well-formed. The columns will be sensible, the\npercentages will sum, the summary will read like something a good analyst wrote. The failure lives\nunderneath the shape, in a join that dropped 340 rows or a filter that silently excluded everyone\nhired after October.\n\nSo this module builds toward one rule, and everything in it is machinery for making the rule\naffordable:\n\n> **Never present a number you couldn't rebuild from its inputs, in front of the person asking.**\n\nThat rule is not new. What's new is that AI makes it much easier to violate and much cheaper to\nsatisfy — and which of those two happens is entirely a matter of craft."
+  },
+  {
+    "id": "ai301-comp-m3-learning-objectives-30",
+    "moduleId": "ai301-comp-m3",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. Explain why analytical fluency increases rather than decreases exposure to model error.\n2. Set the perimeter for comp data — what leaves the building, what doesn't, and what gets\n   dropped before either question arises.\n3. Specify verification explicitly: audit files, row counts, documented joins, reconciliation\n   checks the model will not propose on its own.\n4. Run the Python-then-Excel double-pass so a finance partner can review formulas the way they\n   always have.\n5. Build a durable starter kit — insights file, data map, terminology file, reconciliation spec —\n   for an analysis you actually run."
+  },
+  {
+    "id": "ai301-comp-m3-lesson-1-why-numerate-people-are-more-ex-40",
+    "moduleId": "ai301-comp-m3",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 · Why numerate people are more exposed\n\nThe standard story about AI risk in HR is that non-technical people will be fooled by confident\noutput. For this function, invert it.\n\n**You read a formatted model the way you read a formatted sentence — quickly, and for shape.**\nWhen a table arrives with the right columns, the right row count *approximately*, magnitudes in\nthe range you expected, and a summary paragraph that says what you thought it would say, your\nexpert pattern-matcher signs it off in about four seconds. That pattern-matcher was trained on\nwork produced by humans, where formatting quality correlated with care. A polished deck meant\nsomeone had spent time. **AI severed that correlation.** Polish is now free and care is not, so the\nsignal you've relied on for a decade points at nothing.\n\nThree specific failures that survive the shape check:\n\n**The silent join.** You join headcount to comp data on employee ID. 340 people fail to match —\ninternational IDs formatted differently, contractors converted mid-year, a rehire with two records.\nThe join completes. The output is beautifully formatted. Your population is now 340 people short\nand every percentage in the analysis is computed on a denominator you didn't choose. Nothing about\nthe shape of the result tells you this.\n\n**The silent filter.** Somewhere in a multi-step analysis, a step applies a condition that made\nsense for that step and then persists. Active employees only — which quietly removes everyone who\nleft, which is exactly the population a turnover-cost analysis needed.\n\n**The plausible coefficient.** A regression returns a gender coefficient of −1.8%. That is an\nentirely believable number. It is believable if the model is right and it is believable if the\nmodel controlled for job level in a way that absorbed the effect you were looking for. **The\nnumber's plausibility is what makes it dangerous** — an implausible number gets checked.\n\nNone of these are AI-specific failures. Every one of them has happened in Excel for thirty years.\nWhat changed is the ratio: the analysis that used to take four hours, during which you touched\nevery step and would have noticed the row count, now takes eleven minutes, during which you touched\nnothing. **The errors are the same. The number of eyes on them collapsed.**\n\nAnd the consequence is asymmetric in a way it isn't elsewhere in HR. A wrong sentence in a policy\ndraft gets caught by the next reader. **A wrong model gets presented** — to a leadership team, a\ncomp committee, a board — by someone who is trusted precisely because they're good at this."
+  },
+  {
+    "id": "ai301-comp-m3-try-50",
+    "moduleId": "ai301-comp-m3",
+    "ordinal": 50,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### Try this — 3 minutes\nOpen the last analysis you ran with AI assistance. Find the row count at the start and the row\ncount at the end. If you can't find either, you've learned the lesson without needing the rest\nof the module."
+  },
+  {
+    "id": "ai301-comp-m3-lesson-2-the-perimeter-and-the-data-60",
+    "moduleId": "ai301-comp-m3",
+    "ordinal": 60,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 · The perimeter and the data\n\nBefore any of the verification craft, the question of what should be in the tool at all.\n\n101 M4 gave you the data tiers, and individual pay data sits in Tier 4 — the most restricted\nmaterial in the building. It is also the core of your work, which means this function has the\nworst version of the general problem: **the data you most need to analyze is the data you can\nleast freely move.**\n\nThree controls, in order of how much they buy you per unit of effort.\n\n**1. Stay inside the perimeter — but know what that actually means.** Enterprise deployments with\nzero-retention terms, or a model running in your own cloud tenancy, are a genuinely different risk\nposture from a consumer account, and this is the single highest-leverage decision your\norganization makes about your work. But the perimeter is a contractual and architectural fact, not\na feeling. Someone in your organization can name your terms. **If you don't know whether your\ndeployment retains prompts, you don't know your perimeter** — and the correct action is a\nten-minute conversation with whoever signed the contract, this week, before Lesson 3 becomes\nrelevant.\n\n**2. Drop columns you don't need.** This is the cheapest control in the discipline and it is\nroutinely skipped in favor of more sophisticated ones. If the analysis is about pay by level and\ntenure, then name, employee ID, home address, date of birth, manager name, and job title free-text\nare not inputs — they're liability you carried along because they came in the export. **The most\nreliable protection for a data element is its absence.** No retention policy, encryption scheme, or\naccess control is as strong as not having sent it.\n\nSay the quiet part: the reason people don't do this is that dropping columns takes four minutes and\nfeels like busywork, while anonymization feels like security work. One of them actually reduces the\ndata at risk.\n\n**3. Pseudonymize, and hold the mapping outside the session.** When you need to trace a record back\n— and in comp work you often do, because the outlier is the whole point — replace identifiers with\nsequential keys and keep the mapping in a file that never enters the tool. You get individual-level\nanalysis and re-identification capability, and the tool holds neither name nor real ID.\n\nTwo warnings that matter specifically here. **Pseudonymization is not anonymization.** In a\n600-person company, \"Level 7, Engineering, San Francisco, hired 2019, $340k\" identifies one person\nregardless of what you called them, and small cuts in comp data are re-identifiable almost by\nconstruction. And **executive comp resists all of this** — there are five of them, their pay is\npublic in a proxy, and no pseudonym helps. Treat executive analysis as a category where the\nperimeter question is the only question."
+  },
+  {
+    "id": "ai301-comp-m3-lesson-3-verification-as-craft-70",
+    "moduleId": "ai301-comp-m3",
+    "ordinal": 70,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 · Verification as craft\n\nThis is the heart of the module. The rule from the brief — never present a number you couldn't\nrebuild in front of the person asking — is satisfiable, but only if you specify how.\n\n**The load-bearing fact: the model will not propose these checks itself, and its silence is not\nreassurance.** It is not withholding a concern. It has no state in which it noticed the 340\ndropped rows and decided not to mention them. **Absence of a warning carries no information**,\nwhich is a different thing from a colleague not raising a concern, and it is the single most\ncommon misreading of a model's confidence.\n\n**Demand an audit file.** Not a summary — a file. For every analysis, ask for a companion output\nthat states: input row count, output row count, and the difference explained; every join with the\nkey used, match count, and unmatched count on both sides; every filter applied with the rows it\nremoved; and every record excluded for missing data, listed. This is thirty seconds of asking and\nit converts the three failures from Lesson 1 from invisible into visible. **A join that dropped 340\nrows is undetectable in the output and unmissable in the audit file.**\n\nThen read it. An audit file you don't read is worse than none, because it feels like control.\n\n**Specify reconciliation explicitly.** State the checks up front, in the instructions, before the\nanalysis runs: total compensation in the output must equal total compensation in the source; the\nheadcount must match the HRIS number you already know; the sum of the level bands must equal the\npopulation; last year's figure must reproduce within a stated tolerance. **A reconciliation you\nname in advance is a test. One you invent afterward is a rationalization**, because you will\nconstruct it to pass.\n\nThe strongest single check available to you: **rebuild a number you already know.** Run the new\npipeline against last cycle's data and see whether it reproduces last cycle's published figure. If\nit doesn't, you have learned something before it mattered.\n\n**The Python-then-Excel double-pass.** This one is specific to your function and it is the most\npractically useful thing in the module.\n\nAnalytical work with AI naturally lands in code — a script that loads, joins, computes, outputs.\nThat is fast, reproducible, and auditable line by line, and it is also completely unreviewable by\nyour finance partner, your comp committee, and most of the people whose sign-off you need. They\nreview formulas. They click a cell and see what feeds it. That is how they have checked work for\ntheir entire careers, and **asking them to trust a script is asking them to stop reviewing your\nwork, which they will experience as being cut out.**\n\nSo do both. Build the analysis in code, then produce a workbook where the calculation is visible in\ncells — real formulas, not pasted values — and reconcile the two. Three things fall out of this,\nand only one of them is political:\n\n- The reconciliation between the two passes is itself a verification. Two implementations agreeing\n  is meaningfully stronger evidence than one implementation looking right.\n- Your reviewers keep their method. Nobody is asked to trust a black box.\n- Building the visible version forces you to state the logic in a form a human can follow, which\n  is where you catch the step you accepted without reading.\n\nThe cost is real — this is maybe 30% more work than the code alone. It is also the difference\nbetween a number that survives a comp committee and a number that gets tabled.\n\n**The rule, restated with its teeth in:** if someone asked you to rebuild the number in front of\nthem, could you? Not \"do you trust it.\" Could you *reconstruct* it, from inputs, live. If not,\nyou're not presenting an analysis — you're relaying one, and relaying is a thing you do with\nsomeone else's number, under someone else's name."
+  },
+  {
+    "id": "ai301-comp-m3-lesson-4-durability-80",
+    "moduleId": "ai301-comp-m3",
+    "ordinal": 80,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 · Durability\n\nEverything above is per-analysis. This lesson is what makes it survive to the next cycle.\n\n201 M2 taught the context pack: reusable material that gives a model the standing information it\nneeds so you stop re-explaining your world every session. Comp is the domain where that pays back\nhardest, because **your vocabulary is a minefield and the model steps on it consistently.**\n\nFour files. Together they're the starter kit, and building one is this module's activity.\n\n**The insights file.** Standing facts about how your organization works that are not in any data\nexport: your levels and what they mean, your compensation philosophy and target positioning, your\nmerit cycle timing and mechanics, your geographic differentials and their logic, which populations\nare on which plans, the acquisition in 2023 whose employees are still on legacy bands. Every one of\nthese is something you currently re-explain in every session, and every session you forget one is a\nsession with a subtly wrong premise.\n\n**The data map.** What each file contains, what each column means, which system it came from, the\nkey it joins on, the known quirks. *\"The `comp_ratio` field in the HRIS export is calculated\nagainst last year's midpoint, not the current one\"* is the sentence that prevents an entire class of\nwrong answer, and it currently lives in your head.\n\n**The terminology file** — the one that is specific to this function and the reason this lesson\nexists. There is a set of terms models reliably fumble because they carry a general-usage meaning\nthat differs from your technical one:\n\n- **Target vs. actual** compensation. Target bonus is what the plan provides at 100%; actual is\n  what paid out. A model asked about \"bonus\" will drift between them, and a merit model that mixes\n  them is wrong in a way that looks fine.\n- **Grant date vs. vest date vs. exercise date.** Three dates, three different analyses, and the\n  general-usage collapse of all three into \"when they got the stock\" is a real hazard in equity\n  work.\n- **FMV vs. strike vs. exercise price.** Related, distinct, and consequential.\n- **Range penetration vs. compa-ratio.** Different denominators. Both get called \"where they sit in\n  the range.\"\n- **Base vs. total cash vs. total compensation vs. total rewards.** Four scopes, routinely\n  interchanged, and the difference between them is the entire content of most pay conversations.\n- **Merit vs. market adjustment vs. promotion increase vs. equity adjustment.** Distinct budget\n  pools with distinct governance. Collapsing them is how a merit budget gets silently overspent.\n\nThe file states your definition for each term and instructs the model to ask rather than infer when\na request is ambiguous between two of them. This costs you an hour once.\n\n**The reconciliation spec.** For each recurring analysis, the checks that must pass before the\noutput is trusted, written down. Not remembered — written. This is what makes Lesson 3's discipline\nsurvive a busy cycle, which is the only condition under which it matters.\n\n**Why bundle them.** The kit converts craft from something you perform when you have time into\nsomething that happens by default, and comp work is seasonal — the merit cycle is the moment your\ncare is scarcest and your consequences are largest. **A discipline that only operates when you're\nnot busy is not a discipline.** It's an intention."
+  },
+  {
+    "id": "ai301-comp-m3-exercise-embed-85",
+    "moduleId": "ai301-comp-m3",
+    "ordinal": 85,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"choice\"}"
+  },
+  {
+    "id": "ai301-comp-m3-key-takeaways-90",
+    "moduleId": "ai301-comp-m3",
+    "ordinal": 90,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **Your analytical training increases your exposure.** You read models for shape, quickly, and\n  shape is the one thing the model always gets right. AI severed the correlation between polish\n  and care that your judgment was calibrated on.\n- **Three failures survive the shape check:** the silent join (rows dropped, denominators changed),\n  the silent filter (a condition that made sense once and persisted), and the plausible coefficient\n  (believable whether or not it's right, which is why it doesn't get checked).\n- **A wrong sentence gets caught. A wrong model gets presented** — by someone trusted because\n  they're good at this.\n- **Dropping columns beats anonymizing them.** The most reliable protection for a data element is\n  its absence. Pseudonymize when you need traceability and hold the mapping outside the session —\n  and remember that small cuts in comp data are re-identifiable regardless of what you called\n  people.\n- **The model will not propose verification, and its silence carries no information.** Demand audit\n  files with row counts, documented joins with match and unmatch counts, and every filter's effect.\n  Then read them.\n- **A reconciliation named in advance is a test; one invented afterward is a rationalization.** The\n  strongest check available is rebuilding a number you already know.\n- **Python-then-Excel double-pass:** build in code, produce reviewable formulas, reconcile the two.\n  Roughly 30% more work, and it keeps your reviewers' method intact rather than asking them to\n  trust a black box.\n- **The starter kit — insights, data map, terminology, reconciliation spec** — makes the craft\n  survive the merit cycle, which is the only time it matters.\n- **The rule: never present a number you couldn't rebuild from its inputs, in front of the person\n  asking.**"
+  },
+  {
+    "id": "ai301-comp-m3-activity-link-95",
+    "moduleId": "ai301-comp-m3",
+    "ordinal": 95,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"activity_link\", \"title\": \"Applied activity \\u2014 The starter kit\", \"blurb\": \"Four files for one recurring analysis you actually run: the standing facts no export carries, the data map with its quirks, the terminology models reliably fumble, and a reconciliation spec that could fail. Built once, and it's there next merit cycle when your care is scarcest.\", \"estMinutes\": \"35\"}"
+  },
+  {
+    "id": "ai301-comp-m3-take-a-position-100",
+    "moduleId": "ai301-comp-m3",
+    "ordinal": 100,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"Your analytical training is why you'll miss it. You read models for shape, and\nshape is the one thing the model always gets right.\"*\n\nThe strongest counter-argument is that **this inverts a real and well-evidenced advantage.**\nNumerate practitioners catch magnitude errors, distributional weirdness, and impossible\nrelationships that non-analytical readers sail past — and they catch them *because* of fast shape\nreading, which is a genuine expert skill rather than a bias. On that view the module has taken a\nstrength and rebranded it as a vulnerability, and the honest correction is narrower: analytical\ntraining protects you against wrong *answers* and does nothing about wrong *construction*, which\nis a real gap but a much smaller claim than the one on the tin. Your position has to say whether\nthe claim as stated survives that narrowing, or whether the narrower version is simply the true\none."
+  },
+  {
+    "id": "ai301-comp-m3-sources-and-attribution-110",
+    "moduleId": "ai301-comp-m3",
+    "ordinal": 110,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- The three failures that survive the shape check, the audit-file specification, the\n  reconciliation-in-advance rule, the Python-then-Excel double-pass, and the four-file starter kit\n  are original to this course.\n- Builds on 101 M4 (data tiers — individual pay as Tier 4), 101 M6 (confident wrongness), and 201\n  M2 (the context pack), specialized here to a domain where the vocabulary itself is a hazard.\n- The terminology list is drawn from standard total rewards practice; definitions vary by\n  organization, which is the activity's point."
+  }
+]

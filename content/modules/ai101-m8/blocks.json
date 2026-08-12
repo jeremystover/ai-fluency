@@ -1,0 +1,110 @@
+[
+  {
+    "id": "ai101-m8-calibration-prompt-before-you-start-10",
+    "moduleId": "ai101-m8",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "## Calibration prompt — before you start\n\n*One prediction, thirty seconds — the last one, and it's about all the others.*\n\nAcross this course you've made a prediction at the top of most modules and scored it in the\nactivity. The final activity asks you to gather them and look at the pattern.\n\n**Before you look back: in which direction do you think you've mostly missed?** Over —\nexpecting more from these tools than they delivered? Under — expecting less? Mixed? Write\none sentence, including your best guess at *why* your misses lean the way they do.\n\nThis one has no numeric field on purpose. The last calibration is a judgment about your own\njudgment — which is, not coincidentally, the skill the whole course was building."
+  },
+  {
+    "id": "ai101-m8-module-brief-20",
+    "moduleId": "ai101-m8",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "## Module brief\n\nHere is the situation the previous seven modules leave you in. You can predict what a model\nwill do well (M1), identify what shape of AI you're looking at (M2), size a use case (M3),\nmove material safely (M4), brief and steer (M5), catch fabrications (M6), and say where\nthe machines must stop (M7). One question remains, and it's the one your organization will\nactually ask you, usually on a bad day: **when AI touched the work, who owns the result?**\n\nThe answer is one word long — *you* — and this module is about making that answer\nsurvivable. Because \"you own it\" without infrastructure is just exposure: you own output\nyou didn't verify, under agreements you haven't read, with disclosure norms nobody wrote\ndown, against questions nobody settled. The module builds the infrastructure: the\naccountability principle stated so it can't be misread, the agreement layer that determines\nwhat your tools may do with what you give them **[V]**, the disclosure judgment for when\n\"AI helped\" needs saying out loud, and the five questions to settle with legal and IT\n*before* the bad day — plus the one-pager that closes the course by writing your answers\ndown.\n\nOne reframe to carry through the module: ownership is not the tax on using AI. It's the\n*license*. The person who can say \"I use these tools, here's what I verify, here's my\nline, and here's my name on the result\" gets to use them without asking permission every\ntime — and becomes the person others ask. That's the posture 201 builds on, and the reason\nthis module closes the course instead of opening it: you can only own what you understand,\nand now you understand it."
+  },
+  {
+    "id": "ai101-m8-learning-objectives-30",
+    "moduleId": "ai101-m8",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. State the accountability principle — the output is a draft, never a decision — and apply\n   it to the excuses that arrive when AI-assisted work goes wrong.\n2. Read your tools' agreement layer **[V]**: what's retained, what's trained on, and the\n   difference between consumer defaults and enterprise terms — and know which questions go\n   to IT versus counsel.\n3. Make the disclosure call with the honest test: would the person reading this feel misled\n   to learn how it was made?\n4. Bring legal and IT the five questions worth settling now, as a policy skeleton rather\n   than an open-ended worry.\n5. Write your own one-pager — use, verify, disclose, refuse — and score your calibration\n   across the whole course. The applied activity, and the course close."
+  },
+  {
+    "id": "ai101-m8-lesson-1-the-output-is-a-draft-never-a-d-40",
+    "moduleId": "ai101-m8",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "## Lesson 1 · The output is a draft, never a decision\n\nThe principle first, stated so it can't be misread: **AI output is a draft handed to you.\nThe moment you ship it — send it, file it, say it in a meeting — it stops being AI output\nand becomes your work.** Accountability doesn't transfer to a tool, because the tool can't\nhold it: it can't be questioned about intent, can't correct the record, can't make the\nperson harmed whole, can't be sanctioned into doing better. Every mechanism accountability\nruns on requires a person. That's not a course rule; it's how your organization, your\nprofession, and the law already work — this module just refuses to pretend AI changed it.\n\nThe principle earns its keep on the bad day, when the excuses arrive. Hold four of them up\nto the light — you'll hear all four eventually, possibly in your own voice, and each one\nis actually a *confession* wearing a defense:\n\n**\"The AI wrote it.\"** Confesses: I shipped work I didn't stand behind. The provenance of a\ndraft has never mattered to accountability — nobody accepts \"the intern wrote it\" or \"the\ntemplate said that\" from the person who signed. This excuse has never once helped anyone,\nand its M1-shaped error is treating the tool as an *author* — an entity that could own\nwords — rather than machinery that produced them.\n\n**\"I reviewed it.\"** Better — review is the right *category* — but as a defense it claims\nwhatever the review could actually catch, no more. M6 priced this precisely: a Level 1\nscan defends against nothing on the high-risk surface; \"I reviewed it\" for a fabricated\nstatute means \"I read it and it sounded right,\" which is M6's exact description of how\nfabrications ship. The honest version has content: *\"I traced its claims against the plan\ndocuments\"* — a defense with a verb in it.\n\n**\"It was only a draft.\"** Confesses: I lost track of the boundary between drafting and\nshipping. The principle is precisely that draft-ness *ends* — at the send button, at the\nmeeting, at the moment a colleague could rely on it. Sharing \"just a draft\" analysis that\nsomeone acts on shipped it, whatever the filename said.\n\n**\"The vendor said it was compliant.\"** M7 already broke this one — accountability doesn't\noutsource, and a vendor's assurance is a deferred question, not a defense. Confesses: I\nlet someone else's claim stand where my organization's verification should be.\n\nNotice what all four have in common: each one tries to relocate agency — to the tool, the\nglance, the label, the vendor. The principle's whole content is that agency stayed with\nyou the entire time. Which is also — turn it around — the *good* news, and the license\nthis module opened with: work you verified, under terms you know, is work you can put\nyour name on without flinching."
+  },
+  {
+    "id": "ai101-m8-try-50",
+    "moduleId": "ai101-m8",
+    "ordinal": 50,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "### Try this — 3 minutes\nThe excuse audit. For each of the four — \"the AI wrote it,\" \"I reviewed it,\" \"it was\nonly a draft,\" \"the vendor said it was compliant\" — write the one-line honest version:\nwhat would you have needed to *actually do* for the sentence to hold up? You've just\nwritten the four working standards of this module; keep them."
+  },
+  {
+    "id": "ai101-m8-lesson-2-the-agreement-layer-60",
+    "moduleId": "ai101-m8",
+    "ordinal": 60,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-11",
+    "body": "## Lesson 2 · The agreement layer [V]\n\nM4 told you what may enter a tool depends on the agreement covering it. This lesson is\nthat agreement layer up close — because \"what happens to what I paste?\" has a knowable\nanswer, it's in a document, and *you are allowed to ask for it.* Most people never do;\nthey use tools under terms they've never seen and describe the result as a mystery. Three\nquestions organize everything worth knowing:\n\n**Is my input used to train or improve the models?** The load-bearing question. Consumer\ntiers vary and have historically defaulted toward *yes, unless you opt out* **[V]**;\nenterprise agreements typically answer *no, contractually*. The difference is the M4\ndistinction with teeth: material that trains a model may surface, in some transformed\nform, outside your control forever. This single question is most of why \"the provisioned\ntool used well beats the better tool used personally\" (M2) is the professional's answer.\n\n**What's retained, and for how long?** Even without training, inputs and outputs persist\nsomewhere — conversation history, vendor logs, safety review **[V]**. Retention determines\nwhat exists to be breached, subpoenaed, or surprised by. Enterprise terms typically\nnegotiate retention windows and deletion; consumer tiers typically don't. The M4\nconnection runs both directions: retention is why redaction mattered, and redaction is\nyour control when retention isn't.\n\n**Who can see it?** Vendor staff under what circumstances, your own admins under what\ncontrols, and — increasingly relevant — what the vendor's own AI features do with your\ncontent inside their platform **[V]**.\n\nWhat to do with the three questions is a routing rule. **IT/security answers them** — for\neach provisioned tool, in writing; if the answer is \"we don't know,\" you've found real\nwork, and asking it is a contribution, not a nuisance. **Counsel handles what the answers\nimply** — whether those terms satisfy your obligations for Tier 3 material, what your\nregulators require **[V]**. **You enforce the boundary that follows:** the tier rules of\nM4, now with a documented *why* behind them, which is what makes them teachable to your\nteam instead of arbitrary. And one habit closes the loop: when the answers arrive, put\nthem where your team can see them — a one-line-per-tool grid (\"Tool X: no training,\n90-day retention, enterprise terms — Tier 2 OK, Tier 3 redacted only\"). That grid is the\nmost-requested artifact in every organization's AI rollout, and almost nobody has made\nit. Be the one who did."
+  },
+  {
+    "id": "ai101-m8-lesson-3-disclosure-would-they-feel-misl-70",
+    "moduleId": "ai101-m8",
+    "ordinal": 70,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "## Lesson 3 · Disclosure — would they feel misled?\n\nSomewhere between \"spell-check\" and \"the AI wrote my performance reviews,\" AI assistance\nstarts needing to be said out loud. The interesting question is where — and the answer\nthat actually works isn't a percentage of AI involvement. It's a question about the\n*reader*: **would this person feel misled if they learned how this was made?** Misled is\nthe precise word. Not surprised, not impressed — *misled*: they took the artifact as\nevidence of something it isn't.\n\nWatch the test sort real cases. A job posting drafted by AI from your role spec, edited\nand approved by your recruiter? Nobody feels misled — no reader takes a job posting as\nsomeone's personal prose; the organization stands behind the content, which is exactly\nwhat the artifact claims. A board slide whose numbers came from an AI summary of survey\ndata? The board takes those numbers as *verified facts* — what needs disclosing isn't\n\"AI helped\" but provenance and verification status: \"figures from the Q3 survey analysis,\nmethodology in appendix.\" A condolence note, a personal thank-you, a reference you're\nasked to give *as you* — here the artifact's entire value is that a person meant it\npersonally; discovering it was generated voids the thing itself, which is why \"AI wrote\nmy heartfelt note\" stories keep ending badly. And the candidate rejection note: the\ncompany's decision in the company's voice — AI drafting fine, provided the *decision*\nwas made the M7 way, which is the thing the reader actually cares about being real.\n\nThe pattern the cases reveal: **disclosure tracks the reader's stake in how it was made,\nnot the amount of AI involved.** Readers have a stake when the artifact implies a\nhuman's personal witness (the note, the reference), when they'll rely on unverified\nspecifics as verified (the board numbers), or when the making *is* the message. They\nhave no stake in the mechanics of routine institutional prose — nobody needs a\nprovenance label on a meeting-notes summary.\n\nThree practices operationalize it. **Per-artifact, ask the test** — it takes five\nseconds and it's usually obvious. **Where disclosure is owed, disclose the useful\nthing** — verification status and provenance (\"drafted with AI assistance, reviewed and\nverified by me\") rather than a vague AI-was-here sticker. **And for recurring artifact\ntypes, decide once** — your team shouldn't re-derive the ethics of AI-assisted JDs\nweekly; that's a norms question, it belongs in the one-pager, and Lesson 4 files it\nthere. One boundary case gets a flag because it's yours: *ER documentation and anything\nthat may become evidence* — where provenance of every sentence can end up examined under\noath **[V]** — routes to counsel's guidance, not to per-artifact judgment."
+  },
+  {
+    "id": "ai101-m8-exercise-embed-75",
+    "moduleId": "ai101-m8",
+    "ordinal": 75,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "{\"type\": \"sorting\", \"title\": \"Calibration exercise \\u2014 Would they feel misled?\", \"intro\": \"Ten minutes, six pieces of shipped work AI touched. Sort each: disclose (the reader is owed something about how it was made), no disclosure needed (no stake in the mechanics), or shouldn't have shipped at all (the problem is upstream of disclosure). Commit every card before the reveal.\\n\\nUse the test: would this reader feel misled to learn how this was made \\u2014 did they take the artifact as evidence of something it isn't?\"}"
+  },
+  {
+    "id": "ai101-m8-lesson-4-the-five-questions-to-settle-no-80",
+    "moduleId": "ai101-m8",
+    "ordinal": 80,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "## Lesson 4 · The five questions to settle now\n\nEverything so far in this module is judgment you can exercise alone. This lesson is the\npart you can't do alone — the questions that need legal, IT, and leadership answers, and\nthat are *cheap to settle now and expensive to settle during an incident.* Five, phrased\nto bring to the meeting:\n\n**1. Which tools, which tiers?** The approved-tools grid from Lesson 2 — each tool's\nagreement answers, and what data tier each may touch (M4). This is the question that\nretires \"is it OK if I paste…?\" forever.\n\n**2. Where's the line, and who owns it?** M7's one-pager, adopted: what AI must not\ndecide, who signs off on new people-touching tools, in writing.\n\n**3. What are our disclosure norms?** Lesson 3's decide-once list: which artifact types\ncarry a note, what the note says, and who decides novel cases.\n\n**4. What's our verification standard?** M6's levels, assigned: what must be true before\nAI-assisted work ships — by stakes, with the high-risk surface named — so \"I reviewed\nit\" has organizational content instead of personal interpretation.\n\n**5. What happens when something goes wrong?** The one nobody wants to write and\neveryone needs: who gets told when AI-assisted work ships with an error, what's the\ncorrection path, and — critically — what's the *no-blame lane* for self-reporting? An\norganization that punishes the person who says \"my AI-assisted memo had a fabricated\ncitation, here's the correction\" trains everyone to stop saying it. The incident you\nhear about early is cheap; the incident that hides is the expensive one.\n\nBring the five as a skeleton — proposed answers, not open questions; you have all the\nmaterial from seven modules — and you'll leave the meeting with a policy. Bring them as\nworries and you'll leave with a follow-up meeting. The applied activity has you draft\nexactly that skeleton for yourself, which is also the course closing the loop: in M1 you\npredicted where AI would help; now you're writing the terms under which you'll let it."
+  },
+  {
+    "id": "ai101-m8-key-takeaways-90",
+    "moduleId": "ai101-m8",
+    "ordinal": 90,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "## Key takeaways\n\n- **The output is a draft, never a decision.** Shipping converts AI output into your\n  work — send, file, or say it, and it's yours. Every excuse on the bad day (\"the AI\n  wrote it,\" \"I reviewed it,\" \"only a draft,\" \"the vendor said\") is a confession about\n  relocated agency; the honest versions all have verbs in them.\n- **The agreement layer is knowable — ask three questions [V]:** trained on? retained\n  how long? visible to whom? IT answers, counsel interprets, you enforce the tier rules\n  that follow — and publish the one-line-per-tool grid nobody else has made.\n- **Disclosure tracks the reader's stake, not the AI percentage.** The test: would they\n  feel misled about what this artifact is evidence of? Disclose the useful thing —\n  verification and provenance, not a vague sticker. Decide once per artifact type.\n- **Five questions settle the policy before the incident:** tools and tiers, the line\n  and its owner, disclosure norms, verification standards, and the no-blame correction\n  path. Bring skeletons, not worries.\n- **Ownership is the license, not the tax.** \"I use these tools, here's what I verify,\n  here's my line, my name's on the result\" is the sentence that earns autonomy — and\n  the posture 201 builds a practitioner on."
+  },
+  {
+    "id": "ai101-m8-activity-link-95",
+    "moduleId": "ai101-m8",
+    "ordinal": 95,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "{\"type\": \"activity_link\", \"title\": \"Applied activity \\u2014 The One-Pager\", \"blurb\": \"The course close: the terms under which you use AI \\u2014 use, verify, disclose, refuse \\u2014 written so your team could read it Monday, plus the calibration review across every prediction you made in this course. Graded with per-dimension feedback; free unlimited resubmission.\", \"estMinutes\": \"25\\u201330\"}"
+  },
+  {
+    "id": "ai101-m8-sources-and-attribution-100",
+    "moduleId": "ai101-m8",
+    "ordinal": 100,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "## Sources and attribution\n\nThis module draws on the following material:\n\n- **The AI Fluency Framework** (Rick Dakan & Joseph Feller, in collaboration with\n  Anthropic, CC BY-NC-SA 4.0) — the accountability stance and the treatment of\n  responsible disclosure adapt its \"Diligence\" competency; the course's four-competency\n  inheritance (Delegation, Description, Discernment, Diligence) is its framework\n  throughout.\n- Provider terms of service, data processing agreements, and enterprise documentation —\n  training defaults, retention windows, and visibility rules are moving targets; verify\n  against your vendor's current terms and your own agreement. **[V]**\n- The excuse audit, the reader's-stake disclosure test, and the five-question policy\n  skeleton are original to this course, developed for the People-leader context.\n- Evidentiary treatment of AI-assisted workplace documentation is an evolving area —\n  the ER-documentation flag exists because provenance can be examined in ways that\n  are jurisdiction- and case-specific. *Counsel's guidance governs there, not this\n  course.* **[V]**"
+  }
+]

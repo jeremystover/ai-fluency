@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ai101-m6-micro-core",
+    "moduleId": "ai101-m6-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "## Module 6 in two minutes\n\n**Fluency carries zero information about accuracy.** The model produces confident, well-cited-looking output the same way whether it's right or invented — the form costs nothing, so the career-trained instinct that polish signals knowledge fails here specifically. The inversion to install: *more polish, more scrutiny* — and the flinch that makes it practical: **specifics you didn't supply need checking before they travel.**\n\n**Four failure types, four tells.** Fabricated specifics (precision you didn't supply). Plausible-but-wrong reasoning (smooth 'therefores' carrying load — survives fact-checks, dies on re-derivation). Confident gaps (generic where it should be specific — your org's questions answered from everyone's average). Stale facts (anything with a clock on it).\n\n**Verification is sized to stakes, not applied everywhere.** The two-minute scan on everything; claim-tracing to sources that *aren't the model* on anything that informs a decision; adversarial re-derivation on the load-bearing. \"Are you sure?\" re-runs the same machinery and is not verification. A claim you can't trace gets cut, not shipped."
+  },
+  {
+    "id": "ai101-m6-micro-rule",
+    "moduleId": "ai101-m6-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "### The rule to carry\n\nFour zones get no routine tier, ever: legal citations, numbers that will be re-said, claims about named individuals, and answers other people consume directly. Level 2 minimum, human eyes, and \"verified against [source]\" written down."
+  },
+  {
+    "id": "ai101-m6-micro-close",
+    "moduleId": "ai101-m6-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "**The full module adds** the find-the-fabrication exercise (four authoritative-sounding claims, one invented study), why two models agreeing is still not evidence, and Catch It Lying — manufacturing a hallucination in your own domain, proving it, and writing the one-sentence verification rule your team could actually be audited against."
+  }
+]

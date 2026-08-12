@@ -1,0 +1,67 @@
+{
+  "title": "Knowledge check — 5 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why does the publicly available picture of AI adoption in HR skew toward success and completion?",
+      "options": [
+        "Publications are legally required to report only verified implementations",
+        "The people motivated to publish are vendors, consultancies, and practitioners with a win to describe — nobody publishes the ambiguous result, which is the modal one",
+        "Failed implementations are rare enough that they don't affect the average",
+        "Survey methodology in HR research systematically oversamples large organizations"
+      ],
+      "correctIndex": 1,
+      "explanation": "A selection effect, not a conspiracy: the content environment is assembled from the subset of experiences someone had a reason to publicize. C is contradicted by the business-value data, and D describes a different problem than the one this lesson is about."
+    },
+    {
+      "id": "q2",
+      "prompt": "A large majority of HR leaders report their organizations have not realized significant business value from AI tools. What does this most directly indicate?",
+      "options": [
+        "That AI tools do not work for HR use cases",
+        "That the surveyed organizations have not adopted AI at all",
+        "That adoption and payoff are separate milestones, and most of the field currently sits in the gap between them",
+        "That HR leaders are poor judges of business value"
+      ],
+      "correctIndex": 2,
+      "explanation": "The finding is about the distance between two milestones, not about the technology's ceiling. B confuses this statistic with the no-plans figure; A over-reads a snapshot of an early field."
+    },
+    {
+      "id": "q3",
+      "prompt": "Around nine in ten CHROs expect more AI adoption while over half of organizations have implemented none. What kind of gap is that, and why does it matter?",
+      "options": [
+        "A peer gap — it means your competitors are ahead and you should accelerate",
+        "An expectations gap — the pressure is coming from executives rather than peer reality, and it's closed by a conversation with evidence, not by faster buying",
+        "A measurement gap — CHROs are counting adoption differently than practitioners",
+        "A vendor gap — it shows vendors have oversold to executives specifically"
+      ],
+      "correctIndex": 1,
+      "explanation": "The distinction is the module's central practical point: the two pressures feel identical and have opposite correct responses. Buying faster does not close a gap between what your executive expects and what is actually possible — it adds a failed implementation to it."
+    },
+    {
+      "id": "q4",
+      "prompt": "Of the four errors comparison-driven adoption produces, which one most directly prevents you from ever proving an implementation worked?",
+      "options": [
+        "Adopting what's marketed rather than what fits your function",
+        "Mistaking pilots launched for progress",
+        "Buying before you can evaluate",
+        "Skipping the baseline"
+      ],
+      "correctIndex": 3,
+      "explanation": "Without a before-number, a working implementation and a useless one are indistinguishable afterward — and the case for your function in Module 7 cannot be built at all. B is a related error but it substitutes a bad metric rather than eliminating the possibility of a good one."
+    },
+    {
+      "id": "q5",
+      "prompt": "What does this module actually argue about urgency?",
+      "options": [
+        "That the technology is overhyped and HR functions should wait for it to mature",
+        "That you have more room to be deliberate than the content environment suggests, and deliberateness is what separates implementations that survive from ones that get retired",
+        "That market pressure on the HRBP role is exaggerated and can be safely discounted",
+        "That AI adoption decisions should be deferred to executives who feel the pressure most"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correction is against comparison-driven haste, not against the technology or against urgency in general. C is explicitly contradicted — Module 2 takes the market pressure on this role seriously and unflinchingly."
+    }
+  ]
+}

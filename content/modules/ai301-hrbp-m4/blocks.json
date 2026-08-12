@@ -1,0 +1,119 @@
+[
+  {
+    "id": "ai301-hrbp-m4-calibration-prompt-before-you-start-10",
+    "moduleId": "ai301-hrbp-m4",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Calibration prompt — before you start\n\n*One prediction, thirty seconds.*\n\nIn the applied activity you'll run a real upcoming decision through five adversaries and count\nthe objections you hadn't already thought of.\n\n**How many objections will you fail to anticipate?** Commit a number now.\n\nMost people say one or two. The number is worth writing down because the gap between it and\nwhat you find is the most honest measure of how well your own preparation was working before\nthis module."
+  },
+  {
+    "id": "ai301-hrbp-m4-module-brief-20",
+    "moduleId": "ai301-hrbp-m4",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nEvery other use of AI in this curriculum makes something. Drafts, summaries, structures,\nanalyses. This module is the exception: **here the model's job is to attack your work, and the\noutput is not a document — it's a better version of you walking into a room.**\n\nThat matters more for an HRBP than for anyone else in the People function, because Module 2\nalready established where your defensible value sits: the room. The conversation with the leader\nwho doesn't want to hear it. The recommendation the executive team will push back on. The change\nthat has to be explained to people it disadvantages. Those are the moments the job actually turns\non, and until now this curriculum has given you nothing for them.\n\nHere's the awkward part. The property that makes AI useful for rehearsal is the same property\nthat makes it dangerous everywhere else: **it will argue any position, convincingly, without\nbelieving it.** Everywhere else in this course that's a liability — it's why fluent output needs\nverification, why confident wrongness is the central risk. Here it's the entire point. You need\na sparring partner with no stake, infinite patience, and no social reason to go easy on you.\n\nAnd here's the trap, which the module spends as much time on as the technique: **models want to\nagree with you.** Left to its defaults, a model asked to review your plan will find it thoughtful,\nidentify some considerations to keep in mind, and send you into the room more confident and no\nbetter prepared. That failure feels exactly like success. Most of the craft below exists to\nprevent it."
+  },
+  {
+    "id": "ai301-hrbp-m4-learning-objectives-30",
+    "moduleId": "ai301-hrbp-m4",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. Explain why a model's willingness to argue any position — a liability elsewhere — is what\n   makes rehearsal work.\n2. Run the five-adversary set against a real decision, and say what failure each adversary is\n   built to surface.\n3. Stop a model from flattering you: commit first, forbid hedging, demand the strongest version,\n   and ask for what you don't want to hear.\n4. Build a champion map from real material — who would help you, and what they'd need.\n5. Interrogate the model's reasoning when it's wrong, and rewrite your framing once you can see\n   how it got there.\n6. Recognize when a rehearsal has produced preparation and when it has only produced confidence."
+  },
+  {
+    "id": "ai301-hrbp-m4-lesson-1-rehearsal-not-production-40",
+    "moduleId": "ai301-hrbp-m4",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 · Rehearsal, not production\n\nStart with why this is a different activity from everything else you've learned.\n\nWhen you use AI to draft, you supply material and judge output. The loop is: ask, read, correct.\nWhen you use AI to *rehearse*, you supply a position and ask to have it dismantled. The loop is:\ncommit, get attacked, decide what survives. The second loop only works if the attack is real.\n\nWhich is where the difficulty lives, because **the default behaviour of these systems is\nagreement.** Ask \"what do you think of this plan?\" and you'll get a response shaped like\nthoughtful engagement: some praise, a few considerations, a balanced close. It reads as\ncritique. It functions as endorsement. And you will leave the exchange feeling reviewed.\n\nThat's not a defect you can prompt your way past with one clever instruction — it's a tendency\nyou have to work against structurally, which is what Lesson 3 is for. But name the mechanism\nfirst, because it's just 101's mechanism again: the model is producing the most plausible\ncontinuation, and the most plausible continuation of \"here is my plan, what do you think\" is a\nconstructive-colleague response. Nothing has gone wrong. You asked for the wrong thing.\n\nThe reframe that fixes it: **you are not asking for an opinion. You are assigning a role with an\ninterest, and asking it to be played to win.** A model asked to be \"critical\" produces criticism-\nflavoured text. A model asked to *be a specific person with something at stake and a reason to\nobject* produces objections you can actually use — because now the plausible continuation is\nwhat that person would say."
+  },
+  {
+    "id": "ai301-hrbp-m4-lesson-2-the-adversary-set-50",
+    "moduleId": "ai301-hrbp-m4",
+    "ordinal": 50,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 · The adversary set\n\nFive adversaries. Each surfaces a different failure, and the set matters more than any one — most\nplans survive two or three and break on the fourth.\n\n**1. The high performer you can't afford to lose.** *\"You're a strong performer on the team this\naffects. Read this and tell me what it costs you, what it signals about how the organization\nvalues people like you, and what you'd start thinking about.\"* Surfaces: retention risk, and the\nspecific way well-intended changes land on the people who have options.\n\n**2. The frontline manager who has to deliver it.** *\"You manage a team of nine and you have\noperating targets. You have to explain this on Monday and defend it in your one-to-ones. What\nquestions can't you answer, and what does this cost you in time and credibility?\"* Surfaces:\nimplementability — whether the plan survives contact with someone who didn't design it and can't\nchoose not to run it.\n\n**3. The executive who wants the number.** *\"You're on the leadership team. What evidence would\nyou demand before approving this, what would you ask that I probably can't answer, and what\nwould make you say 'come back with more'?\"* Surfaces: the gap between what you believe and what\nyou can evidence — which Module 5 exists to close.\n\n**4. The person with the least power affected by this.** *\"You're the most junior person this\ntouches. You weren't consulted, you have the least ability to push back, and you'll feel it\nfirst. What happens to you?\"* Surfaces: what you normalized. This adversary is here because\nrepresenting that person is structurally an HRBP's job, and they are almost always absent from\nthe room where the plan gets built.\n\n**5. The headline.** *\"This landed badly and it's public. Write the story — the framing, the\nquote from an affected employee, the sentence that makes the organization look worst.\"*\nSurfaces: reputational and ethical exposure you've become acclimated to. Uniquely good at\ncatching things everyone internal has stopped seeing.\n\n**And the constructive inverse — the champion map.** Adversaries tell you what breaks; this tells\nyou who helps. Feed in real material — Q&A from leadership calls, questions submitted at\nall-hands, notes from your last skip-levels — and ask: *which individuals and teams are asking\nthe most forward-thinking questions here? Who would be a credible champion for this, and what\ntalking points would help them make the case in rooms I'm not in?* Every plan needs advocates\nwho aren't you, and the evidence for who they are is usually already sitting in material nobody\nre-reads."
+  },
+  {
+    "id": "ai301-hrbp-m4-lesson-3-making-it-sting-60",
+    "moduleId": "ai301-hrbp-m4",
+    "ordinal": 60,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 · Making it sting\n\nFive moves that convert a flattering exchange into a useful one. Use all of them; they fail\nindividually.\n\n**Commit first, in writing.** Before you ask for anything, state your position and your reasoning\nas a decision you've made — not a draft you're exploring. A model responds to *\"I'm going to do\nX because Y — tear it apart\"* very differently from *\"I'm thinking about X, thoughts?\"* The\nsecond invites collaboration. The first invites attack.\n\n**Forbid hedging explicitly.** *\"Do not give me balanced feedback. Do not list strengths. Give me\nthe strongest case against this, as the person I've named, in their voice.\"* Without this you get\nthe balanced-close pattern, and the balance is what neutralizes the critique.\n\n**Demand the strongest version, not a list.** *\"What's the single most damaging objection, and\nmake it as strong as you honestly can — steelman it.\"* Ten mild objections are easier to dismiss\nthan one sharp one, and a list lets you feel thorough while engaging with nothing.\n\n**Ask for what you don't want to hear.** *\"What am I not asking you because I don't want to know\nthe answer?\"* This is the highest-yield single prompt in the module. It works because it targets\nthe thing your own preparation is structurally blind to — you can't audit your own omissions from\ninside them.\n\n**Start fresh, and don't bring your framing.** If you built the plan in a conversation, that\nconversation contains all your justifications — and 101 M1 tells you what happens next: the model\npredicts from everything in view, and everything in view is your reasoning. Open a new\nconversation. Give it the plan and the role, not the story of how you got there."
+  },
+  {
+    "id": "ai301-hrbp-m4-try-70",
+    "moduleId": "ai301-hrbp-m4",
+    "ordinal": 70,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### Try this — 3 minutes\nTake a recommendation you're currently confident about. In a fresh conversation, one prompt:\n*\"I've decided to do X because Y. You're the person this affects most and you have the least\npower to object. Don't give me balance — tell me what this does to me, in my voice, as\nstrongly as you honestly can.\"* Then read it twice. The second read is the useful one."
+  },
+  {
+    "id": "ai301-hrbp-m4-lesson-4-reading-its-logic-80",
+    "moduleId": "ai301-hrbp-m4",
+    "ordinal": 80,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 · Reading its logic\n\nSometimes the attack is wrong — the objection rests on a fact about your organization the model\ndoesn't have, or a leap that doesn't hold. The amateur move is to dismiss it. The practitioner\nmove is to find out *how it got there*, because a wrong objection is still evidence about how\nyour plan reads to someone without your context.\n\nAsk it directly: *\"Walk me through how you got from the plan to that conclusion. What did you\nassume that I didn't tell you?\"* Two things come back, and both are useful.\n\n**Sometimes the assumption is wrong**, and the fix is your framing — because if a model with the\nwritten plan in front of it inferred something false, a human skimming it in a meeting will\ninfer the same thing faster. **That's not a model error you correct. It's a communication defect\nyou found for free.**\n\n**And sometimes the assumption is right**, and you'd rather it weren't. That's the objection to\ntake seriously.\n\nThis is 101 M6's verification instinct pointed at an argument instead of a fact. There you traced\na claim to a source; here you trace a conclusion to its premise. Same discipline, and the same\nrule applies: **you're checking against something outside the model — your own knowledge of the\norganization — not asking the model to confirm itself.** \"Are you sure?\" is as useless here as it\nwas there."
+  },
+  {
+    "id": "ai301-hrbp-m4-key-takeaways-90",
+    "moduleId": "ai301-hrbp-m4",
+    "ordinal": 90,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **The property that makes AI risky everywhere else makes it useful here**: it will argue any\n  position convincingly without believing it. What you need is a sparring partner with no stake\n  and no social reason to be gentle.\n- **The default is agreement, and it feels like review.** \"What do you think of this plan?\"\n  produces critique-flavoured endorsement. You didn't get a bad answer — you asked for the wrong\n  thing.\n- **Assign a role with an interest, not a critical stance.** \"Be critical\" produces\n  criticism-flavoured text; \"be this person, who loses something here\" produces usable objections.\n- **Five adversaries, five failures:** the high performer (retention), the frontline manager\n  (implementability), the executive (evidence gap), the least-powerful person (what you\n  normalized), the headline (what everyone internal stopped seeing).\n- **Five moves make it sting:** commit first in writing, forbid hedging, demand the steelman\n  rather than a list, ask what you're avoiding asking, and start fresh without your own framing.\n- **A wrong objection is still data.** Trace how it got there: a false inference from your written\n  plan is a communication defect you found for free."
+  },
+  {
+    "id": "ai301-hrbp-m4-exercise-embed-95",
+    "moduleId": "ai301-hrbp-m4",
+    "ordinal": 95,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"choice\"}"
+  },
+  {
+    "id": "ai301-hrbp-m4-take-a-position-100",
+    "moduleId": "ai301-hrbp-m4",
+    "ordinal": 100,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"Rehearsal makes you better prepared and it makes you more confident — and those\ntwo move independently. Most people finish a rehearsal having gained only the second.\"*\n\nThis is the module's own technique turned on itself, and you should take it seriously: run the\nadversary set, generate a counter for each objection, and you can emerge measurably more\nconfident with your plan entirely unchanged. That is rationalization wearing rehearsal's clothes.\n\nThe strongest counter-argument is that **confidence is not merely psychological here** — an HRBP\nwho feels prepared performs better in the room, holds the line under pressure, and doesn't fold\non a point they were right about. If the mechanism works partly through confidence, that's a\nfeature. Your position has to engage that rather than dismiss it."
+  },
+  {
+    "id": "ai301-hrbp-m4-activity-link-105",
+    "moduleId": "ai301-hrbp-m4",
+    "ordinal": 105,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"activity_link\", \"title\": \"Applied activity \\u2014 Run the set\", \"blurb\": \"A real upcoming decision put through all five adversaries in the tutor, with your position committed in writing first \\u2014 then the three objections you hadn't anticipated, and the question the rubric weights most: what did you change? Free unlimited resubmission.\", \"estMinutes\": \"25\\u201330\"}"
+  },
+  {
+    "id": "ai301-hrbp-m4-sources-and-attribution-110",
+    "moduleId": "ai301-hrbp-m4",
+    "ordinal": 110,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- The five-adversary set, the five sting moves, and the preparation-versus-confidence claim are\n  original to this course, developed for the HRBP context.\n- The rehearsal-space framing and the champion-mapping technique adapt practices published by\n  practitioners working with AI in People functions; the specific adversaries and the discipline\n  around them are ours.\n- **The AI Fluency Framework** (Rick Dakan & Joseph Feller, in collaboration with Anthropic,\n  CC BY-NC-SA 4.0) — the Description and Discernment competencies underpin both the role\n  assignment craft and the reading-its-logic pass.\n- Lesson 4 extends 101 M6's verification discipline from claims to arguments: trace the\n  conclusion to its premise, and check against something outside the model."
+  }
+]

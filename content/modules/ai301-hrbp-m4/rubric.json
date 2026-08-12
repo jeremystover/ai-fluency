@@ -1,0 +1,48 @@
+{
+  "promptVersion": "ai301-hrbp-m4-run-the-set-v1",
+  "moduleId": "ai301-hrbp-m4",
+  "minWords": 250,
+  "maxWords": 350,
+  "submitLabel": "Your rehearsal exchange and write-up",
+  "intro": "Paste your committed position, the key exchanges from all five adversaries, the three objections you hadn't anticipated, and the 250–350 word write-up. Redact anything person-identifying before submitting. Resubmission is free and unlimited — the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, HRBP track. Module 4 applied activity, 'Run the set': a real, undecided, upcoming decision run through five adversaries in the tutor — the high performer they can't afford to lose, the frontline manager who must deliver it, the executive who wants evidence, the person with least power affected, and the headline. The learner commits their position and expected main objection IN WRITING first, uses the five sting moves (commit first, forbid hedging, demand the steelman rather than a list, ask what they're avoiding asking, start in a fresh conversation without their own framing), pushes each adversary at least once past its first objection, then harvests the three objections they had not anticipated and judges each: right, survivable, changes-the-plan-or-only-the-framing. THE HEAVIEST WEIGHT IS ON WHAT CHANGED. This module's own claim is that rehearsal can produce confidence without preparation — generating a counter for every objection while the plan stays identical is rationalization wearing rehearsal's clothes. A submission where the plan genuinely did not change can still score well, but only if the learner engages honestly with why, rather than treating unchanged as validated. Grade the delta, never prediction accuracy.",
+  "opening": [
+    {
+      "key": "missedObjections",
+      "label": "Predicted — objections you'll fail to anticipate",
+      "hint": "Across all five adversaries. Most people say one or two.",
+      "placeholder": "e.g. 2",
+      "min": 0,
+      "max": 30
+    }
+  ],
+  "calibration": [
+    {
+      "key": "missedObjectionsActual",
+      "label": "Actual — genuinely new objections the set surfaced",
+      "hint": "Only ones you hadn't already thought of. The gap measures how well your prior preparation was working.",
+      "placeholder": "e.g. 5",
+      "min": 0,
+      "max": 30,
+      "actualFor": "missedObjections"
+    }
+  ],
+  "dimensions": [
+    {
+      "name": "The position was committed first",
+      "criteria": "A real, undecided, upcoming decision — and a position plus expected main objection written down BEFORE any adversary ran. Without that baseline there is nothing to measure the rehearsal against, and a submission that reconstructs its 'prior expectations' after the fact should be told so plainly."
+    },
+    {
+      "name": "The adversaries were played, not summoned",
+      "criteria": "Each adversary given a role with an interest and something at stake, hedging explicitly forbidden, and each pushed at least once past its first objection. Watch for the named failures: 'be critical' as a style instruction, a long list of mild objections standing in for one sharp one, and a model that closes by endorsing the plan."
+    },
+    {
+      "name": "The harvest is judged, not just collected",
+      "criteria": "Three genuinely unanticipated objections, each assessed on three axes — is it right, is it survivable, does it change the plan or only the framing. Collecting objections without adjudicating them is the thoroughness-as-avoidance failure this module names."
+    },
+    {
+      "name": "What changed",
+      "criteria": "The heaviest dimension. What the learner will actually do differently — a changed plan, a changed sequence, a conversation they now need to have first. 'Nothing changed' is acceptable only with an honest account of why, and should be probed rather than praised: the module's own claim is that a rehearsal producing only confidence feels identical from the inside. Also grades the position taken on that claim, including its counter-argument that confidence itself has instrumental value in the room."
+    }
+  ]
+}

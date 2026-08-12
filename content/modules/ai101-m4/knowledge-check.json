@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-11",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Asked to \"summarize our parental leave policy\" with no document attached, the model produces a confident, detailed summary. What is that summary?",
+      "options": [
+        "A retrieval of your policy from the model's training data, current as of the cutoff",
+        "A plausible average of the many parental leave policies in the training data — invented specifics, fluent delivery",
+        "A refusal in disguise — models won't summarize documents they haven't seen",
+        "A summary of the most common policy among companies your size"
+      ],
+      "correctIndex": 1,
+      "explanation": "The model has never seen your policy (M1), so it generates *a* policy-shaped answer from patterns — accrual rules you don't have, delivered confidently. It won't decline (C); it fills the gap silently. A and D describe retrieval systems, which this isn't."
+    },
+    {
+      "id": "q2",
+      "prompt": "Beyond better output, what does supplying the source document change about the *checkability* of the result?",
+      "options": [
+        "Nothing — output quality and checkability are the same property",
+        "Supplied documents make the model cite its sources automatically",
+        "Every claim in the output can now be verified against material you hold — invention becomes catchable",
+        "Checkability only improves under an enterprise agreement"
+      ],
+      "correctIndex": 2,
+      "explanation": "With the source in hand, \"unused days lapse in March\" is a checkable claim instead of a plausible one — the conversion M6's verification habits depend on. B overstates what attachment does **[V]**; D confuses the data question with the quality question."
+    },
+    {
+      "id": "q3",
+      "prompt": "A summary of your 60-page handbook is detailed on early sections, detailed on the appendix, and oddly vague about the grievance procedure in the middle — all in equally confident prose. What's the most likely cause?",
+      "options": [
+        "The grievance procedure was written after the model's knowledge cutoff",
+        "Attention degrades for material in the middle of a very long context — it fit, but it didn't attend",
+        "The model's safety filters suppressed the grievance content",
+        "The handbook exceeded the window, so the middle was dropped entirely"
+      ],
+      "correctIndex": 1,
+      "explanation": "Asymmetric thinness with uniform confidence is the lossy middle's signature. D is a real failure mode but truncation drops the *oldest* material in an overgrown conversation, not the middle of one attachment; A confuses cutoff with context; C isn't this."
+    },
+    {
+      "id": "q4",
+      "prompt": "Which artifact is most likely to be *mis*-tiered as safely internal when it's actually person-identifying?",
+      "options": [
+        "The published careers-page description of your hybrid work policy",
+        "A template offer letter with all fields blank",
+        "Aggregate survey scores by 200-person division",
+        "Survey verbatims with names stripped but role, office, and a distinctive complaint intact"
+      ],
+      "correctIndex": 3,
+      "explanation": "Identity lives in combinations: role + office + recognizable grievance identifies the author to any informed insider, names or no names. A is public, B is internal template language, C is aggregated past the point of individual traceability — the classic safe versions of each tier."
+    },
+    {
+      "id": "q5",
+      "prompt": "What makes Tier 4 (medical, protected-class, investigation, individual comp) different in kind from Tier 3 — not just more sensitive?",
+      "options": [
+        "Tier 4 documents are longer and exceed context windows",
+        "The constraint comes from your own legal obligations, so no vendor agreement upgrade unlocks a chat window for it",
+        "Tier 4 material confuses models and produces lower-quality output",
+        "Nothing — Tier 4 is Tier 3 with more thorough redaction required"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tiers 1–3 are governed by what your tool's agreement permits **[V]**; Tier 4 is governed by obligations that attach to the data itself — which is why the answer stays \"stop and ask\" under every agreement, and why it moves only in systems counsel has explicitly blessed. D is the tempting wrong answer: redaction quality isn't the issue."
+    },
+    {
+      "id": "q6",
+      "prompt": "The point of the shown-to-the-person test — could this run be shown to the person it concerns? — is that it:",
+      "options": [
+        "Replaces the tier system with a single easier question",
+        "Converts an abstract compliance question into a concrete one your existing instincts can actually answer — and catches tasks the tiers technically permit",
+        "Is a legal requirement under current privacy regulation",
+        "Confirms the model handled the data securely on the vendor's side"
+      ],
+      "correctIndex": 1,
+      "explanation": "It complements the tiers rather than replacing them (A): a properly redacted run can still fail it when the *task* is the problem — surfacing exactly the cases M7 wants. C overstates its status **[V]**; D tests something no prompt-side judgment can see."
+    },
+    {
+      "id": "q7",
+      "prompt": "Why does \"ignore the names and any identifying details\" *in the prompt* fail as redaction?",
+      "options": [
+        "Models can't follow negative instructions of any kind",
+        "The instruction consumes context budget better spent on the task",
+        "The identifying material has already entered the tool — retention and exposure happened at paste time, whatever the output ignores",
+        "It doesn't fail — prompt-level redaction is equivalent to editing the document first"
+      ],
+      "correctIndex": 2,
+      "explanation": "Redaction is about what *enters* the system, not what the output mentions. An instruction to ignore data is received by a system that now holds the data. Redact before the material goes in — that's why it's a document-editing pass, not a prompting technique."
+    },
+    {
+      "id": "q8",
+      "prompt": "Your redacted ER summary — every name, office, and date generalized — would still make its subject flinch, because anyone close to the situation would recognize it. What does the discipline say?",
+      "options": [
+        "The redaction failed on technique — generalize harder until the flinch goes away",
+        "Flinching isn't the test; if the tiers and agreement permit it, proceed",
+        "Ship it but add a note disclosing that redaction was performed",
+        "The task, not the document, is the problem — some analyses shouldn't run on a small population in any tool, and finding that out now is the discipline working"
+      ],
+      "correctIndex": 3,
+      "explanation": "When the situation itself is identifiable at any blur level, no technique fixes it — the shown-to-the-person test has caught a task that needs a more controlled setting or shouldn't run at all (M7's territory). A mistakes a task problem for a technique problem; B inverts the test's whole purpose; C narrates a decision that shouldn't ship."
+    }
+  ]
+}

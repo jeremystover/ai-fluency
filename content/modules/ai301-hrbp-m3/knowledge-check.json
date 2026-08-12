@@ -1,0 +1,103 @@
+{
+  "title": "Knowledge check — 8 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Workers report AI saving roughly 11 hours a week while only 13% say their organization performs significantly better `[V]`. What best explains the gap?",
+      "options": [
+        "Workers are overstating their savings to appear productive",
+        "Real relief, minus unbudgeted botsitting, minus a remainder that dissolves into the day rather than being redirected",
+        "Organizational performance measures are too crude to detect the improvement",
+        "The savings are real but take three to five years to appear in performance data"
+      ],
+      "correctIndex": 1,
+      "explanation": "No dishonesty is required. The individual experience of relief is genuine; a measured 6.4 hours goes back out as supervision nobody counts; and what's left is absorbed because almost nobody names a destination for it. A and C explain the gap by dismissing one side of it."
+    },
+    {
+      "id": "q2",
+      "prompt": "Which of the four audit questions most often flips a workflow from positive to negative?",
+      "options": [
+        "Whether final quality improved",
+        "Where the work moved to",
+        "Total human time including review and rework",
+        "What the freed capacity became"
+      ],
+      "correctIndex": 2,
+      "explanation": "Because the minutes it counts — briefing, critical reading, fixing, redoing — are precisely the minutes every vendor's arithmetic omits. D is the question that determines whether value reaches the organization, but C is the one that most often changes the sign."
+    },
+    {
+      "id": "q3",
+      "prompt": "Your team's AI-assisted debrief process moved the work from you drafting for 40 minutes to a coordinator reviewing for 25. What does question three require you to conclude?",
+      "options": [
+        "Nothing changed — the same work is being done",
+        "The workflow failed, since work should be eliminated rather than moved",
+        "The work relocated, which may well be a genuine win — but calling relocation \"elimination\" is how a function claims capacity it didn't create",
+        "The coordinator should be given AI tools too, to complete the elimination"
+      ],
+      "correctIndex": 2,
+      "explanation": "Relocation is often good: reviewing is usually cheaper than drafting. The error the question guards against is describing a move as a removal, which produces a capacity claim the function can't cash."
+    },
+    {
+      "id": "q4",
+      "prompt": "The volume trap says that when content gets cheaper to produce:",
+      "options": [
+        "Quality falls because less care goes into each artifact",
+        "Organizations produce more of it, moving the constraint from making work to deciding which work matters",
+        "Costs rise as consumption of AI services increases",
+        "Employees resist the new tools because output expectations rise"
+      ],
+      "correctIndex": 1,
+      "explanation": "The constraint relocates. For an HRBP that shows up as more frameworks, more decks, more survey cuts, three versions of the policy — none of which are decisions, which is the actual product. A function producing more artifacts and no more decisions has gotten worse, efficiently."
+    },
+    {
+      "id": "q5",
+      "prompt": "IBM's widely-cited ~$300M attrition-prediction saving is best characterized as `[V]`:",
+      "options": [
+        "False — the figure has been debunked",
+        "Verified, since it came from the company with access to the data",
+        "Unverifiable — a CEO claim, never independently audited or methodologically published, which disqualifies it from load-bearing use",
+        "Irrelevant, because attrition prediction is prohibited under 101 M7"
+      ],
+      "correctIndex": 2,
+      "explanation": "Unverifiable is not the same as false, and the distinction matters: you don't have to allege dishonesty to refuse to build a business case on a number nobody can check. D overstates the line — prediction feeding *decisions about individuals* is the problem, not all attrition analysis."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why does credible proof cluster at the front door and back office rather than in assessment and prediction?",
+      "options": [
+        "Vendors invest more engineering effort in transactional products",
+        "Assessment products are newer and haven't accumulated evidence yet",
+        "Transactional outcomes are countable and fail visibly, while assessment and prediction outcomes are slow and confounded — which is exactly why claims there can be loud",
+        "Regulators prohibit publishing efficacy data for assessment tools"
+      ],
+      "correctIndex": 2,
+      "explanation": "The asymmetry is about measurability, not effort or maturity. Where a failure would be obvious, claims stay modest; where attribution is nearly impossible, claims are free."
+    },
+    {
+      "id": "q7",
+      "prompt": "What does \"automating the yes is safe; automating the no is where the risk starts\" mean in practice?",
+      "options": [
+        "Approvals are lower-stakes decisions than rejections in every context",
+        "Accelerating someone through a process is visible and recoverable, while filtering someone out is invisible — the excluded person never appears in your data, so the failure mode is structurally unmeasurable",
+        "Rejection decisions carry more legal exposure than approval decisions",
+        "Automated approvals require less accuracy than automated rejections"
+      ],
+      "correctIndex": 1,
+      "explanation": "The heuristic is about measurability and recoverability. C is also true and is a consequence of B rather than the reason for it — and note this arrives at 101 M7's line from the evidence side rather than the ethical one."
+    },
+    {
+      "id": "q8",
+      "prompt": "The activity asks you to name what the recovered time became, and rejects \"more strategic work.\" Why?",
+      "options": [
+        "Strategic work isn't a legitimate destination for recovered capacity",
+        "The phrase is what people say when the honest answer is \"I don't know\" — and an unnamed destination means the time was absorbed rather than recovered",
+        "Because only 7% of organizations provide guidance, so learners shouldn't attempt it",
+        "Because strategic work can't be measured, and the activity requires measurable outcomes"
+      ],
+      "correctIndex": 1,
+      "explanation": "The phrase functions as a placeholder for absent knowledge. A specific destination — a Module 2 quadrant, a piece of work you were skipping, hours returned to a team — is checkable in a way that \"more strategic work\" never is."
+    }
+  ]
+}

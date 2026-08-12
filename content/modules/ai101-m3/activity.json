@@ -1,0 +1,11 @@
+[
+  {
+    "id": "ai101-m3-activity-applied-activity-size-one-use-case-10",
+    "moduleId": "ai101-m3-activity",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-11",
+    "body": "## Applied activity — \"Size One Use Case\"\n\n**Time:** 20–25 minutes · **Submit:** your estimate table plus a 250–350 word write-up ·\n**Graded against the rubric below.** Score doesn't matter. Doing the work is where the\nlearning lands.\n\nAt the top of this module you picked one recurring task and predicted its monthly cost. Now\ndo the arithmetic and score yourself.\n\n**Step 1 — Define the unit (5 min).** What is one \"run\" of this task? (One survey cycle\nsummarized, one JD drafted, one week's exit interviews processed.) Describe the input and\noutput of a single run concretely.\n\n**Step 2 — Count the tokens (5 min).** Estimate the input size (word count × 1.3, include\n*everything* the model must see — instructions, documents, examples) and the output size.\nMultiply by runs per month. Show the arithmetic; round numbers are fine, reasoning is the\npoint.\n\n**Step 3 — Price it two ways (5 min).** (a) As metered usage, using a current published\nper-token price for a mid-tier model — note which one and the date **[V]**. (b) As a slice of\na per-seat subscription: whose seat, and what share of that seat's monthly price does this\ntask plausibly represent? One sentence on which structure fits this task better and why.\n\n**Step 4 — Add the human (3 min).** Estimate the review time per run, in minutes, and note\nwho does it. This number is usually the real cost. If your task's review time rivals doing\nthe task by hand, say so — that's a finding, not a failure.\n\n**Step 5 — Score the prediction (2 min).** Predicted vs. computed: direction of miss, size\nof miss, one-sentence theory of why.\n\nThen the write-up: your table, the comparison, and one decision this estimate would actually\nchange — a tool you'd adopt or skip, a quote you'd push back on, a task you'd leave manual."
+  }
+]

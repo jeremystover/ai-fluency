@@ -18,6 +18,7 @@ import { extractPaths } from '../shared/chat';
 import { GOAL_CHOICES, goalLabel } from '../shared/goals';
 import { DEPTH_IDS, depthOf } from '../shared/depth';
 import { SELF_LEVEL_IDS } from '../shared/levels';
+import { ROLE_IDS, ALL_TRACK_IDS, trackForRole } from '../shared/roles';
 import { chunkPlan } from '../shared/audioChunks';
 import {
   writeScript,
@@ -75,6 +76,8 @@ import type {
   Badge,
   CalibrationRecord,
   Credential,
+  CohortResponse,
+  CohortStat,
   MasteryStage,
   ModuleMastery,
   RecordResponse,
@@ -739,6 +742,20 @@ const VALID_GOALS = new Set(GOAL_CHOICES.map((g) => g.id));
 const VALID_AI_TOOLS = new Set(['claude', 'chatgpt', 'gemini', 'other']);
 
 
+// A learner sees exactly one 301 specialist track — theirs. The others exist
+// as courses but are somebody else's curriculum, so they're filtered out of
+// both the path and the library rather than shown locked. Falls back to the
+// HRBP track for roles whose track isn't authored yet.
+function trackFilter(prefs: IntakePrefs, courseIds: Iterable<string>) {
+  const mine = trackForRole(prefs.roleId, courseIds);
+  const hidden = new Set(ALL_TRACK_IDS.filter((id) => id !== mine));
+  return {
+    mine,
+    keepCourse: (id: string) => !hidden.has(id),
+    keepModule: (courseId: string) => !hidden.has(courseId),
+  };
+}
+
 async function loadPrefs(db: DrizzleD1Database, sessionId: string): Promise<IntakePrefs> {
   const rows = await db
     .select()
@@ -757,6 +774,8 @@ async function loadPrefs(db: DrizzleD1Database, sessionId: string): Promise<Inta
     else if (row.key === 'aiTools') prefs.aiTools = value;
     else if (row.key === 'aiToolOther') prefs.aiToolOther = value;
     else if (row.key === 'selfLevel') prefs.selfLevel = value;
+    else if (row.key === 'roleId') prefs.roleId = value;
+    else if (row.key === 'roleOther') prefs.roleOther = value;
     else if (row.key === 'shareWork') prefs.shareWork = value === true;
   }
   return prefs;
@@ -793,6 +812,8 @@ app.post('/api/intake', async (c) => {
   if (Array.isArray(raw.aiTools)) clean.push(['aiTools', raw.aiTools.filter((t) => VALID_AI_TOOLS.has(t)).slice(0, 4)]);
   if (typeof raw.aiToolOther === 'string') clean.push(['aiToolOther', raw.aiToolOther.trim().slice(0, 120)]);
   if (typeof raw.selfLevel === 'string' && SELF_LEVEL_IDS.includes(raw.selfLevel)) clean.push(['selfLevel', raw.selfLevel]);
+  if (typeof raw.roleId === 'string' && ROLE_IDS.includes(raw.roleId)) clean.push(['roleId', raw.roleId]);
+  if (typeof raw.roleOther === 'string') clean.push(['roleOther', raw.roleOther.trim().slice(0, 120)]);
 
   for (const [key, value] of clean) {
     await db.delete(t.fdPreference).where(and(eq(t.fdPreference.sessionId, session.id), eq(t.fdPreference.key, key)));
@@ -1375,6 +1396,11 @@ app.get('/api/path', async (c) => {
   // inputs — their goals and their diagnostic — so the personalization is
   // legible, not a black box.
   const prefs = await loadPrefs(db, session.id);
+  // A learner sees one 301 track — theirs. Availability comes from what's
+  // actually seeded, so a declared-but-unauthored track falls back to the
+  // default rather than serving an empty course.
+  const track = trackFilter(prefs, rows.map((m) => m.courseId));
+  const trackRows = rows.filter((m) => track.keepModule(m.courseId));
   const selectedGoals = GOAL_CHOICES.filter((g) => (prefs.goals ?? []).includes(g.id));
   const diagReasons = new Map<string, string>();
   let diagnosticNote: string | null = null;
@@ -1402,7 +1428,7 @@ app.get('/api/path', async (c) => {
     return reasons;
   };
 
-  const modules: PathModule[] = rows.map((m) => {
+  const modules: PathModule[] = trackRows.map((m) => {
     const prereqs: string[] = m.prereqJson ? JSON.parse(m.prereqJson) : [];
     const unmet = prereqs.filter((p) => !satisfied(p));
     const access: PathModule['access'] = m.status === 'open' ? 'open' : 'full_course';
@@ -1495,10 +1521,12 @@ app.get('/api/path', async (c) => {
 
   // Courses beyond 101 are locked cards; they live in content, not the DB, until they exist.
   const { courses } = (await import('../../content/modules.json')) as unknown as { courses: CourseCard[] };
-  const coursesOut: CourseCard[] = courses.map((course) => ({
-    ...course,
-    recommendedFor: selectedGoals.filter((g) => g.courses.includes(course.id)).map((g) => `your goal: ${g.label}`),
-  }));
+  const coursesOut: CourseCard[] = courses
+    .filter((course) => track.keepCourse(course.id))
+    .map((course) => ({
+      ...course,
+      recommendedFor: selectedGoals.filter((g) => g.courses.includes(course.id)).map((g) => `your goal: ${g.label}`),
+    }));
   // The manager layer, present only when this session belongs to an account the
   // census knows. Passcode sessions are anonymous, so all three come back empty.
   const [managerSignals, commitment, isManager, mcpRows] = await Promise.all([
@@ -1572,7 +1600,9 @@ app.get('/api/library', async (c) => {
       if ((b.kind !== 'prose' && b.kind !== 'reveal') || !b.body.startsWith('## ')) continue;
       let title = b.body.split('\n')[0].replace(/^##\s*/, '').trim();
       if (LIBRARY_NON_LESSONS.has(title)) continue;
-      const lab = /\[V\]\s*$/.test(title) || /\bthe lab\b/i.test(title);
+      // "The lab" in the title is the signal; a bare [V] marks volatility
+      // (tool names, prices), which many non-lab lessons carry.
+      const lab = /\bthe lab\b/i.test(title);
       title = title.replace(/\s*\[V\]\s*$/, '').replace(/^Lesson \d+\s*·\s*/, '');
       out.push({ title, blockId: b.id, lab });
     }
@@ -1619,11 +1649,15 @@ app.get('/api/library', async (c) => {
   const prefs = await loadPrefs(db, session.id);
   const goalsPicked = GOAL_CHOICES.filter((g) => (prefs.goals ?? []).includes(g.id));
   const { courses } = (await import('../../content/modules.json')) as unknown as { courses: CourseCard[] };
-  const coursesOut: LibraryCourse[] = courses.map((course) => ({
-    ...course,
-    recommendedFor: goalsPicked.filter((g) => g.courses.includes(course.id)).map((g) => `your goal: ${g.label}`),
-    modules: rows.filter((m) => m.courseId === course.id).map(toLibraryModule),
-  }));
+  // Same availability rule as the path: seeded module rows, not declared courses.
+  const track = trackFilter(prefs, rows.map((m) => m.courseId));
+  const coursesOut: LibraryCourse[] = courses
+    .filter((course) => track.keepCourse(course.id))
+    .map((course) => ({
+      ...course,
+      recommendedFor: goalsPicked.filter((g) => g.courses.includes(course.id)).map((g) => `your goal: ${g.label}`),
+      modules: rows.filter((m) => m.courseId === course.id).map(toLibraryModule),
+    }));
 
   const allModules = coursesOut.flatMap((course) => course.modules);
   const recs = await recommendationsFor(db, { loadPrefs, computeDiagnosticResult }, session.id);
@@ -1855,6 +1889,81 @@ app.post('/api/module/:id/calibration', async (c) => {
   return c.json({ ok: true, saved });
 });
 
+// A module's cohort comparison: how everyone else answered the same opening
+// prediction. Two rules are enforced here rather than in the UI, because both
+// are about the integrity of the measurement rather than the look of it.
+//
+// 1. A field is returned only once THIS session has committed its own number.
+//    Showing the crowd first would anchor the learner and destroy the very
+//    prediction the comparison exists to measure.
+// 2. Nothing is returned below COHORT_MIN_N other respondents. That is the
+//    minimum-cell-size rule this curriculum teaches, applied to itself — with
+//    an n of one or two, "the cohort median" is one person's answer.
+const COHORT_MIN_N = 5;
+
+const quantile = (sorted: number[], q: number) => {
+  if (!sorted.length) return 0;
+  const pos = (sorted.length - 1) * q;
+  const lo = Math.floor(pos);
+  const hi = Math.ceil(pos);
+  return lo === hi ? sorted[lo] : sorted[lo] + (sorted[hi] - sorted[lo]) * (pos - lo);
+};
+
+app.get('/api/module/:id/cohort', async (c) => {
+  const db = c.get('db');
+  const session = requireSession(c);
+  if (!session) return c.json({ error: 'No session.' }, 401);
+  const moduleId = c.req.param('id');
+  const rubric = await getExercise<RubricPayload>(db, moduleId, 'rubric');
+  const fields = rubric?.opening ?? [];
+  const empty: CohortResponse = { minN: COHORT_MIN_N, stats: [] };
+  if (!fields.length) return c.json(empty);
+
+  const contexts = fields.map((f) => `${moduleId}:cal:${f.key}`);
+  const rows = await db
+    .select({
+      sessionId: t.fdCalibration.sessionId,
+      context: t.fdCalibration.context,
+      predictedPct: t.fdCalibration.predictedPct,
+      delta: t.fdCalibration.delta,
+    })
+    .from(t.fdCalibration)
+    .where(inArray(t.fdCalibration.context, contexts));
+
+  const stats: CohortStat[] = [];
+  for (const field of fields) {
+    const context = `${moduleId}:cal:${field.key}`;
+    const forField = rows.filter((r) => r.context === context);
+    // Rule 1: no own answer, no comparison.
+    if (!forField.some((r) => r.sessionId === session.id)) continue;
+    const others = forField.filter((r) => r.sessionId !== session.id);
+    // Rule 2: minimum cell size.
+    if (others.length < COHORT_MIN_N) continue;
+
+    const predicted = others.map((r) => r.predictedPct).sort((a, b) => a - b);
+    const closedRows = others.filter((r) => r.delta !== null && r.delta !== undefined);
+    const stat: CohortStat = {
+      key: field.key,
+      n: others.length,
+      median: Math.round(quantile(predicted, 0.5)),
+      p25: Math.round(quantile(predicted, 0.25)),
+      p75: Math.round(quantile(predicted, 0.75)),
+    };
+    if (closedRows.length >= COHORT_MIN_N) {
+      const absDeltas = closedRows.map((r) => Math.abs(r.delta as number)).sort((a, b) => a - b);
+      // delta = actual - predicted, so a negative delta means they predicted high.
+      const over = closedRows.filter((r) => (r.delta as number) < 0).length;
+      stat.closed = {
+        n: closedRows.length,
+        medianAbsDelta: Math.round(quantile(absDeltas, 0.5)),
+        overPct: Math.round((over / closedRows.length) * 100),
+      };
+    }
+    stats.push(stat);
+  }
+  return c.json({ minN: COHORT_MIN_N, stats } satisfies CohortResponse);
+});
+
 // ---------- voice ----------
 
 const voiceStatus = (env: Env) => ({
@@ -1930,8 +2039,23 @@ app.get('/api/module/:id/chat/audio/:messageId', async (c) => {
 
 // ---------- tutor chat ----------
 
+// The learner's provisioned AI tools, as display names for a prompt. The brand
+// profile (company-declared) wins; intake prefs fill in when the brand doesn't
+// say; [] when neither knows — callers phrase generically in that case.
+const AI_TOOL_LABELS: Record<string, string> = { claude: 'Claude', chatgpt: 'ChatGPT', gemini: 'Gemini' };
+async function resolveAiTools(db: DrizzleD1Database, brandSlug: string, prefs: IntakePrefs): Promise<string[]> {
+  const brandRows = await db.select().from(t.fdBrand).where(eq(t.fdBrand.slug, brandSlug)).limit(1);
+  const profile = brandRows[0]?.profileJson ? (JSON.parse(brandRows[0].profileJson) as { aiTools?: unknown }) : null;
+  if (Array.isArray(profile?.aiTools) && profile.aiTools.length) {
+    return profile.aiTools.filter((x): x is string => typeof x === 'string').slice(0, 6);
+  }
+  const names = (prefs.aiTools ?? []).filter((id) => id !== 'other').map((id) => AI_TOOL_LABELS[id] ?? id);
+  if ((prefs.aiTools ?? []).includes('other') && prefs.aiToolOther?.trim()) names.push(prefs.aiToolOther.trim().slice(0, 40));
+  return names;
+}
+
 // Everything the tutor should know about this learner, phrased for the prompt.
-async function buildLearnerContext(db: DrizzleD1Database, sessionId: string): Promise<TutorLearnerContext> {
+async function buildLearnerContext(db: DrizzleD1Database, brandSlug: string, sessionId: string): Promise<TutorLearnerContext> {
   const participants = await db
     .select()
     .from(t.fdParticipant)
@@ -1978,6 +2102,7 @@ async function buildLearnerContext(db: DrizzleD1Database, sessionId: string): Pr
     name: participants[0]?.displayName ?? null,
     roleLabel: participants[0]?.roleLabel ?? null,
     objective: prefs.objective ?? null,
+    aiTools: await resolveAiTools(db, brandSlug, prefs),
     depth: depthOf(prefs.depth),
     calibration,
     sortSummary,
@@ -2095,7 +2220,7 @@ app.post('/api/module/:id/chat', async (c) => {
     .from(t.fdModule)
     .where(eq(t.fdModule.courseId, loaded.mod.courseId))
     .orderBy(asc(t.fdModule.ordinal));
-  const learner = await buildLearnerContext(db, session.id);
+  const learner = await buildLearnerContext(db, c.env.BRAND_SLUG, session.id);
   const guidance = await guidanceFor(db, c.env, moduleId, loaded.mod.courseId, await managerEmailOf(db, c.env.BRAND_SLUG, session));
   const system = buildTutorSystem(loaded.mod as ModuleCard, loaded.blocks, courseModules as ModuleCard[], learner, guidance?.text ?? null);
 
@@ -3001,7 +3126,7 @@ app.get('/api/podcast', async (c) => {
 
 // Everything writeScript needs to know about this learner — name, role,
 // goals, depth, diagnostic — so every episode is unmistakably theirs.
-async function podcastLearner(db: DrizzleD1Database, sessionId: string): Promise<LearnerContext> {
+async function podcastLearner(db: DrizzleD1Database, brandSlug: string, sessionId: string): Promise<LearnerContext> {
   const participants = await db
     .select()
     .from(t.fdParticipant)
@@ -3017,6 +3142,7 @@ async function podcastLearner(db: DrizzleD1Database, sessionId: string): Promise
     calibrationHeadline: diag.calibration.points.length > 0 ? diag.calibration.headline : null,
     goals: GOAL_CHOICES.filter((g) => (prefs.goals ?? []).includes(g.id)).map((g) => g.label),
     depth: depthOf(prefs.depth),
+    aiTools: await resolveAiTools(db, brandSlug, prefs),
   };
 }
 
@@ -3308,7 +3434,7 @@ async function preparePersonalIntro(env: Env, sessionId: string, moduleId: strin
     }
     const content = await moduleContent(db, env, moduleId, await managerEmailForSessionId(db, env.BRAND_SLUG, sessionId));
     if (!content) return;
-    const learner = await podcastLearner(db, sessionId);
+    const learner = await podcastLearner(db, env.BRAND_SLUG, sessionId);
     const model = env.PODCAST_MODEL ?? env.GRADING_MODEL;
     const lines = await writePersonalIntro(
       env.ANTHROPIC_API_KEY,
@@ -3427,7 +3553,7 @@ async function completeAssembledBody(env: Env, row: PodcastRow): Promise<void> {
     let fallback = false;
 
     if (env.ANTHROPIC_API_KEY && content && beats.length > 0) {
-      const learner = await podcastLearner(db, row.sessionId);
+      const learner = await podcastLearner(db, env.BRAND_SLUG, row.sessionId);
       const model = env.PODCAST_MODEL ?? env.GRADING_MODEL;
       const draft = await writeCustomBody(
         env.ANTHROPIC_API_KEY,
@@ -3559,7 +3685,7 @@ async function generateEpisode(
     }));
   }
 
-  const learner = await podcastLearner(db, sessionId);
+  const learner = await podcastLearner(db, env.BRAND_SLUG, sessionId);
   const model = env.PODCAST_MODEL ?? env.GRADING_MODEL;
   const script = await writeScript(env.ANTHROPIC_API_KEY, model, mod.title, contentMd, learner, focus, length, kind, heard);
   if (!script) return null;

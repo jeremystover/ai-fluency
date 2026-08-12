@@ -1,0 +1,31 @@
+{
+  "reviewedAt": "2026-08-11",
+  "title": "The demo that blurred",
+  "intro": "*Five minutes. Commit before you look.*\n\nYou're forty minutes into a vendor demo of **TalentFlow**, an \"AI-powered talent intelligence platform\" your TA lead is excited about. Below are four claims the account executive made, verbatim. Three are ordinary vendor talk — optimistic, but consistent with the shape of thing being sold. **One cannot be true as stated**, because it quietly promises the properties of one shape while selling another.\n\nUse the four questions from Lesson 3. Which claim can't be true?",
+  "artifacts": [
+    {
+      "label": "Claim 1 · the drafting panel",
+      "body": "\"Our JD Composer drafts job descriptions in your company voice — your recruiters edit and approve every word before anything posts.\""
+    },
+    {
+      "label": "Claim 2 · the ranking dashboard",
+      "body": "\"Our Fit Score ranks every applicant against the role profile automatically, so your team spends their time on the top of the list, not the pile.\""
+    },
+    {
+      "label": "Claim 3 · the assurance",
+      "body": "\"And because a human recruiter always makes the final hiring decision, the Fit Score is purely assistive — there's no automated decision-making anywhere in the product.\""
+    },
+    {
+      "label": "Claim 4 · the integration",
+      "body": "\"It all lives inside the ATS you already use — your team never has to leave their workflow or learn a new tool.\""
+    }
+  ],
+  "options": [
+    { "id": "c1", "label": "Claim 1 — the drafting panel" },
+    { "id": "c2", "label": "Claim 2 — the ranking dashboard" },
+    { "id": "c3", "label": "Claim 3 — the assurance" },
+    { "id": "c4", "label": "Claim 4 — the integration" }
+  ],
+  "key": "c3",
+  "reasoning": "**Claim 3 can't be true as stated.** Claim 2 already told you the shape: applicants are ranked automatically, and the team works \"the top of the list, not the pile.\" That means the sorting has happened before any human looks — the people at the bottom are filtered by the score, reviewed by no one. A system can be a decision engine *and* have a human sign the final offer; what it can't be is \"purely assistive\" while deciding who never gets seen. This is the exact blur from Lesson 3: answering the accountability question with the drafting shape's answer while selling the scoring shape.\n\nThe other three claims are consistent with their shapes. Claim 1 describes a copilot doing what copilots do — draft for a human who edits and ships (your M1 skepticism still applies to the drafts). Claim 4 is packaging, not capability — true of many products, good and bad. Claim 2 is honest, even blunt, about being a decision engine — which is precisely why Claim 3 contradicts it.\n\nThe practitioner's move when you hear this blur in a live demo: slow the meeting down and ask question 3 — *where would an error land?* For the Fit Score, it lands on a candidate nobody reviewed. What happens next is M7's territory."
+}

@@ -1,0 +1,21 @@
+{
+  "promptVersion": "ai301-hrbp-m6-inventory-and-standard-v1",
+  "moduleId": "ai301-hrbp-m6",
+  "minWords": 250,
+  "maxWords": 350,
+  "submitLabel": "Your inventory, standard, and write-up",
+  "intro": "Paste the system inventory, your three vendor questions, the one-page documentation standard, and the 250–350 word write-up. Resubmission is free and unlimited — the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, HRBP track. Module 6 applied activity, 'Inventory and standard': every AI system touching their population that screens, scores, ranks, filters or characterizes a person — including features switched on inside existing tools (ATS ranking, survey-platform insights, HRIS features) — with what each decides, the deployer named, and bias-audit status where known. 'Don't know' is an explicitly valid and informative entry and a completed inventory full of honest unknowns is the intended outcome; penalize confident guesses, not admitted gaps. Then three written vendor questions for their highest-risk system, phrased so a vendor could answer and the answer would change something. Then a one-page ER documentation standard: what AI may do, what it may never do (credibility determinations, conclusions about what happened, characterizations of motive or truthfulness), what gets recorded about production, and who signs off — written so a colleague could follow it without them. This module is not legal advice and the learner should not be graded as though they were producing legal analysis; grade the quality of the questions and the clarity of the standard. Grade the delta, never prediction accuracy.",
+  "opening": [
+    { "key": "unawarePct", "label": "Predicted — % of HR pros in regulated states unaware of their state's law", "hint": "Whole percent.", "placeholder": "e.g. 30", "min": 0, "max": 100 }
+  ],
+  "calibration": [
+    { "key": "unawarePctActual", "label": "Actual — the figure the module reports", "hint": "And were you in it?", "placeholder": "e.g. 57", "min": 0, "max": 100, "actualFor": "unawarePct" }
+  ],
+  "dimensions": [
+    { "name": "The inventory found the quiet ones", "criteria": "Real systems from their actual stack, including embedded features nobody classified as decision systems — the ATS ranking, the survey platform's insights, HRIS scoring. Honest 'don't know' entries score above confident guesses. An inventory that surfaces something the learner hadn't thought of that way is the success condition." },
+    { "name": "The vendor questions would produce answers", "criteria": "Specific enough for a vendor to answer and consequential enough that the answer changes something. 'Is your AI fair?' scores low. 'Has this been bias-audited, by whom, and may we see it?' and 'which of our jurisdictions have you assessed it against?' score high. Silence as an anticipated answer is a sophisticated observation." },
+    { "name": "The standard is followable", "criteria": "Names what AI may do in ER documentation, what it may never do, what gets recorded about how a document was produced, and who signs off — concrete enough that a colleague could apply it without the author present. Aspirational language ('use AI responsibly') fails this dimension." },
+    { "name": "The position and the delta", "criteria": "A committed position on the claim that engages its real counter-argument — that inventory and vendor diligence belong to HR technology, procurement and legal, and an HRBP absorbing it does it part-time without the mandate to act. Plus the prediction compared and the honest note on whether they were in the unaware majority." }
+  ]
+}

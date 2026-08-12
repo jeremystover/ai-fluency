@@ -1,0 +1,110 @@
+[
+  {
+    "id": "ai301-comp-m6-calibration-prompt-before-you-start-10",
+    "moduleId": "ai301-comp-m6",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Calibration prompt — before you start\n\n*The last prediction of the course, and the one that matters most.*\n\nBack in Module 1 you split your week across five work types and predicted the shares before you\nmeasured them. **Look at that prediction again now, before reading anything in this module.**\n\n**If you re-ran the exercise today — same job, same week structure — which work type would you now\nsay holds the largest realistic opportunity for your function this year?** Name one.\n\nThen: **how confident are you, as a percent, that you could get your leadership to fund it?**\n\nHold both. The activity closes on the distance between where you started this track and where you\nare standing now."
+  },
+  {
+    "id": "ai301-comp-m6-module-brief-20",
+    "moduleId": "ai301-comp-m6",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nFive modules of method. This one asks what you're going to do with it, and it holds you to a\nstandard most AI business cases never meet.\n\n**A bet is not a wish, and the difference is a funding line.** Anyone can name a use case. What\nseparates a proposal that gets resourced from one that gets nodded at is the sentence that says\n**what you would stop doing to pay for it** — and that sentence is missing from nearly every AI\nproposal written inside an HR function, because writing it requires admitting that something you\ncurrently do is worth less than the thing you want.\n\nThere is also a specific trap waiting for a comp function here, and it is the one your CFO will\nhand you. The standard AI value case is efficiency — hours saved, headcount avoided. **For your\nfunction that case is not just weak, it's a distraction**, and Lesson 2 explains why in a way you\ncan use in the room.\n\nThe claim you'll take a position on:\n\n> **A bet without a funding line is a wish.**"
+  },
+  {
+    "id": "ai301-comp-m6-learning-objectives-30",
+    "moduleId": "ai301-comp-m6",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. Place any proposed use on the leverage ladder — compress, continuous, explain, design — and say\n   what each rung actually requires.\n2. Say which rungs a comp function can realistically reach this year, and why the ladder is not a\n   maturity model.\n3. Decompose the value case by role, and explain why efficiency is the weakest argument available\n   to a small function `[V]`.\n4. Explain why *explain* is the rung this function systematically undervalues.\n5. Write a bet with a 90-day measure and a funding line.\n6. Account for the distance between your Module 1 prediction and your position now."
+  },
+  {
+    "id": "ai301-comp-m6-lesson-1-the-leverage-ladder-40",
+    "moduleId": "ai301-comp-m6",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 · The leverage ladder\n\nFour rungs. Each requires something the one below it doesn't, and **the requirement is\norganizational far more often than technical.**\n\n**Rung 1 — Compress.** Do what you already do, faster. Assemble the survey submission in a day\ninstead of a week. Draft the enrollment FAQ in an hour instead of an afternoon. Produce the cycle\ndeck without the weekend.\n\n*What it requires:* Module 3's craft, and nothing else. No new process, no approvals, no change to\nhow anyone else works.\n\n*What it's worth:* real and bounded. You get time back, and the honest question is what you do with\nit. **Compression that returns hours into the same work backlog produces no visible value at all** —\nit produces a slightly less exhausted team, which matters and which no CFO will fund.\n\n**Rung 2 — Continuous.** Do a periodic thing on a rolling basis. Market position monitored monthly\nrather than reviewed annually. Pay equity checked quarterly rather than once a year in a panic.\nRange health tracked rather than discovered.\n\n*What it requires:* not more capability — **a decision that someone will act on the output.** A\nquarterly pay equity check with no remediation mechanism is a quarterly report on a problem you\nhave decided not to fix, and it is worse than an annual one, because now the record shows you knew\nfor longer. **This rung is where good intentions become documented inaction**, and Module 4 should\nbe loud in your ear.\n\n*What it's worth:* substantial, if and only if the loop closes.\n\n**Rung 3 — Explain.** Change the volume and quality of understanding your organization has about\nits own pay. Managers who can articulate why a band is what it is. Employees who understand their\ntotal rewards. Leaders who can defend a structure they didn't design.\n\n*What it requires:* your decisions and your logic, made explicit enough that a model can render\nthem for different audiences — which means you have to have them. **The bottleneck is not the\ndrafting. It's that the logic often isn't written down anywhere.**\n\n*What it's worth:* this is Module 1's finding arriving with a ladder to stand on. More on it in\nLesson 3.\n\n**Rung 4 — Design.** Change what your programs *are*, because analysis that was previously too\nexpensive is now feasible. Modeling plan designs against your actual population instead of three\nscenarios. Testing structures rather than inheriting them. Understanding what your benefits\nspending actually buys.\n\n*What it requires:* the most, and mostly not from you. Data your organization may not have. Time\nyour function doesn't have during cycle. And a leadership appetite for redesigning something that\ncurrently works.\n\n*What it's worth:* the most, eventually, and almost nobody starts here. **A function that proposes\nRung 4 without having demonstrated Rung 1 is asking for trust it hasn't earned yet** — not because\nthe idea is wrong, but because nobody in the room has seen your work with these tools.\n\n**The ladder is not a maturity model.** You are not supposed to climb it in order and you don't get\npoints for altitude. It sorts proposals by what they require, so that you can pick the rung whose\nrequirement you can actually satisfy this year. **The right rung is the highest one whose\nprerequisite you already have** — and for most comp functions that is Rung 3, which is also the\none they systematically overlook."
+  },
+  {
+    "id": "ai301-comp-m6-lesson-2-the-role-decomposition-50",
+    "moduleId": "ai301-comp-m6",
+    "ordinal": 50,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 · The role decomposition [V]\n\nWho gains what, and the argument you should stop making.\n\n**Analysts gain productivity.** The data assembly, the reconciliation, the first-pass analysis, the\ndeck. This is Rung 1 and it's the most certain gain in the function — it's also the one your CFO\nwill translate into headcount, which is where the trouble starts.\n\n**Partners gain coverage.** A comp partner supporting eight business units at a level they can\ncurrently sustain for three. This is the gain that matters most to the business and it is the\nhardest to evidence, because coverage improvements show up as **an absence of complaints** rather\nthan a metric.\n\n**Operations gain efficiency.** Cycle administration, exception tracking, approval trails, the\nenrollment machinery.\n\n**And here is the argument to stop making: efficiency matters least, because your function is not\nbig enough for headcount savings to matter.**\n\nDo the arithmetic in the room. A comp and benefits function at a mid-sized company is perhaps four\nto eight people. Suppose you achieve a genuinely impressive 25% productivity gain across all of\nthem. You have produced one to two FTEs of capacity in an organization of several thousand people.\n**As a cost story, that rounds to nothing.** Your CFO will not restructure anything for it and\nshouldn't.\n\nNow run the other side. Those same one to two FTEs of capacity, pointed at a pay structure that is\ndrifting, or a benefits spend nobody has interrogated in four years, or a manager population that\ncannot explain its own compensation decisions — **those are seven-figure problems in the same\norganization.** The value of a comp function has never been its cost. It's the quality of decisions\nit enables about a spend that is typically the largest line in the business.\n\nSo the honest value case for a small function is: **not cheaper, better.** And you have to say it\nthat way deliberately, because efficiency is the frame everyone will hand you — it's the frame the\nwhole market sells in, and it is the one frame in which your function can never win. Accepting it\nmeans arguing for your own smallness, which is a strange thing to spend your credibility on.\n\n**One caution, so this isn't self-serving.** \"Not cheaper, better\" is exactly what every function\nsays when asked to justify itself, and a CFO has heard it many times. It only lands with a measure\nattached. Which is Lesson 4."
+  },
+  {
+    "id": "ai301-comp-m6-lesson-3-why-explain-is-the-undervalued--60",
+    "moduleId": "ai301-comp-m6",
+    "ordinal": 60,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 · Why *explain* is the undervalued rung\n\nThe callback, now with somewhere to put it.\n\nModule 1's finding was that **explanation is the largest work type in this function and the most\ntransformed — and the one practitioners consistently underpredict**, because it hides inside\n\"answering a question.\" The manager email. The band question in a hallway. The enrollment FAQ. The\nequity conversation nobody logged as work.\n\nPlace that on the ladder and something becomes obvious. **Rung 3 is where your hours actually are,\nand it is the rung with the lowest technical prerequisite** — no new data, no new systems, no\nchange to anyone else's process. It is also the rung nearly every comp function skips when asked\nwhat AI could do for them, because they answer with analysis. Analysis is what the training was\nfor. Analysis is what the job *feels* like it's about.\n\nThree reasons the undervaluation is systematic rather than accidental:\n\n**It's invisible in the work log.** Nothing counts explanation. There is no metric for \"manager\nunderstood the answer,\" so a function optimizing what it measures will never optimize this.\n\n**It feels like overhead rather than the job.** Every practitioner has thought some version of *I\ncould get real work done if people stopped asking me questions.* But 90% of your function's\ninfluence on how pay is experienced runs through those questions, and **a technically excellent\nstructure that nobody can explain produces exactly the same employee experience as a bad one.**\n\n**Its failure mode is silent.** A bad analysis gets caught. A manager who half-understood the band\nlogic goes and explains it badly to their team, and you never hear about it — the cost lands as\ndiffuse mistrust that gets attributed to the pay program rather than to the explanation of it.\n\nAnd there is a Module 5 argument that closes this one. Your counterparty is now prepared. Every\nemployee can ask a model to interrogate the explanation you gave them, **and the quality of your\nexplanation is now checkable in ninety seconds.** Rung 3 stopped being a soft benefit at the same\nmoment verification got free.\n\n**The caveat that keeps this honest**, and it's the counter-argument to Module 1's claim: high\nexplanation volume can be a symptom of upstream design failure. If managers ask the same question\nfour hundred times, the answer might be a clearer structure rather than a faster explanation\nengine. **Getting better at explaining a confusing system can entrench the confusion** by removing\nthe pain that would have forced a redesign. Any bet on Rung 3 should say which questions it expects\nto *eliminate*, not just answer faster."
+  },
+  {
+    "id": "ai301-comp-m6-lesson-4-betting-honestly-70",
+    "moduleId": "ai301-comp-m6",
+    "ordinal": 70,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 · Betting honestly\n\nFour elements. Anything missing one is a wish.\n\n**1. One rung, one use case, named specifically.** Not \"use AI in compensation.\" *\"Manager-facing\nband explanations, generated from our documented range logic, available before every comp\nconversation.\"* Specific enough that someone could tell whether you'd done it.\n\n**2. A 90-day measure that could come back negative.** This is the element people fake. \"Improved\nmanager understanding\" is not a measure. **A measure is something with a number attached, taken\nbefore and after, that you would report even if it moved the wrong way.** Manager survey on\nconfidence explaining pay decisions, taken now and at 90 days. Volume of escalated band questions\nreaching your team. Time from manager question to answer. Pick one you can take a baseline on\n**this week** — a measure you can't baseline before you start is a measure you'll define\nretrospectively to look good, which is Module 2's rationalization arriving in your own proposal.\n\n**3. The funding line.** What you will stop doing, or do less well, to pay for this.\n\nThis is the whole module. Every proposal has a cost in attention, and your function does not have\nslack — Module 3 was explicit that the merit cycle is when your care is scarcest. **A proposal\nwithout a funding line is a request for someone else to find the capacity**, which is why so many\nof them die quietly rather than being rejected.\n\nReal funding lines sound like giving something up, because they are: *\"We'll stop producing the\nmonthly headcount-cost deck nobody reads.\"* *\"We'll run market pricing on a two-year cycle for the\n70% of roles where the market doesn't move.\"* *\"I'll accept a slower turnaround on ad-hoc analysis\nrequests in Q3.\"*\n\n**Say the uncomfortable part.** The most common real funding line in a comp function is *some\nanalysis will be done less thoroughly.* If that's yours, say it out loud and say which analysis and\nwhat you'd accept losing. A proposal that admits a real trade is more credible than one that claims\nnone, and everyone in the room knows there is one.\n\n**4. What would make you stop.** The condition under which you'd call it off. Not a hedge — the\nopposite. **Naming your kill condition is the strongest credibility move available to you**,\nbecause it demonstrates you're running an experiment rather than defending a position, and it makes\nthe 90-day review a real decision point rather than a status update.\n\n**And the discipline this whole track was building toward:** you now have four modules of method\nsitting under whatever you propose. The bet is not \"let's try AI.\" It's a specific use, on a named\nrung, with the craft layer under it, inside the exclusion zone's lines, communicated to a\ncounterparty who can check you. **That is what a specialist proposes. It's the difference between\nthis course and a webinar.**"
+  },
+  {
+    "id": "ai301-comp-m6-exercise-embed-75",
+    "moduleId": "ai301-comp-m6",
+    "ordinal": 75,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"choice\"}"
+  },
+  {
+    "id": "ai301-comp-m6-key-takeaways-80",
+    "moduleId": "ai301-comp-m6",
+    "ordinal": 80,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **Four rungs: compress, continuous, explain, design.** Each requires something the one below\n  doesn't, and the requirement is organizational more often than technical.\n- **Continuous is where good intentions become documented inaction.** A quarterly pay equity check\n  with no remediation mechanism is a quarterly record that you knew.\n- **The ladder is not a maturity model.** The right rung is **the highest one whose prerequisite you\n  already have** — usually Rung 3.\n- **Analysts gain productivity, partners gain coverage, operations gain efficiency** `[V]` — and\n  coverage matters most while being hardest to evidence, because it shows up as an absence of\n  complaints.\n- **Efficiency is the weakest argument you have.** A 25% gain across a six-person function is one\n  to two FTEs; as a cost story it rounds to nothing. Pointed at a drifting structure or an\n  uninterrogated benefits spend, it's a seven-figure question. **Not cheaper, better** — and it only\n  lands with a measure attached.\n- **Explain is where your hours are and where the prerequisite is lowest**, and it's systematically\n  undervalued because nothing counts it, it feels like overhead, and its failure mode is silent.\n  **A structure nobody can explain produces the same experience as a bad one.**\n- **But high explanation volume can be a symptom of bad design.** A Rung 3 bet should say which\n  questions it expects to eliminate, not just answer faster.\n- **Four elements of a bet:** one rung and one named use, a 90-day measure you can baseline this\n  week and would report if it went negative, a funding line, and a kill condition.\n- **A bet without a funding line is a wish.**"
+  },
+  {
+    "id": "ai301-comp-m6-activity-link-85",
+    "moduleId": "ai301-comp-m6",
+    "ordinal": 85,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"activity_link\", \"title\": \"Applied activity \\u2014 The bet (course close)\", \"blurb\": \"One page: which rung, which named use, the prerequisite faced honestly, a 90-day measure you can baseline this week, what you'd stop doing to fund it, and what would make you call it off. Then the reckoning \\u2014 every prediction you've made since Module 1, what moved, and where you now disagree with this course.\", \"estMinutes\": \"35\"}"
+  },
+  {
+    "id": "ai301-comp-m6-take-a-position-90",
+    "moduleId": "ai301-comp-m6",
+    "ordinal": 90,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"A bet without a funding line is a wish.\"*\n\nThe strongest counter-argument is that **demanding a funding line up front is how good ideas die in\nsmall functions.** Capacity is not always zero-sum: early AI work often runs on genuine slack —\nevenings, the gap after cycle close, curiosity — and requiring someone to name a sacrifice before\nthey've demonstrated value inverts the order. You learn what a use case is worth by doing a small\nversion of it, and **the funding conversation is properly a consequence of evidence, not a\nprecondition for gathering it.** On that view the rule is right for a scaled commitment and\nactively harmful for a pilot, and a function that applies it uniformly will never start anything.\nYour position has to say where the threshold sits — at what size or visibility a proposal stops\nbeing an experiment you can run on slack and starts needing a real trade."
+  },
+  {
+    "id": "ai301-comp-m6-sources-and-attribution-100",
+    "moduleId": "ai301-comp-m6",
+    "ordinal": 100,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- The leverage ladder, the role decomposition, the four elements of a bet, and the\n  not-cheaper-better framing are original to this course.\n- **Role decomposition `[V]`** reflects observed patterns in comp function staffing rather than a\n  published study; the arithmetic in Lesson 2 is illustrative and should be re-run with your own\n  function's headcount before you use it in a room.\n- Builds on Module 1 (the five work types and the explanation finding), Module 3 (the craft layer\n  as the prerequisite under any bet), Module 4 (the floor every bet sits inside), and Module 5\n  (verification is free now, which is what changed Rung 3's value).\n- The delta assessment — open with a committed prediction, close by measuring movement and the\n  account of it — is the assessment philosophy shared across all AI 301 tracks."
+  }
+]

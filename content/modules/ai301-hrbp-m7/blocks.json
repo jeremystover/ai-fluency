@@ -1,0 +1,119 @@
+[
+  {
+    "id": "ai301-hrbp-m7-calibration-prompt-before-you-start-10",
+    "moduleId": "ai301-hrbp-m7",
+    "ordinal": 10,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Calibration prompt — before you start\n\n*The last prediction of the course.*\n\n**What percentage of HR leaders do you think believe their managers have the skills to use AI\neffectively?** Whole percent.\n\nThen, in the activity, you'll gather every prediction you made across these seven modules and\nlook at the pattern — because this track scores the delta, not the score, and the pattern is the\nthing worth knowing about yourself."
+  },
+  {
+    "id": "ai301-hrbp-m7-module-brief-20",
+    "moduleId": "ai301-hrbp-m7",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module brief\n\nEverything so far in this track has made *you* better. This module is about the multiplier —\nbecause an HRBP supports somewhere between twenty and two hundred managers, and each of them is\nalready using AI, mostly badly, mostly on work that lands on your desk afterwards.\n\nThat gives you two jobs, and most people only think about the first.\n\n**The reactive job** is happening now: the performance review that says nothing because a model\nwrote it from three bullet points, the manager who pasted a complaint into a consumer chatbot,\nthe PIP citing a policy that doesn't exist. You are the person who catches these, and how you\nhandle the catch determines whether you see the next one or whether it just goes underground.\n\n**The proactive job** is the leverage: building the small number of assets that make manager AI\nuse better by default. That's the play with real scale — but it is also where a lot of confident\nnonsense lives, because the evidence on AI-delivered manager development is much less flattering\nthan the market suggests, and one finding in it converts a procurement question into a judgment\ncall that is unambiguously yours.\n\nThat finding is the last idea in this course, and it is the one worth carrying out."
+  },
+  {
+    "id": "ai301-hrbp-m7-learning-objectives-30",
+    "moduleId": "ai301-hrbp-m7",
+    "ordinal": 30,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Learning objectives\n\nBy the end of this module you should be able to:\n\n1. State the actual demand picture for manager AI capability, from data.\n2. Handle a manager's AI misuse in a way that improves practice rather than driving it\n   underground.\n3. Describe what the evidence says about AI-delivered coaching, and what it doesn't say.\n4. Explain why allocating human support is an equity decision with your name on it.\n5. Read your own calibration record across the course and say what moved."
+  },
+  {
+    "id": "ai301-hrbp-m7-lesson-1-the-demand-is-not-in-question-40",
+    "moduleId": "ai301-hrbp-m7",
+    "ordinal": 40,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 1 · The demand is not in question [V]\n\nTwo numbers settle whether this is worth your time.\n\n**Only about 8% of HR leaders believe their managers have the skills to use AI effectively.**\n\n**And only about 14% of organizations provide managers any support integrating it into their\ndaily work.**\n\nThose figures come from surveys of just over a hundred HR leaders, which is a small sample and\nworth saying — Module 3 taught you to ask. But the gap they describe is so wide that it would\nsurvive being substantially wrong in either direction, and it matches what you already see: your\nmanagers are using these tools daily with no guidance whatsoever, and the output is arriving at\nyour desk.\n\nThe strategic read is that this is one of the few genuinely unoccupied spaces in the\norganization. Nobody owns manager AI capability. IT owns tools, L&D owns curriculum, and neither\nowns *how a manager should use AI in a performance conversation* — which is a People question\nthat happens to be an AI question, which is precisely your intersection."
+  },
+  {
+    "id": "ai301-hrbp-m7-lesson-2-catching-it-in-the-wild-50",
+    "moduleId": "ai301-hrbp-m7",
+    "ordinal": 50,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 2 · Catching it in the wild\n\nBefore you build anything, you have to handle what's already happening. Three cases you will\nrecognize, and the moves that work.\n\n**The review that says nothing.** A manager submits a performance review of fluent, generic\nprose: \"consistently demonstrates strong collaboration and delivers high-quality work.\" Nothing\nin it could only be true of this person. That is 101 M6's confident gap — the model filled space\nwhere the manager's observations should have been, because the manager gave it three bullet\npoints and asked for a review.\n\n*The move:* don't attack the AI use. Ask for the specifics — *\"give me two examples of the\ncollaboration you're describing and one thing they should do differently next quarter.\"* If the\nmanager has them, the tool was used badly and the fix is a better brief. If they don't, **the\nproblem was never the AI** — they hadn't been paying attention, and the model let them hide it.\nThat distinction is the whole diagnosis, and only asking for specifics reveals it.\n\n**The pasted complaint.** A manager tells you they ran an employee's grievance through a consumer\nchatbot to \"get a second opinion.\" A 101 M4 tier violation, under an agreement that may permit\ntraining on inputs, with a named individual in it.\n\n*The move:* handle it as an incident, not a betrayal — and this is where 101 M8's blame-safe\nprinciple earns its place. **An organization that punishes the manager who tells you trains\neveryone else to stop telling you.** Establish what was shared, tell them plainly why it matters\nand what to do instead, and make sure the next manager finds it easier to ask you first than to\nguess. The manager who reported it is not your problem; the four who didn't are.\n\n**The fabricated citation.** A PIP or a policy explanation citing something that doesn't exist.\nHighest stakes of the three because it goes to an employee with consequences attached.\n\n*The move:* correct it immediately, then make the rule general and checkable — *every policy or\nlegal reference in a document going to an employee gets traced to the source before it ships.*\nThat is a rule a manager can follow and you can audit. \"Be careful with AI\" is not.\n\nThe through-line: **your reaction to the first case determines the visibility of the next\ntwenty.** Managers who feel caught hide; managers who feel helped ask. And you cannot fix what\nyou cannot see."
+  },
+  {
+    "id": "ai301-hrbp-m7-lesson-3-what-the-evidence-says-about-ai-60",
+    "moduleId": "ai301-hrbp-m7",
+    "ordinal": 60,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 3 · What the evidence says about AI coaching [V]\n\nNow the proactive side — where the market is loudest and the evidence is thinnest.\n\nA randomized controlled comparison of human and AI chatbot coaching, with 114 coachees who were\nmostly middle and senior managers in a single global corporation, found **substantial effects for\nhuman coaching across goal attainment and wellbeing outcomes — and no equivalent effect for the\nAI condition.** Attrition in the AI arm was dramatically higher; some participants asked to\nswitch to a human.\n\nThe detail that should carry the most weight: **one of the authors also co-authored the earlier\nstudy that helped launch the AI-coaching category.** This is not one camp contradicting another.\nIt is a researcher publishing a result that complicates their own earlier finding — which is the\nstrongest form of evidence available and the rarest.\n\nAnd the honest nuance, because overclaiming in the other direction would be the same error: this\nis one study, in one organization, with a chatbot of a particular design. Narrowly scoped bots\naimed at a single measurable outcome have performed better in prior work than broad \"AI coach\"\nproducts — the earlier goal-attainment research found roughly comparable results on goals\nspecifically, while showing little for resilience and wellbeing. **Narrow and measurable works\nbetter than broad and relational.** That is a usable design principle, not a prohibition.\n\nWhich lets you say something precise in a procurement conversation instead of something vague:\n*\"the evidence supports narrow, outcome-specific tools and does not support broad AI coaching as\na substitute for human development — show me which one you're selling.\"*"
+  },
+  {
+    "id": "ai301-hrbp-m7-try-70",
+    "moduleId": "ai301-hrbp-m7",
+    "ordinal": 70,
+    "kind": "try_this",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### Try this — 3 minutes\nTake the last AI-for-managers product you were pitched. Was it narrow and outcome-specific, or\nbroad and relational? Then check the claim it made about effectiveness against Module 3's three\nquestions: what's the evidence, what's the sample, what would falsify it?"
+  },
+  {
+    "id": "ai301-hrbp-m7-lesson-4-allocation-is-an-equity-decisio-80",
+    "moduleId": "ai301-hrbp-m7",
+    "ordinal": 80,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Lesson 4 · Allocation is an equity decision\n\nHere is the finding that ends this course.\n\nIn that same research, outcomes were predicted most strongly not by the coaching modality but by\n**the coachee's starting self-efficacy and hope.** People who arrived already believing they could\nchange, did. People who arrived without that belief got less — and got least from the\nunsupervised bot.\n\nFollow it to its conclusion. **The employees who most need development are the ones an\nunsupervised AI tool serves worst.** Which means that when your organization deploys an AI\ncoaching product to \"democratize access to development,\" the actual effect is that the confident\nget help and the struggling get a chatbot.\n\nThat is not a technology problem. It is a distribution decision, and distribution decisions about\nwho gets scarce human support are decisions about people — which puts them squarely inside the\nline 101 M7 drew and this entire track has been circling.\n\nSo: **deciding who gets a human is your call, and it is an equity call.** Not procurement's,\nbecause they're evaluating a product. Not IT's, because they're evaluating a platform. Yours,\nbecause you are the person in the organization whose job is what happens to people at the\nbottom of a distribution.\n\nThe practical version, and it is a short list:\n\n- **Scarce human coaching goes toward lower starting self-efficacy, not toward the highest\n  potential.** That inverts how most organizations allocate development, which is the point.\n- **AI tools serve the confident and the already-capable well.** That is a legitimate use, and\n  saying so honestly protects the argument for the other half.\n- **Never let \"we gave everyone access\" stand as evidence of equitable development.** Equal access\n  to a tool that works unequally is not equity; it is the appearance of it, and you are the person\n  who has to say so.\n\nAnd one caveat to keep us honest, because this course holds itself to its own standard: the\ndifficult-conversation rehearsal category — including techniques in Module 4 of this track — is\ncrowded with vendors, and essentially every effectiveness number in it traces back to one of them.\n**We hold our own recommendations to the standard we hold theirs.** Module 4's technique is\nargued from craft and mechanism, not from an efficacy study, and you should treat it accordingly."
+  },
+  {
+    "id": "ai301-hrbp-m7-exercise-embed-85",
+    "moduleId": "ai301-hrbp-m7",
+    "ordinal": 85,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"sorting\", \"title\": \"Calibration exercise \\u2014 Bot, human, or neither\", \"intro\": \"Ten minutes, ten manager-support needs. Sort each: a narrow AI tool serves this well, this needs a human, or neither should be deployed here at all.\\n\\nCommit every card before the reveal. The principle being tested is Lesson 3's \\u2014 narrow and measurable beats broad and relational \\u2014 and Lesson 4's, that who gets a human is an equity decision.\"}"
+  },
+  {
+    "id": "ai301-hrbp-m7-key-takeaways-90",
+    "moduleId": "ai301-hrbp-m7",
+    "ordinal": 90,
+    "kind": "takeaways",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Key takeaways\n\n- **The demand is real and unoccupied** `[V]`: ~8% of HR leaders think their managers can use AI\n  effectively; ~14% of organizations offer any support. Nobody owns manager AI capability, and it\n  sits at your intersection.\n- **Your reaction to the first misuse determines the visibility of the next twenty.** Handle it as\n  an incident, not a betrayal — the manager who told you isn't the problem; the four who didn't\n  are.\n- **Ask for the specifics.** A generic AI-written review either means a bad brief or means the\n  manager wasn't paying attention. Only asking reveals which — and the second isn't an AI problem.\n- **Make rules checkable.** \"Every policy or legal reference traced to source before it ships\"\n  can be followed and audited. \"Be careful with AI\" cannot.\n- **The coaching evidence** `[V]`: an RCT of 114 mostly-senior managers found substantial effects\n  for human coaching and none for the AI arm, with far higher attrition — published by authors\n  including one who helped launch the category. Narrow and measurable beats broad and relational.\n- **Outcomes track starting self-efficacy and hope — so the people who most need development are\n  served worst by an unsupervised bot.** Allocating human support is therefore an equity decision,\n  and it is yours. \"We gave everyone access\" is not evidence of equitable development."
+  },
+  {
+    "id": "ai301-hrbp-m7-activity-link-95",
+    "moduleId": "ai301-hrbp-m7",
+    "ordinal": 95,
+    "kind": "exercise",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "{\"type\": \"activity_link\", \"title\": \"Applied activity \\u2014 One asset, one manager (course close)\", \"blurb\": \"One page built for a real recurring manager failure and tested with one real manager \\u2014 what they actually did with it, not whether they liked it. Then the reckoning: every prediction across seven modules, the direction of your misses, and what you believe now that you didn't in Module 1.\", \"estMinutes\": \"30\"}"
+  },
+  {
+    "id": "ai301-hrbp-m7-take-a-position-100",
+    "moduleId": "ai301-hrbp-m7",
+    "ordinal": 100,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Take a position\n\n**The claim:** *\"Deploying an AI coaching tool organization-wide without deciding who still gets a\nhuman is a decision to give the least support to the people who need the most — whether or not\nanyone intended it.\"*\n\nThe strongest counter-argument is one of scale and counterfactual: **for most organizations the\nalternative to an AI coach isn't a human coach, it's nothing.** Coaching has always been rationed\nto executives; a tool that reaches everyone imperfectly may still lift the floor for people who\npreviously got zero. On that view, insisting on human allocation risks defending an inequity that\nalready existed. Your position has to survive that argument, because it is a good one."
+  },
+  {
+    "id": "ai301-hrbp-m7-sources-and-attribution-110",
+    "moduleId": "ai301-hrbp-m7",
+    "ordinal": 110,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Sources and attribution\n\n- **Gartner** — approximately 8% of HR leaders believing managers have the skills to use AI\n  effectively, and approximately 14% of organizations providing managers support integrating\n  GenAI (surveys of ~114 HR leaders; small samples, noted in-lesson). **[V]**\n- **de Haan, Terblanche & Nowack**, *Human Resource Development International* (2026) — the\n  randomized controlled comparison of human and AI chatbot coaching, N=114, predominantly middle\n  and senior managers in one global corporation; and **Terblanche et al. (2022)** on\n  goal-attainment-specific chatbot coaching, co-authored by one of the same researchers. **[V]**\n- The allocation-as-equity-decision argument, the three misuse cases and their moves, and the\n  self-applied scepticism about Module 4 are original to this course.\n- Builds on 101 M6 (confident gaps), 101 M7 (decisions about people), 101 M8 (blame-safe\n  reporting), and Module 4 of this track."
+  }
+]

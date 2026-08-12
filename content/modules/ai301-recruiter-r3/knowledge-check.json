@@ -1,0 +1,79 @@
+{
+  "title": "Knowledge check — 6 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why do intake errors compound while scheduling errors don't?",
+      "options": [
+        "Intake happens earlier in the calendar",
+        "Everything downstream is derived from the scorecard — search, outreach, screening calibration, the loop, the debrief — and the defect surfaces at week five, when correction costs a restart",
+        "Scheduling errors are caught by automation",
+        "Hiring managers pay more attention to intake"
+      ],
+      "correctIndex": 1,
+      "explanation": "Five downstream artifacts inherit the defect, each defended by someone who wasn't in the original conversation. A scheduling error surfaces immediately, costs an apology, and nothing inherits it."
+    },
+    {
+      "id": "q2",
+      "prompt": "What test tells you a scorecard competency is real rather than an adjective?",
+      "options": [
+        "Whether the hiring manager approved it",
+        "Whether it appears in the job description",
+        "Whether two interviewers could independently score the same candidate and agree within a point",
+        "Whether it can be assessed in under fifteen minutes"
+      ],
+      "correctIndex": 2,
+      "explanation": "\"Strong communicator\" fails; \"can explain a technical trade-off to a non-technical stakeholder such that they can restate it\" passes. A is the trap — managers approve adjectives readily, because adjectives are agreeable."
+    },
+    {
+      "id": "q3",
+      "prompt": "Which calibration example does the most work?",
+      "options": [
+        "The clear yes, since it defines the target",
+        "The clear no, since it prevents wasted pipeline",
+        "The genuinely borderline one — it's where the hiring manager's real bar lives",
+        "All three equally"
+      ],
+      "correctIndex": 2,
+      "explanation": "The yes and no are usually already aligned. The borderline profile is where the bar actually sits, and surfacing it at intake resolves the week-five argument before it happens."
+    },
+    {
+      "id": "q4",
+      "prompt": "A hiring manager insists on five years of experience. What's the productive move?",
+      "options": [
+        "Accept it — experience requirements are the manager's call",
+        "Ask what it's a proxy for, since it's rarely about the years and the real requirement is usually narrower and easier to source",
+        "Point out that it may create adverse impact",
+        "Propose three years as a compromise"
+      ],
+      "correctIndex": 1,
+      "explanation": "Usually a proxy for autonomy, surviving a specific failure, or credibility with a stakeholder. C is true and Module 6 covers it, but leading with the compliance argument makes it a fight; leading with the mechanism makes it a conversation that produces a better search."
+    },
+    {
+      "id": "q5",
+      "prompt": "Which question best surfaces the unstated deal-breaker?",
+      "options": [
+        "\"What are the must-have requirements?\"",
+        "\"What would make you say no to a candidate?\"",
+        "\"Tell me about the last person you rejected late in a process. What was it?\"",
+        "\"How would you rank these requirements?\""
+      ],
+      "correctIndex": 2,
+      "explanation": "Late-stage rejections are where the real criteria live, because the stated ones had already been satisfied. B asks the manager to introspect about the future, which produces the written requirements back; C asks them to recall, which produces the truth."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why does the activity ask the hiring manager to \"mark what's wrong\" rather than \"does this look right?\"",
+      "options": [
+        "It's faster for the manager to respond to",
+        "\"Does this look right?\" reliably produces \"looks great,\" which surfaces nothing — the marked corrections are the entire point",
+        "It creates a written record for compliance purposes",
+        "It transfers responsibility for the scorecard to the manager"
+      ],
+      "correctIndex": 1,
+      "explanation": "The framing determines the response, exactly as it does when prompting a model — asking for approval invites approval. A submission where twelve things came back is stronger than one where nothing did."
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "promptVersion": "ai101-m4-redaction-pass-v1",
+  "moduleId": "ai101-m4",
+  "minWords": 250,
+  "maxWords": 350,
+  "submitLabel": "Your redaction map and reflection",
+  "intro": "Submit the before/after map — categories of what changed, never the sensitive originals — plus the 250–350 word reflection. Do not paste the original document. Resubmission is free and unlimited — the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for an AI fluency course for People leaders (AI 101, The Foundation). Module 4 applied activity, 'The Redaction Pass': one real Tier-3 document from their own work, tiered (with any Tier-4 content marked out of scope), redacted using the three moves (generalize quasi-identifiers, break re-identifying combinations, paraphrase distinctive quotes), mapped by category of change with a one-line narration, and scored against their opening prediction of what percentage survives. IMPORTANT: the submission should describe changes by category, not reproduce sensitive originals — a submission that pastes identifiable source material has missed the module's point, and the feedback must say so plainly (grade what's there, but flag it as the primary issue). A numeric prediction may have been captured by the module's opening calibration prompt; grade the calibration dimension on whether the prediction is stated and honestly compared, never on its accuracy.",
+  "opening": [
+    {
+      "key": "survives",
+      "label": "Predicted — % of the document that survives redaction",
+      "hint": "After removing what shouldn't travel, how much of the original text is left?",
+      "placeholder": "e.g. 60",
+      "min": 0,
+      "max": 100
+    }
+  ],
+  "calibration": [
+    {
+      "key": "survivesActual",
+      "label": "Measured — % that actually survived",
+      "hint": "Rough word-count ratio is fine. Was what you lost what you expected to lose?",
+      "placeholder": "e.g. 85",
+      "min": 0,
+      "max": 100,
+      "actualFor": "survives"
+    }
+  ],
+  "dimensions": [
+    {
+      "name": "Tiering judgment",
+      "criteria": "The document is real, its tier named with reasoning, mixed-tier parts mapped separately, and any Tier-4 content explicitly marked out of scope rather than redacted-and-included. A defended borderline call outscores an easy document."
+    },
+    {
+      "name": "The three moves, actually applied",
+      "criteria": "Quasi-identifiers generalized (role, location, dates, tenure — not just names), at least one re-identifying combination found and broken, distinctive quotes paraphrased. Working against the most-informed insider, not a stranger. Name-deletion-only is the failure mode this dimension exists to catch."
+    },
+    {
+      "name": "The map narrates",
+      "criteria": "Changes listed by category with counts, no sensitive originals reproduced, and a one-line narration a colleague could review the judgment from. Silent or vague redaction ('cleaned it up') scores low."
+    },
+    {
+      "name": "The test and the calibration",
+      "criteria": "The shown-to-the-person test is run on the result and its verdict stated honestly — including 'the task itself is the problem' if that's where it landed. Prediction compared, miss direction named, and whether what was lost matched what they expected to lose."
+    }
+  ]
+}

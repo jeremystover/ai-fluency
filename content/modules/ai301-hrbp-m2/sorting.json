@@ -1,0 +1,89 @@
+{
+  "reviewedAt": "2026-08-12",
+  "buckets": [
+    { "id": "room", "label": "The room", "hint": "Presence + contested judgment", "rank": 0, "pct": 5 },
+    { "id": "ritual", "label": "The ritual", "hint": "Presence, no contest", "rank": 1, "pct": 25 },
+    { "id": "desk", "label": "The desk", "hint": "Contest, no presence", "rank": 2, "pct": 60 },
+    { "id": "queue", "label": "The queue", "hint": "Neither", "rank": 3, "pct": 90 }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "text": "Interviewing a witness in a harassment investigation",
+      "key": "room",
+      "reasoning": "Both questions answer yes. You have to hear what isn't being said and change course inside the conversation, and every call about credibility and follow-up is contested. The clearest room card in the set."
+    },
+    {
+      "id": "t2",
+      "text": "Scheduling the eight interviews for a leadership team's calibration session",
+      "key": "queue",
+      "reasoning": "Neither presence nor contest. Real work, genuinely necessary, and not yours — this is the quadrant where the compression argument does its damage, and where you should want it to."
+    },
+    {
+      "id": "t3",
+      "text": "Deciding whether a manager's performance problem is a coaching issue or a fit issue",
+      "key": "desk",
+      "reasoning": "Contested judgment with no presence required — you can reach this call at your desk, and reasonable colleagues could disagree. The deep end of the desk is where an HRBP's defensible value actually concentrates.",
+      "also": ["room"]
+    },
+    {
+      "id": "t4",
+      "text": "Attending the weekly business unit leadership meeting where you rarely speak",
+      "key": "ritual",
+      "reasoning": "Presence is genuinely expected and absence would be noticed; no contested judgment is being exercised. The most over-defended card in the set, because it feels like relationship investment — and some of it is, which is why the two questions beat instinct here."
+    },
+    {
+      "id": "t5",
+      "text": "Turning your handwritten notes from three skip-levels into a structured themes summary",
+      "key": "queue",
+      "reasoning": "Transformation of material you supplied, with a known output shape. No presence, no contest — 101's delegation heuristic at its center. The judgment comes later, when you decide what the themes mean.",
+      "also": ["desk"]
+    },
+    {
+      "id": "t6",
+      "text": "Telling a long-tenured employee their role is being eliminated",
+      "key": "room",
+      "reasoning": "Presence is the entire point, and the judgment — what to say, what to hold, when to stop talking — is contested and live. No amount of preparation converts this into desk work."
+    },
+    {
+      "id": "t7",
+      "text": "Designing the promotion criteria for a newly created job family",
+      "key": "desk",
+      "reasoning": "Deeply contested — the criteria encode values and precedent — and done alone. High AI leverage precisely because the model can carry the structuring, the drafting, and the what-am-I-missing pass while the judgment stays yours."
+    },
+    {
+      "id": "t8",
+      "text": "Pulling headcount and attrition figures for the quarterly business review deck",
+      "key": "queue",
+      "reasoning": "Determinate, repeatable, no contest. If this consumes judgment-grade attention in your week, it is the first thing the activity should have you surrender."
+    },
+    {
+      "id": "t9",
+      "text": "Delivering a compensation decision to a manager that the comp committee already made",
+      "key": "ritual",
+      "reasoning": "Presence is expected — someone has to say it, and it should be a person — but the judgment was exercised elsewhere. Tempting to file as the room because the conversation is uncomfortable; discomfort is not contest."
+    },
+    {
+      "id": "t10",
+      "text": "Drafting the first version of a new remote-work policy from three reference policies",
+      "key": "desk",
+      "reasoning": "Contested in the choices it encodes, async in execution, and the drafting is exactly what AI carries well when you supply the references. The judgment is which trade-offs to make, not which words to type.",
+      "also": ["queue"]
+    },
+    {
+      "id": "t11",
+      "text": "Coaching a director through a decision you believe is wrong",
+      "key": "room",
+      "reasoning": "Presence and contest both, at maximum. The whole value is reading resistance in real time and deciding, live, whether to push or hold. This is what the strategic talent leader model is describing."
+    },
+    {
+      "id": "t12",
+      "text": "Reviewing forty manager-written performance reviews for consistency of language",
+      "key": "desk",
+      "reasoning": "Contested at the edges — what counts as coded or vague language is a judgment — but no presence needed, and the volume pass is exactly what AI does well. Assist-side under 101 M7: you're reading what managers wrote, not rating the people.",
+      "also": ["queue"]
+    }
+  ],
+  "pattern": "Presence is not seniority, and contested judgment is not difficulty — the two errors that move cards in opposite directions.",
+  "postscript": "Cards placed toward the queue and desk mean you credit AI with more reach than the key does; cards placed toward the room and ritual mean less. Neither miss is the bad one — but the ritual cards are where most people cluster their errors, filing calendar inheritance as irreducible because it feels like relationship work. The applied activity now runs this on your actual week, where the distribution matters more than any single call."
+}

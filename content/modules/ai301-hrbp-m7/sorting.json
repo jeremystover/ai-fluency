@@ -1,0 +1,34 @@
+{
+  "reviewedAt": "2026-08-12",
+  "buckets": [
+    { "id": "neither", "label": "Neither", "hint": "Don't deploy anything here", "rank": 0, "pct": 10 },
+    { "id": "human", "label": "Needs a human", "hint": "Scarce support belongs here", "rank": 1, "pct": 40 },
+    { "id": "bot", "label": "Narrow AI tool", "hint": "Measurable, bounded, works", "rank": 2, "pct": 85 }
+  ],
+  "tasks": [
+    { "id": "t1", "text": "Helping a manager write clearer, more specific goals for their team", "key": "bot",
+      "reasoning": "Narrow, measurable, bounded — the profile the goal-attainment research actually supports. The output is checkable by the manager and the stakes of a mediocre goal are low and recoverable." },
+    { "id": "t2", "text": "Supporting a first-time manager who doubts they should have taken the job", "key": "human",
+      "reasoning": "Low starting self-efficacy is precisely the condition under which an unsupervised bot performs worst — and this is the person the equity argument is about. If your scarce human coaching is going anywhere, it goes here." },
+    { "id": "t3", "text": "A checklist for running a structured one-to-one", "key": "bot",
+      "reasoning": "Not coaching at all — an asset. Bounded, reusable, and exactly the kind of one-page thing the module's activity has you build. No relational component to lose." },
+    { "id": "t4", "text": "Rehearsing a difficult conversation before the manager has it", "key": "bot",
+      "reasoning": "Module 4's technique, and it works on mechanism — bounded scenario, the manager retains the judgment. Note the module's own caveat: this category is vendor-dominated and its efficacy numbers come from sellers, so the argument here is craft, not evidence.",
+      "also": ["human"] },
+    { "id": "t5", "text": "Deciding whether a manager should be moved out of people leadership", "key": "neither",
+      "reasoning": "A decision about a person with consequences attached. 101 M7's line — no tool, narrow or broad, and a coaching product is not the right instrument for a fitness judgment either." },
+    { "id": "t6", "text": "An org-wide AI coach rolled out to 'democratize access to development'", "key": "neither",
+      "reasoning": "The exact deployment Lesson 4 warns about: the confident get help, the struggling get a chatbot, and the organization records equity it didn't achieve. Not never-any-tool — never *this* framing, without an explicit decision about who still gets a human.",
+      "also": ["bot"] },
+    { "id": "t7", "text": "Helping a manager understand why their team's engagement scores dropped", "key": "human",
+      "reasoning": "Contested interpretation about identifiable people on a small population — Module 5's small-numbers trap and Module 2's room quadrant at once. A tool will produce a confident explanation, which is the danger." },
+    { "id": "t8", "text": "Practising the mechanics of giving specific behavioural feedback", "key": "bot",
+      "reasoning": "Skill drill with a right answer shape — narrow and measurable. The manager can tell whether their feedback got more specific, which is what makes the loop work without a human in it." },
+    { "id": "t9", "text": "A manager processing their own distress after conducting three redundancies", "key": "human",
+      "reasoning": "Relational and unmeasurable — the broad category where the RCT found nothing and attrition was highest. Some participants in that study asked to switch to a human; this is why." },
+    { "id": "t10", "text": "Screening managers by self-efficacy to decide who receives human coaching", "key": "neither",
+      "reasoning": "The dangerous near-miss, and the sharpest card in the set. Lesson 4's finding should *inform your judgment* about allocation — it must not become a psychological screen applied to people to ration a resource. That is a decision about people made by an instrument, which is where this course started." }
+  ],
+  "pattern": "Narrow and measurable beats broad and relational — and who gets the human is a judgment you make, never a screen you run.",
+  "postscript": "The bot cards share a shape: bounded task, checkable output, judgment retained by the manager. The human cards share the opposite: relational, unmeasurable, or landing on someone whose starting confidence is low — which is where the evidence says a bot serves worst. Card 10 is the one worth sitting with: it takes the module's own finding and turns it into exactly the kind of instrument 101 M7 forbids. A true insight can still be misapplied, and recognizing that is the last thing this course teaches."
+}

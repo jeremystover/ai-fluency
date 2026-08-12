@@ -207,7 +207,7 @@ export default function Library() {
     essentialsReader ? `/module/${m.id}/micro` : surfaceRoute(surface, m.id);
 
   const totals: string[] = [
-    `${data.totals.courses} courses · L1 → L5`,
+    `${data.totals.courses} courses · L1 → L4`,
     `${data.totals.modules} modules mapped`,
     `${data.totals.lessons} lessons in print`,
     `~${fmtHours(data.totals.minutes)} of material`,

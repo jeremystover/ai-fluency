@@ -1,0 +1,79 @@
+{
+  "title": "Knowledge check — 6 questions",
+  "note": "Unlocks after the applied activity is submitted. Retakes are free and unlimited.",
+  "reviewedAt": "2026-08-12",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is the harder problem created by AI-assisted applications?",
+      "options": [
+        "The volume increase, which exceeds recruiter capacity",
+        "The information content of existing screens fell to zero while the screens stayed the same",
+        "Candidates misrepresent their qualifications more often than before",
+        "Application quality has declined, making screening harder"
+      ],
+      "correctIndex": 1,
+      "explanation": "Volume is the visible half and responds to throughput solutions. The signal collapse doesn't — a tailored cover letter used to mean forty minutes of attention and now means nothing, because it became free rather than less common. D is the opposite of the problem: applications got *more* polished."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why does the symmetry rule say candidates gain capability faster than recruiters?",
+      "options": [
+        "Candidates adopt new tools earlier than enterprises can procure them",
+        "Consumer AI tools are more capable than enterprise recruiting tools",
+        "Their capability compounds per application while yours divides across a pool that grew 412%",
+        "Recruiters are constrained by compliance requirements candidates don't face"
+      ],
+      "correctIndex": 2,
+      "explanation": "It's arithmetic, not attitude. A candidate can spend an hour on one application; you have minutes per applicant against a much larger pool. A is often true and is a weaker, temporary version of the same point."
+    },
+    {
+      "id": "q3",
+      "prompt": "What does the module identify as the most important fact about AI detection?",
+      "options": [
+        "That detection tools have roughly 60% accuracy",
+        "That confidence is measurable and high — ~88% of hiring managers believe they can spot it — while accuracy is not well-established at all",
+        "That detection is prohibited under most state AI employment laws",
+        "That candidates can defeat detection tools by rephrasing output"
+      ],
+      "correctIndex": 1,
+      "explanation": "You are being sold a capability whose error rate nobody publishes. A invents the very figure the lesson says doesn't credibly exist — which is the trap."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why is a detection response a screening decision rather than a technical control?",
+      "options": [
+        "Because detection software is expensive and requires procurement approval",
+        "Because it must be disclosed to candidates under notice requirements",
+        "Because the output is a flag attached to a candidate — and every false positive removes a real person for a reason nobody audits, since rejected candidates never appear in your data",
+        "Because human reviewers make the final call on flagged applications"
+      ],
+      "correctIndex": 2,
+      "explanation": "101 M7's line, and the invisibility of the harm is what makes it worse than an ordinary error. D describes a workflow that doesn't fix it — the reviewer sees the flagged, not the wrongly flagged."
+    },
+    {
+      "id": "q5",
+      "prompt": "Whose applications are most likely to be false positives in a detection regime?",
+      "options": [
+        "Candidates applying to many roles simultaneously",
+        "Non-native English speakers, neurodivergent candidates, and anyone who prepared unusually hard",
+        "Candidates using the least sophisticated AI tools",
+        "Early-career candidates with limited work history"
+      ],
+      "correctIndex": 1,
+      "explanation": "Which makes it a screening criterion with disparate impact and no validation study, applied to protected populations — and note the third group is a trait you claimed to want."
+    },
+    {
+      "id": "q6",
+      "prompt": "How have hiring teams actually responded to AI-assisted candidates? `[V]`",
+      "options": [
+        "The majority deployed dedicated detection software",
+        "Most made no changes to their process",
+        "Roughly 47% updated interview probing and 31% added practical tasks, while only around 14% bought detection",
+        "Most reduced the number of interview stages to cut volume"
+      ],
+      "correctIndex": 2,
+      "explanation": "The majority answer is redesign rather than detection — the right instinct, arrived at empirically before anyone argued it from principle. That's the direction Module 4 formalizes."
+    }
+  ]
+}

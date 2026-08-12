@@ -1,0 +1,87 @@
+{
+  "reviewedAt": "2026-08-11",
+  "buckets": [
+    { "id": "public", "label": "Tier 1 · Public", "hint": "Already out there", "rank": 0, "pct": 5 },
+    { "id": "internal", "label": "Tier 2 · Internal", "hint": "Org-sensitive, not person-sensitive", "rank": 1, "pct": 35 },
+    { "id": "person", "label": "Tier 3 · Person-identifying", "hint": "Traceable to someone", "rank": 2, "pct": 70 },
+    { "id": "protected", "label": "Tier 4 · Protected", "hint": "Stop — counsel-blessed systems only", "rank": 3, "pct": 95 }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "text": "The job posting for an open Marketing Manager role, as it appears on your careers page",
+      "key": "public",
+      "reasoning": "Published and intended to be. Pasting it creates no exposure that hitting the careers page doesn't."
+    },
+    {
+      "id": "t2",
+      "text": "A draft of the new hybrid-work policy, two weeks before announcement",
+      "key": "internal",
+      "reasoning": "Organizationally sensitive — you wouldn't want it leaked — but about rules, not people. Classic Tier 2: sanitized org material, defensible under a proper agreement."
+    },
+    {
+      "id": "t3",
+      "text": "Interview notes on a named finalist, including your panel's concerns about their management style",
+      "key": "person",
+      "reasoning": "Named person plus evaluative judgment — Tier 3's center. It can travel only in redacted form, and the evaluative content is exactly what redaction has to be most careful with."
+    },
+    {
+      "id": "t4",
+      "text": "An employee's request for a reduced schedule, which mentions their ongoing chemotherapy",
+      "key": "protected",
+      "reasoning": "Medical information. Not 'redact carefully' — Tier 4: it moves only inside systems counsel has blessed, under obligations that attach to the data itself. No agreement upgrade changes this."
+    },
+    {
+      "id": "t5",
+      "text": "Aggregate engagement scores by division — no division smaller than 150 people",
+      "key": "internal",
+      "reasoning": "Aggregated past individual traceability, so it's org data, not person data. The division size is what makes this call — the same scores for a 6-person team would jump a tier."
+    },
+    {
+      "id": "t6",
+      "text": "Survey verbatims with names stripped — but one comment complains about 'the only manager in the Portland office'",
+      "key": "person",
+      "reasoning": "Names stripped is not de-identified: 'the only manager in the Portland office' is a name wearing a costume. Identity lives in combinations — this is the mis-tier the module most wants you to catch.",
+      "also": ["protected"]
+    },
+    {
+      "id": "t7",
+      "text": "Your team's standard offer letter template, all merge fields blank",
+      "key": "internal",
+      "reasoning": "Template language with no person in it. Internal rather than public only because you haven't published it — the content itself is boilerplate."
+    },
+    {
+      "id": "t8",
+      "text": "Notes from an active harassment investigation, witnesses anonymized as 'Witness A' and 'Witness B'",
+      "key": "protected",
+      "reasoning": "Active investigation material is Tier 4 regardless of anonymization quality — legal hold and process obligations attach to the matter, not to the names. The anonymization is irrelevant to the tier."
+    },
+    {
+      "id": "t9",
+      "text": "A spreadsheet of individual salaries you're using to check a proposed band structure",
+      "key": "protected",
+      "reasoning": "Individual-level compensation is Tier 4. The band *structure* — mins, mids, maxes with no individuals — would be Tier 2; the individual rows are what lock the tier."
+    },
+    {
+      "id": "t10",
+      "text": "Your published DEI commitment statement from the company's annual report",
+      "key": "public",
+      "reasoning": "In the annual report — as public as it gets. That it touches a sensitive *topic* doesn't change the tier of an already-published document."
+    },
+    {
+      "id": "t11",
+      "text": "A performance improvement plan for a named employee, drafted but not yet delivered",
+      "key": "person",
+      "reasoning": "Named individual plus evaluative judgment with real consequences. Tier 3 at minimum — and if it intersects an accommodation or investigation, it climbs. Drafting help is possible; it requires the module's full redaction discipline.",
+      "also": ["protected"]
+    },
+    {
+      "id": "t12",
+      "text": "Process documentation for how your team runs quarterly promotion calibrations",
+      "key": "internal",
+      "reasoning": "How the process works, with nobody in it — Tier 2. The moment a real calibration's *contents* enter (names, ratings, decisions), you're in Tier 3–4 territory; the process doc itself is org material."
+    }
+  ],
+  "pattern": "Identity lives in combinations, and obligations attach to data — the two ideas that decide every hard card.",
+  "postscript": "The easy cards sort themselves by asking 'is a person in it?' The hard ones — the Portland comment, the anonymized investigation, the salary spreadsheet — are hard because they hide the second question: what obligations already attach to this material, whatever you strip from it? Placed too low is the miss that costs you (exposure); placed too high mostly costs convenience — which is why, when unsure, you round up. The applied activity now runs this judgment on a document of yours that actually matters."
+}

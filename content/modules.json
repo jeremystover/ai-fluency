@@ -17,7 +17,7 @@
       "ordinal": 2,
       "title": "Choosing the tool for the task",
       "blurb": "Chat assistants, copilots, and the AI already embedded in your HR stack — what each is actually for, and how to tell a language model from a scoring engine before you rely on either.",
-      "status": "locked",
+      "status": "open",
       "estMinutes": 25,
       "prereqs": [],
       "microMinutes": 2
@@ -28,7 +28,7 @@
       "ordinal": 3,
       "title": "What it costs and how it scales",
       "blurb": "Tokens, context windows, and pricing — enough of the economics to size a use case, read a vendor quote, and know when a bigger model is worth it.",
-      "status": "locked",
+      "status": "open",
       "estMinutes": 25,
       "prereqs": [],
       "microMinutes": 2
@@ -39,7 +39,7 @@
       "ordinal": 4,
       "title": "Working with your documents and data",
       "blurb": "Attachments, long documents, and sensitive material: getting your world into the model's view without crowding out the question — or crossing a line your legal team hasn't cleared.",
-      "status": "locked",
+      "status": "open",
       "estMinutes": 30,
       "prereqs": [],
       "microMinutes": 2
@@ -50,7 +50,7 @@
       "ordinal": 5,
       "title": "Prompting as briefing",
       "blurb": "Role, task, context, format. Prompting as briefing a capable stranger — and iteration as the keystone behavior that separates fluent users from frustrated ones.",
-      "status": "locked",
+      "status": "open",
       "estMinutes": 35,
       "prereqs": [
         "ai101-m1"
@@ -63,7 +63,7 @@
       "ordinal": 6,
       "title": "When it's confidently wrong",
       "blurb": "Hallucination in depth: why fluent output deserves more scrutiny, not less, and the verification habits that keep a fabricated citation out of a document with someone's name on it.",
-      "status": "locked",
+      "status": "open",
       "estMinutes": 30,
       "prereqs": [
         "ai101-m1"
@@ -76,7 +76,7 @@
       "ordinal": 7,
       "title": "The lines that don't move",
       "blurb": "Bias, adverse impact, and decisions about people. Where AI assists, where it must stop, and how to say so in a way your organization will actually follow.",
-      "status": "locked",
+      "status": "open",
       "estMinutes": 30,
       "prereqs": [
         "ai101-m6"
@@ -89,7 +89,7 @@
       "ordinal": 8,
       "title": "What you own",
       "blurb": "Data agreements, disclosure, and accountability. What you're responsible for when AI touched the work — and the policy questions to settle before someone asks.",
-      "status": "locked",
+      "status": "open",
       "estMinutes": 25,
       "prereqs": [],
       "microMinutes": 2
@@ -186,6 +186,256 @@
         "ai201-m6"
       ],
       "microMinutes": 2
+    },
+    {
+      "id": "ai301-hrbp-m1",
+      "courseId": "ai301-hrbp",
+      "ordinal": 1,
+      "title": "Where you actually are",
+      "blurb": "Most of the urgency was manufactured: what the adoption data actually says, and the difference between a peer gap and an expectations gap.",
+      "status": "open",
+      "estMinutes": 20,
+      "prereqs": [],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-hrbp-m2",
+      "courseId": "ai301-hrbp",
+      "ordinal": 2,
+      "title": "Sort your own job",
+      "blurb": "Two questions — presence, contested judgment — and the four quadrants they produce. Least penetrated is not protected.",
+      "status": "open",
+      "estMinutes": 40,
+      "prereqs": [
+        "ai301-hrbp-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-hrbp-m3",
+      "courseId": "ai301-hrbp",
+      "ordinal": 3,
+      "title": "The honest arithmetic",
+      "blurb": "Botsitting, the four-question workflow audit, the volume trap, and tearing down a claim on evidence, sample, and falsifier.",
+      "status": "open",
+      "estMinutes": 45,
+      "prereqs": [
+        "ai301-hrbp-m2"
+      ],
+      "microMinutes": 3
+    },
+    {
+      "id": "ai301-hrbp-m4",
+      "courseId": "ai301-hrbp",
+      "ordinal": 4,
+      "title": "Adversarial rehearsal",
+      "blurb": "Five adversaries, five sting moves, and the model's job is to attack your work rather than make it. The tutor is the surface.",
+      "status": "open",
+      "estMinutes": 45,
+      "prereqs": [
+        "ai301-hrbp-m2"
+      ],
+      "microMinutes": 3
+    },
+    {
+      "id": "ai301-hrbp-m5",
+      "courseId": "ai301-hrbp",
+      "ordinal": 5,
+      "title": "Arguing with finance",
+      "blurb": "A story loses to a model. Three you can build, the ways your HR data lies, and why small numbers demand the n in the sentence.",
+      "status": "open",
+      "estMinutes": 40,
+      "prereqs": [
+        "ai301-hrbp-m3"
+      ],
+      "microMinutes": 3
+    },
+    {
+      "id": "ai301-hrbp-m6",
+      "courseId": "ai301-hrbp",
+      "ordinal": 6,
+      "title": "The line",
+      "blurb": "The law about systems and the law about your documents: the patchwork, the agent theory, and ER documentation that survives discovery.",
+      "status": "open",
+      "estMinutes": 45,
+      "prereqs": [],
+      "microMinutes": 3
+    },
+    {
+      "id": "ai301-hrbp-m7",
+      "courseId": "ai301-hrbp",
+      "ordinal": 7,
+      "title": "Manager capability as product",
+      "blurb": "Catching misuse without driving it underground, what the coaching evidence really says, and why allocating human support is an equity call.",
+      "status": "open",
+      "estMinutes": 40,
+      "prereqs": [
+        "ai301-hrbp-m4"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-recruiter-r1",
+      "courseId": "ai301-recruiter",
+      "ordinal": 1,
+      "title": "What broke",
+      "blurb": "The two-sided collapse of signal cost, the symmetry rule, and why detection is a screening decision about people.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-recruiter-r2",
+      "courseId": "ai301-recruiter",
+      "ordinal": 2,
+      "title": "Sorting your own job",
+      "blurb": "Throughput, insight, redesign — plus the archetype split that reverses every piece of advice.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-recruiter-r1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-recruiter-r3",
+      "courseId": "ai301-recruiter",
+      "ordinal": 3,
+      "title": "The highest-leverage hour is intake",
+      "blurb": "Errors here compound and everything downstream inherits them. Four artifacts from one conversation, then get it marked wrong.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-recruiter-r2"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-recruiter-r4",
+      "courseId": "ai301-recruiter",
+      "ordinal": 4,
+      "title": "Designing signal that's expensive to fake",
+      "blurb": "The corrected selection science, three design moves, and the candidate AI policy where incoherence is the only losing choice.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-recruiter-r3"
+      ],
+      "microMinutes": 3
+    },
+    {
+      "id": "ai301-recruiter-r5",
+      "courseId": "ai301-recruiter",
+      "ordinal": 5,
+      "title": "The closed loop",
+      "blurb": "Instrument, capture, analyze, feed back — and the one asset in recruiting you can't rent.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-recruiter-r2"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-recruiter-r6",
+      "courseId": "ai301-recruiter",
+      "ordinal": 6,
+      "title": "The floor and the audit",
+      "blurb": "Bias-audit regimes, the agent theory, and computing a selection rate so an audit is a control rather than a document.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [],
+      "microMinutes": 3
+    },
+    {
+      "id": "ai301-recruiter-r7",
+      "courseId": "ai301-recruiter",
+      "ordinal": 7,
+      "title": "Arguing for your function",
+      "blurb": "Workslop lands on the hiring manager, the one-page case, and the headcount conversation with your team and your exec.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-recruiter-r5"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-comp-m1",
+      "courseId": "ai301-comp",
+      "ordinal": 1,
+      "title": "What this job actually is",
+      "blurb": "Five work types across comp and benefits, and the finding most practitioners get wrong about their own week — run as a buying instrument.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-comp-m2",
+      "courseId": "ai301-comp",
+      "ordinal": 2,
+      "title": "Reading the evidence",
+      "blurb": "The real adoption picture, the three tells of a product roadmap wearing an industry trend, and the teardown applied to a vendor you pay.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-comp-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-comp-m3",
+      "courseId": "ai301-comp",
+      "ordinal": 3,
+      "title": "The craft layer",
+      "blurb": "Why numerate people are more exposed, audit files and reconciliation named in advance, the Python-then-Excel double-pass, and a reusable starter kit.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-comp-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-comp-m4",
+      "courseId": "ai301-comp",
+      "ordinal": 4,
+      "title": "The exclusion zone",
+      "blurb": "AI for speed, human-built tooling for accountability — the four zones, the circular one, and a legal floor that is moving. Counsel review required.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-comp-m3"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-comp-m5",
+      "courseId": "ai301-comp",
+      "ordinal": 5,
+      "title": "The counterparty",
+      "blurb": "Candidates arrive briefed by a model that gives your two sides different numbers, and your proxy is now read by machines against every peer at once.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-comp-m4"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-comp-m6",
+      "courseId": "ai301-comp",
+      "ordinal": 6,
+      "title": "The bet",
+      "blurb": "The leverage ladder, why efficiency is the weakest case a small function has, and a bet with a funding line — plus the reckoning against Module 1.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-comp-m5"
+      ],
+      "microMinutes": 2
     }
   ],
   "courses": [
@@ -193,7 +443,7 @@
       "id": "ai101",
       "title": "AI 101 · Foundations",
       "level": "L1 → L2",
-      "blurb": "From The Risk to The Novice: a working mental model, honest calibration, and the judgment to know what to hand over.",
+      "blurb": "From Novice to Practitioner: a working mental model, honest calibration, and the judgment to know what to hand over.",
       "status": "open"
     },
     {
@@ -204,17 +454,31 @@
       "status": "open"
     },
     {
-      "id": "ai301",
-      "title": "AI 301 · The Translator",
+      "id": "ai301-hrbp",
+      "title": "AI 301 · The Specialist — HRBP",
       "level": "L3 → L4",
-      "blurb": "Leading adoption beyond your own desk: coaching other functions, evaluating vendors, and running pilots that produce evidence instead of anecdotes.",
-      "status": "locked"
+      "blurb": "Judgment work: the HR business partner's role in depth. AI is improving HR's production, not HR's judgment — this course is about the second thing.",
+      "status": "open"
+    },
+    {
+      "id": "ai301-recruiter",
+      "title": "AI 301 · The Specialist — Recruiting",
+      "level": "L3 → L4",
+      "blurb": "Rebuilding the signal: the cost of producing a credible application collapsed on both sides of the table at once. This course is about building signal that's expensive to fake.",
+      "status": "open"
+    },
+    {
+      "id": "ai301-comp",
+      "title": "AI 301 · The Specialist — Comp & Benefits",
+      "level": "L3 → L4",
+      "blurb": "Numbers that hold: you are the most numerate function in HR, and that is exactly what makes fluent output dangerous here. A wrong sentence gets caught. A wrong model gets presented.",
+      "status": "open"
     },
     {
       "id": "ai401",
-      "title": "AI 401 · The Steward",
-      "level": "L4 → L5",
-      "blurb": "Policy, risk, and governance: owning the organizational answer to what AI may touch, who verifies it, and how you'll know when it goes wrong.",
+      "title": "AI 401 · The Translator",
+      "level": "L4",
+      "blurb": "Leading the multiplayer game: coaching other functions, evaluating vendors, running pilots that produce evidence instead of anecdotes — and owning the policy for what AI may touch.",
       "status": "locked"
     }
   ]
