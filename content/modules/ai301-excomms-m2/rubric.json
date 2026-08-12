@@ -1,0 +1,52 @@
+{
+  "promptVersion": "ai301-excomms-m2-where-does-your-week-sit-v1",
+  "moduleId": "ai301-excomms-m2",
+  "minWords": 200,
+  "maxWords": 300,
+  "submitLabel": "Your compression map and write-up",
+  "intro": "Paste the map — your six-link split checked against a real instrument, plus the headcount and budget columns — followed by the 200–300 word write-up including your position on this module's claim. Resubmission is free and unlimited — the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, Employee Experience / Internal Comms track. Module 2 applied activity, 'Where does your week sit?': the learner's function mapped across the six links (Sense, Interpret, Decide, Produce, Distribute, Verify) — a committed percentage split made BEFORE looking, then checked against a real instrument (last week's calendar, the last twenty task-tracker items, Module 1's send audit, or a reconstruction of five working days), plus two further columns: where headcount sits (which links have a named owner and which have nobody) and where budget sits (tooling, agency, licences).\n\nThe most valuable thing a learner can surface here is confusion between Decide and Produce — they happen in the same hour, to the same person, with a document open, and Decide work is routinely logged as Produce. A learner who notices an entry they cannot confidently assign, and says why, is demonstrating the module's central skill. Score that at the top; do not treat unassignable entries as sloppiness.\n\nAlso high-value: naming the link with no owner at all. It is usually Verify or Sense. An honest 'nobody does this here' outranks a tidy map where every link has a name.\n\nThis track scores the delta rather than the score. Grade the learner's ACCOUNT of the gap between their predicted Produce percentage and what the map showed — direction, size, and what they think it reveals. NEVER grade prediction accuracy. A large miss explained well is the strongest version of this.",
+  "opening": [
+    {
+      "key": "producePct",
+      "label": "Predicted — share of your team's week spent producing things",
+      "hint": "Drafting, editing, formatting, building decks, kits and pages. Before you look.",
+      "placeholder": "e.g. 45",
+      "min": 0,
+      "max": 100
+    }
+  ],
+  "calibration": [
+    {
+      "key": "producePctActual",
+      "label": "Mapped — what the instrument actually showed for Produce",
+      "hint": "From the calendar, tracker or reconstruction you checked against.",
+      "placeholder": "e.g. 62",
+      "min": 0,
+      "max": 100,
+      "actualFor": "producePct"
+    }
+  ],
+  "dimensions": [
+    {
+      "name": "The split was committed before it was checked",
+      "criteria": "A stated prediction across all six links totalling 100, made before looking at any instrument, and visibly distinct from the mapped result. A submission where prediction and result are suspiciously identical, or where only the final map appears, has skipped the mechanism this module runs on."
+    },
+    {
+      "name": "The map is checked against something real",
+      "criteria": "A named instrument — calendar, task tracker, the Module 1 send audit, or an explicit five-day reconstruction — with entries actually assigned to links rather than a split produced from memory. Split entries across two links are fine and should be encouraged. A reconstruction labelled as such scores well; a confident set of round numbers with no stated basis does not."
+    },
+    {
+      "name": "Decide and Produce are separated, or the difficulty is named",
+      "criteria": "The module's central skill. Either the learner distinguishes counsel work from artifact work in their own entries, or they name specific entries they could not confidently assign and explain why. Both score at the top. A map that shows zero Decide work, with no comment on that, is the gap to name in feedback — it usually means Decide was absorbed into Produce rather than absent."
+    },
+    {
+      "name": "Headcount and budget are mapped, and the ownerless link is named",
+      "criteria": "The two columns that aren't time, with the finding drawn out: which links have a named owner, which have nobody, and where the money actually sits. Naming the link with no owner at all — usually Verify or Sense — is the strongest form. 'Everything has an owner' is rarely true and should be probed in feedback."
+    },
+    {
+      "name": "The position engages the sharpest counter",
+      "criteria": "A committed position on the claim that the link holding most of the team's time matters least, engaging the strongest case against it: that Produce is where quality actually lives, that the chain flatters invisible upstream work, and — the hardest version — that if AI had genuinely collapsed Produce, quality would have converged across organizations and it plainly hasn't, which suggests the floor rose while the ceiling stayed put. Agreement or disagreement both score well. Ignoring the 'floor rose, ceiling didn't' argument specifically is the weakest form."
+    }
+  ]
+}
