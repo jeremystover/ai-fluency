@@ -1059,6 +1059,120 @@
         "ai301-cpo-m1"
       ],
       "microMinutes": 2
+    },
+    {
+      "id": "ai401-m1",
+      "courseId": "ai401",
+      "ordinal": 1,
+      "title": "Load paths",
+      "blurb": "The thesis: AI lowers the cost of individual production and raises the cost of collective coherence. Cultural debt, load-bearing versus decorative — and why the structures most likely to be load-bearing are the ones nobody designed. Names the unit the next nine modules thread.",
+      "status": "open",
+      "estMinutes": 20,
+      "prereqs": [],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai401-m2",
+      "courseId": "ai401",
+      "ordinal": 2,
+      "title": "The frame",
+      "blurb": "The spine: transitional versus transformational change, and the seven steps — name the load, find what's carrying it, mark what's dissolving, spec the replacement, set the tolerance, name the trigger, name the owner. The same seven rows held at three altitudes, shown rather than asserted.",
+      "status": "open",
+      "estMinutes": 35,
+      "prereqs": [
+        "ai401-m1"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai401-m3",
+      "courseId": "ai401",
+      "ordinal": 3,
+      "title": "Somebody else's load",
+      "blurb": "The convergence point after ten role tracks. What your track made you unable to see, why HR's credibility gap is a unit of account rather than technical literacy, and the four things findable about a partner function without their cooperation — plus the one you have to ask.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai401-m4",
+      "courseId": "ai401",
+      "ordinal": 4,
+      "title": "Ownership contracts",
+      "blurb": "Large teams hide bad interfaces. AI didn't create your turf problem — it removed the people papering over it. A contract written at the workflow rather than the reporting line, including what may be produced with AI without telling the other side.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai401-m5",
+      "courseId": "ai401",
+      "ordinal": 5,
+      "title": "The invisible work audit",
+      "blurb": "Coverage, not headcount. On a lean team, work belonging to nobody either becomes an explicit decision or silently stops — and silence is the default. Inventory the absorbed work before you shrink the team, because afterwards the evidence is gone.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai401-m6",
+      "courseId": "ai401",
+      "ordinal": 6,
+      "title": "Integration capacity",
+      "blurb": "Individual AI adoption can raise total coordination cost while lowering production cost. You don't trade speed against risk, you govern speed against absorption — and procurement is a pace decision, because lock-in is integration debt with a contract attached.",
+      "status": "open",
+      "estMinutes": 35,
+      "prereqs": [],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai401-m7",
+      "courseId": "ai401",
+      "ordinal": 7,
+      "title": "Codification",
+      "blurb": "Individual learning velocity rose sharply; collective learning velocity didn't move. Codification is not documentation, a fossil is worse than an empty folder, and the test is who removes things. Design one trapped practice out of one person's head.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai401-m8",
+      "courseId": "ai401",
+      "ordinal": 8,
+      "title": "Designed need",
+      "blurb": "Asking a colleague did two jobs at once — moved information, and built the relationship. AI replaced the first and deleted the second. Why that's a mobility problem rather than a wellbeing one, and how to design an interdependency that survives an efficiency review.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai401-m7"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai401-m9",
+      "courseId": "ai401",
+      "ordinal": 9,
+      "title": "The floor",
+      "blurb": "You are the deployer, and obligations arrive from purchases you weren't part of. The four duties that recur, the European half that moved and the half that didn't, and the rule that outlives any statute — plus why a floor with no exception path is a detour sign.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai401-m10",
+      "courseId": "ai401",
+      "ordinal": 10,
+      "title": "The operating system, and the bet",
+      "blurb": "Where culture becomes real: three of the four building blocks are yours, and the fourth is authority. The metric that produces itself, the four things a pilot needs agreed before it starts — then the deck, the bet, and the reckoning across ten modules.",
+      "status": "open",
+      "estMinutes": 30,
+      "prereqs": [],
+      "microMinutes": 2
     }
   ],
   "courses": [
@@ -1151,7 +1265,7 @@
       "title": "AI 401 · The Translator",
       "level": "L4",
       "blurb": "Leading the multiplayer game: coaching other functions, evaluating vendors, running pilots that produce evidence instead of anecdotes — and owning the policy for what AI may touch.",
-      "status": "locked"
+      "status": "open"
     }
   ]
 }
