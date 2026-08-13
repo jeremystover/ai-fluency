@@ -13,7 +13,7 @@
         "They used incompatible definitions of artificial intelligence"
       ],
       "correctIndex": 1,
-      "explanation": "Both are sound. The organizational answer to \"have we deployed AI in employee relations\" is no, and it is wrong — which is the diagnosis: the function has adopted AI without adopting it."
+      "explanation": "Both are sound. The organizational answer to \"have we deployed AI in employee relations\" is no, and it is wrong, which is the diagnosis: the function has adopted AI without adopting it."
     },
     {
       "id": "q2",
@@ -37,7 +37,7 @@
         "Fact, context, judgment, conclusion, sanction"
       ],
       "correctIndex": 2,
-      "explanation": "It is how investigators are already trained to write, which is why it is a working instrument rather than a diagram — and AI's permission changes at every rung."
+      "explanation": "It is how investigators are already trained to write, which is why it is a working instrument rather than a diagram, and AI's permission changes at every rung."
     },
     {
       "id": "q4",
@@ -49,7 +49,7 @@
         "At determination only, since findings are factual rather than evaluative"
       ],
       "correctIndex": 1,
-      "explanation": "At rung three it may generate candidate possibilities you then test — never rank them, never select one. Rungs four and five are the boundary, because both require weighing."
+      "explanation": "At rung three it may generate candidate possibilities you then test: never rank them, never select one. Rungs four and five are the boundary, because both require weighing."
     },
     {
       "id": "q5",
@@ -97,7 +97,7 @@
         "A fixed minimum investigation for every complaint received"
       ],
       "correctIndex": 2,
-      "explanation": "Not to second-guess every call — to find out whether the pattern of \"no\" has a shape. It is the only way the invisible failure becomes visible, and 38% of organizations have no required process that would catch it otherwise."
+      "explanation": "Not to second-guess every call, to find out whether the pattern of \"no\" has a shape. It is the only way the invisible failure becomes visible, and 38% of organizations have no required process that would catch it otherwise."
     }
   ]
 }

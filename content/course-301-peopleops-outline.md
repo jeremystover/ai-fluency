@@ -290,7 +290,7 @@ given them."*
   shares, inherited folders, and one broadly-permissioned site. **The AI did not create the exposure.
   It gave it a search box.** Reported HR instances — AI summaries of disciplinary discussions and
   legal-hold threads, salary data returned in answer to a benign question — come from security
-  vendors and are labeled as such; the incident counts are not load-bearing, the mechanism is.
+  vendors and are labeled as such; the incident counts are not structural, the mechanism is.
 - **Lesson 2:** Why HR is the worst-case corpus. Compensation files, disciplinary records,
   investigation notes, accommodation documentation, exit interviews, legal-hold material. Nowhere
   else in the company is the ratio of restricted to routine content this high, which is why generic
@@ -557,7 +557,7 @@ with the brief's §5 convention text updated in the same pass, since that docume
 the opening prediction as the one genuinely shared mechanism.
 
 **13. Three citations are now shared across tracks and should move to a shared evidence library** —
-and brief §3a has since made this load-bearing rather than tidy. Sanctioning duplication across
+and brief §3a has since made this structural rather than tidy. Sanctioning duplication across
 sibling tracks removes the pedagogical objection to overlap and leaves drift as the only real cost,
 which is exactly what a shared library prevents. The
 coaching trials (HRBP M7 and M2 here, with genuinely different readings — allocation there, task scope

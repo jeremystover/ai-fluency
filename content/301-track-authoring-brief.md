@@ -74,7 +74,7 @@ what is better in theirs, what must survive from Claude's, and what to cut from 
 differences to be diplomatic — in all three tracks, the human's spine won and two or three
 specific things from Claude's were folded in.
 
-**Step 5 — Verify the load-bearing citations before writing anything.** See §4.
+**Step 5 — Verify the citations the argument rests on before writing anything.** See §4.
 
 ---
 
@@ -181,7 +181,7 @@ learner to engage it. The best ones turn the module's technique on itself.
 
 ## 4. Verification is not optional, and it is not a final pass
 
-Verify every load-bearing statistic **before drafting the module that uses it**, with web search.
+Verify every statistic the argument rests on **before drafting the module that uses it**, with web search.
 This has changed content repeatedly, not just confirmed it:
 
 - The HRBP outline said "31% of organizations haven't deployed AI at all." The finding is 31%

@@ -25,7 +25,7 @@
         "Because the model discloses its uncertainty"
       ],
       "correctIndex": 1,
-      "explanation": "Which is why 101 M6's answer — verify the claim against the source — does not work here. The error is in the relationship between the summary and the *state of the evidence*."
+      "explanation": "Which is why 101 M6's answer (verify the claim against the source) does not work here. The error is in the relationship between the summary and the *state of the evidence*."
     },
     {
       "id": "q3",
@@ -49,7 +49,7 @@
         "AI may assess consistency but not assign credibility"
       ],
       "correctIndex": 2,
-      "explanation": "Locating is factual and checkable in seconds. Resolving is a credibility determination. D is the specific error the module warns about — consistency assessment *is* resolution."
+      "explanation": "Locating is factual and checkable in seconds. Resolving is a credibility determination. D is the specific error the module warns about, consistency assessment *is* resolution."
     },
     {
       "id": "q5",
@@ -73,7 +73,7 @@
         "Because standards of proof require documented reasoning for audit purposes"
       ],
       "correctIndex": 1,
-      "explanation": "Which leaves you with a conclusion, an impression of why, and no reconstructable path from evidence to finding — the one thing the report has to contain and the first thing the other side attacks."
+      "explanation": "Which leaves you with a conclusion, an impression of why, and no reconstructable path from evidence to finding, the one thing the report has to contain and the first thing the other side attacks."
     },
     {
       "id": "q7",
@@ -85,7 +85,7 @@
         "Omissions are only significant if the witness was directly asked"
       ],
       "correctIndex": 1,
-      "explanation": "Four completely different evidential states, one identical statement — and models fill gaps unmarked, which makes the omission the thing a fluent summary most reliably disappears."
+      "explanation": "Four completely different evidential states, one identical statement, and models fill gaps unmarked, which makes the omission the thing a fluent summary most reliably disappears."
     },
     {
       "id": "q8",

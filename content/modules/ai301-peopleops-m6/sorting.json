@@ -1,33 +1,100 @@
 {
   "reviewedAt": "2026-08-12",
   "buckets": [
-    { "id": "never", "label": "Never index this", "hint": "Exclude the source entirely", "rank": 0, "pct": 20 },
-    { "id": "configure", "label": "Configure before you enable", "hint": "A specific control has to exist first", "rank": 1, "pct": 45 },
-    { "id": "fine-watch", "label": "Fine, and worth watching", "hint": "Permitted, with a known failure mode", "rank": 2, "pct": 70 },
-    { "id": "fine", "label": "Fine as configured", "hint": "No new exposure, no new control needed", "rank": 3, "pct": 90 }
+    {
+      "id": "never",
+      "label": "Never index this",
+      "hint": "Exclude the source entirely",
+      "rank": 0,
+      "pct": 20
+    },
+    {
+      "id": "configure",
+      "label": "Configure before you enable",
+      "hint": "A specific control has to exist first",
+      "rank": 1,
+      "pct": 45
+    },
+    {
+      "id": "fine-watch",
+      "label": "Fine, and worth watching",
+      "hint": "Permitted, with a known failure mode",
+      "rank": 2,
+      "pct": 70
+    },
+    {
+      "id": "fine",
+      "label": "Fine as configured",
+      "hint": "No new exposure, no new control needed",
+      "rank": 3,
+      "pct": 90
+    }
   ],
   "tasks": [
-    { "id": "t1", "text": "The site holding this year's redundancy selection lists and their rationale", "key": "never",
-      "reasoning": "The clearest exclusion there is. It names people who have not been told, its subjects are employees with assistant licences, and a single retrieved fragment is unrecoverable. And nobody in IT knows this site is different from any other project site — which is exactly why the exclusion list has to come from you." },
-    { "id": "t2", "text": "The current employee handbook and benefits summary documents", "key": "fine",
-      "reasoning": "Published, intended for everybody, and the reason the assistant is worth having. Include it so the exercise doesn't teach that everything is dangerous — most of the volume genuinely is this." },
-    { "id": "t3", "text": "Investigation notes and interview summaries from workplace complaints", "key": "never",
-      "reasoning": "Frequently privileged, always confidential, and its subjects and witnesses are all inside the tenant. Even correctly permissioned, a summarized fragment leaves no access record — so the ordinary protection of \"only the ER team can open it\" is not the protection you think it is once retrieval is in play." },
-    { "id": "t4", "text": "A natural-language query interface over the HCM that can return aggregate pay figures", "key": "configure",
-      "reasoning": "Genuinely useful and needs one specific control first: a minimum group size below which it refuses, and evidence that it actually refuses rather than a documented threshold. \"Average salary for the Design team\" is a pay disclosure when Design is three people — the module's reporting-surface exposure exactly." },
-    { "id": "t5", "text": "Accommodation and leave case documentation, including medical notes", "key": "never",
-      "reasoning": "Medical information with its own handling obligations, and the category most likely to be retrieved by an employee asking a reasonable question about their own situation. Module 4's notice problem and this module's retrieval problem meet here, and neither has a good answer that involves indexing it." },
-    { "id": "t6", "text": "Historic team SharePoint sites from a business unit that was reorganized three years ago", "key": "configure",
-      "reasoning": "The sleeper card, and the most common real source of exposure. Nobody knows what is in them, the permissions were widened during a migration and never narrowed, and the owners have left. It needs a decision before enablement — audit or exclude — and the honest default is exclude, because auditing them is a project nobody will fund." },
-    { "id": "t7", "text": "The chat history of the People Ops team's internal channel", "key": "configure",
-      "reasoning": "People discuss live cases in chat with none of the care they apply to documents, and chat is indexed by default in most deployments. The control is either exclusion or a genuine change in team practice — and betting on the second without the first is how this ends up in an answer.", "also": ["never"] },
-    { "id": "t8", "text": "Published policy documents, each carrying a current effective date and a named owner", "key": "fine",
-      "reasoning": "The ideal case, and note what makes it ideal — the effective date and the owner are Module 4's corpus controls. Documents governed this well are safe to index precisely because the governance was done first." },
-    { "id": "t9", "text": "The shared mailbox where managers email HR about performance concerns", "key": "configure",
-      "reasoning": "Sensitive individual content in an unstructured container that was never designed as a record system. Frequently over-permissioned because \"the team needs access,\" and the team has grown. Needs a permission review before it is indexed, and probably a decision to stop using a mailbox for this at all." },
-    { "id": "t10", "text": "Job architecture, level definitions, and the published salary band structure", "key": "fine-watch",
-      "reasoning": "Usually intended to be internally visible, and increasingly published under pay transparency rules — so indexing it is normally right. The failure mode to watch is combination: band structure plus a small team's headcount plus one person's level can reconstruct an individual's pay without any document containing it. Permitted, with aggregation as the known risk." }
+    {
+      "id": "t1",
+      "text": "The site holding this year's redundancy selection lists and their rationale",
+      "key": "never",
+      "reasoning": "The clearest exclusion there is. It names people who haven't been told, its subjects are employees with assistant licences, and a single retrieved fragment is unrecoverable. And nobody in IT knows this site is different from any other project site, which is exactly why the exclusion list has to come from you."
+    },
+    {
+      "id": "t2",
+      "text": "The current employee handbook and benefits summary documents",
+      "key": "fine",
+      "reasoning": "Published, intended for everybody, and the reason the assistant is worth having. Include it so the exercise doesn't teach that everything is dangerous, most of the volume genuinely is this."
+    },
+    {
+      "id": "t3",
+      "text": "Investigation notes and interview summaries from workplace complaints",
+      "key": "never",
+      "reasoning": "Frequently privileged, always confidential, and its subjects and witnesses are all inside the tenant. Even correctly permissioned, a summarized fragment leaves no access record, so the ordinary protection of \"only the ER team can open it\" isn't the protection you think it is once retrieval is in play."
+    },
+    {
+      "id": "t4",
+      "text": "A natural-language query interface over the HCM that can return aggregate pay figures",
+      "key": "configure",
+      "reasoning": "Genuinely useful and needs one specific control first: a minimum group size below which it refuses, and evidence that it actually refuses rather than a documented threshold. \"Average salary for the Design team\" is a pay disclosure when Design is three people: the module's reporting-surface exposure exactly."
+    },
+    {
+      "id": "t5",
+      "text": "Accommodation and leave case documentation, including medical notes",
+      "key": "never",
+      "reasoning": "Medical information with its own handling obligations, and the category most likely to be retrieved by an employee asking a reasonable question about their own situation. Module 4's notice problem and this module's retrieval problem meet here, and neither has a good answer that involves indexing it."
+    },
+    {
+      "id": "t6",
+      "text": "Historic team SharePoint sites from a business unit that was reorganized three years ago",
+      "key": "configure",
+      "reasoning": "The sleeper card, and the most common real source of exposure. Nobody knows what is in them, the permissions were widened during a migration and never narrowed, and the owners have left. It needs a decision before enablement (audit or exclude) and the honest default is exclude, because auditing them is a project nobody will fund."
+    },
+    {
+      "id": "t7",
+      "text": "The chat history of the People Ops team's internal channel",
+      "key": "configure",
+      "reasoning": "People discuss live cases in chat with none of the care they apply to documents, and chat is indexed by default in most deployments. The control is either exclusion or a genuine change in team practice, and betting on the second without the first is how this ends up in an answer.",
+      "also": [
+        "never"
+      ]
+    },
+    {
+      "id": "t8",
+      "text": "Published policy documents, each carrying a current effective date and a named owner",
+      "key": "fine",
+      "reasoning": "The ideal case, and note what makes it ideal: the effective date and the owner are Module 4's corpus controls. Documents governed this well are safe to index precisely because the governance was done first."
+    },
+    {
+      "id": "t9",
+      "text": "The shared mailbox where managers email HR about performance concerns",
+      "key": "configure",
+      "reasoning": "Sensitive individual content in an unstructured container that was never designed as a record system. Frequently over-permissioned because \"the team needs access,\" and the team has grown. Needs a permission review before it is indexed, and probably a decision to stop using a mailbox for this at all."
+    },
+    {
+      "id": "t10",
+      "text": "Job architecture, level definitions, and the published salary band structure",
+      "key": "fine-watch",
+      "reasoning": "Usually intended to be internally visible, and increasingly published under pay transparency rules, so indexing it is normally right. The failure mode to watch is combination: band structure plus a small team's headcount plus one person's level can reconstruct an individual's pay without any document containing it. Permitted, with aggregation as the known risk."
+    }
   ],
-  "pattern": "The dangerous cards are not the obviously confidential documents. They are the containers nobody owns any more, and the interfaces that can aggregate.",
-  "postscript": "Four of the ten need a specific control before enablement rather than a yes or a no, and **t6 is the one to sit with** — historic sites from a reorganized business unit are the most common real source of exposure and the hardest to fund an audit for, which is why exclude is the honest default. Note also **t7**: chat is indexed by default in most deployments and people discuss live cases there with none of the care they apply to documents. And **t10** shows the aggregation problem in its mildest form — nothing confidential is indexed, and band structure plus team size plus one level still reconstructs a salary. If you sorted mostly into the two right-hand buckets, check whether you were assessing the document's sensitivity rather than the container's ownership; the module's argument is that ownership is what has failed."
+  "pattern": "The dangerous cards aren't the obviously confidential documents. They are the containers nobody owns any more, and the interfaces that can aggregate.",
+  "postscript": "Four of the ten need a specific control before enablement rather than a yes or a no, and **t6 is the one to sit with**, historic sites from a reorganized business unit are the most common real source of exposure and the hardest to fund an audit for, which is why exclude is the honest default. Note also **t7**: chat is indexed by default in most deployments and people discuss live cases there with none of the care they apply to documents. And **t10** shows the aggregation problem in its mildest form: nothing confidential is indexed, and band structure plus team size plus one level still reconstructs a salary. If you sorted mostly into the two right-hand buckets, check whether you were assessing the document's sensitivity rather than the container's ownership; the module's argument is that ownership is what has failed."
 }

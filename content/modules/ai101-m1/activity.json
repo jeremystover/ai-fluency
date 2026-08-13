@@ -15,7 +15,7 @@
     "kind": "prose",
     "layer": "stable",
     "reviewedAt": "2026-07-28",
-    "body": "### Conversation 1 — Where it's strong\n\nPick a subject you know well: an area of People practice you've worked in for years, a policy you wrote, a process you own. Ask a substantive question. Read the answer critically — you're one of the few people who can actually judge it. Then ask one follow-up that pushes deeper.\n\n*Notice:* What does it handle well? Where does it sound like it genuinely understands? Where does it produce something that reads correctly but that you know is thin?"
+    "body": "### Conversation 1 — Where it's strong\n\nPick a subject you know well: an area of People practice you've worked in for years, a policy you wrote, a process you own. Ask a substantive question. Read the answer critically. You're one of the few people who can actually judge it. Then ask one follow-up that pushes deeper.\n\n*Notice:* What does it handle well? Where does it sound like it genuinely understands? Where does it produce something that reads correctly but that you know is thin?"
   },
   {
     "id": "m1a-conv2",
@@ -24,7 +24,7 @@
     "kind": "prose",
     "layer": "stable",
     "reviewedAt": "2026-07-28",
-    "body": "### Conversation 2 — Where it might fabricate\n\n**Predict first.** Before you send anything, write down: *how likely is it that this answer contains something invented?* Give a percentage — there's a field for it below.\n\nThen ask for something specific and hard to verify. Options that work:\n\n- A statistic about employment practice with a source citation\n- What a specific named regulation requires in a specific jurisdiction\n- Details about a small organization you know well\n- A quotation from a specific page of a specific book\n\nNow check it. Actually check it — follow the citation, look up the regulation, verify the number.\n\n*Record:* your prediction, what actually happened, and how far off you were."
+    "body": "### Conversation 2 — Where it might fabricate\n\n**Predict first.** Before you send anything, write down: *how likely is it that this answer contains something invented?* Give a percentage. There's a field for it below.\n\nThen ask for something specific and hard to verify. Options that work:\n\n- A statistic about employment practice with a source citation\n- What a specific named regulation requires in a specific jurisdiction\n- Details about a small organization you know well\n- A quotation from a specific page of a specific book\n\nNow check it. Actually check it — follow the citation, look up the regulation, verify the number.\n\n*Record:* your prediction, what actually happened, and how far off you were."
   },
   {
     "id": "m1a-conv3",
@@ -51,6 +51,6 @@
     "kind": "table",
     "layer": "stable",
     "reviewedAt": "2026-07-28",
-    "body": "### Rubric — 20 points\n\n| Dimension | 5 points |\n|---|---|\n| **Engagement with all three conversations** | All three run, with actual transcripts or faithful accounts. Follow-ups asked. Real subject matter, not placeholder queries. |\n| **Observation of mechanics** | The reflection connects what was observed to how the system works — prediction, training data, context — rather than only reporting what it said. |\n| **Calibration** | A prediction was made *before* Conversation 2, compared honestly afterward, and the direction of error is named. Accuracy isn't scored; honesty and specificity are. |\n| **Practical insight** | The habit named is concrete, tied to actual work, and checkable. Not \"I'll be more careful.\" |"
+    "body": "### Rubric — 20 points\n\n| Dimension | 5 points |\n|---|---|\n| **Engagement with all three conversations** | All three run, with actual transcripts or faithful accounts. Follow-ups asked. Real subject matter, not placeholder queries. |\n| **Observation of mechanics** | The reflection connects what was observed to how the system works (prediction, training data, context) rather than only reporting what it said. |\n| **Calibration** | A prediction was made *before* Conversation 2, compared honestly afterward, and the direction of error is named. Accuracy isn't scored; honesty and specificity are. |\n| **Practical insight** | The habit named is concrete, tied to actual work, and checkable. Not \"I'll be more careful.\" |"
   }
 ]

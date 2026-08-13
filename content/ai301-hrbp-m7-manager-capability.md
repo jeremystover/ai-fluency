@@ -18,14 +18,14 @@
 effectively?** Whole percent.
 
 Then, in the activity, you'll gather every prediction you made across these seven modules and
-look at the pattern — because this track scores the delta, not the score, and the pattern is the
+look at the pattern, because this track scores the delta, not the score, and the pattern is the
 thing worth knowing about yourself.
 
 ---
 
 ## Module brief
 
-Everything so far in this track has made *you* better. This module is about the multiplier —
+Everything so far in this track has made *you* better. This module is about the multiplier,
 because an HRBP supports somewhere between twenty and two hundred managers, and each of them is
 already using AI, mostly badly, mostly on work that lands on your desk afterwards.
 
@@ -65,14 +65,14 @@ Two numbers settle whether this is worth your time.
 daily work.**
 
 Those figures come from surveys of just over a hundred HR leaders, which is a small sample and
-worth saying — Module 3 taught you to ask. But the gap they describe is so wide that it would
+worth saying. Module 3 taught you to ask. But the gap they describe is so wide that it would
 survive being substantially wrong in either direction, and it matches what you already see: your
 managers are using these tools daily with no guidance whatsoever, and the output is arriving at
 your desk.
 
 The strategic read is that this is one of the few genuinely unoccupied spaces in the
 organization. Nobody owns manager AI capability. IT owns tools, L&D owns curriculum, and neither
-owns *how a manager should use AI in a performance conversation* — which is a People question
+owns *how a manager should use AI in a performance conversation*, which is a People question
 that happens to be an AI question, which is precisely your intersection.
 
 ## Lesson 2 · Catching it in the wild
@@ -89,14 +89,14 @@ points and asked for a review.
 *The move:* don't attack the AI use. Ask for the specifics — *"give me two examples of the
 collaboration you're describing and one thing they should do differently next quarter."* If the
 manager has them, the tool was used badly and the fix is a better brief. If they don't, **the
-problem was never the AI** — they hadn't been paying attention, and the model let them hide it.
+problem was never the AI**. They hadn't been paying attention, and the model let them hide it.
 That distinction is the whole diagnosis, and only asking for specifics reveals it.
 
 **The pasted complaint.** A manager tells you they ran an employee's grievance through a consumer
 chatbot to "get a second opinion." A 101 M4 tier violation, under an agreement that may permit
 training on inputs, with a named individual in it.
 
-*The move:* handle it as an incident, not a betrayal — and this is where 101 M8's blame-safe
+*The move:* handle it as an incident, not a betrayal, and this is where 101 M8's blame-safe
 principle earns its place. **An organization that punishes the manager who tells you trains
 everyone else to stop telling you.** Establish what was shared, tell them plainly why it matters
 and what to do instead, and make sure the next manager finds it easier to ask you first than to
@@ -119,13 +119,13 @@ Now the proactive side — where the market is loudest and the evidence is thinn
 
 A randomized controlled comparison of human and AI chatbot coaching, with 114 coachees who were
 mostly middle and senior managers in a single global corporation, found **substantial effects for
-human coaching across goal attainment and wellbeing outcomes — and no equivalent effect for the
+human coaching across goal attainment and wellbeing outcomes, and no equivalent effect for the
 AI condition.** Attrition in the AI arm was dramatically higher; some participants asked to
 switch to a human.
 
 The detail that should carry the most weight: **one of the authors also co-authored the earlier
 study that helped launch the AI-coaching category.** This is not one camp contradicting another.
-It is a researcher publishing a result that complicates their own earlier finding — which is the
+It is a researcher publishing a result that complicates their own earlier finding, which is the
 strongest form of evidence available and the rarest.
 
 And the honest nuance, because overclaiming in the other direction would be the same error: this
@@ -137,7 +137,7 @@ better than broad and relational.** That is a usable design principle, not a pro
 
 Which lets you say something precise in a procurement conversation instead of something vague:
 *"the evidence supports narrow, outcome-specific tools and does not support broad AI coaching as
-a substitute for human development — show me which one you're selling."*
+a substitute for human development, show me which one you're selling."*
 
 > ### Try this — 3 minutes
 > Take the last AI-for-managers product you were pitched. Was it narrow and outcome-specific, or
@@ -150,7 +150,7 @@ Here is the finding that ends this course.
 
 In that same research, outcomes were predicted most strongly not by the coaching modality but by
 **the coachee's starting self-efficacy and hope.** People who arrived already believing they could
-change, did. People who arrived without that belief got less — and got least from the
+change, did. People who arrived without that belief got less, and got least from the
 unsupervised bot.
 
 Follow it to its conclusion. **The employees who most need development are the ones an
@@ -178,7 +178,7 @@ The practical version, and it is a short list:
   who has to say so.
 
 And one caveat to keep us honest, because this course holds itself to its own standard: the
-difficult-conversation rehearsal category — including techniques in Module 4 of this track — is
+difficult-conversation rehearsal category (including techniques in Module 4 of this track) is
 crowded with vendors, and essentially every effectiveness number in it traces back to one of them.
 **We hold our own recommendations to the standard we hold theirs.** Module 4's technique is
 argued from craft and mechanism, not from an efficacy study, and you should treat it accordingly.
@@ -189,23 +189,23 @@ argued from craft and mechanism, not from an efficacy study, and you should trea
   effectively; ~14% of organizations offer any support. Nobody owns manager AI capability, and it
   sits at your intersection.
 - **Your reaction to the first misuse determines the visibility of the next twenty.** Handle it as
-  an incident, not a betrayal — the manager who told you isn't the problem; the four who didn't
+  an incident, not a betrayal: the manager who told you isn't the problem; the four who didn't
   are.
 - **Ask for the specifics.** A generic AI-written review either means a bad brief or means the
-  manager wasn't paying attention. Only asking reveals which — and the second isn't an AI problem.
+  manager wasn't paying attention. Only asking reveals which, and the second isn't an AI problem.
 - **Make rules checkable.** "Every policy or legal reference traced to source before it ships"
   can be followed and audited. "Be careful with AI" cannot.
 - **The coaching evidence** `[V]`: an RCT of 114 mostly-senior managers found substantial effects
   for human coaching and none for the AI arm, with far higher attrition — published by authors
   including one who helped launch the category. Narrow and measurable beats broad and relational.
-- **Outcomes track starting self-efficacy and hope — so the people who most need development are
+- **Outcomes track starting self-efficacy and hope, so the people who most need development are
   served worst by an unsupervised bot.** Allocating human support is therefore an equity decision,
   and it is yours. "We gave everyone access" is not evidence of equitable development.
 
 ## Take a position
 
 **The claim:** *"Deploying an AI coaching tool organization-wide without deciding who still gets a
-human is a decision to give the least support to the people who need the most — whether or not
+human is a decision to give the least support to the people who need the most, whether or not
 anyone intended it."*
 
 The strongest counter-argument is one of scale and counterfactual: **for most organizations the
@@ -221,19 +221,19 @@ already existed. Your position has to survive that argument, because it is a goo
 
 ### Part 1 — Build and test (20 min)
 
-**Step 1 — Pick the recurring failure.** One thing your managers get wrong with AI, repeatedly.
+**Step 1. Pick the recurring failure.** One thing your managers get wrong with AI, repeatedly.
 Use Lesson 2's cases or your own.
 
-**Step 2 — Build one asset.** A single page: a prompt template, a checklist, a two-example
+**Step 2. Build one asset.** A single page: a prompt template, a checklist, a two-example
 before/after, a short rule with the reasoning attached. **One page.** The constraint matters —
 managers do not read more than that, and an asset nobody reads has no leverage.
 
-**Step 3 — Test it with one real manager.** Give it to them, ask them to use it once, and find
-out **what they actually did with it** — not whether they liked it. Liking is not use.
+**Step 3. Test it with one real manager.** Give it to them, ask them to use it once, and find
+out **what they actually did with it**, not whether they liked it. Liking is not use.
 
 ### Part 2 — The reckoning (10 min)
 
-Gather every prediction you made across the seven modules — the no-plans share, your presence and
+Gather every prediction you made across the seven modules, the no-plans share, your presence and
 contested-judgment split, your botsitting hours, unanticipated objections, cost per regretted
 departure, the unaware share, and the manager-capability figure at the top of this module.
 
@@ -252,7 +252,7 @@ a powerful tool with risks" is not an answer to this question.
 **Q1.** What do the demand figures establish? `[V]`
 
 - A. That managers are resistant to using AI in their work
-- B. That roughly 8% of HR leaders think managers can use AI effectively while ~14% of organizations give any support — an unoccupied space that sits at the HRBP's intersection ✓
+- B. That roughly 8% of HR leaders think managers can use AI effectively while ~14% of organizations give any support: an unoccupied space that sits at the HRBP's intersection ✓
 - C. That manager AI training should be owned by L&D
 - D. That AI tools are too complex for non-technical managers
 
@@ -274,7 +274,7 @@ a powerful tool with risks" is not an answer to this question.
 **Q3.** A manager tells you they pasted an employee grievance into a consumer chatbot. Why does the module say handle it as an incident rather than a betrayal?
 
 - A. Because the data exposure is minor in practice
-- B. Because punishing the manager who told you trains everyone else to stop telling you — the four who didn't report are the actual problem ✓
+- B. Because punishing the manager who told you trains everyone else to stop telling you: the four who didn't report are the actual problem ✓
 - C. Because consumer tools are not covered by most organizational policies
 - D. Because the manager could not reasonably have known
 
@@ -294,7 +294,7 @@ a powerful tool with risks" is not an answer to this question.
 **Q5.** What does the coaching RCT actually show? `[V]`
 
 - A. That AI coaching is ineffective for all purposes
-- B. That human coaching produced substantial effects across goal attainment and wellbeing while the AI arm did not, with far higher attrition — in one study of 114 mostly-senior managers ✓
+- B. That human coaching produced substantial effects across goal attainment and wellbeing while the AI arm did not, with far higher attrition, in one study of 114 mostly-senior managers ✓
 - C. That AI coaching matches human coaching on goals but not wellbeing
 - D. That coaching in general has weak evidential support
 
@@ -311,14 +311,14 @@ a powerful tool with risks" is not an answer to this question.
 - D. Because it undermines the credibility of both studies
 
 > **B.** It is not one camp contradicting another. It is self-correction, which is exactly the
-> intellectual honesty this course asks of the learner — and worth naming for that reason as
+> intellectual honesty this course asks of the learner, and worth naming for that reason as
 > much as for the finding.
 
 **Q7.** Outcomes were predicted most strongly by the coachee's starting self-efficacy and hope. What follows?
 
 - A. That development budgets should target high-potential employees, who will benefit most
 - B. That AI coaching should be reserved for senior populations
-- C. That the people who most need development are served worst by an unsupervised bot — making the allocation of scarce human support an equity decision ✓
+- C. That the people who most need development are served worst by an unsupervised bot, making the allocation of scarce human support an equity decision ✓
 - D. That self-efficacy should be screened before assigning any development resource
 
 > **C.** And it inverts how most organizations allocate development. D is the dangerous
@@ -329,7 +329,7 @@ a powerful tool with risks" is not an answer to this question.
 **Q8.** Why does the module apply its scepticism to Module 4's own technique?
 
 - A. Because adversarial rehearsal has been shown ineffective
-- B. Because the rehearsal category is vendor-dominated and its effectiveness numbers trace to sellers — so this course holds its own recommendations to the standard it holds theirs, and Module 4 is argued from craft rather than an efficacy study ✓
+- B. Because the rehearsal category is vendor-dominated and its effectiveness numbers trace to sellers, so this course holds its own recommendations to the standard it holds theirs, and Module 4 is argued from craft rather than an efficacy study ✓
 - C. Because Module 4's technique requires tools most organizations lack
 - D. To satisfy disclosure requirements for training material
 
@@ -339,7 +339,7 @@ a powerful tool with risks" is not an answer to this question.
 
 ## Sources and attribution
 
-- **Gartner** — approximately 8% of HR leaders believing managers have the skills to use AI
+- **Gartner**, approximately 8% of HR leaders believing managers have the skills to use AI
   effectively, and approximately 14% of organizations providing managers support integrating
   GenAI (surveys of ~114 HR leaders; small samples, noted in-lesson). **[V]**
 - **de Haan, Terblanche & Nowack**, *Human Resource Development International* (2026) — the

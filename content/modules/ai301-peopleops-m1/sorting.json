@@ -1,37 +1,115 @@
 {
   "reviewedAt": "2026-08-12",
   "buckets": [
-    { "id": "wide-long", "label": "Wide reach · long latency", "hint": "Everyone, and nobody notices for weeks", "rank": 0, "pct": 30 },
-    { "id": "wide-short", "label": "Wide reach · short latency", "hint": "Everyone, and it announces itself", "rank": 1, "pct": 55 },
-    { "id": "narrow-long", "label": "Narrow reach · long latency", "hint": "One person, surfaced much later", "rank": 2, "pct": 45 },
-    { "id": "narrow-short", "label": "Narrow reach · short latency", "hint": "One person, noticed immediately", "rank": 3, "pct": 80 }
+    {
+      "id": "wide-long",
+      "label": "Wide reach · long latency",
+      "hint": "Everyone, and nobody notices for weeks",
+      "rank": 0,
+      "pct": 30
+    },
+    {
+      "id": "wide-short",
+      "label": "Wide reach · short latency",
+      "hint": "Everyone, and it announces itself",
+      "rank": 1,
+      "pct": 55
+    },
+    {
+      "id": "narrow-long",
+      "label": "Narrow reach · long latency",
+      "hint": "One person, surfaced much later",
+      "rank": 2,
+      "pct": 45
+    },
+    {
+      "id": "narrow-short",
+      "label": "Narrow reach · short latency",
+      "hint": "One person, noticed immediately",
+      "rank": 3,
+      "pct": 80
+    }
   ],
   "tasks": [
-    { "id": "t1", "text": "A bulk effective-dated job-change load for a 400-person reorg, entered with the wrong effective date", "key": "wide-long",
-      "reasoning": "The canonical example. It propagates to payroll, the carriers, and the identity provider before anyone reads a report, and the correction is itself a bulk change made under pressure. This is the quadrant, and it is where the automation pitch lives." },
-    { "id": "t2", "text": "The nightly HCM-to-payroll integration fails and no records transfer", "key": "wide-short",
-      "reasoning": "Wide and loud. Payroll not running is the most visible failure in the function, which is exactly why it gets monitored, alerted, and fixed. Bad, and not the one that should frighten you." },
-    { "id": "t3", "text": "The benefits eligibility rule is wrong for part-time employees who cross the hours threshold mid-month", "key": "wide-long",
-      "reasoning": "A population, silently, until someone's claim is denied or an audit samples the group. Encoded once, never revisited — Lesson 1's deferred decision with a statutory clock attached." },
-    { "id": "t4", "text": "An employee's address change is keyed into the wrong field", "key": "narrow-short",
-      "reasoning": "One person, and they tell you, usually within a day. Genuinely low stakes and the quadrant where most AI attention goes — which is the misallocation the module is pointing at." },
-    { "id": "t5", "text": "A new hire's Form I-9 Section 2 is never completed", "key": "narrow-long",
-      "reasoning": "One person, invisible until an audit or an enforcement action — potentially years. Small blast radius, worst possible forum, and no internal signal ever fires. Latency, not stakes, is what makes this dangerous." },
-    { "id": "t6", "text": "The service-desk assistant gives a wrong answer about carryover limits to everyone who asks", "key": "wide-long",
-      "reasoning": "The one people mis-sort as narrow because each conversation is with one person. It is a population failure delivered one employee at a time, and the ticket queue will not show it — satisfied employees who got a wrong answer do not come back. Module 4's territory." },
-    { "id": "t7", "text": "A manager is granted a security role that lets them see compensation for their whole department", "key": "wide-long",
-      "reasoning": "Reach is the population whose data is exposed, not the one person who got the role. Nothing breaks, nobody complains, and there is no event to detect — the exposure is silent by construction. Module 6 builds on exactly this.", "also": ["narrow-long"] },
-    { "id": "t8", "text": "The termination-reason picklist has no option that fits, so the coordinator picks 'Other'", "key": "wide-long",
-      "reasoning": "Looks like a data-entry nit. It is a decision made in an implementation workshop years ago, and it silently caps the quality of every future attrition analysis. Discovered, if ever, when someone asks a question the data cannot answer." },
-    { "id": "t9", "text": "A COBRA election notice goes out three weeks late for one departing employee", "key": "narrow-long",
-      "reasoning": "One person, and the deadline passed before anyone counted days. Statutory, unforgiving, and characteristically discovered by the beneficiary or their lawyer rather than by you." },
-    { "id": "t10", "text": "Single sign-on breaks for the HCM and nobody can log in", "key": "wide-short",
-      "reasoning": "Everyone, instantly, loudly. The failure mode systems teams are best at, because it cannot hide. Worth including precisely so the contrast with t1 and t3 is visible." },
-    { "id": "t11", "text": "An AI-drafted offer letter states the wrong bonus target and the candidate signs it", "key": "narrow-short",
-      "reasoning": "One person, and it surfaces fast — at the first paycheck, or when they ask. The card most people over-rate: the consequence is real and possibly contractual, but the detection is quick and the correction is bounded. Stakes and latency are different axes.", "also": ["narrow-long"] },
-    { "id": "t12", "text": "Manager hierarchy is stale for 43 employees whose manager left the company", "key": "wide-long",
-      "reasoning": "Approvals route to nobody, reviews never launch, and reporting quietly misstates the org. No single event announces it, and each affected person assumes their case is an isolated glitch. Module 5's opening problem." }
+    {
+      "id": "t1",
+      "text": "A bulk effective-dated job-change load for a 400-person reorg, entered with the wrong effective date",
+      "key": "wide-long",
+      "reasoning": "The canonical example. It propagates to payroll, the carriers, and the identity provider before anyone reads a report, and the correction is itself a bulk change made under pressure. This is the quadrant, and it is where the automation pitch lives."
+    },
+    {
+      "id": "t2",
+      "text": "The nightly HCM-to-payroll integration fails and no records transfer",
+      "key": "wide-short",
+      "reasoning": "Wide and loud. Payroll not running is the most visible failure in the function, which is exactly why it gets monitored, alerted, and fixed. Bad, and not the one that should frighten you."
+    },
+    {
+      "id": "t3",
+      "text": "The benefits eligibility rule is wrong for part-time employees who cross the hours threshold mid-month",
+      "key": "wide-long",
+      "reasoning": "A population, silently, until someone's claim is denied or an audit samples the group. Encoded once, never revisited. Lesson 1's deferred decision with a statutory clock attached."
+    },
+    {
+      "id": "t4",
+      "text": "An employee's address change is keyed into the wrong field",
+      "key": "narrow-short",
+      "reasoning": "One person, and they tell you, usually within a day. Genuinely low stakes and the quadrant where most AI attention goes, which is the misallocation the module is pointing at."
+    },
+    {
+      "id": "t5",
+      "text": "A new hire's Form I-9 Section 2 is never completed",
+      "key": "narrow-long",
+      "reasoning": "One person, invisible until an audit or an enforcement action, potentially years. Small blast radius, worst possible forum, and no internal signal ever fires. Latency, not stakes, is what makes this dangerous."
+    },
+    {
+      "id": "t6",
+      "text": "The service-desk assistant gives a wrong answer about carryover limits to everyone who asks",
+      "key": "wide-long",
+      "reasoning": "The one people mis-sort as narrow because each conversation is with one person. It is a population failure delivered one employee at a time, and the ticket queue won't show it, satisfied employees who got a wrong answer don't come back. Module 4's territory."
+    },
+    {
+      "id": "t7",
+      "text": "A manager is granted a security role that lets them see compensation for their whole department",
+      "key": "wide-long",
+      "reasoning": "Reach is the population whose data is exposed, not the one person who got the role. Nothing breaks, nobody complains, and there is no event to detect: the exposure is silent by construction. Module 6 builds on exactly this.",
+      "also": [
+        "narrow-long"
+      ]
+    },
+    {
+      "id": "t8",
+      "text": "The termination-reason picklist has no option that fits, so the coordinator picks 'Other'",
+      "key": "wide-long",
+      "reasoning": "Looks like a data-entry nit. It is a decision made in an implementation workshop years ago, and it silently caps the quality of every future attrition analysis. Discovered, if ever, when someone asks a question the data can't answer."
+    },
+    {
+      "id": "t9",
+      "text": "A COBRA election notice goes out three weeks late for one departing employee",
+      "key": "narrow-long",
+      "reasoning": "One person, and the deadline passed before anyone counted days. Statutory, unforgiving, and characteristically discovered by the beneficiary or their lawyer rather than by you."
+    },
+    {
+      "id": "t10",
+      "text": "Single sign-on breaks for the HCM and nobody can log in",
+      "key": "wide-short",
+      "reasoning": "Everyone, instantly, loudly. The failure mode systems teams are best at, because it can't hide. Worth including precisely so the contrast with t1 and t3 is visible."
+    },
+    {
+      "id": "t11",
+      "text": "An AI-drafted offer letter states the wrong bonus target and the candidate signs it",
+      "key": "narrow-short",
+      "reasoning": "One person, and it surfaces fast: at the first paycheck, or when they ask. The card most people over-rate: the consequence is real and possibly contractual, but the detection is quick and the correction is bounded. Stakes and latency are different axes.",
+      "also": [
+        "narrow-long"
+      ]
+    },
+    {
+      "id": "t12",
+      "text": "Manager hierarchy is stale for 43 employees whose manager left the company",
+      "key": "wide-long",
+      "reasoning": "Approvals route to nobody, reviews never launch, and reporting quietly misstates the org. No single event announces it, and each affected person assumes their case is an isolated glitch. Module 5's opening problem."
+    }
   ],
-  "pattern": "The quadrant with the worst outcomes is the one with no signal — and it is where the automation pitch lives, because labour savings and blast radius have the same cause.",
-  "postscript": "Six of the twelve are wide-reach and long-latency, which is more than most people place there. The three that get mis-sorted most: **t6**, because a wrong answer feels like a one-person event when it is a population failure delivered one conversation at a time; **t7**, because reach is the population exposed rather than the person who got the role; and **t8**, because a picklist looks like data entry rather than a decision that caps every future analysis. If you sorted toward the short-latency buckets, you are trusting your detection more than your evidence supports — the useful follow-up is to ask, for each card you placed there, what specifically would have fired."
+  "pattern": "The quadrant with the worst outcomes is the one with no signal, and it is where the automation pitch lives, because labour savings and blast radius have the same cause.",
+  "postscript": "Six of the twelve are wide-reach and long-latency, which is more than most people place there. The three that get mis-sorted most: **t6**, because a wrong answer feels like a one-person event when it is a population failure delivered one conversation at a time; **t7**, because reach is the population exposed rather than the person who got the role; and **t8**, because a picklist looks like data entry rather than a decision that caps every future analysis. If you sorted toward the short-latency buckets, you're trusting your detection more than your evidence supports: the useful follow-up is to ask, for each card you placed there, what specifically would have fired."
 }

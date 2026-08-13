@@ -16,7 +16,7 @@
 *One prediction, thirty seconds.*
 
 **What share of employers do you think are currently operationalizing AI within their benefits
-programs?** Not experimenting, not planning — actually running it in production. Whole percent.
+programs?** Not experimenting, not planning, actually running it in production. Whole percent.
 
 Then, a second number: **what share do you think plan to within two years?**
 
@@ -28,7 +28,7 @@ something about which story you've been reading.
 ## Module brief
 
 You are the most skeptical function in HR about numbers, and the least skeptical about *the
-numbers in AI articles* — because those arrive in a register you don't audit. A compa-ratio gets
+numbers in AI articles*, because those arrive in a register you don't audit. A compa-ratio gets
 interrogated. A statistic in a thought-leadership piece about the future of total rewards gets
 absorbed.
 
@@ -41,8 +41,8 @@ The sleight is in the framing: *"total rewards is moving toward AI-driven pay de
 describes what one company shipped last quarter, presented as a current fact about the industry. And
 the reason this works on a numerate audience is that it never states a number you could check.
 
-So this module does two things. It gives you the actual adoption picture — which is less
-dramatic and more useful than the narrative — and it gives you a method for reading any claim in
+So this module does two things. It gives you the actual adoption picture (which is less
+dramatic and more useful than the narrative) and it gives you a method for reading any claim in
 this space, including the ones in this course. **We are asking you to apply the teardown to us
 too.** Where our figures come from a small sample or a vendor's own research, the modules say so.
 
@@ -54,12 +54,12 @@ By the end of this module you should be able to:
 2. Recognize a product roadmap presented as an industry trend, and name the three tells.
 3. Tear down any claim with three questions: what's the evidence, what's the sample, what would
    falsify it.
-4. Explain why market data was soft before AI touched it — and what AI changed about that.
+4. Explain why market data was soft before AI touched it, and what AI changed about that.
 5. Tear down a live claim from a vendor you currently pay.
 
 ## Lesson 1 · The adoption picture **[V]**
 
-The numbers, with their samples attached — because a module about reading evidence has to model
+The numbers, with their samples attached, because a module about reading evidence has to model
 it.
 
 **Benefits, specifically.** WTW's *2026 AI Use in Health and Benefits Survey* — 312 employers
@@ -93,7 +93,7 @@ The meta-lesson, and the transferable one.
 Three tells that a piece is a product roadmap in an industry trend's clothing:
 
 **The trend has no subject other than the vendor's product.** *"Compensation is becoming
-continuous rather than annual"* — who is doing this? How many? Since when? If the answer is "our
+continuous rather than annual"*, who is doing this? How many? Since when? If the answer is "our
 customers, in our product," you are reading a launch announcement. A real trend has practitioners
 in it who don't buy from the author.
 
@@ -104,7 +104,7 @@ collapse if you asked *how many*.
 
 **The problem being described was invented to fit the product.** The strongest version of this is
 subtle and effective: a piece establishes that your merit cycle produces inconsistent manager
-decisions — true — then proposes AI-driven recommendation as the fix, without ever asking whether
+decisions (true) then proposes AI-driven recommendation as the fix, without ever asking whether
 the inconsistency comes from bad guidance, bad training, or bad ranges. **The diagnosis is
 selected to make one cure obvious.**
 
@@ -116,14 +116,14 @@ one had to be dishonest for that to happen.
 
 > ### Try this — 3 minutes
 > Take the last "AI in comp" article you read. Find one sentence with an adjective-quantifier in
-> it — *leading, many, increasingly* — and ask what number would have to be true for it to hold.
+> it (*leading, many, increasingly*) and ask what number would have to be true for it to hold.
 > Then check whether the piece has an author affiliated with something being sold.
 
 ## Lesson 3 · The teardown
 
 Three questions. They take two minutes and they work on anything.
 
-**1. What's the evidence?** Not what's the claim — what observation supports it. A named study? A
+**1. What's the evidence?** Not what's the claim, what observation supports it. A named study? A
 customer's self-reported result? An internal analysis? A projection? The most common answer is
 that there is no evidence at all, only a plausible mechanism, and a plausible mechanism is a
 hypothesis wearing a conclusion's clothing.
@@ -134,7 +134,7 @@ be case studies are the ones for whom it worked.** A vendor with 400 customers a
 has told you something, and it is not what the case studies say.
 
 **3. What would falsify it?** If the claim is true, what would we see that we wouldn't otherwise?
-And has anyone looked? An unfalsifiable claim — "AI improves decision quality" — is not a finding.
+And has anyone looked? An unfalsifiable claim ("AI improves decision quality") is not a finding.
 It is a slogan with a chart next to it.
 
 **Apply it to us.** This course cites Gartner figures drawn from surveys of around 114 HR leaders,
@@ -164,7 +164,7 @@ real work in the number and is invisible by the time it reaches a band.
 
 **Submission quality.** Everyone's data goes in under deadline. Yours does too.
 
-None of this is new, and none of it is a reason to stop using market data — it remains the best
+None of this is new, and none of it is a reason to stop using market data. It remains the best
 available instrument. **What AI changed is the speed and confidence with which soft data becomes
 a presented conclusion.** You can now go from a thin cut to a formatted recommendation with a
 narrative in minutes, and every step of that pipeline makes the number look firmer than it is:
@@ -182,7 +182,7 @@ under the first informed question.
   module fixes.
 - **The real adoption picture** `[V]`: ~20% of employers operationalizing AI in benefits against
   ~72% planning to within two years, with 88% of HR leaders reporting no significant business
-  value yet. **A 52-point gap between practice and intention** — an industry that has decided to
+  value yet. **A 52-point gap between practice and intention**: an industry that has decided to
   transform, not one that has.
 - **Three tells of a roadmap wearing a trend:** the trend has no subject but the vendor's product;
   evidence is an anecdote scaled by an adjective; and the problem was selected to make one cure
@@ -193,7 +193,7 @@ under the first informed question.
   it. Sample is the sharpest, because case-study customers are the ones for whom it worked.
 - **Apply it to this course too.** Where our figures rest on small samples or self-selected
   respondents, the modules say so.
-- **Market data was soft before AI** — match quality, thin cuts, aging, submission pressure. What
+- **Market data was soft before AI**: match quality, thin cuts, aging, submission pressure. What
   changed is how fast soft data becomes a confident presented conclusion. **Carry the softness
   forward; it costs one sentence.**
 
@@ -204,7 +204,7 @@ industry trend's clothes."*
 
 The strongest counter-argument is that **vendors are often the only people who can see the trend
 first.** They sit across hundreds of customers and observe patterns before any survey captures
-them, so their roadmaps are frequently a *leading indicator* rather than a fiction — and a
+them, so their roadmaps are frequently a *leading indicator* rather than a fiction, and a
 function that dismisses vendor content as marketing will consistently learn about real shifts
 eighteen months late. On that view the answer is to read vendor material carefully rather than
 discount it. Your position has to engage that, because it's true often enough to matter.
@@ -215,27 +215,27 @@ discount it. Your position has to engage that, because it's true often enough to
 the rubric below.** Score doesn't matter. Doing the work is where the learning lands.
 
 **Step 1 — Pick a claim from a vendor you currently pay (3 min).** Not a hypothetical, and not a
-competitor's — someone whose invoice you approve. A capability claim, an ROI claim, or an
+competitor's, someone whose invoice you approve. A capability claim, an ROI claim, or an
 efficacy claim from their marketing, a QBR deck, or a renewal conversation. Quote it verbatim.
 
-**Step 2 — The three questions (12 min).** Evidence: what observation supports it, and where did
+**Step 2. The three questions (12 min).** Evidence: what observation supports it, and where did
 you have to look to find out? Sample: how many, of whom, when, selected how — and if the answer
 isn't published, say that, because **an unpublished sample is itself the finding**. Falsifier: what
 would we observe if the claim were false, and has anyone checked?
 
-**Step 3 — Score the claim (5 min).** One of three verdicts, and commit to one: **supported**
-(evidence and sample hold up), **unverifiable** (may be true, cannot be checked — which is not
+**Step 3. Score the claim (5 min).** One of three verdicts, and commit to one: **supported**
+(evidence and sample hold up), **unverifiable** (may be true, cannot be checked, which is not
 the same as false), or **unfalsifiable** (constructed so no observation could contradict it).
 
 **Step 4 — Write the question you'd ask them (3 min).** One question for your next renewal
 conversation, specific enough that the vendor could answer it and consequential enough that the
 answer would change something you do.
 
-**Step 5 — Score the prediction (2 min).** Your two adoption predictions against the figures in
+**Step 5. Score the prediction (2 min).** Your two adoption predictions against the figures in
 Lesson 1. Which direction did you lean, and what does that suggest about what you've been reading?
 
 Then the write-up: the claim, the verdict, your position on the claim above with its
-counter-argument addressed, and — the honest one — **whether this changes anything about the
+counter-argument addressed, and (the honest one) **whether this changes anything about the
 renewal.** A teardown that concludes the vendor is fine is a perfectly good outcome; a teardown
 that finds nothing because you didn't look hard is not.
 
@@ -246,7 +246,7 @@ that finds nothing because you didn't look hard is not.
 **Q1.** What do the benefits adoption figures actually describe? `[V]`
 
 - A. An industry that has largely completed its AI transition
-- B. Roughly 20% operationalizing against ~72% planning within two years — an industry that has decided to transform rather than one that has ✓
+- B. Roughly 20% operationalizing against ~72% planning within two years, an industry that has decided to transform rather than one that has ✓
 - C. An industry where adoption has stalled and intention is falling
 - D. Adoption concentrated in analytics rather than communication
 
@@ -261,13 +261,13 @@ that finds nothing because you didn't look hard is not.
 - C. The trend has no subject other than the vendor's product — "compensation is becoming continuous" with no answer to who, how many, or since when ✓
 - D. It appears in a trade publication rather than a peer-reviewed journal
 
-> **C.** A real trend has practitioners in it who aren't customers. A and B are the opposite —
-> they're what a credible piece looks like — and D confuses venue with rigor.
+> **C.** A real trend has practitioners in it who aren't customers. A and B are the opposite (
+> they're what a credible piece looks like) and D confuses venue with rigor.
 
 **Q3.** Why is "sample" the sharpest of the three teardown questions in comp-tech marketing?
 
 - A. Because sample sizes are usually too small to be statistically significant
-- B. Because the customers who agree to be case studies are the ones for whom it worked — so a vendor with 400 customers and 3 case studies has told you something other than what the case studies say ✓
+- B. Because the customers who agree to be case studies are the ones for whom it worked, so a vendor with 400 customers and 3 case studies has told you something other than what the case studies say ✓
 - C. Because vendors rarely disclose sample sizes at all
 - D. Because comp data samples are harder to construct than other HR data
 
@@ -277,7 +277,7 @@ that finds nothing because you didn't look hard is not.
 **Q4.** A vendor claims "AI improves compensation decision quality." What's the verdict, and why?
 
 - A. Supported, since decision quality improvement is well-established in the literature
-- B. Unverifiable — it may be true but no published evidence exists
+- B. Unverifiable. It may be true but no published evidence exists
 - C. Unfalsifiable — no observation could contradict it as stated, so it's a slogan rather than a finding ✓
 - D. Supported, provided the vendor can produce a customer reference
 
@@ -288,7 +288,7 @@ that finds nothing because you didn't look hard is not.
 **Q5.** Why does the module say the public literature skews even when nobody is dishonest?
 
 - A. Because journalists lack the expertise to evaluate comp-tech claims
-- B. Because nobody is funded to tell you your existing process is mostly fine — consultancies sell engagements, vendors sell products, and ambiguous results don't get published ✓
+- B. Because nobody is funded to tell you your existing process is mostly fine: consultancies sell engagements, vendors sell products, and ambiguous results don't get published ✓
 - C. Because negative findings are suppressed by vendors before publication
 - D. Because trade publications depend on vendor advertising revenue
 
@@ -309,7 +309,7 @@ that finds nothing because you didn't look hard is not.
 
 - A. It made the underlying data less reliable
 - B. It made matching more accurate, reducing the softness
-- C. The speed and confidence with which soft data becomes a presented conclusion — prose sounds firmer than a table, a chart firmer than prose, a recommendation firmer than a chart ✓
+- C. The speed and confidence with which soft data becomes a presented conclusion: prose sounds firmer than a table, a chart firmer than prose, a recommendation firmer than a chart ✓
 - D. Nothing — the data pipeline is unchanged
 
 > **C.** The data is exactly as soft as it was; the distance from thin cut to confident
@@ -319,13 +319,13 @@ that finds nothing because you didn't look hard is not.
 **Q8.** What's the strongest counter-argument to this module's claim about vendor content?
 
 - A. That vendors are legally required to substantiate marketing claims
-- B. That vendors sit across hundreds of customers and often see real shifts before any survey captures them — so a function that discounts their content learns about genuine changes late ✓
+- B. That vendors sit across hundreds of customers and often see real shifts before any survey captures them, so a function that discounts their content learns about genuine changes late ✓
 - C. That most vendor content is written by independent analysts
 - D. That practitioners have no better source of information available
 
 > **B.** It's strongest because it's frequently true: the roadmap can be a leading indicator
 > rather than a fiction. The right response is to read vendor material carefully, not to discount
-> it — which is a different conclusion from the module's and has to be argued against on its
+> it, which is a different conclusion from the module's and has to be argued against on its
 > merits.
 
 ## Sources and attribution

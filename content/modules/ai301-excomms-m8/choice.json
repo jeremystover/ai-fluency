@@ -1,7 +1,7 @@
 {
   "reviewedAt": "2026-08-12",
   "title": "Four exchanges, one the assistant should never have answered",
-  "intro": "*Five minutes. Commit before you look.*\n\nFour real-shaped exchanges with an employee-facing assistant. In each, the assistant's answer is accurate — no fabrications, no stale pages, nothing factually wrong.\n\n**One of them is a failure anyway, and the accuracy is what makes it one.** Find it.\n\nDon't ask which answer is wrong. Ask what the employee was actually doing by typing that.",
+  "intro": "*Five minutes. Commit before you look.*\n\nFour real-shaped exchanges with an employee-facing assistant. In each, the assistant's answer is accurate: no fabrications, no stale pages, nothing factually wrong.\n\n**One of them is a failure anyway, and the accuracy is what makes it one.** Find it.\n\nDon't ask which answer is wrong. Ask what the employee was actually doing by typing that.",
   "artifacts": [
     {
       "label": "Exchange A · 11:40pm, Tuesday",
@@ -13,19 +13,31 @@
     },
     {
       "label": "Exchange C · 2:05pm, Thursday",
-      "body": "**Employee:** *how many holiday days do I have left*\n\n**Assistant:** \"I can't see your individual balance — that's in the leave system rather than something I have access to. You can check it at people.portal/leave, and if the balance looks wrong, the People Operations team can correct it. Would you like me to explain how carryover works in general?\"\n\n*Refuses the individual question, points to the system of record, offers the general version.*"
+      "body": "**Employee:** *how many holiday days do I have left*\n\n**Assistant:** \"I can't see your individual balance. That's in the leave system rather than something I have access to. You can check it at people.portal/leave, and if the balance looks wrong, the People Operations team can correct it. Would you like me to explain how carryover works in general?\"\n\n*Refuses the individual question, points to the system of record, offers the general version.*"
     },
     {
       "label": "Exchange D · 6:50pm, Friday",
-      "body": "**Employee:** *is the new medical plan going to cover my existing prescriptions*\n\n**Assistant:** \"The new plan's formulary is broader than the previous one, and most maintenance medications carried over. I can't confirm coverage for specific prescriptions — that depends on the formulary tier and your plan selection. Sarah Chen in Benefits can check a specific medication for you, and I can send her your question with what you've asked so far if you'd like.\"\n\n*Declines the individual determination and offers a warm handoff with context.*"
+      "body": "**Employee:** *is the new medical plan going to cover my existing prescriptions*\n\n**Assistant:** \"The new plan's formulary is broader than the previous one, and most maintenance medications carried over. I can't confirm coverage for specific prescriptions. That depends on the formulary tier and your plan selection. Sarah Chen in Benefits can check a specific medication for you, and I can send her your question with what you've asked so far if you'd like.\"\n\n*Declines the individual determination and offers a warm handoff with context.*"
     }
   ],
   "options": [
-    { "id": "a", "label": "A — resignation notice period" },
-    { "id": "b", "label": "B — comments about appearance" },
-    { "id": "c", "label": "C — holiday balance" },
-    { "id": "d", "label": "D — prescription coverage" }
+    {
+      "id": "a",
+      "label": "A — resignation notice period"
+    },
+    {
+      "id": "b",
+      "label": "B — comments about appearance"
+    },
+    {
+      "id": "c",
+      "label": "C — holiday balance"
+    },
+    {
+      "id": "d",
+      "label": "D — prescription coverage"
+    }
   ],
   "key": "b",
-  "reasoning": "**B is the failure, and every good property of that answer is part of why.**\n\nRead what the employee was doing. That is not a policy query. It is a person, at 8:15 on a Monday morning, probably after weeks of working up to it, testing whether this organization is safe to tell. The question is a bid for contact. **Answering it competently is how you miss it.**\n\nAnd then look at what happened next: nothing. No case exists. Nobody was alerted. There is no record that anyone asked. The employee received a well-formatted summary of the complaints procedure and the moment closed — and the organization's first knowledge of the matter will now arrive much later, through a channel that is much more expensive for everyone including the employee.\n\nThe accuracy is the trap. A wrong answer here would have been *better*, because a wrong answer produces a complaint, and a complaint produces a human. This answer is flawless and it converted a disclosure into a resolved ticket.\n\nWhat should have happened is shorter and warmer: acknowledge, name a person, offer to pass it on with what they've written, and stop. **The correct response to a disclosure is not a policy summary**, and every additional helpful sentence is another reason for the employee to feel the matter has been dealt with.\n\n**A is fine, and it's worth noticing why it isn't B.** Resignation intent is on the module's watchlist, and a person asking about notice periods at 11:40pm may well be leaving. But nothing is being disclosed and nothing is being risked — the question is genuinely informational, the answer is genuinely useful, and flagging it to a manager would be surveillance rather than support. **Not every sensitive-sounding question is a disclosure**, and a refusal list that catches this one is over-broad.\n\n**C is the reference implementation for individual-case refusal.** It declines the personal determination, points at the system of record, names who fixes errors, and offers the general version — which keeps the interaction useful instead of dead-ending it.\n\n**D is the best answer in the set.** It refuses an individual medical determination, names a specific human rather than a queue, and — the part most deployments skip — **offers to carry the context forward** so the employee doesn't retype what they already typed. That is escalation design working exactly as Lesson 3 describes it."
+  "reasoning": "**B is the failure, and every good property of that answer is part of why.**\n\nRead what the employee was doing. That isn't a policy query. It is a person, at 8:15 on a Monday morning, probably after weeks of working up to it, testing whether this organization is safe to tell. The question is a bid for contact. **Answering it competently is how you miss it.**\n\nAnd then look at what happened next: nothing. No case exists. Nobody was alerted. There is no record that anyone asked. The employee received a well-formatted summary of the complaints procedure and the moment closed, and the organization's first knowledge of the matter will now arrive much later, through a channel that is much more expensive for everyone including the employee.\n\nThe accuracy is the trap. A wrong answer here would have been *better*, because a wrong answer produces a complaint, and a complaint produces a human. This answer is flawless and it converted a disclosure into a resolved ticket.\n\nWhat should have happened is shorter and warmer: acknowledge, name a person, offer to pass it on with what they've written, and stop. **The correct response to a disclosure is not a policy summary**, and every additional helpful sentence is another reason for the employee to feel the matter has been dealt with.\n\n**A is fine, and it's worth noticing why it is not B.** Resignation intent is on the module's watchlist, and a person asking about notice periods at 11:40pm may well be leaving. But nothing is being disclosed and nothing is being risked, the question is genuinely informational, the answer is genuinely useful, and flagging it to a manager would be surveillance rather than support. **Not every sensitive-sounding question is a disclosure**, and a refusal list that catches this one is over-broad.\n\n**C is the reference implementation for individual-case refusal.** It declines the personal determination, points at the system of record, names who fixes errors, and offers the general version — which keeps the interaction useful instead of dead-ending it.\n\n**D is the best answer in the set.** It refuses an individual medical determination, names a specific human rather than a queue, and (the part most deployments skip) **offers to carry the context forward** so the employee doesn't retype what they already typed. That is escalation design working exactly as Lesson 3 describes it."
 }

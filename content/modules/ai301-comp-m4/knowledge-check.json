@@ -37,7 +37,7 @@
         "That the analysis was correctly specified"
       ],
       "correctIndex": 1,
-      "explanation": "The model isn't wrong; it's answering something narrower than people will hear. **\"Explained\" variance is a modeling decision with fairness consequences, not a statistical fact** — and \"legitimate\" was defined by whoever chose the control set."
+      "explanation": "The model isn't wrong; it's answering something narrower than people will hear. **\"Explained\" variance is a modeling decision with fairness consequences, not a statistical fact**, and \"legitimate\" was defined by whoever chose the control set."
     },
     {
       "id": "q4",
@@ -49,7 +49,7 @@
         "That any AI vendor be a named plan fiduciary"
       ],
       "correctIndex": 2,
-      "explanation": "B is half-right and misleads — the absence of an AI-specific rule is not an absence of obligation. Prudence, loyalty, monitoring and the exclusive benefit rule do the work, and courts examine *how* you decided, which makes the process record the asset."
+      "explanation": "B is half-right and misleads: the absence of an AI-specific rule is not an absence of obligation. Prudence, loyalty, monitoring and the exclusive benefit rule do the work, and courts examine *how* you decided, which makes the process record the asset."
     },
     {
       "id": "q5",

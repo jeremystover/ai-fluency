@@ -1,22 +1,93 @@
 {
   "reviewedAt": "2026-08-12",
   "buckets": [
-    { "id": "dont", "label": "Don't run it", "hint": "Over the line", "rank": 0, "pct": 5 },
-    { "id": "audit", "label": "Only with the audit", "hint": "In scope — audited, noticed, documented", "rank": 1, "pct": 50 },
-    { "id": "run", "label": "Run it", "hint": "Ordinary care", "rank": 2, "pct": 90 }
+    {
+      "id": "dont",
+      "label": "Don't run it",
+      "hint": "Over the line",
+      "rank": 0,
+      "pct": 5
+    },
+    {
+      "id": "audit",
+      "label": "Only with the audit",
+      "hint": "In scope: audited, noticed, documented",
+      "rank": 1,
+      "pct": 50
+    },
+    {
+      "id": "run",
+      "label": "Run it",
+      "hint": "Ordinary care",
+      "rank": 2,
+      "pct": 90
+    }
   ],
   "tasks": [
-    { "id": "t1", "text": "Your ATS's \"recommended candidates\" panel, which reorders the review queue", "key": "audit", "reasoning": "The card most people get wrong. It doesn't reject anyone, so it feels benign — but it substantially assists the decision by determining who gets looked at first, and in practice who gets looked at at all. Squarely in scope under a make-or-substantially-assist definition." },
-    { "id": "t2", "text": "Drafting a job description from the intake scorecard", "key": "run", "reasoning": "No candidate exists yet and nothing is being screened. Ordinary care — check it for proxy requirements per Module 3, but this is not a decision tool." },
-    { "id": "t3", "text": "Emotion or sentiment inference from recorded interview video", "key": "dont", "reasoning": "Prohibited outright in the EU workplace since February 2025, and that ban did not move with the high-risk deferral. Even outside the EU, it's a characterization of a person from a signal with no established validity — 101 M7's line and Module 4's evidence both say no." },
-    { "id": "t4", "text": "Summarizing five interview scorecards into a debrief packet", "key": "run", "reasoning": "Transformation of material humans wrote, with the judgments already made. Assist-side and genuinely useful — the panel still decides, and nothing new is being scored." },
-    { "id": "t5", "text": "A vendor's résumé-matching score used to auto-advance the top 20%", "key": "audit", "reasoning": "An automated employment decision tool in the plainest sense: it screens, it ranks, and the 80% below the cut are decided about by a system nobody reviewed. Needs the audit, the notice, and the deployer named — and if the vendor can't produce validation evidence, it needs a different verdict.", "also": ["dont"] },
-    { "id": "t6", "text": "Scheduling interviews and sending logistics reminders", "key": "run", "reasoning": "Coordination with no judgment about a person. The clearest run-it card, and where automation belongs — Module 2's throughput tier." },
-    { "id": "t7", "text": "AI-detection scoring that routes suspected AI-written applications to a low-priority queue", "key": "dont", "reasoning": "Module 1's argument arriving with a legal consequence attached: a screening criterion with predictable disparate impact, no published error rate, and no validation study. It's an automated employment decision tool that would fail an audit it has never had." },
-    { "id": "t8", "text": "Transcribing interviews so debriefs can be written from the record", "key": "run", "reasoning": "Capture, not judgment — and Module 5's foundation. Notice and consent obligations for recording apply, which are ordinary employment practice rather than AI-specific." },
-    { "id": "t9", "text": "A chatbot that asks screening questions and advances candidates who answer correctly", "key": "audit", "reasoning": "Named explicitly in bias-audit regimes as an assessment tool. High-volume hourly teams run these effectively and legitimately — with the audit, the notice, and a documented answer key someone can defend as job-related." },
-    { "id": "t10", "text": "Analysing your own funnel's pass-through rates by group to find where exclusion happens", "key": "run", "reasoning": "The inverse of the others: analysis *about* the process rather than a decision about a candidate, run to detect adverse impact rather than to cause it. This is what the module is teaching you to do — though Lesson 2's privilege note means it's worth asking counsel how to structure it before you commission a formal version." }
+    {
+      "id": "t1",
+      "text": "Your ATS's \"recommended candidates\" panel, which reorders the review queue",
+      "key": "audit",
+      "reasoning": "The card most people get wrong. It doesn't reject anyone, so it feels benign, but it substantially assists the decision by determining who gets looked at first, and in practice who gets looked at at all. Squarely in scope under a make-or-substantially-assist definition."
+    },
+    {
+      "id": "t2",
+      "text": "Drafting a job description from the intake scorecard",
+      "key": "run",
+      "reasoning": "No candidate exists yet and nothing is being screened. Ordinary care: check it for proxy requirements per Module 3, but this is not a decision tool."
+    },
+    {
+      "id": "t3",
+      "text": "Emotion or sentiment inference from recorded interview video",
+      "key": "dont",
+      "reasoning": "Prohibited outright in the EU workplace since February 2025, and that ban did not move with the high-risk deferral. Even outside the EU, it's a characterization of a person from a signal with no established validity — 101 M7's line and Module 4's evidence both say no."
+    },
+    {
+      "id": "t4",
+      "text": "Summarizing five interview scorecards into a debrief packet",
+      "key": "run",
+      "reasoning": "Transformation of material humans wrote, with the judgments already made. Assist-side and genuinely useful: the panel still decides, and nothing new is being scored."
+    },
+    {
+      "id": "t5",
+      "text": "A vendor's résumé-matching score used to auto-advance the top 20%",
+      "key": "audit",
+      "reasoning": "An automated employment decision tool in the plainest sense: it screens, it ranks, and the 80% below the cut are decided about by a system nobody reviewed. Needs the audit, the notice, and the deployer named, and if the vendor can't produce validation evidence, it needs a different verdict.",
+      "also": [
+        "dont"
+      ]
+    },
+    {
+      "id": "t6",
+      "text": "Scheduling interviews and sending logistics reminders",
+      "key": "run",
+      "reasoning": "Coordination with no judgment about a person. The clearest run-it card, and where automation belongs. Module 2's throughput tier."
+    },
+    {
+      "id": "t7",
+      "text": "AI-detection scoring that routes suspected AI-written applications to a low-priority queue",
+      "key": "dont",
+      "reasoning": "Module 1's argument arriving with a legal consequence attached: a screening criterion with predictable disparate impact, no published error rate, and no validation study. It's an automated employment decision tool that would fail an audit it has never had."
+    },
+    {
+      "id": "t8",
+      "text": "Transcribing interviews so debriefs can be written from the record",
+      "key": "run",
+      "reasoning": "Capture, not judgment, and Module 5's foundation. Notice and consent obligations for recording apply, which are ordinary employment practice rather than AI-specific."
+    },
+    {
+      "id": "t9",
+      "text": "A chatbot that asks screening questions and advances candidates who answer correctly",
+      "key": "audit",
+      "reasoning": "Named explicitly in bias-audit regimes as an assessment tool. High-volume hourly teams run these effectively and legitimately, with the audit, the notice, and a documented answer key someone can defend as job-related."
+    },
+    {
+      "id": "t10",
+      "text": "Analysing your own funnel's pass-through rates by group to find where exclusion happens",
+      "key": "run",
+      "reasoning": "The inverse of the others: analysis *about* the process rather than a decision about a candidate, run to detect adverse impact rather than to cause it. This is what the module is teaching you to do, though Lesson 2's privilege note means it's worth asking counsel how to structure it before you commission a formal version."
+    }
   ],
-  "pattern": "The question is never how clever the tool is — it's whether it screens, ranks or filters a person, and whether you could show it's fair.",
-  "postscript": "The audit cards all share one property: a system that decides who gets seen. Note t1 especially — reordering a queue feels like convenience and functions as selection, which is why 'substantially assists' is the phrase regulators reached for. The don't cards fail on validity as much as legality: emotion inference and AI detection are both characterizations of people with no published error rate. And t10 is the one to notice — the same statistical machinery that makes a tool dangerous makes your own funnel auditable, which is the whole point of Lesson 3."
+  "pattern": "The question is never how clever the tool is. It's whether it screens, ranks or filters a person, and whether you could show it's fair.",
+  "postscript": "The audit cards all share one property: a system that decides who gets seen. Note t1 especially, reordering a queue feels like convenience and functions as selection, which is why 'substantially assists' is the phrase regulators reached for. The don't cards fail on validity as much as legality: emotion inference and AI detection are both characterizations of people with no published error rate. And t10 is the one to notice, the same statistical machinery that makes a tool dangerous makes your own funnel auditable, which is the whole point of Lesson 3."
 }

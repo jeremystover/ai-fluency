@@ -848,7 +848,7 @@
       "courseId": "ai301-excomms",
       "ordinal": 5,
       "title": "The review discipline",
-      "blurb": "Verify is newly expensive, and the review step most teams deleted is the one that was load-bearing.",
+      "blurb": "Verify is newly expensive, and the review step most teams deleted is the one that was holding something up.",
       "status": "open",
       "estMinutes": 25,
       "prereqs": [
@@ -975,7 +975,7 @@
       "id": "ai301-defensible-m5",
       "courseId": "ai301-defensible",
       "ordinal": 5,
-      "title": "Make yourself load-bearing",
+      "title": "Make yourself hard to route around",
       "blurb": "Restructuring is cover; relabeling isn't. The capability is what survives the politics.",
       "status": "open",
       "estMinutes": 25,
@@ -1065,7 +1065,7 @@
       "courseId": "ai401",
       "ordinal": 1,
       "title": "Load paths",
-      "blurb": "The thesis: AI lowers the cost of individual production and raises the cost of collective coherence. Cultural debt, load-bearing versus decorative — and why the structures most likely to be load-bearing are the ones nobody designed. Names the unit the next nine modules thread.",
+      "blurb": "The thesis: AI lowers the cost of individual production and raises the cost of collective coherence. Cultural debt, what holds weight versus what only looks like it — and why the structures most likely to be holding something up are the ones nobody designed. Names the unit the next nine modules thread.",
       "status": "open",
       "estMinutes": 20,
       "prereqs": [],
@@ -1250,7 +1250,7 @@
       "id": "ai301-defensible",
       "title": "AI 301 · The Specialist — Defensible by Design",
       "level": "L3 → L4",
-      "blurb": "Adverse impact testing, algorithmic fairness and AEDT governance. Your exposure relocated to discovery, and the capability that makes you load-bearing is technical, not titular.",
+      "blurb": "Adverse impact testing, algorithmic fairness and AEDT governance. Your exposure relocated to discovery, and the capability that makes you structural is technical, not titular.",
       "status": "open"
     },
     {

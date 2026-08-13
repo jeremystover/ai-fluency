@@ -4,8 +4,8 @@
   "minWords": 250,
   "maxWords": 350,
   "submitLabel": "Your estimate table and write-up",
-  "intro": "Paste your estimate table (any readable format) followed by the 250–350 word write-up. Resubmission is free and unlimited — the score is a mirror, not a gate.",
-  "activityContext": "You are grading a learner submission for an AI fluency course for People leaders (AI 101, The Foundation). Module 3 applied activity, 'Size One Use Case': one recurring task from their own function, sized end to end — the unit of work defined, tokens estimated with visible arithmetic (word count × 1.3, input and output, runs per month), priced two ways (metered at a named current per-token price with date, and as a share of a per-seat subscription), a human review-time line with a named reviewer, and a comparison against the gut prediction made before the module. A numeric prediction may have been captured by the module's opening calibration prompt; grade the calibration dimension on whether the prediction is stated and honestly compared, never on its accuracy. Order-of-magnitude reasoning with round numbers is the goal; false precision is not.",
+  "intro": "Paste your estimate table (any readable format) followed by the 250–350 word write-up. Resubmission is free and unlimited: the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for an AI fluency course for People leaders (AI 101, The Foundation). Module 3 applied activity, 'Size One Use Case': one recurring task from their own function, sized end to end, the unit of work defined, tokens estimated with visible arithmetic (word count × 1.3, input and output, runs per month), priced two ways (metered at a named current per-token price with date, and as a share of a per-seat subscription), a human review-time line with a named reviewer, and a comparison against the gut prediction made before the module. A numeric prediction may have been captured by the module's opening calibration prompt; grade the calibration dimension on whether the prediction is stated and honestly compared, never on its accuracy. Order-of-magnitude reasoning with round numbers is the goal; false precision is not.",
   "opening": [
     {
       "key": "monthlyCost",
@@ -30,15 +30,15 @@
   "dimensions": [
     {
       "name": "The unit is real",
-      "criteria": "A genuine recurring task from their own function, with one run defined concretely — input and output described specifically enough that someone else could recognize a run. Invented or generic tasks score low."
+      "criteria": "A genuine recurring task from their own function, with one run defined concretely, input and output described specifically enough that someone else could recognize a run. Invented or generic tasks score low."
     },
     {
       "name": "Arithmetic shown",
-      "criteria": "Token estimates built from visible reasoning (word counts, the ×1.3 rule, runs per month), input and output both counted, and everything the model must see included — instructions and examples, not just the document. Round numbers with reasoning outscore precise numbers without it."
+      "criteria": "Token estimates built from visible reasoning (word counts, the ×1.3 rule, runs per month), input and output both counted, and everything the model must see included: instructions and examples, not just the document. Round numbers with reasoning outscore precise numbers without it."
     },
     {
       "name": "Both pricings, compared",
-      "criteria": "Metered pricing uses a named model and a dated price; the per-seat framing names whose seat and a plausible share. One sentence commits to which structure fits this task's usage shape and why — steady, spiky, or sensitive."
+      "criteria": "Metered pricing uses a named model and a dated price; the per-seat framing names whose seat and a plausible share. One sentence commits to which structure fits this task's usage shape and why: steady, spiky, or sensitive."
     },
     {
       "name": "The human line and the verdict",

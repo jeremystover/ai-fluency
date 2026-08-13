@@ -1,19 +1,79 @@
 {
   "reviewedAt": "2026-08-07",
   "buckets": [
-    { "id": "sample", "label": "Spot-check sample", "hint": "A fixed slice against source — catches erosion", "rank": 0, "pct": 50 },
-    { "id": "trace", "label": "Trace to source", "hint": "Every claim to its artifact — catches fabrication", "rank": 0, "pct": 50 },
-    { "id": "adversarial", "label": "Adversarial read", "hint": "Read as its strongest critic — catches slant", "rank": 0, "pct": 50 },
-    { "id": "diff", "label": "Diff the standard", "hint": "Against the gold standard — catches drift", "rank": 0, "pct": 50 }
+    {
+      "id": "sample",
+      "label": "Spot-check sample",
+      "hint": "A fixed slice against source, catches erosion",
+      "rank": 0,
+      "pct": 50
+    },
+    {
+      "id": "trace",
+      "label": "Trace to source",
+      "hint": "Every claim to its artifact, catches fabrication",
+      "rank": 0,
+      "pct": 50
+    },
+    {
+      "id": "adversarial",
+      "label": "Adversarial read",
+      "hint": "Read as its strongest critic, catches slant",
+      "rank": 0,
+      "pct": 50
+    },
+    {
+      "id": "diff",
+      "label": "Diff the standard",
+      "hint": "Against the gold standard, catches drift",
+      "rank": 0,
+      "pct": 50
+    }
   ],
   "tasks": [
-    { "id": "t1", "text": "Forty rewritten job postings, batch-produced monthly", "key": "sample", "reasoning": "Volume transformation, low stakes, erosion failure — budget: light. Three per batch against source, classified. Full reads here are the budget-killer from Lesson 1." },
-    { "id": "t2", "text": "The exec survey narrative, quoting counts by office", "key": "trace", "also": ["adversarial"], "reasoning": "Every count and concentration to the theme table (minutes, thanks to M3), then the critic's pass — this is the Denver scenario's home ground. Trace or adversarial as primary is defensible either way; the indefensible answer is 'sample' — you don't sample the one narrative leadership acts on. Budget: standard, plus the adversarial read." },
-    { "id": "t3", "text": "A benefits FAQ produced weekly from the plan summary", "key": "sample", "reasoning": "Volume-ish and pack-driven, but benefits errors reach real people's decisions — the sample runs weekly, any invented finding triggers a full pass, and drift-diff joins the rotation monthly. Budget: standard." },
-    { "id": "t4", "text": "A change note claiming \"this complies with the new state leave law\"", "key": "trace", "reasoning": "Trace, full — by a human, to the actual text. A compliance claim is never sampled and never delegated to the model's memory of the law. If the workflow routinely produces sentences like this, its scope is wrong, not just its verification." },
-    { "id": "t5", "text": "The interview evidence packet for tomorrow's debrief", "key": "trace", "reasoning": "Every claim to your notes, every gap confirmed as flagged-not-filled. Adjacent to a decision about people, so the budget is structured full review — and the M1 line (evidence, no verdicts) is part of what you're verifying." },
-    { "id": "t6", "text": "This week's newsletter, drafted from your bullets", "key": "diff", "also": ["sample"], "reasoning": "Lowest stakes on the board; the real risk is drift from the definition of done — budget: light. A light sample is also fine. What it must not consume is the budget the packet and the compliance claim need." }
+    {
+      "id": "t1",
+      "text": "Forty rewritten job postings, batch-produced monthly",
+      "key": "sample",
+      "reasoning": "Volume transformation, low stakes, erosion failure, budget: light. Three per batch against source, classified. Full reads here are the budget-killer from Lesson 1."
+    },
+    {
+      "id": "t2",
+      "text": "The exec survey narrative, quoting counts by office",
+      "key": "trace",
+      "also": [
+        "adversarial"
+      ],
+      "reasoning": "Every count and concentration to the theme table (minutes, thanks to M3), then the critic's pass. This is the Denver scenario's home ground. Trace or adversarial as primary is defensible either way; the indefensible answer is 'sample'. You don't sample the one narrative leadership acts on. Budget: standard, plus the adversarial read."
+    },
+    {
+      "id": "t3",
+      "text": "A benefits FAQ produced weekly from the plan summary",
+      "key": "sample",
+      "reasoning": "Volume-ish and pack-driven, but benefits errors reach real people's decisions: the sample runs weekly, any invented finding triggers a full pass, and drift-diff joins the rotation monthly. Budget: standard."
+    },
+    {
+      "id": "t4",
+      "text": "A change note claiming \"this complies with the new state leave law\"",
+      "key": "trace",
+      "reasoning": "Trace, full: by a human, to the actual text. A compliance claim is never sampled and never delegated to the model's memory of the law. If the workflow routinely produces sentences like this, its scope is wrong, not just its verification."
+    },
+    {
+      "id": "t5",
+      "text": "The interview evidence packet for tomorrow's debrief",
+      "key": "trace",
+      "reasoning": "Every claim to your notes, every gap confirmed as flagged-not-filled. Adjacent to a decision about people, so the budget is structured full review, and the M1 line (evidence, no verdicts) is part of what you're verifying."
+    },
+    {
+      "id": "t6",
+      "text": "This week's newsletter, drafted from your bullets",
+      "key": "diff",
+      "also": [
+        "sample"
+      ],
+      "reasoning": "Lowest stakes on the board; the real risk is drift from the definition of done, budget: light. A light sample is also fine. What it must not consume is the budget the packet and the compliance claim need."
+    }
   ],
   "pattern": "Spend where failure is invisible or touches people; save where failure is cosmetic and loud.",
-  "postscript": "Two of the six were designed to be argued about — the narrative and the newsletter score for either defensible answer. And if your instinct on all six was one flat level of effort, that's the exercise's real target: a flat budget is a default, not a design."
+  "postscript": "Two of the six were designed to be argued about: the narrative and the newsletter score for either defensible answer. And if your instinct on all six was one flat level of effort, that's the exercise's real target: a flat budget is a default, not a design."
 }

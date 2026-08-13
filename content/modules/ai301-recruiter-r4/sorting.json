@@ -1,22 +1,96 @@
 {
   "reviewedAt": "2026-08-12",
   "buckets": [
-    { "id": "free", "label": "Free", "hint": "A tool produces it in minutes", "rank": 0, "pct": 10 },
-    { "id": "cheap", "label": "Cheap", "hint": "Some effort, fully preparable", "rank": 1, "pct": 45 },
-    { "id": "expensive", "label": "Expensive", "hint": "Time, presence, or real specificity", "rank": 2, "pct": 90 }
+    {
+      "id": "free",
+      "label": "Free",
+      "hint": "A tool produces it in minutes",
+      "rank": 0,
+      "pct": 10
+    },
+    {
+      "id": "cheap",
+      "label": "Cheap",
+      "hint": "Some effort, fully preparable",
+      "rank": 1,
+      "pct": 45
+    },
+    {
+      "id": "expensive",
+      "label": "Expensive",
+      "hint": "Time, presence, or real specificity",
+      "rank": 2,
+      "pct": 90
+    }
   ],
   "tasks": [
-    { "id": "t1", "text": "A cover letter tailored to your company's mission and recent announcements", "key": "free", "reasoning": "The canonical collapsed signal. It used to mean forty minutes of attention; it now means someone pasted your careers page into a chat window. Nothing about it got worse — it got free." },
-    { "id": "t2", "text": "A forty-minute live working session on a problem the candidate hasn't seen, with follow-ups", "key": "expensive", "reasoning": "Time that can't be compressed, presence that must be supplied, and a conversation that branches on what they just said. The single highest-leverage change available to most loops." },
-    { "id": "t3", "text": "A take-home case study submitted as a polished document", "key": "free", "reasoning": "Four hours or four minutes depending entirely on tooling — and you cannot tell which from the artifact. Keep the take-home if you like, but its function has to change to material for a live defence.", "also": ["cheap"] },
-    { "id": "t4", "text": "Three follow-up questions deep on a project they described", "key": "expensive", "reasoning": "Prepared answers survive the first question and fall apart on the third. The second-order details — what broke, who disagreed, what they'd change — were never written down anywhere, so there's nothing to generate from. Costs nothing to implement." },
-    { "id": "t5", "text": "Years of relevant experience on the résumé", "key": "cheap", "reasoning": "Not free — the years are usually real and checkable — but near the bottom of the corrected validity table, and mostly a proxy for something the hiring manager hasn't articulated. Cheap in signal, not in fabrication." },
-    { "id": "t6", "text": "A portfolio of past work, submitted as files", "key": "cheap", "reasoning": "The work is often genuine, but attribution isn't verifiable from the artifact and the framing around it is free. Becomes expensive the moment you ask them to walk through a decision inside it — same artifact, different instrument.", "also": ["free"] },
-    { "id": "t7", "text": "Employment dates confirmed with the former employer", "key": "expensive", "reasoning": "Verification of fact through an official channel — legitimate, always was, and genuinely hard to fake. Note this is a different activity from detecting tool use, which is the distinction Lesson 4 exists to draw." },
-    { "id": "t8", "text": "A well-structured answer to 'tell me about a time you handled conflict'", "key": "free", "reasoning": "The most prepared-for question in existence, now generatable in seconds and previously rehearsable anyway. It survives only as a setup for follow-ups; scored on its own it measures preparation for interviews." },
-    { "id": "t9", "text": "A referral from someone who worked with them directly", "key": "expensive", "reasoning": "Requires another person's sustained involvement and reputational stake — the definition of expensive. Worth noting the trade: referrals are the strongest cheap signal you have and also the most reliable way to reproduce the composition of your existing team." },
-    { "id": "t10", "text": "Correct, idiomatic written English in the application", "key": "free", "reasoning": "Free, uninformative, and actively harmful to score — rewarding it selects for tool access, and penalizing its absence is where detection's disparate impact enters. This is the card the module most wants you to stop scoring." }
+    {
+      "id": "t1",
+      "text": "A cover letter tailored to your company's mission and recent announcements",
+      "key": "free",
+      "reasoning": "The canonical collapsed signal. It used to mean forty minutes of attention; it now means someone pasted your careers page into a chat window. Nothing about it got worse. It got free."
+    },
+    {
+      "id": "t2",
+      "text": "A forty-minute live working session on a problem the candidate hasn't seen, with follow-ups",
+      "key": "expensive",
+      "reasoning": "Time that can't be compressed, presence that must be supplied, and a conversation that branches on what they just said. The single highest-leverage change available to most loops."
+    },
+    {
+      "id": "t3",
+      "text": "A take-home case study submitted as a polished document",
+      "key": "free",
+      "reasoning": "Four hours or four minutes depending entirely on tooling, and you cannot tell which from the artifact. Keep the take-home if you like, but its function has to change to material for a live defence.",
+      "also": [
+        "cheap"
+      ]
+    },
+    {
+      "id": "t4",
+      "text": "Three follow-up questions deep on a project they described",
+      "key": "expensive",
+      "reasoning": "Prepared answers survive the first question and fall apart on the third. The second-order details (what broke, who disagreed, what they'd change) were never written down anywhere, so there's nothing to generate from. Costs nothing to implement."
+    },
+    {
+      "id": "t5",
+      "text": "Years of relevant experience on the résumé",
+      "key": "cheap",
+      "reasoning": "Not free (the years are usually real and checkable) but near the bottom of the corrected validity table, and mostly a proxy for something the hiring manager hasn't articulated. Cheap in signal, not in fabrication."
+    },
+    {
+      "id": "t6",
+      "text": "A portfolio of past work, submitted as files",
+      "key": "cheap",
+      "reasoning": "The work is often genuine, but attribution isn't verifiable from the artifact and the framing around it is free. Becomes expensive the moment you ask them to walk through a decision inside it: same artifact, different instrument.",
+      "also": [
+        "free"
+      ]
+    },
+    {
+      "id": "t7",
+      "text": "Employment dates confirmed with the former employer",
+      "key": "expensive",
+      "reasoning": "Verification of fact through an official channel: legitimate, always was, and genuinely hard to fake. Note this is a different activity from detecting tool use, which is the distinction Lesson 4 exists to draw."
+    },
+    {
+      "id": "t8",
+      "text": "A well-structured answer to 'tell me about a time you handled conflict'",
+      "key": "free",
+      "reasoning": "The most prepared-for question in existence, now generatable in seconds and previously rehearsable anyway. It survives only as a setup for follow-ups; scored on its own it measures preparation for interviews."
+    },
+    {
+      "id": "t9",
+      "text": "A referral from someone who worked with them directly",
+      "key": "expensive",
+      "reasoning": "Requires another person's sustained involvement and reputational stake: the definition of expensive. Worth noting the trade: referrals are the strongest cheap signal you have and also the most reliable way to reproduce the composition of your existing team."
+    },
+    {
+      "id": "t10",
+      "text": "Correct, idiomatic written English in the application",
+      "key": "free",
+      "reasoning": "Free, uninformative, and actively harmful to score: rewarding it selects for tool access, and penalizing its absence is where detection's disparate impact enters. This is the card the module most wants you to stop scoring."
+    }
   ],
   "pattern": "Expensive means time they can't compress, presence they must supply, or specificity they never wrote down.",
-  "postscript": "The expensive cards all require something a model can't supply on the candidate's behalf: a live branching conversation, another person's involvement, or details that exist only in their memory. The free cards were all real signals five years ago — which is the module's point, since nothing about them degraded except their cost. Watch t3 and t6: both are artifacts that become expensive the instant you attach a live defence to them, which is the cheapest redesign in the set. And t10 is the one to act on this week."
+  "postscript": "The expensive cards all require something a model can't supply on the candidate's behalf: a live branching conversation, another person's involvement, or details that exist only in their memory. The free cards were all real signals five years ago, which is the module's point, since nothing about them degraded except their cost. Watch t3 and t6: both are artifacts that become expensive the instant you attach a live defence to them, which is the cheapest redesign in the set. And t10 is the one to act on this week."
 }

@@ -18,11 +18,11 @@
 > **"I could state the top metric my finance partner is measured on, in their words, without
 > looking it up."**
 
-**True of us, or not true of us?** And if true — write it now, in one line, before you read on.
+**True of us, or not true of us?** And if true: write it now, in one line, before you read on.
 Writing it's the test; believing you could isn't.
 
-Then: **out of the partner functions you deal with most — finance, legal, IT, and the business
-units you support — for how many could you do the same?** A count out of four.
+Then: **out of the partner functions you deal with most (finance, legal, IT, and the business
+units you support) for how many could you do the same?** A count out of four.
 
 You'll check this in the activity, against one of them, by going and finding out.
 
@@ -31,7 +31,7 @@ You'll check this in the activity, against one of them, by going and finding out
 ## Module brief
 
 Nine role tracks sit below this one, and every learner arriving here took exactly one. That depth
-is the product — it's the reason a comp specialist can hold their own on a model and an ER
+is the product. It's the reason a comp specialist can hold their own on a model and an ER
 specialist can write a report that survives being attacked.
 
 **It also produced a blind spot shaped exactly like the role.**
@@ -50,7 +50,7 @@ So this module is Step 1, run on a house you don't live in.
 establishing that People leaders can't state their partner functions' metrics. There may be no
 such study because nobody has run it, or because it's a hard thing to measure honestly, and it
 would be easy to reach for an adjacent number and imply it says this. It doesn't, so this module
-argues from mechanism and asks you to run the test on yourself instead — which, given that the
+argues from mechanism and asks you to run the test on yourself instead, which, given that the
 whole course is about making people check things, is the correct trade.
 
 ## Learning objectives
@@ -61,7 +61,7 @@ By the end of this module you should be able to:
 2. Explain why HR's credibility gap with partner functions is a unit-of-account problem rather than
    a technical-literacy problem.
 3. Establish what another function is measured on, what its year contains, and what its real AI
-   exposure is — without needing its cooperation.
+   exposure is, without needing its cooperation.
 4. Ask the one thing you can't find out on your own.
 5. Identify the load a question is carrying, rather than answering the question as asked.
 
@@ -89,7 +89,7 @@ Here's why that matters more at this rung than at any rung below it. In your own
 compression is an advantage: it's what lets you see quickly. **Outside your function, it silently
 substitutes.** You look at the finance team and see the load *you* would carry if you had their
 job, and you get a plausible, coherent, confidently-held picture that's wrong in ways nothing will
-correct — because they aren't going to volunteer that you've misunderstood them. They will just
+correct, because they aren't going to volunteer that you've misunderstood them. They will just
 gradually stop bringing you things.
 
 > ### Try this — 3 minutes
@@ -101,7 +101,7 @@ gradually stop bringing you things.
 ## Lesson 2 · Activity and consequence
 
 The standard explanation for HR's credibility problem with finance, legal, and IT is that HR is
-non-technical. It is a comfortable explanation because it suggests a comfortable fix — learn some
+non-technical. It is a comfortable explanation because it suggests a comfortable fix: learn some
 vocabulary, get better with data, and the problem eases.
 
 **It is the wrong diagnosis, and following it produces a People leader who has learned some words
@@ -127,7 +127,7 @@ Three things follow.
 Stating the consequence isn't spin and it isn't inflation; it's finishing the sentence.
 
 **Do not overclaim in the conversion.** A consequence you can't evidence is worse than an activity
-you can — it invites exactly one follow-up question and you won't have the answer. "We can staff
+you can. It invites exactly one follow-up question and you won't have the answer. "We can staff
 the plan" is a claim about the future. "Two of the eleven roles in the plan have no viable pipeline
 and here they are" is a consequence you can defend, and it's more useful.
 
@@ -143,7 +143,7 @@ have to ask for.
 
 **1 · What they are measured on.** Findable. Their stated goals, the metrics in their leadership
 updates, what their function head talks about in all-hands and externally. You're looking for the
-two or three numbers that appear every time, in that order. Note the order — it's information.
+two or three numbers that appear every time, in that order. Note the order. It's information.
 
 **2 · What their year contains.** Findable, and **the highest-value item on this list**, because
 almost nobody in People does it. Finance has a close cycle, a budget cycle, and an audit window.
@@ -156,8 +156,8 @@ not know what their job is. Learning four dates buys you more standing than a ye
 building, and it takes an afternoon.
 
 **3 · What their real AI exposure is.** Findable, and usually surprising. They have their own
-version of every problem in this course — their own dissolving structures, their own shadow usage,
-their own unowned decisions — and they are typically either much further ahead of you or much
+version of every problem in this course (their own dissolving structures, their own shadow usage,
+their own unowned decisions) and they are typically either much further ahead of you or much
 further behind than you've assumed. Both are useful. Ahead means there's a precedent you can
 borrow rather than a fight you have to win. Behind means the thing you're about to propose will be
 the first of its kind in their world, and should be sized accordingly.
@@ -192,17 +192,17 @@ The technique, and it's Step 1 run conversationally in under two minutes.
   someone.**
 
 So the move is: **before answering, name the load you think the question is carrying, and check.**
-Out loud, in a sentence. *"Happy to pull that — is this about whether the number moves after you
+Out loud, in a sentence. *"Happy to pull that, is this about whether the number moves after you
 lock the forecast, or about something else?"*
 
 Three things that buys you, in ascending order of value. You answer the real question rather than
 the proxy. You demonstrate, in a single sentence, that you know what their job is. And when you're
-wrong about the load — which will happen, and should — **they correct you, and the correction is
+wrong about the load (which will happen, and should) **they correct you, and the correction is
 the most valuable thing you'll learn about them all quarter.**
 
 **The discipline that keeps this from becoming a mannerism.** Sometimes the literal request *is* the
 load. Someone needs the number because they need the number. Reading depth into every question is
-its own failure — it's exhausting to be on the receiving end of, it reads as evasion when you're
+its own failure. It's exhausting to be on the receiving end of, it reads as evasion when you're
 being asked something simple, and it can look like you're managing a person rather than answering
 them. **The check is one sentence, and if the answer is "no, I just need the number," you say "on
 it" and go get the number.**
@@ -223,7 +223,7 @@ it" and go get the number.**
   visible to them.
 - **One thing you have to ask: what do they think People is for.** The answer is usually narrower
   than you would like, and it's the real starting position for everything else in this course.
-- **Name the load a question is carrying, then check** — out loud, in a sentence. When you're wrong, the
+- **Name the load a question is carrying, then check**: out loud, in a sentence. When you're wrong, the
   correction is the most valuable thing you'll learn about them.
 - **And sometimes the number is just the number.** Reading depth into every question is a mannerism
   that reads as evasion.
@@ -238,7 +238,7 @@ nobody asks of finance about HR.** The asymmetry is real and it isn't accidental
 is demanded of People far more than it's reciprocated, and every hour spent studying the finance
 close is an hour not spent being excellent at the thing you were hired for. A function that
 responds to low standing by studying everyone else's metrics may simply be **deferring in a new
-costume** — and there's a version of this module that teaches People leaders to be endlessly
+costume**, and there's a version of this module that teaches People leaders to be endlessly
 accommodating and calls it partnership.
 
 The sharpest form of the objection: **credibility is not earned by knowing their numbers, it's
@@ -254,21 +254,21 @@ you would decline to learn, and what you would do if the reciprocity never arriv
 **Time:** 30 minutes · **Submit:** the load sheet plus the covering note · **Graded against the
 rubric below.** Score doesn't matter. Doing the work is where the learning lands.
 
-Pick **one function you depend on and do not run** — finance, legal, IT, a business unit, security,
+Pick **one function you depend on and do not run**: finance, legal, IT, a business unit, security,
 procurement. Pick the one whose cooperation you'll most need for the artifacts in Modules 4, 6,
 9, and 10, because you're going to use this sheet again.
 
-**Step 1 — The four findable things (12 min).** Without asking them:
+**Step 1. The four findable things (12 min).** Without asking them:
 
 - **What they are measured on**, in their words, with your source named. Two or three metrics, in
   the order they appear.
 - **What their year contains** — at least four dated things: cycles, closes, freezes, filings,
   renewals, audits. Dates or windows, not "quarterly."
-- **Their real AI exposure** — what they are actually doing with AI now, and whether that puts them
+- **Their real AI exposure**: what they are actually doing with AI now, and whether that puts them
   ahead of or behind your function.
 - **Whose unowned asks they are absorbing.**
 
-**Step 2 — Ask the one thing (8 min).** Ask someone in that function what they think People is for.
+**Step 2. Ask the one thing (8 min).** Ask someone in that function what they think People is for.
 Ask it plainly. Record the answer close to verbatim, including any hesitation — **the hedge is
 data.**
 
@@ -276,13 +276,13 @@ If you genuinely can't ask before submitting, say so and write what you predict 
 be, in their words. You'll find out later whether you were right, and predicting it on the record
 is worth more than skipping it.
 
-**Step 3 — Step 7, outward (5 min).** When your work and theirs collide — and name a specific
-collision that's live or coming — **who decides?** A name. If the honest answer is that nobody
+**Step 3 — Step 7, outward (5 min).** When your work and theirs collide (and name a specific
+collision that's live or coming) **who decides?** A name. If the honest answer is that nobody
 does, write that; it's the most common answer and the most useful one.
 
-**Step 4 — The covering note (5 min).** 250–350 words. Your calibration count out of four, scored
+**Step 4. The covering note (5 min).** 250–350 words. Your calibration count out of four, scored
 against what you found. The one thing on the sheet that most changed your picture of them. **The
-thing you had been getting wrong** — stated specifically, because a load sheet that confirms
+thing you had been getting wrong**, stated specifically, because a load sheet that confirms
 everything you already believed was probably filled in from memory. And your position on the
 module's claim, engaging its counter-argument.
 
@@ -298,13 +298,13 @@ module's claim, engaging its counter-argument.
 - D. It taught you to see the organization through its risks rather than its opportunities
 
 > **B.** Outside your function you see the load *you* would carry in their job, and nothing
-> corrects you — they will not volunteer that you've misunderstood them. They will just stop
+> corrects you. They will not volunteer that you've misunderstood them. They will just stop
 > bringing you things.
 
 **Q2.** Why does the module reject "HR is non-technical" as the diagnosis of the credibility gap?
 
 - A. Because HR functions are more technical than they are given credit for
-- B. Because the real gap is the unit of account — HR reports activity and those functions think in consequence ✓
+- B. Because the real gap is the unit of account, HR reports activity and those functions think in consequence ✓
 - C. Because technical literacy varies too much between HR roles to generalize
 - D. Because credibility is built through relationships rather than expertise
 
@@ -329,7 +329,7 @@ module's claim, engaging its counter-argument.
 - D. Whose unowned asks they are absorbing
 
 > **B.** Asking finance for something material in the last week of a quarter is not a scheduling
-> error, it's a credibility error — invisible to you and entirely visible to them. Four dates,
+> error, it's a credibility error, invisible to you and entirely visible to them. Four dates,
 > one afternoon.
 
 **Q5.** What is the one thing you can't establish without asking?
@@ -340,7 +340,7 @@ module's claim, engaging its counter-argument.
 - D. How much budget they control
 
 > **C.** The answer is usually narrower than you would like, and it's the actual starting position
-> for every artifact in the rest of the course — working from the version you wish were true is how
+> for every artifact in the rest of the course, working from the version you wish were true is how
 > a good proposal lands in a room that already filed you under something else.
 
 **Q6.** Why does the module say being wrong about the load behind a question is useful?

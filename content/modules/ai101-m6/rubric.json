@@ -4,8 +4,8 @@
   "minWords": 250,
   "maxWords": 350,
   "submitLabel": "Your transcript excerpts, documentation, and reflection",
-  "intro": "Paste the relevant transcript excerpts (M4 rules apply — nothing person-identifying), your catch documentation, and the 250–350 word reflection ending with your team rule. Resubmission is free and unlimited — the score is a mirror, not a gate.",
-  "activityContext": "You are grading a learner submission for an AI fluency course for People leaders (AI 101, The Foundation). Module 6 applied activity, 'Catch It Lying': the learner fished for a hallucination in a domain where they hold real expertise, asking questions without supplying material; caught a confident wrong claim (or documented honest declines/hedges — which the activity explicitly counts as valid data); proved wrongness against a named real source; classified the failure by type (fabricated specifics / plausible-but-wrong reasoning / confident gaps / stale facts) and named the tell that should catch it; compared attempt count against their prediction; and wrote a one-sentence verification rule for their team. A numeric prediction may have been captured by the module's opening calibration prompt; grade the calibration dimension on whether the prediction is stated and honestly compared, never on its accuracy. A submission reporting that the model declined to fabricate, documented honestly with attempts shown, can score full marks on every dimension — the calibration lesson stands either way.",
+  "intro": "Paste the relevant transcript excerpts (M4 rules apply, nothing person-identifying), your catch documentation, and the 250–350 word reflection ending with your team rule. Resubmission is free and unlimited: the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for an AI fluency course for People leaders (AI 101, The Foundation). Module 6 applied activity, 'Catch It Lying': the learner fished for a hallucination in a domain where they hold real expertise, asking questions without supplying material; caught a confident wrong claim (or documented honest declines/hedges, which the activity explicitly counts as valid data); proved wrongness against a named real source; classified the failure by type (fabricated specifics / plausible-but-wrong reasoning / confident gaps / stale facts) and named the tell that should catch it; compared attempt count against their prediction; and wrote a one-sentence verification rule for their team. A numeric prediction may have been captured by the module's opening calibration prompt; grade the calibration dimension on whether the prediction is stated and honestly compared, never on its accuracy. A submission reporting that the model declined to fabricate, documented honestly with attempts shown, can score full marks on every dimension: the calibration lesson stands either way.",
   "opening": [
     {
       "key": "attempts",
@@ -30,19 +30,19 @@
   "dimensions": [
     {
       "name": "The ground is real expertise",
-      "criteria": "The domain is one they demonstrably own, and wrongness is proven against a named source — a policy section, a statute, a system of record — not just 'I know this is wrong.' The proof is specific enough that a colleague could re-verify it."
+      "criteria": "The domain is one they demonstrably own, and wrongness is proven against a named source (a policy section, a statute, a system of record) not just 'I know this is wrong.' The proof is specific enough that a colleague could re-verify it."
     },
     {
       "name": "The fishing is diagnostic",
-      "criteria": "Questions aimed where the types live — specifics, org particulars, time-sensitive details — with material deliberately withheld, attempts counted, and hedges or declines recorded as data rather than skipped. Random questions that happened to work score lower than aimed ones."
+      "criteria": "Questions aimed where the types live (specifics, org particulars, time-sensitive details) with material deliberately withheld, attempts counted, and hedges or declines recorded as data rather than skipped. Random questions that happened to work score lower than aimed ones."
     },
     {
       "name": "The catch is classified",
-      "criteria": "The wrong claim captured exactly, the truth stated, the failure typed correctly, and the tell named — the one that should have caught it in the wild. A near-miss classification with visible reasoning outscores a correct label with none."
+      "criteria": "The wrong claim captured exactly, the truth stated, the failure typed correctly, and the tell named: the one that should have caught it in the wild. A near-miss classification with visible reasoning outscores a correct label with none."
     },
     {
       "name": "The rule and the calibration",
-      "criteria": "The team rule is one enforceable sentence aimed at the type they caught — followable by a person, auditable by another. 'Be careful with AI' fails this dimension. Prediction compared, direction named, and the honest sentence about their own trust calibration written."
+      "criteria": "The team rule is one enforceable sentence aimed at the type they caught: followable by a person, auditable by another. 'Be careful with AI' fails this dimension. Prediction compared, direction named, and the honest sentence about their own trust calibration written."
     }
   ]
 }

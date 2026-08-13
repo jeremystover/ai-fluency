@@ -4,8 +4,8 @@
   "minWords": 250,
   "maxWords": 350,
   "submitLabel": "Your one-pager and reflection",
-  "intro": "Paste the one-pager (all four sections) followed by the 250–350 word reflection. Resubmission is free and unlimited — the score is a mirror, not a gate.",
-  "activityContext": "You are grading a learner submission for an AI fluency course for People leaders (AI 101, The Foundation). Module 7 applied activity, 'Draw the Line': an audit of their function's real AI uses (live and seriously proposed) against the assist/decide line using the traveling test (could this output change one identifiable person's outcome?), scored against their predicted wrong-side count; then a circulate-ready one-pager with four sections — three endorsed assist-side uses each carrying an M6 verification note, two specifically-named forbidden uses with reasoning an executive would engage with, the assist-side trade attached to each no, and a named sign-off for new people-touching tools; then a stress test writing the workaround an enthusiastic adopter would find. A numeric prediction may have been captured by the module's opening calibration prompt; grade the calibration dimension on whether the prediction is stated and honestly compared, never on its accuracy. Finding zero wrong-side uses is acceptable only with evidence the audit actually looked — including embedded features and casual team habits, not just official tools.",
+  "intro": "Paste the one-pager (all four sections) followed by the 250–350 word reflection. Resubmission is free and unlimited: the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for an AI fluency course for People leaders (AI 101, The Foundation). Module 7 applied activity, 'Draw the Line': an audit of their function's real AI uses (live and seriously proposed) against the assist/decide line using the traveling test (could this output change one identifiable person's outcome?), scored against their predicted wrong-side count; then a circulate-ready one-pager with four sections, three endorsed assist-side uses each carrying an M6 verification note, two specifically-named forbidden uses with reasoning an executive would engage with, the assist-side trade attached to each no, and a named sign-off for new people-touching tools; then a stress test writing the workaround an enthusiastic adopter would find. A numeric prediction may have been captured by the module's opening calibration prompt; grade the calibration dimension on whether the prediction is stated and honestly compared, never on its accuracy. Finding zero wrong-side uses is acceptable only with evidence the audit actually looked, including embedded features and casual team habits, not just official tools.",
   "opening": [
     {
       "key": "wrongSide",
@@ -30,11 +30,11 @@
   "dimensions": [
     {
       "name": "The audit looked",
-      "criteria": "Real uses from their actual function, including embedded features (ATS/HRIS/survey-platform AI) and informal team habits — not just official tools. Each use placed with the traveling test visible in the reasoning. A surprising find honestly reported outscores a clean bill of health."
+      "criteria": "Real uses from their actual function, including embedded features (ATS/HRIS/survey-platform AI) and informal team habits, not just official tools. Each use placed with the traveling test visible in the reasoning. A surprising find honestly reported outscores a clean bill of health."
     },
     {
       "name": "The forbidden uses are named and reasoned",
-      "criteria": "Two prohibitions naming the decision, not the technology ('no system ranks candidates' not 'careful with AI'), each with reasoning drawn from the module's mechanism — standardized bias, review theater, proxies, accountability — at a register an executive would engage with rather than dismiss."
+      "criteria": "Two prohibitions naming the decision, not the technology ('no system ranks candidates' not 'careful with AI'), each with reasoning drawn from the module's mechanism, standardized bias, review theater, proxies, accountability, at a register an executive would engage with rather than dismiss."
     },
     {
       "name": "The line could hold",
@@ -42,7 +42,7 @@
     },
     {
       "name": "Verification notes and calibration",
-      "criteria": "Each endorsed use carries a proportionate M6 note (which level, why); the prediction is compared, direction named, with the honest sentence about what the audit revealed. The reflection names which forbidden use was hardest to reason — and why."
+      "criteria": "Each endorsed use carries a proportionate M6 note (which level, why); the prediction is compared, direction named, with the honest sentence about what the audit revealed. The reflection names which forbidden use was hardest to reason, and why."
     }
   ]
 }

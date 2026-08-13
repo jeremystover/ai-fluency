@@ -13,7 +13,7 @@
         "Teams that adopt AI unevenly perform worse than teams that don't adopt it at all"
       ],
       "correctIndex": 1,
-      "explanation": "Which means the enthusiastic early adopter, genuinely producing more, can be making the organization slower — not by doing anything wrong, but by generating integration debt faster than it's retired."
+      "explanation": "Which means the enthusiastic early adopter, genuinely producing more, can be making the organization slower, not by doing anything wrong, but by generating integration debt faster than it's retired."
     },
     {
       "id": "q2",
@@ -25,7 +25,7 @@
         "Because individual improvements are rarely shared across teams"
       ],
       "correctIndex": 1,
-      "explanation": "There was always variation; the constraint that suppressed it — the cost of producing anything at all — is gone."
+      "explanation": "There was always variation; the constraint that suppressed it (the cost of producing anything at all) is gone."
     },
     {
       "id": "q3",
@@ -85,7 +85,7 @@
         "That pricing should be negotiated on a per-use basis"
       ],
       "correctIndex": 1,
-      "explanation": "Once prompts, connectors, evaluation suites, and workflow logic live inside one platform, \"we'll move later\" becomes a quarter-long project — and none of that appears in the pricing conversation."
+      "explanation": "Once prompts, connectors, evaluation suites, and workflow logic live inside one platform, \"we'll move later\" becomes a quarter-long project, and none of that appears in the pricing conversation."
     },
     {
       "id": "q8",

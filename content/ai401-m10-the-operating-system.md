@@ -22,7 +22,7 @@
 that's the point.
 
 Then: **how many AI-related metrics does your organization currently report, and how many of them
-measure something other than usage?** Two numbers — total, and the non-usage subset. If the second
+measure something other than usage?** Two numbers: total, and the non-usage subset. If the second
 is zero, write zero.
 
 ---
@@ -30,7 +30,7 @@ is zero, write zero.
 ## Module brief
 
 Nine modules have produced specs, contracts, inventories, limits, and rules. This one is about
-whether any of it survives contact with the machinery that actually governs behavior — and then it
+whether any of it survives contact with the machinery that actually governs behavior, and then it
 assembles everything you've built into the one artifact that can move people who will never read
 a spec.
 
@@ -64,10 +64,10 @@ McKinsey's influence model names four building blocks that change behavior, and 
 carrying is that **successful transformations were nearly eight times more likely to use all four
 than just one.** The blocks:
 
-1. **Fostering understanding and conviction** — people know what's being asked and why it matters.
-2. **Role modeling** — leaders and influential people visibly do the thing.
+1. **Fostering understanding and conviction**, people know what's being asked and why it matters.
+2. **Role modeling**, leaders and influential people visibly do the thing.
 3. **Developing talent and skills** — people can actually do what's required, practiced on real work.
-4. **Reinforcing through formal mechanisms** — systems, processes, metrics, and incentives align
+4. **Reinforcing through formal mechanisms**: systems, processes, metrics, and incentives align
    with the new behavior.
 
 Now map them onto the instruments you actually have, because that mapping is this course's whole
@@ -75,9 +75,9 @@ argument arriving at its conclusion:
 
 | Block | Instrument | Do you hold it? |
 |---|---|---|
-| Understanding and conviction | **Influence** | Yes — this is your deck, your partner briefings, your rehearsals |
+| Understanding and conviction | **Influence** | Yes. This is your deck, your partner briefings, your rehearsals |
 | Role modeling | **Influence** | Yes, and cheaply — you can do it yourself tomorrow |
-| Talent and skills | **Capability** | Usually yes — Module 7's codification, and enablement design |
+| Talent and skills | **Capability** | Usually yes. Module 7's codification, and enablement design |
 | Reinforcing mechanisms | **Authority** | **Almost never** |
 
 **You cannot influence your way to new promotion criteria.** You can't persuade a compensation
@@ -91,7 +91,7 @@ rung believe. Understanding, role modeling, and capability are influence and cap
 you can do all of it without anyone's permission.
 
 **The fourth is where transformations die**, and it's the one you have to get someone else to do.
-Which makes it a Module 2 Step 7 problem — name the owner — and a Module 3 problem — know what they
+Which makes it a Module 2 Step 7 problem, name the owner — and a Module 3 problem, know what they
 are measured on before you ask.
 
 **And going three-for-four is not eighty percent of the result.** The eight-times finding is about
@@ -106,7 +106,7 @@ The specific way the fourth block goes wrong when you do get it.
 unnecessary experimentation, and querying a model for things you already knew all become rational
 career behavior the moment usage is what counts.
 
-**The worked example, which is real and instructive.** A UK law firm — Shoosmiths — put a **£1
+**The worked example, which is real and instructive.** A UK law firm (Shoosmiths) put a **£1
 million bonus pool** against the firm collectively hitting **one million Microsoft Copilot
 prompts** in a financial year, with usage tracked and shared internally and monthly updates to
 encourage adoption. **They hit the target more than four months early**, and the pool was released.
@@ -121,7 +121,7 @@ question that matters.
 **And there's a real argument on the other side**, which you should be able to make before you
 dismiss it: a usage target is a *deliberately crude instrument for the earliest phase*, when the
 binding constraint is that people won't try the thing at all. As a permission signal with money
-attached, it may have been exactly right — and the failure would be leaving it in place once the
+attached, it may have been exactly right, and the failure would be leaving it in place once the
 constraint changed.
 
 **What most organizations measure:** log-ins, licenses, prompt volume, agent invocations, training
@@ -138,7 +138,7 @@ what makes this a leadership problem rather than an analytics one.
 **And how far behind the rhetoric the machinery actually is** `[V]`: as of 2025 proxy disclosures,
 roughly **5.9% of S&P 500 companies disclosed at least one AI-related metric in executive
 compensation, most often inside a strategic or individual performance assessment rather than as a
-standalone measure.** The qualifier is the more interesting half — even where AI reaches executive
+standalone measure.** The qualifier is the more interesting half, even where AI reaches executive
 pay, it usually arrives as a judgment call rather than a number. **The reinforcement block, at the
 top of the house, is mostly still empty.**
 
@@ -162,7 +162,7 @@ That converts measurement from a reporting activity into a **design constraint t
 the pilot starts.** Four things have to exist before anyone does any work.
 
 **1 · A baseline, agreed in advance, by the person who will judge the result.** Not measured
-afterwards — agreed beforehand, in writing, by the skeptic. A baseline established after the fact is
+afterwards: agreed beforehand, in writing, by the skeptic. A baseline established after the fact is
 a negotiation, and you'll lose it. If no clean baseline exists, say so before you start and
 consider picking a different pilot: **place your first bets where you already have trusted
 baselines**, even when those aren't the highest-value problems, because you have to survive the
@@ -176,7 +176,7 @@ produces a discussion in which the most senior opinion wins.
 in the course. **Adoption gets worse before it gets better.** People are slower with a new process,
 quality dips while judgment recalibrates, and the reconciliation cost from Module 6 arrives before
 the production gain does. **A threshold measured inside the expected decline will stop something
-that was working.** So name the shape you expect and the depth you'll tolerate, in advance — and
+that was working.** So name the shape you expect and the depth you'll tolerate, in advance, and
 name how long you'll hold.
 
 **4 · A kill condition.** The thing that makes you stop regardless of sunk cost, sponsor
@@ -194,7 +194,7 @@ Everything you've built in this course is a spec. Specs govern. **They do not re
 The market's characteristic mistake is producing a deck and calling it a plan. The mistake this
 course would make without this lesson is the opposite one: producing a spec and calling it
 leadership. **They are different instruments carrying different loads**, and Lesson 1 tells you
-exactly which load the deck carries — understanding and conviction, and role modeling. Two of the
+exactly which load the deck carries: understanding and conviction, and role modeling. Two of the
 four blocks, both yours.
 
 So the deck isn't a summary of your spec. It is the argument for it, aimed at people who will never
@@ -214,11 +214,11 @@ thing available to a person without authority, precisely because nobody does it.
 
 **4 · The anti-slogan test: could a reasonable person disagree with this?** Read every slide and ask
 whether someone competent and well-intentioned could hold the opposite view. If not, you've
-written a mission statement — true, unobjectionable, and inert.
+written a mission statement: true, unobjectionable, and inert.
 
 **And the failure mode to plan for, because it's the likely one.** You won't be rejected. You
 will be **agreed with.** Everyone will nod, several people will say this is exactly right, and
-nothing will change — because agreement is free and reinforcement mechanisms aren't. Enthusiastic
+nothing will change, because agreement is free and reinforcement mechanisms aren't. Enthusiastic
 assent with no behavior change is the standard outcome for a good deck presented by someone without
 authority.
 
@@ -236,9 +236,9 @@ and a compliment isn't an outcome.
   not eighty percent of the result.**
 - **You cannot influence your way to new promotion criteria.**
 - **Measure AI consumption and you get AI consumption.** A £1m bonus pool against a million Copilot
-  prompts was hit four months early — and hitting it early says nothing about whether it was worth
+  prompts was hit four months early, and hitting it early says nothing about whether it was worth
   hitting.
-- **Even where AI reaches executive pay it's usually a judgment call rather than a number** —
+- **Even where AI reaches executive pay it's usually a judgment call rather than a number**,
   roughly 5.9% of S&P 500 companies disclosed any AI-related metric in 2025, mostly inside strategic
   assessments. The reinforcement block at the top of the house is mostly still empty.
 - **"We cannot tell if it worked" and "it did not work" produce an identical conversation with a
@@ -259,7 +259,7 @@ The strongest counter-argument is that **embarrassing metrics do not survive con
 organization, so recommending them is advice that only works for people who do not need it.** The
 person who proposes a measure capable of showing their own initiative failing is proposing to hand
 their critics a weapon, in an environment where the initiatives that continue are the ones with
-favorable numbers. Usage metrics aren't naive — they are **adaptive.** They keep funding flowing
+favorable numbers. Usage metrics aren't naive. They are **adaptive.** They keep funding flowing
 during the trough Lesson 3 tells you to expect, and funding through the trough is the actual
 precondition for anything working.
 
@@ -269,7 +269,7 @@ instructions conflict.** A skeptic looking at honest month-four numbers sees a f
 month four it *is* a failure by every measure you agreed with them in advance. The rigor this module
 demands may be exactly what kills the initiative that would have worked.
 
-Your position has to say how you would hold both — what you would agree with a skeptic in advance
+Your position has to say how you would hold both, what you would agree with a skeptic in advance
 that would still be true at the bottom of the J-curve.
 
 ## Applied activity — "What we're keeping standing"
@@ -280,7 +280,7 @@ rubric below.** This is the course close, and the grade for the whole thing.
 Everything you've built across ten modules assembles here. Your prior submissions are on this
 screen — use them rather than starting over.
 
-**Step 1 — The deck (20 min).** *"What we're keeping standing"* — five to eight slides, or their
+**Step 1. The deck (20 min).** *"What we're keeping standing"*: five to eight slides, or their
 written equivalent, addressed to a **named audience**. Not "leadership." A person or a specific
 group, chosen because they hold something you need.
 
@@ -290,10 +290,10 @@ It must contain, and the rubric checks each one:
 - **What you're keeping standing**, as a spec rather than a drawing.
 - **At least one named thing you are not doing.**
 - **At least one falsifiable trigger, on a slide.** Visible, not appended.
-- **The ask** — what you want this audience to do, specifically.
+- **The ask**: what you want this audience to do, specifically.
 
 Then apply the anti-slogan test yourself and report the result: **which slide is the one a
-reasonable person could disagree with?** If there isn't one, say so — that's a finding about your
+reasonable person could disagree with?** If there isn't one, say so. That's a finding about your
 deck, not a gap in the assignment.
 
 **Step 2 — The bet (10 min).** Four fields, and the third is the one that matters:
@@ -301,24 +301,24 @@ deck, not a gap in the assignment.
 1. **The bet.** One thing you'll do, or one metric you would replace with a better one.
 2. **The baseline metric** it will be judged against.
 3. **Today's value of that metric.** The actual number, today. **If you cannot fill this in, that
-   is the lesson** — say so explicitly, and say what you would have to do to be able to.
+   is the lesson**: say so explicitly, and say what you would have to do to be able to.
 4. **The date you'll report against it.**
 
 Plus two more the course has earned: **what you would turn off** to make room for it, and **the kill
-condition** — what would make you stop regardless of sunk cost.
+condition**, what would make you stop regardless of sunk cost.
 
 **Step 3 — The reckoning (10 min).** Ten modules, ten opening claims about your own organization.
 Go back through them.
 
 - Which claims did you commit to as true and find were **not** true when you checked?
 - Which numbers moved most between your prediction and what you found?
-- **And the one that matters: is there a direction to your errors?** Most people find one — usually
+- **And the one that matters: is there a direction to your errors?** Most people find one: usually
   overestimating how much is owned, named, written down, or known by someone. Name yours.
 
 **The rubric grades the account of the change, never the accuracy of either end.** A large,
 specifically-explained miss is the best possible result here.
 
-**Step 4 — The send decision (5 min).** Send the deck, or not yet. If not yet, the condition and the
+**Step 4. The send decision (5 min).** Send the deck, or not yet. If not yet, the condition and the
 date. Then predict: **if you present this, what does agreement-with-no-action look like in your
 organization, and what one commitment would you push for instead?**
 
@@ -340,7 +340,7 @@ organization, and what one commitment would you push for instead?**
 **Q2.** Why does the module say going three-for-four isn't eighty percent of the result?
 
 - A. Because the blocks have different costs to implement
-- B. Because the eight-times finding is about using all four — and a change with conviction, role modeling and skills but no reinforcement is the one everyone remembers fondly and nobody does anymore ✓
+- B. Because the eight-times finding is about using all four, and a change with conviction, role modeling and skills but no reinforcement is the one everyone remembers fondly and nobody does anymore ✓
 - C. Because reinforcement mechanisms take longest to change
 - D. Because the blocks must be sequenced in a specific order
 
@@ -385,7 +385,7 @@ organization, and what one commitment would you push for instead?**
 - C. Because early results are statistically unreliable
 - D. Because adoption curves vary too much between teams to predict
 
-> **B.** Adoption gets worse before it gets better — people are slower with a new process and the
+> **B.** Adoption gets worse before it gets better, people are slower with a new process and the
 > reconciliation cost arrives before the production gain. Name the shape, the depth, and how long
 > you'll hold.
 
@@ -403,7 +403,7 @@ organization, and what one commitment would you push for instead?**
 
 - A. Being rejected on cost grounds
 - B. Being asked for a roadmap instead
-- C. Being agreed with, warmly, with no behavior change — because agreement is free and reinforcement mechanisms aren't ✓
+- C. Being agreed with, warmly, with no behavior change, because agreement is free and reinforcement mechanisms aren't ✓
 - D. Being referred to a committee
 
 > **C.** Leave with one commitment, from one named person, with a date. A compliment is not an
@@ -411,7 +411,7 @@ organization, and what one commitment would you push for instead?**
 
 ## Sources and attribution
 
-- **McKinsey's four building blocks of change** `[V]` — fostering understanding and conviction,
+- **McKinsey's four building blocks of change** `[V]`, fostering understanding and conviction,
   role modeling, developing talent and skills, and reinforcing through formal mechanisms; with the
   finding that successful transformations were nearly eight times more likely to use all four than
   one. **A correction is recorded here rather than hidden:** an earlier draft of this course

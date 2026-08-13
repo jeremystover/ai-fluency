@@ -13,7 +13,7 @@
         "It isn't an asset — the module works despite this property, not because of it"
       ],
       "correctIndex": 1,
-      "explanation": "Elsewhere, arguing convincingly without belief is exactly why output needs verification. Here it's the point: no colleague will attack your plan with that little social friction. A overstates it — accuracy still matters, which is why Lesson 4 traces wrong objections."
+      "explanation": "Elsewhere, arguing convincingly without belief is exactly why output needs verification. Here it's the point: no colleague will attack your plan with that little social friction. A overstates it: accuracy still matters, which is why Lesson 4 traces wrong objections."
     },
     {
       "id": "q2",
@@ -41,7 +41,7 @@
     },
     {
       "id": "q4",
-      "prompt": "What does the fourth adversary — the person with the least power affected — exist to surface?",
+      "prompt": "What does the fourth adversary (the person with the least power affected) exist to surface?",
       "options": [
         "Legal exposure from the most vulnerable group",
         "What you normalized, from the perspective of someone structurally absent from the room where the plan was built",
@@ -61,7 +61,7 @@
         "\"Are you sure about that objection?\""
       ],
       "correctIndex": 2,
-      "explanation": "It targets what your own preparation is structurally blind to — you can't audit your omissions from inside them. D is the module's named non-move: self-confirmation isn't verification here any more than it was in 101 M6."
+      "explanation": "It targets what your own preparation is structurally blind to. You can't audit your omissions from inside them. D is the module's named non-move: self-confirmation isn't verification here any more than it was in 101 M6."
     },
     {
       "id": "q6",
@@ -73,7 +73,7 @@
         "Fresh conversations are cheaper in token terms"
       ],
       "correctIndex": 1,
-      "explanation": "101 M1's mechanism. Give it the plan and the role, not the story of how you arrived at the plan — otherwise you've briefed your adversary with your own defence."
+      "explanation": "101 M1's mechanism. Give it the plan and the role, not the story of how you arrived at the plan, otherwise you've briefed your adversary with your own defence."
     },
     {
       "id": "q7",
@@ -97,7 +97,7 @@
         "That models are too agreeable for the technique to work reliably"
       ],
       "correctIndex": 1,
-      "explanation": "Rationalization wearing rehearsal's clothes, and it feels identical from the inside — which is why the activity weights \"what did you change?\" most heavily. D is the problem Lesson 3 solves, not the residual risk the claim names."
+      "explanation": "Rationalization wearing rehearsal's clothes, and it feels identical from the inside, which is why the activity weights \"what did you change?\" most heavily. D is the problem Lesson 3 solves, not the residual risk the claim names."
     }
   ]
 }

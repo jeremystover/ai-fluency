@@ -22,8 +22,8 @@ who remembers."*
 defend it with.
 
 **And the number you will check in your own system:** **what share of your closed matters have
-substantiation recorded at the level of the issue type** — harassment, discrimination, retaliation,
-policy breach — rather than only as a single overall outcome?
+substantiation recorded at the level of the issue type** (harassment, discrimination, retaliation,
+policy breach) rather than only as a single overall outcome?
 
 Whole percent. There is a published benchmark for this and Lesson 2 gives it, so commit before you
 read on.
@@ -32,7 +32,7 @@ read on.
 
 ## Module brief
 
-Every module so far has been about restraint — what a model may not do with contested accounts, what
+Every module so far has been about restraint, what a model may not do with contested accounts, what
 you must not let a transcript become, which rung a sentence has climbed. This one is the opposite, and
 it is worth saying plainly: **this is the highest-value AI use available to your function, it is
 entirely permitted, and almost nobody is doing it.**
@@ -46,7 +46,7 @@ selective in exactly the way memory is.
 Which matters because there is somebody else who will run that analysis properly.
 
 **Disparate treatment is proven by comparators.** Not by whether your decision was fair, not by whether
-your process was thorough — by whether a similarly situated person outside the protected class was
+your process was thorough, by whether a similarly situated person outside the protected class was
 treated differently. That analysis will be run against your case history, with discovery, by somebody
 with more time than you have. **The only question this module asks is whether you ran it first.**
 
@@ -57,7 +57,7 @@ By the end of this module you should be able to:
 1. Explain why comparator evidence rather than process quality decides disparate-treatment claims.
 2. State why most case management systems cannot answer the comparator question `[V]`, and what
    granularity would change that.
-3. Apply the line: **AI surfaces the precedent; a human decides whether it governs** — and explain why
+3. Apply the line: **AI surfaces the precedent; a human decides whether it governs**, and explain why
    consistency is not uniformity.
 4. Distinguish a legal comparator from a statistical control group, and say why importing intuitions
    between them is dangerous in both directions.
@@ -69,8 +69,8 @@ Start with the doctrine, because the operational conclusion is downstream of it.
 
 A disparate-treatment claim does not usually turn on whether your investigation was careful. It turns
 on **comparison**: was a similarly situated employee outside the protected class treated more
-favourably for materially the same conduct? Similarly situated is contested at the margins — same
-supervisor, same rule, comparable seriousness, comparable record — and that contest is where these
+favourably for materially the same conduct? Similarly situated is contested at the margins (same
+supervisor, same rule, comparable seriousness, comparable record) and that contest is where these
 cases are actually fought.
 
 Which produces a consequence that is uncomfortable and useful:
@@ -103,7 +103,7 @@ substantiation is recorded at the granularity of *harassment*, *discrimination*,
 
 Why that specific granularity is the one that matters: **without it, the pattern you most need to see
 is invisible.** An organization that substantiates 60% of matters overall may substantiate 75% of
-policy breaches and 25% of harassment complaints — and those are completely different institutional
+policy breaches and 25% of harassment complaints, and those are completely different institutional
 facts. The second is the kind of number that appears in a claim, and the aggregate hides it perfectly.
 
 Three other structural obstacles, all boring and all fixable:
@@ -118,13 +118,13 @@ conduct is labelled similarly, and most taxonomies were designed for reporting v
 finding comparators.
 
 **Outcomes recorded without the aggravating and mitigating factors.** The outcome is in the system.
-*Why* that outcome — the prior record, the admission, the seniority, the cooperation — is in the
+*Why* that outcome (the prior record, the admission, the seniority, the cooperation) is in the
 report, which is a document rather than a field. So a query returns two dismissals and one warning and
 cannot tell you whether the difference was justified.
 
 **And this is exactly where AI is genuinely strong**, which is the good news the module is built on.
 Retrieval and structured extraction across a corpus you already own, producing candidates a human then
-checks — that is precisely the shape of task where a model outperforms an overloaded person, and every
+checks. That is precisely the shape of task where a model outperforms an overloaded person, and every
 result is verifiable by opening the file.
 
 ## Lesson 3 · AI surfaces the precedent; a human decides whether it governs
@@ -141,7 +141,7 @@ The line, and it is the same shape as the line in every other module of this tra
 - Flag matters where the recorded conduct is similar and the outcome differs.
 - List what could not be determined from the record.
 
-**Forbidden** — a recommended outcome, which is rung five however well-reasoned it looks. *"Based on
+**Forbidden**: a recommended outcome, which is rung five however well-reasoned it looks. *"Based on
 the three comparable matters, a final written warning would be consistent"* is a determination. It will
 be fluent, it will cite the precedents, and it will have made your decision.
 
@@ -151,7 +151,7 @@ be fluent, it will cite the precedents, and it will have made your decision.
 
 Identical conduct with different aggravating factors properly produces different outcomes. A first
 offence and a third are not the same case. An admission and a denial that collapsed under evidence are
-not the same case. **What the file has to contain is *why*, written by the person who decided** — and
+not the same case. **What the file has to contain is *why*, written by the person who decided**, and
 the comparator analysis is what tells you that a *why* is required, not what supplies it.
 
 Which gives you the failure mode to avoid, and it is a real one:
@@ -191,7 +191,7 @@ same thing and kept their job, is not an outlier to be averaged away. It is the 
 
 **And treating your case history as a dataset to be averaged is how employers manufacture the pattern
 against themselves.** This is Lesson 3's flattening problem restated: aggregate analysis produces
-central tendencies, disparities, and rates — the vocabulary of the other kind of claim entirely — and
+central tendencies, disparities, and rates (the vocabulary of the other kind of claim entirely) and
 having generated them, you now have to explain them.
 
 If your organization has a People Analytics function, this distinction is worth sharing with them
@@ -222,12 +222,12 @@ So the scoping rule is the content:
 ## Key takeaways
 
 - **Disparate treatment is proven by comparators**, so **your process quality is not the primary
-  defence — your consistency is.** You can run an impeccable investigation and lose because of a matter
+  defence, your consistency is.** You can run an impeccable investigation and lose because of a matter
   in another unit two years ago.
 - **The asymmetry is the issue:** opposing counsel searches systematically with discovery and weeks;
   you ask a colleague in the ten minutes before a decision meeting, using a memory that reconstructs
   the past in the direction of your current decision.
-- **Only 32% of organizations track substantiation by issue type** `[V]` — and without that
+- **Only 32% of organizations track substantiation by issue type** `[V]`, and without that
   granularity, the pattern that matters is invisible, because an aggregate substantiation rate hides
   a 75%-for-policy-breach, 25%-for-harassment split perfectly.
 - **Three fixable obstacles:** narrative fields that no query can search, no conduct taxonomy that
@@ -251,11 +251,11 @@ So the scoping rule is the content:
 first."*
 
 The strongest counter-argument is that **running it first creates a discoverable asset that did not
-previously exist — and this is the same trade as the transcript in Module 3, in a sharper form.**
+previously exist, and this is the same trade as the transcript in Module 3, in a sharper form.**
 
 If you build a comparator capability, you will run queries. Those queries produce outputs. Outputs are
 records. Which means opposing counsel can request **the analysis you ran before you made your
-decision** — and if it showed an inconsistency and you proceeded anyway, you have handed them a
+decision**, and if it showed an inconsistency and you proceeded anyway, you have handed them a
 document showing you knew. *"We did not track that"* is a weak position. *"We tracked it, we saw the
 pattern, and here is what we decided"* can be far worse, because it converts a possible oversight into
 a documented choice.
@@ -267,7 +267,7 @@ generated.
 **The honest response to that argument, which your position has to engage rather than accept:** the
 pattern exists whether or not you can see it, discovery reaches the underlying case files regardless,
 and what you are actually choosing is **whether you find out before the decision or after the claim.**
-Finding out before is the only version in which you can still act — by justifying the difference in
+Finding out before is the only version in which you can still act: by justifying the difference in
 the file, or by making a different decision.
 
 But that response has a cost the module should not hide, and your position has to price it. So the
@@ -283,32 +283,32 @@ build anything.
 word write-up · **Graded against the rubric below.** Score doesn't matter. Doing the work is where the
 learning lands.
 
-**No case facts.** Submit the **query design and the aggregate gap** — never the matters, never the
+**No case facts.** Submit the **query design and the aggregate gap**: never the matters, never the
 outcomes of specific cases, never anything that identifies a person.
 
 **Step 1 — Write the question (6 min).** The single comparator question you most need answered about
 your matter type, written precisely enough to be executed. Not *"how do we usually handle
 timekeeping?"* but *"closed matters in the last 36 months involving unauthorised absence, with the
 outcome, the stated aggravating and mitigating factors, and the deciding manager."* **Precision is the
-graded part** — a vague question cannot fail, and cannot be built for either.
+graded part**: a vague question cannot fail, and cannot be built for either.
 
-**Step 2 — What your system returns today (8 min).** Actually try it. What comes back? What is in a
+**Step 2. What your system returns today (8 min).** Actually try it. What comes back? What is in a
 narrative field that a query cannot reach? Is substantiation recorded by issue type? **Report the
 aggregate numbers only** — how many matters, how many with the factors recorded, what proportion
 required opening a document to answer.
 
-**Step 3 — What would have to be true (8 min).** The specific changes that would let the question be
+**Step 3. What would have to be true (8 min).** The specific changes that would let the question be
 answered: fields, taxonomy, a required factors entry at closure, a retention window. Distinguish what
 you could change this quarter from what needs a system project.
 
-**Step 4 — The scoping rule (5 min).** If you built it: whose access, why it is not joined to the
+**Step 4. The scoping rule (5 min).** If you built it: whose access, why it is not joined to the
 general assistant, structured extract versus full documents, and **what you would raise with counsel
 before building.** One sentence each.
 
 **Step 5 — Score the prediction.** Your predicted share of matters with substantiation by issue type
 against what your system actually shows. The published benchmark is 32%.
 
-Then the write-up: your position on the claim above — and it must answer **what you will do on the day
+Then the write-up: your position on the claim above, and it must answer **what you will do on the day
 the first query returns a pattern you do not like**, specifically enough that somebody could hold you
 to it; whether the opening claim turned out to be true of your function; and the concrete one — **the
 one field or taxonomy change you are making first, and who has to approve it.**
@@ -320,7 +320,7 @@ one field or taxonomy change you are making first, and who has to approve it.**
 **Q1.** Why is process quality not the primary defence in a disparate-treatment claim?
 
 - A. Because procedural fairness is presumed unless challenged
-- B. Because the claim turns on whether a similarly situated person outside the protected class was treated differently — so you can run an impeccable investigation and lose because of a matter in another unit two years ago ✓
+- B. Because the claim turns on whether a similarly situated person outside the protected class was treated differently, so you can run an impeccable investigation and lose because of a matter in another unit two years ago ✓
 - C. Because process quality cannot be evidenced after the fact
 - D. Because tribunals defer to the employer on process questions
 
@@ -334,7 +334,7 @@ one field or taxonomy change you are making first, and who has to approve it.**
 - C. Employees know their own history better than the employer does
 - D. Case management vendors withhold analytical features
 
-> **B.** Same analysis, worse tools, less time — and a memory that reconstructs the past in the
+> **B.** Same analysis, worse tools, less time, and a memory that reconstructs the past in the
 > direction of the decision you are about to make.
 
 **Q3.** Why does substantiation by issue type matter more than an overall substantiation rate? `[V]`
@@ -361,7 +361,7 @@ one field or taxonomy change you are making first, and who has to approve it.**
 **Q5.** Why is asking for "the usual outcome" the wrong request?
 
 - A. Because averages are statistically unreliable on small numbers
-- B. Because a central tendency erases the legitimate differences behind the distribution, so deviating from it now looks like an anomaly requiring justification — you have converted defensible individual decisions into a norm you can be measured against ✓
+- B. Because a central tendency erases the legitimate differences behind the distribution, so deviating from it now looks like an anomaly requiring justification. You have converted defensible individual decisions into a norm you can be measured against ✓
 - C. Because outcome data is often incomplete
 - D. Because it requires access to matters outside your business unit
 
@@ -372,7 +372,7 @@ one field or taxonomy change you are making first, and who has to approve it.**
 **Q6.** What does "consistency is not uniformity" mean in practice?
 
 - A. That outcomes should vary to avoid appearing formulaic
-- B. That identical conduct with different aggravating factors properly produces different outcomes — and the file has to contain why, written by the person who decided ✓
+- B. That identical conduct with different aggravating factors properly produces different outcomes, and the file has to contain why, written by the person who decided ✓
 - C. That consistency applies within business units but not across them
 - D. That precedent is advisory rather than binding in internal processes
 
@@ -381,7 +381,7 @@ one field or taxonomy change you are making first, and who has to approve it.**
 **Q7.** How does a legal comparator differ from a statistical control group?
 
 - A. A comparator must be from the same business unit; a control group need not be
-- B. A single comparator can carry a claim, while a single data point supports no inference — so dismissing a lone comparator as "n of 1" is how employers lose ✓
+- B. A single comparator can carry a claim, while a single data point supports no inference, so dismissing a lone comparator as "n of 1" is how employers lose ✓
 - C. Comparators are chosen by the employer; control groups by the claimant
 - D. They are the same concept applied in different forums
 
@@ -407,7 +407,7 @@ one field or taxonomy change you are making first, and who has to approve it.**
   employees, ±5.9 points at 95% confidence.** Vendor-sponsored, independently fielded, disclosed
   sample; **does not describe employers below 1,000 employees.** Same instrument as Module 1 of this
   track. **[V]**
-- **Disparate-treatment comparator doctrine** — that a claim turns on whether a similarly situated
+- **Disparate-treatment comparator doctrine**. That a claim turns on whether a similarly situated
   person outside the protected class was treated more favourably for materially the same conduct, and
   that "similarly situated" is contested at the margins on factors including supervisor, rule,
   seriousness and record. Long-settled and jurisdiction-specific in its detail; **the module teaches
@@ -416,7 +416,7 @@ one field or taxonomy change you are making first, and who has to approve it.**
   argument argument, the comparator-versus-control-group distinction, and the corpus-scoping rule are
   original to this course.
 - **Horizontal note.** `ai301-analytics` teaches natural experiments and causal inference, where
-  "comparison" means something incompatible with what it means here — a control group rather than a
+  "comparison" means something incompatible with what it means here: a control group rather than a
   comparator. Lesson 4 draws that boundary explicitly. Recorded so the two tracks do not drift, and
   because a learner who has worked with a People Analytics function will encounter both vocabularies.
 - **Horizontal note.** The corpus-scoping rule in Lesson 5 is the ER-specific application of the

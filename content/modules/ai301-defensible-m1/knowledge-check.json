@@ -13,7 +13,7 @@
         "Required federal contractors to certify they run no DEI programs"
       ],
       "correctIndex": 1,
-      "explanation": "D describes EO 14173. The distinction in B is the foundation of this track: disparate impact is codified in Title VII by the Civil Rights Act of 1991, and an executive order cannot repeal a statute — nor does it claim to."
+      "explanation": "D describes EO 14173. The distinction in B is the foundation of this track: disparate impact is codified in Title VII by the Civil Rights Act of 1991, and an executive order can't repeal a statute, nor does it claim to."
     },
     {
       "id": "q2",
@@ -25,7 +25,7 @@
         "The EEOC, which retains authority despite the enforcement plan"
       ],
       "correctIndex": 2,
-      "explanation": "And reporting indicates private activity in Title VII disparate impact cases is increasing — which is what you'd expect when a regulatory channel closes and the underlying cause of action doesn't."
+      "explanation": "And reporting indicates private activity in Title VII disparate impact cases is increasing, which is what you'd expect when a regulatory channel closes and the underlying cause of action doesn't."
     },
     {
       "id": "q3",
@@ -73,7 +73,7 @@
         "They apply only to employers headquartered in California"
       ],
       "correctIndex": 2,
-      "explanation": "Which is the closest thing in American law to a statement that this track's subject is legally load-bearing: not testing is itself evidence."
+      "explanation": "Which is the closest thing in American law to a statement that this track's subject is legally structural: not testing is itself evidence."
     },
     {
       "id": "q7",
@@ -97,7 +97,7 @@
         "That the private bar only pursues large employers"
       ],
       "correctIndex": 1,
-      "explanation": "It is the strongest version and Module 3 exists to answer it. D is part of the weaker base-rate argument, which is also real — for a small employer in a state with no AEDT law, measurable exposure may genuinely have fallen."
+      "explanation": "It is the strongest version and Module 3 exists to answer it. D is part of the weaker base-rate argument, which is also real, for a small employer in a state with no AEDT law, measurable exposure may genuinely have fallen."
     }
   ]
 }

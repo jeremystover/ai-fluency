@@ -37,7 +37,7 @@
         "Structured formats prevent hallucination entirely"
       ],
       "correctIndex": 1,
-      "explanation": "Both halves matter: better input for the next step (101's supply-the-material lever) and checkable claims for the human between steps. D overclaims — structure makes errors *catchable*, not impossible."
+      "explanation": "Both halves matter: better input for the next step (101's supply-the-material lever) and checkable claims for the human between steps. D overclaims: structure makes errors *catchable*, not impossible."
     },
     {
       "id": "q4",
@@ -49,7 +49,7 @@
         "The degradation of quality in long conversations"
       ],
       "correctIndex": 1,
-      "explanation": "It's the structured-to-prose transformation — the exercise's step 2. The defense is a prompt that requires claims to carry their numbers, and a checkpoint that compares the narrative to the structure it came from."
+      "explanation": "It's the structured-to-prose transformation: the exercise's step 2. The defense is a prompt that requires claims to carry their numbers, and a checkpoint that compares the narrative to the structure it came from."
     },
     {
       "id": "q5",
@@ -73,7 +73,7 @@
         "Six candidates' interview notes into a decision packet"
       ],
       "correctIndex": 2,
-      "explanation": "One short transformation, low stakes, failure visible on reading — none of the three conditions hold. Chaining it is ceremony. The other three are long, consequential, or fail invisibly — usually two of the three at once."
+      "explanation": "One short transformation, low stakes, failure visible on reading, none of the three conditions hold. Chaining it is ceremony. The other three are long, consequential, or fail invisibly, usually two of the three at once."
     },
     {
       "id": "q7",
@@ -97,7 +97,7 @@
         "Rankings would require a larger context window"
       ],
       "correctIndex": 1,
-      "explanation": "M1's line, unmoved by pipeline sophistication: a workflow may organize the evidence for a people decision; the decision stays human. Capability (A) isn't the reason — the rule holds however good the ranking would be."
+      "explanation": "M1's line, unmoved by pipeline sophistication: a workflow may organize the evidence for a people decision; the decision stays human. Capability (A) isn't the reason: the rule holds however good the ranking would be."
     }
   ]
 }

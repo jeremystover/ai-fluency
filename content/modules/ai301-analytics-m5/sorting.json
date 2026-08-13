@@ -18,7 +18,7 @@
     {
       "id": "proceed",
       "label": "Proceed",
-      "hint": "Ordinary analysis — Modules 2 and 3 apply, nothing more",
+      "hint": "Ordinary analysis. Modules 2 and 3 apply, nothing more",
       "rank": 2,
       "pct": 25
     }
@@ -34,31 +34,31 @@
       "id": "t2",
       "text": "Adding last year's engagement survey responses as features to the flight-risk model, since the data is already in the warehouse",
       "key": "stop",
-      "reasoning": "The sharpest purpose-limitation case in the module. Respondents were told the data was confidential and would be used to improve the organization; using it to score individuals **breaks that promise even where it clears the legal bar** — and breaks it unrecoverably, because the next survey is answered by people who now know. The trivial join and the existing warehouse access are exactly what make this feel authorised."
+      "reasoning": "The sharpest purpose-limitation case in the module. Respondents were told the data was confidential and would be used to improve the organization; using it to score individuals **breaks that promise even where it clears the legal bar**, and breaks it unrecoverably, because the next survey is answered by people who now know. The trivial join and the existing warehouse access are exactly what make this feel authorised."
     },
     {
       "id": "t3",
       "text": "Publishing engagement by department and tenure band, having already published engagement by department",
       "key": "stop",
-      "reasoning": "The differencing attack, and the card most learners get wrong because each publication clears the threshold on its own. Engineering n=48 and Engineering-with-5-years n=47 subtract to one person's score. **Disclosure control is a property of everything you have published, not of each thing you publish** — so this stops until somebody checks the set."
+      "reasoning": "The differencing attack, and the card most learners get wrong because each publication clears the threshold on its own. Engineering n=48 and Engineering-with-5-years n=47 subtract to one person's score. **Disclosure control is a property of everything you have published, not of each thing you publish**, so this stops until somebody checks the set."
     },
     {
       "id": "t4",
       "text": "Fitting a promotion-readiness model in-house using a general-purpose model your company already licenses for other work",
       "key": "stop",
-      "reasoning": "Article 25's third limb, and it does not feel like a legal act. **Changing a system's intended purpose so it becomes high-risk makes you the provider**, not the deployer — the vendor's documentation is not your documentation and their indemnity does not discharge your obligation. Nobody signed anything, which is precisely why this needs a conversation before a line of code."
+      "reasoning": "Article 25's third limb, and it doesn't feel like a legal act. **Changing a system's intended purpose so it becomes high-risk makes you the provider**, not the deployer, the vendor's documentation isn't your documentation and their indemnity doesn't discharge your obligation. Nobody signed anything, which is precisely why this needs a conversation before a line of code."
     },
     {
       "id": "t5",
       "text": "Reconciling headcount across the HRIS, the payroll file and the finance ledger, and reporting the discrepancies",
       "key": "proceed",
-      "reasoning": "No decision about a person, no inference about an individual, no publication of a small cell. This is the safest analytical work in the function — and the module includes it to make the point that the answer is not \"everything is fraught.\" Most of the caution here attaches to inference and disclosure, not to analysis."
+      "reasoning": "No decision about a person, no inference about an individual, no publication of a small cell. This is the safest analytical work in the function, and the module includes it to make the point that the answer isn't \"everything is fraught.\" Most of the caution here attaches to inference and disclosure, not to analysis."
     },
     {
       "id": "t6",
       "text": "Running an adverse impact analysis on the promotion process, having found early signs of a disparity",
       "key": "stop",
-      "reasoning": "Not because the analysis is wrong — because of **when counsel gets involved.** Whether the work is privileged depends on how it was commissioned, and that has to be arranged in advance. Run it first and you may have created a discoverable record of a disparity you have not yet remediated. **Involve counsel before you test, not after.**"
+      "reasoning": "Not because the analysis is wrong, because of **when counsel gets involved.** Whether the work is privileged depends on how it was commissioned, and that has to be arranged in advance. Run it first and you may have created a discoverable record of a disparity you haven't yet remediated. **Involve counsel before you test, not after.**"
     },
     {
       "id": "t7",
@@ -76,13 +76,13 @@
       "id": "t9",
       "text": "Deploying a vendor's flight-risk score to managers, with the vendor's fairness audit on file",
       "key": "record",
-      "reasoning": "Proceeding is defensible; the record is not optional. Retention obligations run on selection rates by group **per version, per period** — records somebody has to be creating, and which cannot be reconstructed retrospectively when the model changes. The vendor's audit is evidence about the vendor's population, not yours, so the base-rate work from Module 2 belongs in the file too."
+      "reasoning": "Proceeding is defensible; the record isn't optional. Retention obligations run on selection rates by group **per version, per period**: records somebody has to be creating, and which can't be reconstructed retrospectively when the model changes. The vendor's audit is evidence about the vendor's population, not yours, so the base-rate work from Module 2 belongs in the file too."
     },
     {
       "id": "t10",
       "text": "Including commute distance as a feature in a retention model, since it predicts well",
       "key": "record",
-      "reasoning": "The subtle one, and it should proceed only with proxy review documented. Illinois expressly prohibits zip codes as proxies for protected classes, and **the prohibition generalises to any geographic feature doing the same work** — commute distance is a geographic feature with a strong relationship to residential patterns. **Strict liability means \"it predicts well\" and \"we didn't mean to\" are both unavailable as defences.** Predictive power is the reason to look harder, not a justification."
+      "reasoning": "The subtle one, and it should proceed only with proxy review documented. Illinois expressly prohibits zip codes as proxies for protected classes, and **the prohibition generalises to any geographic feature doing the same work**, commute distance is a geographic feature with a strong relationship to residential patterns. **Strict liability means \"it predicts well\" and \"we did not mean to\" are both unavailable as defences.** Predictive power is the reason to look harder, not a justification."
     }
   ]
 }

@@ -13,7 +13,7 @@
         "Adoption concentrated in analytics rather than communication"
       ],
       "correctIndex": 1,
-      "explanation": "The 52-point gap between practice and intention is the informative part, and nearly every article describes the intention while implying the practice. D inverts the finding — planned investment leads on communication at 68%, which is Module 1's explanation work."
+      "explanation": "The 52-point gap between practice and intention is the informative part, and nearly every article describes the intention while implying the practice. D inverts the finding: planned investment leads on communication at 68%, which is Module 1's explanation work."
     },
     {
       "id": "q2",
@@ -25,7 +25,7 @@
         "It appears in a trade publication rather than a peer-reviewed journal"
       ],
       "correctIndex": 2,
-      "explanation": "A real trend has practitioners in it who aren't customers. A and B are the opposite — they're what a credible piece looks like — and D confuses venue with rigor."
+      "explanation": "A real trend has practitioners in it who aren't customers. A and B are the opposite (they're what a credible piece looks like) and D confuses venue with rigor."
     },
     {
       "id": "q3",
@@ -97,7 +97,7 @@
         "That practitioners have no better source of information available"
       ],
       "correctIndex": 1,
-      "explanation": "It's strongest because it's frequently true: the roadmap can be a leading indicator rather than a fiction. The right response is to read vendor material carefully, not to discount it — which is a different conclusion from the module's and has to be argued against on its merits."
+      "explanation": "It's strongest because it's frequently true: the roadmap can be a leading indicator rather than a fiction. The right response is to read vendor material carefully, not to discount it, which is a different conclusion from the module's and has to be argued against on its merits."
     }
   ]
 }

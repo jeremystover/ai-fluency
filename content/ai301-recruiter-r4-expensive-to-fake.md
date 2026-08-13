@@ -32,7 +32,7 @@ both sides now have.
 
 The good news arrives from an unexpected direction: **the methods that survive AI are, almost
 exactly, the methods that were always better.** The selection science was re-examined recently and
-the ranking changed — and the methods that came out on top are the ones a candidate cannot
+the ranking changed, and the methods that came out on top are the ones a candidate cannot
 outsource, while the ones that fell are the ones AI makes free.
 
 That's a rare piece of luck. You are not being asked to trade rigour for defensibility. You are
@@ -47,7 +47,7 @@ hold by default.
 By the end of this module you should be able to:
 
 1. State what the revised selection science says about which methods predict performance.
-2. Design for expensive-to-fake rather than detection — and say what "expensive" means precisely.
+2. Design for expensive-to-fake rather than detection, and say what "expensive" means precisely.
 3. Choose between ban-and-verify and require-and-grade, and explain why incoherence is worse than
    either.
 4. Handle verification at the right stage, through the right channel.
@@ -65,10 +65,10 @@ literature. Correcting it re-ranked the field:
 
 | Method | Corrected validity `[V]` |
 |---|---|
-| **Structured interviews** | **≈ .42** |
-| Job knowledge tests | ≈ .40 |
-| **Biodata** | **≈ .38** |
-| **General mental ability** | **≈ .31** |
+| **Structured interviews** | **≈.42** |
+| Job knowledge tests | ≈.40 |
+| **Biodata** | **≈.38** |
+| **General mental ability** | **≈.31** |
 | Years of experience | near the bottom |
 | Unstructured interviews | near the bottom |
 
@@ -79,8 +79,8 @@ questions in the same order, and independent scoring against a rubric, roughly d
 predictive value of an unstructured version of itself. That is a process change, not a purchase.
 
 **And the ranking maps almost perfectly onto fakeability.** Look again: the methods at the top
-require *demonstrated behaviour under observation*. The methods at the bottom — years of
-experience, credentials, unstructured conversation — are the ones a language model can produce a
+require *demonstrated behaviour under observation*. The methods at the bottom (years of
+experience, credentials, unstructured conversation) are the ones a language model can produce a
 convincing version of in seconds. The evidence and the AI-resistance point the same way, which
 means you can make this argument to a hiring manager on effectiveness grounds without ever
 mentioning AI.
@@ -97,7 +97,7 @@ working session takes forty minutes for everybody.
 said. The value isn't surveillance; it's that a conversation branches, and a branching conversation
 cannot be pre-generated.
 
-**Specificity they can't generate.** Details of work they actually did — what broke, what they'd
+**Specificity they can't generate.** Details of work they actually did: what broke, what they'd
 do differently, who disagreed and how it resolved. A model can produce a plausible project story;
 it cannot produce *their* project's second-order details under follow-up, because those details
 were never written down anywhere.
@@ -115,7 +115,7 @@ made this choice, and what you'd do if the constraint changed" is unfakeable in 
 document never was.
 
 **Follow-up depth over question breadth.** Three questions with four follow-ups each beats twelve
-questions with none. Prepared answers survive the first question and fall apart on the third —
+questions with none. Prepared answers survive the first question and fall apart on the third,
 and this costs nothing to implement.
 
 **And the thing to stop doing:** scoring polish. Written communication quality in an application
@@ -132,7 +132,7 @@ you are selecting for tool access.
 Your candidates are using AI. You need a stated position, and there are exactly two coherent ones.
 
 **Ban-and-verify.** AI use prohibited in assessment stages, and your process is built so that
-matters — which means live, observed, follow-up-heavy stages where the prohibition is
+matters, which means live, observed, follow-up-heavy stages where the prohibition is
 *structurally* enforced rather than trusted. The honest version says so plainly: *"our assessment
 stages are live because we're evaluating you, not your tools."*
 
@@ -145,10 +145,10 @@ which is most knowledge work now.
 **Incoherence is the only losing choice**, and it is the default state of most organizations: a
 policy prohibiting AI, no stage where the prohibition is enforceable, and interviewers privately
 assuming everyone uses it. That teaches candidates that your stated process does not mean what it
-says — and the ones who learn that fastest are the ones who read your process most carefully,
+says, and the ones who learn that fastest are the ones who read your process most carefully,
 which is a group you were trying to select *for*.
 
-Two rules whichever fork you take. **Say it in the invitation, not in the fine print** — a
+Two rules whichever fork you take. **Say it in the invitation, not in the fine print**, a
 candidate who discovers your policy at the assessment has already prepared for a different one.
 And **apply it identically to everyone**, because inconsistently enforced policy is the ban's
 disparate-impact problem arriving by a different route.
@@ -168,7 +168,7 @@ covers what that means when the regime requires a bias audit; the design answer 
 **a process that doesn't depend on detection has no false positives to defend.**
 
 **And verification belongs at screening, through official channels, not sprung at offer.**
-Employment dates, credentials, references — verify through the issuing institution or the
+Employment dates, credentials, references, verify through the issuing institution or the
 employer, early enough that a discrepancy is a conversation rather than a rescinded offer.
 Verification of *facts* is legitimate and always was. Detection of *tool use* is a different
 activity that has been quietly sold under the same word, and separating them is most of what this
@@ -176,7 +176,7 @@ lesson is for.
 
 ## Key takeaways
 
-- **The methods that survive AI are the methods that were always better** `[V]` — structured
+- **The methods that survive AI are the methods that were always better** `[V]`, structured
   interviews ≈.42, biodata ≈.38, general mental ability revised down to ≈.31, with experience and
   unstructured interviews near the bottom. You can argue this on effectiveness without mentioning
   AI.
@@ -200,7 +200,7 @@ lesson is for.
 selecting for tool access."*
 
 The strongest counter-argument is that **for many roles, polish is the job.** A content marketer,
-a customer-facing AE, or a communications hire will use exactly these tools in the work — so a
+a customer-facing AE, or a communications hire will use exactly these tools in the work, so a
 polished application is a valid work sample rather than noise, and treating polish as
 uninformative discards a real signal about output quality. Your position has to engage that,
 because for some of your requisitions it's simply correct.
@@ -212,16 +212,16 @@ because for some of your requisitions it's simply correct.
 
 Use the requisition you're carrying through the track.
 
-**Step 1 — Score the current loop (5 min).** Carry forward your Module 1 audit: each stage 0–3 on
+**Step 1. Score the current loop (5 min).** Carry forward your Module 1 audit: each stage 0–3 on
 what it costs a faker.
 
 **Step 2 — Redesign it (12 min).** Rebuild so that at least one stage before the final scores a 2
 or higher, using the three moves. For each change, name **which competency from your Module 3
-scorecard it tests** — a redesign that doesn't map to the scorecard is a preference, not a design.
+scorecard it tests**: a redesign that doesn't map to the scorecard is a preference, not a design.
 Do not add stages: this is a redesign, not an escalation, and lengthening a loop is a real cost
 to candidates.
 
-**Step 3 — Write the candidate-facing AI policy (5 min).** **Under 150 words**, in plain language,
+**Step 3. Write the candidate-facing AI policy (5 min).** **Under 150 words**, in plain language,
 stating which fork you chose and what candidates should actually expect. Write it as it would
 appear in the invitation email.
 
@@ -246,13 +246,13 @@ hiring manager who says the new loop is "too much process."
 
 > **B.** Decades of estimates carried the same statistical overcorrection; correcting it inverted
 > the top of the ranking. And usefully, the corrected ranking maps almost exactly onto
-> fakeability — the evidence and the AI-resistance point the same way.
+> fakeability: the evidence and the AI-resistance point the same way.
 
 **Q2.** What does the module mean by "structure is the active ingredient"?
 
 - A. That interviews should be longer and cover more competencies
 - B. That structured interviews require specialized assessment software
-- C. That defined competencies, the same questions in the same order, and independent rubric scoring roughly double an unstructured interview's predictive value — a process change, not a purchase ✓
+- C. That defined competencies, the same questions in the same order, and independent rubric scoring roughly double an unstructured interview's predictive value: a process change, not a purchase ✓
 - D. That structure matters mainly for legal defensibility
 
 > **C.** The same conversation, structured, is a different instrument. D is a genuine side
@@ -277,12 +277,12 @@ hiring manager who says the new loop is "too much process."
 - D. Because prohibiting it creates disparate impact
 
 > **B.** The observed reasoning is the signal, not the artifact. A is true and is a weaker
-> argument — enforceability is a reason the ban fails, not a reason the permission is right.
+> argument: enforceability is a reason the ban fails, not a reason the permission is right.
 
 **Q5.** Why is incoherence worse than either coherent policy?
 
 - A. Because it creates legal exposure that a stated policy avoids
-- B. Because it teaches candidates your stated process doesn't mean what it says — and the ones who learn that first are the most attentive ones, whom you were trying to select for ✓
+- B. Because it teaches candidates your stated process doesn't mean what it says, and the ones who learn that first are the most attentive ones, whom you were trying to select for ✓
 - C. Because interviewers apply it inconsistently across candidates
 - D. Because candidates will assume the strictest interpretation
 

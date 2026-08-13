@@ -21,7 +21,7 @@ outline's Decisions section.
 
 **Read first, in this order:**
 1. `content/301-track-authoring-brief.md` — the whole thing. §3a (the two subtractions) and §5
-   (what recurs) are the load-bearing sections and both changed recently.
+   (what recurs) are the sections the rest depends on and both changed recently.
 2. Your own outline and exploration doc.
 3. `content/ai301-hrbp-m3-the-honest-arithmetic.md` or `content/ai301-comp-m3-the-craft-layer.md` —
    **read one end to end for voice before writing a word.** Register, density, how a claim is stated

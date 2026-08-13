@@ -13,7 +13,7 @@
         "Because baselines take longer to collect than other module activities"
       ],
       "correctIndex": 1,
-      "explanation": "Every other mistake in the track is fixable later. A missing baseline is not, which is why it is the second module's first lesson rather than the eighth module's footnote."
+      "explanation": "Every other mistake in the track is fixable later. A missing baseline isn't, which is why it is the second module's first lesson rather than the eighth module's footnote."
     },
     {
       "id": "q2",
@@ -25,7 +25,7 @@
         "A baseline covers at least twelve months of history"
       ],
       "correctIndex": 2,
-      "explanation": "Save the query, not just the answer, and write down the population — otherwise the comparison six months later uses a slightly different denominator that happens to flatter the result. That is what happens to everyone who didn't write it down."
+      "explanation": "Save the query, not just the answer, and write down the population, otherwise the comparison six months later uses a slightly different denominator that happens to flatter the result. That is what happens to everyone who didn't write it down."
     },
     {
       "id": "q3",
@@ -61,7 +61,7 @@
         "On the vendor, under the support agreement"
       ],
       "correctIndex": 2,
-      "explanation": "A is the HRBP track's version, correctly aimed at someone auditing their own workflow. Yours relocates onto people who are not you, which makes your ticket queue the function's rework detector — and you are the only person who can read it."
+      "explanation": "A is the HRBP track's version, correctly aimed at someone auditing their own workflow. Yours relocates onto people who aren't you, which makes your ticket queue the function's rework detector, and you're the only person who can read it."
     },
     {
       "id": "q6",

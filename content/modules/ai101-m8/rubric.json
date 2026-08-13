@@ -4,26 +4,26 @@
   "minWords": 250,
   "maxWords": 350,
   "submitLabel": "Your one-pager and calibration review",
-  "intro": "Paste the one-pager (all four sections) followed by the 250–350 word calibration review. This is the course close — resubmission is free and unlimited, and the score is a mirror, not a gate.",
-  "activityContext": "You are grading the closing submission of an AI fluency course for People leaders (AI 101, The Foundation). Module 8 applied activity, 'The One-Pager': Part 1 is a first-person, one-page working policy — Use (three to five real tasks with their M5-shaped habits), Verify (M6 commitments sized to stakes, personal high-risk surface named), Disclose (a decide-once list of artifact types with what the note says), Refuse (their M7 line in their own words, M4 tiers they won't move without agreement answers, and one named question for IT or counsel). Part 2 is a calibration review across the whole course: the predictions they made in earlier modules gathered, the overall direction of miss named and compared against the direction they predicted at the top of this module, and a closing one-sentence account of how their model of AI changed — specific enough that it couldn't have been written before the course. Learners may not have completed every earlier module or prediction; grade the review on honesty about the pattern in whatever they did complete, never on volume or accuracy. This is the learner's own working policy, not a compliance document — concreteness and first-person ownership are the standards.",
+  "intro": "Paste the one-pager (all four sections) followed by the 250–350 word calibration review. This is the course close: resubmission is free and unlimited, and the score is a mirror, not a gate.",
+  "activityContext": "You are grading the closing submission of an AI fluency course for People leaders (AI 101, The Foundation). Module 8 applied activity, 'The One-Pager': Part 1 is a first-person, one-page working policy. Use (three to five real tasks with their M5-shaped habits), Verify (M6 commitments sized to stakes, personal high-risk surface named), Disclose (a decide-once list of artifact types with what the note says), Refuse (their M7 line in their own words, M4 tiers they won't move without agreement answers, and one named question for IT or counsel). Part 2 is a calibration review across the whole course: the predictions they made in earlier modules gathered, the overall direction of miss named and compared against the direction they predicted at the top of this module, and a closing one-sentence account of how their model of AI changed, specific enough that it couldn't have been written before the course. Learners may not have completed every earlier module or prediction; grade the review on honesty about the pattern in whatever they did complete, never on volume or accuracy. This is the learner's own working policy, not a compliance document — concreteness and first-person ownership are the standards.",
   "opening": [],
   "calibration": [],
   "dimensions": [
     {
       "name": "Use and Verify are real and matched",
-      "criteria": "The standing uses are recognizable tasks from their actual week, each with a habit attached — and the verification commitments are sized to stakes with the high-risk surface named, not a uniform 'I'll review everything.' A modest, keepable set of commitments outscores an aspirational one."
+      "criteria": "The standing uses are recognizable tasks from their actual week, each with a habit attached, and the verification commitments are sized to stakes with the high-risk surface named, not a uniform 'I'll review everything.' A modest, keepable set of commitments outscores an aspirational one."
     },
     {
       "name": "Disclose and Refuse have edges",
-      "criteria": "The decide-once list names artifact types and what the note says (the useful thing — provenance and verification status, not a sticker). The refusal line names decisions, not technology, in their own words — and the one question for IT or counsel is specific enough to get an answer rather than a shrug."
+      "criteria": "The decide-once list names artifact types and what the note says (the useful thing: provenance and verification status, not a sticker). The refusal line names decisions, not technology, in their own words, and the one question for IT or counsel is specific enough to get an answer rather than a shrug."
     },
     {
       "name": "It could circulate Monday",
-      "criteria": "First person, one page, concrete enough that their manager or team could read it and know what to expect — and what to ask. Policy-speak, hedging, and borrowed language score low; the test is whether it sounds like a person who means it."
+      "criteria": "First person, one page, concrete enough that their manager or team could read it and know what to expect, and what to ask. Policy-speak, hedging, and borrowed language score low; the test is whether it sounds like a person who means it."
     },
     {
       "name": "The calibration review closes the loop",
-      "criteria": "Predictions gathered honestly from whatever modules they completed, the direction of the pattern named and compared to what they predicted this module, and the closing sentence is specific to their own shift — it names something they believed in Module 1 that they no longer believe, or vice versa. Generic endings ('AI is a powerful tool with risks') fail this dimension."
+      "criteria": "Predictions gathered honestly from whatever modules they completed, the direction of the pattern named and compared to what they predicted this module, and the closing sentence is specific to their own shift. It names something they believed in Module 1 that they no longer believe, or vice versa. Generic endings ('AI is a powerful tool with risks') fail this dimension."
     }
   ]
 }

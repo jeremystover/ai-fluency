@@ -13,7 +13,7 @@
         "Application quality has declined, making screening harder"
       ],
       "correctIndex": 1,
-      "explanation": "Volume is the visible half and responds to throughput solutions. The signal collapse doesn't — a tailored cover letter used to mean forty minutes of attention and now means nothing, because it became free rather than less common. D is the opposite of the problem: applications got *more* polished."
+      "explanation": "Volume is the visible half and responds to throughput solutions. The signal collapse doesn't, a tailored cover letter used to mean forty minutes of attention and now means nothing, because it became free rather than less common. D is the opposite of the problem: applications got *more* polished."
     },
     {
       "id": "q2",
@@ -37,7 +37,7 @@
         "That candidates can defeat detection tools by rephrasing output"
       ],
       "correctIndex": 1,
-      "explanation": "You are being sold a capability whose error rate nobody publishes. A invents the very figure the lesson says doesn't credibly exist — which is the trap."
+      "explanation": "You are being sold a capability whose error rate nobody publishes. A invents the very figure the lesson says doesn't credibly exist, which is the trap."
     },
     {
       "id": "q4",
@@ -49,7 +49,7 @@
         "Because human reviewers make the final call on flagged applications"
       ],
       "correctIndex": 2,
-      "explanation": "101 M7's line, and the invisibility of the harm is what makes it worse than an ordinary error. D describes a workflow that doesn't fix it — the reviewer sees the flagged, not the wrongly flagged."
+      "explanation": "101 M7's line, and the invisibility of the harm is what makes it worse than an ordinary error. D describes a workflow that doesn't fix it: the reviewer sees the flagged, not the wrongly flagged."
     },
     {
       "id": "q5",
@@ -61,7 +61,7 @@
         "Early-career candidates with limited work history"
       ],
       "correctIndex": 1,
-      "explanation": "Which makes it a screening criterion with disparate impact and no validation study, applied to protected populations — and note the third group is a trait you claimed to want."
+      "explanation": "Which makes it a screening criterion with disparate impact and no validation study, applied to protected populations, and note the third group is a trait you claimed to want."
     },
     {
       "id": "q6",
@@ -73,7 +73,7 @@
         "Most reduced the number of interview stages to cut volume"
       ],
       "correctIndex": 2,
-      "explanation": "The majority answer is redesign rather than detection — the right instinct, arrived at empirically before anyone argued it from principle. That's the direction Module 4 formalizes."
+      "explanation": "The majority answer is redesign rather than detection: the right instinct, arrived at empirically before anyone argued it from principle. That's the direction Module 4 formalizes."
     }
   ]
 }

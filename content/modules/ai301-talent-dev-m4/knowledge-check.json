@@ -13,7 +13,7 @@
         "Because it rules out publication bias in the field"
       ],
       "correctIndex": 1,
-      "explanation": "The cheap readings — the early study was wrong, the later one is biased, two camps disagree — are all unavailable. One researcher published a positive narrow result and then a null broad one."
+      "explanation": "The cheap readings (the early study was wrong, the later one is biased, two camps disagree) are all unavailable. One researcher published a positive narrow result and then a null broad one."
     },
     {
       "id": "q2",
@@ -25,7 +25,7 @@
         "Whether the intervention was voluntary or assigned"
       ],
       "correctIndex": 2,
-      "explanation": "Goal attainment is bounded, targeted, and checkable. Broad developmental coaching depends on a mechanism a tool cannot supply, which Lesson 2 names."
+      "explanation": "Goal attainment is bounded, targeted, and checkable. Broad developmental coaching depends on a mechanism a tool can't supply, which Lesson 2 names."
     },
     {
       "id": "q3",
@@ -37,7 +37,7 @@
         "Matching the intervention's intensity to the learner's current capability"
       ],
       "correctIndex": 2,
-      "explanation": "And the consequence is that an interlocutor with no stake in you is not a cheaper version of one who has. It is a different intervention using the same words."
+      "explanation": "And the consequence is that an interlocutor with no stake in you isn't a cheaper version of one who has. It is a different intervention using the same words."
     },
     {
       "id": "q4",
@@ -61,7 +61,7 @@
         "Because the finding is about program design rather than about individuals"
       ],
       "correctIndex": 1,
-      "explanation": "It is an equity point too — the business partner track treats it that way. The version that changes what an L&D professional builds is the measurement one, because the group averaged away is the group the program was justified by."
+      "explanation": "It is an equity point too: the business partner track treats it that way. The version that changes what an L&D professional builds is the measurement one, because the group averaged away is the group the program was justified by."
     },
     {
       "id": "q6",
@@ -97,7 +97,7 @@
         "As evidence the organization has not made an allocation decision at all"
       ],
       "correctIndex": 1,
-      "explanation": "Budget is a real constraint and naming it is the honest move. The failure the module targets is a budget decision dressed as a developmental judgment, which cannot be argued with because it is not stating its actual reason."
+      "explanation": "Budget is a real constraint and naming it is the honest move. The failure the module targets is a budget decision dressed as a developmental judgment, which can't be argued with because it isn't stating its actual reason."
     }
   ]
 }

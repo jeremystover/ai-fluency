@@ -25,7 +25,7 @@
         "Because it happens at generation time rather than at review time"
       ],
       "correctIndex": 2,
-      "explanation": "The other four are content errors that a careful reader checking claims against sources will catch. This one has nothing wrong in it to find, which is why more of the same review does not help."
+      "explanation": "The other four are content errors that a careful reader checking claims against sources will catch. This one has nothing wrong in it to find, which is why more of the same review doesn't help."
     },
     {
       "id": "q3",
@@ -49,7 +49,7 @@
         "A source whose author has an undisclosed commercial interest"
       ],
       "correctIndex": 2,
-      "explanation": "Dale's Cone is the canonical case: Dale published it, the citation is genuine, and he attached no percentages and warned against reading it as a ranking. B is 101 M6's fabricated specifics — a different failure that an accuracy review catches."
+      "explanation": "Dale's Cone is the canonical case: Dale published it, the citation is genuine, and he attached no percentages and warned against reading it as a ranking. B is 101 M6's fabricated specifics: a different failure that an accuracy review catches."
     },
     {
       "id": "q5",
@@ -85,7 +85,7 @@
         "It substantially degrades output quality in exchange for the check"
       ],
       "correctIndex": 2,
-      "explanation": "The organization-specific limit is the important one: a premise about your managers or your incentives cannot be verified by a model with no access to either. It will say so if asked, and saying so is not detecting."
+      "explanation": "The organization-specific limit is the important one: a premise about your managers or your incentives can't be verified by a model with no access to either. It will say so if asked, and saying so isn't detecting."
     },
     {
       "id": "q8",

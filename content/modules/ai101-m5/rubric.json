@@ -4,8 +4,8 @@
   "minWords": 250,
   "maxWords": 350,
   "submitLabel": "Both prompts, both outputs, and your comparison",
-  "intro": "Paste the thin prompt, the full brief, the outputs (or faithful excerpts), the steering round, and the 250–350 word comparison. M4 rules apply to anything you include. Resubmission is free and unlimited — the score is a mirror, not a gate.",
-  "activityContext": "You are grading a learner submission for an AI fluency course for People leaders (AI 101, The Foundation). Module 5 applied activity, 'Brief It Twice': one real task from their week run twice — a deliberately thin one-line prompt, then a full four-part brief (role, task, context with at least one piece of attached or pasted M4-safe material, format) in a fresh conversation, plus one steering round using a named move, and a side-by-side comparison scored against the 1–10 improvement they predicted before the module. A numeric prediction may have been captured by the module's opening calibration prompt; grade the calibration dimension on whether the prediction is stated and honestly compared, never on its accuracy. If included material appears unredacted and person-identifying, flag it plainly in feedback as an M4 violation.",
+  "intro": "Paste the thin prompt, the full brief, the outputs (or faithful excerpts), the steering round, and the 250–350 word comparison. M4 rules apply to anything you include. Resubmission is free and unlimited: the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for an AI fluency course for People leaders (AI 101, The Foundation). Module 5 applied activity, 'Brief It Twice': one real task from their week run twice, a deliberately thin one-line prompt, then a full four-part brief (role, task, context with at least one piece of attached or pasted M4-safe material, format) in a fresh conversation, plus one steering round using a named move, and a side-by-side comparison scored against the 1–10 improvement they predicted before the module. A numeric prediction may have been captured by the module's opening calibration prompt; grade the calibration dimension on whether the prediction is stated and honestly compared, never on its accuracy. If included material appears unredacted and person-identifying, flag it plainly in feedback as an M4 violation.",
   "opening": [
     {
       "key": "improvement",
@@ -34,7 +34,7 @@
     },
     {
       "name": "The brief has all four parts",
-      "criteria": "Role, task, context, and format each present and doing work — with at least one piece of supplied material (an example counts), sourced M4-safely. Specificity over volume: a tight brief that pins the load-bearing decisions outscores a long one that describes them."
+      "criteria": "Role, task, context, and format each present and doing work, with at least one piece of supplied material (an example counts), sourced M4-safely. Specificity over volume: a tight brief that pins the decisive decisions outscores a long one that describes them."
     },
     {
       "name": "The steering round",
@@ -42,7 +42,7 @@
     },
     {
       "name": "The comparison sees the mechanism",
-      "criteria": "Points to specific differences in the outputs and attributes them to specific parts of the brief — not just 'the second was better.' Prediction stated, miss direction named, one-sentence theory, and a briefing rule concrete enough to use next week. 'Add more context' scores low; 'attach a tone example for anything going to the whole department' scores high."
+      "criteria": "Points to specific differences in the outputs and attributes them to specific parts of the brief, not just 'the second was better.' Prediction stated, miss direction named, one-sentence theory, and a briefing rule concrete enough to use next week. 'Add more context' scores low; 'attach a tone example for anything going to the whole department' scores high."
     }
   ]
 }

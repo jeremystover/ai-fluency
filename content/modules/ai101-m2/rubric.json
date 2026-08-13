@@ -4,7 +4,7 @@
   "minWords": 250,
   "maxWords": 350,
   "submitLabel": "Your audit table and reflection",
-  "intro": "Paste your audit table (any readable format) followed by the 250–350 word reflection. Resubmission is free and unlimited — the score is a mirror, not a gate.",
+  "intro": "Paste your audit table (any readable format) followed by the 250–350 word reflection. Resubmission is free and unlimited: the score is a mirror, not a gate.",
   "activityContext": "You are grading a learner submission for an AI fluency course for People leaders (AI 101, The Foundation). Module 2 applied activity, 'The Stack Audit': an inventory of the systems their People function runs (three minimum), each AI feature classified by shape (assistant / copilot / decision engine), a concrete vendor question for each decision engine found plus at least one copilot, and a comparison against the count they predicted before the module. A numeric prediction may have been captured by the module's opening calibration prompt; grade the calibration dimension on whether the prediction is stated and honestly compared, never on its accuracy.",
   "opening": [
     {
@@ -34,7 +34,7 @@
     },
     {
       "name": "Classification reasoning",
-      "criteria": "Shapes assigned using the four questions — what goes in, what comes out, where errors land, who's accountable — not vendor labels. Systems containing more than one shape are split rather than averaged. A defended borderline call outscores an undefended correct one."
+      "criteria": "Shapes assigned using the four questions (what goes in, what comes out, where errors land, who's accountable) not vendor labels. Systems containing more than one shape are split rather than averaged. A defended borderline call outscores an undefended correct one."
     },
     {
       "name": "The vendor questions",

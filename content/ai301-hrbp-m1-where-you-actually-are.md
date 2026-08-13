@@ -13,7 +13,7 @@
 
 ## Calibration prompt — before you start
 
-*One prediction, thirty seconds. You'll score it in the applied activity — and again in Module 7.*
+*One prediction, thirty seconds. You'll score it in the applied activity, and again in Module 7.*
 
 You are about to see survey data on how far along other organizations actually are with AI in HR.
 
@@ -43,7 +43,7 @@ told you whether it worked, because measurement takes time you feel you don't ha
 mode in the six modules that follow starts here, in the pressure to catch up with something.
 
 So before this track teaches you anything about judgment work, it owes you an accurate picture of
-where the field actually stands. Not a reassuring one — an accurate one. Some of it will be more
+where the field actually stands. Not a reassuring one: an accurate one. Some of it will be more
 comfortable than you expect, and one piece of it will be less.
 
 ## Learning objectives
@@ -51,8 +51,8 @@ comfortable than you expect, and one piece of it will be less.
 By the end of this module you should be able to:
 
 1. State, from data rather than impression, how far along HR functions actually are with AI.
-2. Distinguish the two very different pressures that both feel like "we're behind" — peer
-   reality and executive expectation — and explain why they need different responses.
+2. Distinguish the two very different pressures that both feel like "we're behind" (peer
+   reality and executive expectation) and explain why they need different responses.
 3. Name the specific decision errors that comparison-driven adoption produces.
 4. Describe your own current AI use honestly, in terms of what you actually do rather than what
    you have access to.
@@ -68,7 +68,7 @@ rather than a technical one, and it is produced by a specific information enviro
 Consider who is generating the content you read about AI in HR. Vendors, whose product roadmap
 is described as an industry trend. Consultancies, whose report exists to sell an engagement.
 Practitioners on professional networks, who post about the implementation that worked and not
-the three that stalled — the same selection bias that makes everyone else's career look linear.
+the three that stalled: the same selection bias that makes everyone else's career look linear.
 Conference speakers, selected for having something to announce.
 
 Almost nobody publishes "we tried it, the results were ambiguous, and we're still deciding." That
@@ -84,8 +84,8 @@ motivated to publish are the ones with something to sell or something to celebra
 Now the survey evidence, which looks quite different from the content environment.
 
 **A large share of organizations have not started, and do not intend to this year.** Roughly
-three in ten report no plans to launch AI initiatives at all. That is not "behind schedule" —
-that is a deliberate or default position held by a substantial minority of the field.
+three in ten report no plans to launch AI initiatives at all. That is not "behind schedule".
+That is a deliberate or default position held by a substantial minority of the field.
 
 **Among those who have adopted, business value is not yet the norm.** A large majority of HR
 leaders report that their organizations have not realized significant business value from AI
@@ -100,7 +100,7 @@ gap between *expectation* and *implementation*, not between you and your competi
 Sit with that distinction, because it changes the correct response entirely:
 
 - If you are behind your **peers**, the answer is to move faster.
-- If you are behind your **executive's expectations**, the answer is a conversation — about what
+- If you are behind your **executive's expectations**, the answer is a conversation: about what
   is actually possible, on what timeline, at what cost, with what evidence. Moving faster into an
   unevaluated purchase does not close that gap; it just adds a failed implementation to it.
 
@@ -128,7 +128,7 @@ actual job; adopting before sorting means solving whichever problem had the best
 
 **You skip the baseline.** The single most expensive omission in the entire track. Without a
 before-number you can never demonstrate the after-number, which means a working implementation and
-a useless one look identical in the retrospective — and Module 7's case for your function cannot
+a useless one look identical in the retrospective, and Module 7's case for your function cannot
 be made at all.
 
 **You mistake activity for progress.** Pilots launched becomes the metric because it is the metric
@@ -136,7 +136,7 @@ available early. It measures motion, not value, and it is the number executives 
 accepting.
 
 The correction is not complacency. Nothing here says the technology is unimportant or that you
-have unlimited time — the market pressure in Module 2 is real and it is not friendly. It says
+have unlimited time: the market pressure in Module 2 is real and it is not friendly. It says
 something narrower and more useful: **you have more room to be deliberate than the content
 environment suggests, and deliberateness is what separates the implementations that survive from
 the ones that get quietly retired.**
@@ -155,7 +155,7 @@ the ones that get quietly retired.**
 - **Comparison-driven adoption produces four specific errors:** buying before evaluating,
   adopting what's marketed over what fits, skipping the baseline, and mistaking pilots launched
   for progress.
-- **Deliberateness is available to you.** Not unlimited time — more room than you think, and it
+- **Deliberateness is available to you.** Not unlimited time: more room than you think, and it
   is what separates implementations that survive from ones that get retired.
 
 ## Take a position
@@ -163,10 +163,10 @@ the ones that get quietly retired.**
 **The claim:** *"Most of the urgency you feel about AI was manufactured by people selling it, and
 acting on that urgency is the single most expensive thing you'll do this year."*
 
-Commit to a position before you write the activity — agree, disagree, or agree-with-a-limit — and
+Commit to a position before you write the activity (agree, disagree, or agree-with-a-limit) and
 be ready to argue it. The strongest version of the counter-argument is not "the anxiety is real."
 It is that **urgency, even manufactured urgency, sometimes produces the right action for the wrong
-reason** — organizations that moved early on manufactured fear did occasionally end up better
+reason**, organizations that moved early on manufactured fear did occasionally end up better
 positioned than those who deliberated. Your position has to survive that.
 
 ## Applied activity — "An honest inventory"
@@ -175,19 +175,19 @@ positioned than those who deliberated. Your position has to survive that.
 against the rubric below.** Score doesn't matter. Doing the work is where the learning lands.
 
 **Step 1 — What you actually do (7 min).** List every task where you personally used AI in the
-last two weeks. Not what you have access to, not what you plan to try — what you *did*, with
+last two weeks. Not what you have access to, not what you plan to try: what you *did*, with
 rough frequency. Be unsparing: "reworded three emails" belongs on the list, and for many
 experienced HRBPs it will be most of the list.
 
-**Step 2 — What your function actually does (5 min).** The same for your team, as far as you
+**Step 2. What your function actually does (5 min).** The same for your team, as far as you
 honestly know. Where you don't know, write "don't know" — that answer is data, and it is a more
 useful finding than a guess.
 
-**Step 3 — Locate the pressure (3 min).** Name the last three moments you felt behind, and for
+**Step 3. Locate the pressure (3 min).** Name the last three moments you felt behind, and for
 each, the source: vendor, consultancy, social, or an executive expectation. Then say which of the
 two problems you are actually in.
 
-**Step 4 — Score the prediction (2 min).** Your predicted share of organizations with no AI plans
+**Step 4. Score the prediction (2 min).** Your predicted share of organizations with no AI plans
 versus the real figure. Direction of the miss, and one sentence on what your guess reveals about
 where you thought you stood.
 
@@ -223,14 +223,14 @@ and the one thing you now think you should stop worrying about.
 
 **Q3.** Around nine in ten CHROs expect more AI adoption while over half of organizations have implemented none. What kind of gap is that, and why does it matter?
 
-- A. A peer gap — it means your competitors are ahead and you should accelerate
-- B. An expectations gap — the pressure is coming from executives rather than peer reality, and it's closed by a conversation with evidence, not by faster buying ✓
+- A. A peer gap. It means your competitors are ahead and you should accelerate
+- B. An expectations gap, the pressure is coming from executives rather than peer reality, and it's closed by a conversation with evidence, not by faster buying ✓
 - C. A measurement gap — CHROs are counting adoption differently than practitioners
-- D. A vendor gap — it shows vendors have oversold to executives specifically
+- D. A vendor gap. It shows vendors have oversold to executives specifically
 
 > **B.** The distinction is the module's central practical point: the two pressures feel identical
 > and have opposite correct responses. Buying faster does not close a gap between what your
-> executive expects and what is actually possible — it adds a failed implementation to it.
+> executive expects and what is actually possible. It adds a failed implementation to it.
 
 **Q4.** Of the four errors comparison-driven adoption produces, which one most directly prevents you from ever proving an implementation worked?
 
@@ -252,12 +252,12 @@ and the one thing you now think you should stop worrying about.
 - D. That AI adoption decisions should be deferred to executives who feel the pressure most
 
 > **B.** The correction is against comparison-driven haste, not against the technology or against
-> urgency in general. C is explicitly contradicted — Module 2 takes the market pressure on this
+> urgency in general. C is explicitly contradicted. Module 2 takes the market pressure on this
 > role seriously and unflinchingly.
 
 ## Sources and attribution
 
-- **SHRM, *The State of AI in HR 2026*** — the adoption, no-plans, and business-value findings,
+- **SHRM, *The State of AI in HR 2026***: the adoption, no-plans, and business-value findings,
   and the CHRO expectation data. Annual survey; figures move each cycle. **[V]**
 - The two-pressures distinction (peer reality versus executive expectation), the four errors of
   comparison-driven adoption, and the content-environment selection-bias argument are original to

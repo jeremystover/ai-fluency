@@ -232,7 +232,7 @@ measure how far the learner moved and whether they can account for it.
    **All items subsequently resolved — nothing shipped unverified.** ERISA fiduciary specifics and
    US state pay-transparency regimes were closed in the second pass (see *Verified before drafting
    M4*). Pay-equity-product claims were **avoided rather than resolved**: M4's method lesson cites
-   no vendor product statistics, so the blocking item never became load-bearing.
+   no vendor product statistics, so the blocking item never became structural.
 
 ## Open question: the time budget
 

@@ -591,7 +591,7 @@ self-describe as either "HR" or "People."
   anchors on it, and a privilege topic because a sibling covers it — and both cuts happen to survive on
   merit. Worth one pass over the three outlined tracks to check nothing else was withheld from a
   learner who will never see the alternative.
-- **The shared evidence library is now load-bearing rather than tidy.** §3a permits duplication and
+- **The shared evidence library is now carrying real weight rather than tidy.** §3a permits duplication and
   names drift as its real cost. Three facts already appear in three or more tracks — the coaching
   trials, *Mobley*, and the SHRM adoption figures — and with duplication sanctioned that number will
   grow fast. Authoring the HR-wide volatile facts once, referenced from each track, is what keeps the

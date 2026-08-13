@@ -13,11 +13,11 @@
         "Because business partners were taught this material in 201 and L&D professionals were not"
       ],
       "correctIndex": 1,
-      "explanation": "The shape of the finding is the same in both tracks — where has AI actually landed — and it points in opposite directions. Telling this audience \"you're not behind, calm down\" would be comfortable and untrue."
+      "explanation": "The shape of the finding is the same in both tracks (where has AI actually landed) and it points in opposite directions. Telling this audience \"you're not behind, calm down\" would be comfortable and untrue."
     },
     {
       "id": "q2",
-      "prompt": "What does the seven-stage chain reveal that a list of L&D responsibilities does not?",
+      "prompt": "What does the seven-stage chain reveal that a list of L&D responsibilities doesn't?",
       "options": [
         "Which stages require the most specialized training to perform",
         "That the hours concentrate in the middle stages while the distinctive value concentrates at the two ends — so collapsing the middle promotes the ends to being the whole job",
@@ -29,7 +29,7 @@
     },
     {
       "id": "q3",
-      "prompt": "In the triage, what does question one — \"is it cheap now?\" — actually ask?",
+      "prompt": "In the triage, what does question one — \"is it cheap now?\", actually ask?",
       "options": [
         "Whether the item was inexpensive to produce originally",
         "Whether the item is low quality",
@@ -37,7 +37,7 @@
         "Whether the item is still being used by the business"
       ],
       "correctIndex": 2,
-      "explanation": "What it cost you is a fact about the past. The triage is about replacement cost now, which is why \"but that took my team six weeks\" is not an answer to it."
+      "explanation": "What it cost you is a fact about the past. The triage is about replacement cost now, which is why \"but that took my team six weeks\" isn't an answer to it."
     },
     {
       "id": "q4",
@@ -61,7 +61,7 @@
         "That it changes too frequently for a model's knowledge cutoff"
       ],
       "correctIndex": 2,
-      "explanation": "And the distinction matters enormously, because the undocumented-information claim comes with a condition: it holds only while the information stays undocumented. The subtlety claim would be permanent, and it is not the one the module makes."
+      "explanation": "And the distinction matters enormously, because the undocumented-information claim comes with a condition: it holds only while the information stays undocumented. The subtlety claim would be permanent, and it isn't the one the module makes."
     },
     {
       "id": "q6",
@@ -73,11 +73,11 @@
         "A reduction in the regulatory constraints on AI in employment"
       ],
       "correctIndex": 1,
-      "explanation": "Which is uncomfortable, because that is normally considered an unambiguously good thing to do. A is the answer that skips the mechanism — the constraint is the record, not the reasoning."
+      "explanation": "Which is uncomfortable, because that is normally considered an unambiguously good thing to do. A is the answer that skips the mechanism: the constraint is the record, not the reasoning."
     },
     {
       "id": "q7",
-      "prompt": "Why does the module state what the track will not teach?",
+      "prompt": "Why does the module state what the track won't teach?",
       "options": [
         "To set expectations about the time commitment involved",
         "Because those topics are covered in optional supplementary material",
@@ -89,7 +89,7 @@
     },
     {
       "id": "q8",
-      "prompt": "A learner reports they cannot produce an inventory of their own catalog. How should that be treated?",
+      "prompt": "A learner reports they can't produce an inventory of their own catalog. How should that be treated?",
       "options": [
         "As a failure to complete the activity, which should be resubmitted once the list exists",
         "As a finding about the function that is worth more than the exercise, and which should become the write-up",
@@ -97,7 +97,7 @@
         "As evidence that the function is too small for the triage to apply"
       ],
       "correctIndex": 1,
-      "explanation": "A function that cannot enumerate what it publishes has learned something structural about itself. The activity is a means of finding things out; when the means fails informatively, the finding is the output."
+      "explanation": "A function that can't enumerate what it publishes has learned something structural about itself. The activity is a means of finding things out; when the means fails informatively, the finding is the output."
     }
   ]
 }

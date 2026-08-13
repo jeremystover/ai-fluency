@@ -15,10 +15,10 @@
 
 *One prediction, thirty seconds. You'll score it during the capstone run.*
 
-By the end of this module you'll have designed your workflow as a pipeline — a chain of small
-steps — and run it on real material.
+By the end of this module you'll have designed your workflow as a pipeline (a chain of small
+steps) and run it on real material.
 
-**Which step do you expect to degrade quality most?** Not fail loudly — degrade: lose detail,
+**Which step do you expect to degrade quality most?** Not fail loudly: degrade: lose detail,
 flatten nuance, drop the thing that mattered. Name the step and write one sentence on why.
 
 Almost nobody guesses right the first time, and the miss teaches you where your verification
@@ -42,7 +42,7 @@ invisible leap.
 You know from 101 why this happens. The model generates one fragment at a time, each predicted
 from everything in view; ask it to juggle four objectives across two hundred comments and the
 middle objectives lose the tug-of-war quietly. More instructions in one prompt doesn't mean more
-gets done — it means everything competes.
+gets done. It means everything competes.
 
 The practitioner's move is the same one every other discipline made when work got serious:
 **break the leap into steps with inspectable states in between.** Summarize → extract →
@@ -52,7 +52,7 @@ up, and designing one well is mostly about knowing where chains break: long docu
 middles, and formats that drift.
 
 One promise before we start: this is not about making everything elaborate. Most tasks still
-deserve a single prompt. The skill is knowing which tasks don't — and building the smallest
+deserve a single prompt. The skill is knowing which tasks don't, and building the smallest
 chain that fixes them.
 
 ---
@@ -64,7 +64,7 @@ By the end of this module you should be able to:
 1. Explain why one mega-prompt loses to a short chain — in the mechanism vocabulary of 101, not
    as folklore.
 2. Design a checkpoint: an intermediate artifact a human could actually catch an error in.
-3. Recognize the lossy middle — the step where structure becomes prose and detail dies — and
+3. Recognize the lossy middle (the step where structure becomes prose and detail dies) and
    defend against it.
 4. Run a multi-step pipeline in your organization's tool, carrying artifacts forward cleanly. **[V]**
 5. Know when *not* to chain: the single-prompt tasks that chains only slow down.
@@ -76,20 +76,20 @@ By the end of this module you should be able to:
 A pipeline is three design decisions, repeated: what each step does, what it hands to the next
 step, and what you look at in between.
 
-**One transformation per step.** M1's rule, now load-bearing. "Extract the themes" is a step.
+**One transformation per step.** M1's rule, now carrying real weight. "Extract the themes" is a step.
 "Extract the themes and draft the summary" is two steps written as one prompt, and the model
 will do the first at half attention while performing the second. If your step prompt contains "and
 then also," split it.
 
 **Structured intermediates.** What a step hands forward should be *more* structured than what
-it received: a table, a list with counts, sections with headings — not polished prose. Two
+it received: a table, a list with counts, sections with headings, not polished prose. Two
 reasons. The next step predicts better from structure than from narrative (you're supplying
 cleaner material — 101's central lever). And structure is checkable: a count can be verified, a
 quote can be traced. Prose can only be believed.
 
 **Checkpoints, honestly defined.** An intermediate artifact is only a checkpoint if a human
 glancing at it could catch a real error. "Themes: communication, workload, recognition" checks
-nothing — it would look identical whether the analysis was faithful or invented. "Communication:
+nothing. It would look identical whether the analysis was faithful or invented. "Communication:
 41 mentions, 9 strongly negative, concentrated in the Denver office, sample quotes below" is a
 checkpoint: every claim in it can be spot-checked against the raw comments in two minutes. When
 you design a step, design what failure would look like at its checkpoint — if you can't say what
@@ -97,17 +97,17 @@ a wrong version would show, the checkpoint is decoration.
 
 **Fresh context per step.** Each step should see its input artifact, the relevant pack material,
 and nothing else. Don't run a whole pipeline down one endless conversation out of convenience:
-101 told you what happens when the window fills — early material drops out of view, and your
+101 told you what happens when the window fills: early material drops out of view, and your
 step 3 quietly stops seeing the instructions from step 1. (Lesson 3 shows the clean mechanics.)
 
 **And the counterweight: don't chain what doesn't need it.** A chain earns its friction under
-three conditions — the input is long, the stakes are real, or a failure would be invisible in
+three conditions: the input is long, the stakes are real, or a failure would be invisible in
 final prose. "Rewrite this paragraph plainly" meets none of them; one prompt, done. The
 practitioner's tell isn't elaborate pipelines everywhere; it's *small* pipelines exactly where
 the three conditions hold, and single prompts everywhere else.
 
-> ### Try this — 2 minutes
-> Take the most complex prompt you've written this month — the one with several jobs in it.
+> ### Try this (2 minutes
+> Take the most complex prompt you've written this month) the one with several jobs in it.
 >
 > 1. Count the distinct transformations it asks for. (Verbs are the tell: summarize, pull,
 >    note, draft — that's four.)
@@ -119,55 +119,55 @@ the three conditions hold, and single prompts everywhere else.
 
 ## Lesson 2 · The People-work gallery
 
-Three pipelines that cover most of what a People team feeds to a model. Learn the shapes — your
+Three pipelines that cover most of what a People team feeds to a model. Learn the shapes, your
 own workflows will mostly be one of these wearing different clothes.
 
 ### Pipeline 1 · Survey verbatims → themes → exec summary
 
-- **Step 1 — Extract** (comments in → theme table out): themes with counts, intensity,
+- **Step 1. Extract** (comments in → theme table out): themes with counts, intensity,
   *concentration* (which office, which function), representative quotes verbatim, and an
   explicit section for minority and dissenting signals. The prompt says: preserve counts, quote
   exactly, never average away a concentrated problem.
   **Checkpoint:** pick two themes, spot-check counts and quotes against the raw comments. 101's
-  survey caveat — the model flattens minority views — is *engineered against* here, not hoped
+  survey caveat (the model flattens minority views) is *engineered against* here, not hoped
   against.
 - **Step 2 — Narrate** (theme table in → analysis draft out): draft the narrative *from the
-  theme table only* — the raw comments are deliberately out of view, so the narrative can't
+  theme table only*: the raw comments are deliberately out of view, so the narrative can't
   quietly re-analyze. The prompt requires every claim to carry its number and concentration.
   **Checkpoint:** every sentence traceable to a table row.
-- **Step 3 — Format** (draft in → exec-pack section out): voice, length, layout from your pack.
+- **Step 3. Format** (draft in → exec-pack section out): voice, length, layout from your pack.
   No new facts may enter. **Checkpoint:** diff-read — formatting changed, claims didn't.
 
 ### Pipeline 2 · Policy update → change list → plain-language note
 
-- **Step 1 — Enumerate** (old + new text in → change table out): every changed clause, old
+- **Step 1. Enumerate** (old + new text in → change table out): every changed clause, old
   wording, new wording, one line each. The prompt's key instruction: *enumerate, don't
-  summarize* — a "summary of changes" is exactly the lossy move that lets a changed clause slip
+  summarize*, a "summary of changes" is exactly the lossy move that lets a changed clause slip
   through unannounced. **Checkpoint:** mechanical — walk the table against the documents; it's
   complete or it isn't.
-- **Step 2 — Explain** (change table in → plain-language explanations out): what each change
+- **Step 2. Explain** (change table in → plain-language explanations out): what each change
   means for an employee, in the register your pack defines, flagged where a change might be
   contentious. **Checkpoint:** explanations match clauses; the flags look right to someone who
   knows the org.
-- **Step 3 — Draft** (explanations in → comms note out): the note itself, pack voice, standard
+- **Step 3. Draft** (explanations in → comms note out): the note itself, pack voice, standard
   disclaimers. This step also gets a standing reminder from 101: general statutory framing may
   ride along, but *your jurisdiction's specifics get verified by a human, every time*.
 
 ### Pipeline 3 · Interview notes → debriefs → decision packet
 
 - **Step 1 — Structure per candidate** (your notes in → structured debrief out): evidence
-  organized under your competency headings — from the notes only, gaps flagged as gaps ("notes
+  organized under your competency headings: from the notes only, gaps flagged as gaps ("notes
   don't cover competency X"), never filled. One run per candidate, so no cross-contamination.
   **Checkpoint:** every claim traceable to something you actually wrote down.
-- **Step 2 — Assemble** (debriefs in → packet out): side-by-side *evidence* — where each
+- **Step 2. Assemble** (debriefs in → packet out): side-by-side *evidence* — where each
   candidate showed what, where the gaps are. The prompt explicitly does not ask for a ranking or
   recommendation, because M1's line hasn't moved: the packet informs a human decision; it is not
   the decision. **Checkpoint:** the packet contains comparisons of evidence and zero verdicts.
-- **Step 3 — Format** for the debrief meeting, pack template.
+- **Step 3. Format** for the debrief meeting, pack template.
 
 **The shape underneath all three:** the first step turns raw material into structure and
 preserves traceability (counts, quotes, clauses, sources). Middle steps transform structure
-*into* structure. The last step — and only the last — is allowed to make prose. Hold that shape
+*into* structure. The last step (and only the last) is allowed to make prose. Hold that shape
 and notice where the danger concentrates: the step where structured detail becomes readable
 narrative. That's the lossy middle, and it's where the exercise below takes you.
 
@@ -189,7 +189,7 @@ communication, though sentiment in this area was mixed rather than uniformly neg
 **Exec summary (after step 3):** "Overall sentiment remains positive, with minor communication
 concerns noted."
 
-By the final artifact, a localized problem — nine strongly negative comments from one office —
+By the final artifact, a localized problem (nine strongly negative comments from one office)
 has become "minor concerns." **Which step killed the signal?** Commit to an answer, and to one
 sentence on how you'd fix that step's prompt.
 
@@ -205,15 +205,15 @@ tools.*
 
 Your pipeline lives in the same Project as its pack (M2). Two additions make it runnable.
 
-**The runbook.** One knowledge document — "Pipeline: [workflow name]" — holding each step's
+**The runbook.** One knowledge document ("Pipeline: [workflow name]") holding each step's
 prompt, numbered, with its expected input and output format. Step prompts are pack content by
 M2's own test: durable, impersonal, reviewed on a cadence. When you improve a step prompt after
-a bad run, you improve it *in the runbook* — fix the pack, not the output.
+a bad run, you improve it *in the runbook*: fix the pack, not the output.
 
 **One conversation per step.** Start a fresh conversation in the project for each step; give it
 the step prompt and the incoming artifact; take the outgoing artifact and move on. This buys
 you clean context per step (nothing stale in view, nothing crowded out), a natural checkpoint
-pause where you actually look at the artifact — and an audit trail: each step's conversation
+pause where you actually look at the artifact, and an audit trail: each step's conversation
 *is* its record, which M4 will sample and M8 will show a colleague.
 
 **Artifacts, concretely.** Ask each step to produce its output as a single well-formed document
@@ -222,12 +222,12 @@ these as discrete artifacts you can carry forward, save alongside the runbook, a
 runs. Boring formats win: a table you can scan beats an eloquent essay at every checkpoint.
 
 **When one long conversation is fine.** Short chain, small documents, you refining
-interactively — a single conversation is less friction and works. Know what you're trading:
+interactively: a single conversation is less friction and works. Know what you're trading:
 around the point where the material stops fitting comfortably in view, earlier instructions
 start dropping out of it, and the failure is silent. If a late step seems to have "forgotten"
 an early rule, you didn't hit a mood; you hit the window. Split the steps.
 
-**[V]** *Parity note:* in ChatGPT the same shape holds — a Project holding the runbook,
+**[V]** *Parity note:* in ChatGPT the same shape holds: a Project holding the runbook,
 conversations per step, files carried forward. The design (structure forward, checkpoints
 between, prose last) transfers untouched.
 
@@ -242,14 +242,14 @@ with a checkpoint anyway.)
 
 **Submit:**
 
-1. **The pipeline design** — each step: name (a verb), one-line job, input artifact, output
+1. **The pipeline design**, each step: name (a verb), one-line job, input artifact, output
    artifact with format, and its checkpoint *including what a wrong version would look like*.
    That last clause is where the thinking lives.
-2. **The runbook** — the step prompts, verbatim, as they now live in your project.
+2. **The runbook**: the step prompts, verbatim, as they now live in your project.
 3. **A real run** — on genuine, M6-safe material (yours to judge for now: nothing
    person-identifying; the full rules arrive in M6). Include every intermediate artifact, not
    just the final output.
-4. **The calibration score** — which step you predicted would degrade quality most, what the
+4. **The calibration score**, which step you predicted would degrade quality most, what the
    run showed, and the direction you were wrong in. If the run went suspiciously perfectly, say
    what you'd watch across the next three runs instead.
 
@@ -259,7 +259,7 @@ with a checkpoint anyway.)
 |---|---|
 | **Step discipline** | One transformation per step; structured intermediates; prose only at the end. A deliberately small pipeline defended well outscores an elaborate one. |
 | **Checkpoint design** | Each checkpoint names what failure would look like there, and a human could realistically catch it in the artifact submitted. |
-| **The run is real** | Genuine material, all intermediates included, and evidence the checkpoints were actually looked at — not a pipeline run for the grade. |
+| **The run is real** | Genuine material, all intermediates included, and evidence the checkpoints were actually looked at, not a pipeline run for the grade. |
 | **Calibration** | Prediction recorded before the run, scored honestly after, direction of error named. Accuracy isn't graded; honesty and specificity are. |
 
 ---
@@ -274,7 +274,7 @@ with a checkpoint anyway.)
   decoration between steps.
 - **The lossy middle is where detail dies** — the structured-to-prose transformation. Engineer
   it: require claims to carry their numbers, and check the artifact against the one before it.
-- **Chain only under the three conditions** — long input, real stakes, invisible failure.
+- **Chain only under the three conditions**: long input, real stakes, invisible failure.
   Everything else stays a single prompt. Small pipelines, exactly where they're needed, are the
   practitioner's signature.
 
@@ -284,7 +284,7 @@ with a checkpoint anyway.)
 
 **Step 2 killed the signal.** The theme table after step 1 was faithful: 41 mentions, 9 strongly
 negative, concentrated in Denver, verbatim quotes. The narrative draft dropped the count, the
-intensity, and — fatally — the concentration, dissolving a localized management problem into
+intensity, and (fatally) the concentration, dissolving a localized management problem into
 "mixed sentiment." Step 3 then did its job honestly on corrupted input: "minor communication
 concerns" is a fair formatting of a false narrative.
 
@@ -296,7 +296,7 @@ which would have caught this in under a minute.
 Two reflexes to keep. First: when the final output is wrong, walk *backward* through the
 artifacts to find the last one that was right; the step after it is your culprit. Second: notice
 that the exec summary read as entirely plausible. Nothing in the final prose looked broken.
-That's why checkpoints exist — by the time the loss is visible in the output, it isn't visible
+That's why checkpoints exist: by the time the loss is visible in the output, it isn't visible
 in the output.
 
 ---
@@ -318,7 +318,7 @@ in the output.
 **Q2.** What makes an intermediate artifact a real checkpoint?
 - A. It's produced between two steps
 - B. It's written in polished prose
-- C. A human glancing at it could catch a real error — you can say what a wrong version would show ✓
+- C. A human glancing at it could catch a real error. You can say what a wrong version would show ✓
 - D. It's saved in the project's knowledge
 
 > **C.** The design test is naming what failure looks like there. An artifact that reads
@@ -331,7 +331,7 @@ in the output.
 - D. Structured formats prevent hallucination entirely
 
 > **B.** Both halves matter: better input for the next step (101's supply-the-material lever)
-> and checkable claims for the human between steps. D overclaims — structure makes errors
+> and checkable claims for the human between steps. D overclaims: structure makes errors
 > *catchable*, not impossible.
 
 **Q4.** The "lossy middle" is:
@@ -340,7 +340,7 @@ in the output.
 - C. A context-window overflow
 - D. The degradation of quality in long conversations
 
-> **B.** It's the structured-to-prose transformation — the exercise's step 2. The defense is a
+> **B.** It's the structured-to-prose transformation: the exercise's step 2. The defense is a
 > prompt that requires claims to carry their numbers, and a checkpoint that compares the
 > narrative to the structure it came from.
 
@@ -360,9 +360,9 @@ in the output.
 - C. Rewriting one clunky policy paragraph for clarity ✓
 - D. Six candidates' interview notes into a decision packet
 
-> **C.** One short transformation, low stakes, failure visible on reading — none of the three
+> **C.** One short transformation, low stakes, failure visible on reading, none of the three
 > conditions hold. Chaining it is ceremony. The other three are long, consequential, or fail
-> invisibly — usually two of the three at once.
+> invisibly, usually two of the three at once.
 
 **Q7.** Your pipeline's final output is wrong. The practitioner's first move:
 - A. Rerun the whole pipeline — randomness may fix it
@@ -380,7 +380,7 @@ in the output.
 - D. Rankings would require a larger context window
 
 > **B.** M1's line, unmoved by pipeline sophistication: a workflow may organize the evidence for
-> a people decision; the decision stays human. Capability (A) isn't the reason — the rule holds
+> a people decision; the decision stays human. Capability (A) isn't the reason: the rule holds
 > however good the ranking would be.
 
 ---

@@ -10,7 +10,7 @@
     },
     {
       "name": "Observation of mechanics",
-      "criteria": "The reflection connects what was observed to how the system works — prediction, training data, context — rather than only reporting what it said."
+      "criteria": "The reflection connects what was observed to how the system works (prediction, training data, context) rather than only reporting what it said."
     },
     {
       "name": "Calibration",
@@ -26,12 +26,12 @@
     {
       "key": "conversation2",
       "label": "Conversation 2 prediction — % chance it invented something",
-      "hint": "Recorded before you check — honesty is what's scored, not accuracy.",
+      "hint": "Recorded before you check: honesty is what's scored, not accuracy.",
       "placeholder": "e.g. 60",
       "min": 0,
       "max": 100
     }
   ],
   "submitLabel": "Three conversations + reflection",
-  "intro": "Paste your three conversation accounts and the reflection below. Resubmission is free and unlimited — the score is a mirror, not a gate."
+  "intro": "Paste your three conversation accounts and the reflection below. Resubmission is free and unlimited: the score is a mirror, not a gate."
 }

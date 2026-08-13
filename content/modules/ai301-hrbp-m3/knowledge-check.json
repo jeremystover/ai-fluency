@@ -25,7 +25,7 @@
         "What the freed capacity became"
       ],
       "correctIndex": 2,
-      "explanation": "Because the minutes it counts — briefing, critical reading, fixing, redoing — are precisely the minutes every vendor's arithmetic omits. D is the question that determines whether value reaches the organization, but C is the one that most often changes the sign."
+      "explanation": "Because the minutes it counts (briefing, critical reading, fixing, redoing) are precisely the minutes every vendor's arithmetic omits. D is the question that determines whether value reaches the organization, but C is the one that most often changes the sign."
     },
     {
       "id": "q3",
@@ -49,7 +49,7 @@
         "Employees resist the new tools because output expectations rise"
       ],
       "correctIndex": 1,
-      "explanation": "The constraint relocates. For an HRBP that shows up as more frameworks, more decks, more survey cuts, three versions of the policy — none of which are decisions, which is the actual product. A function producing more artifacts and no more decisions has gotten worse, efficiently."
+      "explanation": "The constraint relocates. For an HRBP that shows up as more frameworks, more decks, more survey cuts, three versions of the policy: none of which are decisions, which is the actual product. A function producing more artifacts and no more decisions has gotten worse, efficiently."
     },
     {
       "id": "q5",
@@ -57,11 +57,11 @@
       "options": [
         "False — the figure has been debunked",
         "Verified, since it came from the company with access to the data",
-        "Unverifiable — a CEO claim, never independently audited or methodologically published, which disqualifies it from load-bearing use",
+        "Unverifiable — a CEO claim, never independently audited or methodologically published, which disqualifies it from structural use",
         "Irrelevant, because attrition prediction is prohibited under 101 M7"
       ],
       "correctIndex": 2,
-      "explanation": "Unverifiable is not the same as false, and the distinction matters: you don't have to allege dishonesty to refuse to build a business case on a number nobody can check. D overstates the line — prediction feeding *decisions about individuals* is the problem, not all attrition analysis."
+      "explanation": "Unverifiable is not the same as false, and the distinction matters: you don't have to allege dishonesty to refuse to build a business case on a number nobody can check. D overstates the line: prediction feeding *decisions about individuals* is the problem, not all attrition analysis."
     },
     {
       "id": "q6",
@@ -85,7 +85,7 @@
         "Automated approvals require less accuracy than automated rejections"
       ],
       "correctIndex": 1,
-      "explanation": "The heuristic is about measurability and recoverability. C is also true and is a consequence of B rather than the reason for it — and note this arrives at 101 M7's line from the evidence side rather than the ethical one."
+      "explanation": "The heuristic is about measurability and recoverability. C is also true and is a consequence of B rather than the reason for it, and note this arrives at 101 M7's line from the evidence side rather than the ethical one."
     },
     {
       "id": "q8",
@@ -97,7 +97,7 @@
         "Because strategic work can't be measured, and the activity requires measurable outcomes"
       ],
       "correctIndex": 1,
-      "explanation": "The phrase functions as a placeholder for absent knowledge. A specific destination — a Module 2 quadrant, a piece of work you were skipping, hours returned to a team — is checkable in a way that \"more strategic work\" never is."
+      "explanation": "The phrase functions as a placeholder for absent knowledge. A specific destination (a Module 2 quadrant, a piece of work you were skipping, hours returned to a team) is checkable in a way that \"more strategic work\" never is."
     }
   ]
 }

@@ -13,11 +13,11 @@
         "Nothing — AI-generated content remains the tool's output permanently"
       ],
       "correctIndex": 1,
-      "explanation": "The boundary is the moment of reliance, not the degree of editing — unedited output you ship is fully yours, and heavily edited output still in your drafts folder is nobody's yet. That's also why \"it was only a draft\" fails once a colleague acted on it: sharing it where someone could rely on it *was* the shipping."
+      "explanation": "The boundary is the moment of reliance, not the degree of editing: unedited output you ship is fully yours, and heavily edited output still in your drafts folder is nobody's yet. That's also why \"it was only a draft\" fails once a colleague acted on it: sharing it where someone could rely on it *was* the shipping."
     },
     {
       "id": "q2",
-      "prompt": "Why does \"the AI wrote it\" fail as a defense — at the level of principle, not just optics?",
+      "prompt": "Why does \"the AI wrote it\" fail as a defense: at the level of principle, not just optics?",
       "options": [
         "Because current law hasn't caught up to AI authorship yet",
         "Because it's usually false — the human edited the text somewhat",
@@ -37,11 +37,11 @@
         "\"I reviewed it\" holds as long as the reviewer was senior enough"
       ],
       "correctIndex": 0,
-      "explanation": "M6 priced review precisely: a defense claims what the verification level could actually catch, no more. \"I read it and it sounded right\" is the exact mechanism by which fabrications ship — so the honest version has a verb and a source in it."
+      "explanation": "M6 priced review precisely: a defense claims what the verification level could actually catch, no more. \"I read it and it sounded right\" is the exact mechanism by which fabrications ship, so the honest version has a verb and a source in it."
     },
     {
       "id": "q4",
-      "prompt": "Of the three agreement-layer questions **[V]**, which is load-bearing, and why?",
+      "prompt": "Of the three agreement-layer questions **[V]**, which one settles it, and why?",
       "options": [
         "Retention — because deleted data can't be breached",
         "Whether inputs train or improve the models — because trained-on material may surface, transformed, outside your control forever",
@@ -49,7 +49,7 @@
         "None individually — only the full contract matters"
       ],
       "correctIndex": 1,
-      "explanation": "Training is the irreversible one: retention windows expire and access can be controlled, but what entered a model's training doesn't come back out on request. It's also most of the reason the provisioned tool beats the personal account — the enterprise \"no, contractually\" versus the consumer default **[V]**."
+      "explanation": "Training is the irreversible one: retention windows expire and access can be controlled, but what entered a model's training doesn't come back out on request. It's also most of the reason the provisioned tool beats the personal account: the enterprise \"no, contractually\" versus the consumer default **[V]**."
     },
     {
       "id": "q5",
@@ -61,11 +61,11 @@
         "Removing the figures, since AI-derived numbers can't be presented to boards"
       ],
       "correctIndex": 2,
-      "explanation": "The reader's stake is in the numbers' *verifiedness*, not in which software touched them — M6 told you numbers get repeated without caveats, which is exactly why their status must travel with them. B discloses the useless thing; the sticker satisfies no stake the board actually has."
+      "explanation": "The reader's stake is in the numbers' *verifiedness*, not in which software touched them: M6 told you numbers get repeated without caveats, which is exactly why their status must travel with them. B discloses the useless thing; the sticker satisfies no stake the board actually has."
     },
     {
       "id": "q6",
-      "prompt": "Why do the personal cases — condolence notes, references given as you — sit at the far end of the disclosure spectrum?",
+      "prompt": "Why do the personal cases (condolence notes, references given as you) sit at the far end of the disclosure spectrum?",
       "options": [
         "They're legally protected categories of communication",
         "The artifact's entire value is a person's personal witness — discovering it was generated voids the thing itself, so no disclosure fixes it",
@@ -73,11 +73,11 @@
         "They don't — all artifacts follow the same disclosure rule"
       ],
       "correctIndex": 1,
-      "explanation": "For institutional prose, the reader's stake is in the organization standing behind content. Here the making *is* the message — the reader took the artifact as evidence of personal attention, so the failure isn't undisclosed AI, it's that the artifact claims something untrue about itself. The test catches this without any percentage rule."
+      "explanation": "For institutional prose, the reader's stake is in the organization standing behind content. Here the making *is* the message, the reader took the artifact as evidence of personal attention, so the failure isn't undisclosed AI, it's that the artifact claims something untrue about itself. The test catches this without any percentage rule."
     },
     {
       "id": "q7",
-      "prompt": "Why does the fifth question — what happens when something goes wrong — specifically need a no-blame lane for self-reporting?",
+      "prompt": "Why does the fifth question (what happens when something goes wrong) specifically need a no-blame lane for self-reporting?",
       "options": [
         "Because blame-free cultures are more pleasant to work in",
         "To satisfy whistleblower-protection requirements",
@@ -97,7 +97,7 @@
         "The person who can say \"here's what I use, verify, disclose, and refuse — my name's on it\" earns autonomy with the tools and becomes who others trust on them"
       ],
       "correctIndex": 3,
-      "explanation": "The one-pager isn't defensive paperwork — it's the sentence that lets you use everything the course taught without asking permission per use, and it's the posture 201 assumes: you can only own what you understand, and now you do."
+      "explanation": "The one-pager isn't defensive paperwork. It's the sentence that lets you use everything the course taught without asking permission per use, and it's the posture 201 assumes: you can only own what you understand, and now you do."
     }
   ]
 }

@@ -326,7 +326,7 @@ stated in the lesson; the primary citation is blocking before drafting.
 
 **Unverified and blocking before drafting the floor.** I-9 and E-Verify timing, COBRA election
 windows, final-pay timing by state, state new-hire reporting deadlines, ACA furnishing dates, and
-current state pay-data reporting regimes. All stated as `[V]` and none load-bearing for the
+current state pay-data reporting regimes. All stated as `[V]` and none what carries the
 outline's design.
 
 ## 6. What this suggests the course actually is

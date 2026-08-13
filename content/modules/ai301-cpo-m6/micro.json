@@ -6,7 +6,7 @@
     "kind": "prose",
     "layer": "stable",
     "reviewedAt": "2026-08-12",
-    "body": "## Module 6 in two minutes\n\n***\"We can't tell if it worked\" and \"it didn't work\" produce an identical conversation with a CFO*** — and the second costs you credibility as well, because you asked for money and cannot say what happened to it.\n\n**So measurement binds before, not after.** A baseline not taken at the start cannot be reconstructed. That is arithmetic, not discipline.\n\n**The figure most likely to catch you is a pessimistic one** `[V]`. \"Only 28% of AI use cases meet ROI expectations\" is a real Gartner finding about **782 infrastructure-and-operations leaders** — not HR. Quoting it in a People case is a real study of a neighbouring thing supporting a claim it doesn't make, and every check anyone runs will pass. **Skepticism aimed only at optimistic claims is not skepticism.**\n\n**Where the function stands** `[V]`: roughly **47% of CHROs** have not established clear AI productivity measurement, while around **91%** place AI among their top concerns. A top-priority initiative with no instrument, in front of a CFO who will eventually ask."
+    "body": "## Module 6 in two minutes\n\n***\"We cannot tell if it worked\" and \"it did not work\" produce an identical conversation with a CFO***, and the second costs you credibility as well, because you asked for money and can't say what happened to it.\n\n**So measurement binds before, not after.** A baseline not taken at the start can't be reconstructed. That is arithmetic, not discipline.\n\n**The figure most likely to catch you is a pessimistic one** `[V]`. \"Only 28% of AI use cases meet ROI expectations\" is a real Gartner finding about **782 infrastructure-and-operations leaders**, not HR. Quoting it in a People case is a real study of a neighbouring thing supporting a claim it doesn't make, and every check anyone runs will pass. **Skepticism aimed only at optimistic claims is not skepticism.**\n\n**Where the function stands** `[V]`: roughly **47% of CHROs** haven't established clear AI productivity measurement, while around **91%** place AI among their top concerns. A top-priority initiative with no instrument, in front of a CFO who will eventually ask."
   },
   {
     "id": "ai301-cpo-m6-micro-rule",
@@ -15,7 +15,7 @@
     "kind": "callout",
     "layer": "stable",
     "reviewedAt": "2026-08-12",
-    "body": "## The rule\n\n**Name the losing condition before you start — and set the measurement point past the trough.**\n\nIt makes the evaluation capable of returning a negative, converts the ask into a bet the CFO recognizes as their own, and fixes the standard while everyone is still optimistic. A threshold set afterwards will be set to whatever was achieved, and everyone involved will believe they were being fair.\n\nAnd the test that catches a laundered number: **was the thing studied the thing being claimed?**"
+    "body": "## The rule\n\n**Name the losing condition before you start, and set the measurement point past the trough.**\n\nIt makes the evaluation capable of returning a negative, converts the ask into a bet the CFO recognizes as their own, and fixes the standard while everyone is still optimistic. A threshold set afterwards will be set to whatever was achieved, and everyone involved will believe they were being fair.\n\nAnd the test that catches a laundered number: **was the thing studied the thing being claimed?**"
   },
   {
     "id": "ai301-cpo-m6-micro-more",
@@ -24,6 +24,6 @@
     "kind": "prose",
     "layer": "stable",
     "reviewedAt": "2026-08-12",
-    "body": "## What the full module adds\n\nThe work-backwards chain — result, behaviour, intervention, baseline today — with the baseline named as the step that cannot be recovered later. **Why the board is a different argument**: it wants known exposure, accountability by name, and a decision rule it can hold you to — never a productivity figure and never a technology briefing, which tells the board you think their problem is comprehension rather than control. Four cases to judge, including the one that would get funded and shouldn't, and the one a thoughtful skeptic writes. And the close: the case, plus **the reckoning across all six positions you committed** — where the finding is usually the *direction* your optimism runs."
+    "body": "## What the full module adds\n\nThe work-backwards chain (result, behaviour, intervention, baseline today) with the baseline named as the step that can't be recovered later. **Why the board is a different argument**: it wants known exposure, accountability by name, and a decision rule it can hold you to, never a productivity figure and never a technology briefing, which tells the board you think their problem is comprehension rather than control. Four cases to judge, including the one that would get funded and shouldn't, and the one a thoughtful skeptic writes. And the close: the case, plus **the reckoning across all six positions you committed**, where the finding is usually the *direction* your optimism runs."
   }
 ]

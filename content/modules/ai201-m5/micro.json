@@ -6,7 +6,7 @@
     "kind": "prose",
     "layer": "stable",
     "reviewedAt": "2026-08-07",
-    "body": "## Module 5 in two minutes\n\n**Autonomy is trust extended one rung at a time:** draft-only → propose-then-approve → act-with-audit-trail. Each rung is priced in verification evidence — your sampled error rate, your approval history — never in capability enthusiasm. And it's granted per step, not per workflow: a pipeline is a profile of rungs.\n\n**Reversibility is the master question.** A wrong draft costs minutes; a wrong action costs whatever undo costs. Irreversible actions — send, publish, touch a record — keep a human at the boundary regardless of stakes. And guardrails are permissions, not hopes: control what tools are attached; what must not happen shouldn't be representable.\n\n**The person-line, at agent level:** an agent must never hold permissions that act on a person. Approvals decay under load, and a rubber-stamped action on a person is decision-laundering at machine speed. For the gray zone, the test: *if this output's default were accepted unchanged, would a decision about a person have been made?* Yes means person-adjacent rules apply, whatever the output is called."
+    "body": "## Module 5 in two minutes\n\n**Autonomy is trust extended one rung at a time:** draft-only → propose-then-approve → act-with-audit-trail. Each rung is priced in verification evidence (your sampled error rate, your approval history) never in capability enthusiasm. And it's granted per step, not per workflow: a pipeline is a profile of rungs.\n\n**Reversibility is the master question.** A wrong draft costs minutes; a wrong action costs whatever undo costs. Irreversible actions (send, publish, touch a record) keep a human at the boundary regardless of stakes. And guardrails are permissions, not hopes: control what tools are attached; what must not happen shouldn't be representable.\n\n**The person-line, at agent level:** an agent must never hold permissions that act on a person. Approvals decay under load, and a rubber-stamped action on a person is decision-laundering at machine speed. For the gray zone, the test: *if this output's default were accepted unchanged, would a decision about a person have been made?* Yes means person-adjacent rules apply, whatever the output is called."
   },
   {
     "id": "ai201-m5-micro-rule",
@@ -15,7 +15,7 @@
     "kind": "callout",
     "layer": "stable",
     "reviewedAt": "2026-08-07",
-    "body": "### The refusal\n\nSome workflows never climb: person-affecting work, judgment-dense work, low-frequency high-stakes work whose run history can never accumulate. Writing the ceiling down — with its reason — is the most senior artifact this course produces."
+    "body": "### The refusal\n\nSome workflows never climb: person-affecting work, judgment-dense work, low-frequency high-stakes work whose run history can never accumulate. Writing the ceiling down (with its reason) is the most senior artifact this course produces."
   },
   {
     "id": "ai201-m5-micro-close",

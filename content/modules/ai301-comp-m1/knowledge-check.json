@@ -13,7 +13,7 @@
         "It requires no domain expertise to review"
       ],
       "correctIndex": 1,
-      "explanation": "You aren't trusting fluency, you're checking arithmetic, and nothing else in the five has that property. A is the opposite of true — assembly touches the most sensitive data in the building, which is Module 3's subject."
+      "explanation": "You aren't trusting fluency, you're checking arithmetic, and nothing else in the five has that property. A is the opposite of true: assembly touches the most sensitive data in the building, which is Module 3's subject."
     },
     {
       "id": "q2",
@@ -25,7 +25,7 @@
         "Judgment, because decisions are made quickly"
       ],
       "correctIndex": 2,
-      "explanation": "Explanation hides inside \"answering a question,\" which nobody logs as work — while analysis is what required the training and what practitioners identify with. That gap is why the module gates the prediction before Lesson 1."
+      "explanation": "Explanation hides inside \"answering a question,\" which nobody logs as work, while analysis is what required the training and what practitioners identify with. That gap is why the module gates the prediction before Lesson 1."
     },
     {
       "id": "q3",
@@ -37,7 +37,7 @@
         "Because explanation outputs are rarely reviewed"
       ],
       "correctIndex": 1,
-      "explanation": "The supply-the-material condition from 101 is already satisfied: you know why you decided what you decided. C is wrong in an important way — explaining a decision about a named person's pay still sits under the line; what makes it safer is visibility, not exemption."
+      "explanation": "The supply-the-material condition from 101 is already satisfied: you know why you decided what you decided. C is wrong in an important way, explaining a decision about a named person's pay still sits under the line; what makes it safer is visibility, not exemption."
     },
     {
       "id": "q4",
@@ -49,7 +49,7 @@
         "Because comp models are more complex than other HR models"
       ],
       "correctIndex": 1,
-      "explanation": "The numeracy that makes this function capable is what makes it exposed — you read a formatted model the way you read a formatted sentence. That inversion is the track's through-line and Module 3's whole subject."
+      "explanation": "The numeracy that makes this function capable is what makes it exposed. You read a formatted model the way you read a formatted sentence. That inversion is the track's through-line and Module 3's whole subject."
     },
     {
       "id": "q5",
@@ -61,7 +61,7 @@
         "Nothing — governance work excludes AI entirely"
       ],
       "correctIndex": 2,
-      "explanation": "Drafting and completeness-checking are real help at the edges. The centre — being the record, or vouching that an event occurred — is a category error, and in fiduciary contexts a dangerous one."
+      "explanation": "Drafting and completeness-checking are real help at the edges. The centre (being the record, or vouching that an event occurred) is a category error, and in fiduciary contexts a dangerous one."
     },
     {
       "id": "q6",
@@ -85,7 +85,7 @@
         "Buying tools that duplicate existing HRIS capability"
       ],
       "correctIndex": 2,
-      "explanation": "And it's common for a legible reason: analysis is what everyone thinks the job is, so it's what everyone builds for — including the buyer evaluating the demo."
+      "explanation": "And it's common for a legible reason: analysis is what everyone thinks the job is, so it's what everyone builds for, including the buyer evaluating the demo."
     },
     {
       "id": "q8",

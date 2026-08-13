@@ -19,7 +19,7 @@
 > **"My organization's AI plan names a destination and a date."**
 
 **True of us, or not true of us?** One sentence. If true, write the destination as it's actually
-worded somewhere — a deck, a memo, an OKR — rather than as you would word it.
+worded somewhere (a deck, a memo, an OKR) rather than as you would word it.
 
 Then: **how many months out does the furthest date in that plan sit?** A number. If there's no
 plan, write 0 and say so.
@@ -34,7 +34,7 @@ you should be able to check the argument against the real document rather than a
 Module 1 said you can't specify the destination but you can specify what must hold. This module
 is the instrument that does it.
 
-**One framework, seven steps, run three times** — at a team, at the function you sit in, and at
+**One framework, seven steps, run three times**: at a team, at the function you sit in, and at
 the enterprise. It has to be altitude-invariant or the third pass is padding, so this module
 demonstrates the invariance rather than asserting it: you'll see the same seven rows hold at all
 three altitudes, side by side, before you write your own.
@@ -42,7 +42,7 @@ three altitudes, side by side, before you write your own.
 Two things to say before the steps.
 
 **This is not a strategy template.** Templates produce documents. This produces a specification
-with a failure condition attached, which is a different object — you can be wrong about it and
+with a failure condition attached, which is a different object. You can be wrong about it and
 find out. Everything in the course after this module is one application of it to a specific
 structure that's dissolving.
 
@@ -60,7 +60,7 @@ By the end of this module you should be able to:
    promise.
 2. Run all seven steps on a unit you've real visibility into.
 3. Explain why the framework holds at three altitudes and what changes between them.
-4. Write a trigger that's observable, dated, and owned — and recognize one that's none of those.
+4. Write a trigger that's observable, dated, and owned, and recognize one that's none of those.
 5. Hold a position with an executive who wants a roadmap you can't honestly give them.
 
 ## Lesson 1 · The change model most of this room was trained on **[V]**
@@ -75,7 +75,7 @@ before the journey does, and people are affected mostly at the level of skills a
 
 **Transformational change has a future state that's unknown at the outset and emerges as you go.**
 You can't plan a linear route to somewhere you can't yet describe. You can hold an overarching
-direction, but the actual path has to be discovered — through trial, evidence, and revision — and
+direction, but the actual path has to be discovered (through trial, evidence, and revision) and
 people are affected at the level of mindset and identity rather than skills.
 
 **AI adoption is the second one, and almost every organization is managing it as the first.**
@@ -84,7 +84,7 @@ That is the lesson, and here's why it costs you. A roadmap for a destination you
 specify isn't a plan. It is a **credibility loan**, and the repayment schedule is brutal: you get
 the room's confidence today in exchange for being visibly wrong in a named quarter. The first miss
 is survivable. The second one converts every future statement you make into something people
-discount before you finish saying it — and at this rung your only real instrument is whether
+discount before you finish saying it, and at this rung your only real instrument is whether
 people believe you.
 
 > ### Try this — 3 minutes
@@ -96,7 +96,7 @@ people believe you.
 
 **One claim this lesson does not make, and why.** There is a well-circulated idea that leaders who
 openly admit they are still figuring it out accelerate adoption more than those issuing confident
-narratives. It is appealing, it fits everything else here, and **it could not be sourced** — no
+narratives. It is appealing, it fits everything else here, and **it could not be sourced**, no
 study behind it survived checking. So this module doesn't assert it. The argument for triggers
 over roadmaps rests instead on the mechanism above, which you can test against your own
 organization's history in three minutes: find the last confident AI timeline, and see what it cost
@@ -110,7 +110,7 @@ beats a claim you have to trust.
 The framework. Each step is one question, and the order matters because each answer constrains the
 next.
 
-**1 · Name the load.** What is this unit actually responsible for holding up? Not what it does —
+**1 · Name the load.** What is this unit actually responsible for holding up? Not what it does,
 what would fail if it stopped. A recruiting team's load isn't "filling requisitions"; it's
 something closer to "the business can staff a plan it has already committed to." The difference
 shows up immediately in Step 3, because activities and loads dissolve at different rates.
@@ -145,8 +145,8 @@ who is consulted — **who has the authority to change the thing.** Write a name
 
 **Why the order.** You can't specify a replacement for a load you haven't named. You can't set
 a tolerance on a spec you haven't written. And you can't write a useful trigger without a
-tolerance, because a trigger is just the moment a tolerance is breached. Skipping to Step 4 — which
-is the natural instinct, because Step 4 feels like the work — produces a solution to an unstated
+tolerance, because a trigger is just the moment a tolerance is breached. Skipping to Step 4 (which
+is the natural instinct, because Step 4 feels like the work) produces a solution to an unstated
 problem, which is the most common failure mode of every strategy document you've ever been asked
 to read.
 
@@ -172,12 +172,12 @@ Three things worth noticing, because they are what the table teaches beyond the 
 
 **The dissolving row is the same event at three sizes.** In every column, something that used to
 force two parties into contact stopped forcing it. The handoff, the routed case, the informal
-escalation. Coordination structures, all three — Module 1's finding, showing up at every altitude.
+escalation. Coordination structures, all three. Module 1's finding, showing up at every altitude.
 
 **The trigger row gets harder as you climb, not easier.** "Two handoff errors in a sprint" is
 countable by one person on a Friday. "Any agent-ownership decision reaching the CIO before People"
 requires you to be in a room you may not be in. **The higher the altitude, the more the trigger
-depends on someone telling you** — which is a real limitation of the instrument and the reason the
+depends on someone telling you**, which is a real limitation of the instrument and the reason the
 function-head trigger in the middle column is the best-designed of the three: a 30% drop in
 consultation volume is something the COE's own calendar tells you without anyone's cooperation.
 
@@ -209,7 +209,7 @@ never occurs, but because it occurs and no one whose job it was to look was look
 > **If no condition would make you replan, you have not written a spec. You've written a hope.**
 
 Apply it honestly and a majority of strategy documents in your organization fail it, including
-some you wrote. That isn't an indictment — it's the difference between the genre this course is
+some you wrote. That isn't an indictment. It's the difference between the genre this course is
 in and the genre it's refusing.
 
 **Two failure patterns to recognize in your own drafts.**
@@ -230,7 +230,7 @@ are real; only one gives you time.
   state that emerges.** AI adoption is the second, and nearly every organization is managing it as
   the first.
 - **A roadmap for a destination you cannot specify is a credibility loan**, repaid in the quarter
-  you miss — and at this rung your only real instrument is whether people believe you.
+  you miss, and at this rung your only real instrument is whether people believe you.
 - **The seven steps:** name the load · find what's carrying it · mark what's dissolving · specify
   the replacement · set the tolerance · name the trigger · name the owner.
 - **Step 4 is a spec, not a drawing.** The test: could two competent people build
@@ -238,7 +238,7 @@ are real; only one gives you time.
 - **The columns change scope; the rows do not change at all.** The framework holds at team,
   function, and enterprise — and the dissolving row is the same event at three sizes, always a
   coordination structure.
-- **Triggers must be observable, dated or counted, and owned** — with a name attached to *noticing*
+- **Triggers must be observable, dated or counted, and owned**, with a name attached to *noticing*
   separately from the name attached to deciding. Triggers usually fail because nobody was looking.
 - **Put the trigger upstream of the damage.** Consultation volume is upstream; engagement scores
   are downstream. Both are real; only one gives you time.
@@ -251,7 +251,7 @@ repay it in the quarter you miss."*
 
 The strongest counter-argument is that **organizations do not fund specifications.** Budgets,
 headcount, and executive attention are allocated against destinations and dates, because that's
-what a planning cycle can process — and a leader who arrives with tolerances and triggers instead
+what a planning cycle can process, and a leader who arrives with tolerances and triggers instead
 of a roadmap may be more honest and entirely unfunded. On this reading the credibility loan isn't
 a mistake but a **price of entry**, knowingly paid by people who understand exactly what they are
 doing: they take the loan, get the resources, deliver something, and renegotiate. The sharper
@@ -270,29 +270,29 @@ against the rubric below.** Score doesn't matter. Doing the work is where the le
 Run the framework on the unit you named in Module 1. This artifact is the spine of your final deck,
 so it's worth the full thirty-five minutes.
 
-**Step 1 — The seven rows (20 min).** Complete all seven for your unit. Write them as a table or
+**Step 1. The seven rows (20 min).** Complete all seven for your unit. Write them as a table or
 as seven labeled lines; the format doesn't matter and the discipline does. Two requirements the
 rubric enforces:
 
-- **At least one falsifiable trigger** — observable, with a threshold and a window, and a name
+- **At least one falsifiable trigger**: observable, with a threshold and a window, and a name
   attached to noticing it.
 - **A named owner** for Step 7. A real name. If the honest answer is that the decision belongs to
   someone else, write their name — **that's a correct answer and it's graded as one.**
 
-**Step 2 — The altitude check (5 min).** Take one row — your choice — and write what it would say
+**Step 2 — The altitude check (5 min).** Take one row (your choice) and write what it would say
 one altitude up. Not the whole column; one row. This is the test of whether you've written
 something invariant or something local.
 
-**Step 3 — Address it (5 min).** Name the person who would have to approve replanning if your
+**Step 3. Address it (5 min).** Name the person who would have to approve replanning if your
 trigger fired, and write one or two sentences predicting how they would respond to this document.
 Specifically: **which of the seven rows would they argue with first?**
 
-**Step 4 — The covering note (5 min).** 200–300 words: what you found in Step 3 of the framework
+**Step 4. The covering note (5 min).** 200–300 words: what you found in Step 3 of the framework
 that you hadn't consciously noticed; your calibration answer about your organization's plan
 scored against what you found when you looked at the real document; and your position on the
 module's claim, engaging the counter-argument above.
 
-**If your organization has no plan to check** — the calibration answer was 0 — say what that
+**If your organization has no plan to check** (the calibration answer was 0) say what that
 absence means for your Step 7. An organization with no plan has no owner either, and naming that
 is a finding rather than a gap in the assignment.
 
@@ -322,10 +322,10 @@ is a finding rather than a gap in the assignment.
 
 **Q3.** Which claim did the module decline to make, and why?
 
-- A. That AI adoption is transformational rather than transitional — because the evidence is mixed
-- B. That leaders who admit they are still figuring it out accelerate adoption more than those issuing confident narratives — because it couldn't be sourced ✓
+- A. That AI adoption is transformational rather than transitional, because the evidence is mixed
+- B. That leaders who admit they are still figuring it out accelerate adoption more than those issuing confident narratives, because it couldn't be sourced ✓
 - C. That organizations manage AI adoption as transitional change — because it varies by sector
-- D. That triggers are more useful than roadmaps — because it depends on the planning cycle
+- D. That triggers are more useful than roadmaps, because it depends on the planning cycle
 
 > **B.** It is appealing and it fits everything else in the module, and no study behind it survived
 > checking. The lesson argues from mechanism instead, which the learner can test against their own
@@ -334,7 +334,7 @@ is a finding rather than a gap in the assignment.
 **Q4.** What is the difference between a spec and a drawing at Step 4?
 
 - A. A spec is shorter and less detailed
-- B. A spec describes what must be true; a drawing describes what it must look like — and the test is whether two competent people could build different-looking things that both satisfy it ✓
+- B. A spec describes what must be true; a drawing describes what it must look like, and the test is whether two competent people could build different-looking things that both satisfy it ✓
 - C. A spec is approved by leadership; a drawing is produced by the team
 - D. A spec includes measurement criteria; a drawing doesn't
 
@@ -365,13 +365,13 @@ is a finding rather than a gap in the assignment.
 **Q7.** What are the three properties of a real trigger?
 
 - A. Ambitious, measurable, and time-bound
-- B. Observable, dated or counted, and owned — with a name attached to noticing, separately from the name attached to deciding ✓
+- B. Observable, dated or counted, and owned, with a name attached to noticing, separately from the name attached to deciding ✓
 - C. Agreed by stakeholders, documented, and reviewed quarterly
 - D. Leading rather than lagging, quantitative, and automated
 
 > **B.** Triggers usually fail not because the condition never occurs but because it occurs and
-> nobody whose job it was to look was looking. D names a real property — upstream rather than
-> downstream — but not the three.
+> nobody whose job it was to look was looking. D names a real property (upstream rather than
+> downstream) but not the three.
 
 **Q8.** What does the module say about the Step 7 answer being someone other than you?
 

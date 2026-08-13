@@ -1,19 +1,76 @@
 {
   "reviewedAt": "2026-08-07",
   "buckets": [
-    { "id": "refuse", "label": "R — refusal", "hint": "Shouldn't be in an agent's hands at all", "rank": 0, "pct": 0 },
-    { "id": "rung1", "label": "Rung 1 — draft only", "hint": "The agent drafts; a human does everything else", "rank": 1, "pct": 30 },
-    { "id": "rung2", "label": "Rung 2 — propose, approve", "hint": "The agent stages; a human's click is the boundary", "rank": 2, "pct": 60 },
-    { "id": "rung3", "label": "Rung 3 — act, audit trail", "hint": "The agent acts; the record shows everything", "rank": 3, "pct": 90 }
+    {
+      "id": "refuse",
+      "label": "R — refusal",
+      "hint": "Shouldn't be in an agent's hands at all",
+      "rank": 0,
+      "pct": 0
+    },
+    {
+      "id": "rung1",
+      "label": "Rung 1 — draft only",
+      "hint": "The agent drafts; a human does everything else",
+      "rank": 1,
+      "pct": 30
+    },
+    {
+      "id": "rung2",
+      "label": "Rung 2 — propose, approve",
+      "hint": "The agent stages; a human's click is the boundary",
+      "rank": 2,
+      "pct": 60
+    },
+    {
+      "id": "rung3",
+      "label": "Rung 3 — act, audit trail",
+      "hint": "The agent acts; the record shows everything",
+      "rank": 3,
+      "pct": 90
+    }
   ],
   "tasks": [
-    { "id": "t1", "text": "Extract a theme table from this quarter's survey verbatims", "key": "rung3", "reasoning": "Read-only input, structured checkable output, trivially reversible (regenerate) — and your M3 checkpoint still reviews the artifact downstream. This is what rung 3 was made for. One caveat from Lesson 2: if the table were ranked by severity to direct investigation resources, the laundering test applies and the ranking step is person-adjacent even though extraction isn't." },
-    { "id": "t2", "text": "Draft rejection emails for the week's declined candidates", "key": "rung1", "reasoning": "Rung 1, permanent. Drafting is legitimate — M1's sorting said so; anything above draft-only walks toward the person-line. The draft lands in a human's hands; a human sends, every time. The trap in the wording: 'draft' was always the rung — the question is refusing the climb." },
-    { "id": "t3", "text": "Save the formatted debrief into the hiring channel's shared folder", "key": "rung2", "also": ["rung3"], "reasoning": "First rigged item. It feels routine and it's probably reversible — but 'save to where the hiring team reads' is a small publish. Rung 2 until the approval log shows you never decline; then rung 3 is an evidence-based conversation." },
-    { "id": "t4", "text": "Send the weekly HR newsletter to the all-staff list", "key": "rung2", "reasoning": "The reverse trap: low stakes, so rung 3 feels fine — but send-to-all-staff is irreversible, and reversibility, not stakes, sets the cap. The agent stages it in the outbox; the human's click costs three seconds; the un-sendable email costs more." },
-    { "id": "t5", "text": "Update each candidate's stage in the ATS after the debrief meeting", "key": "refuse", "reasoning": "An action on a person's process in the system of record. The agent may prepare the list of stage changes as an artifact — rung 1–2 work; the human executes in the ATS. If the volume makes that painful, the pain is information about the process, not a case for permissions." },
-    { "id": "t6", "text": "Compile the weekly people-metrics table from the HRIS export", "key": "rung3", "reasoning": "Mechanical, checkable against the export, regenerable, feeding a human-owned narrative downstream. With a sampled error history, the least controversial climb on the board." }
+    {
+      "id": "t1",
+      "text": "Extract a theme table from this quarter's survey verbatims",
+      "key": "rung3",
+      "reasoning": "Read-only input, structured checkable output, trivially reversible (regenerate), and your M3 checkpoint still reviews the artifact downstream. This is what rung 3 was made for. One caveat from Lesson 2: if the table were ranked by severity to direct investigation resources, the laundering test applies and the ranking step is person-adjacent even though extraction isn't."
+    },
+    {
+      "id": "t2",
+      "text": "Draft rejection emails for the week's declined candidates",
+      "key": "rung1",
+      "reasoning": "Rung 1, permanent. Drafting is legitimate, M1's sorting said so; anything above draft-only walks toward the person-line. The draft lands in a human's hands; a human sends, every time. The trap in the wording: 'draft' was always the rung: the question is refusing the climb."
+    },
+    {
+      "id": "t3",
+      "text": "Save the formatted debrief into the hiring channel's shared folder",
+      "key": "rung2",
+      "also": [
+        "rung3"
+      ],
+      "reasoning": "First rigged item. It feels routine and it's probably reversible, but 'save to where the hiring team reads' is a small publish. Rung 2 until the approval log shows you never decline; then rung 3 is an evidence-based conversation."
+    },
+    {
+      "id": "t4",
+      "text": "Send the weekly HR newsletter to the all-staff list",
+      "key": "rung2",
+      "reasoning": "The reverse trap: low stakes, so rung 3 feels fine, but send-to-all-staff is irreversible, and reversibility, not stakes, sets the cap. The agent stages it in the outbox; the human's click costs three seconds; the un-sendable email costs more."
+    },
+    {
+      "id": "t5",
+      "text": "Update each candidate's stage in the ATS after the debrief meeting",
+      "key": "refuse",
+      "reasoning": "An action on a person's process in the system of record. The agent may prepare the list of stage changes as an artifact, rung 1–2 work; the human executes in the ATS. If the volume makes that painful, the pain is information about the process, not a case for permissions."
+    },
+    {
+      "id": "t6",
+      "text": "Compile the weekly people-metrics table from the HRIS export",
+      "key": "rung3",
+      "reasoning": "Mechanical, checkable against the export, regenerable, feeding a human-owned narrative downstream. With a sampled error history, the least controversial climb on the board."
+    }
   ],
-  "pattern": "Rung 3 lives where work is mechanical, checkable, and undoable. The boundary crossings — publish, send, touch a person's record — are where humans stand.",
-  "postscript": "The two rigged items — the shared-folder save and the newsletter send — show the tell isn't how routine a step feels but what its undo costs."
+  "pattern": "Rung 3 lives where work is mechanical, checkable, and undoable. The boundary crossings (publish, send, touch a person's record) are where humans stand.",
+  "postscript": "The two rigged items (the shared-folder save and the newsletter send) show the tell isn't how routine a step feels but what its undo costs."
 }

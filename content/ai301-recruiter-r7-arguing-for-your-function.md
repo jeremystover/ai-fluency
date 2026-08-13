@@ -18,7 +18,7 @@
 trustworthy?** Whole percent, honestly.
 
 Then, in the activity, you'll gather every prediction you made across these seven modules and
-read the pattern — because this track scores the delta, not the score.
+read the pattern, because this track scores the delta, not the score.
 
 ---
 
@@ -52,7 +52,7 @@ By the end of this module you should be able to:
 
 ## Lesson 1 · Workslop lands on the relationship you can't afford to damage **[V]**
 
-Research from BetterUp Labs and Stanford named the thing: **workslop** — AI-generated output that
+Research from BetterUp Labs and Stanford named the thing: **workslop**, AI-generated output that
 looks like work and lacks the substance to advance it. Roughly **two hours of rework per
 incident**, and **42% of recipients rate the sender as less trustworthy** afterwards, with about
 half rating them less capable or reliable.
@@ -60,7 +60,7 @@ half rating them less capable or reliable.
 For most functions that second number is a nuisance. For you it is the whole business model.
 
 Consider who receives your output. A recruiter's work product goes almost entirely to **hiring
-managers** — the people who decide whether your involvement is valuable, who can route around you
+managers**, the people who decide whether your involvement is valuable, who can route around you
 by hiring through their network, and whose trust is the only thing that makes intake work.
 Module 3 established that intake is the highest-leverage hour in the function; **intake requires a
 hiring manager willing to give you forty-five honest minutes, and that willingness is a trust
@@ -85,7 +85,7 @@ is why most TA proposals fail: without a before-number, success is unprovable an
 indistinguishable from a preference. Module 5's capture layer exists so you have one.
 
 **The measure.** What you'll report at ninety days, chosen before you start. It should be capable
-of coming back badly — a measure that can only confirm you was never a measure.
+of coming back badly: a measure that can only confirm you was never a measure.
 
 **The owner.** A named person. Not "the TA team."
 
@@ -93,7 +93,7 @@ of coming back badly — a measure that can only confirm you was never a measure
 date is a proposal; one without is an aspiration, and executives can tell the difference
 immediately.
 
-Two things that make a case land harder. **Ask for something small enough to be believed** — a
+Two things that make a case land harder. **Ask for something small enough to be believed**, a
 change to one stage of one loop with a measured baseline beats a transformation programme,
 because the small one can be evaluated and the large one can only be believed. And **say what
 you'd stop doing to fund it.** Nothing establishes seriousness faster, and it converts your
@@ -117,12 +117,12 @@ hours refill with more of the same coordination, learns that the statement was a
 
 **With your exec, the failure mode is pleading.** Arguments from effort, loyalty, or how hard the
 market is do not survive a budget meeting, because every function makes them. What survives is
-evidence — which is what Modules 4 and 5 exist to produce.
+evidence, which is what Modules 4 and 5 exist to produce.
 
 The shape that works: *"Here's what our loop measures now that it didn't six months ago. Here's
 the hire quality signal we can now see. Here's the number we couldn't produce before and can. The
 team is smaller than it was and the signal is better than it was, and that's the trade I'd make
-again."* You can only say that if you built the record — which is why Module 5 is the one with the
+again."* You can only say that if you built the record, which is why Module 5 is the one with the
 longest half-life.
 
 And the honest limit: **sometimes the decision is made regardless.** Ratios move for reasons that
@@ -139,14 +139,14 @@ The argument that survives compression, stated plainly.
 A hire that works out is a decision that stays made. A hire that doesn't is a decision that gets
 made again, at full cost, eighteen months later, with a damaged team and a departed person in
 between. Everything this track taught — signal that survives contact with tools, an intake that
-doesn't poison the loop, a record that tells you which stages predict — points at that one output.
+doesn't poison the loop, a record that tells you which stages predict, points at that one output.
 
 That is also the only version of the function that is safe from the compression, because it is
 the version that requires judgment. Throughput has already left; the coordination work is
 compressing whether you participate or not, and defending it is the losing position. **The
 defensible claim is not "we work hard" or "we're fast." It's "our decisions hold."**
 
-And if you built Module 5's record, you can prove it — which is the difference between making the
+And if you built Module 5's record, you can prove it, which is the difference between making the
 claim and being believed.
 
 ## Key takeaways
@@ -159,8 +159,8 @@ claim and being believed.
 - **Ask small and say what you'd stop.** A change to one stage with a measured baseline beats a
   transformation programme, and naming the trade converts a request into a reallocation.
 - **With your team, don't promise nothing changes.** The coordination work is compressing, the
-  judgment work survives, here's how we move — then actually reallocate the freed time visibly.
-- **With your exec, don't plead — bring the record.** Effort and loyalty arguments lose because
+  judgment work survives, here's how we move, then actually reallocate the freed time visibly.
+- **With your exec, don't plead, bring the record.** Effort and loyalty arguments lose because
   every function makes them. And accept the limit: evidence influences who is kept and what the
   function is asked to do, not always whether the ratio moves.
 - **The product is decisions nobody has to redo.** That's the version of the function that
@@ -173,7 +173,7 @@ claim and being believed.
 
 The strongest counter-argument is that **baselines are a luxury of stable environments.** In a
 fast-moving function with shifting reqs, changing markets, and a team that turns over, insisting
-on a measured before-number can be a recipe for never starting — while the teams that moved fast
+on a measured before-number can be a recipe for never starting, while the teams that moved fast
 without one learned more by shipping. On that view, demanding a baseline is rigour that
 functions as delay. Your position has to engage that, because it is the argument you'll hear from
 your most effective colleague.
@@ -199,7 +199,7 @@ all seven modules.
 
 ### Part 2 — The reckoning (12 min)
 
-Gather every prediction you made across the seven modules — the share of stages that cost a faker
+Gather every prediction you made across the seven modules, the share of stages that cost a faker
 something, your throughput share, the hiring manager's markups, your ranking of the five selection
 methods, whether you could answer the strong-hires question, the systems touching your reqs, and
 the trust figure at the top of this module.
@@ -228,13 +228,13 @@ you didn't in Module 1?** Specific enough that you couldn't have written it befo
 
 **Q2.** Which element of the one-page case is usually missing, and why does its absence sink the proposal?
 
-- A. The owner — proposals often name a team rather than a person
-- B. The review date — teams avoid committing to a verdict
+- A. The owner, proposals often name a team rather than a person
+- B. The review date, teams avoid committing to a verdict
 - C. The baseline — without a before-number, success is unprovable and the request is indistinguishable from a preference ✓
-- D. The measure — most cases choose one that can't come back badly
+- D. The measure, most cases choose one that can't come back badly
 
 > **C.** And it's why Module 5's capture layer matters: you cannot retroactively measure what you
-> didn't record. A, B and D are real failures, and D is a close second — a measure that can only
+> didn't record. A, B and D are real failures, and D is a close second: a measure that can only
 > confirm was never a measure.
 
 **Q3.** What makes a case land harder with an executive?
@@ -262,7 +262,7 @@ you didn't in Module 1?** Specific enough that you couldn't have written it befo
 
 - A. Evidence reliably prevents ratio changes when it's strong enough
 - B. Evidence is irrelevant to headcount decisions, which are made on budget alone
-- C. Evidence influences who is kept and what the remaining function is asked to do — which is worth influencing, and isn't the same as control ✓
+- C. Evidence influences who is kept and what the remaining function is asked to do, which is worth influencing, and isn't the same as control ✓
 - D. Evidence matters only when presented by the CHRO rather than TA
 
 > **C.** The honest limit. Ratios move for reasons unrelated to your case; what your record
@@ -278,7 +278,7 @@ you didn't in Module 1?** Specific enough that you couldn't have written it befo
 
 > **C.** A hire that works out is a decision that stays made; one that doesn't gets made again at
 > full cost eighteen months later. It's the only version of the function that requires judgment,
-> which is the version that survives compression — and with Module 5's record, the one you can
+> which is the version that survives compression, and with Module 5's record, the one you can
 > prove.
 
 ## Sources and attribution

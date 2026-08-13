@@ -28,7 +28,7 @@ The first number is probably higher than you expect. The second is the module.
 
 ## Module brief
 
-101 M7 gave you the lines that don't move — the general ones, for everyone in HR. This module is
+101 M7 gave you the lines that don't move: the general ones, for everyone in HR. This module is
 about the specific ones for your function, and there are three reasons this track needs its own
 version rather than a reference back.
 
@@ -70,8 +70,8 @@ One line, and everything else in this module follows from deciding which side of
 The distinction is not about difficulty or sensitivity. It is about **what you will be asked to
 produce if someone challenges the outcome.**
 
-If the challenge would be answered by showing the result — *here's the summary, here's the draft,
-here's the comparison* — the work is a speed problem and AI belongs in it. If the challenge would
+If the challenge would be answered by showing the result (*here's the summary, here's the draft,
+here's the comparison*) the work is a speed problem and AI belongs in it. If the challenge would
 be answered by showing **the method**, and specifically by showing that a competent person applied
 a defensible method and can explain each choice in it, then the work is an accountability problem.
 Accountability work runs on tooling you built, whose logic you can state, whose inputs you can
@@ -80,7 +80,7 @@ produce, and whose decisions were made by a person who can be asked why.
 The test that operationalizes it: **imagine the deposition.** Not because you expect one, but
 because it's the cleanest way to surface what the artifact has to survive. "Why is this employee's
 adjustment 4% and that one's 2%?" has an answer or it doesn't. **"The model suggested it" is not
-an answer** — it's a description of how you avoided having one.
+an answer**. It's a description of how you avoided having one.
 
 And note that this line does not put AI outside the accountability work. It puts AI *underneath* a
 human decision inside it. Drafting the memo that explains a pay equity finding is a speed problem
@@ -91,7 +91,7 @@ is most of the skill.**
 
 Where the answer changes for this function specifically.
 
-**Zone 1 — Pay equity analysis under privilege.** The sophisticated posture in US practice is to
+**Zone 1. Pay equity analysis under privilege.** The sophisticated posture in US practice is to
 conduct pay equity analysis **at the direction of counsel**, so that the analysis and its
 intermediate findings are protected as privileged attorney-client communication or work product.
 The reason is blunt: an unprivileged study that identifies an unexplained gap and sits unremediated
@@ -103,9 +103,9 @@ pay equity data into any tool, the question "is counsel directing this work, and
 first.** Not because a tool is unsafe, but because privilege is a fragile status that depends on
 facts about how the work was commissioned.
 
-**Zone 2 — Fiduciary duty on benefit plans `[V]`.** If you administer retirement or health plans,
+**Zone 2. Fiduciary duty on benefit plans `[V]`.** If you administer retirement or health plans,
 ERISA's duties of prudence and loyalty apply to your process, and there is no AI carve-out. There
-is also, at present, no AI-specific ERISA rule — the ordinary duties do all the work, which is
+is also, at present, no AI-specific ERISA rule: the ordinary duties do all the work, which is
 worth understanding as a feature rather than a gap. Prudence, loyalty, monitoring, documentation,
 and the exclusive benefit rule already reach this.
 
@@ -116,14 +116,14 @@ because courts examine *how* fiduciaries reached decisions rather than only what
 **your process record is the asset** — which is exactly Module 3's craft layer, arriving here with
 a statute behind it.
 
-**Zone 3 — Comp committee and proxy inputs.** Material that goes into executive compensation
+**Zone 3. Comp committee and proxy inputs.** Material that goes into executive compensation
 disclosure is subject to a level of scrutiny nothing else in your work faces. The audience includes
 your compensation committee, your external counsel, your compensation consultant, institutional
 investors, proxy advisors, and eventually anyone who reads the filing. Drafting assistance is
 fine. **Analysis that determines a number in the filing needs to be reconstructible by a human
 who can testify to it**, which is Module 3's rule with a securities law consequence attached.
 
-**Zone 4 — The circular one, and the sharpest.** Disparate impact exposure when a model trained on
+**Zone 4. The circular one, and the sharpest.** Disparate impact exposure when a model trained on
 historical pay recommends adjustments.
 
 Take it slowly, because the failure is elegant. Your historical pay data encodes every decision
@@ -132,9 +132,9 @@ on that data learns the pattern. Ask it to recommend an adjustment and it will p
 consistent with the pattern, because consistency with the training data is what fitting means.
 **The model reproduces the disparity and calls it a recommendation.**
 
-Two things make this worse than an ordinary bias problem. It is **fluent** — the recommendation
+Two things make this worse than an ordinary bias problem. It is **fluent**: the recommendation
 arrives with a rationale, and the rationale is coherent because it was generated to be. And it is
-**scaled** — a biased human manager affects their own team, while a biased model applied across the
+**scaled**, a biased human manager affects their own team, while a biased model applied across the
 population affects everyone at once, in the same direction, which is precisely the fact pattern
 disparate impact doctrine is built for.
 
@@ -162,12 +162,12 @@ is defensible and each is also a potential channel for the disparity you're meas
 systematically leveled lower at hire, then controlling for job level **absorbs the effect into a
 control variable** and the residual gap shrinks toward zero. The model is not wrong. It is
 answering a narrower question than the one people will think it answered: *within level, is pay
-equitable* — not *is our pay equitable*.
+equitable*, not *is our pay equitable*.
 
 That is the single most consequential thing in this lesson. **"Explained" variance is a modeling
 decision with fairness consequences, not a statistical fact.** When a result says 94% of the pay
 gap is explained by legitimate factors, the operative word is "legitimate," and it was defined by
-whoever chose the control set — often before anyone looked at the data.
+whoever chose the control set, often before anyone looked at the data.
 
 **What is performance rating doing in there?** It is the most common control and the most
 contestable, because it's a human judgment produced by the same organization whose pay decisions
@@ -183,8 +183,8 @@ which functional form, how missing data is handled, what population is included 
 vendor who won't tell you has told you something. This is Module 2's teardown, applied to the
 technical artifact you're most likely to accept on authority.
 
-> ### Try this — 4 minutes
-> Take your most recent pay equity analysis — yours or a vendor's. Write down its control
+> ### Try this (4 minutes
+> Take your most recent pay equity analysis) yours or a vendor's. Write down its control
 > variables. For each, ask: could the disparity we're looking for travel through this variable?
 > Then ask who chose the list, and when.
 
@@ -230,7 +230,7 @@ who tells you it's settled is selling something.
 **In the US**, 18 states plus Washington DC have pay transparency laws, with penalties running from
 $100 to $250,000 per violation depending on jurisdiction. The regimes are not uniform: some require
 a range in every posting, others only on request or after an interview. Most require a **good-faith
-estimate** of what you actually expect to pay — which is a substantive standard, not a formatting
+estimate** of what you actually expect to pay, which is a substantive standard, not a formatting
 one. And remote postings are generally subject to the law of any state where the work could be
 performed, so a multi-state employer is effectively complying with the strictest applicable rule.
 
@@ -239,8 +239,8 @@ from market data has produced a number that must be a good-faith estimate of wha
 pay. Those are different standards, and only one of them is legally operative.
 
 **In the EU**, the Pay Transparency Directive's transposition deadline of 7 June 2026 has passed,
-and only four of twenty-seven member states had complete national legislation in force — Italy,
-Slovakia, Lithuania, and Malta — while Germany, France, Spain, the Netherlands, Sweden and Denmark
+and only four of twenty-seven member states had complete national legislation in force (Italy,
+Slovakia, Lithuania, and Malta) while Germany, France, Spain, the Netherlands, Sweden and Denmark
 missed it. **Late transposition does not mean no obligation**; it means you are tracking twenty-odd
 national implementations arriving on different schedules with different details.
 
@@ -251,7 +251,7 @@ criteria, and is not remedied within six months, **Article 10 requires a joint p
 conducted in cooperation with worker representatives.**
 
 **And here is the collision, which is the most role-specific thing in this module.** The joint pay
-assessment **cannot be conducted confidentially** — it is produced with worker representatives and
+assessment **cannot be conducted confidentially**. It is produced with worker representatives and
 made available to workers, equality bodies, and labour inspectorates. That is the exact opposite of
 the US privilege posture in Zone 1, where the sophisticated move is to run the analysis under
 counsel precisely to keep it out of discovery.
@@ -265,11 +265,11 @@ checkbox, and it is worth raising with counsel before it arrives as a surprise.
 
 - **AI for speed. Human-built tooling for accountability.** The test is what you'd have to produce
   if challenged: the result, or the method. Imagine the deposition.
-- **"The tool recommended it" is not an answer** — it's a description of how you avoided having
+- **"The tool recommended it" is not an answer**. It's a description of how you avoided having
   one.
 - **Four zones:** pay equity under privilege; ERISA fiduciary duty on benefit plans; comp committee
   and proxy inputs; and the circular one.
-- **ERISA has no AI carve-out and needs none** `[V]` — prudence, loyalty, monitoring and the
+- **ERISA has no AI carve-out and needs none** `[V]`: prudence, loyalty, monitoring and the
   exclusive benefit rule already reach it. AI in decision support, final authority human, adverse
   determinations involving a person. Courts examine *how* you decided, so the process record is the
   asset.
@@ -280,12 +280,12 @@ checkbox, and it is worth raising with counsel before it arrives as a surprise.
   fact.** Controlling for job level answers *within level, is pay equitable* — a narrower question
   than the one people hear. Performance rating is the most common control and the most contestable.
 - **Privilege and AI is unsettled** `[V]`. Two federal courts split in one week; the reconcilable
-  rule is enterprise deployment plus documented direction of counsel — and no court has yet reached
+  rule is enterprise deployment plus documented direction of counsel, and no court has yet reached
   the case where counsel directs the AI use.
 - **18 states plus DC on pay transparency** `[V]`, mostly on a good-faith-estimate standard, with
   remote postings pulling you to the strictest applicable rule.
 - **The EU deadline passed with 4 of 27 in force** `[V]`, and its joint pay assessment **cannot be
-  confidential** — which collides head-on with the US privilege posture. Both at once, on the same
+  confidential**, which collides head-on with the US privilege posture. Both at once, on the same
   data.
 
 ## Take a position
@@ -299,7 +299,7 @@ tables, survey methodologies, the statistical packages behind every regression y
 presented. Nobody calls it an admission when a comp analyst can't derive a survey provider's aging
 methodology from first principles; they call it reasonable reliance on a recognized instrument.
 On that view the distinction isn't human-versus-AI at all, it's whether the instrument is
-**professionally recognized and appropriately validated** — and AI tools will cross that threshold
+**professionally recognized and appropriately validated**, and AI tools will cross that threshold
 in some uses, at which point relying on them will be prudent rather than negligent, and refusing to
 may be the harder position to defend. Your position has to say where that threshold sits and how
 you'd know it had been crossed.
@@ -316,7 +316,7 @@ earlier. So the policy itself is not the differentiator.
 
 **Here is the real gap.** Of the organizations that have a policy, only about a quarter believe it
 is clear and future-proof, and **44% of US workers say their employer has no clear AI policy or
-they don't know whether one exists** `[V]`. Policies exist and they are generic — written by
+they don't know whether one exists** `[V]`. Policies exist and they are generic, written by
 Legal or IT for the whole organization, at a level of abstraction that answers no question a comp
 analyst actually has at 4pm during merit cycle. Your organization's policy almost certainly does
 not mention pay equity, fiduciary decisions, or proxy inputs.
@@ -325,10 +325,10 @@ not mention pay equity, fiduciary decisions, or proxy inputs.
 has to be specific enough to be usable under time pressure.**
 
 **Step 0 — Find the existing policy (3 min).** Read it. Note what it already covers and what it
-says nothing about. If there isn't one, say so — that's a finding, and you write the section
+says nothing about. If there isn't one, say so. That's a finding, and you write the section
 anyway.
 
-**Step 1 — Red lines (8 min).** Things your function will not do, stated so specifically that
+**Step 1. Red lines (8 min).** Things your function will not do, stated so specifically that
 someone could tell whether they'd crossed one. Not "we won't use AI for sensitive decisions" —
 **"individual pay adjustment amounts are not generated or recommended by a model"** is a red line.
 Cover at minimum: the four zones, individual pay data movement, and anything touching a benefit
@@ -338,20 +338,20 @@ plan determination.
 lines. This half matters more than people expect: a policy that only forbids gets ignored, because
 the work still has to get done and everyone knows the tools help. **Give people somewhere to go.**
 
-**Step 3 — Review checkpoints (7 min).** For uses that sit between the two — which is most real
-work — what has to happen before the output leaves your hands. Which of Module 3's checks are
+**Step 3. Review checkpoints (7 min).** For uses that sit between the two (which is most real
+work) what has to happen before the output leaves your hands. Which of Module 3's checks are
 mandatory. Who reviews. What gets recorded, and where.
 
-**Step 4 — Escalation (3 min).** Who gets called, for what, and how fast. Name roles, not
+**Step 4. Escalation (3 min).** Who gets called, for what, and how fast. Name roles, not
 departments. **"Consult Legal" is not an escalation path** — it's what people write when they don't
 know who to call.
 
-**Step 5 — Score the predictions (2 min).** Your two numbers against the figures above. Most people
+**Step 5. Score the predictions (2 min).** Your two numbers against the figures above. Most people
 underestimate how many organizations have a policy and overestimate how good those policies are.
 
 Then the write-up: what your existing policy already covered, the single most important red line
 and why it's the one you'd defend, your position on the claim above with its counter-argument
-addressed, and — the honest one — **which red line your function has probably already crossed.**
+addressed, and (the honest one) **which red line your function has probably already crossed.**
 The policy that admits one is more useful than the one that reads like nobody has ever been
 tempted.
 
@@ -365,7 +365,7 @@ version. The lawyer's version comes after.
 **Q1.** What determines which side of the speed/accountability line a task sits on?
 
 - A. How sensitive the underlying data is
-- B. What you would have to produce if the outcome were challenged — the result, or the method with each choice explained ✓
+- B. What you would have to produce if the outcome were challenged: the result, or the method with each choice explained ✓
 - C. Whether the task is legally regulated
 - D. How much time the task currently takes
 
@@ -375,7 +375,7 @@ version. The lawyer's version comes after.
 **Q2.** Why is a model fitted on historical pay structurally unsuited to recommending pay?
 
 - A. Because historical pay data is usually incomplete
-- B. Because it learns the pattern in what you have paid — including the disparities a pay equity audit exists to find — and reproduces them fluently and at scale, with a rationale attached ✓
+- B. Because it learns the pattern in what you have paid (including the disparities a pay equity audit exists to find) and reproduces them fluently and at scale, with a rationale attached ✓
 - C. Because pay decisions require contextual judgment models can't access
 - D. Because compensation data changes too quickly for a fitted model to stay accurate
 
@@ -392,12 +392,12 @@ version. The lawyer's version comes after.
 
 > **B.** The model isn't wrong; it's answering something narrower than people will hear.
 > **"Explained" variance is a modeling decision with fairness consequences, not a statistical
-> fact** — and "legitimate" was defined by whoever chose the control set.
+> fact**, and "legitimate" was defined by whoever chose the control set.
 
 **Q4.** What does ERISA require of AI use in benefit plan administration? `[V]`
 
 - A. A specific AI disclosure filed with the Department of Labor
-- B. Nothing yet — no AI-specific rule has been issued
+- B. Nothing yet, no AI-specific rule has been issued
 - C. Nothing AI-specific, because the ordinary duties already reach it: AI in decision support, final authority with a human, and human involvement in adverse benefit determinations ✓
 - D. That any AI vendor be a named plan fiduciary
 
@@ -409,7 +409,7 @@ version. The lawyer's version comes after.
 
 - A. That AI use always waives privilege in criminal matters but not civil ones
 - B. That work product survives AI use but attorney-client privilege never does
-- C. Enterprise deployment with confidentiality terms plus documented direction of counsel — Heppner turned on consumer terms and the absence of counsel's direction, Gilbarco on a tool used as an ordinary drafting instrument ✓
+- C. Enterprise deployment with confidentiality terms plus documented direction of counsel. Heppner turned on consumer terms and the absence of counsel's direction, Gilbarco on a tool used as an ordinary drafting instrument ✓
 - D. That pro se litigants receive greater protection than represented parties
 
 > **C.** And the honest coda: **no court has yet ruled on counsel expressly directing the AI use**,
@@ -418,7 +418,7 @@ version. The lawyer's version comes after.
 **Q6.** What's the operative standard for a salary range in a posting under most US pay transparency laws? `[V]`
 
 - A. The range must match the approved band in the compensation structure
-- B. A good-faith estimate of what the employer actually expects to pay — which is a substantive standard, not a formatting one ✓
+- B. A good-faith estimate of what the employer actually expects to pay, which is a substantive standard, not a formatting one ✓
 - C. The range must be within 20% of market median for the role
 - D. The range must reflect the actual pay of current incumbents
 
@@ -429,7 +429,7 @@ version. The lawyer's version comes after.
 **Q7.** Why does the EU joint pay assessment collide with US pay equity practice? `[V]`
 
 - A. Because the EU uses a different definition of the gender pay gap
-- B. Because it cannot be conducted confidentially — it's produced with worker representatives and available to workers and labour inspectorates — while the US posture runs the analysis under counsel precisely to protect it from discovery ✓
+- B. Because it cannot be conducted confidentially (it's produced with worker representatives and available to workers and labour inspectorates) while the US posture runs the analysis under counsel precisely to protect it from discovery ✓
 - C. Because the EU threshold of 5% is stricter than any US requirement
 - D. Because EU member states transposed the directive on different schedules
 
@@ -439,7 +439,7 @@ version. The lawyer's version comes after.
 **Q8.** What's the strongest counter-argument to "the tool recommended it is an admission"?
 
 - A. That AI recommendations are often more consistent than human ones
-- B. That professionals routinely rely on instruments they can't reconstruct — actuarial tables, survey aging methodologies, statistical packages — and we call that reasonable reliance, so the real distinction is whether the instrument is professionally recognized and validated ✓
+- B. That professionals routinely rely on instruments they can't reconstruct (actuarial tables, survey aging methodologies, statistical packages) and we call that reasonable reliance, so the real distinction is whether the instrument is professionally recognized and validated ✓
 - C. That fiduciary standards were written before AI existed and don't contemplate it
 - D. That vendors indemnify customers against errors in their models
 
@@ -451,12 +451,12 @@ version. The lawyer's version comes after.
 
 - **Privilege `[V]`:** *United States v. Heppner* (S.D.N.Y., ordered Feb 10, 2026; written opinion
   Feb 17, 2026) — no privilege or work product over AI documents; three independent grounds; matter
-  of first impression. *Warner v. Gilbarco, Inc.* (Feb 10, 2026) — work product **not** waived; AI
+  of first impression. *Warner v. Gilbarco, Inc.* (Feb 10, 2026), work product **not** waived; AI
   programs are "tools, not persons." The reconciliation offered here is this course's reading, not
   a holding.
 - **ERISA `[V]`:** practitioner consensus on prudence, loyalty, monitoring, documentation and the
   exclusive benefit rule as applied to AI; no AI-specific rule in force. *Note:* DOL EBSA Technical
-  Release 2026-01 (April 1, 2026) concerns **proxy advisory services, not AI** — it is relevant to
+  Release 2026-01 (April 1, 2026) concerns **proxy advisory services, not AI**. It is relevant to
   Module 5, and should not be cited as AI guidance.
 - **US pay transparency `[V]`:** 18 states plus DC; penalties $100–$250,000 per violation by
   jurisdiction; good-faith-estimate standard predominant; remote postings generally subject to any

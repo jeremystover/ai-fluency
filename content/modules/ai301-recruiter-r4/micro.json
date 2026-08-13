@@ -1,11 +1,29 @@
 [
-  { "id": "ai301-recruiter-r4-micro-core", "moduleId": "ai301-recruiter-r4-micro", "ordinal": 10, "kind": "prose", "layer": "stable", "reviewedAt": "2026-08-12",
-    "body": "## Module 4 in two minutes\n\n**The methods that survive AI are the methods that were always better** `[V]`. A 2022 correction to decades of meta-analytic estimates re-ranked the field: structured interviews ≈.42, biodata ≈.38, general mental ability revised down to ≈.31, with years of experience and unstructured interviews near the bottom. The corrected ranking maps almost exactly onto fakeability — so you can make this argument on effectiveness grounds without mentioning AI at all.\n\n**Structure is the active ingredient**, and it's a process change rather than a purchase: defined competencies, same questions in the same order, independent scoring against a rubric.\n\n**Expensive to fake means three specific things:** time they can't compress, presence they must supply, and specificity about work they actually did. Hence work-sample-first and observed, live defence over polished submission, and follow-up depth over question breadth — prepared answers survive the first question and fall apart on the third.\n\n**And stop scoring polish.** Written quality in an application is free, therefore uninformative, and rewarding it selects for tool access."
+  {
+    "id": "ai301-recruiter-r4-micro-core",
+    "moduleId": "ai301-recruiter-r4-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module 4 in two minutes\n\n**The methods that survive AI are the methods that were always better** `[V]`. A 2022 correction to decades of meta-analytic estimates re-ranked the field: structured interviews ≈.42, biodata ≈.38, general mental ability revised down to ≈.31, with years of experience and unstructured interviews near the bottom. The corrected ranking maps almost exactly onto fakeability, so you can make this argument on effectiveness grounds without mentioning AI at all.\n\n**Structure is the active ingredient**, and it's a process change rather than a purchase: defined competencies, same questions in the same order, independent scoring against a rubric.\n\n**Expensive to fake means three specific things:** time they can't compress, presence they must supply, and specificity about work they actually did. Hence work-sample-first and observed, live defence over polished submission, and follow-up depth over question breadth, prepared answers survive the first question and fall apart on the third.\n\n**And stop scoring polish.** Written quality in an application is free, therefore uninformative, and rewarding it selects for tool access."
   },
-  { "id": "ai301-recruiter-r4-micro-rule", "moduleId": "ai301-recruiter-r4-micro", "ordinal": 20, "kind": "callout", "layer": "stable", "reviewedAt": "2026-08-12",
-    "body": "### The rule to carry\n\nTwo coherent AI policies — ban-and-verify or require-and-grade — and **incoherence is the only losing choice.** A stated ban with no stage that enforces it teaches candidates your process doesn't mean what it says, and the ones who learn that first are the most attentive ones you were trying to select for."
+  {
+    "id": "ai301-recruiter-r4-micro-rule",
+    "moduleId": "ai301-recruiter-r4-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### The rule to carry\n\nTwo coherent AI policies (ban-and-verify or require-and-grade) and **incoherence is the only losing choice.** A stated ban with no stage that enforces it teaches candidates your process doesn't mean what it says, and the ones who learn that first are the most attentive ones you were trying to select for."
   },
-  { "id": "ai301-recruiter-r4-micro-close", "moduleId": "ai301-recruiter-r4-micro", "ordinal": 30, "kind": "prose", "layer": "stable", "reviewedAt": "2026-08-12",
-    "body": "**The full module adds** the detection trap paid off from Module 1 — a process that doesn't depend on detection has no false positives to defend — the distinction between verifying *facts* through official channels at screening and detecting *tool use*, which have been sold under the same word, the ten-signal fakeability sort, and the loop redesign with a candidate-facing policy in under 150 words."
+  {
+    "id": "ai301-recruiter-r4-micro-close",
+    "moduleId": "ai301-recruiter-r4-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "**The full module adds** the detection trap paid off from Module 1 (a process that doesn't depend on detection has no false positives to defend) the distinction between verifying *facts* through official channels at screening and detecting *tool use*, which have been sold under the same word, the ten-signal fakeability sort, and the loop redesign with a candidate-facing policy in under 150 words."
   }
 ]

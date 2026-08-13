@@ -35,7 +35,7 @@ Think about what you actually did the last time you asked AI to draft something 
 company's voice. You explained the voice. Again. You described what a good version looks like.
 Again. You pasted the same three paragraphs of background that you pasted last Tuesday, from the
 same document, with the same typo. Practitioners call this the **artisan tax**: the cost of
-re-briefing a capable stranger who forgets you the moment you close the tab — paid per
+re-briefing a capable stranger who forgets you the moment you close the tab: paid per
 conversation, forever.
 
 101 told you why the tax exists: the model has no memory of you, and each conversation starts
@@ -45,8 +45,8 @@ once, somewhere the tool can always see.
 
 That once-written material is the **context pack**: the stable briefing for one workflow,
 separated from the material that genuinely changes each run. Building the distinction between
-those two — what keeps, what arrives fresh, and what must never be written into infrastructure at
-all — is this module. It is the highest-leverage hour in this course: everything M3 through M8
+those two (what keeps, what arrives fresh, and what must never be written into infrastructure at
+all) is this module. It is the highest-leverage hour in this course: everything M3 through M8
 builds runs on the packs you learn to make here.
 
 ---
@@ -57,7 +57,7 @@ By the end of this module you should be able to:
 
 1. Explain the artisan tax and identify where you're currently paying it.
 2. Split any workflow's material into pack (durable), fresh (per-run), and excluded (never
-   infrastructure) — and defend each placement.
+   infrastructure), and defend each placement.
 3. Build a working context pack in your organization's provisioned tool, using instructions and
    knowledge for what each does best. **[V]**
 4. Date-stamp pack content and set a review cadence, so your context doesn't rot into confident
@@ -71,7 +71,7 @@ By the end of this module you should be able to:
 A prompt is what you say once. A pack is what stays true between runs.
 
 The distinction sounds trivial until you inventory a real task. Take the interview-debrief
-workflow — the canonical first build from M1. Every Thursday, some of what you give the model is
+workflow: the canonical first build from M1. Every Thursday, some of what you give the model is
 new: this week's notes, these candidates, this role. But most of it is *identical week to week*:
 
 - What a good debrief looks like (structure, length, what a hiring manager actually reads)
@@ -80,13 +80,13 @@ new: this week's notes, these candidates, this role. But most of it is *identica
 - What the model should do when the notes are thin ("flag the gap; never fill it")
 - The output format the ATS or the hiring team expects
 
-That second list is the pack. It's the part of every prompt you were retyping — or worse,
+That second list is the pack. It's the part of every prompt you were retyping, or worse,
 half-retyping, differently each time, which is why Tuesday's output and Thursday's output had
 different personalities.
 
 Notice what the pack really is: **your M1 spec's "inputs" line, split by rate of change.** Fast
 material stays per-run. Slow material gets written once, well, and attached always. In 101's
-vocabulary: you're not teaching the model anything (you can't — training already happened).
+vocabulary: you're not teaching the model anything (you can't, training already happened).
 You're arranging for the briefing to be permanently in view instead of re-performed.
 
 The payoff compounds in three directions at once. Consistency: outputs stop depending on how
@@ -100,7 +100,7 @@ your workflow. The artisan's skill was trapped in the artisan. The practitioner'
 >
 > 1. Highlight every sentence that appears, in some form, in more than one of them.
 > 2. That highlighted material is pack content you've been paying the artisan tax on.
-> 3. Notice whether the *unhighlighted* parts are genuinely per-run material — or briefing you
+> 3. Notice whether the *unhighlighted* parts are genuinely per-run material, or briefing you
 >    forgot to repeat, which explains the run that came out worse.
 
 ---
@@ -116,16 +116,16 @@ describe an identifiable person?* Only yes-and-no earns a place. Typical residen
 - **A gold-standard example.** The single best output you've ever produced for this workflow,
   lightly annotated. One great example outworks three paragraphs of description — 101 M5 taught
   you why: you're narrowing the prediction toward a target you've actually shown.
-- **The definition of done.** A checklist the output must pass. This becomes load-bearing in M4,
+- **The definition of done.** A checklist the output must pass. This becomes structural in M4,
   when verification needs something to verify *against*.
 - **Voice and register.** Not "professional but friendly" — actual rules, with a before/after
   pair.
 - **The glossary.** Your org's acronyms, level names, competency terms. The model has never seen
   your org (101, Lesson 4); this is the piece of your org it may safely see.
-- **The org context brief.** What the company does, roughly how big, how the team is shaped — no
+- **The org context brief.** What the company does, roughly how big, how the team is shaped: no
   names, no numbers you'd redact from a conference talk.
 
-**Fresh: this run's material.** The reason the workflow runs at all — this week's notes, this
+**Fresh: this run's material.** The reason the workflow runs at all. This week's notes, this
 quarter's verbatims, the policy paragraph being rewritten today. It arrives, gets transformed,
 and leaves. Putting fresh material in the pack is how you get March's survey themes confidently
 cited in June: the second way context rots, and the quieter one.
@@ -157,7 +157,7 @@ pack**, **supplied fresh each run**, or **never enters the system**.
 6. This quarter's engagement survey verbatims
 7. The definition-of-done checklist for the output
 8. Grievance details naming the individuals involved
-9. The team glossary — acronyms, level names, competency terms
+9. The team glossary: acronyms, level names, competency terms
 10. A raw HRIS export, employee IDs included
 11. The policy paragraph being rewritten this run
 12. Your org context brief — what the company does, size, shape, no names
@@ -178,30 +178,30 @@ Claude's home for a context pack is a **Project**: a workspace where instruction
 files persist across every conversation started inside it. The mechanics take ten minutes; the
 design judgment is what you brought from Lessons 1 and 2.
 
-**Step 1 — Create the Project.** One project per workflow, named after the workflow, not the
+**Step 1. Create the Project.** One project per workflow, named after the workflow, not the
 tool ("Interview debriefs," not "Claude experiments"). Your capstone build gets its own; you
 started it in M1 if you followed the pointer.
 
 **Step 2 — Instructions: the standing brief.** Project instructions are applied to every
-conversation in the project — they are the part of the briefing that should always be in force.
+conversation in the project. They are the part of the briefing that should always be in force.
 Keep them short and behavioral: the role ("You turn my raw interview notes into structured
 debriefs for hiring managers"), the definition of done, the voice rules, and the failure
-instruction ("When the notes don't cover a competency, say so — never fill the gap"). If it
+instruction ("When the notes don't cover a competency, say so, never fill the gap"). If it
 reads like a job description for the workflow, it's right. If it's three pages, you've pasted
 knowledge into instructions — move it.
 
-**Step 3 — Knowledge: the reference shelf.** Upload the pack's reference documents: the
+**Step 3. Knowledge: the reference shelf.** Upload the pack's reference documents: the
 gold-standard example, the glossary, the org brief, the style guide. Knowledge is consulted as
-needed rather than recited every turn — the right home for material that's *sometimes* relevant.
+needed rather than recited every turn: the right home for material that's *sometimes* relevant.
 The rule of thumb: **instructions are what it must always do; knowledge is what it may need to
 look at.**
 
 **Step 4 — Run it fresh.** Start a new conversation in the project and give it only fresh
-material — this week's notes, nothing else. Watch what you didn't have to say. That silence is
+material. This week's notes, nothing else. Watch what you didn't have to say. That silence is
 the artisan tax, refunded.
 
 **Two cautions from 101, now operational.** First: conversations inside a project do not teach
-the project — nothing you say in a chat updates instructions or knowledge unless you edit them
+the project, nothing you say in a chat updates instructions or knowledge unless you edit them
 deliberately. The pack changes when you change it, which is exactly what makes it auditable.
 Second: the context window is still finite. Knowledge is not unlimited storage; every stale
 document you leave in it crowds something current out of view.
@@ -210,7 +210,7 @@ document you leave in it crowds something current out of view.
 instructions map to instructions, knowledge to attached files, with the same design judgment
 applying. The concepts in this module do not care which tool you're in; only this lesson does.
 
-> ### Try this — the ten-minute version
+> ### Try this: the ten-minute version
 > Even if your capstone lab comes later, feel the mechanics now:
 >
 > 1. Create a project for any recurring task. Write three sentences of instructions: role,
@@ -227,7 +227,7 @@ The pack you built today is correct today. That sentence has an expiry date, and
 tell you when it passes.
 
 The org chart brief goes stale at the next reorg. The comp philosophy one-pager survives until
-the cycle changes it. The voice guide outlives both — until a rebrand. Pack content doesn't fail
+the cycle changes it. The voice guide outlives both, until a rebrand. Pack content doesn't fail
 loudly like a broken link; it fails the way 101 taught you fluent output fails: the model keeps
 producing confident, well-formed answers built on last quarter's truth. **Stale context is a
 hallucination you installed yourself.**
@@ -238,9 +238,9 @@ two layers age at different speeds. Your pack deserves the same split:
 
 - **Date-stamp every item.** A line at the top: `Reviewed: 2026-08-07`. Thirty seconds at
   creation; the difference between "I think this is current" and knowing.
-- **Sort your pack by rate of change.** The glossary and voice guide are your stable layer —
+- **Sort your pack by rate of change.** The glossary and voice guide are your stable layer,
   check twice a year. The org brief and anything touching money or structure are your volatile
-  layer — check monthly, and always after a reorg, a cycle, or a policy change.
+  layer: check monthly, and always after a reorg, a cycle, or a policy change.
 - **Put the review on your calendar.** Ten minutes monthly, all packs, or it will not happen.
   (In M7 this slot joins your operating rhythm; for now, one recurring invite.)
 - **Prune as ruthlessly as you add.** An item nobody's needed in two review cycles comes out.
@@ -264,12 +264,12 @@ down.
 
 **Then submit, from your organization's tool:**
 
-1. **The three-bin inventory** — every input from your M1 spec, placed in pack / fresh /
+1. **The three-bin inventory**: every input from your M1 spec, placed in pack / fresh /
    excluded, one clause of reasoning each.
-2. **The instructions** — pasted verbatim. Role, definition of done, voice, failure rule.
+2. **The instructions**, pasted verbatim. Role, definition of done, voice, failure rule.
 3. **The knowledge list** — each document's name, one line on why it earned the place, and its
    review date and cadence (stable or volatile).
-4. **A fresh-run transcript** — one real run supplying only per-run material, with a sentence on
+4. **A fresh-run transcript**. One real run supplying only per-run material, with a sentence on
    what you no longer had to say.
 
 ### Rubric — 20 points
@@ -290,7 +290,7 @@ down.
 - **Three bins, one discipline:** durable-and-impersonal in the pack, run-specific fresh,
   people data never in infrastructure. The middle of the module and the middle of the practice.
 - **Instructions are always-on behavior; knowledge is look-it-up reference. [V]** Short standing
-  brief, well-chosen shelf — in whatever tool your organization provisions.
+  brief, well-chosen shelf, in whatever tool your organization provisions.
 - **Stale context is a self-installed hallucination.** Date-stamp, split by rate of change,
   review on a calendar, prune. Fix the pack before you fix the output.
 - **A written pack is transferable fluency.** It's what makes M8's handoff test passable — and
@@ -300,28 +300,28 @@ down.
 
 ## Sorting exercise — answer key
 
-**Lives in the pack** — durable, impersonal:
-**1** (voice guide — the canonical pack item), **2** (gold-standard example — one great example
-outworks three paragraphs of description), **4** (comp *philosophy* — principles, not numbers or
+**Lives in the pack**, durable, impersonal:
+**1** (voice guide — the canonical pack item), **2** (gold-standard example. One great example
+outworks three paragraphs of description), **4** (comp *philosophy*, principles, not numbers or
 names; when the cycle changes it, the review cadence catches it), **7** (definition of done —
-M4's verification will need it), **9** (glossary — the slice of your org the model may safely
-see), **12** (org brief — impersonal by construction).
+M4's verification will need it), **9** (glossary: the slice of your org the model may safely
+see), **12** (org brief, impersonal by construction).
 
 **Supplied fresh each run:**
-**3** (this week's notes — the reason the run exists), **6** (this quarter's verbatims — pack
-them and June confidently cites March), **11** (the paragraph being rewritten — it leaves with
+**3** (this week's notes — the reason the run exists), **6** (this quarter's verbatims: pack
+them and June confidently cites March), **11** (the paragraph being rewritten. It leaves with
 the run).
 
 **Never enters the system:**
 **5** (a named person's performance history), **8** (grievance details with names), **10** (raw
 HRIS export with IDs) — all three for the same reason: writing them into infrastructure converts
 a one-time judgment call into a standing condition nobody re-decides. Where a single run
-legitimately needs sensitive material, M6 governs how it enters — fresh, minimized, under that
-run's judgment — and how it leaves.
+legitimately needs sensitive material, M6 governs how it enters (fresh, minimized, under that
+run's judgment) and how it leaves.
 
 **If you put fresh material in the pack**, you built the quiet failure: current-sounding answers
 from stale truth. **If you packed people data**, stop before building anything and read M6's
-opening — this is the one sorting error with legal weight.
+opening. This is the one sorting error with legal weight.
 
 ---
 
@@ -336,7 +336,7 @@ opening — this is the one sorting error with legal weight.
 - D. The premium for larger context windows
 
 > **B.** It's the per-conversation cost of re-supplying material that barely changes between
-> runs. Verification (C) is a cost worth keeping — M4 designs it rather than eliminating it.
+> runs. Verification (C) is a cost worth keeping, M4 designs it rather than eliminating it.
 
 **Q2.** The two-question test for whether material belongs in the pack:
 - A. Is it useful? Is it well-written?
@@ -351,7 +351,7 @@ opening — this is the one sorting error with legal weight.
 - A. Verbatims are too long for knowledge files
 - B. Survey data is always too sensitive to use
 - C. Fresh material packed as durable gets confidently cited long after it's stale ✓
-- D. It doesn't — verbatims are ideal pack content
+- D. It doesn't, verbatims are ideal pack content
 
 > **C.** That's the quiet rot: June's run cites March's themes, fluently, with no signal
 > anything is wrong. Verbatims are legitimate *fresh* input (B overshoots); they just must leave
@@ -361,7 +361,7 @@ opening — this is the one sorting error with legal weight.
 - A. Instructions are what it must always do; knowledge is what it may need to look at ✓
 - B. Instructions are for formatting; knowledge is for facts
 - C. Instructions are temporary; knowledge is permanent
-- D. They're interchangeable — use whichever has space
+- D. They're interchangeable, use whichever has space
 
 > **A.** The standing brief stays short and behavioral; the shelf holds reference consulted as
 > needed. Three pages of instructions is knowledge in the wrong house.
@@ -377,7 +377,7 @@ opening — this is the one sorting error with legal weight.
 > per-run use); C is precisely the violation.
 
 **Q6.** A conversation inside a Claude Project produces a much better debrief format than your pack specifies. Next week's runs will: **[V]**
-- A. Use the improved format — the project learns from its conversations
+- A. Use the improved format: the project learns from its conversations
 - B. Use the old format, until you deliberately edit the instructions or knowledge ✓
 - C. Alternate between formats
 - D. Ask which format you prefer
@@ -398,7 +398,7 @@ opening — this is the one sorting error with legal weight.
 **Q8.** A run produces a wrong output because the org brief in your pack predates the reorg. The practitioner's move:
 - A. Correct the output and ship it
 - B. Correct the output, then update the pack and its review cadence ✓
-- C. Delete the org brief — packs shouldn't contain anything that changes
+- C. Delete the org brief, packs shouldn't contain anything that changes
 - D. Add a disclaimer to the output
 
 > **B.** Ship the corrected work, then fix the system that drafted it — otherwise next week
@@ -413,5 +413,5 @@ Builds on AI 101 M5 (briefing, gold-standard examples as prediction-narrowing) a
 Lesson 4 (the data you supply; "the model has never seen your organization"). The
 pack/fresh/excluded three-bin model and "people data must never become infrastructure" are
 original to this course; M6 develops the exclusion rule into full data-tier practice. Lesson 3
-and marked passages are volatile layer — tool specifics current as of the stamp date, tailored
+and marked passages are volatile layer: tool specifics current as of the stamp date, tailored
 per deployment to the organization's provisioned tools.

@@ -14,7 +14,7 @@
 
 *One prediction, thirty seconds.*
 
-**What share of your team's week goes to throughput work** — the coordinating, formatting,
+**What share of your team's week goes to throughput work**, the coordinating, formatting,
 scheduling, chasing, and status-updating that has to happen and requires no recruiting judgment?
 Whole percent.
 
@@ -34,19 +34,19 @@ automation.
 
 The split matters most, so it's worth stating up front: **high-volume hourly hiring and
 professional or senior hiring are different games**, and the same tactic is a win in one and a
-trap in the other. Most bad recruiting advice — including most vendor advice — is advice from the
+trap in the other. Most bad recruiting advice (including most vendor advice) is advice from the
 other archetype delivered without the qualifier.
 
 ## Learning objectives
 
 By the end of this module you should be able to:
 
-1. Sort recruiting work into throughput, insight, and redesign — and say where AI money usually
+1. Sort recruiting work into throughput, insight, and redesign, and say where AI money usually
    goes versus where the leverage is.
 2. Identify which hiring archetype you're in, and why advice transfers badly between them.
 3. Run a five-question diagnostic on any friction point before proposing a solution to it.
 4. Decide whether a workflow wants automation or an agent, using the judgment-step rule.
-5. Name one narrow goal in a single sentence — the hardest step, and the one that makes the rest
+5. Name one narrow goal in a single sentence: the hardest step, and the one that makes the rest
    possible.
 
 ## Lesson 1 · Three tiers
@@ -58,7 +58,7 @@ belongs** — the wins are real, they compound, and nobody's judgment is being r
 
 **Insight.** Work that requires reading a situation: which of these candidates is worth a
 conversation, why this pipeline is stalling, what the hiring manager actually means by "not
-senior enough." AI assists here — structuring, summarizing, surfacing patterns for you to judge —
+senior enough." AI assists here (structuring, summarizing, surfacing patterns for you to judge)
 and cannot do it, because the judgment is the work. **Most vendor claims live here and most of
 them are the loud kind Module 1 warned about.**
 
@@ -66,7 +66,7 @@ them are the loud kind Module 1 warned about.**
 for. Almost no AI spend goes here and it is where nearly all the leverage is, because Module 1
 established that your funnel's stages stopped carrying information. **Optimizing the throughput of
 a stage that measures nothing is the most expensive mistake available to a TA function right
-now** — you get faster at doing something that isn't working.
+now**. You get faster at doing something that isn't working.
 
 The honest allocation: keep buying throughput, be sceptical of insight, and spend your own scarce
 attention on redesign. Modules 3, 4, and 5 are all redesign.
@@ -77,7 +77,7 @@ Two hiring games, and the constraint is different in each.
 
 **High-volume hourly.** Retail, warehouse, hospitality, contact centre, care. Hundreds or
 thousands of hires, largely interchangeable requirements, and the binding constraint is
-**speed-to-contact** — the applicant who replies first often wins the candidate, because they're
+**speed-to-contact**, the applicant who replies first often wins the candidate, because they're
 applying to eight employers and accepting the first credible offer. Automation wins outright
 here. Instant scheduling, immediate responses, and compressed time-to-offer are straightforwardly
 good, and the signal-integrity problem is milder because the requirements are verifiable and the
@@ -92,14 +92,14 @@ at volume degrades your employer brand with exactly the passive candidates you m
 Same tool, opposite verdicts. A "reduce time-to-first-contact by 60%" case study is a real win in
 one archetype and a solution to a non-problem in the other.
 
-Two practical consequences. **Read every vendor case study for its archetype first** — if it isn't
+Two practical consequences. **Read every vendor case study for its archetype first**, if it isn't
 stated, assume high-volume, because that's where the countable wins are. And if you run both,
 **run them as separate processes with separate tooling decisions**, because a single blended
 process optimizes for neither.
 
 > ### Try this — 2 minutes
 > Take the last AI recruiting claim you saw. Which archetype was the customer in? If you can't
-> tell from the case study, notice that the omission is doing work — the numbers are almost
+> tell from the case study, notice that the omission is doing work: the numbers are almost
 > always from the high-volume side, where they're easiest to produce.
 
 ## Lesson 3 · The diagnostic
@@ -132,10 +132,10 @@ A distinction worth holding precisely, because the market blurs it deliberately.
 **If the flow is static and rule-based, you want automation.** Fixed inputs, deterministic
 outputs, an if-this-then-that you could draw. Send the rejection when the status changes. Move
 the candidate when the scorecard is submitted. Automation is cheaper, faster, debuggable, and
-fails visibly — and most of what gets sold as an agent in recruiting is this with a language
+fails visibly, and most of what gets sold as an agent in recruiting is this with a language
 model bolted on for no reason.
 
-**An agent earns its place only when there's a genuine judgment step in the middle** — something
+**An agent earns its place only when there's a genuine judgment step in the middle**, something
 where the right next action depends on interpreting unstructured input. Reading an inbound reply
 and deciding whether it's interest, a deferral, or a decline. Triaging a hiring manager's
 free-text feedback into a structured signal.
@@ -156,7 +156,7 @@ lowest rung that works.**
   belongs there. Most vendor claims live in insight. **Nearly all the leverage is in redesign, and
   almost no spend goes there.**
 - **Optimizing the throughput of a stage that measures nothing is the most expensive mistake
-  available right now** — Module 1 established that most early stages measure nothing.
+  available right now**. Module 1 established that most early stages measure nothing.
 - **The archetype split changes every verdict.** High-volume hourly is a speed-to-contact game
   where automation wins outright; professional and senior is a signal-integrity game where the
   same tactics are a trap. Read every case study for its archetype; if unstated, assume
@@ -165,7 +165,7 @@ lowest rung that works.**
   sentence*, and who owns it when it breaks. An unowned automation is a future incident with a
   delay attached.
 - **If you can draw the flowchart, it's automation.** An agent earns its place only when a step
-  requires interpreting unstructured input — and recruiting sits low on the autonomy ladder
+  requires interpreting unstructured input, and recruiting sits low on the autonomy ladder
   because agent actions here are visible to candidates and rarely reversible.
 
 ## Take a position
@@ -185,20 +185,20 @@ to survive that.
 rubric below.**
 
 **Step 1 — Log the week (7 min).** Your team's actual week, in blocks. Include the interrupt work
-that never hits a calendar — chasing feedback, re-sending, answering the same hiring manager
+that never hits a calendar: chasing feedback, re-sending, answering the same hiring manager
 question.
 
-**Step 2 — Sort into tiers (4 min).** Throughput, insight, redesign, with a percentage
+**Step 2. Sort into tiers (4 min).** Throughput, insight, redesign, with a percentage
 distribution. Most teams find redesign at or near zero, which is the finding.
 
 **Step 3 — Pick one friction and run the diagnostic (6 min).** All five questions on a single real
-friction point. Answer question 3 in **one sentence with no "and" in it** — if you can't, split
+friction point. Answer question 3 in **one sentence with no "and" in it**, if you can't, split
 the problem and pick the half you'd solve first.
 
-**Step 4 — Name your archetype (1 min).** High-volume, professional/senior, or both — and if both,
+**Step 4. Name your archetype (1 min).** High-volume, professional/senior, or both — and if both,
 say which one your current tooling is actually optimized for.
 
-**Step 5 — Score the prediction (2 min).** Your predicted throughput share against what you found.
+**Step 5. Score the prediction (2 min).** Your predicted throughput share against what you found.
 
 Then the write-up: the one-sentence goal, whether it wants automation or an agent and why, who
 owns it when it breaks, your position on the claim above with the counter-argument addressed, and
@@ -215,7 +215,7 @@ what you'd have to stop doing to make room for any redesign at all.
 - C. Spend goes to redesign, which is why returns disappoint
 - D. Both are evenly distributed across the three tiers
 
-> **B.** Throughput spend is genuinely well-placed — the wins are real and nobody's judgment is
+> **B.** Throughput spend is genuinely well-placed: the wins are real and nobody's judgment is
 > replaced. The problem is that redesign, where the funnel's actual defect lives, gets almost
 > nothing.
 
@@ -227,7 +227,7 @@ what you'd have to stop doing to make room for any redesign at all.
 - D. Because candidates notice automated screening and disengage
 
 > **B.** Speed applied to a stage with no information content produces more of the same
-> non-result, faster, while feeling like progress — and it consumes the attention redesign needed.
+> non-result, faster, while feeling like progress, and it consumes the attention redesign needed.
 
 **Q3.** A vendor case study reports a 60% reduction in time-to-first-contact. What should you ask first?
 
@@ -237,7 +237,7 @@ what you'd have to stop doing to make room for any redesign at all.
 - D. Whether the result has been independently audited
 
 > **B.** In high-volume hourly, speed-to-contact is the binding constraint and this is a genuine
-> win. In professional hiring it solves a non-problem — and if the archetype isn't stated, assume
+> win. In professional hiring it solves a non-problem, and if the archetype isn't stated, assume
 > high-volume, since that's where countable wins are easiest to produce.
 
 **Q4.** Which diagnostic question does the module say kills the most bad projects?
@@ -263,7 +263,7 @@ what you'd have to stop doing to make room for any redesign at all.
 **Q6.** Why does recruiting sit low on the autonomy ladder specifically?
 
 - A. Because recruiting data is more sensitive than other HR data
-- B. Because agent actions here are frequently visible to candidates and rarely reversible — a wrongly-sent rejection can't be unsent ✓
+- B. Because agent actions here are frequently visible to candidates and rarely reversible: a wrongly-sent rejection can't be unsent ✓
 - C. Because ATS platforms don't support higher autonomy levels
 - D. Because compliance requires human approval of all candidate communications
 
@@ -273,7 +273,7 @@ what you'd have to stop doing to make room for any redesign at all.
 
 ## Sources and attribution
 
-- **SHRM, *The State of AI in HR 2026*** — recruiting as the most AI-penetrated practice area
+- **SHRM, *The State of AI in HR 2026***, recruiting as the most AI-penetrated practice area
   (~27% of mapped use cases) and the practice-area distribution. **[V]**
 - The three tiers, the archetype split, and the automation-versus-agent test are original to this
   course; the five-question diagnostic adapts a published practitioner framework for evaluating

@@ -1,38 +1,122 @@
 {
   "reviewedAt": "2026-08-12",
   "buckets": [
-    { "id": "judgment", "label": "Judgment", "hint": "Deciding — no ground truth", "rank": 0, "pct": 5 },
-    { "id": "governance", "label": "Governance", "hint": "Showing your work", "rank": 1, "pct": 25 },
-    { "id": "analysis", "label": "Analysis", "hint": "Data into a finding", "rank": 2, "pct": 55 },
-    { "id": "explanation", "label": "Explanation", "hint": "Making someone understand", "rank": 3, "pct": 80 },
-    { "id": "assembly", "label": "Data assembly", "hint": "Getting numbers in one place", "rank": 4, "pct": 95 }
+    {
+      "id": "judgment",
+      "label": "Judgment",
+      "hint": "Deciding, no ground truth",
+      "rank": 0,
+      "pct": 5
+    },
+    {
+      "id": "governance",
+      "label": "Governance",
+      "hint": "Showing your work",
+      "rank": 1,
+      "pct": 25
+    },
+    {
+      "id": "analysis",
+      "label": "Analysis",
+      "hint": "Data into a finding",
+      "rank": 2,
+      "pct": 55
+    },
+    {
+      "id": "explanation",
+      "label": "Explanation",
+      "hint": "Making someone understand",
+      "rank": 3,
+      "pct": 80
+    },
+    {
+      "id": "assembly",
+      "label": "Data assembly",
+      "hint": "Getting numbers in one place",
+      "rank": 4,
+      "pct": 95
+    }
   ],
   "tasks": [
-    { "id": "t1", "text": "Joining the survey submission file to your job catalogue and reconciling the match rate", "key": "assembly",
-      "reasoning": "Volume, no judgment, and fully verifiable — the match rate is a number you can check. The safest genuine AI transformation in the function, and Module 3's territory." },
-    { "id": "t2", "text": "Deciding whether an out-of-cycle increase request is warranted", "key": "judgment",
-      "reasoning": "No ground truth, only a defensible reasoning chain and an accountable person. A decision about one named person's pay — 101 M7's line at full force." },
-    { "id": "t3", "text": "Writing the FAQ for open enrollment", "key": "explanation",
-      "reasoning": "The highest-volume explanation artifact in the benefits calendar, and one of the clearest AI wins in the function — you hold the decisions, the model drafts for the audience, and confusion generates questions that correct it." },
-    { "id": "t4", "text": "Running compa-ratio distributions by function and flagging outliers", "key": "analysis",
-      "reasoning": "Data into a finding. Checkable in principle by anyone who can rebuild it — which is exactly the standard Module 3 says to hold yourself to before presenting it." },
-    { "id": "t5", "text": "Answering a manager's email about why their report's band is what it is", "key": "explanation",
-      "reasoning": "The card most people mis-sort, and the reason the prediction gate exists. This looks like 'answering a question' and nobody logs it as work — but multiply it across a cycle and it outweighs most analysis." },
-    { "id": "t6", "text": "Assembling the approval trail showing who signed off on each exception this cycle", "key": "governance",
-      "reasoning": "Being able to show your work. AI can draft the summary and check it for gaps; it cannot be the record, and 'we did it, we just can't show it' is indistinguishable from not having done it." },
-    { "id": "t7", "text": "Choosing which market cut to price the role against when three are defensible", "key": "judgment",
-      "reasoning": "Analysis produced the three options; picking one is judgment, and it propagates into every offer made against that band. Easy to mis-sort as analysis because it happens inside a spreadsheet." },
-    { "id": "t8", "text": "Pulling headcount from the HRIS and reconciling it against payroll", "key": "assembly",
-      "reasoning": "Two systems, one control total. Tedious, high-volume, verifiable — and the type that deserves the most AI attention while getting the least, because it's unglamorous." },
-    { "id": "t9", "text": "Building the deck that explains your merit recommendation to the leadership team", "key": "explanation",
-      "reasoning": "The analysis is already done; this is making someone else understand it well enough to approve it. Practitioners routinely file this under analysis because it contains charts.", "also": ["analysis"] },
-    { "id": "t10", "text": "Modelling three merit budget scenarios at 3%, 3.5% and 4%", "key": "analysis",
-      "reasoning": "Genuine analysis with real AI leverage on the scaffolding and the sensitivity table — and the place a confident wrong number is most likely to reach a CFO, which is the track's through-line." },
-    { "id": "t11", "text": "Drafting the plan document language for a new bonus structure", "key": "governance",
-      "reasoning": "It becomes the controlling record — what the plan says is what the plan is. Drafting help is legitimate; every clause still needs an accountable human who can defend its origin.", "also": ["explanation"] },
-    { "id": "t12", "text": "Telling a candidate what their equity grant is actually worth and how vesting works", "key": "explanation",
-      "reasoning": "Pure explanation, high stakes, and full of the vocabulary models fumble — grant date versus vest date, FMV versus strike. Module 3's terminology file exists because of cards like this." }
+    {
+      "id": "t1",
+      "text": "Joining the survey submission file to your job catalogue and reconciling the match rate",
+      "key": "assembly",
+      "reasoning": "Volume, no judgment, and fully verifiable: the match rate is a number you can check. The safest genuine AI transformation in the function, and Module 3's territory."
+    },
+    {
+      "id": "t2",
+      "text": "Deciding whether an out-of-cycle increase request is warranted",
+      "key": "judgment",
+      "reasoning": "No ground truth, only a defensible reasoning chain and an accountable person. A decision about one named person's pay — 101 M7's line at full force."
+    },
+    {
+      "id": "t3",
+      "text": "Writing the FAQ for open enrollment",
+      "key": "explanation",
+      "reasoning": "The highest-volume explanation artifact in the benefits calendar, and one of the clearest AI wins in the function. You hold the decisions, the model drafts for the audience, and confusion generates questions that correct it."
+    },
+    {
+      "id": "t4",
+      "text": "Running compa-ratio distributions by function and flagging outliers",
+      "key": "analysis",
+      "reasoning": "Data into a finding. Checkable in principle by anyone who can rebuild it, which is exactly the standard Module 3 says to hold yourself to before presenting it."
+    },
+    {
+      "id": "t5",
+      "text": "Answering a manager's email about why their report's band is what it is",
+      "key": "explanation",
+      "reasoning": "The card most people mis-sort, and the reason the prediction gate exists. This looks like 'answering a question' and nobody logs it as work, but multiply it across a cycle and it outweighs most analysis."
+    },
+    {
+      "id": "t6",
+      "text": "Assembling the approval trail showing who signed off on each exception this cycle",
+      "key": "governance",
+      "reasoning": "Being able to show your work. AI can draft the summary and check it for gaps; it cannot be the record, and 'we did it, we just can't show it' is indistinguishable from not having done it."
+    },
+    {
+      "id": "t7",
+      "text": "Choosing which market cut to price the role against when three are defensible",
+      "key": "judgment",
+      "reasoning": "Analysis produced the three options; picking one is judgment, and it propagates into every offer made against that band. Easy to mis-sort as analysis because it happens inside a spreadsheet."
+    },
+    {
+      "id": "t8",
+      "text": "Pulling headcount from the HRIS and reconciling it against payroll",
+      "key": "assembly",
+      "reasoning": "Two systems, one control total. Tedious, high-volume, verifiable, and the type that deserves the most AI attention while getting the least, because it's unglamorous."
+    },
+    {
+      "id": "t9",
+      "text": "Building the deck that explains your merit recommendation to the leadership team",
+      "key": "explanation",
+      "reasoning": "The analysis is already done; this is making someone else understand it well enough to approve it. Practitioners routinely file this under analysis because it contains charts.",
+      "also": [
+        "analysis"
+      ]
+    },
+    {
+      "id": "t10",
+      "text": "Modelling three merit budget scenarios at 3%, 3.5% and 4%",
+      "key": "analysis",
+      "reasoning": "Genuine analysis with real AI leverage on the scaffolding and the sensitivity table, and the place a confident wrong number is most likely to reach a CFO, which is the track's through-line."
+    },
+    {
+      "id": "t11",
+      "text": "Drafting the plan document language for a new bonus structure",
+      "key": "governance",
+      "reasoning": "It becomes the controlling record, what the plan says is what the plan is. Drafting help is legitimate; every clause still needs an accountable human who can defend its origin.",
+      "also": [
+        "explanation"
+      ]
+    },
+    {
+      "id": "t12",
+      "text": "Telling a candidate what their equity grant is actually worth and how vesting works",
+      "key": "explanation",
+      "reasoning": "Pure explanation, high stakes, and full of the vocabulary models fumble: grant date versus vest date, FMV versus strike. Module 3's terminology file exists because of cards like this."
+    }
   ],
   "pattern": "Explanation is bigger than it looks, because most of it arrives disguised as answering a question.",
-  "postscript": "Count your explanation cards against your prediction. The five that belong there — the FAQ, the manager email, the leadership deck, the plan-document drafting's readable half, and the equity conversation — are the ones practitioners most often file elsewhere, because they contain charts, or arrive as email, or feel like a favour rather than work. Cards placed toward assembly and explanation credit AI with more reach than the key does; toward judgment and governance, less. Note t7 especially: judgment that happens inside a spreadsheet still isn't analysis."
+  "postscript": "Count your explanation cards against your prediction. The five that belong there (the FAQ, the manager email, the leadership deck, the plan-document drafting's readable half, and the equity conversation) are the ones practitioners most often file elsewhere, because they contain charts, or arrive as email, or feel like a favour rather than work. Cards placed toward assembly and explanation credit AI with more reach than the key does; toward judgment and governance, less. Note t7 especially: judgment that happens inside a spreadsheet still isn't analysis."
 }

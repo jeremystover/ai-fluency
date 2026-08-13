@@ -13,11 +13,11 @@
         "That the productivity gains were captured as profit rather than measured output"
       ],
       "correctIndex": 1,
-      "explanation": "Which makes the gap the largest available diagnostic opportunity in your organization rather than evidence that AI fails — and you are the function that diagnoses things."
+      "explanation": "Which makes the gap the largest available diagnostic opportunity in your organization rather than evidence that AI fails, and you're the function that diagnoses things."
     },
     {
       "id": "q2",
-      "prompt": "What does the module mean by \"a finding is not a product\"?",
+      "prompt": "What does the module mean by \"a finding isn't a product\"?",
       "options": [
         "That findings should be delivered through tooling rather than documents",
         "That a product has a user, a moment of use, and a decision it changes, while a finding has an author and a distribution list",
@@ -25,7 +25,7 @@
         "That analytical outputs should be versioned and maintained like software"
       ],
       "correctIndex": 1,
-      "explanation": "Which is why presenting attrition drivers with no decision attached changes nothing — and the reason is not that the audience failed to understand it."
+      "explanation": "Which is why presenting attrition drivers with no decision attached changes nothing, and the reason isn't that the audience failed to understand it."
     },
     {
       "id": "q3",
@@ -49,7 +49,7 @@
         "Stakeholder confidence in the analytics function's technical competence"
       ],
       "correctIndex": 1,
-      "explanation": "Everyone assumes A, and it buys less than you think. **The refusals are what make the assertions load-bearing** — which is why a function that never declines has said its findings mean nothing in particular."
+      "explanation": "Everyone assumes A, and it buys less than you think. **The refusals are what give the assertions their weight**, which is why a function that never declines has said its findings mean nothing in particular."
     },
     {
       "id": "q5",
@@ -61,7 +61,7 @@
         "Using methods the audience cannot follow"
       ],
       "correctIndex": 1,
-      "explanation": "A wrong number is recoverable. Producing what was wanted — once, visibly — is remembered for years, and a limitation the audience discovers for itself was survivable until they discovered it."
+      "explanation": "A wrong number is recoverable. Producing what was wanted (once, visibly) is remembered for years, and a limitation the audience discovers for itself was survivable until they discovered it."
     },
     {
       "id": "q6",
@@ -73,7 +73,7 @@
         "Running their analysis yourself to demonstrate the error"
       ],
       "correctIndex": 1,
-      "explanation": "Nobody in the room can adjudicate a methods dispute, so it resolves on confidence — and you spent yours on caveats. Offering the resolution converts a status contest into a question."
+      "explanation": "Nobody in the room can adjudicate a methods dispute, so it resolves on confidence, and you spent yours on caveats. Offering the resolution converts a status contest into a question."
     },
     {
       "id": "q7",

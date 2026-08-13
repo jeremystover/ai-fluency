@@ -276,7 +276,7 @@ Same package and pipeline as the rest of the ladder: draft at
    at intake.
 6. **Detection is seeded in R1 and paid off in R4.** It is the reflex this audience arrives with,
    so it gets addressed in the diagnosis rather than waiting until the design module — and the
-   fairness argument (false positives as a screening decision) is load-bearing, not a caveat.
+   fairness argument (false positives as a screening decision) carries the weight, not a caveat.
 7. **No external prerequisite gate.** The source opened with a self-check that routed unprepared
    learners to free material elsewhere. Our ladder does that: 101 and 201 exist, and the
    diagnostic places people.

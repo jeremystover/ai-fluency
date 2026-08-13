@@ -13,7 +13,7 @@
         "The premium for larger context windows"
       ],
       "correctIndex": 1,
-      "explanation": "It's the per-conversation cost of re-supplying material that barely changes between runs. Verification (C) is a cost worth keeping — M4 designs it rather than eliminating it."
+      "explanation": "It's the per-conversation cost of re-supplying material that barely changes between runs. Verification (C) is a cost worth keeping, M4 designs it rather than eliminating it."
     },
     {
       "id": "q2",
@@ -25,7 +25,7 @@
         "Has it been used more than twice? Is it confidential?"
       ],
       "correctIndex": 1,
-      "explanation": "Durable *and* impersonal — yes to the first, no to the second. Everything else in the module's three-bin sorting follows from those two questions."
+      "explanation": "Durable *and* impersonal: yes to the first, no to the second. Everything else in the module's three-bin sorting follows from those two questions."
     },
     {
       "id": "q3",
@@ -61,7 +61,7 @@
         "Only aggregated people data may go in the pack"
       ],
       "correctIndex": 1,
-      "explanation": "The rule targets *standing* exposure — material written once and present in every future conversation, with nobody re-deciding. A is broader than the course teaches (M6 governs per-run use); C is precisely the violation."
+      "explanation": "The rule targets *standing* exposure: material written once and present in every future conversation, with nobody re-deciding. A is broader than the course teaches (M6 governs per-run use); C is precisely the violation."
     },
     {
       "id": "q6",
@@ -85,7 +85,7 @@
         "Storing volatile items as instructions and stable items as knowledge"
       ],
       "correctIndex": 1,
-      "explanation": "Different material ages at different speeds, so it gets reviewed at different speeds — the same discipline this course's own content runs on, applied to your infrastructure."
+      "explanation": "Different material ages at different speeds, so it gets reviewed at different speeds: the same discipline this course's own content runs on, applied to your infrastructure."
     },
     {
       "id": "q8",
@@ -97,7 +97,7 @@
         "Add a disclaimer to the output"
       ],
       "correctIndex": 1,
-      "explanation": "Ship the corrected work, then fix the system that drafted it — otherwise next week pays the same cost. C throws away the pack's value; the answer to aging content is a cadence, not exclusion."
+      "explanation": "Ship the corrected work, then fix the system that drafted it, otherwise next week pays the same cost. C throws away the pack's value; the answer to aging content is a cadence, not exclusion."
     }
   ]
 }

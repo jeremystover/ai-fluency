@@ -61,7 +61,7 @@
         "Because benchmarks exclude small employers"
       ],
       "correctIndex": 1,
-      "explanation": "Plus three compounding issues: comparators self-select, denominator definitions drift, and — decisively — the legal standard was never comparative. Being average is not a defence and never has been."
+      "explanation": "Plus three compounding issues: comparators self-select, denominator definitions drift, and (decisively) the legal standard was never comparative. Being average isn't a defence and never has been."
     },
     {
       "id": "q6",
@@ -73,7 +73,7 @@
         "The results became admissible in a way they previously weren't"
       ],
       "correctIndex": 1,
-      "explanation": "Friction was never a good control — it suppressed useful analysis alongside risky analysis — but it was a control, and its removal means the realistic choice is between deliberate protected generation and casual unprotected generation."
+      "explanation": "Friction was never a good control (it suppressed useful analysis alongside risky analysis) but it was a control, and its removal means the realistic choice is between deliberate protected generation and casual unprotected generation."
     },
     {
       "id": "q7",
@@ -85,7 +85,7 @@
         "Because the data was produced after litigation commenced"
       ],
       "correctIndex": 2,
-      "explanation": "That is a structure you build deliberately in advance. An analysis run on a Tuesday and forwarded to legal on Friday was not commissioned by counsel to inform advice, and labelling it later does not make it privileged."
+      "explanation": "That is a structure you build deliberately in advance. An analysis run on a Tuesday and forwarded to legal on Friday wasn't commissioned by counsel to inform advice, and labelling it later doesn't make it privileged."
     },
     {
       "id": "q8",
@@ -97,7 +97,7 @@
         "It does not apply where a regulator rather than a plaintiff requests the material"
       ],
       "correctIndex": 2,
-      "explanation": "An organization using privilege to keep knowing about a disparity while doing nothing has built exactly the record Connecticut's sixth criterion punishes — with the additional feature that it did so on legal advice."
+      "explanation": "An organization using privilege to keep knowing about a disparity while doing nothing has built exactly the record Connecticut's sixth criterion punishes, with the additional feature that it did so on legal advice."
     }
   ]
 }

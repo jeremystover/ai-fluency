@@ -13,7 +13,7 @@
         "Interview design requires reasoning that models can't perform"
       ],
       "correctIndex": 1,
-      "explanation": "The model generates from everything in view; what's not in view gets the average. The output isn't wrong — it's *anyone's*, which is the failure. A, C, and D mislocate the problem: it's not access, length, or capability. It's an unpinned prediction."
+      "explanation": "The model generates from everything in view; what's not in view gets the average. The output isn't wrong. It's *anyone's*, which is the failure. A, C, and D mislocate the problem: it's not access, length, or capability. It's an unpinned prediction."
     },
     {
       "id": "q2",
@@ -25,7 +25,7 @@
         "Knowledgeable about your industry but weak at writing"
       ],
       "correctIndex": 0,
-      "explanation": "Capability without organizational knowledge — exactly M1's model. You'd never hand that person a one-line request and walk away; the whole discipline follows from taking the mental model seriously. C is true of models (M6's subject) but it's not what *this* frame is teaching."
+      "explanation": "Capability without organizational knowledge, exactly M1's model. You'd never hand that person a one-line request and walk away; the whole discipline follows from taking the mental model seriously. C is true of models (M6's subject) but it's not what *this* frame is teaching."
     },
     {
       "id": "q3",
@@ -37,7 +37,7 @@
         "Format — output structure can't be controlled reliably"
       ],
       "correctIndex": 2,
-      "explanation": "The curse of knowledge: the situation, audience, and constraints feel too obvious to state. The stranger test breaks the curse — if a first-day contractor would need it, it goes in the brief. D is exactly backwards: format is the cheapest control you have."
+      "explanation": "The curse of knowledge: the situation, audience, and constraints feel too obvious to state. The stranger test breaks the curse, if a first-day contractor would need it, it goes in the brief. D is exactly backwards: format is the cheapest control you have."
     },
     {
       "id": "q4",
@@ -49,7 +49,7 @@
         "Name both problems specifically — the tone gap and the excluding requirement — as new constraints"
       ],
       "correctIndex": 3,
-      "explanation": "Specific critique is new information that narrows the next generation; that's steering. \"Make it better\" (C) re-rolls the dice with no new constraint. A wastes a mostly-good draft; B mistakes an unpinned brief for a capability ceiling — the core frustrated-user error."
+      "explanation": "Specific critique is new information that narrows the next generation; that's steering. \"Make it better\" (C) re-rolls the dice with no new constraint. A wastes a mostly-good draft; B mistakes an unpinned brief for a capability ceiling: the core frustrated-user error."
     },
     {
       "id": "q5",
@@ -61,7 +61,7 @@
         "The task was mis-delegated and should not have used AI"
       ],
       "correctIndex": 1,
-      "explanation": "Each round should visibly improve the draft; sideways movement means the remaining gap is editorial judgment — yours. C is M3's escalate-on-evidence, but \"sideways\" isn't capability evidence. D is the right call only when iteration keeps failing on the *same organizational-knowledge dimension* — a different signature than diminishing returns."
+      "explanation": "Each round should visibly improve the draft; sideways movement means the remaining gap is editorial judgment, yours. C is M3's escalate-on-evidence, but \"sideways\" isn't capability evidence. D is the right call only when iteration keeps failing on the *same organizational-knowledge dimension*: a different signature than diminishing returns."
     },
     {
       "id": "q6",
@@ -73,7 +73,7 @@
         "Examples save typing but produce the same output quality"
       ],
       "correctIndex": 1,
-      "explanation": "Describing makes the model interpret generic words; showing gives it a pattern to continue — M1's mechanism again. The refinements matter because the example teaches *everything* it contains: curate for the property you want, and say which. A invents a weighting rule; C and D deny the lever this lesson exists to hand you."
+      "explanation": "Describing makes the model interpret generic words; showing gives it a pattern to continue, M1's mechanism again. The refinements matter because the example teaches *everything* it contains: curate for the property you want, and say which. A invents a weighting rule; C and D deny the lever this lesson exists to hand you."
     },
     {
       "id": "q7",
@@ -85,11 +85,11 @@
         "Paste it with an instruction telling the model to ignore the personal details"
       ],
       "correctIndex": 2,
-      "explanation": "Examples are supplied material, so the tiers apply — and redaction preserves exactly what the example is for (structure, register) while removing what it must not carry (the person). D is M4's named anti-pattern: the data enters the tool regardless of what the output ignores. B surrenders the strongest lever unnecessarily."
+      "explanation": "Examples are supplied material, so the tiers apply, and redaction preserves exactly what the example is for (structure, register) while removing what it must not carry (the person). D is M4's named anti-pattern: the data enters the tool regardless of what the output ignores. B surrenders the strongest lever unnecessarily."
     },
     {
       "id": "q8",
-      "prompt": "After four steering rounds, output for \"draft talking points for Friday's restructuring announcement\" keeps inventing wrong specifics — who's affected, what changes. The brief can't include the real details: the reorg is confidential and the details are Tier 3–4. What's the honest diagnosis?",
+      "prompt": "After four steering rounds, output for \"draft talking points for Friday's restructuring announcement\" keeps inventing wrong specifics: who's affected, what changes. The brief can't include the real details: the reorg is confidential and the details are Tier 3–4. What's the honest diagnosis?",
       "options": [
         "A delegation problem, not a briefing problem — the task needs material that can't travel, so this part of the work stays with you",
         "A briefing problem — a more detailed role and format section would fix the inventions",
@@ -97,7 +97,7 @@
         "An iteration problem — steering moves need several more rounds to converge"
       ],
       "correctIndex": 0,
-      "explanation": "The failure signature from Lesson 3: iteration keeps missing on the same dimension, and the missing dimension is material you *can't* supply. M1's heuristic closes the loop — what the model isn't given, it invents, and no brief, tier, or round count changes that. The fluent user drafts the shareable scaffolding and keeps the specifics human."
+      "explanation": "The failure signature from Lesson 3: iteration keeps missing on the same dimension, and the missing dimension is material you *can't* supply. M1's heuristic closes the loop: what the model isn't given, it invents, and no brief, tier, or round count changes that. The fluent user drafts the shareable scaffolding and keeps the specifics human."
     }
   ]
 }

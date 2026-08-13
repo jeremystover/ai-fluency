@@ -1,7 +1,7 @@
 {
   "reviewedAt": "2026-08-12",
   "title": "Four drafts against their sources, one omission that changes the meaning",
-  "intro": "*Five minutes. Commit before you look.*\n\nFour AI-assisted drafts, each shown with the relevant extract from its source. Each has something wrong with it.\n\nThree have problems you'd catch on a careful read of the draft alone. **One is only visible if you have the source open — and it is the one that costs an employee something real.** Find it.\n\nDon't ask which draft reads worst. Ask the question from Lesson 3: *what was in the source that isn't in the draft, and who does that hurt?*",
+  "intro": "*Five minutes. Commit before you look.*\n\nFour AI-assisted drafts, each shown with the relevant extract from its source. Each has something wrong with it.\n\nThree have problems you'd catch on a careful read of the draft alone. **One is only visible if you have the source open, and it is the one that costs an employee something real.** Find it.\n\nDon't ask which draft reads worst. Ask the question from Lesson 3: *what was in the source that isn't in the draft, and who does that hurt?*",
   "artifacts": [
     {
       "label": "Draft A · the parental leave update",
@@ -9,23 +9,35 @@
     },
     {
       "label": "Draft B · the system migration notice",
-      "body": "**Source extract:** \"The finance system will be unavailable from 18:00 Friday to 06:00 Monday. Expense claims submitted after 16:00 Friday will not process until Tuesday.\"\n\n**Draft:** \"The finance system will be unavailable from 6pm Friday until 6am Monday while we complete the migration. Expense claims submitted after 4pm on Friday will not process until Tuesday. We estimate this affects approximately 40% of monthly claims, so please plan accordingly.\""
+      "body": "**Source extract:** \"The finance system will be unavailable from 18:00 Friday to 06:00 Monday. Expense claims submitted after 16:00 Friday won't process until Tuesday.\"\n\n**Draft:** \"The finance system will be unavailable from 6pm Friday until 6am Monday while we complete the migration. Expense claims submitted after 4pm on Friday won't process until Tuesday. We estimate this affects approximately 40% of monthly claims, so please plan accordingly.\""
     },
     {
       "label": "Draft C · the office relocation",
-      "body": "**Source extract:** \"The Bristol office will relocate to the Temple Quay site in Q3. Commuting arrangements for affected staff are under review; no decision has been made on the travel allowance, and the working group has not reached consensus on whether it will apply to all staff or only those whose commute increases by more than 30 minutes.\"\n\n**Draft:** \"The Bristol office will move to Temple Quay in Q3. A travel allowance will be available to support colleagues whose commute is affected, with details to follow.\""
+      "body": "**Source extract:** \"The Bristol office will relocate to the Temple Quay site in Q3. Commuting arrangements for affected staff are under review; no decision has been made on the travel allowance, and the working group hasn't reached consensus on whether it will apply to all staff or only those whose commute increases by more than 30 minutes.\"\n\n**Draft:** \"The Bristol office will move to Temple Quay in Q3. A travel allowance will be available to support colleagues whose commute is affected, with details to follow.\""
     },
     {
       "label": "Draft D · the security training reminder",
-      "body": "**Source extract:** \"Annual security training must be completed by 30 September. Non-completion is reported to line managers and reflected in the compliance dashboard.\"\n\n**Draft:** \"Just a friendly nudge — annual security training is due by 30 September! It takes about 20 minutes, and completing it helps keep everyone safe. Non-completion is reported to your line manager and appears on the compliance dashboard. Thanks for staying on top of this.\""
+      "body": "**Source extract:** \"Annual security training must be completed by 30 September. Non-completion is reported to line managers and reflected in the compliance dashboard.\"\n\n**Draft:** \"Just a friendly nudge, annual security training is due by 30 September! It takes about 20 minutes, and completing it helps keep everyone safe. Non-completion is reported to your line manager and appears on the compliance dashboard. Thanks for staying on top of this.\""
     }
   ],
   "options": [
-    { "id": "a", "label": "A — parental leave" },
-    { "id": "b", "label": "B — system migration" },
-    { "id": "c", "label": "C — office relocation" },
-    { "id": "d", "label": "D — security training" }
+    {
+      "id": "a",
+      "label": "A — parental leave"
+    },
+    {
+      "id": "b",
+      "label": "B — system migration"
+    },
+    {
+      "id": "c",
+      "label": "C — office relocation"
+    },
+    {
+      "id": "d",
+      "label": "D — security training"
+    }
   ],
   "key": "a",
-  "reasoning": "**A is the one, and you cannot see it from the draft.**\n\nThe source says employees *currently on leave as of 1 March* have their entitlement extended pro rata. The draft drops it entirely. Nothing in the draft is false — every word of it is accurate — and there is no string to search for, because the failure is an absence.\n\nNow the consequence, which is why this is the answer rather than merely an example. The people that clause exists for are the ones already on leave: not reading the intranet, not in the all-hands, least connected to the channel, and about to make decisions about their return date on the basis of an entitlement they've been told nothing about. **The omission harms precisely the population least able to notice it**, which is the pattern Lesson 3 warns about and the reason omission outranks fabrication in this function.\n\nNote also what filled the space: two sentences of commitment-and-progress language. The model had a length to hit and swapped a specific eligibility provision for register. That trade is the ordinary behaviour of compression, not a malfunction.\n\n**B has a fabrication, and it's the easy catch.** \"Approximately 40% of monthly claims\" appears nowhere in the source. Invented specifics are what 101 M6 trained you to find — the number is sitting in the text, it can be checked, and somebody in finance will trip over it. Real error, recoverable, and visible from the draft alone.\n\n**C is the contested-source compression**, and it is the closest call in the set. The source records an explicit lack of consensus — no decision, a working group that hasn't agreed, an open question about who qualifies. The draft renders it as settled: \"a travel allowance will be available.\" This is genuinely serious and in a relocation it may well end up quoted back at you. It ranks below A only because the harm is to the function's credibility and the organization's negotiating position rather than to a specific employee's entitlement — and because a careful reader of the draft alone would at least notice how much certainty is being asserted about an unannounced decision.\n\n**D is voice flattening with a twist.** \"Just a friendly nudge,\" the exclamation mark, \"thanks for staying on top of this\" — the median cheerful-corporate register applied to a compliance notice with managerial consequences. Nothing is omitted and nothing is invented; the facts all survive. What's lost is the seriousness, which is a real defect and an identity problem rather than an accuracy one. Visible from the draft alone, which is what separates it from A."
+  "reasoning": "**A is the one, and you cannot see it from the draft.**\n\nThe source says employees *currently on leave as of 1 March* have their entitlement extended pro rata. The draft drops it entirely. Nothing in the draft is false (every word of it is accurate) and there is no string to search for, because the failure is an absence.\n\nNow the consequence, which is why this is the answer rather than merely an example. The people that clause exists for are the ones already on leave: not reading the intranet, not in the all-hands, least connected to the channel, and about to make decisions about their return date on the basis of an entitlement they've been told nothing about. **The omission harms precisely the population least able to notice it**, which is the pattern Lesson 3 warns about and the reason omission outranks fabrication in this function.\n\nNote also what filled the space: two sentences of commitment-and-progress language. The model had a length to hit and swapped a specific eligibility provision for register. That trade is the ordinary behaviour of compression, not a malfunction.\n\n**B has a fabrication, and it's the easy catch.** \"Approximately 40% of monthly claims\" appears nowhere in the source. Invented specifics are what 101 M6 trained you to find: the number is sitting in the text, it can be checked, and somebody in finance will trip over it. Real error, recoverable, and visible from the draft alone.\n\n**C is the contested-source compression**, and it is the closest call in the set. The source records an explicit lack of consensus: no decision, a working group that hasn't agreed, an open question about who qualifies. The draft renders it as settled: \"a travel allowance will be available.\" This is genuinely serious and in a relocation it may well end up quoted back at you. It ranks below A only because the harm is to the function's credibility and the organization's negotiating position rather than to a specific employee's entitlement — and because a careful reader of the draft alone would at least notice how much certainty is being asserted about an unannounced decision.\n\n**D is voice flattening with a twist.** \"Just a friendly nudge,\" the exclamation mark, \"thanks for staying on top of this\", the median cheerful-corporate register applied to a compliance notice with managerial consequences. Nothing is omitted and nothing is invented; the facts all survive. What's lost is the seriousness, which is a real defect and an identity problem rather than an accuracy one. Visible from the draft alone, which is what separates it from A."
 }

@@ -3,8 +3,8 @@
   "moduleId": "ai201-m4",
   "minChars": 600,
   "submitLabel": "Your capstone-stage submission",
-  "intro": "Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited — the score is a mirror, not a gate.",
-  "activityContext": "You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). Capstone stage 4: the verification plan — a budget sized to stakes, a technique map by failure mode, the sign-off reading list, an honest five-output sample with classified findings, the escalation line, and the output-incident path. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.",
+  "intro": "Submit the artifacts this stage asks for, as text. Resubmission is free and unlimited: the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for an AI fluency course for People leaders (AI 201, The Practitioner). Capstone stage 4: the verification plan, a budget sized to stakes, a technique map by failure mode, the sign-off reading list, an honest five-output sample with classified findings, the escalation line, and the output-incident path. Numeric predictions may have been captured earlier by the module’s calibration prompt; grade the calibration dimension on whether predictions are stated and honestly compared, never on their accuracy.",
   "calibration": [
     {
       "key": "errorsActual",
@@ -19,7 +19,7 @@
   "dimensions": [
     {
       "name": "Fit to stakes",
-      "criteria": "The budget matches the M1 stakes honestly — no full-read theater on low stakes, no sampling hand-waves on high. The \"why not more\" sentence shows real reasoning."
+      "criteria": "The budget matches the M1 stakes honestly: no full-read theater on low stakes, no sampling hand-waves on high. The \"why not more\" sentence shows real reasoning."
     },
     {
       "name": "Technique match",
@@ -27,7 +27,7 @@
     },
     {
       "name": "The sample is honest",
-      "criteria": "Real outputs, real source-checking, findings classified, and the tally reported straight — including the awkward ones. A suspiciously clean sample with no follow-up plan scores low."
+      "criteria": "Real outputs, real source-checking, findings classified, and the tally reported straight, including the awkward ones. A suspiciously clean sample with no follow-up plan scores low."
     },
     {
       "name": "Calibration",

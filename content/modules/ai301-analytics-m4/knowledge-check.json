@@ -13,7 +13,7 @@
         "That practitioners overestimate AI benefits by about 4 percentage points"
       ],
       "correctIndex": 1,
-      "explanation": "A and C are true of that study and are scope-limited; the authors say so themselves. What generalises is that experts could not feel the direction of their own productivity change."
+      "explanation": "A and C are true of that study and are scope-limited; the authors say so themselves. What generalises is that experts couldn't feel the direction of their own productivity change."
     },
     {
       "id": "q2",
@@ -37,7 +37,7 @@
         "The Danish labour market is too rigid to show the effect"
       ],
       "correctIndex": 1,
-      "explanation": "D is specifically wrong — Denmark was chosen because it is flexible, with low hiring and firing costs, so firms could adjust if there were something to adjust to."
+      "explanation": "D is specifically wrong. Denmark was chosen because it is flexible, with low hiring and firing costs, so firms could adjust if there were something to adjust to."
     },
     {
       "id": "q4",
@@ -49,7 +49,7 @@
         "Because perceived productivity cannot be measured reliably"
       ],
       "correctIndex": 1,
-      "explanation": "It measures how AI feels — reduced felt effort of starting, no blank page, visible output quickly — all real experiences, none of them throughput."
+      "explanation": "It measures how AI feels (reduced felt effort of starting, no blank page, visible output quickly) all real experiences, none of them throughput."
     },
     {
       "id": "q5",
@@ -61,7 +61,7 @@
         "Run it alongside a productivity metric so the two can be compared"
       ],
       "correctIndex": 2,
-      "explanation": "\"Don't run it\" is not available to you. A is unavailable in practice and B leaves the label attached, which is what travels."
+      "explanation": "\"Don't run it\" isn't available to you. A is unavailable in practice and B leaves the label attached, which is what travels."
     },
     {
       "id": "q6",
@@ -85,7 +85,7 @@
         "All three are equally neglected"
       ],
       "correctIndex": 2,
-      "explanation": "Firms absorb AI through task reorganisation rather than through hours or earnings. **The work moved; it did not vanish** — including onto senior reviewers, and out of the junior tasks that used to carry training value."
+      "explanation": "Firms absorb AI through task reorganisation rather than through hours or earnings. **The work moved; it did not vanish**, including onto senior reviewers, and out of the junior tasks that used to carry training value."
     },
     {
       "id": "q8",
@@ -97,7 +97,7 @@
         "Because AI capability is improving faster than any model can incorporate"
       ],
       "correctIndex": 1,
-      "explanation": "And producing a number anyway risks the worse outcome: being right by luck and becoming the anchor for a headcount decision you did not intend to make."
+      "explanation": "And producing a number anyway risks the worse outcome: being right by luck and becoming the anchor for a headcount decision you didn't intend to make."
     }
   ]
 }

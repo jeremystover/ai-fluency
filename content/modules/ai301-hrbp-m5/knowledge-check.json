@@ -13,7 +13,7 @@
         "Models are more likely to be correct than practitioner judgment"
       ],
       "correctIndex": 1,
-      "explanation": "Being arguable is the property that matters. A story can only be believed or not, and belief is a weak instrument against a spreadsheet. D is explicitly not the claim — the story is often more accurate."
+      "explanation": "Being arguable is the property that matters. A story can only be believed or not, and belief is a weak instrument against a spreadsheet. D is explicitly not the claim: the story is often more accurate."
     },
     {
       "id": "q2",
@@ -49,7 +49,7 @@
         "It's a lagging indicator that only updates quarterly"
       ],
       "correctIndex": 1,
-      "explanation": "A judgment field populated by a party with an interest in the answer — and every attrition model in the organization rests on it. Knowing this about your own systems is the contribution an HRBP makes that neither analytics nor Finance can."
+      "explanation": "A judgment field populated by a party with an interest in the answer, and every attrition model in the organization rests on it. Knowing this about your own systems is the contribution an HRBP makes that neither analytics nor Finance can."
     },
     {
       "id": "q5",
@@ -61,7 +61,7 @@
         "Combine it with similar teams to reach a defensible sample"
       ],
       "correctIndex": 2,
-      "explanation": "\"50% attrition\" is arithmetically identical and rhetorically dishonest, because percentages imply a supporting population. Volunteering the limitation is the strongest credibility move available and costs nothing — everyone competent already knows."
+      "explanation": "\"50% attrition\" is arithmetically identical and rhetorically dishonest, because percentages imply a supporting population. Volunteering the limitation is the strongest credibility move available and costs nothing, everyone competent already knows."
     },
     {
       "id": "q6",
@@ -73,7 +73,7 @@
         "AI-assisted models are inherently less reliable than manual ones"
       ],
       "correctIndex": 1,
-      "explanation": "The asymmetry is about credibility over time, not about any single meeting. D misstates it — the danger isn't AI assistance, it's AI assistance on inputs that don't mean what the model assumes."
+      "explanation": "The asymmetry is about credibility over time, not about any single meeting. D misstates it: the danger isn't AI assistance, it's AI assistance on inputs that don't mean what the model assumes."
     },
     {
       "id": "q7",
@@ -85,7 +85,7 @@
         "For the final narrative only, after the model is complete"
       ],
       "correctIndex": 2,
-      "explanation": "Skeleton-building is genuinely what it's good at; input-supply is where the foundation problem bites. A is the specific trap — invented benchmarks are confident, plausible, and exactly what Module 3's teardown exists to catch."
+      "explanation": "Skeleton-building is genuinely what it's good at; input-supply is where the foundation problem bites. A is the specific trap: invented benchmarks are confident, plausible, and exactly what Module 3's teardown exists to catch."
     },
     {
       "id": "q8",

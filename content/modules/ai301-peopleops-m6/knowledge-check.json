@@ -13,7 +13,7 @@
         "As false — assistants index content beyond individual user permissions"
       ],
       "correctIndex": 2,
-      "explanation": "Both halves have to be held at once. No new access is created; every over-share you already had becomes one prompt away, because the effort that was hiding it does not survive."
+      "explanation": "Both halves have to be held at once. No new access is created; every over-share you already had becomes one prompt away, because the effort that was hiding it doesn't survive."
     },
     {
       "id": "q2",
@@ -25,7 +25,7 @@
         "Because it shifts responsibility to IT, who will refuse it"
       ],
       "correctIndex": 1,
-      "explanation": "\"AI didn't cause this\" is true and is not a defence. Removing the friction that made a latent problem tolerable is a change in kind, even though nothing in the access model moved."
+      "explanation": "\"AI didn't cause this\" is true and isn't a defence. Removing the friction that made a latent problem tolerable is a change in kind, even though nothing in the access model moved."
     },
     {
       "id": "q3",
@@ -61,7 +61,7 @@
         "That audit logs cannot be reconciled"
       ],
       "correctIndex": 2,
-      "explanation": "Three partially-reachable sources can yield who is being managed out. Nobody over-shared that; the assistant assembled it, and it did not exist until it was asked for. A and B are real and listed below it."
+      "explanation": "Three partially-reachable sources can yield who is being managed out. Nobody over-shared that; the assistant assembled it, and it didn't exist until it was asked for. A and B are real and listed below it."
     },
     {
       "id": "q6",
@@ -89,7 +89,7 @@
     },
     {
       "id": "q8",
-      "prompt": "For a practitioner who does not administer the assistant tenant, what does the module recommend?",
+      "prompt": "For a practitioner who doesn't administer the assistant tenant, what does the module recommend?",
       "options": [
         "Escalating the risk in writing and treating it as another function's problem",
         "Requesting administrative access so the work can be done properly",

@@ -73,7 +73,7 @@
         "Which model versions are approved"
       ],
       "correctIndex": 1,
-      "explanation": "Those four answers, sourced and dated, are what \"sanctioned deployment\" concretely means — and question four's name is the escalation path's third step."
+      "explanation": "Those four answers, sourced and dated, are what \"sanctioned deployment\" concretely means, and question four's name is the escalation path's third step."
     },
     {
       "id": "q7",
@@ -85,11 +85,11 @@
         "Legal requires no-fault reporting"
       ],
       "correctIndex": 1,
-      "explanation": "Every other property of the path — speed, facts, the right name — depends on the incident being surfaced at all. A People leader already knows this pattern; this is it, again."
+      "explanation": "Every other property of the path (speed, facts, the right name) depends on the incident being surfaced at all. A People leader already knows this pattern; this is it, again."
     },
     {
       "id": "q8",
-      "prompt": "After a wrong paste, the fourth step — \"fix the system, not just the moment\" — means:",
+      "prompt": "After a wrong paste, the fourth step (\"fix the system, not just the moment\") means:",
       "options": [
         "Retrain everyone on data handling",
         "Trace how the material reached the model (missing step zero, raw file, accumulating pack) and change that design",
@@ -97,7 +97,7 @@
         "Retire the workflow"
       ],
       "correctIndex": 1,
-      "explanation": "M4's reflex applied to boundaries: the incident is diagnostic data about a specific design gap. A, C, and D are moods — broad, expensive, and unaimed."
+      "explanation": "M4's reflex applied to boundaries: the incident is diagnostic data about a specific design gap. A, C, and D are moods: broad, expensive, and unaimed."
     }
   ]
 }

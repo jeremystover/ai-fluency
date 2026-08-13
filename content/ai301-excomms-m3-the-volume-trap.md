@@ -14,10 +14,10 @@
 
 *One claim. Commit before you read anything.*
 
-Here is a factual assertion about your own organization:
+Here's a factual assertion about your own organization:
 
 > **"In the last twelve months, this function has stopped sending something. Not paused it, not
-> merged it into something else — stopped it, deliberately, and told a sponsor no."**
+> merged it into something else: stopped it, deliberately, and told a sponsor no."**
 
 **True of us, or not true of us?** Commit to one, in a sentence, and name the thing if you're
 claiming true.
@@ -40,13 +40,13 @@ profession.
 There is a reason for that, and it isn't cowardice. Every message in your last thirty days had a
 sponsor who wanted it, a reason that sounded good in the meeting, and an approver who said yes.
 Nothing in your organization's machinery is designed to produce the sentence *we're not sending
-that.* Volume isn't a decision anyone made. It's the residue of a thousand small yeses, each
+that.* Volume isn't a decision anyone made. It is the residue of a thousand small yeses, each
 individually defensible.
 
 This module gives you three things: the evidence that low-quality AI-assisted output actively costs
 you trust rather than merely wasting time; a precise account of why the volume problem in *your*
-function is different from the version taught everywhere else in HR; and a kill list — the artifact
-that turns "we should send less" into three specific things you will stop sending, with the
+function is different from the version taught everywhere else in HR; and a kill list, the artifact
+that turns "we should send less" into three specific things you'll stop sending, with the
 attention returned counted.
 
 The uncomfortable part is Step 3 of the activity, where you have to name something you personally
@@ -81,13 +81,13 @@ workplace observation and becomes specific to your function, for a structural re
 precisely:
 
 **Everywhere else in the organization, workslop is sent by a person to a colleague. In your
-function, it is broadcast by a channel to everyone at once — and the "sender" that gets marked
+function, it is broadcast by a channel to everyone at once, and the "sender" that gets marked
 less trustworthy is not you. It is the channel your next message depends on.**
 
 Think about what that does to the arithmetic. A finance analyst who sends one slop deck damages one
 working relationship, recoverably, and the blast radius is the meeting. You send one slop
 all-company update and you have made a small withdrawal from every employment relationship in the
-organization simultaneously — and unlike the analyst, you cannot apologize your way out of it,
+organization simultaneously, and unlike the analyst, you can't apologize your way out of it,
 because the recipients never told you it happened. They just moved your channel one notch down
 their attention hierarchy, permanently and silently.
 
@@ -107,21 +107,21 @@ version is correct and it is aimed at people whose product is decisions.
 **Your version is different in one specific way, and the difference changes the remedy.**
 
 In the decisions version, the cost lands on *you*. You produce more and decide no more, so your own
-output degrades and your own time is what's wasted. It's your budget, and you can choose to spend
+output degrades and your own time is what's wasted. It is your budget, and you can choose to spend
 it badly.
 
 In the attention version, **the cost lands on people who did not consent and cannot bill you.**
-You are not overspending your own budget. You are drawing on a shared account held by every
+You aren't overspending your own budget. You're drawing on a shared account held by every
 employee in the organization, without their agreement, with no mechanism by which they can tell you
 what it cost them.
 
-That distinction is not a debating point. It changes what the fix has to be:
+That distinction isn't a debating point. It changes what the fix has to be:
 
-- If it's your budget, the remedy is **a better decision** — be more deliberate about which of the
+- If it's your budget, the remedy is **a better decision**, be more deliberate about which of the
   three policy versions you actually needed. You can keep producing as long as you choose well.
 - If it's someone else's budget, a better decision isn't sufficient, because every individual
   decision can be defensible while the aggregate is still extractive. The remedy has to be
-  **a hard constraint** — a fixed number of sends, a consolidation rule, a standing kill list. Not
+  **a hard constraint**: a fixed number of sends, a consolidation rule, a standing kill list. Not
   better judgment per message. **Less surface.**
 
 Which is why this module's artifact is a list of things you'll stop, and not a set of principles
@@ -134,49 +134,49 @@ for deciding better. Principles scale with volume. Constraints don't, which is t
 
 ## Lesson 3 · Where the volume actually comes from **[V]**
 
-Ask a communications team where the flood originates and you'll hear "the business." That's true
-and useless. Here is the more specific answer, and it's a structural finding rather than a
+Ask a communications team where the flood originates and you'll hear "the business." That is true
+and useless. Here's the more specific answer, and it's a structural finding rather than a
 complaint.
 
 Gallagher's *2026 Employee Communications Report* reports that **61% of organizations have no
-formal change communication strategy** — while ranking change communication as their most pressing
+formal change communication strategy**, while ranking change communication as their most pressing
 skill need. Same sample as Module 1: over 1,300 communications and HR professionals across 40
 countries.
 
 Hold those two facts together. Change communication is the highest-stakes, highest-volume work the
-function does. Six organizations in ten approach it with no standing strategy. So every change —
-every reorg, system migration, policy update, office move, benefits change — generates its own
+function does. Six organizations in ten approach it with no standing strategy. So every change (
+every reorg, system migration, policy update, office move, benefits change) generates its own
 bespoke, ad hoc communication plan, negotiated separately, by whoever is sponsoring that change,
 against no shared standard.
 
 **Nobody is over-sending. Twenty different people are each sending a defensible amount, and no one
-owns the sum.** That's the mechanism. It's not a discipline failure by individuals; it's the
+owns the sum.** That is the mechanism. It is not a discipline failure by individuals; it's the
 predictable output of a system with no aggregate view and no standing rules, running at a
 production cost that used to be self-limiting and now isn't.
 
 Two consequences follow, and the second is the one to act on.
 
-**The aggregate is nobody's job, so it becomes yours by default** — you're the only function with a
+**The aggregate is nobody's job, so it becomes yours by default**. You're the only function with a
 view across channels, which is why Module 1 asked you to count. Whoever holds the count holds the
 argument.
 
 **And the highest-leverage intervention is upstream of any individual message.** A standing change
-communication standard — what a change of this size gets, in which channels, at what cadence, with
-what stops — does more for the attention bill than any amount of per-message discipline, because it
+communication standard (what a change of this size gets, in which channels, at what cadence, with
+what stops) does more for the attention bill than any amount of per-message discipline, because it
 converts twenty separate negotiations into one prior decision. That is also the most credible thing
-you can propose to an executive sponsor, because it isn't "send less." It's "here is what good
+you can propose to an executive sponsor, because it isn't "send less." It is "here's what good
 looks like, agreed once."
 
 ## Lesson 4 · Measurement that would change what you do
 
 The last piece, because a kill list without a measure is just a mood.
 
-**Open rate measures delivery. It does not measure comprehension, and it certainly doesn't measure
+**Open rate measures delivery. It does not measure comprehension, and it certainly does not measure
 behaviour.** Everybody in this profession knows that and most teams report it anyway, for a reason
 worth being honest about: it's free, it's automatic, it produces a number that goes up, and nobody
 has asked for anything better.
 
-The test for whether a metric is worth collecting is not whether it's accurate. It's this:
+The test for whether a metric is worth collecting isn't whether it's accurate. It is this:
 
 > **Would a bad result on this number change what we do next week? If not, it's decoration.**
 
@@ -186,8 +186,8 @@ the Produce link.
 
 Three families of measure that pass it:
 
-**Comprehension.** Did people end up knowing the thing? Two questions in a pulse a week later, or —
-cheaper and better — the Sense instruments from Module 2. If intranet searches for "enrollment
+**Comprehension.** Did people end up knowing the thing? Two questions in a pulse a week later, or (
+cheaper and better) the Sense instruments from Module 2. If intranet searches for "enrollment
 deadline" spike three days after the enrollment email, the email failed, whatever its open rate
 was. That signal is free and almost nobody reads it.
 
@@ -217,13 +217,13 @@ isn't working.
 - **Your volume trap is not the decisions version.** That one costs your own budget and is fixed by
   better decisions. Yours draws on an account held by every employee without their consent, where
   each individual decision can be defensible while the aggregate is extractive. **That needs a
-  constraint, not a principle — principles scale with volume, constraints don't.**
+  constraint, not a principle: principles scale with volume, constraints do not.**
 - **Nobody is over-sending** `[V]`. 61% of organizations have no formal change communication
   strategy while ranking it their top skill need, so every change generates its own ad hoc plan and
   no one owns the sum. The aggregate becomes yours by default because you're the only one who can
   see it.
 - **The highest-leverage fix is upstream:** a standing change communication standard converts twenty
-  separate negotiations into one prior decision — and it's proposable, because it isn't "send less."
+  separate negotiations into one prior decision, and it's proposable, because it isn't "send less."
 - **The metric test:** would a bad result change what you do next week? Open rate almost never
   passes. Comprehension, behaviour, and the attention bill do — and the cheapest route to all three
   runs through the Sense and Interpret links.
@@ -233,10 +233,10 @@ isn't working.
 **The claim:** *"Every message you send is a withdrawal from an account you don't own and can't top
 up."*
 
-The strongest counter-argument is not that communication is good. It is that **the account metaphor
+The strongest counter-argument isn't that communication is good. It is that **the account metaphor
 is wrong about how attention works, and being wrong in a direction that makes you passive.**
 Attention isn't a fixed pool being drained; it's allocated dynamically against relevance. People
-don't have a monthly quota of minutes — they have a threshold, and messages above it get read
+don't have a monthly quota of minutes. They have a threshold, and messages above it get read
 however many arrive. On that model the problem was never volume, it was relevance, and a function
 that responds by sending less is solving the wrong variable: it will cut ten messages, nine of them
 the ones easiest to cut rather than the ones least relevant, and land in the same place with less
@@ -248,7 +248,7 @@ evidence of its existence, in an organization that measures it on activity. Tell
 to send less may be telling them to disarm.
 
 Take a position on that, in writing, in the activity. The strongest submissions engage the
-relevance-versus-volume model directly — because if it's right, the kill list is the wrong artifact
+relevance-versus-volume model directly, because if it's right, the kill list is the wrong artifact
 and targeting is the right one.
 
 ## Applied activity — "The kill list"
@@ -258,26 +258,26 @@ rubric below.** Score doesn't matter. Doing the work is where the learning lands
 
 Work from Module 1's send audit. Same audience.
 
-**Step 1 — Defend or don't (10 min).** Go through the thirty-day list item by item. For each one,
+**Step 1 — Defend or do not (10 min).** Go through the thirty-day list item by item. For each one,
 one question: **would you defend this to the recipients, to their faces, if they asked why you sent
 it?** Mark each yes or no. Count the yeses. That percentage is the number you predicted.
 
-**Step 2 — Choose three (5 min).** Three things you will actually stop sending. Not merge, not
-shorten — stop. For each: what it was, who sponsored it, and what you will say to that sponsor.
+**Step 2. Choose three (5 min).** Three things you'll actually stop sending. Not merge, not
+shorten, stop. For each: what it was, who sponsored it, and what you'll say to that sponsor.
 The last part is the one that makes this real, and a kill list without it is a wish.
 
 **Step 3 — Count what comes back (5 min).** For each of the three, recipients × minutes = attention
 returned, in person-hours per month. Total it. This is the number that goes into Module 10's
 proposal.
 
-**Step 4 — Replace one metric (5 min).** Name one measure your function currently reports that
-would not change what you do next week, and one you'll replace it with from the comprehension,
+**Step 4. Replace one metric (5 min).** Name one measure your function currently reports that
+wouldn't change what you do next week, and one you'll replace it with from the comprehension,
 behaviour, or cost families. Say what data you'd need and whether you already have it.
 
 Then the write-up: your defensible percentage against your prediction, with the direction and size
 of the miss named and one sentence on what it reveals; your position on the claim above with the
-counter-argument addressed, including the relevance-versus-volume model; and — the part that
-matters — **at least one of the three things you're killing should be something you personally
+counter-argument addressed, including the relevance-versus-volume model; and (the part that
+matters) **at least one of the three things you're killing should be something you personally
 approved.** If none of them is, say so and say why, honestly. "Everything I approved was worth it
 and the problem is other people" is an answer, and it will be graded on whether you can support it.
 
@@ -288,7 +288,7 @@ and the problem is other people" is an answer, and it will be graded on whether 
 **Q1.** Why does the workslop trust finding land differently on internal communications than on other functions `[V]`?
 
 - A. Because communicators use AI more heavily than other functions
-- B. Because it's broadcast rather than person-to-colleague, so the "sender" rated less trustworthy is the channel your next message depends on — and recipients never tell you it happened ✓
+- B. Because it's broadcast rather than person-to-colleague, so the "sender" rated less trustworthy is the channel your next message depends on, and recipients never tell you it happened ✓
 - C. Because communications output is more visible to executives
 - D. Because internal communications has no way to correct errors after publication
 
@@ -297,7 +297,7 @@ and the problem is other people" is an answer, and it will be graded on whether 
 **Q2.** What distinguishes a time cost from a trust cost?
 
 - A. Time costs are larger in aggregate
-- B. Trust costs can be measured; time costs cannot
+- B. Trust costs can be measured; time costs can't
 - C. The time cost closes when the rework is done; the trust cost attaches to the sender and prices every future interaction ✓
 - D. Trust costs only apply to external communications
 
@@ -310,13 +310,13 @@ and the problem is other people" is an answer, and it will be graded on whether 
 - C. The decisions version is about quality; the attention version is about quantity
 - D. They are the same trap described at different altitudes
 
-> **B.** And the difference dictates the remedy. Your own budget can be spent better. Someone else's needs a hard constraint, because better per-message judgment doesn't touch an aggregate nobody is looking at.
+> **B.** And the difference dictates the remedy. Your own budget can be spent better. Someone else's needs a hard constraint, because better per-message judgment does not touch an aggregate nobody is looking at.
 
 **Q4.** Why does this module produce a kill list rather than a set of principles for deciding better?
 
 - A. Because principles are harder to communicate to a team
 - B. Because executives respond better to concrete artifacts
-- C. Because principles scale with volume and constraints don't — a rule that applies per message can't fix an aggregate ✓
+- C. Because principles scale with volume and constraints don't: a rule that applies per message can't fix an aggregate ✓
 - D. Because the profession already has too many principles
 
 > **C.** Every individual message can pass a principled test while the total remains extractive. That is exactly the failure a constraint is designed to catch and a principle is not.
@@ -325,7 +325,7 @@ and the problem is other people" is an answer, and it will be graded on whether 
 
 - A. That communicators are under-trained in change management
 - B. That change communication should be outsourced to specialists
-- C. That volume has no single author — every change generates its own ad hoc plan, twenty people each send a defensible amount, and nobody owns the sum ✓
+- C. That volume has no single author, every change generates its own ad hoc plan, twenty people each send a defensible amount, and nobody owns the sum ✓
 - D. That organizations undervalue the communications function
 
 > **C.** It reframes over-sending from a discipline failure by individuals into the predictable output of a system with no aggregate view and no standing rules, at a production cost that used to be self-limiting.
@@ -337,7 +337,7 @@ and the problem is other people" is an answer, and it will be graded on whether 
 - C. It allows the function to refuse requests without escalation
 - D. It improves the quality of individual change messages
 
-> **B.** It works upstream of any individual message, which is where the volume originates, and it arrives as "here is what good looks like, agreed once" rather than as a restriction — which is why it survives contact with an executive.
+> **B.** It works upstream of any individual message, which is where the volume originates, and it arrives as "here's what good looks like, agreed once" rather than as a restriction, which is why it survives contact with an executive.
 
 **Q7.** What is the test for whether a metric is worth collecting?
 
@@ -351,7 +351,7 @@ and the problem is other people" is an answer, and it will be graded on whether 
 **Q8.** What is the strongest argument *against* this module's claim?
 
 - A. That employees can filter irrelevant messages at negligible cost
-- B. That attention is allocated against relevance rather than drawn from a fixed pool — so the variable was never volume, and a function that cuts ten messages will cut the easiest ten rather than the least relevant ✓
+- B. That attention is allocated against relevance rather than drawn from a fixed pool, so the variable was never volume, and a function that cuts ten messages will cut the easiest ten rather than the least relevant ✓
 - C. That trust in leadership is driven by leadership behaviour, not communication volume
 - D. That measuring the attention bill is too imprecise to act on
 
@@ -359,7 +359,7 @@ and the problem is other people" is an answer, and it will be graded on whether 
 
 ## Sources and attribution
 
-- **BetterUp Labs / Stanford Social Media Lab** — the workslop findings: **~2 hours of rework per
+- **BetterUp Labs / Stanford Social Media Lab**, the workslop findings: **~2 hours of rework per
   incident and 42% of recipients rating the sender less trustworthy**, with ~41% of workers
   reporting they have received it. *Phrasing reused from the recruiter track's shipped wording
   rather than re-derived, so the two tracks stay reconcilable and the maintenance agent has one

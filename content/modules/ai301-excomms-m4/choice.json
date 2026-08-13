@@ -1,31 +1,43 @@
 {
   "reviewedAt": "2026-08-12",
   "title": "Four maps, one owner who has misread their own",
-  "intro": "*Five minutes. Commit before you look.*\n\nFour compression maps, each drawn honestly by the person who runs the function, each with the conclusion that person drew from it.\n\nThree of the four read their own map correctly. **One drew a conclusion the map does not support.** Find it.\n\nThe maps are not the question. The conclusions are.",
+  "intro": "*Five minutes. Commit before you look.*\n\nFour compression maps, each drawn honestly by the person who runs the function, each with the conclusion that person drew from it.\n\nThree of the four read their own map correctly. **One drew a conclusion the map does not support.** Find it.\n\nThe maps aren't the question. The conclusions are.",
   "artifacts": [
     {
       "label": "Map A · manufacturer, 9,000 employees, IC team of six",
-      "body": "**Time:** Sense 2% · Interpret 5% · Decide 8% · Produce 68% · Distribute 15% · Verify 2%\n**Owners:** Produce, Distribute named. Sense, Decide, Verify — nobody.\n**Budget:** 80% intranet platform and translation, 20% design agency.\n\n**Their conclusion:** \"We're a production shop and the production link is collapsing. Before we chase listening, we should own Verify — nobody here checks whether anything landed, it's cheap to start, and it protects the output we're already making.\""
+      "body": "**Time:** Sense 2% · Interpret 5% · Decide 8% · Produce 68% · Distribute 15% · Verify 2%\n**Owners:** Produce, Distribute named. Sense, Decide, Verify, nobody.\n**Budget:** 80% intranet platform and translation, 20% design agency.\n\n**Their conclusion:** \"We're a production shop and the production link is collapsing. Before we chase listening, we should own Verify, nobody here checks whether anything landed, it's cheap to start, and it protects the output we're already making.\""
     },
     {
       "label": "Map B · software company, 2,400 employees, IC team of three",
-      "body": "**Time:** Sense 1% · Interpret 4% · Decide 22% · Produce 48% · Distribute 20% · Verify 5%\n**Owners:** all six links point at the same three people.\n**Budget:** one platform licence, nothing else.\n\n**Their conclusion:** \"Six jobs, three people, and Decide is already 22% — which is invisible work nobody has resourced. The map's value here isn't reallocating our time, it's evidence for a headcount conversation.\""
+      "body": "**Time:** Sense 1% · Interpret 4% · Decide 22% · Produce 48% · Distribute 20% · Verify 5%\n**Owners:** all six links point at the same three people.\n**Budget:** one platform licence, nothing else.\n\n**Their conclusion:** \"Six jobs, three people, and Decide is already 22%, which is invisible work nobody has resourced. The map's value here isn't reallocating our time, it's evidence for a headcount conversation.\""
     },
     {
       "label": "Map C · retail group, 31,000 employees, IC team of eleven",
-      "body": "**Time:** Sense 3% · Interpret 6% · Decide 11% · Produce 44% · Distribute 31% · Verify 5%\n**Owners:** Produce, Distribute, Interpret named. Sense and Verify — nobody.\n**Budget:** 70% communication platform with full segmentation and engagement analytics, 20% video, 10% agency.\n\n**Their conclusion:** \"Distribute is a third of our time even with a platform this good, so the platform isn't paying for itself. The priority is renegotiating that contract or replacing it.\""
+      "body": "**Time:** Sense 3% · Interpret 6% · Decide 11% · Produce 44% · Distribute 31% · Verify 5%\n**Owners:** Produce, Distribute, Interpret named. Sense and Verify, nobody.\n**Budget:** 70% communication platform with full segmentation and engagement analytics, 20% video, 10% agency.\n\n**Their conclusion:** \"Distribute is a third of our time even with a platform this good, so the platform isn't paying for itself. The priority is renegotiating that contract or replacing it.\""
     },
     {
       "label": "Map D · hospital system, 14,000 employees, IC lead embedded with the exec team",
-      "body": "**Time:** Sense 4% · Interpret 7% · Decide 38% · Produce 30% · Distribute 12% · Verify 9%\n**Owners:** Decide and Produce named. Sense — nobody.\n**Budget:** agency retainer only, no listening instruments.\n\n**Their conclusion:** \"On paper this looks like the healthy shape — real Decide time, genuine access. But I have no Sense instrumentation at all, so my advice is only as good as whoever happened to talk to me last week. That's the thing to fix.\""
+      "body": "**Time:** Sense 4% · Interpret 7% · Decide 38% · Produce 30% · Distribute 12% · Verify 9%\n**Owners:** Decide and Produce named. Sense, nobody.\n**Budget:** agency retainer only, no listening instruments.\n\n**Their conclusion:** \"On paper this looks like the healthy shape: real Decide time, genuine access. But I have no Sense instrumentation at all, so my advice is only as good as whoever happened to talk to me last week. That is the thing to fix.\""
     }
   ],
   "options": [
-    { "id": "a", "label": "A — the manufacturer" },
-    { "id": "b", "label": "B — the software company" },
-    { "id": "c", "label": "C — the retail group" },
-    { "id": "d", "label": "D — the hospital system" }
+    {
+      "id": "a",
+      "label": "A — the manufacturer"
+    },
+    {
+      "id": "b",
+      "label": "B — the software company"
+    },
+    {
+      "id": "c",
+      "label": "C — the retail group"
+    },
+    {
+      "id": "d",
+      "label": "D — the hospital system"
+    }
   ],
   "key": "c",
-  "reasoning": "**C has misread their own map, and the tell is that they diagnosed a tooling problem from a time number.**\n\nDistribute at 31% across 31,000 employees in retail is not evidence the platform is failing. It is what distribution costs at that scale and complexity — multiple sites, shift workers, languages, frontline devices, staggered timing. A better contract does not reduce it, because the work isn't licence administration; it's segmentation and targeting for a genuinely hard audience.\n\nWorse, the conclusion aims the function's largest financial lever at renegotiating the one link that is already working, and it misses what the map is actually showing: **this is the broadcast desk, and they already own the instrument they think they lack.** A platform with full segmentation and engagement analytics is capturing search terms, read patterns, and drop-off — which is Sense data, already paid for, with nobody assigned to read it. Their Sense capability is a report away, not a purchase away, and their conclusion would spend a year of political capital replacing the thing that would have given it to them.\n\n**A reads correctly, including a counter-intuitive call.** Sixty-eight percent in the collapsing link is the production shop, and the instinct would be to chase Sense because that's where the new capability is. They chose Verify instead, for the right reasons: cheaper to start, protects output they're already producing, and it has no owner. Sequencing beats ambition.\n\n**B reads correctly, and notice what makes it correct.** With three people doing six links, reallocation is arithmetic that doesn't work — every hour moved to Sense comes out of Produce, which still has to happen. The honest use of the map at this size is evidence, not strategy, and they said so.\n\n**D reads correctly, and it's the least comfortable of the four.** Thirty-eight percent Decide with executive access is the shape everyone in this profession says they want. They still identified the defect: counsel with no Sense instrumentation runs on anecdote, so their advice is exactly as representative as their last conversation. Diagnosing a sampling problem inside your own best-looking number is the hardest read on this exercise."
+  "reasoning": "**C has misread their own map, and the tell is that they diagnosed a tooling problem from a time number.**\n\nDistribute at 31% across 31,000 employees in retail isn't evidence the platform is failing. It is what distribution costs at that scale and complexity: multiple sites, shift workers, languages, frontline devices, staggered timing. A better contract doesn't reduce it, because the work isn't licence administration; it's segmentation and targeting for a genuinely hard audience.\n\nWorse, the conclusion aims the function's largest financial lever at renegotiating the one link that is already working, and it misses what the map is actually showing: **this is the broadcast desk, and they already own the instrument they think they lack.** A platform with full segmentation and engagement analytics is capturing search terms, read patterns, and drop-off, which is Sense data, already paid for, with nobody assigned to read it. Their Sense capability is a report away, not a purchase away, and their conclusion would spend a year of political capital replacing the thing that would have given it to them.\n\n**A reads correctly, including a counter-intuitive call.** Sixty-eight percent in the collapsing link is the production shop, and the instinct would be to chase Sense because that's where the new capability is. They chose Verify instead, for the right reasons: cheaper to start, protects output they are already producing, and it has no owner. Sequencing beats ambition.\n\n**B reads correctly, and notice what makes it correct.** With three people doing six links, reallocation is arithmetic that doesn't work — every hour moved to Sense comes out of Produce, which still has to happen. The honest use of the map at this size is evidence, not strategy, and they said so.\n\n**D reads correctly, and it's the least comfortable of the four.** Thirty-eight percent Decide with executive access is the shape everyone in this profession says they want. They still identified the defect: counsel with no Sense instrumentation runs on anecdote, so their advice is exactly as representative as their last conversation. Diagnosing a sampling problem inside your own best-looking number is the hardest read on this exercise."
 }

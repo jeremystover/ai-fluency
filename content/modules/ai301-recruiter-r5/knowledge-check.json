@@ -25,7 +25,7 @@
         "Integration projects have higher success rates than greenfield builds"
       ],
       "correctIndex": 1,
-      "explanation": "It's about adoption, not cost — though the $200-a-month-and-one-engineer example makes both points at once. Buy the boring; build only the part that's yours."
+      "explanation": "It's about adoption, not cost, though the $200-a-month-and-one-engineer example makes both points at once. Buy the boring; build only the part that's yours."
     },
     {
       "id": "q3",
@@ -61,7 +61,7 @@
         "Require interviewer consent; and delete records after twelve months"
       ],
       "correctIndex": 1,
-      "explanation": "The first keeps it assist-side under 101 M7 — auditing consistency of a professional practice, not judging a person. The second is practical: an interviewer whose report reached their manager first will disengage, and everyone else hears about it by Friday."
+      "explanation": "The first keeps it assist-side under 101 M7: auditing consistency of a professional practice, not judging a person. The second is practical: an interviewer whose report reached their manager first will disengage, and everyone else hears about it by Friday."
     },
     {
       "id": "q6",

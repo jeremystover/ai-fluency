@@ -73,7 +73,7 @@
         "Because adoption curves vary too much between teams to predict"
       ],
       "correctIndex": 1,
-      "explanation": "Adoption gets worse before it gets better — people are slower with a new process and the reconciliation cost arrives before the production gain. Name the shape, the depth, and how long you'll hold."
+      "explanation": "Adoption gets worse before it gets better, people are slower with a new process and the reconciliation cost arrives before the production gain. Name the shape, the depth, and how long you'll hold."
     },
     {
       "id": "q7",
@@ -85,7 +85,7 @@
         "Whether it avoids jargon and abstraction"
       ],
       "correctIndex": 2,
-      "explanation": "If nobody competent and well-intentioned could hold the opposite view, you've written a mission statement — true, unobjectionable, and inert."
+      "explanation": "If nobody competent and well-intentioned could hold the opposite view, you've written a mission statement: true, unobjectionable, and inert."
     },
     {
       "id": "q8",

@@ -25,7 +25,7 @@
         "It counts all six links evenly, which is why it's the preferred instrument"
       ],
       "correctIndex": 2,
-      "explanation": "Every instrument has a known distortion, and the choice matters less than the labelling. An acknowledged estimate is usable; a confident invention is not."
+      "explanation": "Every instrument has a known distortion, and the choice matters less than the labelling. An acknowledged estimate is usable; a confident invention isn't."
     },
     {
       "id": "q3",
@@ -49,7 +49,7 @@
         "By checking the org chart"
       ],
       "correctIndex": 2,
-      "explanation": "Touching a link is not owning it. And work that appears in nobody's review is work that stops happening the first busy month, which is why \"nobody\" is the most important answer this column can produce."
+      "explanation": "Touching a link isn't owning it. And work that appears in nobody's review is work that stops happening the first busy month, which is why \"nobody\" is the most important answer this column can produce."
     },
     {
       "id": "q5",

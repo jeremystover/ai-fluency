@@ -21,7 +21,7 @@
 defend it with.
 
 **And the number you will check by asking:** **what share of your ER team has used a general-purpose
-AI tool on case-related work** — a summary, a chronology, a draft, a policy question with facts
+AI tool on case-related work**: a summary, a chronology, a draft, a policy question with facts
 attached? Whole percent.
 
 Then go and ask them, without penalty. Lesson 2 explains why asking that way is the only version that
@@ -43,7 +43,7 @@ come from the job. 201 M1 sorts work by frequency, structure, and stakes — rig
 workflow you own, and wrong here, because your work product is not sorted by how often you do it. It
 is sorted by **what kind of claim it makes.** An observation, a corroboration, an inference, a
 finding, and a determination are five different things, they are how investigators are already
-trained to write, and — this is the part that matters — **AI's permission changes at every rung and
+trained to write, and (this is the part that matters) **AI's permission changes at every rung and
 stops hard at a specific boundary.**
 
 101 M7 gave you a binary: assist or decide. That was the right instrument for most of the function.
@@ -65,8 +65,8 @@ By the end of this module you should be able to:
 
 Start with a contradiction, because resolving it is the diagnosis.
 
-**The first finding.** SHRM's mapping of AI use across HR practice areas — 138 use cases across 16
-areas, from 1,722 HR professionals surveyed in December 2025 — puts **employee relations among the
+**The first finding.** SHRM's mapping of AI use across HR practice areas (138 use cases across 16
+areas, from 1,722 HR professionals surveyed in December 2025) puts **employee relations among the
 least-adopted areas in the entire function.** Recruiting leads at 27%, HR technology management
 around 21%. Employee relations sits near the bottom, alongside compliance and board relations.
 
@@ -76,7 +76,7 @@ you does stop there.
 **The second finding.** HR Acuity's *Tenth Annual Employee Relations Benchmark Study* asked ER teams
 directly what they had done. **70% of ER teams experimented with or actively deployed AI for employee
 relations and investigations during 2025.** And **only 56% restrict AI use to approved, secured tools
-for confidential case content** — which means roughly two in five do not.
+for confidential case content**, which means roughly two in five do not.
 
 The sample, stated because this module is about evidence: **274 US organizations with 1,000 or more
 employees, representing 8.8 million employees**, fielded with an independent research firm between
@@ -85,14 +85,14 @@ confidence. **It says nothing about employers below a thousand people**, and if 
 direction as informative and the numbers as not yours.
 
 **Both findings are sound, and they measure different things.** SHRM asked organizations where AI is
-deployed across HR practice areas — an *institutional* question, answered by whoever knows what the
+deployed across HR practice areas: an *institutional* question, answered by whoever knows what the
 function has adopted. HR Acuity asked ER teams what they had done, and *experimented with* is a low
 bar — a *behavioural* question, answered by practitioners.
 
 So:
 
 > **Institutionally, employee relations is the least AI-adopted part of HR. Behaviourally, seven in
-> ten ER teams have already used it. The gap between those two numbers is unsanctioned use — in the
+> ten ER teams have already used it. The gap between those two numbers is unsanctioned use, in the
 > most confidential documents your organization produces.**
 
 That is the diagnosis, and notice what it is not. It is not that you are behind. It is that your
@@ -106,7 +106,7 @@ Before the frame, the reason. Because the temptation on reading Lesson 1 is to t
 as a discipline problem, and that reading will fail.
 
 The same benchmark study measures the workload. **Case volumes and serious misconduct claims are at or
-near decade highs, and serious misconduct allegations have more than doubled since 2021** — while ER
+near decade highs, and serious misconduct allegations have more than doubled since 2021**, while ER
 staffing has moved from **0.6 to 0.68 professionals per 1,000 employees.** Essentially flat, against
 a doubling.
 
@@ -116,12 +116,12 @@ Hold those two facts together and the behaviour stops being mysterious:
 
 An investigator carrying twice the allegations with the same headcount, facing a 40-page grievance
 that was 12 pages two years ago, will reach for whatever makes the next hour survivable. And the
-organizational response — a prohibition — has a predictable consequence, which is the operational
+organizational response (a prohibition) has a predictable consequence, which is the operational
 point of this lesson:
 
 **A prohibition nobody can comply with does not produce compliance. It produces concealment.** Which
 is strictly worse than sanctioned use, because now you have the same exposure plus no record of it,
-plus a team that will not tell you what they did, plus — the part that actually damages you — no way
+plus a team that will not tell you what they did, plus (the part that actually damages you) no way
 to know which case files were affected when somebody eventually asks.
 
 Which is why the calibration question at the top of this module asks you to go and ask your team
@@ -146,12 +146,12 @@ is silent. *"Two of the four witnesses recall raised voices. The meeting invitat
 No contemporaneous notes exist."* Still no interpretation: this rung establishes **what exists.**
 
 **3 · Inference.** What the evidence could mean, held as a possibility rather than a conclusion.
-*"The account is consistent with a single heated exchange rather than a pattern."* Plural by nature —
+*"The account is consistent with a single heated exchange rather than a pattern."* Plural by nature,
 if you can only see one inference, you have skipped this rung and landed on the next.
 
 **4 · Finding.** What you conclude happened, to the applicable standard. *"On the balance of
 probabilities, the respondent raised his voice in the 14 March meeting."* This is a determination
-about facts, and it requires **weighing** — which is the word to watch for the rest of this track.
+about facts, and it requires **weighing**, which is the word to watch for the rest of this track.
 
 **5 · Determination.** What follows. Whether conduct breached policy, what the outcome is, what
 happens to a named person.
@@ -169,17 +169,17 @@ Now the permission map, which is why the ladder exists rather than being a writi
 > **The rung boundary, not the task, is the control.**
 
 That formulation matters because it survives contact with reality in a way task-based rules do not.
-"AI may help with summaries" is unusable — a summary can sit on any rung, and the same request
+"AI may help with summaries" is unusable, a summary can sit on any rung, and the same request
 produces rung-two output on Monday and rung-four output on Tuesday depending on how it was phrased.
 **"AI may establish what exists and may not weigh it" is a rule you can apply to a sentence.**
 
 And note what the ladder does for you rather than to you. Rung two is where cases are actually won and
-lost — the missing statement, the document nobody requested, the witness nobody interviewed — and it
+lost (the missing statement, the document nobody requested, the witness nobody interviewed) and it
 is the rung where AI is genuinely strong and entirely permitted. **The frame is not primarily a
 restriction. It tells you where the leverage is.**
 
-> ### Try this — 3 minutes
-> Take the last investigation summary you wrote — from memory, no files. Find one sentence and place
+> ### Try this (3 minutes
+> Take the last investigation summary you wrote) from memory, no files. Find one sentence and place
 > it on a rung. Then check whether the sentence *says* what rung it is on. Most conclusory writing
 > fails this test not because the conclusion was wrong but because the sentence gives no way to tell
 > which rung it occupies, which is the same problem Module 4 is about.
@@ -197,7 +197,7 @@ Here is the problem, and it is a version of an argument this curriculum makes el
 safer place. The general form: **accelerating someone through a process is visible and recoverable;
 filtering someone out is invisible.** A complaint that gets investigated leaves a record, a finding,
 a substantiation rate. A complaint that gets downgraded at intake leaves an entry saying it was
-downgraded — and then nothing.
+downgraded, and then nothing.
 
 > **The person whose complaint was downgraded never appears in your substantiation data. The failure
 > mode is structurally unmeasurable.**
@@ -215,7 +215,7 @@ So the ladder's answer to triage. Triage is a **rung-five determination wearing 
 it looks like sorting inbound items and it decides whether an allegation is investigated. Which
 yields two rules:
 
-- **AI may extract and structure what an intake contains** — the allegations, the dates, the named
+- **AI may extract and structure what an intake contains**: the allegations, the dates, the named
   parties, whether it mentions protected characteristics or retaliation. That is rung one and two, and
   it is genuinely useful on a 40-page submission (Module 6's territory).
 - **AI may not decide severity, priority, or whether to investigate.** A human does, and the record
@@ -234,7 +234,7 @@ named decider, and sample them.** Not to second-guess every call. To find out wh
   use in the most confidential documents you produce.
 - **The sample matters:** 274 US organizations of 1,000+ employees, 8.8 million employees, ±5.9 points,
   fielded early 2026 on 2025 practice. Not applicable below a thousand employees.
-- **Unsanctioned use is arithmetic, not indiscipline** `[V]` — serious allegations more than doubled
+- **Unsanctioned use is arithmetic, not indiscipline** `[V]`: serious allegations more than doubled
   since 2021 while staffing moved 0.6 → 0.68 per 1,000. And **a prohibition nobody can comply with
   produces concealment**, which is worse: same exposure, no record, and no way to know which files were
   affected. **Ask without penalty; you are identifying affected files, not misconduct.**
@@ -249,7 +249,7 @@ named decider, and sample them.** Not to second-guess every call. To find out wh
   uninterviewed witness. The ladder tells you where AI is strong, not only where it stops.
 - **Intake triage is a rung-five determination wearing rung-one clothing** `[V]`. AI may extract and
   structure what an intake contains; it may not decide severity or whether to investigate. **Track
-  downgraded matters as a category with a reason and a named decider** — otherwise the failure is
+  downgraded matters as a category with a reason and a named decider**: otherwise the failure is
   unmeasurable, and 38% of organizations have no required process to catch it.
 
 ## Take a position
@@ -260,7 +260,7 @@ The strongest counter-argument is that **this excuses a professional failure by 
 systems problem, and the reframing does not survive comparison.**
 
 Confidentiality in this function is not a policy preference to be traded against workload. It is the
-condition on which complainants participate at all — people report misconduct because they believe the
+condition on which complainants participate at all, people report misconduct because they believe the
 account will be handled carefully, and every breach is a withdrawal from that account. Nobody accepts
 "I was busy" as a reason to discuss a live case in a lift, and the volume argument would excuse that
 equally well. An investigator who pastes case content into a consumer tool has damaged the thing that
@@ -273,7 +273,7 @@ the arithmetic explanation is precisely what allows the situation to persist, an
 move is to insist the breach is a breach and escalate the workload as a separate, unmitigated
 problem.
 
-Your position has to say whether the volume explanation is an **explanation or an excuse** — and,
+Your position has to say whether the volume explanation is an **explanation or an excuse**, and,
 concretely, **what changes on Monday under each reading.** If it is an explanation, you ask without
 penalty and make the permitted path cheap. If it is an excuse, you enforce and let the backlog become
 visible. Those produce different first actions, and the module deliberately recommends one of them
@@ -288,17 +288,17 @@ learning lands.
 **Read this before you start, and it applies to every activity in this track.** **No case facts.**
 Not names, not initials, not dates, not paraphrased allegations, not "an employee in Finance." You are
 describing **your process and your work-product types**, never a matter. Any submission containing
-identifiable case content is returned unread — this constraint is why the whole track works at the
+identifiable case content is returned unread. This constraint is why the whole track works at the
 level of process rather than cases, and it is not negotiable.
 
 **Step 1 — Pick your matter type (3 min).** One kind of matter you own end to end: harassment intake,
 discipline consistency, grievance handling at a specific step, a bargaining subject. **A type, not a
 case.** Everything in the next seven modules attaches to it.
 
-**Step 2 — Map the work product to the rungs (10 min).** For your matter type, list the documents and
-work products it produces — the intake record, the interview notes, the chronology, the summary, the
+**Step 2. Map the work product to the rungs (10 min).** For your matter type, list the documents and
+work products it produces, the intake record, the interview notes, the chronology, the summary, the
 findings, the outcome recommendation, the closure letter. Place each on a rung. Where a single
-document spans rungs — most reports do — say which sections sit where. **The spanning documents are
+document spans rungs (most reports do) say which sections sit where. **The spanning documents are
 the interesting ones**, because that is where a rung-four sentence hides in a rung-two section.
 
 **Step 3 — The honest AI-use map (12 min).** Where is AI *already* being used in your function, on
@@ -307,10 +307,10 @@ submission that you asked and how you framed it. For each use: the rung, whether
 approved, and whether case content was involved. **"I don't know" is an entry.** So is "I asked and
 one person told me something I did not expect."
 
-**Step 4 — One rule (5 min).** Write the single rung-boundary sentence you would put in front of your
+**Step 4. One rule (5 min).** Write the single rung-boundary sentence you would put in front of your
 team tomorrow. One sentence, applicable to a sentence in a document. Not a policy.
 
-**Step 5 — Score the prediction.** Your predicted share of the team using AI on case-related work
+**Step 5. Score the prediction.** Your predicted share of the team using AI on case-related work
 against what you found by asking. Direction and size of the miss.
 
 Then the write-up: your position on the claim above, saying explicitly **what changes on Monday** under
@@ -325,7 +325,7 @@ permitted version cheaper than the workaround.**
 **Q1.** Two studies appear to disagree about AI adoption in employee relations. What does their difference actually measure? `[V]`
 
 - A. One surveyed larger organizations than the other
-- B. One asked organizations where AI is deployed across HR practice areas — institutional adoption — while the other asked ER teams what they had done, where "experimented with" is a low bar; the gap between them is unsanctioned use ✓
+- B. One asked organizations where AI is deployed across HR practice areas (institutional adoption) while the other asked ER teams what they had done, where "experimented with" is a low bar; the gap between them is unsanctioned use ✓
 - C. One measured intent and the other measured spending
 - D. They used incompatible definitions of artificial intelligence
 
@@ -351,11 +351,11 @@ permitted version cheaper than the workaround.**
 - D. Fact, context, judgment, conclusion, sanction
 
 > **C.** It is how investigators are already trained to write, which is why it is a working instrument
-> rather than a diagram — and AI's permission changes at every rung.
+> rather than a diagram, and AI's permission changes at every rung.
 
 **Q4.** Where does AI's permission stop on the ladder?
 
-- A. After observation — anything interpretive is off limits
+- A. After observation, anything interpretive is off limits
 - B. After inference, and only for generating untested possibilities; nothing at finding or determination ✓
 - C. After corroboration
 - D. At determination only, since findings are factual rather than evaluative
@@ -376,7 +376,7 @@ permitted version cheaper than the workaround.**
 **Q6.** Which rung does the module identify as the most valuable for AI?
 
 - A. Observation, because transcription saves the most time
-- B. Corroboration — locating what exists, what conflicts, and what is missing, which is where cases are won and lost ✓
+- B. Corroboration: locating what exists, what conflicts, and what is missing, which is where cases are won and lost ✓
 - C. Inference, because generating possibilities is where models are strongest
 - D. Finding, with human review
 
@@ -386,7 +386,7 @@ permitted version cheaper than the workaround.**
 **Q7.** Why is intake triage the highest-risk automation target in this function? `[V]`
 
 - A. Because intake volumes are the highest of any process
-- B. Because it is a determination about whether an allegation is investigated at all, and the person whose complaint was downgraded never appears in your substantiation data — so the failure is structurally unmeasurable ✓
+- B. Because it is a determination about whether an allegation is investigated at all, and the person whose complaint was downgraded never appears in your substantiation data, so the failure is structurally unmeasurable ✓
 - C. Because intake records are the most likely to be discoverable
 - D. Because triage rules change frequently as policy changes
 
@@ -417,7 +417,7 @@ permitted version cheaper than the workaround.**
   8.8 million employees, margin of error ±5.9 points at 95% confidence.** Vendor-sponsored and
   independently fielded with a disclosed sample; **does not describe employers below 1,000 employees.**
   **[V]**
-- **SHRM, *The State of AI in HR 2026*** — the practice-area adoption mapping placing employee
+- **SHRM, *The State of AI in HR 2026***, the practice-area adoption mapping placing employee
   relations among the least-adopted areas, from 138 AI use cases across 16 HR practice areas, survey
   of 1,722 HR professionals fielded 5–23 December 2025. Phrasing aligned with `ai301-hrbp-m2` and
   `ai301-peopleops-m1`, which use the same instrument, so the three do not drift. **[V]**

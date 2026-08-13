@@ -13,7 +13,7 @@
         "AI is more disruptive to knowledge work than to physical work"
       ],
       "correctIndex": 1,
-      "explanation": "It is neither a warning nor a productivity claim — it's an observation about where cost moved. The seven familiar symptoms are one problem seen from seven positions."
+      "explanation": "It is neither a warning nor a productivity claim. It's an observation about where cost moved. The seven familiar symptoms are one problem seen from seven positions."
     },
     {
       "id": "q2",
@@ -25,7 +25,7 @@
         "That self-reported impact isn't a reliable measure"
       ],
       "correctIndex": 1,
-      "explanation": "Individual craft is a precondition, not the lever. D names a real limitation of the evidence — it's self-reported impact, not measured output — but it is not the implication."
+      "explanation": "Individual craft is a precondition, not the lever. D names a real limitation of the evidence (it's self-reported impact, not measured output) but it is not the implication."
     },
     {
       "id": "q3",
@@ -41,7 +41,7 @@
     },
     {
       "id": "q4",
-      "prompt": "Why does the module argue that undesigned structures are the ones most likely to be load-bearing?",
+      "prompt": "Why does the module argue that undesigned structures are the ones most likely to be holding something up?",
       "options": [
         "Because informal structures are usually more efficient than formal ones",
         "Because designed structures get documented, documented structures get defended, and undesigned ones have no owner or advocate — so nothing in the process notices when they go",
@@ -61,7 +61,7 @@
         "Because undesigned structures aren't represented in any system AI can read"
       ],
       "correctIndex": 1,
-      "explanation": "The handoff document stops being necessary when either person can produce the whole deliverable — and nothing was destroyed, something was removed that nobody had written down as load-bearing."
+      "explanation": "The handoff document stops being necessary when either person can produce the whole deliverable, and nothing was destroyed, something was removed that nobody had written down as structural."
     },
     {
       "id": "q6",

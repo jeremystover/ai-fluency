@@ -25,7 +25,7 @@
         "Because elements reports are required by most disciplinary procedures"
       ],
       "correctIndex": 1,
-      "explanation": "*\"Following the meeting, the complainant raised further concerns…\"* — did you investigate the meeting? Prose carries the reader past the joint, including when the reader is you re-reading your own draft."
+      "explanation": "*\"Following the meeting, the complainant raised further concerns…\"*, did you investigate the meeting? Prose carries the reader past the joint, including when the reader is you re-reading your own draft."
     },
     {
       "id": "q3",
@@ -37,7 +37,7 @@
         "Is every finding supported by evidence?"
       ],
       "correctIndex": 1,
-      "explanation": "A is the generalist version and it is a good question. B catches the most common serious defect: the fourth allegation that is never mentioned again — not rejected, not found unsubstantiated, just gone."
+      "explanation": "A is the generalist version and it is a good question. B catches the most common serious defect: the fourth allegation that is never mentioned again, not rejected, not found unsubstantiated, just gone."
     },
     {
       "id": "q4",
@@ -61,7 +61,7 @@
         "Not mentioning it, where the evidence was insufficient"
       ],
       "correctIndex": 1,
-      "explanation": "\"Outside scope\" and \"insufficient evidence to determine\" are both resolutions. **Silence is not.** And the check must run against the complainant's own framing — restating an allegation narrowly and resolving the narrower version is the same defect in a suit."
+      "explanation": "\"Outside scope\" and \"insufficient evidence to determine\" are both resolutions. **Silence is not.** And the check must run against the complainant's own framing, restating an allegation narrowly and resolving the narrower version is the same defect in a suit."
     },
     {
       "id": "q6",
@@ -73,7 +73,7 @@
         "It may not touch the language of an investigation report at all"
       ],
       "correctIndex": 1,
-      "explanation": "Flagging is a linguistic audit, checkable in seconds by reading the sentence. A hands the model the choice of what the neutral version asserts; C is rung four. D is over-broad — this is the one place in the track where a model may touch your language."
+      "explanation": "Flagging is a linguistic audit, checkable in seconds by reading the sentence. A hands the model the choice of what the neutral version asserts; C is rung four. D is over-broad. This is the one place in the track where a model may touch your language."
     },
     {
       "id": "q7",
@@ -85,7 +85,7 @@
         "\"The complainant states that the respondent shouted.\""
       ],
       "correctIndex": 2,
-      "explanation": "\"Dismissive\" is an evaluative adjective doing the work of a finding — same length and tense as an observation, and no witness said it. Alongside state-of-mind verbs (intended, knew) and unattributed passives (\"it was felt that\")."
+      "explanation": "\"Dismissive\" is an evaluative adjective doing the work of a finding: same length and tense as an observation, and no witness said it. Alongside state-of-mind verbs (intended, knew) and unattributed passives (\"it was felt that\")."
     },
     {
       "id": "q8",
@@ -97,7 +97,7 @@
         "Whether the tool retained the input data"
       ],
       "correctIndex": 2,
-      "explanation": "Structure determines protection: the analysis is the same either way, the discovery consequence is not. And neither ruling is a workplace-investigation holding — the practical move is that if a matter may be privileged, the AI question belongs in the engagement rather than afterwards."
+      "explanation": "Structure determines protection: the analysis is the same either way, the discovery consequence is not. And neither ruling is a workplace-investigation holding, the practical move is that if a matter may be privileged, the AI question belongs in the engagement rather than afterwards."
     }
   ]
 }

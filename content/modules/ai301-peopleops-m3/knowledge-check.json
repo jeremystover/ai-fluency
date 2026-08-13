@@ -13,7 +13,7 @@
         "That employees are largely unaware their organization has a policy"
       ],
       "correctIndex": 1,
-      "explanation": "The 51% is a compliance gap. The 54%/23% split is a design failure, and it repeats because everyone makes the same mistake — naming products, which gives a policy a shelf life equal to the vendor's release cadence."
+      "explanation": "The 51% is a compliance gap. The 54%/23% split is a design failure, and it repeats because everyone makes the same mistake: naming products, which gives a policy a shelf life equal to the vendor's release cadence."
     },
     {
       "id": "q2",
@@ -61,7 +61,7 @@
         "Because vendors implement the middle rung by default"
       ],
       "correctIndex": 1,
-      "explanation": "Which turns an engineering question into a procurement one, and your leverage exists exactly once — before you sign. Afterwards you have a renewal in eighteen months and an obligation today."
+      "explanation": "Which turns an engineering question into a procurement one, and your leverage exists exactly once, before you sign. Afterwards you have a renewal in eighteen months and an obligation today."
     },
     {
       "id": "q6",
@@ -73,7 +73,7 @@
         "Irrelevant to People Operations, since it concerns recruiting tools"
       ],
       "correctIndex": 2,
-      "explanation": "Carry the posture accurately; anyone saying the law has changed is ahead of the record. And D is wrong for a specific reason: the questions it raises — where data came from, whether the subject was told, whether a dispute path exists — are data-flow and workflow questions, which are this role's artifacts."
+      "explanation": "Carry the posture accurately; anyone saying the law has changed is ahead of the record. And D is wrong for a specific reason: the questions it raises (where data came from, whether the subject was told, whether a dispute path exists) are data-flow and workflow questions, which are this role's artifacts."
     },
     {
       "id": "q7",
@@ -97,7 +97,7 @@
         "Because vendors restrict AI features in non-production environments"
       ],
       "correctIndex": 1,
-      "explanation": "Sandbox proves the feature exists and functions. Use it for the rollback rehearsal, then pilot in production on a scoped population — which is only possible if the capability can be scoped, which is why that is question one."
+      "explanation": "Sandbox proves the feature exists and functions. Use it for the rollback rehearsal, then pilot in production on a scoped population, which is only possible if the capability can be scoped, which is why that is question one."
     }
   ]
 }

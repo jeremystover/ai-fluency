@@ -4,19 +4,49 @@
   "minWords": 250,
   "maxWords": 350,
   "submitLabel": "Your teardown and write-up",
-  "intro": "Paste the verbatim claim, the three questions worked through, your verdict, the question you'd ask at renewal, your prediction scored against Lesson 1, and the 250–350 word write-up including your position on this module's claim. Resubmission is free and unlimited — the score is a mirror, not a gate.",
-  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, Comp & Benefits track — for compensation and benefits professionals who have completed AI 101 and AI 201. Module 2 applied activity, 'Teardown': a capability, ROI, or efficacy claim quoted verbatim from a vendor the learner's organization currently pays (not a hypothetical, not a competitor), run through three questions — what's the evidence (what observation supports it, and how hard was it to find), what's the sample (how many, of whom, when, selected how — with an unpublished sample treated as itself a finding), and what would falsify it (what we'd observe if it were false, and whether anyone checked). Then a committed verdict of supported, unverifiable (may be true, cannot be checked), or unfalsifiable (constructed so no observation could contradict it). Then one question specific enough for the vendor to answer and consequential enough to change something. Then their two adoption predictions scored against Lesson 1's figures — roughly 20% of employers operationalizing AI in benefits against 72% planning within two years. The module's own claim, which the write-up must take a position on, is that most published writing about AI in comp is a product roadmap presented as an industry trend; its real counter-argument is that vendors sit across hundreds of customers and often see genuine shifts before any survey captures them, so discounting vendor content means learning about real changes late. A teardown concluding the vendor is fine is a legitimate outcome and must not be penalized; a teardown that finds nothing because the learner didn't look is the failure. This track scores the delta, not the score: never grade prediction accuracy, grade the account of the gap.",
+  "intro": "Paste the verbatim claim, the three questions worked through, your verdict, the question you'd ask at renewal, your prediction scored against Lesson 1, and the 250–350 word write-up including your position on this module's claim. Resubmission is free and unlimited: the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, Comp & Benefits track, for compensation and benefits professionals who have completed AI 101 and AI 201. Module 2 applied activity, 'Teardown': a capability, ROI, or efficacy claim quoted verbatim from a vendor the learner's organization currently pays (not a hypothetical, not a competitor), run through three questions, what's the evidence (what observation supports it, and how hard was it to find), what's the sample (how many, of whom, when, selected how — with an unpublished sample treated as itself a finding), and what would falsify it (what we'd observe if it were false, and whether anyone checked). Then a committed verdict of supported, unverifiable (may be true, cannot be checked), or unfalsifiable (constructed so no observation could contradict it). Then one question specific enough for the vendor to answer and consequential enough to change something. Then their two adoption predictions scored against Lesson 1's figures, roughly 20% of employers operationalizing AI in benefits against 72% planning within two years. The module's own claim, which the write-up must take a position on, is that most published writing about AI in comp is a product roadmap presented as an industry trend; its real counter-argument is that vendors sit across hundreds of customers and often see genuine shifts before any survey captures them, so discounting vendor content means learning about real changes late. A teardown concluding the vendor is fine is a legitimate outcome and must not be penalized; a teardown that finds nothing because the learner didn't look is the failure. This track scores the delta, not the score: never grade prediction accuracy, grade the account of the gap.",
   "opening": [
-    { "key": "operationalizingPct", "label": "Predicted — % of employers currently operationalizing AI in benefits", "hint": "Running it in production, not experimenting or planning. Whole percent.", "placeholder": "e.g. 45", "min": 0, "max": 100 }
+    {
+      "key": "operationalizingPct",
+      "label": "Predicted — % of employers currently operationalizing AI in benefits",
+      "hint": "Running it in production, not experimenting or planning. Whole percent.",
+      "placeholder": "e.g. 45",
+      "min": 0,
+      "max": 100
+    }
   ],
   "calibration": [
-    { "key": "operationalizingPctActual", "label": "Actual — the figure from Lesson 1", "hint": "WTW's 2026 survey of 312 employers covering 4.6 million US employees.", "placeholder": "e.g. 20", "min": 0, "max": 100, "actualFor": "operationalizingPct" }
+    {
+      "key": "operationalizingPctActual",
+      "label": "Actual — the figure from Lesson 1",
+      "hint": "WTW's 2026 survey of 312 employers covering 4.6 million US employees.",
+      "placeholder": "e.g. 20",
+      "min": 0,
+      "max": 100,
+      "actualFor": "operationalizingPct"
+    }
   ],
   "dimensions": [
-    { "name": "The claim is real and has a cost attached", "criteria": "A verbatim quote from a vendor whose invoice the learner's organization actually approves — not a hypothetical, not a competitor, not a generic industry article. Sourced somewhere specific: marketing page, QBR deck, renewal conversation. A claim the learner has money riding on outscores a safer, more interesting one from a vendor they don't buy from." },
-    { "name": "The three questions were actually worked", "criteria": "Evidence: what observation supports the claim, and an account of where they had to look to find out — 'I could not locate any' is a strong answer when it's true. Sample: how many, of whom, when, and selected how, with an unpublished sample explicitly recorded as a finding rather than a dead end. Falsifier: what we would observe if the claim were false, and whether anyone has checked. Watch for the common shortcut of restating the claim as its own evidence." },
-    { "name": "The verdict is committed and the distinctions hold", "criteria": "One of the three verdicts chosen, not hedged across two. The distinction between unverifiable (may be true, cannot be checked) and unfalsifiable (constructed so no observation could contradict it) applied correctly — collapsing either into 'false' is the error to catch. A 'supported' verdict scores at the top when the evidence genuinely holds up; a teardown that concludes the vendor is fine is a good outcome, not a weak one." },
-    { "name": "The question and the consequence", "criteria": "One question specific enough that the vendor could answer it — a denominator, a sample definition, a measurement boundary — and consequential enough that the answer would change something the learner does. Vague challenges ('can you prove the ROI?') score low. Plus an honest statement of whether this changes anything about the renewal, including a straight 'no, and here's why'." },
-    { "name": "The delta and the position", "criteria": "Both adoption predictions compared against Lesson 1, with the direction of the lean named and an account of what that suggests about what they've been reading — the gap between practice and intention is the point, not the accuracy. Accuracy is never graded. Plus a committed position on the module's claim that engages its real counter-argument: that vendors often see genuine shifts first, so their roadmaps can be leading indicators rather than fictions, and the answer may be to read vendor material carefully rather than discount it." }
+    {
+      "name": "The claim is real and has a cost attached",
+      "criteria": "A verbatim quote from a vendor whose invoice the learner's organization actually approves, not a hypothetical, not a competitor, not a generic industry article. Sourced somewhere specific: marketing page, QBR deck, renewal conversation. A claim the learner has money riding on outscores a safer, more interesting one from a vendor they don't buy from."
+    },
+    {
+      "name": "The three questions were actually worked",
+      "criteria": "Evidence: what observation supports the claim, and an account of where they had to look to find out, 'I could not locate any' is a strong answer when it's true. Sample: how many, of whom, when, and selected how, with an unpublished sample explicitly recorded as a finding rather than a dead end. Falsifier: what we would observe if the claim were false, and whether anyone has checked. Watch for the common shortcut of restating the claim as its own evidence."
+    },
+    {
+      "name": "The verdict is committed and the distinctions hold",
+      "criteria": "One of the three verdicts chosen, not hedged across two. The distinction between unverifiable (may be true, cannot be checked) and unfalsifiable (constructed so no observation could contradict it) applied correctly, collapsing either into 'false' is the error to catch. A 'supported' verdict scores at the top when the evidence genuinely holds up; a teardown that concludes the vendor is fine is a good outcome, not a weak one."
+    },
+    {
+      "name": "The question and the consequence",
+      "criteria": "One question specific enough that the vendor could answer it (a denominator, a sample definition, a measurement boundary) and consequential enough that the answer would change something the learner does. Vague challenges ('can you prove the ROI?') score low. Plus an honest statement of whether this changes anything about the renewal, including a straight 'no, and here's why'."
+    },
+    {
+      "name": "The delta and the position",
+      "criteria": "Both adoption predictions compared against Lesson 1, with the direction of the lean named and an account of what that suggests about what they've been reading: the gap between practice and intention is the point, not the accuracy. Accuracy is never graded. Plus a committed position on the module's claim that engages its real counter-argument: that vendors often see genuine shifts first, so their roadmaps can be leading indicators rather than fictions, and the answer may be to read vendor material carefully rather than discount it."
+    }
   ]
 }

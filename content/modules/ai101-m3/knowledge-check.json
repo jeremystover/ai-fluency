@@ -25,7 +25,7 @@
         "Proof the product doesn't use a large language model, since LLM costs are always metered"
       ],
       "correctIndex": 2,
-      "explanation": "Flat prices don't remove the meter; they hide it behind a usage prediction. The practical habit: ask what happens at ten times your expected volume — the answer locates the real limit. B might even prove true for a given vendor, but it's a guess about one company, not the structure of the price."
+      "explanation": "Flat prices don't remove the meter; they hide it behind a usage prediction. The practical habit: ask what happens at ten times your expected volume: the answer locates the real limit. B might even prove true for a given vendor, but it's a guess about one company, not the structure of the price."
     },
     {
       "id": "q3",
@@ -37,7 +37,7 @@
         "The subscription's fair-use cap truncated the output"
       ],
       "correctIndex": 1,
-      "explanation": "Fits is not attends: everything in the window competes for influence, and the middle of a long context is where details stop mattering first — while fluency stays perfect, which is what makes it dangerous. A confuses the cutoff (training time) with the window (right now); C and D aren't this mechanism."
+      "explanation": "Fits is not attends: everything in the window competes for influence, and the middle of a long context is where details stop mattering first, while fluency stays perfect, which is what makes it dangerous. A confuses the cutoff (training time) with the window (right now); C and D aren't this mechanism."
     },
     {
       "id": "q4",
@@ -49,7 +49,7 @@
         "Any task involving employee data, since cheaper models are safer with sensitive inputs"
       ],
       "correctIndex": 0,
-      "explanation": "Supplied material, clear instructions, known output shape, human review — the delegation heuristic's center, where tier differences barely show. B and C are the judgment-heavy profile where the frontier model earns its price — and where the real flag is more review, not just more spend. D confuses the tier question with the data question; model size has nothing to do with data terms."
+      "explanation": "Supplied material, clear instructions, known output shape, human review: the delegation heuristic's center, where tier differences barely show. B and C are the judgment-heavy profile where the frontier model earns its price, and where the real flag is more review, not just more spend. D confuses the tier question with the data question; model size has nothing to do with data terms."
     },
     {
       "id": "q5",
@@ -61,7 +61,7 @@
         "Per-seat is only available in enterprise agreements"
       ],
       "correctIndex": 1,
-      "explanation": "Each structure fails at its own edge: flat plans at sustained heavy use (that's what the fine print is for), metered at the surge you didn't forecast — survey season arriving as an invoice. C is true of the underlying meter but false about who carries the risk, which is the entire question."
+      "explanation": "Each structure fails at its own edge: flat plans at sustained heavy use (that's what the fine print is for), metered at the surge you didn't forecast, survey season arriving as an invoice. C is true of the underlying meter but false about who carries the risk, which is the entire question."
     },
     {
       "id": "q6",
@@ -97,7 +97,7 @@
         "To determine which employees need training on the tool"
       ],
       "correctIndex": 0,
-      "explanation": "Token costs are usually the small number; the reviewing human is the big one. An estimate without that line flatters every use case and hides the honest finding — sometimes the verdict is \"leave it manual,\" and the activity treats that as a result, not a failure. B overstates current requirements (M7 covers what actually applies); C and D aren't what the line is for."
+      "explanation": "Token costs are usually the small number; the reviewing human is the big one. An estimate without that line flatters every use case and hides the honest finding: sometimes the verdict is \"leave it manual,\" and the activity treats that as a result, not a failure. B overstates current requirements (M7 covers what actually applies); C and D aren't what the line is for."
     }
   ]
 }

@@ -3,17 +3,41 @@
   "title": "Four claims from four vendors",
   "intro": "*Five minutes. Commit before you look.*\n\nFour comp-tech vendors, four claims lifted from a website, a QBR deck, a conference stage, and a renewal email. **One of them has evidence behind it.**\n\nThe test isn't which claim is most plausible, or which product you'd rather buy. It's which one survives the three questions: what's the evidence, what's the sample, what would falsify it.",
   "artifacts": [
-    { "label": "Claim A", "body": "\"Leading total rewards organizations are moving from annual to continuous compensation decisioning. Forward-thinking teams have already made the shift, and the gap between them and everyone else is widening.\"" },
-    { "label": "Claim B", "body": "\"Our AI job-matching engine improves the quality of your market pricing decisions.\"" },
-    { "label": "Claim C", "body": "\"In a 2025 test across 41 customers, job descriptions drafted with our tool went through 1.4 rounds of manager revision on average versus 2.6 for the prior manual process. Customers were the 41 who agreed to instrument the workflow; median org size 2,400 employees; we did not measure downstream offer acceptance.\"" },
-    { "label": "Claim D", "body": "\"Three of our customers cut their merit cycle from six weeks to under three. One of them is a Fortune 500 retailer — read the case studies on our site.\"" }
+    {
+      "label": "Claim A",
+      "body": "\"Leading total rewards organizations are moving from annual to continuous compensation decisioning. Forward-thinking teams have already made the shift, and the gap between them and everyone else is widening.\""
+    },
+    {
+      "label": "Claim B",
+      "body": "\"Our AI job-matching engine improves the quality of your market pricing decisions.\""
+    },
+    {
+      "label": "Claim C",
+      "body": "\"In a 2025 test across 41 customers, job descriptions drafted with our tool went through 1.4 rounds of manager revision on average versus 2.6 for the prior manual process. Customers were the 41 who agreed to instrument the workflow; median org size 2,400 employees; we did not measure downstream offer acceptance.\""
+    },
+    {
+      "label": "Claim D",
+      "body": "\"Three of our customers cut their merit cycle from six weeks to under three. One of them is a Fortune 500 retailer, read the case studies on our site.\""
+    }
   ],
   "options": [
-    { "id": "a", "label": "Claim A" },
-    { "id": "b", "label": "Claim B" },
-    { "id": "c", "label": "Claim C" },
-    { "id": "d", "label": "Claim D" }
+    {
+      "id": "a",
+      "label": "Claim A"
+    },
+    {
+      "id": "b",
+      "label": "Claim B"
+    },
+    {
+      "id": "c",
+      "label": "Claim C"
+    },
+    {
+      "id": "d",
+      "label": "Claim D"
+    }
   ],
   "key": "c",
-  "reasoning": "**C is the only one you could check, and notice how unimpressive it sounds.** It names a measurement (rounds of manager revision), a number of subjects (41), a period, a size profile, *and its own selection mechanism* — customers who agreed to instrument the workflow, which is not a random sample and the vendor says so. It also states what it didn't measure. That last sentence is worth more than the headline: a vendor who tells you the boundary of their evidence is a vendor whose evidence has a boundary.\n\nIt is still not proof. The 41 self-selected, the comparison is against their own prior process rather than a control, and \"fewer revision rounds\" may or may not be a thing you want. But it is falsifiable and checkable, which puts it in a different category from the other three.\n\n**A is the roadmap wearing a trend — all three tells at once.** The trend has no subject: who is doing continuous decisioning, how many, since when? The evidence is an anecdote scaled by an adjective — *leading*, *forward-thinking* — quantifiers with no quantity, sitting exactly where a number would be if one existed. And the widening gap is there to make you feel late. Ask *how many* and the sentence collapses.\n\n**B is unfalsifiable, and it's the most seductive of the four because it's the most reasonable-sounding.** \"Improves the quality of your decisions\" — what observation would contradict it? None, as stated. There's no definition of quality, no baseline, no counterfactual. It's a slogan with a chart next to it, and it is the single most common sentence in this market.\n\n**D is the case-study trap, and this is where numerate people get caught.** Three real customers, one of them named, with a specific and verifiable-sounding result. The problem is arithmetic: **how many customers does this vendor have?** If it's 400, then three case studies tell you that at least three worked and the other 397 are unaccounted for — including the ones who churned. The customers who agree to be case studies are the ones for whom it worked. D isn't false. It's a sample of survivors presented as a result.\n\nThe transferable move: **when a claim gives you a numerator, ask for the denominator.** A, B and D never offer one. C hands it to you unprompted."
+  "reasoning": "**C is the only one you could check, and notice how unimpressive it sounds.** It names a measurement (rounds of manager revision), a number of subjects (41), a period, a size profile, *and its own selection mechanism*: customers who agreed to instrument the workflow, which is not a random sample and the vendor says so. It also states what it didn't measure. That last sentence is worth more than the headline: a vendor who tells you the boundary of their evidence is a vendor whose evidence has a boundary.\n\nIt is still not proof. The 41 self-selected, the comparison is against their own prior process rather than a control, and \"fewer revision rounds\" may or may not be a thing you want. But it is falsifiable and checkable, which puts it in a different category from the other three.\n\n**A is the roadmap wearing a trend: all three tells at once.** The trend has no subject: who is doing continuous decisioning, how many, since when? The evidence is an anecdote scaled by an adjective (*leading*, *forward-thinking*) quantifiers with no quantity, sitting exactly where a number would be if one existed. And the widening gap is there to make you feel late. Ask *how many* and the sentence collapses.\n\n**B is unfalsifiable, and it's the most seductive of the four because it's the most reasonable-sounding.** \"Improves the quality of your decisions\" — what observation would contradict it? None, as stated. There's no definition of quality, no baseline, no counterfactual. It's a slogan with a chart next to it, and it is the single most common sentence in this market.\n\n**D is the case-study trap, and this is where numerate people get caught.** Three real customers, one of them named, with a specific and verifiable-sounding result. The problem is arithmetic: **how many customers does this vendor have?** If it's 400, then three case studies tell you that at least three worked and the other 397 are unaccounted for, including the ones who churned. The customers who agree to be case studies are the ones for whom it worked. D isn't false. It's a sample of survivors presented as a result.\n\nThe transferable move: **when a claim gives you a numerator, ask for the denominator.** A, B and D never offer one. C hands it to you unprompted."
 }

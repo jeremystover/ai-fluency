@@ -13,7 +13,7 @@
         "Because wellbeing gains offset the connection losses"
       ],
       "correctIndex": 1,
-      "explanation": "62% reporting lower stress is a large effect. If the finding were simply \"AI makes people miserable,\" the politics would be easy — the difficulty is that both halves are true of the same population."
+      "explanation": "62% reporting lower stress is a large effect. If the finding were simply \"AI makes people miserable,\" the politics would be easy: the difficulty is that both halves are true of the same population."
     },
     {
       "id": "q2",
@@ -97,7 +97,7 @@
         "That it occurs at least monthly"
       ],
       "correctIndex": 2,
-      "explanation": "If someone whose job is removing steps could not be answered on the work's own terms, it's manufactured friction and it will be removed. D is one of the three tests — repetition — but not the one that separates structural from manufactured."
+      "explanation": "If someone whose job is removing steps could not be answered on the work's own terms, it's manufactured friction and it will be removed. D is one of the three tests (repetition) but not the one that separates structural from manufactured."
     }
   ]
 }

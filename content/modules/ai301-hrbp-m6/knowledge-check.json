@@ -25,7 +25,7 @@
         "None — the entire regime was postponed under the Digital Omnibus"
       ],
       "correctIndex": 2,
-      "explanation": "The high-risk employment duties moved to 2 December 2027 under Regulation (EU) 2026/1744; three sets did not. AI literacy and the emotion-recognition ban have applied since February 2025 — and the ban is a prohibition, not a risk to manage. The transparency obligations took effect 2 August 2026 and apply regardless of risk class, which is why a recruiting or HR service chatbot is in scope now rather than in 2027. Deferral of one regime is not runway across the Act."
+      "explanation": "The high-risk employment duties moved to 2 December 2027 under Regulation (EU) 2026/1744; three sets did not. AI literacy and the emotion-recognition ban have applied since February 2025, and the ban is a prohibition, not a risk to manage. The transparency obligations took effect 2 August 2026 and apply regardless of risk class, which is why a recruiting or HR service chatbot is in scope now rather than in 2027. Deferral of one regime is not runway across the Act."
     },
     {
       "id": "q3",
@@ -37,7 +37,7 @@
         "Nothing yet, since the case remains unresolved"
       ],
       "correctIndex": 2,
-      "explanation": "The court allowed the agent theory to proceed on the basis that customers had delegated the function of rejecting or advancing candidates. D is the tempting answer — the case is ongoing — but procurement behaviour should change on the theory surviving, not on final judgment."
+      "explanation": "The court allowed the agent theory to proceed on the basis that customers had delegated the function of rejecting or advancing candidates. D is the tempting answer (the case is ongoing) but procurement behaviour should change on the theory surviving, not on final judgment."
     },
     {
       "id": "q4",
@@ -73,7 +73,7 @@
         "At investigations involving protected characteristics"
       ],
       "correctIndex": 1,
-      "explanation": "101 M7's line in its highest-stakes location — and unlike a hiring screen, there is a named individual with a specific consequence attached. A is over-broad (M4's redaction handles names); C would prohibit most ER documentation entirely."
+      "explanation": "101 M7's line in its highest-stakes location, and unlike a hiring screen, there is a named individual with a specific consequence attached. A is over-broad (M4's redaction handles names); C would prohibit most ER documentation entirely."
     },
     {
       "id": "q7",
@@ -85,7 +85,7 @@
         "Retain all AI conversation logs for the statutory retention period"
       ],
       "correctIndex": 2,
-      "explanation": "And the module notes it isn't really about AI — a document whose production you can't describe was already weak. The supporting practices (record that AI assisted, keep the source material, don't let model phrasing become a finding) all serve it."
+      "explanation": "And the module notes it isn't really about AI: a document whose production you can't describe was already weak. The supporting practices (record that AI assisted, keep the source material, don't let model phrasing become a finding) all serve it."
     },
     {
       "id": "q8",

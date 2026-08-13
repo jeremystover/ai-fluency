@@ -1,34 +1,96 @@
 {
   "reviewedAt": "2026-08-12",
   "buckets": [
-    { "id": "never", "label": "Never", "hint": "Over the line", "rank": 0, "pct": 5 },
-    { "id": "discipline", "label": "With the discipline", "hint": "Provenance recorded, human source kept", "rank": 1, "pct": 50 },
-    { "id": "run", "label": "Run it", "hint": "Ordinary care", "rank": 2, "pct": 90 }
+    {
+      "id": "never",
+      "label": "Never",
+      "hint": "Over the line",
+      "rank": 0,
+      "pct": 5
+    },
+    {
+      "id": "discipline",
+      "label": "With the discipline",
+      "hint": "Provenance recorded, human source kept",
+      "rank": 1,
+      "pct": 50
+    },
+    {
+      "id": "run",
+      "label": "Run it",
+      "hint": "Ordinary care",
+      "rank": 2,
+      "pct": 90
+    }
   ],
   "tasks": [
-    { "id": "t1", "text": "Asking \"what did I fail to ask?\" against your own draft investigation plan", "key": "run",
-      "reasoning": "The completeness pass. It audits your coverage rather than evaluating anyone, and it catches the omission that becomes a problem eighteen months later. The safest high-value use in the module and the one almost nobody runs." },
-    { "id": "t2", "text": "Asking the model which of two conflicting witness accounts is more credible", "key": "never",
-      "reasoning": "A credibility determination — the single clearest stop in this module. There is a named individual with a specific consequence attached to the answer, and the model has no basis for it beyond the plausibility of text." },
-    { "id": "t3", "text": "Turning your own handwritten interview notes into a structured summary, headings matching your team's format", "key": "discipline",
-      "reasoning": "Assist-side and genuinely useful — but it produces a document that may be read years later under oath. Record that AI assisted and on what date, and keep the handwritten source. The discipline costs a line of file notes." },
-    { "id": "t4", "text": "Flagging conclusory language in your draft — \"was hostile\" where an observation belongs", "key": "run",
-      "reasoning": "Language discipline, and models are unusually good at it. It improves the document's defensibility rather than threatening it: replacing characterization with observation is what a hostile reader would demand anyway." },
-    { "id": "t5", "text": "Drafting the termination rationale from the case file", "key": "discipline",
-      "reasoning": "Defensible only if every conclusion in it is one you independently reached first — the model formats your finding, it does not supply it. If a sentence appears that you couldn't defend the origin of, rewrite it. Many practitioners would place this at never, and that's a defensible call.",
-      "also": ["never"] },
-    { "id": "t6", "text": "Pasting an employee's unredacted complaint into a consumer chatbot account to \"get a second opinion\"", "key": "never",
-      "reasoning": "Fails before the line question even arises: 101 M4 tier violation under an agreement that likely permits training on inputs. Note the framing — \"second opinion\" is how this arrives in real life, and it sounds reasonable." },
-    { "id": "t7", "text": "Summarizing your organization's own written policy so you can check a process step against it", "key": "run",
-      "reasoning": "Supplied material, transformation, no person in it, and you can verify the summary against the source in seconds. Ordinary care." },
-    { "id": "t8", "text": "Asking the model to suggest an appropriate disciplinary outcome based on precedent", "key": "never",
-      "reasoning": "A conclusion about what should happen to a named person. That the reasoning cites precedent makes it more persuasive and no more legitimate — precedent selection is itself the judgment being delegated." },
-    { "id": "t9", "text": "Generating three alternative phrasings of a PIP objective so it's measurable rather than vague", "key": "discipline",
-      "reasoning": "The objective is yours; the phrasing is craft assistance, and a measurable objective is fairer to the employee than a vague one. Discipline because it's a consequential document about a named individual — keep the source, record the assistance." },
-    { "id": "t10", "text": "Asking the model whether a pattern across four ER cases suggests a manager problem", "key": "discipline",
-      "reasoning": "The hardest card. Pattern analysis across cases is legitimate assist-side work and exactly what an HRBP should be doing — but n=4 is Module 5's small-numbers trap, and the subject is one identifiable manager. Run it as a hypothesis generator with the n stated, never as a finding.",
-      "also": ["never"] }
+    {
+      "id": "t1",
+      "text": "Asking \"what did I fail to ask?\" against your own draft investigation plan",
+      "key": "run",
+      "reasoning": "The completeness pass. It audits your coverage rather than evaluating anyone, and it catches the omission that becomes a problem eighteen months later. The safest high-value use in the module and the one almost nobody runs."
+    },
+    {
+      "id": "t2",
+      "text": "Asking the model which of two conflicting witness accounts is more credible",
+      "key": "never",
+      "reasoning": "A credibility determination: the single clearest stop in this module. There is a named individual with a specific consequence attached to the answer, and the model has no basis for it beyond the plausibility of text."
+    },
+    {
+      "id": "t3",
+      "text": "Turning your own handwritten interview notes into a structured summary, headings matching your team's format",
+      "key": "discipline",
+      "reasoning": "Assist-side and genuinely useful, but it produces a document that may be read years later under oath. Record that AI assisted and on what date, and keep the handwritten source. The discipline costs a line of file notes."
+    },
+    {
+      "id": "t4",
+      "text": "Flagging conclusory language in your draft — \"was hostile\" where an observation belongs",
+      "key": "run",
+      "reasoning": "Language discipline, and models are unusually good at it. It improves the document's defensibility rather than threatening it: replacing characterization with observation is what a hostile reader would demand anyway."
+    },
+    {
+      "id": "t5",
+      "text": "Drafting the termination rationale from the case file",
+      "key": "discipline",
+      "reasoning": "Defensible only if every conclusion in it is one you independently reached first: the model formats your finding, it does not supply it. If a sentence appears that you couldn't defend the origin of, rewrite it. Many practitioners would place this at never, and that's a defensible call.",
+      "also": [
+        "never"
+      ]
+    },
+    {
+      "id": "t6",
+      "text": "Pasting an employee's unredacted complaint into a consumer chatbot account to \"get a second opinion\"",
+      "key": "never",
+      "reasoning": "Fails before the line question even arises: 101 M4 tier violation under an agreement that likely permits training on inputs. Note the framing — \"second opinion\" is how this arrives in real life, and it sounds reasonable."
+    },
+    {
+      "id": "t7",
+      "text": "Summarizing your organization's own written policy so you can check a process step against it",
+      "key": "run",
+      "reasoning": "Supplied material, transformation, no person in it, and you can verify the summary against the source in seconds. Ordinary care."
+    },
+    {
+      "id": "t8",
+      "text": "Asking the model to suggest an appropriate disciplinary outcome based on precedent",
+      "key": "never",
+      "reasoning": "A conclusion about what should happen to a named person. That the reasoning cites precedent makes it more persuasive and no more legitimate, precedent selection is itself the judgment being delegated."
+    },
+    {
+      "id": "t9",
+      "text": "Generating three alternative phrasings of a PIP objective so it's measurable rather than vague",
+      "key": "discipline",
+      "reasoning": "The objective is yours; the phrasing is craft assistance, and a measurable objective is fairer to the employee than a vague one. Discipline because it's a consequential document about a named individual: keep the source, record the assistance."
+    },
+    {
+      "id": "t10",
+      "text": "Asking the model whether a pattern across four ER cases suggests a manager problem",
+      "key": "discipline",
+      "reasoning": "The hardest card. Pattern analysis across cases is legitimate assist-side work and exactly what an HRBP should be doing, but n=4 is Module 5's small-numbers trap, and the subject is one identifiable manager. Run it as a hypothesis generator with the n stated, never as a finding.",
+      "also": [
+        "never"
+      ]
+    }
   ],
   "pattern": "Assist stops the moment the model contributes to whether you believe someone, or what should happen to them.",
-  "postscript": "The never cards share one property: a model contributing to a judgment about a person — credibility, outcome, or character. The discipline cards are all documents that may be read later by someone hostile, where the cost of provenance is one line in your file notes. Cards placed too permissively are the expensive direction here; cards placed too cautiously cost you only the completeness pass, which is the one genuinely free win in the set. Note t5 and t10 are legitimately arguable, and the reveal says so — a defensible stricter call is not a miss."
+  "postscript": "The never cards share one property: a model contributing to a judgment about a person: credibility, outcome, or character. The discipline cards are all documents that may be read later by someone hostile, where the cost of provenance is one line in your file notes. Cards placed too permissively are the expensive direction here; cards placed too cautiously cost you only the completeness pass, which is the one genuinely free win in the set. Note t5 and t10 are legitimately arguable, and the reveal says so: a defensible stricter call is not a miss."
 }

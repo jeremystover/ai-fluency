@@ -13,7 +13,7 @@
         "It taught you to see the organization through its risks rather than its opportunities"
       ],
       "correctIndex": 1,
-      "explanation": "Outside your function you see the load *you* would carry in their job, and nothing corrects you — they will not volunteer that you've misunderstood them. They will just stop bringing you things."
+      "explanation": "Outside your function you see the load *you* would carry in their job, and nothing corrects you. They will not volunteer that you've misunderstood them. They will just stop bringing you things."
     },
     {
       "id": "q2",
@@ -49,7 +49,7 @@
         "Whose unowned asks they are absorbing"
       ],
       "correctIndex": 1,
-      "explanation": "Asking finance for something material in the last week of a quarter is not a scheduling error, it's a credibility error — invisible to you and entirely visible to them. Four dates, one afternoon."
+      "explanation": "Asking finance for something material in the last week of a quarter is not a scheduling error, it's a credibility error, invisible to you and entirely visible to them. Four dates, one afternoon."
     },
     {
       "id": "q5",
@@ -61,7 +61,7 @@
         "How much budget they control"
       ],
       "correctIndex": 2,
-      "explanation": "The answer is usually narrower than you would like, and it's the actual starting position for every artifact in the rest of the course — working from the version you wish were true is how a good proposal lands in a room that already filed you under something else."
+      "explanation": "The answer is usually narrower than you would like, and it's the actual starting position for every artifact in the rest of the course, working from the version you wish were true is how a good proposal lands in a room that already filed you under something else."
     },
     {
       "id": "q6",
@@ -73,7 +73,7 @@
         "Because most questions have several valid interpretations"
       ],
       "correctIndex": 1,
-      "explanation": "Which is why the move is one sentence spoken out loud rather than a silent inference — a private guess cannot be corrected."
+      "explanation": "Which is why the move is one sentence spoken out loud rather than a silent inference: a private guess cannot be corrected."
     },
     {
       "id": "q7",
@@ -97,7 +97,7 @@
         "Because the relevant evidence is too dated to use"
       ],
       "correctIndex": 1,
-      "explanation": "The module argues from mechanism and asks the learner to run the test on themselves — which, in a course about making people check things, is the correct trade."
+      "explanation": "The module argues from mechanism and asks the learner to run the test on themselves, which, in a course about making people check things, is the correct trade."
     }
   ]
 }

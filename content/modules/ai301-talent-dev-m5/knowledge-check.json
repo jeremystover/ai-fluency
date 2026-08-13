@@ -13,7 +13,7 @@
         "Because compliance training is exempt from instructional design standards"
       ],
       "correctIndex": 1,
-      "explanation": "It is Module 3's jurisdictional drift with a penalty attached: nothing in the content is untrue, every fact checks out, and the obligation is not satisfied."
+      "explanation": "It is Module 3's jurisdictional drift with a penalty attached: nothing in the content is untrue, every fact checks out, and the obligation isn't satisfied."
     },
     {
       "id": "q2",
@@ -25,7 +25,7 @@
         "The Act applies only to systems that make automated employment decisions"
       ],
       "correctIndex": 1,
-      "explanation": "Deferral of one regime is not runway across the Act. A learner who takes away only the 2027 date has the dangerous version of this lesson."
+      "explanation": "Deferral of one regime isn't runway across the Act. A learner who takes away only the 2027 date has the dangerous version of this lesson."
     },
     {
       "id": "q3",
@@ -37,7 +37,7 @@
         "Because WCAG conformance must be recertified as catalogs grow"
       ],
       "correctIndex": 1,
-      "explanation": "A function that went from twelve modules to sixty did not triple its risk. And the material at highest volume is the least reviewed, which is where the debt sits."
+      "explanation": "A function that went from twelve modules to sixty didn't triple its risk. And the material at highest volume is the least reviewed, which is where the debt sits."
     },
     {
       "id": "q4",
@@ -97,7 +97,7 @@
         "As a matter for the IT function rather than L&D"
       ],
       "correctIndex": 1,
-      "explanation": "A pass rate tells you how you are doing against a standard. No standard means nobody has ever asked, and every asset published since is unexamined — which is a larger fact about the function than any percentage."
+      "explanation": "A pass rate tells you how you're doing against a standard. No standard means nobody has ever asked, and every asset published since is unexamined, which is a larger fact about the function than any percentage."
     }
   ]
 }

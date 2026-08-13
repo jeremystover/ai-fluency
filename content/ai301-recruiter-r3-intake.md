@@ -34,7 +34,7 @@ first one.
 Errors at intake compound. A vague scorecard produces a vague search, which produces candidates
 who are technically qualified and obviously wrong, which produces a hiring manager saying "I'll
 know it when I see it," which produces four more weeks and a different vague search. Errors at
-scheduling do not compound — a mis-booked interview costs an apology and fifteen minutes.
+scheduling do not compound: a mis-booked interview costs an apology and fifteen minutes.
 
 Yet the attention is allocated exactly backwards. Scheduling has tooling, process, and
 automation. Intake has a thirty-minute call that half the time is a hiring manager reading you
@@ -44,7 +44,7 @@ AI changes the economics of that hour substantially — not because it can condu
 because **it collapses the cost of turning a conversation into artifacts.** A forty-five minute
 conversation can now produce a scorecard, calibration examples, a sourcing hypothesis, and an
 interview guide in the time it used to take to write up notes. Which means the constraint moves
-from *production* to *the quality of the conversation itself* — and that is a recruiting skill,
+from *production* to *the quality of the conversation itself*, and that is a recruiting skill,
 not a tooling one.
 
 The unglamorous truth of this module: the most valuable thing you can do with AI in recruiting is
@@ -56,7 +56,7 @@ By the end of this module you should be able to:
 
 1. Explain why intake errors compound and downstream errors don't.
 2. Convert an intake conversation into four artifacts, with the judgment retained.
-3. Challenge a specification rather than taking an order — including the requirements that are
+3. Challenge a specification rather than taking an order, including the requirements that are
    proxies for something unsaid.
 4. Rehearse an intake before running it, using an adversary set adapted for this conversation.
 5. Get your scorecard marked wrong by the person who has to live with it.
@@ -89,14 +89,14 @@ compounding isn't.
 Forty-five minutes of conversation into four artifacts. The model does the production; you supply
 the judgment and the material.
 
-**The scorecard.** Four to six competencies, each with what "good" looks like *behaviourally* —
+**The scorecard.** Four to six competencies, each with what "good" looks like *behaviourally*,
 not adjectives. "Strong communicator" is not a competency; "can explain a technical trade-off to
 a non-technical stakeholder such that they can restate it" is. The test: could two interviewers
 independently score the same candidate and agree within a point? If not, you have an adjective,
 not a competency.
 
 **Calibration examples.** Two or three profiles, ideally real and anonymized: one clear yes, one
-clear no, one genuinely borderline. **The borderline one does the most work** — it's where the
+clear no, one genuinely borderline. **The borderline one does the most work**. It's where the
 hiring manager's actual bar lives, and it's the artifact that will resolve the week-five argument
 before it happens.
 
@@ -105,8 +105,8 @@ what would make them move. Stated as a hypothesis so it can be falsified in week
 defended for a month.
 
 **The interview guide.** Which stage tests which competency, with the questions. Every competency
-tested at least once, no competency tested three times, and — Module 4's requirement arriving
-early — at least one stage where the answer can't be pre-generated.
+tested at least once, no competency tested three times, and (Module 4's requirement arriving
+early) at least one stage where the answer can't be pre-generated.
 
 Where AI genuinely helps: producing all four from your notes in minutes, flagging competencies
 that appear in the scorecard but nowhere in the guide, and generating the *questions* once you've
@@ -124,14 +124,14 @@ examined since the last time they hired. The move is not to argue — it's to as
 A inherited one produces a pause, and the pause is where the conversation gets useful.
 
 **The proxy requirement.** "Five years of experience" is almost never about five years. It's a
-proxy for something the manager hasn't articulated — usually autonomy, or having survived a
+proxy for something the manager hasn't articulated: usually autonomy, or having survived a
 specific kind of failure, or credibility with a particular stakeholder. Ask what the proxy is
 standing in for and you frequently discover the real requirement is both narrower and easier to
 source for. This is also where a great deal of avoidable adverse impact enters a search, which
 Module 6 returns to.
 
 **The unstated deal-breaker.** The thing that will actually reject candidates and that nobody
-wrote down — a personality fit with a specific team member, an unspoken seniority signal, a
+wrote down, a personality fit with a specific team member, an unspoken seniority signal, a
 budget ceiling described as flexible. The question that surfaces it: *"Tell me about the last
 person you rejected late in a process. What was it?"* Late-stage rejections are where the real
 criteria live, because that's where the stated ones had already been satisfied.
@@ -159,7 +159,7 @@ honestly can."* Surfaces which of your challenges you can actually support.
 
 **The exec who wants it in three weeks.** *"You want this filled by month-end. I'm telling you the
 realistic timeline is nine weeks. What do you say, and what do you offer to trade?"* Surfaces
-whether you have a trade ready — scope, level, comp, or interim cover — because "it'll take
+whether you have a trade ready (scope, level, comp, or interim cover) because "it'll take
 longer" without an alternative loses every time.
 
 **The panel that will disagree in the debrief.** *"You're an interviewer who scored this candidate
@@ -180,10 +180,10 @@ meeting?** If nothing, the rehearsal produced confidence rather than preparation
   AI produces them; you supply the conversation and the judgment.
 - **The scorecard test:** could two interviewers score the same candidate independently and agree
   within a point? If not, you have adjectives.
-- **The borderline calibration example does the most work** — it's where the real bar lives, and
+- **The borderline calibration example does the most work**. It's where the real bar lives, and
   it resolves the week-five argument before it happens.
 - **Challenge the spec with mechanisms, not opinions.** "What happens in the first ninety days that
-  requires that?" — a real requirement has an answer, an inherited one produces a pause.
+  requires that?": a real requirement has an answer, an inherited one produces a pause.
 - **"Five years" is a proxy.** Find what it stands in for and the real requirement is usually
   narrower, easier to source, and less exposed to adverse impact.
 - **Late-stage rejections reveal the real criteria**, because the stated ones had already been met.
@@ -204,18 +204,18 @@ effective recruiters work exactly this way. Your position has to engage it.
 **Time:** 25 minutes · **Submit:** the four artifacts, the marked-up version, and a 250–350 word
 write-up · **Graded against the rubric below.**
 
-**Step 1 — Run a real intake (or use one you ran recently).** The requisition you're carrying
+**Step 1. Run a real intake (or use one you ran recently).** The requisition you're carrying
 through the track.
 
-**Step 2 — Produce the four artifacts (12 min).** Scorecard, calibration examples, sourcing
+**Step 2. Produce the four artifacts (12 min).** Scorecard, calibration examples, sourcing
 hypothesis, interview guide. Use AI for production; the competencies and the bar are yours.
 
 **Step 3 — Send it to the hiring manager and ask them to mark what's wrong (10 min).** Exactly
-that framing — not "does this look right?", which produces "looks great." Ask them to mark
+that framing, not "does this look right?", which produces "looks great." Ask them to mark
 anything they'd score differently, anything missing, and anything they'd reject a candidate for
 that isn't written down.
 
-**Step 4 — Score the prediction (3 min).** Items you predicted they'd mark against what came back.
+**Step 4. Score the prediction (3 min).** Items you predicted they'd mark against what came back.
 
 Then the write-up: **what they marked**, what that reveals about the gap between the conversation
 and your understanding of it, your position on the claim above with its counter-argument
@@ -232,7 +232,7 @@ whether you think that's alignment or disengagement.
 **Q1.** Why do intake errors compound while scheduling errors don't?
 
 - A. Intake happens earlier in the calendar
-- B. Everything downstream is derived from the scorecard — search, outreach, screening calibration, the loop, the debrief — and the defect surfaces at week five, when correction costs a restart ✓
+- B. Everything downstream is derived from the scorecard (search, outreach, screening calibration, the loop, the debrief) and the defect surfaces at week five, when correction costs a restart ✓
 - C. Scheduling errors are caught by automation
 - D. Hiring managers pay more attention to intake
 
@@ -248,14 +248,14 @@ whether you think that's alignment or disengagement.
 - D. Whether it can be assessed in under fifteen minutes
 
 > **C.** "Strong communicator" fails; "can explain a technical trade-off to a non-technical
-> stakeholder such that they can restate it" passes. A is the trap — managers approve adjectives
+> stakeholder such that they can restate it" passes. A is the trap: managers approve adjectives
 > readily, because adjectives are agreeable.
 
 **Q3.** Which calibration example does the most work?
 
 - A. The clear yes, since it defines the target
 - B. The clear no, since it prevents wasted pipeline
-- C. The genuinely borderline one — it's where the hiring manager's real bar lives ✓
+- C. The genuinely borderline one. It's where the hiring manager's real bar lives ✓
 - D. All three equally
 
 > **C.** The yes and no are usually already aligned. The borderline profile is where the bar
@@ -286,11 +286,11 @@ whether you think that's alignment or disengagement.
 **Q6.** Why does the activity ask the hiring manager to "mark what's wrong" rather than "does this look right?"
 
 - A. It's faster for the manager to respond to
-- B. "Does this look right?" reliably produces "looks great," which surfaces nothing — the marked corrections are the entire point ✓
+- B. "Does this look right?" reliably produces "looks great," which surfaces nothing: the marked corrections are the entire point ✓
 - C. It creates a written record for compliance purposes
 - D. It transfers responsibility for the scorecard to the manager
 
-> **B.** The framing determines the response, exactly as it does when prompting a model — asking
+> **B.** The framing determines the response, exactly as it does when prompting a model, asking
 > for approval invites approval. A submission where twelve things came back is stronger than one
 > where nothing did.
 

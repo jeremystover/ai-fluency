@@ -13,7 +13,7 @@
         "Because decisions are more frequent than tasks in People Operations work"
       ],
       "correctIndex": 1,
-      "explanation": "201 M1's task audit is right for building a workflow you own. This is a different question, and the practical consequence is that you cannot enable AI on a decision nobody owns, because there is nobody to sign the enablement."
+      "explanation": "201 M1's task audit is right for building a workflow you own. This is a different question, and the practical consequence is that you can't enable AI on a decision nobody owns, because there is nobody to sign the enablement."
     },
     {
       "id": "q2",
@@ -25,7 +25,7 @@
         "Was this decision reviewed in the last twelve months?"
       ],
       "correctIndex": 2,
-      "explanation": "A team cannot sign anything, and Module 7 ends in a signature. \"Nobody\" is a valid and highly informative answer. D is a reasonable hygiene question and not the diagnostic."
+      "explanation": "A team can't sign anything, and Module 7 ends in a signature. \"Nobody\" is a valid and highly informative answer. D is a reasonable hygiene question and not the diagnostic."
     },
     {
       "id": "q3",
@@ -37,11 +37,11 @@
         "Highest, ahead of recruiting"
       ],
       "correctIndex": 1,
-      "explanation": "From SHRM's 2026 mapping of 138 use cases across 16 practice areas, n=1,722. The pairing is the point: you are the front line of a function that mostly has not started, which makes \"we haven't adopted AI yet\" usually false in your stack specifically."
+      "explanation": "From SHRM's 2026 mapping of 138 use cases across 16 practice areas, n=1,722. The pairing is the point: you're the front line of a function that mostly hasn't started, which makes \"we haven't adopted AI yet\" usually false in your stack specifically."
     },
     {
       "id": "q4",
-      "prompt": "Which of the three doors AI arrives through has no gate — and is the largest?",
+      "prompt": "Which of the three doors AI arrives through has no gate, and is the largest?",
       "options": [
         "Employees using their own consumer tools",
         "New product procurement",
@@ -49,7 +49,7 @@
         "Pilot programs run by other functions"
       ],
       "correctIndex": 2,
-      "explanation": "Procurement is the only gated door and it receives essentially all governance attention. A is real and invisible but smaller. Nearly a third of organizations cannot say whether their current HR systems contain AI features, which is door one's signature."
+      "explanation": "Procurement is the only gated door and it receives essentially all governance attention. A is real and invisible but smaller. Nearly a third of organizations can't say whether their current HR systems contain AI features, which is door one's signature."
     },
     {
       "id": "q5",
@@ -85,11 +85,11 @@
         "Systems work needs no verification budget because logs provide an audit trail"
       ],
       "correctIndex": 1,
-      "explanation": "The same error rate costs wildly different amounts depending on when it surfaces — a nuisance if caught immediately, a year of transactions if caught at the annual audit. Same budget, different denominator."
+      "explanation": "The same error rate costs wildly different amounts depending on when it surfaces: a nuisance if caught immediately, a year of transactions if caught at the annual audit. Same budget, different denominator."
     },
     {
       "id": "q8",
-      "prompt": "What does \"AI can prepare and remind, but it cannot be the control\" require in practice?",
+      "prompt": "What does \"AI can prepare and remind, but it can't be the control\" require in practice?",
       "options": [
         "That a human performs every step of any process with a statutory deadline",
         "That AI is never used for compliance-related work",

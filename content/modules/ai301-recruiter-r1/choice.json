@@ -1,19 +1,43 @@
 {
   "reviewedAt": "2026-08-12",
   "title": "Four responses to volume",
-  "intro": "*Four minutes. Commit before you look.*\n\nA TA team facing 254 applicants per posting proposes four responses. Three of them are screening decisions about people wearing process costumes. **One is a redesign.**\n\nUse Lesson 3's test: does the output attach a flag or a judgment to a candidate — and if it's wrong, would anyone ever find out?",
+  "intro": "*Four minutes. Commit before you look.*\n\nA TA team facing 254 applicants per posting proposes four responses. Three of them are screening decisions about people wearing process costumes. **One is a redesign.**\n\nUse Lesson 3's test: does the output attach a flag or a judgment to a candidate, and if it's wrong, would anyone ever find out?",
   "artifacts": [
-    { "label": "Response A", "body": "\"Deploy AI-detection scoring on résumés and cover letters. Anything above the threshold routes to a separate low-priority queue that we review if we run short of candidates.\"" },
-    { "label": "Response B", "body": "\"Replace the take-home with a 30-minute live working session on a problem the candidate hasn't seen, where they talk through their reasoning and we ask follow-ups.\"" },
-    { "label": "Response C", "body": "\"Add a required attestation: candidates confirm they didn't use AI. We spot-check the ones whose writing seems too polished for their background.\"" },
-    { "label": "Response D", "body": "\"Raise the résumé screen bar — require exact keyword matches on the top five requirements so the volume becomes manageable.\"" }
+    {
+      "label": "Response A",
+      "body": "\"Deploy AI-detection scoring on résumés and cover letters. Anything above the threshold routes to a separate low-priority queue that we review if we run short of candidates.\""
+    },
+    {
+      "label": "Response B",
+      "body": "\"Replace the take-home with a 30-minute live working session on a problem the candidate hasn't seen, where they talk through their reasoning and we ask follow-ups.\""
+    },
+    {
+      "label": "Response C",
+      "body": "\"Add a required attestation: candidates confirm they didn't use AI. We spot-check the ones whose writing seems too polished for their background.\""
+    },
+    {
+      "label": "Response D",
+      "body": "\"Raise the résumé screen bar, require exact keyword matches on the top five requirements so the volume becomes manageable.\""
+    }
   ],
   "options": [
-    { "id": "a", "label": "Response A" },
-    { "id": "b", "label": "Response B" },
-    { "id": "c", "label": "Response C" },
-    { "id": "d", "label": "Response D" }
+    {
+      "id": "a",
+      "label": "Response A"
+    },
+    {
+      "id": "b",
+      "label": "Response B"
+    },
+    {
+      "id": "c",
+      "label": "Response C"
+    },
+    {
+      "id": "d",
+      "label": "Response D"
+    }
   ],
   "key": "b",
-  "reasoning": "**B is the redesign.** It changes what's being measured to something that costs a faker real time and presence — live reasoning on an unseen problem, with follow-ups. No flag is attached to anyone, and a candidate who used AI to prepare is simply a candidate who prepared, which is fine. This is the direction ~47% of hiring teams took by updating probing and ~31% by adding practical tasks, and it's what Module 4 formalizes.\n\n**A is detection with a euphemism.** \"Low-priority queue we review if we run short\" is rejection with extra steps — the false positives never surface, because a candidate deprioritized by a threshold nobody validated doesn't appear in your data. It's a screening criterion with disparate impact and no error rate published.\n\n**C is worse than A, and it's the one people propose in good faith.** The attestation is unenforceable, and the enforcement mechanism — spot-checking writing that seems \"too polished for their background\" — is a proxy for non-native speakers and career-changers stated almost in the clear. Read that phrase back slowly; it has been used to screen people out for decades and predates AI entirely.\n\n**D solves volume by making the signal problem worse.** Exact keyword matching is the single most automatable screen in existence — it rewards precisely the candidates optimizing against your ATS and penalizes the ones describing their work in their own words. It's rationing, and it's rationing tuned to select for tool use.\n\nThe pattern: **three of the four made the funnel more hostile without making it more informative.** Only one changed what was being measured."
+  "reasoning": "**B is the redesign.** It changes what's being measured to something that costs a faker real time and presence: live reasoning on an unseen problem, with follow-ups. No flag is attached to anyone, and a candidate who used AI to prepare is simply a candidate who prepared, which is fine. This is the direction ~47% of hiring teams took by updating probing and ~31% by adding practical tasks, and it's what Module 4 formalizes.\n\n**A is detection with a euphemism.** \"Low-priority queue we review if we run short\" is rejection with extra steps, the false positives never surface, because a candidate deprioritized by a threshold nobody validated doesn't appear in your data. It's a screening criterion with disparate impact and no error rate published.\n\n**C is worse than A, and it's the one people propose in good faith.** The attestation is unenforceable, and the enforcement mechanism (spot-checking writing that seems \"too polished for their background\") is a proxy for non-native speakers and career-changers stated almost in the clear. Read that phrase back slowly; it has been used to screen people out for decades and predates AI entirely.\n\n**D solves volume by making the signal problem worse.** Exact keyword matching is the single most automatable screen in existence — it rewards precisely the candidates optimizing against your ATS and penalizes the ones describing their work in their own words. It's rationing, and it's rationing tuned to select for tool use.\n\nThe pattern: **three of the four made the funnel more hostile without making it more informative.** Only one changed what was being measured."
 }

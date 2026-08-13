@@ -37,7 +37,7 @@
         "Because regulators require documented thresholds"
       ],
       "correctIndex": 1,
-      "explanation": "Which is also why encoded constraints beat instructed ones — the templated notebook makes the check happen rather than asking for it."
+      "explanation": "Which is also why encoded constraints beat instructed ones, the templated notebook makes the check happen rather than asking for it."
     },
     {
       "id": "q4",
@@ -49,7 +49,7 @@
         "Post-treatment covariates"
       ],
       "correctIndex": 2,
-      "explanation": "On whom, compared to what, over what horizon, for those who took it or those offered it. If the estimand is not agreed before the analysis runs, the analysis does not run."
+      "explanation": "On whom, compared to what, over what horizon, for those who took it or those offered it. If the estimand isn't agreed before the analysis runs, the analysis doesn't run."
     },
     {
       "id": "q5",
@@ -73,7 +73,7 @@
         "That the model would perform better with more features"
       ],
       "correctIndex": 1,
-      "explanation": "Aggregate accuracy is not the property the intervention runs on, because the intervention lands on named people."
+      "explanation": "Aggregate accuracy isn't the property the intervention runs on, because the intervention lands on named people."
     },
     {
       "id": "q7",
@@ -85,7 +85,7 @@
         "Performance on simulated data calibrated to industry attrition rates"
       ],
       "correctIndex": 2,
-      "explanation": "A 98.8%-accurate model, on invented people, cited as evidence that flight-risk scoring works. Nobody is being dishonest — the papers state their data — but the number travels without it."
+      "explanation": "A 98.8%-accurate model, on invented people, cited as evidence that flight-risk scoring works. Nobody is being dishonest (the papers state their data) but the number travels without it."
     },
     {
       "id": "q8",
@@ -97,7 +97,7 @@
         "That retention interventions are more expensive than the attrition they prevent"
       ],
       "correctIndex": 1,
-      "explanation": "It is why the deployment literature is thin — that is structural, not laziness. **Naming which compromise you chose is the professional act.** C is real (Lesson 5's last point) and is a different problem."
+      "explanation": "It is why the deployment literature is thin. That is structural, not laziness. **Naming which compromise you chose is the professional act.** C is real (Lesson 5's last point) and is a different problem."
     }
   ]
 }

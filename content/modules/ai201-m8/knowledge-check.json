@@ -25,7 +25,7 @@
         "Each artifact must be re-approved before shipping"
       ],
       "correctIndex": 1,
-      "explanation": "The binder was written longitudinally; the workflow kept moving. The pass reconciles them — spec to rhythm, runbook to budget, pack to census — before the stranger reads."
+      "explanation": "The binder was written longitudinally; the workflow kept moving. The pass reconciles them (spec to rhythm, runbook to budget, pack to census) before the stranger reads."
     },
     {
       "id": "q3",
@@ -37,7 +37,7 @@
         "Questions would take too long"
       ],
       "correctIndex": 1,
-      "explanation": "The cold read is the instrument. Every question the builder answers in person is a stall the binder no longer gets credit for revealing — and documentation debt that survives to the *next* reader, who won't have the builder's number."
+      "explanation": "The cold read is the instrument. Every question the builder answers in person is a stall the binder no longer gets credit for revealing, and documentation debt that survives to the *next* reader, who won't have the builder's number."
     },
     {
       "id": "q4",
@@ -53,7 +53,7 @@
     },
     {
       "id": "q5",
-      "prompt": "The executive sentence — \"saves N hours a month against a measured baseline, at a running cost of $X and Y% sampled error, with a boundary security has seen\" — is powerful because:",
+      "prompt": "The executive sentence — \"saves N hours a month against a measured baseline, at a running cost of $X and Y% sampled error, with a boundary security has seen\", is powerful because:",
       "options": [
         "It uses precise numbers",
         "Each clause is backed by an artifact that exists and can be audited: the baseline, the cost estimate, the sample tallies, the boundary sheet",
@@ -61,11 +61,11 @@
         "It avoids technical vocabulary"
       ],
       "correctIndex": 1,
-      "explanation": "The sentence is a claim with receipts — which is what separates it from every AI-enthusiasm anecdote in the same meeting. The numbers matter because the artifacts behind them do."
+      "explanation": "The sentence is a claim with receipts, which is what separates it from every AI-enthusiasm anecdote in the same meeting. The numbers matter because the artifacts behind them do."
     },
     {
       "id": "q6",
-      "prompt": "The fifth rubric dimension — \"would a colleague trust it?\" — is the course's test because:",
+      "prompt": "The fifth rubric dimension — \"would a colleague trust it?\", is the course's test because:",
       "options": [
         "Peer approval is required for shipping",
         "It integrates everything: verification that's real, boundaries that are defensible, autonomy that's evidenced, documentation that's been run — trustworthy, not impressive",
@@ -77,7 +77,7 @@
     },
     {
       "id": "q7",
-      "prompt": "The index page — new in this module — is written for two readers. They are:",
+      "prompt": "The index page (new in this module) is written for two readers. They are:",
       "options": [
         "The builder, as a personal reference, and the review queue",
         "A successor, as the first page they read, and an executive, as the only page they read",
@@ -85,7 +85,7 @@
         "The peer reviewer and the hiring manager"
       ],
       "correctIndex": 1,
-      "explanation": "One page: what the workflow is, what it saves, where everything lives, who owns it. A successor starts there and reads deeper; an executive reads it and stops — which is why the numbers on it carry their baseline and cost."
+      "explanation": "One page: what the workflow is, what it saves, where everything lives, who owns it. A successor starts there and reads deeper; an executive reads it and stops, which is why the numbers on it carry their baseline and cost."
     },
     {
       "id": "q8",
@@ -97,7 +97,7 @@
         "Proceeds only if you review your own binder with fresh eyes"
       ],
       "correctIndex": 2,
-      "explanation": "No single person can deadlock the course. The queue's reviewer runs the identical protocol — and having seen many binders, their stalls are better-aimed than a peer's. A feature, not a compromise."
+      "explanation": "No single person can deadlock the course. The queue's reviewer runs the identical protocol, and having seen many binders, their stalls are better-aimed than a peer's. A feature, not a compromise."
     }
   ]
 }

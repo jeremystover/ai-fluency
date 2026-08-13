@@ -6,7 +6,7 @@
     "kind": "prose",
     "layer": "stable",
     "reviewedAt": "2026-08-11",
-    "body": "## Module 2 in two minutes\n\n**\"AI\" is currently three different things in your stack,** and the label hides which one you're looking at. **Assistants** (Claude, ChatGPT, Gemini): you supply the material, it drafts, your review is the gate. **Copilots**: the same LLM technology embedded in your ATS, HRIS, or docs suite — context comes from the host app, and the output borrows the host's credibility without earning it. **Decision engines**: scoring and matching systems — resume rankers, attrition predictors — where data about people goes in and a number about a person comes out.\n\n**The sharpest tell:** does it produce language, or a number attached to a person? Language gets edited before it touches anyone. A number invites sorting, and sorted lists become decisions the moment someone is busy — with the errors landing on people nobody reviewed.\n\n**And the history in one line:** the field stalled twice trying to hand-code intelligence; the 2017 transformer breakthrough grew language capability from data at scale instead. That's the honest answer to a skeptic — the winters were real, and this mechanism is different."
+    "body": "## Module 2 in two minutes\n\n**\"AI\" is currently three different things in your stack,** and the label hides which one you're looking at. **Assistants** (Claude, ChatGPT, Gemini): you supply the material, it drafts, your review is the gate. **Copilots**: the same LLM technology embedded in your ATS, HRIS, or docs suite: context comes from the host app, and the output borrows the host's credibility without earning it. **Decision engines**: scoring and matching systems (resume rankers, attrition predictors) where data about people goes in and a number about a person comes out.\n\n**The sharpest tell:** does it produce language, or a number attached to a person? Language gets edited before it touches anyone. A number invites sorting, and sorted lists become decisions the moment someone is busy, with the errors landing on people nobody reviewed.\n\n**And the history in one line:** the field stalled twice trying to hand-code intelligence; the 2017 transformer breakthrough grew language capability from data at scale instead. That's the honest answer to a skeptic — the winters were real, and this mechanism is different."
   },
   {
     "id": "ai101-m2-micro-rule",
@@ -24,6 +24,6 @@
     "kind": "prose",
     "layer": "stable",
     "reviewedAt": "2026-08-11",
-    "body": "**The full module adds** the four outside questions that identify any product's shape from a demo, the vendor-demo exercise (find the claim that can't be true), and the Stack Audit — counting the AI already inside your own systems against the number you predicted."
+    "body": "**The full module adds** the four outside questions that identify any product's shape from a demo, the vendor-demo exercise (find the claim that can't be true), and the Stack Audit, counting the AI already inside your own systems against the number you predicted."
   }
 ]

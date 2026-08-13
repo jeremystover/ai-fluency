@@ -22,14 +22,14 @@ deployment's jurisdictions. **Before you act on any of it**, so does your own or
 position — particularly if you hold federal contracts, where the compliance surface described in
 Lesson 1 carries False Claims Act exposure.
 
-Nothing here is legal advice. This module exists so that you can ask counsel a specific, answerable
+Nothing here's legal advice. This module exists so that you can ask counsel a specific, answerable
 question instead of "are we compliant?", which gets a shrug and deserves one.
 
 ## Calibration prompt — before you start
 
 *One claim. Commit before you read anything.*
 
-Here is a factual assertion about your own organization:
+Here's a factual assertion about your own organization:
 
 > **"Somebody here could tell me today, without going away to research it, which of our
 > jurisdictions require us to notify candidates or employees when AI is used in an employment
@@ -48,20 +48,20 @@ You have spent two years reading that the ground moved. This module is about the
 in two directions at once, and that most of the commentary tracked only one of them.
 
 The federal enforcement posture in the United States retreated, substantially and quickly. That part
-has been well covered, and if you work in the US you have felt it — in the questions your executives
+has been well covered, and if you work in the US you have felt it, in the questions your executives
 ask, in what your legal team will now sign off, and possibly in whether your role still has the same
 title.
 
 What has been covered much less is that **the underlying legal duty did not move at all**, that the
-people who enforce it privately are not bound by any of the changes, that several states moved in
+people who enforce it privately aren't bound by any of the changes, that several states moved in
 the opposite direction while the federal posture retreated, and that the two most consequential
 lawsuits in this field are both live — with one of them not alleging discrimination at all.
 
-The net effect, for a practitioner, is not less exposure. It is **relocated** exposure, moving from
-a regulator you could anticipate to a plaintiffs' bar you cannot, and from a compliance calendar to
+The net effect, for a practitioner, isn't less exposure. It is **relocated** exposure, moving from
+a regulator you could anticipate to a plaintiffs' bar you can't, and from a compliance calendar to
 a discovery process.
 
-By the end of this module you will have a one-page exposure map: your jurisdictions, your
+By the end of this module you'll have a one-page exposure map: your jurisdictions, your
 obligations, the dates, and one specific question for your general counsel.
 
 ## Learning objectives
@@ -77,10 +77,10 @@ By the end of this module you should be able to:
 
 ## Lesson 1 · The retreat, instrument by instrument **[V]**
 
-Precision matters here, because "DEI is under attack" is not something you can act on and a list of
+Precision matters here, because "DEI is under attack" isn't something you can act on and a list of
 instruments is.
 
-**Executive Order 14173** (January 2025) requires federal contractors to certify that they do not
+**Executive Order 14173** (January 2025) requires federal contractors to certify that they don't
 operate illegal DEI programs, and directs the Attorney General toward identifying investigations and
 potential litigation.
 
@@ -107,11 +107,11 @@ hold federal contracts it is the most consequential item on the list:
 - The contractor must furnish information and reports, **including access to books, records and
   accounts.**
 - Enforcement runs through compliance reviews, contract termination and suspension, suspension and
-  debarment referrals — and **False Claims Act actions.**
+  debarment referrals, and **False Claims Act actions.**
 
 Read those last two together, because they are the reason this module exists in this track rather
 than in a policy course. **A regime built on records access and False Claims Act exposure is a
-regime in which your analyses are evidence** — which is Module 3's entire subject.
+regime in which your analyses are evidence**, which is Module 3's entire subject.
 
 Litigation challenging these orders on separation-of-powers and First Amendment grounds is live, and
 the landscape is unsettled in both directions.
@@ -125,21 +125,21 @@ in *Griggs v. Duke Power Co.* in 1971 and **codified by Congress in the Civil Ri
 one of whose stated purposes was to confirm statutory authority for the adjudication of disparate
 impact suits under Title VII.
 
-**An executive order cannot repeal a statute.** EO 14281 did not eliminate disparate impact
-liability, and does not claim to. It directs *agencies* to deprioritize *enforcement*. Those are
+**An executive order cannot repeal a statute.** EO 14281 didn't eliminate disparate impact
+liability, and doesn't claim to. It directs *agencies* to deprioritize *enforcement*. Those are
 different things, and the difference is the whole lesson.
 
 So who is left?
 
 **The private plaintiffs' bar**, which brings most employment discrimination litigation in the
-United States, is not bound by executive orders directing federal agencies. **The federal courts
+United States, isn't bound by executive orders directing federal agencies. **The federal courts
 remain open to these claims.** And reporting indicates private plaintiff attorneys are *increasing*
-their activity in Title VII disparate impact cases — which is what you would expect when a
+their activity in Title VII disparate impact cases, which is what you would expect when a
 regulatory channel closes and the underlying cause of action doesn't.
 
 Put it plainly:
 
-> **Federal enforcement retreated. Private exposure did not, and may have concentrated — because
+> **Federal enforcement retreated. Private exposure did not, and may have concentrated, because
 > the regulator who would have investigated and possibly settled quietly is no longer in the way.**
 
 This produces a practitioner error that is worth naming because it is currently common. An
@@ -155,7 +155,7 @@ rather than closing it:
 > Design against the duty instead.**
 
 Postures flip in both directions and with predictable regularity. Duties, particularly statutory
-ones, do not.
+ones, don't.
 
 ## Lesson 3 · Your baseline is disappearing, and there is a date on it **[V]**
 
@@ -182,13 +182,13 @@ produced annually, on a consistent definition, in a form nobody in the organizat
 purpose. That is exactly what makes it useful as evidence — of change over time, of the composition
 of a workforce at a moment, of whether a pattern predates something.
 
-If federal collection stops and you have not decided to keep collecting the same series internally,
-then in three years you will have a gap in the middle of your own record, on the exact dimensions a
+If federal collection stops and you haven't decided to keep collecting the same series internally,
+then in three years you'll have a gap in the middle of your own record, on the exact dimensions a
 plaintiff's expert will ask about.
 
 **Deciding to maintain the series internally is a decision to make now**, while the definitions,
-the process and this year's data all still exist. It is also — and this is where it connects to
-Module 3 — a decision with a privilege dimension, because the data you keep is data you can be asked
+the process and this year's data all still exist. It is also (and this is where it connects to
+Module 3) a decision with a privilege dimension, because the data you keep is data you can be asked
 to produce.
 
 ## Lesson 4 · The states, corrected **[V]**
@@ -196,13 +196,13 @@ to produce.
 The standard commentary is that states are filling the federal vacuum. That is partly true and it is
 wrong about the specific state most often named.
 
-**California — in force.** The Civil Rights Council's regulations on automated decision systems took
+**California, in force.** The Civil Rights Council's regulations on automated decision systems took
 effect **1 October 2025**. Two features matter enormously for this track: they make **anti-bias
 testing, or its absence, explicitly relevant to a discrimination claim**, and they impose extended
 recordkeeping duties covering automated-decision data. That first feature is the closest thing in
-American law to a statement that Module 3's subject is legally load-bearing.
+American law to a statement that Module 3's subject is legally structural.
 
-**Illinois — in force.** HB 3773 took effect **1 January 2026**. It requires notice when AI is used
+**Illinois, in force.** HB 3773 took effect **1 January 2026**. It requires notice when AI is used
 in employment decisions, states expressly that employers may not use AI in ways that discriminate,
 and **prohibits the use of zip codes as proxies for protected classes.** That proxy prohibition is
 the first time a US state has named the mechanism rather than the outcome.
@@ -211,12 +211,12 @@ the first time a US state has named the mechanism rather than the outcome.
 (SB 24-205) is routinely described as the comprehensive state regime that arrived. It was
 **postponed to 30 June 2026** following a failed special session; **a federal magistrate blocked
 enforcement on 27 April 2026** pending a constitutional challenge; and then it was **repealed and
-replaced outright by SB 26-189, signed 14 May 2026** — a scaled-back **disclosure-and-rights**
+replaced outright by SB 26-189, signed 14 May 2026**, a scaled-back **disclosure-and-rights**
 framework for automated decision-making technology, effective **1 January 2027**.
 
 **Postponed, enjoined, repealed and replaced inside thirteen months.** The date survived and the
-statute behind it did not. **If your compliance plan names Colorado as the operative state
-standard, it is built on something that no longer exists** — and if you have been using Colorado to
+statute behind it didn't. **If your compliance plan names Colorado as the operative state
+standard, it is built on something that no longer exists**, and if you have been using Colorado to
 argue for budget, expect the first person who checks to notice. The transferable lesson is Module
 2's: build an inventory that survives the statute, not a checklist keyed to one.
 
@@ -230,7 +230,7 @@ of the regimes above applies, and the exposure map is how you find out which.
 ## Lesson 5 · Two fronts, and only one of them is about bias **[V]**
 
 Two lawsuits define the current litigation landscape, and the second is the one most practitioners
-have not internalized.
+haven't internalized.
 
 **Front one — *Mobley v. Workday*.** A federal class and collective action alleging that AI-powered
 applicant screening disparately harmed Black, older and disabled applicants. An ADEA collective was
@@ -253,15 +253,15 @@ used for employment decisions.
 
 Sit with what that means strategically. Proving disparate impact is expensive: you need data,
 statistics, an expert, and a defensible comparison group. Proving a disclosure failure is
-comparatively cheap — either the required notice was given or it wasn't.
+comparatively cheap, either the required notice was given or it wasn't.
 
-> **As federal disparate-impact enforcement retreated, plaintiffs found a route that doesn't require
+> **As federal disparate-impact enforcement retreated, plaintiffs found a route that does not require
 > proving disparate impact at all.**
 
 That is Lesson 2's principle arriving with a mechanism attached, and it is why an exposure map built
 only around discrimination liability is incomplete. Ask the FCRA-shaped question about every tool in
 your stack: *is this assembling information about a person, from third-party sources, to inform an
-employment decision — and if so, what disclosure did we give?*
+employment decision, and if so, what disclosure did we give?*
 
 ## Key takeaways
 
@@ -271,7 +271,7 @@ employment decision — and if so, what disclosure did we give?*
   (26 March 2026) with flow-down clauses, "reasonably knowable" subcontractor disclosure, records
   access and **False Claims Act exposure**.
 - **The duty did not move.** Disparate impact is codified in Title VII by the Civil Rights Act of
-  1991. An executive order cannot repeal it, and does not claim to — it directs agencies to
+  1991. An executive order can't repeal it, and doesn't claim to — it directs agencies to
   deprioritize enforcement.
 - **Private exposure did not retreat and may have concentrated.** The plaintiffs' bar isn't bound by
   executive orders, the courts remain open, and activity is reportedly rising. Standing down testing
@@ -279,15 +279,15 @@ employment decision — and if so, what disclosure did we give?*
 - **Design against the duty, not the posture.** Postures flip in both directions with regularity.
   Statutory duties don't.
 - **The EEO-1 rescission is proposed, not final** `[V]`, and the 30 September filing obligation
-  stands. The real issue isn't the compliance relief — it's that **a baseline may vanish and
+  stands. The real issue isn't the compliance relief. It's that **a baseline may vanish and
   baselines cannot be reconstructed backwards.**
 - **States: California in force since 1 Oct 2025** (bias testing *or its absence* relevant to a
   claim; extended recordkeeping), **Illinois since 1 Jan 2026** (notice; zip codes prohibited as
-  proxies), **Colorado repealed and replaced** — postponed, enjoined, then superseded by SB 26-189
+  proxies), **Colorado repealed and replaced**, postponed, enjoined, then superseded by SB 26-189
   effective 1 January 2027 — and **Connecticut from
   1 Oct 2026**.
 - **Two fronts.** *Mobley* is the discrimination front, in discovery, with a proxy-discrimination
-  claim surviving. *Kistler* is an FCRA disclosure case that **doesn't allege bias at all** — a
+  claim surviving. *Kistler* is an FCRA disclosure case that **does not allege bias at all**, a
   cheaper route to liability that opened as the expensive one narrowed.
 
 ## Take a position
@@ -297,7 +297,7 @@ up."*
 
 The strongest counter-argument is that **this is risk-management reasoning dressed as legal
 analysis, and it ignores the actual base rates.** Federal agency enforcement was, for most employers,
-the realistic mechanism by which anything ever happened — audits, conciliation, consent decrees. The
+the realistic mechanism by which anything ever happened: audits, conciliation, consent decrees. The
 private plaintiffs' bar takes cases with large classes, clear damages and deep-pocketed defendants,
 which describes a small minority of employers. For a 900-person manufacturer in a state with no AEDT
 law, the honest assessment is that measurable exposure genuinely fell, and telling them otherwise to
@@ -318,21 +318,21 @@ convincing.
 **Time:** 20 minutes · **Submit:** the map plus a 250–350 word write-up · **Graded against the
 rubric below.** Score doesn't matter. Doing the work is where the learning lands.
 
-**Step 1 — Where are your people (5 min).** Every jurisdiction where you employ people or accept
-applications. States and countries. Not where you are headquartered — where they are.
+**Step 1. Where are your people (5 min).** Every jurisdiction where you employ people or accept
+applications. States and countries. Not where you're headquartered, where they are.
 
 **Step 2 — What applies (8 min).** For each jurisdiction: is there a regime touching AI in
-employment decisions, is it in force, and what does it require of you specifically — notice,
-recordkeeping, testing, audit? Mark each **in force / coming / stalled / none / don't know.**
-**"Don't know" is a legitimate and expected entry**, and a map that has none is probably not honest.
+employment decisions, is it in force, and what does it require of you specifically: notice,
+recordkeeping, testing, audit? Mark each **in force / coming / stalled / none / do not know.**
+**"Do not know" is a legitimate and expected entry**, and a map that has none is probably not honest.
 
-**Step 3 — Federal contract status (2 min).** Do you hold federal contracts or subcontracts,
+**Step 3. Federal contract status (2 min).** Do you hold federal contracts or subcontracts,
 including lower-tier? If yes or unsure, flag it — EO 14398's flow-down and records-access provisions
 change your position materially, and "unsure" is itself an answer worth escalating.
 
-**Step 4 — The EEO-1 decision (2 min).** Are you filing this year? And have you decided whether to
-maintain the series internally if federal collection ends? If nobody has decided, write that down —
-it is the most time-sensitive item on this page.
+**Step 4. The EEO-1 decision (2 min).** Are you filing this year? And have you decided whether to
+maintain the series internally if federal collection ends? If nobody has decided, write that down.
+It is the most time-sensitive item on this page.
 
 **Step 5 — One question for your GC (3 min).** One question, specific enough to be answered.
 Not "are we compliant with AI law." Something like: *"We use [named tool] to screen applicants in
@@ -351,25 +351,25 @@ by.
 **Q1.** What did EO 14281 actually do `[V]`?
 
 - A. Repealed disparate impact liability under Title VII
-- B. Directed federal agencies to eliminate disparate impact liability from their civil rights enforcement — which is a change to enforcement, not to the statute ✓
+- B. Directed federal agencies to eliminate disparate impact liability from their civil rights enforcement, which is a change to enforcement, not to the statute ✓
 - C. Prohibited employers from conducting adverse impact analyses
 - D. Required federal contractors to certify they run no DEI programs
 
-> **B.** D describes EO 14173. The distinction in B is the foundation of this track: disparate impact is codified in Title VII by the Civil Rights Act of 1991, and an executive order cannot repeal a statute — nor does it claim to.
+> **B.** D describes EO 14173. The distinction in B is the foundation of this track: disparate impact is codified in Title VII by the Civil Rights Act of 1991, and an executive order cannot repeal a statute, nor does it claim to.
 
 **Q2.** Who still enforces disparate impact liability `[V]`?
 
 - A. Nobody, until a future administration reverses the current orders
 - B. State agencies only, in states with their own civil rights statutes
-- C. The private plaintiffs' bar, which brings most employment discrimination litigation, is not bound by executive orders directing agencies, and the federal courts remain open ✓
+- C. The private plaintiffs' bar, which brings most employment discrimination litigation, isn't bound by executive orders directing agencies, and the federal courts remain open ✓
 - D. The EEOC, which retains authority despite the enforcement plan
 
-> **C.** And reporting indicates private activity in Title VII disparate impact cases is increasing — which is what you'd expect when a regulatory channel closes and the underlying cause of action doesn't.
+> **C.** And reporting indicates private activity in Title VII disparate impact cases is increasing — which is what you'd expect when a regulatory channel closes and the underlying cause of action does not.
 
 **Q3.** What is the practical error this module warns against?
 
 - A. Over-investing in compliance during a period of reduced enforcement
-- B. Reading the federal news, concluding risk fell, and standing down testing — which means ceasing to generate the evidence that would defend you, while the people bringing claims are more active ✓
+- B. Reading the federal news, concluding risk fell, and standing down testing, which means ceasing to generate the evidence that would defend you, while the people bringing claims are more active ✓
 - C. Applying California's standards in jurisdictions that don't require them
 - D. Relying on vendor certifications instead of independent audits
 
@@ -378,7 +378,7 @@ by.
 **Q4.** What is the most important consequence of the proposed EEO-1 rescission `[V]`?
 
 - A. The administrative relief of no longer filing
-- B. That employers may lose a consistent annual demographic baseline they did not curate — and baselines cannot be reconstructed backwards ✓
+- B. That employers may lose a consistent annual demographic baseline they didn't curate, and baselines can't be reconstructed backwards ✓
 - C. That demographic data collection becomes unlawful
 - D. That state reporting obligations automatically replace it
 
@@ -397,16 +397,16 @@ by.
 
 - A. They require an annual third-party audit of every automated decision system
 - B. They prohibit automated decision systems in hiring entirely
-- C. They make anti-bias testing — **or its absence** — explicitly relevant to a discrimination claim, and impose extended recordkeeping on automated-decision data ✓
+- C. They make anti-bias testing (**or its absence**) explicitly relevant to a discrimination claim, and impose extended recordkeeping on automated-decision data ✓
 - D. They apply only to employers headquartered in California
 
-> **C.** Which is the closest thing in American law to a statement that this track's subject is legally load-bearing: not testing is itself evidence.
+> **C.** Which is the closest thing in American law to a statement that this track's subject is legally structural: not testing is itself evidence.
 
 **Q7.** What distinguishes *Kistler v. Eightfold* from *Mobley v. Workday* `[V]`?
 
 - A. Kistler is a federal case; Mobley is in state court
 - B. Kistler alleges disparate treatment; Mobley alleges disparate impact
-- C. Kistler doesn't allege the algorithm was biased at all — it alleges an FCRA disclosure failure, which is a far cheaper thing to prove ✓
+- C. Kistler doesn't allege the algorithm was biased at all. It alleges an FCRA disclosure failure, which is a far cheaper thing to prove ✓
 - D. Kistler was brought by the EEOC
 
 > **C.** Proving disparate impact needs data, statistics, an expert and a defensible comparison group. Proving a disclosure failure needs only the absence of a notice. As the expensive route narrowed, a cheaper one opened.
@@ -414,7 +414,7 @@ by.
 **Q8.** What is the sharpest argument *against* this module's position?
 
 - A. That most employers have never faced an EEOC audit anyway
-- B. That testing produces the evidence — so if exposure now runs through discovery, a rationally self-interested employer should stop generating analyses, and this track may be advising against its learners' institutional interest ✓
+- B. That testing produces the evidence, so if exposure now runs through discovery, a rationally self-interested employer should stop generating analyses, and this track may be advising against its learners' institutional interest ✓
 - C. That state regimes will be preempted by future federal action
 - D. That the private bar only pursues large employers
 
@@ -423,10 +423,10 @@ by.
 ## Sources and attribution
 
 - **Executive Orders 14173** (January 2025), **14281** (April 2025), and **14398**, "Addressing DEI
-  Discrimination by Federal Contractors" (26 March 2026) — including the flow-down clause, the
+  Discrimination by Federal Contractors" (26 March 2026), including the flow-down clause, the
   "reasonably knowable" subcontractor disclosure duty, records access, and False Claims Act
   exposure. **[V]**
-- **EEOC** — dropping pending disparate impact cases and withdrawing support from state agencies
+- **EEOC**, dropping pending disparate impact cases and withdrawing support from state agencies
   following EO 14281; and the **June 2026 National Enforcement Plan** prioritizing disparate
   treatment over disparate impact theories. **[V]**
 - **Disparate impact's statutory basis** — *Griggs v. Duke Power Co.*, 401 U.S. 424 (1971), codified
@@ -435,17 +435,17 @@ by.
 - **Proposed EEO-1 rescission** — rule sent to OIRA 14 May 2026 covering EEO-1 through EEO-5 and the
   reporting requirement under Title VII, the ADA, GINA and the PWFA. **Proposed, not final**; the 30
   September filing obligation stands. **[V]**
-- **State regimes** — California Civil Rights Council automated-decision regulations effective 1
+- **State regimes**. California Civil Rights Council automated-decision regulations effective 1
   October 2025; Illinois HB 3773 effective 1 January 2026 including the zip-code proxy prohibition;
   Colorado SB 24-205 postponed and enforcement paused by federal court 27 April 2026; Connecticut's
   AEDT framework effective 1 October 2026. **[V]**
-- ***Mobley v. Workday*** — ADEA collective preliminarily certified May 2025, opt-in closed March
+- ***Mobley v. Workday***, ADEA collective preliminarily certified May 2025, opt-in closed March
   2026, core claims allowed to proceed 22 June 2026 with FEHA and proxy-discrimination disability
   claims surviving. ***Kistler v. Eightfold AI*** — filed January 2026, brought by former EEOC chair
   Jenny Yang with Towards Justice, pleaded under the **FCRA** rather than as a discrimination claim.
   **[V]**
-- **Counsel review required — see the gate at the top of this module.**
+- **Counsel review required, see the gate at the top of this module.**
 - The relocated-exposure framing, the design-against-the-duty principle, and the
-  baselines-cannot-be-reconstructed argument are original to this course.
+  baselines-can't-be-reconstructed argument are original to this course.
 - Structure and topic coverage follow the AI Fluency Framework (Dakan & Feller, in collaboration
   with Anthropic, CC BY-NC-SA 4.0); prose is original.

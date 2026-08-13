@@ -29,7 +29,7 @@
         "Reasons through the problem as a human expert would, then writes out the solution"
       ],
       "correctIndex": 2,
-      "explanation": "The core mechanic is next-piece prediction. Some tools layer search on top, which changes what's available in the prompt, but the model underneath is a statistical text predictor — not a lookup, not a search engine, and not human-style reasoning, even when the output resembles it.",
+      "explanation": "The core mechanic is next-piece prediction. Some tools layer search on top, which changes what's available in the prompt, but the model underneath is a statistical text predictor, not a lookup, not a search engine, and not human-style reasoning, even when the output resembles it.",
       "study": {
         "blockId": "m1-l2-mechanism",
         "label": "Lesson 2 · What an LLM actually does"
@@ -45,7 +45,7 @@
         "What was the knowledge cutoff date?"
       ],
       "correctIndex": 1,
-      "explanation": "Candidate matching is usually a scoring model, not a language model — and scoring models that influence employment decisions are where regulatory obligations and adverse-impact risk concentrate. The other three questions are only meaningful once you know it's a language model, and asking them first signals you haven't made the distinction.",
+      "explanation": "Candidate matching is usually a scoring model, not a language model, and scoring models that influence employment decisions are where regulatory obligations and adverse-impact risk concentrate. The other three questions are only meaningful once you know it's a language model, and asking them first signals you haven't made the distinction.",
       "study": {
         "blockId": "m1-l1-hrstack",
         "label": "Lesson 1 · The AI in your HR stack"
@@ -61,7 +61,7 @@
         "There's a small amount of randomness in how each next piece is chosen, which is normal"
       ],
       "correctIndex": 3,
-      "explanation": "Small variation is built into how these systems generate output. The same input rarely produces byte-identical results, and sometimes the second attempt is better — which is why re-running a prompt is a legitimate technique rather than a workaround.",
+      "explanation": "Small variation is built into how these systems generate output. The same input rarely produces byte-identical results, and sometimes the second attempt is better, which is why re-running a prompt is a legitimate technique rather than a workaround.",
       "study": {
         "blockId": "m1-l2-mechanism",
         "label": "Lesson 2 · What an LLM actually does"
@@ -93,7 +93,7 @@
         "It accurately describes typical policy and clearly labels it as generic"
       ],
       "correctIndex": 0,
-      "explanation": "This is the highest-stakes pattern in the module. The model never saw your handbook, but it has seen thousands of bereavement policies, so it can generate something that reads exactly like one. Some tools will hedge — the other outcomes happen sometimes — but you cannot rely on it, and the failure is quiet. You get a real-looking answer with no signal that it's invented.",
+      "explanation": "This is the highest-stakes pattern in the module. The model never saw your handbook, but it has seen thousands of bereavement policies, so it can generate something that reads exactly like one. Some tools will hedge (the other outcomes happen sometimes) but you cannot rely on it, and the failure is quiet. You get a real-looking answer with no signal that it's invented.",
       "study": {
         "blockId": "m1-l4-supply",
         "label": "Lesson 4 · The data you supply"
@@ -109,7 +109,7 @@
         "The exact wording you choose to put in your prompt"
       ],
       "correctIndex": 3,
-      "explanation": "Your prompt is the data *you* contribute, in the moment. It's the part you control and the part not inherited from training. The other three — topic strength, language strength, recency — all follow directly from what was in the training corpus and when it was assembled.",
+      "explanation": "Your prompt is the data *you* contribute, in the moment. It's the part you control and the part not inherited from training. The other three (topic strength, language strength, recency) all follow directly from what was in the training corpus and when it was assembled.",
       "study": {
         "blockId": "m1-l4-training",
         "label": "Lesson 4 · Why data is the whole game"
@@ -125,7 +125,7 @@
         "Employment law prohibits using AI in HR contexts"
       ],
       "correctIndex": 2,
-      "explanation": "All training data carries bias and all models can reproduce it. What changes in People work is the consequence: when a biased output shapes screening, evaluation, or advancement, the harm attaches to a person and creates real legal exposure. The last option is simply false — AI isn't prohibited in HR, it's regulated in specific decision contexts.",
+      "explanation": "All training data carries bias and all models can reproduce it. What changes in People work is the consequence: when a biased output shapes screening, evaluation, or advancement, the harm attaches to a person and creates real legal exposure. The last option is simply false: AI isn't prohibited in HR, it's regulated in specific decision contexts.",
       "study": {
         "blockId": "m1-l4-training",
         "label": "Lesson 4 · Why data is the whole game"
@@ -141,7 +141,7 @@
         "The model crashing or returning nothing"
       ],
       "correctIndex": 1,
-      "explanation": "Note what's absent: intent. The model isn't lying, because lying requires knowing the truth and choosing otherwise. It's generating statistically likely text, and sometimes likely text is false. That's precisely why it's hard to catch — there's no tell.",
+      "explanation": "Note what's absent: intent. The model isn't lying, because lying requires knowing the truth and choosing otherwise. It's generating statistically likely text, and sometimes likely text is false. That's precisely why it's hard to catch. There's no tell.",
       "study": {
         "blockId": "m1-l3-vocab-b",
         "label": "Lesson 3 · Hallucination, demystified"
@@ -157,7 +157,7 @@
         "Keeping track of which model versions each provider has released"
       ],
       "correctIndex": 0,
-      "explanation": "That single question is the seed of good prompting and of good delegation judgment. It forces you to think about the data the model needs — the single largest lever on output quality — and it surfaces the tasks you shouldn't hand over at all. The others are counterproductive (longer isn't better), unfocused (reps without judgment build confident bad habits), or performative (version numbers are trivia).",
+      "explanation": "That single question is the seed of good prompting and of good delegation judgment. It forces you to think about the data the model needs (the single largest lever on output quality) and it surfaces the tasks you shouldn't hand over at all. The others are counterproductive (longer isn't better), unfocused (reps without judgment build confident bad habits), or performative (version numbers are trivia).",
       "study": {
         "blockId": "m1-takeaways",
         "label": "Key takeaways · the habit to build"

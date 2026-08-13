@@ -13,7 +13,7 @@
         "They are anonymous by default"
       ],
       "correctIndex": 1,
-      "explanation": "A survey measures response to your question, so it is blind wherever your assumptions are. Search measures what someone needed unbidden, and typing a query is a costly signal — only worth it if you actually need the answer."
+      "explanation": "A survey measures response to your question, so it is blind wherever your assumptions are. Search measures what someone needed unbidden, and typing a query is a costly signal, only worth it if you actually need the answer."
     },
     {
       "id": "q2",
@@ -53,7 +53,7 @@
     },
     {
       "id": "q5",
-      "prompt": "What is the practical consequence of \"not prohibited is not cleared\"?",
+      "prompt": "What is the practical consequence of \"not prohibited isn't cleared\"?",
       "options": [
         "That legal review is unnecessary where no prohibition applies",
         "That escaping Article 5 clears one gate of at least four — data protection, works councils, monitoring notice, and §7 all still apply",
@@ -61,7 +61,7 @@
         "That prohibitions are less important than guidance"
       ],
       "correctIndex": 1,
-      "explanation": "And it cuts the other way too: \"we can't, it's illegal in the EU\" is not available as a reason for text analysis, so anyone who has been using it has been winning an argument on a premise that won't survive the first person who checks."
+      "explanation": "And it cuts the other way too: \"we can't, it's illegal in the EU\" isn't available as a reason for text analysis, so anyone who has been using it has been winning an argument on a premise that won't survive the first person who checks."
     },
     {
       "id": "q6",
@@ -73,7 +73,7 @@
         "A documented impact assessment before monitoring begins"
       ],
       "correctIndex": 1,
-      "explanation": "Which turns the question into a specific, answerable one: does the notice your employees actually acknowledged cover what you're proposing to build? A 2019 notice about telephone, email and internet usage is not obviously notice of sentiment inference across internal chat."
+      "explanation": "Which turns the question into a specific, answerable one: does the notice your employees actually acknowledged cover what you're proposing to build? A 2019 notice about telephone, email and internet usage isn't obviously notice of sentiment inference across internal chat."
     },
     {
       "id": "q7",
@@ -85,7 +85,7 @@
         "That the rescission will likely be reversed, so the memo should still be followed"
       ],
       "correctIndex": 2,
-      "explanation": "A team that built its rules around the memo now has rules with no foundation. A team that built them around \"don't build systems that would tend to chill protected concerted activity\" has rules exactly as valid as before — and still valid when the posture flips back."
+      "explanation": "A team that built its rules around the memo now has rules with no foundation. A team that built them around \"don't build systems that would tend to chill protected concerted activity\" has rules exactly as valid as before, and still valid when the posture flips back."
     },
     {
       "id": "q8",

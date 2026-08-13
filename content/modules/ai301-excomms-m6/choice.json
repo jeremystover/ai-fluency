@@ -5,7 +5,7 @@
   "artifacts": [
     {
       "label": "Message A · the restructure announcement",
-      "body": "Three teams are merging; forty people change reporting line. The COO records 25 minutes of unscripted Q&A with the comms lead — what the decision is, why now, what she considered and rejected, what she's worried about. From that recording: a transcript, a written announcement, an FAQ, a manager briefing pack, and nine translations. **Everything published derives from the recording. AI did all of it except the recording.**"
+      "body": "Three teams are merging; forty people change reporting line. The COO records 25 minutes of unscripted Q&A with the comms lead: what the decision is, why now, what she considered and rejected, what she's worried about. From that recording: a transcript, a written announcement, an FAQ, a manager briefing pack, and nine translations. **Everything published derives from the recording. AI did all of it except the recording.**"
     },
     {
       "label": "Message B · the finance system migration",
@@ -13,7 +13,7 @@
     },
     {
       "label": "Message C · the monthly recognition note",
-      "body": "A director sends personal appreciation notes to eight people each month. This month she exports the completed-project list from the tracker — names and project titles — gives it to a model, and asks for a warm, personalized note to each person referencing their contribution. She reads all eight, changes a word in two of them, and sends them from her own address."
+      "body": "A director sends personal appreciation notes to eight people each month. This month she exports the completed-project list from the tracker (names and project titles) gives it to a model, and asks for a warm, personalized note to each person referencing their contribution. She reads all eight, changes a word in two of them, and sends them from her own address."
     },
     {
       "label": "Message D · the benefits change explainer",
@@ -21,11 +21,23 @@
     }
   ],
   "options": [
-    { "id": "a", "label": "A — the restructure announcement" },
-    { "id": "b", "label": "B — the system migration" },
-    { "id": "c", "label": "C — the recognition notes" },
-    { "id": "d", "label": "D — the benefits explainer" }
+    {
+      "id": "a",
+      "label": "A — the restructure announcement"
+    },
+    {
+      "id": "b",
+      "label": "B — the system migration"
+    },
+    {
+      "id": "c",
+      "label": "C — the recognition notes"
+    },
+    {
+      "id": "d",
+      "label": "D — the benefits explainer"
+    }
   ],
   "key": "c",
-  "reasoning": "**C is the expensive one, and it's the smallest thing on the list.**\n\nStart with what the message claims. A recognition note claims one thing: *I noticed you specifically.* That claim is the entire payload — there is no information in it, no deadline, no instruction. And the part carrying the claim is the specific: the detail only that director could have contributed, because she was there.\n\nShe gave the model a project title. **The model generated the specific**, which means the one element that made the message worth sending is the one element that was invented. Everything else — the warmth, the structure, the closing line — is exactly the median register the model produces for everyone.\n\nThen it gets worse in a way unique to this format. Eight people received these in the same week. **Recognition notes get compared** — people screenshot them, forward them, mention them at lunch. The moment two of the eight sit next to each other, the identical structure is visible, and what the recipients learn is not that AI was used. It is that the noticing didn't happen. You cannot un-learn that about a manager.\n\nAnd the perception gap makes it invisible from where the director sits. She read all eight and changed a word in two. From the inside, that's careful. She is rating her own AI use, which the research says she'll rate as fine at any level. The eight people are rating someone else's, at magnitude.\n\n**A is the highest-volume AI use in the set and one of the cheapest.** Everything published descends from twenty-five minutes the COO actually spent thinking out loud. The position, the specifics and the stakes are all in the source; AI multiplied them. This is atomization working exactly as intended, on the highest-stakes subject on the list — which is the point. Sensitivity of topic is not what determines cost.\n\n**B is free.** A system notice claims no relationship. There is nothing to hollow out. Six minutes of human time on a logistics message is the correct amount, and the review against the ticket is what makes it safe.\n\n**D is fine, and note why despite 70% AI-drafted words.** It publishes under the function's name rather than an individual's, so no one's personal credibility is staked on it; the payload is facts rather than relationship; and a human who could read the source restored two dropped exceptions — which is Module 5's omission catch, working. High AI proportion, low trust cost."
+  "reasoning": "**C is the expensive one, and it's the smallest thing on the list.**\n\nStart with what the message claims. A recognition note claims one thing: *I noticed you specifically.* That claim is the entire payload. There is no information in it, no deadline, no instruction. And the part carrying the claim is the specific: the detail only that director could have contributed, because she was there.\n\nShe gave the model a project title. **The model generated the specific**, which means the one element that made the message worth sending is the one element that was invented. Everything else (the warmth, the structure, the closing line) is exactly the median register the model produces for everyone.\n\nThen it gets worse in a way unique to this format. Eight people received these in the same week. **Recognition notes get compared**: people screenshot them, forward them, mention them at lunch. The moment two of the eight sit next to each other, the identical structure is visible, and what the recipients learn isn't that AI was used. It is that the noticing didn't happen. You can't un-learn that about a manager.\n\nAnd the perception gap makes it invisible from where the director sits. She read all eight and changed a word in two. From the inside, that's careful. She is rating her own AI use, which the research says she'll rate as fine at any level. The eight people are rating someone else's, at magnitude.\n\n**A is the highest-volume AI use in the set and one of the cheapest.** Everything published descends from twenty-five minutes the COO actually spent thinking out loud. The position, the specifics and the stakes are all in the source; AI multiplied them. This is atomization working exactly as intended, on the highest-stakes subject on the list — which is the point. Sensitivity of topic isn't what determines cost.\n\n**B is free.** A system notice claims no relationship. There is nothing to hollow out. Six minutes of human time on a logistics message is the correct amount, and the review against the ticket is what makes it safe.\n\n**D is fine, and note why despite 70% AI-drafted words.** It publishes under the function's name rather than an individual's, so no one's personal credibility is staked on it; the payload is facts rather than relationship; and a human who could read the source restored two dropped exceptions, which is Module 5's omission catch, working. High AI proportion, low trust cost."
 }

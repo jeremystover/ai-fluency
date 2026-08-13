@@ -17,15 +17,15 @@
 
 *One prediction, thirty seconds. You'll score it during the applied activity.*
 
-At the end of this module you'll audit the AI uses in your own function — current and
-seriously proposed — against the line this module draws.
+At the end of this module you'll audit the AI uses in your own function (current and
+seriously proposed) against the line this module draws.
 
 **How many of them do you predict land on the wrong side?** Count anything live or under
 real consideration: tools, features, team habits, the vendor pilot someone's excited
 about. Write the number down.
 
 The commonest miss isn't the direction you'd guess. People expect to find zero and fear
-finding five; what they usually find is one or two — already running, adopted casually,
+finding five; what they usually find is one or two: already running, adopted casually,
 that nobody ever examined *as* a decision about people. The audit exists to make the
 implicit explicit while it's still cheap to change.
 
@@ -34,7 +34,7 @@ implicit explicit while it's still cheap to change.
 ## Module brief
 
 Every module so far has taught you to use AI better. This one teaches you where using it
-better is beside the point — because some applications fail not by working badly but by
+better is beside the point, because some applications fail not by working badly but by
 *working at all*.
 
 M1 ended its delegation heuristic with a clause this course has repeated like a drumbeat:
@@ -47,16 +47,16 @@ discomfort; you'll need the mechanism.
 
 Here it is, compressed once, built out in Lesson 1. The model learned from human text and
 human records. Those records contain every pattern in how organizations have actually
-treated people — including the ones we've spent decades trying to correct. A system that
+treated people, including the ones we've spent decades trying to correct. A system that
 learns "what does a strong candidate look like" from history learns *who got called
 strong*, and reproduces it at scale, fluently, with M6's signature confidence. Bias in AI
 isn't a defect that better engineering removes; it's fidelity to data that contains the
 world as it has been. In most domains that's a quality problem. In employment decisions
-it has a legal name — adverse impact — and a moral one, and it lands on the population
+it has a legal name (adverse impact) and a moral one, and it lands on the population
 you specifically exist to protect.
 
 What this module is not: anti-AI. Six modules taught you the assist side, and the assist
-side is enormous — drafting, summarizing, structuring, preparing. The line this module
+side is enormous: drafting, summarizing, structuring, preparing. The line this module
 draws is narrow, specific, and defensible: **AI assists with work about people; it does
 not decide about people, rank people, or filter people.** Narrow lines hold. Vague
 discomfort gets routed around by Q3.
@@ -67,14 +67,14 @@ By the end of this module you should be able to:
 
 1. Explain why bias is a property of learned systems, not a bug — and why "we cleaned the
    data" and "we removed the protected fields" don't dissolve the problem.
-2. Draw the assist/decide line through real cases — screening, ranking, performance
-   language, promotion, termination — and say precisely why "a human reviewed it" isn't
+2. Draw the assist/decide line through real cases (screening, ranking, performance
+   language, promotion, termination) and say precisely why "a human reviewed it" isn't
    automatically a defense.
-3. Sketch the regulatory shape **[V]** well enough to ask counsel the right questions —
+3. Sketch the regulatory shape **[V]** well enough to ask counsel the right questions,
    and no further.
 4. Say no so it sticks: specific, tied to a named decision, with the assist-side
    alternative attached.
-5. Audit your own function's AI uses against the line — the applied activity.
+5. Audit your own function's AI uses against the line: the applied activity.
 
 ## Lesson 1 · Bias is a property, not a bug
 
@@ -84,9 +84,9 @@ vendor conversations, so let's break it properly.
 
 Recall M1: a learned system finds patterns in examples and reproduces them. Now ask what
 the examples *are* for any employment-relevant model: decades of résumés, hiring
-outcomes, performance ratings, promotion histories — records of what organizations
+outcomes, performance ratings, promotion histories, records of what organizations
 actually did. Those records don't contain "merit" as a clean signal. They contain *who
-got hired, rated, promoted* — merit tangled with every systematic pattern in how those
+got hired, rated, promoted*, merit tangled with every systematic pattern in how those
 calls were made: which schools got the benefit of the doubt, which names got callbacks,
 which communication styles got called "leadership presence," who got mentored onto the
 projects that make a résumé strong. A system trained to predict "strong candidate"
@@ -101,10 +101,10 @@ career path. M4 taught you that identity survives redaction through combinations
 protected characteristics survive field-removal the same way. The literature's blunt
 version: proxies are everywhere, and a capable learner finds them. **"Our model is more
 objective than biased human reviewers."** This one deserves care, because the premise is
-true — human review *is* biased; that's what the training data just proved. But a model
+true, human review *is* biased; that's what the training data just proved. But a model
 doesn't transcend the pattern; it *standardizes* it. A biased human decision is one
 decision, varying by the human, contestable in the room. The same bias in a model runs on
-every candidate, identically, at scale, wearing M6's fluent confidence — and (next
+every candidate, identically, at scale, wearing M6's fluent confidence, and (next
 lesson) with the accountability diffused. "Less biased than a human" is an empirical
 claim someone must *demonstrate for the specific system on the specific population* —
 never a property the technology gets on principle.
@@ -112,7 +112,7 @@ never a property the technology gets on principle.
 One more consequence, from M6: an LLM asked to *evaluate* a person produces the same
 confident prose whether its judgment is sound or a reproduced pattern. "Rate this
 candidate's leadership potential from their résumé" returns fluent, specific,
-plausible-sounding assessment — and every word of it is pattern completion over exactly
+plausible-sounding assessment, and every word of it is pattern completion over exactly
 the tangled history above. The fluency is not evidence. In this domain, it never is.
 
 > ### Try this — 2 minutes
@@ -129,7 +129,7 @@ decision is about.** Run the week's real cases through it:
 
 **Screening.** *Assist:* structuring intake notes; turning a hiring manager's rambling
 brief into a crisp role spec; drafting interview questions from the competencies.
-*Decide:* résumé scoring, "fit" ranking, auto-rejection, "top candidates" surfacing —
+*Decide:* résumé scoring, "fit" ranking, auto-rejection, "top candidates" surfacing,
 M2's decision engines. The tell from M2 applies: if candidates the system ranked low
 never reach human eyes, the system decided, whatever the workflow diagram says.
 
@@ -145,19 +145,19 @@ consistency; assembling the human-authored materials into a packet. *Decide:* fl
 scores feeding retention decisions, "potential" ratings, termination-list drafting — and
 note that these arrive politely, as "data points for the conversation." A number about a
 person in a decision meeting *is* a decision input; that's what numbers in meetings are
-for (M6 told you what happens to numbers — they get repeated without caveats, and they
+for (M6 told you what happens to numbers. They get repeated without caveats, and they
 anchor).
 
-Now the sentence you'll hear most: **"it's fine — a human makes the final call."** Here's
+Now the sentence you'll hear most: **"it's fine: a human makes the final call."** Here's
 why that's not automatically a defense, mechanically. Human review checks a *specific
 failure* you can articulate: M6's Level 2 traces a citation, a manager re-derives a
 recommendation. But review of a ranked list checks — what, exactly? The reviewer sees the
 survivors, not the filtered; they can't re-derive a score built on ten thousand tangled
-examples; and the anchor is already set — disagreeing with the machine now requires a
+examples; and the anchor is already set: disagreeing with the machine now requires a
 *reason*, and the machine's reason looked so fluent. Review without the ability to catch
 the failure is M6's definition of theater: **a human in the loop is a defense only when
 the human could actually catch the error.** For a fabricated citation, they can. For
-"why did the model rank her 47th?", nobody can — including the vendor.
+"why did the model rank her 47th?", nobody can, including the vendor.
 
 The line's honest gray zone: aggregate analysis. "Summarize themes from 400 exit
 interviews" is about *people*, plural, and it shapes decisions — but it characterizes a
@@ -169,12 +169,12 @@ person's outcome?** Yes → the decide side's rules apply, whatever the tool loo
 
 ## Lesson 3 · The regulatory shape **[V]**
 
-*Everything in this lesson is direction-of-travel, not legal advice, and it moves —
+*Everything in this lesson is direction-of-travel, not legal advice, and it moves,
 verify with counsel before relying on any specific here. The lesson's purpose is to make
 your conversation with counsel better, not to replace it.*
 
 The shape, in four strokes. **Employment decisions are a named high-risk category** in
-the emerging regulatory landscape — the EU AI Act treats AI systems used in employment,
+the emerging regulatory landscape, the EU AI Act treats AI systems used in employment,
 worker management, and access to self-employment as high-risk, with obligations to
 match; and a fast-growing body of state and city rules targets automated employment
 decision tools specifically — audit requirements, disclosure requirements, and
@@ -182,12 +182,12 @@ definitions that turn on whether a tool *substantially assists or replaces* disc
 decisions. **[V]**
 
 **And the U.S. federal picture moved, in a way worth reading carefully, because the
-obvious reading is wrong.** In January 2025 the EEOC removed its AI guidance documents —
-the 2023 technical assistance on Title VII and the 2022 material on the ADA — following a
+obvious reading is wrong.** In January 2025 the EEOC removed its AI guidance documents (
+the 2023 technical assistance on Title VII and the 2022 material on the ADA) following a
 change of administration and the rescission of the prior executive order. It would be easy
 to read that as the rules relaxing. **They didn't. Guidance was withdrawn; the statutes
 were not.** Title VII, the ADA and the ADEA apply to an algorithmic decision exactly as
-they applied before, because they were never AI-specific in the first place — and private
+they applied before, because they were never AI-specific in the first place, and private
 plaintiffs, who bring most employment litigation, do not need an agency's guidance
 document to sue. What actually changed is that **the federal government stopped telling
 you how it reads the law, while the states started telling you how they read theirs.** You
@@ -195,15 +195,15 @@ have less warning, not less exposure. **[V]**
 
 **Disparate impact doesn't need intent.** The doctrine long predates AI: a neutral-seeming
 practice that disproportionately excludes a protected group needs job-related
-justification, regardless of anyone's intentions. Map that onto Lesson 1 — a system that
-learned the tangle reproduces the disparity at scale, no malice required — and you see why
+justification, regardless of anyone's intentions. Map that onto Lesson 1 (a system that
+learned the tangle reproduces the disparity at scale, no malice required) and you see why
 "the vendor assured us it's unbiased" is not a defense but a deferred question: *show me
 the analysis, for this system, on a population like ours.* Vendors making bias claims
 should expect to produce validation evidence; that expectation is increasingly
 regulatory, not just prudent. **[V]**
 
 **Accountability doesn't outsource.** The consistent regulatory and enforcement posture:
-the employer using the tool owns the outcome, jointly with whoever built it — buying a
+the employer using the tool owns the outcome, jointly with whoever built it, buying a
 biased system is doing a biased thing. M8 generalizes this ("the sentence 'the AI did
 it' has never once helped anyone"); here it lands specifically: your organization's name
 is on every decision its tools make.
@@ -212,7 +212,7 @@ What this means you should *do*, this quarter, without waiting for counsel: **in
 (the M2 stack audit, re-read for decision engines — you likely already have automated
 employment decision tools you didn't name that way); **ask vendors for their validation
 evidence** in writing; and **bring counsel a specific list** — "these three systems
-touch hiring and performance; here's what each decides" — because "is our AI compliant?"
+touch hiring and performance; here's what each decides", because "is our AI compliant?"
 gets you a shrug, and the specific list gets you an answer. The questions for counsel:
 which of our jurisdictions regulate these tools today, what do they require of us this
 year, and what's coming that we should build for now? **[V]**
@@ -220,7 +220,7 @@ year, and what's coming that we should build for now? **[V]**
 ## Lesson 4 · Saying no so it sticks
 
 You now own an argument. This lesson is about deploying it so it survives contact with
-enthusiasm — because vague discomfort loses to a vendor deck every time, and a blanket
+enthusiasm, because vague discomfort loses to a vendor deck every time, and a blanket
 "no AI near people decisions" gets routed around the moment it blocks something a leader
 wants. Four properties make a line hold:
 
@@ -236,19 +236,19 @@ alternative isn't a consolation prize; it's what makes the line politically surv
 People route around prohibitions; they adopt trades.
 
 **Reasoned in the room's language.** For the executive: standardized bias at scale,
-disparate impact without intent, accountability that doesn't outsource — risk language,
+disparate impact without intent, accountability that doesn't outsource: risk language,
 with Lesson 3's specifics ready. For the team: "we can't catch this system's errors, and
-we don't ship what we can't verify" — M6's language, which they've now internalized. For
+we don't ship what we can't verify": M6's language, which they've now internalized. For
 the vendor: "show me your validation evidence for a population like ours, in writing" —
 which either produces evidence or produces silence, and both are answers.
 
-**Owned by a name.** A line nobody owns is a suggestion. The line gets a sign-off — new
+**Owned by a name.** A line nobody owns is a suggestion. The line gets a sign-off: new
 tools touching people decisions clear [name/role] before pilot, and that person's answer
 is the answer. (M8 builds the full policy skeleton; this is its first entry, and the
 applied activity has you draft it.)
 
-And the posture that makes all four land: the line is not a hedge against the future —
-it's how you get to use everything else *confidently*. The teams that drew it clearly
+And the posture that makes all four land: the line is not a hedge against the future.
+It's how you get to use everything else *confidently*. The teams that drew it clearly
 are the ones moving fastest on the assist side, because nobody's wondering where the
 edge is. That's the version of this module you want your organization to remember: not
 the department of no — the people who knew exactly where yes lives.
@@ -256,12 +256,12 @@ the department of no — the people who knew exactly where yes lives.
 ## Key takeaways
 
 - **Bias is fidelity, not malfunction.** Learned systems reproduce the patterns in their
-  training records — which for employment data means the tangle of merit with every
+  training records, which for employment data means the tangle of merit with every
   systematic skew in how organizations actually treated people. Cleaning intentions out
   of the data isn't an option; the tangle *is* the data.
 - **Field-removal doesn't work and "more objective than humans" proves too much.**
   Proxies survive deletion the way identity survives redaction; and a model doesn't
-  transcend human bias — it standardizes one instance of it at scale, fluently. "Less
+  transcend human bias. It standardizes one instance of it at scale, fluently. "Less
   biased" is an empirical claim requiring demonstration, per system, per population.
 - **The line: AI transforms and prepares the material humans decide from; it does not
   score, rank, filter, or characterize the people decided about.** The traveling test:
@@ -273,8 +273,7 @@ the department of no — the people who knew exactly where yes lives.
   needs no intent, and accountability doesn't outsource.** Inventory your decision
   engines, demand validation evidence in writing, bring counsel a specific list.
 - **A line that holds is specific, attached to its assist-side alternative, reasoned in
-  the room's language, and owned by a name.** Drawn well, it's not the department of no
-  — it's what lets everything else move fast.
+  the room's language, and owned by a name.** Drawn well, it's not the department of no. It's what lets everything else move fast.
 
 ## Applied activity — "Draw the Line"
 
@@ -285,24 +284,24 @@ learning lands.
 One page, for your own function, that you could actually circulate. Before you write it:
 the audit you predicted on.
 
-**Step 1 — The audit (7 min).** List your function's AI uses — live and seriously
+**Step 1. The audit (7 min).** List your function's AI uses — live and seriously
 proposed. Include the unglamorous ones: the ATS feature someone switched on, the survey
 platform's "AI insights," the manager who mentioned using a chatbot for review drafts.
 For each: which side of the line, using the traveling test. Count the wrong-side
-findings and score your prediction — direction of miss, one sentence on why.
+findings and score your prediction: direction of miss, one sentence on why.
 
-**Step 2 — The one-pager (12 min).** Four sections, all concrete:
+**Step 2. The one-pager (12 min).** Four sections, all concrete:
 - **Three uses you endorse** — assist-side, from your real work, each with its M6
-  verification note ("JD drafting — recruiter reviews, no verification beyond read" vs.
-  "policy summaries — Level 2, claims traced").
+  verification note ("JD drafting: recruiter reviews, no verification beyond read" vs.
+  "policy summaries. Level 2, claims traced").
 - **Two uses you forbid** — named specifically (the decision, not the technology), each
   with its reasoning in one or two sentences an executive would engage with.
-- **The trade** — for each no, the assist-side yes that replaces it.
-- **The sign-off** — who clears new people-touching tools before pilot, by name or role.
+- **The trade**, for each no, the assist-side yes that replaces it.
+- **The sign-off**, who clears new people-touching tools before pilot, by name or role.
 
 **Step 3 — The stress test (3 min).** Read your forbidden list as the most enthusiastic
 AI adopter you know. Write down the workaround they'd find. If the workaround is easy,
-tighten the specific wording — that gap is where the line will actually be tested.
+tighten the specific wording. That gap is where the line will actually be tested.
 
 Then the reflection: what the audit surprised you with, which forbidden use was hardest
 to write the reasoning for (that's the one that needed this module), and what you'd need
@@ -315,20 +314,20 @@ from M8 to make the one-pager real policy.
 **Q1.** Why is bias in an employment-trained model a property rather than a bug?
 
 - A. Vendors deliberately train models on biased data because it's cheaper
-- B. The training records contain merit tangled with every systematic skew in how organizations actually decided — and the system learns that tangle as the definition ✓
+- B. The training records contain merit tangled with every systematic skew in how organizations actually decided, and the system learns that tangle as the definition ✓
 - C. Models are programmed with the biases of their developers
 - D. It is a bug — sufficiently careful data cleaning removes the bias
 
-> **B.** The records are what organizations *did*, not what merit *was* — who got hired,
+> **B.** The records are what organizations *did*, not what merit *was*, who got hired,
 > rated, promoted, with every pattern in those calls included. A system that predicts
 > "strong candidate" from history reproduces the history. D is the contamination model
 > this lesson exists to break: you can't clean intentions out of outcomes.
 
 **Q2.** A vendor explains their screening tool can't be biased because gender, race, and age were removed from the inputs. What's wrong with this reassurance?
 
-- A. Nothing — removing protected fields is the accepted standard for fairness
+- A. Nothing, removing protected fields is the accepted standard for fairness
 - B. The fields can be reconstructed from metadata the vendor forgot to strip
-- C. The patterns live in everything correlated with those fields — names, schools, gaps, word choice, career shapes — and a capable learner finds the proxies ✓
+- C. The patterns live in everything correlated with those fields (names, schools, gaps, word choice, career shapes) and a capable learner finds the proxies ✓
 - D. Removing fields reduces accuracy, which is itself a form of bias
 
 > **C.** Protected characteristics survive field-removal the way identity survives
@@ -338,12 +337,12 @@ from M8 to make the one-pager real policy.
 
 **Q3.** "Our model is less biased than human reviewers" is best treated as:
 
-- A. True on principle — algorithms don't have feelings, so they can't discriminate
-- B. False on principle — software is always more biased than people
+- A. True on principle: algorithms don't have feelings, so they can't discriminate
+- B. False on principle, software is always more biased than people
 - C. Irrelevant — bias comparisons between humans and models are meaningless
-- D. An empirical claim requiring demonstration for the specific system on a relevant population — because a model standardizes one bias pattern at scale rather than transcending it ✓
+- D. An empirical claim requiring demonstration for the specific system on a relevant population, because a model standardizes one bias pattern at scale rather than transcending it ✓
 
-> **D.** The premise is even true — human review is biased; that's what the training data
+> **D.** The premise is even true, human review is biased; that's what the training data
 > proves. But the model doesn't rise above the pattern, it runs one instance of it on
 > every candidate identically, fluently, at scale. So the claim is checkable, sometimes
 > even true — and never a property the technology gets for free. Ask for the validation
@@ -351,9 +350,9 @@ from M8 to make the one-pager real policy.
 
 **Q4.** A manager uses AI to turn their own written observations into a clear, well-structured performance review. A second manager pastes an employee's tickets and asks the model to "summarize their performance," then edits the result. The line says:
 
-- A. Both are fine — a human shipped the final text in both cases
+- A. Both are fine: a human shipped the final text in both cases
 - B. The first is assist (AI formats the manager's judgment); the second crossed the line (AI originated the judgment, and the human formatted it) ✓
-- C. Both crossed it — AI should never touch performance documents
+- C. Both crossed it, AI should never touch performance documents
 - D. The second is safer, because tickets are objective data
 
 > **B.** The direction of origination is the whole test: judgment from the human, formatting
@@ -366,8 +365,8 @@ from M8 to make the one-pager real policy.
 
 - A. Because regulations prohibit humans from overriding algorithmic outputs
 - B. Humans always agree with the machine, so review changes nothing
-- C. The reviewer sees only the survivors, can't re-derive the scores, and is anchored by them — review is a defense only where the human could actually catch the error ✓
-- D. It is a defense — human review resolves the concern in full
+- C. The reviewer sees only the survivors, can't re-derive the scores, and is anchored by them, review is a defense only where the human could actually catch the error ✓
+- D. It is a defense, human review resolves the concern in full
 
 > **C.** M6's principle, sharpened: verification requires the checker to be capable of
 > catching the failure. The filtered-out candidates never reach the reviewer; the score's
@@ -378,11 +377,11 @@ from M8 to make the one-pager real policy.
 
 - A. Using more than one model to generate the summary
 - B. The population getting small enough to point at individuals, or themes getting re-attached to named people — anything that could change one identifiable person's outcome ✓
-- C. Nothing — aggregate analysis is always safe regardless of size
+- C. Nothing, aggregate analysis is always safe regardless of size
 - D. Using the summary in any meeting where decisions are made
 
 > **B.** The traveling test. Aggregates characterize populations, and that's assist-side
-> work with M4 and M6 riding along — until the aggregate thins into de-facto individual
+> work with M4 and M6 riding along, until the aggregate thins into de-facto individual
 > assessment. C ignores M4's small-population flag; D would outlaw using analysis for
 > anything, which isn't the line — informing decisions about *policies* is what analysis
 > is for.
@@ -390,8 +389,8 @@ from M8 to make the one-pager real policy.
 **Q7.** Per the regulatory shape **[V]**, why does "the vendor assured us their tool is unbiased" fail as a defense under disparate-impact doctrine?
 
 - A. Vendor statements are inadmissible in legal proceedings
-- B. Disparate impact turns on outcomes, not intent — so the question is validation evidence for this system on a population like yours, and the employer owns the outcome either way ✓
-- C. It doesn't fail — good-faith reliance on vendor assurances transfers the liability
+- B. Disparate impact turns on outcomes, not intent, so the question is validation evidence for this system on a population like yours, and the employer owns the outcome either way ✓
+- C. It doesn't fail, good-faith reliance on vendor assurances transfers the liability
 - D. Because all vendor tools are in fact biased
 
 > **B.** No malice is required — a neutral-seeming practice that disproportionately
@@ -404,13 +403,13 @@ from M8 to make the one-pager real policy.
 
 - A. "We take an appropriately cautious approach to AI in talent processes"
 - B. "No AI anywhere near anything involving people, effective immediately"
-- C. "No system ranks, scores, or filters candidates — screening stays human. AI does structure intake, draft kits, and clean up debriefs; [Name] clears any new people-touching tool before pilot" ✓
+- C. "No system ranks, scores, or filters candidates, screening stays human. AI does structure intake, draft kits, and clean up debriefs; [Name] clears any new people-touching tool before pilot" ✓
 - D. Whichever version the vendor's legal team is comfortable signing
 
 > **C.** The four properties: specific (checkable against any new tool in seconds),
 > attached to its assist-side trade (adoptable, not just prohibitive), reasoned, and
 > owned by a name. A re-litigates per vendor; B routes around by Q3 because it blocks
-> the assist side too — the blanket version is the *weaker* version, which is this
+> the assist side too: the blanket version is the *weaker* version, which is this
 > module's least intuitive lesson.
 
 ## Sources and attribution
@@ -424,11 +423,11 @@ This module draws on the following material:
 - The disparate-impact framing follows long-standing U.S. employment-law doctrine;
   the high-risk categorization of employment AI follows the EU AI Act's published
   framework. **US federal guidance `[V]`:** the EEOC removed its AI technical assistance
-  documents in January 2025 — the May 2023 Title VII material and the May 2022 ADA
-  material — following Executive Order 14179 and the rescission of the prior
+  documents in January 2025 (the May 2023 Title VII material and the May 2022 ADA
+  material) following Executive Order 14179 and the rescission of the prior
   administration's AI executive order. **The underlying statutes were not amended**, and
   the agency's Strategic Enforcement Plan listing AI remained in place; what withdrew was
-  guidance, not law. **This lesson is direction-of-travel, not legal advice — verify all
+  guidance, not law. **This lesson is direction-of-travel, not legal advice, verify all
   specifics with counsel before relying on them. Flagged for counsel review before any
   deployment-specific claims are added. [V]**
 - The proxy-variable problem and the standardization-of-bias argument reflect the

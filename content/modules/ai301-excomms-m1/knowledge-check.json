@@ -37,7 +37,7 @@
         "Because managers control whether their teams read anything"
       ],
       "correctIndex": 1,
-      "explanation": "Spending attention feels free at the moment of spending. Nobody replies to say an update cost them four minutes they needed — they just read the next one less carefully, which is why the cost is invisible to the sender."
+      "explanation": "Spending attention feels free at the moment of spending. Nobody replies to say an update cost them four minutes they needed. They just read the next one less carefully, which is why the cost is invisible to the sender."
     },
     {
       "id": "q4",
@@ -61,7 +61,7 @@
         "Readiness surveys overstate capability in every function"
       ],
       "correctIndex": 2,
-      "explanation": "The teams pulling ahead are not the ones experimenting most, which is the opposite of what every product demonstration implies. High-governance teams are reported as roughly ten times more likely to reach enabled maturity."
+      "explanation": "The teams pulling ahead aren't the ones experimenting most, which is the opposite of what every product demonstration implies. High-governance teams are reported as roughly ten times more likely to reach enabled maturity."
     },
     {
       "id": "q6",
@@ -85,7 +85,7 @@
         "Nothing, and repeat the audit when the data becomes available"
       ],
       "correctIndex": 1,
-      "explanation": "In many organizations no single person can see across all channels, and discovering that is worth more than a tidy estimate. The audit is partly an instrument for finding out whether the number exists at all — which is exactly what the opening claim asked you to commit to."
+      "explanation": "In many organizations no single person can see across all channels, and discovering that is worth more than a tidy estimate. The audit is partly an instrument for finding out whether the number exists at all, which is exactly what the opening claim asked you to commit to."
     },
     {
       "id": "q8",
@@ -97,7 +97,7 @@
         "That measurement of attention is too imprecise to act on"
       ],
       "correctIndex": 2,
-      "explanation": "It is the real counter-argument and it is strong. A position worth submitting names the traffic you genuinely cannot refuse, then says what you would do about the traffic you can. A is a 101 M6 concern and not specific to this function; B is contradicted by the overload finding."
+      "explanation": "It is the real counter-argument and it is strong. A position worth submitting names the traffic you genuinely can't refuse, then says what you would do about the traffic you can. A is a 101 M6 concern and not specific to this function; B is contradicted by the overload finding."
     }
   ]
 }

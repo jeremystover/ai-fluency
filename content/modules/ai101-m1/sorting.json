@@ -39,7 +39,7 @@
       "id": "t3",
       "text": "Explain what happened to attrition in your Denver office last quarter",
       "key": "badly",
-      "reasoning": "The model never saw your attrition data. It will answer anyway — fluently, and invented."
+      "reasoning": "The model never saw your attrition data. It will answer anyway: fluently, and invented."
     },
     {
       "id": "t4",
@@ -57,7 +57,7 @@
       "id": "t6",
       "text": "Tell you which section of your employee handbook covers bereavement leave",
       "key": "badly",
-      "reasoning": "It has never seen your handbook. It has seen thousands of others, so what it produces will read exactly like yours — and won't be."
+      "reasoning": "It has never seen your handbook. It has seen thousands of others, so what it produces will read exactly like yours, and won't be."
     },
     {
       "id": "t7",
@@ -69,7 +69,7 @@
       "id": "t8",
       "text": "Recommend the comp band for a new role",
       "key": "badly",
-      "reasoning": "Your comp philosophy, your bands, your market data — none of it was in training. Any number it gives is a fabrication wearing a confident face."
+      "reasoning": "Your comp philosophy, your bands, your market data, none of it was in training. Any number it gives is a fabrication wearing a confident face."
     },
     {
       "id": "t9",

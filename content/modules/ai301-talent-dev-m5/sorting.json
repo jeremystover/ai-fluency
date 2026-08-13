@@ -1,7 +1,7 @@
 {
   "reviewedAt": "2026-08-12",
   "title": "Ten uses of AI in a learning function",
-  "intro": "*Five minutes. Commit before you look.*\n\nTen things a learning function might do with AI. Sort each one.\n\n**Ship it** — no special handling. **Ship it with the record** — permitted, and it needs documentation, disclosure, or a check that survives an audit. **Never** — the answer does not depend on how well it is done.",
+  "intro": "*Five minutes. Commit before you look.*\n\nTen things a learning function might do with AI. Sort each one.\n\n**Ship it**, no special handling. **Ship it with the record**: permitted, and it needs documentation, disclosure, or a check that survives an audit. **Never** — the answer doesn't depend on how well it is done.",
   "buckets": [
     {
       "id": "ship",
@@ -30,25 +30,25 @@
       "id": "t1",
       "text": "Generating first-draft practice scenarios for a negotiation workshop from your own anonymized case notes",
       "key": "record",
-      "reasoning": "Fine to do and it needs the record — what went into the model, under which agreement, and whether the anonymization survives contact with a small population. Module 3's discipline applies to the output; 101 M4's applies to the input."
+      "reasoning": "Fine to do and it needs the record, what went into the model, under which agreement, and whether the anonymization survives contact with a small population. Module 3's discipline applies to the output; 101 M4's applies to the input."
     },
     {
       "id": "t2",
       "text": "Inferring employee skill levels from work history, where the inference determines who is surfaced for stretch assignments",
       "key": "record",
-      "reasoning": "Not never — the skills-based agenda is genuinely valuable and the realistic alternative is managerial intuition. But an allocation of opportunity depends on it, so it is a decision system: the person needs to see and contest their profile, and you need to know what it was trained on. Placing this in 'ship it' is the module's central error."
+      "reasoning": "Not never, the skills-based agenda is genuinely valuable and the realistic alternative is managerial intuition. But an allocation of opportunity depends on it, so it is a decision system: the person needs to see and contest their profile, and you need to know what it was trained on. Placing this in 'ship it' is the module's central error."
     },
     {
       "id": "t3",
       "text": "Engagement scoring from webcam during a virtual classroom, in a company with European operations",
       "key": "never",
-      "reasoning": "The workplace emotion-recognition prohibition is absolute and has been in force since February 2025. It is not a risk to manage or a consent question. Note that products in this space are marketed to learning functions specifically, on the grounds that they finally measure engagement."
+      "reasoning": "The workplace emotion-recognition prohibition is absolute and has been in force since February 2025. It isn't a risk to manage or a consent question. Note that products in this space are marketed to learning functions specifically, on the grounds that they finally measure engagement."
     },
     {
       "id": "t4",
       "text": "Drafting the harassment-prevention module for a multi-state workforce from a generic brief",
       "key": "never",
-      "reasoning": "The trap is that this reads like a 'with the record' answer. It is never *as described* — a generic brief produces general content, and general content omits mandated elements. The same activity with the statutory content list as an input is entirely fine, which is the lesson: the requirement is an input, not a review criterion."
+      "reasoning": "The trap is that this reads like a 'with the record' answer. It is never *as described*: a generic brief produces general content, and general content omits mandated elements. The same activity with the statutory content list as an input is entirely fine, which is the lesson: the requirement is an input, not a review criterion."
     },
     {
       "id": "t5",
@@ -60,31 +60,31 @@
       "id": "t6",
       "text": "A learner-facing chatbot that answers questions about company policy, deployed to European staff",
       "key": "record",
-      "reasoning": "Permitted, and since 2 August 2026 it must disclose that it is AI at or before the start of the interaction, regardless of risk classification. The record is the disclosure itself plus evidence it is actually presented. This is the obligation most learning functions do not know applies to them."
+      "reasoning": "Permitted, and since 2 August 2026 it must disclose that it is AI at or before the start of the interaction, regardless of risk classification. The record is the disclosure itself plus evidence it is actually presented. This is the obligation most learning functions don't know applies to them."
     },
     {
       "id": "t7",
       "text": "Generating video for an onboarding module using a text-to-video tool, published to the catalog",
       "key": "record",
-      "reasoning": "Fine, and captions and a transcript are not optional extras — text-to-video produces video, not captioned video, and the failure arrives by default. At volume this is where accessibility debt concentrates."
+      "reasoning": "Fine, and captions and a transcript aren't optional extras: text-to-video produces video, not captioned video, and the failure arrives by default. At volume this is where accessibility debt concentrates."
     },
     {
       "id": "t8",
       "text": "Uploading your purchased content library into a model to generate adapted versions for different audiences",
       "key": "record",
-      "reasoning": "The honest answer is that you do not know yet, which is why it needs the record. Most library licences predate generative AI and grant a right to *deliver*; ingestion for derivative generation is usually unaddressed, and silence is not permission. Ask before, not after."
+      "reasoning": "The honest answer is that you don't know yet, which is why it needs the record. Most library licences predate generative AI and grant a right to *deliver*; ingestion for derivative generation is usually unaddressed, and silence isn't permission. Ask before, not after."
     },
     {
       "id": "t9",
       "text": "Using a model to draft the facilitator guide for a workshop you designed",
       "key": "ship",
-      "reasoning": "Internal production of internal material with a human author who knows the content. The clearest 'ship it' card in the set — and worth noticing that this is what most of the collapsed middle actually is."
+      "reasoning": "Internal production of internal material with a human author who knows the content. The clearest 'ship it' card in the set, and worth noticing that this is what most of the collapsed middle actually is."
     },
     {
       "id": "t10",
       "text": "Scoring open-text assessment responses to determine who passes a mandatory certification",
       "key": "record",
-      "reasoning": "The hardest card, and reasonable people place it in 'never'. A pass or fail on a mandatory certification is a decision about a person with consequences, so at minimum it needs human review of every fail, a contest route, and documentation of the standard. The reason it is not 'never' is that a well-governed version — model proposes, human decides, learner can appeal — is 101 M7's assist rather than decide. Automate the pass; never automate the fail without a human on it."
+      "reasoning": "The hardest card, and reasonable people place it in 'never'. A pass or fail on a mandatory certification is a decision about a person with consequences, so at minimum it needs human review of every fail, a contest route, and documentation of the standard. The reason it isn't 'never' is that a well-governed version (model proposes, human decides, learner can appeal) is 101 M7's assist rather than decide. Automate the pass; never automate the fail without a human on it."
     }
   ]
 }

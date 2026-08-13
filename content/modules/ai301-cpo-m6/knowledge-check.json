@@ -13,7 +13,7 @@
         "Because approval cycles require projected returns"
       ],
       "correctIndex": 1,
-      "explanation": "And the consequence is the governing sentence: an initiative whose result you cannot demonstrate is funded exactly the same way as one that failed."
+      "explanation": "And the consequence is the governing sentence: an initiative whose result you can't demonstrate is funded exactly the same way as one that failed."
     },
     {
       "id": "q2",
@@ -49,7 +49,7 @@
         "Adoption target, behaviour, business result, threshold"
       ],
       "correctIndex": 1,
-      "explanation": "Starting from the intervention and reasoning forward to a hoped-for result cannot produce a falsifiable measure, because by the time you reach the result you have no independent check on it."
+      "explanation": "Starting from the intervention and reasoning forward to a hoped-for result can't produce a falsifiable measure, because by the time you reach the result you have no independent check on it."
     },
     {
       "id": "q5",
@@ -85,7 +85,7 @@
         "Assurance that the organization is at or above peer adoption levels"
       ],
       "correctIndex": 1,
-      "explanation": "The question behind the question is *if this goes wrong, who do we call* — and \"the AI steering group\" is not an answer. C is the most common failure: it tells the board you think their problem is comprehension rather than control."
+      "explanation": "The question behind the question is *if this goes wrong, who do we call*, and \"the AI steering group\" isn't an answer. C is the most common failure: it tells the board you think their problem is comprehension rather than control."
     },
     {
       "id": "q8",

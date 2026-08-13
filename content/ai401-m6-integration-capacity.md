@@ -22,7 +22,7 @@
 politely.
 
 Then: **how many distinct process, tool, or workflow changes has your unit absorbed in the last
-quarter?** A count. Include the small ones — a new template, a new approval step, a new tool
+quarter?** A count. Include the small ones: a new template, a new approval step, a new tool
 someone started using. People routinely undercount this by half, and the undercount is the module.
 
 ---
@@ -47,7 +47,7 @@ It also carries procurement, and the reason it lives here rather than in a modul
 argument itself: **lock-in is integration debt with a contract attached.** Buying is a pace
 decision. Once you see it that way, the vendor conversation changes shape.
 
-**One thing this module is not.** 101 M3 taught you to read a vendor quote — per-seat versus
+**One thing this module is not.** 101 M3 taught you to read a vendor quote: per-seat versus
 per-use, what "unlimited" means, the questions that expose a thin wrapper. That was the right
 lesson and it isn't repeated here. **This is the layer above it:** not what the thing costs, but
 what it does to your ability to change your mind.
@@ -76,12 +76,12 @@ incompatible. The time saved on both is spent, with interest, discovering that.
 
 **And local optimization increases variation.** Each person, using their own tools in their own way
 against their own understanding of the goal, produces something slightly differently shaped. There
-was always variation; there's more of it now, because the constraint that used to suppress it —
-the cost of producing anything at all — is gone.
+was always variation; there's more of it now, because the constraint that used to suppress it (
+the cost of producing anything at all) is gone.
 
 **Variation is paid for in coordination.** That is the mechanism. Every increment of
 difference between two people's outputs is an increment of work for whoever has to make them fit,
-and that work is nobody's job, appears on no dashboard, and lands — as Module 5 established — on
+and that work is nobody's job, appears on no dashboard, and lands (as Module 5 established) on
 the people with the least slack.
 
 None of this is an argument against speed. It is an argument that **speed at the edges and speed
@@ -92,7 +92,7 @@ assuming the second.
 > Think about a piece of work in your unit that involved three or more people's outputs coming
 > together in the last month. Estimate how long the *producing* took, and how long the
 > *reconciling* took. Then ask which of those two numbers has changed in the last year, and in
-> which direction. Most people find production halved and reconciliation grew — and that nobody
+> which direction. Most people find production halved and reconciliation grew, and that nobody
 > has ever measured the second one.
 
 ## Lesson 2 · The finding, and the objection
@@ -118,8 +118,8 @@ Three things separate this from that argument, and you should hold yourself to a
 
 **It is a rate, not a limit.** Nobody is saying don't change. The claim is that change has a
 throughput, and throughput can be measured, raised, and planned against. An organization that
-invests in reconciliation capacity — shared definitions, better interfaces, actual integration
-work — raises its own ceiling. That is a growth strategy, not a brake.
+invests in reconciliation capacity (shared definitions, better interfaces, actual integration
+work) raises its own ceiling. That is a growth strategy, not a brake.
 
 **It has to be stated as a number, in advance.** "We can't absorb that" said in the meeting where
 someone proposes something is a veto. "Two process changes per quarter, agreed in January" is a
@@ -153,13 +153,13 @@ them. The variation they introduce is absorbed downstream by people who have no 
 changed.
 
 **The failure mode is treating this as a performance conversation.** It isn't one. Their
-performance is excellent. Framing it as anything else is both wrong and — practically — the fastest
+performance is excellent. Framing it as anything else is both wrong and (practically) the fastest
 way to lose them, and losing them is worse than the debt.
 
 What actually works is making the debt visible and shared. Three moves, in order:
 
 **Name the two truths out loud, in that order.** The value first, specifically. Then the debt,
-specifically — who is absorbing it, and what it's costing them. Not "you're moving too fast." *"You
+specifically: who is absorbing it, and what it's costing them. Not "you're moving too fast." *"You
 produced eleven of these last quarter and the three people who consume them are each reformatting
 by hand, which is about a day a week between them."*
 
@@ -189,7 +189,7 @@ as the purchase: how much of what you build inside this thing comes out, in what
 would do the work.
 
 **Four questions that slow a deal down, and should.** Each one is a signal rather than a
-disqualification — but a vendor with no answer to any of them is telling you something.
+disqualification, but a vendor with no answer to any of them is telling you something.
 
 **"What is the safe mode?"** Autonomy claims without guardrails are the current market's favorite
 shape. Ask what the system does when it's unsure, what it does when a dependency fails, and what a
@@ -211,7 +211,7 @@ encoded. Ask for the export format in writing before you sign.
 
 **And the HR-specific layer, which nobody else in the buying group will raise.**
 
-Ask for **bias audit results** — the actual document, not the assurance. Ask about **adverse impact
+Ask for **bias audit results**: the actual document, not the assurance. Ask about **adverse impact
 testing by region**, because obligations differ by jurisdiction and a US-tested tool says nothing
 about your European operations. And ask the question vendors reliably deflect:
 
@@ -219,7 +219,7 @@ about your European operations. And ask the question vendors reliably deflect:
 
 Listen carefully to the deflection, because the deflection is the information. The honest answer,
 in most jurisdictions and under most contracts, is that **substantial exposure sits with you as the
-deployer regardless of what the contract says** — which is Module 9's subject, carries a
+deployer regardless of what the contract says**, which is Module 9's subject, carries a
 counsel-review gate, and is the reason that module exists rather than being folded in here.
 
 ## Key takeaways
@@ -236,7 +236,7 @@ counsel-review gate, and is the reason that module exists rather than being fold
 - **You do not trade speed against risk. You govern speed against absorption.** Risk is a different
   question with a different unit.
 - **The early adopter is a governance question, not a performance conversation.** Name the value
-  first and specifically, then the debt and who is absorbing it — then hand them the problem, because
+  first and specifically, then the debt and who is absorbing it, then hand them the problem, because
   "make this reusable by the three people downstream" converts a liability into an asset.
 - **Slowing the best performer to protect a bad interface preserves the dysfunction.** Sometimes the
   answer is to raise reconciliation capacity instead.
@@ -253,7 +253,7 @@ creating the most debt, and both are true at once."*
 The strongest counter-argument is that **absorption capacity is an excuse dressed as a discipline.**
 Every organization that has ever failed to adopt something has explained that it couldn't absorb
 the change, and this module hands that instinct a vocabulary, a metric, and a governance process.
-The people who will use it most enthusiastically aren't the thoughtful integrators — they are the
+The people who will use it most enthusiastically aren't the thoughtful integrators. They are the
 ones who didn't want to move anyway, and who now have a defensible-sounding reason. **A rate stated
 in advance is only a constraint on you if someone is willing to enforce it against you**, and in
 most organizations nobody is.
@@ -265,19 +265,19 @@ two years. **On that reading, governing pace is optimizing for a coherence that 
 shortly, at the cost of a lead that will not be.**
 
 Your position has to say what would make you *raise* your unit's absorption rate rather than
-enforce it — and what evidence would tell you your rate was set too low.
+enforce it, and what evidence would tell you your rate was set too low.
 
 ## Applied activity — "The absorption limit"
 
 **Time:** 30 minutes · **Submit:** the limit, the exceedance, and the covering note · **Graded
 against the rubric below.** Score doesn't matter. Doing the work is where the learning lands.
 
-**Step 1 — Count what you actually absorbed (8 min).** Your calibration answer was how many
+**Step 1. Count what you actually absorbed (8 min).** Your calibration answer was how many
 distinct process, tool, or workflow changes your unit took on last quarter. **Go and count.** Look
 at what actually changed: new templates, new approval steps, new tools people started using, new
 reports, a changed definition. Include the ones nobody announced.
 
-Then, for each one, mark whether it **landed** — is it in steady use — or whether it's still being
+Then, for each one, mark whether it **landed** (is it in steady use) or whether it's still being
 half-used, worked around, or quietly abandoned. **The ratio of landed to attempted is your real
 absorption evidence**, and it's more informative than either number alone.
 
@@ -289,19 +289,19 @@ Then the part that makes it a discipline rather than a veto: **what would tell y
 wrong, in either direction?** Name one observation that would make you raise it and one that would
 make you lower it.
 
-**Step 3 — Name one thing currently exceeding it (7 min).** Something live. What it is, who is
-absorbing the reconciliation, and what it's costing them — in hours, rework, or delay, as
+**Step 3. Name one thing currently exceeding it (7 min).** Something live. What it is, who is
+absorbing the reconciliation, and what it's costing them: in hours, rework, or delay, as
 specifically as you can get.
 
 **If the honest answer is that nothing is currently exceeding your limit**, say so and say what
 that implies: you may have room to go faster, which is a finding this module is equally happy to
 produce.
 
-**Step 4 — Address it (5 min).** To whoever controls the pace for your unit — which may be you, a
+**Step 4 — Address it (5 min).** To whoever controls the pace for your unit, which may be you, a
 peer, or someone two levels up. Predict their response in a sentence: **do they think the constraint
 is real, and if not, what do they think you're actually asking for?**
 
-**Step 5 — The covering note (3 min).** 200–300 words. Predicted count against actual, with the
+**Step 5. The covering note (3 min).** 200–300 words. Predicted count against actual, with the
 landed ratio. And your position on the module's claim, engaging the counter-argument that absorption
 capacity is an excuse with a vocabulary.
 
@@ -327,8 +327,8 @@ capacity is an excuse with a vocabulary.
 - C. Because optimized processes are harder to document
 - D. Because individual improvements are rarely shared across teams
 
-> **B.** There was always variation; the constraint that suppressed it — the cost of producing
-> anything at all — is gone.
+> **B.** There was always variation; the constraint that suppressed it (the cost of producing
+> anything at all) is gone.
 
 **Q3.** What three conditions make an absorption rate a discipline rather than a veto?
 
@@ -343,7 +343,7 @@ capacity is an excuse with a vocabulary.
 **Q4.** How does the module reframe the speed-versus-risk question?
 
 - A. Speed and risk are both subordinate to quality
-- B. You don't trade speed against risk — you govern speed against absorption ✓
+- B. You don't trade speed against risk. You govern speed against absorption ✓
 - C. Risk should be assessed per use case rather than per pace decision
 - D. Speed is a leadership choice; risk is a compliance one
 
@@ -353,7 +353,7 @@ capacity is an excuse with a vocabulary.
 **Q5.** Why is the early adopter conversation not a performance conversation?
 
 - A. Because performance conversations require a formal process
-- B. Because their performance is genuinely excellent — framing it otherwise is both wrong and the fastest way to lose them ✓
+- B. Because their performance is genuinely excellent, framing it otherwise is both wrong and the fastest way to lose them ✓
 - C. Because integration debt is an organizational failure rather than an individual one
 - D. Because performance management is the manager's job rather than the translator's
 
@@ -373,7 +373,7 @@ capacity is an excuse with a vocabulary.
 **Q7.** What does "lock-in is integration debt with a contract attached" mean for procurement?
 
 - A. That contract length should be minimized wherever possible
-- B. That switchability is an architectural property — what comes out, in what form, and who does the work — rather than a procurement footnote ✓
+- B. That switchability is an architectural property (what comes out, in what form, and who does the work) rather than a procurement footnote ✓
 - C. That multi-vendor strategies are safer than single-platform ones
 - D. That pricing should be negotiated on a per-use basis
 
@@ -385,7 +385,7 @@ capacity is an excuse with a vocabulary.
 
 - A. That the vendor's legal team hasn't been consulted on the deal
 - B. That liability is genuinely unsettled and will be determined case by case
-- C. That the deflection is the information — substantial exposure sits with you as the deployer regardless of the contract ✓
+- C. That the deflection is the information, substantial exposure sits with you as the deployer regardless of the contract ✓
 - D. That the question should be raised with procurement rather than the vendor
 
 > **C.** Which is Module 9's subject and why it carries a counsel-review gate rather than being
@@ -397,10 +397,10 @@ capacity is an excuse with a vocabulary.
   speed-against-absorption reframe, the early-adopter sequence, and the switchability framing are
   original to this course.
 - **Deliberately not repeated from 101 M3 Lesson 4:** reading a vendor quote, per-seat versus
-  per-use pricing, and the questions that expose a thin wrapper. This module is the layer above —
+  per-use pricing, and the questions that expose a thin wrapper. This module is the layer above,
   what a purchase does to your ability to change your mind. `[V]`
 - The liability question and the deployer position are stated here as a procurement signal only.
   **The legal treatment, its jurisdictional differences, and the counsel-review gate are Module 9**,
   and no purchasing decision should rest on this lesson alone.
-- Continues Module 5 — the absorbers are the reconciliation capacity this module says is finite —
+- Continues Module 5 (the absorbers are the reconciliation capacity this module says is finite)
   and supplies the pace constraint Module 10's thresholds are measured inside.

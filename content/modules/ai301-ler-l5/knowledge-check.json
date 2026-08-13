@@ -13,7 +13,7 @@
         "Because tribunals defer to the employer on process questions"
       ],
       "correctIndex": 1,
-      "explanation": "Nothing in your file is wrong. The problem is not in your file at all — which is why consistency rather than thoroughness is the thing to be able to demonstrate."
+      "explanation": "Nothing in your file is wrong. The problem is not in your file at all, which is why consistency rather than thoroughness is the thing to be able to demonstrate."
     },
     {
       "id": "q2",
@@ -25,7 +25,7 @@
         "Case management vendors withhold analytical features"
       ],
       "correctIndex": 1,
-      "explanation": "Same analysis, worse tools, less time — and a memory that reconstructs the past in the direction of the decision you are about to make."
+      "explanation": "Same analysis, worse tools, less time, and a memory that reconstructs the past in the direction of the decision you are about to make."
     },
     {
       "id": "q3",
@@ -61,7 +61,7 @@
         "Because it requires access to matters outside your business unit"
       ],
       "correctIndex": 1,
-      "explanation": "An AI that flattens your case history into an average is manufacturing the disparate-treatment argument on your opponent's behalf. Ask for the matters and their factors — ten rows you can read beat one sentence you cannot check."
+      "explanation": "An AI that flattens your case history into an average is manufacturing the disparate-treatment argument on your opponent's behalf. Ask for the matters and their factors, ten rows you can read beat one sentence you cannot check."
     },
     {
       "id": "q6",
@@ -97,7 +97,7 @@
         "Restrict it to matters where the employee has consented to their record being used"
       ],
       "correctIndex": 1,
-      "explanation": "An assistant retrieves what its user may reach, and years of accumulated access is wider than anyone intended. And the index is itself a thing that exists — which is what the module's counter-argument is about."
+      "explanation": "An assistant retrieves what its user may reach, and years of accumulated access is wider than anyone intended. And the index is itself a thing that exists, which is what the module's counter-argument is about."
     }
   ]
 }

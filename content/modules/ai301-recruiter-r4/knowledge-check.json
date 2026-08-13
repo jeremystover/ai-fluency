@@ -13,7 +13,7 @@
         "That validity coefficients cannot be meaningfully compared across methods"
       ],
       "correctIndex": 1,
-      "explanation": "Decades of estimates carried the same statistical overcorrection; correcting it inverted the top of the ranking. And usefully, the corrected ranking maps almost exactly onto fakeability — the evidence and the AI-resistance point the same way."
+      "explanation": "Decades of estimates carried the same statistical overcorrection; correcting it inverted the top of the ranking. And usefully, the corrected ranking maps almost exactly onto fakeability: the evidence and the AI-resistance point the same way."
     },
     {
       "id": "q2",
@@ -37,7 +37,7 @@
         "Long enough that candidates without genuine interest drop out"
       ],
       "correctIndex": 1,
-      "explanation": "Note that \"takes a long time\" isn't sufficient — a take-home takes four hours or four minutes depending on tooling. Forty minutes of live work takes forty minutes for everybody."
+      "explanation": "Note that \"takes a long time\" isn't sufficient: a take-home takes four hours or four minutes depending on tooling. Forty minutes of live work takes forty minutes for everybody."
     },
     {
       "id": "q4",
@@ -49,7 +49,7 @@
         "Because prohibiting it creates disparate impact"
       ],
       "correctIndex": 1,
-      "explanation": "The observed reasoning is the signal, not the artifact. A is true and is a weaker argument — enforceability is a reason the ban fails, not a reason the permission is right."
+      "explanation": "The observed reasoning is the signal, not the artifact. A is true and is a weaker argument: enforceability is a reason the ban fails, not a reason the permission is right."
     },
     {
       "id": "q5",

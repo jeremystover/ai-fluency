@@ -1,7 +1,7 @@
 {
   "reviewedAt": "2026-08-11",
   "title": "Four briefs, one task",
-  "intro": "*Five minutes. Commit before you look.*\n\nFour HRBPs at the same company need the same thing: an announcement to a 60-person department that its longtime director is leaving and an interim structure starts Monday. Below are their four actual prompts.\n\nOne of these briefs will produce a usable first draft — something its author would only need to edit lightly. The others each leave a load-bearing decision to the training data's average. **Which brief gets a usable first draft?**",
+  "intro": "*Five minutes. Commit before you look.*\n\nFour HRBPs at the same company need the same thing: an announcement to a 60-person department that its longtime director is leaving and an interim structure starts Monday. Below are their four actual prompts.\n\nOne of these briefs will produce a usable first draft, something its author would only need to edit lightly. The others each leave a structural decision to the training data's average. **Which brief gets a usable first draft?**",
   "artifacts": [
     {
       "label": "Brief A",
@@ -9,7 +9,7 @@
     },
     {
       "label": "Brief B",
-      "body": "\"You're helping an HR team write a sensitive internal announcement. Context: a 60-person product department; the director is leaving on good terms after 9 years; interim structure starts Monday (two team leads splitting coverage, org chart attached); people will worry about layoffs — there are none planned, and we can say so plainly. Audience: the department, some of whom are close to the director. Draft the announcement: 250–300 words, direct subject line, no corporate euphemisms — here's last year's VP transition note, which struck the right tone [attached].\""
+      "body": "\"You're helping an HR team write a sensitive internal announcement. Context: a 60-person product department; the director is leaving on good terms after 9 years; interim structure starts Monday (two team leads splitting coverage, org chart attached); people will worry about layoffs. There are none planned, and we can say so plainly. Audience: the department, some of whom are close to the director. Draft the announcement: 250–300 words, direct subject line, no corporate euphemisms: here's last year's VP transition note, which struck the right tone [attached].\""
     },
     {
       "label": "Brief C",
@@ -21,11 +21,23 @@
     }
   ],
   "options": [
-    { "id": "a", "label": "Brief A" },
-    { "id": "b", "label": "Brief B" },
-    { "id": "c", "label": "Brief C" },
-    { "id": "d", "label": "Brief D" }
+    {
+      "id": "a",
+      "label": "Brief A"
+    },
+    {
+      "id": "b",
+      "label": "Brief B"
+    },
+    {
+      "id": "c",
+      "label": "Brief C"
+    },
+    {
+      "id": "d",
+      "label": "Brief D"
+    }
   ],
   "key": "b",
-  "reasoning": "**Brief B gets the usable draft.** Map it to the four parts: role (light but present), task (the announcement, one deliverable, with length), context (department size, good terms, the interim plan *attached*, the layoff worry named — with permission to address it plainly), format (250–300 words, direct subject line, no euphemisms, and a tone *example* attached). Every load-bearing decision is pinned. Note what it isn't: it isn't long-winded — it's about eighty words plus two attachments. Briefing weight is specificity, not volume.\n\nThe others each fail one diagnostic. **A** is the search query: 'professional but warm, not too long' leaves the actual decisions — is there a layoff fear? what's the interim plan? — to the average, which will produce a lovely announcement for a fictional company. **C** is the seductive one: an elaborate *role* and zero *context* — the model is now a world-class specialist who has never heard of your department, your director, or Monday. Role inflation is the most common way people feel like they're briefing without briefing. **D** *names* the right concerns — tone, real worries, accurate details — but supplies none of them: 'get the tone right' without an example, 'accurate details' without the details. Instructions to not be generic are not information; they're hope.\n\nThe pattern: a brief works by what it *pins*, and you can audit any prompt — including C and D's polished-sounding ones — by asking what a capable stranger would still have to invent."
+  "reasoning": "**Brief B gets the usable draft.** Map it to the four parts: role (light but present), task (the announcement, one deliverable, with length), context (department size, good terms, the interim plan *attached*, the layoff worry named, with permission to address it plainly), format (250–300 words, direct subject line, no euphemisms, and a tone *example* attached). Every structural decision is pinned. Note what it isn't: it isn't long-winded. It's about eighty words plus two attachments. Briefing weight is specificity, not volume.\n\nThe others each fail one diagnostic. **A** is the search query: 'professional but warm, not too long' leaves the actual decisions — is there a layoff fear? what's the interim plan?: to the average, which will produce a lovely announcement for a fictional company. **C** is the seductive one: an elaborate *role* and zero *context*: the model is now a world-class specialist who has never heard of your department, your director, or Monday. Role inflation is the most common way people feel like they're briefing without briefing. **D** *names* the right concerns (tone, real worries, accurate details) but supplies none of them: 'get the tone right' without an example, 'accurate details' without the details. Instructions to not be generic are not information; they're hope.\n\nThe pattern: a brief works by what it *pins*, and you can audit any prompt (including C and D's polished-sounding ones) by asking what a capable stranger would still have to invent."
 }

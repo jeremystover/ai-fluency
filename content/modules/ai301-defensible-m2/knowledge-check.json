@@ -13,7 +13,7 @@
         "Because systems change more often than decisions do"
       ],
       "correctIndex": 1,
-      "explanation": "The question \"what AI do we use\" gets answered with what somebody bought. Sourcing — who sees the posting at all — shapes the applicant pool before anyone applies, and is skipped constantly."
+      "explanation": "The question \"what AI do we use\" gets answered with what somebody bought. Sourcing (who sees the posting at all) shapes the applicant pool before anyone applies, and is skipped constantly."
     },
     {
       "id": "q2",
@@ -73,7 +73,7 @@
         "Because performance metrics are themselves an AEDT"
       ],
       "correctIndex": 1,
-      "explanation": "Along with authority, it's the usual failing pair. Most of these failures are fixable — time can be budgeted, authority granted, rationale surfaced. What can't be fixed is a review layer nobody ever examined."
+      "explanation": "Along with authority, it's the usual failing pair. Most of these failures are fixable: time can be budgeted, authority granted, rationale surfaced. What can't be fixed is a review layer nobody ever examined."
     },
     {
       "id": "q7",

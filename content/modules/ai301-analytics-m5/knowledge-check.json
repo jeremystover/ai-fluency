@@ -25,7 +25,7 @@
         "Because Colorado's law conflicts with federal guidance"
       ],
       "correctIndex": 1,
-      "explanation": "The date survived and the law behind it did not. **Build an inventory that survives the statute rather than a checklist keyed to one.**"
+      "explanation": "The date survived and the law behind it didn't. **Build an inventory that survives the statute rather than a checklist keyed to one.**"
     },
     {
       "id": "q3",
@@ -49,7 +49,7 @@
         "Distributing a high-risk system to another organization"
       ],
       "correctIndex": 2,
-      "explanation": "And it does not feel like a legal act when you do it. Nobody signed anything and nobody called it a deployment. **An in-house model is not the safe option; it is the one where nobody else is holding the paperwork.**"
+      "explanation": "And it doesn't feel like a legal act when you do it. Nobody signed anything and nobody called it a deployment. **An in-house model is not the safe option; it is the one where nobody else is holding the paperwork.**"
     },
     {
       "id": "q5",
@@ -85,7 +85,7 @@
         "Because open-text responses cannot be suppressed by cell size"
       ],
       "correctIndex": 1,
-      "explanation": "Which requires somebody tracking what has already gone out — a role most listening programmes have not assigned to anyone."
+      "explanation": "Which requires somebody tracking what has already gone out: a role most listening programmes haven't assigned to anyone."
     },
     {
       "id": "q8",

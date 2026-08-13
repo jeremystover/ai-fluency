@@ -6,7 +6,7 @@
 **Position in the track:** the start of Part Three — and the only module argued entirely from craft
 
 > `Concepts reviewed: [DATE] · Examples current as of: [DATE]`
-> Nothing in this module is volatile, because there is nothing in it to become stale — see
+> Nothing in this module is volatile, because there is nothing in it to become stale, see
 > Lesson 1. That is a finding about the category, not a gap in the research.
 
 ---
@@ -15,10 +15,10 @@
 
 *One claim. Commit before you read anything.*
 
-Here is a factual assertion about your own organization:
+Here's a factual assertion about your own organization:
 
-> **"Somebody owns our employee-facing knowledge base — not the platform it sits on, the accuracy
-> of what's in it — and their name is known."**
+> **"Somebody owns our employee-facing knowledge base (not the platform it sits on, the accuracy
+> of what's in it) and their name is known."**
 
 **True of us, or not true of us?** Commit to one, in a sentence. If you're claiming true, name them.
 
@@ -32,15 +32,15 @@ current knowledge base answer correctly today?** Out of 20. You'll test it in th
 Every AI use in this curriculum so far produces a draft that a human owns before anyone sees it.
 Modules 5 and 6 are entirely about that human. This module is about the one exception.
 
-An employee-facing assistant — the HR bot, the intranet search agent, the benefits helper — speaks
+An employee-facing assistant (the HR bot, the intranet search agent, the benefits helper) speaks
 **to employees, in your organization's voice, unsupervised, at 11pm.** There is no draft stage. There
 is no reviewer. Whatever it says is published the instant it's said, to an audience of one who has
 no way to know how it was produced and every reason to treat it as the company answering.
 
-You did not deploy a tool. **You published a colleague, and you did it without an editor.**
+You didn't deploy a tool. **You published a colleague, and you did it without an editor.**
 
 Most organizations think of this as an IT project or a service-desk efficiency play, and the
-business case arrives in tickets deflected. That framing is not wrong about the economics and it is
+business case arrives in tickets deflected. That framing isn't wrong about the economics and it is
 wrong about the risk, because the thing being deployed is a communication channel with a
 person-shaped interface, and every question this track has asked about voice, accuracy, omission and
 trust applies to it — with the review step removed.
@@ -54,7 +54,7 @@ By the end of this module you should be able to:
 2. State why the knowledge base rather than the model is the product, and who should own it.
 3. Design a refusal list, and recognize the questions that are disclosures wearing a question's
    clothes.
-4. Reason about reliance — what an employee is owed when the assistant is wrong — and evaluate the
+4. Reason about reliance (what an employee is owed when the assistant is wrong) and evaluate the
    vendor framing of that problem.
 
 ## Lesson 1 · Why there are no numbers in this module
@@ -65,24 +65,24 @@ people's evidence.
 **Preparing this module, we went looking for independent evidence about employee-facing HR
 assistants and did not find any.** Not thin evidence. Not contested evidence. The searches returned
 vendor blogs, vendor case studies, vendor benchmark reports, and vendor-published statistics with no
-stated methodology — deflection rates, accuracy claims, error-reduction ranges, satisfaction scores,
+stated methodology, deflection rates, accuracy claims, error-reduction ranges, satisfaction scores,
 all produced by companies selling the product they describe.
 
 Two named cases circulate in the practitioner literature and are frequently repeated: a widely-cited
 internal assistant said to have succeeded because its team curated a very large document corpus, and
 a widely-cited failure said to involve an assistant giving wrong answers about equity vesting.
 **We could not verify either.** Neither traces to a primary source, a named organization willing to
-be quoted, or a published account with enough detail to check. They may well be true. They are not
-citable, and this course does not ship on vibes — the standard 101 M6 set applies to us first.
+be quoted, or a published account with enough detail to check. They may well be true. They aren't
+citable, and this course doesn't ship on vibes: the standard 101 M6 set applies to us first.
 
 So this module has **no anchor statistic and no worked case study**, and that is deliberate rather
 than a gap. It is also, itself, the most useful thing to know before you buy one of these:
 
-> **You are about to make a decision about a product category with no independent evidence base.
-> Every number you will be shown in a procurement cycle was produced by someone selling something.**
+> **You're about to make a decision about a product category with no independent evidence base.
+> Every number you'll be shown in a procurement cycle was produced by someone selling something.**
 
-That does not mean the products don't work. It means the burden of proof is entirely yours, nothing
-you are told is checkable, and the only evidence that will ever exist about your deployment is
+That doesn't mean the products don't work. It means the burden of proof is entirely yours, nothing
+you're told is checkable, and the only evidence that will ever exist about your deployment is
 evidence you generate. Which is what the activity has you start doing.
 
 The rest of this module is argued from craft: from what these systems are, structurally, and what
@@ -108,8 +108,8 @@ buffered by the difficulty of finding it and by every employee's reasonable inst
 something that looked out of date.
 
 The assistant removes both buffers. It finds the stale page instantly, and it renders its contents
-in the same confident register as everything else, stripped of the visual cues — the old formatting,
-the 2019 date, the departed author's name — that were doing the warning. **Nothing about the content
+in the same confident register as everything else, stripped of the visual cues (the old formatting,
+the 2019 date, the departed author's name) that were doing the warning. **Nothing about the content
 debt changed. The blast radius did.**
 
 Three consequences.
@@ -138,7 +138,7 @@ on its first day and least accurate on the day someone finally complains.
 The second half of the craft, and the half almost nobody specifies.
 
 Every conversation about these systems is about what they should answer. The more important
-question, and the one that will not come up in a vendor demonstration, is **what they must refuse,
+question, and the one that won't come up in a vendor demonstration, is **what they must refuse,
 and what happens next when they do.**
 
 Three categories that should be refusals in almost every deployment.
@@ -160,7 +160,7 @@ it is the most serious thing in this module.
 > **A bot that helpfully answers a harassment question has intercepted a report.**
 
 Consider what actually happens. An employee types "what happens if my manager keeps making comments
-about my appearance." That is not a policy query. It is a person, probably at night, probably after
+about my appearance." That isn't a policy query. It is a person, probably at night, probably after
 a long time working up to it, testing whether this organization is safe to tell. A well-built
 assistant will retrieve the anti-harassment policy and render a clear, accurate, four-paragraph
 summary of the complaints procedure.
@@ -174,12 +174,12 @@ intent. In each, the question is a bid for contact, and answering it competently
 
 **Which makes escalation design the actual product.** Three properties:
 
-**Context travels.** The employee should not have to retype what they already typed. A refusal that
+**Context travels.** The employee shouldn't have to retype what they already typed. A refusal that
 dead-ends into "please contact HR" has made the employee's situation worse than if the bot hadn't
 existed, because they have now made the effort once and been rebuffed.
 
 **A named destination, not a queue.** Somebody receives this. On these categories, the assistant
-should be quieter and warmer than its default register — the correct response to a disclosure is not
+should be quieter and warmer than its default register, the correct response to a disclosure isn't
 a well-formatted policy summary.
 
 **And a designed silence.** For the disclosure categories, there is a strong argument that the
@@ -188,29 +188,29 @@ helpful sentence is a further reason for the employee to feel the matter has bee
 
 ## Lesson 4 · Reliance, and what the vendors say about it
 
-The last question, and the one that decides what kind of organization you are.
+The last question, and the one that decides what kind of organization you're.
 
 An employee asks the assistant about the enrollment deadline. It answers, confidently, from a page
 that hadn't been updated. They act on it. They miss the window and lose a year of coverage.
 
 **What do you owe them?**
 
-Not legally — that is jurisdiction-specific and it is a question for counsel. Practically, and as a
+Not legally. That is jurisdiction-specific and it is a question for counsel. Practically, and as a
 matter of what your channel is for. The employee did what you built the system for them to do. They
 had no way to assess its reliability, no visual cue that the underlying page was stale, and a
 reasonable belief that the company's own assistant speaks for the company.
 
-There is a vendor answer to this and you will encounter it. It runs, roughly: *if an employee claims
+There is a vendor answer to this and you'll encounter it. It runs, roughly: *if an employee claims
 they were given wrong information, the audit log is your defence.*
 
 Read that carefully, because it is a real position, publicly stated, and it tells you what the
 product is optimized for. **It reframes an employee's harm as the employer's litigation exposure,
 and offers a solution that protects the organization while doing nothing whatsoever for the person
-who missed their enrollment window.** The audit log does not restore their coverage. It establishes
+who missed their enrollment window.** The audit log doesn't restore their coverage. It establishes
 what they were told, which is useful only in a dispute — and a dispute is what happens after you
 have already failed them.
 
-That framing should not survive this track's teardown, and the alternative is not complicated:
+That framing shouldn't survive this track's teardown, and the alternative isn't complicated:
 
 **Decide the make-good in advance.** Before launch, answer the question: when the assistant is wrong
 and someone relies on it, what do we do? A named remedy decided in the calm is worth more than a
@@ -220,7 +220,7 @@ accountability and a system with a disclaimer.
 **And the disclaimer is not the answer.** "This assistant may make mistakes; verify important
 information" appears under most of these deployments. It is honest, it is worth including, and it
 does approximately nothing, because it asks an employee to verify an answer they had no way to
-verify — if they could check the policy themselves, they wouldn't have asked. A disclaimer that
+verify, if they could check the policy themselves, they wouldn't have asked. A disclaimer that
 transfers responsibility to someone without the means to discharge it is decoration.
 
 Which brings this module to the same place Modules 5 and 6 arrived from different directions. Not
@@ -233,23 +233,23 @@ how long until it says something you have to answer for.
 - **This is the only AI in the curriculum that speaks to employees unsupervised.** No draft stage,
   no reviewer, published the instant it's said. You published a colleague without an editor.
 - **The module has no statistic and no case study, deliberately.** Independent evidence about this
-  product category does not appear to exist — the available material is vendor-produced, and the two
-  cases that circulate in practitioner literature could not be verified. **Every number you'll see
+  product category doesn't appear to exist, the available material is vendor-produced, and the two
+  cases that circulate in practitioner literature couldn't be verified. **Every number you'll see
   in a procurement cycle was produced by someone selling something**, so the burden of proof is
   entirely yours.
 - **A wrong answer about parental leave is a content failure with a model's confidence attached.**
   The stale page was always there; the assistant removed both buffers — the difficulty of finding it
   and the visual cues that used to warn you. Nothing about the debt changed. The blast radius did.
 - **The corpus is the product, it needs a named editorial owner rather than an IT owner, and it
-  decays continuously** — accurate the day it's curated, degrading at the rate your policies change.
+  decays continuously**: accurate the day it's curated, degrading at the rate your policies change.
 - **Refuse three categories:** the employee's own case, anything touching leave or medical, and
   **anything that is a disclosure wearing a question's clothes.** A bot that helpfully answers a
-  harassment question has intercepted a report — nobody is alerted, no case exists, and the employee
+  harassment question has intercepted a report: nobody is alerted, no case exists, and the employee
   has been handled instead of heard.
 - **Escalation is the actual product:** context travels, a named destination rather than a queue,
   and a designed silence on disclosure categories, because every extra helpful sentence is another
   reason to feel the matter is dealt with.
-- **Decide the make-good before launch.** The vendor framing — the audit log is your defence —
+- **Decide the make-good before launch.** The vendor framing (the audit log is your defence)
   converts an employee's harm into the employer's litigation exposure and does nothing for the
   person who missed their window. A disclaimer asking someone to verify what they couldn't verify is
   decoration.
@@ -265,12 +265,12 @@ the assistant, the employee's options at 11pm were: search an intranet that retu
 of the same policy with no indication which is current, ask a manager who guesses, or wait three days
 for an HR inbox and get an answer from someone junior reading the same stale page. **A system that is
 right 85% of the time, instantly, at any hour, may be a substantial improvement on a system that was
-right 60% of the time, slowly, and only during office hours** — and refusing to deploy it because it
+right 60% of the time, slowly, and only during office hours**, and refusing to deploy it because it
 is imperfect leaves in place something worse for the exact population the caution claims to protect:
 shift workers, frontline staff, people without a well-connected manager to ask.
 
 There is a sharper edge. **The refusal list, applied strictly, mostly refuses the questions people
-most need answered** — their own case, their own leave, their own eligibility. A system that answers
+most need answered**: their own case, their own leave, their own eligibility. A system that answers
 only general policy and routes everything personal to a human has reproduced the intranet, with a
 chat interface and a larger bill.
 
@@ -284,18 +284,18 @@ three-day inbox and a stale intranet, the argument changes shape considerably.
 **Graded against the rubric below.** Score doesn't matter. Doing the work is where the learning
 lands.
 
-**Step 1 — Write the twenty (5 min).** Your workforce's twenty most common questions. Take them from
-help-desk tickets, the search logs from Module 7, or the questions your team gets asked directly —
+**Step 1. Write the twenty (5 min).** Your workforce's twenty most common questions. Take them from
+help-desk tickets, the search logs from Module 7, or the questions your team gets asked directly,
 not from imagination. If you have Module 7's inventory, use it.
 
 **Step 2 — Test the corpus (10 min).** For each of the twenty, find what your current knowledge base
 would give as the answer. Mark each: **correct**, **wrong**, **stale but findable**, or **absent**.
 Count the correct ones. That is the number you predicted.
 
-If you have no assistant deployed, run the test against your intranet search — that corpus is what
+If you have no assistant deployed, run the test against your intranet search. That corpus is what
 an assistant would be built on, so the result is the same finding either way.
 
-**Step 3 — The refusal spec (7 min).** For a real or proposed assistant: the categories it must not
+**Step 3. The refusal spec (7 min).** For a real or proposed assistant: the categories it must not
 answer; for each, the escalation path including **what context travels with the employee**; the named
 destination; and the register it should use on disclosure categories.
 
@@ -315,7 +315,7 @@ want an assistant to answer at all**, with your reason.
 **Q1.** Why does this module carry no anchor statistic or worked case study?
 
 - A. Because the technology is too new for research to exist
-- B. Because independent evidence about this product category does not appear to exist — the available material is vendor-produced, and the two circulating cases could not be verified ✓
+- B. Because independent evidence about this product category doesn't appear to exist: the available material is vendor-produced, and the two circulating cases couldn't be verified ✓
 - C. Because statistics about chatbots become stale too quickly to publish
 - D. Because the module's argument is ethical rather than empirical
 
@@ -325,7 +325,7 @@ want an assistant to answer at all**, with your reason.
 
 - A. It uses a larger model than drafting tools
 - B. It processes personal data, which drafting tools don't
-- C. It speaks to employees in the organization's voice, unsupervised, with no draft stage and no reviewer — published the instant it's said ✓
+- C. It speaks to employees in the organization's voice, unsupervised, with no draft stage and no reviewer, published the instant it's said ✓
 - D. It operates outside the communications function's control
 
 > **C.** Every other AI use produces a draft a human owns before anyone sees it. This one is a publishing surface with no editor, which is why the module's framing is that you published a colleague rather than deployed a tool.
@@ -342,11 +342,11 @@ want an assistant to answer at all**, with your reason.
 **Q4.** What did the assistant remove that used to buffer stale content?
 
 - A. The requirement to log in before accessing policy documents
-- B. The difficulty of finding the stale page, and the visual cues — old formatting, an outdated date, a departed author — that used to prompt someone to check ✓
+- B. The difficulty of finding the stale page, and the visual cues (old formatting, an outdated date, a departed author) that used to prompt someone to check ✓
 - C. The ability of HR to correct wrong answers before employees saw them
 - D. Version control on the underlying documents
 
-> **B.** Nothing about the content debt changed. The blast radius did — which is why content debt converts from annoyance to liability on the day the assistant goes live.
+> **B.** Nothing about the content debt changed. The blast radius did, which is why content debt converts from annoyance to liability on the day the assistant goes live.
 
 **Q5.** Why should the knowledge base have an editorial owner rather than an IT owner?
 
@@ -361,7 +361,7 @@ want an assistant to answer at all**, with your reason.
 
 - A. Questions about the employee's own entitlements, because the cost of error lands on an identifiable person
 - B. Questions touching leave or medical matters, because the answers are legally consequential
-- C. Questions that are disclosures wearing a question's clothes — a bot that helpfully answers a harassment question has intercepted a report ✓
+- C. Questions that are disclosures wearing a question's clothes, a bot that helpfully answers a harassment question has intercepted a report ✓
 - D. Questions about compensation, because the data is most sensitive
 
 > **C.** A and B are real refusals and matter. C is worse because the failure is invisible: nobody is alerted, no case exists, no record shows anyone asked. The employee was handled instead of heard, by a system performing exactly as designed.
@@ -378,22 +378,22 @@ want an assistant to answer at all**, with your reason.
 **Q8.** How should the vendor position "if an employee claims they were given wrong information, the audit log is your defence" be read?
 
 - A. As sound risk management that every deployment should adopt
-- B. As a reframing of an employee's harm into the employer's litigation exposure — it establishes what they were told, which helps only in a dispute, and does nothing for the person who missed their window ✓
+- B. As a reframing of an employee's harm into the employer's litigation exposure. It establishes what they were told, which helps only in a dispute, and does nothing for the person who missed their window ✓
 - C. As a legal requirement in most jurisdictions
 - D. As evidence that these systems are too risky to deploy
 
-> **B.** It tells you what the product is optimized for. The alternative is a make-good decided before launch — a named remedy chosen in the calm, which is the difference between a system with accountability and a system with a disclaimer.
+> **B.** It tells you what the product is optimized for. The alternative is a make-good decided before launch, a named remedy chosen in the calm, which is the difference between a system with accountability and a system with a disclaimer.
 
 ## Sources and attribution
 
 - **No external sources are cited in this module, and Lesson 1 explains why.** A search for
   independent evidence on employee-facing HR assistants returned vendor blogs, vendor case studies
   and vendor-published statistics without stated methodology. **Two cases that circulate widely in
-  the practitioner literature — a large-corpus curation success and an equity-vesting failure —
+  the practitioner literature (a large-corpus curation success and an equity-vesting failure)
   could not be traced to any primary source and are deliberately not used.** They may be true; they
-  are not citable, and this course applies 101 M6's standard to itself first.
-- The vendor position quoted in Lesson 4 — that an audit log is the employer's defence against a
-  wrong-information claim — is a paraphrase of framing that appears across vendor marketing in this
+  aren't citable, and this course applies 101 M6's standard to itself first.
+- The vendor position quoted in Lesson 4 (that an audit log is the employer's defence against a
+  wrong-information claim) is a paraphrase of framing that appears across vendor marketing in this
   category. It is quoted to be examined, not endorsed.
 - The publishing-surface framing, the content-debt-to-liability conversion, the
   disclosure-wearing-a-question's-clothes refusal category, the three escalation properties, and the

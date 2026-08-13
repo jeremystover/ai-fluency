@@ -18,7 +18,7 @@
 > **"Most people on my team had a conversation with a colleague last week that went beyond
 > transactional work."**
 
-**True of us, or not true of us?** One sentence — and notice, before you answer, whether you're
+**True of us, or not true of us?** One sentence, and notice, before you answer, whether you're
 reasoning from evidence or from what you would like to be true.
 
 Then: **what proportion of your team had one, to your knowledge?** A percentage.
@@ -66,7 +66,7 @@ countries, at organizations of 3,500 people or more, all of whom actively use AI
 Hanover Research in March and April 2026.
 
 **Hold that sample, because it's doing a lot of work.** These aren't workers in general. They are
-AI users at large employers — the population *most* exposed to whatever AI is doing, in both
+AI users at large employers: the population *most* exposed to whatever AI is doing, in both
 directions. That makes the good news less surprising and the bad news considerably more serious.
 
 The good news first, and it's substantial:
@@ -81,7 +81,7 @@ arguing against the evidence.
 
 **Which is precisely what makes the rest of this module hard.** If the finding were "AI makes
 people miserable," the response would be obvious and the politics would be easy. The actual
-situation is that **the same people, in the same survey, report both** — and a leader who only
+situation is that **the same people, in the same survey, report both**, and a leader who only
 carries the second half into a room will be correctly accused of telling half a story by anyone who
 has read the first half.
 
@@ -102,7 +102,7 @@ Same 2,150 people. Same seven countries. Same survey.
 
 **Read the 76/52/37 line again slowly, because it's the mechanism rather than a symptom.** Advice.
 Brainstorming. Companionship. Every one of those is something people used to get from a person.
-Getting it from a model isn't a moral failure and it's frequently a better experience — the model
+Getting it from a model isn't a moral failure and it's frequently a better experience, the model
 is available at 11pm, it doesn't judge, it has no view about whether you should have known this
 already, and it never mentions it to anyone.
 
@@ -125,7 +125,7 @@ a structure.
 jobs beyond producing an answer:
 
 **It built trust incrementally, at low stakes.** You can't trust someone you've never needed.
-Small, repeated, survivable dependence is how trust actually forms in a workplace — not through
+Small, repeated, survivable dependence is how trust actually forms in a workplace, not through
 team-building, through *needing something and being helped.*
 
 **It transmitted norms.** The answer to "how do we do this here?" always carries more than the
@@ -154,19 +154,19 @@ doing four jobs got optimized away because it was visibly doing one.
 
 ## Lesson 4 · Why this is structural, not pastoral
 
-The objection to everything above is that it's soft — a wellbeing concern, real but secondary, for
+The objection to everything above is that it's soft: a wellbeing concern, real but secondary, for
 a different function on a different agenda. **Here's why it is not.**
 
 The relationships being lost are the ones that carry access to opportunity, and that's one of the
-better-established findings in the social sciences. **Weak ties — the casual, non-close
-professional relationships — are how people learn about opportunities**, because they bridge into
+better-established findings in the social sciences. **Weak ties (the casual, non-close
+professional relationships) are how people learn about opportunities**, because they bridge into
 networks and information you don't already have. Granovetter's original thesis has since been
 tested causally at large scale, and the effect holds: it's the moderately weak ties, not the close
 friendships, that most move job mobility.
 
 Two consequences that make this a People leader's problem specifically.
 
-**Weak ties are exactly what casual professional contact produces.** Not friendships — the
+**Weak ties are exactly what casual professional contact produces.** Not friendships: the
 colleague two teams over who knows what you're good at. That contact was mostly happening through
 the transaction this module is about, and it's the first thing to disappear when the transaction
 does.
@@ -195,13 +195,13 @@ has a reason to stay that isn't compensation, and compensation is the easiest th
 competitor to beat.
 
 **And what the answer must not be.** Manufactured social time isn't a fix. A mandatory coffee
-roulette, a virtual escape room, a Friday drinks slot — these are attempts to produce the *output*
+roulette, a virtual escape room, a Friday drinks slot. These are attempts to produce the *output*
 of interdependency (people know each other) without the *input* (people need each other). They fail
 for a reason you can now state precisely: **the relationship was a by-product of dependence, and
 you cannot manufacture the by-product without the process.**
 
 A designed interdependency is **structural**. Two people must work together because the work
-genuinely requires both of them — different information, different authority, different judgment —
+genuinely requires both of them (different information, different authority, different judgment)
 and neither can complete it alone. That is designable. It is also, notably, the opposite of what
 most efficiency programmes are trying to achieve, which is the tension this module leaves you with
 rather than resolving.
@@ -222,8 +222,8 @@ rather than resolving.
   low stakes, transmitting norms that are in no document, letting newcomers find mentors, and
   telling people what existed.
 - **AI removed the need for the transaction without replacing the function it served.**
-- **This is structural, not pastoral.** Weak ties are how people learn about opportunity — a
-  well-evidenced finding — and they are disproportionately the bridge for people whose strong-tie
+- **This is structural, not pastoral.** Weak ties are how people learn about opportunity (a
+  well-evidenced finding) and they are disproportionately the bridge for people whose strong-tie
   networks are already closed. **The narrowing happens with no decision anyone could point to.**
 - **A mobility and retention problem with a two-year fuse**, which will surface as attrition,
   flattened internal mobility, and a diversity outcome attributed to hiring.
@@ -238,7 +238,7 @@ rather than resolving.
 
 The strongest counter-argument is that **designed interdependency is manufactured friction wearing
 a better suit.** The module condemns coffee roulette for producing the output without the input,
-then proposes engineering dependence into work that no longer requires it — which is the same move
+then proposes engineering dependence into work that no longer requires it, which is the same move
 one layer down, and considerably more expensive, because it degrades the actual work rather than
 just an hour of it. Requiring two people to complete a task one could finish is a real cost, paid
 every time, and the benefit is a relationship that might form.
@@ -248,7 +248,7 @@ Sharper still, and it's about consent. **People are choosing this.** 76% went to
 incurred. A leader who responds by re-engineering work to force the old dependencies back is
 overriding a preference a large majority has expressed with their behavior, on the theory that they
 will thank you in two years. **That is a serious thing to do, and this module does not have the
-evidence to justify it** — the two-year-fuse claim is a mechanism argument, not a measured outcome.
+evidence to justify it**: the two-year-fuse claim is a mechanism argument, not a measured outcome.
 
 Your position has to say whether you would design an interdependency into work that doesn't
 require one, and what evidence would tell you the fuse is real.
@@ -258,7 +258,7 @@ require one, and what evidence would tell you the fuse is real.
 **Time:** 30 minutes · **Submit:** the finding, the design, and the covering note · **Graded against
 the rubric below.** Score doesn't matter. Doing the work is where the learning lands.
 
-**Step 1 — Find out, or find out that you cannot (8 min).** Your calibration answer was what
+**Step 1. Find out, or find out that you cannot (8 min).** Your calibration answer was what
 proportion of your team had a non-transactional conversation with a colleague last week.
 
 **Establish it if you can** — ask a few people, plainly, without explaining why in a way that
@@ -267,8 +267,8 @@ can't, and the reasons are the interesting part: no visibility, wrong question t
 team is remote, or it would seem strange coming from you. **That is a full-credit answer** and it's
 the honest one.
 
-**Step 2 — Answer the question about a real team (7 min).** *Why does anyone on this team still need
-anyone else on it?* Write the honest answer, listing the actual dependencies that remain — and mark
+**Step 2. Answer the question about a real team (7 min).** *Why does anyone on this team still need
+anyone else on it?* Write the honest answer, listing the actual dependencies that remain, and mark
 each one as either **genuine** (the work truly requires both) or **residual** (it's a dependency
 only because nobody has removed it yet, and someone will).
 
@@ -278,7 +278,7 @@ year.
 **Step 3 — Design one interdependency (12 min).** One genuine reason two named people must work
 together. It must be **structural, not recreational**, and it must pass three tests:
 
-- **The work genuinely requires both** — different information, different authority, or different
+- **The work genuinely requires both**, different information, different authority, or different
   judgment, such that neither could complete it well alone.
 - **It would survive an efficiency review.** If someone whose job is removing steps looked at it,
   could you defend it on the work's own terms, without mentioning connection? If not, it's
@@ -288,7 +288,7 @@ together. It must be **structural, not recreational**, and it must pass three te
 
 Name the two people. Name the work. Name what each brings that the other can't.
 
-**Step 4 — The covering note (3 min).** 200–300 words. What you found in Step 1, including if what
+**Step 4. The covering note (3 min).** 200–300 words. What you found in Step 1, including if what
 you found was that you couldn't find out. Your genuine-to-residual ratio and what it predicts. And
 your position on the module's claim, engaging the consent objection specifically.
 
@@ -310,7 +310,7 @@ your position on the module's claim, engaging the consent objection specifically
 **Q2.** What is unusual about the sample in this study, and why does it matter?
 
 - A. It surveyed only managers, so it reflects a supervisory perspective
-- B. It surveyed AI users at large organizations — the population most exposed in both directions, which makes the good news less surprising and the bad news more serious ✓
+- B. It surveyed AI users at large organizations, the population most exposed in both directions, which makes the good news less surprising and the bad news more serious ✓
 - C. It was fielded across seven countries, so national differences are averaged out
 - D. It relied on self-reported data rather than observed behavior
 
@@ -321,7 +321,7 @@ your position on the module's claim, engaging the consent objection specifically
 
 - A. It is a warning sign that should be addressed through policy
 - B. It is a moral failure of workplace culture
-- C. It is frequently a better experience — and those same frictions are what made asking a colleague work ✓
+- C. It is frequently a better experience, and those same frictions are what made asking a colleague work ✓
 - D. It is a temporary behavior that will normalize as tools mature
 
 > **C.** The model is available at 11pm, does not judge, and never mentions it to anyone. The small
@@ -340,7 +340,7 @@ your position on the module's claim, engaging the consent objection specifically
 **Q5.** Why does the module argue this is structural rather than a wellbeing concern?
 
 - A. Because loneliness has measurable effects on productivity
-- B. Because weak ties are how people learn about opportunity — a well-evidenced finding — and they are disproportionately the bridge for people whose strong-tie networks are already closed ✓
+- B. Because weak ties are how people learn about opportunity (a well-evidenced finding) and they are disproportionately the bridge for people whose strong-tie networks are already closed ✓
 - C. Because time off due to isolation has a direct cost that can be calculated
 - D. Because engagement scores are a board-level metric
 
@@ -360,7 +360,7 @@ your position on the module's claim, engaging the consent objection specifically
 **Q7.** Why can't manufactured social time solve the problem?
 
 - A. Because participation is usually voluntary and uptake is low
-- B. Because it attempts to produce the output of interdependency — people knowing each other — without the input, which is people needing each other ✓
+- B. Because it attempts to produce the output of interdependency (people knowing each other) without the input, which is people needing each other ✓
 - C. Because it takes time away from productive work
 - D. Because remote and hybrid teams can't participate equally
 
@@ -375,19 +375,19 @@ your position on the module's claim, engaging the consent objection specifically
 - D. That it occurs at least monthly
 
 > **C.** If someone whose job is removing steps could not be answered on the work's own terms, it's
-> manufactured friction and it will be removed. D is one of the three tests — repetition — but not
+> manufactured friction and it will be removed. D is one of the three tests (repetition) but not
 > the one that separates structural from manufactured.
 
 ## Sources and attribution
 
-- **Workday Human Connection Workplace Index** `[V]` — all figures in Lessons 1 and 2. Workday
+- **Workday Human Connection Workplace Index** `[V]`, all figures in Lessons 1 and 2. Workday
   Foundation, fielded by Hanover Research, March–April 2026. **n=2,150 full-time employees, seven
   countries, organizations of 3,500+ employees, all active AI users.** The sample qualifier is
   stated twice in the module because it changes how both halves of the finding should be read.
 - **The weak-ties argument** rests on Granovetter's *strength of weak ties* thesis and the
   large-scale causal test of it published subsequently, which found the effect holds and is
-  strongest for moderately weak ties. Used here for the mechanism — that weak ties carry access to
-  opportunity — rather than for a specific effect size.
+  strongest for moderately weak ties. Used here for the mechanism (that weak ties carry access to
+  opportunity) rather than for a specific effect size.
 - **One claim was dropped rather than left in.** An earlier draft carried an experimental finding
   that AI use drove people to try harder to connect afterwards while still reporting isolation. It
   couldn't be verified and isn't used; the module's structural argument rests on the weak-ties

@@ -1,7 +1,7 @@
 {
   "reviewedAt": "2026-08-12",
   "title": "Ten systems in your organization",
-  "intro": "*Five minutes. Commit before you look.*\n\nTen systems that might be running in a large organization right now. Sort each one.\n\n**Assembling** — gathering, structuring, summarizing, flagging for a human. **Deciding** — the system determines an outcome for a person, or a human approves something they cannot interrogate. **Prohibited** — the answer does not depend on how well it is done.",
+  "intro": "*Five minutes. Commit before you look.*\n\nTen systems that might be running in a large organization right now. Sort each one.\n\n**Assembling**: gathering, structuring, summarizing, flagging for a human. **Deciding**: the system determines an outcome for a person, or a human approves something they can't interrogate. **Prohibited** — the answer doesn't depend on how well it is done.",
   "buckets": [
     {
       "id": "assemble",
@@ -13,7 +13,7 @@
     {
       "id": "decide",
       "label": "Deciding",
-      "hint": "The system determines the outcome — or the human can't see inside it",
+      "hint": "The system determines the outcome, or the human can't see inside it",
       "rank": 1,
       "pct": 70
     },
@@ -42,25 +42,25 @@
       "id": "t3",
       "text": "A screening tool that ranks applicants, where a recruiter reviews the top 20 and rejects the rest unopened",
       "key": "decide",
-      "reasoning": "The hardest card, and the most common real configuration. A human is technically in the loop, and they are approving a ranked list they cannot interrogate — everyone below the cut was rejected by the system. 101 M7's line: reviewing a ranked list is not the same as deciding."
+      "reasoning": "The hardest card, and the most common real configuration. A human is technically in the loop, and they are approving a ranked list they can't interrogate, everyone below the cut was rejected by the system. 101 M7's line: reviewing a ranked list isn't the same as deciding."
     },
     {
       "id": "t4",
       "text": "An assistant that drafts interview questions from a job description for the hiring manager to edit",
       "key": "assemble",
-      "reasoning": "Production of material a human then owns and can change entirely. Note the contrast with t3 — the same vendor may sell both, and the release note will describe them the same way."
+      "reasoning": "Production of material a human then owns and can change entirely. Note the contrast with t3: the same vendor may sell both, and the release note will describe them the same way."
     },
     {
       "id": "t5",
       "text": "Skills inference from work history that determines who appears in the internal talent marketplace",
       "key": "decide",
-      "reasoning": "Nobody experiences this as a decision system, which is exactly why it belongs here. An allocation of opportunity depends on the inference, the affected person usually cannot see their profile, and if it learned from who has historically been promoted it will reproduce that. The Talent Development track builds a whole lesson on this surface."
+      "reasoning": "Nobody experiences this as a decision system, which is exactly why it belongs here. An allocation of opportunity depends on the inference, the affected person usually can't see their profile, and if it learned from who has historically been promoted it will reproduce that. The Talent Development track builds a whole lesson on this surface."
     },
     {
       "id": "t6",
       "text": "A scheduling system that routes interview slots, prioritizing candidates predicted most likely to accept",
       "key": "decide",
-      "reasoning": "Reads as logistics and shapes an outcome. Candidates deprioritized by the prediction get worse slots, longer waits, and a worse experience — which affects who stays in the process. The tell for this whole category: a system nobody would call a decision engine, doing allocation."
+      "reasoning": "Reads as logistics and shapes an outcome. Candidates deprioritized by the prediction get worse slots, longer waits, and a worse experience, which affects who stays in the process. The tell for this whole category: a system nobody would call a decision engine, doing allocation."
     },
     {
       "id": "t7",
@@ -72,19 +72,19 @@
       "id": "t8",
       "text": "An AI coaching tool available to all employees, with no escalation path and no stated policy on disclosures",
       "key": "decide",
-      "reasoning": "Arguable, and the argument is the point. It decides nothing directly — and by having no designed behaviour for a serious disclosure, the organization has made a decision by default that the vendor's configuration now enforces. The module's scenario in card form; the failure is that nobody chose."
+      "reasoning": "Arguable, and the argument is the point. It decides nothing directly, and by having no designed behaviour for a serious disclosure, the organization has made a decision by default that the vendor's configuration now enforces. The module's scenario in card form; the failure is that nobody chose."
     },
     {
       "id": "t9",
       "text": "Automated generation of the first draft of a redundancy selection matrix from performance and skills data",
       "key": "decide",
-      "reasoning": "'First draft' does a great deal of work in that sentence. The matrix determines who is selected, and a human reviewing a generated matrix is reviewing a conclusion rather than constructing one. If this is to sit in assembling, the human has to be able to rebuild it from inputs — which is the comp track's rule arriving here."
+      "reasoning": "'First draft' does a great deal of work in that sentence. The matrix determines who is selected, and a human reviewing a generated matrix is reviewing a conclusion rather than constructing one. If this is to sit in assembling, the human has to be able to rebuild it from inputs, which is the comp track's rule arriving here."
     },
     {
       "id": "t10",
-      "text": "A chatbot answering employee policy questions, deployed to staff in the EU, that does not identify itself as AI",
+      "text": "A chatbot answering employee policy questions, deployed to staff in the EU, that doesn't identify itself as AI",
       "key": "prohibited",
-      "reasoning": "Not prohibited in substance — a policy chatbot is fine and useful. Prohibited *as configured*: since 2 August 2026 a system interacting directly with a person must disclose that it is AI at or before the start of the interaction, regardless of risk class. One configuration change moves this card to assembling, which is why it is worth finding before someone else does."
+      "reasoning": "Not prohibited in substance: a policy chatbot is fine and useful. Prohibited *as configured*: since 2 August 2026 a system interacting directly with a person must disclose that it is AI at or before the start of the interaction, regardless of risk class. One configuration change moves this card to assembling, which is why it is worth finding before someone else does."
     }
   ]
 }

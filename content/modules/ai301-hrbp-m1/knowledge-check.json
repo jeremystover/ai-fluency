@@ -37,7 +37,7 @@
         "A vendor gap — it shows vendors have oversold to executives specifically"
       ],
       "correctIndex": 1,
-      "explanation": "The distinction is the module's central practical point: the two pressures feel identical and have opposite correct responses. Buying faster does not close a gap between what your executive expects and what is actually possible — it adds a failed implementation to it."
+      "explanation": "The distinction is the module's central practical point: the two pressures feel identical and have opposite correct responses. Buying faster does not close a gap between what your executive expects and what is actually possible. It adds a failed implementation to it."
     },
     {
       "id": "q4",
@@ -49,7 +49,7 @@
         "Skipping the baseline"
       ],
       "correctIndex": 3,
-      "explanation": "Without a before-number, a working implementation and a useless one are indistinguishable afterward — and the case for your function in Module 7 cannot be built at all. B is a related error but it substitutes a bad metric rather than eliminating the possibility of a good one."
+      "explanation": "Without a before-number, a working implementation and a useless one are indistinguishable afterward, and the case for your function in Module 7 cannot be built at all. B is a related error but it substitutes a bad metric rather than eliminating the possibility of a good one."
     },
     {
       "id": "q5",
@@ -61,7 +61,7 @@
         "That AI adoption decisions should be deferred to executives who feel the pressure most"
       ],
       "correctIndex": 1,
-      "explanation": "The correction is against comparison-driven haste, not against the technology or against urgency in general. C is explicitly contradicted — Module 2 takes the market pressure on this role seriously and unflinchingly."
+      "explanation": "The correction is against comparison-driven haste, not against the technology or against urgency in general. C is explicitly contradicted. Module 2 takes the market pressure on this role seriously and unflinchingly."
     }
   ]
 }

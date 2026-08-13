@@ -1,11 +1,29 @@
 [
-  { "id": "ai301-hrbp-m7-micro-core", "moduleId": "ai301-hrbp-m7-micro", "ordinal": 10, "kind": "prose", "layer": "stable", "reviewedAt": "2026-08-12",
-    "body": "## Module 7 in two minutes\n\n**You support twenty to two hundred managers, and every one of them is already using AI badly on work that lands on your desk.** Two jobs follow. The reactive one is happening now — the review that says nothing, the pasted complaint, the fabricated citation — and **your reaction to the first case determines the visibility of the next twenty.** Managers who feel caught hide; managers who feel helped ask.\n\n**The diagnostic move on a generic AI-written review:** ask for two examples and one thing to do differently. If the manager has them, the brief was bad. If they don't, the problem was never AI — they weren't paying attention and the model let them hide it.\n\n**The proactive job is where the evidence bites** `[V]`. An RCT of 114 mostly-senior managers found substantial effects for human coaching and none for the AI arm, with far higher attrition — published by authors including one who co-authored the earlier study that launched the category, which is self-correction rather than one camp contradicting another. Narrow and measurable beats broad and relational."
+  {
+    "id": "ai301-hrbp-m7-micro-core",
+    "moduleId": "ai301-hrbp-m7-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module 7 in two minutes\n\n**You support twenty to two hundred managers, and every one of them is already using AI badly on work that lands on your desk.** Two jobs follow. The reactive one is happening now (the review that says nothing, the pasted complaint, the fabricated citation) and **your reaction to the first case determines the visibility of the next twenty.** Managers who feel caught hide; managers who feel helped ask.\n\n**The diagnostic move on a generic AI-written review:** ask for two examples and one thing to do differently. If the manager has them, the brief was bad. If they don't, the problem was never AI. They weren't paying attention and the model let them hide it.\n\n**The proactive job is where the evidence bites** `[V]`. An RCT of 114 mostly-senior managers found substantial effects for human coaching and none for the AI arm, with far higher attrition, published by authors including one who co-authored the earlier study that launched the category, which is self-correction rather than one camp contradicting another. Narrow and measurable beats broad and relational."
   },
-  { "id": "ai301-hrbp-m7-micro-rule", "moduleId": "ai301-hrbp-m7-micro", "ordinal": 20, "kind": "callout", "layer": "stable", "reviewedAt": "2026-08-12",
-    "body": "### The rule to carry\n\nOutcomes track starting self-efficacy and hope — so the people who most need development are served worst by an unsupervised bot. **Who gets a human is an equity decision, and it's yours.** \"We gave everyone access\" is not evidence of equitable development."
+  {
+    "id": "ai301-hrbp-m7-micro-rule",
+    "moduleId": "ai301-hrbp-m7-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### The rule to carry\n\nOutcomes track starting self-efficacy and hope, so the people who most need development are served worst by an unsupervised bot. **Who gets a human is an equity decision, and it's yours.** \"We gave everyone access\" is not evidence of equitable development."
   },
-  { "id": "ai301-hrbp-m7-micro-close", "moduleId": "ai301-hrbp-m7-micro", "ordinal": 30, "kind": "prose", "layer": "stable", "reviewedAt": "2026-08-12",
-    "body": "**The full module adds** the three misuse cases with the moves that keep them visible, the bot/human/neither sort — including the card that turns the module's own finding into a screen it forbids — and the course close: one page built for a real manager failure and tested on a real manager, plus the reckoning across every prediction you made in seven modules. The last question is the one that matters: what do you believe now that you didn't in Module 1?"
+  {
+    "id": "ai301-hrbp-m7-micro-close",
+    "moduleId": "ai301-hrbp-m7-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "**The full module adds** the three misuse cases with the moves that keep them visible, the bot/human/neither sort (including the card that turns the module's own finding into a screen it forbids) and the course close: one page built for a real manager failure and tested on a real manager, plus the reckoning across every prediction you made in seven modules. The last question is the one that matters: what do you believe now that you didn't in Module 1?"
   }
 ]

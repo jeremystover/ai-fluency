@@ -25,7 +25,7 @@ attacking it."*
 defend it with.
 
 **And the number you will check.** Lesson 1 sets out **six elements** a finder of fact looks for in an
-investigation report. **How many of the six does your current template actually require** — not
+investigation report. **How many of the six does your current template actually require**, not
 permit, require, such that leaving it out would look like an omission?
 
 Out of six. Commit before you see the list.
@@ -44,13 +44,13 @@ writes an investigation summary twice a year, and this track's learners will nev
 learner sees exactly one 301 track.
 
 **So this module teaches the specialist version, and it is a different subject.** Not *how to use AI on
-a document* but **what the document has to do** — and therefore what AI may touch in each part of it.
+a document* but **what the document has to do**, and therefore what AI may touch in each part of it.
 The generalist question is about safety. Yours is about function: this report is an instrument with a
 job, and every rule below follows from the job rather than from caution.
 
 Four things: what the report is structurally for, the completeness question that is specific to
-investigations, how to hold the ladder's rungs at the level of a sentence, and — new since this track
-was outlined — **what putting investigation material into an AI tool may do to privilege**, which now
+investigations, how to hold the ladder's rungs at the level of a sentence, and (new since this track
+was outlined) **what putting investigation material into an AI tool may do to privilege**, which now
 has case law on both sides of it.
 
 ## Learning objectives
@@ -60,7 +60,7 @@ By the end of this module you should be able to:
 1. Name the six elements a finder of fact looks for, and explain why elements make a report's gaps
    visible where narrative hides them.
 2. Run the investigation-specific completeness pass: **which allegation did I fail to resolve?**
-3. Detect a rung breach at sentence level — an inference or determination wearing an observation's
+3. Detect a rung breach at sentence level: an inference or determination wearing an observation's
    grammar.
 4. Describe the provenance discipline and why the chain matters more than any single sentence.
 5. State what two 2026 rulings suggest about AI tools and privilege `[V]`, and what the practical
@@ -77,11 +77,11 @@ court deciding whether the employer acted reasonably. Every one of them is looki
 things, and there are six:
 
 1. **What was alleged** — each allegation identified separately, in the complainant's terms.
-2. **What was investigated** — the scope, and **what was excluded and why.**
-3. **What evidence was gathered, and from whom** — including what was sought and not obtained.
+2. **What was investigated**: the scope, and **what was excluded and why.**
+3. **What evidence was gathered, and from whom**, including what was sought and not obtained.
 4. **What could not be established, and why** — the deliberate record of the gaps.
-5. **What was found** — allegation by allegation, mapping back to element 1.
-6. **On what standard** — named, and applied visibly.
+5. **What was found**: allegation by allegation, mapping back to element 1.
+6. **On what standard**: named, and applied visibly.
 
 Now the structural claim this lesson turns on:
 
@@ -97,12 +97,12 @@ An elements report cannot hide the same gap. Allegation three has no findings pa
 blank space with a heading over it, and **you** are the first person to see it rather than the last.
 
 Which is also where AI's permission enters, because the structure determines it. Elements 1 to 4 are
-rungs one and two — what was alleged, what was looked at, what exists, what does not. **AI is
+rungs one and two: what was alleged, what was looked at, what exists, what does not. **AI is
 permitted and useful across all four.** Elements 5 and 6 are rungs four and five. Nothing.
 
 **One honest caveat**, because the elements structure is not free: it is a worse read. Lesson 1's
 structure serves the person auditing your process. A decision-maker who has to act may need a
-narrative summary as well, and the answer is both — a short narrative up front, and the elements
+narrative summary as well, and the answer is both, a short narrative up front, and the elements
 underneath it, with the narrative explicitly labelled as a summary of the elements rather than the
 findings themselves. The *Take a position* section is about whether that compromise holds.
 
@@ -144,7 +144,7 @@ The operational form:
   it.** Unmapped allegations listed explicitly.
 - **A resolution includes "outside scope" and "insufficient evidence to determine."** Those are
   findings. Silence is not.
-- Run it against the **complainant's own framing**, not your restatement — restating an allegation more
+- Run it against the **complainant's own framing**, not your restatement, restating an allegation more
   narrowly and then resolving the narrower version is the same defect wearing a suit.
 
 ## Lesson 3 · The rung boundary, sentence by sentence
@@ -162,7 +162,7 @@ Three sentences about the same moment:
   about state of mind, presented as description.
 
 All three are the same length and the same tense. The second and third are the ones that end
-investigations, and they are not lies — they may be entirely correct conclusions. **The problem is
+investigations, and they are not lies. They may be entirely correct conclusions. **The problem is
 that the sentence gives the reader no way to tell which rung produced it**, which means at a hearing
 you will be asked to justify a conclusion you may not remember reaching.
 
@@ -176,7 +176,7 @@ The permission, stated exactly:
 > **A model may tell you that a sentence has climbed a rung. It may never tell you which rung is
 > right.**
 
-The first is a linguistic audit — *this sentence contains a characterization* — and it is checkable in
+The first is a linguistic audit (*this sentence contains a characterization*) and it is checkable in
 seconds by looking at the sentence. The second is the finding, and it is yours.
 
 So the prompt shape that stays inside the line: *"Identify sentences containing characterizations,
@@ -210,7 +210,7 @@ Four practices, and note that only one is about AI:
 - **Keep contemporaneous notes separately from the report**, and do not overwrite them. The note is
   evidence of what you knew when.
 - **Preserve the file's chronology.** When a finding was reached matters as much as what it was.
-- **Record AI involvement as one line in your file notes** — what it did, at which stage, on what date.
+- **Record AI involvement as one line in your file notes**: what it did, at which stage, on what date.
   Not as a disclaimer on the report; as a fact in the record.
 - **And the rule that governs the rest:** a model's phrasing must never become a finding you did not
   independently reach. If a sentence in your final document is one whose origin you could not describe
@@ -219,7 +219,7 @@ Four practices, and note that only one is about AI:
 ### Privilege: two 2026 rulings, opposite outcomes **[V]**
 
 Whether your investigation is privileged is a question for counsel and depends on how it was set up.
-What is new — and what makes this a lesson rather than a caution — is that courts have begun to
+What is new (and what makes this a lesson rather than a caution) is that courts have begun to
 address what **using an AI tool** does to that protection, and the two most instructive rulings point
 in opposite directions.
 
@@ -228,7 +228,7 @@ generated through a **consumer AI tool** at a criminal defendant's own prompting
 by attorney-client privilege or the work-product doctrine. Two strands of reasoning matter to you.
 First, **third-party waiver**: inputting privileged information into the tool was treated as sharing it
 with a third party, which may waive privilege over the underlying communications. Second, the *Kovel*
-doctrine — which can extend privilege to a third party whose assistance counsel needs — did not apply,
+doctrine (which can extend privilege to a third party whose assistance counsel needs) did not apply,
 because the tool was not necessary for counsel to understand the client, and because **the defendant
 engaged it on his own initiative rather than at counsel's direction.**
 
@@ -244,9 +244,9 @@ Read together:
 Which is the same principle this curriculum states elsewhere in a different context: **structure
 determines protection.** The analysis is the same either way; the discovery consequence is not.
 
-**Carry the caveats, because they are load-bearing.** The February ruling is a district-court decision
+**Carry the caveats, because the argument rests on them.** The February ruling is a district-court decision
 in a criminal matter involving a consumer tool. **It is not a holding about workplace investigations**,
-and nobody should tell you the law is settled. What commentators identify as the likely factors —
+and nobody should tell you the law is settled. What commentators identify as the likely factors,
 whether the platform is open or closed, whether contractual or policy confidentiality protections
 exist, and whether counsel directed or supervised the use — are a description of where courts appear
 to be looking, not a test you can rely on.
@@ -254,15 +254,15 @@ to be looking, not a test you can rely on.
 **The practical consequence is nonetheless clear enough to act on**, and it is cheap:
 
 - **If an investigation may be privileged, the AI question belongs in the engagement, not afterwards.**
-  Counsel decides whether a tool is used, which tool, and for what — before the work starts.
+  Counsel decides whether a tool is used, which tool, and for what, before the work starts.
 - **The platform matters.** A consumer account and an enterprise deployment with confidentiality terms
   are different facts, and Lesson 4's third-party-waiver reasoning is why.
 - **And the ten-minute conversation is now.** Asking counsel *may we use this tool on privileged
   investigation material, and under what conditions* is a question with an answer. Asking after
   somebody has requested your file is not a conversation, it is a disclosure.
 
-> ### Try this — 3 minutes
-> Open your report template — the actual document, not your memory of it. Count how many of Lesson
+> ### Try this (3 minutes
+> Open your report template) the actual document, not your memory of it. Count how many of Lesson
 > 1's six elements it *requires*. Then find the section where a finding would go if nobody had thought
 > about allegation four, and check whether the template would notice.
 
@@ -272,12 +272,12 @@ to be looking, not a test you can rely on.
   excluded and why), what evidence was gathered and from whom, **what could not be established and
   why**, what was found allegation by allegation, and on what standard.
 - **A narrative report's gaps look like transitions. An elements report's gaps are blank spaces with
-  headings over them** — and you see them first rather than last. Elements 1–4 are rungs one and two,
+  headings over them**, and you see them first rather than last. Elements 1–4 are rungs one and two,
   where AI is permitted and useful; elements 5 and 6 are rungs four and five, where it is not.
 - **The completeness question is "which allegation did I fail to resolve?"** — not "what did I fail to
   ask." The unaddressed fourth allegation is mechanical to detect, unanswerable at a hearing, and
   frequently the one that mattered.
-- **A resolution includes "outside scope" and "insufficient evidence." Silence is not a resolution** —
+- **A resolution includes "outside scope" and "insufficient evidence." Silence is not a resolution**,
   and run the check against the **complainant's own framing**, because restating an allegation more
   narrowly and resolving the narrower version is the same defect in a suit.
 - **Three sentence-level rung breaches:** evaluative adjectives in factual sections (hostile,
@@ -302,7 +302,7 @@ The strongest counter-argument is that **an elements report is unreadable by the
 to act on it, and an unread report is worse than a slightly gappy one.**
 
 Narrative is how people understand events. A decision-maker choosing a sanction, a manager
-implementing an outcome, an appeal panel reviewing fairness — all of them need to know **what
+implementing an outcome, an appeal panel reviewing fairness: all of them need to know **what
 happened**, in order, with causation visible. An elements report gives them a compliance artifact and
 asks them to assemble the story themselves, which they will do badly and in their heads, where you
 cannot see the version they built.
@@ -318,7 +318,7 @@ write well and persuasively.** An elements template is a floor for weak investig
 a way of becoming ceilings — a form that guarantees adequacy also discourages the well-argued report
 that explains why the evidence points where it does.
 
-Your position has to say whether the elements structure is a **floor or a form** — whether you would
+Your position has to say whether the elements structure is a **floor or a form**, whether you would
 accept a well-argued narrative report from an experienced investigator, and if so, **what you would
 check instead** to catch the unaddressed fourth allegation. Because that defect is the one the
 structure exists to prevent, and if you allow narrative you need another mechanism for it. Note that
@@ -333,21 +333,21 @@ lands.
 **Template only.** Do not submit a completed report, a real matter's contents, or a report from a real
 matter with details changed. If you need example text to illustrate a rung problem, **invent it.**
 
-**Step 1 — Audit what you have (5 min).** Against Lesson 1's six elements: which does your current
+**Step 1. Audit what you have (5 min).** Against Lesson 1's six elements: which does your current
 template **require**? Note specifically whether it requires *what could not be established and why*,
 which is the one most templates omit entirely.
 
-**Step 2 — Rebuild it (10 min).** Restructure around the elements. If you keep a narrative summary —
-and the *Take a position* argument may persuade you to — label it explicitly as a summary of the
+**Step 2 — Rebuild it (10 min).** Restructure around the elements. If you keep a narrative summary (
+and the *Take a position* argument may persuade you to) label it explicitly as a summary of the
 elements rather than as the findings. Mark for each section **which rung it contains**, so that the
 next person using the template can see where AI is permitted and where it is not.
 
-**Step 3 — Build the mapping check (8 min).** Write the actual mechanism: how allegations get
+**Step 3. Build the mapping check (8 min).** Write the actual mechanism: how allegations get
 extracted as a numbered list at intake, at what point the mapping is run, what the output looks like,
 who reads it, and **the explicit statement that "outside scope" and "insufficient evidence" are
 resolutions and silence is not.** If you write it as a prompt, write the prompt.
 
-**Step 4 — The rung discipline, in the template (4 min).** Two or three lines a colleague using the
+**Step 4. The rung discipline, in the template (4 min).** Two or three lines a colleague using the
 template would read: which sentence patterns are prohibited in factual sections, and the exact
 prompt-shaped instruction for a register audit that does not cross into rung four.
 
@@ -381,11 +381,11 @@ approve the template change.**
 **Q2.** Why does an elements structure make gaps visible where a narrative hides them?
 
 - A. Because elements reports are longer and more thorough
-- B. Because a gap in a narrative reads as a transition, while a gap in an elements report is a blank space with a heading over it — which you see first rather than last ✓
+- B. Because a gap in a narrative reads as a transition, while a gap in an elements report is a blank space with a heading over it, which you see first rather than last ✓
 - C. Because narrative reports cannot be audited
 - D. Because elements reports are required by most disciplinary procedures
 
-> **B.** *"Following the meeting, the complainant raised further concerns…"* — did you investigate the
+> **B.** *"Following the meeting, the complainant raised further concerns…"*, did you investigate the
 > meeting? Prose carries the reader past the joint, including when the reader is you re-reading your
 > own draft.
 
@@ -418,7 +418,7 @@ approve the template change.**
 - D. Not mentioning it, where the evidence was insufficient
 
 > **B.** "Outside scope" and "insufficient evidence to determine" are both resolutions. **Silence is
-> not.** And the check must run against the complainant's own framing — restating an allegation
+> not.** And the check must run against the complainant's own framing, restating an allegation
 > narrowly and resolving the narrower version is the same defect in a suit.
 
 **Q6.** What is the exact permission for a model auditing your language?
@@ -429,7 +429,7 @@ approve the template change.**
 - D. It may not touch the language of an investigation report at all
 
 > **B.** Flagging is a linguistic audit, checkable in seconds by reading the sentence. A hands the
-> model the choice of what the neutral version asserts; C is rung four. D is over-broad — this is the
+> model the choice of what the neutral version asserts; C is rung four. D is over-broad. This is the
 > one place in the track where a model may touch your language.
 
 **Q7.** Which sentence pattern is a rung breach hiding in an observation's grammar?
@@ -447,11 +447,11 @@ approve the template change.**
 
 - A. Whether the material concerned employment or criminal matters
 - B. Whether the AI output was disclosed to a third party
-- C. Whether counsel directed the work — privilege failed where a party engaged a consumer tool on their own initiative, and held where attorneys curated the analysis for legal advice ✓
+- C. Whether counsel directed the work, privilege failed where a party engaged a consumer tool on their own initiative, and held where attorneys curated the analysis for legal advice ✓
 - D. Whether the tool retained the input data
 
 > **C.** Structure determines protection: the analysis is the same either way, the discovery
-> consequence is not. And neither ruling is a workplace-investigation holding — the practical move is
+> consequence is not. And neither ruling is a workplace-investigation holding, the practical move is
 > that if a matter may be privileged, the AI question belongs in the engagement rather than afterwards.
 
 ## Sources and attribution
@@ -476,7 +476,7 @@ approve the template change.**
 - Builds on Module 1 of this track (the evidentiary ladder, applied here to prose, which is where it
   either works or turns out to be a diagram) and Module 3 (the record this document is built from).
 - **On its relationship to `ai301-hrbp-m6`.** That module teaches a generalist to use AI on ER
-  documents safely — structure, language discipline, a completeness pass, and a provenance rule — and
+  documents safely (structure, language discipline, a completeness pass, and a provenance rule) and
   a learner sees exactly one 301 track, so the overlap costs nobody anything. **This is the specialist
   version and a different subject:** not how to use AI on a document but what the document has to do.
   Recorded so the two remain reconcilable rather than drifting into contradiction.

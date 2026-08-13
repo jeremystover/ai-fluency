@@ -25,7 +25,7 @@
         "For the prompt they used, so you can improve it"
       ],
       "correctIndex": 1,
-      "explanation": "It's the diagnostic. If they have the specifics, the tool was briefed badly and the fix is easy. If they don't, the problem was never AI — they weren't paying attention and the model let them hide it. A and C treat the tool as the fault and never reach the diagnosis."
+      "explanation": "It's the diagnostic. If they have the specifics, the tool was briefed badly and the fix is easy. If they don't, the problem was never AI. They weren't paying attention and the model let them hide it. A and C treat the tool as the fault and never reach the diagnosis."
     },
     {
       "id": "q3",
@@ -61,7 +61,7 @@
         "That coaching in general has weak evidential support"
       ],
       "correctIndex": 1,
-      "explanation": "Stated with its scope, because overclaiming in the sceptical direction is the same error as overclaiming in the enthusiastic one. C describes the earlier goal-attainment research, which is a real and different finding — narrow and measurable performs better than broad and relational."
+      "explanation": "Stated with its scope, because overclaiming in the sceptical direction is the same error as overclaiming in the enthusiastic one. C describes the earlier goal-attainment research, which is a real and different finding, narrow and measurable performs better than broad and relational."
     },
     {
       "id": "q6",
@@ -73,7 +73,7 @@
         "Because it undermines the credibility of both studies"
       ],
       "correctIndex": 1,
-      "explanation": "It is not one camp contradicting another. It is self-correction, which is exactly the intellectual honesty this course asks of the learner — and worth naming for that reason as much as for the finding."
+      "explanation": "It is not one camp contradicting another. It is self-correction, which is exactly the intellectual honesty this course asks of the learner, and worth naming for that reason as much as for the finding."
     },
     {
       "id": "q7",
@@ -85,7 +85,7 @@
         "That self-efficacy should be screened before assigning any development resource"
       ],
       "correctIndex": 2,
-      "explanation": "And it inverts how most organizations allocate development. D is the dangerous near-miss: screening people on a psychological attribute to allocate resources is precisely the kind of decision 101 M7 warns about — the finding informs your judgment, it doesn't become a filter."
+      "explanation": "And it inverts how most organizations allocate development. D is the dangerous near-miss: screening people on a psychological attribute to allocate resources is precisely the kind of decision 101 M7 warns about: the finding informs your judgment, it doesn't become a filter."
     },
     {
       "id": "q8",

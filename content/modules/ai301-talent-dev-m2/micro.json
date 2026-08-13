@@ -6,7 +6,7 @@
     "kind": "prose",
     "layer": "stable",
     "reviewedAt": "2026-08-12",
-    "body": "## Module 2 in two minutes\n\n**Building a course used to be expensive, and the expense was doing work nobody counted. It was the filter.** When a program cost six weeks, \"this is a process problem\" was an argument you could win — not because anyone valued diagnosis, but because the alternative was visibly costly and someone had to sign for it.\n\n**Production time was doing three jobs nobody assigned it.** It was the economic filter that killed bad requests. It *forced the SME conversation*, which is where the real problem usually surfaced — never scheduled as diagnosis, it just happened because production required it. And it rationed volume, so choosing was necessary. Remove the cost and all three stop silently.\n\n**The first cut is brutally simple: training fixes people who can't. It never fixes people who don't.** The test — could they do it tomorrow for a large enough reward? Training a willingness problem is worse than nothing, because it produces evidence the problem was handled and buys the real cause eighteen months of quiet.\n\n**The request is a symptom report, not a specification.** The requester saw something real, then handed you their own amateur diagnosis. *\"Tell me what you saw that made you think of training\"* accepts the first and declines the second."
+    "body": "## Module 2 in two minutes\n\n**Building a course used to be expensive, and the expense was doing work nobody counted. It was the filter.** When a program cost six weeks, \"this is a process problem\" was an argument you could win, not because anyone valued diagnosis, but because the alternative was visibly costly and someone had to sign for it.\n\n**Production time was doing three jobs nobody assigned it.** It was the economic filter that killed bad requests. It *forced the SME conversation*, which is where the real problem usually surfaced: never scheduled as diagnosis, it just happened because production required it. And it rationed volume, so choosing was necessary. Remove the cost and all three stop silently.\n\n**The first cut is brutally simple: training fixes people who cannot. It never fixes people who do not.** The test — could they do it tomorrow for a large enough reward? Training a willingness problem is worse than nothing, because it produces evidence the problem was handled and buys the real cause eighteen months of quiet.\n\n**The request is a symptom report, not a specification.** The requester saw something real, then handed you their own amateur diagnosis. *\"Tell me what you saw that made you think of training\"* accepts the first and declines the second."
   },
   {
     "id": "ai301-talent-dev-m2-micro-rule",
@@ -15,7 +15,7 @@
     "kind": "callout",
     "layer": "stable",
     "reviewedAt": "2026-08-12",
-    "body": "## The rule\n\n**A refusal that only declines gets routed around — to someone who will build it by Friday.**\n\nThe shape that survives has three parts: what you found, what training would and wouldn't do, and **what you will own instead.** The third is load-bearing. A diagnosis that costs you nothing cannot be distinguished from avoidance, and the requester can tell."
+    "body": "## The rule\n\n**A refusal that only declines gets routed around, to someone who will build it by Friday.**\n\nThe shape that survives has three parts: what you found, what training would and wouldn't do, and **what you'll own instead.** The third is the one that matters. A diagnosis that costs you nothing can't be distinguished from avoidance, and the requester can tell."
   },
   {
     "id": "ai301-talent-dev-m2-micro-more",
@@ -24,6 +24,6 @@
     "kind": "prose",
     "layer": "stable",
     "reviewedAt": "2026-08-12",
-    "body": "## What the full module adds\n\nWhy L&D is structurally rewarded for collaboration and structurally unmeasured on diagnosis. The environmental-causes prior — **worth holding, not worth citing** — and an honest account of why its provenance looks exactly like the fabrications Module 3 dismantles. The SME-displacement argument in full. Four requests to sort, only one of which is actually a training problem. And the activity: one live request from your own queue, taken apart, with *\"this isn't a training problem\"* and its opposite both genuinely available."
+    "body": "## What the full module adds\n\nWhy L&D is structurally rewarded for collaboration and structurally unmeasured on diagnosis. The environmental-causes prior (**worth holding, not worth citing**) and an honest account of why its provenance looks exactly like the fabrications Module 3 dismantles. The SME-displacement argument in full. Four requests to sort, only one of which is actually a training problem. And the activity: one live request from your own queue, taken apart, with *\"this isn't a training problem\"* and its opposite both genuinely available."
   }
 ]

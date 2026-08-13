@@ -4,7 +4,7 @@
     {
       "id": "yours",
       "label": "Yours, as deployer",
-      "hint": "Cannot be contracted away",
+      "hint": "Can't be contracted away",
       "rank": 0,
       "pct": 35
     },
@@ -47,7 +47,7 @@
       "id": "t3",
       "text": "Producing the technical documentation and conformity assessment for the system itself",
       "key": "provider",
-      "reasoning": "Genuinely the provider's obligation — they built it, they declare its conformity. Yours is narrower and real: ask for it before signature, read it, and keep it. \"They have one\" and \"we have seen it\" are different states."
+      "reasoning": "Genuinely the provider's obligation. They built it, they declare its conformity. Yours is narrower and real: ask for it before signature, read it, and keep it. \"They have one\" and \"we have seen it\" are different states."
     },
     {
       "id": "t4",
@@ -65,7 +65,7 @@
       "id": "t6",
       "text": "Consulting the works council before deployment reaches a German population",
       "key": "yours",
-      "reasoning": "Statutory and entirely yours — §90 puts it at the planning stage, not launch. A vendor cannot consult your works council, and no contract term changes the timing. It belongs on the project plan as a task with a duration."
+      "reasoning": "Statutory and entirely yours — §90 puts it at the planning stage, not launch. A vendor can't consult your works council, and no contract term changes the timing. It belongs on the project plan as a task with a duration."
     },
     {
       "id": "t7",
@@ -77,7 +77,7 @@
       "id": "t8",
       "text": "Preserving AI conversation logs once litigation is reasonably anticipated",
       "key": "yours",
-      "reasoning": "A legal hold is your obligation and it overrides your own retention schedule. And it cannot reach a system your legal team does not know produces records — which is why the module says telling them the system exists is often the most valuable sentence in the exercise."
+      "reasoning": "A legal hold is your obligation and it overrides your own retention schedule. And it can't reach a system your legal team doesn't know produces records, which is why the module says telling them the system exists is often the most valuable sentence in the exercise."
     },
     {
       "id": "t9",
@@ -87,7 +87,7 @@
     },
     {
       "id": "t10",
-      "text": "Checking that the model has not degraded since the quarterly release changed it",
+      "text": "Checking that the model hasn't degraded since the quarterly release changed it",
       "key": "nobody",
       "reasoning": "Nobody's, in most organizations, and it is the honest answer rather than a trick. The provider changed the model and considers the release note sufficient notice. You evaluated the capability that existed in March. Article 26's monitoring duty is the nearest owner, and monitoring is the duty most often written down and never operated.",
       "also": [
@@ -95,6 +95,6 @@
       ]
     }
   ],
-  "pattern": "More of these are yours than a vendor conversation would suggest — and the two that are nobody's are the ones with a configuration screen and no owner.",
-  "postscript": "Five of the ten are yours outright, and the reason is Article 26's core structure: **duties attached to the deployer cannot be contracted away.** Check **t4** against your prediction — input-data representativeness sounds like a model-quality question and is your data going in. And sit with **t9 and t10**, the two 'nobody' cards. Both have a setting behind them, both are assumed by every party to belong to another party, and neither is discovered until somebody asks a question the system answers too helpfully. If you sorted more cards to the provider than the key does, you have found the vendor conversation you have been having — which is the point of the exercise rather than a criticism of it."
+  "pattern": "More of these are yours than a vendor conversation would suggest, and the two that are nobody's are the ones with a configuration screen and no owner.",
+  "postscript": "Five of the ten are yours outright, and the reason is Article 26's core structure: **duties attached to the deployer cannot be contracted away.** Check **t4** against your prediction, input-data representativeness sounds like a model-quality question and is your data going in. And sit with **t9 and t10**, the two 'nobody' cards. Both have a setting behind them, both are assumed by every party to belong to another party, and neither is discovered until somebody asks a question the system answers too helpfully. If you sorted more cards to the provider than the key does, you have found the vendor conversation you have been having, which is the point of the exercise rather than a criticism of it."
 }

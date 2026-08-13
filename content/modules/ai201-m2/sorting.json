@@ -1,24 +1,102 @@
 {
   "reviewedAt": "2026-08-07",
   "buckets": [
-    { "id": "pack", "label": "Lives in the pack", "hint": "Durable and impersonal — infrastructure", "rank": 3, "pct": 90 },
-    { "id": "fresh", "label": "Supplied fresh each run", "hint": "This run's material — arrives, transforms, leaves", "rank": 2, "pct": 50 },
-    { "id": "never", "label": "Never enters the system", "hint": "People data — not as pack, not as paste", "rank": 1, "pct": 10 }
+    {
+      "id": "pack",
+      "label": "Lives in the pack",
+      "hint": "Durable and impersonal, infrastructure",
+      "rank": 3,
+      "pct": 90
+    },
+    {
+      "id": "fresh",
+      "label": "Supplied fresh each run",
+      "hint": "This run's material: arrives, transforms, leaves",
+      "rank": 2,
+      "pct": 50
+    },
+    {
+      "id": "never",
+      "label": "Never enters the system",
+      "hint": "People data, not as pack, not as paste",
+      "rank": 1,
+      "pct": 10
+    }
   ],
   "tasks": [
-    { "id": "t1", "text": "Your company's voice and style guide", "key": "pack", "reasoning": "The canonical pack item — durable, impersonal, true for months." },
-    { "id": "t2", "text": "The best interview debrief you've ever written, as an example", "key": "pack", "reasoning": "The gold-standard example: one great example outworks three paragraphs of description." },
-    { "id": "t3", "text": "This week's interview notes", "key": "fresh", "reasoning": "The reason the run exists. It arrives, gets transformed, and leaves with the run." },
-    { "id": "t4", "text": "The comp philosophy one-pager", "key": "pack", "reasoning": "Principles, not numbers or names. When the cycle changes it, the review cadence catches it." },
-    { "id": "t5", "text": "A named employee's performance history", "key": "never", "reasoning": "Writing it into infrastructure converts a one-time judgment call into a standing condition nobody re-decides." },
-    { "id": "t6", "text": "This quarter's engagement survey verbatims", "key": "fresh", "reasoning": "Pack them and June confidently cites March — the quieter way context rots." },
-    { "id": "t7", "text": "The definition-of-done checklist for the output", "key": "pack", "reasoning": "Load-bearing later: M4's verification needs something to verify against." },
-    { "id": "t8", "text": "Grievance details naming the individuals involved", "key": "never", "reasoning": "People data must never become infrastructure — this is the one sorting error with legal weight." },
-    { "id": "t9", "text": "The team glossary — acronyms, level names, competency terms", "key": "pack", "reasoning": "The slice of your org the model may safely see." },
-    { "id": "t10", "text": "A raw HRIS export, employee IDs included", "key": "never", "reasoning": "IDs are identity by design. Where a single run legitimately needs sensitive material, M6 governs how it enters — fresh, minimized, under that run's judgment — and how it leaves." },
-    { "id": "t11", "text": "The policy paragraph being rewritten this run", "key": "fresh", "reasoning": "Today's work product, nobody's infrastructure — it leaves with the run." },
-    { "id": "t12", "text": "Your org context brief — what the company does, size, shape, no names", "key": "pack", "reasoning": "Impersonal by construction: nothing you'd redact from a conference talk." }
+    {
+      "id": "t1",
+      "text": "Your company's voice and style guide",
+      "key": "pack",
+      "reasoning": "The canonical pack item: durable, impersonal, true for months."
+    },
+    {
+      "id": "t2",
+      "text": "The best interview debrief you've ever written, as an example",
+      "key": "pack",
+      "reasoning": "The gold-standard example: one great example outworks three paragraphs of description."
+    },
+    {
+      "id": "t3",
+      "text": "This week's interview notes",
+      "key": "fresh",
+      "reasoning": "The reason the run exists. It arrives, gets transformed, and leaves with the run."
+    },
+    {
+      "id": "t4",
+      "text": "The comp philosophy one-pager",
+      "key": "pack",
+      "reasoning": "Principles, not numbers or names. When the cycle changes it, the review cadence catches it."
+    },
+    {
+      "id": "t5",
+      "text": "A named employee's performance history",
+      "key": "never",
+      "reasoning": "Writing it into infrastructure converts a one-time judgment call into a standing condition nobody re-decides."
+    },
+    {
+      "id": "t6",
+      "text": "This quarter's engagement survey verbatims",
+      "key": "fresh",
+      "reasoning": "Pack them and June confidently cites March: the quieter way context rots."
+    },
+    {
+      "id": "t7",
+      "text": "The definition-of-done checklist for the output",
+      "key": "pack",
+      "reasoning": "structural later: M4's verification needs something to verify against."
+    },
+    {
+      "id": "t8",
+      "text": "Grievance details naming the individuals involved",
+      "key": "never",
+      "reasoning": "People data must never become infrastructure. This is the one sorting error with legal weight."
+    },
+    {
+      "id": "t9",
+      "text": "The team glossary: acronyms, level names, competency terms",
+      "key": "pack",
+      "reasoning": "The slice of your org the model may safely see."
+    },
+    {
+      "id": "t10",
+      "text": "A raw HRIS export, employee IDs included",
+      "key": "never",
+      "reasoning": "IDs are identity by design. Where a single run legitimately needs sensitive material, M6 governs how it enters (fresh, minimized, under that run's judgment) and how it leaves."
+    },
+    {
+      "id": "t11",
+      "text": "The policy paragraph being rewritten this run",
+      "key": "fresh",
+      "reasoning": "Today's work product, nobody's infrastructure. It leaves with the run."
+    },
+    {
+      "id": "t12",
+      "text": "Your org context brief: what the company does, size, shape, no names",
+      "key": "pack",
+      "reasoning": "Impersonal by construction: nothing you'd redact from a conference talk."
+    }
   ],
   "pattern": "Durable and impersonal lives in the pack. Run-specific material arrives fresh and leaves with the run. Anything identifying a person never becomes infrastructure.",
-  "postscript": "If you put fresh material in the pack, you built the quiet failure: current-sounding answers from stale truth. If you packed people data, stop before building anything and read M6's opening — that one carries legal weight."
+  "postscript": "If you put fresh material in the pack, you built the quiet failure: current-sounding answers from stale truth. If you packed people data, stop before building anything and read M6's opening. That one carries legal weight."
 }

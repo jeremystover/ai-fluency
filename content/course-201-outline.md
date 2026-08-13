@@ -68,7 +68,7 @@ The workflow lens: what separates "I used AI for this once" from "this runs ever
 
 *~35 min · the hands-heaviest module*
 
-Long documents in, structured outputs out. Chains: summarize → extract → transform → format. Where pipelines break: context windows (101 M1 vocabulary, now load-bearing), lossy middle steps, format drift.
+Long documents in, structured outputs out. Chains: summarize → extract → transform → format. Where pipelines break: context windows (101 M1 vocabulary, now carrying real weight), lossy middle steps, format drift.
 
 - **Lesson 1:** Chain thinking. Why one mega-prompt loses to three small steps with checkpoints.
 - **Lesson 2:** The People-work pipeline gallery: survey verbatims → themes → exec summary; handbook → policy diff → plain-language change note; interview notes → structured debrief → calibrated packet.

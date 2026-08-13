@@ -4,8 +4,8 @@
   "minWords": 250,
   "maxWords": 350,
   "submitLabel": "Your model and write-up",
-  "intro": "Paste the model with every input and its source, your data interrogation, your weakest assumption and its sensitivity, then the 250–350 word write-up including your position on this module's claim. Resubmission is free and unlimited — the score is a mirror, not a gate.",
-  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, HRBP track. Module 5 applied activity, 'One case, stress-tested': a real unresolved argument built into one of three models (regretted attrition, cost of an extra layer, time-to-fill against plan), with every input's source and provenance shown, an explicit statement of where AI was and wasn't used, an interrogation of how each HR-system field is actually populated versus what its name implies, at least one named input they don't fully trust with what they did about it, and their weakest assumption named FIRST with a plausible range and the conclusion tested at the unfavourable end. CRITICAL: a case that fails its own sensitivity test and is reported honestly scores HIGHER than one that passes because it was never tested. Also watch for the module's central failure — small populations carrying percentage claims; if the learner's denominator is small, they must state the n and volunteer the coincidence test. False precision should be marked down; a rough figure with stated assumptions is the target. Grade the delta, never prediction accuracy.",
+  "intro": "Paste the model with every input and its source, your data interrogation, your weakest assumption and its sensitivity, then the 250–350 word write-up including your position on this module's claim. Resubmission is free and unlimited: the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, HRBP track. Module 5 applied activity, 'One case, stress-tested': a real unresolved argument built into one of three models (regretted attrition, cost of an extra layer, time-to-fill against plan), with every input's source and provenance shown, an explicit statement of where AI was and wasn't used, an interrogation of how each HR-system field is actually populated versus what its name implies, at least one named input they don't fully trust with what they did about it, and their weakest assumption named FIRST with a plausible range and the conclusion tested at the unfavourable end. CRITICAL: a case that fails its own sensitivity test and is reported honestly scores HIGHER than one that passes because it was never tested. Also watch for the module's central failure, small populations carrying percentage claims; if the learner's denominator is small, they must state the n and volunteer the coincidence test. False precision should be marked down; a rough figure with stated assumptions is the target. Grade the delta, never prediction accuracy.",
   "opening": [
     {
       "key": "departureCost",
@@ -34,7 +34,7 @@
     },
     {
       "name": "The data was interrogated",
-      "criteria": "For each HR-system input, how the field is actually populated versus what its name implies — with at least one input named as not fully trusted and a stated response. A learner who writes 'I don't know how regretted is set, and that's my first question for analytics' scores well; one who uses the field uncritically does not."
+      "criteria": "For each HR-system input, how the field is actually populated versus what its name implies, with at least one input named as not fully trusted and a stated response. A learner who writes 'I don't know how regretted is set, and that's my first question for analytics' scores well; one who uses the field uncritically does not."
     },
     {
       "name": "Small numbers handled honestly",

@@ -16,14 +16,14 @@
 *One claim. Commit before you read.*
 
 > **"In my organization, the decision about who gets human development support and who gets a tool
-> was made deliberately — and somebody could state the basis for it."**
+> was made deliberately, and somebody could state the basis for it."**
 
 **True of us, or not true of us?** Commit in a sentence, and name who you would ask to find out.
 
 Then, if you can: **what share of your workforce currently has access to human development support**
 — a coach, a mentor, a manager who actually runs development conversations? Give a percentage.
 
-If nobody in your organization can answer that, **write that down.** A function that cannot say who
+If nobody in your organization can answer that, **write that down.** A function that can't say who
 gets a human has already made the allocation decision; it just made it by default, which is Lesson
 3's whole subject.
 
@@ -34,21 +34,21 @@ gets a human has already made the allocation decision; it just made it by defaul
 Module 1 gave you a bucket labelled *needs a human on the hook*. This module is the evidence for
 what belongs in it, and it is the only place in this track where the evidence is genuinely good.
 
-Most of what you will read about AI in development is vendor material. This is not. There is a
+Most of what you'll read about AI in development is vendor material. This isn't. There is a
 randomized controlled trial, it is unusually clean, and its result is inconvenient for a large and
 well-funded category of product — which is roughly the strongest position evidence can be in.
 
-Three things this module is not.
+Three things this module isn't.
 
 **It is not an argument that AI has no place in development.** The trial evidence points the other
 way for a specific class of application, and the module says so.
 
 **It is not a defence of coaching as currently practised.** Human coaching in most organizations is
 rationed to executives, purchased on relationship, and evaluated on whether the coachee enjoyed it.
-That is not a high bar to beat.
+That isn't a high bar to beat.
 
-**And it is not a reassurance module.** The finding that should worry you is not that the tools
-underperform. It is that **they underperform selectively** — in a pattern that determines who your
+**And it is not a reassurance module.** The finding that should worry you isn't that the tools
+underperform. It is that **they underperform selectively**, in a pattern that determines who your
 development programs fail, and the pattern runs against the people your programs exist to help.
 
 ## Learning objectives
@@ -59,7 +59,7 @@ By the end of this module you should be able to:
    weaker evidence.
 2. Explain co-regulation and use it to predict which development activities delegate and which
    don't.
-3. Apply the scoping rule — narrow and measurable delegates, broad and relational does not.
+3. Apply the scoping rule: narrow and measurable delegates, broad and relational doesn't.
 4. Treat the self-efficacy finding as a design constraint rather than an equity footnote.
 5. Write an allocation policy with a stated basis, including where that basis is budget.
 
@@ -78,7 +78,7 @@ substantial effects. The AI arm produced none on the primary outcomes, with far 
 
 Sit with that, because how you read it is the lesson. The available cheap readings are all wrong:
 
-*"The early study was wrong."* No — it tested a narrow claim and the narrow claim held.
+*"The early study was wrong."* No. It tested a narrow claim and the narrow claim held.
 
 *"The later study is biased against AI."* By a co-author of the study that launched the category.
 
@@ -87,11 +87,11 @@ on a narrow application and then published a null result on a broad one.
 
 **This is what self-correction looks like**, and it is rare enough that it should change how much
 weight you give the finding. A field where the person who launched a category publishes the trial
-that constrains it is a field doing science. Compare that with the evidence you will be shown by
+that constrains it is a field doing science. Compare that with the evidence you'll be shown by
 anybody selling you a platform.
 
-Hold the limits, because this module has to survive its own Module 3. N=114 is not large. One
-corporation, predominantly senior managers — a population with high baseline capability and
+Hold the limits, because this module has to survive its own Module 3. N=114 isn't large. One
+corporation, predominantly senior managers, a population with high baseline capability and
 plentiful alternatives, which is precisely the population where an AI coach has least to add. The
 attrition asymmetry is itself a finding and it also complicates the comparison. **The result is
 strong for what it tested and does not generalize to every use of AI in development**, which is
@@ -110,32 +110,32 @@ accountability, and recall. That is genuinely useful and a tool does it tireless
 Broad developmental coaching failed because the mechanism is different, and the name for the
 mechanism is **co-regulation**.
 
-What a good coach supplies is not primarily information, and not even primarily technique. It is
-**a second nervous system in the room.** Someone who notices the thing you are avoiding and declines
+What a good coach supplies isn't primarily information, and not even primarily technique. It is
+**a second nervous system in the room.** Someone who notices the thing you're avoiding and declines
 to move past it. Someone whose attention makes it costly to give a comfortable answer. Someone who
 holds the discomfort of a hard realization with you long enough that you don't flinch away from it,
 and whose regard survives your saying the humiliating thing out loud.
 
-A tool cannot do that — not because it lacks capability, but because **the mechanism requires a
+A tool can't do that — not because it lacks capability, but because **the mechanism requires a
 witness whose opinion of you is at stake.** That is what makes the disclosure expensive, and the
-expense is what makes it work. An interlocutor with no stake in you is not a cheaper version of one
+expense is what makes it work. An interlocutor with no stake in you isn't a cheaper version of one
 who has; it is a different intervention that happens to use the same words.
 
-Which explains the attrition. People did not drop out of the AI arm because it was unhelpful. **They
+Which explains the attrition. People didn't drop out of the AI arm because it was unhelpful. **They
 dropped out because nothing was holding them there.** Nobody would notice.
 
 The test to carry into any design decision:
 
 > **Does this activity work because of the information exchanged, or because someone was watching?**
 
-Information exchange delegates well. Being watched does not delegate at all. Most development
-activities are a mixture, and the useful question is which part is load-bearing — because if you
-delegate the watched part, you have not made the activity cheaper. You have replaced it.
+Information exchange delegates well. Being watched doesn't delegate at all. Most development
+activities are a mixture, and the useful question is which part carries the weight, because if you
+delegate the watched part, you haven't made the activity cheaper. You have replaced it.
 
 > ### Try this — 3 minutes
 > Take the development activity your function is proudest of. Ask the test question about it. Then
 > ask a harder one: if you replaced the human with a tool and participation dropped by half, would
-> your current measurement notice? For most functions the honest answer is no — completion would
+> your current measurement notice? For most functions the honest answer is no, completion would
 > stay high because the tool never gets marked absent.
 
 ## Lesson 3 · The allocation finding is a design constraint **[V]**
@@ -151,32 +151,32 @@ from the unsupervised one.
 
 Most treatments of this finding file it as an equity point. It is one, and the HR business partner
 track treats it that way: deciding who gets a human is an equity decision and it should be made
-deliberately rather than by budget. That is correct and it is not your version of the problem.
+deliberately rather than by budget. That is correct and it isn't your version of the problem.
 
 **Your version is a design constraint, and it is sharper.**
 
-You are not allocating a scarce coaching budget. You are designing a program, and the finding tells
+You aren't allocating a scarce coaching budget. You're designing a program, and the finding tells
 you something specific about the shape of its results: **an unsupervised tool-based program will
 produce a bimodal outcome.** Your confident, well-supported, already-capable participants will do
 well and rate it highly. Your struggling participants will disengage quietly and appear in your data
 as non-completers, or not appear at all.
 
-And then — this is the part that matters — **your evaluation will average them.** The program will
+And then (this is the part that matters) **your evaluation will average them.** The program will
 look moderately effective. The average will be real. It will also be the mean of a group it worked
 for and a group it failed, and the group it failed is the group the program was justified by.
 
-That is not an ethics footnote. It is a measurement error you will make in Module 6 unless you know
+That isn't an ethics footnote. It is a measurement error you'll make in Module 6 unless you know
 to look for it. **The question to ask of any development program: who does this fail, and would my
 current evaluation show me?**
 
 Three design consequences:
 
 **Scope narrowly, on purpose.** If narrow and measurable is what delegates, then a tool aimed at one
-outcome for a defined population is not a lesser version of a coaching program. It is the correct
+outcome for a defined population isn't a lesser version of a coaching program. It is the correct
 application, and it should be sold internally as such rather than as coaching-at-scale.
 
 **Never deploy a tool as the only channel for a population you have reason to think is struggling.**
-That is the exact case where it underperforms, and its adoption metrics will not tell you.
+That is the exact case where it underperforms, and its adoption metrics won't tell you.
 
 **Segment your evaluation before you run it.** Baseline confidence or self-efficacy at entry, and
 report outcomes split. If you can only report an average, you have chosen not to see the finding.
@@ -185,9 +185,9 @@ report outcomes split. If you can only report an average, you have chosen not to
 
 The second-order effect, and it is the one nobody budgets for.
 
-Development conversations are not only development. **They are the occasion for a relationship.** A
+Development conversations aren't only development. **They are the occasion for a relationship.** A
 manager who runs a real development conversation twice a year with each report learns things they
-would learn no other way — what someone is worried about, who is thinking about leaving, which
+would learn no other way: what someone is worried about, who is thinking about leaving, which
 project is quietly failing. The development content is the reason for the meeting. The relationship
 is what the meeting produces.
 
@@ -204,9 +204,9 @@ percent of people at variable quality. **"The alternative to a tool is a good ma
 false; the alternative is often nothing.** That is the strongest argument for deploying broadly and
 it should be taken seriously.
 
-But notice what the decision actually is, because it is usually made without being noticed. You are
-not choosing between two ways of delivering development content. **You are choosing whether the
-organization keeps a scheduled occasion for managers and their people to talk about the future** —
+But notice what the decision actually is, because it is usually made without being noticed. You're
+not choosing between two ways of delivering development content. **You're choosing whether the
+organization keeps a scheduled occasion for managers and their people to talk about the future**,
 and that occasion is doing work far beyond development, most of which is invisible in any
 measurement you currently run.
 
@@ -215,10 +215,10 @@ serves the relationship, or accept that you have removed it.
 
 ## Lesson 5 · The agreement problem
 
-One more thing the machine produces and cannot finish — and it is the one most likely to land on
+One more thing the machine produces and can't finish — and it is the one most likely to land on
 your desk this year, because it looks like a win.
 
-Ask a model for a capability framework for your organisation and you will get a good one. Coherent,
+Ask a model for a capability framework for your organisation and you'll get a good one. Coherent,
 well-levelled, better written than most in production, in about ninety seconds. The same is true of
 a rating rubric, a set of learning outcomes, a competency dictionary. **These artifacts are now
 free.**
@@ -228,20 +228,20 @@ mean by judgment here,"* and somebody else says *"level 3 and level 4 are the sa
 months later there is a framework in production that is worse-written than the generated one and
 that people actually use. **The rewriting was not the point. The arguing was.**
 
-Here is the structure, and it generalises well beyond frameworks: **the artifact was never the
-scarce thing. The agreement was** — and the agreement is what made it operative. A framework is not
+Here's the structure, and it generalises well beyond frameworks: **the artifact was never the
+scarce thing. The agreement was**, and the agreement is what made it operative. A framework isn't
 a document, it is a set of commitments about what the organisation will reward, made by people with
-enough standing that others treat them as settled. You cannot generate standing.
+enough standing that others treat them as settled. You can't generate standing.
 
-This has a sharp consequence for how you use the free version, and it is not *don't*. **Use it as a
+This has a sharp consequence for how you use the free version, and it isn't *don't*. **Use it as a
 draft to argue with, and be explicit that this is what it is.** A generated framework put in front
 of a leadership team as a starting position gets you to the argument faster, which is real value.
 The same document circulated as *the new framework* skips the argument, and a framework nobody
-argued about is one nobody is committed to — it will be ignored in exactly the moments it was built
+argued about is one nobody is committed to. It will be ignored in exactly the moments it was built
 for.
 
 **And the reason this bites harder here than in comp:** a pay structure has an external referent.
-You can benchmark it, and the market can tell you you are wrong. A competency framework and a
+You can benchmark it, and the market can tell you you're wrong. A competency framework and a
 definition of potential have no external referent at all. **They are true because the organisation
 agreed they were.** That makes agreement not a soft step before rollout but the entire source of the
 instrument's validity — which is why the free artifact saved you the cheapest part.
@@ -256,19 +256,19 @@ instrument's validity — which is why the free artifact saved you the cheapest 
 - **Co-regulation is the mechanism**: a good coach supplies a witness whose opinion of you is at
   stake, which is what makes disclosure expensive and the expense is what makes it work. An
   interlocutor with no stake in you is a different intervention, not a cheaper one.
-- **Which explains the attrition** — people did not leave because it was unhelpful, but because
+- **Which explains the attrition**: people didn't leave because it was unhelpful, but because
   nothing was holding them there.
 - **The test: does this work because of the information exchanged, or because someone was watching?**
-  Information delegates. Being watched does not.
+  Information delegates. Being watched doesn't.
 - **Outcomes track starting self-efficacy and hope, so the people who most need development are
   served worst by an unsupervised tool** `[V]`. For your role this is a design constraint, not an
   equity footnote.
 - **An unsupervised tool-based program produces bimodal results and your evaluation will average
-  them** — and the group it failed is the group the program was justified by. Segment before you
+  them**, and the group it failed is the group the program was justified by. Segment before you
   run, or you have chosen not to see it.
 - **Routing development conversations to a tool may preserve the content and remove the occasion** —
   and the occasion was doing most of the work.
-- **The artifact was never the scarce thing — the agreement was.** A generated competency
+- **The artifact was never the scarce thing, the agreement was.** A generated competency
   framework is good and free; what made the old one operative was that people with standing
   argued about it and then treated it as settled. Use the free version as a draft to argue with,
   and say that is what it is.
@@ -276,11 +276,11 @@ instrument's validity — which is why the free artifact saved you the cheapest 
 ## Take a position
 
 **The claim:** *"Deploying a development tool as the only channel for a population you have reason
-to think is struggling is a decision to fail the people the program exists for — and your completion
-data will not tell you."*
+to think is struggling is a decision to fail the people the program exists for, and your completion
+data won't tell you."*
 
 The strongest counter-argument is one of scale and counterfactual, and it is good enough that this
-module cannot dismiss it. **For most organizations the alternative to a tool is not a human. It is
+module can't dismiss it. **For most organizations the alternative to a tool is not a human. It is
 nothing.** Development support has always been rationed to the people with the most power and the
 best managers; a tool that reaches everyone imperfectly may lift the floor for people who previously
 received zero. On that view, insisting on human allocation defends an inequity that already exists,
@@ -292,25 +292,25 @@ everyone else — which is the opposite of how most organizations currently spen
 budget, and which a budget-driven default sometimes stumbles into by accident.
 
 Your position has to survive both. In particular it has to say what you would actually do in an
-organization where the human channel does not exist and will not be funded.
+organization where the human channel doesn't exist and won't be funded.
 
 ## Applied activity — "The allocation policy"
 
 **Time:** 30 minutes · **Submit:** the policy plus a 300–400 word write-up · **Graded against the
 rubric below.** Score doesn't matter. Doing the work is where the learning lands.
 
-Write the allocation policy your organization does not currently have. One page.
+Write the allocation policy your organization doesn't currently have. One page.
 
-*If you are an individual contributor without organization-wide authority:* write it for one program
-you own. The scope shrinks and the argument does not — a policy written for a single cohort is often
+*If you're an individual contributor without organization-wide authority:* write it for one program
+you own. The scope shrinks and the argument doesn't, a policy written for a single cohort is often
 the more defensible document, and it is the one that gets adopted.
 
-**Step 1 — Name the populations (5 min).** Who is in scope for development support? Split into
+**Step 1. Name the populations (5 min).** Who is in scope for development support? Split into
 groups that actually differ — by level, by tenure, by transition point, by whatever your
 organization really uses. Three to five groups.
 
-**Step 2 — Allocate, and state the basis (10 min).** For each group: human, tool, or neither. Then
-**the basis for the line** — the reason, stated so someone could disagree with it. **"Budget" is a
+**Step 2. Allocate, and state the basis (10 min).** For each group: human, tool, or neither. Then
+**the basis for the line**: the reason, stated so someone could disagree with it. **"Budget" is a
 legitimate basis.** It just has to be written down rather than smuggled in as a judgment about who
 benefits most. A policy that says *"senior leaders get coaches because that is what we can afford"*
 is more honest, and more defensible, than one that says they get coaches because they have the
@@ -320,16 +320,16 @@ highest leverage.
 and ask: does this work because of the information exchanged, or because someone is watching? Where
 you have allocated a tool to a watched activity, say so and justify it.
 
-**Step 4 — Find who you are failing (5 min).** Given the self-efficacy finding, which group is your
-allocation serving worst? Name it. Then say **whether your current measurement would show you** —
+**Step 4. Find who you're failing (5 min).** Given the self-efficacy finding, which group is your
+allocation serving worst? Name it. Then say **whether your current measurement would show you**,
 and if it wouldn't, what one change would.
 
 **Step 5 — Score the claim (2 min).** Your opening position against what writing this revealed.
 Direction and cause.
 
-Then the write-up: the policy's hardest line and why you drew it there, the group you are failing
+Then the write-up: the policy's hardest line and why you drew it there, the group you're failing
 and whether you would see it, your position on the module's claim with its counter-argument
-addressed, and — the honest one — **whether any part of your current allocation exists because
+addressed, and (the honest one) **whether any part of your current allocation exists because
 nobody ever decided it.**
 
 ## Knowledge check — 8 questions
@@ -343,8 +343,8 @@ nobody ever decided it.**
 - C. Because it means the two studies used identical methodology
 - D. Because it rules out publication bias in the field
 
-> **B.** The cheap readings — the early study was wrong, the later one is biased, two camps disagree
-> — are all unavailable. One researcher published a positive narrow result and then a null broad one.
+> **B.** The cheap readings (the early study was wrong, the later one is biased, two camps disagree
+>) are all unavailable. One researcher published a positive narrow result and then a null broad one.
 
 **Q2.** What distinguishes the application that worked from the one that didn't?
 
@@ -360,7 +360,7 @@ nobody ever decided it.**
 
 - A. A shared governance model between L&D and the business for development programs
 - B. The coach and coachee jointly setting and revising goals over time
-- C. A second nervous system in the room — a witness whose opinion of you is at stake, which makes disclosure expensive, and the expense is what makes it work ✓
+- C. A second nervous system in the room, a witness whose opinion of you is at stake, which makes disclosure expensive, and the expense is what makes it work ✓
 - D. Matching the intervention's intensity to the learner's current capability
 
 > **C.** And the consequence is that an interlocutor with no stake in you is not a cheaper version of
@@ -369,7 +369,7 @@ nobody ever decided it.**
 **Q4.** How does the module explain the higher attrition in the AI arm?
 
 - A. The interface was harder to use than meeting a human coach
-- B. Nothing was holding participants there — nobody would notice if they stopped ✓
+- B. Nothing was holding participants there, nobody would notice if they stopped ✓
 - C. Participants found the advice lower in quality and disengaged
 - D. Scheduling flexibility made it easier to defer sessions indefinitely
 
@@ -400,9 +400,9 @@ nobody ever decided it.**
 **Q7.** What is the hollowing-out risk?
 
 - A. That L&D loses headcount as development activities are automated
-- B. That routing development conversations to a tool may preserve the content while removing the scheduled occasion for a manager and their report to talk about the future — which was doing work far beyond development ✓
+- B. That routing development conversations to a tool may preserve the content while removing the scheduled occasion for a manager and their report to talk about the future, which was doing work far beyond development ✓
 - C. That managers lose the skill of running development conversations through disuse
-- D. That employees disclose less over time as they learn the tool is not confidential
+- D. That employees disclose less over time as they learn the tool isn't confidential
 
 > **B.** C is a real and related risk; the module's point is stronger. The meeting produced a
 > relationship, the agenda was just the reason for it, and nothing else on the calendar has that
@@ -413,7 +413,7 @@ nobody ever decided it.**
 - A. As a failure to apply the module's evidence, since the self-efficacy finding argues the opposite
 - B. As a legitimate and more defensible basis than a claim about who benefits most, provided it is stated openly rather than smuggled in as a judgment ✓
 - C. As acceptable only if paired with a plan to extend coaching to other groups
-- D. As evidence the organization has not made an allocation decision at all
+- D. As evidence the organization hasn't made an allocation decision at all
 
 > **B.** Budget is a real constraint and naming it is the honest move. The failure the module targets
 > is a budget decision dressed as a developmental judgment, which cannot be argued with because it
@@ -421,7 +421,7 @@ nobody ever decided it.**
 
 ## Sources and attribution
 
-- **de Haan, Terblanche & Nowack**, *Human Resource Development International* (2026) — the
+- **de Haan, Terblanche & Nowack**, *Human Resource Development International* (2026), the
   randomized controlled comparison of human and AI chatbot coaching, N=114, predominantly middle and
   senior managers in one global corporation; and **Terblanche et al. (2022)** on
   goal-attainment-specific chatbot coaching, co-authored by one of the same researchers. **This
@@ -431,7 +431,7 @@ nobody ever decided it.**
   is an equity decision an HR business partner owns. This module uses it as a *design constraint* on
   what a development program can delegate and whose results it will average away. No learner sees
   both tracks; the shared element is the underlying trial evidence, and the wording is kept aligned
-  so the two copies do not drift when the volatile layer is re-checked.
+  so the two copies don't drift when the volatile layer is re-checked.
 - **Co-regulation as the mechanism**, the information-versus-being-watched test, the bimodal-results
   argument, and the hollowing-out risk are original to this course.
 - Builds on 101 M7 (decisions about people) and Module 1's third bucket, and sets up Module 6, where

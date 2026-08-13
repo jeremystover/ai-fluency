@@ -6,7 +6,7 @@
     "kind": "prose",
     "layer": "stable",
     "reviewedAt": "2026-08-11",
-    "body": "## Module 7 in two minutes\n\n**Bias is a property of learned systems, not a bug.** Employment records contain merit tangled with every systematic skew in how organizations actually decided — and a system trained on the records learns the tangle as the definition. Removing protected fields doesn't help (proxies are everywhere — names, schools, gaps, career shapes), and \"less biased than humans\" is an empirical claim requiring demonstration per system, per population — because a model doesn't transcend the pattern, it standardizes one instance of it at scale.\n\n**The line: AI transforms and prepares the material humans decide from; it does not score, rank, filter, or characterize the people decided about.** The test that travels: *could this output change one identifiable person's outcome?* And the defense that isn't: \"a human reviews it\" only counts where the human could actually catch the error — nobody can re-derive a ranking, and the filtered-out never reach the reviewer at all.\n\n**The regulatory shape [V]:** employment is a named high-risk category, disparate impact needs no intent, and accountability doesn't outsource — buying a biased system is doing a biased thing. Verify specifics with counsel; bring them a list, not a vibe."
+    "body": "## Module 7 in two minutes\n\n**Bias is a property of learned systems, not a bug.** Employment records contain merit tangled with every systematic skew in how organizations actually decided, and a system trained on the records learns the tangle as the definition. Removing protected fields doesn't help (proxies are everywhere, names, schools, gaps, career shapes), and \"less biased than humans\" is an empirical claim requiring demonstration per system, per population — because a model doesn't transcend the pattern, it standardizes one instance of it at scale.\n\n**The line: AI transforms and prepares the material humans decide from; it does not score, rank, filter, or characterize the people decided about.** The test that travels: *could this output change one identifiable person's outcome?* And the defense that isn't: \"a human reviews it\" only counts where the human could actually catch the error: nobody can re-derive a ranking, and the filtered-out never reach the reviewer at all.\n\n**The regulatory shape [V]:** employment is a named high-risk category, disparate impact needs no intent, and accountability doesn't outsource, buying a biased system is doing a biased thing. Verify specifics with counsel; bring them a list, not a vibe."
   },
   {
     "id": "ai101-m7-micro-rule",
@@ -15,7 +15,7 @@
     "kind": "callout",
     "layer": "stable",
     "reviewedAt": "2026-08-11",
-    "body": "### The rule to carry\n\nA line that holds is specific (name the decision, not the technology), attached to its assist-side trade, reasoned in the room's language, and owned by a name. Drawn well, it's not the department of no — it's what lets the assist side move fast."
+    "body": "### The rule to carry\n\nA line that holds is specific (name the decision, not the technology), attached to its assist-side trade, reasoned in the room's language, and owned by a name. Drawn well, it's not the department of no. It's what lets the assist side move fast."
   },
   {
     "id": "ai101-m7-micro-close",
@@ -24,6 +24,6 @@
     "kind": "prose",
     "layer": "stable",
     "reviewedAt": "2026-08-11",
-    "body": "**The full module adds** the which-side-of-the-line sort (ten real uses — the never cards all arrive politely, as 'data points' and 'first passes'), the review-theater argument in full, the counsel conversation that gets answers instead of shrugs, and Draw the Line — auditing your own function and writing the one-pager you could actually circulate."
+    "body": "**The full module adds** the which-side-of-the-line sort (ten real uses, the never cards all arrive politely, as 'data points' and 'first passes'), the review-theater argument in full, the counsel conversation that gets answers instead of shrugs, and Draw the Line, auditing your own function and writing the one-pager you could actually circulate."
   }
 ]

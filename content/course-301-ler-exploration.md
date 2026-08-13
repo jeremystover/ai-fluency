@@ -6,7 +6,7 @@ everything 101, 201, and the four existing 301 tracks already teach.
 
 **Why this one is the hardest subtraction so far.** The brief flags it in one line — *distinct in
 unionized environments; ER documentation currently lives in HRBP M6* — and both halves of that are
-load-bearing. `ai301-hrbp` M6 is drafted and seeded, and its Lesson 3 already owns most of the
+structural. `ai301-hrbp` M6 is drafted and seeded, and its Lesson 3 already owns most of the
 obvious ER content. So this track has to go *past* a shipped module rather than around it, and the
 labor half has to carry more weight than a "distinct in unionized environments" aside implies.
 
@@ -132,7 +132,7 @@ resolve it** — correctly, for a generalist who does this occasionally.
 
 For a specialist who does it weekly, **the resolution is the content.** Inconsistency detection and
 credibility determination are genuinely different acts, the line between them is fine, teachable,
-and load-bearing, and nobody has drawn it. That is this track's signature module and it exists
+and structural, and nobody has drawn it. That is this track's signature module and it exists
 *because* of the shipped one rather than in spite of it.
 
 ### The four close calls

@@ -25,7 +25,7 @@
         "Because it produces numbers outside the expected range"
       ],
       "correctIndex": 1,
-      "explanation": "D is the opposite of the problem — a number outside the range would get checked. The danger is precisely that it looks right."
+      "explanation": "D is the opposite of the problem: a number outside the range would get checked. The danger is precisely that it looks right."
     },
     {
       "id": "q3",
@@ -37,7 +37,7 @@
         "Because it conflicts with self-service analytics strategy"
       ],
       "correctIndex": 1,
-      "explanation": "Though see the module's own counter-argument, which makes the serious case that the queue is the control. C is a real consideration and is not the module's reason."
+      "explanation": "Though see the module's own counter-argument, which makes the serious case that the queue is the control. C is a real consideration and isn't the module's reason."
     },
     {
       "id": "q4",
@@ -61,7 +61,7 @@
         "Comparing the output against the previous month's report"
       ],
       "correctIndex": 2,
-      "explanation": "The output does not invite it. And it only becomes a real check once Lesson 1's work exists, because then the answer is checkable against a written definition rather than against your memory."
+      "explanation": "The output doesn't invite it. And it only becomes a real check once Lesson 1's work exists, because then the answer is checkable against a written definition rather than against your memory."
     },
     {
       "id": "q6",
@@ -97,7 +97,7 @@
         "The proportion of respondents who leave open text blank"
       ],
       "correctIndex": 2,
-      "explanation": "Which matters most for any process that weights comments by length or fluency — including a model's summarisation of them."
+      "explanation": "Which matters most for any process that weights comments by length or fluency, including a model's summarisation of them."
     }
   ]
 }

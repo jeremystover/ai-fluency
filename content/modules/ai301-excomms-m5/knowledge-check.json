@@ -37,7 +37,7 @@
         "Because qualifiers are ambiguous and the model avoids ambiguity"
       ],
       "correctIndex": 1,
-      "explanation": "\"Employees may carry over up to five days\" survives; \"except in the first year of employment\" doesn't. The summary isn't false about what it says — it's false about what it omits, and it harms the new joiners least equipped to know."
+      "explanation": "\"Employees may carry over up to five days\" survives; \"except in the first year of employment\" doesn't. The summary isn't false about what it says. It's false about what it omits, and it harms the new joiners least equipped to know."
     },
     {
       "id": "q4",
@@ -73,7 +73,7 @@
         "Omissions cannot be corrected after publication"
       ],
       "correctIndex": 1,
-      "explanation": "The consequences differ in the same direction as the detectability. A fabricated number embarrasses the function and gets corrected. A missed enrollment window costs an employee money, and they never learn it was your omission — only that your channel can't be relied on."
+      "explanation": "The consequences differ in the same direction as the detectability. A fabricated number embarrasses the function and gets corrected. A missed enrollment window costs an employee money, and they never learn it was your omission, only that your channel can't be relied on."
     },
     {
       "id": "q7",
@@ -97,7 +97,7 @@
         "Because categories are easier to audit for compliance"
       ],
       "correctIndex": 1,
-      "explanation": "\"The benefits email gets checked\" has nothing to say about the message that isn't on the list. Categories answer new cases, which is the entire reason to write them that way — alongside being named rather than roled, attached to a source, and carrying a stated fallback."
+      "explanation": "\"The benefits email gets checked\" has nothing to say about the message that isn't on the list. Categories answer new cases, which is the entire reason to write them that way: alongside being named rather than roled, attached to a source, and carrying a stated fallback."
     }
   ]
 }

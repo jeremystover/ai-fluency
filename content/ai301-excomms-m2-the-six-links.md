@@ -6,7 +6,7 @@
 **Position in the track:** the map. Modules 5 through 9 each work one link; Module 10 argues from the whole chain
 
 > `Concepts reviewed: [DATE] · Examples current as of: [DATE]`
-> The benchmark figures are **[V]** volatile layer. The chain is stable — it described this job
+> The benchmark figures are **[V]** volatile layer. The chain is stable. It described this job
 > before these tools existed.
 
 ---
@@ -15,7 +15,7 @@
 
 *One claim. Commit before you read anything.*
 
-Here is a factual assertion about your own organization:
+Here's a factual assertion about your own organization:
 
 > **"When a significant change is decided here, internal communications is in the room where it's
 > decided — not just in the room where it's announced."**
@@ -23,7 +23,7 @@ Here is a factual assertion about your own organization:
 **True of us, or not true of us?** Commit to one, in a sentence.
 
 Then predict one number: **of a typical week of your team's time, what percentage goes into
-producing things** — drafting, editing, formatting, building decks and kits and pages? You'll map
+producing things**: drafting, editing, formatting, building decks and kits and pages? You'll map
 your real week in this module's activity.
 
 Most people in this function commit to "true of us" and then discover, when they check the
@@ -41,14 +41,14 @@ Produce → Distribute → Verify.** Something happens or is felt in the organiz
 meaning of it. Somebody decides what should be done and said. Somebody makes the thing. It reaches
 people. Somebody checks that what reached them was true and that it landed.
 
-Most communicators can name two of those links, and they are usually Produce and Distribute —
-which is not a coincidence, because those are the two the profession is hired, measured, and
+Most communicators can name two of those links, and they are usually Produce and Distribute,
+which isn't a coincidence, because those are the two the profession is hired, measured, and
 promoted for. They are also, respectively, the link AI just collapsed and the link that was largely
 solved before AI arrived.
 
 The chain matters because it turns a vague anxiety — *is this job going away?* — into a specific and
 answerable question: **which link is your team's time in, and is it the link that carries the
-value?** By the end of this module you will have a one-page map of your own function against the six
+value?** By the end of this module you'll have a one-page map of your own function against the six
 links, and Module 10's proposal is argued from it.
 
 ## Learning objectives
@@ -65,20 +65,20 @@ By the end of this module you should be able to:
 
 Six links. Each is a distinct kind of work, and each fails in a distinct way.
 
-**Sense.** Detecting what is actually happening in the organization — not what the leadership team
+**Sense.** Detecting what is actually happening in the organization, not what the leadership team
 believes is happening. Intranet searches that return nothing. The questions asked at the end of the
 regional ops call. Help-desk tickets. Open text in a pulse. Sensing is collection, not conclusion:
 getting the signal into a place where it can be read at all. Its failure mode is silence mistaken
 for consent.
 
 **Interpret.** Turning signal into meaning. Four hundred unanswered searches become a ranked list of
-what the workforce cannot find. A pulse dip becomes "this is one business unit's manager, not the
-policy." Its failure mode is a confident story about a signal that isn't there — which is Module 7's
+what the workforce can't find. A pulse dip becomes "this is one business unit's manager, not the
+policy." Its failure mode is a confident story about a signal that isn't there, which is Module 7's
 subject and the most expensive mistake on the chain.
 
 **Decide.** Choosing what should be said, to whom, when, and whether at all. This is where the four
 items make the digest and seven sponsors are told no. It is also where somebody tells a CFO that the
-efficiency framing will read as a layoff signal. Its failure mode is not being present.
+efficiency framing will read as a layoff signal. Its failure mode isn't being present.
 
 **Produce.** Making the artifact. Drafting, editing, translating, formatting, building the kit. Its
 failure mode used to be *slow*. It is now *cheap*, which is a different problem and a worse one.
@@ -95,15 +95,15 @@ anybody understood the enrollment deadline. Its failure mode is that nobody is a
 Notice what the chain does that a list of job duties doesn't: **it has a direction.** Errors flow
 downstream and get more expensive as they go. A bad Sense produces a confident wrong Interpret,
 which produces a Decide about a problem you don't have, which produces beautifully written Produce
-that nobody needed. Speed at Produce cannot recover any of it.
+that nobody needed. Speed at Produce can't recover any of it.
 
 ## Lesson 2 · Where AI landed **[V]**
 
-Link by link, and the pattern is not evenly distributed.
+Link by link, and the pattern isn't evenly distributed.
 
 **Produce: collapsed.** This is the transformation everyone experienced personally. A serviceable
-announcement, a translated version, a manager kit, an FAQ from a transcript — minutes, not hours.
-This is real and it is not going backwards.
+announcement, a translated version, a manager kit, an FAQ from a transcript: minutes, not hours.
+This is real and it isn't going backwards.
 
 **Distribute: already mostly solved, and not by AI.** Segmentation and scheduling were features of
 communication platforms before generative models existed. AI adds personalization at a finer grain,
@@ -111,29 +111,29 @@ which is genuinely useful and is an incremental improvement on an existing capab
 
 **Sense: transformed, and barely touched.** This is the largest unclaimed gain in the entire track.
 The function has always been sitting on the highest-fidelity record of what employees actually don't
-understand — search logs, tickets, unanswered questions, open text — and has never been able to read
+understand (search logs, tickets, unanswered questions, open text) and has never been able to read
 it at volume. It can now. Module 7 is this link.
 
 **Interpret: transformed and dangerous in the same motion.** A model will theme forty tickets into
 five clean categories whether or not five categories exist. The capability and the hazard are the
 same capability.
 
-**Decide: untouched.** A model can enumerate options and argue any side. It cannot hold the
-political and relational context that makes one of them the right call this month, and it cannot
+**Decide: untouched.** A model can enumerate options and argue any side. It can't hold the
+political and relational context that makes one of them the right call this month, and it can't
 carry the consequence. Nothing on the horizon changes this.
 
-**Verify: newly expensive, and newly load-bearing.** When a human wrote the draft, the drafter's
+**Verify: newly expensive, and newly decisive.** When a human wrote the draft, the drafter's
 knowledge was a check. When a model writes it, that check is gone and has to be reinstated
 deliberately. Module 5 is this link.
 
 Now the finding that gives this module its edge. Simpplr's *State of Internal Communications 2026*
 — an independent survey of **448 internal communications professionals in North America, 85% US and
 15% Canada, fielded December 2025**, all with responsibility for internal communications at
-organizations of 500 or more — asked practitioners already using AI where it has had the most
+organizations of 500 or more, asked practitioners already using AI where it has had the most
 impact. The top three: **content strategy (49%), planning (48%), and channel strategy (41%).**
 
 Read those against the chain. Content strategy, planning, and channel strategy are **Decide** and
-**Interpret** work. They are not Produce. **The practitioners themselves report the highest impact
+**Interpret** work. They aren't Produce. **The practitioners themselves report the highest impact
 in the links they invest in least** — while the dominant use, across the profession, remains
 drafting.
 
@@ -142,8 +142,8 @@ the tools, in a vendor-commissioned survey. Treat it as what practitioners belie
 experience rather than a measured outcome. It is still a striking thing for a population to believe
 about itself and act against.
 
-> ### Try this — 3 minutes
-> Take any message that landed badly in the last year — misread, ignored, or actively resented.
+> ### Try this (3 minutes
+> Take any message that landed badly in the last year) misread, ignored, or actively resented.
 > Walk it back up the chain and find the earliest link where it went wrong. It is almost never
 > Produce. Most badly-landed messages were written well and decided badly, and the writing gets
 > blamed because the writing is the part everyone can see.
@@ -153,23 +153,23 @@ about itself and act against.
 Put Lesson 1 and Lesson 2 together and you get the thesis.
 
 The function's time, headcount, budget, tooling, job descriptions, and performance reviews are
-concentrated in **Produce** — the link that just collapsed in cost. Its recognition and its
-professional identity are there too. Ask a communicator what they do and you will hear a verb from
+concentrated in **Produce**: the link that just collapsed in cost. Its recognition and its
+professional identity are there too. Ask a communicator what they do and you'll hear a verb from
 the Produce link.
 
-Meanwhile the two links where AI opens genuinely new capability — Sense and Interpret — sit largely
-unworked, and the link that carries the most value per hour — Decide — is often not the function's
+Meanwhile the two links where AI opens genuinely new capability. Sense and Interpret — sit largely
+unworked, and the link that carries the most value per hour. Decide, is often not the function's
 to work at all.
 
 Module 1's benchmark finding is the same conclusion arriving from outside: **low-maturity teams use
 AI to draft; high-maturity teams use it to measure and generate insight** `[V]`. Two independent
 data sets, one about maturity and one about self-reported impact, pointing at the same place.
 
-Here is the part that stings, and it is worth saying plainly rather than softening:
+Here's the part that stings, and it is worth saying plainly rather than softening:
 
 > **Being excellent at Produce was a career. It is now a feature.**
 
-That is not a claim that production skill is worthless. Judgment about what makes a sentence land is
+That isn't a claim that production skill is worthless. Judgment about what makes a sentence land is
 exactly what makes someone good at reviewing a model's output (Module 5) and at knowing when a
 message must be human (Module 6). The claim is narrower and harder: **excellence at Produce no
 longer differentiates you, because the floor rose to meet it.** What differentiates is the work
@@ -185,36 +185,36 @@ previously getting zero.
 The link that carries the most value is the one this module has to spend the longest on, because
 almost nobody is trained in it.
 
-**Decide, in this function, is counsel.** Not deciding the restructure — that is not yours and never
+**Decide, in this function, is counsel.** Not deciding the restructure — that isn't yours and never
 was. Deciding what gets said about it, when, in what order, to whom first, and in what words. And,
 at the sharp end: telling an executive that the message is wrong, the timing is wrong, or that the
-thing they want to announce should not be announced yet.
+thing they want to announce shouldn't be announced yet.
 
 Three things make counsel hard, and they are worth naming because "be more strategic" is advice
 that has never once helped anyone.
 
 **It requires being present before the decision is final.** Which is what the opening claim asked
 you to commit to. The single most common structural failure in this function is being briefed
-rather than consulted — invited to the meeting where the decision is described, then asked for a
-communications plan. At that point every genuinely consequential choice has been made and you are
+rather than consulted: invited to the meeting where the decision is described, then asked for a
+communications plan. At that point every genuinely consequential choice has been made and you're
 working the Produce link on someone else's Decide.
 
 **It requires spending credit rather than building it.** Telling a CFO their framing will read as a
 layoff signal costs something. It is the only work in the function that reliably makes the person
-you are advising less comfortable, which is why it gets deferred, and why the deferral feels like
+you're advising less comfortable, which is why it gets deferred, and why the deferral feels like
 professionalism.
 
 **And nobody hired you for it.** Read the job description you were hired against. It will describe
 Produce and Distribute in detail, mention measurement, and be silent on advising. You were selected
 for one link and are now told the value lives in another.
 
-Which is the honest version of what the compression means. It is not that the job is disappearing.
-It is that **the job is being paid for one link and evaluated, increasingly, on another** — and that
+Which is the honest version of what the compression means. It isn't that the job is disappearing.
+It is that **the job is being paid for one link and evaluated, increasingly, on another**, and that
 gap is the thing Module 10 asks you to close deliberately rather than hope your way through.
 
-What you can do now, before Module 10: know which link you are in when you are in it. Most
-communicators do Decide work several times a week — choosing what makes the digest, killing a
-sponsor's request, changing an exec's wording — and log it mentally as Produce, because it happened
+What you can do now, before Module 10: know which link you're in when you're in it. Most
+communicators do Decide work several times a week (choosing what makes the digest, killing a
+sponsor's request, changing an exec's wording) and log it mentally as Produce, because it happened
 while they had a document open. Naming it is the first step to being resourced for it.
 
 ## Key takeaways
@@ -226,8 +226,8 @@ while they had a document open. Naming it is the first step to being resourced f
   Interpret are transformed and barely worked. Decide is untouched. Verify is newly expensive
   because the drafter's own knowledge used to be the check.
 - **The usage-versus-impact mismatch** `[V]`: practitioners using AI report the highest impact in
-  content strategy (49%), planning (48%), and channel strategy (41%) — which are Decide and
-  Interpret work — while the dominant use remains drafting. Self-reported, vendor-commissioned,
+  content strategy (49%), planning (48%), and channel strategy (41%), which are Decide and
+  Interpret work, while the dominant use remains drafting. Self-reported, vendor-commissioned,
   n=448 North American IC professionals, December 2025.
 - **The function is concentrated in the collapsing link.** Time, headcount, tooling, job
   descriptions, and identity all sit in Produce. **Being excellent at Produce was a career; it is
@@ -242,7 +242,7 @@ while they had a document open. Naming it is the first step to being resourced f
 
 **The claim:** *"The link where your team spends the most time is the link that matters least."*
 
-The strongest counter-argument is not that production is undervalued. It is that **Produce is where
+The strongest counter-argument isn't that production is undervalued. It is that **Produce is where
 the quality actually lives, and the chain flatters upstream work that only looks decisive because
 it is invisible.** A brilliantly reasoned Decide, executed in a message people misread, fails
 completely — and the difference between a message people misread and one they act on is
@@ -251,7 +251,7 @@ chain is a status argument dressed as an analysis: it relabels the measurable wo
 the unmeasurable work as high-value, which is what every profession does when it feels threatened.
 
 There is a sharper version still: **if AI genuinely collapsed Produce, quality would have converged
-across organizations by now, and it obviously hasn't.** Which suggests the link did not collapse —
+across organizations by now, and it obviously has not.** Which suggests the link didn't collapse:
 the floor rose, and the ceiling is exactly where it was.
 
 Take a position on that, in writing, in the activity. The strongest submissions engage that last
@@ -264,12 +264,12 @@ rubric below.** Score doesn't matter. Doing the work is where the learning lands
 
 This module traces one real thing. Module 4 maps your whole function; don't do that work here.
 
-**Step 1 — Pick it (2 min).** One significant thing your function shipped in the last quarter to the
+**Step 1. Pick it (2 min).** One significant thing your function shipped in the last quarter to the
 audience you chose in Module 1. Ideally one that mattered — a change announcement, a policy
 rollout, a benefits campaign. Not the weekly newsletter.
 
-**Step 2 — Walk it backwards through the six links (10 min).** For each link, two questions: **what
-actually happened, and who did it — by name.** Start at Verify and work back to Sense, because
+**Step 2. Walk it backwards through the six links (10 min).** For each link, two questions: **what
+actually happened, and who did it, by name.** Start at Verify and work back to Sense, because
 working forwards from Produce is how the upstream links get skipped.
 
 Expect this to be uneven. In most functions Produce and Distribute have names attached
@@ -282,14 +282,14 @@ have gone wrong, and did it? If the piece landed well, name the link you'd be mo
 you ran it again. If it landed badly, resist the answer "the wording" until you have checked
 everything upstream of it.
 
-**Step 4 — Separate one hour (3 min).** Find one hour in this piece of work where **Decide and
+**Step 4. Separate one hour (3 min).** Find one hour in this piece of work where **Decide and
 Produce happened at the same time, to the same person, with a document open.** Say what the Decide
-part actually was. Every real project has at least one; if you genuinely cannot find one, say so and
+part actually was. Every real project has at least one; if you genuinely can't find one, say so and
 say why.
 
 Then the write-up: which links had no owner, where the earliest weak point was, your position on
-the claim above with the counter-argument addressed — including the "the floor rose, the ceiling
-didn't" version — and one sentence on what you would change about **who is in the room**, not about
+the claim above with the counter-argument addressed (including the "the floor rose, the ceiling
+didn't" version) and one sentence on what you would change about **who is in the room**, not about
 what was written.
 
 *Your predicted Produce percentage stays open. Module 4 measures it against a real instrument and
@@ -302,11 +302,11 @@ closes the loop there.*
 **Q1.** What distinguishes Sense from Interpret on the chain?
 
 - A. Sense is automated; Interpret requires a human
-- B. Sense is collection — getting signal somewhere it can be read at all; Interpret is making meaning of it ✓
+- B. Sense is collection, getting signal somewhere it can be read at all; Interpret is making meaning of it ✓
 - C. Sense is quantitative; Interpret is qualitative
 - D. Sense happens before a decision; Interpret happens after
 
-> **B.** Pulling unanswered intranet searches into one place is Sense. Turning four hundred of them into a ranked list of what the workforce cannot find is Interpret. The distinction matters because they fail differently: Sense fails as silence mistaken for consent; Interpret fails as a confident story about a signal that isn't there.
+> **B.** Pulling unanswered intranet searches into one place is Sense. Turning four hundred of them into a ranked list of what the workforce cannot find is Interpret. The distinction matters because they fail differently: Sense fails as silence mistaken for consent; Interpret fails as a confident story about a signal that is not there.
 
 **Q2.** Why does the chain having a *direction* matter?
 
@@ -324,16 +324,16 @@ closes the loop there.*
 - C. Sense and Interpret ✓
 - D. Distribute and Verify
 
-> **C.** The function has always held the highest-fidelity record of what employees don't understand — search logs, tickets, open text — and could never read it at volume. That capability now exists and is largely unclaimed. Produce collapsed and is heavily worked; Decide is untouched by AI entirely.
+> **C.** The function has always held the highest-fidelity record of what employees do not understand (search logs, tickets, open text) and could never read it at volume. That capability now exists and is largely unclaimed. Produce collapsed and is heavily worked; Decide is untouched by AI entirely.
 
 **Q4.** Practitioners using AI report the highest impact in content strategy (49%), planning (48%), and channel strategy (41%) `[V]`. Why is that finding pointed?
 
 - A. Because those percentages are higher than for drafting
-- B. Because those are Decide and Interpret work — so practitioners report the most impact in the links they invest in least, while the dominant use remains drafting ✓
+- B. Because those are Decide and Interpret work, so practitioners report the most impact in the links they invest in least, while the dominant use remains drafting ✓
 - C. Because it shows AI is more useful for strategy than for writing
 - D. Because it contradicts the maturity findings from Module 1
 
-> **B.** It corroborates Module 1's maturity split from a different direction. Note the limitation: self-reported impact, vendor-commissioned, n=448 North American IC professionals, December 2025 — what practitioners believe about their own experience, not a measured outcome.
+> **B.** It corroborates Module 1's maturity split from a different direction. Note the limitation: self-reported impact, vendor-commissioned, n=448 North American IC professionals, December 2025: what practitioners believe about their own experience, not a measured outcome.
 
 **Q5.** What does "being excellent at Produce was a career; it is now a feature" claim, precisely?
 
@@ -347,7 +347,7 @@ closes the loop there.*
 **Q6.** Why is Verify described as *newly* expensive?
 
 - A. Because verification tools are costly to license
-- B. Because when a human wrote the draft, the drafter's own knowledge was a check — and when a model writes it, that check is gone and has to be reinstated deliberately ✓
+- B. Because when a human wrote the draft, the drafter's own knowledge was a check, and when a model writes it, that check is gone and has to be reinstated deliberately ✓
 - C. Because regulations now require verification of internal communications
 - D. Because AI output contains more factual errors than human output
 
@@ -357,7 +357,7 @@ closes the loop there.*
 
 - A. Produce, because the output is the digest
 - B. Distribute, because it determines what reaches the audience
-- C. Decide — choosing what gets said, to whom, and whether at all ✓
+- C. Decide: choosing what gets said, to whom, and whether at all ✓
 - D. Interpret, because it requires judgment about relevance
 
 > **C.** And this is the most common misfiling in the function: Decide work logged as Produce because it happened while a document was open. Naming it is the first step to being resourced for it.
@@ -373,12 +373,12 @@ closes the loop there.*
 
 ## Sources and attribution
 
-- **Simpplr, *State of Internal Communications 2026*** — the highest-impact areas among AI users:
+- **Simpplr, *State of Internal Communications 2026***: the highest-impact areas among AI users:
   content strategy 49%, planning 48%, channel strategy 41%. Independent survey of 448 internal
   communications professionals in North America (85% US, 15% Canada), fielded December 2025, all
   respondents holding or sharing responsibility for internal communications at organizations with
   500+ employees. Vendor-commissioned and self-reported; stated as such in Lesson 2. **[V]**
-- **Gallagher, *2026 Employee Communications Report*** — the AI-maturity split (low-maturity teams
+- **Gallagher, *2026 Employee Communications Report***, the AI-maturity split (low-maturity teams
   use AI to draft; high-maturity teams use it to measure and generate insight). Sample and
   verification note as recorded in Module 1's sources. **[V]**
 - The six-link chain, the usage-versus-impact reading of the Simpplr data, the

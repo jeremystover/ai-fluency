@@ -5,17 +5,44 @@
   "maxWords": 350,
   "submitLabel": "Your inventory, rate computation, vendor questions, and write-up",
   "intro": "Paste the system inventory, the selection-rate computation (or the documented reason it couldn't be done), your three vendor questions, and the 250–350 word write-up including your position on this module's claim.",
-  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, Recruiting/TA track. Module 6 applied activity, 'Tool audit': every AI system touching their requisitions that screens, scores, ranks, filters or characterizes a candidate — including features switched on inside existing tools (ATS ranking, sourcing match scores, 'recommended candidates' panels) — with what each decides, the deployer named, audit status where known, and which hiring locations it operates in. 'Don't know' is explicitly valid and informative; penalize confident guesses, never admitted gaps. Then one selection rate computed by hand for a real stage — passed divided by entered, per group — plus the four-fifths ratio; and if the data doesn't exist, a documented explanation of why, which is worth as much as the number because a stage you cannot audit is a stage you cannot defend. Then three written vendor questions for the highest-risk system. This module is NOT legal advice and the learner is not being graded as though producing legal analysis: grade the completeness of the inventory, the honesty about gaps, the correctness of the arithmetic, and the quality of the questions. Common errors to name in feedback: treating a ranking or queue-reordering feature as out of scope because a human technically decides, and reading a passing four-fifths ratio as a clean bill of health. This track scores the delta, not the score.",
+  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, Recruiting/TA track. Module 6 applied activity, 'Tool audit': every AI system touching their requisitions that screens, scores, ranks, filters or characterizes a candidate, including features switched on inside existing tools (ATS ranking, sourcing match scores, 'recommended candidates' panels), with what each decides, the deployer named, audit status where known, and which hiring locations it operates in. 'Don't know' is explicitly valid and informative; penalize confident guesses, never admitted gaps. Then one selection rate computed by hand for a real stage (passed divided by entered, per group) plus the four-fifths ratio; and if the data doesn't exist, a documented explanation of why, which is worth as much as the number because a stage you cannot audit is a stage you cannot defend. Then three written vendor questions for the highest-risk system. This module is NOT legal advice and the learner is not being graded as though producing legal analysis: grade the completeness of the inventory, the honesty about gaps, the correctness of the arithmetic, and the quality of the questions. Common errors to name in feedback: treating a ranking or queue-reordering feature as out of scope because a human technically decides, and reading a passing four-fifths ratio as a clean bill of health. This track scores the delta, not the score.",
   "opening": [
-    { "key": "systemsTouching", "label": "Predicted — AI systems that screen, score, rank or filter your candidates", "hint": "Include features inside tools you already had.", "placeholder": "e.g. 3", "min": 0, "max": 50 }
+    {
+      "key": "systemsTouching",
+      "label": "Predicted — AI systems that screen, score, rank or filter your candidates",
+      "hint": "Include features inside tools you already had.",
+      "placeholder": "e.g. 3",
+      "min": 0,
+      "max": 50
+    }
   ],
   "calibration": [
-    { "key": "systemsTouchingActual", "label": "Found — what the inventory actually surfaced", "hint": "And how many could you name the deployer for?", "placeholder": "e.g. 6", "min": 0, "max": 50, "actualFor": "systemsTouching" }
+    {
+      "key": "systemsTouchingActual",
+      "label": "Found — what the inventory actually surfaced",
+      "hint": "And how many could you name the deployer for?",
+      "placeholder": "e.g. 6",
+      "min": 0,
+      "max": 50,
+      "actualFor": "systemsTouching"
+    }
   ],
   "dimensions": [
-    { "name": "The inventory found the quiet ones", "criteria": "Real systems from their actual stack, with the embedded features nobody classifies as decision tools — ATS ranking, match scores, recommended-candidate panels. Honest 'don't know' entries score above confident guesses. Surfacing something they hadn't thought of as a decision tool is the success condition; a list of only the obvious purchased tools is the gap." },
-    { "name": "The arithmetic is right, or the gap is documented", "criteria": "Selection rate as passed ÷ entered per group, and the four-fifths ratio computed against the highest group. Check the arithmetic. If the data doesn't exist, a specific account of why — which system holds it, what's missing — scores fully. Watch for a passing ratio being read as validation rather than as a low-bar heuristic, and for small group sizes reported without stating the n." },
-    { "name": "The vendor questions would produce answers", "criteria": "Specific enough for a vendor to answer and consequential enough that the answer changes something. 'Is your tool fair?' scores low; 'has this been bias-audited, by whom, may we see it, and which of our jurisdictions have you assessed it against?' scores high. Recognizing that silence is itself a finding is a sophisticated observation." },
-    { "name": "The position and the delta", "criteria": "A committed position on the claim engaging its real counter-argument — that bias auditing is a specialist discipline, and a recruiter misreading an impact ratio in a vendor meeting has damaged their credibility and possibly the analysis, so the skill to build may be knowing who to ask. Plus the prediction compared, including how many deployers they could actually name." }
+    {
+      "name": "The inventory found the quiet ones",
+      "criteria": "Real systems from their actual stack, with the embedded features nobody classifies as decision tools: ATS ranking, match scores, recommended-candidate panels. Honest 'don't know' entries score above confident guesses. Surfacing something they hadn't thought of as a decision tool is the success condition; a list of only the obvious purchased tools is the gap."
+    },
+    {
+      "name": "The arithmetic is right, or the gap is documented",
+      "criteria": "Selection rate as passed ÷ entered per group, and the four-fifths ratio computed against the highest group. Check the arithmetic. If the data doesn't exist, a specific account of why (which system holds it, what's missing) scores fully. Watch for a passing ratio being read as validation rather than as a low-bar heuristic, and for small group sizes reported without stating the n."
+    },
+    {
+      "name": "The vendor questions would produce answers",
+      "criteria": "Specific enough for a vendor to answer and consequential enough that the answer changes something. 'Is your tool fair?' scores low; 'has this been bias-audited, by whom, may we see it, and which of our jurisdictions have you assessed it against?' scores high. Recognizing that silence is itself a finding is a sophisticated observation."
+    },
+    {
+      "name": "The position and the delta",
+      "criteria": "A committed position on the claim engaging its real counter-argument. That bias auditing is a specialist discipline, and a recruiter misreading an impact ratio in a vendor meeting has damaged their credibility and possibly the analysis, so the skill to build may be knowing who to ask. Plus the prediction compared, including how many deployers they could actually name."
+    }
   ]
 }

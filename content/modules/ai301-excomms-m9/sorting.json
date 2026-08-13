@@ -1,9 +1,27 @@
 {
   "reviewedAt": "2026-08-12",
   "buckets": [
-    { "id": "fixed", "label": "Must stay identical", "hint": "Load-bearing, and it will be compared across teams", "rank": 0, "pct": 15 },
-    { "id": "local", "label": "Should vary locally", "hint": "The manager knows this and you don't", "rank": 1, "pct": 55 },
-    { "id": "out", "label": "Not in the kit at all", "hint": "Needs judgment the manager isn't equipped to make", "rank": 2, "pct": 88 }
+    {
+      "id": "fixed",
+      "label": "Must stay identical",
+      "hint": "structural, and it will be compared across teams",
+      "rank": 0,
+      "pct": 15
+    },
+    {
+      "id": "local",
+      "label": "Should vary locally",
+      "hint": "The manager knows this and you don't",
+      "rank": 1,
+      "pct": 55
+    },
+    {
+      "id": "out",
+      "label": "Not in the kit at all",
+      "hint": "Needs judgment the manager isn't equipped to make",
+      "rank": 2,
+      "pct": 88
+    }
   ],
   "tasks": [
     {
@@ -14,15 +32,15 @@
     },
     {
       "id": "t2",
-      "text": "Which roles are affected, and which are not",
+      "text": "Which roles are affected, and which aren't",
       "key": "fixed",
-      "reasoning": "The single most compared statement in any change communication, and the one where a manager softening the edges to spare their team creates a real problem — an employee told 'probably fine' by their manager and 'in scope' by the letter has been failed by the kit, not the manager."
+      "reasoning": "The single most compared statement in any change communication, and the one where a manager softening the edges to spare their team creates a real problem, an employee told 'probably fine' by their manager and 'in scope' by the letter has been failed by the kit, not the manager."
     },
     {
       "id": "t3",
       "text": "Which of this manager's people are directly affected, and how",
       "key": "local",
-      "reasoning": "The most valuable thing in the kit and the thing that was impossible to produce at scale. It varies by definition — that's what makes it local rather than fixed. Note the distinction from item 2: the *rule* about who is in scope is fixed; the *application* to this team is what the local version supplies."
+      "reasoning": "The most valuable thing in the kit and the thing that was impossible to produce at scale. It varies by definition. That's what makes it local rather than fixed. Note the distinction from item 2: the *rule* about who is in scope is fixed; the *application* to this team is what the local version supplies."
     },
     {
       "id": "t4",
@@ -34,7 +52,7 @@
       "id": "t5",
       "text": "The order to cover things in, and what to address first",
       "key": "local",
-      "reasoning": "Pure local judgement. A manager who knows their team opened last year's reorg with the wrong thing knows what to lead with this time. A kit that constrains ordering produces the read-aloud failure — the manager sounds like they're reciting, and the team is correct to notice."
+      "reasoning": "Pure local judgement. A manager who knows their team opened last year's reorg with the wrong thing knows what to lead with this time. A kit that constrains ordering produces the read-aloud failure: the manager sounds like they are reciting, and the team is correct to notice."
     },
     {
       "id": "t6",
@@ -46,13 +64,13 @@
       "id": "t7",
       "text": "Examples of how the change plays out in this team's day-to-day work",
       "key": "local",
-      "reasoning": "The thing that makes the message concrete, and the thing the central team cannot write. This is where AI's contribution is largest and safest — given structured inputs about the team, generating plausible local examples for the manager to check and correct is close to free, and the manager's correction is where the value is."
+      "reasoning": "The thing that makes the message concrete, and the thing the central team can't write. This is where AI's contribution is largest and safest, given structured inputs about the team, generating plausible local examples for the manager to check and correct is close to free, and the manager's correction is where the value is."
     },
     {
       "id": "t8",
       "text": "Whether a specific employee's visa status is affected by the site change",
       "key": "out",
-      "reasoning": "Individual, legal, and consequential. A manager guessing here can cause serious harm to one person, and the kindest version of the kit removes the temptation entirely — not by warning the manager off it, but by naming the person who answers it, so the manager has somewhere to send it in the moment."
+      "reasoning": "Individual, legal, and consequential. A manager guessing here can cause serious harm to one person, and the kindest version of the kit removes the temptation entirely, not by warning the manager off it, but by naming the person who answers it, so the manager has somewhere to send it in the moment."
     },
     {
       "id": "t9",
@@ -64,7 +82,7 @@
       "id": "t10",
       "text": "The number of roles being reduced across the organization",
       "key": "fixed",
-      "reasoning": "A number, and one employees will assemble from across teams whether or not you give it to them. Withholding it doesn't prevent the count; it just guarantees the count that circulates is wrong. Fixed, stated once, identically — and if the organization won't say it, that is a Decide-link conversation from Module 2, not a kit problem."
+      "reasoning": "A number, and one employees will assemble from across teams whether or not you give it to them. Withholding it doesn't prevent the count; it just guarantees the count that circulates is wrong. Fixed, stated once, identically, and if the organization won't say it, that is a Decide-link conversation from Module 2, not a kit problem."
     }
   ]
 }

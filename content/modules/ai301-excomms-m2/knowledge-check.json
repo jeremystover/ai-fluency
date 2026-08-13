@@ -13,7 +13,7 @@
         "Sense happens before a decision; Interpret happens after"
       ],
       "correctIndex": 1,
-      "explanation": "Pulling unanswered intranet searches into one place is Sense. Turning four hundred of them into a ranked list of what the workforce cannot find is Interpret. The distinction matters because they fail differently: Sense fails as silence mistaken for consent; Interpret fails as a confident story about a signal that isn't there."
+      "explanation": "Pulling unanswered intranet searches into one place is Sense. Turning four hundred of them into a ranked list of what the workforce can't find is Interpret. The distinction matters because they fail differently: Sense fails as silence mistaken for consent; Interpret fails as a confident story about a signal that isn't there."
     },
     {
       "id": "q2",
@@ -25,7 +25,7 @@
         "Because measurement is only possible at the end of the chain"
       ],
       "correctIndex": 2,
-      "explanation": "And the practical consequence is that speed at Produce cannot recover an error made upstream. It arrives faster."
+      "explanation": "And the practical consequence is that speed at Produce can't recover an error made upstream. It arrives faster."
     },
     {
       "id": "q3",
@@ -37,7 +37,7 @@
         "Distribute and Verify"
       ],
       "correctIndex": 2,
-      "explanation": "The function has always held the highest-fidelity record of what employees don't understand — search logs, tickets, open text — and could never read it at volume. That capability now exists and is largely unclaimed. Produce collapsed and is heavily worked; Decide is untouched by AI entirely."
+      "explanation": "The function has always held the highest-fidelity record of what employees don't understand (search logs, tickets, open text) and could never read it at volume. That capability now exists and is largely unclaimed. Produce collapsed and is heavily worked; Decide is untouched by AI entirely."
     },
     {
       "id": "q4",
@@ -49,7 +49,7 @@
         "Because it contradicts the maturity findings from Module 1"
       ],
       "correctIndex": 1,
-      "explanation": "It corroborates Module 1's maturity split from a different direction. Note the limitation: self-reported impact, vendor-commissioned, n=448 North American IC professionals, December 2025 — what practitioners believe about their own experience, not a measured outcome."
+      "explanation": "It corroborates Module 1's maturity split from a different direction. Note the limitation: self-reported impact, vendor-commissioned, n=448 North American IC professionals, December 2025: what practitioners believe about their own experience, not a measured outcome."
     },
     {
       "id": "q5",

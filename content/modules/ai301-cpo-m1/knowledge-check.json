@@ -25,7 +25,7 @@
         "It presents it alongside a contradicting study without resolving the tension"
       ],
       "correctIndex": 1,
-      "explanation": "Both halves matter. Leading on a citation this audience can dismiss in one line would have cost more than the number was worth — and doing so in the first module would have discredited everything after it."
+      "explanation": "Both halves matter. Leading on a citation this audience can dismiss in one line would have cost more than the number was worth, and doing so in the first module would have discredited everything after it."
     },
     {
       "id": "q3",
@@ -49,7 +49,7 @@
         "Because it establishes a baseline error rate for that model"
       ],
       "correctIndex": 1,
-      "explanation": "It is the difference between a briefing and judgment, and it is why the chain's first link cannot be delegated."
+      "explanation": "It is the difference between a briefing and judgment, and it is why the chain's first link can't be delegated."
     },
     {
       "id": "q5",
@@ -85,11 +85,11 @@
         "Because confidence changes too quickly to be tracked usefully"
       ],
       "correctIndex": 1,
-      "explanation": "Behaviour is checkable against a record. It does not require honesty with yourself in the abstract, only that you go and look."
+      "explanation": "Behaviour is checkable against a record. It doesn't require honesty with yourself in the abstract, only that you go and look."
     },
     {
       "id": "q8",
-      "prompt": "A learner runs their practice twice, finds it does not survive their calendar, and says precisely why. How should that be scored?",
+      "prompt": "A learner runs their practice twice, finds it doesn't survive their calendar, and says precisely why. How should that be scored?",
       "options": [
         "As an incomplete submission, since the practice was not sustained",
         "As more useful than a report of enthusiasm, provided the account of why it failed is specific",
@@ -97,7 +97,7 @@
         "As evidence the practice chosen was poorly matched to their role"
       ],
       "correctIndex": 1,
-      "explanation": "The activity asks what happened, not what they hoped. A precise account of why a practice failed contact with a real executive week is genuinely more useful than an untested intention — and it is the honest answer this track's standard is designed to make available."
+      "explanation": "The activity asks what happened, not what they hoped. A precise account of why a practice failed contact with a real executive week is genuinely more useful than an untested intention, and it is the honest answer this track's standard is designed to make available."
     }
   ]
 }

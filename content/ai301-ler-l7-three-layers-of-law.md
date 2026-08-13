@@ -20,7 +20,7 @@
 *Commit before you read anything. Thirty seconds.*
 
 **The claim:** *"You can name, for every labor-law proposition your work relies on, whether it is a
-statute, a Board decision, or a General Counsel memorandum — and when it last changed."*
+statute, a Board decision, or a General Counsel memorandum, and when it last changed."*
 
 **Is that true of you?** *True of us* or *not true of us*, and the one sentence you would defend it with.
 
@@ -34,7 +34,7 @@ Predict the percentage now. You will build the list in the activity and count.
 
 ## Module brief
 
-Most legal training in this field teaches you the rules. This module teaches the **stack** — because
+Most legal training in this field teaches you the rules. This module teaches the **stack**, because
 the rules here move at three different speeds, and **advice built on the wrong layer expires without
 telling you.**
 
@@ -92,7 +92,7 @@ deployment. In **2019**, in *MV Transportation*, the Board adopted a **contract 
 roughly, if the change fell within the compass of a clause the parties had negotiated, the employer
 could act. In **December 2024**, in **_Endurance Environmental Solutions_ (373 NLRB No. 141, decided
 10 December 2024, Case 09–CA–273873)**, the Board overruled it and restored **clear and unmistakable
-waiver** — the standard it had applied for some seventy years before 2019 — and applied the
+waiver**, the standard it had applied for some seventy years before 2019 — and applied the
 restoration **retroactively.**
 
 **Now read what that case was actually about, because it is your case.** A waste-hauling company
@@ -103,7 +103,7 @@ with the Teamsters local. Its defence was the management-rights clause, which re
 > **That clause was not enough.**
 
 Go and read your own management-rights clause. It very probably contains a phrase of about that
-generality — equipment, methods, technology, systems, the means of operation. **A Board has held that
+generality: equipment, methods, technology, systems, the means of operation. **A Board has held that
 this class of language does not clearly and unmistakably waive the duty to bargain over installing
 monitoring technology on people.** Your monitoring technology is more capable than a dash camera, and
 your clause is not more specific.
@@ -111,7 +111,7 @@ your clause is not more specific.
 ### General Counsel priority — fastest of all, and rescindable overnight
 
 The Board's General Counsel decides which theories the agency's prosecuting arm will advance. That is
-real — it determines whether a charge gets a complaint — and it is **the least durable layer there is.**
+real (it determines whether a charge gets a complaint) and it is **the least durable layer there is.**
 
 **GC 23-02**, issued 31 October 2022, was titled *Electronic Monitoring and Algorithmic Management of
 Employees Interfering with the Exercise of Section 7 Rights*. It set out an intention to urge the
@@ -139,8 +139,8 @@ rely on the report.
 
 **Contract.** In a represented workplace, the collective bargaining agreement binds you **regardless of
 who runs the Board.** This is the layer Lesson 4 is about, and it is the one most often mistaken in
-both directions: practitioners describe a contract term as though it were the law, and — more
-expensively — assume that because something is not the law, they do not owe it.
+both directions: practitioners describe a contract term as though it were the law, and (more
+expensively) assume that because something is not the law, they do not owe it.
 
 > **Five layers. The question to ask about any proposition is not "is this true?" It is "what is this
 > true *of*, and what would have to happen for it to stop being true?"**
@@ -184,7 +184,7 @@ standard is named among them. **This does not mean the standard has changed.** A
 module it is the law and it applies retroactively. It means: **do not treat it as a stable planning
 assumption in either direction**, and re-check it before you rely on it.
 
-**Two — and this is the trap.** If the standard flips back to contract coverage, that is good news for
+**Two, and this is the trap.** If the standard flips back to contract coverage, that is good news for
 an employer *prospectively* and tells you nothing about a change you made in 2025. Doctrine has been
 applied retroactively in exactly this line of cases, in both directions. **A change you implement now,
 under a standard you expect to loosen, is judged under whatever standard exists when the case is
@@ -202,7 +202,7 @@ the reasoning that nothing was happening at the Board — **something is happeni
 
 ## Lesson 3 · The duty to bargain over AI **[V]**
 
-Settled doctrine, unsettled application — and **the distinction is the lesson**, because almost
+Settled doctrine, unsettled application, and **the distinction is the lesson**, because almost
 everything written about this collapses it.
 
 **What is settled.** A change to wages, hours, or terms and conditions of employment is a mandatory
@@ -238,7 +238,7 @@ this was being argued about.
 ## Lesson 4 · What the other side already won **[V]**
 
 Here is the part that reframes the whole module. While practitioners waited for a Board decision,
-**unions negotiated the obligations directly** — and what they negotiated is worth reading closely,
+**unions negotiated the obligations directly**, and what they negotiated is worth reading closely,
 because it converges on something you have already been taught.
 
 **Notice.** CWA's agreement at the Microsoft subsidiary ZeniMax requires notice to the union when AI
@@ -264,7 +264,7 @@ contractual obligation enforceable through grievance and arbitration.
 >
 > **Notice, human review, and records** are the three duties the AI employment statutes keep landing on.
 > They are also the three things unions are winning at the table. **In a represented workplace you may
-> owe them by contract years before any regulator asks** — and the enforcement mechanism is faster,
+> owe them by contract years before any regulator asks**, and the enforcement mechanism is faster,
 > because it is a grievance rather than an investigation.
 
 Two operational consequences. **Your contract is now a compliance document for AI**, and somebody
@@ -313,13 +313,13 @@ Four things, none of which requires a legal opinion:
 The point of a counsel conversation is to get an answer, and the way to get an answer is to arrive with
 facts rather than a topic. Bring:
 
-- **What the system does** to whom, at what cadence, and what decisions it touches — in the vocabulary
+- **What the system does** to whom, at what cadence, and what decisions it touches: in the vocabulary
   of Module 1's ladder, which rung it operates on.
 - **The exact management-rights language** you would be relying on.
 - **The implementation date**, and whether it fell inside the January 2025 – January 2026 quorum gap.
 - **What notice was given**, to whom, on what date, and in what form.
 - **Whether your agreement contains any technology, monitoring or performance-data provision**, quoted.
-- **Which of your propositions you could not source** — the activity produces this list, and it is the
+- **Which of your propositions you could not source**, the activity produces this list, and it is the
   most valuable thing you will hand them, because it tells them where you are exposed to your own
   assumptions.
 - **Your specific question**, written as a question. *"Can we do this?"* returns a shrug. *"Does
@@ -331,9 +331,9 @@ facts rather than a topic. Bring:
 ## Key takeaways
 
 - **Five layers, not one** `[V]`. **Statute** — Section 7, the duty to bargain, *Weingarten*: decades
-  old and untouched by any of this. **Board doctrine** — flips with composition. **General Counsel
-  priority** — fastest and rescindable overnight. **Rulemaking** — a different clock and different
-  reversal mechanisms. **Contract** — binds you regardless of who runs the Board.
+  old and untouched by any of this. **Board doctrine**, flips with composition. **General Counsel
+  priority**, fastest and rescindable overnight. **Rulemaking** — a different clock and different
+  reversal mechanisms. **Contract**, binds you regardless of who runs the Board.
 - **The question about any proposition is not "is this true?" but "what is this true *of*, and what
   would have to happen for it to stop being true?"**
 - ***Endurance Environmental Solutions* (373 NLRB No. 141, 10 December 2024)** `[V]` overruled *MV
@@ -341,7 +341,7 @@ facts rather than a topic. Bring:
   dash cameras in 400 trucks, and a management-rights clause reserving the right to "implement changes
   in equipment" was not enough.** Read your own clause.
 - **GC 23-02** (31 October 2022, electronic monitoring and algorithmic management) was **rescinded 14
-  February 2025** among 29 memoranda `[V]`. **A memorandum is a prosecutorial theory, not a right — its
+  February 2025** among 29 memoranda `[V]`. **A memorandum is a prosecutorial theory, not a right, its
   withdrawal removed the theory and Section 7 did not move.**
 - **The Board had no quorum for roughly eleven months** after 27 January 2025, regained it in January
   2026, and on **7 August 2026** reached a **3–1 majority** that satisfies its own three-vote
@@ -370,7 +370,7 @@ facts rather than a topic. Bring:
 ## Take a position
 
 **The claim:** *"An undated legal proposition is not knowledge. If you cannot say when the authority
-last changed, you do not know it — you remember it."*
+last changed, you do not know it. You remember it."*
 
 The strongest counter-argument is that **this standard is unmeetable, and pretending to meet it is worse
 than admitting you rely on advice.**
@@ -396,7 +396,7 @@ when there is time is not a standard.
 Note the module's own answer, and say whether it is sufficient: **date the proposition so the date tells
 you when to stop relying on it, and mark the layer so you know how fast the clock runs.** A proposition
 tagged *statute* is good for years. One tagged *General Counsel priority* is good until the next
-election. **The date is not a claim to currency — it is an expiry.** Whether that survives being read by
+election. **The date is not a claim to currency. It is an expiry.** Whether that survives being read by
 a busy person in a hurry is the thing to argue.
 
 ## Applied activity — "The authority map, dated"
@@ -409,33 +409,33 @@ where the learning lands.
 specific employee, grievance, or investigation belongs in it.
 
 **Step 1 — Build the map (12 min).** List the legal propositions your matter type actually relies
-on — the ones you would state in a meeting without looking anything up. **Aim for eight to twelve.**
+on: the ones you would state in a meeting without looking anything up. **Aim for eight to twelve.**
 Include the ones that feel too obvious to write down; those are where the errors live. For each one:
 
 | The proposition, as you would say it | Layer | Authority | Date it last changed | Date you last checked |
 |---|---|---|---|---|
 
 Layers: **statute · Board doctrine · General Counsel priority · rulemaking · contract · not
-established.** If your jurisdiction is not the US, use its equivalents — the framework transfers even
+established.** If your jurisdiction is not the US, use its equivalents, the framework transfers even
 where the citations do not; say which system you are mapping.
 
 **Step 2 — The two you could not source (5 min).** At least two propositions will turn out to be
 things you believe without being able to name where they come from. **Find them and write them down.**
-This is not a failure to be minimised — it is the most valuable output of the activity, and a learner
+This is not a failure to be minimised. It is the most valuable output of the activity, and a learner
 who reports four is doing better work than one who reports none. For each: what you believe, what you
 think it rests on, and **what you would have to be wrong about for it to matter.**
 
-**Step 3 — Your management-rights clause, or its absence (5 min).** Quote the exact words your
+**Step 3. Your management-rights clause, or its absence (5 min).** Quote the exact words your
 agreement uses for equipment, technology, methods, or means of operation. Then one line: **would that
 language survive the *Endurance* standard applied to the last technology your organisation deployed?**
 If you have no represented population, do the equivalent — quote the policy language you rely on to
 deploy monitoring, and say who has agreed to it.
 
-**Step 4 — The counsel list (5 min).** Take the module's list and make it yours: the one question you
+**Step 4. The counsel list (5 min).** Take the module's list and make it yours: the one question you
 would put to labor counsel, written as an answerable question, plus the facts you would bring. **A
 question that cannot be answered yes or no is not ready.**
 
-**Step 5 — Score the prediction.** Your predicted percentage of propositions whose change-date you
+**Step 5. Score the prediction.** Your predicted percentage of propositions whose change-date you
 could name, against the percentage you could actually name once the map existed.
 
 Then the write-up: your position on the claim above, answering **what happens in the meeting where you
@@ -473,18 +473,18 @@ you most confident about before you checked its date?**
 **Q3.** Why does the Board's three-vote convention matter to a planning assumption? `[V]`
 
 - A. Because a Board decision requires three votes to issue
-- B. Because the Board does not reverse precedent without three votes for doing so — so a two-member majority declined to overturn precedent in January 2026, and the confirmations of 7 August 2026 satisfied the condition ✓
+- B. Because the Board does not reverse precedent without three votes for doing so, so a two-member majority declined to overturn precedent in January 2026, and the confirmations of 7 August 2026 satisfied the condition ✓
 - C. Because three votes are needed for a quorum, which the Board lacked for eleven months
 - D. Because the convention is written into the Act and cannot be departed from
 
 > **B.** The convention is unwritten and it is real. Its effect for six months of 2026 was stability;
 > its effect now is that the standards restored by the previous majority are genuinely in play. Note
-> that quorum — three sitting members — is a different requirement, which is answer C's trap.
+> that quorum (three sitting members) is a different requirement, which is answer C's trap.
 
 **Q4.** Your organisation expects the waiver standard to loosen. What follows for a change you implement now? `[V]`
 
 - A. You may implement now and rely on the expected standard, since the change post-dates the shift in composition
-- B. Nothing follows — the standard applies only prospectively either way
+- B. Nothing follows: the standard applies only prospectively either way
 - C. The change is judged under whatever standard exists when the case is decided, and doctrine in this line has been applied retroactively — so betting on a reversal is not a legal position ✓
 - D. You should implement now, because conduct during a period of doctrinal uncertainty is not actionable
 
@@ -493,7 +493,7 @@ you most confident about before you checked its date?**
 
 **Q5.** What is settled, and what is not, about the duty to bargain over AI? `[V]`
 
-- A. Both are settled — AI touching terms and conditions is a mandatory subject and the Board has so held
+- A. Both are settled, AI touching terms and conditions is a mandatory subject and the Board has so held
 - B. Neither is settled, since AI is not addressed anywhere in the Act
 - C. Settled that a change to terms and conditions is a mandatory subject that cannot be changed unilaterally; not settled because no Board decision applies it to an AI deployment ✓
 - D. Settled by the SAG-AFTRA charge against Llama Productions
@@ -516,7 +516,7 @@ you most confident about before you checked its date?**
 **Q7.** What is the convergence the module identifies, and why is it useful? `[V]`
 
 - A. Board doctrine and General Counsel priorities converge under a single administration
-- B. Notice, human review and records are both what the AI employment statutes keep landing on and what unions are winning at the table — so building all three satisfies several sources of obligation at once ✓
+- B. Notice, human review and records are both what the AI employment statutes keep landing on and what unions are winning at the table, so building all three satisfies several sources of obligation at once ✓
 - C. US and EU law are converging on a single standard for algorithmic management
 - D. Contract and statute converge because collective agreements incorporate statutory minimums
 
@@ -538,21 +538,21 @@ you most confident about before you checked its date?**
 
 ## Sources and attribution
 
-- **Statute** — Section 7 of the National Labor Relations Act (protected concerted activity), Sections
+- **Statute**. Section 7 of the National Labor Relations Act (protected concerted activity), Sections
   8(a)(5) and 8(d) (the duty to bargain over mandatory subjects), and *NLRB v. J. Weingarten, Inc.*
   (1975). Stable; no verification issue.
 - ***Endurance Environmental Solutions, LLC***, **373 NLRB No. 141, decided 10 December 2024, Case
-  09–CA–273873** (Teamsters Local No. 100) `[V]` — restoring the clear-and-unmistakable-waiver standard
+  09–CA–273873** (Teamsters Local No. 100) `[V]`, restoring the clear-and-unmistakable-waiver standard
   and overruling *MV Transportation, Inc.* (2019) and its contract-coverage test, applied
   retroactively. **The facts as used here — a waste-hauling company installing video cameras in a fleet
   of roughly 400 trucks, defending on a management-rights clause reserving the right to "implement
-  changes in equipment" — are drawn from the Board's own summary of the decision and corroborated
+  changes in equipment", are drawn from the Board's own summary of the decision and corroborated
   across multiple firm analyses.** Reported majority: Chairman McFerran with Members Prouty and Wilcox,
   Member Kaplan dissenting; the composition is stated because Lesson 2 depends on it.
 - **GC Memorandum 23-02**, *Electronic Monitoring and Algorithmic Management of Employees Interfering
   with the Exercise of Section 7 Rights*, issued 31 October 2022 `[V]`, **rescinded 14 February 2025 in
   GC 25-05 among 29 memoranda withdrawn**, agency case backlog cited.
-- **Board composition** `[V]` — Member Wilcox removed 27 January 2025, leaving the Board below quorum
+- **Board composition** `[V]`. Member Wilcox removed 27 January 2025, leaving the Board below quorum
   for roughly eleven months with no Board-level decisions issuing; Mayer and Murphy confirmed 18
   December 2025 with first published decisions in January 2026; *Lodi Volunteer Ambulance Rescue Squad*
   (28 January 2026) declining to reach a Biden-era remedial precedent under the Board's unwritten
@@ -570,7 +570,7 @@ you most confident about before you checked its date?**
 - ***Weingarten* for unrepresented employees** — *Epilepsy Foundation of Northeast Ohio* (2000)
   extending the right, ***IBM Corp.*, 341 NLRB No. 148 (9 June 2004)** withdrawing it, which is where
   the doctrine currently sits. Used as an illustration of doctrine-layer volatility over two decades.
-- **Union contract provisions** `[V]` — CWA's notice provision at ZeniMax (Microsoft) and its reuse as a
+- **Union contract provisions** `[V]`. CWA's notice provision at ZeniMax (Microsoft) and its reuse as a
   template in tech; NewsGuild-CWA's roughly 85–90 agreements containing AI language, 58 of them ratified
   newsroom contracts; the UPS–Teamsters prohibition on sensor data as the sole basis for discipline with
   required human review of context; and roughly 38% of union members reporting at least one provision
@@ -578,10 +578,10 @@ you most confident about before you checked its date?**
   the proportion should be treated as survey-derived.
 - **A claim that was rejected.** A secondary summary reported the Board reinstating a prior joint-employer
   standard in April 2026. It could not be established whether that referred to a Board decision or to
-  rulemaking, and the two are different instruments on different clocks — and a decision reversing
+  rulemaking, and the two are different instruments on different clocks, and a decision reversing
   precedent in April 2026 would sit in tension with the same period's reporting on the three-vote
-  convention. **The example is not used.** The general point it prompted — that rulemaking is a distinct
-  layer and commentary reports it interchangeably with adjudication — is kept, without the example.
+  convention. **The example is not used.** The general point it prompted (that rulemaking is a distinct
+  layer and commentary reports it interchangeably with adjudication) is kept, without the example.
 - The five-layer framework, the *what is this true of* test, the retroactivity trap as framed here, the
   convergence argument, the counsel list, and the dated authority map are original to this course.
 - Builds on Module 1 of this track (the rung vocabulary the counsel list uses) and on `ai101-m7`'s

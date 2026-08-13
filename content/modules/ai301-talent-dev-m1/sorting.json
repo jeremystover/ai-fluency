@@ -1,7 +1,7 @@
 {
   "reviewedAt": "2026-08-12",
   "title": "Twelve pieces of a portfolio",
-  "intro": "*Five minutes. Commit before you look.*\n\nTwelve real items from a mid-size company's L&D catalog. Sort each into exactly one bucket — force the choice, because the forcing is where the judgment happens.\n\nRun question one harshly first, then rescue only what genuinely answers two or three.",
+  "intro": "*Five minutes. Commit before you look.*\n\nTwelve real items from a mid-size company's L&D catalog. Sort each into exactly one bucket: force the choice, because the forcing is where the judgment happens.\n\nRun question one harshly first, then rescue only what genuinely answers two or three.",
   "buckets": [
     {
       "id": "cheap",
@@ -30,29 +30,29 @@
       "id": "t1",
       "text": "A 40-minute e-learning module on general principles of inclusive hiring",
       "key": "cheap",
-      "reasoning": "Nothing in it depends on your organization. The content exists in a thousand versions, the source material is public, and the only local element is your logo. This is the clearest bucket-one card in the set — and it is also the one most likely to have cost someone six weeks."
+      "reasoning": "Nothing in it depends on your organization. The content exists in a thousand versions, the source material is public, and the only local element is your logo. This is the clearest bucket-one card in the set, and it is also the one most likely to have cost someone six weeks."
     },
     {
       "id": "t2",
       "text": "Onboarding for the engineering team acquired in 2023, who are still on legacy systems and a different review cycle",
       "key": "ours",
-      "reasoning": "The whole value is the undocumented mess: which systems they still use, why their review cycle differs, what nobody wrote down about the integration. A model cannot supply it because your own intranet does not contain it."
+      "reasoning": "The whole value is the undocumented mess: which systems they still use, why their review cycle differs, what nobody wrote down about the integration. A model can't supply it because your own intranet doesn't contain it."
     },
     {
       "id": "t3",
       "text": "The quarterly session where the CFO explains the company's financial model to new managers",
       "key": "human",
-      "reasoning": "The content could be recorded. The point is that the CFO showed up — the access is the value, and a recording of it is a different, lesser product. Accountability in the room, not information transfer."
+      "reasoning": "The content could be recorded. The point is that the CFO showed up: the access is the value, and a recording of it is a different, lesser product. Accountability in the room, not information transfer."
     },
     {
       "id": "t4",
       "text": "A job aid summarizing the expense policy",
       "key": "cheap",
-      "reasoning": "Your policy is the input, the summarizing is the work, and the summarizing is now near-free. Note that being genuinely useful and specific to your company does not rescue it — bucket two needs information that is *absent from the record*, and your expense policy is a document."
+      "reasoning": "Your policy is the input, the summarizing is the work, and the summarizing is now near-free. Note that being genuinely useful and specific to your company doesn't rescue it: bucket two needs information that is *absent from the record*, and your expense policy is a document."
     },
     {
       "id": "t5",
-      "text": "Manager training on how performance calibration actually runs here — who pushes back, what evidence carries weight, where ratings drift",
+      "text": "Manager training on how performance calibration actually runs here, who pushes back, what evidence carries weight, where ratings drift",
       "key": "ours",
       "reasoning": "The written process is public and boring. The real one lives in the heads of people who have run six cycles, and that is exactly what nobody has written down."
     },
@@ -72,7 +72,7 @@
       "id": "t8",
       "text": "A library of practice scenarios for difficult conversations, written from generic examples",
       "key": "cheap",
-      "reasoning": "Generic scenarios are the definition of rebuildable — and this one is worth arguing about, because it is where most L&D functions have invested recently. Written from *your* incidents it would move; written from a template it has not."
+      "reasoning": "Generic scenarios are the definition of rebuildable, and this one is worth arguing about, because it is where most L&D functions have invested recently. Written from *your* incidents it would move; written from a template it hasn't."
     },
     {
       "id": "t9",
@@ -84,7 +84,7 @@
       "id": "t10",
       "text": "Slide decks and a facilitator guide for a time-management workshop",
       "key": "cheap",
-      "reasoning": "Production of generic material — the exact centre of the collapsed middle. If this one felt hard to place, notice whether you were defending the artifact or the hours that went into it."
+      "reasoning": "Production of generic material: the exact centre of the collapsed middle. If this one felt hard to place, notice whether you were defending the artifact or the hours that went into it."
     },
     {
       "id": "t11",

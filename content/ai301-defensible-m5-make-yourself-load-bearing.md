@@ -1,4 +1,4 @@
-# AI 301 · Defensible by Design · Module 5 — Make yourself load-bearing
+# AI 301 · Defensible by Design · Module 5 — Make yourself hard to route around
 
 **Course:** AI 301 · The Specialist — Defensible by Design · Module 5 of 5
 **Estimated time:** 25 min content · 10 min exercise · 30 min applied activity
@@ -14,15 +14,15 @@
 
 *One claim. Commit before you read anything.*
 
-Here is a factual assertion about your own organization:
+Here's a factual assertion about your own organization:
 
 > **"If our CEO asked tomorrow who owns whether our AI-assisted employment decisions are
-> defensible, they would get one name — and it would be a name, not a committee."**
+> defensible, they would get one name, and it would be a name, not a committee."**
 
 **True of us, or not true of us?** Commit to one, in a sentence. And if you're claiming true, say
 whether the name is yours.
 
-Then predict one number: **out of ten, how likely is it that you will be the person your
+Then predict one number: **out of ten, how likely is it that you'll be the person your
 organization turns to the next time an algorithmic fairness question arrives?** Honest estimate.
 
 ---
@@ -31,7 +31,7 @@ organization turns to the next time an algorithmic fairness question arrives?** 
 
 Four modules of capability. This one is about whether anybody knows you have it.
 
-Here is the situation you are actually in. AI governance is being assigned in most organizations
+Here's the situation you're actually in. AI governance is being assigned in most organizations
 right now — some of it deliberately, most of it by default, and almost all of it to people whose
 qualification is proximity rather than expertise. It will land with Legal, or IT, or a
 cross-functional committee, or an enthusiastic executive with a mandate and no method.
@@ -42,9 +42,9 @@ management-system certification answered a different question.** Those are the s
 non-obvious, hard-to-acquire capabilities this track just built, and they are scarce in a way that
 is easy to underestimate from inside a role where everyone around you has them.
 
-The gap between *holding a scarce capability* and *being the person it gets routed to* is not
+The gap between *holding a scarce capability* and *being the person it gets routed to* isn't
 technical. It is a communication problem, it is entirely solvable, and this module is about solving
-it — including by being honest about what the capability is worth and what it doesn't buy.
+it, including by being honest about what the capability is worth and what it doesn't buy.
 
 ## Learning objectives
 
@@ -52,7 +52,7 @@ By the end of this module you should be able to:
 
 1. Describe where AI governance is actually landing in organizations, and what that assignment
    lacks.
-2. Assess a title change honestly — what restructuring protects and what relabeling doesn't.
+2. Assess a title change honestly, what restructuring protects and what relabeling doesn't.
 3. Evaluate labour-market signals about this capability without relying on anecdote.
 4. Write a 90-day plan and a one-paragraph pitch to whoever owns AI governance in your building.
 
@@ -62,12 +62,12 @@ Ask where AI governance sits and you get one of four answers, each with a predic
 
 **Legal.** The most common, and the most sensible-looking. Legal can read the statute, assess the
 regime, and structure privilege — which is real and is exactly what Module 3 depends on. What legal
-cannot generally do is compute a selection rate, evaluate whether a vendor's audit measured anything
+can't generally do is compute a selection rate, evaluate whether a vendor's audit measured anything
 useful, or recognize that graduation year is doing the work of age. Legal knows what the standard
-is; it does not usually know whether you meet it.
+is; it doesn't usually know whether you meet it.
 
 **IT or security.** Owns the systems, the integrations, the access model, and increasingly the model
-inventory. Frames the problem as one of controls and vendor risk, which is correct and incomplete —
+inventory. Frames the problem as one of controls and vendor risk, which is correct and incomplete,
 an AI system can be perfectly governed on every dimension IT measures and still select at very
 different rates by group, because nothing IT tracks would show it.
 
@@ -77,34 +77,34 @@ whether it works.** Module 2's ownership question applies to governance itself: 
 review does it appear in? For most committees the answer is nobody's.
 
 **An executive with a mandate.** Energetic, well-supported, and reliant on whoever briefs them.
-That last property is an opportunity rather than a criticism — the briefer has more influence than
+That last property is an opportunity rather than a criticism: the briefer has more influence than
 the title implies.
 
 **In every one of those four, the same thing is missing.** Someone who can look at a system and say:
-here is what to measure, here is what the measurement showed, here is what it doesn't establish,
-here is what we'd need to defend this. Not an opinion about AI. **A method.**
+here's what to measure, here's what the measurement showed, here's what it doesn't establish,
+here's what we'd need to defend this. Not an opinion about AI. **A method.**
 
-That is what you now have, and it is worth being precise about why it is scarce. It is not
+That is what you now have, and it is worth being precise about why it is scarce. It isn't
 inaccessible — the four-fifths rule is arithmetic and the standard deviation test is a first-year
 statistics procedure. It is scarce because it sits at an intersection almost nobody occupies:
 statistical method, employment law fluency, and enough operational knowledge of hiring and
 performance systems to know where the decisions actually happen. Any one of those is common. The
-combination is not.
+combination isn't.
 
 ## Lesson 2 · The naming question, honestly
 
 This track is called Defensible by Design and not something with DEI in the title, for reasons
-worth stating in the open — because you will face the same question about your own role, and the
+worth stating in the open, because you'll face the same question about your own role, and the
 reasoning transfers.
 
-**Restructuring is cover. Relabeling isn't.**
+**Restructuring is cover. Relabeling is not.**
 
 Restructuring means the work changed: different activities, different outputs, a different
 relationship to decisions. If a function moves from running representation programmes to running
 adverse impact testing under privilege and gating procurement, that is a genuine change in what the
 role does, and its new name describes something true.
 
-Relabeling means the work is identical and the sign changed. That fools nobody who looks — not a
+Relabeling means the work is identical and the sign changed. That fools nobody who looks, not a
 regulator, not a plaintiff's lawyer, not a hostile board member, and not your own colleagues. **A
 euphemism is a liability with a friendly name**, and in a discovery context a renamed programme with
 unchanged activities is worse than an honestly named one, because the renaming itself becomes an
@@ -118,25 +118,25 @@ mistaking it for protection.
 Which is also the argument for how this course is named. The content is AEDT inventories, selection
 rate statistics, proxy detection, privilege sequencing and vendor audit literacy. **A name describing
 the capability rather than an identity routes correctly, survives a political reversal in either
-direction, and is what a buyer would actually search for.** It is not an evasion. It is the same
+direction, and is what a buyer would actually search for.** It isn't an evasion. It is the same
 principle applied to itself — and a course that told you relabeling isn't cover while wearing a
 relabel would have failed its own test.
 
 ## Lesson 3 · Reading the market signal without anecdote **[V]**
 
-You will be told that roles combining AI governance with employment-fairness expertise are
-appearing — titles that pair algorithmic accountability with hiring, or governance with people
+You'll be told that roles combining AI governance with employment-fairness expertise are
+appearing: titles that pair algorithmic accountability with hiring, or governance with people
 analytics. That is broadly true and it is the kind of claim this track has spent four modules
 teaching you to distrust when it arrives without evidence.
 
-**So this module does not give you a job posting to rely on.** A single advertisement is not a
+**So this module does not give you a job posting to rely on.** A single advertisement isn't a
 durable citation: it disappears, it may reflect one company's idiosyncrasy, and by the time you read
 this it is history. Quoting one to you would be exactly the borrowed-anecdote reasoning that Module
 4 tears apart in vendor claims.
 
 **Do it properly instead, in ten minutes**, and it is the activity's first step:
 
-Search your own market — your country, your sector, your salary band — for postings pairing
+Search your own market (your country, your sector, your salary band) for postings pairing
 **AI or algorithmic** with **governance, assurance, audit or compliance**, and separately for
 postings pairing those with **hiring, employment, talent or people**. Then read what they ask for.
 
@@ -158,13 +158,13 @@ local, and about your own market rather than someone else's.
 
 ## Lesson 4 · The pitch
 
-You are not asking for a mandate. You are offering a capability that cannot be bought quickly, to
-someone who has just been handed responsibility for something they cannot yet do.
+You aren't asking for a mandate. You're offering a capability that can't be bought quickly, to
+someone who has just been handed responsibility for something they can't yet do.
 
 That framing matters because it inverts the power dynamic of the usual request. A person asking for
-scope is a cost. A person offering to solve a problem their reader already owns is a resource — and
+scope is a cost. A person offering to solve a problem their reader already owns is a resource, and
 whoever holds AI governance in your organization right now is, with high probability, quietly aware
-that they do not have a method.
+that they don't have a method.
 
 **One paragraph. Four moves.**
 
@@ -183,7 +183,7 @@ owner, the exposure map for legal, the RFP section for procurement.
 standing slot at the governance forum, or that your fairness page goes into the next RFP. Small asks
 get yes, and a yes creates a relationship in which the larger question can be asked later.
 
-Then the 90-day plan, which is what you bring to that conversation. Three things you will have
+Then the 90-day plan, which is what you bring to that conversation. Three things you'll have
 finished, each with a date and each producing an artifact somebody else can use. Not "establish a
 governance framework" — *"the AEDT inventory covering hiring and promotion systems, complete and
 validated with system owners, by 30 November."*
@@ -192,10 +192,10 @@ validated with system owners, by 30 November."*
 
 **This capability does not guarantee you a role, and it may not save your function.** Organizations
 restructure for reasons that have nothing to do with whether someone holds a scarce skill, and a
-function can be eliminated while the individual with the method is retained somewhere else — or
+function can be eliminated while the individual with the method is retained somewhere else, or
 neither.
 
-What it does is make you **legible**. The failure mode this module is actually addressing is not
+What it does is make you **legible**. The failure mode this module is actually addressing isn't
 lack of skill; it is holding a scarce capability that nobody in the building knows exists, in a
 function whose value is described in terms that have become politically difficult. **Legibility is
 what the pitch buys**, and legibility is a precondition for everything else without being a
@@ -204,7 +204,7 @@ modules teaching you to check.
 
 ## Key takeaways
 
-- **AI governance is landing with Legal, IT, a committee, or an executive** — and each is missing
+- **AI governance is landing with Legal, IT, a committee, or an executive**, and each is missing
   the same thing: someone who can say what to measure, what the measurement showed, what it doesn't
   establish, and what would be needed to defend it. **A method, not an opinion about AI.**
 - **The capability is scarce because of its intersection**, not its difficulty — statistical method,
@@ -212,16 +212,16 @@ modules teaching you to check.
   common; the combination isn't.
 - **A committee's structural defect is ownership.** If governance fails, whose performance review
   does it appear in? For most committees, nobody's.
-- **Restructuring is cover; relabeling isn't.** The test is whether what you do on a Tuesday
+- **Restructuring is cover; relabeling is not.** The test is whether what you do on a Tuesday
   changed. **A euphemism is a liability with a friendly name**, and in discovery a renamed programme
   with unchanged activities becomes an exhibit about intent.
 - **Read the market yourself** `[V]`. Do postings ask for statistical method or only policy
   familiarity? Where do they sit? What do they pay relative to your title? Current, local evidence
-  beats any anecdote a course could give you — which is why this one doesn't.
+  beats any anecdote a course could give you, which is why this one doesn't.
 - **The pitch is one paragraph and four moves:** name what they own, name the gap without insulting
   anyone, attach one artifact chosen for that reader, and ask for something small enough to get a
   yes.
-- **This makes you legible, not safe.** Legibility is a precondition, not a guarantee — and the
+- **This makes you legible, not safe.** Legibility is a precondition, not a guarantee, and the
   failure mode being addressed is a scarce capability nobody knows you have.
 
 ## Take a position
@@ -233,12 +233,12 @@ The strongest counter-argument is that **this advises visibility in a year when 
 risk.** A practitioner who spends 2026 making themselves the named owner of algorithmic fairness has
 attached their career to the most politically contested function in the organization, at a moment
 when federal contractors are certifying about DEI activities and boards are asking what exposure
-they carry. The quieter version — build the capability, keep it useful, stay attached to a function
-nobody is arguing about — may be the better career strategy, and this module's advice may be optimal
+they carry. The quieter version (build the capability, keep it useful, stay attached to a function
+nobody is arguing about) may be the better career strategy, and this module's advice may be optimal
 for the organization and bad for the individual giving it.
 
-There is a sharper version aimed at the whole track. **Everything you have built here is a
-liability-management capability, and liability management is a cost centre.** Cost centres do not
+There is a sharper version aimed at the whole track. **Everything you have built here's a
+liability-management capability, and liability management is a cost centre.** Cost centres don't
 win mandates; they get outsourced to counsel, who can do it under privilege with no headcount. On
 that reading the natural home for all five modules is a law firm, and the honest advice to a
 practitioner is to acquire the capability and then go somewhere it is billable.
@@ -254,17 +254,17 @@ learning lands.
 
 ### Part 1 — The scan, the plan and the pitch (18 min)
 
-**Step 1 — Read your own market (6 min).** Search your country, sector and band for the postings
+**Step 1. Read your own market (6 min).** Search your country, sector and band for the postings
 described in Lesson 3. Record: how many you found, whether they ask for statistical method or only
 policy familiarity, where they sit organizationally, and how the compensation compares to your
-current title. **If you find nothing, that is a finding** — record it and say what you think it
+current title. **If you find nothing, that is a finding**, record it and say what you think it
 means about your market.
 
 **Step 2 — The 90-day plan (6 min).** Three things finished, each with a date and each producing an
 artifact somebody else can use. Draw on what you built in Modules 1–4 rather than inventing new
 work.
 
-**Step 3 — The pitch (6 min).** One paragraph, to a named person who owns or will own AI governance
+**Step 3. The pitch (6 min).** One paragraph, to a named person who owns or will own AI governance
 in your organization. Four moves: what they own, the gap, the artifact you're attaching and why that
 one for that reader, and a small specific ask.
 
@@ -275,7 +275,7 @@ the reasoning and what you'll do with the capability instead. That is a full-cre
 
 Five modules, five committed claims and a set of numbers.
 
-- **Which claims did you commit to as "true of us" and then find were not?** Name them.
+- **Which claims did you commit to as "true of us" and then find weren't?** Name them.
 - **Which direction did your numeric predictions miss in** — were you systematically optimistic
   about your organization's position, or pessimistic?
 - **What did you believe in Module 1 about your legal exposure that you no longer believe?**
@@ -293,7 +293,7 @@ guessed well and has nothing to report.
 **Q1.** What is missing from all four common owners of AI governance?
 
 - A. Budget authority to remediate findings
-- B. Someone who can say what to measure, what the measurement showed, what it doesn't establish, and what would be needed to defend it — a method rather than an opinion ✓
+- B. Someone who can say what to measure, what the measurement showed, what it doesn't establish, and what would be needed to defend it: a method rather than an opinion ✓
 - C. Executive sponsorship
 - D. Access to the systems in question
 
@@ -303,7 +303,7 @@ guessed well and has nothing to report.
 
 - A. Because the statistical methods are technically difficult
 - B. Because few universities teach algorithmic fairness
-- C. Because it sits at an intersection — statistical method, employment law fluency, and operational knowledge of where decisions happen. Each is common; the combination isn't ✓
+- C. Because it sits at an intersection: statistical method, employment law fluency, and operational knowledge of where decisions happen. Each is common; the combination isn't ✓
 - D. Because the tooling is expensive to license
 
 > **C.** The four-fifths rule is arithmetic and the significance test is first-year statistics. Scarcity comes from the combination, which is easy to underestimate from inside a role where everyone around you has it.
@@ -321,7 +321,7 @@ guessed well and has nothing to report.
 
 - A. Whether the change was approved at board level
 - B. Whether the budget moved with the name
-- C. Whether the work changed — the test being whether what you do on a Tuesday is different ✓
+- C. Whether the work changed: the test being whether what you do on a Tuesday is different ✓
 - D. Whether the previous name is still used internally
 
 > **C.** Relabeling fools nobody who looks, and in a discovery context a renamed programme with unchanged activities is worse than an honestly named one, because the renaming becomes an exhibit about intent.
@@ -329,7 +329,7 @@ guessed well and has nothing to report.
 **Q5.** Why does this module refuse to cite a specific job posting `[V]`?
 
 - A. Because job postings are proprietary information
-- B. Because a single advertisement isn't a durable citation — it disappears, may reflect one company's idiosyncrasy, and quoting it would be the borrowed-anecdote reasoning the track teaches you to reject ✓
+- B. Because a single advertisement isn't a durable citation. It disappears, may reflect one company's idiosyncrasy, and quoting it would be the borrowed-anecdote reasoning the track teaches you to reject ✓
 - C. Because the roles vary too much across sectors
 - D. Because compensation data is more reliable than posting text
 
@@ -338,7 +338,7 @@ guessed well and has nothing to report.
 **Q6.** In a market scan, what distinguishes a posting describing this capability from one describing a more crowded job?
 
 - A. Seniority level and reporting line
-- B. Whether it asks for statistical method — adverse impact analysis, disparate impact, validation studies — rather than only "familiarity with AI governance frameworks" ✓
+- B. Whether it asks for statistical method (adverse impact analysis, disparate impact, validation studies) rather than only "familiarity with AI governance frameworks" ✓
 - C. Whether it is in Legal or in HR
 - D. Whether it requires a technical degree
 
@@ -357,16 +357,16 @@ guessed well and has nothing to report.
 
 - A. Protection from restructuring
 - B. A defined career path into AI governance
-- C. Legibility — a precondition for everything else, and a guarantee of none of it ✓
+- C. Legibility: a precondition for everything else, and a guarantee of none of it ✓
 - D. Leverage in compensation negotiations
 
-> **C.** Organizations restructure for reasons unrelated to who holds a scarce skill. The failure mode being addressed is holding a capability nobody in the building knows exists — and claiming more than that would be exactly the unverifiable assertion this track teaches you to check.
+> **C.** Organizations restructure for reasons unrelated to who holds a scarce skill. The failure mode being addressed is holding a capability nobody in the building knows exists, and claiming more than that would be exactly the unverifiable assertion this track teaches you to check.
 
 ## Sources and attribution
 
-- **No external statistics are load-bearing in this module, deliberately.** Lesson 3 explains why:
+- **Deliberately, no external statistic carries this module.** Lesson 3 explains why:
   labour-market claims about emerging roles are typically supported by individual job postings,
-  which are not durable citations. The activity has the learner run their own market scan instead,
+  which aren't durable citations. The activity has the learner run their own market scan instead,
   which produces current and local evidence. **[V]** on the market-signal framing, since what a scan
   returns will change.
 - The four-owners analysis, the intersection account of scarcity, the

@@ -16,7 +16,7 @@
 *One prediction, thirty seconds.*
 
 **Could you answer this today: which interview questions preceded your strong hires?** Not
-"could you find out eventually" — could you answer it this week, from something that already
+"could you find out eventually": could you answer it this week, from something that already
 exists?
 
 Answer honestly: yes, roughly, or no. Then predict how many of your peers could.
@@ -36,7 +36,7 @@ rented is your own record of who you hired and how they turned out.**
 That record is what turns a loop from a process into a system that learns. Without it, every
 requisition starts from the same place: the hiring manager's intuition, the recruiter's
 experience, and a scorecard nobody has ever validated against an outcome. With it, you can answer
-questions no vendor can sell you the answer to — which of your interviewers actually predicts
+questions no vendor can sell you the answer to, which of your interviewers actually predicts
 performance, which questions preceded strong hires, which sourcing channel produces people who
 are still here in two years.
 
@@ -51,7 +51,7 @@ By the end of this module you should be able to:
 2. Design a capture layer that answers one specific question six months from now.
 3. Prefer integration over invention, and say why the boring version usually wins.
 4. Name what to stop counting and what to start.
-5. Run hiring manager calibration from transcripts — the highest-value use of the capture layer
+5. Run hiring manager calibration from transcripts, the highest-value use of the capture layer
    and the one almost nobody does.
 
 ## Lesson 1 · The loop
@@ -65,11 +65,11 @@ exist — you cannot go back and record what questions were asked in interviews 
 individual scorecards nobody aggregates, and not in a format that requires a human to read fifty
 documents to answer one question.
 
-**Analyze.** Ask a question the data can answer. This is where AI genuinely helps — reading
+**Analyze.** Ask a question the data can answer. This is where AI genuinely helps, reading
 across hundreds of unstructured debriefs to surface patterns is precisely what it's good at, and
 precisely what nobody had time to do before.
 
-**Feed back into design.** Change a stage, a question, a rubric — and record that you changed it,
+**Feed back into design.** Change a stage, a question, a rubric, and record that you changed it,
 so the next analysis knows which period is which. **This is the stage everyone skips**, and
 skipping it converts a learning system into a reporting system: you produce insight nobody acts
 on, which trains everyone to stop reading the insight.
@@ -84,7 +84,7 @@ they always were — which is why the loop is still rare in a world of abundant 
 Three real shapes, none of them exotic.
 
 **Structured capture from conversations at scale.** Zapier's goal-setting practice runs the loop
-on a non-recruiting process — roughly 91% participation, around 800 conversations analyzed, with
+on a non-recruiting process: roughly 91% participation, around 800 conversations analyzed, with
 insights routed back into enablement. The relevant lesson isn't the numbers; it's that the
 analysis had a *destination* attached before it ran. Somebody was going to receive the output and
 change something.
@@ -92,7 +92,7 @@ change something.
 **Interview summaries as an archive.** Docebo's interview summaries accumulate into a record of
 which questions preceded strong hires. That's the exact question this module opened with, and the
 only reason they can answer it is that somebody decided to store the summaries in a form a query
-could reach — which was a decision, not a purchase.
+could reach, which was a decision, not a purchase.
 
 **Integration beats invention.** Landing Point's build ran **inside the ATS**, on roughly $200 a
 month and one engineer. This is the example to hold when a vendor proposes a platform: the
@@ -124,10 +124,10 @@ collapse reached you.
 
 **Start counting what survives contact with reality:**
 
-- **Quality of signal per stage** — for each stage, what share of the candidates it advanced went
+- **Quality of signal per stage**, for each stage, what share of the candidates it advanced went
   on to succeed at the next one. A stage that advances everyone is measuring nothing, which is a
   finding you can act on.
-- **Hiring manager rework** — how often a hire needed significant support in the first ninety
+- **Hiring manager rework**, how often a hire needed significant support in the first ninety
   days that a better process would have predicted. Uncomfortable, and the closest available proxy
   for whether your loop works.
 - **Retention at twelve months by sourcing channel and by loop version.** The single most valuable
@@ -149,7 +149,7 @@ Once interview records accumulate, you can answer a question that changes how yo
 Specifically, from the record: who scores systematically higher or lower than the panel; whose
 scores correlate with subsequent performance and whose don't; whose stated reasons shift between
 similar candidates; and who asks different questions of different candidates for the same role,
-which is both a signal problem and — Module 6's territory — a disparate-impact problem waiting to
+which is both a signal problem and (Module 6's territory) a disparate-impact problem waiting to
 be discovered by somebody less friendly.
 
 AI makes this tractable for the first time. Reading two hundred debriefs for consistency of
@@ -174,12 +174,12 @@ make it more predictive."* Nobody else in the organization can say that.
   skips the fourth, which converts a learning system into a reporting system nobody reads.
 - **Stages one and four are decisions; two and three are cheap now.** Storage and analysis stopped
   being the hard part; deciding what to record and actually changing something did not.
-- **Integration beats invention** `[V]` — the capture layer wants to live where the data already
+- **Integration beats invention** `[V]`: the capture layer wants to live where the data already
   is. A system requiring double entry is inconsistent in a month and abandoned in three. Buy the
   boring, build only the part that's yours.
 - **Stop headlining time-to-fill and application volume.** Start on signal quality per stage,
   hiring manager rework, twelve-month retention by channel and loop version, and categorized
-  decline reasons. All slow — which is why you instrument now.
+  decline reasons. All slow, which is why you instrument now.
 - **Hiring manager calibration from the record is the highest-value use and almost nobody does
   it.** It's about the interviewer's process, not their worth — and the report goes to them
   first.
@@ -191,7 +191,7 @@ they turned out."*
 
 The strongest counter-argument is **turnover and time-scale.** Recruiting teams, hiring managers,
 role definitions, and even business models change faster than the twelve-month outcome data
-accumulates — so by the time your record is large enough to be useful it may describe a company
+accumulates, so by the time your record is large enough to be useful it may describe a company
 that no longer exists. On that view the record is an asset with a short half-life, and the
 resources it takes might be better spent on the loop design that Module 4 says matters more. Your
 position has to engage that.
@@ -201,18 +201,18 @@ position has to engage that.
 **Time:** 25 minutes · **Submit:** the design plus a 250–350 word write-up · **Graded against the
 rubric below.**
 
-Design the capture layer for your live requisition — and be ruthless about scope. **A design that
+Design the capture layer for your live requisition, and be ruthless about scope. **A design that
 records four things and gets built beats one that records twenty and doesn't.**
 
 **Step 1 — Name the question (5 min).** **One** question you want answerable in six months. Specific
 enough to have an answer: not "is our hiring effective" but "does the technical screen predict
 who passes the panel?"
 
-**Step 2 — Work backwards to the fields (8 min).** What must be recorded, starting now, for that
+**Step 2. Work backwards to the fields (8 min).** What must be recorded, starting now, for that
 question to be answerable? For each: where it lives, who records it, and whether it's captured
 today. If a field requires anyone to enter data twice, redesign it or cut it.
 
-**Step 3 — Name the reviewer and the cadence (5 min).** Who looks at this, how often, and what
+**Step 3. Name the reviewer and the cadence (5 min).** Who looks at this, how often, and what
 decision they're expected to make. **A capture layer with no named reviewer is storage**, and the
 feed-back stage is the one everyone skips.
 
@@ -220,7 +220,7 @@ feed-back stage is the one everyone skips.
 comes back the other way? If you can't answer both, the question wasn't decision-relevant and you
 should pick a different one.
 
-**Step 5 — Score the prediction (3 min).** Could you answer the strong-hires question today? What
+**Step 5. Score the prediction (3 min).** Could you answer the strong-hires question today? What
 did you predict for your peers, and what does the gap suggest?
 
 Then the write-up: the question, the smallest set of fields that answers it, who owns it, your
@@ -233,10 +233,10 @@ start recording **this week** with no tooling change at all.
 
 **Q1.** Which stage of the loop does the module say everyone skips, and what happens?
 
-- A. Instrument — teams start capturing without deciding what matters
+- A. Instrument, teams start capturing without deciding what matters
 - B. Capture — data ends up in formats queries can't reach
-- C. Analyze — nobody has time to read the accumulated records
-- D. Feed back — insight gets produced and nothing changes, which converts a learning system into a reporting system nobody reads ✓
+- C. Analyze, nobody has time to read the accumulated records
+- D. Feed back, insight gets produced and nothing changes, which converts a learning system into a reporting system nobody reads ✓
 
 > **D.** And the second-order effect is what kills it: people learn the insight doesn't lead
 > anywhere and stop reading it. B and C are real failure modes that have become much cheaper to
@@ -249,13 +249,13 @@ start recording **this week** with no tooling change at all.
 - C. ATS vendors provide better analytics than custom tools
 - D. Integration projects have higher success rates than greenfield builds
 
-> **B.** It's about adoption, not cost — though the $200-a-month-and-one-engineer example makes
+> **B.** It's about adoption, not cost, though the $200-a-month-and-one-engineer example makes
 > both points at once. Buy the boring; build only the part that's yours.
 
 **Q3.** Why is time-to-fill described as close to a vanity metric?
 
 - A. It's difficult to measure consistently across requisitions
-- B. It moves with req difficulty and market conditions, and can always be improved by lowering the bar — so it doesn't measure whether hiring is working ✓
+- B. It moves with req difficulty and market conditions, and can always be improved by lowering the bar, so it doesn't measure whether hiring is working ✓
 - C. It's no longer tracked by modern ATS platforms
 - D. Candidates don't care about process speed
 
@@ -280,7 +280,7 @@ start recording **this week** with no tooling change at all.
 - C. Only calibrate interviewers with at least twenty interviews; and exclude senior leaders
 - D. Require interviewer consent; and delete records after twelve months
 
-> **B.** The first keeps it assist-side under 101 M7 — auditing consistency of a professional
+> **B.** The first keeps it assist-side under 101 M7: auditing consistency of a professional
 > practice, not judging a person. The second is practical: an interviewer whose report reached
 > their manager first will disengage, and everyone else hears about it by Friday.
 
@@ -296,7 +296,7 @@ start recording **this week** with no tooling change at all.
 
 ## Sources and attribution
 
-- Implementation examples — the goal-setting capture practice at Zapier (participation and
+- Implementation examples, the goal-setting capture practice at Zapier (participation and
   conversation volume, with insights routed to enablement), interview summaries accumulating as
   a question-to-outcome archive at Docebo, and an in-ATS build at Landing Point at roughly $200 a
   month with one engineer. Publicly reported; re-verified each review cycle. **[V]**

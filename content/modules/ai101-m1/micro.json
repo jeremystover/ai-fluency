@@ -6,7 +6,7 @@
     "kind": "prose",
     "layer": "stable",
     "reviewedAt": "2026-07-28",
-    "body": "## Module 1 in two minutes\n\n**\"AI\" is a category, not a technology.** The kind reshaping your work is a large language model (LLM): software that, given some text, predicts what should come next — one small piece at a time. It is not searching, not looking things up, and not reasoning like a colleague, even when it sounds like one. Much of the \"AI\" already in your HR stack is something else entirely — a scoring or matching model — and the distinction changes the failure mode, the vendor questions, and the regulatory exposure.\n\n**Confidence and correctness are decoupled.** The model produces statistically likely text. Sometimes likely is also true; sometimes it isn't. In human writing, someone who sounds certain usually has reason to be — that coupling does not exist here. Fluent output deserves more scrutiny, not less, and in People work a fluent, wrong document can shape someone's livelihood.\n\n**The model has never seen your organization.** Not your handbook, your comp bands, your survey data, your investigation files. Anything that requires that knowledge must be supplied by you in the conversation — or it will be invented, fluently, with no signal that it's invented."
+    "body": "## Module 1 in two minutes\n\n**\"AI\" is a category, not a technology.** The kind reshaping your work is a large language model (LLM): software that, given some text, predicts what should come next. One small piece at a time. It is not searching, not looking things up, and not reasoning like a colleague, even when it sounds like one. Much of the \"AI\" already in your HR stack is something else entirely (a scoring or matching model) and the distinction changes the failure mode, the vendor questions, and the regulatory exposure.\n\n**Confidence and correctness are decoupled.** The model produces statistically likely text. Sometimes likely is also true; sometimes it isn't. In human writing, someone who sounds certain usually has reason to be. That coupling does not exist here. Fluent output deserves more scrutiny, not less, and in People work a fluent, wrong document can shape someone's livelihood.\n\n**The model has never seen your organization.** Not your handbook, your comp bands, your survey data, your investigation files. Anything that requires that knowledge must be supplied by you in the conversation — or it will be invented, fluently, with no signal that it's invented."
   },
   {
     "id": "m1micro-heuristic",
@@ -15,7 +15,7 @@
     "kind": "callout",
     "layer": "stable",
     "reviewedAt": "2026-07-28",
-    "body": "### The delegation heuristic\n\nAI does well when you supply the material and ask for transformation. It does badly when the task needs organizational knowledge it was never given. And it must not make decisions about people — regardless of how good the output looks."
+    "body": "### The delegation heuristic\n\nAI does well when you supply the material and ask for transformation. It does badly when the task needs organizational knowledge it was never given. And it must not make decisions about people, regardless of how good the output looks."
   },
   {
     "id": "m1micro-habit",

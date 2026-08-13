@@ -5,7 +5,7 @@
   "questions": [
     {
       "id": "q1",
-      "prompt": "Why does the human credibility heuristic — precise, confident, well-cited prose signals knowledge — fail specifically for model output?",
+      "prompt": "Why does the human credibility heuristic (precise, confident, well-cited prose signals knowledge) fail specifically for model output?",
       "options": [
         "Models are trained to deceive users into over-trusting them",
         "For humans the form costs something — you must know the material to fake it — while for the model, confident form is the native output format, right or wrong",
@@ -13,7 +13,7 @@
         "Human writing contains verifiable citations while model output never does"
       ],
       "correctIndex": 1,
-      "explanation": "With people, form is honest evidence of substance because producing it requires substance. The model produces the form — specificity, structure, certainty — as pattern completion, identically for true and invented content. No deception is involved (A): lying requires knowing better."
+      "explanation": "With people, form is honest evidence of substance because producing it requires substance. The model produces the form (specificity, structure, certainty) as pattern completion, identically for true and invented content. No deception is involved (A): lying requires knowing better."
     },
     {
       "id": "q2",
@@ -25,7 +25,7 @@
         "Verified, provided the model confirms it when asked \"are you sure?\""
       ],
       "correctIndex": 2,
-      "explanation": "The flinch rule: precision you didn't supply is Type 1's tell, and a fabricated section number comes out formatted exactly like a real one — the form is identical either way, which is what makes A the career-trained trap. D re-runs the same machinery and is the module's named non-verification."
+      "explanation": "The flinch rule: precision you didn't supply is Type 1's tell, and a fabricated section number comes out formatted exactly like a real one: the form is identical either way, which is what makes A the career-trained trap. D re-runs the same machinery and is the module's named non-verification."
     },
     {
       "id": "q3",
@@ -37,7 +37,7 @@
         "Type 2 — every individual fact checks out, so the error lives in the reasoning steps that checks aimed at facts never touch"
       ],
       "correctIndex": 3,
-      "explanation": "Plausible-but-wrong reasoning survives claim-tracing precisely because the claims are fine; the load-bearing \"which means…\" is where it hides. The remedy is re-deriving the conclusion — Level 3's human re-walk — not more fact-checking."
+      "explanation": "Plausible-but-wrong reasoning survives claim-tracing precisely because the claims are fine; the decisive \"which means…\" is where it hides. The remedy is re-deriving the conclusion (Level 3's human re-walk) not more fact-checking."
     },
     {
       "id": "q4",
@@ -49,11 +49,11 @@
         "A Type 2 failure — the reasoning was wrong but the facts were right"
       ],
       "correctIndex": 0,
-      "explanation": "Type 3's most dangerous residue: where the material runs out, the machinery keeps answering from the average (M1), and the person consuming it can't tell (M2's borrowed credibility). That's why Lesson 4 makes this zone *structural* — grounding, coverage gaps, sample audits — rather than per-answer. C describes the marketing, not the guarantee **[V]**."
+      "explanation": "Type 3's most dangerous residue: where the material runs out, the machinery keeps answering from the average (M1), and the person consuming it can't tell (M2's borrowed credibility). That's why Lesson 4 makes this zone *structural* (grounding, coverage gaps, sample audits) rather than per-answer. C describes the marketing, not the guarantee **[V]**."
     },
     {
       "id": "q5",
-      "prompt": "Why is asking the model \"are you sure?\" not verification — and what is?",
+      "prompt": "Why is asking the model \"are you sure?\" not verification, and what is?",
       "options": [
         "It is verification, as long as you ask in the same conversation",
         "The question re-runs the same machinery — which may double down, or capitulate on something that was right; verification means checking against something that isn't the model",
@@ -61,11 +61,11 @@
         "Verification requires asking at least two different models the same question"
       ],
       "correctIndex": 1,
-      "explanation": "Deference is also a plausible pattern — so the reply is more generation, not evidence. A source document, a system of record, or your own expertise is the standard. D is the subtle trap: two models share training-data instincts, and plausible-but-wrong is exactly where they agree."
+      "explanation": "Deference is also a plausible pattern, so the reply is more generation, not evidence. A source document, a system of record, or your own expertise is the standard. D is the subtle trap: two models share training-data instincts, and plausible-but-wrong is exactly where they agree."
     },
     {
       "id": "q6",
-      "prompt": "Under the three-level discipline, which output is the *minimum* that requires Level 2 — tracing claims to real sources — rather than just the two-minute scan?",
+      "prompt": "Under the three-level discipline, which output is the *minimum* that requires Level 2 (tracing claims to real sources) rather than just the two-minute scan?",
       "options": [
         "A reworded internal email where the scan found nothing to underline",
         "Any output produced by a frontier-tier model",
@@ -73,7 +73,7 @@
         "A market-practice summary whose statistics will inform your comp proposal"
       ],
       "correctIndex": 3,
-      "explanation": "It informs a decision, so every specific it contributed gets traced — and any untraceable statistic gets cut, because the proposal survives without the statistic but not with a fake one. A and C are Level 1's home ground; B confuses model tier with stakes, which the discipline prices by consequence, not capability."
+      "explanation": "It informs a decision, so every specific it contributed gets traced, and any untraceable statistic gets cut, because the proposal survives without the statistic but not with a fake one. A and C are Level 1's home ground; B confuses model tier with stakes, which the discipline prices by consequence, not capability."
     },
     {
       "id": "q7",
@@ -85,7 +85,7 @@
         "Regulators require all workplace statistics to be independently audited"
       ],
       "correctIndex": 1,
-      "explanation": "The property is social, not statistical: a number outlives its context and sheds its hedges as it travels. So any number that will be re-said gets traced to a real source — or labeled illustrative loudly enough to survive repetition."
+      "explanation": "The property is social, not statistical: a number outlives its context and sheds its hedges as it travels. So any number that will be re-said gets traced to a real source, or labeled illustrative loudly enough to survive repetition."
     },
     {
       "id": "q8",
@@ -97,7 +97,7 @@
         "The model detected the test and behaved differently than it would in real use"
       ],
       "correctIndex": 2,
-      "explanation": "Honest declines are a real and improving behavior **[V]** — and the activity's calibration works in both directions: fishing that takes far *more* attempts than predicted means your expectations were formed on older behavior. A overgeneralizes from a sample; the habits stay, because the failure types remain wherever the data runs thin."
+      "explanation": "Honest declines are a real and improving behavior **[V]**, and the activity's calibration works in both directions: fishing that takes far *more* attempts than predicted means your expectations were formed on older behavior. A overgeneralizes from a sample; the habits stay, because the failure types remain wherever the data runs thin."
     }
   ]
 }

@@ -1,22 +1,40 @@
 {
   "reviewedAt": "2026-08-11",
   "buckets": [
-    { "id": "never", "label": "Never", "hint": "The decide side", "rank": 0, "pct": 5 },
-    { "id": "verify", "label": "Assist + verification", "hint": "Go, with Level 2+ riding along", "rank": 1, "pct": 45 },
-    { "id": "assist", "label": "Assist", "hint": "Go, with ordinary care", "rank": 2, "pct": 85 }
+    {
+      "id": "never",
+      "label": "Never",
+      "hint": "The decide side",
+      "rank": 0,
+      "pct": 5
+    },
+    {
+      "id": "verify",
+      "label": "Assist + verification",
+      "hint": "Go, with Level 2+ riding along",
+      "rank": 1,
+      "pct": 45
+    },
+    {
+      "id": "assist",
+      "label": "Assist",
+      "hint": "Go, with ordinary care",
+      "rank": 2,
+      "pct": 85
+    }
   ],
   "tasks": [
     {
       "id": "t1",
       "text": "Turn a hiring manager's rambling role description into a structured job spec",
       "key": "assist",
-      "reasoning": "Transformation of human-supplied material about a role, not a person. The heuristic's home ground — ordinary M5 care, no special verification."
+      "reasoning": "Transformation of human-supplied material about a role, not a person. The heuristic's home ground: ordinary M5 care, no special verification."
     },
     {
       "id": "t2",
       "text": "Rank the 80 applicants for a role by fit score so recruiters can focus on the top 20",
       "key": "never",
-      "reasoning": "Scoring and filtering people — the 60 at the bottom are decided about by a system, reviewed by no one. 'Recruiters make the final call' fails the review test: they only ever see the survivors."
+      "reasoning": "Scoring and filtering people: the 60 at the bottom are decided about by a system, reviewed by no one. 'Recruiters make the final call' fails the review test: they only ever see the survivors."
     },
     {
       "id": "t3",
@@ -28,46 +46,48 @@
       "id": "t4",
       "text": "Summarize themes across 400 redacted exit-interview transcripts for the annual retention review",
       "key": "verify",
-      "reasoning": "Assist-side — a population characterized, no individual scored — but it shapes real decisions and summarization has M6 failure modes (the lossy middle, flattened intensity), so Level 2 rides along: spot-check themes against transcripts. And watch M4's small-population flag if any cut gets thin."
+      "reasoning": "Assist-side, a population characterized, no individual scored, but it shapes real decisions and summarization has M6 failure modes (the lossy middle, flattened intensity), so Level 2 rides along: spot-check themes against transcripts. And watch M4's small-population flag if any cut gets thin."
     },
     {
       "id": "t5",
       "text": "Paste an employee's support tickets and ask for a summary of their performance this quarter",
       "key": "never",
-      "reasoning": "AI originates a characterization of a named person's quality — the decide side even if a manager edits the result afterward. Direction of origination is the test: judgment must start with the human."
+      "reasoning": "AI originates a characterization of a named person's quality: the decide side even if a manager edits the result afterward. Direction of origination is the test: judgment must start with the human."
     },
     {
       "id": "t6",
       "text": "Help a manager turn their own written observations into a clear, structured performance review",
       "key": "verify",
-      "reasoning": "The manager supplies the judgment; AI formats it — assist-side. Verification rides along because it's a consequential document about a named person: the manager confirms every claim survived formatting intact, and nothing got added. That's M6's named-individual zone.",
-      "also": ["assist"]
+      "reasoning": "The manager supplies the judgment; AI formats it, assist-side. Verification rides along because it's a consequential document about a named person: the manager confirms every claim survived formatting intact, and nothing got added. That's M6's named-individual zone.",
+      "also": [
+        "assist"
+      ]
     },
     {
       "id": "t7",
       "text": "Draft the FAQ for an upcoming benefits change, from the plan documents",
       "key": "verify",
-      "reasoning": "Assist-side drafting from supplied material — but the output is consumed directly by employees who'll act on it (M6's fourth zone), and benefits claims are checkable specifics. Level 2: every factual claim traced to the plan docs before publishing."
+      "reasoning": "Assist-side drafting from supplied material, but the output is consumed directly by employees who'll act on it (M6's fourth zone), and benefits claims are checkable specifics. Level 2: every factual claim traced to the plan docs before publishing."
     },
     {
       "id": "t8",
       "text": "Generate a flight-risk score for each employee in the org, as a data point for retention conversations",
       "key": "never",
-      "reasoning": "A number attached to every named person, feeding decisions about them. 'Just a data point' is how scores enter meetings — and M6 told you what numbers do there: shed caveats and anchor. This is a decision engine whatever the dashboard calls it."
+      "reasoning": "A number attached to every named person, feeding decisions about them. 'Just a data point' is how scores enter meetings, and M6 told you what numbers do there: shed caveats and anchor. This is a decision engine whatever the dashboard calls it."
     },
     {
       "id": "t9",
       "text": "Check a promotion case the manager wrote for clarity, consistency, and gaps before the calibration meeting",
       "key": "assist",
-      "reasoning": "Editing support on a human-authored case: the judgment exists, on paper, from its accountable author. AI is improving the material humans decide from — which is the line's exact definition of assist."
+      "reasoning": "Editing support on a human-authored case: the judgment exists, on paper, from its accountable author. AI is improving the material humans decide from, which is the line's exact definition of assist."
     },
     {
       "id": "t10",
       "text": "Screen out résumés with employment gaps longer than a year before human review",
       "key": "never",
-      "reasoning": "Auto-filtering people on a rule — and a rule that's a textbook proxy: gaps correlate with caregiving, disability, and other protected ground (Lesson 1's tangle). The filtered are never seen; disparate impact needs no intent."
+      "reasoning": "Auto-filtering people on a rule, and a rule that's a textbook proxy: gaps correlate with caregiving, disability, and other protected ground (Lesson 1's tangle). The filtered are never seen; disparate impact needs no intent."
     }
   ],
   "pattern": "The traveling test decides every card: could this output change one identifiable person's outcome?",
-  "postscript": "The never cards share one property — a system originated a judgment or filter on a person — and the polite framing ('data point,' 'just a first pass,' 'recruiters still decide') is exactly how they arrive in real meetings. Cards placed above the key are the direction that costs people; below, the direction that costs only convenience — and note t6: some cards are legitimately arguable between assist and verify, which is why the verification column exists. The applied activity now runs this same sort on your function's real uses — including the ones nobody ever examined as decisions about people."
+  "postscript": "The never cards share one property, a system originated a judgment or filter on a person, and the polite framing ('data point,' 'just a first pass,' 'recruiters still decide') is exactly how they arrive in real meetings. Cards placed above the key are the direction that costs people; below, the direction that costs only convenience — and note t6: some cards are legitimately arguable between assist and verify, which is why the verification column exists. The applied activity now runs this same sort on your function's real uses, including the ones nobody ever examined as decisions about people."
 }

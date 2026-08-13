@@ -13,7 +13,7 @@
         "That the recommendation is logged before the decision is made"
       ],
       "correctIndex": 1,
-      "explanation": "A signature step is not a gate. The test is whether refusal actually happens, which is the same test Module 3 applies to the human gate in its eight questions."
+      "explanation": "A signature step isn't a gate. The test is whether refusal actually happens, which is the same test Module 3 applies to the human gate in its eight questions."
     },
     {
       "id": "q2",
@@ -25,7 +25,7 @@
         "How many people the decision affects"
       ],
       "correctIndex": 2,
-      "explanation": "High-stakes and difficult decisions attract supervision precisely because they are frightening. The danger concentrates where a fluent, wrong output gets filed without comment — Module 1's detection-latency argument arriving as an ethical criterion."
+      "explanation": "High-stakes and difficult decisions attract supervision precisely because they are frightening. The danger concentrates where a fluent, wrong output gets filed without comment. Module 1's detection-latency argument arriving as an ethical criterion."
     },
     {
       "id": "q3",
@@ -41,7 +41,7 @@
     },
     {
       "id": "q4",
-      "prompt": "What does \"these obligations cannot be contracted away\" mean for procurement? `[V]`",
+      "prompt": "What does \"these obligations can't be contracted away\" mean for procurement? `[V]`",
       "options": [
         "That vendor contracts cannot include indemnities for AI failures",
         "That an indemnity allocates who bears the cost of a failure but does not move the duty — so indemnity is not compliance",
@@ -49,7 +49,7 @@
         "That the provider and deployer share obligations equally"
       ],
       "correctIndex": 1,
-      "explanation": "You can negotiate who pays. You cannot negotiate away the requirement to have assigned competent human oversight."
+      "explanation": "You can negotiate who pays. You can't negotiate away the requirement to have assigned competent human oversight."
     },
     {
       "id": "q5",
@@ -85,7 +85,7 @@
         "Only in organizations above a headcount threshold"
       ],
       "correctIndex": 1,
-      "explanation": "Which makes consultation a dependency with a lead time on the project plan rather than a message sent at go-live. Note the boundary: a labour court held that merely permitting a browser-based AI tool did not trigger co-determination — the question is what the system does inside your estate."
+      "explanation": "Which makes consultation a dependency with a lead time on the project plan rather than a message sent at go-live. Note the boundary: a labour court held that merely permitting a browser-based AI tool didn't trigger co-determination: the question is what the system does inside your estate."
     },
     {
       "id": "q8",

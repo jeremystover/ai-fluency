@@ -24,8 +24,8 @@ notes."*
 **True or not true**, and the one sentence you would defend it with. Note that this one is genuinely
 contested among people who do this work for a living, and the module does not settle it.
 
-**And the number you will check:** **of the platforms your investigations use for interviews — video
-conferencing, telephony, room systems, anything a meeting can happen on — how many have transcription
+**And the number you will check:** **of the platforms your investigations use for interviews (video
+conferencing, telephony, room systems, anything a meeting can happen on) how many have transcription
 or an AI notetaker available, or switched on by default?**
 
 Count them, then go and look. Most people find at least one more than they expected, and the ones that
@@ -39,7 +39,7 @@ The last module was about what a model may do with the material. This one is abo
 comes into existence, and it contains a decision most ER functions have never consciously made.
 
 Somebody, at some point, decided how your investigation interviews get recorded. Increasingly the
-answer is that nobody decided — a transcription feature arrived in the platform you already used, and
+answer is that nobody decided, a transcription feature arrived in the platform you already used, and
 now some proportion of your interviews produce a verbatim, timestamped, discoverable artifact that
 did not exist two years ago. Nobody chose that, and it changes your exposure in four directions at
 once.
@@ -50,7 +50,7 @@ that it exists at all, that capturing it may itself be unlawful in some places, 
 may not be evenly distributed across the people you interview.
 
 **One thing deliberately deferred.** Whether your investigation material is privileged, and what
-putting it into an AI tool does to that, is the subject of Module 4 — there is now actual case law and
+putting it into an AI tool does to that, is the subject of Module 4. There is now actual case law and
 it deserves proper treatment rather than a caution here. If you are about to change your practice
 this week, read Module 4 first.
 
@@ -73,7 +73,7 @@ Start with the cost that does not appear on any feature comparison.
 
 Employment counsel writing on AI notetakers are consistent on this point: recording intake interviews,
 witness statements, and investigative meetings **may chill candour and discourage participation.**
-Witnesses who would speak freely to a person taking notes speak differently — or decline — when the
+Witnesses who would speak freely to a person taking notes speak differently (or decline) when the
 conversation is being captured verbatim.
 
 That matters more here than it would in most settings, and the reason is worth being precise about,
@@ -93,7 +93,7 @@ So the trade is real and it runs in both directions:
   party.**
 
 Neither is free, and this module's position is that the decision has to be **made and written down**,
-not inherited from a platform default. Which is a lower bar than it sounds — most functions have not
+not inherited from a platform default. Which is a lower bar than it sounds, most functions have not
 cleared it.
 
 Three things that reduce the candour cost without abandoning the record, all of them cheap:
@@ -131,7 +131,7 @@ None of that was previously producible, because none of it was previously record
 it is producible in full**, and the person reading it will be looking for exactly those passages.
 
 **And the same fact cuts the other way, which is why this is a genuine trade rather than a warning.**
-A verbatim record defeats *"that's not what I said"* — the most common attack on investigation notes
+A verbatim record defeats *"that's not what I said"*: the most common attack on investigation notes
 there is. It protects a complainant whose account was summarized unsympathetically. It protects an
 investigator accused of leading a witness, provided they did not. And it removes an entire category of
 dispute about what happened in the room.
@@ -146,7 +146,7 @@ Which yields the discipline, and it is the operational core of the module:
 > **A machine transcript is an aid to your notes, never a substitute for them.**
 
 Concretely: keep your contemporaneous notes, separately. Review the transcript against them before it
-is filed — specifically checking speaker attribution and anything rendered without a marked
+is filed, specifically checking speaker attribution and anything rendered without a marked
 inaudibility. **An unreviewed transcript does not go in the file.** And if you correct one, the
 correction is visible and dated rather than silent, because a silently edited transcript is worse than
 either the original or your notes.
@@ -162,8 +162,8 @@ either the original or your notes.
 Three more, and none of them is fixed by a better transcription engine.
 
 **Consent, which is state-specific and unforgiving.** Many jurisdictions require notice or consent
-before a conversation is recorded, and **all-party consent states — California, Florida and
-Pennsylvania among them — require every participant to agree.** The operative point for you: **"the
+before a conversation is recorded, and **all-party consent states (California, Florida and
+Pennsylvania among them) require every participant to agree.** The operative point for you: **"the
 bot joined the call" is not consent.** Nor is a line in an employee handbook nobody read. For a
 multi-state investigation, the controlling question is where the *participants* are, not where you
 are, and a single witness in an all-party state can change what is lawful for that interview.
@@ -187,7 +187,7 @@ problem:
 
 Their account is captured less accurately than their accuser's. The file that goes to the
 decision-maker misrepresents them more than it misrepresents the other party. And if the matter is
-ever challenged, the transcript is the evidence of that — produced by you, at your instruction.
+ever challenged, the transcript is the evidence of that: produced by you, at your instruction.
 
 Two practical moves. **Check quality by speaker, not in aggregate** — an overall accuracy figure will
 hide exactly the pattern that matters. And where a participant's transcript is visibly poorer, **the
@@ -204,7 +204,7 @@ One more, because the assumption in this area is usually wrong in a specific and
 
 **What Weingarten does.** Under *NLRB v. J. Weingarten* (1975), an employee subject to an
 **investigatory interview that could lead to discipline** who **requests** union representation is
-entitled to have a representative present. The request matters — the right is triggered by asking. The
+entitled to have a representative present. The request matters: the right is triggered by asking. The
 representative may advise and actively assist, though not to the point of obstructing the interview.
 An employer that proceeds while refusing a valid request, or retaliates against someone for making
 one, violates the Act.
@@ -215,7 +215,7 @@ is not Weingarten.
 
 That is a genuinely useful finding, because it tells you where the real constraints are:
 
-- **Consent law** — Lesson 3, and state-specific.
+- **Consent law**. Lesson 3, and state-specific.
 - **Candour and the effectiveness of the investigation** — Lesson 1, and a judgment rather than a rule.
 - **Any collective agreement you are party to**, which may address recording explicitly and which is
   the first place to look in a represented workplace. Module 7 covers why your management-rights
@@ -227,13 +227,13 @@ That is a genuinely useful finding, because it tells you where the real constrai
 What Weingarten *does* change about the room is worth noting even though it is not about recording. A
 represented employee's interview now has a third participant who is taking their own account away with
 them, which means **your record is no longer the only record.** That is a reason to be accurate rather
-than a reason to be nervous — and if you are transcribing, the representative's consent is among the
+than a reason to be nervous, and if you are transcribing, the representative's consent is among the
 consents you need.
 
 ## Key takeaways
 
 - **Recording may chill candour** `[V]`, and that matters because **the employer's own defence depends
-  on the investigation having been prompt and effective** — an investigation weakened by witnesses who
+  on the investigation having been prompt and effective**, an investigation weakened by witnesses who
   declined is not a neutral outcome.
 - **Neither choice is free.** Recording improves the record and may degrade the investigation;
   not recording protects candour and leaves a reconstruction written by an interested party. **The
@@ -245,11 +245,11 @@ consents you need.
   producible. Now producible in full.
 - **And it cuts the other way**: a verbatim record defeats *"that's not what I said"*, protects a
   complainant whose account was unsympathetically summarized, and removes a whole category of dispute.
-- **A machine transcript is an aid to your notes, never a substitute** — keep contemporaneous notes
+- **A machine transcript is an aid to your notes, never a substitute**, keep contemporaneous notes
   separately, review attribution and unmarked inaudibility before filing, **an unreviewed transcript
   does not go in the file**, and corrections are visible and dated rather than silent.
 - **Three exposures unrelated to accuracy** `[V]`: **consent** (all-party states, and "the bot joined
-  the call" is not consent — the controlling question is where the *participants* are); **biometrics**
+  the call" is not consent, the controlling question is where the *participants* are); **biometrics**
   (a February 2026 class action makes the transcription feature itself the exposure); and **the
   disparity theory** — a materially worse transcript for a non-native speaker is **a due-process
   problem and a discrimination problem at once.** Check quality **by speaker**, never in aggregate.
@@ -271,7 +271,7 @@ challenges to an investigation, and a verbatim transcript defeats both. It also 
 with the least power in the process: a complainant whose account was summarized by somebody who found
 it implausible, and a respondent whose explanation was compressed into a clause.
 
-And the chilling argument proves too much. **People give evidence on the record constantly** — in
+And the chilling argument proves too much. **People give evidence on the record constantly**, in
 depositions, at tribunals, in disciplinary hearings with a union representative present and a note
 being taken. The claim that HR investigations specifically require the *absence* of a durable record
 is a claim about HR's informality rather than about human psychology, and informality is the condition
@@ -279,7 +279,7 @@ under which bad investigations have always happened. Defending it deserves more 
 usually gets.
 
 On that reading, the honest position is that **a transcript is better evidence and you should disclose
-it and obtain consent** — which is a procedural obligation, not an argument against recording at all.
+it and obtain consent**, which is a procedural obligation, not an argument against recording at all.
 
 Your position has to say **whether candour or accuracy should win where they conflict** — and then the
 question that makes it hard: **who bears the cost of each choice?** Because it is not the same person.
@@ -297,32 +297,32 @@ learning lands.
 **No case facts.** This activity produces a process decision. Do not describe a real interview, a real
 witness, or a real matter.
 
-**Step 1 — The platform audit (8 min).** Every platform your investigations could use for an
+**Step 1. The platform audit (8 min).** Every platform your investigations could use for an
 interview: video conferencing, telephony, room systems, any collaboration tool a meeting can happen
 on. For each: **is transcription or an AI notetaker available, and is it on by default?** Can a
 participant see that it is running? Can the investigator turn it off in the moment? Note what you
 could not determine and who owns that answer.
 
-**Step 2 — The consent map (5 min).** Which jurisdictions do your investigations reach? Which of them
+**Step 2. The consent map (5 min).** Which jurisdictions do your investigations reach? Which of them
 require all-party consent as far as you currently know — **flagged for counsel rather than asserted.**
 And what your current practice actually is when a participant is in one of them.
 
 **Step 3 — The decision, written (12 min).** For your matter type from Module 1:
 
-- **What is captured**, at which stage, by what tool — and explicitly **what happens at first
+- **What is captured**, at which stage, by what tool, and explicitly **what happens at first
   contact.**
 - **The consent language** you would use, in the words you would actually say at the top of an
   interview. Write the sentence.
 - **Who reviews the machine output against contemporaneous notes before filing**, by name or role, and
-  what they check — attribution, unmarked inaudibility, and quality **by speaker.**
+  what they check: attribution, unmarked inaudibility, and quality **by speaker.**
 - **What is retained, and for how long.**
 - **And the one thing you have decided not to record, and why.** A defensible *we don't record* is a
   full-credit answer to this whole activity — the graded thing is the reasoning, not the direction.
 
-**Step 4 — The counsel list (3 min).** Two or three specific questions, naming the platform and the
+**Step 4. The counsel list (3 min).** Two or three specific questions, naming the platform and the
 jurisdictions. Not "are we allowed to record."
 
-**Step 5 — Score the prediction.** Your predicted count of transcription-capable platforms against
+**Step 5. Score the prediction.** Your predicted count of transcription-capable platforms against
 what you found, and how many were on by default.
 
 Then the write-up: your position on the claim above, including **who bears the cost** under your
@@ -358,7 +358,7 @@ change and who owns it.**
 
 - A. That transcripts can be inaccurate
 - B. That transcripts must be disclosed to the employee
-- C. That it creates a comprehensive timestamped record that would not otherwise have existed — every clumsy question, aside, and piece of preamble, now producible in full ✓
+- C. That it creates a comprehensive timestamped record that would not otherwise have existed: every clumsy question, aside, and piece of preamble, now producible in full ✓
 - D. That transcripts are harder to redact than notes
 
 > **C.** Your notes were always a selective reconstruction. A transcript is everything, including the
@@ -371,7 +371,7 @@ change and who owns it.**
 - C. Transcripts should only be used for interviews conducted remotely
 - D. Notes should be destroyed once a transcript exists
 
-> **B.** And corrections are visible and dated rather than silent — a silently edited transcript is
+> **B.** And corrections are visible and dated rather than silent, a silently edited transcript is
 > worse than either the original or your notes.
 
 **Q5.** In an all-party consent jurisdiction, what makes recording lawful? `[V]`
@@ -388,7 +388,7 @@ change and who owns it.**
 
 - A. The content of the transcript
 - B. Who was given access to the recording
-- C. The transcription feature itself capturing voice biometric data without proper consent — independent of what the transcript says or whether anyone used it ✓
+- C. The transcription feature itself capturing voice biometric data without proper consent, independent of what the transcript says or whether anyone used it ✓
 - D. The retention period applied to the recording
 
 > **C.** Which means a recording you never used, in a matter that went nowhere, is still within the
@@ -397,7 +397,7 @@ change and who owns it.**
 **Q7.** Why is unequal transcription accuracy a due-process problem as well as a discrimination one? `[V]`
 
 - A. Because inaccurate transcripts are inadmissible
-- B. Because a materially worse transcript for a non-native-speaking respondent means their account reaches the decision-maker less accurately than their accuser's — and the transcript is the evidence of that ✓
+- B. Because a materially worse transcript for a non-native-speaking respondent means their account reaches the decision-maker less accurately than their accuser's, and the transcript is the evidence of that ✓
 - C. Because it violates data-accuracy obligations
 - D. Because it requires disclosure to the affected participant
 
@@ -409,11 +409,11 @@ change and who owns it.**
 
 - A. It prohibits recording without the representative's consent
 - B. It requires the employee's written consent before recording
-- C. Nothing — the decision does not forbid an employer from recording an investigatory interview; the real constraints are consent law, candour, your collective agreement, and possibly the duty to bargain ✓
+- C. Nothing, the decision does not forbid an employer from recording an investigatory interview; the real constraints are consent law, candour, your collective agreement, and possibly the duty to bargain ✓
 - D. It permits recording only where discipline is not contemplated
 
 > **C.** A common and useful thing to get right. Weingarten governs the right to representation on
-> request in an investigatory interview that could lead to discipline — not the recording. And a
+> request in an investigatory interview that could lead to discipline, not the recording. And a
 > representative in the room means your record is no longer the only record.
 
 ## Sources and attribution
@@ -427,10 +427,10 @@ change and who owns it.**
   fabricate or misattribute statements and a hallucinated transcript becomes discoverable evidence; and
   that **systematically poorer transcription quality for speakers of particular ethnicities or
   linguistic backgrounds may support a bias allegation.** **[V]**
-- **Biometric privacy litigation** — a February 2026 class action alleging that a major collaboration
+- **Biometric privacy litigation**, a February 2026 class action alleging that a major collaboration
   platform's live transcription captured voice biometric data without proper consent under Illinois
   law. **Active litigation; posture will change. [V]**
-- ***NLRB v. J. Weingarten, Inc.*, 420 U.S. 251 (1975)** — the right to union representation, on
+- ***NLRB v. J. Weingarten, Inc.*, 420 U.S. 251 (1975)**, the right to union representation, on
   request, in an investigatory interview that could lead to discipline; the representative's entitlement
   to advise and assist without obstructing; and employer violations for proceeding despite a valid
   request or retaliating for one. **The decision does not forbid an employer from recording an

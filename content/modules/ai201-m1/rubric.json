@@ -3,7 +3,7 @@
   "moduleId": "ai201-m1",
   "minChars": 600,
   "submitLabel": "The five-part spec + your selection reasoning",
-  "intro": "Write the five-part spec — trigger, inputs, transformation, verification, output and owner — then defend the choice against the selection rules, including what you rejected and why. Resubmission is free and unlimited.",
+  "intro": "Write the five-part spec (trigger, inputs, transformation, verification, output and owner) then defend the choice against the selection rules, including what you rejected and why. Resubmission is free and unlimited.",
   "activityContext": "The learner is submitting Capstone Stage 1 of AI 201: a five-part workflow spec (trigger, inputs, transformation, verification, output/owner) for one workflow chosen from an audit of their own week, plus a paragraph defending the selection against the module's rules (high frequency, high structure, owned inputs, low-to-medium stakes).",
   "calibration": [
     {
@@ -30,7 +30,7 @@
     },
     {
       "name": "Selection reasoning",
-      "criteria": "The choice is defended against the selection rules, honestly scored for frequency, structure, ownership, and stakes — including what was rejected and why."
+      "criteria": "The choice is defended against the selection rules, honestly scored for frequency, structure, ownership, and stakes, including what was rejected and why."
     },
     {
       "name": "Verification exists",

@@ -13,7 +13,7 @@
         "It is a bug — sufficiently careful data cleaning removes the bias"
       ],
       "correctIndex": 1,
-      "explanation": "The records are what organizations *did*, not what merit *was* — who got hired, rated, promoted, with every pattern in those calls included. A system that predicts \"strong candidate\" from history reproduces the history. D is the contamination model this lesson exists to break: you can't clean intentions out of outcomes."
+      "explanation": "The records are what organizations *did*, not what merit *was*, who got hired, rated, promoted, with every pattern in those calls included. A system that predicts \"strong candidate\" from history reproduces the history. D is the contamination model this lesson exists to break: you can't clean intentions out of outcomes."
     },
     {
       "id": "q2",
@@ -25,7 +25,7 @@
         "Removing fields reduces accuracy, which is itself a form of bias"
       ],
       "correctIndex": 2,
-      "explanation": "Protected characteristics survive field-removal the way identity survives name-deletion in M4 — through combinations. The tangle doesn't live in labeled columns; it lives in the correlated everything-else, which is why field-removal is the first false reassurance of Lesson 1."
+      "explanation": "Protected characteristics survive field-removal the way identity survives name-deletion in M4, through combinations. The tangle doesn't live in labeled columns; it lives in the correlated everything-else, which is why field-removal is the first false reassurance of Lesson 1."
     },
     {
       "id": "q3",
@@ -37,7 +37,7 @@
         "An empirical claim requiring demonstration for the specific system on a relevant population — because a model standardizes one bias pattern at scale rather than transcending it"
       ],
       "correctIndex": 3,
-      "explanation": "The premise is even true — human review is biased; that's what the training data proves. But the model doesn't rise above the pattern, it runs one instance of it on every candidate identically, fluently, at scale. So the claim is checkable, sometimes even true — and never a property the technology gets for free. Ask for the validation evidence, in writing."
+      "explanation": "The premise is even true, human review is biased; that's what the training data proves. But the model doesn't rise above the pattern, it runs one instance of it on every candidate identically, fluently, at scale. So the claim is checkable, sometimes even true, and never a property the technology gets for free. Ask for the validation evidence, in writing."
     },
     {
       "id": "q4",
@@ -49,7 +49,7 @@
         "The second is safer, because tickets are objective data"
       ],
       "correctIndex": 1,
-      "explanation": "The direction of origination is the whole test: judgment from the human, formatting from the machine is assist; judgment from the machine, formatting from the human is decide — even though a person typed the final version in both. D is the seductive one: \"objective\" inputs don't make the characterization of a person any less a characterization."
+      "explanation": "The direction of origination is the whole test: judgment from the human, formatting from the machine is assist; judgment from the machine, formatting from the human is decide, even though a person typed the final version in both. D is the seductive one: \"objective\" inputs don't make the characterization of a person any less a characterization."
     },
     {
       "id": "q5",
@@ -73,7 +73,7 @@
         "Using the summary in any meeting where decisions are made"
       ],
       "correctIndex": 1,
-      "explanation": "The traveling test. Aggregates characterize populations, and that's assist-side work with M4 and M6 riding along — until the aggregate thins into de-facto individual assessment. C ignores M4's small-population flag; D would outlaw using analysis for anything, which isn't the line — informing decisions about *policies* is what analysis is for."
+      "explanation": "The traveling test. Aggregates characterize populations, and that's assist-side work with M4 and M6 riding along, until the aggregate thins into de-facto individual assessment. C ignores M4's small-population flag; D would outlaw using analysis for anything, which isn't the line, informing decisions about *policies* is what analysis is for."
     },
     {
       "id": "q7",
@@ -85,7 +85,7 @@
         "Because all vendor tools are in fact biased"
       ],
       "correctIndex": 1,
-      "explanation": "No malice is required — a neutral-seeming practice that disproportionately excludes needs job-related justification, whoever built it. Accountability doesn't outsource: buying a biased system is doing a biased thing. Hence the module's homework — validation evidence in writing, and a specific list for counsel rather than \"are we compliant?\""
+      "explanation": "No malice is required: a neutral-seeming practice that disproportionately excludes needs job-related justification, whoever built it. Accountability doesn't outsource: buying a biased system is doing a biased thing. Hence the module's homework: validation evidence in writing, and a specific list for counsel rather than \"are we compliant?\""
     },
     {
       "id": "q8",
@@ -97,7 +97,7 @@
         "Whichever version the vendor's legal team is comfortable signing"
       ],
       "correctIndex": 2,
-      "explanation": "The four properties: specific (checkable against any new tool in seconds), attached to its assist-side trade (adoptable, not just prohibitive), reasoned, and owned by a name. A re-litigates per vendor; B routes around by Q3 because it blocks the assist side too — the blanket version is the *weaker* version, which is this module's least intuitive lesson."
+      "explanation": "The four properties: specific (checkable against any new tool in seconds), attached to its assist-side trade (adoptable, not just prohibitive), reasoned, and owned by a name. A re-litigates per vendor; B routes around by Q3 because it blocks the assist side too: the blanket version is the *weaker* version, which is this module's least intuitive lesson."
     }
   ]
 }

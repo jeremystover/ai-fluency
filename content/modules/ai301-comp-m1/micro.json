@@ -1,11 +1,29 @@
 [
-  { "id": "ai301-comp-m1-micro-core", "moduleId": "ai301-comp-m1-micro", "ordinal": 10, "kind": "prose", "layer": "stable", "reviewedAt": "2026-08-12",
-    "body": "## Module 1 in two minutes\n\n**This is a 300-level course, which means it refuses to do the 100-level job** — no explanation of what a language model is, no prompting primer, no tool tour. The refusal is the point.\n\n**Five work types, and every task in total rewards is one of them.** *Data assembly* (getting numbers in one place — high volume, no judgment, and **verifiable against something that isn't the model**, which nothing else here is). *Analysis* (data into a finding — assisted, with the hazard that a confident formatted wrong answer arrives at the same speed as a right one). *Judgment* (deciding — not delegable, 101 M7's line at full force). *Explanation* (making someone else understand). *Governance* (showing your work — AI can draft the record, it cannot **be** the record).\n\n**The finding most practitioners get wrong about their own week: explanation is the largest type and the most transformed.** It hides inside \"answering a question\" — the manager email, the enrollment FAQ, the leadership deck, the equity conversation — while analysis is what the job *feels* like it's about, because analysis is what required the training."
+  {
+    "id": "ai301-comp-m1-micro-core",
+    "moduleId": "ai301-comp-m1-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module 1 in two minutes\n\n**This is a 300-level course, which means it refuses to do the 100-level job**: no explanation of what a language model is, no prompting primer, no tool tour. The refusal is the point.\n\n**Five work types, and every task in total rewards is one of them.** *Data assembly* (getting numbers in one place, high volume, no judgment, and **verifiable against something that isn't the model**, which nothing else here is). *Analysis* (data into a finding — assisted, with the hazard that a confident formatted wrong answer arrives at the same speed as a right one). *Judgment* (deciding, not delegable, 101 M7's line at full force). *Explanation* (making someone else understand). *Governance* (showing your work: AI can draft the record, it cannot **be** the record).\n\n**The finding most practitioners get wrong about their own week: explanation is the largest type and the most transformed.** It hides inside \"answering a question\" (the manager email, the enrollment FAQ, the leadership deck, the equity conversation) while analysis is what the job *feels* like it's about, because analysis is what required the training."
   },
-  { "id": "ai301-comp-m1-micro-rule", "moduleId": "ai301-comp-m1-micro", "ordinal": 20, "kind": "callout", "layer": "stable", "reviewedAt": "2026-08-12",
-    "body": "### The rule to carry\n\n**Map your week, then look at products.** Vendors sell by product category, which maps to their engineering rather than your hours — so ask which work type a product touches and whether that's where your week actually is. A tool that speeds up analysis when your bottleneck is explanation buys you nothing, and it's the commonest mismatch in the function."
+  {
+    "id": "ai301-comp-m1-micro-rule",
+    "moduleId": "ai301-comp-m1-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### The rule to carry\n\n**Map your week, then look at products.** Vendors sell by product category, which maps to their engineering rather than your hours, so ask which work type a product touches and whether that's where your week actually is. A tool that speeds up analysis when your bottleneck is explanation buys you nothing, and it's the commonest mismatch in the function."
   },
-  { "id": "ai301-comp-m1-micro-close", "moduleId": "ai301-comp-m1-micro", "ordinal": 30, "kind": "prose", "layer": "stable", "reviewedAt": "2026-08-12",
-    "body": "**The full module adds** the function reconstructed honestly across both halves — comp and benefits are different jobs wearing one title — why unusually structured work with unusually asymmetric consequences makes over-confidence the failure mode rather than under-adoption, the twelve-card work-type sort, and the week-mapping activity run as a buying instrument against the tools you already have."
+  {
+    "id": "ai301-comp-m1-micro-close",
+    "moduleId": "ai301-comp-m1-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "**The full module adds** the function reconstructed honestly across both halves (comp and benefits are different jobs wearing one title) why unusually structured work with unusually asymmetric consequences makes over-confidence the failure mode rather than under-adoption, the twelve-card work-type sort, and the week-mapping activity run as a buying instrument against the tools you already have."
   }
 ]

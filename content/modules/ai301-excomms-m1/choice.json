@@ -1,7 +1,7 @@
 {
   "reviewedAt": "2026-08-12",
   "title": "Four initiatives, one that spends what it hasn't budgeted",
-  "intro": "*Five minutes. Commit before you look.*\n\nFour AI initiatives an internal communications team could plausibly propose this quarter. All four are real product categories, all four would get funded in most organizations, and none of them is stupid.\n\n**One of them increases the attention bill without anyone deciding that it should.** Find it.\n\nThe question is not which sounds most useful. It is: *after this ships, who decides whether the next message is worth sending?*",
+  "intro": "*Five minutes. Commit before you look.*\n\nFour AI initiatives an internal communications team could plausibly propose this quarter. All four are real product categories, all four would get funded in most organizations, and none of them is stupid.\n\n**One of them increases the attention bill without anyone deciding that it should.** Find it.\n\nThe question isn't which sounds most useful. It is: *after this ships, who decides whether the next message is worth sending?*",
   "artifacts": [
     {
       "label": "Initiative A · the consolidated digest",
@@ -9,7 +9,7 @@
     },
     {
       "label": "Initiative B · the milestone bot",
-      "body": "Connect an agent to the project tracker. Whenever a project crosses a milestone, it drafts and posts a short announcement to the relevant Slack channel and the company feed — no ticket, no queue, no waiting on comms. \"Everyone stays informed automatically, and it costs the team nothing.\""
+      "body": "Connect an agent to the project tracker. Whenever a project crosses a milestone, it drafts and posts a short announcement to the relevant Slack channel and the company feed: no ticket, no queue, no waiting on comms. \"Everyone stays informed automatically, and it costs the team nothing.\""
     },
     {
       "label": "Initiative C · the homepage that knows you",
@@ -21,11 +21,23 @@
     }
   ],
   "options": [
-    { "id": "a", "label": "A — the consolidated digest" },
-    { "id": "b", "label": "B — the milestone bot" },
-    { "id": "c", "label": "C — the homepage that knows you" },
-    { "id": "d", "label": "D — the pre-send reviewer" }
+    {
+      "id": "a",
+      "label": "A — the consolidated digest"
+    },
+    {
+      "id": "b",
+      "label": "B — the milestone bot"
+    },
+    {
+      "id": "c",
+      "label": "C — the homepage that knows you"
+    },
+    {
+      "id": "d",
+      "label": "D — the pre-send reviewer"
+    }
   ],
   "key": "b",
-  "reasoning": "**B is the one, and the tell is who holds the decision afterwards.**\n\nIn A, C, and D a human still decides that a given message is worth an audience's time. In B, that decision is transferred to an external system's activity level. Volume becomes a function of how many projects your organization is running and how finely their milestones are configured — not of anyone's judgment about whether the workforce needs to know. Nobody chose to send the four hundredth milestone post. It arrived because a project manager ticked a box in a tracker.\n\nThat is Lesson 1's mechanism running in reverse. Writing time used to force somebody to decide the message was worth ninety minutes. B removes the last remaining rationing step and replaces it with a trigger. **An initiative that makes sending free and automatic doesn't reduce the cost of communication; it removes the last person who was deciding.**\n\nNote also what B does to belief. Each post is individually defensible and collectively corrosive — the channel fills with announcements nobody asked for, and the message that actually matters next month arrives into a feed people have learned to scroll past. You spend attention *and* credit, and the invoice for both lands somewhere you'll never see it.\n\n**A is the strongest of the four**, and it is worth noticing why: it is a *kill list with a schedule attached*. Eleven sends become one, and the scarcity is re-imposed deliberately — sponsors now have to compete for space. That is Module 3's whole argument, arriving early.\n\n**C is targeting**, which is the high-maturity use the benchmark says three-quarters of the profession hasn't reached `[V]`. It reduces the attention bill without reducing what anyone can find. The failure mode to watch is filtering someone out of something they needed, which is a real risk and a solvable one — but it does not increase volume.\n\n**D is a quality gate.** It improves what gets sent and is silent on how much. Useful, and not an answer to this module's problem — a clearer message you didn't need to send still costs the same minutes."
+  "reasoning": "**B is the one, and the tell is who holds the decision afterwards.**\n\nIn A, C, and D a human still decides that a given message is worth an audience's time. In B, that decision is transferred to an external system's activity level. Volume becomes a function of how many projects your organization is running and how finely their milestones are configured, not of anyone's judgment about whether the workforce needs to know. Nobody chose to send the four hundredth milestone post. It arrived because a project manager ticked a box in a tracker.\n\nThat is Lesson 1's mechanism running in reverse. Writing time used to force somebody to decide the message was worth ninety minutes. B removes the last remaining rationing step and replaces it with a trigger. **An initiative that makes sending free and automatic does not reduce the cost of communication; it removes the last person who was deciding.**\n\nNote also what B does to belief. Each post is individually defensible and collectively corrosive, the channel fills with announcements nobody asked for, and the message that actually matters next month arrives into a feed people have learned to scroll past. You spend attention *and* credit, and the invoice for both lands somewhere you'll never see it.\n\n**A is the strongest of the four**, and it is worth noticing why: it is a *kill list with a schedule attached*. Eleven sends become one, and the scarcity is re-imposed deliberately — sponsors now have to compete for space. That is Module 3's whole argument, arriving early.\n\n**C is targeting**, which is the high-maturity use the benchmark says three-quarters of the profession hasn't reached `[V]`. It reduces the attention bill without reducing what anyone can find. The failure mode to watch is filtering someone out of something they needed, which is a real risk and a solvable one, but it doesn't increase volume.\n\n**D is a quality gate.** It improves what gets sent and is silent on how much. Useful, and not an answer to this module's problem: a clearer message you didn't need to send still costs the same minutes."
 }

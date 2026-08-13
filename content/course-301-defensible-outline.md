@@ -36,7 +36,7 @@ proxy detection, privilege sequencing, and vendor audit literacy. Three specific
    title.
 3. **It's less forward-looking, not more.** The durable thing in this market is the technical
    capability, not the softer title. M5's whole argument is that the capability is what makes you
-   load-bearing.
+   structural.
 
 **Why not "DEI" either.** The content is narrower than DEI, and there's a product problem: under
 EO 14173 a federal contractor certifying it operates no "illegal DEI programs" may decline to
@@ -175,7 +175,7 @@ spine of any track on the ladder, and it comes from the source brief unchanged.
 
 *~75 min · the methodological core · the module nothing else on the market has · counsel review required*
 
-- **Lesson 1:** The two statutes that make this module load-bearing rather than prudent `[V]`.
+- **Lesson 1:** The two statutes that make this module structural rather than prudent `[V]`.
   **California (1 Oct 2025): bias testing, or its absence, is explicitly relevant to a
   discrimination claim.** **Connecticut (1 Oct 2026): using the tool is not a defense — but evidence
   of anti-bias testing may be considered in your defense, and the statute enumerates what will be
@@ -238,7 +238,7 @@ spine of any track on the ladder, and it comes from the source brief unchanged.
 - **Claim:** *"A certification is a vendor telling you they have a process. You asked whether the
   tool is fair."*
 
-## M5 · Make yourself load-bearing
+## M5 · Make yourself hard to route around
 
 *~45 min · the course lands*
 

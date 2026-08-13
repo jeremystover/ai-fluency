@@ -37,7 +37,7 @@
         "Because content errors are easier to fix than model errors"
       ],
       "correctIndex": 1,
-      "explanation": "A confident, well-structured, completely wrong answer costs exactly the same to generate as a right one. What the assistant changed is not the correctness of your content but the reachability of it."
+      "explanation": "A confident, well-structured, completely wrong answer costs exactly the same to generate as a right one. What the assistant changed isn't the correctness of your content but the reachability of it."
     },
     {
       "id": "q4",
@@ -49,7 +49,7 @@
         "Version control on the underlying documents"
       ],
       "correctIndex": 1,
-      "explanation": "Nothing about the content debt changed. The blast radius did — which is why content debt converts from annoyance to liability on the day the assistant goes live."
+      "explanation": "Nothing about the content debt changed. The blast radius did, which is why content debt converts from annoyance to liability on the day the assistant goes live."
     },
     {
       "id": "q5",
@@ -85,7 +85,7 @@
         "Manager notification, HR notification, and an audit record"
       ],
       "correctIndex": 1,
-      "explanation": "A refusal that dead-ends into \"please contact HR\" leaves the employee worse off than if the bot hadn't existed — they made the effort once and were rebuffed. And on disclosures, every additional helpful sentence is another reason to feel the matter is dealt with."
+      "explanation": "A refusal that dead-ends into \"please contact HR\" leaves the employee worse off than if the bot hadn't existed. They made the effort once and were rebuffed. And on disclosures, every additional helpful sentence is another reason to feel the matter is dealt with."
     },
     {
       "id": "q8",
@@ -97,7 +97,7 @@
         "As evidence that these systems are too risky to deploy"
       ],
       "correctIndex": 1,
-      "explanation": "It tells you what the product is optimized for. The alternative is a make-good decided before launch — a named remedy chosen in the calm, which is the difference between a system with accountability and a system with a disclaimer."
+      "explanation": "It tells you what the product is optimized for. The alternative is a make-good decided before launch, a named remedy chosen in the calm, which is the difference between a system with accountability and a system with a disclaimer."
     }
   ]
 }

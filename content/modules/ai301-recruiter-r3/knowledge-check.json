@@ -25,7 +25,7 @@
         "Whether it can be assessed in under fifteen minutes"
       ],
       "correctIndex": 2,
-      "explanation": "\"Strong communicator\" fails; \"can explain a technical trade-off to a non-technical stakeholder such that they can restate it\" passes. A is the trap — managers approve adjectives readily, because adjectives are agreeable."
+      "explanation": "\"Strong communicator\" fails; \"can explain a technical trade-off to a non-technical stakeholder such that they can restate it\" passes. A is the trap: managers approve adjectives readily, because adjectives are agreeable."
     },
     {
       "id": "q3",
@@ -73,7 +73,7 @@
         "It transfers responsibility for the scorecard to the manager"
       ],
       "correctIndex": 1,
-      "explanation": "The framing determines the response, exactly as it does when prompting a model — asking for approval invites approval. A submission where twelve things came back is stronger than one where nothing did."
+      "explanation": "The framing determines the response, exactly as it does when prompting a model, asking for approval invites approval. A submission where twelve things came back is stronger than one where nothing did."
     }
   ]
 }

@@ -29,7 +29,7 @@
     },
     {
       "id": "q3",
-      "prompt": "Why does the module say the model is not the variable for this use case?",
+      "prompt": "Why does the module say the model isn't the variable for this use case?",
       "options": [
         "Because all current models perform equivalently on HR questions",
         "Because a capable model reading a superseded document produces a fluent, confident, wrong answer, while a weaker model reading a current one produces a correct answer — the document set determines whether the answer is true",
@@ -49,7 +49,7 @@
         "An acceptable risk if the error rate is low"
       ],
       "correctIndex": 1,
-      "explanation": "The model did not get it wrong; the corpus did, and the model repeated it faithfully. C is the specific misdiagnosis to avoid — nothing was fabricated."
+      "explanation": "The model didn't get it wrong; the corpus did, and the model repeated it faithfully. C is the specific misdiagnosis to avoid, nothing was fabricated."
     },
     {
       "id": "q5",
@@ -61,7 +61,7 @@
         "Quarterly review of the full document set"
       ],
       "correctIndex": 1,
-      "explanation": "Because it converts an invisible failure into a refusal — a capability that says \"I can't answer that, here's who can\" is enormously better than one that answers from a 2021 wiki page. A is the highest-yield *hour*; B is the best standing control."
+      "explanation": "Because it converts an invisible failure into a refusal, a capability that says \"I can't answer that, here's who can\" is enormously better than one that answers from a 2021 wiki page. A is the highest-yield *hour*; B is the best standing control."
     },
     {
       "id": "q6",
@@ -97,7 +97,7 @@
         "Because deflection targets should be capped"
       ],
       "correctIndex": 1,
-      "explanation": "And Module 2's IBM case is the evidence: removing the human route drove satisfaction from +19 to −35. C is not what Article 50 requires — that is about disclosure, not alternatives."
+      "explanation": "And Module 2's IBM case is the evidence: removing the human route drove satisfaction from +19 to −35. C isn't what Article 50 requires. That is about disclosure, not alternatives."
     }
   ]
 }

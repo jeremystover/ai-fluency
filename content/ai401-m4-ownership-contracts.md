@@ -37,8 +37,8 @@ are being routed around. The obvious reading is that AI made people ambitious, o
 the org design needs a refresh.
 
 **The actual mechanism is more interesting and it changes what you do about it.** The turf was
-always undefined. What changed is that the people who were absorbing the undefinedness — clarifying
-requirements, chasing the data, translating between two systems, quietly deciding — got busy doing
+always undefined. What changed is that the people who were absorbing the undefinedness (clarifying
+requirements, chasing the data, translating between two systems, quietly deciding) got busy doing
 other things, or stopped being needed, or left and weren't replaced.
 
 > **AI did not create your turf problem. It removed the people who were papering over it.**
@@ -52,7 +52,7 @@ By the end of this module you should be able to:
 
 1. State what has actually happened to role boundaries, with evidence and its sample.
 2. Explain why large teams hide bad interfaces and what that predicts as teams get leaner.
-3. Decide where you want redundancy and where you want a single owner — rather than letting the
+3. Decide where you want redundancy and where you want a single owner, rather than letting the
    fastest mover settle it.
 4. Write an ownership contract at the workflow rather than the reporting line.
 5. Judge when to send a boundary claim and when the right answer is *not yet*.
@@ -70,7 +70,7 @@ year.** Nearly everyone. Whatever this is, it isn't happening to a subset.
 **They are twice as likely to use AI to handle specialized tasks without looping in the
 specialist.**
 
-**And non-AI users are seven times more likely to say their role has not changed at all** — which
+**And non-AI users are seven times more likely to say their role has not changed at all**, which
 makes AI adoption the single strongest signal in the data for whether someone's job is moving.
 
 Carry the sample honestly: 1,000 US knowledge workers, self-reported, one point in time, and
@@ -82,13 +82,13 @@ causation, only the pattern.
 **Read the second and third findings together, because separately they are interesting and together
 they are the whole module.** People are taking on other teams' work *and* handling specialist work
 without the specialist. Those are the same behavior seen from two sides: **a boundary that used to
-require a conversation now does not.** Not because anyone renegotiated it — because the cost of
+require a conversation now does not.** Not because anyone renegotiated it, because the cost of
 crossing it fell to roughly zero.
 
 > ### Try this — 3 minutes
 > Think of the last piece of work you did that would have required someone else's involvement two
 > years ago and did not this time. Now answer honestly: **did the person who used to be involved
-> find out?** If not, ask yourself what they would have contributed — and whether the answer is
+> find out?** If not, ask yourself what they would have contributed, and whether the answer is
 > "nothing, it was a formality" or "the thing I did not know I needed."
 
 ## Lesson 2 · Large teams hide bad interfaces
@@ -108,7 +108,7 @@ assumed the other one was doing it. That absorption is invisible, unrewarded, an
 the badly-defined interface work.
 
 **So a large team is not just a team with more capacity. It is a team with more slack for
-absorbing bad design** — and the bad design is therefore never surfaced, never fixed, and never
+absorbing bad design**, and the bad design is therefore never surfaced, never fixed, and never
 even known about.
 
 Two things then happen at once, and they compound.
@@ -118,7 +118,7 @@ premise: the people with slack have less of it.
 
 **And the cost of crossing the boundary collapses.** Someone who would have had to ask the
 specialist can now produce a passable version themselves in twenty minutes. Sometimes that's
-excellent — the specialist was a bottleneck for work that didn't need them. Sometimes it's a
+excellent: the specialist was a bottleneck for work that didn't need them. Sometimes it's a
 disaster with a six-month delay on it. **From the outside, on the day it happens, the two look
 identical**, and that's precisely the problem this module exists to address.
 
@@ -154,7 +154,7 @@ who got there first is not a design. It is an outcome.**
 
 ## Lesson 4 · Writing the contract
 
-The artifact. It is short — a good one fits on a page — and it's written **at the workflow, not at
+The artifact. It is short (a good one fits on a page) and it's written **at the workflow, not at
 the reporting line**, which is the single thing that distinguishes it from a RACI nobody reads.
 
 A workflow-level ownership contract names five things.
@@ -164,7 +164,7 @@ actual sequence: *a hiring manager requests a level exception → someone assess
 architecture → someone decides → someone communicates it.*
 
 **2 · The seam.** The specific point where the work passes between you. Not "we collaborate
-throughout" — the moment, and what's in hand when it passes.
+throughout": the moment, and what's in hand when it passes.
 
 **3 · Who owns each side, by name**, and where you've deliberately chosen redundancy, saying so
 explicitly, so it reads as a decision rather than an omission.
@@ -182,8 +182,8 @@ will have a conversation, write that.
 **Then the part most people skip: send it, or decide not to.**
 
 A boundary claim to a peer is a political act. It says *I think this is mine, or ours, and I am
-putting it in writing.* Sending it at the wrong moment — mid-crisis, during their reorganization,
-a week after you took something else from them — can cost you more than the ambiguity was costing.
+putting it in writing.* Sending it at the wrong moment (mid-crisis, during their reorganization,
+a week after you took something else from them) can cost you more than the ambiguity was costing.
 
 > **"Not yet, and here's what has to be true first" is frequently the right answer, and this
 > course grades it identically to sending.**
@@ -201,7 +201,7 @@ awkward is the thing this module exists to prevent.
   specialist tasks without the specialist; non-users are 7x more likely to report no change.
   n=1,000 US knowledge workers, self-reported, May–June 2026.
 - **Those two findings are one behavior from two sides:** a boundary that used to require a
-  conversation now doesn't — not because anyone renegotiated, but because crossing it became free.
+  conversation now doesn't, not because anyone renegotiated, but because crossing it became free.
 - **Large teams hide bad interfaces.** Slack gets spent absorbing ambiguity nobody designed away,
   so the bad design is never surfaced. Lean teams surface it immediately.
 - **From the outside, on the day it happens, routing around a specialist correctly and routing
@@ -228,7 +228,7 @@ mourn the absorbers.
 
 The version that cuts hardest at the module: **if absorption was the problem all along, then this
 module's careful ownership contracts are just a slower way of doing what the fast movers are
-already doing** — and the organizations that let boundaries get settled by speed may end up
+already doing**, and the organizations that let boundaries get settled by speed may end up
 better-designed than the ones that convened working groups about it.
 
 Your position has to say who was doing the absorbing in your organization, whether you would want
@@ -240,7 +240,7 @@ it back, and what that implies about the pace of the work you're about to do.
 **Graded against the rubric below.** Score doesn't matter. Doing the work is where the learning
 lands.
 
-**Step 1 — Go and ask (8 min).** Your calibration answer was how many of six people would name the
+**Step 1. Go and ask (8 min).** Your calibration answer was how many of six people would name the
 same owner for your handoff. **Ask them.** Three on your side, three on theirs, one question:
 *"Who owns X?"* Record the answers as given, including the ones that are questions back at you.
 
@@ -250,15 +250,15 @@ question does not parse, that's the finding** and it earns full credit.
 **Step 2 — Write the contract (14 min).** One page, five parts, at the workflow:
 
 1. The workflow from trigger to output, in one line.
-2. The seam — the moment work passes, and what's in hand when it does.
+2. The seam: the moment work passes, and what's in hand when it does.
 3. Who owns each side, by name, with any deliberate redundancy stated as a choice.
 4. What each side may decide alone — **including what may be produced with AI without telling the
    other side.**
 5. What happens when it's contested, with a name.
 
-**Step 3 — The send decision (4 min).** Address it to the peer on the other side of the seam. Then
-decide: **send, or not yet.** Either is a full-credit answer. If not yet, name the condition — the
-specific thing that has to be true before you send — and the date you'll check it. Then predict
+**Step 3. The send decision (4 min).** Address it to the peer on the other side of the seam. Then
+decide: **send, or not yet.** Either is a full-credit answer. If not yet, name the condition (the
+specific thing that has to be true before you send) and the date you'll check it. Then predict
 their response in one or two sentences: **which of the five parts do they push back on first?**
 
 **Step 4 — The covering note (4 min).** 200–300 words. Your calibration number against what the six
@@ -283,11 +283,11 @@ absorbing.
 **Q2.** In the Atlassian data, why are the two findings about heavy AI users read together rather than separately?
 
 - A. Because both figures come from the same subgroup and share sampling error
-- B. Because they are the same behavior seen from two sides — a boundary that used to require a conversation now doesn't ✓
+- B. Because they are the same behavior seen from two sides: a boundary that used to require a conversation now doesn't ✓
 - C. Because taking on other teams' work is a precondition for handling specialist tasks
 - D. Because separately neither reaches statistical significance
 
-> **B.** Not because anyone renegotiated the boundary — because the cost of crossing it fell to
+> **B.** Not because anyone renegotiated the boundary, because the cost of crossing it fell to
 > roughly zero.
 
 **Q3.** What does "large teams hide bad interfaces" mean?
@@ -304,7 +304,7 @@ absorbing.
 
 - A. It is nearly always a mistake and should be prevented by policy
 - B. It is a reasonable efficiency when the specialist agrees in advance
-- C. Sometimes it's excellent and sometimes it's a disaster with a six-month delay — and on the day it happens the two look identical ✓
+- C. Sometimes it's excellent and sometimes it's a disaster with a six-month delay, and on the day it happens the two look identical ✓
 - D. It is acceptable for drafts but not for finished work
 
 > **C.** That indistinguishability on the day is exactly why the boundary needs deciding in advance
@@ -324,7 +324,7 @@ absorbing.
 
 - A. It is shorter and easier to maintain
 - B. It is agreed bilaterally rather than imposed by management
-- C. It is written at the workflow — trigger to output, with the seam named — rather than at the reporting line ✓
+- C. It is written at the workflow (trigger to output, with the seam named) rather than at the reporting line ✓
 - D. It includes escalation paths, which RACI matrices omit
 
 > **C.** Org charts and RACI describe reporting and consultation. The contract describes the actual
@@ -348,7 +348,7 @@ absorbing.
 - D. It isn't graded; only the contract itself is assessed
 
 > **B.** Timing is most of the skill in a boundary claim. What is not graded identically is never
-> writing one — holding a contract for a stated reason is a position; avoiding the awkwardness is
+> writing one, holding a contract for a stated reason is a position; avoiding the awkwardness is
 > not.
 
 ## Sources and attribution

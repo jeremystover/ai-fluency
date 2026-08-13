@@ -13,14 +13,14 @@ assumes your build exists and has run.
 
 ## Calibration prompt — before you start
 
-*One prediction, thirty seconds. Scored at the end of the course — and revisited every time
+*One prediction, thirty seconds. Scored at the end of the course, and revisited every time
 something breaks.*
 
 Your workflow has parts now: a pack, a runbook, a verification budget, maybe an autonomy
 profile, a boundary sheet.
 
-**Which part decays first?** Name the specific element — not "the pack" but "the org brief in
-the pack" — and the month you'd expect it to go quietly wrong if nobody looked.
+**Which part decays first?** Name the specific element (not "the pack" but "the org brief in
+the pack") and the month you'd expect it to go quietly wrong if nobody looked.
 
 ---
 
@@ -30,14 +30,14 @@ Here is how workflows actually die. Not dramatically — no incident, no meeting
 source format shifts slightly in October and the extract step starts dropping a column nobody
 graphs. The org brief still says the old structure. The weekly sample quietly stops happening
 during the November crunch, and by January the sign-off is a reflex. In March someone asks
-whether the workflow is still worth it, and nobody has a number — just a feeling that it used
+whether the workflow is still worth it, and nobody has a number, just a feeling that it used
 to be better.
 
 Nothing failed. Everything *decayed*. And every piece of that story was predicted by a module
 you've already taken: M2 told you context rots, M4 told you verification collapses under load
 when it's priced wrong, M5 told you audit trails need reviewing on a cadence. What none of them
 gave you is the thing that makes all of it actually happen in a calendar that's already full:
-**a rhythm** — the small, scheduled, boring recurrence that keeps built things alive.
+**a rhythm**: the small, scheduled, boring recurrence that keeps built things alive.
 
 This module is deliberately the least glamorous in the course, and it's the one that separates
 practitioners whose workflows survive the year from people who once built something clever. It
@@ -54,13 +54,13 @@ hours per month. You're about to find out, with numbers, which direction you wer
 
 By the end of this module you should be able to:
 
-1. Fit the maintenance of your workflows into a real week — in minutes, on a calendar, not in
+1. Fit the maintenance of your workflows into a real week: in minutes, on a calendar, not in
    intentions.
 2. Choose three honest numbers per workflow, record a baseline, and know theater metrics on
    sight.
 3. Run the review that catches decay while it's cheap: samples, stamps, approval logs, and the
    one question per pack item.
-4. Retire a workflow deliberately — with the criteria written down before sentiment argues.
+4. Retire a workflow deliberately, with the criteria written down before sentiment argues.
 5. Score a months-old prediction against measured reality, and name your systematic direction.
 
 ---
@@ -76,29 +76,29 @@ your build saves five hours a month, its rhythm gets fifteen to twenty minutes o
 The moment maintenance creeps past that fraction, you don't have an efficiency; you have a
 hobby. (Retirement, Lesson 3, is where hobbies go.)
 
-**Per run — seconds, embedded.** The checkpoint glances (M3), the person-test where it applies
+**Per run, seconds, embedded.** The checkpoint glances (M3), the person-test where it applies
 (M6), the sign-off's reading list (M4). These aren't calendar items; they're built into the
 run's shape, which is why the modules made them cheap. If a per-run check needs willpower,
-it's priced wrong — that's M4's repricing signal, again.
+it's priced wrong. That's M4's repricing signal, again.
 
 **Weekly — ten minutes, scheduled.** One recurring block: run the M4 sample for the week,
-glance at the approval log if you're on rung 2 (how often did you decline? — that's ladder
+glance at the approval log if you're on rung 2 (how often did you decline?. That's ladder
 evidence accumulating), and note anything that felt off mid-run. The block is sacred in one
 specific way: it may shrink, it may move, it may never silently vanish. A skipped week gets
 skipped *out loud*, in the log: "skipped, crunch." Two consecutive skips is information.
 
-**Monthly — twenty minutes, scheduled.** The M2 pack review (each volatile item: still true?),
+**Monthly, twenty minutes, scheduled.** The M2 pack review (each volatile item: still true?),
 the metrics check against baseline (Lesson 2), a drift-diff against the gold standard, and one
 honest question: is this still earning its keep? Monthly is also when the boundary sheet's
 re-verify dates get glanced at — not re-researched, glanced.
 
 That's the whole system: seconds per run, ten a week, twenty a month, per workflow. Written
 down, it looks almost insultingly small. That's the design. Rhythms fail by being ambitious;
-this one is sized to survive the week you're firefighting — because the week you're
+this one is sized to survive the week you're firefighting, because the week you're
 firefighting is exactly when the source format shifts.
 
 > ### Try this — 2 minutes
-> Open your calendar. Create the two recurring blocks — ten weekly, twenty monthly — named
+> Open your calendar. Create the two recurring blocks (ten weekly, twenty monthly) named
 > after your workflow, before finishing this module. Not as a commitment ritual: because
 > Lesson 2 needs the monthly block to exist, and because every module so far has taught the
 > same lesson about intentions versus structure.
@@ -112,7 +112,7 @@ keep, and to be believed when you say so. Both die if the numbers are theater.
 
 **Four numbers per workflow. Not seven. Four.**
 
-1. **Time: minutes per run, measured occasionally.** Not self-reported "hours saved weekly" —
+1. **Time: minutes per run, measured occasionally.** Not self-reported "hours saved weekly":
    time an actual run once a month, shuttling included (your M5 measurement was the first of
    these). Multiply by run count for the monthly figure. Compare to the baseline you're about
    to set — the *before* number, which is the M1-audit cost of doing it by hand.
@@ -120,7 +120,7 @@ keep, and to be believed when you say so. Both die if the numbers are theater.
    meters them, the workflow's share of seat licenses where it doesn't, plus the rhythm's
    maintenance minutes priced at a loaded rate. 101 M3 gave you the token economics; this is
    where they get used. A per-run estimate refreshed quarterly is enough precision. Most
-   workflow costs turn out to be small — the point of the number is being able to *say* so:
+   workflow costs turn out to be small, the point of the number is being able to *say* so:
    a CFO who hears "saves six hours a month" asks what it costs within one sentence, and
    "about eleven dollars and forty minutes of maintenance" is the answer that ends the
    conversation. A savings claim without a cost line doesn't survive its first finance review.
@@ -129,7 +129,7 @@ keep, and to be believed when you say so. Both die if the numbers are theater.
    drift from 2% to 6% over three months is decay announcing itself politely.
 4. **Use: did the output actually get used?** The debrief opened by the hiring manager, the
    FAQ linked in the channel, the narrative that survived into the exec deck. Roughest of the
-   four, gathered lazily ("did anyone use this?" once a month is fine) — and the most honest,
+   four, gathered lazily ("did anyone use this?" once a month is fine), and the most honest,
    because a workflow whose outputs nobody uses has an error rate of irrelevant.
 
 **Before/after or it didn't happen.** The baseline is recorded once, in the capstone, from
@@ -139,7 +139,7 @@ AI-enthusiasm anecdote your exec team has heard this year — and when a budget 
 eventually asks what the team's AI practice is worth, you will be the only person in the room
 with a before, an after, and the after's price.
 
-**Theater, so you can spot it** — including in your own reporting: metrics that measure
+**Theater, so you can spot it**, including in your own reporting: metrics that measure
 activity instead of outcome (runs completed, prompts written, "AI touches"), metrics that
 can't go down (cumulative anything), self-reported satisfaction with no denominator, and any
 number gathered more expensively than the decision it informs. The test for every candidate
@@ -157,9 +157,9 @@ A practitioner proposes seven metrics for their debrief workflow. Keep four.
 4. Errors per weekly five-debrief sample, classified
 5. Number of prompts in the prompt library
 6. Share of debriefs opened by the hiring manager within 48 hours
-7. Monthly run cost — token or seat share plus maintenance minutes, estimated quarterly
+7. Monthly run cost: token or seat share plus maintenance minutes, estimated quarterly
 
-*(Key at the end. One of the seven is defensible in either pile — the reasoning is the point.)*
+*(Key at the end. One of the seven is defensible in either pile, the reasoning is the point.)*
 
 ---
 
@@ -168,21 +168,21 @@ A practitioner proposes seven metrics for their debrief workflow. Keep four.
 **The review, first.** The monthly twenty minutes has a script: walk the volatile pack items
 (one question each: *still true?*), read the month's sample tallies for direction, diff one
 output against the gold standard, check the four numbers against baseline. Fifteen minutes of
-looking, five of acting — a stamp updated, a step prompt tightened, a sample size nudged. Small
+looking, five of acting: a stamp updated, a step prompt tightened, a sample size nudged. Small
 corrections, cheap because they're early. The review's job isn't celebration; it's catching
 the October column-drop in November instead of March.
 
 **Then, the skill nobody practices: killing your own workflow.** Retirement criteria get
 written *now*, while you're fond of the thing, because the person who'll evaluate them in a
-year owns sunk costs and a sunk identity — you built this. Three triggers, any one sufficient
+year owns sunk costs and a sunk identity. You built this. Three triggers, any one sufficient
 to force the question:
 
 - **The economics inverted:** maintenance plus verification now costs a meaningful fraction of
   what the workflow saves, and the trend is wrong.
 - **The use number went quiet:** outputs ship and nothing downstream moves. It has an audience
   of one, and the one is you.
-- **The world moved:** the source system changed, the task changed shape, or — the good
-  ending — the org tooled the problem away properly and your workflow is now a workaround
+- **The world moved:** the source system changed, the task changed shape, or (the good
+  ending) the org tooled the problem away properly and your workflow is now a workaround
   with a rhythm.
 
 Retirement is cheap where the course put you: the spec, pack, and runbook archive to a
@@ -190,14 +190,14 @@ folder; the calendar blocks delete; a one-line note says what it was, what it sa
 the numbers), and why it ended. That note is practitioner history — the M8 portfolio's
 quietest, most credible page. What retirement is *not* is failure: a workflow that saved five
 hours a month for fourteen months and then stopped being needed is a complete success story
-with an ending. The failure mode is the other thing — the zombie workflow, maintained out of
+with an ending. The failure mode is the other thing: the zombie workflow, maintained out of
 identity, consuming its rhythm slots while its use number sits at zero.
 
-**And close the loop the course opened.** The M1 prediction — hours per month this task cost
-you — now has a measured answer. So does M2's pack-size guess, M3's lossiest-step call, M4's
+**And close the loop the course opened.** The M1 prediction (hours per month this task cost
+you) now has a measured answer. So does M2's pack-size guess, M3's lossiest-step call, M4's
 error-rate estimate, M5's shuttling split, M6's census counts. You've been predicting and
 scoring for seven modules. The capstone asks the direction question one level up, because
-*that* — not any single estimate — is what calibration training is for: when you're wrong
+*that* (not any single estimate) is what calibration training is for: when you're wrong
 about your own work, which way are you wrong?
 
 ---
@@ -209,7 +209,7 @@ about your own work, which way are you wrong?
 1. **The four numbers, chosen and baselined.** Your workflow's time, cost, quality, and use
    metrics: current values, the by-hand *before* from your M1 audit, and one sentence per
    metric answering "what would I do differently if this moved?" The cost line may be a
-   per-run estimate — lazy is fine, absent is not.
+   per-run estimate: lazy is fine, absent is not.
 2. **The rhythm, installed.** The per-run checks (named, embedded where), and screenshots or
    equivalents of the weekly and monthly blocks on your actual calendar — with their scripts,
    in your words, short enough to run tired.
@@ -218,11 +218,11 @@ about your own work, which way are you wrong?
    evaluated by a future you with sunk costs.
 4. **The reckoning.** Score the M1 prediction: predicted hours/month vs. measured. Then the
    direction paragraph: across all seven predictions so far, which way do you systematically
-   miss on your own work — and what will you *do* with that? ("I under-estimate costs and
+   miss on your own work, and what will you *do* with that? ("I under-estimate costs and
    over-estimate my own verification appetite, so my next build gets a smaller budget and a
    boring-er first workflow" is the shape. Yours will be yours.)
 5. **This module's prediction,** logged: the element you named as first-to-decay, and the
-   month. The monthly review will score it — the rhythm grading its own forecast.
+   month. The monthly review will score it: the rhythm grading its own forecast.
 
 ### Rubric — 20 points
 
@@ -242,9 +242,9 @@ about your own work, which way are you wrong?
 - **Seconds per run, ten a week, twenty a month.** Maintenance sized to a fraction of savings;
   oversize the rhythm and it stops surviving bad weeks.
 - **Four numbers: time against a baseline, cost to run, the sample's error direction, and real
-  downstream use.** Before/after or it didn't happen — and the after carries its price.
+  downstream use.** Before/after or it didn't happen, and the after carries its price.
 - **Every metric must answer "what would I do differently if this moved?"** No answer, no
-  metric — that one test deletes most theater on contact.
+  metric. That one test deletes most theater on contact.
 - **Write retirement criteria while you're still fond of the thing.** A retired workflow with
   measured savings is a success story with an ending; a zombie workflow is the actual failure.
 - **The reckoning is the point:** seven predictions in, you know which way you miss on your
@@ -254,19 +254,19 @@ about your own work, which way are you wrong?
 
 ## Exercise key — Signal or theater?
 
-**Keep: 2, 4, 6, 7.** The course's four numbers exactly — time against baseline (2), quality
+**Keep: 2, 4, 6, 7.** The course's four numbers exactly, time against baseline (2), quality
 direction from the existing sample (4), real downstream use (6, and the best of the board: it
-measures the *hiring manager's* behavior, not yours), and cost (7) — estimated lazily, but
+measures the *hiring manager's* behavior, not yours), and cost (7): estimated lazily, but
 present, because a value claim without a cost line doesn't survive its first CFO.
 
 **Cut: 1 and 5, without ceremony.** Cumulative counts can't go down — they measure elapsed
 time, nothing else. Library size measures accumulation, not value; by M2's own hygiene rules a
 *shrinking* library is often the healthier sign.
 
-**The arguable one: 3.** Sentiment isn't worthless — a team that hates a workflow is
+**The arguable one: 3.** Sentiment isn't worthless: a team that hates a workflow is
 information. But as proposed it fails the test twice: no denominator, no would-do-differently
 answer ("feels significant" moving from agree to strongly-agree changes nothing). If you kept
-it, the defensible version is a *repurposed* one — one question, asked at the monthly review,
+it, the defensible version is a *repurposed* one. One question, asked at the monthly review,
 treated as a smoke detector for the use metric rather than as a number. If you kept it as a
 KPI, that's the theater reflex the lesson is after.
 
@@ -282,12 +282,12 @@ KPI, that's the theater reflex the lesson is after.
 - C. The model provider deprecates a feature
 - D. They rarely die; maintained workflows are stable
 
-> **B.** No single failure, just unattended drift — every mode of which an earlier module
+> **B.** No single failure, just unattended drift, every mode of which an earlier module
 > predicted. The rhythm exists because decay is the default, not the exception.
 
 **Q2.** The sizing rule for a workflow's maintenance rhythm:
 - A. As thorough as the workflow is important
-- B. A small fraction of what the workflow saves — past that, it's a hobby ✓
+- B. A small fraction of what the workflow saves: past that, it's a hobby ✓
 - C. One hour per week, standardized across workflows
 - D. Whatever the owner can sustain
 
@@ -297,7 +297,7 @@ KPI, that's the theater reflex the lesson is after.
 
 **Q3.** A skipped weekly review should be:
 - A. Made up with a double review next week
-- B. Logged out loud — "skipped, crunch" — because two consecutive skips is information ✓
+- B. Logged out loud ("skipped, crunch") because two consecutive skips is information ✓
 - C. Avoided by automating the review
 - D. Ignored; the monthly review covers it
 
@@ -306,7 +306,7 @@ KPI, that's the theater reflex the lesson is after.
 
 **Q4.** Why is "share of debriefs opened by the hiring manager" the strongest of the kept metrics?
 - A. It's the easiest to collect
-- B. It measures downstream behavior — whether the work product actually matters to its audience ✓
+- B. It measures downstream behavior, whether the work product actually matters to its audience ✓
 - C. It can be tracked automatically
 - D. It correlates with time saved
 
@@ -319,12 +319,12 @@ KPI, that's the theater reflex the lesson is after.
 - C. Does this number always increase?
 - D. Would an executive find this number impressive?
 
-> **B.** No decision downstream, no metric. (C is a good tell — always-up numbers restate
+> **B.** No decision downstream, no metric. (C is a good tell, always-up numbers restate
 > elapsed time — but B is the test that also catches subtle theater.)
 
 **Q6.** Retirement criteria are written at baseline time because:
 - A. Baselines are required for retirement calculations
-- B. The future evaluator owns sunk costs and a builder's identity — the criteria must predate the fondness that will argue with them ✓
+- B. The future evaluator owns sunk costs and a builder's identity: the criteria must predate the fondness that will argue with them ✓
 - C. Criteria written later would be less accurate
 - D. The rhythm has no other place to put them
 
@@ -333,7 +333,7 @@ KPI, that's the theater reflex the lesson is after.
 
 **Q7.** A workflow saved five hours a month for a year; then the org's new HRIS made it unnecessary, and it was archived with its numbers. This is:
 - A. A failure to future-proof the design
-- B. A complete success story with an ending — the failure mode is the zombie, not the retirement ✓
+- B. A complete success story with an ending: the failure mode is the zombie, not the retirement ✓
 - C. Evidence the workflow was never necessary
 - D. A reason to rebuild it against the new system
 
@@ -346,7 +346,7 @@ KPI, that's the theater reflex the lesson is after.
 - C. Producing a success number for the M8 portfolio
 - D. Proving the workflow was worth building
 
-> **B.** As everywhere in both courses: accuracy isn't the graded thing — direction is.
+> **B.** As everywhere in both courses: accuracy isn't the graded thing, direction is.
 > Seven predictions produce a pattern; the practitioner's edge is knowing their own lean and
 > pricing the next build against it.
 
@@ -364,7 +364,7 @@ and the theater section in particular is standing on it:
 
 1. **Goodhart's law, via Strathern, M. — "'Improving Ratings': Audit in the British University
    System," *European Review* 5(3) (1997).** "When a measure becomes a target, it ceases to be
-   a good measure" — the one-line ancestry of the entire theater section.
+   a good measure": the one-line ancestry of the entire theater section.
 2. **Choi, J., Hecht, G. & Tayler, W. — "Lost in Translation: The Effects of Incentive
    Compensation on Strategy Surrogation," *The Accounting Review* (2012).** Surrogation:
    managing the metric instead of the thing it stands for — the failure the
@@ -373,12 +373,12 @@ and the theater section in particular is standing on it:
    for outcome-over-activity metrics and small honest metric sets; the nearest published
    relative of the four-number rule.
 4. **Muller, J. Z. — *The Tyranny of Metrics* (2018).** The costs of measurement theater,
-   surveyed across fields — useful ammunition when someone asks for the fifth, sixth, and
+   surveyed across fields: useful ammunition when someone asks for the fifth, sixth, and
    seventh number.
 5. **Tetlock, P. & Gardner, D. — *Superforecasting* (2015); Lichtenstein, S., Fischhoff, B. &
    Phillips, L. — "Calibration of Probabilities" in *Judgment Under Uncertainty* (1982).** The
    scored-prediction thread that runs through both courses: calibration improves with rapid,
-   repeatedly scored feedback — which is what the module-by-module predictions and this
+   repeatedly scored feedback, which is what the module-by-module predictions and this
    module's reckoning are for.
 
 Stable layer throughout.

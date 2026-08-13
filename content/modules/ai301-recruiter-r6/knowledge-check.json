@@ -49,7 +49,7 @@
         "The rule can't be applied without knowing the roles involved"
       ],
       "correctIndex": 1,
-      "explanation": "Rates are 30% and 18%; 18 ÷ 30 = 0.60. C gets the arithmetic wrong *and* overstates what the rule establishes — it is a trigger for scrutiny, not a finding of discrimination."
+      "explanation": "Rates are 30% and 18%; 18 ÷ 30 = 0.60. C gets the arithmetic wrong *and* overstates what the rule establishes. It is a trigger for scrutiny, not a finding of discrimination."
     },
     {
       "id": "q5",
@@ -61,7 +61,7 @@
         "Computing it before an independent audit is complete"
       ],
       "correctIndex": 2,
-      "explanation": "A tool can clear four-fifths comfortably and still select on something indefensible. A is backwards — per-stage computation is what the module *recommends*, because a funnel can look balanced at the end while one early stage does all the excluding."
+      "explanation": "A tool can clear four-fifths comfortably and still select on something indefensible. A is backwards, per-stage computation is what the module *recommends*, because a funnel can look balanced at the end while one early stage does all the excluding."
     },
     {
       "id": "q6",

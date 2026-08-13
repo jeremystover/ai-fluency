@@ -13,7 +13,7 @@
         "Rebuilt the platform based on user feedback before relaunching"
       ],
       "correctIndex": 1,
-      "explanation": "Removing the alternative is the decision the case turns on, and it is the one most organizations will not take. A and D are the moves that feel responsible and leave the old channel intact, which is why uptake does not change."
+      "explanation": "Removing the alternative is the decision the case turns on, and it is the one most organizations won't take. A and D are the moves that feel responsible and leave the old channel intact, which is why uptake doesn't change."
     },
     {
       "id": "q2",
@@ -37,7 +37,7 @@
         "That its depth is proportional to the size of the population affected"
       ],
       "correctIndex": 2,
-      "explanation": "The important word is *genuinely*. It is not a perception problem to be communicated away — people really cannot find things, and edge cases really do fall through, until habit forms."
+      "explanation": "The important word is *genuinely*. It isn't a perception problem to be communicated away: people really can't find things, and edge cases really do fall through, until habit forms."
     },
     {
       "id": "q4",
@@ -49,7 +49,7 @@
         "The size of the operating budget being targeted"
       ],
       "correctIndex": 1,
-      "explanation": "Almost every failure happens at the same place — month four, numbers at their worst, complaints escalated, somebody senior proposing a pause."
+      "explanation": "Almost every failure happens at the same place: month four, numbers at their worst, complaints escalated, somebody senior proposing a pause."
     },
     {
       "id": "q5",
@@ -85,7 +85,7 @@
         "Because entry-level roles were cheaper than the automation licences"
       ],
       "correctIndex": 1,
-      "explanation": "It is the least-quoted part of the case and the one that reframes it: the question is not what you can cut but what the cut funds."
+      "explanation": "It is the least-quoted part of the case and the one that reframes it: the question isn't what you can cut but what the cut funds."
     },
     {
       "id": "q8",
@@ -97,7 +97,7 @@
         "As evidence the cut was too large for the function to absorb"
       ],
       "correctIndex": 1,
-      "explanation": "Banking a saving is a real decision and sometimes the right one. What it is not is a proposal that requires a CPO — which is a conclusion the learner should reach deliberately rather than back into."
+      "explanation": "Banking a saving is a real decision and sometimes the right one. What it isn't is a proposal that requires a CPO, which is a conclusion the learner should reach deliberately rather than back into."
     }
   ]
 }

@@ -4,7 +4,7 @@
     {
       "id": "never",
       "label": "Never",
-      "hint": "Outside the line — no record makes it acceptable",
+      "hint": "Outside the line, no record makes it acceptable",
       "rank": 0,
       "pct": 25
     },
@@ -18,7 +18,7 @@
     {
       "id": "run",
       "label": "Run it",
-      "hint": "Ordinary speed work — Module 3's craft applies, nothing more",
+      "hint": "Ordinary speed work. Module 3's craft applies, nothing more",
       "rank": 2,
       "pct": 35
     }
@@ -28,61 +28,61 @@
       "id": "t1",
       "text": "Drafting the open enrollment communication that explains this year's plan changes to employees",
       "key": "run",
-      "reasoning": "Pure speed work. You made the plan decisions; the model helps you explain them. If challenged, you show the result — nobody asks how the sentence was constructed. This is the easiest yes in the function and the highest-volume one."
+      "reasoning": "Pure speed work. You made the plan decisions; the model helps you explain them. If challenged, you show the result, nobody asks how the sentence was constructed. This is the easiest yes in the function and the highest-volume one."
     },
     {
       "id": "t2",
       "text": "Generating individual pay adjustment amounts for the merit cycle from a model fitted on your historical pay data",
       "key": "never",
-      "reasoning": "Zone 4, the circular one, and the clearest never in the module. The model learns what you have paid — including the disparities the audit exists to find — and reproduces them as recommendations, fluently and across the whole population at once. **A model may describe your pay patterns. It may not recommend your pay decisions.** No amount of documentation fixes this, because the record would document the wrong thing correctly."
+      "reasoning": "Zone 4, the circular one, and the clearest never in the module. The model learns what you have paid (including the disparities the audit exists to find) and reproduces them as recommendations, fluently and across the whole population at once. **A model may describe your pay patterns. It may not recommend your pay decisions.** No amount of documentation fixes this, because the record would document the wrong thing correctly."
     },
     {
       "id": "t3",
       "text": "Running a pay equity regression on individual-level data, at the written direction of outside counsel, in your enterprise deployment",
       "key": "record",
-      "reasoning": "This is the posture the module teaches, and the record is what makes it work. Counsel's direction in writing, enterprise terms rather than consumer, and a documented process. Note honestly that **no court has yet ruled on this exact fact pattern** — Heppner turned on consumer terms plus the absence of counsel's direction, and this is the case nobody has decided. It has the best current argument, which is not the same as a settled answer."
+      "reasoning": "This is the posture the module teaches, and the record is what makes it work. Counsel's direction in writing, enterprise terms rather than consumer, and a documented process. Note honestly that **no court has yet ruled on this exact fact pattern**. Heppner turned on consumer terms plus the absence of counsel's direction, and this is the case nobody has decided. It has the best current argument, which is not the same as a settled answer."
     },
     {
       "id": "t4",
       "text": "Reconciling the survey submission file against your job catalogue and flagging unmatched jobs",
       "key": "run",
-      "reasoning": "Data assembly with a verifiable output — the match rate is a number you can check against something that isn't the model. Module 3's audit file and reconciliation spec apply, and that's the whole obligation. This is the safest genuine transformation available to the function."
+      "reasoning": "Data assembly with a verifiable output, the match rate is a number you can check against something that isn't the model. Module 3's audit file and reconciliation spec apply, and that's the whole obligation. This is the safest genuine transformation available to the function."
     },
     {
       "id": "t5",
       "text": "Making the final determination on a health plan claim appeal",
       "key": "never",
-      "reasoning": "An adverse benefit determination under ERISA. The practitioner consensus is narrow and consistent: AI in decision support, **final authority with a human**, and human involvement in any adverse determination. Delegating claim denials to an opaque model is the paradigm case of what the fiduciary duty forbids — and a well-documented automated denial is still an automated denial."
+      "reasoning": "An adverse benefit determination under ERISA. The practitioner consensus is narrow and consistent: AI in decision support, **final authority with a human**, and human involvement in any adverse determination. Delegating claim denials to an opaque model is the paradigm case of what the fiduciary duty forbids, and a well-documented automated denial is still an automated denial."
     },
     {
       "id": "t6",
       "text": "Summarizing three benefits vendors' proposals into a comparison table for your own review",
       "key": "run",
-      "reasoning": "Speed work on material you'll verify yourself before it goes anywhere. The decision that follows is yours and is made on the underlying documents. Check the summary against the sources — that's Module 3, not Module 4."
+      "reasoning": "Speed work on material you'll verify yourself before it goes anywhere. The decision that follows is yours and is made on the underlying documents. Check the summary against the sources. That's Module 3, not Module 4."
     },
     {
       "id": "t7",
       "text": "Generating the salary range for a job posting in a state with pay transparency requirements",
       "key": "record",
-      "reasoning": "The trap card, and most people run it. The legal standard is a **good-faith estimate of what you actually expect to pay** — a substantive standard, not a formatting one. A model produces a *plausible* range from market data, and plausible is a different thing. The record is a human confirming the range reflects real intent, and for a remote posting, that it satisfies the strictest state whose law could apply."
+      "reasoning": "The trap card, and most people run it. The legal standard is a **good-faith estimate of what you actually expect to pay**: a substantive standard, not a formatting one. A model produces a *plausible* range from market data, and plausible is a different thing. The record is a human confirming the range reflects real intent, and for a remote posting, that it satisfies the strictest state whose law could apply."
     },
     {
       "id": "t8",
       "text": "Drafting the memo that explains a completed pay equity finding to the leadership team",
       "key": "record",
-      "reasoning": "The distinction Lesson 1 asks you to make inside a single piece of work. Drafting the explanation is a speed problem even though the finding underneath is accountability work. The record here is the privilege question: if the analysis was conducted under counsel, the memo about it may carry the same protection — and drafting it outside that perimeter can be how the protection gets lost."
+      "reasoning": "The distinction Lesson 1 asks you to make inside a single piece of work. Drafting the explanation is a speed problem even though the finding underneath is accountability work. The record here is the privilege question: if the analysis was conducted under counsel, the memo about it may carry the same protection, and drafting it outside that perimeter can be how the protection gets lost."
     },
     {
       "id": "t9",
       "text": "Building the analysis that determines an executive compensation figure disclosed in the proxy",
       "key": "record",
-      "reasoning": "Zone 3. AI in the workflow is fine; what's required is that the number be **reconstructible by a human who can testify to it** — Module 3's rule with a securities law consequence attached. Note also that executive comp defeats every anonymization control: there are five of them and their pay is public, so the perimeter question is the only question."
+      "reasoning": "Zone 3. AI in the workflow is fine; what's required is that the number be **reconstructible by a human who can testify to it**. Module 3's rule with a securities law consequence attached. Note also that executive comp defeats every anonymization control: there are five of them and their pay is public, so the perimeter question is the only question."
     },
     {
       "id": "t10",
       "text": "Pasting the individual-level pay file into a personal consumer AI account to get a quick distribution check before a meeting",
       "key": "never",
-      "reasoning": "Two failures at once, and it's the one that actually happens — at 4pm, under time pressure, with good intentions. Tier 4 data leaves the perimeter, and consumer terms are precisely what defeated the expectation of confidentiality in *Heppner*. The quick check is real and the answer is Module 3's kit, not the personal account."
+      "reasoning": "Two failures at once, and it's the one that actually happens: at 4pm, under time pressure, with good intentions. Tier 4 data leaves the perimeter, and consumer terms are precisely what defeated the expectation of confidentiality in *Heppner*. The quick check is real and the answer is Module 3's kit, not the personal account."
     }
   ]
 }

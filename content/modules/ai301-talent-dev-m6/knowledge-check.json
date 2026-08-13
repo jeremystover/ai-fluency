@@ -25,7 +25,7 @@
         "It satisfies the requirement for a business case to show a return"
       ],
       "correctIndex": 1,
-      "explanation": "A cost saving is a complete proposal on its own and it does not require you. Moving effort from bucket one to bucket two is a claim about what the function is for."
+      "explanation": "A cost saving is a complete proposal on its own and it doesn't require you. Moving effort from bucket one to bucket two is a claim about what the function is for."
     },
     {
       "id": "q3",
@@ -37,7 +37,7 @@
         "Publication outside a peer-reviewed venue"
       ],
       "correctIndex": 2,
-      "explanation": "The track has now shown this shape four times: the learning pyramid, 70-20-10, Module 2's own environmental prior, and these vendor ROI claims. A is a distractor — large effects can be real and measured."
+      "explanation": "The track has now shown this shape four times: the learning pyramid, 70-20-10, Module 2's own environmental prior, and these vendor ROI claims. A is a distractor, large effects can be real and measured."
     },
     {
       "id": "q4",
@@ -49,7 +49,7 @@
         "The vendor claims are supported by the independent evidence at a similar magnitude"
       ],
       "correctIndex": 2,
-      "explanation": "The evidence is genuinely positive, which matters — this is not a debunking. The gap is what you get when one number has a comparison group and the other has selected happy customers."
+      "explanation": "The evidence is genuinely positive, which matters. This isn't a debunking. The gap is what you get when one number has a comparison group and the other has selected happy customers."
     },
     {
       "id": "q5",
@@ -68,7 +68,7 @@
       "prompt": "How does the module characterize the evaluation research it cites? `[V]`",
       "options": [
         "As robust and current, justifying strong conclusions about the field",
-        "As supporting a direction rather than a decimal — most measure reaction, few measure behaviour, fewer results — with the load-bearing figures roughly a decade old and inconsistent between sources",
+        "As supporting a direction rather than a decimal — most measure reaction, few measure behaviour, fewer results — with the figures the argument rests on roughly a decade old and inconsistent between sources",
         "As too weak to support any conclusion about evaluation practice",
         "As applicable only to organizations above a certain size"
       ],
@@ -77,7 +77,7 @@
     },
     {
       "id": "q7",
-      "prompt": "What does a pre-committed threshold buy that a post-hoc evaluation does not?",
+      "prompt": "What does a pre-committed threshold buy that a post-hoc evaluation doesn't?",
       "options": [
         "Regulatory defensibility for the program",
         "It makes the evaluation capable of returning a negative, changes the CFO conversation into a bet with a stated losing condition, and fixes the standard while everyone is still optimistic",
@@ -97,7 +97,7 @@
         "Because learners disengage from content that has not been recently updated"
       ],
       "correctIndex": 2,
-      "explanation": "Module 3's stale specificity is that liability coming due. An expiry date is not a review date: it is the point at which a component is presumed stale unless someone confirms otherwise."
+      "explanation": "Module 3's stale specificity is that liability coming due. An expiry date isn't a review date: it is the point at which a component is presumed stale unless someone confirms otherwise."
     }
   ]
 }

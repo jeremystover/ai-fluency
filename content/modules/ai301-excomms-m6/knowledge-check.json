@@ -13,7 +13,7 @@
         "AI-assisted writing is rated higher by senior staff than junior staff"
       ],
       "correctIndex": 1,
-      "explanation": "Sincerity fell to 40–52% at high assistance against 83% at low, while professionalism fell only from 95% to 69–73%. Professionalism is what you optimize when reviewing a draft; sincerity is what the reader is actually scoring — and every quality check in the function points at the curve that didn't move."
+      "explanation": "Sincerity fell to 40–52% at high assistance against 83% at low, while professionalism fell only from 95% to 69–73%. Professionalism is what you optimize when reviewing a draft; sincerity is what the reader is actually scoring, and every quality check in the function points at the curve that didn't move."
     },
     {
       "id": "q2",
@@ -37,7 +37,7 @@
         "That disclosure eliminates the perception difference"
       ],
       "correctIndex": 1,
-      "explanation": "From the inside, heavy assistance feels like light assistance — you know what you meant and the message is accurate. That sense that nothing is wrong is genuine and it is not evidence. It's also why the answer can't be \"use judgment\": judgment is the instrument the finding says is unreliable here."
+      "explanation": "From the inside, heavy assistance feels like light assistance. You know what you meant and the message is accurate. That sense that nothing is wrong is genuine and it isn't evidence. It is also why the answer can't be \"use judgment\": judgment is the instrument the finding says is unreliable here."
     },
     {
       "id": "q4",
@@ -61,7 +61,7 @@
         "Atomizing requires the leader's approval at each stage"
       ],
       "correctIndex": 1,
-      "explanation": "Twenty minutes of unscripted conversation produces a transcript, summary, pull quotes, FAQ, clips, kits and translations — enormous AI leverage with zero invented positions, because the position already exists in the source. It also gives Module 5 the source document by construction."
+      "explanation": "Twenty minutes of unscripted conversation produces a transcript, summary, pull quotes, FAQ, clips, kits and translations: enormous AI leverage with zero invented positions, because the position already exists in the source. It also gives Module 5 the source document by construction."
     },
     {
       "id": "q6",
@@ -73,7 +73,7 @@
         "A briefing meeting, a draft review, and a sign-off"
       ],
       "correctIndex": 2,
-      "explanation": "If all three exist, ghostwrite at any level of AI assistance — the message is theirs and the craft is yours. If one is missing, you don't have a drafting problem; you have a message that shouldn't be sent yet, and drafting it well is the worst available response."
+      "explanation": "If all three exist, ghostwrite at any level of AI assistance: the message is theirs and the craft is yours. If one is missing, you don't have a drafting problem; you have a message that shouldn't be sent yet, and drafting it well is the worst available response."
     },
     {
       "id": "q7",
@@ -85,7 +85,7 @@
         "Nothing internal; the Act applies only to consumer-facing systems"
       ],
       "correctIndex": 1,
-      "explanation": "Applicable since 2 August 2026. Synthetic audio and video of a real person carries the duty regardless of audience, which puts the dubbed exec video, the synthetic voiceover and the AI avatar in the onboarding module all in scope. This is the fastest-moving material in the track — verify before relying on it."
+      "explanation": "Applicable since 2 August 2026. Synthetic audio and video of a real person carries the duty regardless of audience, which puts the dubbed exec video, the synthetic voiceover and the AI avatar in the onboarding module all in scope. This is the fastest-moving material in the track, verify before relying on it."
     },
     {
       "id": "q8",
@@ -97,7 +97,7 @@
         "Because it shifts liability from the deployer to the model provider"
       ],
       "correctIndex": 2,
-      "explanation": "*Who owns this sentence?* A message with a named owner who supplied the position and stands behind it is fine at any level of AI assistance. A message with no owner is a problem at any level, disclosed or not — and Modules 5 and 8 arrive at the same test from different directions."
+      "explanation": "*Who owns this sentence?* A message with a named owner who supplied the position and stands behind it is fine at any level of AI assistance. A message with no owner is a problem at any level, disclosed or not, and Modules 5 and 8 arrive at the same test from different directions."
     }
   ]
 }

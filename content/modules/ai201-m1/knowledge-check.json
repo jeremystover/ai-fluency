@@ -25,7 +25,7 @@
         "The output format"
       ],
       "correctIndex": 2,
-      "explanation": "Almost everyone has an intuitive trigger, inputs, and output. Almost nobody has designed the checking step — which is why it gets its own module and why the spec cannot ship without it."
+      "explanation": "Almost everyone has an intuitive trigger, inputs, and output. Almost nobody has designed the checking step, which is why it gets its own module and why the spec cannot ship without it."
     },
     {
       "id": "q3",
@@ -49,7 +49,7 @@
         "Both are acceptable once the model is accurate enough"
       ],
       "correctIndex": 2,
-      "explanation": "Drafting is transformation — the center of the model's competence. Selection is a decision about a person, and the heuristic's second sentence doesn't bend for accuracy (D) or for a rubber-stamp click (A) if the human has stopped genuinely deciding."
+      "explanation": "Drafting is transformation: the center of the model's competence. Selection is a decision about a person, and the heuristic's second sentence doesn't bend for accuracy (D) or for a rubber-stamp click (A) if the human has stopped genuinely deciding."
     },
     {
       "id": "q5",

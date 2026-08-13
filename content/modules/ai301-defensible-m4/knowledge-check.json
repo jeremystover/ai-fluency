@@ -13,7 +13,7 @@
         "As evidence that pre-purchase evaluation is now a legal expectation"
       ],
       "correctIndex": 1,
-      "explanation": "Not false — a claim with an interest attached. A module teaching you to interrogate vendor evidence cannot quote vendor evidence uncritically, and you cannot show the sample or the question wording to an executive."
+      "explanation": "Not false: a claim with an interest attached. A module teaching you to interrogate vendor evidence can't quote vendor evidence uncritically, and you can't show the sample or the question wording to an executive."
     },
     {
       "id": "q2",
@@ -37,7 +37,7 @@
         "Because privacy regulators enforce more aggressively than employment regulators"
       ],
       "correctIndex": 1,
-      "explanation": "This is the *Kistler* question. That case doesn't allege the algorithm was biased — it alleges an FCRA disclosure failure, which is a liability route that runs entirely around fairness."
+      "explanation": "This is the *Kistler* question. That case doesn't allege the algorithm was biased. It alleges an FCRA disclosure failure, which is a liability route that runs entirely around fairness."
     },
     {
       "id": "q4",
@@ -61,7 +61,7 @@
         "That the vendor's training data is representative"
       ],
       "correctIndex": 1,
-      "explanation": "It is a management system standard, not a technical specification for an individual system. Legitimate evidence — of something other than what a fairness question asked."
+      "explanation": "It is a management system standard, not a technical specification for an individual system. Legitimate evidence, of something other than what a fairness question asked."
     },
     {
       "id": "q6",

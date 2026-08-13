@@ -19,7 +19,7 @@ describing a failure 101 M6 does not cover
 **The claim:** *"A summary of three witness statements is a summary."*
 
 **Is that true?** *True* or *not true*, and the one sentence you would defend it with. This is the one
-claim in the track that is about the work rather than about your organization — because if it is
+claim in the track that is about the work rather than about your organization, because if it is
 false, a large amount of what your function is currently doing with AI is wrong in a way nobody has
 noticed.
 
@@ -35,7 +35,7 @@ Out of five. Commit before you try it.
 
 Every other role in this curriculum feeds a model material that has a fact behind it. A policy
 document says what it says. A pay file contains numbers. A requisition has a scorecard. The material
-may be wrong, stale, or badly assembled — 101 M6 taught you to expect that — but there is a fact
+may be wrong, stale, or badly assembled (101 M6 taught you to expect that) but there is a fact
 somewhere the material is trying to describe.
 
 **Your core input is two or more people telling incompatible stories about the same events.** And the
@@ -57,8 +57,8 @@ job**, and this module draws it.
 By the end of this module you should be able to:
 
 1. Explain why your source material has no ground truth, and what that changes about summarization.
-2. Describe the harmonization failure — a model faithful to every source that destroys the finding.
-3. Apply the line: **a model may locate conflicts; only a human may resolve them** — and recognize the
+2. Describe the harmonization failure: a model faithful to every source that destroys the finding.
+3. Apply the line: **a model may locate conflicts; only a human may resolve them**, and recognize the
    request that crosses it while appearing analytical.
 4. Explain why applying a standard of proof is itself weighing.
 5. Handle silence — distinguishing what an account contains, omits, and contradicts, and keeping those
@@ -87,7 +87,7 @@ stopped being the test.
 **And the useful structure of the material is its disagreement.** In every other application,
 disagreement between sources is a problem to be resolved before the work proceeds. Here it is the
 work. An investigator reading three statements is looking first at where they diverge, because that is
-where the case is — and any process that reduces the divergence has removed the signal rather than the
+where the case is, and any process that reduces the divergence has removed the signal rather than the
 noise.
 
 ## Lesson 2 · Summarization harmonizes
@@ -104,7 +104,7 @@ Here it means:
 > **A model can be accurate to every source it was given and still destroy the finding, by producing a
 > coherent account of events that were never coherent.**
 
-How it shows up in practice — four mechanisms, and none of them is a hallucination:
+How it shows up in practice, four mechanisms, and none of them is a hallucination:
 
 **Smoothing.** *"Witnesses described a heated exchange in the 14 March meeting."* Every word defensible.
 It has silently merged an allegation of shouting, a description of mutual raised voices, and an account
@@ -143,7 +143,7 @@ Here is the resolution, and it is finer than the general instinct that "AI shoul
 **Locating** is factual and independently checkable. *Account A places the meeting on Tuesday. Account
 B places it on Thursday. The calendar entry says Wednesday.* Three statements about what the material
 says, each verifiable in seconds by opening the material. This is rung two, it is safe, and it is
-genuinely valuable — an investigator working a large file will miss conflicts a systematic pass will
+genuinely valuable, an investigator working a large file will miss conflicts a systematic pass will
 catch.
 
 **Resolving** is a credibility determination. *Account A is more reliable.* Rung four. Forbidden, and
@@ -155,28 +155,28 @@ feels like rung two, and it is resolution:
 > *"Which account is most consistent with the other evidence?"*
 
 That is weighing. It takes the conflicts you legitimately located and asks for a ranking against a
-standard, and a ranking against a standard is a finding. The model will answer — helpfully, fluently,
-with reasons — and you will now have a credibility determination in your process whose author is a
+standard, and a ranking against a standard is a finding. The model will answer (helpfully, fluently,
+with reasons) and you will now have a credibility determination in your process whose author is a
 system, arrived at by a route you cannot reconstruct, and you will not be able to say when it entered
 your thinking.
 
 Three more requests on the wrong side of the line, all of which get asked in good faith:
 
-- *"Does the respondent's account hold together?"* — internal-consistency assessment as a proxy for
+- *"Does the respondent's account hold together?"*, internal-consistency assessment as a proxy for
   credibility.
 - *"Rate each account's reliability."* — the same thing with a number on it, which is worse, because
   numbers travel.
-- *"Which parts of this account should I be sceptical about?"* — scepticism allocation is the
+- *"Which parts of this account should I be sceptical about?"*, scepticism allocation is the
   investigator's job, and outsourcing it is outsourcing the finding one step upstream.
 
-**And the deeper reason the line sits exactly here.** Your standard of proof — the balance of
-probabilities, preponderance of the evidence — is not a threshold you check a number against. **It is
+**And the deeper reason the line sits exactly here.** Your standard of proof (the balance of
+probabilities, preponderance of the evidence) is not a threshold you check a number against. **It is
 an instruction to weigh.** Which means:
 
 > **A model that weighs has applied your standard of proof on your behalf, and you cannot say how.**
 
 Not "cannot say precisely." Cannot say at all. You will have a conclusion, an impression of why, and no
-reconstructable path from evidence to finding — which is the one thing an investigation report has to
+reconstructable path from evidence to finding, which is the one thing an investigation report has to
 contain, and the thing the opposing side will spend its time attacking.
 
 **The practical form**, and it is a prompt discipline rather than a policy:
@@ -204,7 +204,7 @@ partial accounts and ask what happened, and the answer will be more complete tha
 completion is not marked. It is not flagged as inference. It reads exactly like the parts that came
 from the material.
 
-Which makes the omission — often the most important thing in a statement — the single thing a fluent
+Which makes the omission (often the most important thing in a statement) the single thing a fluent
 summary most reliably disappears. *Nobody mentioned the earlier conversation* is a finding. *The
 summary does not mention the earlier conversation* looks like nothing at all.
 
@@ -222,7 +222,7 @@ by the model, and the resulting document is no better for having been assembled 
 
 And the check worth running on any AI-assisted output before it goes near a file: **does this text
 distinguish what somebody said from what somebody did not say?** If it does not, it has treated silence
-as agreement — and silence is where the case usually is.
+as agreement, and silence is where the case usually is.
 
 ## Key takeaways
 
@@ -230,7 +230,7 @@ as agreement — and silence is where the case usually is.
   **the incompatibility is the evidence** rather than noise around it.
 - **"Accurate to the source" has stopped being a sufficient standard.** A summary can be faithful to
   every statement and still be worse than useless.
-- **Summarization harmonizes, and that is the failure** — not a hallucination. Four mechanisms:
+- **Summarization harmonizes, and that is the failure**, not a hallucination. Four mechanisms:
   **smoothing** (a merged characterization no witness gave), **averaging** (invisible weighing on
   contested details), **confidence flattening** (the hedge was the most useful word), and **narrative
   completion** (joins the model supplied because a narrative needs them).
@@ -248,20 +248,20 @@ as agreement — and silence is where the case usually is.
 - **Ask for conflicts as a list, without commentary; compare statements to statements and statements to
   documents, never accounts to each other on quality.**
 - **An account that omits something is not an account that denies it**, and models fill gaps
-  unmarked. Ask three separate questions — **contains, omits, contradicts** — and never merge the
+  unmarked. Ask three separate questions (**contains, omits, contradicts**) and never merge the
   answers. **Silence is where the case usually is.**
 
 ## Take a position
 
-**The claim:** *"A model may locate conflicts. Only a human may resolve them — and asking which
+**The claim:** *"A model may locate conflicts. Only a human may resolve them, and asking which
 account is most consistent with the other evidence is resolution wearing an analytical costume."*
 
 The strongest counter-argument is that **the line is unworkable, because every act of locating is
 already an act of selection.**
 
 Deciding which discrepancies are worth surfacing is a judgment about **materiality**. A pass that
-returns every inconsistency — one witness said "about three", another said "just after three", one
-wrote "Weds" and another "Wednesday" — is noise, and an investigator handed forty trivial conflicts has
+returns every inconsistency (one witness said "about three", another said "just after three", one
+wrote "Weds" and another "Wednesday") is noise, and an investigator handed forty trivial conflicts has
 been given more to read rather than less. A pass that returns only the material conflicts has
 **already weighed**, on exactly the dimension the rule forbids. So the line either produces something
 useless or smuggles in the judgment it prohibits, and pretending otherwise is a rule that survives on
@@ -269,13 +269,13 @@ paper because nobody tests it.
 
 And the sharper version, which uses Module 1's own argument. Investigators reach for these tools
 **because the caseload doubled.** A rule whose only permitted output is an unfiltered conflict list
-makes the work longer. **Rules that make the work longer lose to the workaround** — Module 1 said so
-explicitly — so this one will be quietly abandoned by the people it was written for, and its
+makes the work longer. **Rules that make the work longer lose to the workaround** (Module 1 said so
+explicitly) so this one will be quietly abandoned by the people it was written for, and its
 abandonment will be invisible.
 
 On that view the honest design is different: **accept that materiality filtering is weighing, permit
 it explicitly, and have the human check the filter rather than the list.** Ask the model which
-conflicts it judged immaterial and why, and review *that* — which puts the judgment on the page where
+conflicts it judged immaterial and why, and review *that*, which puts the judgment on the page where
 it can be examined instead of pretending it did not happen.
 
 Your position has to say whether materiality filtering falls on the safe side of the line. If you say
@@ -293,26 +293,26 @@ where the learning lands.
 scenario. Do not adapt a real matter, even lightly — "changing the names" is how identifiable content
 reaches a submission.
 
-**Step 1 — Build the test (10 min).** Invent a workplace incident. Write **three short accounts** of it
-— 100 words each is plenty — from three fictional people. Plant **exactly five factual conflicts**
+**Step 1. Build the test (10 min).** Invent a workplace incident. Write **three short accounts** of it
+— 100 words each is plenty, from three fictional people. Plant **exactly five factual conflicts**
 between them, and list your five privately before you go on. Make them varied: one on timing, one on
 who was present, one on what was said, one where an account **hedges** and another is certain, and one
 where a matter is **omitted** by one account entirely.
 
 **Step 2 — Run it (5 min).** Give a model the three accounts and ask it to summarize them, using
-whatever wording you would naturally use. **Do not prompt it to look for conflicts** — that is the
+whatever wording you would naturally use. **Do not prompt it to look for conflicts**. That is the
 point of the test. Keep the output.
 
-**Step 3 — Count (5 min).** How many of your five conflicts survive into the summary in a form a reader
+**Step 3. Count (5 min).** How many of your five conflicts survive into the summary in a form a reader
 could detect? Note specifically what happened to the **hedge** and to the **omission** — those two are
 usually the first to disappear.
 
-**Step 4 — Write the rule (8 min).** A rule your team can operate, covering: what a model may be asked
+**Step 4. Write the rule (8 min).** A rule your team can operate, covering: what a model may be asked
 about conflicting accounts, what it may never be asked, **two or three exact prompt patterns** that
 stay on the safe side, and how a located conflict gets recorded so that the human resolution is
 visibly a human resolution. **Graded on whether a colleague could apply it without you in the room.**
 
-**Step 5 — Score the prediction.** Predicted conflicts surviving against actual, out of five.
+**Step 5. Score the prediction.** Predicted conflicts surviving against actual, out of five.
 
 Then the write-up: your position on the claim above — including whether **materiality filtering** is on
 the safe side, and what makes your rule usable at current caseloads; what the test showed you,
@@ -327,7 +327,7 @@ was involved.
 **Q1.** What makes this role's source material different from every other role's in this curriculum?
 
 - A. It is more sensitive and more heavily regulated
-- B. There is no ground truth — the material is incompatible accounts, and the incompatibility is the evidence rather than noise around a signal ✓
+- B. There is no ground truth, the material is incompatible accounts, and the incompatibility is the evidence rather than noise around a signal ✓
 - C. It is unstructured rather than tabular
 - D. It arrives continuously rather than in batches
 
@@ -337,11 +337,11 @@ was involved.
 **Q2.** Why is harmonization not a hallucination?
 
 - A. Because the model is following its instructions correctly
-- B. Because coherence is what summarization *is* — the operation compresses by finding a through-line, so nothing is fabricated and every sentence checks out against a source ✓
+- B. Because coherence is what summarization *is*, the operation compresses by finding a through-line, so nothing is fabricated and every sentence checks out against a source ✓
 - C. Because the errors are small enough to fall within tolerance
 - D. Because the model discloses its uncertainty
 
-> **B.** Which is why 101 M6's answer — verify the claim against the source — does not work here. The
+> **B.** Which is why 101 M6's answer (verify the claim against the source) does not work here. The
 > error is in the relationship between the summary and the *state of the evidence*.
 
 **Q3.** Which harmonization mechanism describes a summary landing on the middle version of a contested detail?
@@ -378,12 +378,12 @@ was involved.
 **Q6.** Why does the module say a standard of proof makes this a bright line?
 
 - A. Because standards of proof are set by statute and cannot be delegated
-- B. Because the balance of probabilities is not a threshold to check a number against — it is an instruction to weigh, so a model that weighs has applied your standard and you cannot say how ✓
+- B. Because the balance of probabilities is not a threshold to check a number against. It is an instruction to weigh, so a model that weighs has applied your standard and you cannot say how ✓
 - C. Because different jurisdictions apply different standards
 - D. Because standards of proof require documented reasoning for audit purposes
 
 > **B.** Which leaves you with a conclusion, an impression of why, and no reconstructable path from
-> evidence to finding — the one thing the report has to contain and the first thing the other side
+> evidence to finding, the one thing the report has to contain and the first thing the other side
 > attacks.
 
 **Q7.** What does the module say about an account that omits a matter at issue?
@@ -393,13 +393,13 @@ was involved.
 - C. It should be excluded until clarified
 - D. Omissions are only significant if the witness was directly asked
 
-> **B.** Four completely different evidential states, one identical statement — and models fill gaps
+> **B.** Four completely different evidential states, one identical statement, and models fill gaps
 > unmarked, which makes the omission the thing a fluent summary most reliably disappears.
 
 **Q8.** What three questions does the module substitute for "what does this account establish?"
 
 - A. Who, what, and when
-- B. Contains, omits, and contradicts — kept as three separate answers that are never merged ✓
+- B. Contains, omits, and contradicts, kept as three separate answers that are never merged ✓
 - C. Reliable, unreliable, and unknown
 - D. Corroborated, uncorroborated, and disputed
 

@@ -17,7 +17,7 @@
 *Commit before you read anything. Thirty seconds.*
 
 **The claim:** *"The complaints reaching your function are getting longer without getting more
-substantial — and your process still allocates time by document length."*
+substantial, and your process still allocates time by document length."*
 
 **Is that true of your function?** *True of us* or *not true of us*, and the one sentence you would
 defend it with.
@@ -34,7 +34,7 @@ could be investigated and resolved. Predict the number, then count.
 
 ## Module brief
 
-Every module so far has been about your own work — what you may ask a model, what your record contains,
+Every module so far has been about your own work: what you may ask a model, what your record contains,
 how your report holds up. This one is about the fact that **the other side of the table got the same
 tools, at the same time, and used them faster.**
 
@@ -42,7 +42,7 @@ Three counterparties, and each changes something different about your job.
 
 **The employee**, who now drafts complaints and appeals with a tool that writes in the register of a
 solicitor's letter. **The union**, which has statutory information rights and is applying AI to
-contract analysis and comparator research across employers. And **the forum** — labor arbitration —
+contract analysis and comparator research across employers. And **the forum** (labor arbitration)
 where both sides' advocacy is now AI-assisted and where, unlike a court, there is almost no apparatus
 for catching it when that goes wrong.
 
@@ -83,7 +83,7 @@ deal of informal HR triage ran on exactly that correlation without anyone admitt
 
 **And substance, which is where it gets difficult.** The grasp of the law may be thin even where the
 citations are present. A model asked to write a grievance about an unpleasant interaction will reach
-for the vocabulary the situation seems to call for — and the vocabulary available is *bullying*,
+for the vocabulary the situation seems to call for, and the vocabulary available is *bullying*,
 *harassment*, *discrimination*, *victimisation*. So minor incidents arrive dressed in
 protected-characteristic language, not because anybody is being dishonest, but because that is the
 register the tool produces when asked to make a complaint sound serious.
@@ -95,7 +95,7 @@ containing three investigable allegations requires the same investigation as a t
 containing three investigable allegations, plus two hours of reading.
 
 The second is subtler and more important. **The escalated framing is now on the record.** Once a
-document alleges discrimination, your response has to address discrimination — including if the
+document alleges discrimination, your response has to address discrimination, including if the
 underlying facts describe something else entirely. You cannot decline to engage with the framing on
 the basis that you think the model chose it.
 
@@ -125,8 +125,8 @@ And then the part that is easy to miss, because it feels like the safe option:
 > **Treating an AI-drafted submission with extra scepticism is the same error as treating it with
 > extra deference.**
 
-Both substitute a judgment about provenance for a judgment about content. Both leave a trace — in your
-notes, in your triage record, in the tone of your acknowledgement letter — and that trace is
+Both substitute a judgment about provenance for a judgment about content. Both leave a trace (in your
+notes, in your triage record, in the tone of your acknowledgement letter) and that trace is
 discoverable.
 
 **Which produces the practical discipline:** do not record, and do not discuss, your view that a
@@ -153,7 +153,7 @@ has actually happened is that the ratio changed.
 
 **1 · Extract the allegations as a numbered list.** Each one an assertion that something specific
 happened, phrased in the complainant's own words where possible. **This is a rung-one and rung-two
-task and it is a legitimate AI use** — structural extraction from a document, verifiable by reading the
+task and it is a legitimate AI use**: structural extraction from a document, verifiable by reading the
 document. Ask for: the assertion, where in the submission it appears, and whether a date and other
 parties are identified.
 
@@ -163,7 +163,7 @@ lines of their own.
 
 **3 · A human confirms the list.** Two failure directions and both matter. Missing an allegation is
 Module 4's unresolved-allegation defect arriving at the front of the process instead of the back. And
-**collapsing two allegations into one** is the same defect in miniature — you will resolve the merged
+**collapsing two allegations into one** is the same defect in miniature. You will resolve the merged
 version and leave half of it unaddressed.
 
 **4 · Tell the complainant what you understood.** Send the numbered list back: *these are the matters
@@ -174,8 +174,8 @@ version of the complaint — which is Module 4's warning about restating an alle
 resolving the narrower version.
 
 **And the forbidden step, which is the tempting one:** a model may not decide **which allegations are
-serious**, which are in scope, or which merit investigation. That is Module 1's triage determination —
-rung five — and it is where the invisible failure lives.
+serious**, which are in scope, or which merit investigation. That is Module 1's triage determination (
+rung five) and it is where the invisible failure lives.
 
 **The volume trap, running in reverse.** Elsewhere in this curriculum the volume trap is that cheaper
 production means *your* function generates more artifacts. Here:
@@ -201,7 +201,7 @@ represented workplace, information relevant to the administration of the agreeme
 representative function must generally be provided on request, and refusing carries its own exposure.
 
 What has changed is what unions are doing with it. AI is being applied to **contract analysis,
-costing, and comparator research across employers** — reading agreements at scale, modelling proposals,
+costing, and comparator research across employers**, reading agreements at scale, modelling proposals,
 and finding how comparable employers handled comparable situations. Which means:
 
 > **The information asymmetry that used to favour the employer is closing.**
@@ -211,7 +211,7 @@ advantage was substantially a processing advantage, and processing is what becam
 representative can now analyse the contract you both signed more thoroughly than the person who
 negotiated it remembers doing.
 
-Two practical consequences. **Your information response is now more consequential** — what you provide
+Two practical consequences. **Your information response is now more consequential**, what you provide
 will be analysed properly rather than filed. And **information requests may increasingly ask about the
 systems you have deployed**, which is Module 7's territory and a question you should not be answering
 for the first time in a live grievance.
@@ -232,15 +232,15 @@ Now the arbitration-specific part:
 > **In arbitration these failures appear and are largely neither reported nor sanctioned — because
 > most arbitrators have no law clerks, no case-law database, and limited power to sanction.**
 
-Read that as an operational fact rather than an invitation. It means labor arbitration — a
-closed, precedent-driven forum where past awards and past practice do real work — has **almost no
+Read that as an operational fact rather than an invitation. It means labor arbitration (a
+closed, precedent-driven forum where past awards and past practice do real work) has **almost no
 apparatus for detecting a fabricated authority.** The detection mechanisms that make courts
 comparatively safe are all absent.
 
 Which cuts three ways, and all three are yours to manage:
 
 - **Your own briefs.** Every citation in anything you submit gets verified against the actual award or
-  decision, by a person, before filing. Not because you will be sanctioned — because you probably will
+  decision, by a person, before filing. Not because you will be sanctioned, because you probably will
   not be, and the citation will simply become part of a record that is wrong.
 - **The other side's.** If a union brief cites an award, check it. This is now a thing to do rather
   than a thing to assume, and it is cheap.
@@ -251,7 +251,7 @@ Which cuts three ways, and all three are yours to manage:
 ## Key takeaways
 
 - **Three things changed about inbound complaints** `[V]`: **length** (two pages to eight or twelve),
-  **register** (professional drafting — and the correlation between articulate document and advised
+  **register** (professional drafting, and the correlation between articulate document and advised
   complainant has been severed), and **substance** (thin grasp of law alongside correct citations, and
   minor incidents arriving in protected-characteristic language because that is the register the tool
   produces).
@@ -261,9 +261,9 @@ Which cuts three ways, and all three are yours to manage:
 - **You judge the content, not the tool** `[V]`. Downgrading or delaying because a submission looks
   AI-drafted risks breaching the Acas Code and can amount to victimisation in the UK; in the US it is
   retaliation exposure plus the loss of the prompt-and-appropriate-response posture.
-- **Extra scepticism is the same error as extra deference** — both substitute provenance for content,
+- **Extra scepticism is the same error as extra deference**: both substitute provenance for content,
   and both leave a discoverable trace. **Do not record your view that a submission was AI-drafted.**
-- **Only the allegations generate an investigative obligation. The argument does not** — it gets
+- **Only the allegations generate an investigative obligation. The argument does not**. It gets
   addressed in your response. Conflating them turns a twelve-page document into a twelve-page
   investigation.
 - **The method:** extract allegations as a numbered list (a permitted rung-one/two AI use), separate
@@ -273,9 +273,9 @@ Which cuts three ways, and all three are yours to manage:
 - **The volume trap runs in reverse: production got cheaper for the other side and your obligation per
   matter did not change.** The answer is not reading faster; it is not paying investigative attention
   to argument.
-- **The union's information right is statutory, and the asymmetry is closing** `[V]` — the employer's
+- **The union's information right is statutory, and the asymmetry is closing** `[V]`: the employer's
   advantage was largely a processing advantage, and processing became cheap.
-- **Labor arbitration has almost no apparatus for detecting fabricated citations** `[V]` — no clerks, no
+- **Labor arbitration has almost no apparatus for detecting fabricated citations** `[V]`: no clerks, no
   databases, limited sanction power. Verify your own citations, check theirs, and understand that a
   fabricated authority can enter the precedent conversation and stay.
 
@@ -297,12 +297,12 @@ the judgment you are employed for.
 And there is a second, sharper version that should genuinely unsettle you. Under a
 strictly-equal-attention rule, **the employee who wrote their own two pages in plain language gets the
 same investigative resource as the person who generated forty.** That is its own inequity, and
-plausibly a larger one — because the plain-language complainant is more likely to be the one **without
+plausibly a larger one, because the plain-language complainant is more likely to be the one **without
 access to tools, advice, or the confidence to escalate.** A rule designed to prevent discrimination
 against AI users may in practice disadvantage exactly the people the process exists to protect.
 
 Your position has to answer the operational question: **how does time actually get allocated when
-volume exceeds capacity?** Because it does get allocated, by somebody, on some basis — and if the basis
+volume exceeds capacity?** Because it does get allocated, by somebody, on some basis, and if the basis
 is not stated it will be intuition, which is where the provenance judgment will re-enter unrecorded.
 
 Note that this module has already offered one answer, and you should say whether it is sufficient:
@@ -319,8 +319,8 @@ survives being read out. Whether it survives a queue that is genuinely too long 
 the page count and the allegation count. Never the allegations themselves, never the parties, never the
 subject matter. The procedure you write is generic.
 
-**Step 1 — Count (6 min).** The longest complaint or grievance your function has recently received.
-Count the **distinct factual allegations** — assertions that something specific happened, each capable
+**Step 1. Count (6 min).** The longest complaint or grievance your function has recently received.
+Count the **distinct factual allegations**: assertions that something specific happened, each capable
 of being investigated and resolved. Record the page count and the allegation count. If your function
 has not received a long AI-drafted submission yet, say so and count the longest you have; the ratio is
 still informative.
@@ -328,11 +328,11 @@ still informative.
 **Step 2 — Write the intake procedure (12 min).** Generic, for your matter type:
 
 - **How allegations get extracted** as a numbered list, and if a model does the extraction, **the
-  prompt you would use** — remembering that it may extract and structure, and may not decide what is
+  prompt you would use**: remembering that it may extract and structure, and may not decide what is
   serious or in scope.
 - **How the framing gets separated** from the allegations, and where the framing gets addressed
   instead.
-- **Who confirms the list**, by role — and the two failures they are checking for: a missed allegation
+- **Who confirms the list**, by role, and the two failures they are checking for: a missed allegation
   and two allegations collapsed into one.
 - **The sentence you send the complainant** with the numbered list back. Write the actual sentence.
 - **And your time-allocation basis**, stated: on what grounds does one matter get more investigative
@@ -343,7 +343,7 @@ where authorities are cited: who verifies citations in anything you file, and wh
 never does, write one line on where else in your work a fabricated reference could enter a record and
 not be caught.
 
-**Step 4 — Score the prediction.** Predicted allegation count against actual, with the page count
+**Step 4. Score the prediction.** Predicted allegation count against actual, with the page count
 alongside it.
 
 Then the write-up: your position on the claim above, answering **how time actually gets allocated when
@@ -358,7 +358,7 @@ to say who.
 
 **Q1.** What has AI-drafted complaining changed about the relationship between drafting quality and the complainant? `[V]`
 
-- A. Nothing — well-drafted complaints have always come from well-advised employees
+- A. Nothing, well-drafted complaints have always come from well-advised employees
 - B. The correlation between an articulate document and an articulate, advised, or well-resourced complainant has been severed ✓
 - C. Drafting quality now correlates with the seriousness of the underlying conduct
 - D. Complaints are better drafted but shorter
@@ -390,7 +390,7 @@ to say who.
 **Q4.** Why is treating an AI-drafted submission with extra scepticism described as the same error as extra deference?
 
 - A. Because both slow the process down
-- B. Because both substitute a judgment about provenance for a judgment about content — and both leave a discoverable trace ✓
+- B. Because both substitute a judgment about provenance for a judgment about content, and both leave a discoverable trace ✓
 - C. Because scepticism and deference are equally difficult to evidence
 - D. Because deference is prohibited by the Acas Code
 
@@ -405,7 +405,7 @@ to say who.
 - C. Allegations must be investigated within statutory time limits and argument need not be
 - D. Argument can be answered by AI and allegations cannot
 
-> **B.** Conflating them is what turns a twelve-page document into a twelve-page investigation — and it
+> **B.** Conflating them is what turns a twelve-page document into a twelve-page investigation, and it
 > is why volume feels overwhelming when what changed is the ratio.
 
 **Q6.** Which step does the module call the highest-value one, and why?
@@ -426,13 +426,13 @@ to say who.
 - D. Longer submissions require proportionally longer responses
 
 > **B.** Same mechanism as elsewhere in the curriculum, opposite direction. The answer is not reading
-> faster — it is not paying investigative attention to argument.
+> faster. It is not paying investigative attention to argument.
 
 **Q8.** Why is labor arbitration described as a forum with no detection apparatus? `[V]`
 
 - A. Because arbitrators are not required to give reasons
 - B. Because arbitration records are confidential and cannot be checked
-- C. Because most arbitrators have no law clerks, no case-law database, and limited power to sanction — so fabricated citations appear and are largely neither reported nor sanctioned ✓
+- C. Because most arbitrators have no law clerks, no case-law database, and limited power to sanction, so fabricated citations appear and are largely neither reported nor sanctioned ✓
 - D. Because arbitration does not rely on precedent
 
 > **C.** Which matters precisely because past awards and past practice do real work in contract
@@ -444,14 +444,14 @@ to say who.
 - **AI-drafted grievances and complaints** `[V]` — the shift from roughly two pages to eight or twelve,
   the professional register alongside a potentially thin grasp of the law, the escalation of minor
   incidents into bullying, harassment and discrimination language, and the rule that employers must
-  judge the content rather than the tool. **The clearest guidance is UK** — refusing to process a
+  judge the content rather than the tool. **The clearest guidance is UK**, refusing to process a
   grievance because it appears AI-drafted risks breaching the Acas Code, and adverse treatment for
   raising a discrimination complaint can amount to victimisation under the Equality Act 2010. **The US
-  analogue — retaliation exposure and the loss of the prompt-and-appropriate-corrective-action posture
-  — is named as an analogue rather than as equivalent authority.** Sourced to UK employment solicitors
+  analogue (retaliation exposure and the loss of the prompt-and-appropriate-corrective-action posture
+ ) is named as an analogue rather than as equivalent authority.** Sourced to UK employment solicitors
   writing in 2026. A widely circulated figure about the share of HR directors encountering employee AI
   issues traces to trade-press survey reporting with no published methodology and **is not used.**
-- **Union information rights and union AI use** `[V]` — the statutory entitlement to information
+- **Union information rights and union AI use** `[V]`, the statutory entitlement to information
   relevant to the administration of the agreement and the union's representative function, and the
   application of AI to contract analysis, costing and cross-employer comparator research. Jurisdiction-
   specific in its detail.
@@ -461,8 +461,8 @@ to say who.
   proposition. **And the arbitration-specific finding: these failures appear in arbitration and are
   largely neither reported nor sanctioned, because most arbitrators lack law clerks and case-law
   database access and have limited sanction power.** Reported by practitioners rather than measured;
-  treat the prevalence as anecdotal and the structural point — the absence of detection apparatus — as
-  the load-bearing part.
+  treat the prevalence as anecdotal and the structural point (the absence of detection apparatus) as
+  the decisive part.
 - The allegation-separation method, the send-the-list-back step, the reverse volume trap as framed
   here, and the allocate-by-allegations basis are original to this course.
 - Builds on Module 1 of this track (the arithmetic this module's volume argument depends on, and the
@@ -471,5 +471,5 @@ to say who.
   module inverts.
 - **Horizontal note.** `ai301-comp-m5` teaches that the counterparty has AI too, in the context of an
   individual negotiating pay with a chatbot's advice. This module's counterparties are different in
-  kind — an organized union with statutory information rights, and a forum. Recorded so the two do not
+  kind: an organized union with statutory information rights, and a forum. Recorded so the two do not
   read as the same lesson.

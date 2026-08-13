@@ -145,7 +145,7 @@ at this altitude; behaviour is not.
 
 ## M2 · The shape of your job is changing
 
-*~25 min · the frame · load-bearing for everything after it*
+*~25 min · the frame · what carries everything after it*
 
 - **Lesson 1:** The three tiers — **fiduciary and governance**, **the operating system**,
   **strategic counsel.** What each actually contains, and why the role has always been described as
@@ -432,8 +432,8 @@ surface and need a targeted check — M3 works without them, since the org-desig
 3. **The exclusions are stated in the content.** Third track to do this, and the most important
    place for it — the market's tonal mismatch at the top end (a ~$2,000 senior credential whose lab
    covers AI music creation) is precisely what this audience is guarding against.
-4. **Six modules, all load-bearing.** The brief offers a four-module fallback (M1, M3, M4, M6 as
-   load-bearing; M2 folding into a live opening and M5 into M4). **Rejected for the async product:**
+4. **Six modules, all structural.** The brief offers a four-module fallback (M1, M3, M4, M6 as
+   structural; M2 folding into a live opening and M5 into M4). **Rejected for the async product:**
    M2 is the frame everything else reads from and has nowhere to fold to without a live session, and
    M5 is the counsel-gated module — dropping it would make this the only track on the ladder with no
    floor.

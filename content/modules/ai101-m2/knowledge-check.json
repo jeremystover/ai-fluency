@@ -5,7 +5,7 @@
   "questions": [
     {
       "id": "q1",
-      "prompt": "A colleague says \"AI is just another hype cycle — I've seen this before.\" What's the most honest and accurate response?",
+      "prompt": "A colleague says \"AI is just another hype cycle. I've seen this before.\" What's the most honest and accurate response?",
       "options": [
         "They're wrong — this technology has no precedent and the old pattern doesn't apply",
         "They're right — the field has overpromised before and this wave will fade the same way",
@@ -13,7 +13,7 @@
         "It doesn't matter either way, because the tools change too fast for the history to be relevant"
       ],
       "correctIndex": 2,
-      "explanation": "Both winters were real, which is why the skepticism deserves respect rather than rebuttal — and the mechanism shift is why the pattern doesn't simply repeat. A overclaims, B dismisses, and D dodges the question the skeptic actually asked."
+      "explanation": "Both winters were real, which is why the skepticism deserves respect rather than rebuttal, and the mechanism shift is why the pattern doesn't simply repeat. A overclaims, B dismisses, and D dodges the question the skeptic actually asked."
     },
     {
       "id": "q2",
@@ -25,7 +25,7 @@
         "Companies started collecting employee data in large enough volumes to train on"
       ],
       "correctIndex": 1,
-      "explanation": "The transformer is the architecture behind the \"T\" in GPT — and behind Claude and Gemini. Combined with the finding that bigger models kept improving, it produced modern LLMs. A describes the era that failed; C and D aren't the mechanism."
+      "explanation": "The transformer is the architecture behind the \"T\" in GPT, and behind Claude and Gemini. Combined with the finding that bigger models kept improving, it produced modern LLMs. A describes the era that failed; C and D aren't the mechanism."
     },
     {
       "id": "q3",
@@ -37,7 +37,7 @@
         "Not AI at all — question answering is a search feature"
       ],
       "correctIndex": 2,
-      "explanation": "Embedded in a host app, context supplied by the host, narrow task set — and output that appears inside a trusted system of record, which is exactly why its errors are dangerous: an employee who asked the official HRIS believes the answer."
+      "explanation": "Embedded in a host app, context supplied by the host, narrow task set, and output that appears inside a trusted system of record, which is exactly why its errors are dangerous: an employee who asked the official HRIS believes the answer."
     },
     {
       "id": "q4",
@@ -73,7 +73,7 @@
         "On candidates who get filtered or deprioritized without anyone ever reviewing the call"
       ],
       "correctIndex": 3,
-      "explanation": "A ranked list does its damage upstream of review: the people it sorts to the bottom silently fall out of a busy pipeline. That's why \"human review\" describes drafting tools, not scoring tools — the human reviews the survivors, not the decision."
+      "explanation": "A ranked list does its damage upstream of review: the people it sorts to the bottom silently fall out of a busy pipeline. That's why \"human review\" describes drafting tools, not scoring tools: the human reviews the survivors, not the decision."
     },
     {
       "id": "q7",
@@ -85,7 +85,7 @@
         "None — interview material is too sensitive for any AI shape to touch"
       ],
       "correctIndex": 0,
-      "explanation": "Transformation of material you supply is the assistant's home ground and the delegation heuristic's center. B would convert your notes into scores about people — exactly the shape shift M7 exists to stop. C and D confuse the shape question with the data question, which M4 handles on its own terms."
+      "explanation": "Transformation of material you supply is the assistant's home ground and the delegation heuristic's center. B would convert your notes into scores about people, exactly the shape shift M7 exists to stop. C and D confuse the shape question with the data question, which M4 handles on its own terms."
     },
     {
       "id": "q8",
@@ -97,7 +97,7 @@
         "Using multiple assistants confuses the models and degrades their output"
       ],
       "correctIndex": 1,
-      "explanation": "The data agreement is the real difference — M8 makes this concrete — and M5 will show that briefing quality moves results more than tool choice. A isn't guaranteed, C isn't reliably true, and D isn't a thing."
+      "explanation": "The data agreement is the real difference (M8 makes this concrete) and M5 will show that briefing quality moves results more than tool choice. A isn't guaranteed, C isn't reliably true, and D isn't a thing."
     }
   ]
 }

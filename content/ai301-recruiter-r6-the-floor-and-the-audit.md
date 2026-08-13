@@ -17,7 +17,7 @@
 *One prediction, thirty seconds.*
 
 **How many AI systems currently touch your requisitions in a way that screens, scores, ranks, or
-filters a candidate?** Count anything — your ATS's ranking feature, a sourcing tool's match
+filters a candidate?** Count anything, your ATS's ranking feature, a sourcing tool's match
 score, an assessment vendor, a scheduling bot that prioritizes. A number.
 
 Then predict how many of those you could name the *deployer* for, if a regulator asked.
@@ -36,12 +36,12 @@ automated systems most visibly decide things about people — and within employm
 where the volume is.
 
 Which produces an uncomfortable alignment. **The vendor market that sells hardest into your
-function sells precisely the capability the law is most focused on** — automated screening,
+function sells precisely the capability the law is most focused on**: automated screening,
 ranking, and scoring of candidates. 101 M7 told you not to let AI decide about people. This
 module tells you what happens when you do it anyway, and what the regulators now require of you
 when a vendor does it on your behalf.
 
-Two halves: the statutory floor, and the audit skill that makes the floor meaningful — because a
+Two halves: the statutory floor, and the audit skill that makes the floor meaningful, because a
 bias audit you cannot read is a document you file rather than a control you operate.
 
 ## Learning objectives
@@ -59,7 +59,7 @@ By the end of this module you should be able to:
 *Direction of travel, not legal advice. Verify every specific with counsel.*
 
 **New York City, Local Law 144.** The template most other regimes rhyme with. Any **automated
-employment decision tool** — résumé screeners, assessment chatbots, video interview analytics —
+employment decision tool** (résumé screeners, assessment chatbots, video interview analytics)
 requires an **annual bias audit** by an independent auditor, **public disclosure** of the results,
 and **ten business days' advance notice** to candidates before the tool is used. The audit
 measures **selection rate by group** across race, ethnicity and sex. Penalties run from $500 per
@@ -72,12 +72,12 @@ though a human technically decides.
 **Illinois, HB 3773 — effective January 1, 2026.** Amends the Illinois Human Rights Act to
 prohibit employers from using AI in ways that produce a discriminatory effect, and requires
 **notice** to employees and candidates when AI is used in employment decisions. Note the shape:
-this is not a separate AI statute bolted on — it puts AI use inside existing civil-rights
+this is not a separate AI statute bolted on. It puts AI use inside existing civil-rights
 machinery, which is where the direction of travel points generally.
 
 **The EU AI Act, and why the deferral is not runway.** Recruitment and selection are named
 high-risk uses. Those obligations moved to **2 December 2027** under the Digital Omnibus on AI,
-**Regulation (EU) 2026/1744**, in force 27 July 2026 — six days before the original deadline. Read
+**Regulation (EU) 2026/1744**, in force 27 July 2026, six days before the original deadline. Read
 the headline alone and you would conclude you have until 2027. **Two sets of duties bind you now.**
 
 The **prohibition on emotion recognition in the workplace** has been in force since February 2025
@@ -88,7 +88,7 @@ And since **2 August 2026**, the Act's **transparency obligations**, which apply
 high-risk classification* — so they reach an organisation with no high-risk AI at all. The one that
 lands on this function: **a system interacting directly with a person must disclose that it is AI,
 at or before the start of the interaction.** A screening chatbot, a scheduling assistant, an
-outreach agent answering candidate questions — all squarely inside it, and the ceiling is
+outreach agent answering candidate questions: all squarely inside it, and the ceiling is
 **€15 million or 3% of worldwide turnover**. It is the obligation most likely to catch a TA function
 this year, and the one least likely to be on your legal team's radar, because it does not depend on
 anything being classified high-risk.
@@ -101,10 +101,10 @@ it. Every statute above sits on top of that; none replaces it.
 
 The development that changes how you buy.
 
-In **Mobley v. Workday** — now with an **ADEA collective conditionally certified at roughly
+In **Mobley v. Workday**, now with an **ADEA collective conditionally certified at roughly
 14,000 opt-ins** and claims kept alive by rulings on **6 March and 22 June 2026** — a court allowed
 claims to proceed on the theory that an AI screening
-vendor can act as an **agent of the employer** — finding it plausibly alleged that customers had
+vendor can act as an **agent of the employer**, finding it plausibly alleged that customers had
 delegated their traditional function of rejecting candidates or advancing them to interview. The
 "employment agency" theory was dismissed; the agent theory survived to discovery, and claims have
 continued across race, sex, age and disability.
@@ -123,7 +123,7 @@ before signature**, because afterwards you have no leverage and possibly an obli
 
 **And the privilege nuance.** Bias testing conducted *under counsel*, where the lawyer curates the
 analysis and uses the results in providing legal advice, may be protected from discovery in a way
-that identical testing run as an operational exercise is not. Not a reason to avoid testing — a
+that identical testing run as an operational exercise is not. Not a reason to avoid testing: a
 reason to involve counsel in designing it, before you commission an audit rather than after.
 
 ## Lesson 3 · Adverse impact you can compute
@@ -143,7 +143,7 @@ with counsel.
 Three things practitioners get wrong, and they matter:
 
 **Compute it per stage, not just at offer.** A funnel can look balanced at the end while a single
-early stage does all the excluding — and that's usually the automated one.
+early stage does all the excluding, and that's usually the automated one.
 
 **Small numbers break it.** With eleven candidates in a group, one person changes the ratio
 dramatically. State the n, always. Module 5's capture layer is what eventually gives you samples
@@ -161,7 +161,7 @@ Those three questions separate a real audit from a compliance artifact.
 > ### Try this — 3 minutes
 > Take your highest-volume req from the last year. For the résumé-screen stage, can you get the
 > number who entered and the number who advanced, split by any demographic group you hold? If
-> the data doesn't exist, that's your finding — a stage you cannot audit is a stage you cannot
+> the data doesn't exist, that's your finding: a stage you cannot audit is a stage you cannot
 > defend.
 
 ## Lesson 4 · What to do this quarter
@@ -181,15 +181,15 @@ our jurisdictions have you assessed it against? **The answers, or the silences, 
 **Check the notice obligations that already bind you.** If you operate in a regime requiring
 candidate notice, that is an operational task with a deadline, not a policy debate.
 
-**Then bring counsel a list, not a worry.** Not "are we compliant with AI hiring law?" — which
-gets a shrug — but: *"These five systems touch our reqs. Here's what each one decides and where we
+**Then bring counsel a list, not a worry.** Not "are we compliant with AI hiring law?" (which
+gets a shrug) but: *"These five systems touch our reqs. Here's what each one decides and where we
 hire. Which regimes apply today, what do they require of us this year, and what's coming?"* That
 question has answers.
 
 ## Key takeaways
 
 - **You are the target, not a bystander.** LL144, Illinois HB 3773, the EU's high-risk
-  classification, and the landmark vendor-liability case are all hiring rules `[V]` — and the
+  classification, and the landmark vendor-liability case are all hiring rules `[V]`, and the
   vendor market sells hardest into exactly the capability regulators focus on.
 - **"Substantially assists" is in scope.** A ranking that determines review order counts, even
   though a human technically decides.
@@ -206,7 +206,7 @@ question has answers.
 
 ## Take a position
 
-**The claim:** *"A vendor's bias audit is a marketing document until you can read it — and if you
+**The claim:** *"A vendor's bias audit is a marketing document until you can read it, and if you
 can't compute a pass-through rate, you can't read it."*
 
 The strongest counter-argument is **division of labour.** Bias auditing is a specialist
@@ -221,18 +221,18 @@ not how to compute. Your position has to engage that.
 **Time:** 25 minutes · **Submit:** the inventory, the vendor questions, and a 250–350 word
 write-up · **Graded against the rubric below.**
 
-**Step 1 — Inventory (10 min).** Every AI system touching your requisitions that screens, scores,
+**Step 1. Inventory (10 min).** Every AI system touching your requisitions that screens, scores,
 ranks, filters, or characterizes a candidate. For each: what it decides, who the deployer is,
 whether it's been bias-audited as far as you know, and which of your hiring locations it operates
-in. **"Don't know" is a valid and informative entry** — an inventory full of honest unknowns is
+in. **"Don't know" is a valid and informative entry**: an inventory full of honest unknowns is
 the point, and it's the artifact you take to counsel.
 
 **Step 2 — Compute one rate (7 min).** Pick the stage with the most data on your live req or a
 recent one. Compute the selection rate per group for any demographic split you hold, and the
-four-fifths ratio. **If you can't get the data, document exactly why** — that finding is worth as
+four-fifths ratio. **If you can't get the data, document exactly why**. That finding is worth as
 much as the number, because a stage you cannot audit is a stage you cannot defend.
 
-**Step 3 — Three vendor questions (5 min).** For your highest-risk system, written so a vendor
+**Step 3. Three vendor questions (5 min).** For your highest-risk system, written so a vendor
 could answer them and the answer would change something you do.
 
 **Step 4 — Score the prediction (3 min).** Systems you predicted against systems found, and how
@@ -249,7 +249,7 @@ counter-argument addressed, and the single question you're taking to counsel fir
 **Q1.** Under a bias-audit regime like NYC's LL144, which tools are in scope? `[V]`
 
 - A. Only tools that make a final hire/no-hire decision without human involvement
-- B. Tools that make *or substantially assist* an employment decision — including a ranking that determines review order, even though a human technically decides ✓
+- B. Tools that make *or substantially assist* an employment decision, including a ranking that determines review order, even though a human technically decides ✓
 - C. Only tools purchased after the regulation's effective date
 - D. Only tools that process demographic data directly
 
@@ -271,7 +271,7 @@ counter-argument addressed, and the single question you're taking to counsel fir
 **Q3.** Why does the discovery dispute over algorithmic code matter to a practitioner?
 
 - A. It will force vendors to publish their models publicly
-- B. Because "we don't know how it works and the vendor won't tell us" becomes a position to defend rather than a shield — making validation evidence a pre-signature ask ✓
+- B. Because "we don't know how it works and the vendor won't tell us" becomes a position to defend rather than a shield, making validation evidence a pre-signature ask ✓
 - C. Because it establishes that employers own vendor training data
 - D. Because it delays enforcement until the case resolves
 
@@ -281,8 +281,8 @@ counter-argument addressed, and the single question you're taking to counsel fir
 **Q4.** 200 candidates from Group A applied and 60 advanced; 150 from Group B applied and 27 advanced. What does the four-fifths rule say?
 
 - A. 0.90 — well within the threshold
-- B. 0.60 — below the 0.80 threshold, flagging the stage for job-related justification and a conversation with counsel ✓
-- C. 0.45 — below the threshold, which constitutes proof of discrimination
+- B. 0.60, below the 0.80 threshold, flagging the stage for job-related justification and a conversation with counsel ✓
+- C. 0.45: below the threshold, which constitutes proof of discrimination
 - D. The rule can't be applied without knowing the roles involved
 
 > **B.** Rates are 30% and 18%; 18 ÷ 30 = 0.60. C gets the arithmetic wrong *and* overstates what
@@ -296,7 +296,7 @@ counter-argument addressed, and the single question you're taking to counsel fir
 - D. Computing it before an independent audit is complete
 
 > **C.** A tool can clear four-fifths comfortably and still select on something indefensible. A is
-> backwards — per-stage computation is what the module *recommends*, because a funnel can look
+> backwards, per-stage computation is what the module *recommends*, because a funnel can look
 > balanced at the end while one early stage does all the excluding.
 
 **Q6.** Which three questions separate a real bias audit from a compliance artifact?
@@ -312,18 +312,18 @@ counter-argument addressed, and the single question you're taking to counsel fir
 
 ## Sources and attribution
 
-- **NYC Local Law 144** — annual independent bias audit, public disclosure, ten business days'
+- **NYC Local Law 144**, annual independent bias audit, public disclosure, ten business days'
   candidate notice, selection-rate measurement by race, ethnicity and sex, and the
   make-or-substantially-assist scope. **[V]**
 - **Illinois HB 3773**, effective 1 January 2026 — amends the Illinois Human Rights Act to
   prohibit discriminatory-effect AI use in employment decisions and requires notice. **[V]**
-- **EU AI Act and the Digital Omnibus** `[V]` — recruitment and selection as named high-risk uses,
+- **EU AI Act and the Digital Omnibus** `[V]`, recruitment and selection as named high-risk uses,
   deferred to **2 December 2027** by **Regulation (EU) 2026/1744**, published 24 July 2026 and in
   force 27 July 2026. The workplace emotion-recognition prohibition and the AI-literacy obligation
   have been in force since February 2025 and were unaffected. **Article 50 transparency obligations
   apply from 2 August 2026 independent of high-risk classification**, with a ceiling of €15 million
   or 3% of worldwide turnover. Canonical wording shared with HRBP M6, People Ops M7, Talent
-  Development M5 and the CPO track — see `content/evidence/eu-ai-act-timeline.json`.
+  Development M5 and the CPO track, see `content/evidence/eu-ai-act-timeline.json`.
 - **Mobley v. Workday** `[V]` — agent theory permitted to proceed while the employment-agency theory
   was dismissed; **ADEA collective conditionally certified with roughly 14,000 opt-ins**; claims
   kept alive across race, sex, age and disability by rulings on **6 March and 22 June 2026**; a

@@ -5,7 +5,7 @@
 **Prerequisite:** Module 1 (you measure a decision from your register) · extends 201 M7 (measurement
 without theatre)
 **Position in the track:** the module that has to come before the enablement review, because you
-cannot design a pilot until you know what you would measure
+can't design a pilot until you know what you would measure
 
 > `Concepts reviewed: [DATE] · Examples current as of: [DATE]`
 > Lessons 2, 3 and 4 are **volatile layer** — a named implementation case, a survey figure, and two
@@ -27,11 +27,11 @@ number you wrote down beforehand.
 **Is that true of your organization?** *True of us* or *not true of us*, and the one sentence you
 would defend it with.
 
-**And a number you will check:** of the AI capabilities you inventoried in Module 1, **how many had
+**And a number you'll check:** of the AI capabilities you inventoried in Module 1, **how many had
 a baseline recorded before they were switched on?**
 
 If the answer is zero, this module is the most useful thirty minutes in the track. If it isn't
-zero, you are in a small minority and the module will tell you what to do next.
+zero, you're in a small minority and the module will tell you what to do next.
 
 ---
 
@@ -39,15 +39,15 @@ zero, you are in a small minority and the module will tell you what to do next.
 
 There is a reason this module sits at two rather than at seven.
 
-Measurement is normally taught as a retrospective — you built the thing, now prove it worked. That
+Measurement is normally taught as a retrospective. You built the thing, now prove it worked. That
 ordering is why almost nobody manages it, because **the most important measurement in any deployment
-is taken before the deployment exists**, and by the time you are asked to prove value, the
-opportunity has passed permanently. You cannot go back and observe the before.
+is taken before the deployment exists**, and by the time you're asked to prove value, the
+opportunity has passed permanently. You can't go back and observe the before.
 
 This module is also the one where your function has an advantage nobody else in People has, and it
-is worth being blunt about it. When the talent team says they cannot measure whether their AI
+is worth being blunt about it. When the talent team says they can't measure whether their AI
 sourcing tool helped, that is often genuinely true — the outcome is a hire quality signal that
-arrives in eighteen months, confounded by six other things. **When you say it, it means you didn't.**
+arrives in eighteen months, confounded by six other things. **When you say it, it means you did not.**
 You own the ticket system, the system logs, the transaction volumes, the cycle times, the case
 categories. The instruments are already installed and pointed at the right things.
 
@@ -61,8 +61,8 @@ which you would turn the thing off.**
 
 By the end of this module you should be able to:
 
-1. Record a baseline that is usable later — a named query, a stated population, a date — and explain
-   why one taken after enablement is not a baseline.
+1. Record a baseline that is usable later (a named query, a stated population, a date) and explain
+   why one taken after enablement isn't a baseline.
 2. Distinguish activity metrics from change metrics, and name the leading indicator that survives
    mandatory adoption.
 3. Explain where a deployment's rework actually lands `[V]` and why your queue detects it first.
@@ -75,8 +75,8 @@ By the end of this module you should be able to:
 Start with what a baseline actually is, because the word is used loosely enough to be useless.
 
 A baseline is **a named query or report, run against a stated population, on a stated date, and
-saved somewhere you will find it in six months.** "We know roughly what our ticket volume runs at"
-is not a baseline. It is a memory, and memories reshape themselves around outcomes — after a
+saved somewhere you'll find it in six months.** "We know roughly what our ticket volume runs at"
+isn't a baseline. It is a memory, and memories reshape themselves around outcomes, after a
 deployment everyone remembers the before as worse than it was, uniformly and sincerely.
 
 The timing rule is absolute and it is where most attempts fail:
@@ -85,14 +85,14 @@ The timing rule is absolute and it is where most attempts fail:
 > state.**
 
 There is no recovery from missing it. Every other mistake in this track can be fixed later; this one
-cannot, which is why it is the first lesson of the second module rather than a footnote in the
+can't, which is why it is the first lesson of the second module rather than a footnote in the
 eighth.
 
 **The four numbers.** If you do nothing else, save these before any enablement. They take under an
-hour and they are the four you will wish you had:
+hour and they are the four you'll wish you had:
 
 1. **Volume.** Cases, tickets, transactions, or requests per week for the affected process.
-2. **Cycle time.** Time from arrival to resolution — and separately, **time to first response**,
+2. **Cycle time.** Time from arrival to resolution, and separately, **time to first response**,
    because those two move independently and conflating them hides the interesting result.
 3. **The repeat rate.** How often the same person comes back about the same thing. Reopens,
    duplicates, follow-ups. This is the number that detects a wrong answer, and almost nobody
@@ -102,15 +102,15 @@ hour and they are the four you will wish you had:
    invisible without this.
 
 Two notes on doing it honestly. **Save the query, not the answer** — a number without the query that
-produced it cannot be re-run, and a baseline you cannot re-run identically is a number you will
+produced it can't be re-run, and a baseline you can't re-run identically is a number you'll
 argue about rather than compare against. And **write down the population**, because the temptation
 six months later is to compare against a slightly different denominator that happens to flatter the
-result. That is not fraud. It is what happens to everybody who did not write it down.
+result. That isn't fraud. It is what happens to everybody who didn't write it down.
 
 > ### Try this — 3 minutes
 > Pick the decision you chose in Module 1. Can you produce, right now, the current weekly volume and
-> the repeat rate for the process it sits in — from a query, not from memory? If yes, you have a
-> baseline and most people don't. If no, you have found this module's homework, and it is an hour of
+> the repeat rate for the process it sits in: from a query, not from memory? If yes, you have a
+> baseline and most people do not. If no, you have found this module's homework, and it is an hour of
 > work rather than a project.
 
 ## Lesson 2 · Engagement is not change **[V]**
@@ -118,8 +118,8 @@ result. That is not fraud. It is what happens to everybody who did not write it 
 Now the failure mode, and the best-documented case in the field happens to be the industry's
 favourite success story.
 
-Logins, sessions, queries served, "adoption rate" — these are **activity metrics**. They move when
-people use a thing. They do not move when a thing helps, and critically **they also move when a
+Logins, sessions, queries served, "adoption rate". These are **activity metrics**. They move when
+people use a thing. They don't move when a thing helps, and critically **they also move when a
 thing is compulsory**, which is why they are the metrics that survive a bad deployment.
 
 IBM's AskHR is the most cited HR AI implementation there is, and its early history is the reason
@@ -132,19 +132,19 @@ triumph.
 
 **HR's customer satisfaction score went from +19 before the mandate to −35 within the first year.**
 
-A fifty-four point collapse, and here is the part that matters for you: **the only reason anyone
+A fifty-four point collapse, and here's the part that matters for you: **the only reason anyone
 knows it happened is that IBM was already measuring satisfaction before the mandate.** With
-adoption metrics alone — and adoption metrics are what almost every deployment reports — that year
+adoption metrics alone (and adoption metrics are what almost every deployment reports) that year
 is indistinguishable from success. Usage up, tickets to HR down, cost per interaction down. The
 experience of four hundred thousand interactions got materially worse and every number on the
 project's dashboard improved.
 
-The rest of the story is why the case is worth teaching rather than just citing. IBM did not
+The rest of the story is why the case is worth teaching rather than just citing. IBM didn't
 abandon it. They went back to what employees actually wanted, rebuilt around the end user rather
 than around the HR team's desire to eliminate busywork, and satisfaction recovered into the +80s.
 Today the company reports AskHR settling roughly **94% of routine requests**, a **75% reduction in
 tickets since 2016**, and about **40% lower HR operating cost over four years**, with the residual
-— the complex and ethical calls — still landing with people.
+— the complex and ethical calls, still landing with people.
 
 Two things follow, and the second one is about our own honesty.
 
@@ -154,7 +154,7 @@ detected. It was detected because somebody had a baseline on a metric that measu
 rather than usage.
 
 And **the labelling, applied to a number that flatters our argument.** The 94%, the 75%, the 40% are
-IBM's own figures and have not been independently audited — the same standard this curriculum
+IBM's own figures and haven't been independently audited, the same standard this curriculum
 applies to IBM's widely-repeated attrition-savings claim, which it treats as unverifiable rather
 than false. The satisfaction collapse is *also* self-reported, and self-reporting a failure is the
 more credible direction to self-report in, which is why the −35 is the number this module leans on.
@@ -175,7 +175,7 @@ The second thing your dashboard won't show you is the work your deployment creat
 
 The general finding is well evidenced. In a large multi-country study of digital workers, the
 substantial majority reported AI saving them on the order of **eleven hours a week**, while only
-about **13%** said their organization was performing significantly better as a result — and the same
+about **13%** said their organization was performing significantly better as a result, and the same
 research measured an average **6.4 hours a week of "botsitting"**: feeding context, supervising
 output, debugging what went wrong, and cleaning up downstream.
 
@@ -187,11 +187,11 @@ your project's numbers. All of it appears in **your queue.**
 
 Which is the advantage hiding in the problem:
 
-> **Your ticket queue is the rework detector for the entire function's AI, and you are the only
+> **Your ticket queue is the rework detector for the entire function's AI, and you're the only
 > person who can read it.**
 
 Repeat contacts on the same issue, reopened cases, and tickets that begin "the system told me…" are
-the leading edge of somebody's deployment failing — often a deployment in another team that reports
+the leading edge of somebody's deployment failing, often a deployment in another team that reports
 its own metrics as healthy. You see it first, and typically nobody has asked you.
 
 Making that readable costs almost nothing and has to be done in advance:
@@ -204,7 +204,7 @@ Making that readable costs almost nothing and has to be done in advance:
 Two honest caveats. This measures *contacts*, not experience — someone who got a wrong answer and
 gave up never appears, which is the same structural blindness Module 4 is about. And being the
 person who can demonstrate that another team's AI is generating rework is a **political** problem
-rather than a measurement one. It is real, it is not solved by better data, and Module 8 is where it
+rather than a measurement one. It is real, it isn't solved by better data, and Module 8 is where it
 gets addressed.
 
 ## Lesson 4 · Scope is the variable, not technology **[V]**
@@ -219,7 +219,7 @@ The **2022 trial** gave an AI chatbot a narrow, structured job: move a person th
 goal-attainment protocol. On that outcome the AI coach performed comparably to human coaches.
 
 The **2026 trial** removed the guardrails and put an AI coach in the seat a human coach normally
-occupies — open-ended development work with predominantly middle and senior managers in a global
+occupies: open-ended development work with predominantly middle and senior managers in a global
 corporation, N=114. It found no significant improvement over control on its primary outcomes.
 
 Same class of technology, four years apart, opposite results. **The variable that changed was task
@@ -232,16 +232,16 @@ place:
 
 > **Narrow the scope until it works, rather than widening it until it fails.**
 
-This is the opposite of how vendor pilots are usually shaped, and the reason is not cynicism. A
-narrow pilot is unimpressive to demonstrate — *it answers one category of question about carryover
-balances* — while a broad one is exciting and, not coincidentally, unfalsifiable. **A scope wide
+This is the opposite of how vendor pilots are usually shaped, and the reason isn't cynicism. A
+narrow pilot is unimpressive to demonstrate (*it answers one category of question about carryover
+balances*) while a broad one is exciting and, not coincidentally, unfalsifiable. **A scope wide
 enough to be impressive is usually wide enough that no result can disconfirm it.**
 
 The test to apply before you enable anything, and it is two questions:
 
 1. **What is the single task?** Stated narrowly enough that a person could say whether it was done.
-2. **What would failure look like on it?** If you cannot describe a specific observable outcome that
-   would mean this did not work, the scope is too wide and no amount of measurement discipline will
+2. **What would failure look like on it?** If you can't describe a specific observable outcome that
+   would mean this didn't work, the scope is too wide and no amount of measurement discipline will
    rescue it.
 
 ## Lesson 5 · The kill condition
@@ -253,23 +253,23 @@ is about.
 > an installation.**
 
 "Pilot" is the most over-claimed word in enterprise technology. It implies a decision point, and
-most pilots do not contain one — they contain a launch, a period of enthusiasm, and an absorption
+most pilots don't contain one. They contain a launch, a period of enthusiasm, and an absorption
 into normal operations that nobody ever formally approved.
 
 A real kill condition has four parts, and the fourth is the one people skip:
 
 **A threshold.** A number, not a feeling. *If the repeat rate on tagged contacts exceeds 15% in any
-two consecutive weeks.* Thresholds you cannot compute from Lesson 1's four numbers are not
+two consecutive weeks.* Thresholds you can't compute from Lesson 1's four numbers aren't
 thresholds, they are sentiments — which is why the baseline comes first.
 
 **A date.** When it gets checked, on a calendar, before anyone is invested. "We'll keep an eye on
-it" is not a date and will not survive a busy month.
+it" isn't a date and won't survive a busy month.
 
 **A named person who checks it.** Module 1 established why this is a person rather than a team. The
 same reasoning applies harder here, because the check is a small unpleasant task and unpleasant
-tasks assigned to teams do not happen.
+tasks assigned to teams don't happen.
 
-**A rollback somebody has already performed.** Not a documented rollback — a performed one. In a
+**A rollback somebody has already performed.** Not a documented rollback: a performed one. In a
 sandbox if that is all you have, but performed, by a named person, with the time it took written
 down. **An untested rollback is a hope**, and Module 1 already told you why: reversibility is a
 property you design beforehand, not one you discover under pressure.
@@ -278,8 +278,8 @@ Then the test for whether yours is real, and it is uncomfortable by design:
 
 > **Could this condition fire while the project's sponsor still wants the project?**
 
-If the honest answer is no — if the threshold is set where it would only trip in a scenario so bad
-that everyone would already agree — then you have not written a kill condition. You have written a
+If the honest answer is no (if the threshold is set where it would only trip in a scenario so bad
+that everyone would already agree) then you haven't written a kill condition. You have written a
 review date with a number attached to it.
 
 And the timing, which is the reason this is Module 2 and not Module 8: **kill conditions are almost
@@ -289,7 +289,7 @@ enablement decision, which is where Module 3 is going.
 
 ## Key takeaways
 
-- **A baseline is a named query, a stated population, and a date — saved.** Not a memory; memories
+- **A baseline is a named query, a stated population, and a date, saved.** Not a memory; memories
   reshape around outcomes. And **a baseline taken after enablement is not a baseline** — it is the
   only mistake in this track with no recovery.
 - **Four numbers, under an hour, before anything is switched on:** volume, cycle time (with time to
@@ -300,13 +300,13 @@ enablement decision, which is where Module 3 is going.
   wasn't.
 - **Activity metrics survive bad deployments, and they also survive mandates** `[V]`. IBM's AskHR
   went to near-universal usage by requirement in 2018 and HR's satisfaction fell from **+19 to −35
-  within the first year** — visible only because a pre-mandate baseline existed on a metric that
+  within the first year**, visible only because a pre-mandate baseline existed on a metric that
   measured experience rather than usage. It recovered to the +80s after a rebuild centred on
   employees, and now reportedly settles ~94% of routine requests. Both facts are the same company's,
   and the success figures are unaudited self-report.
 - **Self-initiated repeat use is the leading indicator.** If usage is mandatory, usage tells you
   nothing; voluntary return is a revealed preference and the cheapest honest proxy for "it helped."
-- **A deployment relocates rework onto people who are not you** `[V]` — and your queue is the
+- **A deployment relocates rework onto people who are not you** `[V]`, and your queue is the
   function's rework detector. Tag AI-involved contacts and repeat contacts *before* enablement.
 - **Scope, not technology, decides whether it works** `[V]`. Narrow the scope until it works rather
   than widening it until it fails: a scope wide enough to impress is usually wide enough that no
@@ -317,25 +317,25 @@ enablement decision, which is where Module 3 is going.
 
 ## Take a position
 
-**The claim:** *"A deployment without a written kill condition is not a pilot. It is an installation
+**The claim:** *"A deployment without a written kill condition isn't a pilot. It is an installation
 with optimistic paperwork."*
 
 The strongest counter-argument is that **kill conditions are theatre in most organizations, and
 writing one you know will not be honoured is worse than writing none.** By the time a threshold
 trips, the vendor has been paid, the announcement has gone out, employees have been trained, the
 sponsor's credibility is attached to the thing, and the person who would have to invoke the
-condition reports to somebody who does not want it invoked. The organizational cost of reversing a
+condition reports to somebody who doesn't want it invoked. The organizational cost of reversing a
 visible deployment exceeds almost any threshold you would realistically write, so what the document
 actually produces is a false sense of control plus a governance artifact the project can point at
 when challenged.
 
-On that view the honest alternative is not a better kill condition but **reversibility by design** —
+On that view the honest alternative isn't a better kill condition but **reversibility by design**,
 scope so small, on a population so contained, for a window so short, that stopping is a non-event
-rather than a reversal requiring courage. Make it cheap to stop and you will not need permission to
+rather than a reversal requiring courage. Make it cheap to stop and you won't need permission to
 stop.
 
 Your position has to say whether the kill condition survives that critique or whether
-reversibility-by-design simply replaces it — and notice that the counter-argument is built out of
+reversibility-by-design simply replaces it, and notice that the counter-argument is built out of
 Module 1's own rule that reversibility is the gate. If you want to keep both, you have to explain
 what the written condition adds once the deployment is already cheap to reverse.
 
@@ -348,24 +348,24 @@ lands.
 For the decision you chose in Module 1 — and if an AI capability is already live on it, all the
 better, because a retrospective baseline is the honest hard case.
 
-**Step 1 — The four numbers (10 min).** Volume, cycle time and time to first response, the repeat
+**Step 1. The four numbers (10 min).** Volume, cycle time and time to first response, the repeat
 rate, and the top five categories by count. **Submit the actual numbers and the query or report that
 produced each one**, not a description of where they could be found. If a number is genuinely
-unavailable, say which one, why, and what would have to change — that is a finding, not a gap.
+unavailable, say which one, why, and what would have to change. That is a finding, not a gap.
 
-**Step 2 — The change metric (5 min).** One metric that would move if this got better and would not
+**Step 2 — The change metric (5 min).** One metric that would move if this got better and wouldn't
 move merely because people used it. State how you would compute it, from which system, and what
-counts as a meaningful move. Then name the activity metric you are *not* going to report, and why —
-naming the one you are declining is the graded part.
+counts as a meaningful move. Then name the activity metric you're *not* going to report, and why,
+naming the one you're declining is the graded part.
 
-**Step 3 — The rework check (3 min).** How you will detect rework landing on somebody else: the tag,
+**Step 3. The rework check (3 min).** How you'll detect rework landing on somebody else: the tag,
 the field, or the query. And who reads it weekly.
 
 **Step 4 — The kill condition (5 min).** All four parts: threshold computable from Step 1, date,
-named person, and the rollback — including whether anyone has performed it and how long it took. If
+named person, and the rollback, including whether anyone has performed it and how long it took. If
 nobody has, say so and name when they will.
 
-**Step 5 — Score the prediction.** Your predicted count of capabilities with a pre-enablement
+**Step 5. Score the prediction.** Your predicted count of capabilities with a pre-enablement
 baseline against what you found. Direction and size of the miss, and one sentence on what it says.
 
 Then the write-up: your position on the claim above with its counter-argument addressed
@@ -396,12 +396,12 @@ project?** If not, rewrite it once and say what you changed.
 
 > **C.** Save the query, not just the answer, and write down the population — otherwise the
 > comparison six months later uses a slightly different denominator that happens to flatter the
-> result. That is what happens to everyone who didn't write it down.
+> result. That is what happens to everyone who did not write it down.
 
 **Q3.** What did IBM's 2018 AskHR mandate demonstrate about activity metrics? `[V]`
 
 - A. That mandating adoption is an effective way to drive behaviour change
-- B. That usage went to near-universal while HR satisfaction fell from +19 to −35 — so every project-dashboard number improved while the experience got materially worse ✓
+- B. That usage went to near-universal while HR satisfaction fell from +19 to −35, so every project-dashboard number improved while the experience got materially worse ✓
 - C. That chatbots are unsuitable for HR service delivery
 - D. That satisfaction scores are unreliable in HR contexts
 
@@ -412,7 +412,7 @@ project?** If not, rewrite it once and say what you changed.
 **Q4.** Why is self-initiated repeat use the leading indicator this module recommends?
 
 - A. Because it is easier to measure than satisfaction
-- B. Because it is a revealed preference on a population that could have gone elsewhere — and it is exactly the signal a mandate destroys your ability to read ✓
+- B. Because it is a revealed preference on a population that could have gone elsewhere, and it is exactly the signal a mandate destroys your ability to read ✓
 - C. Because vendors report it as standard
 - D. Because it correlates with cost per interaction
 
@@ -428,11 +428,11 @@ project?** If not, rewrite it once and say what you changed.
 
 > **C.** A is the HRBP track's version, correctly aimed at someone auditing their own workflow.
 > Yours relocates onto people who are not you, which makes your ticket queue the function's rework
-> detector — and you are the only person who can read it.
+> detector, and you're the only person who can read it.
 
 **Q6.** What did the two AI coaching trials establish? `[V]`
 
-- A. That AI coaching does not work
+- A. That AI coaching doesn't work
 - B. That newer models perform worse than earlier ones on coaching tasks
 - C. That the same class of technology produced opposite results four years apart, and the variable that changed was task scope rather than the technology ✓
 - D. That human coaches outperform AI on every measured outcome
@@ -458,7 +458,7 @@ project?** If not, rewrite it once and say what you changed.
 - A. The threshold, because it requires a baseline
 - B. The date, because calendars slip
 - C. The named person, because teams are easier to assign
-- D. A rollback somebody has actually performed — not a documented one, a performed one, with the time it took written down ✓
+- D. A rollback somebody has actually performed, not a documented one, a performed one, with the time it took written down ✓
 
 > **D.** An untested rollback is a hope. And the test for whether the whole condition is real is
 > whether it could fire while the sponsor still wants the project; if not, it is a review date with
@@ -471,14 +471,14 @@ project?** If not, rewrite it once and say what you changed.
   recovery into the +80s after rebuilding around employee needs, and the current reported figures of
   ~94% of routine requests settled, ~75% fewer tickets since 2016, and ~40% lower HR operating cost
   over four years. Reported via IBM's CHRO in trade and business press. **All of these are the
-  company's own figures and none has been independently audited** — the same standard this
+  company's own figures and none has been independently audited**, the same standard this
   curriculum applies to IBM's widely-repeated attrition-savings claim in `ai301-hrbp-m3`, which it
   treats as unverifiable rather than false. The satisfaction collapse is the figure this module leans
   on, because self-reporting a failure is the more credible direction. **[V]**
-- **Glean, *The Work AI Index 2026*** — the ~11 hours perceived weekly saving, the ~13%
+- **Glean, *The Work AI Index 2026***, the ~11 hours perceived weekly saving, the ~13%
   organizational performance figure, and the 6.4-hours-per-week botsitting measurement (n≈6,000
   digital workers across the US, UK and Australia, fielded December 2025 – January 2026). Phrasing
-  aligned with `ai301-hrbp-m3`, which uses the same source, so the two do not drift. **[V]**
+  aligned with `ai301-hrbp-m3`, which uses the same source, so the two don't drift. **[V]**
 - **de Haan, Terblanche & Nowack**, *Human Resource Development International* (2026) — the
   randomized controlled comparison of human and AI chatbot coaching, N=114, predominantly middle and
   senior managers in one global corporation; and **Terblanche et al. (2022)** on

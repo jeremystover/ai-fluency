@@ -13,7 +13,7 @@
         "That trust in AI varies more by seniority than by function"
       ],
       "correctIndex": 1,
-      "explanation": "The systems spending employee and candidate trust are increasingly chosen by people who do not carry the consequence of spending it."
+      "explanation": "The systems spending employee and candidate trust are increasingly chosen by people who don't carry the consequence of spending it."
     },
     {
       "id": "q2",
@@ -25,7 +25,7 @@
         "All three are self-reported attitudes"
       ],
       "correctIndex": 2,
-      "explanation": "People are not registering discomfort in a survey — they are leaving. That is the figure with a business consequence attached."
+      "explanation": "People aren't registering discomfort in a survey. They are leaving. That is the figure with a business consequence attached."
     },
     {
       "id": "q3",
@@ -37,7 +37,7 @@
         "Only systems making fully automated decisions are covered"
       ],
       "correctIndex": 1,
-      "explanation": "Deferral of one regime is not runway across the Act, and a learner who takes away only the 2027 date has the dangerous version of this lesson."
+      "explanation": "Deferral of one regime isn't runway across the Act, and a learner who takes away only the 2027 date has the dangerous version of this lesson."
     },
     {
       "id": "q4",
@@ -49,7 +49,7 @@
         "Because regulators give credit for principles-based compliance"
       ],
       "correctIndex": 1,
-      "explanation": "Being stricter than the law is exactly what makes it durable. You will not have to rewrite it when the law moves again, and it has moved twice already."
+      "explanation": "Being stricter than the law is exactly what makes it durable. You won't have to rewrite it when the law moves again, and it has moved twice already."
     },
     {
       "id": "q5",
@@ -85,11 +85,11 @@
         "Not informing employees that the tool retains conversation data"
       ],
       "correctIndex": 2,
-      "explanation": "Every available position is uncomfortable and the module does not claim to settle it. What it requires is a deliberate decision, written down and disclosed — B is one legitimate choice among several, not the answer."
+      "explanation": "Every available position is uncomfortable and the module doesn't claim to settle it. What it requires is a deliberate decision, written down and disclosed: B is one legitimate choice among several, not the answer."
     },
     {
       "id": "q8",
-      "prompt": "A learner searches thoroughly and cannot find an unreviewed decision. How should that be scored?",
+      "prompt": "A learner searches thoroughly and can't find an unreviewed decision. How should that be scored?",
       "options": [
         "As incomplete, since the activity requires a named system",
         "As full credit if they submit the search — where they looked, who they asked, what they concluded — and especially if the reason is that nobody could tell them what systems are running",
@@ -97,7 +97,7 @@
         "As a reason to complete the activity using a hypothetical system"
       ],
       "correctIndex": 1,
-      "explanation": "The inability to see the systems is a larger finding than any single system would have been, and C is exactly the wrong inference — not finding one may mean there isn't one, or it may mean you cannot see them, and the search is what distinguishes those."
+      "explanation": "The inability to see the systems is a larger finding than any single system would have been, and C is exactly the wrong inference, not finding one may mean there isn't one, or it may mean you can't see them, and the search is what distinguishes those."
     }
   ]
 }

@@ -6,7 +6,7 @@
     "kind": "prose",
     "layer": "stable",
     "reviewedAt": "2026-08-11",
-    "body": "## Module 5 in two minutes\n\n**Prompting is briefing a capable stranger** — a talented contractor on their first day: sharp, willing, and knowing nothing about your organization. Most people prompt like they search, and every detail a search-style prompt leaves unspecified gets filled from the training data's average. That's why thin prompts produce generic output: not wrong, just *anyone's*.\n\n**Four parts pin the prediction.** Role (register), task (one deliverable, sharply), context (your reality — the part everyone skips because it's obvious *to them*), format (the cheapest quality win there is). Scale to stakes: two lines is correct for small asks.\n\n**The first output is a draft of the brief, not the work.** Steer: name what's wrong specifically, supply what's missing, constrain the format, or ask for variants. Two sideways rounds means stop steering and start editing. And **examples beat descriptions** — one or two curated, M4-safe examples pin what adjectives can't. The brief is where your expertise enters the system; the tool amplifies what you articulate, not what you know."
+    "body": "## Module 5 in two minutes\n\n**Prompting is briefing a capable stranger**: a talented contractor on their first day: sharp, willing, and knowing nothing about your organization. Most people prompt like they search, and every detail a search-style prompt leaves unspecified gets filled from the training data's average. That's why thin prompts produce generic output: not wrong, just *anyone's*.\n\n**Four parts pin the prediction.** Role (register), task (one deliverable, sharply), context (your reality: the part everyone skips because it's obvious *to them*), format (the cheapest quality win there is). Scale to stakes: two lines is correct for small asks.\n\n**The first output is a draft of the brief, not the work.** Steer: name what's wrong specifically, supply what's missing, constrain the format, or ask for variants. Two sideways rounds means stop steering and start editing. And **examples beat descriptions** — one or two curated, M4-safe examples pin what adjectives can't. The brief is where your expertise enters the system; the tool amplifies what you articulate, not what you know."
   },
   {
     "id": "ai101-m5-micro-rule",
@@ -15,7 +15,7 @@
     "kind": "callout",
     "layer": "stable",
     "reviewedAt": "2026-08-11",
-    "body": "### The rule to carry\n\nBefore hitting enter, ask: what would a first-day contractor still have to invent from this? Everything on that list either goes in the brief, gets an example — or, if it can't travel (M4) or judges a person (M1), stays yours."
+    "body": "### The rule to carry\n\nBefore hitting enter, ask: what would a first-day contractor still have to invent from this? Everything on that list either goes in the brief, gets an example, or, if it can't travel (M4) or judges a person (M1), stays yours."
   },
   {
     "id": "ai101-m5-micro-close",
@@ -24,6 +24,6 @@
     "kind": "prose",
     "layer": "stable",
     "reviewedAt": "2026-08-11",
-    "body": "**The full module adds** the four-briefs exercise (spot the one that gets a usable first draft — and why role inflation feels like briefing but isn't), the four steering moves in detail, M4-safe example sourcing, and Brief It Twice — the same real task run thin and briefed, scored against your prediction of the gap."
+    "body": "**The full module adds** the four-briefs exercise (spot the one that gets a usable first draft, and why role inflation feels like briefing but isn't), the four steering moves in detail, M4-safe example sourcing, and Brief It Twice: the same real task run thin and briefed, scored against your prediction of the gap."
   }
 ]

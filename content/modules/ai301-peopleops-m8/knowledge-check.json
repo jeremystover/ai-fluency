@@ -13,7 +13,7 @@
         "That headcount reductions should be announced only after results are proven"
       ],
       "correctIndex": 1,
-      "explanation": "The obvious reading is wrong: AskHR worked, and this track relies on it twice. The story is about what happened to the capacity. Everything else can be re-hired at market rate; a three-year gap in junior intake cannot."
+      "explanation": "The obvious reading is wrong: AskHR worked, and this track relies on it twice. The story is about what happened to the capacity. Everything else can be re-hired at market rate; a three-year gap in junior intake can't."
     },
     {
       "id": "q2",
@@ -25,7 +25,7 @@
         "A regulatory forecast with compliance implications"
       ],
       "correctIndex": 1,
-      "explanation": "Forecast, not observation; customer service, not HR; and the base rate cuts against the discourse — most organizations held staffing flat while absorbing more volume."
+      "explanation": "Forecast, not observation; customer service, not HR; and the base rate cuts against the discourse, most organizations held staffing flat while absorbing more volume."
     },
     {
       "id": "q3",
@@ -61,7 +61,7 @@
         "Manager hierarchy integrity"
       ],
       "correctIndex": 1,
-      "explanation": "And nobody will announce it. You are the person who will be asked why the numbers moved, which is a good reason to have decided the treatment deliberately and written it down."
+      "explanation": "And nobody will announce it. You're the person who will be asked why the numbers moved, which is a good reason to have decided the treatment deliberately and written it down."
     },
     {
       "id": "q6",
@@ -73,7 +73,7 @@
         "The named accountable human"
       ],
       "correctIndex": 2,
-      "explanation": "No other role in the curriculum can subtract — an HRBP cannot retire a process, a recruiter cannot disable an integration. And subtraction reduces the surface every other module has to govern, which usually makes the widest-reach unowned capability in your register the best available bet."
+      "explanation": "No other role in the curriculum can subtract: an HRBP can't retire a process, a recruiter can't disable an integration. And subtraction reduces the surface every other module has to govern, which usually makes the widest-reach unowned capability in your register the best available bet."
     },
     {
       "id": "q7",
@@ -85,7 +85,7 @@
         "Whether the vendor contract includes a termination right"
       ],
       "correctIndex": 1,
-      "explanation": "If the vendor is signed, the date announced and the training built, it is a migration — which is legitimate and should be called one. Using \"bet\" for something that cannot go either way is how a function loses the ability to stop anything."
+      "explanation": "If the vendor is signed, the date announced and the training built, it is a migration, which is legitimate and should be called one. Using \"bet\" for something that can't go either way is how a function loses the ability to stop anything."
     },
     {
       "id": "q8",
@@ -97,7 +97,7 @@
         "That HR technology adoption figures are overstated"
       ],
       "correctIndex": 2,
-      "explanation": "Read against Module 1's finding that HR technology is the second-most-adopted area in the function. Not the back office: the control surface — the only place the function's AI can actually be governed."
+      "explanation": "Read against Module 1's finding that HR technology is the second-most-adopted area in the function. Not the back office: the control surface: the only place the function's AI can actually be governed."
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "reviewedAt": "2026-08-12",
   "title": "Ten development needs",
-  "intro": "*Five minutes. Commit before you look.*\n\nTen real development needs from one organization. Sort each by what it actually requires.\n\nThe test to apply: **does this work because of the information exchanged, or because someone is watching?** Information delegates. Being watched does not.",
+  "intro": "*Five minutes. Commit before you look.*\n\nTen real development needs from one organization. Sort each by what it actually requires.\n\nThe test to apply: **does this work because of the information exchanged, or because someone is watching?** Information delegates. Being watched doesn't.",
   "buckets": [
     {
       "id": "tool",
@@ -13,7 +13,7 @@
     {
       "id": "human",
       "label": "Needs a human",
-      "hint": "The mechanism is co-regulation — a witness with a stake",
+      "hint": "The mechanism is co-regulation: a witness with a stake",
       "rank": 1,
       "pct": 15
     },
@@ -34,7 +34,7 @@
     },
     {
       "id": "t2",
-      "text": "A high-performing engineer keeps derailing design reviews and does not believe they have a problem",
+      "text": "A high-performing engineer keeps derailing design reviews and doesn't believe they have a problem",
       "key": "human",
       "reasoning": "The entire intervention is getting past a self-assessment the person is invested in defending. That requires someone whose regard is at stake and who will decline to move past the avoidance. A tool that raises it gets argued with and closed."
     },
@@ -42,19 +42,19 @@
       "id": "t3",
       "text": "A sales team has to hit a certification deadline on a new product's technical specifications",
       "key": "tool",
-      "reasoning": "Bounded, measurable, with a stated target — the profile from the 2022 study that actually worked. Note that this is the correct application rather than a lesser one, and it should be sold internally as such."
+      "reasoning": "Bounded, measurable, with a stated target: the profile from the 2022 study that actually worked. Note that this is the correct application rather than a lesser one, and it should be sold internally as such."
     },
     {
       "id": "t4",
       "text": "A director wants help preparing for a conversation where they will tell a long-tenured employee their role is being eliminated",
       "key": "human",
-      "reasoning": "Arguable, and worth arguing. A tool can genuinely rehearse the conversation — the HRBP track builds a whole module on adversarial rehearsal. What it cannot do is hold the director's own distress about doing it, which is usually the reason the conversation gets postponed. If the block is preparation, a tool helps. If the block is dread, it doesn't."
+      "reasoning": "Arguable, and worth arguing. A tool can genuinely rehearse the conversation: the HRBP track builds a whole module on adversarial rehearsal. What it can't do is hold the director's own distress about doing it, which is usually the reason the conversation gets postponed. If the block is preparation, a tool helps. If the block is dread, it doesn't."
     },
     {
       "id": "t5",
       "text": "Engagement scores on 'my manager supports my development' dropped in two teams, both reporting to the same director",
       "key": "neither",
-      "reasoning": "Module 2's card, arriving here for a reason. Nine teams, drop in two, one common director. This is a management problem and no development intervention aimed at the population will touch it — building one spends the goodwill you would need for the real conversation."
+      "reasoning": "Module 2's card, arriving here for a reason. Nine teams, drop in two, one common director. This is a management problem and no development intervention aimed at the population will touch it, building one spends the goodwill you would need for the real conversation."
     },
     {
       "id": "t6",
@@ -64,27 +64,27 @@
     },
     {
       "id": "t7",
-      "text": "A senior leader has been told, repeatedly and by several people, that they interrupt constantly in meetings — and nothing has changed",
+      "text": "A senior leader has been told, repeatedly and by several people, that they interrupt constantly in meetings, and nothing has changed",
       "key": "human",
-      "reasoning": "They already have the information. Several people have supplied it. Applying Module 2's test: this is not a knowledge gap, and what is missing is somebody with enough standing that the cost of continuing exceeds the cost of changing. That is co-regulation with authority attached."
+      "reasoning": "They already have the information. Several people have supplied it. Applying Module 2's test: this isn't a knowledge gap, and what is missing is somebody with enough standing that the cost of continuing exceeds the cost of changing. That is co-regulation with authority attached."
     },
     {
       "id": "t8",
       "text": "A struggling mid-level employee, low confidence after a bad year, has been enrolled in the company's AI coaching pilot as their only support",
       "key": "human",
-      "reasoning": "The module's central finding, as a card. Outcomes track starting self-efficacy and hope, so this is precisely the person an unsupervised tool serves worst — and they will disappear from the data as a non-completer rather than as a failure. If you place this in 'tool' because the pilot is what exists, notice that the allocation was made by budget and never stated."
+      "reasoning": "The module's central finding, as a card. Outcomes track starting self-efficacy and hope, so this is precisely the person an unsupervised tool serves worst, and they will disappear from the data as a non-completer rather than as a failure. If you place this in 'tool' because the pilot is what exists, notice that the allocation was made by budget and never stated."
     },
     {
       "id": "t9",
       "text": "Twelve people need to know the new expense thresholds before the policy takes effect next month",
       "key": "tool",
-      "reasoning": "Information with a deadline. The only real question is whether it needs to be a module at all rather than a well-written email — which is Module 2's question, and worth asking before building anything."
+      "reasoning": "Information with a deadline. The only real question is whether it needs to be a module at all rather than a well-written email, which is Module 2's question, and worth asking before building anything."
     },
     {
       "id": "t10",
-      "text": "Managers are not running development conversations, and say they do not have time",
+      "text": "Managers aren't running development conversations, and say they don't have time",
       "key": "neither",
-      "reasoning": "The money test settles it: could they run the conversation tomorrow for a large enough reward? Almost certainly. So this is not a knowledge gap, and a course on how to run development conversations will confirm what they know while generating evidence the problem was addressed. The cause is what the organization actually rewards — and note the trap, because routing these conversations to a tool 'solves' it while removing the occasion Lesson 4 is about."
+      "reasoning": "The money test settles it: could they run the conversation tomorrow for a large enough reward? Almost certainly. So this isn't a knowledge gap, and a course on how to run development conversations will confirm what they know while generating evidence the problem was addressed. The cause is what the organization actually rewards, and note the trap, because routing these conversations to a tool 'solves' it while removing the occasion Lesson 4 is about."
     }
   ]
 }

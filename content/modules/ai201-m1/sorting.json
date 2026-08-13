@@ -45,7 +45,7 @@
       "id": "t4",
       "text": "Refreshing job postings each quarter to strip jargon and drift",
       "key": "workflow",
-      "reasoning": "Quarterly but perfectly structured — pure transformation."
+      "reasoning": "Quarterly but perfectly structured, pure transformation."
     },
     {
       "id": "t5",
@@ -57,7 +57,7 @@
       "id": "t6",
       "text": "Summarizing exit-interview verbatims at quarter end",
       "key": "workflow",
-      "reasoning": "Same pattern as engagement summaries — with the same caveat: read the raw comments too."
+      "reasoning": "Same pattern as engagement summaries, with the same caveat: read the raw comments too."
     },
     {
       "id": "t7",
@@ -87,15 +87,15 @@
       "id": "t11",
       "text": "Screening résumés for a hard-to-fill role",
       "key": "never",
-      "reasoning": "A decision about people — and the place your vendors quietly systematize it for you. You wrote the questions to ask them in 101."
+      "reasoning": "A decision about people, and the place your vendors quietly systematize it for you. You wrote the questions to ask them in 101."
     },
     {
       "id": "t12",
       "text": "Preparing talking points for a sensitive conversation with a specific employee",
       "key": "manual",
-      "reasoning": "The material that matters — history, relationship, what you know that isn't written down — is exactly what no system holds."
+      "reasoning": "The material that matters (history, relationship, what you know that isn't written down) is exactly what no system holds."
     }
   ],
-  "pattern": "Workflow the recurring transformations of material you own. Keep manual the judgment calls that happen to recur — and anything that happens once. Never systematize decisions about people.",
+  "pattern": "Workflow the recurring transformations of material you own. Keep manual the judgment calls that happen to recur, and anything that happens once. Never systematize decisions about people.",
   "postscript": "If you missed several, look at which kind. Putting judgment calls in 'workflow it' means you'll build something that launders discretion through a template. Putting good transformations in 'keep it manual' means the artisan tax continues for no reason. Both are fixable; that's what the selection rules are for."
 }

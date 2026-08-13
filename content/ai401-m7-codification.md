@@ -31,7 +31,7 @@ now?** A percentage. You're going to check this by asking, and the gap between "
 
 **First, what this module is not, because you've met its neighbours.**
 
-AI 201 M2 taught you the context pack — reusable material that gives a model the standing
+AI 201 M2 taught you the context pack, reusable material that gives a model the standing
 information it needs so you stop re-explaining your world every session. AI 201 M7 taught library
 hygiene: a personal review cadence so your own packs and prompts don't rot. Both were correct and
 neither is repeated here.
@@ -47,7 +47,7 @@ The gap the module exists to close:
 > **Individual learning velocity rose sharply. Collective learning velocity did not move.**
 
 Everyone in your organization is getting better at this, fast, in parallel, in private. Almost none
-of what they learn reaches anyone else. And the thing most organizations reach for — training —
+of what they learn reaches anyone else. And the thing most organizations reach for (training)
 can't fix it, for a structural reason worth saying plainly.
 
 ## Learning objectives
@@ -68,8 +68,8 @@ a tutor available at any hour, and a peer group posting techniques constantly. P
 in weeks what would have taken a year to learn about a previous technology.
 
 **Collective learning velocity has not moved at all.** The organization knows almost nothing more
-than it did, because the mechanisms by which an organization learns — documentation, training,
-process, the transmission of practice between people — run at the speed they always ran at.
+than it did, because the mechanisms by which an organization learns (documentation, training,
+process, the transmission of practice between people) run at the speed they always ran at.
 
 **And the standard mechanism has a structural problem, not an execution problem.** One-time
 training builds a habit against a fixed target. It works for a system that will behave the same way
@@ -80,14 +80,14 @@ learner has no way to know which part.
 This is worth being precise about, because it's often heard as "training doesn't work," which is
 both wrong and unhelpful. Training works. **The half-life of what it transmits got much shorter,
 and the delivery cadence did not change to match.** A curriculum designed for annual delivery
-against a quarterly-changing subject will be wrong more often than it's right, and — this is the
-damaging part — **it will be confidently wrong, in a room, to people who then repeat it.**
+against a quarterly-changing subject will be wrong more often than it's right, and (this is the
+damaging part) **it will be confidently wrong, in a room, to people who then repeat it.**
 
 > ### Try this — 3 minutes
 > Think of the single most useful thing you personally learned about working with these tools in
 > the last three months. Now ask: **how many people in your organization know it?** If the answer
 > is "the two people I mentioned it to," you've just measured the gap between the two velocities
-> in your own behavior — and you're the person in your organization most likely to be trying to
+> in your own behavior, and you're the person in your organization most likely to be trying to
 > close it.
 
 ## Lesson 2 · Codification isn't documentation
@@ -99,7 +99,7 @@ Prompt fluency is necessary and insufficient. The value shows up when individual
 form someone else can use without a conversation.
 
 **Measured through workflow telemetry.** You can tell whether it's being used, and whether the
-work it touches is better. Not a satisfaction score — usage and outcome on the actual workflow.
+work it touches is better. Not a satisfaction score, usage and outcome on the actual workflow.
 
 **Circulated through tracked cycles.** There is a rhythm by which new practice enters and stale
 practice leaves, and somebody is accountable for it running.
@@ -126,7 +126,7 @@ Ask that about any shared library in your organization. The answer is almost alw
 never, and it tells you what you're looking at.
 
 **Three properties of a codified artifact that survives.** It has a **named maintainer**, not a
-team. It has a **decay condition** — a statement of what would make it wrong, which is Module 2's
+team. It has a **decay condition**: a statement of what would make it wrong, which is Module 2's
 trigger applied to knowledge. And it records **why**, not just what: a prompt without its rationale
 can't be updated by anyone except its author, which means it's person-dependent wearing a shared
 folder's clothes.
@@ -137,7 +137,7 @@ If the classroom can't keep up, what does?
 
 The pattern that keeps being reported is **embedding rather than convening**: putting capability
 inside the team's existing rhythm rather than pulling people out of it. Someone who sits in the
-team's actual ceremonies — the planning session, the review, the retrospective — and works on the
+team's actual ceremonies (the planning session, the review, the retrospective) and works on the
 real thing in front of them, rather than a course delivered to a room of people from six functions.
 
 The mechanism is plausible and worth saying: it teaches against **this** work rather than a
@@ -148,8 +148,8 @@ produces artifacts as a by-product rather than as homework.
 you the same standard.**
 
 The applied evidence for embedded AI coaching is **largely vendor-supplied.** The figures in
-circulation — that embedded approaches drive multiples of the adoption of standalone portals, that
-retention of practice is far higher — come predominantly from organizations selling embedded
+circulation (that embedded approaches drive multiples of the adoption of standalone portals, that
+retention of practice is far higher) come predominantly from organizations selling embedded
 coaching. They may well be right. They aren't independent, and a course that repeated them as
 findings would be doing exactly what Module 6 tells you not to accept from a vendor.
 
@@ -159,7 +159,7 @@ source and is not used here.** The pattern is worth teaching; the anecdote isn't
 
 **So take this lesson at its actual strength.** Embedding is a well-motivated pattern with a
 plausible mechanism and weak independent evidence. That is enough to try it in one team with a
-measure attached — which is exactly what Module 10's pilot design is for — and not enough to fund
+measure attached (which is exactly what Module 10's pilot design is for) and not enough to fund
 a programme on.
 
 ## Lesson 4 · What codification doesn't fix
@@ -169,7 +169,7 @@ One more thing, and it's the handoff to the next module.
 Go back to the junior analyst asking the senior analyst three questions a day. Module 1 put it on
 the sorting exercise; here's what it was actually doing.
 
-**Asking a colleague a question was performing two jobs at once.** It moved information — the
+**Asking a colleague a question was performing two jobs at once.** It moved information: the
 answer. And it built the relationship — the small, repeated, low-stakes contact through which trust
 forms, norms transmit, newcomers find mentors, and people learn what opportunities exist and who to
 ask about them.
@@ -195,14 +195,14 @@ Module 8 is about the load nobody has been assigned.
   is getting better in parallel and in private.
 - **One-time training has a structural problem, not an execution one.** It builds habits against a
   fixed target; the half-life of what it transmits got much shorter and the delivery cadence did
-  not change to match — so it's confidently wrong, in a room, to people who repeat it.
+  not change to match, so it's confidently wrong, in a room, to people who repeat it.
 - **Individual practice becomes collective capability through three things:** codified into shared
   artifacts, measured through workflow telemetry, circulated through tracked cycles. Miss one and
   it stays trapped.
 - **Collective learning that depends on individual memory and goodwill does not survive a
   resignation.**
 - **Codification is not documentation. A fossil is worse than nothing because it looks like
-  coverage** — and a stale shared prompt costs more than an empty folder, which at least tells the
+  coverage**, and a stale shared prompt costs more than an empty folder, which at least tells the
   truth.
 - **The test is: who removes things, and when did they last do it?**
 - **A surviving artifact has a named maintainer, a decay condition, and its rationale** — because a
@@ -221,7 +221,7 @@ The strongest counter-argument is that **stale artifacts are how institutional m
 works, and always have been.** Every functioning organization is full of documents nobody
 maintains, and people use them the way people have always used old maps: as a starting point,
 adjusted by judgment, better than the blank page. On this view the module has set an unattainable
-standard — a named maintainer and a decay condition for every artifact — that will produce, in
+standard (a named maintainer and a decay condition for every artifact) that will produce, in
 practice, **far less written down**, because the cost of writing anything now includes committing
 someone to maintain it forever.
 
@@ -231,7 +231,7 @@ have a library of stale prompts each confidently labelled with a stale decay con
 worse than what you started with because now the fossils carry credentials.
 
 Your position has to say what you would actually require before something enters your shared
-library — and whether you would rather have twenty maintained items or two hundred unmaintained
+library, and whether you would rather have twenty maintained items or two hundred unmaintained
 ones.
 
 ## Applied activity — "The trapped practice"
@@ -240,7 +240,7 @@ ones.
 **Graded against the rubric below.** Score doesn't matter. Doing the work is where the learning
 lands.
 
-**Step 1 — Ask (5 min).** Your calibration answer was what proportion of your team could find your
+**Step 1. Ask (5 min).** Your calibration answer was what proportion of your team could find your
 shared AI practice in under two minutes. **Ask four or five of them to find it while you wait.**
 Not "does it exist" — *find it.* Record how many could, and how long it took.
 
@@ -251,20 +251,20 @@ first item rather than fixing the library.
 head or one person's files, that other people would benefit from. Module 6's early adopter is the
 obvious hunting ground; so is anyone whose output people quietly ask for copies of.
 
-Name it specifically: what the practice is, who has it, and **what it's worth** — how much better
+Name it specifically: what the practice is, who has it, and **what it's worth**: how much better
 the outcome is, or how much faster, as concretely as you can say honestly.
 
-**Step 3 — Design the codification (12 min).** Four things, and the last two are the graded ones:
+**Step 3. Design the codification (12 min).** Four things, and the last two are the graded ones:
 
 1. **Where it lives** — a real location, one people already open.
-2. **What form it takes** — and include the *why*, not just the *what*, because a prompt without
+2. **What form it takes**, and include the *why*, not just the *what*, because a prompt without
    its rationale can only be updated by its author.
-3. **Who maintains it** — a name. Not a team, not a role, not "the COE." If you can't get a name,
+3. **Who maintains it**: a name. Not a team, not a role, not "the COE." If you can't get a name,
    say so and say what that means for the artifact's life expectancy.
 4. **Its decay condition** — what would make this wrong, stated observably. Module 2's trigger,
    applied to knowledge. And who is watching for it.
 
-**Step 4 — The covering note (5 min).** 200–300 words. Your calibration percentage against what
+**Step 4. The covering note (5 min).** 200–300 words. Your calibration percentage against what
 happened when you asked people to find it. Whether anything in your current shared library is a
 fossil — **name one specifically if so.** And your position on the module's claim, engaging the
 counter-argument that the standard is unattainable and will produce less written down rather than
@@ -301,7 +301,7 @@ more.
 - C. Piloted, standardized, and mandated
 - D. Written down, trained out, and audited
 
-> **B.** Miss any one and discoveries stay trapped — which means collective learning depends on
+> **B.** Miss any one and discoveries stay trapped, which means collective learning depends on
 > individual memory and goodwill, and neither survives a resignation.
 
 **Q4.** Why is an unmaintained shared artifact worse than nothing?
@@ -326,7 +326,7 @@ more.
 **Q6.** Why must a codified artifact record its rationale rather than just its content?
 
 - A. Because rationale is required for compliance documentation
-- B. Because a prompt without its reasoning can only be updated by its author — which makes it person-dependent wearing a shared folder's clothes ✓
+- B. Because a prompt without its reasoning can only be updated by its author, which makes it person-dependent wearing a shared folder's clothes ✓
 - C. Because rationale helps new users decide whether it applies to them
 - D. Because it demonstrates the artifact was reviewed before publication
 
@@ -336,7 +336,7 @@ more.
 **Q7.** How does the module characterize the evidence for embedded AI coaching?
 
 - A. Strong and independently replicated
-- B. A plausible mechanism with largely vendor-supplied applied evidence — enough to pilot with a measure, not enough to fund a programme ✓
+- B. A plausible mechanism with largely vendor-supplied applied evidence: enough to pilot with a measure, not enough to fund a programme ✓
 - C. Contested, with equally strong evidence on both sides
 - D. Too recent to assess
 
@@ -361,7 +361,7 @@ more.
 - **Evidence stated at its real strength.** `[V]` The applied evidence for embedded coaching is
   largely vendor-supplied and the lesson says so. The frequently-repeated story about a large
   technology company placing AI coaches inside engineering teams at roughly one per five to ten
-  people **could not be traced to a primary source and is not used** — the pattern is taught, the
+  people **could not be traced to a primary source and is not used**: the pattern is taught, the
   anecdote isn't.
 - The codification/documentation distinction, the who-removes-things test, the three properties of
   a surviving artifact, and the two-jobs mechanism are original to this course.

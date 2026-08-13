@@ -119,7 +119,7 @@ obviously right for this role:
    worthless," it is new.
 5. **"Your assessments are now free to pass" is Recruiter R4 with different nouns.** Expensive-to-
    fake signal design is owned. The L&D-specific residue — that assessment was already the weakest
-   link in the practice and has now become load-bearing — survives as a lesson, not a module.
+   link in the practice and has now become structural — survives as a lesson, not a module.
 
 That is five strong candidate modules eliminated by subtraction, which is roughly what the brief
 predicts should happen and is the clearest sign the discipline is working.

@@ -17,7 +17,7 @@
 Back in Module 1 you split your week across five work types and predicted the shares before you
 measured them. **Look at that prediction again now, before reading anything in this module.**
 
-**If you re-ran the exercise today — same job, same week structure — which work type would you now
+**If you re-ran the exercise today (same job, same week structure) which work type would you now
 say holds the largest realistic opportunity for your function this year?** Name one.
 
 Then: **how confident are you, as a percent, that you could get your leadership to fund it?**
@@ -32,12 +32,12 @@ standard most AI business cases never meet.
 
 **A bet is not a wish, and the difference is a funding line.** Anyone can name a use case. What
 separates a proposal that gets resourced from one that gets nodded at is the sentence that says
-**what you would stop doing to pay for it** — and that sentence is missing from nearly every AI
+**what you would stop doing to pay for it**, and that sentence is missing from nearly every AI
 proposal written inside an HR function, because writing it requires admitting that something you
 currently do is worth less than the thing you want.
 
 There is also a specific trap waiting for a comp function here, and it is the one your CFO will
-hand you. The standard AI value case is efficiency — hours saved, headcount avoided. **For your
+hand you. The standard AI value case is efficiency: hours saved, headcount avoided. **For your
 function that case is not just weak, it's a distraction**, and Lesson 2 explains why in a way you
 can use in the room.
 
@@ -49,7 +49,7 @@ The claim you'll take a position on:
 
 By the end of this module you should be able to:
 
-1. Place any proposed use on the leverage ladder — compress, continuous, explain, design — and say
+1. Place any proposed use on the leverage ladder (compress, continuous, explain, design) and say
    what each rung actually requires.
 2. Say which rungs a comp function can realistically reach this year, and why the ladder is not a
    maturity model.
@@ -72,10 +72,10 @@ deck without the weekend.
 how anyone else works.
 
 *What it's worth:* real and bounded. You get time back, and the honest question is what you do with
-it. **Compression that returns hours into the same work backlog produces no visible value at all** —
-it produces a slightly less exhausted team, which matters and which no CFO will fund.
+it. **Compression that returns hours into the same work backlog produces no visible value at all**.
+It produces a slightly less exhausted team, which matters and which no CFO will fund.
 
-**Rung 2 — Continuous.** Do a periodic thing on a rolling basis. Market position monitored monthly
+**Rung 2. Continuous.** Do a periodic thing on a rolling basis. Market position monitored monthly
 rather than reviewed annually. Pay equity checked quarterly rather than once a year in a panic.
 Range health tracked rather than discovered.
 
@@ -92,13 +92,13 @@ its own pay. Managers who can articulate why a band is what it is. Employees who
 total rewards. Leaders who can defend a structure they didn't design.
 
 *What it requires:* your decisions and your logic, made explicit enough that a model can render
-them for different audiences — which means you have to have them. **The bottleneck is not the
+them for different audiences, which means you have to have them. **The bottleneck is not the
 drafting. It's that the logic often isn't written down anywhere.**
 
 *What it's worth:* this is Module 1's finding arriving with a ladder to stand on. More on it in
 Lesson 3.
 
-**Rung 4 — Design.** Change what your programs *are*, because analysis that was previously too
+**Rung 4. Design.** Change what your programs *are*, because analysis that was previously too
 expensive is now feasible. Modeling plan designs against your actual population instead of three
 scenarios. Testing structures rather than inheriting them. Understanding what your benefits
 spending actually buys.
@@ -114,7 +114,7 @@ the idea is wrong, but because nobody in the room has seen your work with these 
 **The ladder is not a maturity model.** You are not supposed to climb it in order and you don't get
 points for altitude. It sorts proposals by what they require, so that you can pick the rung whose
 requirement you can actually satisfy this year. **The right rung is the highest one whose
-prerequisite you already have** — and for most comp functions that is Rung 3, which is also the
+prerequisite you already have**, and for most comp functions that is Rung 3, which is also the
 one they systematically overlook.
 
 ## Lesson 2 · The role decomposition **[V]**
@@ -122,7 +122,7 @@ one they systematically overlook.
 Who gains what, and the argument you should stop making.
 
 **Analysts gain productivity.** The data assembly, the reconciliation, the first-pass analysis, the
-deck. This is Rung 1 and it's the most certain gain in the function — it's also the one your CFO
+deck. This is Rung 1 and it's the most certain gain in the function. It's also the one your CFO
 will translate into headcount, which is where the trouble starts.
 
 **Partners gain coverage.** A comp partner supporting eight business units at a level they can
@@ -162,12 +162,12 @@ attached. Which is Lesson 4.
 The callback, now with somewhere to put it.
 
 Module 1's finding was that **explanation is the largest work type in this function and the most
-transformed — and the one practitioners consistently underpredict**, because it hides inside
+transformed, and the one practitioners consistently underpredict**, because it hides inside
 "answering a question." The manager email. The band question in a hallway. The enrollment FAQ. The
 equity conversation nobody logged as work.
 
 Place that on the ladder and something becomes obvious. **Rung 3 is where your hours actually are,
-and it is the rung with the lowest technical prerequisite** — no new data, no new systems, no
+and it is the rung with the lowest technical prerequisite**: no new data, no new systems, no
 change to anyone else's process. It is also the rung nearly every comp function skips when asked
 what AI could do for them, because they answer with analysis. Analysis is what the training was
 for. Analysis is what the job *feels* like it's about.
@@ -211,13 +211,13 @@ manager understanding" is not a measure. **A measure is something with a number 
 before and after, that you would report even if it moved the wrong way.** Manager survey on
 confidence explaining pay decisions, taken now and at 90 days. Volume of escalated band questions
 reaching your team. Time from manager question to answer. Pick one you can take a baseline on
-**this week** — a measure you can't baseline before you start is a measure you'll define
+**this week**, a measure you can't baseline before you start is a measure you'll define
 retrospectively to look good, which is Module 2's rationalization arriving in your own proposal.
 
 **3. The funding line.** What you will stop doing, or do less well, to pay for this.
 
 This is the whole module. Every proposal has a cost in attention, and your function does not have
-slack — Module 3 was explicit that the merit cycle is when your care is scarcest. **A proposal
+slack. Module 3 was explicit that the merit cycle is when your care is scarcest. **A proposal
 without a funding line is a request for someone else to find the capacity**, which is why so many
 of them die quietly rather than being rejected.
 
@@ -249,8 +249,8 @@ this course and a webinar.**
 - **Continuous is where good intentions become documented inaction.** A quarterly pay equity check
   with no remediation mechanism is a quarterly record that you knew.
 - **The ladder is not a maturity model.** The right rung is **the highest one whose prerequisite you
-  already have** — usually Rung 3.
-- **Analysts gain productivity, partners gain coverage, operations gain efficiency** `[V]` — and
+  already have**, usually Rung 3.
+- **Analysts gain productivity, partners gain coverage, operations gain efficiency** `[V]`, and
   coverage matters most while being hardest to evidence, because it shows up as an absence of
   complaints.
 - **Efficiency is the weakest argument you have.** A 25% gain across a six-person function is one
@@ -271,19 +271,19 @@ this course and a webinar.**
 **The claim:** *"A bet without a funding line is a wish."*
 
 The strongest counter-argument is that **demanding a funding line up front is how good ideas die in
-small functions.** Capacity is not always zero-sum: early AI work often runs on genuine slack —
-evenings, the gap after cycle close, curiosity — and requiring someone to name a sacrifice before
+small functions.** Capacity is not always zero-sum: early AI work often runs on genuine slack (
+evenings, the gap after cycle close, curiosity) and requiring someone to name a sacrifice before
 they've demonstrated value inverts the order. You learn what a use case is worth by doing a small
 version of it, and **the funding conversation is properly a consequence of evidence, not a
 precondition for gathering it.** On that view the rule is right for a scaled commitment and
 actively harmful for a pilot, and a function that applies it uniformly will never start anything.
-Your position has to say where the threshold sits — at what size or visibility a proposal stops
+Your position has to say where the threshold sits, at what size or visibility a proposal stops
 being an experiment you can run on slack and starts needing a real trade.
 
 ## Applied activity — "The bet" *(course close)*
 
 **Time:** 35 minutes · **Submit:** the one-page bet plus a 400–500 word reckoning · **Graded
-against the rubric below.** Score doesn't matter — and it matters least here, because **the thing
+against the rubric below.** Score doesn't matter, and it matters least here, because **the thing
 being assessed is whether you moved.**
 
 ### Part 1 — The bet (one page, 20 min)
@@ -292,8 +292,8 @@ being assessed is whether you moved.**
 could tell whether you'd done it. If you pick Rung 3, say which questions the bet is meant to
 *eliminate*, not just answer faster.
 
-**The prerequisite, and whether you have it.** What the rung requires — the closed loop for Rung 2,
-the written-down logic for Rung 3, the data and appetite for Rung 4 — and an honest statement of
+**The prerequisite, and whether you have it.** What the rung requires (the closed loop for Rung 2,
+the written-down logic for Rung 3, the data and appetite for Rung 4) and an honest statement of
 whether that exists in your organization today. **If it doesn't, either the bet changes or the bet
 starts with building the prerequisite**, and saying so is a stronger answer than assuming it away.
 
@@ -306,7 +306,7 @@ notice.
 
 **The kill condition.** What result at 90 days would make you stop.
 
-**The floor.** One sentence confirming this bet sits inside Module 4's lines — and if it touches a
+**The floor.** One sentence confirming this bet sits inside Module 4's lines, and if it touches a
 zone, what the review checkpoint is.
 
 ### Part 2 — The reckoning (400–500 words, 15 min)
@@ -329,7 +329,7 @@ everything either didn't take the positions seriously or wasn't asked hard enoug
 the rubric rewards the disagreement over the assent.
 
 **The honest close.** Whether the bet you just wrote is one you will actually propose. If not, say
-what stops you — and whether it's the organization or you.
+what stops you, and whether it's the organization or you.
 
 ## Knowledge check — 8 questions
 
@@ -338,7 +338,7 @@ what stops you — and whether it's the organization or you.
 **Q1.** What does the "continuous" rung actually require?
 
 - A. Better data infrastructure than most comp functions have
-- B. A decision that someone will act on the output — a quarterly pay equity check with no remediation mechanism is a quarterly record that you knew about a problem for longer ✓
+- B. A decision that someone will act on the output, a quarterly pay equity check with no remediation mechanism is a quarterly record that you knew about a problem for longer ✓
 - C. Real-time integration between the HRIS and the survey provider
 - D. Dedicated analyst headcount to maintain the cadence
 
@@ -358,7 +358,7 @@ what stops you — and whether it's the organization or you.
 **Q3.** Why is efficiency the weakest value argument for a comp function? `[V]`
 
 - A. Because productivity gains from AI are usually overstated by vendors
-- B. Because a 25% gain across a six-person function is one to two FTEs — which rounds to nothing as a cost story, while the same capacity pointed at a drifting structure or an uninterrogated benefits spend is a seven-figure question ✓
+- B. Because a 25% gain across a six-person function is one to two FTEs, which rounds to nothing as a cost story, while the same capacity pointed at a drifting structure or an uninterrogated benefits spend is a seven-figure question ✓
 - C. Because efficiency gains are difficult to measure reliably
 - D. Because comp work cannot be meaningfully automated
 
@@ -369,7 +369,7 @@ what stops you — and whether it's the organization or you.
 
 - A. Analyst productivity, because it's the most certain
 - B. Operational efficiency in cycle administration
-- C. Partner coverage — supporting eight business units at a level currently sustainable for three — because coverage improvements show up as an absence of complaints rather than a metric ✓
+- C. Partner coverage (supporting eight business units at a level currently sustainable for three) because coverage improvements show up as an absence of complaints rather than a metric ✓
 - D. Design capability, because its value is realized over multiple years
 
 > **C.** The thing with no metric is the thing that goes unfunded, which is the same structural
@@ -378,7 +378,7 @@ what stops you — and whether it's the organization or you.
 **Q5.** Why is *explain* systematically undervalued rather than accidentally overlooked?
 
 - A. Because explanation work is genuinely lower value than analysis
-- B. Because nothing counts it, it feels like overhead rather than the job, and its failure mode is silent — the manager who half-understood explains it badly and the cost lands as diffuse mistrust attributed to the pay program ✓
+- B. Because nothing counts it, it feels like overhead rather than the job, and its failure mode is silent, the manager who half-understood explains it badly and the cost lands as diffuse mistrust attributed to the pay program ✓
 - C. Because managers rarely ask for help explaining compensation
 - D. Because explanation quality can't be improved with AI assistance
 
@@ -403,12 +403,12 @@ what stops you — and whether it's the organization or you.
 - D. That it's benchmarked against comparable organizations
 
 > **C.** A measure you can't baseline before you start is one you'll define retrospectively to look
-> good — Module 2's rationalization, arriving inside your own proposal.
+> good. Module 2's rationalization, arriving inside your own proposal.
 
 **Q8.** What's the strongest counter-argument to "a bet without a funding line is a wish"?
 
 - A. That funding decisions belong to Finance rather than to the proposing function
-- B. That early AI work often runs on genuine slack, so demanding a named sacrifice before value is demonstrated inverts the order — the funding conversation is properly a consequence of evidence, not a precondition for gathering it ✓
+- B. That early AI work often runs on genuine slack, so demanding a named sacrifice before value is demonstrated inverts the order: the funding conversation is properly a consequence of evidence, not a precondition for gathering it ✓
 - C. That AI tools are inexpensive enough not to require trade-offs
 - D. That comp functions lack the authority to stop doing anything
 
@@ -426,5 +426,5 @@ what stops you — and whether it's the organization or you.
 - Builds on Module 1 (the five work types and the explanation finding), Module 3 (the craft layer
   as the prerequisite under any bet), Module 4 (the floor every bet sits inside), and Module 5
   (verification is free now, which is what changed Rung 3's value).
-- The delta assessment — open with a committed prediction, close by measuring movement and the
-  account of it — is the assessment philosophy shared across all AI 301 tracks.
+- The delta assessment (open with a committed prediction, close by measuring movement and the
+  account of it) is the assessment philosophy shared across all AI 301 tracks.

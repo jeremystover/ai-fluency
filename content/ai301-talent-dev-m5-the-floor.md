@@ -9,10 +9,10 @@
 > move, and it states them to make your conversation with counsel better — not to replace it. Every
 > specific here must be confirmed against your own jurisdictions, sectors, and headcount thresholds
 > before you rely on it. If your organization operates anywhere this module does not name, assume
-> the list is incomplete rather than assuming you are out of scope.
+> the list is incomplete rather than assuming you're out of scope.
 
 > `Concepts reviewed: [DATE] · Examples current as of: [DATE]`
-> Lessons 1, 2 and 4 are **[V]** volatile layer — statutes, standards and platform terms all move,
+> Lessons 1, 2 and 4 are **[V]** volatile layer, statutes, standards and platform terms all move,
 > and the EU position moved nine days before this module was written.
 
 ---
@@ -26,7 +26,7 @@
 
 **True of us, or not true of us?** Commit in a sentence, and say whether anyone has ever checked.
 
-Then: **what percentage of your AI-assisted assets do you expect would pass?** You will sample three
+Then: **what percentage of your AI-assisted assets do you expect would pass?** You'll sample three
 of them in the activity and produce a real number.
 
 If your organization has no accessibility standard for learning content at all, **write that down.**
@@ -46,19 +46,19 @@ The organizing idea is simple and it is the thing Module 3 was building toward:
 > non-compliant, inaccessible, or built on something you do not own.**
 
 Every quality signal your function currently uses would return clean on all four failures in this
-module. That is not a coincidence. It is the same structure as premise inheritance: **your checks
+module. That isn't a coincidence. It is the same structure as premise inheritance: **your checks
 are aimed at a different layer than the risk.**
 
 And there is a specific reason this arrives now rather than in a general compliance course.
-**Volume multiplies every one of these.** Module 1's first bucket — the material that is cheap to
-produce now — is exactly where accessibility debt, jurisdictional drift, and licensing exposure
+**Volume multiplies every one of these.** Module 1's first bucket (the material that is cheap to
+produce now) is exactly where accessibility debt, jurisdictional drift, and licensing exposure
 concentrate, because those failures scale with the number of assets rather than with the care taken
 on any one of them. A function that tripled its output tripled its floor problem and almost
-certainly did not notice.
+certainly didn't notice.
 
 One thing to be clear about, because a module like this can read as a reason to stop. **None of
 this argues against using AI in compliance content.** It argues that the compliance layer needs a
-check your current process does not contain, and that the check is cheap once you know what it is.
+check your current process doesn't contain, and that the check is cheap once you know what it is.
 
 ## Learning objectives
 
@@ -90,14 +90,14 @@ Now put a generated course against that.
 **A model will produce excellent harassment-prevention training.** The topic is extensively
 documented, the pedagogy is well understood, and the output will be clear, well-structured, and
 appropriately serious. It will also, unless you specifically require otherwise, produce *general*
-harassment-prevention training — because that is what the training data overwhelmingly contains,
+harassment-prevention training, because that is what the training data overwhelmingly contains,
 and because your brief almost certainly said "harassment prevention" rather than "harassment
 prevention meeting the Illinois content requirements."
 
 **And a course that is pedagogically excellent and omits a required content element is
-non-compliant.** The audit does not grade it. There is no partial credit for quality. This is
+non-compliant.** The audit doesn't grade it. There is no partial credit for quality. This is
 Module 3's jurisdictional drift with a penalty attached: nothing in the content is untrue, every
-fact checks out, and it does not satisfy the obligation.
+fact checks out, and it doesn't satisfy the obligation.
 
 Three practical consequences:
 
@@ -105,7 +105,7 @@ Three practical consequences:
 the brief and require the output to map to it element by element. Checking afterwards means
 rebuilding.
 
-**Duration and interactivity are structural.** You cannot add two hours of interactivity to a
+**Duration and interactivity are structural.** You can't add two hours of interactivity to a
 finished forty-minute module. If the mandate specifies form, the form is a design constraint from
 the first line.
 
@@ -118,8 +118,8 @@ nobody's mandate but the loosest.
 This is the passage most likely to be out of date when you read it, and it is the one most likely to
 be repeated to you incorrectly by a vendor.
 
-The EU AI Act classifies employment uses — recruitment, selection, promotion, termination, task
-allocation, and performance monitoring — as high-risk. Those obligations moved to **2 December 2027**
+The EU AI Act classifies employment uses (recruitment, selection, promotion, termination, task
+allocation, and performance monitoring) as high-risk. Those obligations moved to **2 December 2027**
 under the Digital Omnibus on AI, **Regulation (EU) 2026/1744**, which entered into force on 27 July
 2026, six days before the original deadline.
 
@@ -127,7 +127,7 @@ under the Digital Omnibus on AI, **Regulation (EU) 2026/1744**, which entered in
 
 The **AI literacy obligation** and the **prohibition on emotion recognition in the workplace** have
 been in force since February 2025. And since **2 August 2026**, the Act's **transparency
-obligations** apply — to covered systems *regardless of high-risk classification*. The one that
+obligations** apply, to covered systems *regardless of high-risk classification*. The one that
 reaches learning functions: a system interacting directly with a person must disclose that it is AI,
 at or before the start of the interaction.
 
@@ -141,10 +141,10 @@ literacy lands, in most organizations, on the function that builds capability. T
 in this module that is an opportunity as well as a duty, and Module 6 is where you argue for the
 budget.
 
-**The emotion-recognition prohibition is absolute, and this is where it touches you.** It is not a
+**The emotion-recognition prohibition is absolute, and this is where it touches you.** It isn't a
 risk to manage. If a vendor offers engagement scoring from webcam, attention or affect inference
 from video during a course, or sentiment detection in a virtual classroom, and you have European
-operations — that is not a procurement question. Products in this space are frequently marketed to
+operations. That isn't a procurement question. Products in this space are frequently marketed to
 learning functions specifically, on the grounds that they measure engagement, which is a thing this
 profession has always wanted to measure.
 
@@ -152,19 +152,19 @@ profession has always wanted to measure.
 
 **WCAG 2.1 Level AA** is the practical benchmark. Section 508's refresh adopted it, the US
 Department of Justice's 2024 Title II rule names it, and while private-sector obligations under ADA
-Title III do not name a version, it is the standard courts and regulators apply.
+Title III don't name a version, it is the standard courts and regulators apply.
 
 For learning content, AI-generated media fails it in predictable, repeatable ways:
 
 **Generated video without captions or a transcript.** The single most common failure, and it arrives
-by default — text-to-video produces video, not captioned video.
+by default: text-to-video produces video, not captioned video.
 
 **Images with absent or decorative alt text.** A model asked for a diagram produces a diagram. Alt
 text that conveys the *instructional content* of that diagram is a separate deliberate act, and
-"chart showing data" is not it.
+"chart showing data" isn't it.
 
-**Colour-only signalling.** Generated diagrams routinely distinguish categories by colour alone —
-red for non-compliant, green for compliant — which conveys nothing to a substantial population.
+**Colour-only signalling.** Generated diagrams routinely distinguish categories by colour alone (
+red for non-compliant, green for compliant) which conveys nothing to a substantial population.
 
 **Contrast below threshold.** Generated visual design tends toward the aesthetically soft. AA
 requires 4.5:1 for normal text and 3:1 for large.
@@ -172,13 +172,13 @@ requires 4.5:1 for normal text and 3:1 for large.
 **Interactive elements that assume a mouse.** Drag-and-drop sorting, hotspot graphics, and timed
 reveals are frequently generated without keyboard equivalents.
 
-**Here is why this belongs in this track rather than in a general accessibility course.** Every one
+**Here's why this belongs in this track rather than in a general accessibility course.** Every one
 of these failures is a per-asset failure, and the effort to fix each is small and fixed. Which means
 **the exposure scales linearly with the number of assets you publish**, and it is precisely the
 cheap-to-produce bucket-one material — the fastest to make, the least reviewed, the highest volume
 — where the debt concentrates.
 
-A function that went from twelve modules a year to sixty has not tripled its accessibility risk. It
+A function that went from twelve modules a year to sixty hasn't tripled its accessibility risk. It
 has quintupled it, on material nobody reviewed, and every one of those assets is now sitting in a
 catalog with a completion requirement attached to it.
 
@@ -199,16 +199,16 @@ Two ownership questions, and the first one is the one nobody is watching.
 ### Skills inference
 
 Skills taxonomies are the fastest-growing thing in this profession and the least examined. A model
-infers an employee's skills — from their role history, their work products, their completed
-learning, their project assignments — and populates a profile. It reads as infrastructure. It reads
+infers an employee's skills (from their role history, their work products, their completed
+learning, their project assignments) and populates a profile. It reads as infrastructure. It reads
 as *descriptive*.
 
 Then that inference gates something. Eligibility for a development program. Visibility in an
 internal talent marketplace. Inclusion on a succession slate. Whether someone is surfaced for a
 stretch assignment. And at that moment it stops being a description of a person and becomes **a
-decision about them**, made by a system, on evidence they have never seen and cannot correct.
+decision about them**, made by a system, on evidence they have never seen and can't correct.
 
-101 M7 drew this line and it applies here in full. The reason it has not been applied is that
+101 M7 drew this line and it applies here in full. The reason it hasn't been applied is that
 nobody experiences building a taxonomy as building a decision engine. **The tell is not what the
 system outputs. It is what happens downstream of the output.**
 
@@ -219,12 +219,12 @@ Three questions that resolve it:
 2. **Can the person see their inferred profile and contest it?** If not, you have a determination
    about someone made on evidence they have no access to.
 3. **What is the inference actually trained on?** If it learns from who has historically been
-   promoted, developed, or given stretch assignments, it will reproduce that pattern — which is
-   101 M7's argument arriving in a place this profession does not expect it.
+   promoted, developed, or given stretch assignments, it will reproduce that pattern, which is
+   101 M7's argument arriving in a place this profession doesn't expect it.
 
-**This is the boundary with the People Analytics specialism**, and it is worth stating: that
+**This is the boundary with the People Analytics specialism**, and it is worth saying: that
 discipline owns whether an inference is any good. You own what happens to a person because of it.
-Both are needed and they are not the same question.
+Both are needed and they aren't the same question.
 
 ### What you own and what you licensed
 
@@ -233,7 +233,7 @@ Four questions to have answers to before you need them:
 **What do your content-library terms permit a model to ingest?** Most enterprise learning-content
 licences predate generative AI and grant a right to *deliver* content to your learners. Whether that
 includes uploading it into a model to summarize, adapt, or generate derivatives from is usually
-unaddressed, which is not the same as permitted.
+unaddressed, which isn't the same as permitted.
 
 **Who owns AI-generated course content?** The answer varies by jurisdiction and turns on human
 authorship. It matters when you want to enforce against reuse, when a vendor relationship ends, or
@@ -243,21 +243,21 @@ when a client asks for the copyright to something you built for them.
 processes, and the anonymized-but-not-really case studies inside your courses are all in scope of
 that question. This is 101 M8's agreement layer, aimed at the tools this specific role uses.
 
-**What happens when a licence lapses?** A program built on licensed content — a model, an
-assessment, a framework — may have to be rebuilt or withdrawn. Programs are long-lived and licences
-are not.
+**What happens when a licence lapses?** A program built on licensed content (a model, an
+assessment, a framework) may have to be rebuilt or withdrawn. Programs are long-lived and licences
+aren't.
 
 ## Key takeaways
 
 - **A course can be excellent and non-compliant** `[V]`. Mandated-training statutes specify
-  duration, interactivity, and content elements; the audit does not grade pedagogy, and there is no
+  duration, interactivity, and content elements; the audit doesn't grade pedagogy, and there is no
   partial credit for quality.
 - **The requirement is an input, not a review criterion.** Put the statutory content list in the
   brief; checking afterwards means rebuilding. Multi-state means strictest applicable or genuinely
   separate versions.
 - **Deferral is not runway** `[V]`. EU high-risk employment duties moved to 2 December 2027 under
   Regulation (EU) 2026/1744, but AI literacy and the absolute workplace emotion-recognition
-  prohibition have bound since February 2025, and the transparency obligations since 2 August 2026 —
+  prohibition have bound since February 2025, and the transparency obligations since 2 August 2026,
   which puts a learning assistant or coaching bot in scope now, whatever its risk class.
 - **The emotion-recognition prohibition is absolute**, and engagement-scoring-from-video products are
   marketed to this function specifically.
@@ -278,8 +278,8 @@ The strongest counter-argument is that **this reasoning proves far too much, and
 fall on the people it claims to protect.** Taxonomies are descriptive infrastructure. So is a
 directory, a project history, and a CV. If every inference that could influence an opportunity is a
 regulated decision requiring notice, contestability, and audit, then the entire skills-based agenda
-becomes prohibitively expensive — and that agenda exists to *widen* access to opportunity, by making
-capability visible in a way that does not depend on whose manager advocates for them.
+becomes prohibitively expensive, and that agenda exists to *widen* access to opportunity, by making
+capability visible in a way that doesn't depend on whose manager advocates for them.
 
 The sharp version: **the realistic alternative to algorithmic skills inference is not careful human
 assessment. It is managerial intuition and informal networks**, which are unaudited, uncontestable,
@@ -287,7 +287,7 @@ invisible, and extremely well-documented as sources of exactly the bias the obje
 about. A compliance posture that makes inference expensive hands the field back to that, and calls
 it a win.
 
-Your position has to survive that — and in particular it has to say what threshold *would* trigger
+Your position has to survive that, and in particular it has to say what threshold *would* trigger
 the protections, given that "influences an opportunity" plainly captures too much.
 
 ## Applied activity — "The floor, cleared"
@@ -296,17 +296,17 @@ the protections, given that "influences an opportunity" plainly captures too muc
 **Graded against the rubric below.** Score doesn't matter. Doing the work is where the learning
 lands.
 
-Four checks against your own function. Where a section does not apply — no mandated training, no
-European operations, no skills taxonomy — **say so and say how you established it.** "Not
+Four checks against your own function. Where a section doesn't apply (no mandated training, no
+European operations, no skills taxonomy) **say so and say how you established it.** "Not
 applicable, confirmed because we operate only in X" is a complete answer. "Not applicable" alone is
 not.
 
 **Step 1 — The mandate check (8 min).** List the mandated training your organization is subject to,
 by jurisdiction. For one of them, find the actual content requirements and compare them against what
-you currently deliver, element by element. Name any gap. If you cannot locate the requirements, that
-is the finding — record where you looked.
+you currently deliver, element by element. Name any gap. If you can't locate the requirements, that
+is the finding, record where you looked.
 
-**Step 2 — The accessibility sample (12 min).** Take **three** AI-assisted assets from your catalog.
+**Step 2. The accessibility sample (12 min).** Take **three** AI-assisted assets from your catalog.
 Check each against five things: captions or transcript for audio, alt text that carries instructional
 meaning, no colour-only signalling, contrast at 4.5:1 for normal text, keyboard path for every
 interaction. Report pass or fail per item, per asset. **Three real assets checked properly beats a
@@ -314,21 +314,21 @@ survey of thirty.**
 
 **Step 3 — The inference line (8 min).** Does your organization infer skills, readiness, or
 potential from data? If yes, run the three questions: does any allocation of opportunity depend on
-it; can the person see and contest their profile; what is it trained on. Then **write the line** —
-one sentence stating what an inference may and may not gate in your function. If you have no such
+it; can the person see and contest their profile; what is it trained on. Then **write the line**.
+One sentence stating what an inference may and may not gate in your function. If you have no such
 system, write the line you would want in place before one arrives.
 
-**Step 4 — The ownership questions (7 min).** Take the four questions to your actual stack. You will
-not have all the answers; the deliverable is **the three you will ask, of whom, by when.** Named
+**Step 4. The ownership questions (7 min).** Take the four questions to your actual stack. You'll
+not have all the answers; the deliverable is **the three you'll ask, of whom, by when.** Named
 person, named date.
 
 **Step 5 — Score the claim (2 min).** Your predicted accessibility pass rate against what the sample
 showed. Direction and cause.
 
-Then the write-up: which of the four floors you are furthest from, the specific gap you would fix
-first and why, your position on the module's claim with its counter-argument addressed, and — the
-one worth writing carefully — **whether any of what you found needs to go to someone above you this
-week.** If it does, say what you will send.
+Then the write-up: which of the four floors you're furthest from, the specific gap you would fix
+first and why, your position on the module's claim with its counter-argument addressed, and (the
+one worth writing carefully) **whether any of what you found needs to go to someone above you this
+week.** If it does, say what you'll send.
 
 ## Knowledge check — 8 questions
 
@@ -336,8 +336,8 @@ week.** If it does, say what you will send.
 
 **Q1.** Why does the module say pedagogical quality is irrelevant to mandated-training compliance? `[V]`
 
-- A. Because regulators do not evaluate training quality in any form
-- B. Because statutes specify duration, interactivity, and content elements — so a course can be excellent, accurate, and still omit a required element, and the audit gives no partial credit for quality ✓
+- A. Because regulators don't evaluate training quality in any form
+- B. Because statutes specify duration, interactivity, and content elements, so a course can be excellent, accurate, and still omit a required element, and the audit gives no partial credit for quality ✓
 - C. Because quality standards vary too much between jurisdictions to be enforceable
 - D. Because compliance training is exempt from instructional design standards
 
@@ -347,7 +347,7 @@ week.** If it does, say what you will send.
 **Q2.** What is the correct current statement of the EU position for a learning function? `[V]`
 
 - A. The entire AI Act regime was deferred to December 2027, so nothing binds until then
-- B. High-risk employment obligations moved to 2 December 2027, but AI literacy and the emotion-recognition prohibition have bound since February 2025 and the transparency obligations since 2 August 2026 — which puts a learning chatbot in scope now ✓
+- B. High-risk employment obligations moved to 2 December 2027, but AI literacy and the emotion-recognition prohibition have bound since February 2025 and the transparency obligations since 2 August 2026, which puts a learning chatbot in scope now ✓
 - C. All obligations took effect on 2 August 2026 as originally scheduled
 - D. The Act applies only to systems that make automated employment decisions
 
@@ -378,7 +378,7 @@ week.** If it does, say what you will send.
 
 - A. When it is used by more than one function
 - B. When the inference is generated by a machine-learning model rather than entered manually
-- C. When an allocation of opportunity depends on the inference — the tell is what happens downstream of the output, not what the system outputs ✓
+- C. When an allocation of opportunity depends on the inference: the tell is what happens downstream of the output, not what the system outputs ✓
 - D. When it contains protected-characteristic data
 
 > **C.** Nobody experiences building a taxonomy as building a decision engine, which is why 101 M7's
@@ -390,7 +390,7 @@ week.** If it does, say what you will send.
 - A. People Analytics owns the technology and L&D owns the change management
 - B. People Analytics owns whether the inference is any good; this role owns what happens to a person because of it ✓
 - C. People Analytics owns internal systems and L&D owns vendor systems
-- D. There is no boundary — the two disciplines have identical responsibilities here
+- D. There is no boundary, the two disciplines have identical responsibilities here
 
 > **B.** Both questions need answering and they are genuinely different. Validity is one discipline's
 > craft; consequence is the other's.
@@ -398,8 +398,8 @@ week.** If it does, say what you will send.
 **Q7.** What does the module say about content-library licences and AI ingestion? `[V]`
 
 - A. Standard enterprise licences generally permit ingestion for internal adaptation
-- B. Most licences predate generative AI and grant a right to deliver content, leaving ingestion for summarization or derivative generation unaddressed — which is not the same as permitted ✓
-- C. Ingestion is permitted provided the derivative work is not distributed externally
+- B. Most licences predate generative AI and grant a right to deliver content, leaving ingestion for summarization or derivative generation unaddressed — which isn't the same as permitted ✓
+- C. Ingestion is permitted provided the derivative work isn't distributed externally
 - D. Copyright law resolves this independently of the licence terms
 
 > **B.** The gap is silence rather than permission, and silence is where organizations assume in
@@ -412,13 +412,13 @@ week.** If it does, say what you will send.
 - C. As acceptable where the organization is below the relevant headcount threshold
 - D. As a matter for the IT function rather than L&D
 
-> **B.** A pass rate tells you how you are doing against a standard. No standard means nobody has
-> ever asked, and every asset published since is unexamined — which is a larger fact about the
+> **B.** A pass rate tells you how you're doing against a standard. No standard means nobody has
+> ever asked, and every asset published since is unexamined, which is a larger fact about the
 > function than any percentage.
 
 ## Sources and attribution
 
-- **State harassment-prevention training mandates** `[V]` — California's two-hour supervisor and
+- **State harassment-prevention training mandates** `[V]`. California's two-hour supervisor and
   one-hour non-supervisory requirement on a two-year cycle with an "effective interactive training"
   standard; Illinois's annual requirement for all employers with employees in the state, with
   specified content elements; New York's annual interactive requirement. Thresholds, intervals, and
@@ -429,8 +429,8 @@ week.** If it does, say what you will send.
   February 2025; the Article 50 transparency obligations applicable from 2 August 2026, independent
   of high-risk classification. **This phrasing is deliberately consistent with HRBP M6 and the
   recruiter track's floor module**, which carry the same facts for different roles, so that the
-  three copies do not drift when the volatile layer is re-checked. Re-verified 12 August 2026.
-- **WCAG 2.1 Level AA** `[V]` — adopted by Section 508's refresh and named in the US Department of
+  three copies don't drift when the volatile layer is re-checked. Re-verified 12 August 2026.
+- **WCAG 2.1 Level AA** `[V]`, adopted by Section 508's refresh and named in the US Department of
   Justice's 2024 ADA Title II rule; Title III names no version, and 2.1 AA is the applied benchmark.
   The specific AI-media failure modes listed are observational and original to this course, not
   drawn from a published study.

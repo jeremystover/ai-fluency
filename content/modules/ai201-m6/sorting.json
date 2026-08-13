@@ -1,23 +1,97 @@
 {
   "reviewedAt": "2026-08-07",
   "buckets": [
-    { "id": "t1pub", "label": "Tier 1 · Public", "hint": "Published is published", "rank": 1, "pct": 10 },
-    { "id": "t2int", "label": "Tier 2 · Internal", "hint": "Impersonal org material — the workhorse tier", "rank": 2, "pct": 40 },
-    { "id": "t3pid", "label": "Tier 3 · Person-identifying", "hint": "A reader could resolve it to a person", "rank": 3, "pct": 75 },
-    { "id": "t4prot", "label": "Tier 4 · Protected", "hint": "Health, investigations, accommodations — doesn't go in", "rank": 4, "pct": 95 }
+    {
+      "id": "t1pub",
+      "label": "Tier 1 · Public",
+      "hint": "Published is published",
+      "rank": 1,
+      "pct": 10
+    },
+    {
+      "id": "t2int",
+      "label": "Tier 2 · Internal",
+      "hint": "Impersonal org material: the workhorse tier",
+      "rank": 2,
+      "pct": 40
+    },
+    {
+      "id": "t3pid",
+      "label": "Tier 3 · Person-identifying",
+      "hint": "A reader could resolve it to a person",
+      "rank": 3,
+      "pct": 75
+    },
+    {
+      "id": "t4prot",
+      "label": "Tier 4 · Protected",
+      "hint": "Health, investigations, accommodations, doesn't go in",
+      "rank": 4,
+      "pct": 95
+    }
   ],
   "tasks": [
-    { "id": "t1", "text": "The employee handbook, current version", "key": "t2int", "reasoning": "Internal, impersonal, the workhorse tier. (Public if yours is published; most aren't.)" },
-    { "id": "t2", "text": "This week's interview notes on four named candidates", "key": "t3pid", "reasoning": "The canonical Tier 3 case: enters fresh, minimized by step zero, leaves with the run." },
-    { "id": "t3", "text": "An engagement survey theme table: counts by office, no quotes, smallest group is 47", "key": "t2int", "reasoning": "Aggregation above any reasonable floor, no quotes. This is what good step-zero output looks like — Tier 3 in, Tier 2 artifact out." },
-    { "id": "t4", "text": "A comment from that survey: \"as the only nurse on the night shift, I feel unheard\"", "key": "t3pid", "reasoning": "No name, full identification. Small-n and distinctive detail in one sentence — the calibration prompt's trap in the wild." },
-    { "id": "t5", "text": "The comp philosophy one-pager", "key": "t2int", "reasoning": "Principles, not people. One person's salary is Tier 3; the philosophy never is." },
-    { "id": "t6", "text": "A spreadsheet of salaries by employee ID (names removed)", "key": "t3pid", "reasoning": "IDs resolve to people by design; 'names removed' is the label, not the fact. With small teams, even bucketed versions need the small-n floor." },
-    { "id": "t7", "text": "An email thread about an employee's accommodation request", "key": "t4prot", "reasoning": "Health-adjacent by nature. Doesn't go in — including 'just to summarize it.' If accommodation workflows need support, that's a sanctioned-system conversation with legal in the room, not a pipeline decision." },
-    { "id": "t8", "text": "Your published careers page", "key": "t1pub", "reasoning": "Published is published." },
-    { "id": "t9", "text": "Exit interview notes: \"a senior engineer, here 11 years, leaving over the reorg\"", "key": "t3pid", "reasoning": "Distinctive-detail trap: tenure plus seniority plus context resolves fast in most orgs. Step zero coarsens it to what the exit-themes analysis needs." },
-    { "id": "t10", "text": "The plain-language benefits FAQ your workflow produced last week", "key": "t2int", "reasoning": "Outputs have tiers too. This one's clean by construction if the pipeline was — which is why M4 sampling includes a boundary glance, and why artifacts persist minimized." }
+    {
+      "id": "t1",
+      "text": "The employee handbook, current version",
+      "key": "t2int",
+      "reasoning": "Internal, impersonal, the workhorse tier. (Public if yours is published; most aren't.)"
+    },
+    {
+      "id": "t2",
+      "text": "This week's interview notes on four named candidates",
+      "key": "t3pid",
+      "reasoning": "The canonical Tier 3 case: enters fresh, minimized by step zero, leaves with the run."
+    },
+    {
+      "id": "t3",
+      "text": "An engagement survey theme table: counts by office, no quotes, smallest group is 47",
+      "key": "t2int",
+      "reasoning": "Aggregation above any reasonable floor, no quotes. This is what good step-zero output looks like. Tier 3 in, Tier 2 artifact out."
+    },
+    {
+      "id": "t4",
+      "text": "A comment from that survey: \"as the only nurse on the night shift, I feel unheard\"",
+      "key": "t3pid",
+      "reasoning": "No name, full identification. Small-n and distinctive detail in one sentence: the calibration prompt's trap in the wild."
+    },
+    {
+      "id": "t5",
+      "text": "The comp philosophy one-pager",
+      "key": "t2int",
+      "reasoning": "Principles, not people. One person's salary is Tier 3; the philosophy never is."
+    },
+    {
+      "id": "t6",
+      "text": "A spreadsheet of salaries by employee ID (names removed)",
+      "key": "t3pid",
+      "reasoning": "IDs resolve to people by design; 'names removed' is the label, not the fact. With small teams, even bucketed versions need the small-n floor."
+    },
+    {
+      "id": "t7",
+      "text": "An email thread about an employee's accommodation request",
+      "key": "t4prot",
+      "reasoning": "Health-adjacent by nature. Doesn't go in, including 'just to summarize it.' If accommodation workflows need support, that's a sanctioned-system conversation with legal in the room, not a pipeline decision."
+    },
+    {
+      "id": "t8",
+      "text": "Your published careers page",
+      "key": "t1pub",
+      "reasoning": "Published is published."
+    },
+    {
+      "id": "t9",
+      "text": "Exit interview notes: \"a senior engineer, here 11 years, leaving over the reorg\"",
+      "key": "t3pid",
+      "reasoning": "Distinctive-detail trap: tenure plus seniority plus context resolves fast in most orgs. Step zero coarsens it to what the exit-themes analysis needs."
+    },
+    {
+      "id": "t10",
+      "text": "The plain-language benefits FAQ your workflow produced last week",
+      "key": "t2int",
+      "reasoning": "Outputs have tiers too. This one's clean by construction if the pipeline was, which is why M4 sampling includes a boundary glance, and why artifacts persist minimized."
+    }
   ],
   "pattern": "Tier by what a reader could learn, not by what a label says. Names removed isn't identity removed; aggregated isn't always anonymous; and health, investigations, and accommodations are Tier 4 wherever they appear.",
-  "postscript": "If you tiered the night-shift comment, the ID spreadsheet, or the exit note at Tier 2, you've found your pattern: tiering by label (name present or absent) rather than by what a reader could learn. That's the module's central correction — fixable by running the person-test twice more this week."
+  "postscript": "If you tiered the night-shift comment, the ID spreadsheet, or the exit note at Tier 2, you've found your pattern: tiering by label (name present or absent) rather than by what a reader could learn. That's the module's central correction, fixable by running the person-test twice more this week."
 }

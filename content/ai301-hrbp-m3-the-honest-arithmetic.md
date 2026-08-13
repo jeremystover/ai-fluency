@@ -28,7 +28,7 @@ you see anyone else's number.
 ## Module brief
 
 Every other module in this track makes you better at something. This one makes you harder to
-sell to — including by us.
+sell to, including by us.
 
 The premise is simple and slightly rude: **nobody in this market has an incentive to tell you
 what AI actually costs in time.** Vendors count the minutes saved and not the minutes spent
@@ -39,8 +39,8 @@ no baseline, so nothing in that chain gets checked.
 The result is a function that can describe its AI adoption in confident detail and cannot say
 whether any of it worked.
 
-This module gives you the arithmetic to find out — four questions applied end to end to one real
-workflow — and then turns the same skepticism outward at the claims you'll be shown. The
+This module gives you the arithmetic to find out (four questions applied end to end to one real
+workflow) and then turns the same skepticism outward at the claims you'll be shown. The
 uncomfortable part is that the arithmetic sometimes returns a negative answer, and you have to
 be willing to write that down. A function that only measures its wins isn't measuring.
 
@@ -48,8 +48,8 @@ be willing to write that down. A function that only measures its wins isn't meas
 
 By the end of this module you should be able to:
 
-1. Explain the productivity paradox in this field — large perceived time savings, thin
-   organizational value — and the mechanism that produces it.
+1. Explain the productivity paradox in this field (large perceived time savings, thin
+   organizational value) and the mechanism that produces it.
 2. Audit any workflow end to end with four questions, including the human time that most audits
    omit.
 3. Recognize the volume trap: cheaper production shifts the constraint from making work to
@@ -72,12 +72,12 @@ that **88% of HR leaders say their organizations have not realized significant b
 from AI tools.**
 
 **And a measurable slice of the savings goes straight back out.** The same study measured an
-average of **6.4 hours a week of botsitting** — feeding AI context, supervising its output,
+average of **6.4 hours a week of botsitting**: feeding AI context, supervising its output,
 debugging its mistakes, and cleaning up work downstream. That labour is largely unrecognized,
 unbudgeted, and untracked.
 
 Put those together and the paradox resolves without anyone lying. Individuals genuinely
-experience relief — the blank page is gone, the first draft is instant. But a meaningful portion
+experience relief: the blank page is gone, the first draft is instant. But a meaningful portion
 of the saved time is consumed by supervision that nobody counts, and most of the remainder never
 reaches the organization as anything visible, because it dissolves into the day rather than
 being redirected anywhere.
@@ -98,18 +98,18 @@ arithmetic omits.
 
 **2. Did final quality actually improve, get worse, or stay the same?** Judged against what you
 would have produced by hand, honestly, on the thing that mattered about the output. Faster and
-slightly worse is a legitimate trade for some work and a disqualifying one for others — but you
+slightly worse is a legitimate trade for some work and a disqualifying one for others, but you
 have to name which you got.
 
 **3. Where did the work move to?** Work rarely disappears; it relocates. Off your desk onto a
 coordinator's. Out of drafting and into reviewing. From one person doing it slowly to three
-people each checking a piece. Relocation can be a real win — reviewing is usually cheaper than
-drafting — but relocation described as elimination is how a function convinces itself it saved
+people each checking a piece. Relocation can be a real win (reviewing is usually cheaper than
+drafting) but relocation described as elimination is how a function convinces itself it saved
 capacity it didn't.
 
 **4. What did the freed capacity actually become?** The question almost nobody asks, and the one
 that determines whether any of this reaches the organization. Gartner found that **only 7% of
-organizations give employees any guidance on how to use time AI saves** — from a July 2025 survey
+organizations give employees any guidance on how to use time AI saves**, from a July 2025 survey
 of 114 HR leaders, which is a small sample and worth saying so, since this module is about
 checking exactly that. Small sample or not, 7% is the kind of number that would have to be
 wildly wrong to change the conclusion.
@@ -139,7 +139,7 @@ survey cuts nobody asked for. Three versions of the policy instead of one, becau
 alternatives was free. A manager toolkit that is now forty pages because forty pages cost the
 same as twelve.
 
-None of that is decisions. And an HRBP's actual product — Module 2's room and deep desk — is
+None of that is decisions. And an HRBP's actual product (Module 2's room and deep desk) is
 decisions and the judgment behind them. **A function that gets faster at producing artifacts
 while producing no more decisions has gotten worse, efficiently.**
 
@@ -155,15 +155,15 @@ what's the sample, and what would falsify it?**
 Watch it work on the cases this market is built on.
 
 **The famous attrition-prediction figure.** IBM's widely-repeated claim of roughly $300 million
-saved through AI attrition prediction is a *CEO statement* — never independently audited, never
+saved through AI attrition prediction is a *CEO statement*: never independently audited, never
 methodologically published. That doesn't make it false. It makes it unverifiable, which is a
-different thing, and a claim you can't check shouldn't be doing load-bearing work in your
+different thing, and a claim you can't check shouldn't be doing decisive work in your
 business case.
 
 **HireVue and facial analysis.** The company removed facial analysis from its assessments after
 its own data indicated the visual component added negligible predictive value. Two lessons at
 once: a widely-sold capability turned out not to work, and the company that discovered it was the
-one selling it — which is what honest self-correction looks like and how rarely it happens.
+one selling it, which is what honest self-correction looks like and how rarely it happens.
 
 **Amazon's recruiting tool.** Scrapped after it taught itself to penalize résumés containing
 "women's." The canonical demonstration of 101 M7's argument: the model learned what the records
@@ -172,7 +172,7 @@ contained, which is what a learned system does.
 And the pattern underneath the cases: **credible proof clusters at the front door and the back
 office** — scheduling, coordination, high-volume transactional throughput, where outcomes are
 countable and a failure is visible immediately. **The loudest claims live in assessment,
-prediction, and people analytics** — where outcomes are slow, confounded, and nearly impossible
+prediction, and people analytics**, where outcomes are slow, confounded, and nearly impossible
 to attribute, which is precisely why the claims can be loud.
 
 That asymmetry gives you a heuristic worth carrying into any vendor conversation:
@@ -180,7 +180,7 @@ That asymmetry gives you a heuristic worth carrying into any vendor conversation
 > **Automating the "yes" is comparatively safe. Automating the "no" is where the risk starts.**
 
 Accelerating someone through a process is recoverable and visible. Filtering someone out is
-invisible to everyone including you — the person who was excluded never appears in your data,
+invisible to everyone including you, the person who was excluded never appears in your data,
 which means the failure mode is structurally unmeasurable. That is 101 M7's line, arrived at from
 the evidence side rather than the ethical one, and the two agreeing is not a coincidence.
 
@@ -198,11 +198,11 @@ the evidence side rather than the ethical one, and the two agreeing is not a coi
 - **The volume trap:** cheaper production means more production, so the constraint moves from
   making work to deciding which work matters. A function producing more artifacts and no more
   decisions has gotten worse, efficiently.
-- **Tear down claims on evidence, sample, and falsifier.** An unaudited CEO figure isn't false —
-  it's unverifiable, which disqualifies it from load-bearing use.
+- **Tear down claims on evidence, sample, and falsifier.** An unaudited CEO figure isn't false.
+  It's unverifiable, which disqualifies it from structural use.
 - **Proof clusters at the front door and back office; the loudest claims live where outcomes are
   slow and confounded.** Automating the "yes" is comparatively safe; automating the "no" is where
-  risk starts — and the people filtered out never appear in your data.
+  risk starts, and the people filtered out never appear in your data.
 
 ## Take a position
 
@@ -220,10 +220,10 @@ production line. Your position has to survive that.
 **Time:** 25–30 minutes · **Submit:** the audit plus a 250–350 word write-up · **Graded against
 the rubric below.** Score doesn't matter. Doing the work is where the learning lands.
 
-Pick one AI-assisted workflow you actually run — ideally one you'd defend, since the point is to
+Pick one AI-assisted workflow you actually run: ideally one you'd defend, since the point is to
 find out whether you should.
 
-**Step 1 — The before-number (5 min).** What did this take before AI, in human minutes, per run,
+**Step 1. The before-number (5 min).** What did this take before AI, in human minutes, per run,
 including review? If you never measured, reconstruct it honestly and label it an estimate. An
 acknowledged estimate is usable; a confident invention is not.
 
@@ -231,15 +231,15 @@ acknowledged estimate is usable; a confident invention is not.
 briefing, reading, fixing, and rework. Quality: better, worse, or same, against what mattered.
 Where the work moved to. And what the freed capacity actually became.
 
-**Step 3 — Name the destination (5 min).** Specifically. "More strategic work" fails this step;
-that phrase is what people say when the honest answer is "I don't know." Name the thing —
+**Step 3. Name the destination (5 min).** Specifically. "More strategic work" fails this step;
+that phrase is what people say when the honest answer is "I don't know." Name the thing:
 a quadrant from Module 2, a piece of work you were skipping, hours given back to a team.
 
 **Step 4 — Score the prediction (3 min).** Your predicted botsitting hours against what this
 audit suggests. Direction and size of the miss, and one sentence on what it reveals.
 
 Then the write-up: whether the workflow survives its own audit, your position on the claim above
-with the counter-argument addressed, and — if it doesn't survive — what you're going to do about
+with the counter-argument addressed, and (if it doesn't survive) what you're going to do about
 it. **A workflow you measured and killed is the strongest possible submission for this module.**
 
 ## Knowledge check — 8 questions
@@ -264,15 +264,15 @@ it. **A workflow you measured and killed is the strongest possible submission fo
 - C. Total human time including review and rework ✓
 - D. What the freed capacity became
 
-> **C.** Because the minutes it counts — briefing, critical reading, fixing, redoing — are
+> **C.** Because the minutes it counts (briefing, critical reading, fixing, redoing) are
 > precisely the minutes every vendor's arithmetic omits. D is the question that determines
 > whether value reaches the organization, but C is the one that most often changes the sign.
 
 **Q3.** Your team's AI-assisted debrief process moved the work from you drafting for 40 minutes to a coordinator reviewing for 25. What does question three require you to conclude?
 
-- A. Nothing changed — the same work is being done
+- A. Nothing changed: the same work is being done
 - B. The workflow failed, since work should be eliminated rather than moved
-- C. The work relocated, which may well be a genuine win — but calling relocation "elimination" is how a function claims capacity it didn't create ✓
+- C. The work relocated, which may well be a genuine win, but calling relocation "elimination" is how a function claims capacity it didn't create ✓
 - D. The coordinator should be given AI tools too, to complete the elimination
 
 > **C.** Relocation is often good: reviewing is usually cheaper than drafting. The error the
@@ -293,9 +293,9 @@ it. **A workflow you measured and killed is the strongest possible submission fo
 
 **Q5.** IBM's widely-cited ~$300M attrition-prediction saving is best characterized as `[V]`:
 
-- A. False — the figure has been debunked
+- A. False: the figure has been debunked
 - B. Verified, since it came from the company with access to the data
-- C. Unverifiable — a CEO claim, never independently audited or methodologically published, which disqualifies it from load-bearing use ✓
+- C. Unverifiable, a CEO claim, never independently audited or methodologically published, which disqualifies it from structural use ✓
 - D. Irrelevant, because attrition prediction is prohibited under 101 M7
 
 > **C.** Unverifiable is not the same as false, and the distinction matters: you don't have to
@@ -307,7 +307,7 @@ it. **A workflow you measured and killed is the strongest possible submission fo
 
 - A. Vendors invest more engineering effort in transactional products
 - B. Assessment products are newer and haven't accumulated evidence yet
-- C. Transactional outcomes are countable and fail visibly, while assessment and prediction outcomes are slow and confounded — which is exactly why claims there can be loud ✓
+- C. Transactional outcomes are countable and fail visibly, while assessment and prediction outcomes are slow and confounded, which is exactly why claims there can be loud ✓
 - D. Regulators prohibit publishing efficacy data for assessment tools
 
 > **C.** The asymmetry is about measurability, not effort or maturity. Where a failure would be
@@ -316,7 +316,7 @@ it. **A workflow you measured and killed is the strongest possible submission fo
 **Q7.** What does "automating the yes is safe; automating the no is where the risk starts" mean in practice?
 
 - A. Approvals are lower-stakes decisions than rejections in every context
-- B. Accelerating someone through a process is visible and recoverable, while filtering someone out is invisible — the excluded person never appears in your data, so the failure mode is structurally unmeasurable ✓
+- B. Accelerating someone through a process is visible and recoverable, while filtering someone out is invisible: the excluded person never appears in your data, so the failure mode is structurally unmeasurable ✓
 - C. Rejection decisions carry more legal exposure than approval decisions
 - D. Automated approvals require less accuracy than automated rejections
 
@@ -327,24 +327,24 @@ it. **A workflow you measured and killed is the strongest possible submission fo
 **Q8.** The activity asks you to name what the recovered time became, and rejects "more strategic work." Why?
 
 - A. Strategic work isn't a legitimate destination for recovered capacity
-- B. The phrase is what people say when the honest answer is "I don't know" — and an unnamed destination means the time was absorbed rather than recovered ✓
+- B. The phrase is what people say when the honest answer is "I don't know", and an unnamed destination means the time was absorbed rather than recovered ✓
 - C. Because only 7% of organizations provide guidance, so learners shouldn't attempt it
 - D. Because strategic work can't be measured, and the activity requires measurable outcomes
 
-> **B.** The phrase functions as a placeholder for absent knowledge. A specific destination — a
-> Module 2 quadrant, a piece of work you were skipping, hours returned to a team — is checkable
+> **B.** The phrase functions as a placeholder for absent knowledge. A specific destination (a
+> Module 2 quadrant, a piece of work you were skipping, hours returned to a team) is checkable
 > in a way that "more strategic work" never is.
 
 ## Sources and attribution
 
-- **Glean, *The Work AI Index 2026*** — the ~11 hours perceived saving, the 13% organizational
+- **Glean, *The Work AI Index 2026***, the ~11 hours perceived saving, the 13% organizational
   performance figure, and the 6.4-hours-per-week botsitting measurement (n≈6,000 digital workers
   across the US, UK, and Australia, fielded December 2025 – January 2026). **[V]**
 - **Gartner** — 88% of HR leaders reporting no significant business value from AI tools; and the
   finding that only 7% of organizations provide guidance on using time saved by AI (July 2025
   survey of 114 HR leaders — a small sample, noted in-lesson because this module is about saying
   so). **[V]**
-- Vendor and implementation cases — the IBM attrition figure, HireVue's removal of facial
+- Vendor and implementation cases: the IBM attrition figure, HireVue's removal of facial
   analysis, and Amazon's scrapped recruiting tool. Publicly reported; re-verified each review
   cycle. **[V]**
 - The four-question audit, the volume trap as applied to People work, and the

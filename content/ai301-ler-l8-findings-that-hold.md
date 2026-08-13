@@ -6,7 +6,7 @@
 **Position in the track:** the close — one change, one measure, one condition, and the delta
 
 > `Concepts reviewed: [DATE] · Examples current as of: [DATE]`
-> Lessons 2 and 3 are **volatile layer** — they carry the benchmark figures. Everything else is method.
+> Lessons 2 and 3 are **volatile layer**. They carry the benchmark figures. Everything else is method.
 
 ---
 
@@ -37,9 +37,9 @@ all of it was for.
 
 The answer this track has been building toward is a single sentence, and it is not the sentence your
 function is measured on. **The product is not a closed case. It is a finding that holds.** Everything
-in the previous seven modules — the rung boundary, the conflicts left as conflicts, the report that
+in the previous seven modules, the rung boundary, the conflicts left as conflicts, the report that
 says which allegation went unresolved, the comparator question asked before the decision, the dated
-authority — exists to make findings that survive contact with someone trying to break them.
+authority, exists to make findings that survive contact with someone trying to break them.
 
 Four lessons: what holding actually looks like, what to measure instead of what you are measured on,
 the honest capacity conversation, and the bet you leave with.
@@ -67,13 +67,13 @@ continuing, a complainant waiting, and a respondent under a cloud. Speed is a re
 But consider what the two metrics cannot see. **A matter closed quickly on a record that collapses
 under challenge is a liability that has not been recognized yet.** It appears in your numbers as a
 success, for between one and three years, and then it appears somewhere else. **Both metrics score the
-same on the day of closure regardless of whether the finding will hold** — which means the thing your
+same on the day of closure regardless of whether the finding will hold**, which means the thing your
 function is measured on is systematically blind to the thing your function is for.
 
 **So what does holding look like?** Seven modules, one list. A finding holds when:
 
 - **The rung boundaries are visible in the file.** Somebody reading it can tell which sentences are
-  observation, which are corroboration, which are inference, and which are the finding — and can see
+  observation, which are corroboration, which are inference, and which are the finding, and can see
   who climbed each boundary. *(Module 1, Module 4.)*
 - **The conflicts are recorded as conflicts.** Two accounts that disagree appear in the file
   disagreeing, with the disagreement located and unresolved on the page until a human resolves it in
@@ -99,7 +99,7 @@ question this module asks is whether you can tell the difference **before** some
 Here your function has an unusual advantage, and it is worth naming plainly: **the benchmark exists.**
 
 Most of the roles on this ladder are guessing about their peers. Employee relations has an annual study
-with a disclosed sample — the HR Acuity *Tenth Annual Employee Relations Benchmark Study*, fielded
+with a disclosed sample, the HR Acuity *Tenth Annual Employee Relations Benchmark Study*, fielded
 January–March 2026 on calendar-2025 practice across **274 US organizations of 1,000+ employees,
 representing 8.8 million employees, with a margin of error of ±5.9 points.** It does not describe
 employers below 1,000 employees, and it is vendor-sponsored and independently fielded. Read it with
@@ -119,8 +119,8 @@ have one to sit on. If you are in that 38%, the highest-value change available t
 
 **3 · Time-to-first-contact rather than time-to-close.** A different instrument entirely.
 Time-to-close measures how fast you finish; time-to-first-contact measures how fast a person who
-raised something stops waiting in silence. It correlates with almost everything you care about — trust
-in the process, willingness to report, whether a matter escalates — and it is the one number in this
+raised something stops waiting in silence. It correlates with almost everything you care about (trust
+in the process, willingness to report, whether a matter escalates) and it is the one number in this
 list you can start collecting this week.
 
 **4 · Repeat-respondent detection.** How you learn that three separate, individually-unsubstantiated
@@ -149,7 +149,7 @@ Staffing has gone from roughly 0.6 to 0.68 employee-relations professionals per 
 
 Look at those three numbers together and the situation is unambiguous: **demand has grown much faster
 than capacity, and the gap is not going to be closed by an increase in headcount.** Meanwhile 70% of
-ER teams have experimented with or actively deployed AI. The order of those two facts matters —
+ER teams have experimented with or actively deployed AI. The order of those two facts matters:
 adoption is following the pressure, not a strategy.
 
 So here is the honest framing, and it is deliberately not the one in the vendor deck.
@@ -157,8 +157,8 @@ So here is the honest framing, and it is deliberately not the one in the vendor 
 > **AI in this function is not a productivity story. It is a triage story.**
 
 A productivity story says: the same work, faster. That is not what is on offer here, because the
-expensive parts of your work — deciding which account to believe, deciding whether prior practice
-governs, deciding what a person's conduct amounted to — are the parts you may not delegate. The
+expensive parts of your work (deciding which account to believe, deciding whether prior practice
+governs, deciding what a person's conduct amounted to) are the parts you may not delegate. The
 delegable parts are real but they are not where the hours go.
 
 What you actually get is **recovered minutes**, and the only question that matters is **which rung you
@@ -167,7 +167,7 @@ spend them on.**
 **The answer this track argues for is rung two.** Corroboration. The unglamorous work of establishing
 what documents exist, what the record contains and omits, what conflicts with what, and what is
 missing entirely. It is where cases are won and lost. It is the least visible part of an investigation
-and the first thing cut under time pressure. And — the useful part — **it is the rung where AI is
+and the first thing cut under time pressure. And (the useful part) **it is the rung where AI is
 genuinely permitted at scale**, because establishing what exists is a retrieval and extraction task
 that a human can verify by reading the underlying documents.
 
@@ -187,7 +187,7 @@ one that did not happen.
 
 One page, four terms. This is what you leave the track with.
 
-**1 · The change.** One change to how your matter type is handled — specific enough that somebody could
+**1 · The change.** One change to how your matter type is handled, specific enough that somebody could
 implement it without asking you a follow-up question. Not *"use AI for corroboration"*; rather *"before
 the first interview in every misconduct matter, produce a document inventory listing what exists, what
 is referenced but missing, and what conflicts, reviewed by the investigator against the source
@@ -195,7 +195,7 @@ documents."*
 
 **2 · The measure, with a baseline.** What you will measure at 90 days, and **what it is today.** The
 baseline is the part people skip, and skipping it converts the whole exercise into an anecdote. If you
-cannot get a baseline, that is itself the finding — and it is the finding Module 5 predicted.
+cannot get a baseline, that is itself the finding, and it is the finding Module 5 predicted.
 
 **3 · The funding line.** What you will stop doing to pay for it. Not *"we'll absorb it"*; absorbing it
 means it will not happen. Name the thing that gets less attention, and be prepared for that to be
@@ -209,7 +209,7 @@ watching for it, by when, and what happens then.** A kill condition without a na
 **And the fourth term has a second half people avoid: what would you turn off?**
 
 Because it is likely that somebody on your team is already using a general-purpose assistant on case
-content — summarising notes, drafting a section, asking what a policy means. Not maliciously. Under
+content: summarising notes, drafting a section, asking what a policy means. Not maliciously. Under
 exactly the pressure Lesson 3 describes. **Modules 3 and 5 explain what that costs**: content in a
 system with the wrong retention, the wrong access boundary, and the wrong discoverability posture,
 touching the most sensitive corpus in the organisation.
@@ -218,7 +218,7 @@ touching the most sensitive corpus in the organisation.
 > replaces an unsanctioned one, and a conversation that surfaces what is already happening.**
 
 Naming that is not an admission of failure. It is the only version of this that describes the actual
-situation — and a bet that ignores what your team is already doing is a bet on a fiction.
+situation, and a bet that ignores what your team is already doing is a bet on a fiction.
 
 ## Key takeaways
 
@@ -242,13 +242,13 @@ situation — and a bet that ignores what your team is already doing is a bet on
 - **Do not turn a benchmark into a goal.** A published rate is a fact about the field; committing to a
   rate commits you to a number rather than to accuracy.
 - **Volumes at decade highs, serious allegations more than doubled since 2021, staffing from about 0.6
-  to 0.68 per 1,000** `[V]` — demand has outrun capacity and headcount will not close it. 70% of ER
+  to 0.68 per 1,000** `[V]`, demand has outrun capacity and headcount will not close it. 70% of ER
   teams have already experimented with or deployed AI, which means **adoption is following the
   pressure, not a strategy.**
 - **AI here is not a productivity story, it is a triage story.** The expensive parts of the work are
   the parts you may not delegate. What you get is recovered minutes, and the only question is which
   rung you spend them on.
-- **Spend them on rung two — corroboration.** Least visible, first cut under pressure, where cases are
+- **Spend them on rung two, corroboration.** Least visible, first cut under pressure, where cases are
   won and lost, and the rung where AI is genuinely permitted at scale. Undirected, the minutes go into
   closing more matters, into polish, or into the queue.
 - **The bet has four terms:** the change, the measure **with a baseline**, the funding line, and the
@@ -266,7 +266,7 @@ that pays for a high-probability one, and the arithmetic may genuinely favour sp
 
 Most matters are never challenged. The overwhelming majority close, are accepted, and are never read
 again by anybody. A function that builds every file to withstand litigation is **paying a tax on every
-matter to insure against a fraction of one percent** — and paying it in the currency that harms real
+matter to insure against a fraction of one percent**, and paying it in the currency that harms real
 people, because the cost of thoroughness is time, and time is a complainant waiting and a respondent
 under a cloud. **The harm from slowness is certain, distributed, and invisible in your numbers. The harm
 from a weak record is unlikely, concentrated, and shows up in a lawsuit.** Optimising for the second is
@@ -276,7 +276,7 @@ And the sharper version: **this track has taught you to be measured against a st
 holding you to.** No regulator audits your rung boundaries. No metric captures whether your conflicts
 were recorded as conflicts. You will be assessed on cycle time and closure, and the constraints in this
 course are largely invisible to the people who assess you. That is not an argument that they are wrong.
-It is an argument that they are **unfunded** — and unfunded standards decay.
+It is an argument that they are **unfunded**, and unfunded standards decay.
 
 Your position has to answer the resource question, not the principle: **which of these constraints
 would you drop first if you had to, and what would you tell the person who asked you to drop it?**
@@ -295,9 +295,9 @@ the thing to argue.
 **Graded against the rubric below.** Score doesn't matter. Doing the work is where the learning lands.
 
 **No case facts.** Aggregate numbers and generic process only. Nothing about a specific matter,
-employee, or grievance — including in the delta reckoning.
+employee, or grievance, including in the delta reckoning.
 
-**Step 1 — The bet, one page (15 min).**
+**Step 1. The bet, one page (15 min).**
 
 - **The change**, specific enough to implement without a follow-up question.
 - **The measure at 90 days, and its baseline today.** If you cannot get a baseline, say so and say why
@@ -305,32 +305,32 @@ employee, or grievance — including in the delta reckoning.
 - **The funding line:** what gets less attention to pay for this.
 - **The kill condition:** what you would see, **who is watching for it**, by when, and what happens
   then.
-- **And: what would you turn off?** Including — honestly — anything your team is using on case content
+- **And: what would you turn off?** Including (honestly) anything your team is using on case content
   without sanction.
 
-**Step 2 — The measure you are not measured on (5 min).** Pick one of Lesson 2's four and write the
+**Step 2. The measure you are not measured on (5 min).** Pick one of Lesson 2's four and write the
 single sentence you would use to introduce it to whoever owns your function's reporting. One sentence,
 because that is the length you will actually get.
 
-**Step 3 — The delta reckoning (10 min).** You committed a position at the opening of every module in
+**Step 3. The delta reckoning (10 min).** You committed a position at the opening of every module in
 this track. Go back through them and record:
 
 | Module | The claim | You said | Turned out |
 |---|---|---|---|
 
 - **L1** — the gap between what you're permitted to do and what you're doing.
-- **L2** — that your process has no way to keep two conflicting accounts in conflict.
-- **L3** — what a recorded interview changes about the record.
+- **L2**. That your process has no way to keep two conflicting accounts in conflict.
+- **L3**, what a recorded interview changes about the record.
 - **L4** — that your reports climb rungs without marking the climb.
-- **L5** — that opposing counsel will run the comparator analysis and the only question is whether you
+- **L5**. That opposing counsel will run the comparator analysis and the only question is whether you
   ran it first.
-- **L6** — that complaints are getting longer without getting more substantial.
+- **L6**. That complaints are getting longer without getting more substantial.
 - **L7** — that you can name the layer and the date for every legal proposition you rely on.
 
-For each: **which turned out to be true of your function, which did not, and — the useful column —
+For each: **which turned out to be true of your function, which did not, and (the useful column)
 which one you were most confident about and wrong.**
 
-**Step 4 — Score the prediction.** Your predicted count out of ten against what you found, plus your
+**Step 4. Score the prediction.** Your predicted count out of ten against what you found, plus your
 function's median time-to-close alongside it. The juxtaposition is the point: one of those two numbers
 is reported upward every month and the other one is the product.
 
@@ -350,7 +350,7 @@ next matter you handle?**
 - C. Because they are not comparable across organizations
 - D. Because they measure the investigator rather than the investigation
 
-> **B.** Which is not an argument against speed — a matter left open is a harm continuing. It is an
+> **B.** Which is not an argument against speed: a matter left open is a harm continuing. It is an
 > argument that the metrics you are measured on cannot see the thing you are for.
 
 **Q2.** Which of these appears on the module's list of what makes a finding hold?
@@ -366,7 +366,7 @@ next matter you handle?**
 **Q3.** What does the module say about the 38% figure? `[V]`
 
 - A. 38% of ER teams have deployed AI for investigations
-- B. 38% of organizations operate without a required investigation process — the least glamorous number in the study and the most consequential, because every capability in this track sits on top of a process ✓
+- B. 38% of organizations operate without a required investigation process, the least glamorous number in the study and the most consequential, because every capability in this track sits on top of a process ✓
 - C. 38% track substantiation by issue type
 - D. 38% of matters are closed within the published timescale
 
@@ -381,7 +381,7 @@ next matter you handle?**
 - D. Because it excludes matters that are withdrawn
 
 > **B.** It correlates with trust in the process, willingness to report, and whether a matter escalates
-> — and it is the one measure in the list you can start collecting this week.
+>, and it is the one measure in the list you can start collecting this week.
 
 **Q5.** What is the caution about the published benchmark figures? `[V]`
 
@@ -397,18 +397,18 @@ next matter you handle?**
 **Q6.** Why is AI in this function called a triage story rather than a productivity story?
 
 - A. Because triage is the highest-value application available
-- B. Because the expensive parts of the work — deciding which account to believe, whether precedent governs, what conduct amounted to — are the parts that may not be delegated, so what you get is recovered minutes rather than the same work faster ✓
+- B. Because the expensive parts of the work (deciding which account to believe, whether precedent governs, what conduct amounted to) are the parts that may not be delegated, so what you get is recovered minutes rather than the same work faster ✓
 - C. Because case volumes have doubled and triage is the only way to keep up
 - D. Because a model can route matters more consistently than a person
 
-> **B.** And D is the specific thing Module 1 forbids — intake triage is a rung-five determination in
+> **B.** And D is the specific thing Module 1 forbids, intake triage is a rung-five determination in
 > rung-one clothing.
 
 **Q7.** Where does the track argue the recovered minutes should go, and why?
 
 - A. Into closing more matters, since backlog is the most visible harm
 - B. Into better-written reports, since the report is the record
-- C. Into rung two, corroboration — least visible, first cut under pressure, where cases are won and lost, and the rung where AI is genuinely permitted at scale ✓
+- C. Into rung two, corroboration, least visible, first cut under pressure, where cases are won and lost, and the rung where AI is genuinely permitted at scale ✓
 - D. Into training, since capability gaps cause most record defects
 
 > **C.** A and B are two of the three places the minutes go on their own. The third is the queue, where
@@ -439,7 +439,7 @@ next matter you handle?**
   drift.**
 - **No published figure was located** for what share of closed matters would withstand a comparator
   analysis, for repeat-respondent detection rates, or for time-to-first-contact. **They are offered as
-  measures worth constructing rather than as benchmarks**, and the module says so — a measure without a
+  measures worth constructing rather than as benchmarks**, and the module says so: a measure without a
   comparison is still a measure.
 - The finding-that-holds definition, the six-item holding list assembled from Modules 1–7, the
   triage-not-productivity framing, the spend-it-on-rung-two argument, the four-term bet, the
@@ -450,8 +450,8 @@ next matter you handle?**
   comparator question, Module 7 for dated authority.
 - **Reuse note.** The four-term bet with a baseline and a kill condition, and the
   what-would-you-turn-off question, follow the closing convention used in `ai301-peopleops-m8` and the
-  other 301 tracks, deliberately — the ladder's closes should rhyme.
+  other 301 tracks, deliberately: the ladder's closes should rhyme.
 - **Horizontal note.** `ai301-peopleops-m8` closes on capacity as well, but its subject is what an
   operations function does with recovered capacity across many decisions. This module's subject is a
-  single artifact — the finding — and which rung of one process the minutes should go to. Recorded so
+  single artifact (the finding) and which rung of one process the minutes should go to. Recorded so
   the two closes do not read as the same lesson.

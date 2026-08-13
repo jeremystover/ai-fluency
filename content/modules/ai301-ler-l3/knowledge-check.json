@@ -13,7 +13,7 @@
         "Because chilled witnesses are more likely to bring their own claims"
       ],
       "correctIndex": 1,
-      "explanation": "An investigation that reached no conclusion because two witnesses declined is not a neutral outcome — it is a weaker position for the employer and a worse one for the complainant."
+      "explanation": "An investigation that reached no conclusion because two witnesses declined is not a neutral outcome. It is a weaker position for the employer and a worse one for the complainant."
     },
     {
       "id": "q2",
@@ -49,7 +49,7 @@
         "Notes should be destroyed once a transcript exists"
       ],
       "correctIndex": 1,
-      "explanation": "And corrections are visible and dated rather than silent — a silently edited transcript is worse than either the original or your notes."
+      "explanation": "And corrections are visible and dated rather than silent, a silently edited transcript is worse than either the original or your notes."
     },
     {
       "id": "q5",
@@ -85,7 +85,7 @@
         "Because it requires disclosure to the affected participant"
       ],
       "correctIndex": 1,
-      "explanation": "Which is why quality has to be checked **by speaker** rather than in aggregate — an overall accuracy figure hides exactly the pattern that matters. And where it is poorer, the answer is your notes and a human review, not a better prompt."
+      "explanation": "Which is why quality has to be checked **by speaker** rather than in aggregate: an overall accuracy figure hides exactly the pattern that matters. And where it is poorer, the answer is your notes and a human review, not a better prompt."
     },
     {
       "id": "q8",
@@ -97,7 +97,7 @@
         "It permits recording only where discipline is not contemplated"
       ],
       "correctIndex": 2,
-      "explanation": "A common and useful thing to get right. Weingarten governs the right to representation on request in an investigatory interview that could lead to discipline — not the recording. And a representative in the room means your record is no longer the only record."
+      "explanation": "A common and useful thing to get right. Weingarten governs the right to representation on request in an investigatory interview that could lead to discipline, not the recording. And a representative in the room means your record is no longer the only record."
     }
   ]
 }

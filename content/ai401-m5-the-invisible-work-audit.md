@@ -43,7 +43,7 @@ nobody wrote down.
 it's the most useful thing in this course:
 
 > **Inventory the absorbed work before you shrink the team. After you shrink it, the evidence is
-> gone** — because the person who was doing it's no longer there to tell you they were.
+> gone**, because the person who was doing it's no longer there to tell you they were.
 
 Almost nobody does this. It takes an afternoon and it's the difference between a lean team and a
 team with four holes in it.
@@ -58,7 +58,7 @@ By the end of this module you should be able to:
    a *larger* team.
 3. Describe what happens to orphaned work on a lean team versus a large one.
 4. Run an invisible work inventory for a team you know.
-5. Say why middle managers are the load-bearing failure point in this whole picture.
+5. Say why middle managers are the point where the whole thing gives in this whole picture.
 
 ## Lesson 1 · Span of control is a variable, not a ratio
 
@@ -82,8 +82,8 @@ neglected teams where the work is hard and over-supervised teams where it isn't.
 
 Now add AI, and notice that it pushes on both sides of that list at once. It makes work **more**
 modular and better instrumented, which argues for wider spans. It also makes the remaining human
-work **more** novel, more ambiguous, and more cross-functional — because the routine, separable
-part is exactly what got absorbed — which argues for narrower ones.
+work **more** novel, more ambiguous, and more cross-functional (because the routine, separable
+part is exactly what got absorbed) which argues for narrower ones.
 
 **Both are happening in the same team at the same time**, which is why "AI means we need fewer
 managers" and "AI means we need more managers" are both defensible and both useless. The question
@@ -97,7 +97,7 @@ The reframe:
 > and which can AI absorb.**
 
 That sounds like a rewording and it changes the output completely. A headcount question produces a
-number. A coverage question produces a **map** — a list of things the unit is responsible for, each
+number. A coverage question produces a **map**, a list of things the unit is responsible for, each
 marked with whether a person has to do it, whether a person has to check it, or whether it can run
 without either. The number falls out of the map. It doesn't come first, and a number arrived at
 without a map is a guess wearing a spreadsheet.
@@ -105,7 +105,7 @@ without a map is a guess wearing a spreadsheet.
 Two complications, both of which cut against the direction everyone assumes.
 
 **AI can argue for a *larger* team, not a smaller one.** Where individual leverage rises faster
-than coordination cost, adding a person now returns more than it did before — each one produces
+than coordination cost, adding a person now returns more than it did before: each one produces
 more, and the work they produce still fits together. That is a real case and it's the case
 Module 6 tells you how to check: if your absorption limit isn't the binding constraint, growth is
 back on the table in a way it wasn't two years ago.
@@ -120,7 +120,7 @@ decision, and it won't appear in the business case.
 
 Here's the mechanism, and it's the reason this module exists.
 
-Every organization has work that belongs to nobody. Not because of bad management — because no job
+Every organization has work that belongs to nobody. Not because of bad management, because no job
 description survives contact with a real week. Somebody notices the report is wrong before it goes
 out. Somebody tells the new starter which of the two conflicting policies is actually enforced.
 Somebody remembers to check whether the vendor renewal is coming. Somebody sits with the person who
@@ -136,7 +136,7 @@ visible:
    assigned, automated, or consciously dropped. This is the good outcome and it requires somebody to
    notice.
 2. **It silently stops happening.** Nobody assigned it, so nobody misses it. There is no ticket, no
-   metric, no complaint — until the consequence arrives somewhere else entirely, months later, and
+   metric, no complaint, until the consequence arrives somewhere else entirely, months later, and
    gets attributed to something else.
 
 Route two is the default, because **route one requires a person to notice the absence of something
@@ -164,7 +164,7 @@ inventory comes back empty, this module is wrong about your team, and that's a l
 One more structural point, because it determines where you should look.
 
 The absorbers are disproportionately middle managers, and this isn't a coincidence. Their job is
-partly defined as **handling whatever is not handled** — they sit at the point where strategy
+partly defined as **handling whatever is not handled**. They sit at the point where strategy
 becomes tasks and where the gaps between defined roles become visible. Much of what they do all
 week is precisely the work that appears in no job description: the clarification, the routing, the
 translation, the noticing.
@@ -175,7 +175,7 @@ Three consequences.
 very little and conclude the problem doesn't exist.
 
 **They are also the layer most often targeted for flattening**, because their contribution is the
-hardest to state in output terms — which is what "layers" means when a consultant says it. A
+hardest to state in output terms, which is what "layers" means when a consultant says it. A
 function whose main product is absorption can't demonstrate its product, and it's being asked to
 do exactly that.
 
@@ -189,8 +189,8 @@ agreement followed by absorption, because absorbing is what the layer does.
 - **Span of control is a variable, not a ratio.** Widen where work is modular, standards are clear,
   and people are experienced; narrow where work is novel, cross-functional, ambiguous, high-risk, or
   talent is developing. **One ratio everywhere is expensive in both directions.**
-- **AI pushes both ways at once** — work gets more modular *and* the remaining human work gets more
-  ambiguous — which is why "AI means fewer managers" and "AI means more managers" are both
+- **AI pushes both ways at once** (work gets more modular *and* the remaining human work gets more
+  ambiguous) which is why "AI means fewer managers" and "AI means more managers" are both
   defensible and both useless.
 - **Coverage, not headcount.** A headcount question produces a number; a coverage question produces
   a map, and the number falls out of the map.
@@ -198,12 +198,12 @@ agreement followed by absorption, because absorbing is what the layer does.
   And **a four-person pod has no margin for a weak hire**, which raises the consequence of every
   hiring decision.
 - **On a large team homeless work gets absorbed. On a lean team it either becomes an explicit
-  decision or it silently stops** — and silence is the default, because noticing requires spotting
+  decision or it silently stops**, and silence is the default, because noticing requires spotting
   the absence of something never written down.
 - **The module has no statistic because work in nobody's job description is also in nobody's
   dataset.** The absence is the phenomenon.
 - **Inventory the absorbed work before you shrink the team.** Afterwards the evidence is gone.
-- **Middle managers are where invisible work concentrates** — and the layer most often flattened,
+- **Middle managers are where invisible work concentrates**, and the layer most often flattened,
   because absorption can't be demonstrated as output.
 
 ## Take a position
@@ -219,8 +219,8 @@ handed over the map. Worse, **the act of asking signals what's coming**, and the
 you need are exactly what people stop giving once they suspect that.
 
 There is a sharper version. Some of the absorbed work **should** stop. A meaningful share of any
-inventory will be habit, duplication, or a check that was needed once and now protects nothing —
-and a module that teaches leaders to treat all absorbed work as load-bearing has smuggled in a
+inventory will be habit, duplication, or a check that was needed once and now protects nothing,
+and a module that teaches leaders to treat all absorbed work as structural has smuggled in a
 conservatism it never argued for. Module 1 warned about exactly this slide, and this module may be
 the place it happens.
 
@@ -232,7 +232,7 @@ which absorbed work deserves to survive.
 **Time:** 30 minutes · **Submit:** the inventory plus the covering note · **Graded against the
 rubric below.** Score doesn't matter. Doing the work is where the learning lands.
 
-Run this on one team — yours, or one you've real access to. Not the whole function.
+Run this on one team: yours, or one you've real access to. Not the whole function.
 
 **Step 1 — The inventory (18 min).** List every task you can find that's being done and is in
 nobody's job description. Aim for at least eight items; most people who look properly find more
@@ -244,19 +244,19 @@ For each one, four columns:
 |---|---|---|---|
 
 The last column is the graded one. Be specific about **when the consequence would surface and where
-it would show up** — because the module's whole argument is that it surfaces somewhere else, later,
+it would show up**, because the module's whole argument is that it surfaces somewhere else, later,
 attributed to something else.
 
 **How to find them, since they are invisible by construction.** Three prompts that work: what did
 the last person who left take with them? What do people ask a specific person rather than a system?
-And what happens in the two weeks around a cycle — close, launch, review — that nobody plans for?
+And what happens in the two weeks around a cycle (close, launch, review) that nobody plans for?
 
-**Step 2 — Count the orphans (4 min).** Of your items, how many have **no named owner at all** —
+**Step 2. Count the orphans (4 min).** Of your items, how many have **no named owner at all** —
 nobody would say it's theirs if asked directly. That count is the finding, and it's the number
 you'll report.
 
-**Step 3 — Decide about three of them (5 min).** Pick three. For each, one of: *assign it* (to whom),
-*automate it* (with what verification), or **drop it deliberately** — and at least one of your three
+**Step 3. Decide about three of them (5 min).** Pick three. For each, one of: *assign it* (to whom),
+*automate it* (with what verification), or **drop it deliberately**, and at least one of your three
 should be a deliberate drop, because if nothing on your list deserves to stop, you've collected
 habits and called them load.
 
@@ -271,7 +271,7 @@ position on the module's claim.
 **Q1.** Why is a single span-of-control ratio applied across an organization an error?
 
 - A. Because managers vary widely in capability
-- B. Because the right number moves on properties of the work — modularity, clarity of standards, ambiguity, risk, and how developed the talent is ✓
+- B. Because the right number moves on properties of the work: modularity, clarity of standards, ambiguity, risk, and how developed the talent is ✓
 - C. Because industry benchmarks are unreliable at the team level
 - D. Because it fails to account for remote and hybrid working patterns
 
@@ -281,7 +281,7 @@ position on the module's claim.
 **Q2.** Why does the module say "AI means fewer managers" and "AI means more managers" are both defensible?
 
 - A. Because the evidence is genuinely mixed across sectors
-- B. Because AI makes work more modular and better instrumented while making the remaining human work more novel and ambiguous — both at once, in the same team ✓
+- B. Because AI makes work more modular and better instrumented while making the remaining human work more novel and ambiguous: both at once, in the same team ✓
 - C. Because the effect depends on whether the organization is growing or contracting
 - D. Because management is being redefined faster than it can be measured
 
@@ -319,12 +319,12 @@ position on the module's claim.
 **Q6.** Why does this module carry no statistic for its central claim?
 
 - A. Because the research is too recent to be reliable
-- B. Because work in nobody's job description is also in nobody's dataset — measuring it would require first knowing it exists ✓
+- B. Because work in nobody's job description is also in nobody's dataset, measuring it would require first knowing it exists ✓
 - C. Because the effect varies too much between industries to generalize
 - D. Because the available studies use incompatible definitions of invisible work
 
 > **B.** The absence is the phenomenon. The module argues from mechanism and asks the learner to
-> run the inventory — and an inventory that comes back empty is a legitimate finding against it.
+> run the inventory, and an inventory that comes back empty is a legitimate finding against it.
 
 **Q7.** Why does invisible work concentrate in middle management?
 
@@ -340,7 +340,7 @@ position on the module's claim.
 
 - A. Open resistance during implementation
 - B. Escalation to senior leadership for arbitration
-- C. Agreement followed by absorption — because absorbing is what the layer does ✓
+- C. Agreement followed by absorption, because absorbing is what the layer does ✓
 - D. Inconsistent application across teams
 
 > **C.** Module 4's contract held between peers. This one has to hold between altitudes, and the
@@ -357,5 +357,5 @@ position on the module's claim.
   learner's own inventory, which can falsify it.
 - The coverage-not-headcount reframe, the orphaned-task routing, the inventory's four columns, and
   the middle-manager concentration argument are original to this course.
-- Continues Module 4 directly — these are the people who were absorbing the badly-defined
-  interfaces — and supplies the input Module 6 governs the pace against.
+- Continues Module 4 directly (these are the people who were absorbing the badly-defined
+  interfaces) and supplies the input Module 6 governs the pace against.

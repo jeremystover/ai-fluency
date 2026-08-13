@@ -13,7 +13,7 @@
         "Because comp data is more complex than other HR data"
       ],
       "correctIndex": 1,
-      "explanation": "The skill is real; it's aimed at the wrong layer. AI also severed the correlation between polish and care that the fast check was calibrated on — polish is now free."
+      "explanation": "The skill is real; it's aimed at the wrong layer. AI also severed the correlation between polish and care that the fast check was calibrated on, polish is now free."
     },
     {
       "id": "q2",
@@ -49,7 +49,7 @@
         "That the analysis was well-specified enough not to trigger a warning"
       ],
       "correctIndex": 1,
-      "explanation": "This is the most common misreading of model confidence, and it's different from a colleague not raising a concern — a colleague was looking."
+      "explanation": "This is the most common misreading of model confidence, and it's different from a colleague not raising a concern: a colleague was looking."
     },
     {
       "id": "q5",

@@ -129,7 +129,7 @@ the credibility move.
   the function does is a pass along this chain, and most people can only name two of the links.
 - **Lesson 2:** Where AI lands on each. Produce: collapsed. Distribute: mostly solved before AI.
   Sense and Interpret: transformed and barely touched by the profession. Decide: untouched. Verify:
-  newly expensive, and newly load-bearing.
+  newly expensive, and newly decisive.
 - **Lesson 3:** The thesis, with the profession's own benchmark behind it `[V]`. **75% of IC
   functions remain in early-stage AI adoption — experimenting ad hoc or not at all — and the
   maturity split is diagnostic: low-maturity teams use AI to draft; high-maturity teams use it to
@@ -507,7 +507,7 @@ the 75/25 split exists, it should replace this — and if it doesn't, the claim 
 
 **Blocking before drafting.** The leadership-credibility figures (33% erosion / 13% enhancement /
 43% transparency-dependent) — surfaced only in secondary coverage, no primary source or sample
-identified, and load-bearing for M10 Lesson 3. AIHR and Ragan runtimes, if the comparison appears in
+identified, and what carries M10 Lesson 3. AIHR and Ragan runtimes, if the comparison appears in
 sales copy.
 
 **Resolved during drafting.**

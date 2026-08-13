@@ -86,7 +86,7 @@ Defensible finds what wasn't declared and tests whether the review layer is real
 ### B-04 · The agent doctrine — `SETTLED`
 
 Appears in HRBP M6 L2, recruiter R6 L2, and Defensible M4 L4. **All three keep it** — it is one
-paragraph, it is load-bearing in each, and duplicating a doctrine statement three times is cheaper
+paragraph, it carries the weight in each, and duplicating a doctrine statement three times is cheaper
 than cross-referencing it. **But it must say the same thing in all three**, so it belongs in the
 shared evidence library (§4) as canonical text rather than three independently drafted versions.
 
@@ -312,7 +312,7 @@ the wrong lesson. **Owner:** maintenance agent. Counsel review is required for L
 ## 4. The shared evidence library — build it now
 
 The comp track's outline proposed this and this session proved the case twice over. The same
-figures are now load-bearing in multiple tracks, and each additional track means another drifting
+figures are now carrying real weight in multiple tracks, and each additional track means another drifting
 copy:
 
 | Figure | Already used in |

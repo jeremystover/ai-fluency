@@ -13,7 +13,7 @@
         "Chat → project → agent"
       ],
       "correctIndex": 1,
-      "explanation": "Each rung is an answer to \"what may the system do without waiting for you?\" — and each is priced in verification evidence, not capability."
+      "explanation": "Each rung is an answer to \"what may the system do without waiting for you?\", and each is priced in verification evidence, not capability."
     },
     {
       "id": "q2",
@@ -25,7 +25,7 @@
         "A successful demo of the agent completing the workflow"
       ],
       "correctIndex": 1,
-      "explanation": "The ladder is priced in M4 currency. A demo (D) is capability evidence; the ladder runs on *verification* evidence — your error history, your escalation line, your reading list."
+      "explanation": "The ladder is priced in M4 currency. A demo (D) is capability evidence; the ladder runs on *verification* evidence: your error history, your escalation line, your reading list."
     },
     {
       "id": "q3",
@@ -61,7 +61,7 @@
         "Normal, and means nothing"
       ],
       "correctIndex": 1,
-      "explanation": "Rung 2 generates exactly this data: how often the human actually says no. A clean approval history is the evidence-based case for climbing; a decline-heavy one is the case the workflow isn't ready. (C is possible — which is why the approval's reading list is defined; an approver who stopped reading is M4's repricing signal.)"
+      "explanation": "Rung 2 generates exactly this data: how often the human actually says no. A clean approval history is the evidence-based case for climbing; a decline-heavy one is the case the workflow isn't ready. (C is possible, which is why the approval's reading list is defined; an approver who stopped reading is M4's repricing signal.)"
     },
     {
       "id": "q6",
@@ -73,7 +73,7 @@
         "Person-affecting actions are too slow to automate profitably"
       ],
       "correctIndex": 2,
-      "explanation": "The argument is structural, not statistical: M4 showed what load does to approvals, and M1's line — the human must genuinely decide — can't survive that decay when actions fire at agent speed. B implies better models change the answer; they don't."
+      "explanation": "The argument is structural, not statistical: M4 showed what load does to approvals, and M1's line (the human must genuinely decide) can't survive that decay when actions fire at agent speed. B implies better models change the answer; they don't."
     },
     {
       "id": "q7",
@@ -85,7 +85,7 @@
         "It can, once error rates on other workflows are established"
       ],
       "correctIndex": 1,
-      "explanation": "The ladder's currency is run history for *this* work; other workflows' evidence (D) doesn't transfer. \"Unpriceable\" is the ladder's own vocabulary for why some ceilings are permanent — better reasoning than \"too risky,\" same conclusion."
+      "explanation": "The ladder's currency is run history for *this* work; other workflows' evidence (D) doesn't transfer. \"Unpriceable\" is the ladder's own vocabulary for why some ceilings are permanent: better reasoning than \"too risky,\" same conclusion."
     },
     {
       "id": "q8",

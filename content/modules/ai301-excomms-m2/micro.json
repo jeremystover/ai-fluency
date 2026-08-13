@@ -6,7 +6,7 @@
     "kind": "prose",
     "layer": "stable",
     "reviewedAt": "2026-08-12",
-    "body": "## Module 2 in two minutes\n\n**Six links: Sense → Interpret → Decide → Produce → Distribute → Verify.** Something happens in the organization. Somebody makes meaning of it. Somebody decides what should be said. Somebody makes the thing. It reaches people. Somebody checks it was true and that it landed.\n\n**The chain has a direction, and that's the point.** Errors flow downstream and get more expensive: a bad Sense produces a confident wrong Interpret, a Decide about a problem you don't have, and beautifully written Produce nobody needed. Speed at Produce cannot recover any of it — it arrives faster.\n\n**AI landed unevenly.** Produce collapsed. Distribute was mostly solved before AI arrived. **Sense and Interpret are transformed and barely worked** — the function has always held the highest-fidelity record of what employees don't understand and could never read it at volume. **Decide is untouched.** And Verify is newly expensive, because the drafter's own knowledge used to be the check, and a model doesn't have one."
+    "body": "## Module 2 in two minutes\n\n**Six links: Sense → Interpret → Decide → Produce → Distribute → Verify.** Something happens in the organization. Somebody makes meaning of it. Somebody decides what should be said. Somebody makes the thing. It reaches people. Somebody checks it was true and that it landed.\n\n**The chain has a direction, and that's the point.** Errors flow downstream and get more expensive: a bad Sense produces a confident wrong Interpret, a Decide about a problem you don't have, and beautifully written Produce nobody needed. Speed at Produce can't recover any of it. It arrives faster.\n\n**AI landed unevenly.** Produce collapsed. Distribute was mostly solved before AI arrived. **Sense and Interpret are transformed and barely worked**, the function has always held the highest-fidelity record of what employees don't understand and could never read it at volume. **Decide is untouched.** And Verify is newly expensive, because the drafter's own knowledge used to be the check, and a model doesn't have one."
   },
   {
     "id": "ai301-excomms-m2-micro-rule",
@@ -15,7 +15,7 @@
     "kind": "callout",
     "layer": "stable",
     "reviewedAt": "2026-08-12",
-    "body": "### The rule to carry\n\n**Being excellent at Produce was a career. It is now a feature.** Not worthless — judgment about what makes a sentence land is exactly what makes you good at reviewing a model's output. But it no longer differentiates, because the floor rose to meet it.\n\nThe investment test that follows: making Produce faster returns something bounded by how much of your week that link was. Making Sense or Interpret possible at all returns from a base of zero."
+    "body": "### The rule to carry\n\n**Being excellent at Produce was a career. It is now a feature.** Not worthless, judgment about what makes a sentence land is exactly what makes you good at reviewing a model's output. But it no longer differentiates, because the floor rose to meet it.\n\nThe investment test that follows: making Produce faster returns something bounded by how much of your week that link was. Making Sense or Interpret possible at all returns from a base of zero."
   },
   {
     "id": "ai301-excomms-m2-micro-close",
@@ -24,6 +24,6 @@
     "kind": "prose",
     "layer": "stable",
     "reviewedAt": "2026-08-12",
-    "body": "**The full module adds** the usage-versus-impact mismatch — practitioners using AI report the highest impact in content strategy, planning and channel strategy, which are Decide and Interpret work, while the dominant use stays drafting `[V]` — and the long argument about **Decide as counsel**: it requires being present before the decision is final, it spends credit rather than building it, and nobody was hired for it. Most communicators do Decide work several times a week and log it as Produce because it happened with a document open. Plus the twelve-task sort, and a trace of one real shipped piece backwards from Verify to Sense — where the links with no owner at all are the finding. Module 4 maps the whole function; this one traces a single artifact."
+    "body": "**The full module adds** the usage-versus-impact mismatch, practitioners using AI report the highest impact in content strategy, planning and channel strategy, which are Decide and Interpret work, while the dominant use stays drafting `[V]`, and the long argument about **Decide as counsel**: it requires being present before the decision is final, it spends credit rather than building it, and nobody was hired for it. Most communicators do Decide work several times a week and log it as Produce because it happened with a document open. Plus the twelve-task sort, and a trace of one real shipped piece backwards from Verify to Sense — where the links with no owner at all are the finding. Module 4 maps the whole function; this one traces a single artifact."
   }
 ]

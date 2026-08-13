@@ -225,7 +225,7 @@ Nearly everyone who runs the audit finds something.
   need development are the ones an unsupervised bot serves worst.** Deciding who gets a human is
   not a procurement decision, and it is currently being made by budget.
 - **Lesson 4:** The hollowing-out risk. Every coaching interaction routed to a tool is one not had
-  with a manager, and manager-employee development conversations are load-bearing for things no
+  with a manager, and manager-employee development conversations are what carry things no
   program replaces. What you lose is not the coaching; it is the relationship the coaching was an
   occasion for.
 - **Interactive:** sorting — ten development needs: human / tool / neither.

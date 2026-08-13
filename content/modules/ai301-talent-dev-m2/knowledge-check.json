@@ -13,7 +13,7 @@
         "Collaboration is a soft skill and diagnosis is a technical one"
       ],
       "correctIndex": 1,
-      "explanation": "Both can be done well or badly. The distinction is whether the requester's framing survives contact — and L&D is rewarded for the first and unmeasured on the second, which is why diagnosis needs to be a scheduled step rather than a value."
+      "explanation": "Both can be done well or badly. The distinction is whether the requester's framing survives contact, and L&D is rewarded for the first and unmeasured on the second, which is why diagnosis needs to be a scheduled step rather than a value."
     },
     {
       "id": "q2",
@@ -61,7 +61,7 @@
         "Protecting designer headcount, maintaining vendor relationships, and setting expectations"
       ],
       "correctIndex": 1,
-      "explanation": "None of them were assigned; all three were side effects of the cost. Which is why removing the cost removes them silently — nobody decided to stop doing them."
+      "explanation": "None of them were assigned; all three were side effects of the cost. Which is why removing the cost removes them silently, nobody decided to stop doing them."
     },
     {
       "id": "q6",
@@ -85,7 +85,7 @@
         "Documenting the refusal formally so the decision is auditable"
       ],
       "correctIndex": 2,
-      "explanation": "The third part is load-bearing. A refusal that concludes in nothing you own is indistinguishable from avoidance, and a requester who can route around you in an afternoon will route around you."
+      "explanation": "The third part is the one that matters. A refusal that concludes in nothing you own is indistinguishable from avoidance, and a requester who can route around you in an afternoon will route around you."
     },
     {
       "id": "q8",

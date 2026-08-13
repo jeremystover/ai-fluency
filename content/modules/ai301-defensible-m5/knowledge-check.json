@@ -13,7 +13,7 @@
         "Access to the systems in question"
       ],
       "correctIndex": 1,
-      "explanation": "Legal knows what the standard is and generally cannot compute a selection rate. IT can govern a system perfectly on every dimension it measures while the system selects at very different rates by group."
+      "explanation": "Legal knows what the standard is and generally can't compute a selection rate. IT can govern a system perfectly on every dimension it measures while the system selects at very different rates by group."
     },
     {
       "id": "q2",
@@ -61,7 +61,7 @@
         "Because compensation data is more reliable than posting text"
       ],
       "correctIndex": 1,
-      "explanation": "The module has you run the scan yourself instead, which produces current, local evidence about your own market — better than anything a course could assert."
+      "explanation": "The module has you run the scan yourself instead, which produces current, local evidence about your own market, better than anything a course could assert."
     },
     {
       "id": "q6",
@@ -97,7 +97,7 @@
         "Leverage in compensation negotiations"
       ],
       "correctIndex": 2,
-      "explanation": "Organizations restructure for reasons unrelated to who holds a scarce skill. The failure mode being addressed is holding a capability nobody in the building knows exists — and claiming more than that would be exactly the unverifiable assertion this track teaches you to check."
+      "explanation": "Organizations restructure for reasons unrelated to who holds a scarce skill. The failure mode being addressed is holding a capability nobody in the building knows exists, and claiming more than that would be exactly the unverifiable assertion this track teaches you to check."
     }
   ]
 }

@@ -1,19 +1,43 @@
 {
   "reviewedAt": "2026-08-12",
   "title": "Four answers to the same question",
-  "intro": "*Five minutes. Commit before you look.*\n\nThe CFO typed *\"what's our attrition rate in engineering this year?\"* into four different companies' analytics surfaces. All four returned a number in under ten seconds. All four numbers were defensible.\n\n**One of these is the failure this module is about** — and it is not the one that got the number wrong.",
+  "intro": "*Five minutes. Commit before you look.*\n\nThe CFO typed *\"what's our attrition rate in engineering this year?\"* into four different companies' analytics surfaces. All four returned a number in under ten seconds. All four numbers were defensible.\n\n**One of these is the failure this module is about**, and it isn't the one that got the number wrong.",
   "artifacts": [
-    { "label": "Answer A", "body": "\"**Engineering attrition, YTD: 14.2%.** Voluntary exits only, annualised from 7 months. Denominator: average of month-end headcount. Population: job family = Engineering, excluding contractors. Internal transfers out of Engineering are counted as attrition per the definition owned by People Analytics (last reviewed March 2026). Note: the 2024 acquisition population is included from January, when their job codes were migrated — before that they are excluded, which affects comparability with prior years.\"" },
-    { "label": "Answer B", "body": "\"**Engineering attrition is running at 11.8% year to date, down from 13.1% last year.** The improvement is most visible in the senior bands, which suggests the retention measures introduced in Q1 are having an effect — particularly the revised equity refresh, which targeted exactly this population.\"" },
-    { "label": "Answer C", "body": "\"**Engineering attrition YTD: 9.4%.** I've used voluntary exits over starting headcount for the calendar year to date. Let me know if you'd prefer a different basis — average headcount and rolling-12-month are both common and would give somewhat different figures.\"" },
-    { "label": "Answer D", "body": "\"I can't answer that as asked — 'attrition' and 'engineering' are both defined more than one way here and the choice changes the number materially. Engineering by job family, voluntary only, average headcount, rolling 12 months is **12.6%**. Engineering by reporting line, all exits, starting headcount, YTD is **17.1%**. Tell me which decision you want and I'll hold it for the rest of this conversation.\"" }
+    {
+      "label": "Answer A",
+      "body": "\"**Engineering attrition, YTD: 14.2%.** Voluntary exits only, annualised from 7 months. Denominator: average of month-end headcount. Population: job family = Engineering, excluding contractors. Internal transfers out of Engineering are counted as attrition per the definition owned by People Analytics (last reviewed March 2026). Note: the 2024 acquisition population is included from January, when their job codes were migrated, before that they are excluded, which affects comparability with prior years.\""
+    },
+    {
+      "label": "Answer B",
+      "body": "\"**Engineering attrition is running at 11.8% year to date, down from 13.1% last year.** The improvement is most visible in the senior bands, which suggests the retention measures introduced in Q1 are having an effect, particularly the revised equity refresh, which targeted exactly this population.\""
+    },
+    {
+      "label": "Answer C",
+      "body": "\"**Engineering attrition YTD: 9.4%.** I've used voluntary exits over starting headcount for the calendar year to date. Let me know if you'd prefer a different basis, average headcount and rolling-12-month are both common and would give somewhat different figures.\""
+    },
+    {
+      "label": "Answer D",
+      "body": "\"I can't answer that as asked, 'attrition' and 'engineering' are both defined more than one way here and the choice changes the number materially. Engineering by job family, voluntary only, average headcount, rolling 12 months is **12.6%**. Engineering by reporting line, all exits, starting headcount, YTD is **17.1%**. Tell me which decision you want and I'll hold it for the rest of this conversation.\""
+    }
   ],
   "options": [
-    { "id": "a", "label": "Answer A" },
-    { "id": "b", "label": "Answer B" },
-    { "id": "c", "label": "Answer C" },
-    { "id": "d", "label": "Answer D" }
+    {
+      "id": "a",
+      "label": "Answer A"
+    },
+    {
+      "id": "b",
+      "label": "Answer B"
+    },
+    {
+      "id": "c",
+      "label": "Answer C"
+    },
+    {
+      "id": "d",
+      "label": "Answer D"
+    }
   ],
   "key": "b",
-  "reasoning": "**B is the failure, and it is the one that will make everyone in the room happiest.** It resolved six families of decision without naming one, and then went further and **attributed the change to a cause.** Notice what it did *not* say: which exits count, which population, which denominator, or that a 1.3-point movement is well inside the spread between defensible definitions — so the trend it is explaining may not exist. It also selected on the senior bands *after* seeing the result, and the equity refresh targeted that population, which is Module 2's regression-to-the-mean setup arriving in a chat window.\n\nThis is the module's whole subject in one artifact: **invisible** (well-formed, in range, nothing prompts a check), **unstable** (ask again next month and the resolution can differ), and **unattributable** (when Finance's number disagrees, there is no reason to compare — only two resolutions nobody made). And the causal sentence is what will survive into the board deck.\n\n**A is the reference answer**, and the tell that it is the product of Layer 2 work rather than good luck is the last sentence: it volunteers a **comparability caveat about the acquired population** that nobody asked for. Every decision is named, the definition has an owner and a review date, and the caveat is the kind of thing only a written ruling produces — a model reasoning from scratch has nothing to know it from.\n\n**C is honest and insufficient, which makes it the interesting distractor.** It states its basis and offers alternatives, and that is genuinely better than B. But **\"let me know if you'd prefer a different basis\" hands a definitional decision to the person least equipped to make it**, framed as helpfulness. The CFO will pick the one that sounds right, or the first one listed, and now the organization has a second number with a different owner. C has surfaced the ambiguity without resolving it, which is where most well-intentioned self-service lands.\n\n**D refuses, and refusing is right here — but notice its limit.** It names the decision, shows the spread (**12.6% against 17.1%**, which is far larger than any year-over-year change anyone was discussing), and offers to hold the choice for the session. That is the correct behaviour from a *system*. What it cannot do is make the ruling, and it will ask this same question forever. **D is what good tooling looks like in the absence of a semantic layer; A is what tooling looks like when the layer exists.** The difference between them is a person having decided, once, in advance.\n\nThe transferable test: **for each answer, ask who made the decision and whether it is written anywhere.** A: a named owner, in March. D: nobody, deferred to the asker, every time. C: the asker, unknowingly. B: nobody, invisibly, and then it explained the result."
+  "reasoning": "**B is the failure, and it is the one that will make everyone in the room happiest.** It resolved six families of decision without naming one, and then went further and **attributed the change to a cause.** Notice what it did *not* say: which exits count, which population, which denominator, or that a 1.3-point movement is well inside the spread between defensible definitions, so the trend it is explaining may not exist. It also selected on the senior bands *after* seeing the result, and the equity refresh targeted that population, which is Module 2's regression-to-the-mean setup arriving in a chat window.\n\nThis is the module's whole subject in one artifact: **invisible** (well-formed, in range, nothing prompts a check), **unstable** (ask again next month and the resolution can differ), and **unattributable** (when Finance's number disagrees, there is no reason to compare, only two resolutions nobody made). And the causal sentence is what will survive into the board deck.\n\n**A is the reference answer**, and the tell that it is the product of Layer 2 work rather than good luck is the last sentence: it volunteers a **comparability caveat about the acquired population** that nobody asked for. Every decision is named, the definition has an owner and a review date, and the caveat is the kind of thing only a written ruling produces — a model reasoning from scratch has nothing to know it from.\n\n**C is honest and insufficient, which makes it the interesting distractor.** It states its basis and offers alternatives, and that is genuinely better than B. But **\"let me know if you'd prefer a different basis\" hands a definitional decision to the person least equipped to make it**, framed as helpfulness. The CFO will pick the one that sounds right, or the first one listed, and now the organization has a second number with a different owner. C has surfaced the ambiguity without resolving it, which is where most well-intentioned self-service lands.\n\n**D refuses, and refusing is right here, but notice its limit.** It names the decision, shows the spread (**12.6% against 17.1%**, which is far larger than any year-over-year change anyone was discussing), and offers to hold the choice for the session. That is the correct behaviour from a *system*. What it can't do is make the ruling, and it will ask this same question forever. **D is what good tooling looks like in the absence of a semantic layer; A is what tooling looks like when the layer exists.** The difference between them is a person having decided, once, in advance.\n\nThe transferable test: **for each answer, ask who made the decision and whether it is written anywhere.** A: a named owner, in March. D: nobody, deferred to the asker, every time. C: the asker, unknowingly. B: nobody, invisibly, and then it explained the result."
 }

@@ -13,7 +13,7 @@
 
 ## Calibration prompt — before you start
 
-*Two predictions. Be honest — this is the module where the gap is the lesson.*
+*Two predictions. Be honest. This is the module where the gap is the lesson.*
 
 **Think of the last five external candidates you made an offer to. How many do you think used AI
 to prepare for the negotiation?**
@@ -40,7 +40,7 @@ anything into anything, at 11pm, with no policy, no counsel, and no record.
 That asymmetry is the module. And it runs in three directions:
 
 - **The employee and the candidate**, arriving briefed by a model.
-- **The model itself**, which briefs them inconsistently — and gives *your* side different numbers
+- **The model itself**, which briefs them inconsistently, and gives *your* side different numbers
   than theirs.
 - **The institutional investor**, who now reads your executive compensation disclosure
   algorithmically, against every peer at once.
@@ -53,7 +53,7 @@ The claim you'll take a position on:
 
 By the end of this module you should be able to:
 
-1. State what the evidence actually says about candidate AI use in negotiation — and what it
+1. State what the evidence actually says about candidate AI use in negotiation, and what it
    doesn't `[V]`.
 2. Explain why inconsistent advice is harder to negotiate against than good advice `[V]`.
 3. Name the mechanism by which the same model gives the two sides of a negotiation different
@@ -66,14 +66,14 @@ By the end of this module you should be able to:
 
 The headline finding, with its sample attached — because Module 2 committed us to that.
 
-A survey of 899 professionals conducted for Eastern Washington University — **488 hiring managers
-and 411 workers** — found that **85% used ChatGPT to prepare for salary negotiation**, **63% said
+A survey of 899 professionals conducted for Eastern Washington University (**488 hiring managers
+and 411 workers**) found that **85% used ChatGPT to prepare for salary negotiation**, **63% said
 it produced a stronger offer**, 78% felt more confident negotiating with AI preparation, and 55%
 said they secured higher base pay.
 
 **Now read the sample the way Module 2 taught you, because it changes the claim materially.** The
 411 workers had **already used AI** for negotiation preparation. So the finding is *85% of
-AI-using candidates used ChatGPT specifically* — a statement about which tool, among people already
+AI-using candidates used ChatGPT specifically*: a statement about which tool, among people already
 using one. It is **not** "85% of candidates arrive AI-prepared." Anyone quoting this figure as
 general candidate behavior is quoting it wrong, and you will see it quoted that way.
 
@@ -86,8 +86,8 @@ report." Neither is verified against an offer letter.
 candidates arriving with a prepared range, a set of comparables, and rehearsed counter-language is
 larger than it was and growing, and it is not concentrated in senior or technical roles the way
 sophisticated negotiation used to be. **The distribution of negotiation preparedness has
-flattened**, and if your process quietly relied on most candidates not pushing back — which many
-processes did, without anyone deciding it — that assumption is expiring.
+flattened**, and if your process quietly relied on most candidates not pushing back (which many
+processes did, without anyone deciding it) that assumption is expiring.
 
 There is an equity implication worth sitting with, and it cuts in your favor. Negotiation outcomes
 have historically varied by who was coached, who had a network, and who had been told it was
@@ -116,7 +116,7 @@ gets different advice depending on which version answered.
 
 **The largest gaps were between model versions, and between employee-voiced and employer-voiced
 prompts.** Read that twice. **The same model gives the two sides of your negotiation different
-numbers** — not because it is taking sides, but because the framing of the question shifts the
+numbers**, not because it is taking sides, but because the framing of the question shifts the
 answer, and neither party can see the other's framing.
 
 **And it confidently prices universities that do not exist.** The audit included fictional and
@@ -126,12 +126,12 @@ in your domain, on the exact task your counterparty is using it for.
 **Two consequences, and the second one is about you.**
 
 *Consequence one: you are not negotiating against good advice. You are negotiating against
-confident, inconsistent advice, which is harder.* Good advice converges — two well-advised
+confident, inconsistent advice, which is harder.* Good advice converges, two well-advised
 candidates for the same role arrive near the same number and the conversation is about that number.
 Inconsistent advice diverges, so you get one candidate anchored 12% high on a hallucinated
 comparable and another anchored low, both equally certain, and **your response cannot be a script.**
 What actually works is the ability to say where a number comes from, in a form that survives being
-checked — which is the whole content of Lesson 4.
+checked, which is the whole content of Lesson 4.
 
 *Consequence two, which is the one this course cares about more: everything above applies to you.*
 The gender effect, the university effect, the version instability — that is a general model
@@ -162,13 +162,13 @@ Three shifts follow, and each one changes something about how you do your work.
 
 **From sampling to census.** A human analyst covering a large portfolio reads your proxy carefully
 only if something flags it. A model reads all of them, every year, at the same depth. **Your
-disclosure is no longer competing for attention — it is being compared.** Any structural oddity in
+disclosure is no longer competing for attention. It is being compared.** Any structural oddity in
 your pay design is now visible against the full peer set rather than against whoever happened to
 get read.
 
 **From "what did you set" to "was it hard."** Investors are increasingly evaluating not just what
 performance goals were set but **whether those goals were challenging given the business
-environment** — a question that was expensive to ask across a portfolio and is now cheap. A target
+environment**, a question that was expensive to ask across a portfolio and is now cheap. A target
 that was comfortably beatable is a finding that can be surfaced systematically.
 
 **From advisor recommendations to in-house analysis.** Proxy advisors remain important voices, but
@@ -204,7 +204,7 @@ and this is the consequence of not having done it.
 
 **2. The rationale doesn't depend on the listener not checking.** This is the practical test and it
 kills a specific class of thing comp functions have said for years. *"That's above our range for
-this level"* — checkable, and fine if true. *"The market for this role is around X"* — now checkable
+this level"*: checkable, and fine if true. *"The market for this role is around X"*, now checkable
 in ninety seconds, and if your X is defensible you are better off than before, because the check
 confirms you. **Anything that worked only because verification was expensive has stopped working.**
 
@@ -233,14 +233,14 @@ on the cost of verification, and the module's uncomfortable question is which on
 ## Key takeaways
 
 - **You are constrained and your counterparty is not.** Tier 4 data, a comp committee, a legal
-  floor — versus a candidate with any tool, at 11pm, with no policy and no record.
+  floor: versus a candidate with any tool, at 11pm, with no policy and no record.
 - **Read the negotiation survey correctly** `[V]`: 85% is *of AI-using candidates*, not of all
   candidates, and 63%/55% are beliefs and self-reports. What to update is a direction, not a
   number: **the distribution of negotiation preparedness has flattened**, and a process that
   relied on most people not pushing back is expiring.
 - **You are negotiating against confident, inconsistent advice, which is harder than good advice**
   `[V]`. Good advice converges; inconsistent advice diverges, so no script works.
-- **The same model gives the two sides different numbers** `[V]` — the audit found the largest gaps
+- **The same model gives the two sides different numbers** `[V]`, the audit found the largest gaps
   between model versions and between employee- and employer-voiced prompts. It also confidently
   prices universities that don't exist.
 - **The audit is also evidence about you.** Gender effects, university effects, version
@@ -261,11 +261,11 @@ report."*
 The strongest counter-argument is that **this overstates the audit's quality and therefore its
 authority.** Lesson 2 is the module's own witness against Lesson 4: the models give inconsistent
 answers, price fictional institutions confidently, and shift with version and framing. An
-"audit" that unreliable isn't an audit — it's noise with a confident voice, and building your pay
+"audit" that unreliable isn't an audit. It's noise with a confident voice, and building your pay
 communications to satisfy it means **letting an unreliable instrument set your standard**, which is
 precisely the error this course spends six modules warning against. On that view the right posture
 is a sound, well-documented pay structure and the willingness to say plainly that a model's number
-is wrong when it is — not defensive redesign around a tool that can't hold a consistent position.
+is wrong when it is, not defensive redesign around a tool that can't hold a consistent position.
 Your position has to engage that, because the module has already conceded the premise it rests on.
 
 ## Applied activity — "First contact"
@@ -281,23 +281,23 @@ step is not optional. Use a role, a level, and a range — **not a named individ
 individual pay data.** If you can only do this with a generalized version of a real rationale, do
 that; the exercise still works. Nothing about this activity justifies moving Tier 4 data.
 
-**Step 1 — Write the rationale as you'd actually say it (6 min).** Take a real recent pay
-conversation — an offer, a merit outcome, a promotion increase, an internal equity question — and
+**Step 1. Write the rationale as you'd actually say it (6 min).** Take a real recent pay
+conversation (an offer, a merit outcome, a promotion increase, an internal equity question) and
 write out the explanation you gave or would give. Your actual words, including the parts that were
 a little smooth. **A sanitized version teaches you nothing.**
 
-**Step 2 — Run it as the employee (8 min).** Put the rationale to a model in the candidate's or
+**Step 2. Run it as the employee (8 min).** Put the rationale to a model in the candidate's or
 employee's voice: *"My employer told me this. Is it reasonable? What's the weakest part of their
 argument? What should I ask them?"* Keep what it says, including anything wrong.
 
 **Step 3 — Run it as the employer (5 min).** Same role, same market, now voiced as you: *"What's a
 fair offer for this role in this market?"* Compare the numbers to what step 2 produced. **Record
-the gap** — that gap is Lesson 2 in your own req.
+the gap**. That gap is Lesson 2 in your own req.
 
-**Step 4 — Triage what came back (6 min).** Sort the challenges into three piles. **Fair hits** —
-where your rationale is genuinely weak and you'd change it. **Wrong** — where the model is
+**Step 4. Triage what came back (6 min).** Sort the challenges into three piles. **Fair hits** —
+where your rationale is genuinely weak and you'd change it. **Wrong**, where the model is
 factually mistaken, hallucinating a comparable, or misreading the market, and you can say why.
-**Unanswerable** — where the challenge is legitimate but the answer is information you can't
+**Unanswerable**, where the challenge is legitimate but the answer is information you can't
 disclose, which is the pile that needs a prepared sentence rather than an improvised one.
 
 **Step 5 — Score the predictions (3 min).** Your two numbers from the calibration prompt. Did the
@@ -305,7 +305,7 @@ model find the weakness you predicted, or a different one? **The different one i
 
 Then the write-up: the biggest fair hit and what you'd change, one thing the model got confidently
 wrong and how you'd say so in the room, the sentence you'd use for the unanswerable pile, your
-position on the claim above with its counter-argument addressed, and — the honest one — **whether
+position on the claim above with its counter-argument addressed, and (the honest one) **whether
 any part of your rationale was relying on the listener not checking.** Naming one specifically is
 worth more than concluding that your rationale held up fine.
 
@@ -316,7 +316,7 @@ worth more than concluding that your rationale held up fine.
 **Q1.** What does the "85% used ChatGPT for salary negotiation" figure actually support? `[V]`
 
 - A. That 85% of candidates now arrive at negotiations AI-prepared
-- B. That among candidates who already prepare with AI, 85% used ChatGPT specifically — the surveyed workers had all already used AI, so it's a statement about which tool, not about how many candidates ✓
+- B. That among candidates who already prepare with AI, 85% used ChatGPT specifically, the surveyed workers had all already used AI, so it's a statement about which tool, not about how many candidates ✓
 - C. That AI preparation improves negotiation outcomes in 85% of cases
 - D. That 85% of hiring managers encountered an AI-prepared candidate
 
@@ -326,7 +326,7 @@ worth more than concluding that your rationale held up fine.
 **Q2.** Why is inconsistent AI advice harder to negotiate against than good advice? `[V]`
 
 - A. Because inconsistent advice is more likely to be aggressive
-- B. Because good advice converges — two well-advised candidates arrive near the same number — while inconsistent advice diverges, so one candidate is anchored high on a hallucinated comparable and another low, both equally certain, and no script covers both ✓
+- B. Because good advice converges (two well-advised candidates arrive near the same number) while inconsistent advice diverges, so one candidate is anchored high on a hallucinated comparable and another low, both equally certain, and no script covers both ✓
 - C. Because candidates trust inconsistent advice more strongly
 - D. Because it takes longer to correct a wrong number than to agree with a right one
 
@@ -347,7 +347,7 @@ worth more than concluding that your rationale held up fine.
 **Q4.** What does the audit imply about your own function's use of these tools? `[V]`
 
 - A. That comp teams should use a different model than candidates use
-- B. That a comp team using the same kind of general tool to set pay would be introducing exactly the disparate impact of Module 4's circular zone — fluently, in a version that may behave differently next quarter ✓
+- B. That a comp team using the same kind of general tool to set pay would be introducing exactly the disparate impact of Module 4's circular zone: fluently, in a version that may behave differently next quarter ✓
 - C. That model outputs should be averaged across several versions to reduce variance
 - D. That the findings apply only to candidate-side use, since employers use structured data
 
@@ -357,7 +357,7 @@ worth more than concluding that your rationale held up fine.
 **Q5.** What changes when institutional investors read proxy statements with AI? `[V]`
 
 - A. Proxy advisor recommendations become more influential
-- B. Analysis moves from sampling to census — every peer read every year at the same depth — with growing focus on whether performance goals were actually challenging, and more independent analyses that don't share a methodology ✓
+- B. Analysis moves from sampling to census (every peer read every year at the same depth) with growing focus on whether performance goals were actually challenging, and more independent analyses that don't share a methodology ✓
 - C. Executive compensation disclosure requirements become more detailed
 - D. Compensation committees lose discretion over pay design
 
@@ -367,7 +367,7 @@ worth more than concluding that your rationale held up fine.
 **Q6.** What does the shift to machine-read disclosure reward? `[V]`
 
 - A. More extensive narrative explaining the compensation philosophy
-- B. Precision, consistent terminology, and information where a reader expects it — because narrative that only works on a sympathetic human reader is worth less than it used to be ✓
+- B. Precision, consistent terminology, and information where a reader expects it, because narrative that only works on a sympathetic human reader is worth less than it used to be ✓
 - C. Shorter proxy statements with fewer disclosed metrics
 - D. Greater use of infographics in place of tables
 
@@ -378,7 +378,7 @@ worth more than concluding that your rationale held up fine.
 
 - A. Whether it has been reviewed by legal counsel
 - B. Whether it can be delivered consistently by every manager
-- C. Whether it depends on the listener not checking — anything that worked only because verification was expensive has stopped working ✓
+- C. Whether it depends on the listener not checking, anything that worked only because verification was expensive has stopped working ✓
 - D. Whether it aligns with the organization's stated compensation philosophy
 
 > **C.** "The market for this role is around X" is now checkable in ninety seconds. If your X is

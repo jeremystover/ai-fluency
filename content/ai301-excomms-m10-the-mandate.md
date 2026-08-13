@@ -14,16 +14,16 @@
 
 *One claim. Commit before you read anything.*
 
-Here is a factual assertion about your own organization:
+Here's a factual assertion about your own organization:
 
-> **"Someone has already been given responsibility for how AI gets adopted here — and I know who
+> **"Someone has already been given responsibility for how AI gets adopted here, and I know who
 > they are."**
 
 **True of us, or not true of us?** Commit to one, in a sentence, and name them if you're claiming
 true.
 
 Then predict one number: **out of ten, how confident are you that your function will still exist in
-recognizably its current shape in three years?** Not whether the work exists — whether the function
+recognizably its current shape in three years?** Not whether the work exists, whether the function
 does.
 
 ---
@@ -34,7 +34,7 @@ Nine modules of craft. This one is about territory.
 
 The work of making an organization actually adopt AI — telling people what's changing, explaining
 what it means for their job, building manager capability, handling the fear, measuring whether any
-of it landed — is arriving somewhere. It is arriving with or without a decision about where it
+of it landed, is arriving somewhere. It is arriving with or without a decision about where it
 should go, and in a substantial share of organizations it is arriving at your desk already.
 
 The question this module puts to you is whether you claim it deliberately or receive it by default,
@@ -47,7 +47,7 @@ attention ledger, a compression map, a kill list, and a listening charter. That 
 about how communication actually works in your organization than anyone else in the building has.
 This module turns it into a one-page proposal.
 
-And then it does the reckoning — every prediction you committed across ten modules, and what the
+And then it does the reckoning: every prediction you committed across ten modules, and what the
 pattern says about where your instincts lean.
 
 ## Learning objectives
@@ -63,16 +63,16 @@ By the end of this module you should be able to:
 
 ## Lesson 1 · The work is already arriving **[V]**
 
-Simpplr's *State of Internal Communications 2026* — the survey from Module 2, 448 internal
-communications professionals in North America, fielded December 2025 — asked practitioners about
+Simpplr's *State of Internal Communications 2026* (the survey from Module 2, 448 internal
+communications professionals in North America, fielded December 2025) asked practitioners about
 their role in enterprise AI adoption.
 
 **45% said they are heavily involved in or solely responsible for communicating and supporting AI
 rollouts. 40% for creating AI strategies. 40% for creating adoption workstreams.**
 
 Read those as a description of the present rather than a forecast. In roughly half of these
-organizations, this function is already carrying enterprise AI adoption — and in a large fraction of
-those, "creating AI strategies" is on the list, which is not a communications task by any
+organizations, this function is already carrying enterprise AI adoption, and in a large fraction of
+those, "creating AI strategies" is on the list, which isn't a communications task by any
 conventional description of the role.
 
 Now set that against something from elsewhere in the People function. Asked what role HR *should*
@@ -81,7 +81,7 @@ several of the activities surveyed, more respondents would rather not be involve
 
 Two facts, pointing opposite ways:
 
-**The work is arriving.** Not in theory, not eventually — in half of organizations, now.
+**The work is arriving.** Not in theory, not eventually: in half of organizations, now.
 
 **And the profession that would most naturally own it is declining it.** Not from incapacity. From
 something closer to reluctance, and possibly from an accurate read of how thankless the work is.
@@ -100,22 +100,22 @@ by recommending an expansion with no cost attached. There are three, and they ar
 
 **You become the messenger for the thing people are most afraid of.** Every AI announcement your
 organization makes will carry your channel's credibility. The AI policy, the tooling rollout, the
-restructure whose business case mentions automation — all of it, in your voice. And your channel's
+restructure whose business case mentions automation: all of it, in your voice. And your channel's
 credibility is a stock, not a flow: Module 3 established that you spend it faster than you build it.
 A mandate that requires you to announce unpopular things, repeatedly, is a mandate that draws down
 the asset the rest of this track exists to protect.
 
-**You will be asked to say things you cannot verify**, which is Module 5's problem arriving with
-political weight. "This will not affect headcount" is a claim somebody wants in the announcement,
-and you will frequently have no way to check it and no standing to refuse it. The stop-rule list
+**You'll be asked to say things you cannot verify**, which is Module 5's problem arriving with
+political weight. "This won't affect headcount" is a claim somebody wants in the announcement,
+and you'll frequently have no way to check it and no standing to refuse it. The stop-rule list
 from Module 5 is what you have. It will be tested here more than anywhere else.
 
-**And you will be using AI to communicate about AI**, to an audience that can check every claim
+**And you'll be using AI to communicate about AI**, to an audience that can check every claim
 against its own Tuesday. That is the trap in Lesson 3, and it is the specific one this function
 faces and no other function does.
 
 **None of that is an argument against claiming it.** It is an argument for claiming it with the
-scope written down — which is what a proposal is for, and why "what I will stop doing to fund this"
+scope written down, which is what a proposal is for, and why "what I will stop doing to fund this"
 is the line that makes it real rather than aspirational.
 
 ## Lesson 3 · The messages that don't survive an employee who checks
@@ -123,30 +123,30 @@ is the line that makes it real rather than aspirational.
 Three failure patterns, all of which this function will be asked to produce.
 
 **"AI will augment, not replace."** Sometimes true. It becomes a liability the moment it is asserted
-in the same quarter that a team is cut, whatever the actual reason for the cut. Employees do not
+in the same quarter that a team is cut, whatever the actual reason for the cut. Employees don't
 have access to your reasoning; they have access to the sequence of events, and the sequence is what
-they will remember. If you cannot make the commitment specific — which roles, over what period,
-reviewed when — you are better served by describing what is genuinely uncertain, because a vague
+they will remember. If you can't make the commitment specific (which roles, over what period,
+reviewed when) you're better served by describing what is genuinely uncertain, because a vague
 reassurance that is later falsified costs more than an honest uncertainty ever does.
 
 **The productivity narrative employees can test against their own week.** "AI is saving our teams
 significant time" lands in front of people whose experience is that it saves them some time and
 creates supervision work nobody counted. When your announcement contradicts a reader's direct
-experience, they do not conclude that their experience is unrepresentative. They conclude the
-announcement is not describing reality — and that judgement transfers to the next announcement,
+experience, they don't conclude that their experience is unrepresentative. They conclude the
+announcement isn't describing reality — and that judgement transfers to the next announcement,
 which may be one that matters.
 
-**Announcing an AI policy your own function visibly doesn't follow.** The self-inflicted one. If the
+**Announcing an AI policy your own function visibly does not follow.** The self-inflicted one. If the
 policy says AI-assisted content gets human review and your newsletter obviously doesn't get it, you
 have published evidence against yourself in your own channel. **Your function is the most-observed
 user of AI in the organization**, because your output is the output everybody sees. Modules 5 and 6
 are what make this survivable: a trust line you actually hold and a review discipline you actually
 run are the difference between announcing a standard and demonstrating one.
 
-The through-line here is Module 6's finding pointed at institutions rather than individuals.
+The through-line here's Module 6's finding pointed at institutions rather than individuals.
 Perceived professionalism and perceived sincerity come apart, and an announcement about AI is
 precisely where a workforce is scoring the second. **You cannot communicate your way out of
-something employees can check against their own week** — and the only durable protection is that
+something employees can check against their own week**, and the only durable protection is that
 the checkable parts are true.
 
 > ### Try this — 3 minutes
@@ -159,7 +159,7 @@ the checkable parts are true.
 One page. Four elements, and the fourth is the one that separates a bet from a wish.
 
 **The mandate you're claiming, scoped.** Specific enough to be refused. "Own AI adoption
-communications" is not scoped. "Own the communication, manager enablement, and adoption measurement
+communications" isn't scoped. "Own the communication, manager enablement, and adoption measurement
 for AI rollouts, with a named partner in IT for tooling decisions" is.
 
 **The evidence, from your own artifacts.** The compression map is the strongest thing in the packet
@@ -169,8 +169,8 @@ budget is concentrated in the link that was already solved, and we have no line 
 two links that would tell us whether any of this works.*
 
 **The baseline and the measure.** The attention ledger from Module 1 and the kill list from Module 3
-gave you a real number with a real date on it. Say what you will measure at 90 days, and pick from
-the families in Module 3 — comprehension, behaviour, or cost — not open rates.
+gave you a real number with a real date on it. Say what you'll measure at 90 days, and pick from
+the families in Module 3 (comprehension, behaviour, or cost) not open rates.
 
 **And what you'll stop to fund it.** This is the line. A proposal that adds scope without
 subtracting anything is a request for more capacity dressed as a strategy, and it will be read that
@@ -184,7 +184,7 @@ Module 3 asked for three things and their sponsors rather than a principle.
 
 - **The work is already arriving** `[V]`: 45% of IC practitioners are heavily involved in or solely
   responsible for communicating and supporting AI rollouts, 40% for creating AI strategies, 40% for
-  adoption workstreams (n=448, North America, December 2025) — while only ~16% of HR professionals
+  adoption workstreams (n=448, North America, December 2025), while only ~16% of HR professionals
   think HR should lead change management for AI. **A responsibility arriving anyway, declined by its
   obvious owner, gets assigned rather than competed for.**
 - **It gets assigned to whoever holds the most credible account of how it should work.** After ten
@@ -193,7 +193,7 @@ Module 3 asked for three things and their sponsors rather than a principle.
 - **Three real costs:** you become the messenger for the thing people fear most, drawing down a
   credibility stock you spend faster than you build; you'll be asked to assert things you can't
   verify; and you'll use AI to communicate about AI to an audience that can check.
-- **Three messages that don't survive a reader who checks:** augment-not-replace asserted in the
+- **Three messages that do not survive a reader who checks:** augment-not-replace asserted in the
   quarter a team is cut; a productivity narrative contradicted by the reader's own week; and an AI
   policy your own channel visibly doesn't follow. **Your function is the most-observed user of AI in
   the organization.**
@@ -202,16 +202,16 @@ Module 3 asked for three things and their sponsors rather than a principle.
 
 ## Take a position
 
-**The claim:** *"You cannot communicate your way out of something employees can check against their
+**The claim:** *"You can't communicate your way out of something employees can check against their
 own week."*
 
 The strongest counter-argument is that **this counsel of honesty is a luxury belonging to people who
-don't have to send the message.** Communicators rarely choose what gets announced. Told to publish
+do not have to send the message.** Communicators rarely choose what gets announced. Told to publish
 "AI will augment, not replace," the practical options are to publish it, resign, or be overruled and
 publish it anyway — and a track that ends by advising the first option without acknowledging the
 constraint is advising from a position most of its audience doesn't occupy. On that reading, the
-honest counsel is not "refuse to say unverifiable things," it is "learn to say them in language that
-ages well" — which is a craft skill this module has declined to teach.
+honest counsel isn't "refuse to say unverifiable things," it is "learn to say them in language that
+ages well", which is a craft skill this module has declined to teach.
 
 There is a sharper version aimed at the mandate itself. **The function that claims AI adoption in a
 year of cuts has volunteered to be the face of the cuts.** The 16% who don't want to lead this may
@@ -232,11 +232,11 @@ against the rubric below.** Score doesn't matter. Doing the work is where the le
 One page, to a real named person who could actually grant it.
 
 1. **The mandate, scoped** — specific enough to be refused.
-2. **The evidence** — from your compression map, with the time-versus-budget line in your own
+2. **The evidence**: from your compression map, with the time-versus-budget line in your own
    numbers.
-3. **The baseline and the 90-day measure** — from the attention ledger and kill list, using a measure
+3. **The baseline and the 90-day measure**, from the attention ledger and kill list, using a measure
    from the comprehension, behaviour, or cost families.
-4. **The funding line** — what you will stop doing, drawn from your kill list.
+4. **The funding line** — what you'll stop doing, drawn from your kill list.
 
 If you conclude you should *not* claim this mandate, **write that instead, to the same standard,
 with the same evidence.** A well-argued refusal is a full-credit submission and in some
@@ -246,8 +246,8 @@ organizations it is the right answer.
 
 Ten modules, ten committed claims and a set of numbers. Go back through them.
 
-- **Which claims did you commit to as "true of us" and then discover were not?** Name them.
-- **What direction did your numeric predictions miss in** — did you consistently over- or
+- **Which claims did you commit to as "true of us" and then discover weren't?** Name them.
+- **What direction did your numeric predictions miss in**: did you consistently over- or
   under-estimate, and about what?
 - **Which single prediction was most wrong, and what did you believe that made it wrong?**
 - **What do you now think about your function that you did not think in Module 1?**
@@ -265,7 +265,7 @@ worth naming honestly.
 **Q1.** What do the adoption figures actually describe `[V]`?
 
 - A. A forecast of where AI responsibility will sit within three years
-- B. The present — in roughly half of organizations surveyed, internal comms is already heavily involved in or solely responsible for AI rollout communication, with 40% also on strategy and adoption workstreams ✓
+- B. The present, in roughly half of organizations surveyed, internal comms is already heavily involved in or solely responsible for AI rollout communication, with 40% also on strategy and adoption workstreams ✓
 - C. What practitioners believe their role ought to be
 - D. The share of organizations that have completed an AI rollout
 
@@ -275,10 +275,10 @@ worth naming honestly.
 
 - A. Because it shows HR lacks the capability to lead AI change
 - B. Because a responsibility that is arriving anyway, and that its obvious owner has declined, gets assigned rather than competed for ✓
-- C. Because it demonstrates that AI adoption is not a People function issue
+- C. Because it demonstrates that AI adoption isn't a People function issue
 - D. Because low support means low expectations and easier success
 
-> **B.** And it gets assigned to whoever holds the most credible account of how it should work when somebody senior finally asks — which is what the four artifacts from this track are for.
+> **B.** And it gets assigned to whoever holds the most credible account of how it should work when somebody senior finally asks, which is what the four artifacts from this track are for.
 
 **Q3.** What is the first cost of claiming the mandate?
 
@@ -292,17 +292,17 @@ worth naming honestly.
 **Q4.** Why does "AI will augment, not replace" become a liability?
 
 - A. Because it is usually false
-- B. Because employees do not have access to your reasoning — they have access to the sequence of events, and a vague reassurance later falsified costs more than an honest uncertainty ✓
+- B. Because employees don't have access to your reasoning. They have access to the sequence of events, and a vague reassurance later falsified costs more than an honest uncertainty ✓
 - C. Because it invites comparison with competitors' messaging
-- D. Because it cannot be translated consistently across languages
+- D. Because it can't be translated consistently across languages
 
-> **B.** If you can't make the commitment specific — which roles, over what period, reviewed when — describing what is genuinely uncertain is the stronger move.
+> **B.** If you cannot make the commitment specific (which roles, over what period, reviewed when) describing what is genuinely uncertain is the stronger move.
 
 **Q5.** What happens when an announcement contradicts a reader's direct experience?
 
 - A. They assume their own experience is unrepresentative
 - B. They discount that specific claim while trusting the rest of the message
-- C. They conclude the announcement isn't describing reality — and that judgement transfers to the next announcement, which may be one that matters ✓
+- C. They conclude the announcement isn't describing reality, and that judgement transfers to the next announcement, which may be one that matters ✓
 - D. They seek clarification through their manager
 
 > **C.** Which is why the productivity narrative is dangerous: it lands in front of people whose actual experience includes supervision work nobody counted.
@@ -320,7 +320,7 @@ worth naming honestly.
 
 - A. Naming a specific executive sponsor
 - B. Including a competitive benchmark
-- C. The funding line — what you will stop doing, which is why the kill list asked for three things and their sponsors rather than a principle ✓
+- C. The funding line, what you'll stop doing, which is why the kill list asked for three things and their sponsors rather than a principle ✓
 - D. Quantifying the return on investment
 
 > **C.** A proposal that adds scope without subtracting anything is a request for more capacity dressed as a strategy, and an experienced reader can tell in about four seconds.
@@ -328,9 +328,9 @@ worth naming honestly.
 **Q8.** What is the sharpest argument *against* claiming this mandate?
 
 - A. That communications lacks the technical knowledge for AI governance
-- B. That the function claiming AI adoption in a year of cuts has volunteered to be the face of the cuts — and the people declining to lead may have correctly assessed what comes with it ✓
+- B. That the function claiming AI adoption in a year of cuts has volunteered to be the face of the cuts, and the people declining to lead may have correctly assessed what comes with it ✓
 - C. That IT or Legal will claim it regardless
-- D. That the mandate cannot be delivered without additional headcount
+- D. That the mandate can't be delivered without additional headcount
 
 > **B.** It reframes the 16% as an accurate read rather than timidity, and it is the version most likely to change whether you actually send the proposal — which is why the activity asks you to engage it.
 
@@ -348,8 +348,8 @@ worth naming honestly.
   AI-generated communication erodes leadership credibility against 13% who say it enhances it, with
   43% saying the effect depends on transparency, was traced only to trade-press coverage with no
   identifiable sample, respondent population, or methodology. By the standard this course applies to
-  vendors — and applied to the IBM attrition figure elsewhere in this curriculum — it is
-  unverifiable rather than false, which disqualifies it from load-bearing use. Lesson 3 argues from
+  vendors (and applied to the IBM attrition figure elsewhere in this curriculum) it is
+  unverifiable rather than false, which disqualifies it from structural use. Lesson 3 argues from
   Module 6's peer-reviewed divergence finding instead.
 - The mandate-arrives-by-default argument, the three costs, the three failure patterns, and the
   four-element proposal are original to this course.

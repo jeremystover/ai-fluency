@@ -13,7 +13,7 @@
 
 ## Calibration prompt — before you start
 
-*One prediction, and be honest — nobody sees this but you.*
+*One prediction, and be honest, nobody sees this but you.*
 
 Think about the last analysis you handed to someone who acted on it. A market pricing round, a
 merit model, a plan cost projection, an equity refresh.
@@ -32,7 +32,7 @@ teaches, because it isn't about AI. It's about what has to be true around AI for
 worth presenting.
 
 The premise is uncomfortable and it's aimed directly at you: **your analytical training is the
-reason you'll miss it.** You have spent years learning to read a model quickly — scanning for
+reason you'll miss it.** You have spent years learning to read a model quickly: scanning for
 shape, for whether the magnitudes look plausible, for whether the distribution behaves. That is a
 genuinely expert skill and it is exactly the wrong one here, because **shape is the one thing a
 model always gets right.** The output will be well-formed. The columns will be sensible, the
@@ -53,13 +53,13 @@ satisfy — and which of those two happens is entirely a matter of craft.
 By the end of this module you should be able to:
 
 1. Explain why analytical fluency increases rather than decreases exposure to model error.
-2. Set the perimeter for comp data — what leaves the building, what doesn't, and what gets
+2. Set the perimeter for comp data: what leaves the building, what doesn't, and what gets
    dropped before either question arises.
 3. Specify verification explicitly: audit files, row counts, documented joins, reconciliation
    checks the model will not propose on its own.
 4. Run the Python-then-Excel double-pass so a finance partner can review formulas the way they
    always have.
-5. Build a durable starter kit — insights file, data map, terminology file, reconciliation spec —
+5. Build a durable starter kit (insights file, data map, terminology file, reconciliation spec)
    for an analysis you actually run.
 
 ## Lesson 1 · Why numerate people are more exposed
@@ -67,7 +67,7 @@ By the end of this module you should be able to:
 The standard story about AI risk in HR is that non-technical people will be fooled by confident
 output. For this function, invert it.
 
-**You read a formatted model the way you read a formatted sentence — quickly, and for shape.**
+**You read a formatted model the way you read a formatted sentence: quickly, and for shape.**
 When a table arrives with the right columns, the right row count *approximately*, magnitudes in
 the range you expected, and a summary paragraph that says what you thought it would say, your
 expert pattern-matcher signs it off in about four seconds. That pattern-matcher was trained on
@@ -84,13 +84,13 @@ and every percentage in the analysis is computed on a denominator you didn't cho
 the shape of the result tells you this.
 
 **The silent filter.** Somewhere in a multi-step analysis, a step applies a condition that made
-sense for that step and then persists. Active employees only — which quietly removes everyone who
+sense for that step and then persists. Active employees only, which quietly removes everyone who
 left, which is exactly the population a turnover-cost analysis needed.
 
 **The plausible coefficient.** A regression returns a gender coefficient of −1.8%. That is an
 entirely believable number. It is believable if the model is right and it is believable if the
 model controlled for job level in a way that absorbed the effect you were looking for. **The
-number's plausibility is what makes it dangerous** — an implausible number gets checked.
+number's plausibility is what makes it dangerous**: an implausible number gets checked.
 
 None of these are AI-specific failures. Every one of them has happened in Excel for thirty years.
 What changed is the ratio: the analysis that used to take four hours, during which you touched
@@ -98,8 +98,8 @@ every step and would have noticed the row count, now takes eleven minutes, durin
 nothing. **The errors are the same. The number of eyes on them collapsed.**
 
 And the consequence is asymmetric in a way it isn't elsewhere in HR. A wrong sentence in a policy
-draft gets caught by the next reader. **A wrong model gets presented** — to a leadership team, a
-comp committee, a board — by someone who is trusted precisely because they're good at this.
+draft gets caught by the next reader. **A wrong model gets presented** (to a leadership team, a
+comp committee, a board) by someone who is trusted precisely because they're good at this.
 
 > ### Try this — 3 minutes
 > Open the last analysis you ran with AI assistance. Find the row count at the start and the row
@@ -117,12 +117,12 @@ least freely move.**
 
 Three controls, in order of how much they buy you per unit of effort.
 
-**1. Stay inside the perimeter — but know what that actually means.** Enterprise deployments with
+**1. Stay inside the perimeter, but know what that actually means.** Enterprise deployments with
 zero-retention terms, or a model running in your own cloud tenancy, are a genuinely different risk
 posture from a consumer account, and this is the single highest-leverage decision your
 organization makes about your work. But the perimeter is a contractual and architectural fact, not
 a feeling. Someone in your organization can name your terms. **If you don't know whether your
-deployment retains prompts, you don't know your perimeter** — and the correct action is a
+deployment retains prompts, you don't know your perimeter**, and the correct action is a
 ten-minute conversation with whoever signed the contract, this week, before Lesson 3 becomes
 relevant.
 
@@ -138,23 +138,23 @@ feels like busywork, while anonymization feels like security work. One of them a
 data at risk.
 
 **3. Pseudonymize, and hold the mapping outside the session.** When you need to trace a record back
-— and in comp work you often do, because the outlier is the whole point — replace identifiers with
+— and in comp work you often do, because the outlier is the whole point, replace identifiers with
 sequential keys and keep the mapping in a file that never enters the tool. You get individual-level
 analysis and re-identification capability, and the tool holds neither name nor real ID.
 
 Two warnings that matter specifically here. **Pseudonymization is not anonymization.** In a
 600-person company, "Level 7, Engineering, San Francisco, hired 2019, $340k" identifies one person
 regardless of what you called them, and small cuts in comp data are re-identifiable almost by
-construction. And **executive comp resists all of this** — there are five of them, their pay is
+construction. And **executive comp resists all of this**. There are five of them, their pay is
 public in a proxy, and no pseudonym helps. Treat executive analysis as a category where the
 perimeter question is the only question.
 
 ## Lesson 3 · Verification as craft
 
-This is the heart of the module. The rule from the brief — never present a number you couldn't
-rebuild in front of the person asking — is satisfiable, but only if you specify how.
+This is the heart of the module. The rule from the brief (never present a number you couldn't
+rebuild in front of the person asking) is satisfiable, but only if you specify how.
 
-**The load-bearing fact: the model will not propose these checks itself, and its silence is not
+**The fact that governs this: the model will not propose these checks itself, and its silence is not
 reassurance.** It is not withholding a concern. It has no state in which it noticed the 340
 dropped rows and decided not to mention them. **Absence of a warning carries no information**,
 which is a different thing from a colleague not raising a concern, and it is the single most
@@ -183,7 +183,7 @@ it doesn't, you have learned something before it mattered.
 **The Python-then-Excel double-pass.** This one is specific to your function and it is the most
 practically useful thing in the module.
 
-Analytical work with AI naturally lands in code — a script that loads, joins, computes, outputs.
+Analytical work with AI naturally lands in code: a script that loads, joins, computes, outputs.
 That is fast, reproducible, and auditable line by line, and it is also completely unreviewable by
 your finance partner, your comp committee, and most of the people whose sign-off you need. They
 review formulas. They click a cell and see what feeds it. That is how they have checked work for
@@ -191,7 +191,7 @@ their entire careers, and **asking them to trust a script is asking them to stop
 work, which they will experience as being cut out.**
 
 So do both. Build the analysis in code, then produce a workbook where the calculation is visible in
-cells — real formulas, not pasted values — and reconcile the two. Three things fall out of this,
+cells (real formulas, not pasted values) and reconcile the two. Three things fall out of this,
 and only one of them is political:
 
 - The reconciliation between the two passes is itself a verification. Two implementations agreeing
@@ -200,7 +200,7 @@ and only one of them is political:
 - Building the visible version forces you to state the logic in a form a human can follow, which
   is where you catch the step you accepted without reading.
 
-The cost is real — this is maybe 30% more work than the code alone. It is also the difference
+The cost is real. This is maybe 30% more work than the code alone. It is also the difference
 between a number that survives a comp committee and a number that gets tabled.
 
 **The rule, restated with its teeth in:** if someone asked you to rebuild the number in front of
@@ -230,7 +230,7 @@ key it joins on, the known quirks. *"The `comp_ratio` field in the HRIS export i
 against last year's midpoint, not the current one"* is the sentence that prevents an entire class of
 wrong answer, and it currently lives in your head.
 
-**The terminology file** — the one that is specific to this function and the reason this lesson
+**The terminology file**, the one that is specific to this function and the reason this lesson
 exists. There is a set of terms models reliably fumble because they carry a general-usage meaning
 that differs from your technical one:
 
@@ -252,7 +252,7 @@ The file states your definition for each term and instructs the model to ask rat
 a request is ambiguous between two of them. This costs you an hour once.
 
 **The reconciliation spec.** For each recurring analysis, the checks that must pass before the
-output is trusted, written down. Not remembered — written. This is what makes Lesson 3's discipline
+output is trusted, written down. Not remembered, written. This is what makes Lesson 3's discipline
 survive a busy cycle, which is the only condition under which it matters.
 
 **Why bundle them.** The kit converts craft from something you perform when you have time into
@@ -268,10 +268,10 @@ not busy is not a discipline.** It's an intention.
 - **Three failures survive the shape check:** the silent join (rows dropped, denominators changed),
   the silent filter (a condition that made sense once and persisted), and the plausible coefficient
   (believable whether or not it's right, which is why it doesn't get checked).
-- **A wrong sentence gets caught. A wrong model gets presented** — by someone trusted because
+- **A wrong sentence gets caught. A wrong model gets presented**, by someone trusted because
   they're good at this.
 - **Dropping columns beats anonymizing them.** The most reliable protection for a data element is
-  its absence. Pseudonymize when you need traceability and hold the mapping outside the session —
+  its absence. Pseudonymize when you need traceability and hold the mapping outside the session,
   and remember that small cuts in comp data are re-identifiable regardless of what you called
   people.
 - **The model will not propose verification, and its silence carries no information.** Demand audit
@@ -282,7 +282,7 @@ not busy is not a discipline.** It's an intention.
 - **Python-then-Excel double-pass:** build in code, produce reviewable formulas, reconcile the two.
   Roughly 30% more work, and it keeps your reviewers' method intact rather than asking them to
   trust a black box.
-- **The starter kit — insights, data map, terminology, reconciliation spec** — makes the craft
+- **The starter kit (insights, data map, terminology, reconciliation spec**) makes the craft
   survive the merit cycle, which is the only time it matters.
 - **The rule: never present a number you couldn't rebuild from its inputs, in front of the person
   asking.**
@@ -307,36 +307,36 @@ one.
 **Time:** 35 minutes · **Submit:** the four files plus a 300–400 word write-up · **Graded against
 the rubric below.** Score doesn't matter. Doing the work is where the learning lands.
 
-Pick **one recurring analysis you actually run** — market pricing refresh, merit modeling, plan
+Pick **one recurring analysis you actually run**: market pricing refresh, merit modeling, plan
 cost projection, pay equity review, equity refresh. Recurring matters: the kit's whole value is
 that it's there next time.
 
-**Step 1 — The insights file (8 min).** The standing facts about your organization someone would
+**Step 1. The insights file (8 min).** The standing facts about your organization someone would
 need to interpret this analysis correctly and that appear in no data export. Levels, philosophy,
 positioning, cycle mechanics, differentials, legacy populations. Aim for the things you re-explain
 every time.
 
 **Step 2 — The data map (8 min).** Every input file: what it contains, what the non-obvious columns
-mean, source system, join key, known quirks. **The quirks are the valuable part** — write down at
+mean, source system, join key, known quirks. **The quirks are the valuable part**, write down at
 least two things that are true about your data that would mislead someone who didn't know them.
 
-**Step 3 — The terminology file (8 min).** At least six terms from your actual work where your
+**Step 3. The terminology file (8 min).** At least six terms from your actual work where your
 technical meaning differs from general usage, each with your definition and the ambiguity it
 resolves. Use the module's list as a starting point, then add the ones specific to your
 organization — every comp function has internal terms that mean something local.
 
-**Step 4 — The reconciliation spec (8 min).** The checks that must pass before you'd present this
+**Step 4. The reconciliation spec (8 min).** The checks that must pass before you'd present this
 analysis. Row counts, totals that must tie to a known figure, a prior-period result that must
 reproduce within tolerance, populations that must sum. **Include at least one check against a
 number you already know**, because that's the strongest one available.
 
-**Step 5 — Score the prediction (3 min).** Your calibration percent against what you now think.
+**Step 5. Score the prediction (3 min).** Your calibration percent against what you now think.
 Would your current workflow survive an audit of its joins? Most people revise this number
 downward, and the revision is the finding.
 
 Then the write-up: what the kit covers, the two data quirks you'd forgotten were quirks, whether
 your workflow would survive the audit, your position on the claim above with its counter-argument
-addressed, and — the honest one — **which of Lesson 3's checks you have not been doing.** Naming
+addressed, and (the honest one) **which of Lesson 3's checks you have not been doing.** Naming
 one specifically is worth more than a general commitment to rigor.
 
 ## Knowledge check — 8 questions
@@ -351,12 +351,12 @@ one specifically is worth more than a general commitment to rigor.
 - D. Because comp data is more complex than other HR data
 
 > **B.** The skill is real; it's aimed at the wrong layer. AI also severed the correlation between
-> polish and care that the fast check was calibrated on — polish is now free.
+> polish and care that the fast check was calibrated on, polish is now free.
 
 **Q2.** What makes the "plausible coefficient" dangerous?
 
 - A. That regression coefficients are frequently miscalculated by language models
-- B. That it's believable whether the model is right or whether a control absorbed the effect you were looking for — and plausibility is exactly what stops it being checked ✓
+- B. That it's believable whether the model is right or whether a control absorbed the effect you were looking for, and plausibility is exactly what stops it being checked ✓
 - C. That coefficients are hard for non-statisticians to interpret
 - D. That small coefficients are usually statistically insignificant
 
@@ -376,12 +376,12 @@ one specifically is worth more than a general commitment to rigor.
 **Q4.** What does it mean that the model didn't flag a problem with your analysis?
 
 - A. That the analysis probably passed the model's internal checks
-- B. Nothing — absence of a warning carries no information, because there is no state in which it noticed the dropped rows and chose not to mention them ✓
+- B. Nothing, absence of a warning carries no information, because there is no state in which it noticed the dropped rows and chose not to mention them ✓
 - C. That the problem is below the model's confidence threshold for reporting
 - D. That the analysis was well-specified enough not to trigger a warning
 
 > **B.** This is the most common misreading of model confidence, and it's different from a
-> colleague not raising a concern — a colleague was looking.
+> colleague not raising a concern: a colleague was looking.
 
 **Q5.** Why does the module insist reconciliation checks be specified *before* the analysis runs?
 
@@ -407,7 +407,7 @@ one specifically is worth more than a general commitment to rigor.
 **Q7.** Why does the terminology file matter more in compensation than in most functions?
 
 - A. Because compensation uses more jargon than other HR disciplines
-- B. Because a set of terms carry a general-usage meaning that differs from the technical one — target vs. actual, grant vs. vest, compa-ratio vs. range penetration — so the model drifts between them and produces work that is wrong in a way that looks fine ✓
+- B. Because a set of terms carry a general-usage meaning that differs from the technical one, target vs. actual, grant vs. vest, compa-ratio vs. range penetration, so the model drifts between them and produces work that is wrong in a way that looks fine ✓
 - C. Because compensation terminology varies more between organizations
 - D. Because models have less training data on compensation topics
 
@@ -428,7 +428,7 @@ one specifically is worth more than a general commitment to rigor.
 - The three failures that survive the shape check, the audit-file specification, the
   reconciliation-in-advance rule, the Python-then-Excel double-pass, and the four-file starter kit
   are original to this course.
-- Builds on 101 M4 (data tiers — individual pay as Tier 4), 101 M6 (confident wrongness), and 201
+- Builds on 101 M4 (data tiers, individual pay as Tier 4), 101 M6 (confident wrongness), and 201
   M2 (the context pack), specialized here to a domain where the vocabulary itself is a hazard.
 - The terminology list is drawn from standard total rewards practice; definitions vary by
   organization, which is the activity's point.

@@ -28,25 +28,25 @@
       "id": "t1",
       "text": "A shared prompt library with 140 entries, no owner, last edit six months ago",
       "key": "theater",
-      "reasoning": "The fossil, exactly as Lesson 2 describes it. Someone finds it, uses a stale entry, gets a worse result than current practice would give, and stops checking the library. **The 140 is what makes it theater rather than merely empty** — volume reads as coverage, and coverage is what stops anyone building the thing that would work."
+      "reasoning": "The fossil, exactly as Lesson 2 describes it. Someone finds it, uses a stale entry, gets a worse result than current practice would give, and stops checking the library. **The 140 is what makes it theater rather than merely empty**: volume reads as coverage, and coverage is what stops anyone building the thing that would work."
     },
     {
       "id": "t2",
       "text": "A prompt in the library with its rationale written underneath, a named maintainer, and a note saying it stops applying if the vendor changes the summarization model",
       "key": "durable",
-      "reasoning": "All three properties: named maintainer, decay condition stated observably, and the *why* recorded so somebody other than the author can update it. This is the module's reference artifact, and note how little it costs — three extra lines."
+      "reasoning": "All three properties: named maintainer, decay condition stated observably, and the *why* recorded so somebody other than the author can update it. This is the module's reference artifact, and note how little it costs, three extra lines."
     },
     {
       "id": "t3",
       "text": "The one person on the team everyone messages before they try something new with AI",
       "key": "person",
-      "reasoning": "Genuine, valuable, high-velocity practice — and it's entirely in one head and one message history. This is the module's hunting ground rather than its failure: **the highest-quality practice in most organizations is person-dependent**, which is why the activity asks you to find one and codify it rather than to fix the library first."
+      "reasoning": "Genuine, valuable, high-velocity practice, and it's entirely in one head and one message history. This is the module's hunting ground rather than its failure: **the highest-quality practice in most organizations is person-dependent**, which is why the activity asks you to find one and codify it rather than to fix the library first."
     },
     {
       "id": "t4",
       "text": "A quarterly all-hands slot where two people demo what they've been doing with AI",
       "key": "theater",
-      "reasoning": "The hardest item, because it's genuinely enjoyable and people leave energized. It transmits nothing durable: no artifact survives the session, nothing is searchable afterwards, and the audience can't act on a demo they watched in October when the situation arises in January. **Energy is not transmission.** It has a real function — visibility, permission, momentum — but it isn't codification and shouldn't be counted as it.",
+      "reasoning": "The hardest item, because it's genuinely enjoyable and people leave energized. It transmits nothing durable: no artifact survives the session, nothing is searchable afterwards, and the audience can't act on a demo they watched in October when the situation arises in January. **Energy is not transmission.** It has a real function (visibility, permission, momentum) but it isn't codification and shouldn't be counted as it.",
       "also": [
         "person"
       ]
@@ -55,7 +55,7 @@
       "id": "t5",
       "text": "A recorded training session from March, still linked in the onboarding pack",
       "key": "theater",
-      "reasoning": "Lesson 1's structural problem in physical form. It was accurate in March. It is partly obsolete now, and the new starter watching it has no way to tell which part — so they learn the wrong technique with full confidence and repeat it. A dated artifact with no decay condition, presented as current, is worse than no artifact."
+      "reasoning": "Lesson 1's structural problem in physical form. It was accurate in March. It is partly obsolete now, and the new starter watching it has no way to tell which part, so they learn the wrong technique with full confidence and repeat it. A dated artifact with no decay condition, presented as current, is worse than no artifact."
     },
     {
       "id": "t6",
@@ -67,13 +67,13 @@
       "id": "t7",
       "text": "A well-written internal guide to the approved tools, maintained by a named person in IT, last updated three weeks ago",
       "key": "durable",
-      "reasoning": "Named maintainer, evidently current. Worth including because durable doesn't mean sophisticated — this is an ordinary maintained document doing its job. Note it also passes the who-removes-things test, which is the part most libraries fail."
+      "reasoning": "Named maintainer, evidently current. Worth including because durable doesn't mean sophisticated. This is an ordinary maintained document doing its job. Note it also passes the who-removes-things test, which is the part most libraries fail."
     },
     {
       "id": "t8",
       "text": "A Slack channel where people post interesting AI things they've found",
       "key": "person",
-      "reasoning": "Higher value than it looks and lower than its supporters claim. It genuinely transmits — but only to whoever was reading that week, and it's unsearchable in practice because nobody knows what to search for. **A feed is transmission without retention.** Its useful contents are person-dependent: they live with whoever happened to see them.",
+      "reasoning": "Higher value than it looks and lower than its supporters claim. It genuinely transmits, but only to whoever was reading that week, and it's unsearchable in practice because nobody knows what to search for. **A feed is transmission without retention.** Its useful contents are person-dependent: they live with whoever happened to see them.",
       "also": [
         "theater"
       ]
@@ -82,27 +82,27 @@
       "id": "t9",
       "text": "The document where one team writes down which AI approaches they tried and abandoned, and why",
       "key": "durable",
-      "reasoning": "The most underrated artifact in this set. It records rationale by construction, it doesn't decay in the same way — a thing that didn't work stays informative — and it prevents the most expensive failure in a fast-moving organization, which is three people separately rediscovering the same dead end at speed."
+      "reasoning": "The most underrated artifact in this set. It records rationale by construction, it doesn't decay in the same way (a thing that didn't work stays informative) and it prevents the most expensive failure in a fast-moving organization, which is three people separately rediscovering the same dead end at speed."
     },
     {
       "id": "t10",
       "text": "An AI usage policy signed off by legal and posted on the intranet",
       "key": "theater",
-      "reasoning": "Categorically not codification, and included to catch a real confusion. It is a governance artifact — Module 9's territory — and it may be doing important work there. It transmits no practice: nobody has ever gotten better at anything by reading it. **Filing it under enablement is how organizations conclude they have covered this.**"
+      "reasoning": "Categorically not codification, and included to catch a real confusion. It is a governance artifact (Module 9's territory) and it may be doing important work there. It transmits no practice: nobody has ever gotten better at anything by reading it. **Filing it under enablement is how organizations conclude they have covered this.**"
     },
     {
       "id": "t11",
       "text": "A senior analyst's personal folder of worked examples, which she shares with anyone who asks",
       "key": "person",
-      "reasoning": "The clean case, and worth sitting with: she is being generous, the material is excellent, and it's still person-dependent — because access requires knowing she exists, knowing to ask, and her having time. Generosity isn't a distribution mechanism, and it's the thing that disappears first when she gets busy."
+      "reasoning": "The clean case, and worth sitting with: she is being generous, the material is excellent, and it's still person-dependent, because access requires knowing she exists, knowing to ask, and her having time. Generosity isn't a distribution mechanism, and it's the thing that disappears first when she gets busy."
     },
     {
       "id": "t12",
       "text": "A dashboard showing weekly AI tool logins by team",
       "key": "theater",
-      "reasoning": "Measurement of the wrong thing, which Module 10 takes apart properly. Lesson 2 asks for telemetry on **usage and outcome on the actual workflow** — is the practice being used, and is the work better. Logins tell you neither, and a rising line here's the most common evidence offered for a capability that doesn't exist."
+      "reasoning": "Measurement of the wrong thing, which Module 10 takes apart properly. Lesson 2 asks for telemetry on **usage and outcome on the actual workflow**: is the practice being used, and is the work better. Logins tell you neither, and a rising line here's the most common evidence offered for a capability that doesn't exist."
     }
   ],
-  "pattern": "**Read the durable column and notice what its four items have in common.** None of them is impressive. A prompt with three extra lines. A fifteen-minute slot inside a meeting that already happens. An ordinary maintained guide. A list of things that didn't work.\n\n**Durability is cheap and unglamorous, and the expensive items are mostly theater** — the 140-entry library, the recorded training, the all-hands demo, the dashboard. Every one of those cost real money or real time, and every one produces the *appearance* of collective capability while transmitting nothing that survives contact with a busy quarter.\n\nThe distinguishing property isn't effort or polish. It is whether the artifact **can be updated by someone other than its author, and whether anyone is watching for the moment it goes wrong.** That is the named maintainer and the decay condition, and it costs about three lines.",
-  "postscript": "**If you put item 4 in Person-dependent, that's a fair read** and the exercise scores it. A demo does transmit — to the people watching, for as long as they remember it. The reason the key says theater is what happens to it institutionally: it gets counted as enablement, it appears in a plan as a deliverable, and it displaces the thing that would have worked. Compare it directly with item 6, which is the same event with a write step attached and lands in a different column entirely.\n\n**And if you put item 8 in Theater, you're arguing something reasonable** — that an unsearchable feed transmits so little it's functionally decorative. The key says person-dependent because real value does move through those channels, to real people, who then carry it. But you're right that it's the least durable form of genuine transmission there is, and both readings survive."
+  "pattern": "**Read the durable column and notice what its four items have in common.** None of them is impressive. A prompt with three extra lines. A fifteen-minute slot inside a meeting that already happens. An ordinary maintained guide. A list of things that didn't work.\n\n**Durability is cheap and unglamorous, and the expensive items are mostly theater**: the 140-entry library, the recorded training, the all-hands demo, the dashboard. Every one of those cost real money or real time, and every one produces the *appearance* of collective capability while transmitting nothing that survives contact with a busy quarter.\n\nThe distinguishing property isn't effort or polish. It is whether the artifact **can be updated by someone other than its author, and whether anyone is watching for the moment it goes wrong.** That is the named maintainer and the decay condition, and it costs about three lines.",
+  "postscript": "**If you put item 4 in Person-dependent, that's a fair read** and the exercise scores it. A demo does transmit: to the people watching, for as long as they remember it. The reason the key says theater is what happens to it institutionally: it gets counted as enablement, it appears in a plan as a deliverable, and it displaces the thing that would have worked. Compare it directly with item 6, which is the same event with a write step attached and lands in a different column entirely.\n\n**And if you put item 8 in Theater, you're arguing something reasonable**. That an unsearchable feed transmits so little it's functionally decorative. The key says person-dependent because real value does move through those channels, to real people, who then carry it. But you're right that it's the least durable form of genuine transmission there is, and both readings survive."
 }

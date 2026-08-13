@@ -5,11 +5,11 @@
   "artifacts": [
     {
       "label": "Case A · the retention intervention",
-      "body": "\"Engineering attrition is at crisis levels — we've lost 50% of the platform team this year. A £40k retention package would pay for itself immediately given replacement costs of £2.1M.\"\n\n*(The platform team has six people. Three left: one retired, one relocated with a partner, one was managed out.)*"
+      "body": "\"Engineering attrition is at crisis levels, we've lost 50% of the platform team this year. A £40k retention package would pay for itself immediately given replacement costs of £2.1M.\"\n\n*(The platform team has six people. Three left: one retired, one relocated with a partner, one was managed out.)*"
     },
     {
       "label": "Case B · the extra layer",
-      "body": "\"Removing the regional director layer saves £780k fully loaded, plus an estimated £120k–£300k in decision-latency and meeting time across the 40 people beneath it — I've used the low end. Biggest weakness: the latency figure comes from my own observation over four months, not measurement, and if it's overstated the case still holds on the £780k alone.\""
+      "body": "\"Removing the regional director layer saves £780k fully loaded, plus an estimated £120k–£300k in decision-latency and meeting time across the 40 people beneath it. I've used the low end. Biggest weakness: the latency figure comes from my own observation over four months, not measurement, and if it's overstated the case still holds on the £780k alone.\""
     },
     {
       "label": "Case C · the vacancy",
@@ -17,15 +17,27 @@
     },
     {
       "label": "Case D · the program",
-      "body": "\"Our manager capability program will improve engagement by 12 points and reduce regretted attrition by 18%, delivering £1.6M in value against a £200k investment — benchmarks from three published industry studies of similar programs.\""
+      "body": "\"Our manager capability program will improve engagement by 12 points and reduce regretted attrition by 18%, delivering £1.6M in value against a £200k investment, benchmarks from three published industry studies of similar programs.\""
     }
   ],
   "options": [
-    { "id": "a", "label": "Case A" },
-    { "id": "b", "label": "Case B" },
-    { "id": "c", "label": "Case C" },
-    { "id": "d", "label": "Case D" }
+    {
+      "id": "a",
+      "label": "Case A"
+    },
+    {
+      "id": "b",
+      "label": "Case B"
+    },
+    {
+      "id": "c",
+      "label": "Case C"
+    },
+    {
+      "id": "d",
+      "label": "Case D"
+    }
   ],
   "key": "b",
-  "reasoning": "**B holds, and it holds because of what it gives away.** It states the fully loaded figure with a conservative range on the soft component, chooses the low end, names its own weakest input before anyone asks — observation rather than measurement — and then does the thing that actually wins the argument: **shows the conclusion surviving without it.** That is the sensitivity test, volunteered. Finance can now argue about £120k instead of about whether to believe you.\n\n**A is small numbers dressed as a crisis.** \"50% attrition\" and \"three of six\" are arithmetically identical and rhetorically opposite — and once you see the denominator, the composition destroys the claim: a retirement, a relocation, and a managed exit are three different phenomena, and at most one of them is regretted. The £2.1M replacement figure is six-person variance multiplied by a benchmark. This is the module's central failure mode, and note that AI would have produced the same number faster and with more decimal places.\n\n**C attributes an entire territory's revenue to one vacancy.** The number may not even be wrong, but it claims the role is the sole cause of the shortfall — no share stated, no acknowledgment that territories underperform for many reasons. It invites exactly one question, and the case has no answer to it. A share, stated and arguable, would have survived.\n\n**D is benchmark laundering.** Every figure comes from someone else's population: 12 points, 18%, £1.6M — none of it from this organization, and the causal chain (program → engagement → attrition → money) multiplies three uncertain steps into one confident total. \"Three published industry studies\" is the tell Module 3 taught you to read: whose sample, and what would falsify it?\n\nThe pattern: **the case that won was the one that argued against itself first.**"
+  "reasoning": "**B holds, and it holds because of what it gives away.** It states the fully loaded figure with a conservative range on the soft component, chooses the low end, names its own weakest input before anyone asks (observation rather than measurement) and then does the thing that actually wins the argument: **shows the conclusion surviving without it.** That is the sensitivity test, volunteered. Finance can now argue about £120k instead of about whether to believe you.\n\n**A is small numbers dressed as a crisis.** \"50% attrition\" and \"three of six\" are arithmetically identical and rhetorically opposite, and once you see the denominator, the composition destroys the claim: a retirement, a relocation, and a managed exit are three different phenomena, and at most one of them is regretted. The £2.1M replacement figure is six-person variance multiplied by a benchmark. This is the module's central failure mode, and note that AI would have produced the same number faster and with more decimal places.\n\n**C attributes an entire territory's revenue to one vacancy.** The number may not even be wrong, but it claims the role is the sole cause of the shortfall: no share stated, no acknowledgment that territories underperform for many reasons. It invites exactly one question, and the case has no answer to it. A share, stated and arguable, would have survived.\n\n**D is benchmark laundering.** Every figure comes from someone else's population: 12 points, 18%, £1.6M — none of it from this organization, and the causal chain (program → engagement → attrition → money) multiplies three uncertain steps into one confident total. \"Three published industry studies\" is the tell Module 3 taught you to read: whose sample, and what would falsify it?\n\nThe pattern: **the case that won was the one that argued against itself first.**"
 }

@@ -237,7 +237,7 @@ evidence is marketing should say so in its first paragraph.
 
 **Still unverified and blocking before drafting:** the leadership-credibility figures (33% say AI
 communication erodes credibility vs. 13% enhances; 43% say it depends on transparency) — surfaced
-in secondary coverage with no primary source or sample identified yet, and load-bearing for the
+in secondary coverage with no primary source or sample identified yet, and what carries the
 closing module; the Gallagher figures against the primary PDF rather than secondary reporting (the
 publisher's domain is blocked from this environment); the US state electronic-monitoring notice
 regimes (New York, Connecticut, Delaware) and their current requirements; ECPA consent mechanics;

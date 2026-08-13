@@ -35,7 +35,7 @@ from seven positions, and the position you occupy determines which one you notic
 
 ## The mental model: load paths, not blueprints
 
-An architect's job is not to draw the finished building. It is to determine what is load-bearing,
+An architect's job is not to draw the finished building. It is to determine what carries the weight,
 specify the structure, and set tolerances for loads that cannot be predicted precisely.
 
 That resolves the course's central tension. **You cannot pre-specify the destination. You can
@@ -49,7 +49,7 @@ They have a build of their own — 201's shipped workflow — and a role they no
 they do not have is authority. **CPO M3 is "win the scope fight and own it." This course is "you
 did not win it, and you still have to lead."** That distinction is the reason 401 exists as a
 separate rung rather than a longer 301, and it is why Step 7 of the framework (name the owner) is
-load-bearing rather than tidy.
+structural rather than tidy.
 
 > "I am responsible for how this lands in teams I don't run, doing work I don't do, using tools I
 > didn't choose. Don't tell me to build a coalition. Tell me what has to hold, and how I'd know it
@@ -71,7 +71,7 @@ altitude-invariant, and M2 demonstrates the invariance rather than asserting it.
 7. **Name the owner.** When the trigger fires, who actually decides? It may not be you.
 
 Steps 5–7 are the accountable ones and the reason this cannot degrade into a vision statement.
-**Step 7 is load-bearing for the whole course:** most of this audience cannot change the
+**Step 7 is what carries the whole course:** most of this audience cannot change the
 organization directly, and a framework that never asks who decides quietly assumes an authority
 the course elsewhere says they do not have.
 
@@ -143,21 +143,21 @@ together — not to our output, to our working relationships."*
   AI's impact on people**; **80% are concerned colleagues use AI to appear more productive than
   they are**; **60% of executives use AI in decision-making and 5% say they manage it well.** The
   debt is invisible because nobody has been assigned to look at it.
-- **Lesson 3:** Load-bearing versus decorative. The mental model, and the move that makes it
-  useful: **the structures most likely to be load-bearing are the ones nobody designed** — the
+- **Lesson 3:** What holds weight versus what only looks like it. The mental model, and the move that makes it
+  useful: **the structures most likely to be holding something up are the ones nobody designed** — the
   undocumented handoff, the person everyone asks, the meeting that exists for a reason no one can
   state. Nothing designed them, so nothing protects them.
 - **Lesson 4:** Tolerances, not drawings. Why the course's deliverable is a spec with a trigger,
   and what that rules out. Names the exclusions, and points forward to where change management
   lives (Decision 5).
-- **Interactive:** sorting — twelve things a People function does, into *load-bearing and holding*
-  / *load-bearing and dissolving* / *decorative*.
-- **Activity:** *"One structure"* — name one structure in your organization that was load-bearing,
+- **Interactive:** sorting — twelve things a People function does, into *structural and holding*
+  / *structural and dissolving* / *decorative*.
+- **Activity:** *"One structure"* — name one structure in your organization that was holding something up,
   that nobody designed, and that AI is currently removing. One paragraph on what it was actually
   carrying. This names the unit the rest of the course threads.
 - **Aggregation:** how many people in your organization could name who is accountable for AI's
   effect on how teams work together? A count, checked.
-- **Claim:** *"The structures most likely to be load-bearing are the ones nobody designed."*
+- **Claim:** *"The structures most likely to be holding something up are the ones nobody designed."*
 
 ## M2 · The Frame
 
@@ -260,7 +260,7 @@ name what would stop happening."*
   has slack. On a lean team there is none, so the work either becomes an explicit ownership
   decision or **it silently stops happening** — and nobody notices, because nothing was ever
   written down saying it was happening.
-- **Lesson 4:** Where middle managers sit in this, and why they are the load-bearing failure point.
+- **Lesson 4:** Where middle managers sit in this, and why they are the point where the whole thing gives.
 - **Interactive:** sorting — twelve absorbed tasks into *named owner* / *absorbed by someone* /
   *would silently stop*.
 - **Activity:** *"The invisible work inventory"* — one team, the tasks absorbed by no one's job
@@ -431,7 +431,7 @@ thing in leadership training and would undo the drift guards.
 | The four fears — being found out; accountability without control; stepping into the unknown; losing your professional edge | the casting brief for every rehearsal antagonist |
 | McKinsey's four building blocks | M10, mapped to instruments |
 | Resistance as diagnosis | M4's conceding rehearsals and M6's early-adopter case |
-| Middle managers as the load-bearing failure point | M5, where their absorbed work is what the audit finds |
+| Middle managers as the point where the whole thing gives | M5, where their absorbed work is what the audit finds |
 | The trough, and tolerance set before it | M6 (absorption) and M10 (thresholds measured inside a decline) |
 
 It is named as a topic in M1 Lesson 4 and pointed forward. It does not get a module.

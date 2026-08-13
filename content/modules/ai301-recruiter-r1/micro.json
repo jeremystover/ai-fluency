@@ -1,11 +1,29 @@
 [
-  { "id": "ai301-recruiter-r1-micro-core", "moduleId": "ai301-recruiter-r1-micro", "ordinal": 10, "kind": "prose", "layer": "stable", "reviewedAt": "2026-08-12",
-    "body": "## Module 1 in two minutes\n\n**The cost of producing a credible application fell to zero** `[V]` — 254 applicants per posting, applications per recruiter up 412%. Volume is the visible half. The invisible half is that your screens stopped carrying information while the screens stayed the same: a tailored cover letter used to mean forty minutes of attention, and now means nothing — not because it got rarer, because it got free.\n\n**The symmetry rule: any capability you gain, candidates gain faster.** Their capability compounds per application; yours divides across a pool that grew 412%. Two corollaries — any screen a tool can beat will be beaten, and you cannot out-run this with better tools.\n\n**Detection is the reflex and it's the wrong move.** ~38.5% of interviews get flagged for AI-assisted behaviour and ~88% of hiring managers believe they can spot AI — while no credible accuracy figure exists at all. That asymmetry is the point: you're sold a capability whose error rate nobody publishes. And a flag attached to a candidate is a screening decision about a person, with predictable false positives among non-native speakers, neurodivergent candidates, and anyone who prepared hard."
+  {
+    "id": "ai301-recruiter-r1-micro-core",
+    "moduleId": "ai301-recruiter-r1-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "## Module 1 in two minutes\n\n**The cost of producing a credible application fell to zero** `[V]` — 254 applicants per posting, applications per recruiter up 412%. Volume is the visible half. The invisible half is that your screens stopped carrying information while the screens stayed the same: a tailored cover letter used to mean forty minutes of attention, and now means nothing, not because it got rarer, because it got free.\n\n**The symmetry rule: any capability you gain, candidates gain faster.** Their capability compounds per application; yours divides across a pool that grew 412%. Two corollaries: any screen a tool can beat will be beaten, and you cannot out-run this with better tools.\n\n**Detection is the reflex and it's the wrong move.** ~38.5% of interviews get flagged for AI-assisted behaviour and ~88% of hiring managers believe they can spot AI — while no credible accuracy figure exists at all. That asymmetry is the point: you're sold a capability whose error rate nobody publishes. And a flag attached to a candidate is a screening decision about a person, with predictable false positives among non-native speakers, neurodivergent candidates, and anyone who prepared hard."
   },
-  { "id": "ai301-recruiter-r1-micro-rule", "moduleId": "ai301-recruiter-r1-micro", "ordinal": 20, "kind": "callout", "layer": "stable", "reviewedAt": "2026-08-12",
-    "body": "### The rule to carry\n\nAsk of every stage: **what would this cost someone who's faking it?** Most funnels score zero for their first three stages — which means those stages are rationing candidates, not screening them, and everyone involved has been calling it screening."
+  {
+    "id": "ai301-recruiter-r1-micro-rule",
+    "moduleId": "ai301-recruiter-r1-micro",
+    "ordinal": 20,
+    "kind": "callout",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "### The rule to carry\n\nAsk of every stage: **what would this cost someone who's faking it?** Most funnels score zero for their first three stages, which means those stages are rationing candidates, not screening them, and everyone involved has been calling it screening."
   },
-  { "id": "ai301-recruiter-r1-micro-close", "moduleId": "ai301-recruiter-r1-micro", "ordinal": 30, "kind": "prose", "layer": "stable", "reviewedAt": "2026-08-12",
-    "body": "**The full module adds** the inoculation — most enterprise pilots don't reach measurable value, AI output creates rework, and most agent projects die quietly, so you're not behind — the four-responses exercise where three proposals turn out to be screening decisions in process costumes, and the signal audit on a live req you'll carry through all seven modules."
+  {
+    "id": "ai301-recruiter-r1-micro-close",
+    "moduleId": "ai301-recruiter-r1-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-12",
+    "body": "**The full module adds** the inoculation, most enterprise pilots don't reach measurable value, AI output creates rework, and most agent projects die quietly, so you're not behind, the four-responses exercise where three proposals turn out to be screening decisions in process costumes, and the signal audit on a live req you'll carry through all seven modules."
   }
 ]

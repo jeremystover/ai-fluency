@@ -1,46 +1,64 @@
 {
   "reviewedAt": "2026-08-12",
   "buckets": [
-    { "id": "none", "label": "No review at all", "hint": "Nobody sees it before it takes effect", "rank": 0, "pct": 10 },
-    { "id": "theater", "label": "Review theater", "hint": "A human is present and cannot change the outcome", "rank": 1, "pct": 50 },
-    { "id": "real", "label": "Real review", "hint": "Information, time, authority and incentive all present", "rank": 2, "pct": 88 }
+    {
+      "id": "none",
+      "label": "No review at all",
+      "hint": "Nobody sees it before it takes effect",
+      "rank": 0,
+      "pct": 10
+    },
+    {
+      "id": "theater",
+      "label": "Review theater",
+      "hint": "A human is present and can't change the outcome",
+      "rank": 1,
+      "pct": 50
+    },
+    {
+      "id": "real",
+      "label": "Real review",
+      "hint": "Information, time, authority and incentive all present",
+      "rank": 2,
+      "pct": 88
+    }
   ],
   "tasks": [
     {
       "id": "t1",
       "text": "A recruiter opens the ATS, sees candidates sorted by match score, and works down the list until the shortlist is full",
       "key": "none",
-      "reasoning": "The classic case, and it belongs in the harshest bucket rather than the middle one. Nobody rejected anybody — but the candidates below the fold were never seen, so no human considered them at all. The ordering *is* the decision, and a recruiter working top-down is executing it, not reviewing it."
+      "reasoning": "The classic case, and it belongs in the harshest bucket rather than the middle one. Nobody rejected anybody, but the candidates below the fold were never seen, so no human considered them at all. The ordering *is* the decision, and a recruiter working top-down is executing it, not reviewing it."
     },
     {
       "id": "t2",
       "text": "A hiring manager receives a ranked shortlist with each candidate's ranking rationale shown, an hour blocked to work through it, and a documented instruction that reordering needs no approval",
       "key": "real",
-      "reasoning": "All four questions answered. Information — the rationale is visible. Time — an hour for a shortlist is enough to disagree. Authority — reordering needs no approval. Incentive — a documented instruction that overriding is expected removes the career cost of doing it. This is what the test is for, and it is achievable."
+      "reasoning": "All four questions answered. Information: the rationale is visible. Time: an hour for a shortlist is enough to disagree. Authority — reordering needs no approval. Incentive, a documented instruction that overriding is expected removes the career cost of doing it. This is what the test is for, and it is achievable."
     },
     {
       "id": "t3",
       "text": "400 applications, a 90-minute review block, ranked list, no ranking rationale visible",
       "key": "theater",
-      "reasoning": "Fourteen seconds per candidate, with no visibility into why the ordering is what it is. A human is genuinely present and genuinely cannot change anything — which is the definition of the middle bucket. Note the arithmetic does the work here: this is not a judgement about the reviewer's diligence."
+      "reasoning": "Fourteen seconds per candidate, with no visibility into why the ordering is what it is. A human is genuinely present and genuinely can't change anything, which is the definition of the middle bucket. Note the arithmetic does the work here: this isn't a judgement about the reviewer's diligence."
     },
     {
       "id": "t4",
       "text": "A flight-risk score appears on the HRIS dashboard; managers see it, no process governs what they do with it, and nobody is told when it changes",
       "key": "none",
-      "reasoning": "No review, and worse — no decision point to review. The score influences a hundred small choices about who gets development, stretch work and attention, none of which is recorded as a decision anyone made. Unreviewable in principle until somebody defines what the score is for."
+      "reasoning": "No review, and worse, no decision point to review. The score influences a hundred small choices about who gets development, stretch work and attention, none of which is recorded as a decision anyone made. Unreviewable in principle until somebody defines what the score is for."
     },
     {
       "id": "t5",
       "text": "Assessment scores auto-reject below a cutoff; a coordinator can request an exception, which needs the hiring manager's written approval",
       "key": "theater",
-      "reasoning": "Fails authority and incentive together, which is the usual pair. Overriding requires an exception request and someone senior's signature, so the default carries institutional weight — and the coordinator who escalates and turns out to be wrong is answerable in a way that the coordinator who lets the cutoff stand never is."
+      "reasoning": "Fails authority and incentive together, which is the usual pair. Overriding requires an exception request and someone senior's signature, so the default carries institutional weight, and the coordinator who escalates and turns out to be wrong is answerable in a way that the coordinator who lets the cutoff stand never is."
     },
     {
       "id": "t6",
       "text": "A manager's weekend scoring spreadsheet ranks the team for a reduction; HR reviews the output, not the weights",
       "key": "theater",
-      "reasoning": "Fails information, decisively. Reviewing the ranking without the weights is reviewing the conclusion without the argument — and in a reduction the weights *are* the decision. This is also the highest-stakes item on the list, and the one least likely to appear on any system inventory."
+      "reasoning": "Fails information, decisively. Reviewing the ranking without the weights is reviewing the conclusion without the argument, and in a reduction the weights *are* the decision. This is also the highest-stakes item on the list, and the one least likely to appear on any system inventory."
     },
     {
       "id": "t7",
@@ -52,19 +70,19 @@
       "id": "t8",
       "text": "An interview scheduling tool proposes slots; the coordinator picks freely and routinely ignores the suggestions",
       "key": "real",
-      "reasoning": "Real review, and worth including to show the test isn't a trap. Full information, ample time, unconstrained authority, no incentive pressure — and the reviewer demonstrably overrides. Not every system in the inventory is a problem, and a governance programme that treats scheduling like screening loses credibility on the ones that matter."
+      "reasoning": "Real review, and worth including to show the test isn't a trap. Full information, ample time, unconstrained authority, no incentive pressure, and the reviewer demonstrably overrides. Not every system in the inventory is a problem, and a governance programme that treats scheduling like screening loses credibility on the ones that matter."
     },
     {
       "id": "t9",
       "text": "A promotion-readiness model produces slates; a calibration panel discusses each name, sees the model's inputs, and has removed and added people in past cycles",
       "key": "real",
-      "reasoning": "The evidence that makes this real is behavioural rather than procedural: they *have* overridden it before. A panel with authority it has never exercised is indistinguishable from theater until it uses it — which is why override history is the most useful single record a governance programme can keep."
+      "reasoning": "The evidence that makes this real is behavioural rather than procedural: they *have* overridden it before. A panel with authority it has never exercised is indistinguishable from theater until it uses it, which is why override history is the most useful single record a governance programme can keep."
     },
     {
       "id": "t10",
       "text": "A saved prompt summarizes each candidate's application into a paragraph the screener reads instead of the application",
       "key": "theater",
-      "reasoning": "The subtlest card. Nothing scores or ranks, so it looks harmless and never reaches an inventory. But the screener is reviewing a lossy summary rather than the source — Module 5 of the sibling track's omission problem, aimed at a person's candidacy. The human is present, attentive, and deciding on material a model chose for them."
+      "reasoning": "The subtlest card. Nothing scores or ranks, so it looks harmless and never reaches an inventory. But the screener is reviewing a lossy summary rather than the source. Module 5 of the sibling track's omission problem, aimed at a person's candidacy. The human is present, attentive, and deciding on material a model chose for them."
     }
   ]
 }

@@ -30,7 +30,7 @@ this module.
 
 Every other use of AI in this curriculum makes something. Drafts, summaries, structures,
 analyses. This module is the exception: **here the model's job is to attack your work, and the
-output is not a document — it's a better version of you walking into a room.**
+output is not a document. It's a better version of you walking into a room.**
 
 That matters more for an HRBP than for anyone else in the People function, because Module 2
 already established where your defensible value sits: the room. The conversation with the leader
@@ -54,13 +54,13 @@ prevent it.
 
 By the end of this module you should be able to:
 
-1. Explain why a model's willingness to argue any position — a liability elsewhere — is what
+1. Explain why a model's willingness to argue any position (a liability elsewhere) is what
    makes rehearsal work.
 2. Run the five-adversary set against a real decision, and say what failure each adversary is
    built to surface.
 3. Stop a model from flattering you: commit first, forbid hedging, demand the strongest version,
    and ask for what you don't want to hear.
-4. Build a champion map from real material — who would help you, and what they'd need.
+4. Build a champion map from real material: who would help you, and what they'd need.
 5. Interrogate the model's reasoning when it's wrong, and rewrite your framing once you can see
    how it got there.
 6. Recognize when a rehearsal has produced preparation and when it has only produced confidence.
@@ -78,7 +78,7 @@ agreement.** Ask "what do you think of this plan?" and you'll get a response sha
 thoughtful engagement: some praise, a few considerations, a balanced close. It reads as
 critique. It functions as endorsement. And you will leave the exchange feeling reviewed.
 
-That's not a defect you can prompt your way past with one clever instruction — it's a tendency
+That's not a defect you can prompt your way past with one clever instruction. It's a tendency
 you have to work against structurally, which is what Lesson 3 is for. But name the mechanism
 first, because it's just 101's mechanism again: the model is producing the most plausible
 continuation, and the most plausible continuation of "here is my plan, what do you think" is a
@@ -92,7 +92,7 @@ what that person would say.
 
 ## Lesson 2 · The adversary set
 
-Five adversaries. Each surfaces a different failure, and the set matters more than any one — most
+Five adversaries. Each surfaces a different failure, and the set matters more than any one, most
 plans survive two or three and break on the fourth.
 
 **1. The high performer you can't afford to lose.** *"You're a strong performer on the team this
@@ -103,7 +103,7 @@ specific way well-intended changes land on the people who have options.
 **2. The frontline manager who has to deliver it.** *"You manage a team of nine and you have
 operating targets. You have to explain this on Monday and defend it in your one-to-ones. What
 questions can't you answer, and what does this cost you in time and credibility?"* Surfaces:
-implementability — whether the plan survives contact with someone who didn't design it and can't
+implementability, whether the plan survives contact with someone who didn't design it and can't
 choose not to run it.
 
 **3. The executive who wants the number.** *"You're on the leadership team. What evidence would
@@ -117,14 +117,14 @@ first. What happens to you?"* Surfaces: what you normalized. This adversary is h
 representing that person is structurally an HRBP's job, and they are almost always absent from
 the room where the plan gets built.
 
-**5. The headline.** *"This landed badly and it's public. Write the story — the framing, the
+**5. The headline.** *"This landed badly and it's public. Write the story, the framing, the
 quote from an affected employee, the sentence that makes the organization look worst."*
 Surfaces: reputational and ethical exposure you've become acclimated to. Uniquely good at
 catching things everyone internal has stopped seeing.
 
-**And the constructive inverse — the champion map.** Adversaries tell you what breaks; this tells
-you who helps. Feed in real material — Q&A from leadership calls, questions submitted at
-all-hands, notes from your last skip-levels — and ask: *which individuals and teams are asking
+**And the constructive inverse, the champion map.** Adversaries tell you what breaks; this tells
+you who helps. Feed in real material (Q&A from leadership calls, questions submitted at
+all-hands, notes from your last skip-levels) and ask: *which individuals and teams are asking
 the most forward-thinking questions here? Who would be a credible champion for this, and what
 talking points would help them make the case in rooms I'm not in?* Every plan needs advocates
 who aren't you, and the evidence for who they are is usually already sitting in material nobody
@@ -137,7 +137,7 @@ individually.
 
 **Commit first, in writing.** Before you ask for anything, state your position and your reasoning
 as a decision you've made — not a draft you're exploring. A model responds to *"I'm going to do
-X because Y — tear it apart"* very differently from *"I'm thinking about X, thoughts?"* The
+X because Y: tear it apart"* very differently from *"I'm thinking about X, thoughts?"* The
 second invites collaboration. The first invites attack.
 
 **Forbid hedging explicitly.** *"Do not give me balanced feedback. Do not list strengths. Give me
@@ -145,7 +145,7 @@ the strongest case against this, as the person I've named, in their voice."* Wit
 the balanced-close pattern, and the balance is what neutralizes the critique.
 
 **Demand the strongest version, not a list.** *"What's the single most damaging objection, and
-make it as strong as you honestly can — steelman it."* Ten mild objections are easier to dismiss
+make it as strong as you honestly can, steelman it."* Ten mild objections are easier to dismiss
 than one sharp one, and a list lets you feel thorough while engaging with nothing.
 
 **Ask for what you don't want to hear.** *"What am I not asking you because I don't want to know
@@ -154,14 +154,14 @@ the thing your own preparation is structurally blind to — you can't audit your
 inside them.
 
 **Start fresh, and don't bring your framing.** If you built the plan in a conversation, that
-conversation contains all your justifications — and 101 M1 tells you what happens next: the model
+conversation contains all your justifications, and 101 M1 tells you what happens next: the model
 predicts from everything in view, and everything in view is your reasoning. Open a new
 conversation. Give it the plan and the role, not the story of how you got there.
 
 > ### Try this — 3 minutes
 > Take a recommendation you're currently confident about. In a fresh conversation, one prompt:
 > *"I've decided to do X because Y. You're the person this affects most and you have the least
-> power to object. Don't give me balance — tell me what this does to me, in my voice, as
+> power to object. Don't give me balance: tell me what this does to me, in my voice, as
 > strongly as you honestly can."* Then read it twice. The second read is the useful one.
 
 ## Lesson 4 · Reading its logic
@@ -174,7 +174,7 @@ your plan reads to someone without your context.
 Ask it directly: *"Walk me through how you got from the plan to that conclusion. What did you
 assume that I didn't tell you?"* Two things come back, and both are useful.
 
-**Sometimes the assumption is wrong**, and the fix is your framing — because if a model with the
+**Sometimes the assumption is wrong**, and the fix is your framing, because if a model with the
 written plan in front of it inferred something false, a human skimming it in a meeting will
 infer the same thing faster. **That's not a model error you correct. It's a communication defect
 you found for free.**
@@ -184,8 +184,8 @@ take seriously.
 
 This is 101 M6's verification instinct pointed at an argument instead of a fact. There you traced
 a claim to a source; here you trace a conclusion to its premise. Same discipline, and the same
-rule applies: **you're checking against something outside the model — your own knowledge of the
-organization — not asking the model to confirm itself.** "Are you sure?" is as useless here as it
+rule applies: **you're checking against something outside the model (your own knowledge of the
+organization) not asking the model to confirm itself.** "Are you sure?" is as useless here as it
 was there.
 
 ## Lesson 5 · Calibration is a room you design
@@ -195,7 +195,7 @@ the advocate, you are the person who built the room. And it is the highest-stake
 designs, because what comes out of it is a permanent record about people's careers.
 
 **Most organisations treat calibration as a meeting. It is an instrument.** The evidence that counts
-as admissible, who is allowed in, how a disagreement gets closed, what gets written down — those are
+as admissible, who is allowed in, how a disagreement gets closed, what gets written down. Those are
 design decisions, and if nobody made them deliberately they got made by whoever talks most.
 
 A model is genuinely useful on three of those and must be kept off the fourth.
@@ -213,7 +213,7 @@ rating against the strongest objection to it before the meeting rather than duri
 
 **It may not resolve a disagreement between two managers about a person.** This is the same line the
 ER work draws, applied to ratings instead of witness accounts: *a model may locate conflicts; only a
-human may resolve them.* The tell is not the sophistication of the output — the output will be
+human may resolve them.* The tell is not the sophistication of the output: the output will be
 reasonable. It is that a rating is a decision about someone with consequences they can contest, and
 the answer to *who decided this* has to be a person who can be asked why.
 
@@ -227,7 +227,7 @@ defence.
   position convincingly without believing it. What you need is a sparring partner with no stake
   and no social reason to be gentle.
 - **The default is agreement, and it feels like review.** "What do you think of this plan?"
-  produces critique-flavoured endorsement. You didn't get a bad answer — you asked for the wrong
+  produces critique-flavoured endorsement. You didn't get a bad answer. You asked for the wrong
   thing.
 - **Assign a role with an interest, not a critical stance.** "Be critical" produces
   criticism-flavoured text; "be this person, who loses something here" produces usable objections.
@@ -245,14 +245,14 @@ defence.
 
 ## Take a position
 
-**The claim:** *"Rehearsal makes you better prepared and it makes you more confident — and those
+**The claim:** *"Rehearsal makes you better prepared and it makes you more confident, and those
 two move independently. Most people finish a rehearsal having gained only the second."*
 
 This is the module's own technique turned on itself, and you should take it seriously: run the
 adversary set, generate a counter for each objection, and you can emerge measurably more
 confident with your plan entirely unchanged. That is rationalization wearing rehearsal's clothes.
 
-The strongest counter-argument is that **confidence is not merely psychological here** — an HRBP
+The strongest counter-argument is that **confidence is not merely psychological here**, an HRBP
 who feels prepared performs better in the room, holds the line under pressure, and doesn't fold
 on a point they were right about. If the mechanism works partly through confidence, that's a
 feature. Your position has to engage that rather than dismiss it.
@@ -265,29 +265,29 @@ against the rubric below.** Score doesn't matter. Doing the work is where the le
 **Run this in the tutor.** It's the surface built for it — it will hold a role across turns and
 push back when you go easy on yourself, which a static exercise can't.
 
-**Step 1 — Pick something real and upcoming (3 min).** A recommendation you're about to make, a
+**Step 1. Pick something real and upcoming (3 min).** A recommendation you're about to make, a
 change you're about to announce, a conversation you're dreading. It must be real and not yet
 decided by anyone else. M4 rules from 101 apply: redact anything person-identifying before it
 enters the tool.
 
-**Step 2 — Commit in writing (4 min).** Your position, your reasoning, and what you expect the
+**Step 2. Commit in writing (4 min).** Your position, your reasoning, and what you expect the
 main objection to be. Written *before* any adversary runs — this is the baseline the whole
 activity measures against.
 
-**Step 3 — Run all five (15 min).** Each adversary in role, using the five moves. Don't stop at
+**Step 3. Run all five (15 min).** Each adversary in role, using the five moves. Don't stop at
 the first good objection from each; ask "what else, and what's worse?" at least once per
 adversary.
 
-**Step 4 — Harvest (5 min).** List **the three objections you had not anticipated.** For each:
+**Step 4. Harvest (5 min).** List **the three objections you had not anticipated.** For each:
 is it right, is it survivable, and does it change the plan or only the framing? Then one
 sentence on whether anything changed at all — because "nothing changed" is a legitimate and
 occasionally honest outcome, and it's also what rationalization looks like from the inside.
 
-**Step 5 — Score the prediction (2 min).** Predicted unanticipated objections against actual.
+**Step 5. Score the prediction (2 min).** Predicted unanticipated objections against actual.
 
 Then the write-up: what the set surfaced, which adversary was most useful and why, your position
-on the claim above with its counter-argument addressed, and — the question the rubric weights
-most — **what you changed.**
+on the claim above with its counter-argument addressed, and (the question the rubric weights
+most) **what you changed.**
 
 ## Knowledge check — 8 questions
 
@@ -296,19 +296,19 @@ most — **what you changed.**
 **Q1.** Why is a model's willingness to argue any position without believing it an asset in this module and a liability elsewhere?
 
 - A. Because rehearsal doesn't require factual accuracy, so hallucination is harmless here
-- B. Because you need a sparring partner with no stake and no social reason to go easy — the same indifference that makes fluent output untrustworthy makes attack honest ✓
+- B. Because you need a sparring partner with no stake and no social reason to go easy, the same indifference that makes fluent output untrustworthy makes attack honest ✓
 - C. Because models argue better than they explain
 - D. It isn't an asset — the module works despite this property, not because of it
 
 > **B.** Elsewhere, arguing convincingly without belief is exactly why output needs verification.
 > Here it's the point: no colleague will attack your plan with that little social friction. A
-> overstates it — accuracy still matters, which is why Lesson 4 traces wrong objections.
+> overstates it: accuracy still matters, which is why Lesson 4 traces wrong objections.
 
 **Q2.** You ask a model "what do you think of this plan?" and get praise, three considerations, and a balanced close. What happened?
 
 - A. The plan is genuinely strong and the model found little to object to
 - B. The model's critical capabilities are weaker than its generative ones
-- C. You asked for the wrong thing — the plausible continuation of that question is a constructive-colleague response, which reads as critique and functions as endorsement ✓
+- C. You asked for the wrong thing, the plausible continuation of that question is a constructive-colleague response, which reads as critique and functions as endorsement ✓
 - D. The context window was too short to support a thorough critique
 
 > **C.** Nothing malfunctioned. The mechanism is 101's: most plausible continuation. The failure
@@ -325,7 +325,7 @@ most — **what you changed.**
 > because "critical" is a style instruction, not a position. C invites the balanced close the
 > module is trying to defeat.
 
-**Q4.** What does the fourth adversary — the person with the least power affected — exist to surface?
+**Q4.** What does the fourth adversary (the person with the least power affected) exist to surface?
 
 - A. Legal exposure from the most vulnerable group
 - B. What you normalized, from the perspective of someone structurally absent from the room where the plan was built ✓
@@ -343,14 +343,14 @@ most — **what you changed.**
 - C. "What am I not asking you because I don't want to know the answer?" ✓
 - D. "Are you sure about that objection?"
 
-> **C.** It targets what your own preparation is structurally blind to — you can't audit your
+> **C.** It targets what your own preparation is structurally blind to. You can't audit your
 > omissions from inside them. D is the module's named non-move: self-confirmation isn't
 > verification here any more than it was in 101 M6.
 
 **Q6.** Why should the rehearsal happen in a fresh conversation rather than the one where you built the plan?
 
 - A. Long conversations exceed the context window and drop the plan
-- B. The building conversation contains all your justifications, and the model predicts from everything in view — so it argues from inside your framing ✓
+- B. The building conversation contains all your justifications, and the model predicts from everything in view, so it argues from inside your framing ✓
 - C. Models perform better on the first exchange of any conversation
 - D. Fresh conversations are cheaper in token terms
 
@@ -359,9 +359,9 @@ most — **what you changed.**
 
 **Q7.** An adversary raises an objection that rests on a false assumption about your organization. The practitioner move is to:
 
-- A. Dismiss it and move on — the objection is invalid
+- A. Dismiss it and move on: the objection is invalid
 - B. Correct the model and re-run the adversary with better context
-- C. Ask how it got there — because a false inference drawn from your written plan is a communication defect a human reader would make faster ✓
+- C. Ask how it got there, because a false inference drawn from your written plan is a communication defect a human reader would make faster ✓
 - D. Accept it anyway, since the perception matters more than the fact
 
 > **C.** The wrong objection is still evidence about how the plan reads without your context. B
@@ -387,7 +387,7 @@ most — **what you changed.**
   practitioners working with AI in People functions; the specific adversaries and the discipline
   around them are ours.
 - **The AI Fluency Framework** (Rick Dakan & Joseph Feller, in collaboration with Anthropic,
-  CC BY-NC-SA 4.0) — the Description and Discernment competencies underpin both the role
+  CC BY-NC-SA 4.0), the Description and Discernment competencies underpin both the role
   assignment craft and the reading-its-logic pass.
 - Lesson 4 extends 101 M6's verification discipline from claims to arguments: trace the
   conclusion to its premise, and check against something outside the model.

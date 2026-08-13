@@ -5,17 +5,44 @@
   "maxWords": 350,
   "submitLabel": "Your capture-layer design and write-up",
   "intro": "Paste the question, the fields with their sources, the named reviewer and cadence, what changes under each answer, and the 250–350 word write-up including your position on this module's claim.",
-  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, Recruiting/TA track. Module 5 applied activity, 'The capture layer': ONE specific question they want answerable in six months, worked backwards to the minimum fields — each with where it lives, who records it, and whether it exists today — plus a named reviewer, a cadence, and a stated action under EACH possible answer. Scope discipline is the point: a design recording four things that gets built beats one recording twenty that doesn't, and a field requiring double entry should have been redesigned or cut. The decisive dimension is whether a decision changes under each branch — if the learner can't say what they'd do under either outcome, the question wasn't decision-relevant and they should have picked a different one. Watch for two specific failures: capture-everything-and-find-questions-later (produces a warehouse nobody queries), and any design that ranks or scores interviewers as people rather than auditing process consistency, or routes calibration output anywhere before the interviewer themselves. This track scores the delta, not the score.",
+  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, Recruiting/TA track. Module 5 applied activity, 'The capture layer': ONE specific question they want answerable in six months, worked backwards to the minimum fields (each with where it lives, who records it, and whether it exists today) plus a named reviewer, a cadence, and a stated action under EACH possible answer. Scope discipline is the point: a design recording four things that gets built beats one recording twenty that doesn't, and a field requiring double entry should have been redesigned or cut. The decisive dimension is whether a decision changes under each branch, if the learner can't say what they'd do under either outcome, the question wasn't decision-relevant and they should have picked a different one. Watch for two specific failures: capture-everything-and-find-questions-later (produces a warehouse nobody queries), and any design that ranks or scores interviewers as people rather than auditing process consistency, or routes calibration output anywhere before the interviewer themselves. This track scores the delta, not the score.",
   "opening": [
-    { "key": "peersCanAnswer", "label": "Predicted — % of your peers who could name which questions preceded strong hires", "hint": "Answerable this week, from something that already exists.", "placeholder": "e.g. 20", "min": 0, "max": 100 }
+    {
+      "key": "peersCanAnswer",
+      "label": "Predicted — % of your peers who could name which questions preceded strong hires",
+      "hint": "Answerable this week, from something that already exists.",
+      "placeholder": "e.g. 20",
+      "min": 0,
+      "max": 100
+    }
   ],
   "calibration": [
-    { "key": "peersCanAnswerActual", "label": "Your own answer — could you, today?", "hint": "0 = no, 50 = roughly, 100 = yes, from something that exists.", "placeholder": "e.g. 0", "min": 0, "max": 100, "actualFor": "peersCanAnswer" }
+    {
+      "key": "peersCanAnswerActual",
+      "label": "Your own answer — could you, today?",
+      "hint": "0 = no, 50 = roughly, 100 = yes, from something that exists.",
+      "placeholder": "e.g. 0",
+      "min": 0,
+      "max": 100,
+      "actualFor": "peersCanAnswer"
+    }
   ],
   "dimensions": [
-    { "name": "One question, specific enough to answer", "criteria": "A single question with a determinate answer — 'does the technical screen predict who passes the panel' rather than 'is our hiring effective'. Multiple questions, or a question whose answer would be a narrative rather than a finding, is the gap to name." },
-    { "name": "The fields are minimal and already reachable", "criteria": "Each field with its location, its recorder, and whether it exists today. Any field requiring double entry should be redesigned or cut — flag it if present. Four fields that will get captured beats twenty that won't, and a design leaning on existing ATS fields plus one addition is the strongest shape." },
-    { "name": "A named reviewer, a cadence, and a decision", "criteria": "A person or role, how often they look, and — the decisive part — what changes under EACH possible answer. A capture layer with no named reviewer is storage. If the learner cannot state an action under both branches, say plainly that the question wasn't decision-relevant." },
-    { "name": "This week's move, and the position", "criteria": "One thing they could start recording this week with no tooling change — the test of whether they understood that instrumenting is a decision rather than a purchase. Plus a position on the claim engaging its real counter-argument: that teams, managers and business models turn over faster than twelve-month outcome data accumulates, so the record may describe a company that no longer exists." }
+    {
+      "name": "One question, specific enough to answer",
+      "criteria": "A single question with a determinate answer, 'does the technical screen predict who passes the panel' rather than 'is our hiring effective'. Multiple questions, or a question whose answer would be a narrative rather than a finding, is the gap to name."
+    },
+    {
+      "name": "The fields are minimal and already reachable",
+      "criteria": "Each field with its location, its recorder, and whether it exists today. Any field requiring double entry should be redesigned or cut, flag it if present. Four fields that will get captured beats twenty that won't, and a design leaning on existing ATS fields plus one addition is the strongest shape."
+    },
+    {
+      "name": "A named reviewer, a cadence, and a decision",
+      "criteria": "A person or role, how often they look, and (the decisive part) what changes under EACH possible answer. A capture layer with no named reviewer is storage. If the learner cannot state an action under both branches, say plainly that the question wasn't decision-relevant."
+    },
+    {
+      "name": "This week's move, and the position",
+      "criteria": "One thing they could start recording this week with no tooling change, the test of whether they understood that instrumenting is a decision rather than a purchase. Plus a position on the claim engaging its real counter-argument: that teams, managers and business models turn over faster than twelve-month outcome data accumulates, so the record may describe a company that no longer exists."
+    }
   ]
 }

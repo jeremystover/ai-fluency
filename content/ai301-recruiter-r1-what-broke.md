@@ -19,7 +19,7 @@ Take one requisition you're working right now. Walk its stages: application, ré
 screen, take-home or assessment, panel, references.
 
 **What share of those stages would cost a motivated faker anything at all?** Not "would be
-unpleasant" — would cost them time, presence, or something they can't generate. Whole percent.
+unpleasant": would cost them time, presence, or something they can't generate. Whole percent.
 
 Most people find their first three stages score zero.
 
@@ -30,13 +30,13 @@ Most people find their first three stages score zero.
 Everything you were taught about recruiting assumed a stable relationship: **it cost a candidate
 something to produce a credible application, and that cost carried information.** A tailored
 cover letter meant effort. A polished résumé meant care. A fluent interview answer meant
-preparation. None of those inferences were perfect, and all of them were load-bearing.
+preparation. None of those inferences were perfect, and all of them were structural.
 
 That relationship has collapsed on both sides of the table at once, and the two collapses are not
 symmetrical in the way you'd hope.
 
 Greenhouse reports an average of **254 applicants per posting**, with applications per recruiter
-up **412%**. You got faster; the applicant pool got faster first, and by a wider margin — because
+up **412%**. You got faster; the applicant pool got faster first, and by a wider margin, because
 a candidate can spend their new capacity on more applications while you spend yours on more
 screening of a pool that grew faster than your throughput did.
 
@@ -70,7 +70,7 @@ producing a credible-looking application fell to approximately zero**, which mea
 your funnel was built to read stopped being signals.
 
 Consider what a tailored cover letter used to tell you. It said: this person spent forty minutes
-on us specifically. That inference was doing real work in your screen, and it is now worthless —
+on us specifically. That inference was doing real work in your screen, and it is now worthless,
 not because tailored letters became less common, but because they became *free*. The same is true
 of a keyword-aligned résumé, a well-structured take-home, and a fluent answer to "tell me about a
 time when."
@@ -92,7 +92,7 @@ pool that grew 412%. Their capability compounds per application; yours divides a
 
 Two corollaries do most of the work.
 
-**Any screen that can be beaten by a tool will be.** Not "might be" — will be, and quickly, and
+**Any screen that can be beaten by a tool will be.** Not "might be", will be, and quickly, and
 by exactly the candidates most attentive to the process, which is a group that overlaps
 uncomfortably with the one you want. A screen's difficulty for an honest candidate is unrelated
 to its difficulty for a prepared one.
@@ -113,7 +113,7 @@ between mid-2025 and early 2026, **38.5% of candidates were flagged for AI-assis
 Meanwhile roughly **88% of hiring managers believe they can spot AI in applications.**
 
 Notice the shape of what's available. Confidence is measurable and high. **Accuracy is not
-well-established at all** — there is no credible general figure for how often a human or a tool
+well-established at all**. There is no credible general figure for how often a human or a tool
 correctly identifies AI assistance, which is itself the most important fact in this lesson. You
 are being sold a capability whose error rate nobody publishes.
 
@@ -134,7 +134,7 @@ a signal problem into a fairness problem.
 The field has already started moving, incidentally. Among hiring teams responding to
 AI-assisted candidates **[V]**, roughly 47% updated their interview probing, 31% added practical
 tasks, and only around 14% deployed dedicated detection software. The majority answer is
-redesign, not detection — which is the right instinct arrived at empirically.
+redesign, not detection, which is the right instinct arrived at empirically.
 
 > ### Try this — 2 minutes
 > Take the last candidate you rejected at résumé screen. Write one sentence on what specifically
@@ -146,14 +146,14 @@ redesign, not detection — which is the right instinct arrived at empirically.
 
 Before the rest of this track sells you anything, three findings that should govern how you buy.
 
-**Most enterprise AI pilots do not reach production value.** The widely-cited MIT figure — that
-only around 5% of enterprise AI pilots deliver measurable P&L impact — is the number the market
+**Most enterprise AI pilots do not reach production value.** The widely-cited MIT figure (that
+only around 5% of enterprise AI pilots deliver measurable P&L impact) is the number the market
 would prefer you didn't hold while reading a proposal. Treat it as directional rather than
 precise; the direction is well-corroborated by the broader finding that a large majority of HR
 leaders report no significant business value from AI tools yet.
 
 **Adoption creates work as well as removing it.** Roughly two hours of rework per incident of
-AI-generated output that looked fine and wasn't — and 42% of recipients rate the sender as less
+AI-generated output that looked fine and wasn't, and 42% of recipients rate the sender as less
 trustworthy afterwards. For a recruiter that second number matters more than the first, because
 the recipient of your output is usually a hiring manager, which Module 7 returns to.
 
@@ -171,14 +171,14 @@ track is designed to be usable by someone who spends nothing.
 - **The cost of producing a credible application fell to zero** `[V]` — 254 applicants per
   posting, applications per recruiter up 412%. Volume is the visible half; the invisible half is
   that your funnel's signals stopped carrying information while the funnel stayed the same.
-- **The symmetry rule: any capability you gain, candidates gain faster** — because their capability
+- **The symmetry rule: any capability you gain, candidates gain faster**, because their capability
   compounds per application while yours divides across the pool.
 - **Any screen that can be beaten by a tool will be**, and you cannot out-run it with better
   tools. The response is redesigning what you measure.
 - **Detection's accuracy is unmeasured while confidence is high** `[V]`: 38.5% of interviews
   flagged, ~88% of hiring managers believe they can spot AI, and no credible error rate published.
 - **A detection response is a screening decision about people** with predictable disparate impact
-  — non-native speakers, neurodivergent candidates, and anyone who prepared hard — and no
+  (non-native speakers, neurodivergent candidates, and anyone who prepared hard) and no
   validation study behind it.
 - **The field is already choosing redesign over detection** `[V]`: ~47% updated probing, ~31%
   added practical tasks, ~14% bought detection.
@@ -200,24 +200,24 @@ stop pretending it was ever a signal stage. Your position has to engage that.
 **Graded against the rubric below.** Score doesn't matter. Doing the work is where the learning
 lands.
 
-Use **one live requisition** — the same one you'll carry through all seven modules.
+Use **one live requisition**: the same one you'll carry through all seven modules.
 
-**Step 1 — Map the stages (5 min).** Every stage from application to offer, in order, with roughly
+**Step 1. Map the stages (5 min).** Every stage from application to offer, in order, with roughly
 what share of candidates it removes.
 
 **Step 2 — Score each stage 0–3 (10 min).** One question per stage: **what would this cost
 someone who is faking it?** Cost means time they can't compress, presence they must supply, or
 specificity they can't generate.
-- **0** — free. A tool produces a passing artifact in minutes.
-- **1** — cheap. Some effort, fully automatable with preparation.
+- **0**, free. A tool produces a passing artifact in minutes.
+- **1**, cheap. Some effort, fully automatable with preparation.
 - **2** — costly. Requires real-time presence or genuine specific knowledge.
-- **3** — expensive. Cannot be faked without another person's sustained involvement.
+- **3**, expensive. Cannot be faked without another person's sustained involvement.
 
-**Step 3 — Find the cliff (3 min).** Name the first stage scoring 2 or higher. Everything before
+**Step 3. Find the cliff (3 min).** Name the first stage scoring 2 or higher. Everything before
 it is currently rationing, not screening — say how many candidates you eliminate before reaching
 it.
 
-**Step 4 — Score the prediction (2 min).** Your predicted share of stages that cost a faker
+**Step 4. Score the prediction (2 min).** Your predicted share of stages that cost a faker
 something, against what the audit found.
 
 Then the write-up: where your funnel's real signal starts, what that means for the decisions you
@@ -236,7 +236,7 @@ stage you would redesign first.
 - D. Application quality has declined, making screening harder
 
 > **B.** Volume is the visible half and responds to throughput solutions. The signal collapse
-> doesn't — a tailored cover letter used to mean forty minutes of attention and now means nothing,
+> doesn't, a tailored cover letter used to mean forty minutes of attention and now means nothing,
 > because it became free rather than less common. D is the opposite of the problem: applications
 > got *more* polished.
 
@@ -254,7 +254,7 @@ stage you would redesign first.
 **Q3.** What does the module identify as the most important fact about AI detection?
 
 - A. That detection tools have roughly 60% accuracy
-- B. That confidence is measurable and high — ~88% of hiring managers believe they can spot it — while accuracy is not well-established at all ✓
+- B. That confidence is measurable and high (~88% of hiring managers believe they can spot it) while accuracy is not well-established at all ✓
 - C. That detection is prohibited under most state AI employment laws
 - D. That candidates can defeat detection tools by rephrasing output
 
@@ -265,11 +265,11 @@ stage you would redesign first.
 
 - A. Because detection software is expensive and requires procurement approval
 - B. Because it must be disclosed to candidates under notice requirements
-- C. Because the output is a flag attached to a candidate — and every false positive removes a real person for a reason nobody audits, since rejected candidates never appear in your data ✓
+- C. Because the output is a flag attached to a candidate, and every false positive removes a real person for a reason nobody audits, since rejected candidates never appear in your data ✓
 - D. Because human reviewers make the final call on flagged applications
 
 > **C.** 101 M7's line, and the invisibility of the harm is what makes it worse than an ordinary
-> error. D describes a workflow that doesn't fix it — the reviewer sees the flagged, not the
+> error. D describes a workflow that doesn't fix it: the reviewer sees the flagged, not the
 > wrongly flagged.
 
 **Q5.** Whose applications are most likely to be false positives in a detection regime?
@@ -289,19 +289,19 @@ stage you would redesign first.
 - C. Roughly 47% updated interview probing and 31% added practical tasks, while only around 14% bought detection ✓
 - D. Most reduced the number of interview stages to cut volume
 
-> **C.** The majority answer is redesign rather than detection — the right instinct, arrived at
+> **C.** The majority answer is redesign rather than detection: the right instinct, arrived at
 > empirically before anyone argued it from principle. That's the direction Module 4 formalizes.
 
 ## Sources and attribution
 
-- **Greenhouse** — average applicants per posting and the rise in applications per recruiter, from
+- **Greenhouse**: average applicants per posting and the rise in applications per recruiter, from
   its live-jobs data. **[V]**
 - **Interview-integrity analysis** of ~19,368 live interviews (July 2025 – January 2026) — the
   38.5% AI-assisted flagging rate; and survey data on hiring-manager confidence and the
   distribution of responses (probing, practical tasks, detection software). **[V]**
-- **BetterUp Labs / Stanford** — the workslop findings: ~2 hours of rework per incident and 42% of
+- **BetterUp Labs / Stanford**, the workslop findings: ~2 hours of rework per incident and 42% of
   recipients rating the sender less trustworthy. **[V]**
-- **MIT** — the widely-cited figure that ~5% of enterprise AI pilots deliver measurable P&L
+- **MIT**, the widely-cited figure that ~5% of enterprise AI pilots deliver measurable P&L
   impact; treated as directional, corroborated by Gartner's finding that 88% of HR leaders report
   no significant business value. **[V]**
 - The symmetry rule, its corollaries, and the signal-audit method are original to this course.

@@ -5,17 +5,44 @@
   "maxWords": 350,
   "submitLabel": "Your four artifacts, the markup, and the write-up",
   "intro": "Paste the scorecard, calibration examples, sourcing hypothesis, and interview guide; then the hiring manager's marked-up version; then the 250–350 word write-up including your position on this module's claim.",
-  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, Recruiting/TA track. Module 3 applied activity, 'Marked wrong': a real intake converted into four artifacts — a scorecard with behaviourally defined competencies, calibration examples including a genuinely borderline one, a falsifiable sourcing hypothesis, and an interview guide mapping stages to competencies — then sent to the actual hiring manager with the specific framing 'mark what's wrong' rather than 'does this look right', and returned marked. CRITICAL GRADING STANCE: the corrections ARE the deliverable. A submission where the hiring manager marked twelve items scores HIGHER than one where they marked none. If nothing came back, the learner must say honestly whether they read that as alignment or disengagement, and an unexamined 'they approved it' should be challenged in feedback. Apply the scorecard test: could two interviewers score the same candidate independently and agree within a point? Adjective competencies ('strong communicator', 'strategic thinker') fail it. Watch for requirements lists submitted as scorecards, and for proxy requirements (years of experience, degree, company stage) that were never challenged. This track scores the delta, not the score: never grade prediction accuracy.",
+  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, Recruiting/TA track. Module 3 applied activity, 'Marked wrong': a real intake converted into four artifacts, a scorecard with behaviourally defined competencies, calibration examples including a genuinely borderline one, a falsifiable sourcing hypothesis, and an interview guide mapping stages to competencies, then sent to the actual hiring manager with the specific framing 'mark what's wrong' rather than 'does this look right', and returned marked. CRITICAL GRADING STANCE: the corrections ARE the deliverable. A submission where the hiring manager marked twelve items scores HIGHER than one where they marked none. If nothing came back, the learner must say honestly whether they read that as alignment or disengagement, and an unexamined 'they approved it' should be challenged in feedback. Apply the scorecard test: could two interviewers score the same candidate independently and agree within a point? Adjective competencies ('strong communicator', 'strategic thinker') fail it. Watch for requirements lists submitted as scorecards, and for proxy requirements (years of experience, degree, company stage) that were never challenged. This track scores the delta, not the score: never grade prediction accuracy.",
   "opening": [
-    { "key": "markedItems", "label": "Predicted — items the hiring manager will mark", "hint": "Corrections, additions, and things they'd reject for that aren't written down.", "placeholder": "e.g. 2", "min": 0, "max": 50 }
+    {
+      "key": "markedItems",
+      "label": "Predicted — items the hiring manager will mark",
+      "hint": "Corrections, additions, and things they'd reject for that aren't written down.",
+      "placeholder": "e.g. 2",
+      "min": 0,
+      "max": 50
+    }
   ],
   "calibration": [
-    { "key": "markedItemsActual", "label": "Actual — what came back", "hint": "Every correction counts. More is better here.", "placeholder": "e.g. 9", "min": 0, "max": 50, "actualFor": "markedItems" }
+    {
+      "key": "markedItemsActual",
+      "label": "Actual — what came back",
+      "hint": "Every correction counts. More is better here.",
+      "placeholder": "e.g. 9",
+      "min": 0,
+      "max": 50,
+      "actualFor": "markedItems"
+    }
   ],
   "dimensions": [
-    { "name": "The competencies are behavioural", "criteria": "Each one observable enough that two interviewers would score within a point. Adjectives ('strong communicator', 'bias for action') fail this dimension regardless of how many there are. Four to six competencies; eight or more describes several jobs and should be flagged as an averaging machine that hires nobody's first choice." },
-    { "name": "The calibration includes a real borderline", "criteria": "Three profiles with the borderline one carrying a stated reason it tips either way — that sentence is where the hiring manager's real bar lives. A borderline profile that is obviously a yes or obviously a no means the bar wasn't surfaced." },
-    { "name": "The spec was challenged", "criteria": "Evidence that at least one requirement was interrogated for its mechanism — what happens in the first ninety days that needs it — or identified as a proxy. A scorecard that transcribes the manager's requirement list without challenge is order-taking, and should be named as such." },
-    { "name": "The correction was harvested", "criteria": "The markup is real and the write-up says what it revealed about the gap between the conversation and the learner's understanding of it. Twelve corrections honestly reported is the top of this dimension. Zero corrections requires an honest read on whether that is alignment or disengagement. Also grades the position on the claim, including its counter-argument that criteria are often discovered iteratively through the search rather than specified up front." }
+    {
+      "name": "The competencies are behavioural",
+      "criteria": "Each one observable enough that two interviewers would score within a point. Adjectives ('strong communicator', 'bias for action') fail this dimension regardless of how many there are. Four to six competencies; eight or more describes several jobs and should be flagged as an averaging machine that hires nobody's first choice."
+    },
+    {
+      "name": "The calibration includes a real borderline",
+      "criteria": "Three profiles with the borderline one carrying a stated reason it tips either way. That sentence is where the hiring manager's real bar lives. A borderline profile that is obviously a yes or obviously a no means the bar wasn't surfaced."
+    },
+    {
+      "name": "The spec was challenged",
+      "criteria": "Evidence that at least one requirement was interrogated for its mechanism (what happens in the first ninety days that needs it) or identified as a proxy. A scorecard that transcribes the manager's requirement list without challenge is order-taking, and should be named as such."
+    },
+    {
+      "name": "The correction was harvested",
+      "criteria": "The markup is real and the write-up says what it revealed about the gap between the conversation and the learner's understanding of it. Twelve corrections honestly reported is the top of this dimension. Zero corrections requires an honest read on whether that is alignment or disengagement. Also grades the position on the claim, including its counter-argument that criteria are often discovered iteratively through the search rather than specified up front."
+    }
   ]
 }

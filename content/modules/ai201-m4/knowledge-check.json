@@ -37,7 +37,7 @@
         "Nothing — missing findings are acceptable at low rates"
       ],
       "correctIndex": 1,
-      "explanation": "Classification is diagnosis: wrong/missing point at instructions and pack; invented points at gaps in supplied material. That's why the tally is classified at all — the categories have different addresses."
+      "explanation": "Classification is diagnosis: wrong/missing point at instructions and pack; invented points at gaps in supplied material. That's why the tally is classified at all: the categories have different addresses."
     },
     {
       "id": "q4",
@@ -73,7 +73,7 @@
         "A second approver for high-stakes outputs"
       ],
       "correctIndex": 1,
-      "explanation": "\"Sign-off = the theme-table diff plus this week's three samples\" is a control. \"Sign-off = review it\" is a sentiment with a signature line. The name matters too — but only paired with what the name reads."
+      "explanation": "\"Sign-off = the theme-table diff plus this week's three samples\" is a control. \"Sign-off = review it\" is a sentiment with a signature line. The name matters too, but only paired with what the name reads."
     },
     {
       "id": "q7",
@@ -89,7 +89,7 @@
     },
     {
       "id": "q8",
-      "prompt": "\"You may only systematize what you have verified by hand\" — after this module, \"verified\" operationally means:",
+      "prompt": "\"You may only systematize what you have verified by hand\", after this module, \"verified\" operationally means:",
       "options": [
         "The owner has read every output the workflow has produced",
         "A sample was run once before launch",
@@ -97,7 +97,7 @@
         "No errors have been reported by recipients"
       ],
       "correctIndex": 2,
-      "explanation": "Not everything read (A is the decay trap), not one pre-launch glance (B), and never silence-as-evidence (D). A designed, running, honest verification layer — which is exactly the ticket M5 checks at the door."
+      "explanation": "Not everything read (A is the decay trap), not one pre-launch glance (B), and never silence-as-evidence (D). A designed, running, honest verification layer, which is exactly the ticket M5 checks at the door."
     }
   ]
 }

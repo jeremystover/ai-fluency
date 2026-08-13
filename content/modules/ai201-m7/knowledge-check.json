@@ -13,7 +13,7 @@
         "They rarely die; maintained workflows are stable"
       ],
       "correctIndex": 1,
-      "explanation": "No single failure, just unattended drift — every mode of which an earlier module predicted. The rhythm exists because decay is the default, not the exception."
+      "explanation": "No single failure, just unattended drift, every mode of which an earlier module predicted. The rhythm exists because decay is the default, not the exception."
     },
     {
       "id": "q2",
@@ -37,7 +37,7 @@
         "Ignored; the monthly review covers it"
       ],
       "correctIndex": 1,
-      "explanation": "The skip isn't the sin; the silent skip is. A visible skip pattern is exactly the M4-style decay signal the rhythm exists to surface — about itself."
+      "explanation": "The skip isn't the sin; the silent skip is. A visible skip pattern is exactly the M4-style decay signal the rhythm exists to surface, about itself."
     },
     {
       "id": "q4",
@@ -61,7 +61,7 @@
         "Would an executive find this number impressive?"
       ],
       "correctIndex": 1,
-      "explanation": "No decision downstream, no metric. (C is a good tell — always-up numbers restate elapsed time — but B is the test that also catches subtle theater.)"
+      "explanation": "No decision downstream, no metric. (C is a good tell, always-up numbers restate elapsed time, but B is the test that also catches subtle theater.)"
     },
     {
       "id": "q6",
@@ -85,7 +85,7 @@
         "A reason to rebuild it against the new system"
       ],
       "correctIndex": 1,
-      "explanation": "Fourteen months of measured savings is the win; the world moving is trigger three working as designed. (D might *also* be true — but that's a new M1 audit, not a reflex.)"
+      "explanation": "Fourteen months of measured savings is the win; the world moving is trigger three working as designed. (D might *also* be true, but that's a new M1 audit, not a reflex.)"
     },
     {
       "id": "q8",
@@ -97,7 +97,7 @@
         "Proving the workflow was worth building"
       ],
       "correctIndex": 1,
-      "explanation": "As everywhere in both courses: accuracy isn't the graded thing — direction is. Seven predictions produce a pattern; the practitioner's edge is knowing their own lean and pricing the next build against it."
+      "explanation": "As everywhere in both courses: accuracy isn't the graded thing, direction is. Seven predictions produce a pattern; the practitioner's edge is knowing their own lean and pricing the next build against it."
     }
   ]
 }
