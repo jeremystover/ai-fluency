@@ -81,10 +81,12 @@ motivated to publish are the ones with something to sell or something to celebra
 
 ## Lesson 2 · What the data actually says **[V]**
 
+
 Now the survey evidence, which looks quite different from the content environment.
 
-**A large share of organizations have not started, and do not intend to this year.** Roughly
-three in ten report no plans to launch AI initiatives at all. That is not "behind schedule" —
+**A large share of organizations have not started, and do not intend to this year.** **31% report no plans to launch AI initiatives at all**, and **54% have implemented no AI in HR and
+have no plans to in 2026** — SHRM's *State of AI in HR 2026*, **1,722 HR professionals, fielded 5–23
+December 2025**. Those are two different questions and both are worth carrying. That is not "behind schedule" —
 that is a deliberate or default position held by a substantial minority of the field.
 
 **Among those who have adopted, business value is not yet the norm.** A large majority of HR
@@ -93,9 +95,15 @@ tools. Adoption and payoff are different milestones, and the gap between them is
 the field currently sits.
 
 **And the finding that reframes the whole module:** the pressure most HRBPs feel is not coming
-from their peers. It is coming from their executives. Around nine in ten CHROs expect more AI
-adoption, while over half of organizations have not implemented any AI in HR at all. That is a
+from their peers. It is coming from their executives. In the same survey, **87% of CHROs forecast greater adoption of AI within HR processes — up from 83%
+the year before — and 92% expect AI to be further integrated into the workforce**, against the 54%
+who have implemented none. That is a
 gap between *expectation* and *implementation*, not between you and your competitors.
+
+**One caution about that pair, because this module is about reading evidence.** Expecting *more*
+adoption is not the same as expecting *a lot* of it — the same SHRM respondents are simultaneously
+cautious about degree. Read the 87% as direction of travel rather than as appetite for scale. The
+two get conflated constantly, usually by someone selling something.
 
 Sit with that distinction, because it changes the correct response entirely:
 
@@ -106,12 +114,6 @@ Sit with that distinction, because it changes the correct response entirely:
 
 Most HRBPs are running the first play against the second problem. Module 5 gives you the
 conversation; this module is about knowing which one you're in.
-
-> ### Try this — 2 minutes
-> Write down the last three things that made you feel behind on AI. For each: was the source a
-> vendor, a consultancy, a social post, or a person inside your organization telling you what
-> they expect? If most were the first three, your evidence base is the content environment. If
-> most were the fourth, you have an expectations problem, and it has a different fix.
 
 ## Lesson 3 · What comparison-driven adoption costs
 

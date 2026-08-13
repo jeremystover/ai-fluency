@@ -4,10 +4,10 @@ DELETE FROM fd_exercise;
 DELETE FROM fd_module;
 DELETE FROM fd_brand;
 DELETE FROM fd_access_code;
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-13T02:04:29.496Z');
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-13T02:04:29.496Z');
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('ae0b0d4c-df13-4a33-a973-6518a8f87183', 'omnissa', 'pbkdf2$100000$abTsBYunK5H1yRX8P6aIuA==$5J09cNqwTo8HVNix/6zLuSDlwCxVlUTxsdfjVV6E0Zs=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('3bcfb8ec-961f-4fcc-97e4-b2b73c3d602d', 'verdant', 'pbkdf2$100000$hq0ubVkHNX3n1eL90V9ImA==$0wm+HCwmRLhSTjgvRmGZCsh4GVjA2VR4ZcSqnYVoKec=', 'Theming proof', NULL, 0, NULL, 1);
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-13T02:12:51.374Z');
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-13T02:12:51.374Z');
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('a62279ec-be27-4a8c-8515-e410b6446f62', 'omnissa', 'pbkdf2$100000$YZALPNcjlptbJh7qy77ZaA==$Y1aC/rS5Zkr+xpMOscjQVpnh+rMjU8VkC/KFrPltOWw=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('30cb8ac4-e020-4800-949a-02b8ed651637', 'verdant', 'pbkdf2$100000$bUYVD0BfGJk5FS14l061fw==$YmgWa+ifNhcBS4+tjm9lM7CdQemFTc02p/VT3pfmxow=', 'Theming proof', NULL, 0, NULL, 1);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m1', 'ai101', 1, 'What is AI?', 'A working mental model: what an LLM actually does, the vocabulary, why data decides everything, and a delegation heuristic you can carry under pressure.', 'open', 30, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m2', 'ai101', 2, 'Choosing the tool for the task', 'Chat assistants, copilots, and the AI already embedded in your HR stack — what each is actually for, and how to tell a language model from a scoring engine before you rely on either.', 'open', 25, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m3', 'ai101', 3, 'What it costs and how it scales', 'Tokens, context windows, and pricing — enough of the economics to size a use case, read a vendor quote, and know when a bigger model is worth it.', 'open', 25, NULL);
@@ -15540,8 +15540,9 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
 
 Now the survey evidence, which looks quite different from the content environment.
 
-**A large share of organizations have not started, and do not intend to this year.** Roughly
-three in ten report no plans to launch AI initiatives at all. That is not "behind schedule" —
+**A large share of organizations have not started, and do not intend to this year.** **31% report no plans to launch AI initiatives at all**, and **54% have implemented no AI in HR and
+have no plans to in 2026** — SHRM''s *State of AI in HR 2026*, **1,722 HR professionals, fielded 5–23
+December 2025**. Those are two different questions and both are worth carrying. That is not "behind schedule" —
 that is a deliberate or default position held by a substantial minority of the field.
 
 **Among those who have adopted, business value is not yet the norm.** A large majority of HR
@@ -15550,9 +15551,15 @@ tools. Adoption and payoff are different milestones, and the gap between them is
 the field currently sits.
 
 **And the finding that reframes the whole module:** the pressure most HRBPs feel is not coming
-from their peers. It is coming from their executives. Around nine in ten CHROs expect more AI
-adoption, while over half of organizations have not implemented any AI in HR at all. That is a
+from their peers. It is coming from their executives. In the same survey, **87% of CHROs forecast greater adoption of AI within HR processes — up from 83%
+the year before — and 92% expect AI to be further integrated into the workforce**, against the 54%
+who have implemented none. That is a
 gap between *expectation* and *implementation*, not between you and your competitors.
+
+**One caution about that pair, because this module is about reading evidence.** Expecting *more*
+adoption is not the same as expecting *a lot* of it — the same SHRM respondents are simultaneously
+cautious about degree. Read the 87% as direction of travel rather than as appetite for scale. The
+two get conflated constantly, usually by someone selling something.
 
 Sit with that distinction, because it changes the correct response entirely:
 
@@ -23881,8 +23888,8 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
 
 The numbers first, then what they mean.
 
-**254 applicants per posting**, on average, across a large ATS''s live jobs. **Applications per
-recruiter up 412%.** A typical posting five years ago drew roughly a hundred; the figure has more
+**254 applicants per posting**, on average, across **Greenhouse''s live-jobs data**, with
+**applications per recruiter up 412%** on the same source. A typical posting five years ago drew roughly a hundred; the figure has more
 than doubled and the growth is concentrated in the period since generative tools became free and
 ubiquitous.
 
@@ -23950,8 +23957,7 @@ disparate impact and no validation study, deployed against a protected populatio
 will tell you what that means legally. Here it''s enough to see that the reflex response converts
 a signal problem into a fairness problem.
 
-The field has already started moving, incidentally. Among hiring teams responding to
-AI-assisted candidates **[V]**, roughly 47% updated their interview probing, 31% added practical
+The field has already started moving, incidentally. In the same interview-integrity survey **[V]**, roughly 47% updated their interview probing, 31% added practical
 tasks, and only around 14% deployed dedicated detection software. The majority answer is
 redesign, not detection — which is the right instinct arrived at empirically.', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-recruiter-r1-try-70', 'ai301-recruiter-r1', 70, 'try_this', 'stable', '### Try this — 2 minutes

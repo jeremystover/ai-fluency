@@ -17,7 +17,8 @@
     "maintain": "node scripts/maintenance-agent.mjs",
     "maintain:write": "node scripts/maintenance-agent.mjs --write",
     "evidence:check": "node scripts/maintenance-agent.mjs --dry",
-    "evidence:verify": "node scripts/maintenance-agent.mjs --library-only"
+    "evidence:verify": "node scripts/maintenance-agent.mjs --library-only",
+    "sourcing:check": "node scripts/sourcing-check.mjs"
   },
   "dependencies": {
     "@fontsource/caveat": "^5.3.0",

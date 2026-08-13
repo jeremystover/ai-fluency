@@ -58,10 +58,11 @@ By the end of this module you should be able to:
 
 ## Lesson 1 · The two-sided collapse **[V]**
 
+
 The numbers first, then what they mean.
 
-**254 applicants per posting**, on average, across a large ATS's live jobs. **Applications per
-recruiter up 412%.** A typical posting five years ago drew roughly a hundred; the figure has more
+**254 applicants per posting**, on average, across **Greenhouse's live-jobs data**, with
+**applications per recruiter up 412%** on the same source. A typical posting five years ago drew roughly a hundred; the figure has more
 than doubled and the growth is concentrated in the period since generative tools became free and
 ubiquitous.
 
@@ -105,6 +106,7 @@ hear it.
 
 ## Lesson 3 · Detection is a screening decision **[V]**
 
+
 The reflex response to all of this is to detect and filter. It is being sold to you hard, and it
 is worth understanding precisely why it fails.
 
@@ -131,16 +133,9 @@ disparate impact and no validation study, deployed against a protected populatio
 will tell you what that means legally. Here it's enough to see that the reflex response converts
 a signal problem into a fairness problem.
 
-The field has already started moving, incidentally. Among hiring teams responding to
-AI-assisted candidates **[V]**, roughly 47% updated their interview probing, 31% added practical
+The field has already started moving, incidentally. In the same interview-integrity survey **[V]**, roughly 47% updated their interview probing, 31% added practical
 tasks, and only around 14% deployed dedicated detection software. The majority answer is
 redesign, not detection — which is the right instinct arrived at empirically.
-
-> ### Try this — 2 minutes
-> Take the last candidate you rejected at résumé screen. Write one sentence on what specifically
-> in that résumé produced the decision. Then ask: could a competent candidate with a free AI tool
-> have produced that thing in four minutes? If yes, you didn't screen on it — you screened on
-> whether they bothered.
 
 ## Lesson 4 · The inoculation **[V]**
 
