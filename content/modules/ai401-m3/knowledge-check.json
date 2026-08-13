@@ -13,7 +13,7 @@
         "It taught you to see the organization through its risks rather than its opportunities"
       ],
       "correctIndex": 1,
-      "explanation": "Outside your function you see the load *you* would carry in their job, and nothing corrects you — they will not volunteer that you have misunderstood them. They will just stop bringing you things."
+      "explanation": "Outside your function you see the load *you* would carry in their job, and nothing corrects you — they will not volunteer that you've misunderstood them. They will just stop bringing you things."
     },
     {
       "id": "q2",
@@ -32,8 +32,8 @@
       "prompt": "What does the module warn about when converting activity into consequence?",
       "options": [
         "That it can sound like spin to colleagues who know the underlying work",
-        "That a consequence you cannot evidence is worse than an activity you can, because it invites exactly one follow-up you can't answer",
-        "That it requires data most HR functions do not collect",
+        "That a consequence you can't evidence is worse than an activity you can, because it invites exactly one follow-up you can't answer",
+        "That it requires data most HR functions don't collect",
         "That it works with finance but not with legal or IT"
       ],
       "correctIndex": 1,
@@ -49,11 +49,11 @@
         "Whose unowned asks they are absorbing"
       ],
       "correctIndex": 1,
-      "explanation": "Asking finance for something material in the last week of a quarter is not a scheduling error, it is a credibility error — invisible to you and entirely visible to them. Four dates, one afternoon."
+      "explanation": "Asking finance for something material in the last week of a quarter is not a scheduling error, it's a credibility error — invisible to you and entirely visible to them. Four dates, one afternoon."
     },
     {
       "id": "q5",
-      "prompt": "What is the one thing you cannot establish without asking?",
+      "prompt": "What is the one thing you can't establish without asking?",
       "options": [
         "Which vendors they have already evaluated",
         "What their leadership actually prioritizes",
@@ -61,14 +61,14 @@
         "How much budget they control"
       ],
       "correctIndex": 2,
-      "explanation": "The answer is usually narrower than you would like, and it is the actual starting position for every artifact in the rest of the course — working from the version you wish were true is how a good proposal lands in a room that already filed you under something else."
+      "explanation": "The answer is usually narrower than you would like, and it's the actual starting position for every artifact in the rest of the course — working from the version you wish were true is how a good proposal lands in a room that already filed you under something else."
     },
     {
       "id": "q6",
       "prompt": "Why does the module say being wrong about the load behind a question is useful?",
       "options": [
         "Because it lowers the stakes of the conversation",
-        "Because they correct you, and the correction is the most valuable thing you will learn about them",
+        "Because they correct you, and the correction is the most valuable thing you'll learn about them",
         "Because it demonstrates humility, which builds trust over time",
         "Because most questions have several valid interpretations"
       ],

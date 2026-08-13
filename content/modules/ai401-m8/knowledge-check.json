@@ -37,7 +37,7 @@
         "It is a temporary behavior that will normalize as tools mature"
       ],
       "correctIndex": 2,
-      "explanation": "The model is available at 11pm, does not judge, and never mentions it to anyone. The small humiliation of admitting you did not know something is the same event as somebody learning who you are."
+      "explanation": "The model is available at 11pm, does not judge, and never mentions it to anyone. The small humiliation of admitting you did not know something is the same event as somebody learning who you're."
     },
     {
       "id": "q4",
@@ -69,7 +69,7 @@
       "options": [
         "Because younger workers use AI more heavily than older ones",
         "Because it shows the effect is generational preference rather than structural",
-        "Because it is what happens when you enter an organization at the moment the mechanism for entering it stopped operating",
+        "Because it's what happens when you enter an organization at the moment the mechanism for entering it stopped operating",
         "Because Gen Z have higher turnover rates generally"
       ],
       "correctIndex": 2,
@@ -82,7 +82,7 @@
         "Because participation is usually voluntary and uptake is low",
         "Because it attempts to produce the output of interdependency — people knowing each other — without the input, which is people needing each other",
         "Because it takes time away from productive work",
-        "Because remote and hybrid teams cannot participate equally"
+        "Because remote and hybrid teams can't participate equally"
       ],
       "correctIndex": 1,
       "explanation": "The relationship was a by-product of dependence, and you cannot manufacture the by-product without the process."
@@ -91,13 +91,13 @@
       "id": "q8",
       "prompt": "What test must a designed interdependency pass to count as structural?",
       "options": [
-        "That both participants agree it is valuable",
+        "That both participants agree it's valuable",
         "That it appears in both people's objectives",
         "That it would survive an efficiency review — defensible on the work's own terms without mentioning connection",
         "That it occurs at least monthly"
       ],
       "correctIndex": 2,
-      "explanation": "If someone whose job is removing steps could not be answered on the work's own terms, it is manufactured friction and it will be removed. D is one of the three tests — repetition — but not the one that separates structural from manufactured."
+      "explanation": "If someone whose job is removing steps could not be answered on the work's own terms, it's manufactured friction and it will be removed. D is one of the three tests — repetition — but not the one that separates structural from manufactured."
     }
   ]
 }

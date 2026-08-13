@@ -7,8 +7,8 @@
       "id": "q1",
       "prompt": "What is the gap this module addresses?",
       "options": [
-        "That AI training budgets have not kept pace with adoption",
-        "That individual learning velocity rose sharply while collective learning velocity did not move",
+        "That AI training budgets haven't kept pace with adoption",
+        "That individual learning velocity rose sharply while collective learning velocity didn't move",
         "That organizations lack the tooling to share prompts effectively",
         "That senior staff learn AI more slowly than junior staff"
       ],
@@ -19,8 +19,8 @@
       "id": "q2",
       "prompt": "Why does the module say one-time training has a structural rather than an execution problem?",
       "options": [
-        "Because most training is delivered by people who are not practitioners",
-        "Because the half-life of what it transmits got much shorter and the delivery cadence did not change to match",
+        "Because most training is delivered by people who aren't practitioners",
+        "Because the half-life of what it transmits got much shorter and the delivery cadence didn't change to match",
         "Because adults retain little from classroom instruction",
         "Because AI capabilities vary too much between vendors to teach generically"
       ],
@@ -49,7 +49,7 @@
         "Because maintaining it later costs more than starting fresh"
       ],
       "correctIndex": 1,
-      "explanation": "You have spent your one chance at that person's attention. An empty folder at least tells the truth."
+      "explanation": "You've spent your one chance at that person's attention. An empty folder at least tells the truth."
     },
     {
       "id": "q5",
@@ -61,7 +61,7 @@
         "Whether it has an approval process for new entries"
       ],
       "correctIndex": 2,
-      "explanation": "The answer is almost always nobody and never, and that tells you what you are looking at."
+      "explanation": "The answer is almost always nobody and never, and that tells you what you're looking at."
     },
     {
       "id": "q6",

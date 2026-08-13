@@ -28,7 +28,7 @@
       "id": "t1",
       "text": "Running payroll each cycle",
       "key": "owned",
-      "reasoning": "The control item. It is named, dated, legally consequential, and somebody's title contains it — and its absence is noticed within hours by everyone in the company. Included so the exercise has a floor: not everything is invisible, and a leader who cannot tell the difference will find twelve orphans on a team that has three."
+      "reasoning": "The control item. It is named, dated, legally consequential, and somebody's title contains it — and its absence is noticed within hours by everyone in the company. Included so the exercise has a floor: not everything is invisible, and a leader who can't tell the difference will find twelve orphans on a team that has three."
     },
     {
       "id": "t2",
@@ -40,7 +40,7 @@
       "id": "t3",
       "text": "Noticing the board metric looks wrong before the deck goes out",
       "key": "absorbed",
-      "reasoning": "Nobody's job description says 'sanity-check the number', but the absence surfaces fast and loudly — in the meeting, in front of the audience that matters most. Absorbed rather than silent, and it is the item most likely to be doing its work through one specific person's habit rather than any process."
+      "reasoning": "Nobody's job description says 'sanity-check the number', but the absence surfaces fast and loudly — in the meeting, in front of the audience that matters most. Absorbed rather than silent, and it's the item most likely to be doing its work through one specific person's habit rather than any process."
     },
     {
       "id": "t4",
@@ -58,7 +58,7 @@
       "id": "t6",
       "text": "Approving expenses over the manager threshold",
       "key": "owned",
-      "reasoning": "A named delegation with a system enforcing it. Included because it is the kind of item people miscategorize as invisible — it is unglamorous and interstitial, which is not the same as unowned. The test is whether somebody would say 'that's mine' if asked directly."
+      "reasoning": "A named delegation with a system enforcing it. Included because it's the kind of item people miscategorize as invisible — it's unglamorous and interstitial, which isn't the same as unowned. The test is whether somebody would say 'that's mine' if asked directly."
     },
     {
       "id": "t7",
@@ -89,7 +89,7 @@
     },
     {
       "id": "t11",
-      "text": "Chasing the field that is missing from the HRIS export every month",
+      "text": "Chasing the field that's missing from the HRIS export every month",
       "key": "absorbed",
       "reasoning": "Classic seam work: nobody's job, everybody's problem, and if it stops the monthly report is late and someone complains. **Absorbed rather than silent precisely because it has a deadline attached** — which is the single most reliable predictor of whether orphaned work gets noticed when it stops."
     },
@@ -97,9 +97,9 @@
       "id": "t12",
       "text": "Answering the three questions a junior analyst asks each day",
       "key": "silent",
-      "reasoning": "The archetype from Module 1, and the reason this bucket matters. The asking has already declined in most teams, nobody logged it, and what stops is not the answering — it is the transmission of norms, the discovery of what already failed, and the relationship that would have made this person stay. **It is the highest-consequence item on this list and the least visible.**"
+      "reasoning": "The archetype from Module 1, and the reason this bucket matters. The asking has already declined in most teams, nobody logged it, and what stops isn't the answering — it's the transmission of norms, the discovery of what already failed, and the relationship that would have made this person stay. **It is the highest-consequence item on this list and the least visible.**"
     }
   ],
-  "pattern": "**Look at what separates the silent column from the absorbed one.** It is not importance — item 12 is arguably the most consequential thing here and it is silent. It is not difficulty either.\n\nIt is **whether a deadline or an audience is attached.** Everything in the absorbed column has one: a deck goes out, a report is due, a renewal fires, an export is late. Somebody is waiting, so the absence announces itself. Everything in the silent column has neither — the consequence is diffuse, delayed, and lands somewhere other than where the work stopped.\n\nThat gives you a working test for your own inventory, and it is more useful than intuition: **for each item, name who would be waiting.** If nobody is waiting, it will stop silently, and it needs an explicit owner or an explicit decision to drop it — because the default is that it simply ends and gets attributed to something else two quarters later.",
-  "postscript": "**If you put item 9 in Silent, that is defensible and the exercise scores it.** Escalation triage genuinely degrades invisibly — nobody logs the escalation that was mis-prioritized. The reason the key says absorbed is that the degradation is *fast* and lands on people who complain. But this is the item that best shows the two buckets are ends of a spectrum rather than a binary.\n\n**And if you put item 5 in Silent, notice what you were tracking.** The auto-renewal does get noticed — in finance, one quarter later, after the money is committed. The distinction the exercise is drawing is between *noticed* and *noticed in time*, and for a live inventory the second one is what you actually care about. Add the column if it helps: not just what happens, but when, and whether anyone can still do anything about it."
+  "pattern": "**Look at what separates the silent column from the absorbed one.** It isn't importance — item 12 is arguably the most consequential thing here and it's silent. It isn't difficulty either.\n\nIt is **whether a deadline or an audience is attached.** Everything in the absorbed column has one: a deck goes out, a report is due, a renewal fires, an export is late. Somebody is waiting, so the absence announces itself. Everything in the silent column has neither — the consequence is diffuse, delayed, and lands somewhere other than where the work stopped.\n\nThat gives you a working test for your own inventory, and it's more useful than intuition: **for each item, name who would be waiting.** If nobody is waiting, it will stop silently, and it needs an explicit owner or an explicit decision to drop it — because the default is that it simply ends and gets attributed to something else two quarters later.",
+  "postscript": "**If you put item 9 in Silent, that's defensible and the exercise scores it.** Escalation triage genuinely degrades invisibly — nobody logs the escalation that was mis-prioritized. The reason the key says absorbed is that the degradation is *fast* and lands on people who complain. But this is the item that best shows the two buckets are ends of a spectrum rather than a binary.\n\n**And if you put item 5 in Silent, notice what you were tracking.** The auto-renewal does get noticed — in finance, one quarter later, after the money is committed. The distinction the exercise is drawing is between *noticed* and *noticed in time*, and for a live inventory the second one is what you actually care about. Add the column if it helps: not just what happens, but when, and whether anyone can still do anything about it."
 }

@@ -8,7 +8,7 @@
       "prompt": "What does the module identify as the actual mechanism behind rising turf conflict?",
       "options": [
         "AI made individual contributors more ambitious about scope",
-        "Org designs have not been refreshed to account for new AI-enabled roles",
+        "Org designs haven't been refreshed to account for new AI-enabled roles",
         "The interfaces were always badly defined, and the people absorbing that ambiguity stopped",
         "Specialists are being deliberately excluded to speed up delivery"
       ],
@@ -37,7 +37,7 @@
         "Larger organizations invest less in process documentation"
       ],
       "correctIndex": 2,
-      "explanation": "A large team is not just a team with more capacity — it is a team with more capacity to absorb bad design, which is why the flaw is never even known about."
+      "explanation": "A large team is not just a team with more capacity — it's a team with more capacity to absorb bad design, which is why the flaw is never even known about."
     },
     {
       "id": "q4",
@@ -45,7 +45,7 @@
       "options": [
         "It is nearly always a mistake and should be prevented by policy",
         "It is a reasonable efficiency when the specialist agrees in advance",
-        "Sometimes it is excellent and sometimes it is a disaster with a six-month delay — and on the day it happens the two look identical",
+        "Sometimes it's excellent and sometimes it's a disaster with a six-month delay — and on the day it happens the two look identical",
         "It is acceptable for drafts but not for finished work"
       ],
       "correctIndex": 2,
@@ -73,7 +73,7 @@
         "It includes escalation paths, which RACI matrices omit"
       ],
       "correctIndex": 2,
-      "explanation": "Org charts and RACI describe reporting and consultation. The contract describes the actual moment work passes between hands, and what is in hand when it does."
+      "explanation": "Org charts and RACI describe reporting and consultation. The contract describes the actual moment work passes between hands, and what's in hand when it does."
     },
     {
       "id": "q7",
@@ -85,16 +85,16 @@
         "Who pays for the licenses at the seam"
       ],
       "correctIndex": 1,
-      "explanation": "The current answer in most organizations is \"whatever each person privately decided,\" which is cultural debt in one sentence."
+      "explanation": "The current answer in most organizations is \"whatever each person privately decided,\" which is cultural debt, stated in a line."
     },
     {
       "id": "q8",
       "prompt": "How does the course grade a decision not to send the contract?",
       "options": [
-        "Lower than sending, because the artifact has no effect until it is delivered",
+        "Lower than sending, because the artifact has no effect until it's delivered",
         "Identically to sending, when the condition that has to be true first is named",
         "Higher than sending, because timing judgment is the harder skill",
-        "It is not graded; only the contract itself is assessed"
+        "It isn't graded; only the contract itself is assessed"
       ],
       "correctIndex": 1,
       "explanation": "Timing is most of the skill in a boundary claim. What is not graded identically is never writing one — holding a contract for a stated reason is a position; avoiding the awkwardness is not."

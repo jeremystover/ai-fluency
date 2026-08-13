@@ -18,11 +18,11 @@
 > **"Everyone on my team could name who owns the handoff between us and the team we work with
 > most."**
 
-**True of us, or not true of us?** One sentence. And name the handoff you have in mind, because
+**True of us, or not true of us?** One sentence. And name the handoff you've in mind, because
 the rest of this module is about it.
 
 Then: **if you asked three people on your team and three on theirs, how many of the six would give
-the same answer?** A number out of six. You are going to go and ask.
+the same answer?** A number out of six. You're going to go and ask.
 
 ---
 
@@ -39,11 +39,11 @@ the org design needs a refresh.
 **The actual mechanism is more interesting and it changes what you do about it.** The turf was
 always undefined. What changed is that the people who were absorbing the undefinedness — clarifying
 requirements, chasing the data, translating between two systems, quietly deciding — got busy doing
-other things, or stopped being needed, or left and were not replaced.
+other things, or stopped being needed, or left and weren't replaced.
 
 > **AI did not create your turf problem. It removed the people who were papering over it.**
 
-Which means the work in front of you is not conflict management. **It is design work you can do,
+Which means the work in front of you isn't conflict management. **It is design work you can do,
 mostly with a document**, and this module produces the document.
 
 ## Learning objectives
@@ -63,7 +63,7 @@ Atlassian's Teamwork Lab surveyed 1,000 US knowledge workers between 27 May and 
 findings, and the fourth is the one that matters.
 
 **92% say their responsibilities have grown beyond their original job description in the last
-year.** Nearly everyone. Whatever this is, it is not happening to a subset.
+year.** Nearly everyone. Whatever this is, it isn't happening to a subset.
 
 **The heaviest AI users are nearly twice as likely to take on work from other teams.**
 
@@ -75,25 +75,25 @@ makes AI adoption the single strongest signal in the data for whether someone's 
 
 Carry the sample honestly: 1,000 US knowledge workers, self-reported, one point in time, and
 "heaviest AI users" is a self-described category. It establishes a strong association between
-AI use and scope expansion. It does not establish that the AI caused the expansion rather than
-both being caused by the kind of person who does this — and the module's argument does not need
+AI use and scope expansion. It doesn't establish that the AI caused the expansion rather than
+both being caused by the kind of person who does this — and the module's argument doesn't need
 causation, only the pattern.
 
 **Read the second and third findings together, because separately they are interesting and together
 they are the whole module.** People are taking on other teams' work *and* handling specialist work
 without the specialist. Those are the same behavior seen from two sides: **a boundary that used to
-require a conversation now doesn't.** Not because anyone renegotiated it — because the cost of
+require a conversation now does not.** Not because anyone renegotiated it — because the cost of
 crossing it fell to roughly zero.
 
 > ### Try this — 3 minutes
 > Think of the last piece of work you did that would have required someone else's involvement two
-> years ago and didn't this time. Now answer honestly: **did the person who used to be involved
+> years ago and did not this time. Now answer honestly: **did the person who used to be involved
 > find out?** If not, ask yourself what they would have contributed — and whether the answer is
-> "nothing, it was a formality" or "the thing I didn't know I needed."
+> "nothing, it was a formality" or "the thing I did not know I needed."
 
 ## Lesson 2 · Large teams hide bad interfaces
 
-Here is the structural claim, and it explains why this arrived now rather than five years ago.
+Here's the structural claim, and it explains why this arrived now rather than five years ago.
 
 **Interfaces between teams have always been badly defined.** Almost nowhere is it written down
 exactly where recruiting's responsibility for a hiring manager's decision ends and the manager's
@@ -104,7 +104,7 @@ and consultation rather than the actual seam where work passes between hands.
 **Organizations coped by staffing the seam.** Not deliberately — nobody has a headcount line called
 "absorbs ambiguity." But when there are enough people, somebody always ends up clarifying the
 requirement, chasing the missing field, translating between two systems, noticing that both teams
-assumed the other one was doing it. That absorption is invisible, unrewarded, and it is what made
+assumed the other one was doing it. That absorption is invisible, unrewarded, and it's what made
 the badly-defined interface work.
 
 **So a large team is not just a team with more capacity. It is a team with more slack for
@@ -117,10 +117,10 @@ Two things then happen at once, and they compound.
 premise: the people with slack have less of it.
 
 **And the cost of crossing the boundary collapses.** Someone who would have had to ask the
-specialist can now produce a passable version themselves in twenty minutes. Sometimes that is
-excellent — the specialist was a bottleneck for work that did not need them. Sometimes it is a
+specialist can now produce a passable version themselves in twenty minutes. Sometimes that's
+excellent — the specialist was a bottleneck for work that didn't need them. Sometimes it's a
 disaster with a six-month delay on it. **From the outside, on the day it happens, the two look
-identical**, and that is precisely the problem this module exists to address.
+identical**, and that's precisely the problem this module exists to address.
 
 The claim, stated so you can disagree with it:
 
@@ -130,13 +130,13 @@ The claim, stated so you can disagree with it:
 ## Lesson 3 · Redundancy is sometimes the right answer
 
 The instinct once you accept the above is to define every boundary and assign every piece of work
-a single owner. Resist it, because it is wrong about half the time and the half is predictable.
+a single owner. Resist it, because it's wrong about half the time and the half is predictable.
 
 **Single ownership buys you accountability and consistency.** One name, one standard, one place the
 decision gets made. You want it where the cost of an inconsistent answer is high, where the work is
 irreversible, or where somebody has to be accountable to an outside party.
 
-**Redundancy buys you resilience and speed.** Two or more people can do it, so the work does not
+**Redundancy buys you resilience and speed.** Two or more people can do it, so the work doesn't
 stop when one is unavailable, and nobody waits in a queue. You want it where the work is
 high-volume and low-stakes, where the queue itself is the biggest cost, or where the second person
 catches the first person's errors.
@@ -154,7 +154,7 @@ who got there first is not a design. It is an outcome.**
 
 ## Lesson 4 · Writing the contract
 
-The artifact. It is short — a good one fits on a page — and it is written **at the workflow, not at
+The artifact. It is short — a good one fits on a page — and it's written **at the workflow, not at
 the reporting line**, which is the single thing that distinguishes it from a RACI nobody reads.
 
 A workflow-level ownership contract names five things.
@@ -164,18 +164,18 @@ actual sequence: *a hiring manager requests a level exception → someone assess
 architecture → someone decides → someone communicates it.*
 
 **2 · The seam.** The specific point where the work passes between you. Not "we collaborate
-throughout" — the moment, and what is in hand when it passes.
+throughout" — the moment, and what's in hand when it passes.
 
-**3 · Who owns each side, by name**, and where you have deliberately chosen redundancy, saying so
+**3 · Who owns each side, by name**, and where you've deliberately chosen redundancy, saying so
 explicitly, so it reads as a decision rather than an omission.
 
 **4 · What each side may decide alone**, and what requires the other. This is where the contract
 earns its existence, and where the AI-specific question lives: **what may be produced with AI
 without telling the other side?** A draft, probably. An assessment the other side will rely on,
 probably not. Write your answer down, because the current answer in most organizations is
-"whatever each person privately decided," and that is Module 1's cultural debt in one sentence.
+"whatever each person privately decided," and that's Module 1's cultural debt, stated in a line.
 
-**5 · What happens when it is contested.** Module 2's Step 7, at the seam. When you disagree about
+**5 · What happens when it's contested.** Module 2's Step 7, at the seam. When you disagree about
 who owns something, who decides? If the honest answer is that it escalates to two managers who
 will have a conversation, write that.
 
@@ -185,10 +185,10 @@ A boundary claim to a peer is a political act. It says *I think this is mine, or
 putting it in writing.* Sending it at the wrong moment — mid-crisis, during their reorganization,
 a week after you took something else from them — can cost you more than the ambiguity was costing.
 
-> **"Not yet, and here is what has to be true first" is frequently the right answer, and this
+> **"Not yet, and here's what has to be true first" is frequently the right answer, and this
 > course grades it identically to sending.**
 
-What it does not grade identically is *not deciding.* Holding a contract you have written, for a
+What it doesn't grade identically is *not deciding.* Holding a contract you've written, for a
 stated reason, with a condition attached, is a position. Never writing one because it might be
 awkward is the thing this module exists to prevent.
 
@@ -211,18 +211,18 @@ awkward is the thing this module exists to prevent.
 - **An interface settled by who got there first is not a design. It is an outcome.**
 - **Write the contract at the workflow, not the reporting line**, and include what may be produced
   with AI without telling the other side.
-- **"Not yet, and here's what has to be true first" is a position.** Never writing one is not.
+- **"Not yet, and here's what has to be true first" is a position.** Never writing one isn't.
 
 ## Take a position
 
-**The claim:** *"AI did not create your turf problem. It removed the people who were absorbing
+**The claim:** *"AI didn't create your turf problem. It removed the people who were absorbing
 it."*
 
 The strongest counter-argument is that **this is too flattering to the past.** It implies there was
 a functioning system that AI disturbed, when the more likely truth is that a lot of that absorption
 was never benign: it was invisible, gendered, unrewarded work that fell to whoever was least able
 to refuse it, and it made bad design survivable at the direct expense of specific people's careers.
-On that view, the interfaces becoming visible is not damage — **it is a decade of hidden labor
+On that view, the interfaces becoming visible isn't damage — **it's a decade of hidden labor
 finally showing up in the light**, and the right response is to celebrate the surfacing rather than
 mourn the absorbers.
 
@@ -232,7 +232,7 @@ already doing** — and the organizations that let boundaries get settled by spe
 better-designed than the ones that convened working groups about it.
 
 Your position has to say who was doing the absorbing in your organization, whether you would want
-it back, and what that implies about the pace of the work you are about to do.
+it back, and what that implies about the pace of the work you're about to do.
 
 ## Applied activity — "The ownership contract"
 
@@ -244,21 +244,21 @@ lands.
 same owner for your handoff. **Ask them.** Three on your side, three on theirs, one question:
 *"Who owns X?"* Record the answers as given, including the ones that are questions back at you.
 
-If you cannot ask six, ask who you can and say so. **If the answers are so various that the
-question does not parse, that is the finding** and it earns full credit.
+If you can't ask six, ask who you can and say so. **If the answers are so various that the
+question does not parse, that's the finding** and it earns full credit.
 
 **Step 2 — Write the contract (14 min).** One page, five parts, at the workflow:
 
 1. The workflow from trigger to output, in one line.
-2. The seam — the moment work passes, and what is in hand when it does.
+2. The seam — the moment work passes, and what's in hand when it does.
 3. Who owns each side, by name, with any deliberate redundancy stated as a choice.
 4. What each side may decide alone — **including what may be produced with AI without telling the
    other side.**
-5. What happens when it is contested, with a name.
+5. What happens when it's contested, with a name.
 
 **Step 3 — The send decision (4 min).** Address it to the peer on the other side of the seam. Then
 decide: **send, or not yet.** Either is a full-credit answer. If not yet, name the condition — the
-specific thing that has to be true before you send — and the date you will check it. Then predict
+specific thing that has to be true before you send — and the date you'll check it. Then predict
 their response in one or two sentences: **which of the five parts do they push back on first?**
 
 **Step 4 — The covering note (4 min).** 200–300 words. Your calibration number against what the six
@@ -273,7 +273,7 @@ absorbing.
 **Q1.** What does the module identify as the actual mechanism behind rising turf conflict?
 
 - A. AI made individual contributors more ambitious about scope
-- B. Org designs have not been refreshed to account for new AI-enabled roles
+- B. Org designs haven't been refreshed to account for new AI-enabled roles
 - C. The interfaces were always badly defined, and the people absorbing that ambiguity stopped ✓
 - D. Specialists are being deliberately excluded to speed up delivery
 
@@ -297,14 +297,14 @@ absorbing.
 - C. Slack gets spent absorbing ambiguity nobody designed away, so the bad design is never surfaced or fixed ✓
 - D. Larger organizations invest less in process documentation
 
-> **C.** A large team is not just a team with more capacity — it is a team with more capacity to
+> **C.** A large team is not just a team with more capacity — it's a team with more capacity to
 > absorb bad design, which is why the flaw is never even known about.
 
 **Q4.** What does the module say about routing around a specialist?
 
 - A. It is nearly always a mistake and should be prevented by policy
 - B. It is a reasonable efficiency when the specialist agrees in advance
-- C. Sometimes it is excellent and sometimes it is a disaster with a six-month delay — and on the day it happens the two look identical ✓
+- C. Sometimes it's excellent and sometimes it's a disaster with a six-month delay — and on the day it happens the two look identical ✓
 - D. It is acceptable for drafts but not for finished work
 
 > **C.** That indistinguishability on the day is exactly why the boundary needs deciding in advance
@@ -328,7 +328,7 @@ absorbing.
 - D. It includes escalation paths, which RACI matrices omit
 
 > **C.** Org charts and RACI describe reporting and consultation. The contract describes the actual
-> moment work passes between hands, and what is in hand when it does.
+> moment work passes between hands, and what's in hand when it does.
 
 **Q7.** Which AI-specific question does the contract have to answer?
 
@@ -338,14 +338,14 @@ absorbing.
 - D. Who pays for the licenses at the seam
 
 > **B.** The current answer in most organizations is "whatever each person privately decided,"
-> which is cultural debt in one sentence.
+> which is cultural debt, stated in a line.
 
 **Q8.** How does the course grade a decision not to send the contract?
 
-- A. Lower than sending, because the artifact has no effect until it is delivered
+- A. Lower than sending, because the artifact has no effect until it's delivered
 - B. Identically to sending, when the condition that has to be true first is named ✓
 - C. Higher than sending, because timing judgment is the harder skill
-- D. It is not graded; only the contract itself is assessed
+- D. It isn't graded; only the contract itself is assessed
 
 > **B.** Timing is most of the skill in a boundary claim. What is not graded identically is never
 > writing one — holding a contract for a stated reason is a position; avoiding the awkwardness is
@@ -360,7 +360,7 @@ absorbing.
   self-reported. The sample and its limits are stated in the lesson.
 - **A claim was dropped rather than left silently out.** An earlier draft carried "nearly half of
   occupation-specific AI use involves tasks from other professions," attributed to the Anthropic
-  Economic Index. It could not be confirmed in that reporting and is not used. The Atlassian
+  Economic Index. It couldn't be confirmed in that reporting and isn't used. The Atlassian
   figures cover the same ground with a stated sample.
 - The interface argument, the redundancy/single-owner reversal, the five-part contract, and the
   send/don't-send discipline are original to this course.

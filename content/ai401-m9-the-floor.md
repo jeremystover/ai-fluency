@@ -34,7 +34,7 @@ Three specific things to verify locally before acting on anything below: **the j
 organization actually operates in** and which instruments apply there; **the current status of the
 European timeline**, which moved once already in 2026 and carries a review date on this block; and
 **your own contracts** with any vendor whose system touches a decision about a person, because the
-allocation of liability in those contracts is not what this module can tell you.
+allocation of liability in those contracts isn't what this module can tell you.
 
 ---
 
@@ -42,13 +42,13 @@ allocation of liability in those contracts is not what this module can tell you.
 
 *One claim. Commit before you read.*
 
-> **"I could name, today, one decision about a person in my organization that is being shaped by a
+> **"I could name, today, one decision about a person in my organization that's being shaped by a
 > system nobody in People has reviewed."**
 
 **True of us, or not true of us?** If true, name it now — a screening tool, a scheduling system, a
 scoring model, a routing rule, a flag in a case management system.
 
-If you cannot name one, do not write "there aren't any." Write **"I can't name one,"** because those
+If you can't name one, don't write "there aren't any." Write **"I cannot name one,"** because those
 are different statements and the difference is this module's subject.
 
 Then: **how many systems in your organization touch a decision about a person?** A count. Almost
@@ -63,20 +63,20 @@ below it in a specific way.
 
 101 M7 and M8 taught you where the line sits for **your own** work and gave you a policy skeleton
 for **your own** function. Your 301 track taught the legal edges of **your own** role. This module
-is about the rules that govern work you do not perform, in functions you do not run, using systems
-you did not buy — and about the enforcement problem that creates, which is genuinely 401's and
+is about the rules that govern work you don't perform, in functions you don't run, using systems
+you didn't buy — and about the enforcement problem that creates, which is genuinely 401's and
 appears nowhere below it.
 
 Two things frame it.
 
-**You are the deployer, and that is a load-bearing word.** Most obligations in this area attach to
+**You're the deployer, and that's a load-bearing word.** Most obligations in this area attach to
 the organization that puts a system in front of people, not the one that built it. Module 6 taught
 you to ask a vendor who holds liability for a discriminatory outcome and to listen to the
 deflection. This module tells you what the deflection is deflecting.
 
 **And a floor nobody can comply with is not a floor.** The organizations that write the strictest
 AI policies frequently have the most unsanctioned AI use, and those two facts are causally related.
-Lesson 4 is about that, and it is the module's real contribution.
+Lesson 4 is about that, and it's the module's real contribution.
 
 ## Learning objectives
 
@@ -84,21 +84,21 @@ By the end of this module you should be able to:
 
 1. Explain what being the deployer means for where obligations land.
 2. Name the four duties that recur across regimes, and design for them without reading each one.
-3. State the current European position accurately, including which half moved and which did not.
+3. State the current European position accurately, including which half moved and which didn't.
 4. Explain the agent theory and what it changes about how you buy.
 5. Write a floor that includes an exception path, and say why one without it fails.
 
-## Lesson 1 · You are the deployer **[V]**
+## Lesson 1 · You're the deployer **[V]**
 
 The distinction that decides who carries the obligation.
 
-**A developer builds the system. A deployer puts it in front of people.** You are the second one,
+**A developer builds the system. A deployer puts it in front of people.** You're the second one,
 and across most of the regimes in this area, **the duties that matter attach to the deployer** —
 notice, assessment, record-keeping, human review — regardless of what the vendor's marketing says
 and frequently regardless of what the contract says.
 
 This has a practical consequence that catches People functions repeatedly: **you can inherit an
-obligation from a purchase you were not part of.** IT bought the scheduling system. A business unit
+obligation from a purchase you weren't part of.** IT bought the scheduling system. A business unit
 signed up for the screening tool. Somebody's team enabled a feature inside a platform you already
 owned. In each case the system is now making or shaping decisions about people, and the exposure is
 the employer's.
@@ -111,9 +111,9 @@ obligations keep appearing in different combinations:
 - **The right to request human review.**
 - **Record-keeping** about how the tool was used and what it produced.
 
-**If you build for those four, you are broadly positioned for regimes you have not read yet.** That
+**If you build for those four, you're broadly positioned for regimes you have not read yet.** That
 is the single most useful sentence in this module for someone operating across jurisdictions, and
-it is why the activity asks for a floor rather than a compliance matrix.
+it's why the activity asks for a floor rather than a compliance matrix.
 
 **And the doctrine that predates all of it.** Disparate impact requires no intent. A neutral
 practice that disproportionately excludes a protected group needs job-related justification,
@@ -138,11 +138,11 @@ And two things never moved at all: the **AI literacy obligation** and the **proh
 recognition in the workplace**, both in force since February 2025. The emotion-recognition ban is
 not a risk to manage — it is a prohibition on inferring emotional states of employees or candidates
 from facial expression, voice, or similar signals. **If a vendor is selling you sentiment-from-video
-in an interview context and you have European operations, that is not a procurement question.**
+in an interview context and you've European operations, that is not a procurement question.**
 
 So: **the leader who thinks the deadline passed and they are exposed is wrong. The leader who thinks
 it all got delayed is also wrong.** Knowing which half moved is the literacy this lesson is for, and
-it is exactly the kind of fact that will have changed again by the time you read this — which is
+it's exactly the kind of fact that will have changed again by the time you read this — which is
 why the block carries a volatile marker and a review date.
 
 ## Lesson 3 · The agent theory **[V]**
@@ -165,22 +165,22 @@ to the question Module 6 told you to ask, and the reason the deflection was a de
 
 **And discovery reaches the model.** The most instructive part of the case is the ongoing fight over
 access to algorithmic code and testing data. Whatever its outcome, the direction is clear enough to
-plan around: **"we don't know how it works" is not going to be a durable position**, and the time to
-find out how it works is before you are asked.
+plan around: **"we do not know how it works" is not going to be a durable position**, and the time to
+find out how it works is before you're asked.
 
 Which gives you the procurement consequence in one line: **the bias audit you did not ask for at
-purchase is the document you will be asked for at discovery.**
+purchase is the document you'll be asked for at discovery.**
 
 ## Lesson 4 · The floor that people can actually stand on
 
-Everything above is the law. This lesson is the part that is your job rather than counsel's, and it
+Everything above is the law. This lesson is the part that's your job rather than counsel's, and it
 is the module's real contribution.
 
 **Start with the rule that outlives every statute.**
 
 > **AI is never the decision-maker. Automate the assembly, not the reasoning.**
 
-That rule survives every rollback, deferral, and amendment above, because it is not derived from any
+That rule survives every rollback, deferral, and amendment above, because it isn't derived from any
 of them. It is derived from what your organization's product actually is — manager judgment — and a
 policy built on it will still be right when the timeline moves again. A policy built on a compliance
 date expires on that date.
@@ -188,43 +188,43 @@ date expires on that date.
 **Now the enforcement problem, which is the one nobody teaches.**
 
 Organizations with the strictest AI policies frequently have the most unsanctioned AI use. That is
-not irony, it is mechanism: **a prohibition nobody can comply with produces concealment rather than
+not irony, it's mechanism: **a prohibition nobody can comply with produces concealment rather than
 compliance.** If the rule is "no AI on any employee data" and the alternative is missing a deadline
-you cannot miss, people will use AI on employee data and stop telling you.
+you can't miss, people will use AI on employee data and stop telling you.
 
-You then have the worst of both worlds. The usage continues, the risk is unchanged, and **you have
+You then have the worst of both worlds. The usage continues, the risk is unchanged, and **you've
 destroyed your visibility into it** — which was the one thing you actually had.
 
-So a floor has to be enforceable by something other than hope, and at this rung you do not have a
+So a floor has to be enforceable by something other than hope, and at this rung you don't have a
 police force. Three properties make one operate:
 
-**It must be compliable.** For every prohibition, there is a stated thing to do instead. A rule that
+**It must be compliable.** For every prohibition, there's a stated thing to do instead. A rule that
 forbids without providing an alternative is a rule that gets routed around, and the routing is
 invisible to you by design.
 
 **It must have an exception path with a real owner and a real turnaround.** Not "raise it with your
 manager" — a named route with a stated response time. **The exception path is what converts
 concealment into a queue**, and a queue is information: it tells you where the floor is wrong, which
-teams are under pressure, and what is coming.
+teams are under pressure, and what's coming.
 
 **And it must be versioned, with a date and a next review.** Everything in Lessons 1 to 3 will move.
-A policy with no version is one people cannot tell is current, which means they will treat all of it
+A policy with no version is one people can't tell is current, which means they will treat all of it
 as equally stale — including the parts that matter most.
 
 > **A floor with no exception path is not a floor. It is a detour sign.**
 
-**One more thing, and it is the honest limit of your position.** You will write this and someone
-will not follow it, and you will not find out. Your instrument is not enforcement, it is **making
+**One more thing, and it's the honest limit of your position.** You'll write this and someone
+won't follow it, and you won't find out. Your instrument isn't enforcement, it's **making
 compliance cheaper than concealment** — which is a design problem, and the one thing in this module
-that is squarely yours rather than counsel's.
+that's squarely yours rather than counsel's.
 
 ## Key takeaways
 
-- **You are the deployer.** Obligations attach to the organization putting a system in front of
+- **You're the deployer.** Obligations attach to the organization putting a system in front of
   people, not the one that built it — and **you can inherit an obligation from a purchase you were
   not part of.**
 - **Four duties recur across regimes:** notice, bias auditing, a right to human review, and
-  record-keeping. Build for those and you are broadly positioned for regimes you have not read.
+  record-keeping. Build for those and you're broadly positioned for regimes you haven't read.
 - **Disparate impact requires no intent**, and every AI statute sits on top of that rather than
   replacing it.
 - **In Europe, one half moved and one did not.** Employment high-risk obligations deferred to
@@ -232,8 +232,8 @@ that is squarely yours rather than counsel's.
   2 August 2026; the AI literacy obligation and the workplace emotion-recognition prohibition have
   been in force since February 2025 and never moved.
 - **The agent theory means neither party gets to point at the other**, and *"we don't know how it
-  works"* is not a durable position. **The bias audit you did not ask for at purchase is the
-  document you will be asked for at discovery.**
+  works"* isn't a durable position. **The bias audit you did not ask for at purchase is the
+  document you'll be asked for at discovery.**
 - **AI is never the decision-maker. Automate the assembly, not the reasoning** — a rule that
   outlives any statute, because it is derived from what your organization's product is.
 - **A prohibition nobody can comply with produces concealment rather than compliance**, and you lose
@@ -244,7 +244,7 @@ that is squarely yours rather than counsel's.
 
 ## Take a position
 
-**The claim:** *"A floor with no exception path is not a floor. It is a detour sign."*
+**The claim:** *"A floor with no exception path isn't a floor. It is a detour sign."*
 
 The strongest counter-argument is that **some floors should have no exception path, and saying so
 is the point of having one.** There are things that should simply never happen — inferring emotional
@@ -254,10 +254,10 @@ negotiable given sufficient business pressure. **A queue is an invitation.** Eve
 becomes the precedent for the next one, the turnaround time becomes the real policy, and within a
 year the floor is wherever the exception approver's tolerance happens to sit.
 
-The sharper version: this module's own framing concedes it. Lesson 2 describes the
+Sharper still: this module's own framing concedes it. Lesson 2 describes the
 emotion-recognition ban as *"not a risk to manage"* — a prohibition, full stop, with no exception
 path contemplated by the legislature. **So the module already believes some floors are absolute**,
-and has not said how you tell those from the ones that need a queue.
+and hasn't said how you tell those from the ones that need a queue.
 
 Your position has to draw that line: which prohibitions in your own floor get an exception path,
 which get none, and what distinguishes them.
@@ -286,7 +286,7 @@ more alarming one than finding something, because it usually means nobody can en
 at all.
 
 **Step 3 — Write the exception path (10 min).** For one rule in your organization's current AI
-policy — or one you would write if there is no policy — specify:
+policy — or one you would write if there's no policy — specify:
 
 - **The rule**, in one line.
 - **What to do instead** — because a prohibition without an alternative gets routed around.
@@ -305,7 +305,7 @@ argument that a queue is an invitation.
 **Q1.** What does being the "deployer" mean for where obligations land?
 
 - A. That the organization shares liability proportionally with the vendor
-- B. That duties attach to the organization putting the system in front of people, regardless of who built it — so you can inherit an obligation from a purchase you were not part of ✓
+- B. That duties attach to the organization putting the system in front of people, regardless of who built it — so you can inherit an obligation from a purchase you weren't part of ✓
 - C. That obligations transfer once the system is customized for your organization
 - D. That the deploying manager rather than the function carries the exposure
 
@@ -319,7 +319,7 @@ argument that a queue is an invitation.
 - C. Consent, minimization, retention limits, and deletion rights
 - D. Impact assessment, board approval, vendor attestation, and annual reporting
 
-> **B.** Build for those four and you are broadly positioned for regimes you have not read — which
+> **B.** Build for those four and you're broadly positioned for regimes you have not read — which
 > is why the activity asks for a floor rather than a compliance matrix.
 
 **Q3.** What is the accurate statement of the current European position on employment uses?
@@ -337,7 +337,7 @@ argument that a queue is an invitation.
 
 - A. It requires a documented impact assessment before deployment
 - B. It is permitted with candidate notice and a human review option
-- C. It is not a procurement question — workplace emotion recognition is prohibited, not a risk to manage ✓
+- C. It isn't a procurement question — workplace emotion recognition is prohibited, not a risk to manage ✓
 - D. It depends on whether the inference affects the hiring decision
 
 > **C.** The prohibition covers inferring emotional states from facial expression, voice, or similar
@@ -357,7 +357,7 @@ argument that a queue is an invitation.
 
 - A. Contracts should include indemnification for algorithmic decisions
 - B. Vendors should be required to hold errors-and-omissions coverage
-- C. "We don't know how it works" is not a durable position — the bias audit you didn't ask for at purchase is the document you'll be asked for at discovery ✓
+- C. "We don't know how it works" isn't a durable position — the bias audit you didn't ask for at purchase is the document you'll be asked for at discovery ✓
 - D. Model documentation should be retained for the statutory limitation period
 
 > **C.** Which is why Module 6 puts the bias audit request at purchase, when you still have
@@ -365,8 +365,8 @@ argument that a queue is an invitation.
 
 **Q7.** Why does a prohibition nobody can comply with produce concealment rather than compliance?
 
-- A. Because employees resent rules they were not consulted on
-- B. Because if the rule is "no AI on employee data" and the alternative is missing a deadline you cannot miss, people will use AI and stop telling you ✓
+- A. Because employees resent rules they weren't consulted on
+- B. Because if the rule is "no AI on employee data" and the alternative is missing a deadline you can't miss, people will use AI and stop telling you ✓
 - C. Because enforcement resources are always insufficient
 - D. Because policies written by legal are rarely understood by practitioners
 
@@ -385,7 +385,7 @@ argument that a queue is an invitation.
 
 ## Sources and attribution
 
-- **Counsel-review gate stated at the top of the module**, in the content itself. Nothing here is
+- **Counsel-review gate stated at the top of the module**, in the content itself. Nothing here's
   legal advice; the module's usefulness is in identifying which questions are live.
 - **The EU AI Act timeline, the Digital Omnibus deferral, and *Mobley v. Workday* are reused
   verbatim rather than re-derived** — from `content/ai301-hrbp-m6-the-line.md` and the CPO track's
@@ -397,8 +397,8 @@ argument that a queue is an invitation.
   wording established during the CPO track's verification, which found the pre-correction phrasing
   described the deferral as a proposal rather than adopted law.
 - **Deliberately not repeated from 101 M7 and M8:** where the assist/decide line sits, and the
-  five-question policy skeleton for your own function. This module is about work you do not perform
-  in functions you do not run, and about enforcement without authority.
+  five-question policy skeleton for your own function. This module is about work you don't perform
+  in functions you don't run, and about enforcement without authority.
 - The deployer framing as an inheritance problem, the compliable/exception-path/versioned test, and
   the *make compliance cheaper than concealment* rule are original to this course. The concealment
   mechanism is shared with the Labor & Employee Relations 301 track, where it appears in its

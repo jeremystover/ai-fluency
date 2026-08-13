@@ -5,11 +5,11 @@
   "artifacts": [
     {
       "label": "Function A",
-      "body": "\"We've got about six people who've gone deep — they build their own tooling, they're all over it, and honestly they're producing two or three times what they were. We don't standardize because we don't want to slow them down; the whole point is to let people find what works. The rest of the team is picking it up from them gradually. Our COE leads meet monthly and swap what they're doing. Output across the function is way up and everyone can see it.\""
+      "body": "\"We've got about six people who've gone deep — they build their own tooling, they are all over it, and honestly they are producing two or three times what they were. We don't standardize because we don't want to slow them down; the whole point is to let people find what works. The rest of the team is picking it up from them gradually. Our COE leads meet monthly and swap what they are doing. Output across the function is way up and everyone can see it.\""
     },
     {
       "label": "Function B",
-      "body": "\"We set a rule in January: two process changes per quarter, function-wide, and the queue is public. Anything else waits. It's frustrating — there are four things in the queue right now that everyone agrees are good ideas. But when something ships, it ships properly: definitions agreed, the downstream teams know it's coming, and we check eight weeks later whether it actually landed. Our throughput is lower than I'd like and I can tell you exactly what we've absorbed.\""
+      "body": "\"We set a rule in January: two process changes per quarter, function-wide, and the queue is public. Anything else waits. It is frustrating — there are four things in the queue right now that everyone agrees are good ideas. But when something ships, it ships properly: definitions agreed, the downstream teams know it's coming, and we check eight weeks later whether it actually landed. Our throughput is lower than I'd like and I can tell you exactly what we've absorbed.\""
     },
     {
       "label": "Function C",
@@ -17,15 +17,27 @@
     },
     {
       "label": "Function D",
-      "body": "\"Two teams are moving fast, two aren't, and we made that explicit rather than pretending otherwise. The two fast ones are working on things where their output doesn't feed anyone else — market research, first-draft policy work. The other two touch shared data and they're going slower on purpose. We revisit which team is in which category every quarter. It's uneven by design and I get asked why we're not doing this consistently roughly once a month.\""
+      "body": "\"Two teams are moving fast, two aren't, and we made that explicit rather than pretending otherwise. The two fast ones are working on things where their output doesn't feed anyone else — market research, first-draft policy work. The other two touch shared data and they are going slower on purpose. We revisit which team is in which category every quarter. It is uneven by design and I get asked why we're not doing this consistently roughly once a month.\""
     }
   ],
   "options": [
-    { "id": "a", "label": "Function A" },
-    { "id": "b", "label": "Function B" },
-    { "id": "c", "label": "Function C" },
-    { "id": "d", "label": "Function D" }
+    {
+      "id": "a",
+      "label": "Function A"
+    },
+    {
+      "id": "b",
+      "label": "Function B"
+    },
+    {
+      "id": "c",
+      "label": "Function C"
+    },
+    {
+      "id": "d",
+      "label": "Function D"
+    }
   ],
   "key": "a",
-  "reasoning": "**A is generating debt fastest, and it is the one most people admire.** That reaction is the exercise. Everything in A's description is a virtue in isolation: deep adopters, no artificial constraints, organic spread, visible output gains. And every one of those is also a variation generator.\n\nSix people building their own tooling produce six shapes. \"We don't standardize because we don't want to slow them down\" is Lesson 2's veto in reverse — a pace decision made by declining to make one. \"The rest of the team is picking it up from them gradually\" is the copying-badly problem from Lesson 3, described as a benefit. And the monthly COE swap is not reconciliation capacity; **it is four people telling each other what they did, which retires no debt at all.**\n\nThe tell is the last sentence. *Output across the function is way up and everyone can see it.* That is production cost falling, measured. Nothing in A measures the other side of the equation, so nobody in A can know whether total coordination cost is rising — which is exactly the state the module says is the default.\n\n**B is the module's discipline, and it is deliberately unglamorous.** A rate stated in advance, a public queue, a landing check eight weeks out. Note what makes it legitimate rather than a veto: the number was set in January, before anyone proposed anything, so it binds the leader as much as the requesters. **\"Our throughput is lower than I'd like and I can tell you exactly what we've absorbed\" is the sentence this whole module is arguing for** — and the four good ideas sitting in the queue are the real cost, honestly borne.\n\n**C solved variation by buying it away, and bought integration debt with a contract attached.** The consistency is real. So is the position they are now in: prompts, knowledge base, workflow logic, and review steps all live inside one vendor, and \"the pricing conversation is going to be interesting\" is a leader who can already feel it. C is not the wrong answer to this exercise, but it is the one whose bill arrives on a date somebody else set.\n\n**D is the strongest of the four and the hardest to sustain.** Pace governed per team by whether the team's output feeds anyone else — which is precisely the right variable, since integration debt is only generated where outputs have to meet. Fast where nothing joins, slow where things do, revisited quarterly. The monthly \"why aren't we doing this consistently\" is the price, and it is the correct price to be paying.\n\nThe transferable test: **for any adoption approach, name what it measures on the coordination side.** A measures nothing. C bought a single answer. B counts changes and checks landing. D routes by whether outputs join at all. Only a description that includes a coordination measure can tell you whether the speed is real."
+  "reasoning": "**A is generating debt fastest, and it's the one most people admire.** That reaction is the exercise. Everything in A's description is a virtue in isolation: deep adopters, no artificial constraints, organic spread, visible output gains. And every one of those is also a variation generator.\n\nSix people building their own tooling produce six shapes. \"We don't standardize because we don't want to slow them down\" is Lesson 2's veto in reverse — a pace decision made by declining to make one. \"The rest of the team is picking it up from them gradually\" is the copying-badly problem from Lesson 3, described as a benefit. And the monthly COE swap isn't reconciliation capacity; **it's four people telling each other what they did, which retires no debt at all.**\n\nThe tell is the last sentence. *Output across the function is way up and everyone can see it.* That is production cost falling, measured. Nothing in A measures the other side of the equation, so nobody in A can know whether total coordination cost is rising — which is exactly the state the module says is the default.\n\n**B is the module's discipline, and it's deliberately unglamorous.** A rate stated in advance, a public queue, a landing check eight weeks out. Note what makes it legitimate rather than a veto: the number was set in January, before anyone proposed anything, so it binds the leader as much as the requesters. **\"Our throughput is lower than I'd like and I can tell you exactly what we've absorbed\" is the sentence this whole module is arguing for** — and the four good ideas sitting in the queue are the real cost, honestly borne.\n\n**C solved variation by buying it away, and bought integration debt with a contract attached.** The consistency is real. So is the position they are now in: prompts, knowledge base, workflow logic, and review steps all live inside one vendor, and \"the pricing conversation is going to be interesting\" is a leader who can already feel it. C isn't the wrong answer to this exercise, but it's the one whose bill arrives on a date somebody else set.\n\n**D is the strongest of the four and the hardest to sustain.** Pace governed per team by whether the team's output feeds anyone else — which is precisely the right variable, since integration debt is only generated where outputs have to meet. Fast where nothing joins, slow where things do, revisited quarterly. The monthly \"why aren't we doing this consistently\" is the price, and it's the correct price to be paying.\n\nThe transferable test: **for any adoption approach, name what it measures on the coordination side.** A measures nothing. C bought a single answer. B counts changes and checks landing. D routes by whether outputs join at all. Only a description that includes a coordination measure can tell you whether the speed is real."
 }

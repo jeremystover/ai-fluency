@@ -10,16 +10,16 @@
         "AI adoption is slower in large organizations than small ones",
         "Individual AI adoption can increase total coordination cost while decreasing production cost",
         "Coordination costs rise faster than production costs fall in most AI deployments",
-        "Teams that adopt AI unevenly perform worse than teams that do not adopt it at all"
+        "Teams that adopt AI unevenly perform worse than teams that don't adopt it at all"
       ],
       "correctIndex": 1,
-      "explanation": "Which means the enthusiastic early adopter, genuinely producing more, can be making the organization slower — not by doing anything wrong, but by generating integration debt faster than it is retired."
+      "explanation": "Which means the enthusiastic early adopter, genuinely producing more, can be making the organization slower — not by doing anything wrong, but by generating integration debt faster than it's retired."
     },
     {
       "id": "q2",
       "prompt": "Why does local optimization increase coordination cost?",
       "options": [
-        "Because individuals choose tools their colleagues cannot access",
+        "Because individuals choose tools their colleagues can't access",
         "Because it increases variation, and variation is paid for in coordination by whoever has the least slack",
         "Because optimized processes are harder to document",
         "Because individual improvements are rarely shared across teams"
@@ -32,19 +32,19 @@
       "prompt": "What three conditions make an absorption rate a discipline rather than a veto?",
       "options": [
         "Executive approval, documentation, and quarterly review",
-        "It is a rate rather than a limit; it is stated as a number in advance; and it is falsifiable",
+        "It is a rate rather than a limit; it's stated as a number in advance; and it's falsifiable",
         "It is benchmarked externally, measured continuously, and owned by a named person",
         "It is agreed with affected teams, published, and revisited annually"
       ],
       "correctIndex": 1,
-      "explanation": "\"We can't absorb that,\" said in the meeting where something is proposed, is a veto. \"Two process changes per quarter, agreed in January\" binds you as well as them."
+      "explanation": "\"We cannot absorb that,\" said in the meeting where something is proposed, is a veto. \"Two process changes per quarter, agreed in January\" binds you as well as them."
     },
     {
       "id": "q4",
       "prompt": "How does the module reframe the speed-versus-risk question?",
       "options": [
         "Speed and risk are both subordinate to quality",
-        "You do not trade speed against risk — you govern speed against absorption",
+        "You don't trade speed against risk — you govern speed against absorption",
         "Risk should be assessed per use case rather than per pace decision",
         "Speed is a leadership choice; risk is a compliance one"
       ],
@@ -91,7 +91,7 @@
       "id": "q8",
       "prompt": "What is the correct reading of a vendor deflecting the discriminatory-outcome liability question?",
       "options": [
-        "That the vendor's legal team has not been consulted on the deal",
+        "That the vendor's legal team hasn't been consulted on the deal",
         "That liability is genuinely unsettled and will be determined case by case",
         "That the deflection is the information — substantial exposure sits with you as the deployer regardless of the contract",
         "That the question should be raised with procurement rather than the vendor"

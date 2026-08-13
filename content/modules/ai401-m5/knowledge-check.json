@@ -13,7 +13,7 @@
         "Because it fails to account for remote and hybrid working patterns"
       ],
       "correctIndex": 1,
-      "explanation": "And it is expensive in both directions: neglected teams where the work is hard, over-supervised ones where it isn't."
+      "explanation": "And it's expensive in both directions: neglected teams where the work is hard, over-supervised ones where it is not."
     },
     {
       "id": "q2",
@@ -33,7 +33,7 @@
       "options": [
         "Coverage questions are asked annually; headcount questions are asked in planning cycles",
         "A headcount question produces a number; a coverage question produces a map, and the number falls out of the map",
-        "Coverage questions include contractors and headcount questions do not",
+        "Coverage questions include contractors and headcount questions don't",
         "Coverage questions are owned by People and headcount by Finance"
       ],
       "correctIndex": 1,
@@ -49,7 +49,7 @@
         "That regulatory oversight of AI increases compliance workload"
       ],
       "correctIndex": 1,
-      "explanation": "Module 6 tells you how to check it: if your absorption limit is not the binding constraint, growth is back on the table in a way it wasn't."
+      "explanation": "Module 6 tells you how to check it: if your absorption limit is not the binding constraint, growth is back on the table in a way it was not."
     },
     {
       "id": "q5",
@@ -80,8 +80,8 @@
       "prompt": "Why does invisible work concentrate in middle management?",
       "options": [
         "Because middle managers have more discretionary time than individual contributors",
-        "Because their job is partly defined as handling whatever is not handled — they sit where the gaps between defined roles become visible",
-        "Because they are responsible for work their reports cannot complete",
+        "Because their job is partly defined as handling whatever isn't handled — they sit where the gaps between defined roles become visible",
+        "Because they are responsible for work their reports can't complete",
         "Because they are measured on team outcomes rather than individual output"
       ],
       "correctIndex": 1,

@@ -29,7 +29,7 @@ someone started using. People routinely undercount this by half, and the underco
 
 ## Module brief
 
-This is the module with the finding that makes people argue, so here it is in the first paragraph
+This is the module with the finding that makes people argue, so here it's in the first paragraph
 where you can start disagreeing early:
 
 > **Individual AI adoption can increase total coordination cost while decreasing production cost.**
@@ -49,7 +49,7 @@ decision. Once you see it that way, the vendor conversation changes shape.
 
 **One thing this module is not.** 101 M3 taught you to read a vendor quote — per-seat versus
 per-use, what "unlimited" means, the questions that expose a thin wrapper. That was the right
-lesson and it is not repeated here. **This is the layer above it:** not what the thing costs, but
+lesson and it isn't repeated here. **This is the layer above it:** not what the thing costs, but
 what it does to your ability to change your mind.
 
 ## Learning objectives
@@ -76,10 +76,10 @@ incompatible. The time saved on both is spent, with interest, discovering that.
 
 **And local optimization increases variation.** Each person, using their own tools in their own way
 against their own understanding of the goal, produces something slightly differently shaped. There
-was always variation; there is more of it now, because the constraint that used to suppress it —
+was always variation; there's more of it now, because the constraint that used to suppress it —
 the cost of producing anything at all — is gone.
 
-**Variation is paid for in coordination.** That is the whole mechanism. Every increment of
+**Variation is paid for in coordination.** That is the mechanism. Every increment of
 difference between two people's outputs is an increment of work for whoever has to make them fit,
 and that work is nobody's job, appears on no dashboard, and lands — as Module 5 established — on
 the people with the least slack.
@@ -102,14 +102,14 @@ Put the pieces together and you get the claim:
 > **An organization has a maximum rate at which it can absorb individually-generated change, and
 > almost nobody measures it.**
 
-That rate is real, it is finite, and it is set by things you can actually name: how much
+That rate is real, it's finite, and it's set by things you can actually name: how much
 reconciliation capacity exists, how much slack the absorbers have, how many decisions can be
 stabilized per cycle, how much variation the downstream can tolerate. Exceed it and the symptoms
 are recognizable — rework, contradictory versions circulating, decisions that get made twice, a
 growing queue of things that are *nearly* done, and people who are individually productive and
 collectively frustrated.
 
-**Now the objection, because it is a good one.** Isn't this just an argument for slowing down that
+**Now the objection, because it's a good one.** Isn't this just an argument for slowing down that
 any incumbent could make about any improvement? Every organization that resisted anything has said
 "we can't absorb that much change." The claim is unfalsifiable if you let it be, and it hands a
 veto to whoever is least comfortable.
@@ -123,7 +123,7 @@ work — raises its own ceiling. That is a growth strategy, not a brake.
 
 **It has to be stated as a number, in advance.** "We can't absorb that" said in the meeting where
 someone proposes something is a veto. "Two process changes per quarter, agreed in January" is a
-constraint that binds you as well as them, and it is the only version this course accepts. Module
+constraint that binds you as well as them, and it's the only version this course accepts. Module
 2's tolerance step exists for this.
 
 **And it has to be falsifiable.** If you exceed the rate and nothing bad happens, you were wrong
@@ -139,13 +139,13 @@ argument that nobody believes.
 
 ## Lesson 3 · The early adopter problem
 
-The specific case, because it is where this becomes a person rather than a principle.
+The specific case, because it's where this becomes a person rather than a principle.
 
 Somebody in your organization is genuinely excellent at this. They have built tooling, they produce
 more than their peers, they are visible and enthusiastic, and other people have started copying
-them badly. Two things are true at once and both matter:
+them badly. Two things are true, and both matter:
 
-**They are creating real value.** Not theoretically. Their output is better and there is more of it.
+**They are creating real value.** Not theoretically. Their output is better and there's more of it.
 
 **And they are creating integration debt faster than the organization retires it.** Their outputs
 arrive in a shape only they use. Their decisions get made ahead of the people who have to live with
@@ -159,7 +159,7 @@ way to lose them, and losing them is worse than the debt.
 What actually works is making the debt visible and shared. Three moves, in order:
 
 **Name the two truths out loud, in that order.** The value first, specifically. Then the debt,
-specifically — who is absorbing it, and what it is costing them. Not "you're moving too fast." *"You
+specifically — who is absorbing it, and what it's costing them. Not "you're moving too fast." *"You
 produced eleven of these last quarter and the three people who consume them are each reformatting
 by hand, which is about a day a week between them."*
 
@@ -181,9 +181,9 @@ Now the buying decision, which is a pace decision.
 
 Once prompts, connectors, evaluation suites, and workflow logic live inside one platform, "we'll
 move later" stops being a decision and becomes a quarter-long project. Nothing about that shows up
-in the pricing conversation, and it is the single largest cost in most of these deals.
+in the pricing conversation, and it's the single largest cost in most of these deals.
 
-**So switchability is an architectural property, not a procurement footnote.** The question is not
+**So switchability is an architectural property, not a procurement footnote.** The question isn't
 whether you could theoretically leave. It is what leaving would cost, expressed in the same units
 as the purchase: how much of what you build inside this thing comes out, in what form, and who
 would do the work.
@@ -192,20 +192,20 @@ would do the work.
 disqualification — but a vendor with no answer to any of them is telling you something.
 
 **"What is the safe mode?"** Autonomy claims without guardrails are the current market's favorite
-shape. Ask what the system does when it is unsure, what it does when a dependency fails, and what a
-human sees at that moment. A vendor selling autonomy who cannot describe the failure state is
+shape. Ask what the system does when it's unsure, what it does when a dependency fails, and what a
+human sees at that moment. A vendor selling autonomy who can't describe the failure state is
 selling the demo.
 
 **"What is the accuracy and hallucination rate for our use cases?"** Not benchmark numbers. Yours,
-on your data, measured how. The correct answer may honestly be *"we don't know, and here is how
-we'd find out with you"* — that is a good answer. **"It's highly accurate" is not an answer**, and
+on your data, measured how. The correct answer may honestly be *"we don't know, and here's how
+we'd find out with you"* — that's a good answer. **"It is highly accurate" is not an answer**, and
 101 M6 taught you why fluent output carries no signal about correctness.
 
 **"Who owns this in year two?"** After the launch team moves on and the tickets keep arriving. This
-is the question IT asks and People functions routinely cannot answer about their own purchases, and
-it is a fair question to be unable to answer only once.
+is the question IT asks and People functions routinely can't answer about their own purchases, and
+it's a fair question to be unable to answer only once.
 
-**"What comes out, and in what form?"** The exit question, asked at the start, when you have
+**"What comes out, and in what form?"** The exit question, asked at the start, when you've
 leverage. Prompts, configurations, evaluation data, logs, the model of your process that you
 encoded. Ask for the export format in writing before you sign.
 
@@ -251,14 +251,14 @@ counsel-review gate, and is the reason that module exists rather than being fold
 creating the most debt, and both are true at once."*
 
 The strongest counter-argument is that **absorption capacity is an excuse dressed as a discipline.**
-Every organization that has ever failed to adopt something has explained that it could not absorb
+Every organization that has ever failed to adopt something has explained that it couldn't absorb
 the change, and this module hands that instinct a vocabulary, a metric, and a governance process.
-The people who will use it most enthusiastically are not the thoughtful integrators — they are the
-ones who did not want to move anyway, and who now have a defensible-sounding reason. **A rate stated
+The people who will use it most enthusiastically aren't the thoughtful integrators — they are the
+ones who didn't want to move anyway, and who now have a defensible-sounding reason. **A rate stated
 in advance is only a constraint on you if someone is willing to enforce it against you**, and in
 most organizations nobody is.
 
-The sharper version: the organizations that will win this decade may be exactly the ones that let
+Sharper still: the organizations that will win this decade may be exactly the ones that let
 the early adopters run, ate the integration debt, and repaid it later out of a much larger base —
 because integration debt, unlike technical debt, is often retired by the tools themselves within
 two years. **On that reading, governing pace is optimizing for a coherence that will be free
@@ -277,9 +277,9 @@ distinct process, tool, or workflow changes your unit took on last quarter. **Go
 at what actually changed: new templates, new approval steps, new tools people started using, new
 reports, a changed definition. Include the ones nobody announced.
 
-Then, for each one, mark whether it **landed** — is it in steady use — or whether it is still being
+Then, for each one, mark whether it **landed** — is it in steady use — or whether it's still being
 half-used, worked around, or quietly abandoned. **The ratio of landed to attempted is your real
-absorption evidence**, and it is more informative than either number alone.
+absorption evidence**, and it's more informative than either number alone.
 
 **Step 2 — State the limit (7 min).** Your unit's integration capacity, as a rate with a unit of
 time. *N process changes per quarter. One tool change per half. One definition change per cycle.*
@@ -290,7 +290,7 @@ wrong, in either direction?** Name one observation that would make you raise it 
 make you lower it.
 
 **Step 3 — Name one thing currently exceeding it (7 min).** Something live. What it is, who is
-absorbing the reconciliation, and what it is costing them — in hours, rework, or delay, as
+absorbing the reconciliation, and what it's costing them — in hours, rework, or delay, as
 specifically as you can get.
 
 **If the honest answer is that nothing is currently exceeding your limit**, say so and say what
@@ -299,7 +299,7 @@ produce.
 
 **Step 4 — Address it (5 min).** To whoever controls the pace for your unit — which may be you, a
 peer, or someone two levels up. Predict their response in a sentence: **do they think the constraint
-is real, and if not, what do they think you are actually asking for?**
+is real, and if not, what do they think you're actually asking for?**
 
 **Step 5 — The covering note (3 min).** 200–300 words. Predicted count against actual, with the
 landed ratio. And your position on the module's claim, engaging the counter-argument that absorption
@@ -314,15 +314,15 @@ capacity is an excuse with a vocabulary.
 - A. AI adoption is slower in large organizations than small ones
 - B. Individual AI adoption can increase total coordination cost while decreasing production cost ✓
 - C. Coordination costs rise faster than production costs fall in most AI deployments
-- D. Teams that adopt AI unevenly perform worse than teams that do not adopt it at all
+- D. Teams that adopt AI unevenly perform worse than teams that don't adopt it at all
 
 > **B.** Which means the enthusiastic early adopter, genuinely producing more, can be making the
 > organization slower — not by doing anything wrong, but by generating integration debt faster than
-> it is retired.
+> it's retired.
 
 **Q2.** Why does local optimization increase coordination cost?
 
-- A. Because individuals choose tools their colleagues cannot access
+- A. Because individuals choose tools their colleagues can't access
 - B. Because it increases variation, and variation is paid for in coordination by whoever has the least slack ✓
 - C. Because optimized processes are harder to document
 - D. Because individual improvements are rarely shared across teams
@@ -333,17 +333,17 @@ capacity is an excuse with a vocabulary.
 **Q3.** What three conditions make an absorption rate a discipline rather than a veto?
 
 - A. Executive approval, documentation, and quarterly review
-- B. It is a rate rather than a limit; it is stated as a number in advance; and it is falsifiable ✓
+- B. It is a rate rather than a limit; it's stated as a number in advance; and it's falsifiable ✓
 - C. It is benchmarked externally, measured continuously, and owned by a named person
 - D. It is agreed with affected teams, published, and revisited annually
 
-> **B.** "We can't absorb that," said in the meeting where something is proposed, is a veto. "Two
+> **B.** "We cannot absorb that," said in the meeting where something is proposed, is a veto. "Two
 > process changes per quarter, agreed in January" binds you as well as them.
 
 **Q4.** How does the module reframe the speed-versus-risk question?
 
 - A. Speed and risk are both subordinate to quality
-- B. You do not trade speed against risk — you govern speed against absorption ✓
+- B. You don't trade speed against risk — you govern speed against absorption ✓
 - C. Risk should be assessed per use case rather than per pace decision
 - D. Speed is a leadership choice; risk is a compliance one
 
@@ -383,7 +383,7 @@ capacity is an excuse with a vocabulary.
 
 **Q8.** What is the correct reading of a vendor deflecting the discriminatory-outcome liability question?
 
-- A. That the vendor's legal team has not been consulted on the deal
+- A. That the vendor's legal team hasn't been consulted on the deal
 - B. That liability is genuinely unsettled and will be determined case by case
 - C. That the deflection is the information — substantial exposure sits with you as the deployer regardless of the contract ✓
 - D. That the question should be raised with procurement rather than the vendor

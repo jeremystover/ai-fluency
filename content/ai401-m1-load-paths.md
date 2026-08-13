@@ -23,7 +23,7 @@
 Then: **how many people in your organization could name who is accountable for AI's effect on how
 teams work together?** A count, not an impression — and if the honest count is zero, write zero.
 
-You will check this against evidence during the activity. Most people discover the answer is a
+You'll check this against evidence during the activity. Most people discover the answer is a
 number they have never had to say out loud.
 
 ---
@@ -32,27 +32,27 @@ number they have never had to say out loud.
 
 Everything below this rung made you better at using AI. **This one is about what happens to the
 organization while everyone gets better at using AI.** Those turn out to be different problems, and
-the second one is not solved by more of the first.
+the second one isn't solved by more of the first.
 
-Here is the whole course in one sentence:
+The whole course, in a sentence:
 
 > **AI lowers the cost of individual production and raises the cost of collective coherence.**
 
-Read it twice. It is not a warning about AI and it is not a productivity claim. It is an
+Read it twice. It isn't a warning about AI and it isn't a productivity claim. It is an
 observation about where cost moved. Producing a first draft, a model, a plan, a summary, an
 analysis — all cheaper, in some cases by an order of magnitude. Getting six people's cheaper
 outputs to agree with each other, arrive in a compatible format, rest on the same assumptions, and
-add up to something an organization can act on — **more expensive, because there is more of it,
+add up to something an organization can act on — **more expensive, because there's more of it,
 produced faster, by people who no longer had to consult anyone to make it.**
 
-That second cost lands on you. It does not show up on anyone's dashboard, it has no line in the
+That second cost lands on you. It doesn't show up on anyone's dashboard, it has no line in the
 budget, and nobody has been assigned to it — which is precisely why it accumulates.
 
 **What this course excludes, and why.** No AI fundamentals, no prompting, no tool tour, no vendor
 showcase. Those are 101 and 201 and they did them properly. There is also **no change-management
 module**, which is a deliberate choice rather than an omission: a standalone change module is the
 most cliché-prone object in leadership training, and the material is better distributed to the
-places where it is load-bearing. Lesson 4 says where each piece went.
+places where it's load-bearing. Lesson 4 says where each piece went.
 
 ## Learning objectives
 
@@ -85,20 +85,20 @@ and worth carrying: it tells you where people locate the difference, not where a
 
 Hold those two together and the uncomfortable implication is clear enough. **The ladder you just
 climbed — 101, 201, your 301 track — was building the 32%.** That was the right thing to build,
-because you cannot lead a change you cannot perform, and because the 67% is not available to
+because you can't lead a change you can't perform, and because the 67% isn't available to
 someone with no craft of their own. But it was one third of the problem, and the two thirds are
 what this course is about.
 
 > ### Try this — 2 minutes
 > Ask yourself who in your organization would receive an email titled *"AI is changing how our
 > teams work together and I think it's going badly."* Not who would care. Who would consider it
-> theirs. If the answer takes more than ten seconds, you have found this course's subject.
+> theirs. If the answer takes more than ten seconds, you've found this course's subject.
 
 ## Lesson 2 · Cultural debt **[V]**
 
 The name for what accumulates is **cultural debt**: the cost an organization takes on when it
 scales AI faster than the norms, trust, and accountability structures around it. Like technical
-debt, it is invisible in the quarter you incur it and expensive in the one where you pay.
+debt, it's invisible in the quarter you incur it and expensive in the one where you pay.
 
 Three findings from the same research make it concrete rather than atmospheric.
 
@@ -110,7 +110,7 @@ course's final module is about, arriving here as a symptom.
 managers, and workers are concerned that their colleagues are using AI to appear more productive
 than they actually are.** Sit with that number. Four out of five people suspect the people around
 them of a specific kind of performance, and almost nowhere has anyone said out loud what counts as
-legitimate use. Underneath it sit four questions your organization has not answered: **is using AI
+legitimate use. Underneath it sit four questions your organization hasn't answered: **is using AI
 cheating? What does hard work mean now? Who is to blame when AI is wrong? Does not using it cost
 me my job?** People are answering those privately, differently, and in ways that are already
 shaping who trusts whom.
@@ -119,26 +119,26 @@ shaping who trusts whom.
 decision-making; 5% say they manage it well.**
 
 *A note on this evidence, because this course asks you to interrogate other people's numbers.*
-Deloitte's primary page could not be reached from this course's build environment, so these figures
+Deloitte's primary page couldn't be reached from this course's build environment, so these figures
 were confirmed through indexed summaries and secondary coverage rather than read off the source
 document. They are consistent across those sources and the concept is well attested. Treat the
 specific percentages as reliable-but-secondhand, and the pattern as solid.
 
 **Why it goes unpaid.** Every one of these is somebody's problem in the abstract and nobody's in
-the org chart. The work is real, the cost is real, and there is no owner — which, as you will see
+the org chart. The work is real, the cost is real, and there's no owner — which, as you'll see
 in Module 5, is the exact profile of work that silently stops happening.
 
 ## Lesson 3 · Load-bearing and decorative
 
-Here is the model the rest of the course runs on, and it comes from structural engineering rather
+Here's the model the rest of the course runs on, and it comes from structural engineering rather
 than management.
 
-**An architect's job is not to draw the finished building.** It is to determine what is
-load-bearing, specify the structure, and set tolerances for loads that cannot be predicted
+**An architect's job is not to draw the finished building.** It is to determine what's
+load-bearing, specify the structure, and set tolerances for loads that can't be predicted
 precisely. Nobody knows exactly how many people will stand on the third floor. Everybody knows the
 floor has to hold them.
 
-So the first question about any structure in your organization is not *is this good* or *is this
+So the first question about any structure in your organization isn't *is this good* or *is this
 modern.* It is: **what is this holding up?**
 
 Some things turn out to be holding up a great deal:
@@ -154,32 +154,32 @@ And some things are decorative — real, visible, effortful, and holding up noth
 nobody acts on. A quarterly report that gets produced and filed. A meeting whose function is
 attendance.
 
-**Here is the part that matters, and it is the module's claim: the structures most likely to be
-load-bearing are the ones nobody designed.** That is not a paradox. Designed structures get
+**Here's the part that matters, and it's the module's claim: the structures most likely to be
+load-bearing are the ones nobody designed.** That isn't a paradox. Designed structures get
 documented, and documented structures get defended when someone proposes removing them. Undesigned
 structures have no documentation, no owner, and no advocate — so when a change removes them,
-**there is no step in the process at which anyone notices.**
+**there's no step in the process at which anyone notices.**
 
 AI is unusually good at removing exactly this category, because undesigned structures are almost
 always **coordination** structures, and coordination is what gets optimized away first. The
 handoff document becomes unnecessary when either person can generate the whole deliverable. The
 eleven-year veteran gets asked less when the model answers faster and never sighs. The meeting
 where assumptions collided stops being necessary — right up until the moment two AI-accelerated
-workstreams collide at four times the speed and there is no longer a meeting where that would have
+workstreams collide at four times the speed and there's no longer a meeting where that would have
 surfaced.
 
 **Nothing was destroyed. Something was removed that nobody had written down as load-bearing.**
 
 ## Lesson 4 · Tolerances, not drawings
 
-Which brings us to what you will actually produce in this course, and what you will not.
+Which brings us to what you'll actually produce in this course, and what you won't.
 
-You cannot pre-specify the destination. Anyone who tells you where your organization's work will
+You can't pre-specify the destination. Anyone who tells you where your organization's work will
 be in three years is guessing, and the honest version of that sentence is that the future state
 **emerges** — you find it by doing the work, not before. Module 2 gives that its proper name and
 its consequences.
 
-But *"we can't know"* is not a leadership position. It is an excuse with a true premise. The
+But *"we can't know"* isn't a leadership position. It is an excuse with a true premise. The
 resolution is the architect's:
 
 > **You cannot specify the destination. You can specify what must hold.**
@@ -190,16 +190,16 @@ ends up in. From here on, your deliverable is never a vision document and never 
 it fails, and the observable condition that tells you the spec was wrong.
 
 Notice the property that gives you. **A spec with a trigger can be wrong in a way you would
-notice.** A vision statement cannot. That is the entire difference, and it is why the rubric for
+notice.** A vision statement can't. That is the entire difference, and it's why the rubric for
 every strategy artifact in this course requires at least one condition that would make you replan.
 
-**Where change management went.** You will not find a change-management module here, and you will
+**Where change management went.** You won't find a change-management module here, and you'll
 find change management in six places:
 
 | Idea | Where it lives |
 |---|---|
 | Transitional vs. transformational change | Module 2, justifying triggers over roadmaps |
-| The four fears — being found out, accountability without control, stepping into the unknown, losing your professional edge | the casting brief for every rehearsal counterpart you will face |
+| The four fears — being found out, accountability without control, stepping into the unknown, losing your professional edge | the casting brief for every rehearsal counterpart you'll face |
 | The four building blocks of change | Module 10, mapped onto instruments |
 | Resistance as diagnosis rather than obstacle | Modules 4 and 6 |
 | Middle managers as the load-bearing failure point | Module 5, where their absorbed work is what the audit finds |
@@ -235,14 +235,14 @@ from anything you were building. That is the trade, stated so you can disagree w
 The strongest counter-argument is that **this romanticizes accident.** Most undesigned structures
 are undesigned because they are bad — a meeting that persists through inertia, a person who is a
 single point of failure because nobody fixed the documentation, a handoff living in two people's
-habits because no one did the work to make it a process. On that reading, AI removing them is not
+habits because no one did the work to make it a process. On that reading, AI removing them isn't
 a loss to mourn but overdue cleanup, and a course that teaches leaders to preserve undesigned
 structures will teach them to defend exactly the dysfunction their organizations most need to
-lose. The sharper version: **"load-bearing" and "should be load-bearing" are different claims, and
+lose. Sharper still: **"load-bearing" and "should be load-bearing" are different claims, and
 this lesson quietly slides from the first to the second.**
 
-Your position has to say what you would do about a structure that is genuinely load-bearing *and*
-genuinely bad — and whether the answer changes when the thing removing it is not a decision anyone
+Your position has to say what you would do about a structure that's genuinely load-bearing *and*
+genuinely bad — and whether the answer changes when the thing removing it isn't a decision anyone
 made.
 
 ## Applied activity — "One structure"
@@ -252,8 +252,8 @@ rubric below.** Score doesn't matter. Doing the work is where the learning lands
 
 This activity names the unit that the next nine modules will thread. Choose it deliberately.
 
-**Step 1 — Pick the unit (5 min).** One team, function, or workflow you have real visibility into
-and some standing with. Not the whole enterprise — you will run the framework at that altitude in
+**Step 1 — Pick the unit (5 min).** One team, function, or workflow you've real visibility into
+and some standing with. Not the whole enterprise — you'll run the framework at that altitude in
 Module 2, but the thing you carry through this course should be something you could actually
 change or influence. Name it in a sentence, including your relationship to it.
 
@@ -261,9 +261,9 @@ change or influence. Name it in a sentence, including your relationship to it.
 was load-bearing, that nobody designed, and that AI is removing, weakening, or making optional
 right now. Not a prediction — something already happening.
 
-Then the part that is the actual work: **one paragraph on what it was carrying.** Not what it was
+Then the part that's the actual work: **one paragraph on what it was carrying.** Not what it was
 — what load it bore. "The Tuesday sync" is a structure. "The only place where three teams'
-assumptions collided before they reached a customer" is a load. If you cannot state the load, you
+assumptions collided before they reached a customer" is a load. If you can't state the load, you
 have picked a decorative structure, and finding that out is worth the ten minutes.
 
 **Step 3 — Go and count (7 min).** Your calibration answer was how many people in your
@@ -272,7 +272,7 @@ check.** Ask two or three people, or look at whether any charter, job descriptio
 remit actually contains it. Record the real number and how you established it.
 
 **If the check cannot settle it** — no charter exists, nobody will answer, the question doesn't
-parse in your organization — **that is a finding and it earns full credit.** Say what you tried and
+parse in your organization — **that's a finding and it earns full credit.** Say what you tried and
 what the silence tells you.
 
 **Step 4 — Score the delta and take the position (3 min).** Your predicted count against the real
@@ -287,10 +287,10 @@ counter-argument above rather than restating the claim.
 
 - A. AI increases individual productivity, so organizations should adopt it faster
 - B. AI lowers the cost of individual production and raises the cost of collective coherence ✓
-- C. AI adoption fails when leaders do not communicate a clear vision
+- C. AI adoption fails when leaders don't communicate a clear vision
 - D. AI is more disruptive to knowledge work than to physical work
 
-> **B.** It is neither a warning nor a productivity claim — it is an observation about where cost
+> **B.** It is neither a warning nor a productivity claim — it's an observation about where cost
 > moved. The seven familiar symptoms are one problem seen from seven positions.
 
 **Q2.** What did the Work Trend Index finding about organizational versus individual factors (67% vs 32%) imply for the courses below this one?
@@ -298,10 +298,10 @@ counter-argument above rather than restating the claim.
 - A. That individual fluency training is wasted effort
 - B. That the ladder below this rung was building the smaller share of the variance — necessary, and about a third of the problem ✓
 - C. That organizations should stop training individuals and train managers instead
-- D. That self-reported impact is not a reliable measure
+- D. That self-reported impact isn't a reliable measure
 
 > **B.** Individual craft is a precondition, not the lever. D names a real limitation of the
-> evidence — it is self-reported impact, not measured output — but it is not the implication.
+> evidence — it's self-reported impact, not measured output — but it is not the implication.
 
 **Q3.** What is cultural debt?
 
@@ -329,7 +329,7 @@ counter-argument above rather than restating the claim.
 - A. Because AI tools are designed to eliminate meetings
 - B. Because undesigned structures are almost always coordination structures, and coordination is what gets optimized away first ✓
 - C. Because AI adoption tends to start with administrative work
-- D. Because undesigned structures are not represented in any system AI can read
+- D. Because undesigned structures aren't represented in any system AI can read
 
 > **B.** The handoff document stops being necessary when either person can produce the whole
 > deliverable — and nothing was destroyed, something was removed that nobody had written down as
@@ -345,14 +345,14 @@ counter-argument above rather than restating the claim.
 > **C.** You cannot pre-specify the destination; you can specify what must hold. That is the move
 > that keeps a strategy artifact from becoming a vision document.
 
-**Q7.** What property does a spec with a trigger have that a vision statement does not?
+**Q7.** What property does a spec with a trigger have that a vision statement doesn't?
 
 - A. It is easier for executives to approve
 - B. It can be wrong in a way you would notice ✓
 - C. It requires less frequent revision
 - D. It assigns accountability to a named individual
 
-> **B.** That is the entire difference, and it is why every strategy artifact in this course
+> **B.** That is the entire difference, and it's why every strategy artifact in this course
 > requires at least one condition that would make you replan. D is a separate requirement (Step 7)
 > rather than the property in question.
 
@@ -361,7 +361,7 @@ counter-argument above rather than restating the claim.
 - A. Because change management is out of scope at this level
 - B. Because the audience has already covered it in AI 201
 - C. Because a standalone change module is the most cliché-prone object in leadership training, and the material is more useful attached to the thing being changed ✓
-- D. Because there is not enough verified evidence to support a full module
+- D. Because there isn't enough verified evidence to support a full module
 
 > **C.** The trade is stated in Lesson 4 so you can disagree with it: six placements, each next to
 > the work it applies to.
@@ -371,7 +371,7 @@ counter-argument above rather than restating the claim.
 - **Deloitte 2026 Global Human Capital Trends** `[V]` — the 6% designing human–AI interaction
   figure, cultural debt as a named concept, and the 42% / 80% / 60%-and-5% findings. **These were
   confirmed through indexed search summaries and secondary coverage** rather than read from the
-  primary page, which this build environment could not reach; Lesson 2 says so in the lesson.
+  primary page, which this build environment couldn't reach; Lesson 2 says so in the lesson.
   Flagged for re-verification against the source document.
 - **Microsoft 2026 Work Trend Index** `[V]` — organizational versus individual factors, 67% vs 32%.
   n=20,000 knowledge workers across 10 markets, fielded 18 February – 7 April 2026 by Edelman Data

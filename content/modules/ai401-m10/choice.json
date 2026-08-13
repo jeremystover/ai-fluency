@@ -5,7 +5,7 @@
   "artifacts": [
     {
       "label": "Metric A",
-      "body": "**\"Percentage of the People team with weekly active AI usage, reported monthly.\"**\n\n\"We're at 34% and I want us at 80% by year end. It's simple, we can pull it from the licence admin console with no extra work, and it gives the exec team a line that goes up. My argument is that we can't get value from something people aren't using, so this comes first.\""
+      "body": "**\"Percentage of the People team with weekly active AI usage, reported monthly.\"**\n\n\"We're at 34% and I want us at 80% by year end. It is simple, we can pull it from the licence admin console with no extra work, and it gives the exec team a line that goes up. My argument is that we can't get value from something people aren't using, so this comes first.\""
     },
     {
       "label": "Metric B",
@@ -13,7 +13,7 @@
     },
     {
       "label": "Metric C",
-      "body": "**\"Hours saved per month across the function, self-reported quarterly by each team lead.\"**\n\n\"We ask each lead to estimate how many hours their team saved through AI in the quarter, and we aggregate. It's rough but it gets us a number in the language finance uses, and I can put a rate against it. Last quarter came out at 340 hours, which is about £11,000.\""
+      "body": "**\"Hours saved per month across the function, self-reported quarterly by each team lead.\"**\n\n\"We ask each lead to estimate how many hours their team saved through AI in the quarter, and we aggregate. It is rough but it gets us a number in the language finance uses, and I can put a rate against it. Last quarter came out at 340 hours, which is about £11,000.\""
     },
     {
       "label": "Metric D",
@@ -21,11 +21,23 @@
     }
   ],
   "options": [
-    { "id": "a", "label": "Metric A" },
-    { "id": "b", "label": "Metric B" },
-    { "id": "c", "label": "Metric C" },
-    { "id": "d", "label": "Metric D" }
+    {
+      "id": "a",
+      "label": "Metric A"
+    },
+    {
+      "id": "b",
+      "label": "Metric B"
+    },
+    {
+      "id": "c",
+      "label": "Metric C"
+    },
+    {
+      "id": "d",
+      "label": "Metric D"
+    }
   ],
   "key": "a",
-  "reasoning": "**A produces itself, and the giveaway is the phrase \"a line that goes up.\"** Apply Lesson 2's test directly: what would weekly active usage look like if the initiative were producing no value whatsoever but everyone kept opening the tools? **Exactly the same.** The metric cannot distinguish a team that restructured how it works from a team that asks a model to rewrite emails it had already written, and once 80% is the target, opening the tool becomes rational career behavior independent of any outcome.\n\nAnd notice the argument attached, because it is a good one and it is why this metric keeps getting approved: *we can't get value from something people aren't using.* True. **A usage target is a deliberately crude instrument for the earliest phase**, when the binding constraint really is that nobody will try the thing — and as a permission signal it can be exactly right. The failure is not choosing it. **The failure is leaving it in place after the constraint changes**, at which point it becomes the only number anyone reports and the reinforcement block is now rewarding consumption.\n\n**B is the strongest of the four, for a reason that is easy to miss.** *Both of which predate any AI work — so nobody can accuse me of building the measure around the intervention.* That is Lesson 3's baseline-agreed-in-advance rule, satisfied by construction. The twelve-month retention number is there so speed cannot be bought with worse hires, which closes the obvious gaming route. And the honesty in the last sentence — *I'm not claiming AI caused any movement; I'm claiming this is what would have to move* — is what makes it survivable in front of a skeptic.\n\n**C is the most dangerous, and it is the most common.** Self-reported hours saved, aggregated, with a rate applied, produces a confident currency figure built on estimates by people whose programme it is. It cannot fail: the number exists because someone was asked to produce it. **And converting it to £11,000 gives it a false solidity** that will be quoted back long after anyone remembers it was an estimate. C is worse than A, because A is at least honestly measuring what it measures.\n\n**D is the best-designed and the bravest.** A sampled outcome measure, a real pre-intervention baseline, and — the part almost nobody does — **the trough named in advance, with a depth and a date.** *I expect it to get worse before it gets better, and I'll be worried if it isn't back below 22% by month nine.* That is Lesson 3's tolerance and decision rule in one sentence, told to the exec team before the numbers move. It is the only one of the four that could embarrass its author, which is why it is the only one that could convince anyone.\n\nThe transferable test is Lesson 2's, and it takes ten seconds: **what would this number look like if the initiative produced no value at all?** A: unchanged. C: unchanged, or better, since disappointed leads estimate generously. B and D: they would move, visibly, in the wrong direction."
+  "reasoning": "**A produces itself, and the giveaway is the phrase \"a line that goes up.\"** Apply Lesson 2's test directly: what would weekly active usage look like if the initiative were producing no value whatsoever but everyone kept opening the tools? **Exactly the same.** The metric can't distinguish a team that restructured how it works from a team that asks a model to rewrite emails it had already written, and once 80% is the target, opening the tool becomes rational career behavior independent of any outcome.\n\nAnd notice the argument attached, because it's a good one and it's why this metric keeps getting approved: *we can't get value from something people aren't using.* True. **A usage target is a deliberately crude instrument for the earliest phase**, when the binding constraint really is that nobody will try the thing — and as a permission signal it can be exactly right. The failure isn't choosing it. **The failure is leaving it in place after the constraint changes**, at which point it becomes the only number anyone reports and the reinforcement block is now rewarding consumption.\n\n**B is the strongest of the four, for a reason that's easy to miss.** *Both of which predate any AI work — so nobody can accuse me of building the measure around the intervention.* That is Lesson 3's baseline-agreed-in-advance rule, satisfied by construction. The twelve-month retention number is there so speed can't be bought with worse hires, which closes the obvious gaming route. And the honesty in the last sentence — *I'm not claiming AI caused any movement; I'm claiming this is what would have to move* — is what makes it survivable in front of a skeptic.\n\n**C is the most dangerous, and it's the most common.** Self-reported hours saved, aggregated, with a rate applied, produces a confident currency figure built on estimates by people whose programme it is. It can't fail: the number exists because someone was asked to produce it. **And converting it to £11,000 gives it a false solidity** that will be quoted back long after anyone remembers it was an estimate. C is worse than A, because A is at least honestly measuring what it measures.\n\n**D is the best-designed and the bravest.** A sampled outcome measure, a real pre-intervention baseline, and — the part almost nobody does — **the trough named in advance, with a depth and a date.** *I expect it to get worse before it gets better, and I'll be worried if it isn't back below 22% by month nine.* That is Lesson 3's tolerance and decision rule in one sentence, told to the exec team before the numbers move. It is the only one of the four that could embarrass its author, which is why it's the only one that could convince anyone.\n\nThe transferable test is Lesson 2's, and it takes ten seconds: **what would this number look like if the initiative produced no value at all?** A: unchanged. C: unchanged, or better, since disappointed leads estimate generously. B and D: they would move, visibly, in the wrong direction."
 }

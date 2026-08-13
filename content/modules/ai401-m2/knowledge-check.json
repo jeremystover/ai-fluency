@@ -8,7 +8,7 @@
       "prompt": "What distinguishes transformational from transitional change?",
       "options": [
         "Transformational change affects more people",
-        "Transformational change has a future state that is unknown at the outset and emerges as you go, so it cannot be planned as a linear route",
+        "Transformational change has a future state that's unknown at the outset and emerges as you go, so it can't be planned as a linear route",
         "Transformational change requires executive sponsorship",
         "Transformational change takes longer to complete"
       ],
@@ -32,7 +32,7 @@
       "prompt": "Which claim did the module decline to make, and why?",
       "options": [
         "That AI adoption is transformational rather than transitional — because the evidence is mixed",
-        "That leaders who admit they are still figuring it out accelerate adoption more than those issuing confident narratives — because it could not be sourced",
+        "That leaders who admit they are still figuring it out accelerate adoption more than those issuing confident narratives — because it couldn't be sourced",
         "That organizations manage AI adoption as transitional change — because it varies by sector",
         "That triggers are more useful than roadmaps — because it depends on the planning cycle"
       ],
@@ -46,7 +46,7 @@
         "A spec is shorter and less detailed",
         "A spec describes what must be true; a drawing describes what it must look like — and the test is whether two competent people could build different-looking things that both satisfy it",
         "A spec is approved by leadership; a drawing is produced by the team",
-        "A spec includes measurement criteria; a drawing does not"
+        "A spec includes measurement criteria; a drawing doesn't"
       ],
       "correctIndex": 1,
       "explanation": "\"New starters find out what already failed here within their first month\" is a spec. \"A mentorship program with monthly check-ins\" is a drawing, and it forecloses the eleven better answers you would only find by trying."
@@ -56,7 +56,7 @@
       "prompt": "What does the three-altitude table demonstrate about the framework?",
       "options": [
         "That different altitudes need different frameworks",
-        "That the columns change scope while the rows do not change at all",
+        "That the columns change scope while the rows don't change at all",
         "That enterprise-level planning is fundamentally harder than team-level planning",
         "That the framework works best at the function-head altitude"
       ],
@@ -92,7 +92,7 @@
       "prompt": "What does the module say about the Step 7 answer being someone other than you?",
       "options": [
         "It means the framework was run at the wrong altitude",
-        "It means the artifact should be escalated before it is written",
+        "It means the artifact should be escalated before it's written",
         "It is the normal case at this rung, and it tells you which instrument the situation requires",
         "It means the learner lacks the standing to complete the exercise"
       ],

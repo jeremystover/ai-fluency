@@ -8,7 +8,7 @@
       "prompt": "What does being the \"deployer\" mean for where obligations land?",
       "options": [
         "That the organization shares liability proportionally with the vendor",
-        "That duties attach to the organization putting the system in front of people, regardless of who built it — so you can inherit an obligation from a purchase you were not part of",
+        "That duties attach to the organization putting the system in front of people, regardless of who built it — so you can inherit an obligation from a purchase you weren't part of",
         "That obligations transfer once the system is customized for your organization",
         "That the deploying manager rather than the function carries the exposure"
       ],
@@ -25,7 +25,7 @@
         "Impact assessment, board approval, vendor attestation, and annual reporting"
       ],
       "correctIndex": 1,
-      "explanation": "Build for those four and you are broadly positioned for regimes you have not read — which is why the activity asks for a floor rather than a compliance matrix."
+      "explanation": "Build for those four and you're broadly positioned for regimes you have not read — which is why the activity asks for a floor rather than a compliance matrix."
     },
     {
       "id": "q3",
@@ -45,7 +45,7 @@
       "options": [
         "It requires a documented impact assessment before deployment",
         "It is permitted with candidate notice and a human review option",
-        "It is not a procurement question — workplace emotion recognition is prohibited, not a risk to manage",
+        "It isn't a procurement question — workplace emotion recognition is prohibited, not a risk to manage",
         "It depends on whether the inference affects the hiring decision"
       ],
       "correctIndex": 2,
@@ -69,7 +69,7 @@
       "options": [
         "Contracts should include indemnification for algorithmic decisions",
         "Vendors should be required to hold errors-and-omissions coverage",
-        "\"We don't know how it works\" is not a durable position — the bias audit you didn't ask for at purchase is the document you'll be asked for at discovery",
+        "\"We don't know how it works\" isn't a durable position — the bias audit you didn't ask for at purchase is the document you'll be asked for at discovery",
         "Model documentation should be retained for the statutory limitation period"
       ],
       "correctIndex": 2,
@@ -79,8 +79,8 @@
       "id": "q7",
       "prompt": "Why does a prohibition nobody can comply with produce concealment rather than compliance?",
       "options": [
-        "Because employees resent rules they were not consulted on",
-        "Because if the rule is \"no AI on employee data\" and the alternative is missing a deadline you cannot miss, people will use AI and stop telling you",
+        "Because employees resent rules they weren't consulted on",
+        "Because if the rule is \"no AI on employee data\" and the alternative is missing a deadline you can't miss, people will use AI and stop telling you",
         "Because enforcement resources are always insufficient",
         "Because policies written by legal are rarely understood by practitioners"
       ],

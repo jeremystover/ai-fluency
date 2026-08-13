@@ -4,7 +4,7 @@
     {
       "id": "prohibited",
       "label": "Prohibited",
-      "hint": "Do not do this — no exception path",
+      "hint": "Don't do this — no exception path",
       "rank": 0,
       "pct": 5
     },
@@ -28,13 +28,13 @@
       "id": "t1",
       "text": "A tool that infers a candidate's emotional state from their facial expression during a recorded interview, used by a company with European operations",
       "key": "prohibited",
-      "reasoning": "Workplace emotion recognition has been prohibited in the EU since February 2025 and did not move under the Digital Omnibus. **This is not a risk to manage or a control to add — it is a prohibition**, and it is the clearest example in the set of a rule that should carry no exception path."
+      "reasoning": "Workplace emotion recognition has been prohibited in the EU since February 2025 and didn't move under the Digital Omnibus. **This is not a risk to manage or a control to add — it is a prohibition**, and it's the clearest example in the set of a rule that should carry no exception path."
     },
     {
       "id": "t2",
       "text": "Using AI to draft the first version of a job description, which the hiring manager then rewrites",
       "key": "permitted",
-      "reasoning": "Assembly, not reasoning. No decision about a person is being made or shaped, the output is a draft with a named human owner, and this is 101 territory rather than 401's. Included so the exercise has a floor: **not everything AI touches is a governance question**, and a leader who cannot say so quickly will not be believed about the things that are."
+      "reasoning": "Assembly, not reasoning. No decision about a person is being made or shaped, the output is a draft with a named human owner, and this is 101 territory rather than 401's. Included so the exercise has a floor: **not everything AI touches is a governance question**, and a leader who can't say so quickly won't be believed about the things that are."
     },
     {
       "id": "t3",
@@ -55,19 +55,19 @@
       "id": "t5",
       "text": "Summarizing a completed engagement survey's free-text responses into themes for a leadership readout",
       "key": "permitted",
-      "reasoning": "Transformation of supplied material with no decision about any individual attached. Ordinary care applies — check the themes against the verbatims, and watch the re-identification risk in small teams — but this is not a floor question. 201 M3 taught the pipeline; nothing here changes it."
+      "reasoning": "Transformation of supplied material with no decision about any individual attached. Ordinary care applies — check the themes against the verbatims, and watch the re-identification risk in small teams — but this isn't a floor question. 201 M3 taught the pipeline; nothing here changes it."
     },
     {
       "id": "t6",
       "text": "Letting a model produce the final termination decision, with a manager signing the output",
       "key": "prohibited",
-      "reasoning": "**AI is never the decision-maker. Automate the assembly, not the reasoning.** A signature on a decision you did not make is not human review, it is the appearance of it — and this is the rule that outlives every statutory change in Lessons 1–3, because it is derived from what the organization's product is rather than from any timeline."
+      "reasoning": "**AI is never the decision-maker. Automate the assembly, not the reasoning.** A signature on a decision you didn't make isn't human review, it's the appearance of it — and this is the rule that outlives every statutory change in Lessons 1–3, because it is derived from what the organization's product is rather than from any timeline."
     },
     {
       "id": "t7",
       "text": "An AI feature inside your case management system that flags which employee relations matters look similar to prior ones",
       "key": "conditions",
-      "reasoning": "Locating is permitted; resolving is not. A flag that surfaces comparable prior matters is a search aid and a genuine consistency benefit. The condition is that **it may not be allowed to characterize credibility or produce the finding** — a line the Labor & Employee Relations track draws in detail, and the reason this belongs in the conditions column rather than the permitted one."
+      "reasoning": "Locating is permitted; resolving isn't. A flag that surfaces comparable prior matters is a search aid and a genuine consistency benefit. The condition is that **it may not be allowed to characterize credibility or produce the finding** — a line the Labor & Employee Relations track draws in detail, and the reason this belongs in the conditions column rather than the permitted one."
     },
     {
       "id": "t8",
@@ -79,15 +79,15 @@
       "id": "t9",
       "text": "A learning platform that recommends courses to employees based on their role and history",
       "key": "conditions",
-      "reasoning": "Genuinely useful and quietly consequential. Recommendations shape which opportunities people see, and Module 8's weak-ties argument applies directly — **a recommender that systematically shows fewer stretch opportunities to one group narrows access with no decision anyone made.** Notice and a periodic distribution check are proportionate; prohibition is not."
+      "reasoning": "Genuinely useful and quietly consequential. Recommendations shape which opportunities people see, and Module 8's weak-ties argument applies directly — **a recommender that systematically shows fewer stretch opportunities to one group narrows access with no decision anyone made.** Notice and a periodic distribution check are proportionate; prohibition isn't."
     },
     {
       "id": "t10",
       "text": "Using AI to check a draft policy against your own handbook for internal contradictions",
       "key": "permitted",
-      "reasoning": "Document-to-document work with no person in it. Verification still applies — 101 M6's rules about fabricated citations do not go away — but there is no employment decision, no personal data, and no obligation triggered. **Three permitted items in this set is deliberate:** a floor that marks everything as conditional teaches people that the categories are meaningless."
+      "reasoning": "Document-to-document work with no person in it. Verification still applies — 101 M6's rules about fabricated citations don't go away — but there's no employment decision, no personal data, and no obligation triggered. **Three permitted items in this set is deliberate:** a floor that marks everything as conditional teaches people that the categories are meaningless."
     }
   ],
-  "pattern": "**Look at what actually put items in the prohibited column.** Not sensitivity, and not stakes — item 4's ranked shortlist is higher-stakes than item 8 and it is not prohibited.\n\nThree things did it: **an explicit legal prohibition** (item 1), **the model making rather than assembling the decision** (item 6), and **the most restricted data class in an unprotected place** (item 8). That is the whole prohibited category, and it is short by design.\n\nThe conditions column is where nearly everything real lives, and every item in it is governed by the same four duties from Lesson 1 — notice, bias auditing, a human-review right, and records. **You did not have to know which jurisdiction each item falls under to place it.** That is the lesson: build for the four duties and you are broadly positioned for regimes you have not read.\n\nAnd notice item 3. Nobody bought it, nobody decided, and it carries the same obligations as a system you ran a procurement for.",
-  "postscript": "**If you put item 4 in Prohibited, you are making a serious argument and the exercise scores it.** The case is that a ranked list shapes the decision so strongly that downstream human review is decorative, which is precisely the concern 101 M7 raised. The key says conditions because ranked shortlisting is lawful in most jurisdictions with the four duties met, and a floor that prohibits it will be routed around within a quarter — Lesson 4's mechanism. **But \"lawful\" and \"we should\" are different questions, and this is the item where your organization has to answer the second one deliberately.**\n\n**And if you put item 7 in Permitted**, check what you assumed about where the flag stops. Surfacing comparable matters is a search aid. The same feature summarizing what those matters concluded, or characterizing an account, has crossed from locating into resolving — and the two are usually one setting apart in the same product."
+  "pattern": "**Look at what actually put items in the prohibited column.** Not sensitivity, and not stakes — item 4's ranked shortlist is higher-stakes than item 8 and it isn't prohibited.\n\nThree things did it: **an explicit legal prohibition** (item 1), **the model making rather than assembling the decision** (item 6), and **the most restricted data class in an unprotected place** (item 8). That is the whole prohibited category, and it's short by design.\n\nThe conditions column is where nearly everything real lives, and every item in it's governed by the same four duties from Lesson 1 — notice, bias auditing, a human-review right, and records. **You did not have to know which jurisdiction each item falls under to place it.** That is the lesson: build for the four duties and you're broadly positioned for regimes you haven't read.\n\nAnd notice item 3. Nobody bought it, nobody decided, and it carries the same obligations as a system you ran a procurement for.",
+  "postscript": "**If you put item 4 in Prohibited, you're making a serious argument and the exercise scores it.** The case is that a ranked list shapes the decision so strongly that downstream human review is decorative, which is precisely the concern 101 M7 raised. The key says conditions because ranked shortlisting is lawful in most jurisdictions with the four duties met, and a floor that prohibits it will be routed around within a quarter — Lesson 4's mechanism. **But \"lawful\" and \"we should\" are different questions, and this is the item where your organization has to answer the second one deliberately.**\n\n**And if you put item 7 in Permitted**, check what you assumed about where the flag stops. Surfacing comparable matters is a search aid. The same feature summarizing what those matters concluded, or characterizing an account, has crossed from locating into resolving — and the two are usually one setting apart in the same product."
 }
