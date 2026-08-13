@@ -4,11 +4,13 @@
 // Business Partner" are the same track and no string match should have to
 // know it.
 //
-// `track` is the course id this role should see at 301. Roles whose track
-// isn't authored yet point at the HRBP track, which is the foundation of the
-// specialist ladder — the resolver below falls back the same way for anything
-// unrecognized, so a missing track degrades to a real course rather than an
-// empty path.
+// `track` is the course id this role should see at 301 — its real id, even
+// for tracks that are outlined but not yet authored, so shipping one is a
+// content change rather than a roles change. The resolver below only hands
+// back a track that actually exists and otherwise falls back to the HRBP
+// track, which is the foundation of the specialist ladder; unauthored tracks
+// and unrecognized ids both degrade to a real course rather than an empty
+// path. Roles with no track of their own point at HRBP outright.
 
 export type RoleChoice = {
   id: string;
@@ -39,9 +41,30 @@ export const ROLE_CHOICES: RoleChoice[] = [
     track: 'ai301-comp',
   },
   {
+    id: 'peopleops',
+    label: 'People Operations & HR Technology',
+    detail:
+      "Owning the HCM, the integrations, the service layer, or the process everyone else's work runs through — HR ops, HRIS, People technology, shared services. Track in build; you'll start on the business partner one.",
+    track: 'ai301-peopleops',
+  },
+  {
+    id: 'peopleanalytics',
+    label: 'People Analytics',
+    detail:
+      "Workforce analytics and planning, HR data science, engagement and listening, measurement for DEI where that sits with you. Track in build; you'll start on the business partner one.",
+    track: 'ai301-analytics',
+  },
+  {
+    id: 'ler',
+    label: 'Labor & Employee Relations',
+    detail:
+      "Investigations, grievances, discipline consistency, labor relations and the bargaining relationship — whether you do one half of that or both. Track in build; you'll start on the business partner one.",
+    track: 'ai301-ler',
+  },
+  {
     id: 'other',
     label: 'Something else in People',
-    detail: "Talent development, employee experience, People ops, analytics, or leading the function. Tell us below — you'll start on the business partner track while yours is built.",
+    detail: "Talent development, employee experience, or leading the function. Tell us below — you'll start on the business partner track while yours is built.",
     track: DEFAULT_TRACK,
   },
 ];
