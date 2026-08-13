@@ -27,7 +27,14 @@ run for counsel is decided when you ask for it, not after you read it.
 
 ## Calibration prompt — before you start
 
-*Two predictions, one minute.*
+*One claim and one number. Commit both before you read.*
+
+> **"My organisation has a written AI policy, and the people who have to follow it could tell you what it says."**
+
+**True of us, or not true of us?** One sentence. The two halves fail separately, and the second
+fails far more often.
+
+**And the number**, which you will score in the applied activity:
 
 **What share of employers do you think now have a formal written AI policy?** Whole percent.
 
@@ -35,8 +42,6 @@ run for counsel is decided when you ask for it, not after you read it.
 future-proof?**
 
 The first number is probably higher than you expect. The second is the module.
-
----
 
 ## Module brief
 

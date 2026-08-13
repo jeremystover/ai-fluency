@@ -13,7 +13,13 @@
 
 ## Calibration prompt — before you start
 
-*One prediction, thirty seconds. You'll score it during the applied activity.*
+*One claim and one number. Commit both before you read.*
+
+> **"I could say roughly what one of my recurring tasks costs to run — in time, and in money."**
+
+**True of me, or not true of me?** One sentence, about a task you actually own.
+
+**And the number**, which you will score in the applied activity:
 
 At the end of this module you'll take one recurring task from your own function — say,
 summarizing your engagement survey's free-text comments twice a year, or drafting every job
@@ -26,8 +32,6 @@ Write it down.
 Most people miss by an order of magnitude — and the *direction* of the miss is what's
 interesting. Guessing high usually means pricing the hype; guessing low usually means
 forgetting the reviewing human. Either way, the miss is the lesson.
-
----
 
 ## Module brief
 

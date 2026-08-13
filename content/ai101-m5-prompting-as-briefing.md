@@ -15,7 +15,14 @@
 
 ## Calibration prompt — before you start
 
-*One prediction, thirty seconds. You'll score it during the applied activity.*
+*One claim and one number. Commit both before you read.*
+
+> **"The difference between a one-line prompt and a proper brief is small enough not to be worth the time."**
+
+**True of me, or not true of me?** One sentence — and commit before you see the comparison, because the answer
+afterwards is worthless.
+
+**And the number**, which you will score in the applied activity:
 
 At the end of this module you'll run the same real task twice: once with the kind of one-line
 prompt most people type, once with a proper brief. You'll compare the outputs side by side.
@@ -28,8 +35,6 @@ People who've never briefed properly tend to guess 3 or 4 — the tool already s
 good, how much better could it get? The gap surprises in a specific way: it's not that the
 briefed output is more polished. It's that it's *yours* — the thin prompt's output could have
 been written for any company on earth.
-
----
 
 ## Module brief
 

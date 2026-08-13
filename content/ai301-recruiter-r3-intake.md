@@ -13,7 +13,14 @@
 
 ## Calibration prompt — before you start
 
-*One prediction, thirty seconds.*
+*One claim and one number. Commit both before you read.*
+
+> **"The scorecards my team writes match what the hiring manager actually wanted."**
+
+**True of us, or not true of us?** One sentence. The test is not whether they approved it — it is
+what they would change if you asked them to mark it up.
+
+**And the number**, which you will score in the applied activity:
 
 The activity has you run a real intake, produce a scorecard, and send it back to the hiring
 manager asking them to mark what's wrong.
@@ -23,8 +30,6 @@ manager asking them to mark what's wrong.
 Most recruiters predict one or two. The gap between that and what comes back is the most useful
 thing in this module, because every one of those corrections was previously going to surface
 somewhere much more expensive.
-
----
 
 ## Module brief
 

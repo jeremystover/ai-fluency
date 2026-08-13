@@ -15,7 +15,14 @@
 
 ## Calibration prompt — before you start
 
-*One prediction, thirty seconds. You'll score it during the applied activity.*
+*One claim and one number. Commit both before you read.*
+
+> **"I would notice if an AI tool told me something confident, plausible and wrong about my own field."**
+
+**True of me, or not true of me?** One sentence. Almost everyone says yes; this module is built to
+test it on your own subject rather than someone else's.
+
+**And the number**, which you will score in the applied activity:
 
 At the end of this module you'll deliberately fish for a hallucination in your own domain —
 asking about things you know cold, until the model produces something confident, plausible,
@@ -27,8 +34,6 @@ Write the number down.
 The miss is diagnostic in both directions. Way fewer attempts than predicted: you've been
 over-trusting fluent output. Way more: the frontier has moved since you formed your
 expectations **[V]** — which is its own lesson about keeping your model of the model current.
-
----
 
 ## Module brief
 

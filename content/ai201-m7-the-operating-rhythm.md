@@ -13,16 +13,19 @@ assumes your build exists and has run.
 
 ## Calibration prompt — before you start
 
-*One prediction, thirty seconds. Scored at the end of the course — and revisited every time
-something breaks.*
+*One claim and one number. Scored at the end of the course — and revisited every time something breaks.*
+
+> **"If I stopped maintaining my workflow today, I could name what would break first."**
+
+**True of me, or not true of me?** One sentence, naming a specific element rather than a category.
+
+**And the number**, which you will score in the applied activity:
 
 Your workflow has parts now: a pack, a runbook, a verification budget, maybe an autonomy
 profile, a boundary sheet.
 
 **Which part decays first?** Name the specific element — not "the pack" but "the org brief in
 the pack" — and the month you'd expect it to go quietly wrong if nobody looked.
-
----
 
 ## Module brief
 

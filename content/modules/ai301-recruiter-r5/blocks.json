@@ -6,7 +6,7 @@
     "kind": "calibration_prompt",
     "layer": "stable",
     "reviewedAt": "2026-08-12",
-    "body": "## Calibration prompt — before you start\n\n*One prediction, thirty seconds.*\n\n**Could you answer this today: which interview questions preceded your strong hires?** Not\n\"could you find out eventually\" — could you answer it this week, from something that already\nexists?\n\nAnswer honestly: yes, roughly, or no. Then predict how many of your peers could."
+    "body": "## Calibration prompt — before you start\n\n*One claim and one number. Commit both before you read.*\n\n> **\"I could answer this week, from something that already exists, which interview questions preceded our strong hires.\"**\n\n**True of me, or not true of me?** One sentence — and *\"I could work it out eventually\"* is a no.\n\n**And the number**, which you will score in the applied activity:\n\n**Could you answer this today: which interview questions preceded your strong hires?** Not\n\"could you find out eventually\" — could you answer it this week, from something that already\nexists?\n\nAnswer honestly: yes, roughly, or no. Then predict how many of your peers could."
   },
   {
     "id": "ai301-recruiter-r5-module-brief-20",

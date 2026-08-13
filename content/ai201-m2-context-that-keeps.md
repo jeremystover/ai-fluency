@@ -14,7 +14,13 @@
 
 ## Calibration prompt — before you start
 
-*Two predictions, thirty seconds. You'll score them at the end of the module.*
+*One claim and two numbers. Commit all three before you read.*
+
+> **"I could hand my workflow to a capable colleague with the context they would need, today."**
+
+**True of me, or not true of me?** One sentence — *today* meaning without assembling anything new.
+
+**And the number**, which you will score in the applied activity:
 
 By the end of this module you'll have built a context pack for the workflow you specced in M1.
 
@@ -23,8 +29,6 @@ By the end of this module you'll have built a context pack for the workflow you 
 2. **Which item will be hardest to write?** Name it.
 
 Most people guess high on the first and wrong on the second. The miss is the lesson.
-
----
 
 ## Module brief
 

@@ -13,15 +13,19 @@
 
 ## Calibration prompt — before you start
 
-*One prediction, thirty seconds.*
+*One claim and one number. Commit both before you read.*
+
+> **"I could answer this week, from something that already exists, which interview questions preceded our strong hires."**
+
+**True of me, or not true of me?** One sentence — and *"I could work it out eventually"* is a no.
+
+**And the number**, which you will score in the applied activity:
 
 **Could you answer this today: which interview questions preceded your strong hires?** Not
 "could you find out eventually" — could you answer it this week, from something that already
 exists?
 
 Answer honestly: yes, roughly, or no. Then predict how many of your peers could.
-
----
 
 ## Module brief
 

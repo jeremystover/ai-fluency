@@ -14,7 +14,14 @@
 
 ## Calibration prompt — before you start
 
-*One prediction, thirty seconds. You'll score it during the applied activity.*
+*One claim and one number. Commit both before you read.*
+
+> **"I know which parts of a real work document I would have to remove before pasting it into an AI tool."**
+
+**True of me, or not true of me?** One sentence. Knowing *that* some things must come out is not the
+same as knowing *which*, which is this module.
+
+**And the number**, which you will score in the applied activity:
 
 At the end of this module you'll take one real document you'd genuinely like AI's help with —
 an ER summary, survey verbatims, interview notes — and produce the version you'd actually
@@ -27,8 +34,6 @@ left? Write the number down.
 Both directions of miss are instructive. Much survives that people expect to lose — most
 redaction is precise, not wholesale. And what's lost is rarely what they guessed — names are
 easy; it's the office, the role, and the date that carry identity out the door.
-
----
 
 ## Module brief
 

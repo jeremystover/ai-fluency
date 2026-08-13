@@ -15,7 +15,7 @@
     "kind": "calibration_prompt",
     "layer": "stable",
     "reviewedAt": "2026-08-12",
-    "body": "## Calibration prompt — before you start\n\n*Two predictions, one minute.*\n\n**What share of employers do you think now have a formal written AI policy?** Whole percent.\n\n**And of those that have one, what share do you think believe their own policy is clear and\nfuture-proof?**\n\nThe first number is probably higher than you expect. The second is the module."
+    "body": "## Calibration prompt — before you start\n\n*One claim and one number. Commit both before you read.*\n\n> **\"My organisation has a written AI policy, and the people who have to follow it could tell you what it says.\"**\n\n**True of us, or not true of us?** One sentence. The two halves fail separately, and the second\nfails far more often.\n\n**And the number**, which you will score in the applied activity:\n\n**What share of employers do you think now have a formal written AI policy?** Whole percent.\n\n**And of those that have one, what share do you think believe their own policy is clear and\nfuture-proof?**\n\nThe first number is probably higher than you expect. The second is the module."
   },
   {
     "id": "ai301-comp-m4-module-brief-20",

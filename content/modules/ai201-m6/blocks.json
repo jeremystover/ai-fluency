@@ -6,7 +6,7 @@
     "kind": "calibration_prompt",
     "layer": "stable",
     "reviewedAt": "2026-08-07",
-    "body": "## Calibration prompt — before you start\n\n*Two predictions, thirty seconds. The capstone scores them.*\n\nThink about one full run of your workflow — everything that enters it.\n\n1. **How many distinct data elements flow in per run?** (A document is one. A pasted table is\n   one. The names inside them count separately.) A number.\n2. **How many of those identify a person** — by name, or by description specific enough that a\n   colleague could tell you who it is?\n\nThe second question has a trap in it, and the trap is the module."
+    "body": "## Calibration prompt — before you start\n\n*One claim and two numbers. The capstone scores them.*\n\n> **\"I could list every data element that flows through one run of my workflow.\"**\n\n**True of me, or not true of me?** One sentence. The names inside a document count separately, which\nis where most lists turn out to be incomplete.\n\n**And the number**, which you will score in the applied activity:\n\nThink about one full run of your workflow — everything that enters it.\n\n1. **How many distinct data elements flow in per run?** (A document is one. A pasted table is\n   one. The names inside them count separately.) A number.\n2. **How many of those identify a person** — by name, or by description specific enough that a\n   colleague could tell you who it is?\n\nThe second question has a trap in it, and the trap is the module."
   },
   {
     "id": "ai201-m6-module-brief-20",

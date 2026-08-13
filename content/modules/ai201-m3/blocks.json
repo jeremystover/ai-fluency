@@ -6,7 +6,7 @@
     "kind": "calibration_prompt",
     "layer": "stable",
     "reviewedAt": "2026-08-07",
-    "body": "## Calibration prompt — before you start\n\n*One prediction, thirty seconds. You'll score it during the capstone run.*\n\nBy the end of this module you'll have designed your workflow as a pipeline — a chain of small\nsteps — and run it on real material.\n\n**Which step do you expect to degrade quality most?** Not fail loudly — degrade: lose detail,\nflatten nuance, drop the thing that mattered. Name the step and write one sentence on why.\n\nAlmost nobody guesses right the first time, and the miss teaches you where your verification\nbudget should go. That's M4's opening move."
+    "body": "## Calibration prompt — before you start\n\n*One claim and one number. Commit both before you read.*\n\n> **\"I know which step of my workflow degrades quality most.\"**\n\n**True of me, or not true of me?** One sentence. Degrade, not fail — the steps that fail loudly are\nthe ones you already know about.\n\n**And the number**, which you will score in the applied activity:\n\nBy the end of this module you'll have designed your workflow as a pipeline — a chain of small\nsteps — and run it on real material.\n\n**Which step do you expect to degrade quality most?** Not fail loudly — degrade: lose detail,\nflatten nuance, drop the thing that mattered. Name the step and write one sentence on why.\n\nAlmost nobody guesses right the first time, and the miss teaches you where your verification\nbudget should go. That's M4's opening move."
   },
   {
     "id": "ai201-m3-module-brief-20",

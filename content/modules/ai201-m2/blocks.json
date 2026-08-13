@@ -6,7 +6,7 @@
     "kind": "calibration_prompt",
     "layer": "stable",
     "reviewedAt": "2026-08-07",
-    "body": "## Calibration prompt — before you start\n\n*Two predictions, thirty seconds. You'll score them at the end of the module.*\n\nBy the end of this module you'll have built a context pack for the workflow you specced in M1.\n\n1. **How many distinct items will it need?** (A voice guide is one item. An example debrief is\n   one item.) Write down a number.\n2. **Which item will be hardest to write?** Name it.\n\nMost people guess high on the first and wrong on the second. The miss is the lesson."
+    "body": "## Calibration prompt — before you start\n\n*One claim and two numbers. Commit all three before you read.*\n\n> **\"I could hand my workflow to a capable colleague with the context they would need, today.\"**\n\n**True of me, or not true of me?** One sentence — *today* meaning without assembling anything new.\n\n**And the number**, which you will score in the applied activity:\n\nBy the end of this module you'll have built a context pack for the workflow you specced in M1.\n\n1. **How many distinct items will it need?** (A voice guide is one item. An example debrief is\n   one item.) Write down a number.\n2. **Which item will be hardest to write?** Name it.\n\nMost people guess high on the first and wrong on the second. The miss is the lesson."
   },
   {
     "id": "ai201-m2-module-brief-20",

@@ -14,7 +14,14 @@
 
 ## Calibration prompt — before you start
 
-*One question, thirty seconds. You'll come back to it at the end of the course.*
+*One claim and one number. You will come back to both at the end of the course.*
+
+> **"I know what my most-wanted-to-automate task actually costs me right now."**
+
+**True of me, or not true of me?** One sentence. Most practitioners discover in Module 7 that their
+estimate was out by a factor they would not have guessed.
+
+**And the number**, which you will score in the applied activity:
 
 Think of the recurring task you would most like to hand to AI.
 
@@ -23,8 +30,6 @@ Think of the recurring task you would most like to hand to AI.
 Write the number down. Most practitioners discover in Module 7 that their estimate was off by
 half — in one direction or the other — and the direction says a lot about which workflows they
 should build first.
-
----
 
 ## Module brief
 

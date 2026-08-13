@@ -17,7 +17,13 @@ satisfies the gate; the gap rides visibly on the index page. An absent sheet doe
 
 ## Calibration prompt — before you start
 
-*One prediction, thirty seconds. The peer exchange scores it — and it's the course's last.*
+*One claim and one number — the course's last, scored by the peer exchange.*
+
+> **"A peer who has never worked with me could run my workflow's first step from my documentation alone."**
+
+**True of me, or not true of me?** One sentence, committed before anybody tries it.
+
+**And the number**, which you will score in the applied activity:
 
 A peer you've never worked with is about to run your workflow's first step from your
 documentation alone.
@@ -28,8 +34,6 @@ do they get a usable artifact out of step one, yes or no?
 
 Seven modules of predictions have taught you your lean. This one you should be getting right —
 which is exactly why it's worth checking.
-
----
 
 ## Module brief
 

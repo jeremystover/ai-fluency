@@ -13,7 +13,14 @@
 
 ## Calibration prompt — before you start
 
-*One prediction, thirty seconds. You'll score it in the applied activity.*
+*One claim and one number. Commit both before you read.*
+
+> **"My process has at least one stage a motivated faker could not get through cheaply."**
+
+**True of us, or not true of us?** One sentence. Cheaply means time, presence, or something they
+cannot delegate to a model — not merely *unpleasant*.
+
+**And the number**, which you will score in the applied activity:
 
 Take one requisition you're working right now. Walk its stages: application, résumé screen, phone
 screen, take-home or assessment, panel, references.
@@ -22,8 +29,6 @@ screen, take-home or assessment, panel, references.
 unpleasant" — would cost them time, presence, or something they can't generate. Whole percent.
 
 Most people find their first three stages score zero.
-
----
 
 ## Module brief
 

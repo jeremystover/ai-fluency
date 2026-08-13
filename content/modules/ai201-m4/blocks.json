@@ -6,7 +6,7 @@
     "kind": "calibration_prompt",
     "layer": "stable",
     "reviewedAt": "2026-08-07",
-    "body": "## Calibration prompt — before you start\n\n*Two predictions, thirty seconds. The capstone scores them.*\n\nAt the end of this module you'll run a real verification sample on your workflow's output.\n\n1. **Out of ten outputs, how many will contain at least one real error?** A number, not a range.\n2. **What kind will dominate?** Wrong (contradicts the source) · missing (source material that\n   should be there and isn't) · invented (content with no source at all).\n\nThe second prediction is the interesting one. Most practitioners guess \"invented,\" because 101\ntaught them to fear hallucination. Volume workflows usually surprise them."
+    "body": "## Calibration prompt — before you start\n\n*One claim and two numbers. The capstone scores them.*\n\n> **\"I know the error rate of my workflow's output well enough to state it to someone who relies on it.\"**\n\n**True of me, or not true of me?** One sentence, before the numbers below.\n\n**And the number**, which you will score in the applied activity:\n\nAt the end of this module you'll run a real verification sample on your workflow's output.\n\n1. **Out of ten outputs, how many will contain at least one real error?** A number, not a range.\n2. **What kind will dominate?** Wrong (contradicts the source) · missing (source material that\n   should be there and isn't) · invented (content with no source at all).\n\nThe second prediction is the interesting one. Most practitioners guess \"invented,\" because 101\ntaught them to fear hallucination. Volume workflows usually surprise them."
   },
   {
     "id": "ai201-m4-module-brief-20",

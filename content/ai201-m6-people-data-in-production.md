@@ -15,7 +15,14 @@ ships without the boundary sheet you write here.
 
 ## Calibration prompt — before you start
 
-*Two predictions, thirty seconds. The capstone scores them.*
+*One claim and two numbers. The capstone scores them.*
+
+> **"I could list every data element that flows through one run of my workflow."**
+
+**True of me, or not true of me?** One sentence. The names inside a document count separately, which
+is where most lists turn out to be incomplete.
+
+**And the number**, which you will score in the applied activity:
 
 Think about one full run of your workflow — everything that enters it.
 
@@ -25,8 +32,6 @@ Think about one full run of your workflow — everything that enters it.
    colleague could tell you who it is?
 
 The second question has a trap in it, and the trap is the module.
-
----
 
 ## Module brief
 

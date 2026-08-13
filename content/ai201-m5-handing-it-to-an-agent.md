@@ -15,7 +15,13 @@ M4 sample results and escalation line are inputs to this module's capstone. No b
 
 ## Calibration prompt — before you start
 
-*One prediction, thirty seconds. The capstone measures it.*
+*One claim and one number. Commit both before you read.*
+
+> **"Most of the time I spend running my workflow is spent on judgment rather than shuttling things between steps."**
+
+**True of me, or not true of me?** One sentence, before you estimate the split.
+
+**And the number**, which you will score in the applied activity:
 
 Think about actually running your workflow, end to end, yourself.
 
@@ -25,8 +31,6 @@ split down (e.g., "70% shuttling / 30% judgment").
 
 This number is the honest case for agents, and most people get it wrong in a revealing
 direction: they overestimate the judgment share, because judgment is what they remember doing.
-
----
 
 ## Module brief
 

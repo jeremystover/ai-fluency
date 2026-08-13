@@ -12,15 +12,20 @@
 
 ## Calibration prompt — before you start
 
-*The last prediction of the course.*
+*One claim and one number — the last of the course.*
+
+> **"My hiring managers would describe my team's AI-assisted output as trustworthy."**
+
+**True of us, or not true of us?** One sentence — and notice whether you are answering from
+something one of them actually said, or from hope.
+
+**And the number**, which you will score in the applied activity:
 
 **What share of your hiring managers would describe your team's AI-assisted output as
 trustworthy?** Whole percent, honestly.
 
 Then, in the activity, you'll gather every prediction you made across these seven modules and
 read the pattern — because this track scores the delta, not the score.
-
----
 
 ## Module brief
 

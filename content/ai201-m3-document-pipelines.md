@@ -13,7 +13,14 @@
 
 ## Calibration prompt — before you start
 
-*One prediction, thirty seconds. You'll score it during the capstone run.*
+*One claim and one number. Commit both before you read.*
+
+> **"I know which step of my workflow degrades quality most."**
+
+**True of me, or not true of me?** One sentence. Degrade, not fail — the steps that fail loudly are
+the ones you already know about.
+
+**And the number**, which you will score in the applied activity:
 
 By the end of this module you'll have designed your workflow as a pipeline — a chain of small
 steps — and run it on real material.
@@ -23,8 +30,6 @@ flatten nuance, drop the thing that mattered. Name the step and write one senten
 
 Almost nobody guesses right the first time, and the miss teaches you where your verification
 budget should go. That's M4's opening move.
-
----
 
 ## Module brief
 

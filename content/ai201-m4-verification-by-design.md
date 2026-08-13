@@ -14,7 +14,13 @@ autonomy ladder's rungs are defined by what you can verify, so nothing climbs un
 
 ## Calibration prompt — before you start
 
-*Two predictions, thirty seconds. The capstone scores them.*
+*One claim and two numbers. The capstone scores them.*
+
+> **"I know the error rate of my workflow's output well enough to state it to someone who relies on it."**
+
+**True of me, or not true of me?** One sentence, before the numbers below.
+
+**And the number**, which you will score in the applied activity:
 
 At the end of this module you'll run a real verification sample on your workflow's output.
 
@@ -24,8 +30,6 @@ At the end of this module you'll run a real verification sample on your workflow
 
 The second prediction is the interesting one. Most practitioners guess "invented," because 101
 taught them to fear hallucination. Volume workflows usually surprise them.
-
----
 
 ## Module brief
 

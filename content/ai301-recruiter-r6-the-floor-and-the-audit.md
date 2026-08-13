@@ -25,15 +25,20 @@ screening tools, what to ask a vendor before signature, when you still have leve
 
 ## Calibration prompt — before you start
 
-*One prediction, thirty seconds.*
+*One claim and one number. Commit both before you read.*
+
+> **"I could name every system touching my requisitions that screens, scores, ranks or filters a candidate — and the deployer for each."**
+
+**True of me, or not true of me?** One sentence. Most recruiters can name the systems and not the
+deployers, and the second half is the one a regulator asks about.
+
+**And the number**, which you will score in the applied activity:
 
 **How many AI systems currently touch your requisitions in a way that screens, scores, ranks, or
 filters a candidate?** Count anything — your ATS's ranking feature, a sourcing tool's match
 score, an assessment vendor, a scheduling bot that prioritizes. A number.
 
 Then predict how many of those you could name the *deployer* for, if a regulator asked.
-
----
 
 ## Module brief
 

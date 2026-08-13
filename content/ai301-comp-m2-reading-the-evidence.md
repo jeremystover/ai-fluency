@@ -13,7 +13,14 @@
 
 ## Calibration prompt — before you start
 
-*One prediction, thirty seconds.*
+*One claim and one number. Commit both before you read.*
+
+> **"My organisation is roughly where the market is on AI in benefits."**
+
+**True of us, or not true of us?** One sentence. Both directions of error matter here, and the
+module is about how badly this particular market is described to you.
+
+**And the number**, which you will score in the applied activity:
 
 **What share of employers do you think are currently operationalizing AI within their benefits
 programs?** Not experimenting, not planning — actually running it in production. Whole percent.
@@ -22,8 +29,6 @@ Then, a second number: **what share do you think plan to within two years?**
 
 The gap between those two is the most useful thing in this module, and how you predicted it says
 something about which story you've been reading.
-
----
 
 ## Module brief
 

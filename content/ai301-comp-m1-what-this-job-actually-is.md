@@ -13,7 +13,13 @@
 
 ## Calibration prompt — before you start
 
-*This one is a gate. Answer it before reading Lesson 1.*
+*One claim and five numbers. This one is a gate — answer it before reading Lesson 1.*
+
+> **"I could say where my week actually goes, by kind of work, and be within ten points on each."**
+
+**True of me, or not true of me?** One sentence, committed before you write the numbers below.
+
+**And the number**, which you will score in the applied activity:
 
 Total rewards work divides into five kinds of activity: **data assembly, analysis, judgment,
 explanation, and governance.**
@@ -24,8 +30,6 @@ before the module tells you anything about how they usually distribute.
 This track scores the delta, not the score. In Module 6 you'll gather every prediction you made
 and read the pattern — and this one is the anchor, because what you believe your job consists of
 determines every buying decision you make about it.
-
----
 
 ## Module brief
 

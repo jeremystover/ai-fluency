@@ -1,5 +1,14 @@
 [
   {
+    "id": "m1-calibration",
+    "moduleId": "ai101-m1",
+    "ordinal": 5,
+    "kind": "calibration_prompt",
+    "layer": "stable",
+    "reviewedAt": "2026-07-28",
+    "body": "## Calibration prompt — before you start\n\n*One claim and one number. Commit both before you read — this is the first of many, and the course\nscores the delta rather than the score.*\n\n> **\"I could explain to a colleague what an AI model is actually doing when it answers a question.\"**\n\n**True of me, or not true of me?** One sentence. Not *could I use one* — could you say what is\nhappening well enough that someone would know when to trust it.\n\n**And the number**, which you will score in the applied activity:\n\nIn Conversation 2 you will ask for something specific and hard to verify, then check it. Before you\nsend anything: **how likely is it that the answer contains something invented?** A percentage.\n\nHonesty is what is scored here, not accuracy. Being confidently wrong is the most useful result this\nmodule can give you, and it is the one it is built to produce."
+  },
+  {
     "id": "m1-brief",
     "moduleId": "ai101-m1",
     "ordinal": 10,

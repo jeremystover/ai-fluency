@@ -6,7 +6,7 @@
     "kind": "calibration_prompt",
     "layer": "stable",
     "reviewedAt": "2026-08-07",
-    "body": "## Calibration prompt — before you start\n\n*One prediction, thirty seconds. The peer exchange scores it — and it's the course's last.*\n\nA peer you've never worked with is about to run your workflow's first step from your\ndocumentation alone.\n\n**Where do they stall?** Name the specific spot — the undefined term, the step that assumes a\nfile location only you know, the instruction that quietly requires your judgment. And predict:\ndo they get a usable artifact out of step one, yes or no?\n\nSeven modules of predictions have taught you your lean. This one you should be getting right —\nwhich is exactly why it's worth checking."
+    "body": "## Calibration prompt — before you start\n\n*One claim and one number — the course's last, scored by the peer exchange.*\n\n> **\"A peer who has never worked with me could run my workflow's first step from my documentation alone.\"**\n\n**True of me, or not true of me?** One sentence, committed before anybody tries it.\n\n**And the number**, which you will score in the applied activity:\n\nA peer you've never worked with is about to run your workflow's first step from your\ndocumentation alone.\n\n**Where do they stall?** Name the specific spot — the undefined term, the step that assumes a\nfile location only you know, the instruction that quietly requires your judgment. And predict:\ndo they get a usable artifact out of step one, yes or no?\n\nSeven modules of predictions have taught you your lean. This one you should be getting right —\nwhich is exactly why it's worth checking."
   },
   {
     "id": "ai201-m8-module-brief-20",

@@ -14,7 +14,14 @@
 
 ## Calibration prompt — before you start
 
-*One prediction, thirty seconds — the last one, and it's about all the others.*
+*One claim and one number — the last of the course, and both are about all the others.*
+
+> **"My predictions across this course were wrong in a consistent direction."**
+
+**True of me, or not true of me?** One sentence, committed **before** you look back at them. The
+direction is the finding; the individual scores are not.
+
+**And the number**, which you will score in the applied activity:
 
 Across this course you've made a prediction at the top of most modules and scored it in the
 activity. The final activity asks you to gather them and look at the pattern.
@@ -25,8 +32,6 @@ one sentence, including your best guess at *why* your misses lean the way they d
 
 This one has no numeric field on purpose. The last calibration is a judgment about your own
 judgment — which is, not coincidentally, the skill the whole course was building.
-
----
 
 ## Module brief
 

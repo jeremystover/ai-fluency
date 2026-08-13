@@ -6,7 +6,7 @@
     "kind": "calibration_prompt",
     "layer": "stable",
     "reviewedAt": "2026-08-12",
-    "body": "## Calibration prompt — before you start\n\n*One prediction, thirty seconds.*\n\nRank these five selection methods by how well they predict job performance, best first: **general\nmental ability tests · structured interviews · unstructured interviews · years of relevant\nexperience · biodata (structured background information).**\n\nWrite your ranking down before Lesson 1. Most people get the top two the wrong way round, for a\nreason that was the field's consensus until quite recently."
+    "body": "## Calibration prompt — before you start\n\n*One claim and one number. Commit both before you read.*\n\n> **\"The selection methods my team leans on hardest are the ones best supported by evidence.\"**\n\n**True of us, or not true of us?** One sentence. Answer before you see the ranking, because the\nanswer after is worthless.\n\n**And the number**, which you will score in the applied activity:\n\nRank these five selection methods by how well they predict job performance, best first: **general\nmental ability tests · structured interviews · unstructured interviews · years of relevant\nexperience · biodata (structured background information).**\n\nWrite your ranking down before Lesson 1. Most people get the top two the wrong way round, for a\nreason that was the field's consensus until quite recently."
   },
   {
     "id": "ai301-recruiter-r4-module-brief-20",

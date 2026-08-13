@@ -13,7 +13,14 @@
 
 ## Calibration prompt — before you start
 
-*One prediction, and be honest — nobody sees this but you.*
+*One claim and one number. Commit both before you read.*
+
+> **"If someone asked me today, I could rebuild my last analysis from its raw inputs, in front of them."**
+
+**True of me, or not true of me?** One sentence. In front of them is the operative phrase — not
+*given a quiet afternoon*.
+
+**And the number**, which you will score in the applied activity:
 
 Think about the last analysis you handed to someone who acted on it. A market pricing round, a
 merit model, a plan cost projection, an equity refresh.
@@ -22,8 +29,6 @@ merit model, a plan cost projection, an equity refresh.
 are you that every join and every filter would come out the same? Give a percent.**
 
 Not "would the answer be roughly right." Would the *construction* reproduce.
-
----
 
 ## Module brief
 

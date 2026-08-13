@@ -15,7 +15,14 @@
 
 ## Calibration prompt — before you start
 
-*One prediction, thirty seconds. You'll score it during the applied activity.*
+*One claim and one number. Commit both before you read.*
+
+> **"Every AI use in my function is on the right side of the line between assisting and deciding."**
+
+**True of us, or not true of us?** One sentence — including the uses that are seriously proposed
+rather than only the ones already running.
+
+**And the number**, which you will score in the applied activity:
 
 At the end of this module you'll audit the AI uses in your own function — current and
 seriously proposed — against the line this module draws.
@@ -28,8 +35,6 @@ The commonest miss isn't the direction you'd guess. People expect to find zero a
 finding five; what they usually find is one or two — already running, adopted casually,
 that nobody ever examined *as* a decision about people. The audit exists to make the
 implicit explicit while it's still cheap to change.
-
----
 
 ## Module brief
 

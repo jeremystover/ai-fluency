@@ -12,13 +12,17 @@
 
 ## Calibration prompt — before you start
 
-*One prediction, thirty seconds.*
+*One claim and one number. Commit both before you read.*
+
+> **"Most of my team's week goes to work that actually requires recruiting judgment."**
+
+**True of us, or not true of us?** One sentence, before you count anything.
+
+**And the number**, which you will score in the applied activity:
 
 **What share of your team's week goes to throughput work** — the coordinating, formatting,
 scheduling, chasing, and status-updating that has to happen and requires no recruiting judgment?
 Whole percent.
-
----
 
 ## Module brief
 

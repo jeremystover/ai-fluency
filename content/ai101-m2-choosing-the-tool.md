@@ -13,7 +13,14 @@
 
 ## Calibration prompt — before you start
 
-*One prediction, thirty seconds. You'll score it during the applied activity.*
+*One claim and one number. Commit both before you read.*
+
+> **"I could list every system my People function runs that has AI inside it."**
+
+**True of me, or not true of me?** One sentence. Most people can list the systems and are surprised
+by which ones turned out to have AI switched on inside them.
+
+**And the number**, which you will score in the applied activity:
 
 By the end of this module you'll audit the systems your People function actually runs — the ATS,
 the HRIS, the survey platform, the docs suite, the chat tools — and find the AI already inside
@@ -25,8 +32,6 @@ your team touches in a normal month. Write the number down before you look.
 Almost everyone guesses low. The gap between your number and the real one is the point: it
 measures how much AI is already making or shaping calls around you without ever having been
 chosen.
-
----
 
 ## Module brief
 

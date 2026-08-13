@@ -6,7 +6,7 @@
     "kind": "calibration_prompt",
     "layer": "stable",
     "reviewedAt": "2026-08-12",
-    "body": "## Calibration prompt — before you start\n\n*One prediction, thirty seconds. You'll score it in the applied activity.*\n\nTake one requisition you're working right now. Walk its stages: application, résumé screen, phone\nscreen, take-home or assessment, panel, references.\n\n**What share of those stages would cost a motivated faker anything at all?** Not \"would be\nunpleasant\" — would cost them time, presence, or something they can't generate. Whole percent.\n\nMost people find their first three stages score zero."
+    "body": "## Calibration prompt — before you start\n\n*One claim and one number. Commit both before you read.*\n\n> **\"My process has at least one stage a motivated faker could not get through cheaply.\"**\n\n**True of us, or not true of us?** One sentence. Cheaply means time, presence, or something they\ncannot delegate to a model — not merely *unpleasant*.\n\n**And the number**, which you will score in the applied activity:\n\nTake one requisition you're working right now. Walk its stages: application, résumé screen, phone\nscreen, take-home or assessment, panel, references.\n\n**What share of those stages would cost a motivated faker anything at all?** Not \"would be\nunpleasant\" — would cost them time, presence, or something they can't generate. Whole percent.\n\nMost people find their first three stages score zero."
   },
   {
     "id": "ai301-recruiter-r1-module-brief-20",

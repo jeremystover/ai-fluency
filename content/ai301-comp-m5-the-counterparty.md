@@ -13,7 +13,13 @@
 
 ## Calibration prompt — before you start
 
-*Two predictions. Be honest — this is the module where the gap is the lesson.*
+*One claim and one number. Commit both before you read.*
+
+> **"The candidates I negotiate with are no better prepared than they were two years ago."**
+
+**True of us, or not true of us?** One sentence, before the numbers below.
+
+**And the number**, which you will score in the applied activity:
 
 **Think of the last five external candidates you made an offer to. How many do you think used AI
 to prepare for the negotiation?**
@@ -23,8 +29,6 @@ justify to the person it affected. If they had run your rationale past a capable
 to find the weakest part — what would it have found?**
 
 Write the answer down before Lesson 1. You will be asked to actually run it in the activity.
-
----
 
 ## Module brief
 

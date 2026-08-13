@@ -12,7 +12,14 @@
 
 ## Calibration prompt — before you start
 
-*The last prediction of the course, and the one that matters most.*
+*One claim and one number — the last of the course.*
+
+> **"The shape of my job has changed in the last year in a way I could describe to my manager."**
+
+**True of me, or not true of me?** One sentence — and this is the claim Module 1's version of you
+would have answered differently.
+
+**And the number**, which you will score in the applied activity:
 
 Back in Module 1 you split your week across five work types and predicted the shares before you
 measured them. **Look at that prediction again now, before reading anything in this module.**

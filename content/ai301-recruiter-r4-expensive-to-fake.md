@@ -13,7 +13,14 @@
 
 ## Calibration prompt — before you start
 
-*One prediction, thirty seconds.*
+*One claim and one number. Commit both before you read.*
+
+> **"The selection methods my team leans on hardest are the ones best supported by evidence."**
+
+**True of us, or not true of us?** One sentence. Answer before you see the ranking, because the
+answer after is worthless.
+
+**And the number**, which you will score in the applied activity:
 
 Rank these five selection methods by how well they predict job performance, best first: **general
 mental ability tests · structured interviews · unstructured interviews · years of relevant
@@ -21,8 +28,6 @@ experience · biodata (structured background information).**
 
 Write your ranking down before Lesson 1. Most people get the top two the wrong way round, for a
 reason that was the field's consensus until quite recently.
-
----
 
 ## Module brief
 
