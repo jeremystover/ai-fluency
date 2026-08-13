@@ -1,2 +1,4 @@
-reset-podcasts
-# 2026-08-09 run 2: clear episodes generated during sketch testing
+seed-content
+# 2026-08-13: publish the AI 401 track (10 modules) and the corpus-wide prose
+# pass. Content only reaches the remote D1 through this task — deploy.yml
+# applies migrations and ships the Worker, but never seeds.
