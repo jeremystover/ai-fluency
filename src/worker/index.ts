@@ -1727,8 +1727,9 @@ app.get('/api/module/:id', async (c) => {
     return c.json({ error: "This module's content ships in the full course — the demo carries Module 1 end to end." }, 403);
   }
   // Seeing the module page warms its stock episode — by the time the learner
-  // clicks Listen, the instant path is usually ready. Skips in one query when fresh.
-  c.executionCtx.waitUntil(bakeStock(c.env, id));
+  // clicks Listen, the instant path is usually ready. Skips in one query when
+  // fresh. Body audio is left to the cron: the open is what they're waiting on.
+  c.executionCtx.waitUntil(bakeStock(c.env, id, { deferBody: true }));
   const blockRows = await db.select().from(t.fdContentBlock).where(eq(t.fdContentBlock.moduleId, id)).orderBy(asc(t.fdContentBlock.ordinal));
   const blocks = selectVariants(blockRows, toolingOf(c.env)).map(toBlock);
   const words = blocks.reduce((sum, b) => sum + b.body.split(/\s+/).length, 0);
@@ -3244,9 +3245,16 @@ async function voiceIntroToR2(env: Env, lines: PodcastLine[], key: string): Prom
 }
 
 // Bake the generic stock episode for a module: one stock-script call, one study
-// call, intro + body voiced into R2. Self-healing — re-bakes when module
-// content's reviewedAt moves. Silent on failure; the legacy path still works.
-async function bakeStock(env: Env, moduleId: string): Promise<void> {
+// call, intro voiced into R2, and — unless the caller defers it — the stock
+// body voiced too. Self-healing: re-bakes when module content's reviewedAt
+// moves. Silent on failure; the legacy path still works.
+//
+// Deferring the body matters at catalog scale. The intro is what makes arrival
+// instant; the stock body is only the fallback for when a learner's custom body
+// fails to write. Voicing the intro is one TTS call, the body is five, so a
+// warm-up pass gets every module to instant sooner by taking the opens first
+// and backfilling bodies after (see warmAllStock).
+async function bakeStock(env: Env, moduleId: string, opts: { deferBody?: boolean } = {}): Promise<void> {
   if (!env.ANTHROPIC_API_KEY) return;
   try {
     const db = drizzle(env.DB);
@@ -3268,17 +3276,7 @@ async function bakeStock(env: Env, moduleId: string): Promise<void> {
       'default',
     ).catch(() => null);
     const introAudioKey = await voiceIntroToR2(env, draft.intro, stockIntroKey(moduleId, 'generic'));
-    if (env.GEMINI_API_KEY && env.PODCAST_AUDIO) {
-      const bodyChunks = chunkPlan(draft.body);
-      await Promise.all(
-        bodyChunks.map(async (ch, i) => {
-          const rendered = await renderChunkAudio(env, draft.body.slice(ch.start, ch.end));
-          if (rendered) {
-            await env.PODCAST_AUDIO!.put(stockBodyChunkKey(moduleId, i), rendered.bytes, { httpMetadata: { contentType: rendered.contentType } });
-          }
-        }),
-      );
-    }
+    if (!opts.deferBody) await voiceStockBody(env, moduleId, draft.body);
     await db.delete(t.fdPodcastStock).where(and(eq(t.fdPodcastStock.moduleId, moduleId), eq(t.fdPodcastStock.variant, 'generic')));
     await db.insert(t.fdPodcastStock).values({
       id: uuid(),
@@ -3298,10 +3296,41 @@ async function bakeStock(env: Env, moduleId: string): Promise<void> {
       contentReviewedAt: content.reviewedAt,
       bakedAt: now(),
     });
-    await logEvent(db, null, 'podcast_stock_baked', { moduleId, variant: 'generic' });
+    await logEvent(db, null, 'podcast_stock_baked', { moduleId, variant: 'generic', body: opts.deferBody ? 'deferred' : 'voiced' });
   } catch {
     // Background work — cold arrivals fall back to the legacy path.
   }
+}
+
+// Voice the stock body into R2, chunk by chunk, all concurrently. Idempotent:
+// chunks already present are left alone, so a deferred body can be filled in
+// later without re-spending on what landed the first time.
+async function voiceStockBody(env: Env, moduleId: string, body: PodcastLine[]): Promise<boolean> {
+  if (!env.GEMINI_API_KEY || !env.PODCAST_AUDIO) return false;
+  const bucket = env.PODCAST_AUDIO;
+  const results = await Promise.all(
+    chunkPlan(body).map(async (ch, i) => {
+      const key = stockBodyChunkKey(moduleId, i);
+      if (await bucket.head(key)) return true;
+      const rendered = await renderChunkAudio(env, body.slice(ch.start, ch.end));
+      if (!rendered) return false;
+      await bucket.put(key, rendered.bytes, { httpMetadata: { contentType: rendered.contentType } });
+      return true;
+    }),
+  );
+  return results.every(Boolean);
+}
+
+// Does this module's stock body have its audio yet? Chunk 0 is written last of
+// the set only by luck, so check the whole plan — a half-voiced body would
+// strand the fallback mid-episode.
+async function stockBodyVoiced(env: Env, row: typeof t.fdPodcastStock.$inferSelect): Promise<boolean> {
+  if (!env.PODCAST_AUDIO || !row.bodyJson) return true; // nothing to store, or nothing to store it for
+  const body = JSON.parse(row.bodyJson) as PodcastLine[];
+  for (let i = 0; i < chunkPlan(body).length; i++) {
+    if (!(await env.PODCAST_AUDIO.head(stockBodyChunkKey(row.moduleId, i)))) return false;
+  }
+  return true;
 }
 
 // Bake a goal-flavored intro over the generic beats. Lazy: only for goals a
@@ -3354,11 +3383,34 @@ async function bakeGoalIntro(env: Env, moduleId: string, goalId: string): Promis
   }
 }
 
-// The learner's next podcast-less open module — where pre-warming aims.
 // Keep every open module's stock episode fresh — runs on the cron trigger, so
 // no learner ever pays the cold-bake toll. Steady-state runs find everything
-// fresh and bake nothing; after a content edit or prompt-version bump, each
-// run bakes up to a few modules until the catalog is warm again.
+// fresh and do nothing.
+//
+// Two phases, opens first. Phase one bakes the script, study assets, and intro
+// audio for every module missing them — that alone makes arrival instant, and
+// costs one TTS call per module. Only once the whole catalog has its open does
+// phase two backfill stock body audio (five TTS calls each), which is just the
+// fallback for a failed custom body. Across a large catalog that ordering is
+// the difference between every module being instant in an hour and a handful
+// being fully baked while the rest still wait.
+const WARM_OPENS_PER_RUN = 9;
+const WARM_BODIES_PER_RUN = 3;
+// Opens are one TTS call each, so three at a time is three in flight. A body is
+// five chunks rendered concurrently, so it takes its turn alone — otherwise a
+// run fires fifteen simultaneous TTS calls and spends its retries on rate limits.
+const WARM_OPEN_CONCURRENCY = 3;
+const WARM_BODY_CONCURRENCY = 1;
+
+// Run tasks a few at a time: a cron tick has minutes of wall clock, and one
+// bake is mostly waiting on model calls, but firing all of them at once would
+// stack subrequests and rate limits.
+async function inBatches<T>(items: T[], size: number, run: (item: T) => Promise<void>): Promise<void> {
+  for (let i = 0; i < items.length; i += size) {
+    await Promise.all(items.slice(i, i + size).map((item) => run(item).catch(() => {})));
+  }
+}
+
 async function warmAllStock(env: Env): Promise<void> {
   if (!env.ANTHROPIC_API_KEY) return;
   try {
@@ -3368,21 +3420,45 @@ async function warmAllStock(env: Env): Promise<void> {
       .from(t.fdModule)
       .where(eq(t.fdModule.status, 'open'))
       .orderBy(asc(t.fdModule.courseId), asc(t.fdModule.ordinal));
-    let budget = 3; // stale bakes per run — keeps a single run's work bounded
+
+    // Phase one: modules with no fresh stock at all.
+    const needOpen: string[] = [];
+    const haveStock: (typeof t.fdPodcastStock.$inferSelect)[] = [];
     for (const mod of mods) {
-      if (budget <= 0) break;
       const existing = await loadStock(db, mod.id, 'generic');
-      if (existing && existing.promptVersion === PODCAST_PROMPT_VERSION) {
-        const content = await moduleContent(db, env, mod.id);
-        if (!content || existing.contentReviewedAt === content.reviewedAt) continue;
+      if (!existing || existing.promptVersion !== PODCAST_PROMPT_VERSION) {
+        needOpen.push(mod.id);
+        continue;
       }
-      await bakeStock(env, mod.id);
-      budget -= 1;
+      const content = await moduleContent(db, env, mod.id);
+      if (content && existing.contentReviewedAt !== content.reviewedAt) needOpen.push(mod.id);
+      else haveStock.push(existing);
     }
+
+    if (needOpen.length > 0) {
+      const batch = needOpen.slice(0, WARM_OPENS_PER_RUN);
+      await logEvent(db, null, 'podcast_warm_pass', { phase: 'opens', baking: batch.length, remaining: needOpen.length - batch.length });
+      await inBatches(batch, WARM_OPEN_CONCURRENCY, (moduleId) => bakeStock(env, moduleId, { deferBody: true }));
+      return; // opens for the whole catalog before any body audio
+    }
+
+    // Phase two: every module has its open — backfill the stock bodies.
+    const needBody: (typeof t.fdPodcastStock.$inferSelect)[] = [];
+    for (const row of haveStock) {
+      if (needBody.length >= WARM_BODIES_PER_RUN) break;
+      if (!(await stockBodyVoiced(env, row))) needBody.push(row);
+    }
+    if (needBody.length === 0) return;
+    await logEvent(db, null, 'podcast_warm_pass', { phase: 'bodies', baking: needBody.length });
+    await inBatches(needBody, WARM_BODY_CONCURRENCY, async (row) => {
+      if (row.bodyJson) await voiceStockBody(env, row.moduleId, JSON.parse(row.bodyJson) as PodcastLine[]);
+    });
   } catch {
     // Cron work — the next tick tries again.
   }
 }
+
+// The learner's next podcast-less open module — where pre-warming aims.
 
 async function nextPodcastModule(db: DrizzleD1Database, sessionId: string) {
   const mods = await db
@@ -3415,7 +3491,8 @@ async function preparePersonalIntro(env: Env, sessionId: string, moduleId: strin
     if (existing[0]?.promptVersion === PODCAST_PROMPT_VERSION) return;
     let generic = await loadStock(db, moduleId, 'generic');
     if (!generic) {
-      await bakeStock(env, moduleId);
+      // Only the beats and intro are needed here; the cron voices the body.
+      await bakeStock(env, moduleId, { deferBody: true });
       generic = await loadStock(db, moduleId, 'generic');
       if (!generic) return;
     }
@@ -3833,7 +3910,7 @@ async function pregenerateNextPodcast(env: Env, sessionId: string): Promise<void
 
     // Everyone gets the pre-warm: stock baked, goal intro flavored, personal
     // intro voiced — so arrival is instant whatever their learning style.
-    await bakeStock(env, mod.id);
+    await bakeStock(env, mod.id, { deferBody: true });
     const prefs = await loadPrefs(db, sessionId);
     const goalId = (prefs.goals ?? [])[0];
     if (goalId) await bakeGoalIntro(env, mod.id, goalId);
@@ -3972,7 +4049,7 @@ app.post('/api/podcast', async (c) => {
   }
   // No stock baked yet (first visitor to this module): legacy full-script
   // path today, and bake the stock in the background for everyone after.
-  c.executionCtx.waitUntil(bakeStock(c.env, moduleId));
+  c.executionCtx.waitUntil(bakeStock(c.env, moduleId, { deferBody: true }));
 
   const row = await generateEpisode(c.env, db, session.id, moduleId, 'default', null, length);
   if (!row) {
