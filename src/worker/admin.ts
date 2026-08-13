@@ -143,7 +143,19 @@ adminApp.get('/report', async (c) => {
         FROM latest WHERE rn = 1
         GROUP BY platform, browser, pointer ORDER BY sessions DESC`,
   );
-  return c.json({ totals, funnel, demand, calibration, devices });
+  // Podcast warm-up progress. The cron bakes stock episodes catalog-wide —
+  // opens first, bodies after — so this answers "how far along is it?" without
+  // reading logs. Body audio lives in R2, not D1, so it isn't counted here;
+  // the last podcast_warm_pass event reports which phase is running.
+  const warm = {
+    openModules: (await one(sql`SELECT COUNT(*) AS n FROM fd_module WHERE status = 'open'`)).n ?? 0,
+    stockBaked: (await one(sql`SELECT COUNT(DISTINCT module_id) AS n FROM fd_podcast_stock WHERE variant = 'generic'`)).n ?? 0,
+    lastPass:
+      (await one(
+        sql`SELECT payload_json AS p, created_at AS at FROM fd_event WHERE type = 'podcast_warm_pass' ORDER BY created_at DESC LIMIT 1`,
+      )) ?? {},
+  };
+  return c.json({ totals, funnel, demand, calibration, devices, warm });
 });
 
 // ---------- brand (identity + steering guidance) ----------
