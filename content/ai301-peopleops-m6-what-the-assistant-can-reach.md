@@ -247,6 +247,26 @@ applies directly here. If not, the short version: commit your position before yo
 specific artifact you want rather than the outcome you want, and bring the version of the request
 that costs the other person the least.
 
+**And one exclusion that will be argued with, correctly.** The employee relations team has a genuine
+need to search its own case history — comparator analysis is how disparate treatment is proven, and a
+team that cannot answer *"has anyone else done this, and what happened to them?"* is exposed in a way
+no exclusion list fixes. **Excluding the ER corpus from the general assistant is right, and it is not
+the same as refusing them the capability.**
+
+The reconciliation is a boundary rather than a veto, and it is worth writing into the exclusion list
+explicitly so it survives the first challenge:
+
+- The case corpus is **scoped to the ER team's own access**, never to anyone with a licence.
+- It is **never joined to the general enterprise assistant.** A corpus reachable from the same
+  interface a manager uses to ask about policy is not controllable, and that is the line your
+  exclusion list is drawing.
+- **Structured extracts beat full documents** — conduct, outcome and factors in a table is both
+  safer and a better answer to the comparator question than an index over narrative reports.
+
+**Say this in the meeting where your exclusion list is challenged**, because the challenge will come
+from the function with the strongest case for an exception. Arriving with the scoped alternative
+already drawn is the difference between holding the boundary and losing it.
+
 ## Key takeaways
 
 - **The assistant does not create new access. It inherits your access model, including every mistake
@@ -274,6 +294,10 @@ that costs the other person the least.
   a least-privileged persona, never as yourself**; enforce a minimum group size on the reporting
   surface and verify it refuses; and where you do not own the tenant, **bring the exclusion list, not
   the concern.**
+- **One exclusion will be argued with, correctly.** ER genuinely needs its own case history
+  searchable. Excluding that corpus from the general assistant is right and is not the same as
+  refusing the capability — arrive with the scoped alternative already drawn: ER-team access only,
+  never joined to the enterprise assistant, structured extracts over narrative documents.
 
 ## Take a position
 

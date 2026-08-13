@@ -4,10 +4,10 @@ DELETE FROM fd_exercise;
 DELETE FROM fd_module;
 DELETE FROM fd_brand;
 DELETE FROM fd_access_code;
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-13T02:01:25.348Z');
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-13T02:01:25.348Z');
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('591792ac-e882-4302-86fc-037311c2c026', 'omnissa', 'pbkdf2$100000$Z1kDQF4yMO7GrxJMeeR6qQ==$d08yW4t/bX51mFyHDLAvElhB7ve+oy66nbBUsXova1M=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('5cc7ed8b-f9c7-47af-91b5-0408c824858d', 'verdant', 'pbkdf2$100000$egsTBl/fNGoz+J+LvzWqbw==$V4wG/mG3Oe2MoOErIE6VWTEn7mCgvJJm8Y4MBMIedso=', 'Theming proof', NULL, 0, NULL, 1);
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-13T02:04:29.496Z');
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-13T02:04:29.496Z');
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('ae0b0d4c-df13-4a33-a973-6518a8f87183', 'omnissa', 'pbkdf2$100000$abTsBYunK5H1yRX8P6aIuA==$5J09cNqwTo8HVNix/6zLuSDlwCxVlUTxsdfjVV6E0Zs=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('3bcfb8ec-961f-4fcc-97e4-b2b73c3d602d', 'verdant', 'pbkdf2$100000$hq0ubVkHNX3n1eL90V9ImA==$0wm+HCwmRLhSTjgvRmGZCsh4GVjA2VR4ZcSqnYVoKec=', 'Theming proof', NULL, 0, NULL, 1);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m1', 'ai101', 1, 'What is AI?', 'A working mental model: what an LLM actually does, the vocabulary, why data decides everything, and a delegation heuristic you can carry under pressure.', 'open', 30, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m2', 'ai101', 2, 'Choosing the tool for the task', 'Chat assistants, copilots, and the AI already embedded in your HR stack — what each is actually for, and how to tell a language model from a scoring engine before you rely on either.', 'open', 25, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m3', 'ai101', 3, 'What it costs and how it scales', 'Tokens, context windows, and pricing — enough of the economics to size a use case, read a vendor quote, and know when a bigger model is worth it.', 'open', 25, NULL);
@@ -4911,7 +4911,33 @@ The two rules fail differently, which is why both exist. A construction failure 
 number, and wrong numbers get caught — eventually, by someone rebuilding them. **An inference failure
 produces a right number under a wrong claim, and there is no procedure that catches it**, because
 there is nothing to rebuild. The check has to happen before the claim is made, and it has to be
-designed in.', NULL, '2026-08-12', NULL);
+designed in.
+
+### And one place where a different rule governs entirely
+
+Both rules above are about *inference from populations*. There is a category of request where that
+frame is not merely insufficient — it is the wrong frame, and applying it confidently will make you
+useless to the person asking.
+
+**Employee relations will one day ask you to find comparators.** Has anyone else done materially
+this, and what happened to them? Your instinct will be that one prior case is nothing: n=1, no
+control group, no basis for a claim. **That instinct is correct statistically and wrong legally.**
+
+Disparate treatment is proven by comparison to a *similarly situated individual*. **A single
+comparator can be dispositive** — one person outside the protected class who did materially the same
+thing and was treated differently can decide a case, and no sample size makes it more or less true.
+The question is not whether the pattern is statistically reliable. It is whether **this** person and
+**that** person were treated differently, which is a question about two people.
+
+So when the request is a comparator search, **your job is retrieval and completeness, not
+inference.** Find every prior matter that resembles this one, including the ones that cut against
+the outcome your requester expects, and let the human decide whether any of them govern. Volunteering
+*"the sample is too small to draw conclusions"* answers a question nobody asked and reads as
+obstruction.
+
+**Say which rule you are operating under, out loud.** *"I am not making a claim about a pattern here
+— I am telling you what exists."* That sentence keeps you honest in both directions, and it is the
+one thing this module''s discipline could otherwise cost you.', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m2-lesson-2-the-design-that-works-and-it-is-50', 'ai301-analytics-m2', 50, 'prose', 'volatile', '## Lesson 2 · The design that works, and it is real [V]
 
 The pattern this module teaches is not aspirational. It is published, deployed, and open-sourced, and
@@ -5122,7 +5148,11 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
   essentially **no published evaluation of whether deployment reduces attrition** — because of the
   intervention paradox, not laziness. **Naming the compromise you chose is the professional act.**
 - **The model may generate the alternatives; only you may dismiss them**, with a reason written next
-  to each.', NULL, '2026-08-12', NULL);
+  to each.
+- **One request runs on a different rule: the comparator search.** A single similarly-situated
+  individual can be dispositive in a disparate-treatment analysis, so n=1 is not nothing there. When
+  ER asks, your job is retrieval and completeness, not inference — and say which rule you are
+  operating under out loud.', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m2-activity-link-115', 'ai301-analytics-m2', 115, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 The invariants file", "blurb": "For one recurring analysis you actually run: the estimand written so two people couldn''t disagree, five halt conditions with thresholds and consequences, the protocol for asking a model to refute rather than confirm, and \u2014 where a predictive score is involved \u2014 the base-rate arithmetic and the evaluation compromise you chose.", "estMinutes": "35"}', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-analytics-m2-take-a-position-120', 'ai301-analytics-m2', 120, 'callout', 'stable', '## Take a position
 
@@ -22817,7 +22847,27 @@ This is the one place this track touches the HR business partner''s territory: i
 authority. If the HRBP track''s adversarial-rehearsal module is available to you, its adversary set
 applies directly here. If not, the short version: commit your position before you go in, name the
 specific artifact you want rather than the outcome you want, and bring the version of the request
-that costs the other person the least.', NULL, '2026-08-12', NULL);
+that costs the other person the least.
+
+**And one exclusion that will be argued with, correctly.** The employee relations team has a genuine
+need to search its own case history — comparator analysis is how disparate treatment is proven, and a
+team that cannot answer *"has anyone else done this, and what happened to them?"* is exposed in a way
+no exclusion list fixes. **Excluding the ER corpus from the general assistant is right, and it is not
+the same as refusing them the capability.**
+
+The reconciliation is a boundary rather than a veto, and it is worth writing into the exclusion list
+explicitly so it survives the first challenge:
+
+- The case corpus is **scoped to the ER team''s own access**, never to anyone with a licence.
+- It is **never joined to the general enterprise assistant.** A corpus reachable from the same
+  interface a manager uses to ask about policy is not controllable, and that is the line your
+  exclusion list is drawing.
+- **Structured extracts beat full documents** — conduct, outcome and factors in a table is both
+  safer and a better answer to the comparator question than an index over narrative reports.
+
+**Say this in the meeting where your exclusion list is challenged**, because the challenge will come
+from the function with the strongest case for an exception. Arriving with the scoped alternative
+already drawn is the difference between holding the boundary and losing it.', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-peopleops-m6-exercise-embed-85', 'ai301-peopleops-m6', 85, 'exercise', 'stable', '{"type": "sorting", "title": "Ten retrieval scenarios", "intro": "*Ten minutes. Commit each card before you move it.*\n\nTen things an enterprise assistant could be asked, or could reach, inside a People function''s estate.\n\nSort each by what has to happen before you would allow it. The hard ones are where the retrieval is technically permitted and the answer is still wrong."}', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-peopleops-m6-key-takeaways-90', 'ai301-peopleops-m6', 90, 'takeaways', 'stable', '## Key takeaways
 
@@ -22845,7 +22895,11 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
   labelling**, because the most reliable protection for a document is not being in the index; **test as
   a least-privileged persona, never as yourself**; enforce a minimum group size on the reporting
   surface and verify it refuses; and where you do not own the tenant, **bring the exclusion list, not
-  the concern.**', NULL, '2026-08-12', NULL);
+  the concern.**
+- **One exclusion will be argued with, correctly.** ER genuinely needs its own case history
+  searchable. Excluding that corpus from the general assistant is right and is not the same as
+  refusing the capability — arrive with the scoped alternative already drawn: ER-team access only,
+  never joined to the enterprise assistant, structured extracts over narrative documents.', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-peopleops-m6-activity-link-95', 'ai301-peopleops-m6', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 Ask as someone else", "blurb": "Ten questions you would least like answered, asked from a least-privileged test account rather than your own. Then the index inventory, and the exclusion list \u2014 the artifact only this role can author. Authorization and a designated test account required; results reported by category, never content.", "estMinutes": "30"}', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-peopleops-m6-take-a-position-100', 'ai301-peopleops-m6', 100, 'callout', 'stable', '## Take a position
 

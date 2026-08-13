@@ -82,6 +82,32 @@ produces a right number under a wrong claim, and there is no procedure that catc
 there is nothing to rebuild. The check has to happen before the claim is made, and it has to be
 designed in.
 
+### And one place where a different rule governs entirely
+
+Both rules above are about *inference from populations*. There is a category of request where that
+frame is not merely insufficient — it is the wrong frame, and applying it confidently will make you
+useless to the person asking.
+
+**Employee relations will one day ask you to find comparators.** Has anyone else done materially
+this, and what happened to them? Your instinct will be that one prior case is nothing: n=1, no
+control group, no basis for a claim. **That instinct is correct statistically and wrong legally.**
+
+Disparate treatment is proven by comparison to a *similarly situated individual*. **A single
+comparator can be dispositive** — one person outside the protected class who did materially the same
+thing and was treated differently can decide a case, and no sample size makes it more or less true.
+The question is not whether the pattern is statistically reliable. It is whether **this** person and
+**that** person were treated differently, which is a question about two people.
+
+So when the request is a comparator search, **your job is retrieval and completeness, not
+inference.** Find every prior matter that resembles this one, including the ones that cut against
+the outcome your requester expects, and let the human decide whether any of them govern. Volunteering
+*"the sample is too small to draw conclusions"* answers a question nobody asked and reads as
+obstruction.
+
+**Say which rule you are operating under, out loud.** *"I am not making a claim about a pattern here
+— I am telling you what exists."* That sentence keeps you honest in both directions, and it is the
+one thing this module's discipline could otherwise cost you.
+
 ## Lesson 2 · The design that works, and it is real **[V]**
 
 The pattern this module teaches is not aspirational. It is published, deployed, and open-sourced, and
@@ -298,6 +324,10 @@ only you may dismiss them** — and each dismissal needs a reason written next t
   intervention paradox, not laziness. **Naming the compromise you chose is the professional act.**
 - **The model may generate the alternatives; only you may dismiss them**, with a reason written next
   to each.
+- **One request runs on a different rule: the comparator search.** A single similarly-situated
+  individual can be dispositive in a disparate-treatment analysis, so n=1 is not nothing there. When
+  ER asks, your job is retrieval and completeness, not inference — and say which rule you are
+  operating under out loud.
 
 ## Take a position
 
