@@ -6,7 +6,7 @@
     "kind": "calibration_prompt",
     "layer": "stable",
     "reviewedAt": "2026-08-12",
-    "body": "## Calibration prompt — before you start\n\n*One prediction, thirty seconds.*\n\nIn the applied activity you'll build a real cost model. Before you do:\n\n**What does one regretted departure cost your organization, for a mid-level role in your unit?**\nOne number, in whole currency units. Gut estimate, no arithmetic.\n\nThen you'll build it properly and find out how far off you were — in whichever direction, which\nis itself informative."
+    "body": "## Calibration prompt — before you start\n\n*One claim and one number. Commit both before you read.*\n\n> **\"The last time I asked for something that cost real money, I brought a model rather than a story.\"**\n\n**True of me, or not true of me?** One sentence. Be honest about the last time specifically, rather\nthan about what you usually do.\n\n**And the number**, which you will score in the applied activity:\n\nIn the applied activity you'll build a real cost model. Before you do:\n\n**What does one regretted departure cost your organization, for a mid-level role in your unit?**\nOne number, in whole currency units. Gut estimate, no arithmetic.\n\nThen you'll build it properly and find out how far off you were — in whichever direction, which\nis itself informative."
   },
   {
     "id": "ai301-hrbp-m5-module-brief-20",

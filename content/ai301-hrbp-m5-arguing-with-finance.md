@@ -12,7 +12,14 @@
 
 ## Calibration prompt — before you start
 
-*One prediction, thirty seconds.*
+*One claim and one number. Commit both before you read.*
+
+> **"The last time I asked for something that cost real money, I brought a model rather than a story."**
+
+**True of me, or not true of me?** One sentence. Be honest about the last time specifically, rather
+than about what you usually do.
+
+**And the number**, which you will score in the applied activity:
 
 In the applied activity you'll build a real cost model. Before you do:
 
@@ -21,8 +28,6 @@ One number, in whole currency units. Gut estimate, no arithmetic.
 
 Then you'll build it properly and find out how far off you were — in whichever direction, which
 is itself informative.
-
----
 
 ## Module brief
 

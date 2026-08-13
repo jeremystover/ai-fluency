@@ -372,3 +372,20 @@ predicted it. The converter now refuses to convert such a draft, but write it as
 first place: `## ⚖️ Counsel review required`, stating what specifically moves in *this* module
 rather than a generic disclaimer.
 
+## The opening convention
+
+**The opening is a claim to contest, and the number is optional and secondary.**
+A confidence rating is self-report, and self-report is not evidence — so every module opens on a
+short, contestable claim about the learner's own organisation, answered *true of us / not true of
+us* in one sentence.
+
+**Keep a numeric prediction alongside it wherever a real measurable exists**, because those feed
+cohort aggregation and buy the learner a peer comparison a claim cannot. The test for whether a
+number earns its place: *is there an honest measurable to close against?* Hours spent botsitting,
+share of a week, the cost of one departure — yes. A guess at what a published survey found is
+weaker but acceptable as a knowledge check. *"How confident are you?"* is neither and should never
+appear.
+
+Shape: claim, one-sentence gloss that sharpens what makes it contestable, then the number under
+**And the number**. `npm run convention:check` reports which modules still open on a number alone.
+

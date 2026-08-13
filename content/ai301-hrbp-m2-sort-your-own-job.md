@@ -13,7 +13,14 @@
 
 ## Calibration prompt — before you start
 
-*One prediction, thirty seconds.*
+*One claim and one number. Commit both before you read.*
+
+> **"I could name today which parts of my job require me specifically, and defend the list to my manager."**
+
+**True of me, or not true of me?** One sentence. Naming the parts is easy; defending the list to
+someone with a budget is the version that counts.
+
+**And the number**, which you will score in the applied activity:
 
 By the end of this module you'll sort a real week of your own work into four quadrants, using two
 questions.
@@ -23,8 +30,6 @@ judgment call that reasonable people could disagree about?** One number, whole p
 
 Most HRBPs guess high. The number itself matters less than what you conclude when you see the
 real one — and Module 7 will ask you what moved.
-
----
 
 ## Module brief
 

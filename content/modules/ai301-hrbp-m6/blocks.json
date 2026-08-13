@@ -15,7 +15,7 @@
     "kind": "calibration_prompt",
     "layer": "stable",
     "reviewedAt": "2026-08-12",
-    "body": "## Calibration prompt — before you start\n\n*One prediction, thirty seconds.*\n\n**What share of HR professionals working in states that regulate AI in employment do you think\nare unaware their state has such a law?** Whole percent.\n\nThe number is high enough that it is worth knowing where you sit in it before you find out."
+    "body": "## Calibration prompt — before you start\n\n*One claim and one number. Commit both before you read.*\n\n> **\"If my organisation deployed a system that made or shaped decisions about employees, I would find out before it went live.\"**\n\n**True of us, or not true of us?** One sentence. Most HRBPs discover these systems after deployment,\nfrom a candidate or an employee rather than from the deployment.\n\n**And the number**, which you will score in the applied activity:\n\n**What share of HR professionals working in states that regulate AI in employment do you think\nare unaware their state has such a law?** Whole percent.\n\nThe number is high enough that it is worth knowing where you sit in it before you find out."
   },
   {
     "id": "ai301-hrbp-m6-module-brief-20",

@@ -13,7 +13,14 @@
 
 ## Calibration prompt — before you start
 
-*One prediction, thirty seconds.*
+*One claim and one number. Commit both before you read.*
+
+> **"Before a plan of mine reaches a decision meeting, somebody has already argued against it properly."**
+
+**True of me, or not true of me?** One sentence — and *"my manager reviewed it"* is usually not the
+same thing, which is most of this module.
+
+**And the number**, which you will score in the applied activity:
 
 In the applied activity you'll run a real upcoming decision through five adversaries and count
 the objections you hadn't already thought of.
@@ -23,8 +30,6 @@ the objections you hadn't already thought of.
 Most people say one or two. The number is worth writing down because the gap between it and
 what you find is the most honest measure of how well your own preparation was working before
 this module.
-
----
 
 ## Module brief
 

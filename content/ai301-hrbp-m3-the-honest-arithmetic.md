@@ -13,7 +13,14 @@
 
 ## Calibration prompt — before you start
 
-*One prediction, thirty seconds.*
+*One claim and one number. Commit both before you read.*
+
+> **"The time my team spends supervising, correcting and cleaning up after AI output is counted somewhere."**
+
+**True of us, or not true of us?** One sentence. If it is counted nowhere, it is still being paid
+for — out of the capacity the tool was supposed to release.
+
+**And the number**, which you will score in the applied activity:
 
 There is a category of work that AI creates rather than removes: feeding it context, supervising
 its output, debugging what it got wrong, and cleaning up downstream when something slipped
@@ -22,8 +29,6 @@ anyone's workload planning.
 
 **How many hours a week do you personally spend botsitting?** Your own honest estimate, before
 you see anyone else's number.
-
----
 
 ## Module brief
 

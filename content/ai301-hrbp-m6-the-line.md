@@ -26,14 +26,19 @@ them** — which is a real skill, and the one thing in this module that will not
 
 ## Calibration prompt — before you start
 
-*One prediction, thirty seconds.*
+*One claim and one number. Commit both before you read.*
+
+> **"If my organisation deployed a system that made or shaped decisions about employees, I would find out before it went live."**
+
+**True of us, or not true of us?** One sentence. Most HRBPs discover these systems after deployment,
+from a candidate or an employee rather than from the deployment.
+
+**And the number**, which you will score in the applied activity:
 
 **What share of HR professionals working in states that regulate AI in employment do you think
 are unaware their state has such a law?** Whole percent.
 
 The number is high enough that it is worth knowing where you sit in it before you find out.
-
----
 
 ## Module brief
 

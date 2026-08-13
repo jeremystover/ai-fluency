@@ -12,7 +12,14 @@
 
 ## Calibration prompt — before you start
 
-*The last prediction of the course.*
+*One claim and one number — the last of the course.*
+
+> **"The managers I support could use AI on a real people decision without creating a problem I would have to fix."**
+
+**True of us, or not true of us?** One sentence. This is the claim the whole track has been building
+toward, and Module 1's version of you would probably have answered it differently.
+
+**And the number**, which you will score in the applied activity:
 
 **What percentage of HR leaders do you think believe their managers have the skills to use AI
 effectively?** Whole percent.
@@ -20,8 +27,6 @@ effectively?** Whole percent.
 Then, in the activity, you'll gather every prediction you made across these seven modules and
 look at the pattern — because this track scores the delta, not the score, and the pattern is the
 thing worth knowing about yourself.
-
----
 
 ## Module brief
 

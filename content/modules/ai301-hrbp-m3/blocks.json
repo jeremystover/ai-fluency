@@ -6,7 +6,7 @@
     "kind": "calibration_prompt",
     "layer": "stable",
     "reviewedAt": "2026-08-12",
-    "body": "## Calibration prompt — before you start\n\n*One prediction, thirty seconds.*\n\nThere is a category of work that AI creates rather than removes: feeding it context, supervising\nits output, debugging what it got wrong, and cleaning up downstream when something slipped\nthrough. Researchers have started calling it **botsitting**, and it is almost never counted in\nanyone's workload planning.\n\n**How many hours a week do you personally spend botsitting?** Your own honest estimate, before\nyou see anyone else's number."
+    "body": "## Calibration prompt — before you start\n\n*One claim and one number. Commit both before you read.*\n\n> **\"The time my team spends supervising, correcting and cleaning up after AI output is counted somewhere.\"**\n\n**True of us, or not true of us?** One sentence. If it is counted nowhere, it is still being paid\nfor — out of the capacity the tool was supposed to release.\n\n**And the number**, which you will score in the applied activity:\n\nThere is a category of work that AI creates rather than removes: feeding it context, supervising\nits output, debugging what it got wrong, and cleaning up downstream when something slipped\nthrough. Researchers have started calling it **botsitting**, and it is almost never counted in\nanyone's workload planning.\n\n**How many hours a week do you personally spend botsitting?** Your own honest estimate, before\nyou see anyone else's number."
   },
   {
     "id": "ai301-hrbp-m3-module-brief-20",

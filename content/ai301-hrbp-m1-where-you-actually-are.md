@@ -13,7 +13,14 @@
 
 ## Calibration prompt — before you start
 
-*One prediction, thirty seconds. You'll score it in the applied activity — and again in Module 7.*
+*One claim and one number. Commit both before you read.*
+
+> **"My organisation is behind its peers on AI in HR."**
+
+**True of us, or not true of us?** One sentence — and notice which comparison you just made, because
+this module is about the fact that most people answer it against the wrong reference group.
+
+**And the number**, which you will score in the applied activity:
 
 You are about to see survey data on how far along other organizations actually are with AI in HR.
 
@@ -22,8 +29,6 @@ Not "haven't finished" — *no plans*. Commit a number before you read on.
 
 This track scores the delta, not the score. The number matters far less than whether you can
 say, seven modules from now, what moved you.
-
----
 
 ## Module brief
 
