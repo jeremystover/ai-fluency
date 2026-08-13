@@ -1,11 +1,17 @@
 // Worker-side voice pipeline: speech-to-text for every open text input, and
 // text-to-speech so any tutor reply can be listened to instead of read. Both
-// run on Workers AI (same binding as podcast audio) and degrade gracefully —
-// a deployment without the binding loses voice, not the app.
-import { TTS_MODEL, speakLine, type AiBinding } from './podcast';
+// run on Workers AI and degrade gracefully — a deployment without the binding
+// loses voice, not the app. (The podcast is a separate engine entirely: its
+// two hosts are voiced by Gemini multi-speaker TTS. See podcast.ts.)
 
-// Distinct from the podcast hosts (thalia/apollo) so the tutor sounds like a
-// third person, not one of Maya and Leo moonlighting.
+// Structural type for the AI binding so we don't depend on workers-types
+// carrying every partner model name.
+export type AiBinding = { run(model: string, inputs: Record<string, unknown>): Promise<unknown> };
+
+// The tutor reads in one voice; Aura-2 serves it well and the binding is
+// already here for Whisper. Athena is distinct from the podcast hosts, so the
+// tutor sounds like a third person rather than Maya or Leo moonlighting.
+export const TTS_MODEL = '@cf/deepgram/aura-2-en';
 export const TUTOR_VOICE = 'athena';
 export const STT_MODEL = '@cf/openai/whisper-large-v3-turbo';
 export const STT_FALLBACK_MODEL = '@cf/openai/whisper';
@@ -75,8 +81,29 @@ function chunkForSpeech(text: string, max = 1100): string[] {
   return chunks;
 }
 
-// Single-voice equivalent of the podcast's renderAudio: same encoder and
-// settings per segment, so the concatenated MP3 plays as one file.
+async function toBytes(result: unknown): Promise<Uint8Array | null> {
+  if (result instanceof ReadableStream) return new Uint8Array(await new Response(result).arrayBuffer());
+  if (result instanceof Response) return new Uint8Array(await result.arrayBuffer());
+  if (result instanceof ArrayBuffer) return new Uint8Array(result);
+  if (result instanceof Uint8Array) return result;
+  return null;
+}
+
+async function speakLine(ai: AiBinding, text: string, speaker: string): Promise<Uint8Array | null> {
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const result = await ai.run(TTS_MODEL, { text, speaker, encoding: 'mp3' });
+      const bytes = await toBytes(result);
+      if (bytes && bytes.length > 0) return bytes;
+    } catch {
+      // fall through to retry
+    }
+  }
+  return null;
+}
+
+// Same encoder and settings per segment, so the concatenated MP3 plays as one
+// file.
 export async function renderSpeech(ai: AiBinding, text: string): Promise<Uint8Array | null> {
   const segments: Uint8Array[] = [];
   let total = 0;
@@ -95,5 +122,3 @@ export async function renderSpeech(ai: AiBinding, text: string): Promise<Uint8Ar
   }
   return audio;
 }
-
-export { TTS_MODEL };

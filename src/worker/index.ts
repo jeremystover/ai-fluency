@@ -12,7 +12,7 @@ import { adminApp, runReminderPass } from './admin';
 import { accountEmailFor, commitmentFor, createManagerApp, hasReports, managerEmailForSessionId, managerEmailOf, managerSignalsFor } from './manager';
 import { deliverableAddress, emailEnabled, sendEmail, signature } from './email';
 import { buildTutorSystem, streamTutorReply, KICKOFF_TURN, type LearnerContext as TutorLearnerContext, type TutorMessage } from './chat';
-import { transcribe, speakable, renderSpeech, TUTOR_VOICE } from './voice';
+import { transcribe, speakable, renderSpeech, TUTOR_VOICE, type AiBinding } from './voice';
 import { moduleSnapshot, witnessContent } from './audit';
 import { extractPaths } from '../shared/chat';
 import { GOAL_CHOICES, goalLabel } from '../shared/goals';
@@ -27,16 +27,13 @@ import {
   writeStockIntro,
   writePersonalIntro,
   writeCustomBody,
-  renderAudio,
   renderChunkAudio,
   estMinutes,
   PODCAST_PROMPT_VERSION,
-  VOICE_A,
-  VOICE_B,
-  type AiBinding,
+  GEMINI_VOICE_A,
+  GEMINI_VOICE_B,
   type HeardEpisode,
   type LearnerContext,
-  type TtsEngine,
 } from './podcast';
 import diagnosticData from '../../content/diagnostic.json';
 import type {
@@ -99,8 +96,8 @@ export interface Env {
   // Optional override for the study-companion call (takeaways + visual) —
   // set a stronger model here to experiment without touching script quality.
   STUDY_MODEL?: string;
-  // Optional Gemini TTS engine: set the secret to voice episodes with Gemini's
-  // native multi-speaker model instead of Aura (which remains the fallback).
+  // Voices the podcast, via Gemini's native multi-speaker TTS. The show's only
+  // voice engine — without this key episodes are transcript-only.
   GEMINI_API_KEY?: string;
   GEMINI_TTS_MODEL?: string;
   // Episode scripts per session per hour; default 4. Raise for demo/testing.
@@ -116,7 +113,8 @@ export interface Env {
   SESSION_SECRET?: string;
   ANTHROPIC_API_KEY?: string;
   ADMIN_PASSCODE?: string;
-  // Optional bindings — a deployment without them loses podcast audio, not the app.
+  // Optional bindings. AI powers mic transcription and the tutor's read-aloud
+  // voice (not the podcast); R2 caches rendered episode audio.
   AI?: AiBinding;
   PODCAST_AUDIO?: R2Bucket;
 }
@@ -3118,8 +3116,8 @@ app.get('/api/podcast', async (c) => {
     episodes,
     playedEpisodeIds,
     scriptEnabled: Boolean(c.env.ANTHROPIC_API_KEY),
-    audioEnabled: Boolean(c.env.AI || c.env.GEMINI_API_KEY),
-    audioPrerenders: Boolean((c.env.AI || c.env.GEMINI_API_KEY) && c.env.PODCAST_AUDIO),
+    audioEnabled: Boolean(c.env.GEMINI_API_KEY),
+    audioPrerenders: Boolean(c.env.GEMINI_API_KEY && c.env.PODCAST_AUDIO),
   };
   return c.json(res);
 });
@@ -3237,22 +3235,12 @@ const loadStock = async (db: DrizzleD1Database, moduleId: string, variant: strin
   return rows[0] ?? null;
 };
 
-async function voiceIntroToR2(env: Env, lines: PodcastLine[], key: string): Promise<{ key: string; engine: TtsEngine } | null> {
-  if ((!env.AI && !env.GEMINI_API_KEY) || !env.PODCAST_AUDIO) return null;
+async function voiceIntroToR2(env: Env, lines: PodcastLine[], key: string): Promise<string | null> {
+  if (!env.GEMINI_API_KEY || !env.PODCAST_AUDIO) return null;
   const rendered = await renderChunkAudio(env, lines);
   if (!rendered) return null;
   await env.PODCAST_AUDIO.put(key, rendered.bytes, { httpMetadata: { contentType: rendered.contentType } });
-  return { key, engine: rendered.contentType === 'audio/wav' ? 'gemini' : 'aura' };
-}
-
-// Which engine voiced an already-stored intro, read off the R2 object's content
-// type (Gemini renders WAV, Aura MP3) — the pin for every later render in that
-// episode, so the hosts keep the same voices across the intro/body seam.
-async function introEngine(env: Env, introAudioKey: string | null): Promise<TtsEngine | undefined> {
-  if (!introAudioKey || !env.PODCAST_AUDIO) return undefined;
-  const head = await env.PODCAST_AUDIO.head(introAudioKey).catch(() => null);
-  const ct = head?.httpMetadata?.contentType;
-  return ct === 'audio/wav' ? 'gemini' : ct === 'audio/mpeg' ? 'aura' : undefined;
+  return key;
 }
 
 // Bake the generic stock episode for a module: one stock-script call, one study
@@ -3279,13 +3267,12 @@ async function bakeStock(env: Env, moduleId: string): Promise<void> {
       [...draft.intro, ...draft.body],
       'default',
     ).catch(() => null);
-    const introVoiced = await voiceIntroToR2(env, draft.intro, stockIntroKey(moduleId, 'generic'));
-    const introAudioKey = introVoiced?.key ?? null;
-    if ((env.AI || env.GEMINI_API_KEY) && env.PODCAST_AUDIO) {
+    const introAudioKey = await voiceIntroToR2(env, draft.intro, stockIntroKey(moduleId, 'generic'));
+    if (env.GEMINI_API_KEY && env.PODCAST_AUDIO) {
       const bodyChunks = chunkPlan(draft.body);
       await Promise.all(
         bodyChunks.map(async (ch, i) => {
-          const rendered = await renderChunkAudio(env, draft.body.slice(ch.start, ch.end), introVoiced?.engine);
+          const rendered = await renderChunkAudio(env, draft.body.slice(ch.start, ch.end));
           if (rendered) {
             await env.PODCAST_AUDIO!.put(stockBodyChunkKey(moduleId, i), rendered.bytes, { httpMetadata: { contentType: rendered.contentType } });
           }
@@ -3341,7 +3328,7 @@ async function bakeGoalIntro(env: Env, moduleId: string, goalId: string): Promis
       goalLabel(goalId),
     );
     if (!lines) return;
-    const introAudioKey = (await voiceIntroToR2(env, lines, stockIntroKey(moduleId, goalId)))?.key ?? null;
+    const introAudioKey = await voiceIntroToR2(env, lines, stockIntroKey(moduleId, goalId));
     await db.delete(t.fdPodcastStock).where(and(eq(t.fdPodcastStock.moduleId, moduleId), eq(t.fdPodcastStock.variant, goalId)));
     await db.insert(t.fdPodcastStock).values({
       id: uuid(),
@@ -3445,7 +3432,7 @@ async function preparePersonalIntro(env: Env, sessionId: string, moduleId: strin
       learner,
     );
     if (!lines) return;
-    const audioKey = (await voiceIntroToR2(env, lines, personalIntroKey(sessionId, moduleId)))?.key ?? null;
+    const audioKey = await voiceIntroToR2(env, lines, personalIntroKey(sessionId, moduleId));
     if (existing[0]) await db.delete(t.fdPodcastIntro).where(eq(t.fdPodcastIntro.id, existing[0].id));
     await db.insert(t.fdPodcastIntro).values({
       id: uuid(),
@@ -3521,8 +3508,8 @@ async function createAssembledEpisode(
     totalChars: introLines.reduce((sum, l) => sum + l.text.length, 0),
     modelUsed: env.PODCAST_MODEL ?? env.GRADING_MODEL,
     promptVersion: PODCAST_PROMPT_VERSION,
-    voiceA: VOICE_A,
-    voiceB: VOICE_B,
+    voiceA: GEMINI_VOICE_A,
+    voiceB: GEMINI_VOICE_B,
     audioKey: null,
     audioBytes: null,
     audioAt: null,
@@ -3615,10 +3602,7 @@ async function completeAssembledBody(env: Env, row: PodcastRow): Promise<void> {
     await logEvent(db, row.sessionId, 'podcast_body_ready', { podcastId: row.id, ms: elapsed, fallback });
 
     if (!fallback) {
-      // Pin the body to whichever engine voiced this episode's intro — the
-      // hosts must not change voices at the seam.
-      const pin = await introEngine(env, row.introAudioKey);
-      await renderVoicesToCache(env, { ...row, scriptJson: JSON.stringify(bodyLines) }, 'create', pin);
+      await renderVoicesToCache(env, { ...row, scriptJson: JSON.stringify(bodyLines) }, 'create');
     } else {
       await db
         .update(t.fdPodcast)
@@ -3716,8 +3700,8 @@ async function generateEpisode(
     totalChars: script.lines.reduce((sum, l) => sum + l.text.length, 0),
     modelUsed: model,
     promptVersion: PODCAST_PROMPT_VERSION,
-    voiceA: VOICE_A,
-    voiceB: VOICE_B,
+    voiceA: GEMINI_VOICE_A,
+    voiceB: GEMINI_VOICE_B,
     audioKey: null,
     audioBytes: null,
     audioAt: null,
@@ -3740,8 +3724,8 @@ const chunkKey = (podcastId: string, i: number) => `podcast/${podcastId}/c${i}.m
 // result, and the chunk route's live render still covers first listen.
 // Failures are silent for the same reason. Skips chunks another path (a live
 // listen racing ahead of this task) already rendered.
-async function renderVoicesToCache(env: Env, row: PodcastRow, trigger: 'create' | 'pregen', pin?: TtsEngine): Promise<void> {
-  if ((!env.AI && !env.GEMINI_API_KEY) || !env.PODCAST_AUDIO) return;
+async function renderVoicesToCache(env: Env, row: PodcastRow, trigger: 'create' | 'pregen'): Promise<void> {
+  if (!env.GEMINI_API_KEY || !env.PODCAST_AUDIO) return;
   try {
     const db = drizzle(env.DB);
     const lines = JSON.parse(row.scriptJson) as PodcastLine[];
@@ -3754,7 +3738,7 @@ async function renderVoicesToCache(env: Env, row: PodcastRow, trigger: 'create' 
         const key = chunkKey(row.id, i);
         const existing = await env.PODCAST_AUDIO!.head(key);
         if (existing) return existing.size;
-        const audio = await renderChunkAudio(env, lines.slice(ch.start, ch.end), pin);
+        const audio = await renderChunkAudio(env, lines.slice(ch.start, ch.end));
         if (!audio) return null;
         await env.PODCAST_AUDIO!.put(key, audio.bytes, { httpMetadata: { contentType: audio.contentType } });
         return audio.bytes.length;
@@ -3772,7 +3756,7 @@ async function renderVoicesToCache(env: Env, row: PodcastRow, trigger: 'create' 
       chunks: plan.length,
       cached: true,
       trigger,
-      engine: env.GEMINI_API_KEY ? 'gemini' : 'aura',
+      engine: 'gemini',
     });
   } catch {
     // Background work — the chunk route's live render remains the safety net.
@@ -4117,10 +4101,10 @@ app.get('/api/podcast/:id/audio/:chunk', async (c) => {
     }
     // On a young episode the background render is almost certainly working on
     // this chunk right now — wait briefly for it to land instead of kicking a
-    // duplicate render (slower AND double-spend). Only worth waiting when an
+    // duplicate render (slower AND double-spend). Only worth waiting when the
     // engine exists to be doing the rendering.
     const ageMs = Date.now() - new Date(row.createdAt).getTime();
-    if ((c.env.AI || c.env.GEMINI_API_KEY) && row.audioAt === null && ageMs < 10 * 60 * 1000) {
+    if (c.env.GEMINI_API_KEY && row.audioAt === null && ageMs < 10 * 60 * 1000) {
       for (let i = 0; i < 8; i++) {
         await new Promise((resolve) => setTimeout(resolve, 2500));
         const landed = await c.env.PODCAST_AUDIO.get(key);
@@ -4132,11 +4116,11 @@ app.get('/api/podcast/:id/audio/:chunk', async (c) => {
     }
   }
 
-  if (!c.env.AI && !c.env.GEMINI_API_KEY) {
+  if (!c.env.GEMINI_API_KEY) {
     return c.json({ error: 'Audio rendering is not configured in this deployment — the full transcript is the episode for now.' }, 503);
   }
 
-  const rendered = await renderChunkAudio(c.env, lines.slice(plan[idx].start, plan[idx].end), await introEngine(c.env, row.introAudioKey));
+  const rendered = await renderChunkAudio(c.env, lines.slice(plan[idx].start, plan[idx].end));
   if (!rendered) {
     return c.json({ error: 'The voices are unavailable right now. The script is safe — try the audio again in a minute.' }, 503);
   }
@@ -4166,15 +4150,17 @@ app.get('/api/podcast/:id/audio/:chunk', async (c) => {
     chunk: idx,
     bytes: audio.length,
     trigger: 'listen',
-    engine: rendered.contentType === 'audio/wav' ? 'gemini' : 'aura',
+    engine: 'gemini',
   });
 
   return new Response(audio, { headers: { ...headersFor(rendered.contentType), 'content-length': String(audio.length) } });
 });
 
 // Legacy whole-episode audio: episodes voiced before chunked playback keep
-// their single cached MP3, and this route serves it (or live-renders the whole
-// thing as a last resort).
+// their single cached file, and this route serves it (or live-renders the whole
+// thing as a last resort). Old objects are Aura MP3s and still play fine —
+// they're served with whatever type they were stored under; anything rendered
+// now comes back as Gemini WAV.
 app.get('/api/podcast/:id/audio', async (c) => {
   const db = c.get('db');
   const session = requireSession(c);
@@ -4187,32 +4173,33 @@ app.get('/api/podcast/:id/audio', async (c) => {
   const row = rows[0];
   if (!row) return c.json({ error: 'No such episode.' }, 404);
 
-  const audioHeaders = { 'content-type': 'audio/mpeg', 'cache-control': 'private, max-age=86400' };
+  const headers = (contentType: string) => ({ 'content-type': contentType, 'cache-control': 'private, max-age=86400' });
 
   if (row.audioKey && c.env.PODCAST_AUDIO) {
     const cached = await c.env.PODCAST_AUDIO.get(row.audioKey);
-    if (cached) return new Response(cached.body, { headers: audioHeaders });
+    if (cached) return new Response(cached.body, { headers: headers(cached.httpMetadata?.contentType ?? 'audio/mpeg') });
     // Bucket lost the object (recreated, expired) — fall through and re-render.
   }
 
-  if (!c.env.AI) {
+  if (!c.env.GEMINI_API_KEY) {
     return c.json({ error: 'Audio rendering is not configured in this deployment — the full transcript is the episode for now.' }, 503);
   }
 
   const lines = JSON.parse(row.scriptJson) as PodcastLine[];
-  const audio = await renderAudio(c.env.AI, lines);
-  if (!audio) {
+  const rendered = await renderChunkAudio(c.env, lines);
+  if (!rendered) {
     return c.json({ error: 'The voices are unavailable right now. The script is safe — try the audio again in a minute.' }, 503);
   }
+  const audio = rendered.bytes;
 
   if (c.env.PODCAST_AUDIO) {
-    const key = `podcast/${row.id}.mp3`;
-    await c.env.PODCAST_AUDIO.put(key, audio);
+    const key = `podcast/${row.id}.${rendered.contentType === 'audio/wav' ? 'wav' : 'mp3'}`;
+    await c.env.PODCAST_AUDIO.put(key, audio, { httpMetadata: { contentType: rendered.contentType } });
     await db.update(t.fdPodcast).set({ audioKey: key, audioBytes: audio.length, audioAt: now() }).where(eq(t.fdPodcast.id, row.id));
   }
-  await logEvent(db, session.id, 'podcast_audio_rendered', { podcastId: row.id, bytes: audio.length, cached: Boolean(c.env.PODCAST_AUDIO) });
+  await logEvent(db, session.id, 'podcast_audio_rendered', { podcastId: row.id, bytes: audio.length, cached: Boolean(c.env.PODCAST_AUDIO), engine: 'gemini' });
 
-  return new Response(audio, { headers: { ...audioHeaders, 'content-length': String(audio.length) } });
+  return new Response(audio, { headers: { ...headers(rendered.contentType), 'content-length': String(audio.length) } });
 });
 
 // ---------- completion ----------
