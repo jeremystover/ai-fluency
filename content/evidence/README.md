@@ -19,6 +19,12 @@ content written this deliberately.
 
 > A fact cited by 2+ tracks belongs here. A fact cited once belongs in its module.
 
+**One exception, marked explicitly.** An entry may be *staged* — verified and recorded before any
+module cites it — when the verification happened first and the content is pending. A staged entry
+carries a `status` field saying so and naming the issue it is waiting on. It is not evidence that a
+fact is shared; it is a note to the author who will write it. If the pending work is dropped, delete
+the entry rather than leaving it to look established.
+
 ## Using it
 
 - **Authoring:** take the canonical `claim`, `sample` and `asOf` from the entry. State the sample and

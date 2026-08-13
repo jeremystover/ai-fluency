@@ -1,0 +1,30 @@
+{
+  "id": "meta-ai-rif-selection-2026",
+  "status": "staged — verified but not yet cited by any module. Created ahead of S-14 so the fact is recorded with its cautions before anyone writes from it. Does not yet meet the library's two-citer rule; delete it if S-14 is closed as \"no content\".",
+  "asOf": "2026-07-13",
+  "lastVerified": "2026-08-13",
+  "volatility": "high — a complaint filed six weeks ago. Allegations are untested. Re-check before any deployment.",
+  "source": "Doe et al. v. Meta Platforms, complaint filed 13 July 2026, N.D. Cal. (Oakland); reported by CNBC, ABC News, CBS News and Fortune",
+  "sample": "26 named plaintiffs from six states and the District of Columbia — a complaint, not a finding",
+  "claims": [
+    {
+      "claim": "26 current and former Meta employees sued on 13 July 2026 alleging AI systems selected them for layoff in a way that discriminated against workers with disabilities, workers on protected medical or family leave, and pregnant employees",
+      "figure": "13 July 2026"
+    },
+    {
+      "claim": "The alleged mechanism is activity and output measurement: keystroke and activity monitoring, AI token-usage dashboards, and algorithmically assisted performance rankings",
+      "figure": null,
+      "canonicalWording": "The load-bearing allegation, and the one worth teaching, is that the scores 'by design, cannot be accumulated by an employee who is on protected medical or family leave, or whose output is reduced by a disability.' The metric did not need to mention a protected characteristic to track one."
+    },
+    {
+      "claim": "Claims span FMLA, ADA, the Pregnancy Discrimination Act, the PWFA, California FEHA including its automated-decision regulations, and laws in New York, New York City, DC, Washington State, Florida and Illinois",
+      "figure": null
+    }
+  ],
+  "cautions": [
+    "These are ALLEGATIONS in a filed complaint. Nothing has been decided. Any module citing this must say so at the point of claim — a curriculum that teaches evidence-reading cannot narrate a complaint as a finding.",
+    "Distinguish this from Mobley: Mobley concerns a vendor's screening tool and hiring; this concerns an employer's own internal metrics and selection for termination. The shared idea is that a system performing a selection function carries selection obligations.",
+    "The teaching value is the mechanism, not the defendant. Activity metrics as proxies for contribution break for anyone whose work pattern differs from the norm, and protected leave is only the most legally visible case."
+  ],
+  "citedBy": []
+}

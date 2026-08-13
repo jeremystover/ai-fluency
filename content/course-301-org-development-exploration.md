@@ -237,3 +237,140 @@ uncovered?" — yes to both — and stops there deliberately**, because the Tale
 showed the value of separating that question from the outline, and because A-1's error came from
 answering a coverage question with a grep instead of a read. Every coverage claim in §3 was checked
 by reading the cited module.
+
+---
+
+# Verification pass — run 13 August 2026
+
+Run per brief §4, before any outline. **It changed the recommendation**, which is why it was run
+separately.
+
+## Confirmed, with samples, and usable
+
+**1. The re-org is now litigated, and there is a landmark case.** On **13 July 2026, 26 current and
+former Meta employees sued in federal court in Oakland (N.D. Cal.)**, alleging AI systems selected
+them for layoff in a way that discriminated against workers with disabilities, workers on protected
+medical or family leave, and pregnant employees. The alleged mechanism is the important part:
+keystroke and activity monitoring, AI token-usage dashboards, and algorithmically assisted
+performance rankings produced scores that — in the plaintiffs' words — **"by design, cannot be
+accumulated by an employee who is on protected medical or family leave, or whose output is reduced by
+a disability."** Claims span FMLA, ADA, the Pregnancy Discrimination Act, the PWFA, California FEHA
+including its automated-decision regulations, and laws in New York, NYC, DC, Washington State,
+Florida and Illinois. 26 plaintiffs from six states and DC. Reported by CNBC, ABC, CBS and Fortune
+independently.
+
+**This is the single strongest anchor found**, and it is not an org-design fact. It is a *selection*
+fact. Hold that — §V.4 turns on it.
+
+**2. Executive intent to redesign, with a real instrument.** **Mercer Global Talent Trends 2026** —
+approximately **12,000 respondents across 16 geographies and 16 industries**, eleventh annual wave.
+98% of executives plan organisational design changes over the next two years; 65% expect 11–30% of
+their workforce redeployed or reskilled.
+
+**Usable, with a caveat that should be taught rather than hidden.** A 98% and a 99% in the same
+instrument almost always mean the question offered a costless floor — *"any"* change, *"at least
+some"* reduction. Near-unanimity measures the question, not the world. Cite the 65% redeployment
+figure in preference to the 98%.
+
+**3. A second sized instrument.** **McKinsey State of Organizations 2026** — **n = 10,018 senior
+executives, fielded June–September 2025, 15 countries, 16 industries.**
+
+**4. The EU classification reaches restructuring explicitly.** Annex III point 4 covers AI used for
+*recruitment, selection, performance evaluation, promotion, **termination**, **task allocation***,
+and behaviour monitoring. So a system informing who is selected in a restructure is squarely inside
+the high-risk category, and deployer obligations cannot be contracted away.
+
+**And the library earned its keep here.** Several vendor pages returned by this search state that the
+full high-risk regime became enforceable on 2 August 2026. **That is wrong and our content is
+right:** Regulation (EU) 2026/1744 moved standalone Annex III obligations to **2 December 2027**, and
+this is enacted law, not a proposal — confirmed against Gibson Dunn, K&L Gates, Cooley and the CSA
+research note. Article 50 stayed on 2 August 2026. `content/evidence/eu-ai-act-timeline.json` was
+correct and is now re-verified against a live pocket of misinformation.
+
+## Failed verification — four, and they matter
+
+**1. The re-org success statistics are not usable.** The familiar figures — *only ~23% of
+reorganisations are judged successful*, *80% fail to deliver intended value*, *44% bog down, 23%
+finish but miss objectives, 10% impair performance* — are consultancy-produced, appear undated in
+nearly every citation, and vary between retellings of the same underlying work. They also travel
+alongside *"organisations that followed our rules had an 86% success rate"* — **a sales figure for
+the method being sold.** An OD track anchored on these would be teaching evidence-reading while
+failing its own test. **Argue re-org failure from mechanism instead**, as 401 M2 did when its
+statistic failed.
+
+**2. The Anthropic Economic Index cannot carry the decoupling thesis**, despite being the best data
+in existence on task-level AI use. Two independent disqualifiers:
+
+- **Construct.** It measures *which tasks people bring to Claude*, not *what share of a given role's
+  work has migrated to machines inside an employer*. Using the first to evidence the second is
+  exactly the error CPO M6 teaches — *was the thing studied the thing being claimed?* The figure most
+  likely to be misused this way is *"49% of jobs have seen at least a quarter of their tasks
+  performed using Claude."*
+- **Conflict.** It is Anthropic's data, in a curriculum built on Anthropic's model, cited to argue
+  that organisations must restructure. **This course tells learners to catch precisely that.** Even
+  where the number is sound, using it as a load-bearing anchor here would cost more credibility than
+  it buys.
+
+**3. Gartner's middle-management figure is a forecast, not a measurement.** *"By the end of 2026, one
+in five organisations will eliminate more than half of their middle-management positions"* is a
+prediction about a year still in progress. The curriculum's standing rule is that a forecast is not
+evidence about the present.
+
+**4. The audience question cannot be answered from public data — and this is the most consequential
+negative finding.** No survey establishing how many organisations run a distinct OD function, at what
+size threshold, was locatable. What exists is practitioner literature (CIPD, AIHR) describing OD as
+variably located — inside HR, inside strategy, inside internal consulting, or bought from
+consultancies — and noting that dedicated OD teams appear mainly in larger centre-of-excellence
+structures. **The reservation flagged in §6 therefore cannot be closed by research.** It has to be
+answered from the product's own pipeline.
+
+**5. The decoupling thesis has no clean quantification.** Deloitte names the phenomenon — *role
+fusion*, *org chart versus work chart* — which is corroboration that practitioners see it, not
+evidence of its size. The thesis is sound as a mechanism and has no number behind it.
+
+## What verification changed
+
+**It found the strongest material in the subtraction, and that material has a competing owner.**
+
+The re-org content is the part of this track with a live, well-reported, primary-sourced anchor. But
+*AI selecting people for termination in a way that disadvantages a protected group* is **adverse
+impact in a selection procedure** — which is `ai301-defensible`'s entire subject. That track already
+teaches AEDT inventory, four-fifths analysis, proxy detection, testing under privilege, and the
+shift from regulator to discovery exposure. The Meta case is a new and urgent *application* of what
+Defensible teaches, not a new discipline.
+
+Meanwhile the material that is genuinely and only OD's — operating model design, structure options
+appraisal, the craft of designing a target state — turns out to be the part with **no verifiable
+evidence base at all.** Every source is a firm selling the service.
+
+**That is close to an inversion of the pre-verification position**, and it is worth stating plainly:
+the exploration argued the track on four uncovered areas. Verification shows one of them belongs
+elsewhere and has urgent evidence, and two of the others cannot currently be taught to this
+curriculum's evidence standard.
+
+## Revised verdict
+
+**Do not build the track now.** Three things instead, in priority order:
+
+**1. `ai301-defensible` gains the RIF selection surface — and this is urgent.** A new lesson, or a
+substantial extension of M2/M3, on algorithmic selection in a reduction in force: activity and
+output metrics as proxies for contribution and why they break for anyone on protected leave or with
+an accommodation; the Meta complaint as the worked example; the four-fifths analysis run on a
+selection pool rather than an applicant pool; and the privilege sequencing question asked *before*
+the pool is scored rather than after. **Employers are doing this right now**, the case is six weeks
+old, and no track in the curriculum currently tells a practitioner how to look at it. This is the
+highest-value single piece of content identified in this exploration.
+
+**2. CP-9, CP-10 and CP-11 as filed.** CP-11 (two people in the same box doing different jobs) gains
+weight from verification: the mechanism is real and corroborated by practitioners, so teaching it as
+a *frame* rather than a statistic is the honest form, and a frame is what those learners need anyway.
+
+**3. Hold the OD track pending the market question**, which is now explicitly the course owner's to
+answer because research cannot: *does the product serve organisations that reliably have a distinct
+OD function?* If the answer is yes, the track should be rebuilt around **defensible restructuring**
+rather than org-design craft — that is where the evidence is — and the boundary against 401 becomes
+easier to hold, because 401 keeps structures standing while this one would govern how they are
+lawfully changed.
+
+**What would reopen it immediately:** a customer asking for it, or a second RIF-selection case
+establishing that this is a line of litigation rather than one complaint.
