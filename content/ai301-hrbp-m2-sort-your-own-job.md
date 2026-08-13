@@ -165,6 +165,29 @@ What would have to become true for each quadrant to move further?
 > found the gap between how the work feels and what it is — which is the gap this module exists
 > to close.
 
+### The complaint that is really about the design
+
+One pattern to recognise now, because it arrives at your desk before it arrives anywhere else.
+
+Two people hold the same title. One of them tells you the other's job has become easier, or that
+their own has quietly got harder, or that a rating gap between them is unfair. It presents as a
+fairness complaint about a manager.
+
+**It is often not about the manager.** AI removes tasks from a role unevenly, and adoption is
+individual — so two people in one job code can now be doing genuinely different work while sharing a
+description, a level, a range and a comparator set. The person in front of you is describing that
+accurately, and there is no villain in it.
+
+**What that changes for you.** The complaint cannot be resolved at the level it was raised, because
+nothing the manager can do fixes a job description that has stopped describing the job. What you can
+do is name it correctly and route it: this is a job-architecture question, it belongs with
+compensation, and *"two people in this code no longer do the same work"* is a sentence that function
+knows what to do with.
+
+**And it is worth catching early**, because the same drift reaches your comp partner as a levelling
+anomaly and your talent team as skills-data noise, and each of the three sees a symptom rather than
+the cause. **You are frequently the first person to see all three.**
+
 ## Lesson 4 · The pressure, said plainly **[V]**
 
 You are owed the numbers rather than the euphemism.
@@ -211,6 +234,9 @@ that model describes.
   as real and the timeline as soft.
 - **The strategic move is excellence in the room, speed everywhere else** — and spending the
   recovered capacity on more room rather than more queue.
+- **A fairness complaint between two people with the same title is often a job-architecture problem.**
+  AI removes tasks unevenly and adoption is individual, so one code can now hold genuinely different
+  jobs. It cannot be resolved by the manager. Name it and route it to compensation.
 
 ## Take a position
 

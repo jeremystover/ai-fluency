@@ -184,6 +184,43 @@ invisible to everyone including you — the person who was excluded never appear
 which means the failure mode is structurally unmeasurable. That is 101 M7's line, arrived at from
 the evidence side rather than the ethical one, and the two agreeing is not a coincidence.
 
+### When the arithmetic is about your org chart
+
+The same teardown, pointed at the artifact you are most likely to be handed this year.
+
+A leader arrives with a restructure that has already been decided. There is a rationale document,
+and it is **good** — the logic tracks, the spans are justified, the sequencing is sensible, the
+risks have a section of their own. You are being asked to help land it, not to assess it, and it is
+hard to articulate an objection to a document with no obvious hole in it.
+
+Here is the move, and it is one line:
+
+> **A generated rationale is coherent by construction. Coherence has stopped being evidence that
+> anyone thought about it.**
+
+Fluent structural arguments used to be expensive, so their fluency signalled that someone had done
+the work. That signal is gone. The document in front of you may rest on two weeks of analysis or on
+forty minutes and a prompt, and **it will read identically either way.**
+
+So do not attack the logic — the logic is usually fine. **Attack the inputs.** Every org design
+asserts things about the world that are checkable:
+
+- *"These two teams duplicate work."* Do they? Which work, and who says so besides the deck?
+- *"This layer adds no decision value."* Name three decisions it made last quarter.
+- *"This span is manageable."* Manageable was Lesson 2's word — manageable at what work
+  complexity, with what standards, and how novel is what this team does?
+- *"We'll absorb the transition in Q3."* Alongside what else that is already scheduled?
+
+**Then ask the one question that separates the two cases:** *what did you look at to conclude that?*
+A design built on evidence answers it immediately and specifically. A design built on plausibility
+answers it with the reasoning restated more confidently — which is the tell, and it is the same tell
+as everywhere else in this module.
+
+**None of this makes you the obstacle.** You are not arguing the restructure is wrong; you are
+establishing which of its claims anybody checked, because you are the person who will be asked to
+defend those claims to the people affected. **Being handed a decision does not transfer its
+evidence, and you will be asked for the evidence.**
+
 ## Key takeaways
 
 - **The paradox resolves without anyone lying** `[V]`: people genuinely feel ~11 hours a week of
@@ -203,6 +240,10 @@ the evidence side rather than the ethical one, and the two agreeing is not a coi
 - **Proof clusters at the front door and back office; the loudest claims live where outcomes are
   slow and confounded.** Automating the "yes" is comparatively safe; automating the "no" is where
   risk starts — and the people filtered out never appear in your data.
+- **A generated rationale is coherent by construction, so coherence has stopped being evidence that
+  anyone thought about it.** When you are handed a decided restructure, don't attack the logic —
+  attack the inputs, and ask what they looked at to conclude it. Being handed a decision does not
+  transfer its evidence, and you will be the one asked for it.
 
 ## Take a position
 

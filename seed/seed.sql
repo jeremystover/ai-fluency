@@ -4,10 +4,10 @@ DELETE FROM fd_exercise;
 DELETE FROM fd_module;
 DELETE FROM fd_brand;
 DELETE FROM fd_access_code;
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-13T01:52:08.272Z');
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-13T01:52:08.272Z');
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('4816d03d-a921-46b9-b667-d73b332c70eb', 'omnissa', 'pbkdf2$100000$YIkWKMn0uFMmqGN55jZDyw==$4jjZ736Po/PCgA1ZfuVTJbBAEmdx4um2Wir4iSPHbK0=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('fa832b0a-39f4-457b-9ddd-d892a8636bbd', 'verdant', 'pbkdf2$100000$T/CXkCZrxsOVoYxbdpnmDg==$uJJ73fs/feoge9n2xA0spaYAyhkNbkj1Ta0M06Kftuw=', 'Theming proof', NULL, 0, NULL, 1);
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-13T01:56:24.449Z');
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-13T01:56:24.449Z');
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('aa6e3027-180e-490b-a7d8-dff9a4389588', 'omnissa', 'pbkdf2$100000$g0nr6v+yMNa+e5UQEuEzLQ==$diy5zfqWrCe93MebrzToBB8jb2Vwqk7e7EbOn4A4pdc=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('ceef49c7-0dbe-4019-aaac-bb45c3dc35de', 'verdant', 'pbkdf2$100000$G1zy/niZXKXXgK7b2ZlMZA==$oF6Rf3mVif6DzMCcnxcl66WlJKXJX/bcT+3cD3JWGOs=', 'Theming proof', NULL, 0, NULL, 1);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m1', 'ai101', 1, 'What is AI?', 'A working mental model: what an LLM actually does, the vocabulary, why data decides everything, and a delegation heuristic you can carry under pressure.', 'open', 30, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m2', 'ai101', 2, 'Choosing the tool for the task', 'Chat assistants, copilots, and the AI already embedded in your HR stack — what each is actually for, and how to tell a language model from a scoring engine before you rely on either.', 'open', 25, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m3', 'ai101', 3, 'What it costs and how it scales', 'Tokens, context windows, and pricing — enough of the economics to size a use case, read a vendor quote, and know when a bigger model is worth it.', 'open', 25, NULL);
@@ -6703,6 +6703,53 @@ questions are the correction.
 **Governance — assisted at the edges, never at the centre.** AI can draft the documentation and
 check a record for completeness. It cannot be the record, and it cannot attest that something
 happened.', NULL, '2026-08-12', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m1-lesson-3b-the-unit-underneath-65', 'ai301-comp-m1', 65, 'prose', 'stable', '## Lesson 3b · The unit underneath everything is moving
+
+One structural problem, because it sits under the whole of Lesson 1''s first item and almost nobody
+is watching it.
+
+**Job architecture assumes the job is a stable bundle.** A code, a level, a family, a set of tasks
+that is roughly the same whoever holds it — that assumption is what makes levelling possible,
+market matching meaningful, and a pay range defensible. Everything in the compensation half of this
+function is built on it.
+
+**AI removes tasks from bundles unevenly, and adoption is individual.** So two people in the same job
+code, at the same level, matched to the same survey cut, are increasingly doing materially different
+work — one has handed off half of what the job description describes, the other has not.
+
+Three consequences, in ascending order of how much they should worry you.
+
+**The job description stops describing the work**, while continuing to determine the range, the
+level and the comparator set. That is tolerable for a while and it is the least of these.
+
+**The drift has three owners and no owner.** Your job architecture, the skills taxonomy the talent
+team maintains, and the org chart all rest on the same unit, they are decoupling at different
+speeds, and each is maintained by a different function against a different cadence. Nobody''s job
+description includes *noticing that these three have stopped agreeing.*
+
+**And the one with teeth: your pay equity comparator set is built on the job code.** A pay equity
+analysis compares like with like, and "like" is operationalised as the same job code, level and
+location. **If the code no longer describes the same work, the comparator set is wrong** — and it is
+wrong in a way that is invisible in the output, because the analysis will run cleanly and produce a
+number. You may be defending a gap that reflects genuine differences in scope you never recorded, or
+missing one because a real difference in work is absorbing it.
+
+### What to actually do
+
+**Not a re-levelling exercise.** That is expensive, it will be wrong again in a year, and nobody has
+asked for it.
+
+**Do this instead.** Pick the two or three job codes with the largest populations and the most AI
+exposure, and ask one question: *do the people in this code still do the same work?* Ask the
+managers, not the system — the system is the thing that has stopped knowing.
+
+If the answer is no, you have three honest options and should choose deliberately rather than
+drift: **split the code**, **re-scope the description to what the job now is**, or **record the
+variation explicitly** as differentiated scope inside one code, which is defensible if it is written
+down and indefensible if it is only understood.
+
+**And whichever you choose, tell whoever runs your pay equity analysis**, because you have just
+changed the meaning of their comparator groups. That conversation is the deliverable of this lesson.', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m1-try-70', 'ai301-comp-m1', 70, 'try_this', 'stable', '### Try this — 3 minutes
 Take yesterday. Write down the four longest things you did and assign each a type. If
 explanation didn''t appear, look again at the messages you sent — most explanation work hides
@@ -6753,7 +6800,12 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
 - **Judgment is not delegable and governance can be assisted only at the edges** — AI can draft
   the record; it cannot be the record.
 - **Map your week, then look at products.** Vendors sell by product category, which maps to their
-  engineering rather than to your hours.', NULL, '2026-08-12', NULL);
+  engineering rather than to your hours.
+- **The unit underneath job architecture is moving.** AI removes tasks from bundles unevenly and
+  adoption is individual, so two people in one job code increasingly do different work. Job
+  architecture, the skills taxonomy and the org chart are decoupling at different speeds under three
+  different owners. **The one with teeth: pay equity comparators are built on the job code**, so a
+  code that no longer describes the same work produces a clean analysis of the wrong groups.', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m1-activity-link-95', 'ai301-comp-m1', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 Work-type map", "blurb": "A real week logged and sorted into the five types, compared against the split you committed before Lesson 1 \u2014 then run as a buying instrument against the tools your function already uses or is evaluating.", "estMinutes": "25"}', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-comp-m1-take-a-position-100', 'ai301-comp-m1', 100, 'callout', 'stable', '## Take a position
 
@@ -15722,7 +15774,30 @@ What would have to become true for each quadrant to move further?
   than a technical one. It is the quadrant most likely to be cut by a reorg and least likely to
   be cut by a tool.
 - **The room** holds — for capability reasons that may erode and for ethical and legal reasons
-  that will not.', NULL, '2026-08-12', NULL);
+  that will not.
+
+### The complaint that is really about the design
+
+One pattern to recognise now, because it arrives at your desk before it arrives anywhere else.
+
+Two people hold the same title. One of them tells you the other''s job has become easier, or that
+their own has quietly got harder, or that a rating gap between them is unfair. It presents as a
+fairness complaint about a manager.
+
+**It is often not about the manager.** AI removes tasks from a role unevenly, and adoption is
+individual — so two people in one job code can now be doing genuinely different work while sharing a
+description, a level, a range and a comparator set. The person in front of you is describing that
+accurately, and there is no villain in it.
+
+**What that changes for you.** The complaint cannot be resolved at the level it was raised, because
+nothing the manager can do fixes a job description that has stopped describing the job. What you can
+do is name it correctly and route it: this is a job-architecture question, it belongs with
+compensation, and *"two people in this code no longer do the same work"* is a sentence that function
+knows what to do with.
+
+**And it is worth catching early**, because the same drift reaches your comp partner as a levelling
+anomaly and your talent team as skills-data noise, and each of the three sees a symptom rather than
+the cause. **You are frequently the first person to see all three.**', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m2-try-70', 'ai301-hrbp-m2', 70, 'try_this', 'stable', '### Try this — 3 minutes
 Take the three things you did yesterday that felt most like "real HRBP work." Run each through
 both questions honestly. If any of them lands in the ritual or the shallow desk, you have
@@ -15772,7 +15847,10 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
   one HRBP per 800–1,200 within one to five years, HR teams 30–40% smaller. Treat the direction
   as real and the timeline as soft.
 - **The strategic move is excellence in the room, speed everywhere else** — and spending the
-  recovered capacity on more room rather than more queue.', NULL, '2026-08-12', NULL);
+  recovered capacity on more room rather than more queue.
+- **A fairness complaint between two people with the same title is often a job-architecture problem.**
+  AI removes tasks unevenly and adoption is individual, so one code can now hold genuinely different
+  jobs. It cannot be resolved by the manager. Name it and route it to compensation.', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m2-exercise-embed-95', 'ai301-hrbp-m2', 95, 'exercise', 'stable', '{"type": "sorting", "title": "Calibration exercise \u2014 Sort the week", "intro": "Ten minutes, twelve pieces of real HRBP work. Sort each into the quadrant it belongs to, using both questions: does it require presence, and does it require contested judgment?\n\nCommit every card before the reveal. The pattern in your misses \u2014 whether you place work higher or lower than the key \u2014 is what the exercise actually measures."}', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m2-take-a-position-100', 'ai301-hrbp-m2', 100, 'callout', 'stable', '## Take a position
 
@@ -16000,7 +16078,44 @@ That asymmetry gives you a heuristic worth carrying into any vendor conversation
 Accelerating someone through a process is recoverable and visible. Filtering someone out is
 invisible to everyone including you — the person who was excluded never appears in your data,
 which means the failure mode is structurally unmeasurable. That is 101 M7''s line, arrived at from
-the evidence side rather than the ethical one, and the two agreeing is not a coincidence.', NULL, '2026-08-12', NULL);
+the evidence side rather than the ethical one, and the two agreeing is not a coincidence.
+
+### When the arithmetic is about your org chart
+
+The same teardown, pointed at the artifact you are most likely to be handed this year.
+
+A leader arrives with a restructure that has already been decided. There is a rationale document,
+and it is **good** — the logic tracks, the spans are justified, the sequencing is sensible, the
+risks have a section of their own. You are being asked to help land it, not to assess it, and it is
+hard to articulate an objection to a document with no obvious hole in it.
+
+Here is the move, and it is one line:
+
+> **A generated rationale is coherent by construction. Coherence has stopped being evidence that
+> anyone thought about it.**
+
+Fluent structural arguments used to be expensive, so their fluency signalled that someone had done
+the work. That signal is gone. The document in front of you may rest on two weeks of analysis or on
+forty minutes and a prompt, and **it will read identically either way.**
+
+So do not attack the logic — the logic is usually fine. **Attack the inputs.** Every org design
+asserts things about the world that are checkable:
+
+- *"These two teams duplicate work."* Do they? Which work, and who says so besides the deck?
+- *"This layer adds no decision value."* Name three decisions it made last quarter.
+- *"This span is manageable."* Manageable was Lesson 2''s word — manageable at what work
+  complexity, with what standards, and how novel is what this team does?
+- *"We''ll absorb the transition in Q3."* Alongside what else that is already scheduled?
+
+**Then ask the one question that separates the two cases:** *what did you look at to conclude that?*
+A design built on evidence answers it immediately and specifically. A design built on plausibility
+answers it with the reasoning restated more confidently — which is the tell, and it is the same tell
+as everywhere else in this module.
+
+**None of this makes you the obstacle.** You are not arguing the restructure is wrong; you are
+establishing which of its claims anybody checked, because you are the person who will be asked to
+defend those claims to the people affected. **Being handed a decision does not transfer its
+evidence, and you will be asked for the evidence.**', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m3-key-takeaways-90', 'ai301-hrbp-m3', 90, 'takeaways', 'stable', '## Key takeaways
 
 - **The paradox resolves without anyone lying** `[V]`: people genuinely feel ~11 hours a week of
@@ -16019,7 +16134,11 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
   it''s unverifiable, which disqualifies it from load-bearing use.
 - **Proof clusters at the front door and back office; the loudest claims live where outcomes are
   slow and confounded.** Automating the "yes" is comparatively safe; automating the "no" is where
-  risk starts — and the people filtered out never appear in your data.', NULL, '2026-08-12', NULL);
+  risk starts — and the people filtered out never appear in your data.
+- **A generated rationale is coherent by construction, so coherence has stopped being evidence that
+  anyone thought about it.** When you are handed a decided restructure, don''t attack the logic —
+  attack the inputs, and ask what they looked at to conclude it. Being handed a decision does not
+  transfer its evidence, and you will be the one asked for it.', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m3-exercise-embed-95', 'ai301-hrbp-m3', 95, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-hrbp-m3-take-a-position-100', 'ai301-hrbp-m3', 100, 'callout', 'stable', '## Take a position
 
@@ -25784,7 +25903,40 @@ is why diagnosis can be heard as evasion even when it is rigorous.
 The discipline that keeps you honest is the third part above. **A diagnosis that concludes in
 something you will own cannot be an avoidance move**, because it costs you something. If your
 diagnoses systematically conclude that the problem belongs to another function and requires nothing
-from you, that is a pattern worth examining before anyone else examines it.', NULL, '2026-08-12', NULL);
+from you, that is a pattern worth examining before anyone else examines it.
+
+### And the newest version of the same trade
+
+Everything above was about the *cost of production* falling. There is a second collapse arriving
+behind it, and it lands on the refusal itself.
+
+**The structural diagnosis is now cheap to produce too.** Describe a performance problem to a model
+and you will get a competent systems analysis in an afternoon — the incentive misalignment, the
+handoff failure, the ambiguity in who decides. Often a good one. It will read like the output of a
+practitioner who spent two weeks in the business.
+
+That sounds like it strengthens your hand. **Mostly it does the opposite**, for a reason worth
+holding:
+
+> **The diagnosis was never the scarce thing. The standing to deliver it was.**
+
+Telling a VP that their problem is how they run their leadership meeting is not hard to *write*. It
+is hard to *say*, and it is only survivable if the person saying it has credibility built somewhere
+else and something of their own to offer. A generated critique changes none of that — and if you
+circulate it as analysis rather than as a conversation you have earned, **it reads as an outsider''s
+verdict on a function you don''t work in**, which is the fastest way to lose the argument you were
+right about.
+
+Two practical consequences.
+
+**Use it to prepare, not to deliver.** The model is very good at generating the alternative
+explanations you did not think of, which is exactly the failure mode in Lesson 1. Take those into
+the conversation as questions.
+
+**And expect it pointed back at you.** The business can run the same analysis on the learning
+function, in the same afternoon, and conclude your portfolio has no evidence behind it. That
+critique will also be fluent, also plausible, and — given Module 1 — **sometimes right.** The
+defensible position is not to have avoided it; it is to have run it on yourself first.', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-talent-dev-m2-exercise-embed-85', 'ai301-talent-dev-m2', 85, 'exercise', 'stable', '{"type": "choice"}', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-talent-dev-m2-key-takeaways-90', 'ai301-talent-dev-m2', 90, 'takeaways', 'stable', '## Key takeaways
 
@@ -25806,7 +25958,11 @@ INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends
   shape that survives: what you found, what training would and wouldn''t do, and what you will own
   instead.
 - **A diagnosis that concludes in nothing you own cannot be distinguished from avoidance** — and
-  the requester can tell.', NULL, '2026-08-12', NULL);
+  the requester can tell.
+- **The diagnosis was never the scarce thing — the standing to deliver it was.** A generated
+  structural critique is cheap, fluent and often right, and circulating it as a verdict on a function
+  you don''t work in loses the argument you were correct about. Use it to prepare; expect it aimed
+  back at your own portfolio, where it will sometimes be right.', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-talent-dev-m2-activity-link-95', 'ai301-talent-dev-m2', 95, 'exercise', 'stable', '{"type": "activity_link", "title": "Applied activity \u2014 The request, diagnosed", "blurb": "One live request from your queue, taken apart: the observation underneath it, knowledge or willingness, two environmental candidates, and a conclusion in three parts. \"This isn''t a training problem\" has to be genuinely available \u2014 and so does its opposite.", "estMinutes": "30"}', NULL, '2026-08-12', NULL);
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-talent-dev-m2-take-a-position-100', 'ai301-talent-dev-m2', 100, 'callout', 'stable', '## Take a position
 

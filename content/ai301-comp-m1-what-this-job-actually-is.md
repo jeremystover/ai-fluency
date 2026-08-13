@@ -158,6 +158,54 @@ happened.
 > explanation didn't appear, look again at the messages you sent — most explanation work hides
 > inside "answering a question," which nobody logs as work.
 
+## Lesson 3b · The unit underneath everything is moving
+
+One structural problem, because it sits under the whole of Lesson 1's first item and almost nobody
+is watching it.
+
+**Job architecture assumes the job is a stable bundle.** A code, a level, a family, a set of tasks
+that is roughly the same whoever holds it — that assumption is what makes levelling possible,
+market matching meaningful, and a pay range defensible. Everything in the compensation half of this
+function is built on it.
+
+**AI removes tasks from bundles unevenly, and adoption is individual.** So two people in the same job
+code, at the same level, matched to the same survey cut, are increasingly doing materially different
+work — one has handed off half of what the job description describes, the other has not.
+
+Three consequences, in ascending order of how much they should worry you.
+
+**The job description stops describing the work**, while continuing to determine the range, the
+level and the comparator set. That is tolerable for a while and it is the least of these.
+
+**The drift has three owners and no owner.** Your job architecture, the skills taxonomy the talent
+team maintains, and the org chart all rest on the same unit, they are decoupling at different
+speeds, and each is maintained by a different function against a different cadence. Nobody's job
+description includes *noticing that these three have stopped agreeing.*
+
+**And the one with teeth: your pay equity comparator set is built on the job code.** A pay equity
+analysis compares like with like, and "like" is operationalised as the same job code, level and
+location. **If the code no longer describes the same work, the comparator set is wrong** — and it is
+wrong in a way that is invisible in the output, because the analysis will run cleanly and produce a
+number. You may be defending a gap that reflects genuine differences in scope you never recorded, or
+missing one because a real difference in work is absorbing it.
+
+### What to actually do
+
+**Not a re-levelling exercise.** That is expensive, it will be wrong again in a year, and nobody has
+asked for it.
+
+**Do this instead.** Pick the two or three job codes with the largest populations and the most AI
+exposure, and ask one question: *do the people in this code still do the same work?* Ask the
+managers, not the system — the system is the thing that has stopped knowing.
+
+If the answer is no, you have three honest options and should choose deliberately rather than
+drift: **split the code**, **re-scope the description to what the job now is**, or **record the
+variation explicitly** as differentiated scope inside one code, which is defensible if it is written
+down and indefensible if it is only understood.
+
+**And whichever you choose, tell whoever runs your pay equity analysis**, because you have just
+changed the meaning of their comparator groups. That conversation is the deliverable of this lesson.
+
 ## Lesson 4 · Why this is a buying instrument
 
 The reason the map matters is that it is the thing missing from almost every AI purchase in this
@@ -205,6 +253,11 @@ have never written down.
   the record; it cannot be the record.
 - **Map your week, then look at products.** Vendors sell by product category, which maps to their
   engineering rather than to your hours.
+- **The unit underneath job architecture is moving.** AI removes tasks from bundles unevenly and
+  adoption is individual, so two people in one job code increasingly do different work. Job
+  architecture, the skills taxonomy and the org chart are decoupling at different speeds under three
+  different owners. **The one with teeth: pay equity comparators are built on the job code**, so a
+  code that no longer describes the same work produces a clean analysis of the wrong groups.
 
 ## Take a position
 
