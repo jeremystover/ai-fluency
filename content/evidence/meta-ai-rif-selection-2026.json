@@ -1,6 +1,6 @@
 {
   "id": "meta-ai-rif-selection-2026",
-  "status": "staged — verified but not yet cited by any module. Created ahead of S-14 so the fact is recorded with its cautions before anyone writes from it. Does not yet meet the library's two-citer rule; delete it if S-14 is closed as \"no content\".",
+  "status": "watch — cited by one module, not two. Kept deliberately: the two-citer rule exists to catch drift between copies, and a single copy cannot drift. This entry earns its place on the other axis — it is a complaint that will be answered, amended, consolidated or dismissed, and the maintenance agent should re-check it every run. Delete it if ai301-defensible-m6 ever stops citing it.",
   "asOf": "2026-07-13",
   "lastVerified": "2026-08-13",
   "volatility": "high — a complaint filed six weeks ago. Allegations are untested. Re-check before any deployment.",
@@ -26,5 +26,7 @@
     "Distinguish this from Mobley: Mobley concerns a vendor's screening tool and hiring; this concerns an employer's own internal metrics and selection for termination. The shared idea is that a system performing a selection function carries selection obligations.",
     "The teaching value is the mechanism, not the defendant. Activity metrics as proxies for contribution break for anyone whose work pattern differs from the norm, and protected leave is only the most legally visible case."
   ],
-  "citedBy": []
+  "citedBy": [
+    "ai301-defensible-m6"
+  ]
 }

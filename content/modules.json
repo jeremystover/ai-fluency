@@ -972,9 +972,22 @@
       "microMinutes": 2
     },
     {
-      "id": "ai301-defensible-m5",
+      "id": "ai301-defensible-m6",
       "courseId": "ai301-defensible",
       "ordinal": 5,
+      "title": "The selection pool",
+      "blurb": "Reductions in force, where the discretion sits earlier than anyone looks: the decisional unit, the metric an employee on protected leave cannot earn, and the order the analysis has to happen in.",
+      "status": "open",
+      "estMinutes": 25,
+      "prereqs": [
+        "ai301-defensible-m3"
+      ],
+      "microMinutes": 2
+    },
+    {
+      "id": "ai301-defensible-m5",
+      "courseId": "ai301-defensible",
+      "ordinal": 6,
       "title": "Make yourself load-bearing",
       "blurb": "Restructuring is cover; relabeling isn't. The capability is what survives the politics.",
       "status": "open",

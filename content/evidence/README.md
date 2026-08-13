@@ -19,11 +19,17 @@ content written this deliberately.
 
 > A fact cited by 2+ tracks belongs here. A fact cited once belongs in its module.
 
-**One exception, marked explicitly.** An entry may be *staged* — verified and recorded before any
-module cites it — when the verification happened first and the content is pending. A staged entry
-carries a `status` field saying so and naming the issue it is waiting on. It is not evidence that a
-fact is shared; it is a note to the author who will write it. If the pending work is dropped, delete
-the entry rather than leaving it to look established.
+**Exceptions are allowed and must be marked.** An entry below the two-citer bar carries a `status`
+field saying which exception it is relying on and why:
+
+- **`staged`** — verified and recorded before any module cites it, because verification ran first and
+  the content is pending. A note to the author who will write it, not evidence that a fact is shared.
+- **`watch`** — cited by exactly one module, but volatile enough that the maintenance agent should
+  re-check it every run. The two-citer rule exists to catch **drift between copies**, and one copy
+  cannot drift; a fact like a live complaint earns its place on the **staleness** axis instead.
+
+In both cases the status names the condition under which the entry should be deleted. An unmarked
+entry with fewer than two citers is a defect.
 
 ## Using it
 

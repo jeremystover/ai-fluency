@@ -4,10 +4,10 @@ DELETE FROM fd_exercise;
 DELETE FROM fd_module;
 DELETE FROM fd_brand;
 DELETE FROM fd_access_code;
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-13T01:03:48.253Z');
-INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-13T01:03:48.253Z');
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('9da63fa4-ef06-42ce-b676-95c7d3abca1b', 'omnissa', 'pbkdf2$100000$2+Hhj+6YpNvUWC6CcJw7Mg==$2OMx2v0sZ1tQoHvxLrKrO5jSjUsHoOmWroNR2BD4i3s=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
-INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('77c1ca85-ef31-4a16-9f73-6e7768357c65', 'verdant', 'pbkdf2$100000$alAxlYYLcs6nicrkqh1FfQ==$wgaI+HZnFx8x5Ld4xa74jKvNMNOXVMzX5bMRgcNxSKg=', 'Theming proof', NULL, 0, NULL, 1);
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('omnissa', 'Omnissa', '{"color":{"bg":"#F5F5F7","surface":"#FFFFFF","ink":"#28334A","ink-strong":"#001E60","muted":"#616899","accent":"#4A12F0","on-accent":"#FFFFFF","signal":"#C9FF27","on-signal":"#001E60","line":"#D9D9E4","line-strong":"#B6B9D0","danger":"#B02A37","success":"#146C43"},"fontDisplay":"''Outfit Variable'', ''Outfit'', sans-serif","fontBody":"''Outfit Variable'', ''Outfit'', sans-serif","fontUtility":"''IBM Plex Mono'', ui-monospace, monospace","radius":"6px","logoUrl":""}', '{"greeting":"Built for how People teams actually work.","signoff":"Independent demonstration. Not affiliated with or endorsed by Omnissa."}', NULL, '2026-08-13T01:52:08.272Z');
+INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at) VALUES ('verdant', 'Verdant Collective', '{"color":{"bg":"#F2F4EF","surface":"#FBFCF9","ink":"#25332B","ink-strong":"#152219","muted":"#5E7266","accent":"#2F6B4F","on-accent":"#FFFFFF","signal":"#FFB84D","on-signal":"#152219","line":"#D4DCD2","line-strong":"#AFBDB1","danger":"#A33B2E","success":"#2F6B4F"},"fontDisplay":"Georgia, ''Times New Roman'', serif","fontBody":"-apple-system, ''Segoe UI'', system-ui, sans-serif","fontUtility":"''Courier New'', ui-monospace, monospace","radius":"14px","logoUrl":""}', '{"greeting":"Grow judgment, not just skills.","signoff":"Verdant Collective is a fictional brand used to prove the theming system."}', NULL, '2026-08-13T01:52:08.272Z');
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('4816d03d-a921-46b9-b667-d73b332c70eb', 'omnissa', 'pbkdf2$100000$YIkWKMn0uFMmqGN55jZDyw==$4jjZ736Po/PCgA1ZfuVTJbBAEmdx4um2Wir4iSPHbK0=', 'Reviewer 1 · Omnissa', NULL, 0, NULL, 1);
+INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active) VALUES ('fa832b0a-39f4-457b-9ddd-d892a8636bbd', 'verdant', 'pbkdf2$100000$T/CXkCZrxsOVoYxbdpnmDg==$uJJ73fs/feoge9n2xA0spaYAyhkNbkj1Ta0M06Kftuw=', 'Theming proof', NULL, 0, NULL, 1);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m1', 'ai101', 1, 'What is AI?', 'A working mental model: what an LLM actually does, the vocabulary, why data decides everything, and a delegation heuristic you can carry under pressure.', 'open', 30, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m2', 'ai101', 2, 'Choosing the tool for the task', 'Chat assistants, copilots, and the AI already embedded in your HR stack — what each is actually for, and how to tell a language model from a scoring engine before you rely on either.', 'open', 25, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai101-m3', 'ai101', 3, 'What it costs and how it scales', 'Tokens, context windows, and pricing — enough of the economics to size a use case, read a vendor quote, and know when a bigger model is worth it.', 'open', 25, NULL);
@@ -86,7 +86,8 @@ INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-defensible-m2', 'ai301-defensible', 2, 'Find the machines', 'The AEDT inventory, including the shadow stack: AI enabled inside tools you already own, with no procurement event. Counsel review required.', 'open', 25, '["ai301-defensible-m1"]');
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-defensible-m3', 'ai301-defensible', 3, 'Measure like it will be read in court', 'Four-fifths and standard-deviation analysis, proxy detection, and privilege sequencing. Counsel review required.', 'open', 25, '["ai301-defensible-m1"]');
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-defensible-m4', 'ai301-defensible', 4, 'The procurement gate', 'Vendor audit literacy — and the questions that make a claim checkable before you are the one defending it.', 'open', 25, '["ai301-defensible-m1"]');
-INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-defensible-m5', 'ai301-defensible', 5, 'Make yourself load-bearing', 'Restructuring is cover; relabeling isn''t. The capability is what survives the politics.', 'open', 25, '["ai301-defensible-m1"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-defensible-m6', 'ai301-defensible', 5, 'The selection pool', 'Reductions in force, where the discretion sits earlier than anyone looks: the decisional unit, the metric an employee on protected leave cannot earn, and the order the analysis has to happen in.', 'open', 25, '["ai301-defensible-m3"]');
+INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-defensible-m5', 'ai301-defensible', 6, 'Make yourself load-bearing', 'Restructuring is cover; relabeling isn''t. The capability is what survives the politics.', 'open', 25, '["ai301-defensible-m1"]');
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-cpo-m1', 'ai301-cpo', 1, 'Fluency you can''t delegate', 'You can already use the tools. This is about the judgment that cannot move down.', 'open', 25, NULL);
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-cpo-m2', 'ai301-cpo', 2, 'The shape of your job is changing', 'One role described, three jobs performed — with different economics and now different exposure.', 'open', 25, '["ai301-cpo-m1"]');
 INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json) VALUES ('ai301-cpo-m3', 'ai301-cpo', 3, 'The scope fight', 'A CEO convenes the executive team to settle who owns AI. Whether digital labor is workforce, and who owns the registry.', 'open', 25, '["ai301-cpo-m1"]');
@@ -12027,6 +12028,341 @@ Plus how to read the market without anecdote — the module deliberately refuses
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-defensible-m5-choice', 'ai301-defensible-m5', 'choice', '{"reviewedAt":"2026-08-12","title":"Four pitches, one that gets a meeting","intro":"*Five minutes. Commit before you look.*\n\nFour practitioners write to the person who has just been handed AI governance in their organization. All four hold the capability this track builds. All four are competent, and none is arrogant.\n\n**One of them gets a meeting.** Find it.\n\nDon''t ask which is most impressive. Ask what the reader is being asked to do, and how much it costs them to say yes.","artifacts":[{"label":"Pitch A · to the General Counsel","body":"\"I know you''ve picked up AI governance on top of everything else. The part nobody currently has is the measurement — the statistics that show whether a screening tool is actually selecting at different rates, which is the thing our state regulations now make relevant either way.\n\nI''ve built an AEDT inventory covering hiring and promotion. It found nine systems; four of them arrived as features inside tools we already owned and aren''t on any list. It''s attached.\n\n**Could I have thirty minutes to walk you through it?** If it''s useful, the natural next step is scoping what we''d test and how you''d want that commissioned.\""},{"label":"Pitch B · to the Chief People Officer","body":"\"AI governance is one of the most significant challenges facing our organization, and I believe People should be leading it. My background in DEI and analytics positions me well to take this on.\n\nI''d like to propose establishing an AI Governance Centre of Excellence, reporting into the People function, with responsibility for policy, standards, vendor evaluation and ongoing monitoring across all AI systems touching employees.\n\n**I''d welcome the chance to discuss resourcing.**\""},{"label":"Pitch C · to the CIO","body":"\"I''ve completed a 300-level specialist certification in algorithmic accountability covering adverse impact testing, proxy detection, privilege structuring and vendor audit literacy.\n\nI''m concerned that our current approach to AI governance doesn''t adequately address employment discrimination risk. Legal is focused on contracts and IT on security, but neither is equipped to evaluate disparate impact, and the committee model has no accountable owner.\n\n**I''d like to discuss how my expertise could be better utilised.**\""},{"label":"Pitch D · to the General Counsel","body":"\"Attaching a full analysis of our algorithmic employment risk: the exposure map across our eleven jurisdictions, the AEDT inventory, a testing protocol, and a fairness section for procurement.\n\nThe headline is that we''re running four systems nobody has inventoried, our review layers fail on time and authority, and we hold written validation evidence for none of them. California makes the absence of testing relevant to a claim, and Connecticut''s framework lands in October.\n\n**I think we need to move quickly, and I''d like to own it.**\""}],"options":[{"id":"a","label":"A — to the GC, inventory attached"},{"id":"b","label":"B — the Centre of Excellence"},{"id":"c","label":"C — to the CIO, certification first"},{"id":"d","label":"D — the full analysis"}],"key":"a","reasoning":"**A gets the meeting, and it is the least ambitious thing in the set.**\n\nRun the four moves. **It names what the reader owns** — and acknowledges it landed on top of everything else, which is true and immediately signals that this is about their problem. **It names the gap without insulting anyone**: \"the part nobody currently has is the measurement.\" Not *legal can''t do statistics*. Nobody in that sentence is deficient.\n\n**It shows rather than describes**, with the artifact chosen for this specific reader — a GC cares about undisclosed systems, and *four of nine arrived as features and aren''t on any list* is a sentence that will get read twice. And **the ask is thirty minutes.** Saying yes costs the reader almost nothing, which is precisely why they will.\n\nNotice the last line. It gestures at scoping and commissioning without asking for it, which leaves the larger conversation available and lets the reader raise it — and a mandate the reader proposes is worth more than one you requested.\n\n**B asks for the most and offers the least.** A Centre of Excellence with policy, standards, vendor evaluation and monitoring across all systems is a large organizational commitment supported by an assertion about background. \"I believe People should be leading it\" is a territorial claim, and the ask — discuss resourcing — is expensive to say yes to before anything has been demonstrated.\n\n**C leads with the credential and diagnoses the reader.** The certification is real and it is the least interesting thing available; nobody grants scope because of a course. Worse, it tells the CIO that IT is not equipped — accurate, and it makes the reader defensive in the first paragraph. \"How my expertise could be better utilised\" makes the practitioner''s career the subject, when the pitch works only when the reader''s problem is.\n\n**D is the hardest call and the most instructive failure**, because the *work* is outstanding — it''s the whole track, done well. Three problems. It delivers four artifacts at once, which is a reading assignment rather than a conversation. Its headline is a list of everything wrong, unsolicited, in writing, to a lawyer — **creating a discoverable record of documented awareness before any privileged structure exists**, which is precisely what Module 3 warned about. And \"I''d like to own it\" asks for the mandate in the first message. **D has better analysis than A and will get a worse response**, which is the whole lesson: the constraint here was never the quality of your work."}', '2026-08-12');
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-defensible-m5-rubric', 'ai301-defensible-m5', 'rubric', '{"promptVersion":"ai301-defensible-m5-90-day-plan-and-pitch-v1","moduleId":"ai301-defensible-m5","minWords":300,"maxWords":400,"submitLabel":"Your scan, plan, pitch and reckoning","includeTrail":true,"intro":"Paste the market scan, the 90-day plan, and the one-paragraph pitch — followed by the 300–400 word reckoning across all five modules. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading the COURSE CLOSE for AI 301 · The Specialist, Defensible by Design. Two parts.\n\nPART 1 — a market scan the learner ran themselves (how many relevant postings, whether they ask for statistical method or only policy familiarity, where they sit organizationally, compensation relative to their current title); a 90-day plan of three things finished, each with a date and each producing an artifact someone else can use, drawn from Modules 1–4 rather than newly invented; and a one-paragraph pitch to a NAMED person who owns or will own AI governance, executing four moves — name what they own, name the gap without insulting anyone, attach one artifact chosen for that specific reader, and ask for something small and specific.\n\nCRITICAL: a reasoned decision NOT to pitch is a FULL-CREDIT submission, provided it meets the same standard — the scan, the reasoning, and what they will do with the capability instead. The module''s own counter-argument is that visibility is the risk in this year, and a rubric that only rewarded the pitch would be advocating rather than teaching.\n\nAlso full credit: a scan that returns NOTHING. ''I searched and found no postings in my market'' is a finding about that market, and the learner saying what they think it means is the creditable part.\n\nWatch for the failures the exercise teaches. A pitch that leads with a credential rather than the reader''s problem. A pitch that diagnoses the reader''s function as inadequate. A pitch asking for the mandate in the first message. And the subtle one: dumping every artifact at once, which is a reading assignment rather than a conversation — and, where the recipient is counsel and the content is a list of unremediated findings, potentially creating a discoverable record of documented awareness before any privileged structure exists.\n\nPART 2 — the reckoning across five modules: which claims they committed to as ''true of us'' and found were not; the direction their numeric predictions systematically missed in — optimistic or pessimistic about their organization''s position; what they believed in Module 1 about their legal exposure that they no longer believe; and what would have to stop being true for this whole track to be wrong.\n\nThis track scores the delta rather than the score. GRADE THE ACCOUNT OF THE CHANGE, NEVER THE ACCURACY OF ANY PREDICTION. A learner whose predictions were consistently wrong and who identifies precisely why has done better than one who guessed well and has nothing to report. The final question — what would have to be false for the track to be wrong — is the strongest single signal of whether they have understood the material or absorbed it.","opening":[{"key":"routedToMe","label":"Predicted — likelihood you''ll be who your organization turns to on the next algorithmic fairness question","hint":"Out of 10. Honest estimate.","placeholder":"e.g. 4","min":0,"max":10}],"calibration":[{"key":"routedToMeActual","label":"Now — the same question, having finished the track and written the pitch","hint":"Moving in either direction is a legitimate result, including down. What matters is being able to say why.","placeholder":"e.g. 6","min":0,"max":10,"actualFor":"routedToMe"}],"dimensions":[{"name":"The scan was actually run","criteria":"Evidence of a real search of the learner''s own market: a count, whether postings ask for statistical method or only policy familiarity, where they sit organizationally, and a compensation comparison. A scan returning nothing, recorded with what the learner thinks it means, scores at full credit. Assertions about the market with no search behind them do not — the module explicitly refuses to hand over an anecdote for exactly this reason."},{"name":"The plan produces artifacts, with dates","criteria":"Three things finished in 90 days, each dated and each producing something another person can use, built from Modules 1–4 rather than invented. ''Establish a governance framework'' fails; ''the AEDT inventory covering hiring and promotion systems, validated with system owners, by 30 November'' passes. Look for realism about capacity alongside specificity."},{"name":"The pitch is about the reader''s problem","criteria":"Names what the recipient owns, in their terms, before anything about the learner. The gap named without disparaging a function — ''the part nobody currently has is the measurement'' rather than ''legal can''t do statistics''. Leading with a credential, or diagnosing the reader''s team as inadequate, are the two failures to name directly in feedback."},{"name":"One artifact, chosen for that reader, and a small ask","criteria":"A single artifact with a stated reason it suits this recipient — the inventory for an IT owner, the exposure map for counsel, the RFP section for procurement — rather than all four attached. And an ask small enough to get a yes: a conversation, a standing slot, a page into the next RFP. Asking for the mandate in the first message should be named. Where the recipient is counsel and the attachment is a list of unremediated findings, note the discoverability risk Module 3 raised."},{"name":"The reckoning is specific about what moved","criteria":"Named claims committed to and found false; the systematic direction of numeric misses, with an honest read on whether they were optimistic or pessimistic about their own organization; and what they believed about their legal exposure in Module 1 that they no longer believe. Specificity is everything — ''I learned a lot about testing'' is not a reckoning. Claims that could not be settled because the evidence did not exist are legitimate findings and score fully."},{"name":"The falsification question, and the account over the accuracy","criteria":"The governing dimension. First: what would have to stop being true for this whole track to be wrong — the strongest available signal of whether the learner has understood the material or absorbed it. A serious answer engages something structural (that private enforcement doesn''t materialize, that state regimes are preempted, that privilege-first testing suppresses more remediation than it protects) rather than a hedge. Second: grade whether they can explain WHY their model of their own organization was wrong where it was wrong. Never award or deduct for prediction accuracy itself."}]}', '2026-08-13');
 INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-defensible-m5-knowledge_check', 'ai301-defensible-m5', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-12","questions":[{"id":"q1","prompt":"What is missing from all four common owners of AI governance?","options":["Budget authority to remediate findings","Someone who can say what to measure, what the measurement showed, what it doesn''t establish, and what would be needed to defend it — a method rather than an opinion","Executive sponsorship","Access to the systems in question"],"correctIndex":1,"explanation":"Legal knows what the standard is and generally cannot compute a selection rate. IT can govern a system perfectly on every dimension it measures while the system selects at very different rates by group."},{"id":"q2","prompt":"Why is this capability scarce?","options":["Because the statistical methods are technically difficult","Because few universities teach algorithmic fairness","Because it sits at an intersection — statistical method, employment law fluency, and operational knowledge of where decisions happen. Each is common; the combination isn''t","Because the tooling is expensive to license"],"correctIndex":2,"explanation":"The four-fifths rule is arithmetic and the significance test is first-year statistics. Scarcity comes from the combination, which is easy to underestimate from inside a role where everyone around you has it."},{"id":"q3","prompt":"What is the structural defect of a cross-functional AI governance committee?","options":["It meets too infrequently to keep pace with system changes","Nobody''s performance review is affected by whether it works — Module 2''s ownership question applied to governance itself","It lacks the technical expertise to evaluate systems","Its recommendations are advisory rather than binding"],"correctIndex":1,"explanation":"If this fails, whose review does it appear in? For most committees the answer is nobody''s, which is the same test that found the ownerless systems in the inventory."},{"id":"q4","prompt":"What distinguishes restructuring from relabeling?","options":["Whether the change was approved at board level","Whether the budget moved with the name","Whether the work changed — the test being whether what you do on a Tuesday is different","Whether the previous name is still used internally"],"correctIndex":2,"explanation":"Relabeling fools nobody who looks, and in a discovery context a renamed programme with unchanged activities is worse than an honestly named one, because the renaming becomes an exhibit about intent."},{"id":"q5","prompt":"Why does this module refuse to cite a specific job posting `[V]`?","options":["Because job postings are proprietary information","Because a single advertisement isn''t a durable citation — it disappears, may reflect one company''s idiosyncrasy, and quoting it would be the borrowed-anecdote reasoning the track teaches you to reject","Because the roles vary too much across sectors","Because compensation data is more reliable than posting text"],"correctIndex":1,"explanation":"The module has you run the scan yourself instead, which produces current, local evidence about your own market — better than anything a course could assert."},{"id":"q6","prompt":"In a market scan, what distinguishes a posting describing this capability from one describing a more crowded job?","options":["Seniority level and reporting line","Whether it asks for statistical method — adverse impact analysis, disparate impact, validation studies — rather than only \"familiarity with AI governance frameworks\"","Whether it is in Legal or in HR","Whether it requires a technical degree"],"correctIndex":1,"explanation":"Familiarity with frameworks describes a reader of frameworks. Asking for adverse impact analysis describes someone who can produce the number, which is a much smaller population."},{"id":"q7","prompt":"Why ask for something small rather than for the mandate?","options":["Because large asks require board approval","Because small asks get yes, and a yes creates a relationship in which the larger question can be asked later","Because mandates are assigned rather than requested","Because incremental scope is easier to resource"],"correctIndex":1,"explanation":"And the framing inverts the usual dynamic: a person asking for scope is a cost; a person offering to solve a problem their reader already owns is a resource."},{"id":"q8","prompt":"What does this module claim the capability actually buys?","options":["Protection from restructuring","A defined career path into AI governance","Legibility — a precondition for everything else, and a guarantee of none of it","Leverage in compensation negotiations"],"correctIndex":2,"explanation":"Organizations restructure for reasons unrelated to who holds a scarce skill. The failure mode being addressed is holding a capability nobody in the building knows exists — and claiming more than that would be exactly the unverifiable assertion this track teaches you to check."}]}', '2026-08-12');
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-defensible-m6-counsel-review-required-10', 'ai301-defensible-m6', 10, 'prose', 'stable', '## ⚖️ Counsel review required
+
+**This module is about how people are selected for termination**, which is the highest-consequence
+decision in this curriculum and the one where being wrong is measured in litigation rather than
+credibility.
+
+**Counsel review is required before this module ships in any deployment, and before you apply any of
+it to a live process.** Selection criteria, waiver requirements and disclosure obligations are
+jurisdiction-specific and interact with statutes this module does not name.
+
+**One thing in Lesson 2 needs a sharper warning than usual.** It describes a complaint filed six
+weeks before this was written. **These are allegations. Nothing has been decided, and the defendant
+has not answered them.** The module uses them because the *mechanism* alleged is one you can check
+in your own organisation today — not because a court has found anything.
+
+Nothing here is legal advice. It exists so you can bring counsel a specific question before a
+selection list exists, rather than a general worry after one does.', NULL, '2026-08-13', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-defensible-m6-calibration-prompt-before-you-start-20', 'ai301-defensible-m6', 20, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
+
+*One claim. Commit before you read.*
+
+> **"If my organisation ran a reduction in force next quarter, I could name who would decide which
+> employees were even eligible to be considered — and I could find the written reason for that
+> boundary."**
+
+**True of us, or not true of us?** One sentence.
+
+Most people can name who decides *who goes*. Far fewer can name who decides *who is in the room to
+be considered*, and fewer still can find that decision written down anywhere. **If you cannot, that
+is this module''s subject rather than a gap in your knowledge.**', NULL, '2026-08-13', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-defensible-m6-module-brief-30', 'ai301-defensible-m6', 30, 'prose', 'stable', '## Module brief
+
+Module 2 found the machines. Module 3 taught you to measure them and to sequence the measurement so
+it survives discovery. This module applies both to the decision where the stakes are highest and the
+curriculum has, until now, been silent.
+
+Everything you have learned about adverse impact was framed around **hiring** — an applicant pool, a
+selection rate, a screening tool. That framing is where the law developed and where the vendors sell.
+It is not where the pressure is.
+
+> **Organisations are now using AI-derived measures to decide who is selected for termination, and
+> that decision has almost none of hiring''s protective scaffolding around it.**
+
+There is no candidate who can decline to proceed. There is no applicant tracking system designed to
+retain the audit trail. There is frequently no vendor at all — the inputs come from tools you already
+own, measuring people who never knew the measurement would be used this way. And there is a statutory
+disclosure regime that, in a group termination, **hands the affected employees the analysis you
+should have run yourself.**
+
+Two things get taught. **Where the discretion actually sits** — which is earlier than people think,
+in the definition of who is even considered. And **what to measure, in what order**, so that the
+answer exists before the list does.', NULL, '2026-08-13', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-defensible-m6-learning-objectives-40', 'ai301-defensible-m6', 40, 'callout', 'stable', '## Learning objectives
+
+By the end of this module you should be able to:
+
+1. Explain why the definition of the selection pool is the most consequential and least examined
+   decision in a reduction in force.
+2. Recognise an activity or output metric that a protected employee structurally cannot earn, and
+   say why "we used no protected data" does not answer it.
+3. Run Module 3''s methods on a selection pool rather than an applicant pool, and say what changes.
+4. State what a group termination discloses by statute, and why that makes the analysis unavoidable
+   rather than optional.
+5. Put the privilege decision and the pool decision in the right order — both before scoring.', NULL, '2026-08-13', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-defensible-m6-lesson-1-the-pool-is-a-decision-not-a-da-50', 'ai301-defensible-m6', 50, 'prose', 'stable', '## Lesson 1 · The pool is a decision, not a dataset
+
+Ask where the discretion is in a reduction in force and most people point at the scoring: the
+ratings, the rankings, the criteria. That is where the argument happens, so it feels like where the
+decisions are.
+
+**It is not. The pool is.**
+
+Before anyone is scored, somebody decides *which population is being considered at all* — this
+function, or this function plus the two adjacent ones; this site, or the region; this level and
+below, or everyone. That boundary is drawn by a human, usually verbally, usually early, and it
+determines the denominator of every statistic anyone will ever compute about the outcome.
+
+**Move the boundary and a disparity appears or disappears without a single person''s score
+changing.** Narrow the pool to a team that happens to be young and an age disparity vanishes into a
+population that has no older workers in it. Widen it to a division and the same selections look
+different again. Nobody has manipulated anything; the boundary was drawn before the question was
+asked.
+
+### The law already has a word for this
+
+In a group termination where employees over 40 are asked to sign an ADEA waiver, the statute calls
+that boundary the **decisional unit** — *the portion of the employer''s organisational structure from
+which the employer chose the persons* who would be offered the waiver. **The concept is not a
+consultant''s framework. It is a statutory term with case law attached**, and courts have invalidated
+waivers where the unit was described incorrectly.
+
+Which tells you something useful: **the pool boundary is going to be written down and disclosed
+whether or not you were deliberate about it.** The only question is whether the written version
+records a reason you chose in advance, or a reason reconstructed afterwards by someone explaining a
+line that was drawn in a meeting nobody minuted.
+
+### What AI changes here — and it is not what you would guess
+
+A model ranking employees ranks them **within a pool somebody drew.** It cannot tell you the pool was
+wrong, because the pool is its universe. Every output will be internally consistent, defensible on
+its own terms, and silent about the decision that determined the answer.
+
+**That is the failure mode to carry out of this lesson.** The scoring will be the thing you can
+inspect, document and defend. The boundary will be the thing that decided the outcome, and it will
+have no artifact at all unless you make one.
+
+**So make one.** Before anything is scored: write the pool definition, the alternatives considered,
+and why this one. Two paragraphs. It is the single cheapest defensible artifact in this entire track,
+and it is the first thing that will be asked for.', NULL, '2026-08-13', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-defensible-m6-lesson-2-the-metric-that-cannot-be-earne-60', 'ai301-defensible-m6', 60, 'prose', 'volatile', '## Lesson 2 · The metric that cannot be earned [V]
+
+Now the scoring — and a live example, offered with the warning at the top of this module attached to
+it.
+
+**On 13 July 2026, twenty-six current and former Meta employees filed suit in federal court in
+Oakland**, alleging that AI systems selected them for layoff in a way that discriminated against
+workers with disabilities, workers on protected medical or family leave, and pregnant employees.
+Claims are brought under the FMLA, the ADA, the Pregnancy Discrimination Act and the PWFA, alongside
+California''s FEHA — including its automated-decision-system regulations — and laws in New York, New
+York City, the District of Columbia, Washington State, Florida and Illinois. Twenty-six plaintiffs,
+six states and DC. **These are allegations; nothing has been decided.**
+
+The mechanism alleged is what makes it worth your time. According to the complaint, the inputs
+included keystroke and activity monitoring, **AI token-usage dashboards**, and algorithmically
+assisted performance rankings — and the resulting scores, in the plaintiffs'' words, **"by design,
+cannot be accumulated by an employee who is on protected medical or family leave, or whose output is
+reduced by a disability."**
+
+Read that clause twice, because it generalises far past this defendant.
+
+### The general form
+
+> **An activity metric is a proxy for time present. Anyone whose time present is legally protected
+> scores low, and no protected characteristic ever enters the data.**
+
+Protected leave. A reduced schedule as a reasonable accommodation. Intermittent FMLA. Military
+service. Religious observance. A phased return. In every case the person is *lawfully* producing
+less activity, and every activity-derived measure records that as underperformance — accurately, in
+its own terms, and unusably.
+
+Module 2 taught you that *"we never gave it protected data"* is not a defence. **This is the sharpest
+instance of that principle in the curriculum**, and it is sharper than the hiring examples because
+the protected status is often *already documented in your own systems.* The organisation knew who was
+on leave. It simply did not connect that fact to the measure.
+
+### The AI-specific version, which is new
+
+Organisations have begun measuring **AI tool adoption** — prompts issued, tokens consumed, seats
+active — first as a rollout metric, then as a proxy for engagement or capability, and then, at some
+point nobody minutes, as an input to a performance judgement.
+
+**Every objection above applies, plus one more:** adoption is voluntary and unevenly supported, so
+the measure partly records who received training, who had a use case, and who was given permission.
+A person on leave during the rollout has a permanent gap in a metric that is now describing them.
+
+If your organisation measures AI usage and also runs performance calibration, **the question of
+whether the first has leaked into the second is worth asking this week**, and it is answerable.', NULL, '2026-08-13', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-defensible-m6-lesson-3-four-fifths-on-a-pool-you-defin-70', 'ai301-defensible-m6', 70, 'prose', 'stable', '## Lesson 3 · Four-fifths on a pool you defined
+
+Module 3 gave you the methods. Almost all of it transfers. Four things change.
+
+**The rate you compute is the selection-for-termination rate**, group by group, within the decisional
+unit — or equivalently the retention rate. Same arithmetic as hiring, opposite sign, and it is
+alarmingly easy to compute the ratio the wrong way round and reassure yourself.
+
+**The standard deviation test matters more here, not less.** Reductions run on smaller populations
+than hiring does. Module 3''s warning applies with force: four-fifths on a pool of thirty will flag
+noise constantly, and dismissing a real disparity because the pool was small is the specific error
+that produces a defensible-looking analysis and an indefensible outcome.
+
+**Age is the exposure that hiring analysis under-weights.** In hiring, race and sex dominate the
+literature. In a reduction, **age is the claim that gets brought**, it has its own statute, and — as
+Lesson 4 covers — it comes with a disclosure regime that puts the numbers in the plaintiff''s hands
+by operation of law.
+
+**And you must test more than one boundary.** Run the analysis on the decisional unit as defined —
+then run it again one level up. If the disparity appears only at the wider boundary, that is not
+noise to be discarded. **It is the most important thing you will learn all quarter**, because it
+means the pool definition is doing work that the scoring is getting credit for.', NULL, '2026-08-13', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-defensible-m6-lesson-4-the-order-of-operations-80', 'ai301-defensible-m6', 80, 'prose', 'volatile', '## Lesson 4 · The order of operations [V]
+
+Three decisions, and their sequence decides whether the rest is worth anything.
+
+**First, the privilege question — before the pool is drawn.** Module 3 taught that bias testing
+conducted under counsel, where the lawyer directs the analysis and uses the results in giving legal
+advice, may sit differently from the same testing run as an operational exercise. In a reduction that
+consideration is at its peak, and **the window for it closes early.** Once a draft list exists, any
+analysis you commission is analysis of a list — the timeline is discoverable, and the sequence tells
+a story you did not choose. Ask the question the week the reduction is contemplated: *"Before anyone
+is scored, should this be run for you?"*
+
+**Second, the pool — written, with alternatives.** Lesson 1''s two paragraphs.
+
+**Third, the scoring — and only then.** With a rule agreed in advance for what happens if the
+analysis finds something, because Module 3''s whole argument is that a testing programme structurally
+unable to act on its findings is worse than none.
+
+### The human in the loop is not a formality here
+
+Current enforcement guidance is consistent on one point: **no AI tool should produce a termination,
+discipline or layoff recommendation that becomes final without a trained human reviewing the output
+for legal compliance first.** Not a manager confirming a ranking — a review that could, in principle,
+reject it, by someone who would know what a problem looked like.
+
+Ask the falsifiable version: **has a human ever changed one of these recommendations?** If the answer
+across a whole cycle is no, you do not have review. You have a signature.
+
+### What the record should contain
+
+- The pool definition, its alternatives, and the date — written **before** scoring.
+- The criteria, and for each one, a sentence on why it measures contribution rather than presence.
+- Who commissioned the analysis, and under what instruction.
+- The analysis, at the defined boundary and one level wider.
+- What the review changed, or an honest note that it changed nothing.
+
+**Five artifacts. None takes more than an hour, and all five have to exist before the list does** —
+which is the only genuinely hard part, because the pressure in a reduction always runs the other way.', NULL, '2026-08-13', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-defensible-m6-key-takeaways-90', 'ai301-defensible-m6', 90, 'takeaways', 'stable', '## Key takeaways
+
+- **The pool is the decision.** Scoring is where the argument happens; the boundary of who is
+  considered determines the denominator of every statistic anyone will ever compute, and it is
+  usually drawn verbally and never written down.
+- **The law already names it.** In a group termination involving ADEA waivers, that boundary is the
+  statutory **decisional unit** — it will be written down and disclosed regardless, so the only
+  question is whether the written reason was chosen in advance or reconstructed afterwards.
+- **A model ranks within a pool somebody drew, and cannot tell you the pool was wrong.** Its output
+  will be internally consistent and silent about the decision that determined the outcome.
+- **An activity metric is a proxy for time present** `[V]`, so anyone whose time present is legally
+  protected scores low with no protected characteristic in the data — leave, accommodation, reduced
+  schedule, military service. The *Meta* complaint (filed 13 July 2026, 26 plaintiffs; **allegations,
+  not findings**) alleges exactly this, including AI token-usage dashboards as an input.
+- **AI adoption metrics are the newest version of the same error**, and they additionally record who
+  got training, who had a use case, and who was present during rollout.
+- **Test at the boundary and one level wider.** A disparity that appears only at the wider boundary
+  means the pool definition is doing work the scoring is getting credit for.
+- **Sequence: privilege, then pool, then scoring.** The privilege window closes the moment a draft
+  list exists, because after that every analysis is analysis of a list.
+- **Human review means someone who could reject it.** If nothing was ever changed across a full
+  cycle, you have a signature rather than a review.', NULL, '2026-08-13', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-defensible-m6-take-a-position-100', 'ai301-defensible-m6', 100, 'callout', 'stable', '## Take a position
+
+**The claim:** *"An organisation that cannot produce a written pool definition dated before its
+selection scoring has no defensible reduction in force, whatever its analysis shows."*
+
+**Argue it or contest it.** The strongest counter is practical rather than legal: reductions are
+decided under confidentiality pressure and compressed timelines by people who cannot circulate a
+memo about who might be considered, and a rule that requires a written artifact before scoring may
+simply produce a backdated one. If you take that view, say what you would require instead that
+survives the same pressure — and note that the disclosure obligation in Lesson 4 does not care how
+rushed the process was.', NULL, '2026-08-13', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-defensible-m6-sources-and-attribution-110', 'ai301-defensible-m6', 110, 'prose', 'stable', '## Sources and attribution
+
+- ***Doe et al. v. Meta Platforms***, complaint filed **13 July 2026**, N.D. Cal. (Oakland) — 26 named
+  plaintiffs across six states and DC, alleging AI-assisted selection for layoff discriminated
+  against workers with disabilities, on protected medical or family leave, and pregnant employees;
+  claims under FMLA, ADA, the Pregnancy Discrimination Act, the PWFA, California FEHA including its
+  automated-decision-system regulations, and New York, NYC, DC, Washington State, Florida and
+  Illinois law. Alleged inputs include keystroke and activity monitoring, AI token-usage dashboards
+  and algorithmically assisted performance rankings. Reported independently by CNBC, ABC News, CBS
+  News and Fortune. **These are allegations in a filed complaint. Nothing has been decided and the
+  defendant has not answered them** — stated that way at every point of use, because a curriculum
+  that teaches evidence-reading cannot narrate a complaint as a finding. **[V]**
+- **The decisional unit** — 29 U.S.C. § 626(f)(1)(H) and 29 C.F.R. § 1625.22: where two or more
+  employees aged 40 or over are asked to waive ADEA claims in a group termination programme, the
+  employer must disclose the job titles and ages of those selected and those not selected within the
+  decisional unit. Requirements are strict; a defective disclosure invalidates the waiver. **[V]**
+- **Distinguished from *Mobley v. Workday***, which this track covers in Modules 1 and 3: *Mobley*
+  concerns a **vendor''s** screening tool in **hiring**; this module concerns an **employer''s own**
+  internal measures in **selection for termination**. The shared principle is that a system
+  performing a selection function carries selection obligations. Canonical wording for both is in
+  `content/evidence/`. **[V]**
+- **Four-fifths and standard deviation methods** are Module 3''s and are not re-derived here; this
+  module changes only what they are applied to.
+- **The privilege sequencing argument** is Module 3 Lesson 4''s, applied to a reduction, where the
+  window closes earlier than in any other context this track covers.
+- **Human-review guidance** reflects the consistent direction of current enforcement commentary
+  rather than a single instrument, and is stated as direction of travel. **[V]**
+- Builds on 101 M7 (assist vs. decide) and Module 2''s four-question test.
+  *Counsel review required before this module ships and before any of it is applied to a live
+  process.* **[V]**', NULL, '2026-08-13', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-defensible-m6-activity-applied-activity-before-the-list-exists-10', 'ai301-defensible-m6-activity', 10, 'prose', 'stable', '## Applied activity — "Before the list exists"
+
+**Time:** 25 minutes · **Submit:** the memo plus a 250–350 word write-up · **Graded against the
+rubric below.** Score doesn''t matter. Doing the work is where the learning lands.
+
+Write a **one-page protocol addressed to your general counsel**, for a reduction that has not been
+announced and may never happen. Writing it now is the entire point — the artifact is worthless
+written later.
+
+**Step 1 — The pool (6 min).** For a plausible reduction in your organisation, define the decisional
+unit you would propose. Name **two alternative boundaries** you considered and why you rejected them.
+If you genuinely cannot say who would draw this boundary today, write that instead — **it is a
+finding, and a more useful submission than a guess.**
+
+**Step 2 — The criteria (7 min).** List the measures your organisation would reach for. For each,
+one sentence on whether it measures contribution or presence. **Flag every one that an employee on
+protected leave could not accumulate.** Include any AI-usage measure you have, if you have one.
+
+**Step 3 — The sequence (6 min).** Who commissions the analysis, when, and under what instruction —
+and the specific date relative to scoring. State the decision rule agreed in advance for what happens
+if the analysis flags a disparity.
+
+**Step 4 — The write-up (6 min).** 250–350 words: what you found doing this, which step you could not
+complete and why, and your position on the claim above.
+
+**What scores well:** naming the person who would draw the pool boundary, or admitting nobody knows.
+Flagging a metric your own organisation uses that an employee on leave cannot accumulate. A decision
+rule with a threshold in it. **"Our evidence cannot settle this" scores full credit where it is the
+honest answer.**', NULL, '2026-08-13', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-defensible-m6-micro-core', 'ai301-defensible-m6-micro', 10, 'prose', 'stable', '## Module 5 in two minutes
+
+**The pool is the decision.** Before anyone is scored, somebody decides which population is considered at all. Move that boundary and a disparity appears or disappears without a single score changing. It is usually drawn verbally, early, and never written down — and a model ranking people ranks them *within a pool somebody drew*, so it cannot tell you the pool was wrong.
+
+**The law already names it.** In a group termination where employees over 40 are asked to waive ADEA claims, that boundary is the statutory **decisional unit**, and the job titles and ages of those selected and not selected must be disclosed `[V]`. It gets written down whether or not you were deliberate — the only question is whether the reason was chosen in advance or reconstructed afterwards.
+
+**Write two paragraphs before scoring:** the pool, the alternatives you considered, and why this one. Cheapest defensible artifact in the track.', NULL, '2026-08-13', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-defensible-m6-micro-metric', 'ai301-defensible-m6-micro', 20, 'prose', 'volatile', '## The metric that cannot be earned `[V]`
+
+**An activity metric is a proxy for time present.** Anyone whose time present is legally protected — protected leave, a reduced schedule as an accommodation, intermittent FMLA, military service — scores low, and **no protected characteristic ever enters the data.** The organisation usually already knew who was on leave; it just never connected that fact to the measure.
+
+This is the sharpest instance of Module 2''s principle that *"we never gave it protected data"* is not a defence.
+
+**The newest version is AI adoption metrics** — prompts, tokens, active seats — measured first for rollout, then used as a proxy for engagement, then, at some point nobody minutes, as an input to a performance judgement. It additionally records who got training and who had a use case.
+
+The *Meta* complaint filed **13 July 2026** alleges precisely this pattern, including AI token-usage dashboards. **Allegations, not findings.**', NULL, '2026-08-13', NULL);
+INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-defensible-m6-micro-order', 'ai301-defensible-m6-micro', 30, 'prose', 'stable', '## The order of operations
+
+**Privilege, then pool, then scoring.** The privilege window closes the moment a draft list exists — after that, every analysis is analysis of a list, and the timeline is discoverable.
+
+**Test at the boundary and one level wider.** A disparity that appears only at the wider boundary means the pool definition is doing work the scoring is getting credit for. It is the most informative result the analysis can produce.
+
+**And the falsifiable test of human review:** has a human ever actually changed one of these recommendations? A policy, training and timing are all necessary and none is evidence. If nothing changed across a full cycle, you have a signature rather than a review.', NULL, '2026-08-13', NULL);
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-defensible-m6-sorting', 'ai301-defensible-m6', 'sorting', '{"reviewedAt":"2026-08-13","buckets":[{"id":"contribution","label":"Measures contribution","hint":"Tracks what the person produced or decided","rank":2,"pct":80},{"id":"presence","label":"Measures presence","hint":"A protected employee structurally cannot accumulate it","rank":0,"pct":15},{"id":"neither","label":"Measures something else entirely","hint":"Tracks access, tooling or circumstance rather than the person","rank":1,"pct":45}],"tasks":[{"id":"t1","text":"Number of days active in the collaboration suite over the last two quarters","key":"presence","reasoning":"The cleanest case. It is a direct count of time present, so anyone on protected leave, a reduced schedule or an accommodation accumulates less by definition — with no protected field in the data anywhere."},{"id":"t2","text":"Closed deals attributable to the individual, normalised by the months they were actively working","key":"contribution","reasoning":"The normalisation is what saves it. Raw closed deals would be a presence metric wearing an outcome''s clothes; dividing by active months removes the time-present component and leaves the rate."},{"id":"t3","text":"Prompts issued to the company AI assistant in the last six months","key":"presence","reasoning":"The newest version of the oldest error, and it is worse than it looks: it counts time present AND who received training, who had a use case, and who was there during rollout. Someone on leave during the launch has a permanent gap in a metric now describing them."},{"id":"t4","text":"Manager''s written assessment of the judgement shown in two named decisions this year","key":"contribution","reasoning":"Specific, attributable to the person, and independent of hours logged. It carries the ordinary risks of subjective assessment — which are real and are not this module''s subject."},{"id":"t5","text":"Average response latency on internal messages","key":"presence","reasoning":"A responsiveness metric is an availability metric. It penalises part-time schedules, accommodations, caregiving arrangements and time zones, and it measures nothing about the quality of what was eventually said."},{"id":"t6","text":"Whether the employee''s team hit its quarterly objective","key":"neither","reasoning":"It measures the team, the objective''s difficulty, and who set it — not this person. It is neither a presence proxy nor an individual contribution measure, and using it for individual selection imports every unfairness in how objectives were assigned."},{"id":"t7","text":"Volume of code committed, weighted by lines changed","key":"presence","reasoning":"Volume metrics are time-present metrics with extra steps. This one additionally rewards verbosity, so it is a poor contribution measure even for someone with a full schedule."},{"id":"t8","text":"Certification in the system the team is migrating to, completed or not","key":"neither","reasoning":"It records who was given a training slot and when, which is a resourcing fact about the organisation. Defensible as a forward-looking capability input only if access was genuinely equal — which is a question you must be able to answer, not assume."},{"id":"t9","text":"Peer feedback scores aggregated across the year''s project teams","key":"neither","reasoning":"It measures who the person worked with and how visible their work was. Someone on leave for a quarter has fewer raters, and thinner samples move more — so it behaves partly like a presence metric without being one by design."},{"id":"t10","text":"Whether the person is the only one who can operate a system the organisation still depends on","key":"contribution","reasoning":"Uncomfortable but genuinely about the person''s value to the organisation, and accumulable while on leave. It is also a finding about your codification risk — which is 401 M7''s subject, and worth noticing here."}]}', '2026-08-13');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-defensible-m6-rubric', 'ai301-defensible-m6', 'rubric', '{"promptVersion":"ai301-defensible-m6-before-the-list-exists-v1","moduleId":"ai301-defensible-m6","minWords":250,"maxWords":350,"submitLabel":"Your pre-reduction protocol","intro":"Paste the one-page protocol to your GC — the decisional unit and two rejected alternatives, the criteria flagged for presence, and the sequence with dates — followed by the 250–350 word write-up including your position on this module''s claim. Resubmission is free and unlimited — the score is a mirror, not a gate.","activityContext":"You are grading a learner submission for AI 301 · The Specialist, Defensible by Design. Module 5 applied activity, ''Before the list exists'': a one-page protocol ADDRESSED TO THEIR GENERAL COUNSEL for a reduction in force that has not been announced and may never happen. It must contain (1) a proposed decisional unit with two alternative boundaries considered and rejected, and why; (2) the measures the organisation would reach for, each marked as measuring contribution or presence, with every measure an employee on protected leave could not accumulate explicitly flagged, including any AI-usage metric; (3) the sequence — who commissions the analysis, when relative to scoring, under what instruction, and the decision rule agreed in advance if a disparity is found. Grade the reasoning, never the learner''s organisation. Three things score HIGH and are commonly missed: naming the specific person or role who would draw the pool boundary today, or stating plainly that nobody knows and that this is the finding; flagging a presence-proxy metric the learner''s own organisation actually uses rather than a generic example; and a decision rule containing an actual threshold and an actual owner rather than ''escalate as appropriate''. A submission that says the organisation has no answer for a step, and says why, is doing the exercise correctly — ''our evidence cannot settle this'' scores full credit where it is the honest answer. Penalise only: treating the pool as given rather than as a decision; listing criteria without testing any of them against the presence question; and placing the privilege decision after scoring. Do NOT penalise a learner for describing a process that is currently undocumented — that is the common case and naming it is the point. Never provide legal advice, never assess whether the learner''s described process is lawful, and if a submission describes a live reduction in progress, say once that this is a conversation for their counsel rather than a course.","opening":[{"key":"presenceMetrics","label":"Predicted — how many of your organisation''s performance measures are presence proxies","hint":"Of the measures you would reach for in a reduction, how many could an employee on protected leave not accumulate? 0 to 10.","placeholder":"e.g. 2","min":0,"max":10}],"calibration":[{"key":"presenceMetricsActual","label":"Assessed — how many actually are, after listing them","hint":"Most people revise this upward. Activity, responsiveness and volume measures nearly always qualify, and AI-usage metrics are the newest members of the category.","placeholder":"e.g. 5","min":0,"max":10,"actualFor":"presenceMetrics"}],"dimensions":[{"name":"The pool is treated as a decision","criteria":"A proposed decisional unit with two genuine alternative boundaries and a stated reason for rejecting each — not a restatement of the org chart. Full credit is available for ''I cannot find out who would draw this boundary'', which is a finding rather than a failure. What does not score is accepting a pool as given, because that is the error the whole module is about."},{"name":"Presence proxies identified in the learner''s own measures","criteria":"Each criterion marked contribution or presence, with the test applied rather than asserted: could an employee on protected leave, a reduced schedule or an accommodation accumulate this? At least one flagged measure should be one the organisation actually uses. Generic examples lifted from the lesson score low; an AI-usage metric identified in their own environment scores high."},{"name":"Sequence, with dates and a decision rule","criteria":"Privilege question before pool, pool before scoring, with the timing stated relative to scoring rather than in the abstract. The decision rule agreed in advance must contain a threshold and a named owner. ''Escalate as appropriate'' is the failure mode — it is the rule that lets a finding sit."},{"name":"Honest about what could not be completed","criteria":"The write-up names which step could not be finished and why. This module asks about a process most organisations have never written down, so a submission with three confident sections and no gaps is more likely to be inventing than reporting. Specific uncertainty scores above smooth completeness."},{"name":"Position on the claim, with the strongest counter engaged","criteria":"A clear position on whether a pool definition dated before scoring is required for a defensible reduction, engaging the practical counter — that reductions run under confidentiality and compressed timelines, and a required artifact may simply be backdated. A position that ignores that pressure has not been tested."}]}', '2026-08-13');
+INSERT INTO fd_exercise (id, module_id, kind, payload_json, reviewed_at) VALUES ('ai301-defensible-m6-knowledge_check', 'ai301-defensible-m6', 'knowledge_check', '{"title":"Knowledge check — 8 questions","note":"Unlocks after the applied activity is submitted. Retakes are free and unlimited.","reviewedAt":"2026-08-13","questions":[{"id":"q1","prompt":"Why is the selection pool described as more consequential than the scoring?","options":["Because scoring methods are standardised and pools are not","Because the boundary determines the denominator of every subsequent statistic, and is usually drawn verbally before any analysis is requested","Because pools are regulated and scoring is not","Because AI systems cannot score reliably at small scale"],"correctIndex":1,"explanation":"Move the boundary and a disparity appears or disappears without a single score changing. It is the earliest decision, the least documented, and the one no model can evaluate."},{"id":"q2","prompt":"What is a \"decisional unit\" `[V]`?","options":["A consulting framework for grouping employees during restructuring","The statutory term for the portion of the employer''s organisational structure from which those offered an ADEA waiver were chosen","The team responsible for making termination decisions","A required committee under state AI legislation"],"correctIndex":1,"explanation":"It is a statutory concept with case law attached, not a framework — and courts have invalidated waivers where the unit was described incorrectly."},{"id":"q3","prompt":"An employer used no protected-characteristic data in its selection scoring. What does that establish?","options":["That the process cannot produce disparate impact","That the ADEA does not apply","Very little — a metric can track a protected status without naming it, and activity measures track time present","That an affirmative defence is available"],"correctIndex":2,"explanation":"This is Module 2''s principle at its sharpest. The organisation frequently already knows who was on leave; it just never connected that fact to the measure."},{"id":"q4","prompt":"Why does an activity or output metric disadvantage an employee on protected leave `[V]`?","options":["Because managers rate them lower","Because the metric is a proxy for time present, which the employee is lawfully not accumulating","Because leave is recorded in the performance system","Because such employees are excluded from the pool"],"correctIndex":1,"explanation":"No animus and no protected field are required. The measure records reduced activity accurately and unusably, and the same logic reaches accommodations, reduced schedules and military service."},{"id":"q5","prompt":"What changes when you run four-fifths on a reduction rather than a hiring process?","options":["Nothing — the arithmetic is identical","The rate is the selection-for-termination rate, populations are smaller so the standard deviation test matters more, and age becomes the dominant exposure","The threshold moves from 0.8 to 0.5","Four-fifths does not apply to terminations"],"correctIndex":1,"explanation":"And it is easy to compute the ratio the wrong way round and reassure yourself, which is worth checking twice."},{"id":"q6","prompt":"Your analysis shows no disparity within the decisional unit, but a clear one when run a level wider. What does that mean?","options":["The wider result is noise and should be discarded","The pool definition is doing work that the scoring is getting credit for","The two analyses used different methods","The disparity is explained by the larger sample"],"correctIndex":1,"explanation":"It is the most informative result this analysis can produce, and it points at the decision made before anyone was scored."},{"id":"q7","prompt":"When should the privilege question be settled in a reduction `[V]`?","options":["After the analysis is complete, so counsel can see the results","Before the pool is drawn and before any scoring, because once a draft list exists every analysis is analysis of a list","Only if a claim is filed","At the same time the waivers are prepared"],"correctIndex":1,"explanation":"The window closes early and cannot be reopened. The timeline itself is discoverable, and it tells a story you did not choose."},{"id":"q8","prompt":"What is the falsifiable test of whether human review of an AI-assisted selection is real?","options":["Whether a policy requiring review exists","Whether reviewers are trained","Whether a human has ever actually changed one of the recommendations","Whether review happens before the list is final"],"correctIndex":2,"explanation":"A policy, training and timing are all necessary and none is evidence. If nothing changed across a full cycle, the review is a signature."}]}', '2026-08-13');
 INSERT INTO fd_content_block (id, module_id, ordinal, kind, layer, body, depends_on, reviewed_at, variant) VALUES ('ai301-excomms-m1-calibration-prompt-before-you-start-10', 'ai301-excomms-m1', 10, 'calibration_prompt', 'stable', '## Calibration prompt — before you start
 
 *One claim. Commit before you read anything.*
