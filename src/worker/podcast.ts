@@ -1,25 +1,13 @@
 // Worker-side podcast pipeline. Stage 1 writes a two-host script with the
-// Anthropic API (key never reaches the client); stage 2 voices each turn with
-// Workers AI TTS and stitches the MP3. Both stages degrade gracefully: a
-// deployment without the key or the AI binding loses the feature, not the app.
+// Anthropic API (key never reaches the client); stage 2 voices whole chunks of
+// dialogue with Gemini's native multi-speaker TTS. Both stages degrade
+// gracefully: a deployment missing either key loses the feature, not the app.
 import { PODCAST_HOSTS, PODCAST_SHOW, type PodcastLength, type PodcastLine } from '../shared/types';
 import type { Depth } from '../shared/depth';
 
-export const PODCAST_PROMPT_VERSION = 'podcast-v11';
+export const PODCAST_PROMPT_VERSION = 'podcast-v12';
 
 export type PodcastKind = 'default' | 'qa';
-
-export const TTS_MODEL = '@cf/deepgram/aura-2-en';
-// Two clearly distinct Aura-2 speakers — the contrast is what makes the format
-// work. Thalia is energetic and bright (Maya, the expert); Orpheus is
-// professional, clear, and confident (Leo, who asks). Full roster:
-// developers.cloudflare.com/workers-ai/models/aura-2-en/
-export const VOICE_A = 'thalia';
-export const VOICE_B = 'orpheus';
-
-// Structural type for the AI binding so we don't depend on workers-types
-// carrying every partner model name.
-export type AiBinding = { run(model: string, inputs: Record<string, unknown>): Promise<unknown> };
 
 export const LENGTHS: Record<PodcastLength, { label: string; targetWords: number; turns: string; maxChars: number }> = {
   quick: { label: 'Quick take', targetWords: 450, turns: '12–18', maxChars: 5000 },
@@ -482,29 +470,6 @@ export async function writeScript(
   return null;
 }
 
-async function toBytes(result: unknown): Promise<Uint8Array | null> {
-  if (result instanceof ReadableStream) return new Uint8Array(await new Response(result).arrayBuffer());
-  if (result instanceof Response) return new Uint8Array(await result.arrayBuffer());
-  if (result instanceof ArrayBuffer) return new Uint8Array(result);
-  if (result instanceof Uint8Array) return result;
-  return null;
-}
-
-export async function speakLine(ai: AiBinding, text: string, speaker: string): Promise<Uint8Array | null> {
-  for (let attempt = 0; attempt < 2; attempt++) {
-    try {
-      const result = await ai.run(TTS_MODEL, { text, speaker, encoding: 'mp3' });
-      const bytes = await toBytes(result);
-      if (bytes && bytes.length > 0) return bytes;
-    } catch {
-      // fall through to retry
-    }
-  }
-  return null;
-}
-
-
-
 // ---------- the instant layer: stock episodes, flavored intros, custom bodies ----------
 //
 // Personalization moves earlier in time. At bake time (per module): a stock
@@ -775,20 +740,23 @@ export async function writeCustomBody(
   return null;
 }
 
-// ---------- Gemini TTS engine (optional, NotebookLM-family) ----------
+// ---------- Gemini TTS engine ----------
 //
-// When GEMINI_API_KEY is configured, chunks are voiced by Gemini's native
+// The show's one and only voice engine. Chunks are voiced by Gemini's native
 // multi-speaker TTS: the whole chunk's dialogue goes in one call and both
 // voices come back sharing prosody — no per-line stitching seams. Output is
-// raw PCM (24kHz mono 16-bit), wrapped in a WAV header here. Aura stays as
-// the fallback engine, per-call and per-deployment.
+// raw PCM (24kHz mono 16-bit), wrapped in a WAV header here.
+//
+// Deliberately single-engine. A second engine behind a fallback meant one
+// transient error could change the hosts' voices mid-episode, which sounds
+// broken in a way that silence does not. No key, no podcast audio.
 
 export const GEMINI_TTS_DEFAULT_MODEL = 'gemini-3.1-flash-tts-preview';
 // Kore (firm) fits Maya the expert; Puck (upbeat) fits Leo, who asks.
 export const GEMINI_VOICE_A = 'Kore';
 export const GEMINI_VOICE_B = 'Puck';
 
-export type TtsEnv = { AI?: AiBinding; GEMINI_API_KEY?: string; GEMINI_TTS_MODEL?: string };
+export type TtsEnv = { GEMINI_API_KEY?: string; GEMINI_TTS_MODEL?: string };
 export type RenderedAudio = { bytes: Uint8Array; contentType: string };
 
 function b64ToBytes(b64: string): Uint8Array {
@@ -862,52 +830,20 @@ async function geminiSpeakOnce(apiKey: string, model: string, lines: PodcastLine
   return b64 ? b64ToBytes(b64) : null;
 }
 
-// One chunk of episode audio through whichever engine this deployment has:
-// Gemini multi-speaker first when configured (retried once — the docs note
-// occasional 500s are expected), Aura as the fallback. Callers store and serve
-// by the returned content type; the player is format-agnostic per chunk.
-// Pinning: an episode must keep one set of voices, so callers pin every render
-// after the first to the engine that voiced the intro. A Gemini pin retries
-// harder before conceding; Aura stays the last resort even then, because a
-// mid-episode voice shift beats a silent hole.
-export type TtsEngine = 'gemini' | 'aura';
-export async function renderChunkAudio(env: TtsEnv, lines: PodcastLine[], pin?: TtsEngine): Promise<RenderedAudio | null> {
-  if (env.GEMINI_API_KEY && pin !== 'aura') {
-    const model = env.GEMINI_TTS_MODEL ?? GEMINI_TTS_DEFAULT_MODEL;
-    for (let attempt = 0; attempt < (pin === 'gemini' ? 4 : 2); attempt++) {
-      try {
-        const pcm = await geminiSpeakOnce(env.GEMINI_API_KEY, model, lines);
-        if (pcm && pcm.length > 0) return { bytes: pcmToWav(pcm), contentType: 'audio/wav' };
-      } catch {
-        // fall through to retry
-      }
+// One chunk of episode audio. Retried a few times because the docs note
+// occasional 500s are expected, and a retry costs seconds where a failure costs
+// the chunk. Null when Gemini won't answer: the caller leaves the chunk
+// unrendered and the player asks again, which keeps the voices consistent.
+export async function renderChunkAudio(env: TtsEnv, lines: PodcastLine[]): Promise<RenderedAudio | null> {
+  if (!env.GEMINI_API_KEY) return null;
+  const model = env.GEMINI_TTS_MODEL ?? GEMINI_TTS_DEFAULT_MODEL;
+  for (let attempt = 0; attempt < 4; attempt++) {
+    try {
+      const pcm = await geminiSpeakOnce(env.GEMINI_API_KEY, model, lines);
+      if (pcm && pcm.length > 0) return { bytes: pcmToWav(pcm), contentType: 'audio/wav' };
+    } catch {
+      // fall through to retry
     }
-    // Gemini down or rejecting — Aura carries the episode if it's bound.
-  }
-  if (env.AI) {
-    const audio = await renderAudio(env.AI, lines);
-    if (audio) return { bytes: audio, contentType: 'audio/mpeg' };
   }
   return null;
-}
-
-// Voices every turn sequentially and concatenates the MP3 frames — same encoder,
-// same settings, so players treat the stitched stream as one file. Null on any
-// unrecoverable segment: a podcast with silent holes is worse than a clean retry.
-export async function renderAudio(ai: AiBinding, lines: PodcastLine[]): Promise<Uint8Array | null> {
-  const segments: Uint8Array[] = [];
-  let total = 0;
-  for (const line of lines) {
-    const bytes = await speakLine(ai, line.text, line.speaker === 'a' ? VOICE_A : VOICE_B);
-    if (!bytes) return null;
-    segments.push(bytes);
-    total += bytes.length;
-  }
-  const audio = new Uint8Array(total);
-  let offset = 0;
-  for (const seg of segments) {
-    audio.set(seg, offset);
-    offset += seg.length;
-  }
-  return audio;
 }

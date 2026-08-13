@@ -24,10 +24,12 @@
       "migrations_dir": "drizzle"
     }
   ],
-  // Podcast text-to-speech (@cf/deepgram/aura-1) runs on Workers AI — no extra vendor account.
+  // Workers AI powers mic transcription (Whisper) and the tutor's read-aloud
+  // voice. NOT the podcast — its two hosts are voiced by Gemini (see the
+  // GEMINI_API_KEY secret below).
   // Note: with this binding present, `wrangler dev` needs a logged-in Cloudflare account
   // (Workers AI has no local simulator). Remove this block to run fully offline —
-  // the podcast studio degrades to transcript-only.
+  // voice input and read-aloud degrade honestly; everything else runs.
   "ai": {
     "binding": "AI"
   },
@@ -59,7 +61,7 @@
     "PODCAST_MODEL": "claude-sonnet-5",
     // Episode scripts per session per hour (default 4 if unset). Raised for demo/testing.
     "PODCAST_LIMIT_PER_HOUR": "12",
-    // Gemini TTS model used when the GEMINI_API_KEY secret is set (multi-speaker).
+    // The podcast's voice engine — multi-speaker TTS, needs the GEMINI_API_KEY secret.
     "GEMINI_TTS_MODEL": "gemini-3.1-flash-tts-preview",
     // Email delivery is off until BOTH the RESEND_API_KEY secret and a verified
     // sender are set. Add EMAIL_FROM here once the domain is verified with the
@@ -74,8 +76,9 @@
   // Secrets (set with `wrangler secret put`):
   //   SESSION_SECRET      — HMAC key for session cookie signing
   //   ANTHROPIC_API_KEY   — grading + tutor chat + podcast scripts; never exposed to the client
-  //   GEMINI_API_KEY      — optional: voices podcast chunks with Gemini's native
-  //                         multi-speaker TTS instead of Aura (Aura stays the fallback)
+  //   GEMINI_API_KEY      — voices the podcast with Gemini's native multi-speaker
+  //                         TTS. The show's only voice engine: without it,
+  //                         episodes are transcript-only.
   //   RESEND_API_KEY      — optional: sends reminders, kudos, and commitment mail.
   //                         Unset, every rule still evaluates and each intended
   //                         send is logged as 'skipped' — nothing is pretended.
