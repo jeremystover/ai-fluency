@@ -5,17 +5,44 @@
   "maxWords": 350,
   "submitLabel": "Your work-type map and write-up",
   "intro": "Paste the week's log with its five-type distribution, the comparison against your committed prediction, the tool audit, and the 250–350 word write-up including your position on this module's claim. Resubmission is free and unlimited — the score is a mirror, not a gate.",
-  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, Comp & Benefits track — for compensation and benefits professionals who have completed AI 101 and AI 201. Module 1 applied activity, 'Work-type map': a real week (last week, not a typical one) logged in blocks including interrupt-driven work — questions answered, quick explanations, Slack threads — sorted into five types (data assembly, analysis, judgment, explanation, governance) with hours split rather than rounded where a block spans two, producing a percentage distribution; compared against the five percentages they committed BEFORE Lesson 1; then run as a buying instrument against the AI tools their function uses or is evaluating, naming which work type each touches and whether that is where their hours actually are. The finding the activity is engineered to produce is that explanation is larger than predicted, because it hides inside 'answering a question' — a learner who discovers this and says so plainly has succeeded. A mismatch found between a tool and the learner's actual hour distribution is the second intended finding. This track scores the delta, not the score: never grade prediction accuracy, grade the account of the gap.",
+  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, Comp & Benefits track — for compensation and benefits professionals who have completed AI 101 and AI 201. Module 1 applied activity, 'Work-type map': a real week (last week, not a typical one) logged in blocks including interrupt-driven work — questions answered, quick explanations, Slack threads — sorted into five types (data assembly, analysis, judgment, explanation, governance) with hours split rather than rounded where a block spans two, producing a percentage distribution; compared against the five percentages they committed BEFORE Lesson 1; then run as a buying instrument against the AI tools their function uses or is evaluating, naming which work type each touches and whether that is where their hours actually are. The finding the activity is engineered to produce is that explanation is larger than predicted, because it hides inside 'answering a question' — a learner who discovers this and says so plainly has succeeded. A mismatch found between a tool and the learner's actual hour distribution is the second intended finding. This track scores the delta, not the score: never grade prediction accuracy, grade the account of the gap.\n\n**\"Our evidence cannot settle this\" scores at full credit where it is the honest answer.** A submission that states plainly what its evidence cannot establish, and why, has done the exercise correctly — never mark it down for declining to reach a conclusion its evidence does not support. Reaching a confident conclusion on thin evidence is the error; naming the limit is the skill.",
   "opening": [
-    { "key": "explanationPct", "label": "Predicted — % of your week that is explanation work", "hint": "Making someone else understand a decision. One of your five committed numbers.", "placeholder": "e.g. 15", "min": 0, "max": 100 }
+    {
+      "key": "explanationPct",
+      "label": "Predicted — % of your week that is explanation work",
+      "hint": "Making someone else understand a decision. One of your five committed numbers.",
+      "placeholder": "e.g. 15",
+      "min": 0,
+      "max": 100
+    }
   ],
   "calibration": [
-    { "key": "explanationPctActual", "label": "Measured — what the logged week actually shows", "hint": "Including the explanation hiding inside answered questions.", "placeholder": "e.g. 35", "min": 0, "max": 100, "actualFor": "explanationPct" }
+    {
+      "key": "explanationPctActual",
+      "label": "Measured — what the logged week actually shows",
+      "hint": "Including the explanation hiding inside answered questions.",
+      "placeholder": "e.g. 35",
+      "min": 0,
+      "max": 100,
+      "actualFor": "explanationPct"
+    }
   ],
   "dimensions": [
-    { "name": "The week is real and complete", "criteria": "An actual week rather than a representative one, including interrupt-driven work that never reached a calendar. A messy honest log outscores a tidy reconstruction, and admitting untracked hours outscores rounding them away." },
-    { "name": "The types are applied with discipline", "criteria": "Blocks spanning two types split rather than rounded to the flattering one, and a full percentage distribution. Watch for the module's named mis-sorts: explanation filed as analysis because it contains charts, and judgment filed as analysis because it happened inside a spreadsheet." },
-    { "name": "The map was used as a buying instrument", "criteria": "Current or evaluated tools listed with the work type each touches and whether that matches where the hours are. A named mismatch — a tool serving a type that turns out to be a small share of the week — is the finding this step exists to produce and should score at the top. 'We don't use any tools yet' is acceptable only with the same analysis applied to what they're being pitched." },
-    { "name": "The delta and the position", "criteria": "Predicted split compared against measured, largest gap named with its direction, and an account of why their reading leaned that way. Accuracy is never graded. Plus a committed position on the claim that engages its real counter-argument — that explanation volume is a symptom of upstream design failure, so getting faster at explaining optimizes structural debt rather than fixing it." }
+    {
+      "name": "The week is real and complete",
+      "criteria": "An actual week rather than a representative one, including interrupt-driven work that never reached a calendar. A messy honest log outscores a tidy reconstruction, and admitting untracked hours outscores rounding them away."
+    },
+    {
+      "name": "The types are applied with discipline",
+      "criteria": "Blocks spanning two types split rather than rounded to the flattering one, and a full percentage distribution. Watch for the module's named mis-sorts: explanation filed as analysis because it contains charts, and judgment filed as analysis because it happened inside a spreadsheet."
+    },
+    {
+      "name": "The map was used as a buying instrument",
+      "criteria": "Current or evaluated tools listed with the work type each touches and whether that matches where the hours are. A named mismatch — a tool serving a type that turns out to be a small share of the week — is the finding this step exists to produce and should score at the top. 'We don't use any tools yet' is acceptable only with the same analysis applied to what they're being pitched."
+    },
+    {
+      "name": "The delta and the position",
+      "criteria": "Predicted split compared against measured, largest gap named with its direction, and an account of why their reading leaned that way. Accuracy is never graded. Plus a committed position on the claim that engages its real counter-argument — that explanation volume is a symptom of upstream design failure, so getting faster at explaining optimizes structural debt rather than fixing it."
+    }
   ]
 }

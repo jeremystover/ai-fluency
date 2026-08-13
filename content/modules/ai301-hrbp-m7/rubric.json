@@ -5,17 +5,44 @@
   "maxWords": 400,
   "submitLabel": "Your asset, what happened, and the reckoning",
   "intro": "Paste the one-page asset, an account of what the manager actually did with it, and the 300–400 word close including the calibration reckoning across all seven modules. This is the last submission in the track. Resubmission is free and unlimited — the score is a mirror, not a gate.",
-  "activityContext": "You are grading the CLOSING submission of AI 301 · The Specialist, HRBP track. Two parts. Part 1: a one-page asset built for a real recurring manager AI failure, tested with one real manager, with an account of what they ACTUALLY DID with it — not whether they liked it, since liking is not use. The one-page constraint is deliberate and a longer asset should be marked down: managers don't read more, and an unread asset has no leverage. Part 2 is the reckoning across the whole track: the learner gathers every prediction they made (no-plans share, presence/contested split, botsitting hours, unanticipated objections, cost per regretted departure, unaware share, manager-capability figure), names the DIRECTION of their systematic miss — over-crediting AI's reach, under-crediting it, or scattered — and answers what they believe now that they didn't in Module 1, specifically enough that it could not have been written before the track. Generic closings ('AI is a powerful tool with risks') fail that question outright. This track scores the delta, not the score: grade the honesty and specificity of the account of change, never the accuracy of any prediction. A learner who completed only some modules should be graded on the pattern in what they did complete.",
+  "activityContext": "You are grading the CLOSING submission of AI 301 · The Specialist, HRBP track. Two parts. Part 1: a one-page asset built for a real recurring manager AI failure, tested with one real manager, with an account of what they ACTUALLY DID with it — not whether they liked it, since liking is not use. The one-page constraint is deliberate and a longer asset should be marked down: managers don't read more, and an unread asset has no leverage. Part 2 is the reckoning across the whole track: the learner gathers every prediction they made (no-plans share, presence/contested split, botsitting hours, unanticipated objections, cost per regretted departure, unaware share, manager-capability figure), names the DIRECTION of their systematic miss — over-crediting AI's reach, under-crediting it, or scattered — and answers what they believe now that they didn't in Module 1, specifically enough that it could not have been written before the track. Generic closings ('AI is a powerful tool with risks') fail that question outright. This track scores the delta, not the score: grade the honesty and specificity of the account of change, never the accuracy of any prediction. A learner who completed only some modules should be graded on the pattern in what they did complete.\n\n**\"Our evidence cannot settle this\" scores at full credit where it is the honest answer.** A submission that states plainly what its evidence cannot establish, and why, has done the exercise correctly — never mark it down for declining to reach a conclusion its evidence does not support. Reaching a confident conclusion on thin evidence is the error; naming the limit is the skill.",
   "opening": [
-    { "key": "managerSkillPct", "label": "Predicted — % of HR leaders who think managers can use AI effectively", "hint": "The last prediction of the course. Whole percent.", "placeholder": "e.g. 25", "min": 0, "max": 100 }
+    {
+      "key": "managerSkillPct",
+      "label": "Predicted — % of HR leaders who think managers can use AI effectively",
+      "hint": "The last prediction of the course. Whole percent.",
+      "placeholder": "e.g. 25",
+      "min": 0,
+      "max": 100
+    }
   ],
   "calibration": [
-    { "key": "managerSkillPctActual", "label": "Actual — the figure the module reports", "hint": "Then gather the other six and read the pattern.", "placeholder": "e.g. 8", "min": 0, "max": 100, "actualFor": "managerSkillPct" }
+    {
+      "key": "managerSkillPctActual",
+      "label": "Actual — the figure the module reports",
+      "hint": "Then gather the other six and read the pattern.",
+      "placeholder": "e.g. 8",
+      "min": 0,
+      "max": 100,
+      "actualFor": "managerSkillPct"
+    }
   ],
   "dimensions": [
-    { "name": "The asset is one page and aimed at a real failure", "criteria": "A specific recurring manager failure, and an asset a busy manager would actually read — one page, concrete, with the reasoning attached rather than assumed. Length beyond a page is a real deduction here, not a stylistic note: the constraint is the design." },
-    { "name": "It met a real manager",  "criteria": "Tested with an actual person, with an account of what they did with it. 'They said it was helpful' scores low; 'they used it for two reviews and ignored the third section' scores high. A finding that the asset was ignored, honestly reported, scores well — that is data about the asset, not a failure of the submission." },
-    { "name": "The reckoning is honest about direction", "criteria": "Predictions gathered across the modules completed, with the systematic direction named — over-crediting AI's reach, under-crediting it, or genuinely scattered — and a real attempt to explain why their reading leaned that way. Accuracy is never graded; a learner who missed badly in a consistent direction and can account for it should score at the top." },
-    { "name": "What changed, specifically", "criteria": "The final question is the heaviest thing in the track. The learner must name something they believe now that they didn't in Module 1, specific enough that it could not have been written beforehand. Generic closings fail this dimension outright, regardless of the quality of everything else. Also grades the position on the allocation claim, including its strong counter-argument that for most organizations the alternative to an AI coach is nothing at all." }
+    {
+      "name": "The asset is one page and aimed at a real failure",
+      "criteria": "A specific recurring manager failure, and an asset a busy manager would actually read — one page, concrete, with the reasoning attached rather than assumed. Length beyond a page is a real deduction here, not a stylistic note: the constraint is the design."
+    },
+    {
+      "name": "It met a real manager",
+      "criteria": "Tested with an actual person, with an account of what they did with it. 'They said it was helpful' scores low; 'they used it for two reviews and ignored the third section' scores high. A finding that the asset was ignored, honestly reported, scores well — that is data about the asset, not a failure of the submission."
+    },
+    {
+      "name": "The reckoning is honest about direction",
+      "criteria": "Predictions gathered across the modules completed, with the systematic direction named — over-crediting AI's reach, under-crediting it, or genuinely scattered — and a real attempt to explain why their reading leaned that way. Accuracy is never graded; a learner who missed badly in a consistent direction and can account for it should score at the top."
+    },
+    {
+      "name": "What changed, specifically",
+      "criteria": "The final question is the heaviest thing in the track. The learner must name something they believe now that they didn't in Module 1, specific enough that it could not have been written beforehand. Generic closings fail this dimension outright, regardless of the quality of everything else. Also grades the position on the allocation claim, including its strong counter-argument that for most organizations the alternative to an AI coach is nothing at all."
+    }
   ]
 }

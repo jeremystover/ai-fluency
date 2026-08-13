@@ -5,17 +5,44 @@
   "maxWords": 350,
   "submitLabel": "Your signal audit and write-up",
   "intro": "Paste the stage-by-stage audit with its 0–3 scores, the cliff you identified, and the 250–350 word write-up including your position on this module's claim. Resubmission is free and unlimited — the score is a mirror, not a gate.",
-  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, Recruiting/TA track — for recruiters who have completed AI 101 and AI 201. Module 1 applied activity, 'Signal audit': one LIVE requisition (the same one they carry through all seven modules), every stage mapped in order with roughly what share it removes, each stage scored 0-3 on a single question — what would this cost someone who is faking it, where cost means time they can't compress, presence they must supply, or specificity they can't generate. Then they identify 'the cliff': the first stage scoring 2 or higher, and count how many candidates are eliminated before reaching it. Then compare against their predicted share of stages that cost a faker something. The insight the activity is engineered to produce is that the first several stages typically score zero, meaning those stages are rationing rather than screening. A learner who discovers most of their funnel is rationing and says so plainly has succeeded. Watch for scores inflated to protect the existing process — if a stage is described as costly, the submission should say what specifically cannot be generated. This track scores the delta, not the score: never grade prediction accuracy.",
+  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, Recruiting/TA track — for recruiters who have completed AI 101 and AI 201. Module 1 applied activity, 'Signal audit': one LIVE requisition (the same one they carry through all seven modules), every stage mapped in order with roughly what share it removes, each stage scored 0-3 on a single question — what would this cost someone who is faking it, where cost means time they can't compress, presence they must supply, or specificity they can't generate. Then they identify 'the cliff': the first stage scoring 2 or higher, and count how many candidates are eliminated before reaching it. Then compare against their predicted share of stages that cost a faker something. The insight the activity is engineered to produce is that the first several stages typically score zero, meaning those stages are rationing rather than screening. A learner who discovers most of their funnel is rationing and says so plainly has succeeded. Watch for scores inflated to protect the existing process — if a stage is described as costly, the submission should say what specifically cannot be generated. This track scores the delta, not the score: never grade prediction accuracy.\n\n**\"Our evidence cannot settle this\" scores at full credit where it is the honest answer.** A submission that states plainly what its evidence cannot establish, and why, has done the exercise correctly — never mark it down for declining to reach a conclusion its evidence does not support. Reaching a confident conclusion on thin evidence is the error; naming the limit is the skill.",
   "opening": [
-    { "key": "costlyStages", "label": "Predicted — % of your funnel's stages that cost a faker something", "hint": "Time they can't compress, presence they must supply, specificity they can't generate.", "placeholder": "e.g. 50", "min": 0, "max": 100 }
+    {
+      "key": "costlyStages",
+      "label": "Predicted — % of your funnel's stages that cost a faker something",
+      "hint": "Time they can't compress, presence they must supply, specificity they can't generate.",
+      "placeholder": "e.g. 50",
+      "min": 0,
+      "max": 100
+    }
   ],
   "calibration": [
-    { "key": "costlyStagesActual", "label": "Measured — what the audit found", "hint": "Stages scoring 2 or 3, as a share of all stages.", "placeholder": "e.g. 30", "min": 0, "max": 100, "actualFor": "costlyStages" }
+    {
+      "key": "costlyStagesActual",
+      "label": "Measured — what the audit found",
+      "hint": "Stages scoring 2 or 3, as a share of all stages.",
+      "placeholder": "e.g. 30",
+      "min": 0,
+      "max": 100,
+      "actualFor": "costlyStages"
+    }
   ],
   "dimensions": [
-    { "name": "The requisition is real and fully mapped", "criteria": "An actual live req, every stage in order including the ones that feel administrative, with rough elimination rates. A generic funnel or a partial map is the gap to name." },
-    { "name": "The scores are honest about fakeability", "criteria": "Each score justified by what specifically a faker could or couldn't produce. Inflated scores protecting the existing process are the failure mode: if a stage is scored 2 or 3, the submission must name the thing that can't be generated. Scoring a résumé screen above 1 requires an unusually good argument." },
-    { "name": "The cliff is located and its cost stated", "criteria": "The first genuinely costly stage identified, with the number of candidates eliminated before reaching it. The strongest submissions state plainly that everything before the cliff is rationing rather than screening — and don't flinch from how large that share is." },
-    { "name": "The position and the delta", "criteria": "A committed position on the claim that engages its real counter-argument — that the screen was always throughput rationing and never claimed to be predictive, so nothing broke. Plus the prediction compared with the direction of the miss named, and one specific stage named for redesign." }
+    {
+      "name": "The requisition is real and fully mapped",
+      "criteria": "An actual live req, every stage in order including the ones that feel administrative, with rough elimination rates. A generic funnel or a partial map is the gap to name."
+    },
+    {
+      "name": "The scores are honest about fakeability",
+      "criteria": "Each score justified by what specifically a faker could or couldn't produce. Inflated scores protecting the existing process are the failure mode: if a stage is scored 2 or 3, the submission must name the thing that can't be generated. Scoring a résumé screen above 1 requires an unusually good argument."
+    },
+    {
+      "name": "The cliff is located and its cost stated",
+      "criteria": "The first genuinely costly stage identified, with the number of candidates eliminated before reaching it. The strongest submissions state plainly that everything before the cliff is rationing rather than screening — and don't flinch from how large that share is."
+    },
+    {
+      "name": "The position and the delta",
+      "criteria": "A committed position on the claim that engages its real counter-argument — that the screen was always throughput rationing and never claimed to be predictive, so nothing broke. Plus the prediction compared with the direction of the miss named, and one specific stage named for redesign."
+    }
   ]
 }

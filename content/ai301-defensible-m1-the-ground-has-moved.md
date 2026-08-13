@@ -161,15 +161,21 @@ ones, do not.
 
 A specific, time-bounded thing to act on.
 
-On **14 May 2026**, the EEOC sent the Office of Information and Regulatory Affairs a proposed rule
-titled *Rescission of EEO-1, EEO-2, EEO-3, EEO-4, EEO-5, and Reporting Requirement* under Title VII,
-the ADA, GINA and the PWFA. Since 1966, the EEO-1 has required employers with 100 or more employees
-to report headcount by job category, sex, and race or ethnicity.
+The EEOC has moved to rescind the EEO-1 and its related reports under Title VII, the ADA, GINA and
+the PWFA. Since 1966, the EEO-1 has required employers with 100 or more employees to report headcount
+by job category, sex, and race or ethnicity. The rescission went to the Office of Information and
+Regulatory Affairs on **14 May 2026**, and the **notice of proposed rulemaking was published in the
+Federal Register on 23 July 2026**, with the comment period closing **24 August 2026**.
 
-**It is proposed, not final.** OIRA review is expected to take no more than 90 days, after which the
-rule would be published for the normal process. **Current regulations still require the EEO-1 to be
-filed on or before 30 September**, and employers should prepare to file until the rescission is
-actually finalized.
+**It is proposed, not final**, and a final rule has to survive the comments and probably a challenge.
+**Current regulations still require the EEO-1 to be filed**, and you should prepare to file until a
+rescission is actually finalized — the deadline moves between cycles, so confirm this year's date
+rather than carrying one forward.
+
+**This particular passage is the fastest-moving thing in the module.** It advanced two procedural
+stages between review cycles, which is why the canonical version lives in
+`content/evidence/eeo1-rescission.json` and why the date above should be checked before you rely on
+it.
 
 Two consequences, and the second is the one people miss.
 

@@ -4,7 +4,7 @@
   "minChars": 600,
   "submitLabel": "The five-part spec + your selection reasoning",
   "intro": "Write the five-part spec — trigger, inputs, transformation, verification, output and owner — then defend the choice against the selection rules, including what you rejected and why. Resubmission is free and unlimited.",
-  "activityContext": "The learner is submitting Capstone Stage 1 of AI 201: a five-part workflow spec (trigger, inputs, transformation, verification, output/owner) for one workflow chosen from an audit of their own week, plus a paragraph defending the selection against the module's rules (high frequency, high structure, owned inputs, low-to-medium stakes).",
+  "activityContext": "The learner is submitting Capstone Stage 1 of AI 201: a five-part workflow spec (trigger, inputs, transformation, verification, output/owner) for one workflow chosen from an audit of their own week, plus a paragraph defending the selection against the module's rules (high frequency, high structure, owned inputs, low-to-medium stakes).\n\n**\"Our evidence cannot settle this\" scores at full credit where it is the honest answer.** A submission that states plainly what its evidence cannot establish, and why, has done the exercise correctly — never mark it down for declining to reach a conclusion its evidence does not support. Reaching a confident conclusion on thin evidence is the error; naming the limit is the skill.",
   "calibration": [
     {
       "key": "hours",
