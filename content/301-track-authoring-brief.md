@@ -362,3 +362,13 @@ sibling* for the line it declines to draw, not from exploring the role or from s
 HRBP M6 flags comparing witness accounts as "approaching credibility" and stops — correct for a
 generalist, insufficient for a specialist, and resolving it became the track's signature. Where a
 sibling track hedges on something central to your role, that hedge is a module.
+
+
+**A counsel-review gate must be its own `## ` section, before the calibration prompt.**
+`scripts/convert-draft.mjs` drops everything ahead of the first `## ` heading, so a gate written
+into the draft's metadata header reaches no learner, no tutor and no podcast. Six shipped modules
+lost their gate exactly that way (S-13) and nobody noticed until a later track's build note
+predicted it. The converter now refuses to convert such a draft, but write it as a section in the
+first place: `## ⚖️ Counsel review required`, stating what specifically moves in *this* module
+rather than a generic disclaimer.
+

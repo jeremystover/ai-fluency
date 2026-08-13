@@ -1,5 +1,14 @@
 [
   {
+    "id": "ai301-peopleops-m7-counsel-review-required-5",
+    "moduleId": "ai301-peopleops-m7",
+    "ordinal": 5,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## ⚖️ Counsel review required\n\n**This is the heaviest module in the curriculum, and the fastest-moving.** While this track was being\nwritten a regulation was published, a Board changed composition, and a discovery ruling issued.\n\n**Counsel review is required before this module ships.** Lessons 2 through 5 are volatile layer.\n\nNothing here is legal advice. This module teaches you **which questions have legal answers**, and how\nto bring counsel a specific list rather than a general worry — which is the difference between an\nanswer and a shrug."
+  },
+  {
     "id": "ai301-peopleops-m7-calibration-prompt-the-claim-to-contest-10",
     "moduleId": "ai301-peopleops-m7",
     "ordinal": 10,

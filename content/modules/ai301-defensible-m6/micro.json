@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ai301-defensible-m6-micro-core",
+    "moduleId": "ai301-defensible-m6-micro",
+    "ordinal": 10,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-13",
+    "body": "## Module 5 in two minutes\n\n**The pool is the decision.** Before anyone is scored, somebody decides which population is considered at all. Move that boundary and a disparity appears or disappears without a single score changing. It is usually drawn verbally, early, and never written down — and a model ranking people ranks them *within a pool somebody drew*, so it cannot tell you the pool was wrong.\n\n**The law already names it.** In a group termination where employees over 40 are asked to waive ADEA claims, that boundary is the statutory **decisional unit**, and the job titles and ages of those selected and not selected must be disclosed `[V]`. It gets written down whether or not you were deliberate — the only question is whether the reason was chosen in advance or reconstructed afterwards.\n\n**Write two paragraphs before scoring:** the pool, the alternatives you considered, and why this one. Cheapest defensible artifact in the track."
+  },
+  {
+    "id": "ai301-defensible-m6-micro-metric",
+    "moduleId": "ai301-defensible-m6-micro",
+    "ordinal": 20,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-13",
+    "body": "## The metric that cannot be earned `[V]`\n\n**An activity metric is a proxy for time present.** Anyone whose time present is legally protected — protected leave, a reduced schedule as an accommodation, intermittent FMLA, military service — scores low, and **no protected characteristic ever enters the data.** The organisation usually already knew who was on leave; it just never connected that fact to the measure.\n\nThis is the sharpest instance of Module 2's principle that *\"we never gave it protected data\"* is not a defence.\n\n**The newest version is AI adoption metrics** — prompts, tokens, active seats — measured first for rollout, then used as a proxy for engagement, then, at some point nobody minutes, as an input to a performance judgement. It additionally records who got training and who had a use case.\n\nThe *Meta* complaint filed **13 July 2026** alleges precisely this pattern, including AI token-usage dashboards. **Allegations, not findings.**"
+  },
+  {
+    "id": "ai301-defensible-m6-micro-order",
+    "moduleId": "ai301-defensible-m6-micro",
+    "ordinal": 30,
+    "kind": "prose",
+    "layer": "stable",
+    "reviewedAt": "2026-08-13",
+    "body": "## The order of operations\n\n**Privilege, then pool, then scoring.** The privilege window closes the moment a draft list exists — after that, every analysis is analysis of a list, and the timeline is discoverable.\n\n**Test at the boundary and one level wider.** A disparity that appears only at the wider boundary means the pool definition is doing work the scoring is getting credit for. It is the most informative result the analysis can produce.\n\n**And the falsifiable test of human review:** has a human ever actually changed one of these recommendations? A policy, training and timing are all necessary and none is evidence. If nothing changed across a full cycle, you have a signature rather than a review."
+  }
+]

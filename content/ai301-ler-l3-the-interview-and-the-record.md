@@ -14,6 +14,17 @@
 
 ---
 
+## ⚖️ Counsel review required
+
+**Consent law is state-specific, biometric-privacy litigation is active, and the disparity exposure
+in Lesson 3 is an emerging theory rather than a settled one.**
+
+**Counsel review is required before this module ships, and before you change your recording
+practice.** Changing how interviews are recorded on the strength of a course — any course — is the
+specific mistake this gate exists to prevent. Lessons 1 through 4 are volatile layer.
+
+This module tells you which questions to take to your own lawyers. **It is not legal advice.**
+
 ## Calibration prompt — the claim to contest
 
 *Commit before you read anything. Thirty seconds.*

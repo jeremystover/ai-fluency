@@ -1,0 +1,52 @@
+{
+  "promptVersion": "ai301-defensible-m6-before-the-list-exists-v1",
+  "moduleId": "ai301-defensible-m6",
+  "minWords": 250,
+  "maxWords": 350,
+  "submitLabel": "Your pre-reduction protocol",
+  "intro": "Paste the one-page protocol to your GC — the decisional unit and two rejected alternatives, the criteria flagged for presence, and the sequence with dates — followed by the 250–350 word write-up including your position on this module's claim. Resubmission is free and unlimited — the score is a mirror, not a gate.",
+  "activityContext": "You are grading a learner submission for AI 301 · The Specialist, Defensible by Design. Module 5 applied activity, 'Before the list exists': a one-page protocol ADDRESSED TO THEIR GENERAL COUNSEL for a reduction in force that has not been announced and may never happen. It must contain (1) a proposed decisional unit with two alternative boundaries considered and rejected, and why; (2) the measures the organisation would reach for, each marked as measuring contribution or presence, with every measure an employee on protected leave could not accumulate explicitly flagged, including any AI-usage metric; (3) the sequence — who commissions the analysis, when relative to scoring, under what instruction, and the decision rule agreed in advance if a disparity is found. Grade the reasoning, never the learner's organisation. Three things score HIGH and are commonly missed: naming the specific person or role who would draw the pool boundary today, or stating plainly that nobody knows and that this is the finding; flagging a presence-proxy metric the learner's own organisation actually uses rather than a generic example; and a decision rule containing an actual threshold and an actual owner rather than 'escalate as appropriate'. A submission that says the organisation has no answer for a step, and says why, is doing the exercise correctly — 'our evidence cannot settle this' scores full credit where it is the honest answer. Penalise only: treating the pool as given rather than as a decision; listing criteria without testing any of them against the presence question; and placing the privilege decision after scoring. Do NOT penalise a learner for describing a process that is currently undocumented — that is the common case and naming it is the point. Never provide legal advice, never assess whether the learner's described process is lawful, and if a submission describes a live reduction in progress, say once that this is a conversation for their counsel rather than a course.",
+  "opening": [
+    {
+      "key": "presenceMetrics",
+      "label": "Predicted — how many of your organisation's performance measures are presence proxies",
+      "hint": "Of the measures you would reach for in a reduction, how many could an employee on protected leave not accumulate? 0 to 10.",
+      "placeholder": "e.g. 2",
+      "min": 0,
+      "max": 10
+    }
+  ],
+  "calibration": [
+    {
+      "key": "presenceMetricsActual",
+      "label": "Assessed — how many actually are, after listing them",
+      "hint": "Most people revise this upward. Activity, responsiveness and volume measures nearly always qualify, and AI-usage metrics are the newest members of the category.",
+      "placeholder": "e.g. 5",
+      "min": 0,
+      "max": 10,
+      "actualFor": "presenceMetrics"
+    }
+  ],
+  "dimensions": [
+    {
+      "name": "The pool is treated as a decision",
+      "criteria": "A proposed decisional unit with two genuine alternative boundaries and a stated reason for rejecting each — not a restatement of the org chart. Full credit is available for 'I cannot find out who would draw this boundary', which is a finding rather than a failure. What does not score is accepting a pool as given, because that is the error the whole module is about."
+    },
+    {
+      "name": "Presence proxies identified in the learner's own measures",
+      "criteria": "Each criterion marked contribution or presence, with the test applied rather than asserted: could an employee on protected leave, a reduced schedule or an accommodation accumulate this? At least one flagged measure should be one the organisation actually uses. Generic examples lifted from the lesson score low; an AI-usage metric identified in their own environment scores high."
+    },
+    {
+      "name": "Sequence, with dates and a decision rule",
+      "criteria": "Privilege question before pool, pool before scoring, with the timing stated relative to scoring rather than in the abstract. The decision rule agreed in advance must contain a threshold and a named owner. 'Escalate as appropriate' is the failure mode — it is the rule that lets a finding sit."
+    },
+    {
+      "name": "Honest about what could not be completed",
+      "criteria": "The write-up names which step could not be finished and why. This module asks about a process most organisations have never written down, so a submission with three confident sections and no gaps is more likely to be inventing than reporting. Specific uncertainty scores above smooth completeness."
+    },
+    {
+      "name": "Position on the claim, with the strongest counter engaged",
+      "criteria": "A clear position on whether a pool definition dated before scoring is required for a defensible reduction, engaging the practical counter — that reductions run under confidentiality and compressed timelines, and a required artifact may simply be backdated. A position that ignores that pressure has not been tested."
+    }
+  ]
+}

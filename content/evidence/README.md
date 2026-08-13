@@ -6,7 +6,8 @@ say in your sources block that you did.
 **Why this exists.** Brief §3a sanctions horizontal duplication between sibling tracks — no learner
 sees two role tracks, so a well-aimed duplicate is better for them than a cross-track prerequisite.
 That removes the pedagogical objection to overlap and leaves exactly one real cost: **drift.** These
-tracks run ~80% volatile, and `scripts/maintenance-agent.mjs` re-checks each copy independently, so
+tracks carry a volatile block in roughly one block in eight — 122 of 905 across the 301 packages,
+measured rather than estimated — and `scripts/maintenance-agent.mjs` re-checks each copy independently, so
 ten tracks citing the EU AI Act timeline is ten copies diverging on their own schedule.
 
 **What this is not.** Module content is prose inside `blocks.json`; this is deliberately *not* a
@@ -17,6 +18,18 @@ content written this deliberately.
 ## The rule
 
 > A fact cited by 2+ tracks belongs here. A fact cited once belongs in its module.
+
+**Exceptions are allowed and must be marked.** An entry below the two-citer bar carries a `status`
+field saying which exception it is relying on and why:
+
+- **`staged`** — verified and recorded before any module cites it, because verification ran first and
+  the content is pending. A note to the author who will write it, not evidence that a fact is shared.
+- **`watch`** — cited by exactly one module, but volatile enough that the maintenance agent should
+  re-check it every run. The two-citer rule exists to catch **drift between copies**, and one copy
+  cannot drift; a fact like a live complaint earns its place on the **staleness** axis instead.
+
+In both cases the status names the condition under which the entry should be deleted. An unmarked
+entry with fewer than two citers is a defect.
 
 ## Using it
 

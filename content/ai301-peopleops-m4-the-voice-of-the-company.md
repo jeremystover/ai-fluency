@@ -15,6 +15,17 @@ line)
 
 ---
 
+## ⚖️ Counsel review required
+
+**Counsel review is required before this module ships, and before you act on Lesson 3.**
+
+The chatbot-as-notice exposure in that lesson is identified by employment counsel and is **not
+settled by any decision we could find**. It is framed in *may* throughout, deliberately — and that
+hedging is the accurate state of the law, not authorial caution.
+
+Lessons 1, 3 and 4 are volatile layer. This module tells you which questions to take to your own
+lawyers. **It is not legal advice.**
+
 ## Calibration prompt — the claim to contest
 
 *Commit before you read anything. Thirty seconds.*

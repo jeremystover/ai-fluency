@@ -1,5 +1,14 @@
 [
   {
+    "id": "ai301-recruiter-r6-counsel-review-required-5",
+    "moduleId": "ai301-recruiter-r6",
+    "ordinal": 5,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## ⚖️ Counsel review required\n\n**This module's legal content moves faster than anything else in the curriculum.** Statutes,\neffective dates and litigation posture change between review cycles.\n\n**Counsel review is required before this module ships in any deployment**, by counsel qualified in\nthat deployment's jurisdictions.\n\nNothing here is legal advice. It teaches you **what to ask counsel** — and, for a function that buys\nscreening tools, what to ask a vendor before signature, when you still have leverage."
+  },
+  {
     "id": "ai301-recruiter-r6-calibration-prompt-before-you-start-10",
     "moduleId": "ai301-recruiter-r6",
     "ordinal": 10,

@@ -1,5 +1,14 @@
 [
   {
+    "id": "ai301-talent-dev-m5-counsel-review-required-5",
+    "moduleId": "ai301-talent-dev-m5",
+    "ordinal": 5,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## ⚖️ Counsel review required\n\n**This module states statutory positions that move**, and it states them to make your conversation\nwith counsel better rather than to replace it.\n\n**Counsel review is required before deployment.** Every specific here must be confirmed against your\nown jurisdictions, sectors and headcount thresholds before you rely on it. Lessons 1, 2 and 4 are\nvolatile layer, and the European position moved nine days before this module was written.\n\n**If your organisation operates anywhere this module does not name, assume the list is incomplete\nrather than assuming you are out of scope.** That asymmetry is deliberate: the failure mode here is\nconcluding you are unregulated because your jurisdiction was not mentioned."
+  },
+  {
     "id": "ai301-talent-dev-m5-calibration-prompt-before-you-start-10",
     "moduleId": "ai301-talent-dev-m5",
     "ordinal": 10,

@@ -30,6 +30,25 @@ for (const line of raw.split('\n')) {
 }
 if (current) sections.push(current);
 
+// The metadata header is dropped by design — but authors have repeatedly written
+// a counsel-review gate into it, where it reaches no learner, no tutor and no
+// podcast. Six shipped modules lost their gate that way before anyone noticed
+// (S-13). A gate has to be its own `## ` section to survive, so fail loudly
+// rather than dropping it silently.
+const preamble = raw.split(/^## /m)[0] ?? '';
+if (/counsel review required/i.test(preamble) && !sections.some((s) => /counsel review/i.test(s.heading))) {
+  console.error(
+    '\n  ⚠️  This draft declares a counsel-review gate in its metadata header, which is\n' +
+      '     dropped on conversion. Learners would never see it.\n' +
+      '     Move it into its own section — `## ⚖️ Counsel review required` — placed\n' +
+      '     before the calibration prompt.\n',
+  );
+  if (!process.argv.includes('--allow-lost-gate')) {
+    console.error('     Refusing to convert. Re-run with --allow-lost-gate to override.\n');
+    process.exit(1);
+  }
+}
+
 const slug = (s) =>
   s
     .toLowerCase()

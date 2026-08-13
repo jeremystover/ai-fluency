@@ -1,5 +1,14 @@
 [
   {
+    "id": "ai301-ler-l7-counsel-review-required-5",
+    "moduleId": "ai301-ler-l7",
+    "ordinal": 5,
+    "kind": "prose",
+    "layer": "volatile",
+    "reviewedAt": "2026-08-12",
+    "body": "## ⚖️ Counsel review required\n\n**This is the most volatile module on the ladder, by design.** The three-layer framework is stable.\nEvery example inside it carries a date, because every example moves.\n\n**Counsel review is required before acting on anything in Lessons 2, 3 or 5.** The module tells you\nwhere the questions are and gives you the list to bring; it does not answer them.\n\n**Jurisdictional note:** the examples are US federal labor law. **The layer framework transfers; the\ncitations do not.** If you operate outside the US, treat every citation here as an illustration of\nthe framework rather than as a statement about your obligations."
+  },
+  {
     "id": "ai301-ler-l7-calibration-prompt-the-claim-to-contest-10",
     "moduleId": "ai301-ler-l7",
     "ordinal": 10,

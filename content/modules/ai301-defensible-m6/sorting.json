@@ -1,0 +1,88 @@
+{
+  "reviewedAt": "2026-08-13",
+  "buckets": [
+    {
+      "id": "contribution",
+      "label": "Measures contribution",
+      "hint": "Tracks what the person produced or decided",
+      "rank": 2,
+      "pct": 80
+    },
+    {
+      "id": "presence",
+      "label": "Measures presence",
+      "hint": "A protected employee structurally cannot accumulate it",
+      "rank": 0,
+      "pct": 15
+    },
+    {
+      "id": "neither",
+      "label": "Measures something else entirely",
+      "hint": "Tracks access, tooling or circumstance rather than the person",
+      "rank": 1,
+      "pct": 45
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "text": "Number of days active in the collaboration suite over the last two quarters",
+      "key": "presence",
+      "reasoning": "The cleanest case. It is a direct count of time present, so anyone on protected leave, a reduced schedule or an accommodation accumulates less by definition — with no protected field in the data anywhere."
+    },
+    {
+      "id": "t2",
+      "text": "Closed deals attributable to the individual, normalised by the months they were actively working",
+      "key": "contribution",
+      "reasoning": "The normalisation is what saves it. Raw closed deals would be a presence metric wearing an outcome's clothes; dividing by active months removes the time-present component and leaves the rate."
+    },
+    {
+      "id": "t3",
+      "text": "Prompts issued to the company AI assistant in the last six months",
+      "key": "presence",
+      "reasoning": "The newest version of the oldest error, and it is worse than it looks: it counts time present AND who received training, who had a use case, and who was there during rollout. Someone on leave during the launch has a permanent gap in a metric now describing them."
+    },
+    {
+      "id": "t4",
+      "text": "Manager's written assessment of the judgement shown in two named decisions this year",
+      "key": "contribution",
+      "reasoning": "Specific, attributable to the person, and independent of hours logged. It carries the ordinary risks of subjective assessment — which are real and are not this module's subject."
+    },
+    {
+      "id": "t5",
+      "text": "Average response latency on internal messages",
+      "key": "presence",
+      "reasoning": "A responsiveness metric is an availability metric. It penalises part-time schedules, accommodations, caregiving arrangements and time zones, and it measures nothing about the quality of what was eventually said."
+    },
+    {
+      "id": "t6",
+      "text": "Whether the employee's team hit its quarterly objective",
+      "key": "neither",
+      "reasoning": "It measures the team, the objective's difficulty, and who set it — not this person. It is neither a presence proxy nor an individual contribution measure, and using it for individual selection imports every unfairness in how objectives were assigned."
+    },
+    {
+      "id": "t7",
+      "text": "Volume of code committed, weighted by lines changed",
+      "key": "presence",
+      "reasoning": "Volume metrics are time-present metrics with extra steps. This one additionally rewards verbosity, so it is a poor contribution measure even for someone with a full schedule."
+    },
+    {
+      "id": "t8",
+      "text": "Certification in the system the team is migrating to, completed or not",
+      "key": "neither",
+      "reasoning": "It records who was given a training slot and when, which is a resourcing fact about the organisation. Defensible as a forward-looking capability input only if access was genuinely equal — which is a question you must be able to answer, not assume."
+    },
+    {
+      "id": "t9",
+      "text": "Peer feedback scores aggregated across the year's project teams",
+      "key": "neither",
+      "reasoning": "It measures who the person worked with and how visible their work was. Someone on leave for a quarter has fewer raters, and thinner samples move more — so it behaves partly like a presence metric without being one by design."
+    },
+    {
+      "id": "t10",
+      "text": "Whether the person is the only one who can operate a system the organisation still depends on",
+      "key": "contribution",
+      "reasoning": "Uncomfortable but genuinely about the person's value to the organisation, and accumulable while on leave. It is also a finding about your codification risk — which is 401 M7's subject, and worth noticing here."
+    }
+  ]
+}

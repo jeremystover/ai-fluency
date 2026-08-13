@@ -12,6 +12,18 @@
 
 ---
 
+## ⚖️ Counsel review required
+
+**Lessons 1 and 2 move faster than anything else in this curriculum.** Statutes, effective dates and
+litigation posture all change between review cycles, and several did while this module was being
+written.
+
+**Counsel review is required before this module ships in any deployment**, by counsel qualified in
+that deployment's jurisdictions.
+
+Nothing here is legal advice, and it does not replace your legal team. It teaches you **what to ask
+them** — which is a real skill, and the one thing in this module that will not go stale.
+
 ## Calibration prompt — before you start
 
 *One prediction, thirty seconds.*

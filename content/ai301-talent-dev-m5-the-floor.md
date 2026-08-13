@@ -17,6 +17,19 @@
 
 ---
 
+## ⚖️ Counsel review required
+
+**This module states statutory positions that move**, and it states them to make your conversation
+with counsel better rather than to replace it.
+
+**Counsel review is required before deployment.** Every specific here must be confirmed against your
+own jurisdictions, sectors and headcount thresholds before you rely on it. Lessons 1, 2 and 4 are
+volatile layer, and the European position moved nine days before this module was written.
+
+**If your organisation operates anywhere this module does not name, assume the list is incomplete
+rather than assuming you are out of scope.** That asymmetry is deliberate: the failure mode here is
+concluding you are unregulated because your jurisdiction was not mentioned.
+
 ## Calibration prompt — before you start
 
 *One claim. Commit before you read.*
