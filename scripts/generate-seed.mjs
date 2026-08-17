@@ -66,9 +66,13 @@ for (const b of brands) {
   );
 }
 
+// createdAt comes from the content file, not the clock: short-course rows sit
+// inside the publish workflow's "is the committed seed current?" diff, and a
+// generation timestamp would make that check fail on any day but the one the
+// seed was committed.
 for (const sc of shortCourses) {
   lines.push(
-    `INSERT INTO fd_short_course (id, brand_slug, label, blurb, role_id, module_ids_json, diagnostic_json, created_at) VALUES (${q(sc.id)}, ${q(sc.brandSlug)}, ${q(sc.label)}, ${q(sc.blurb ?? null)}, ${q(sc.roleId ?? null)}, ${q(JSON.stringify(sc.moduleIds))}, ${q(sc.diagnostic ? JSON.stringify(sc.diagnostic) : null)}, ${q(now)});`,
+    `INSERT INTO fd_short_course (id, brand_slug, label, blurb, role_id, module_ids_json, diagnostic_json, created_at) VALUES (${q(sc.id)}, ${q(sc.brandSlug)}, ${q(sc.label)}, ${q(sc.blurb ?? null)}, ${q(sc.roleId ?? null)}, ${q(JSON.stringify(sc.moduleIds))}, ${q(sc.diagnostic ? JSON.stringify(sc.diagnostic) : null)}, ${q(sc.createdAt ?? now.slice(0, 10))});`,
   );
   console.log(
     `short course seeded → ${sc.id} · ${sc.moduleIds.length} modules · diagnostic: ${sc.diagnostic ? `${sc.diagnostic.items.length} items` : 'none'}`,
