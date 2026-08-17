@@ -462,10 +462,17 @@ export default function ModuleView() {
   if (!data) return <Screen><div className="pt-24 text-center"><p className="label-utility">Loading the module…</p></div></Screen>;
 
   const style = styleOf(me);
-  const courseLabel = COURSE_LABELS[data.module.courseId] ?? data.module.courseId;
+  // Inside a short course a module is numbered by that course's order and
+  // named under that course's label — the tier it was authored for (101, 201,
+  // a 301 track) is not something a short-course learner is shown.
+  const shortCourse = me?.shortCourse ?? null;
+  const shortCoursePosition = shortCourse ? shortCourse.moduleIds.indexOf(data.module.id) : -1;
+  const inShortCourse = shortCoursePosition >= 0;
+  const courseLabel = inShortCourse ? shortCourse!.label : COURSE_LABELS[data.module.courseId] ?? data.module.courseId;
+  const moduleNumber = inShortCourse ? shortCoursePosition + 1 : data.module.ordinal;
   const essentials = depthOf(me?.prefs?.depth) === 'essentials';
   const activeTitle = sections.find((s) => s.id === activeSection)?.title;
-  const barLabel = `M${data.module.ordinal} · ${activeTitle ?? data.module.title}`;
+  const barLabel = `M${moduleNumber} · ${activeTitle ?? data.module.title}`;
   const jumpToLead = () => headerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   const toggleListen = () => {
     setListenOpen((open) => {
@@ -495,6 +502,7 @@ export default function ModuleView() {
             progress={progress}
             estReadMinutes={data.estReadMinutes}
             courseLabel={courseLabel}
+            moduleNumber={moduleNumber}
             listenOpen={listenOpen}
             onToggleListen={toggleListen}
             onJumpToLead={jumpToLead}
@@ -504,7 +512,7 @@ export default function ModuleView() {
           <article ref={articleRef} className="max-w-2xl">
             <div ref={headerRef}>
               <p className="label-utility flex items-center flex-wrap gap-x-2.5 gap-y-1.5">
-                <span>{courseLabel} · Module {data.module.ordinal} · ~{data.estReadMinutes} min read</span>
+                <span>{courseLabel} · Module {moduleNumber} · ~{data.estReadMinutes} min read</span>
                 {data.capabilities.micro && (
                   <Link
                     to={`/module/${moduleId}/micro`}

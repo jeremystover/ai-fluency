@@ -3,13 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import type { DiagnosticFeedback, DiagnosticItemPublic } from '../../shared/types';
 import { Screen, Button, ErrorNote } from '../components/ui';
 import { api, ApiError, track } from '../api';
-import { useDevice } from '../brand';
+import { useApp, useDevice } from '../brand';
 
 type Phase = 'intro' | 'items' | 'finishing';
+
+const COUNT_WORDS: Record<number, string> = { 2: 'Two', 3: 'Three', 4: 'Four', 5: 'Five', 6: 'Six', 7: 'Seven', 8: 'Eight', 9: 'Nine', 10: 'Ten' };
 
 export default function Diagnostic() {
   const navigate = useNavigate();
   const device = useDevice();
+  const { refreshMe } = useApp();
   const [items, setItems] = useState<DiagnosticItemPublic[] | null>(null);
   const [phase, setPhase] = useState<Phase>('intro');
   const [idx, setIdx] = useState(0);
@@ -67,9 +70,13 @@ export default function Diagnostic() {
       } catch {
         // The result screen recomputes from stored responses either way.
       }
+      // Progress the app already holds in memory would otherwise still say
+      // the diagnostic is outstanding — which, on a short course that
+      // requires it, sends the learner straight back here from the plan.
+      await refreshMe();
       navigate('/diagnostic/result');
     }
-  }, [items, idx, navigate]);
+  }, [items, idx, navigate, refreshMe]);
 
   // Number keys select; Enter advances. Arrow keys ride the native radio group.
   useEffect(() => {
@@ -97,8 +104,10 @@ export default function Diagnostic() {
       <Screen>
         <div className="pt-16 sm:pt-24 max-w-xl">
           <p className="label-utility">Diagnostic</p>
+          {/* A short course names the items it wants, so the count is read
+              from what was actually served rather than asserted. */}
           <h1 className="font-display font-bold text-ink-strong text-3xl sm:text-4xl mt-3 anim-rise">
-            Nine questions. Two kinds of measurement.
+            {items ? `${COUNT_WORDS[items.length] ?? items.length} questions.` : 'A few questions.'} Two kinds of measurement.
           </h1>
           <div className="mt-6 flex flex-col gap-4 text-ink anim-rise" style={{ animationDelay: '100ms' }}>
             <p>
@@ -112,7 +121,7 @@ export default function Diagnostic() {
             <p className="text-muted text-sm">
               One question per screen. You'll see how each answer landed immediately; the full picture waits until the end.
               {device.coarse ? ' Tap an answer, tap Next — it moves quickly.' : ' Keyboard works throughout — arrows or number keys, Enter to continue.'}
-              {' '}About eight minutes.
+              {items ? ` About ${Math.max(2, Math.round(items.length * 0.9))} minutes.` : ''}
             </p>
           </div>
           <div className="mt-8">

@@ -56,7 +56,8 @@ type Report = {
   devices: { platform: string | null; browser: string | null; pointer: string | null; sessions: number }[];
 };
 
-type CodeRow = { id: string; brandSlug: string; label: string; uses: number; maxUses: number | null; active: boolean };
+type CodeRow = { id: string; brandSlug: string; label: string; uses: number; maxUses: number | null; active: boolean; shortCourseId: string | null };
+type ShortCourseRow = { id: string; brandSlug: string; label: string; moduleCount: number };
 
 type AuditRow = {
   id: string;
@@ -397,13 +398,19 @@ function Reporting() {
 
 function Codes() {
   const [codes, setCodes] = useState<CodeRow[] | null>(null);
+  const [shortCourses, setShortCourses] = useState<ShortCourseRow[]>([]);
   const [brand, setBrand] = useState('omnissa');
   const [label, setLabel] = useState('');
   const [code, setCode] = useState('');
+  const [shortCourseId, setShortCourseId] = useState('');
   const [note, setNote] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
-  const load = () => api.get<{ codes: CodeRow[] }>('/api/admin/codes').then((d) => setCodes(d.codes));
+  const load = () =>
+    api.get<{ codes: CodeRow[]; shortCourses: ShortCourseRow[] }>('/api/admin/codes').then((d) => {
+      setCodes(d.codes);
+      setShortCourses(d.shortCourses);
+    });
   useEffect(() => {
     load();
   }, []);
@@ -414,10 +421,11 @@ function Codes() {
     setBusy(true);
     setNote(null);
     try {
-      await api.post('/api/admin/codes', { brandSlug: brand, label, code });
+      await api.post('/api/admin/codes', { brandSlug: brand, label, code, shortCourseId: shortCourseId || undefined });
       setNote(`Code created for ${brand} · "${label}". Share it now — only its hash is stored.`);
       setLabel('');
       setCode('');
+      setShortCourseId('');
       await load();
     } catch (err) {
       setNote(err instanceof ApiError ? err.message : 'Failed to create code.');
@@ -438,7 +446,7 @@ function Codes() {
         <table className="w-full text-sm">
           <thead>
             <tr className="text-left">
-              {['Brand', 'Label', 'Uses', 'Status', ''].map((h, i) => (
+              {['Brand', 'Label', 'Opens', 'Uses', 'Status', ''].map((h, i) => (
                 <th key={i} className="label-utility font-normal pb-2 pr-3">{h}</th>
               ))}
             </tr>
@@ -448,6 +456,9 @@ function Codes() {
               <tr key={c.id} className="border-t border-line">
                 <td className="py-2 pr-3 font-utility text-xs">{c.brandSlug}</td>
                 <td className="py-2 pr-3">{c.label}</td>
+                <td className="py-2 pr-3 text-xs">
+                  {c.shortCourseId ? shortCourses.find((s) => s.id === c.shortCourseId)?.label ?? c.shortCourseId : <span className="text-muted">Full course</span>}
+                </td>
                 <td className="py-2 pr-3 font-utility text-xs">{c.uses}{c.maxUses ? `/${c.maxUses}` : ''}</td>
                 <td className="py-2 pr-3">
                   <span className={`font-utility text-[0.65rem] uppercase tracking-wider px-2 py-0.5 rounded-full ${c.active ? 'bg-signal text-on-signal' : 'bg-line text-muted'}`}>
@@ -478,6 +489,26 @@ function Codes() {
           <label className="flex flex-col gap-1">
             <span className="label-utility">Code (min 8 chars — stored as hash only)</span>
             <input value={code} onChange={(e) => setCode(e.target.value)} className="border border-line-strong rounded-brand px-3 py-2 text-sm font-utility tracking-wider focus:border-accent" />
+          </label>
+          {/* What the code opens. A short course is role-specific and fixed:
+              the learner skips the questions it already answers, takes its
+              diagnostic if it has one, and never sees the library. */}
+          <label className="flex flex-col gap-1">
+            <span className="label-utility">Opens</span>
+            <select
+              value={shortCourseId}
+              onChange={(e) => setShortCourseId(e.target.value)}
+              className="border border-line-strong rounded-brand px-3 py-2 text-sm focus:border-accent bg-surface text-ink-strong"
+            >
+              <option value="">The full course</option>
+              {shortCourses
+                .filter((s) => s.brandSlug === brand)
+                .map((s) => (
+                  <option key={s.id} value={s.id}>
+                    {s.label} · {s.moduleCount} modules
+                  </option>
+                ))}
+            </select>
           </label>
           <Button type="submit" disabled={busy || !label.trim() || code.trim().length < 8}>{busy ? 'Creating…' : 'Create code'}</Button>
           {note && <p className="text-xs text-muted">{note}</p>}

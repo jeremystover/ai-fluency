@@ -23,11 +23,32 @@ import Activity from './routes/Activity';
 import Complete from './routes/Complete';
 import type { ReactNode } from 'react';
 
-function RequireSession({ children }: { children: ReactNode }) {
+// `fullCourseOnly` marks the screens a short course doesn't have: the path
+// screen and the library. Short-course learners get one view of their course
+// — the plan — so those routes land there instead of 404-ing or showing a
+// catalog they weren't given.
+//
+// `afterDiagnostic` marks the screens that wait behind a short course's
+// diagnostic. When the short course defines one it is required, not offered:
+// intake → diagnostic → plan, and typing a URL doesn't skip the middle.
+function RequireSession({
+  children,
+  fullCourseOnly = false,
+  afterDiagnostic = false,
+}: {
+  children: ReactNode;
+  fullCourseOnly?: boolean;
+  afterDiagnostic?: boolean;
+}) {
   const { me } = useApp();
   const location = useLocation();
   if (me === null) return <div className="min-h-[50vh]" aria-busy="true" />;
   if (!me.authenticated) return <Navigate to="/enter" replace state={{ from: location.pathname }} />;
+  const short = me.shortCourse;
+  if (short && fullCourseOnly) return <Navigate to="/plan" replace />;
+  if (short?.hasDiagnostic && afterDiagnostic && me.progress.intakeDone && !me.progress.diagnosticDone) {
+    return <Navigate to="/diagnostic" replace />;
+  }
   return <>{children}</>;
 }
 
@@ -41,12 +62,12 @@ export default function App() {
           <Route path="/enter" element={<Enter />} />
           <Route path="/reset" element={<Reset />} />
           <Route path="/welcome" element={<RequireSession><Welcome /></RequireSession>} />
-          <Route path="/plan" element={<RequireSession><Plan /></RequireSession>} />
+          <Route path="/plan" element={<RequireSession afterDiagnostic><Plan /></RequireSession>} />
           <Route path="/hello" element={<Navigate to="/welcome" replace />} />
           <Route path="/diagnostic" element={<RequireSession><Diagnostic /></RequireSession>} />
           <Route path="/diagnostic/result" element={<RequireSession><DiagnosticResult /></RequireSession>} />
-          <Route path="/path" element={<RequireSession><Path /></RequireSession>} />
-          <Route path="/library" element={<RequireSession><Library /></RequireSession>} />
+          <Route path="/path" element={<RequireSession fullCourseOnly><Path /></RequireSession>} />
+          <Route path="/library" element={<RequireSession fullCourseOnly><Library /></RequireSession>} />
           <Route path="/record" element={<RequireSession><Record /></RequireSession>} />
           <Route path="/team" element={<RequireSession><Team /></RequireSession>} />
           {/* Legacy /module/1 links (plans, bookmarks) → the canonical module id. */}
@@ -56,13 +77,13 @@ export default function App() {
           <Route path="/module/1/podcast" element={<Navigate to="/module/ai101-m1/podcast" replace />} />
           <Route path="/module/1/activity" element={<Navigate to="/module/ai101-m1/activity" replace />} />
           <Route path="/module/1/complete" element={<Navigate to="/module/ai101-m1/complete" replace />} />
-          <Route path="/module/:moduleId" element={<RequireSession><ModuleView /></RequireSession>} />
-          <Route path="/module/:moduleId/chat" element={<RequireSession><Chat /></RequireSession>} />
-          <Route path="/module/:moduleId/micro" element={<RequireSession><MicroView /></RequireSession>} />
-          <Route path="/module/:moduleId/podcast" element={<RequireSession><Podcast /></RequireSession>} />
-          <Route path="/module/:moduleId/activity" element={<RequireSession><Activity /></RequireSession>} />
-          <Route path="/module/:moduleId/check" element={<RequireSession><KnowledgeCheck /></RequireSession>} />
-          <Route path="/module/:moduleId/complete" element={<RequireSession><Complete /></RequireSession>} />
+          <Route path="/module/:moduleId" element={<RequireSession afterDiagnostic><ModuleView /></RequireSession>} />
+          <Route path="/module/:moduleId/chat" element={<RequireSession afterDiagnostic><Chat /></RequireSession>} />
+          <Route path="/module/:moduleId/micro" element={<RequireSession afterDiagnostic><MicroView /></RequireSession>} />
+          <Route path="/module/:moduleId/podcast" element={<RequireSession afterDiagnostic><Podcast /></RequireSession>} />
+          <Route path="/module/:moduleId/activity" element={<RequireSession afterDiagnostic><Activity /></RequireSession>} />
+          <Route path="/module/:moduleId/check" element={<RequireSession afterDiagnostic><KnowledgeCheck /></RequireSession>} />
+          <Route path="/module/:moduleId/complete" element={<RequireSession afterDiagnostic><Complete /></RequireSession>} />
           <Route path="/mcp" element={<RequireSession><McpSetup /></RequireSession>} />
           <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<Navigate to="/" replace />} />

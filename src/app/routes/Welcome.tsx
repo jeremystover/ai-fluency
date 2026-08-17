@@ -80,8 +80,11 @@ const LEVEL_GOALS: Record<string, string[]> = {
 };
 
 // The seven steps, named — the map renders from this, and so does the
-// "N of 7" label.
-const STEPS = [
+// "N of 7" label. A short course drops the last one: the passcode already
+// says whether a diagnostic runs first, so asking would be theatre. (It also
+// already knows the learner's role, which is why the first step loses its
+// role picker rather than its place.)
+const ALL_STEPS = [
   { key: 'you', label: 'You' },
   { key: 'ai', label: 'AI today' },
   { key: 'level', label: 'Level' },
@@ -90,7 +93,7 @@ const STEPS = [
   { key: 'style', label: 'Style' },
   { key: 'start', label: 'Start' },
 ] as const;
-const TOTAL_STEPS = STEPS.length;
+type StepKey = (typeof ALL_STEPS)[number]['key'];
 
 // Style choice → the echo the start screen opens with.
 const STYLE_ECHOES: Record<string, string> = {
@@ -112,6 +115,9 @@ export default function Welcome() {
   const [params] = useSearchParams();
   const editing = params.get('edit') === '1';
   const { me, brand, refreshMe } = useApp();
+  const shortCourse = me?.shortCourse ?? null;
+  const STEPS = shortCourse ? ALL_STEPS.filter((s) => s.key !== 'start') : ALL_STEPS;
+  const TOTAL_STEPS = STEPS.length;
   const [step, setStep] = useState(0);
   // The furthest step reached — earlier steps are always tappable in the map.
   const [maxStep, setMaxStep] = useState(0);
@@ -182,7 +188,12 @@ export default function Welcome() {
   // The display string the tutor, podcast and echoes use. A picked role gives
   // its label; 'Something else' gives whatever they typed, so personalization
   // says their actual job rather than "Something else in People".
-  const roleTrim = (roleId === 'other' ? roleOther.trim() : roleChoice(roleId)?.label ?? '').trim();
+  // On a short course the role came in with the passcode, so it's known
+  // rather than asked — and everything downstream that personalizes on it
+  // (the echoes, the goal cards) works exactly as if they'd picked it.
+  const roleTrim = shortCourse
+    ? (roleChoice(shortCourse.roleId ?? undefined)?.label ?? '').trim()
+    : (roleId === 'other' ? roleOther.trim() : roleChoice(roleId)?.label ?? '').trim();
   // The goals screen reuses what earlier screens taught us: their role
   // personalizes the apply goal, their tools personalize the tools goal, and
   // their self-assessed level marks the goals that fit it best. Display-only —
@@ -212,7 +223,7 @@ export default function Welcome() {
   // "optional" stays honest.
   const levelShort = selfLevel ? SELF_LEVEL_CHOICES.find((l) => l.id === selfLevel)?.label.split('·')[0].trim() : undefined;
   const nameTrim = name.trim();
-  const echoFor = (key: (typeof STEPS)[number]['key']): string | null => {
+  const echoFor = (key: StepKey): string | null => {
     switch (key) {
       case 'you':
         return null; // the first screen has nothing to echo yet
@@ -248,10 +259,11 @@ export default function Welcome() {
 
   // Optional steps show Skip while empty — the affordance, not a paragraph's
   // claim. Depth and Start stay choices you make.
-  const skipFor = (key: (typeof STEPS)[number]['key']): string | null => {
+  const skipFor = (key: StepKey): string | null => {
     switch (key) {
       case 'you':
-        return !nameTrim && !roleTrim ? 'Skip — stay anonymous' : null;
+        // On a short course the only thing this screen asks for is the name.
+        return !nameTrim && (shortCourse || !roleTrim) ? 'Skip — stay anonymous' : null;
       case 'ai':
         return !aiUsage.trim() && !aiTools.length ? 'Skip this one' : null;
       case 'level':
@@ -280,7 +292,11 @@ export default function Welcome() {
       // Assessment-first: the course is crafted from what the assessment
       // finds, so the diagnostic or size-up chat runs before the path
       // reveal. Skippers go straight to the module library — the menu.
-      if (editing) navigate('/plan');
+      //
+      // A short course decides this for them: its diagnostic (when it defines
+      // one) is required, and everything else lands on the plan.
+      if (shortCourse) navigate(shortCourse.hasDiagnostic && !me?.progress.diagnosticDone ? '/diagnostic' : '/plan');
+      else if (editing) navigate('/plan');
       else if (start === 'diagnostic') navigate('/diagnostic');
       else if (start === 'chat') navigate('/module/ai101-m1/chat');
       else navigate('/path');
@@ -334,6 +350,9 @@ export default function Welcome() {
   const stepKey = STEPS[step].key;
   const echo = echoFor(stepKey);
   const skip = skipFor(stepKey);
+  // The last step is 'start' on the full course and 'style' on a short one,
+  // so "finish" is a position, not a screen.
+  const isLast = step === TOTAL_STEPS - 1;
 
   // The nav row every step shares: Back (after step 1), the primary action,
   // and the honest Skip while an optional step is empty. Edit mode adds
@@ -346,12 +365,12 @@ export default function Welcome() {
         </button>
       )}
       {primary}
-      {skip && stepKey !== 'start' && (
-        <button onClick={next} className="text-muted text-sm hover:text-ink-strong ml-auto">
+      {skip && (
+        <button onClick={() => (isLast ? void finish() : next())} className="text-muted text-sm hover:text-ink-strong ml-auto">
           {skip}
         </button>
       )}
-      {editing && stepKey !== 'start' && (
+      {editing && !isLast && (
         <button onClick={() => void finish()} disabled={busy} className="text-accent text-sm font-semibold hover:underline disabled:opacity-50">
           {busy ? 'Saving…' : 'Save changes'}
         </button>
@@ -404,7 +423,9 @@ export default function Welcome() {
               <p className="text-ink mt-4">
                 {editing
                   ? 'Your plan rebuilds from whatever you change. Jump to any step in the map above — your current answers are already filled in.'
-                  : 'This is an AI fluency course that adapts to you — a few quick questions, one per screen, and the course starts fitting itself to your answers. All of it optional, all of it changeable later.'}
+                  : shortCourse
+                    ? `${shortCourse.blurb ?? shortCourse.label} A few quick questions, one per screen, and it starts fitting itself to your answers. All of it optional, all of it changeable later.`
+                    : 'This is an AI fluency course that adapts to you — a few quick questions, one per screen, and the course starts fitting itself to your answers. All of it optional, all of it changeable later.'}
               </p>
               <div className="mt-6 flex flex-col gap-4">
                 <label className="flex flex-col gap-1.5">
@@ -416,31 +437,43 @@ export default function Welcome() {
                     className="border border-line-strong bg-surface rounded-brand px-4 py-2.5 text-ink-strong focus:border-accent"
                   />
                 </label>
-                <div className="flex flex-col gap-1.5">
-                  <span className="label-utility">Which part of People are you in?</span>
-                  <p className="text-muted text-[0.8rem] -mt-0.5">This picks your specialist track later in the ladder — the 301 course is written for one role at a time.</p>
-                  <div className="mt-1.5 flex flex-col gap-2">
-                    {ROLE_CHOICES.map((choice) =>
-                      card({
-                        key: choice.id,
-                        label: choice.label,
-                        detail: choice.detail,
-                        compact: true,
-                        selected: roleId === choice.id,
-                        onClick: () => setRoleId((cur) => (cur === choice.id ? undefined : choice.id)),
-                      }),
+                {/* A short course is role-specific and the passcode carries the
+                    role, so this question is already answered — shown as a
+                    fact rather than asked again. */}
+                {shortCourse ? (
+                  roleTrim && (
+                    <p className="text-muted text-[0.85rem]">
+                      Your code is for the <span className="text-ink-strong font-semibold">{roleTrim}</span> course, so the examples and
+                      the tutor are already fitted to that.
+                    </p>
+                  )
+                ) : (
+                  <div className="flex flex-col gap-1.5">
+                    <span className="label-utility">Which part of People are you in?</span>
+                    <p className="text-muted text-[0.8rem] -mt-0.5">This picks your specialist track later in the ladder — the 301 course is written for one role at a time.</p>
+                    <div className="mt-1.5 flex flex-col gap-2">
+                      {ROLE_CHOICES.map((choice) =>
+                        card({
+                          key: choice.id,
+                          label: choice.label,
+                          detail: choice.detail,
+                          compact: true,
+                          selected: roleId === choice.id,
+                          onClick: () => setRoleId((cur) => (cur === choice.id ? undefined : choice.id)),
+                        }),
+                      )}
+                    </div>
+                    {roleId === 'other' && (
+                      <input
+                        value={roleOther}
+                        autoFocus
+                        onChange={(e) => setRoleOther(e.target.value)}
+                        placeholder="e.g. Head of Talent Development"
+                        className="mt-2 border border-line-strong bg-surface rounded-brand px-4 py-2.5 text-ink-strong focus:border-accent placeholder:text-muted/60"
+                      />
                     )}
                   </div>
-                  {roleId === 'other' && (
-                    <input
-                      value={roleOther}
-                      autoFocus
-                      onChange={(e) => setRoleOther(e.target.value)}
-                      placeholder="e.g. Head of Talent Development"
-                      className="mt-2 border border-line-strong bg-surface rounded-brand px-4 py-2.5 text-ink-strong focus:border-accent placeholder:text-muted/60"
-                    />
-                  )}
-                </div>
+                )}
               </div>
               {error && <div className="mt-4"><ErrorNote message={error} /></div>}
               {nav(<Button onClick={next}>Continue</Button>)}
@@ -605,7 +638,16 @@ export default function Welcome() {
                   }),
                 )}
               </div>
-              {nav(<Button onClick={next}>Continue</Button>)}
+              {error && <div className="mt-4"><ErrorNote message={error} /></div>}
+              {nav(
+                isLast ? (
+                  <Button onClick={finish} disabled={busy}>
+                    {busy ? 'Crafting your course…' : editing ? 'Recraft my course' : 'Craft my course'}
+                  </Button>
+                ) : (
+                  <Button onClick={next}>Continue</Button>
+                ),
+              )}
             </>
           )}
 

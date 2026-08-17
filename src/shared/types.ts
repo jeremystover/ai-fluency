@@ -262,6 +262,18 @@ export type IntakePrefs = {
   shareWork?: boolean;
 };
 
+// One way into a module — everything that module actually has seeded. Only
+// short-course steps carry these: with no path screen and no library, the plan
+// is the only place the whole course is visible, so it has to be able to show
+// all of it.
+export type PlanActivity = {
+  id: string;
+  label: string;
+  detail: string;
+  minutes: number | null;
+  route: string;
+};
+
 export type PlanStep = {
   id: string;
   title: string;
@@ -269,6 +281,18 @@ export type PlanStep = {
   minutes: number;
   route: string;
   state: 'done' | 'now' | 'later';
+  // Set when the step is a module the learner can jump straight into, and the
+  // ways into it. Short-course steps only.
+  moduleId?: string;
+  activities?: PlanActivity[];
+};
+
+// The short course this session is on, as the plan reports it. Absent/null =
+// the full course, and the plan behaves exactly as it always has.
+export type PlanShortCourse = {
+  id: string;
+  label: string;
+  blurb: string | null;
 };
 
 export type PlanResponse = {
@@ -278,6 +302,17 @@ export type PlanResponse = {
   goals: string[];
   objective: string | null;
   nextRoute: string;
+  shortCourse?: PlanShortCourse | null;
+};
+
+// What the client needs to know about a short course before the plan loads:
+// which questions the intake can skip, whether a diagnostic is required next,
+// and which modules belong to it (so a module page can number itself by the
+// short course's order rather than its home course's).
+export type ShortCourseInfo = PlanShortCourse & {
+  roleId: string | null;
+  moduleIds: string[];
+  hasDiagnostic: boolean;
 };
 
 export type MeResponse = {
@@ -293,6 +328,9 @@ export type MeResponse = {
   // Present when this session belongs to a real account.
   account?: { email: string; name: string } | null;
   brandSlug?: string;
+  // Set when the passcode this session came through opens a short course
+  // rather than the full one.
+  shortCourse?: ShortCourseInfo | null;
   prefs?: IntakePrefs;
   progress: {
     intakeDone: boolean;

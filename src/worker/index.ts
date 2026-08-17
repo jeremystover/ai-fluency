@@ -18,7 +18,7 @@ import { extractPaths } from '../shared/chat';
 import { GOAL_CHOICES, goalLabel } from '../shared/goals';
 import { DEPTH_IDS, depthOf } from '../shared/depth';
 import { SELF_LEVEL_IDS } from '../shared/levels';
-import { ROLE_IDS, ALL_TRACK_IDS, trackForRole } from '../shared/roles';
+import { ROLE_IDS, ALL_TRACK_IDS, roleChoice, trackForRole } from '../shared/roles';
 import { chunkPlan } from '../shared/audioChunks';
 import {
   writeScript,
@@ -41,6 +41,7 @@ import type {
   Brand,
   IntakePrefs,
   PlanResponse,
+  PlanActivity,
   PlanStep,
   DiagnosticFeedback,
   DiagnosticItemPublic,
@@ -179,6 +180,48 @@ app.use('/api/*', async (c, next) => {
 });
 
 const requireSession = (c: { get: (k: 'session') => SessionRow | null }): SessionRow | null => c.get('session');
+
+// ---------- short courses ----------
+
+// A short course is a named subset of the catalog that a passcode opens
+// instead of the full one. The mapping lives on the code, so the door decides
+// the course: which modules, in what order, for which role, and whether a
+// diagnostic runs first. Account sessions never resolve to one (their code_id
+// is `account:<id>`), so signing in always means the full course.
+type ShortCourse = {
+  id: string;
+  label: string;
+  blurb: string | null;
+  roleId: string | null;
+  moduleIds: string[];
+  diagnosticItemIds: string[] | null; // null = this short course has no diagnostic
+};
+
+function toShortCourse(row: typeof t.fdShortCourse.$inferSelect): ShortCourse {
+  const diagnostic = row.diagnosticJson ? (JSON.parse(row.diagnosticJson) as { items?: unknown }) : null;
+  const items = Array.isArray(diagnostic?.items) ? (diagnostic.items as unknown[]).filter((i): i is string => typeof i === 'string') : [];
+  return {
+    id: row.id,
+    label: row.label,
+    blurb: row.blurb,
+    roleId: row.roleId,
+    moduleIds: JSON.parse(row.moduleIdsJson) as string[],
+    // Items the content file no longer defines are dropped rather than asked
+    // for and never answered — an empty set means no diagnostic.
+    diagnosticItemIds: items.filter((id) => diagById.has(id)).length ? items.filter((id) => diagById.has(id)) : null,
+  };
+}
+
+async function shortCourseForSession(db: DrizzleD1Database, session: SessionRow): Promise<ShortCourse | null> {
+  if (session.accountId) return null;
+  const rows = await db
+    .select({ sc: t.fdShortCourse })
+    .from(t.fdAccessCode)
+    .innerJoin(t.fdShortCourse, eq(t.fdShortCourse.id, t.fdAccessCode.shortCourseId))
+    .where(eq(t.fdAccessCode.id, session.codeId))
+    .limit(1);
+  return rows[0] ? toShortCourse(rows[0].sc) : null;
+}
 
 // ---------- brand ----------
 
@@ -788,18 +831,32 @@ app.post('/api/intake', async (c) => {
     .catch(() => null);
   if (!body) return c.json({ error: 'Malformed request.' }, 400);
 
-  if (body.displayName?.trim() || body.roleLabel?.trim()) {
+  // A short course already knows the answers to two of the intake's questions,
+  // so it answers them here rather than asking: the passcode carries the role,
+  // and whether the diagnostic runs first is the short course's decision.
+  const shortCourse = await shortCourseForSession(db, session);
+  const shortCourseRole = shortCourse?.roleId ? roleChoice(shortCourse.roleId) : undefined;
+  const roleLabel = shortCourseRole?.label ?? body.roleLabel?.trim().slice(0, 120) ?? null;
+
+  if (body.displayName?.trim() || roleLabel) {
     await db.insert(t.fdParticipant).values({
       id: uuid(),
       sessionId: session.id,
       displayName: body.displayName?.trim().slice(0, 80) || null,
-      roleLabel: body.roleLabel?.trim().slice(0, 120) || null,
+      roleLabel: roleLabel || null,
       orgLabel: null,
       createdAt: now(),
     });
   }
 
-  const raw = body.prefs ?? {};
+  const raw = shortCourse
+    ? {
+        ...(body.prefs ?? {}),
+        roleId: shortCourseRole?.id,
+        roleOther: '',
+        start: shortCourse.diagnosticItemIds ? ('diagnostic' as const) : ('module' as const),
+      }
+    : (body.prefs ?? {});
   const clean: [string, unknown][] = [];
   if (raw.start === 'diagnostic' || raw.start === 'module' || raw.start === 'chat') clean.push(['start', raw.start]);
   if (typeof raw.depth === 'string' && (DEPTH_IDS as string[]).includes(raw.depth)) clean.push(['depth', raw.depth]);
@@ -961,6 +1018,135 @@ function composePlan(name: string | null, prefs: IntakePrefs, progress: Progress
   return { greeting, steps, notes, goals, objective: prefs.objective || null, nextRoute: next?.route ?? '/path' };
 }
 
+// A short course's plan is the whole course, in the order the short course
+// declares. There is no path screen and no library behind it, so this is the
+// only place the learner sees everything they were given — hence the per-step
+// activities, which the plan screen expands in place rather than linking off
+// to a catalog. The 101/201/301 tier each module came from is deliberately not
+// carried through: inside a short course the order is the short course's, and
+// the level names are somebody else's shelving.
+async function composeShortCoursePlan(
+  db: DrizzleD1Database,
+  sessionId: string,
+  shortCourse: ShortCourse,
+  name: string | null,
+  prefs: IntakePrefs,
+  diagnosticDone: boolean,
+): Promise<PlanResponse> {
+  const ids = shortCourse.moduleIds;
+  const moduleRows = ids.length ? await db.select().from(t.fdModule).where(inArray(t.fdModule.id, ids)) : [];
+  const byId = new Map(moduleRows.map((m) => [m.id, m]));
+  const receipts = await receiptsFor(db, sessionId);
+
+  // What each module actually has seeded — the same facts /api/module/:id
+  // reports as capabilities, read once for the whole course. An activity is
+  // listed only when it exists; the plan never offers a door that opens onto
+  // a 404.
+  const blockIds = [...ids, ...ids.map((id) => `${id}-micro`)];
+  const blockRows = ids.length
+    ? await db.selectDistinct({ moduleId: t.fdContentBlock.moduleId }).from(t.fdContentBlock).where(inArray(t.fdContentBlock.moduleId, blockIds))
+    : [];
+  const hasBlocks = new Set(blockRows.map((b) => b.moduleId));
+  const exRows = ids.length
+    ? await db.select({ moduleId: t.fdExercise.moduleId, kind: t.fdExercise.kind }).from(t.fdExercise).where(inArray(t.fdExercise.moduleId, ids))
+    : [];
+  const exKinds = new Map<string, Set<string>>();
+  for (const e of exRows) {
+    const set = exKinds.get(e.moduleId) ?? new Set<string>();
+    set.add(e.kind);
+    exKinds.set(e.moduleId, set);
+  }
+
+  const activitiesFor = (moduleId: string, estMinutes: number): PlanActivity[] => {
+    const out: PlanActivity[] = [];
+    const kinds = exKinds.get(moduleId) ?? new Set<string>();
+    if (hasBlocks.has(moduleId)) {
+      out.push({ id: 'read', label: 'Read it', detail: 'The full module, at your own pace.', minutes: estMinutes, route: `/module/${moduleId}` });
+    }
+    if (hasBlocks.has(`${moduleId}-micro`)) {
+      out.push({ id: 'micro', label: 'The two-minute version', detail: 'The key ideas, cut for a short sitting.', minutes: 2, route: `/module/${moduleId}/micro` });
+    }
+    if (hasBlocks.has(moduleId)) {
+      out.push({ id: 'chat', label: 'Talk it through', detail: 'The tutor teaches the same material in conversation — type or speak.', minutes: null, route: `/module/${moduleId}/chat` });
+      out.push({ id: 'podcast', label: 'Listen', detail: 'A two-host episode made for you, from this module.', minutes: null, route: `/module/${moduleId}/podcast` });
+    }
+    if (kinds.has('knowledge_check')) {
+      out.push({ id: 'check', label: 'Knowledge check', detail: 'Pass at 60% and the module is cleared. Retakes are free.', minutes: 5, route: `/module/${moduleId}/check` });
+    }
+    if (kinds.has('rubric')) {
+      out.push({ id: 'activity', label: 'Applied activity', detail: 'Real work from your own week, graded against the rubric in seconds.', minutes: 25, route: `/module/${moduleId}/activity` });
+    }
+    return out;
+  };
+
+  const steps: PlanStep[] = [];
+  if (shortCourse.diagnosticItemIds) {
+    const count = shortCourse.diagnosticItemIds.length;
+    steps.push({
+      id: 'diagnostic',
+      title: `The diagnostic — ${count} question${count === 1 ? '' : 's'}`,
+      detail: 'Not a score — a direction: whether you expect too much or too little from these tools.',
+      minutes: Math.max(2, Math.round(count * 0.9)),
+      route: '/diagnostic',
+      state: diagnosticDone ? 'done' : 'now',
+    });
+  }
+
+  // One step per module, in the short course's order. Exactly one uncleared
+  // module is "this sitting" — the rest wait, because calling four modules a
+  // sitting is a claim about someone's afternoon we can't make.
+  let markedNow = steps.every((s) => s.state === 'done');
+  for (const id of ids) {
+    const m = byId.get(id);
+    if (!m) continue; // a short course naming a module this deployment hasn't seeded
+    const done = receipts.completed.has(id);
+    const state: PlanStep['state'] = done ? 'done' : markedNow ? 'now' : 'later';
+    if (!done && markedNow) markedNow = false;
+    steps.push({
+      id,
+      moduleId: id,
+      title: m.title,
+      detail: m.blurb,
+      minutes: m.estMinutes,
+      route: `/module/${id}`,
+      state,
+      activities: activitiesFor(id, m.estMinutes),
+    });
+  }
+
+  const notes: string[] = [];
+  const styles = prefs.styles ?? [];
+  if (styles.includes('interactive')) notes.push('You chose interactive — every module here has a live tutor chat that teaches the same material in conversation.');
+  if (styles.includes('podcast')) notes.push('Learning by listening, as requested — every module is also an episode, made for you.');
+  if (styles.includes('assistant_mcp')) notes.push('Taking this course embedded right in your AI tools is on the roadmap — your interest is logged.');
+  if (styles.includes('voice')) notes.push('Talking instead of typing is live — every text box has a mic, and the tutor chat reads its replies aloud.');
+  if (styles.includes('quiz_first')) notes.push('Test-first, as requested: take each module\'s knowledge check up front — 60%+ clears it, and misses point you at exactly what to study.');
+  const depth = depthOf(prefs.depth);
+  if (depth === 'essentials') notes.push('Short and sweet, as requested: every module has a two-minute version, and the full read keeps for whenever you want more.');
+  else if (depth === 'deep') notes.push('Deep dive: the graded activity and the tutor\'s quiz mode are both open on every module here.');
+
+  const done = steps.filter((s) => s.state === 'done').length;
+  const greeting =
+    done > 0
+      ? name
+        ? `${name}, picking back up where you left off.`
+        : 'Picking back up where you left off.'
+      : name
+        ? `${name}, here's your course.`
+        : "Here's your course.";
+
+  const next = steps.find((s) => s.state === 'now') ?? steps.find((s) => s.state === 'later');
+  return {
+    greeting,
+    steps,
+    notes,
+    goals: prefs.goals ?? [],
+    objective: prefs.objective || null,
+    nextRoute: next?.route ?? steps[0]?.route ?? '/plan',
+    shortCourse: { id: shortCourse.id, label: shortCourse.label, blurb: shortCourse.blurb },
+  };
+}
+
 app.get('/api/plan', async (c) => {
   const db = c.get('db');
   const session = requireSession(c);
@@ -990,7 +1176,10 @@ app.get('/api/plan', async (c) => {
     moduleCompleted: await has('module_completed'),
     chatStarted: await has('chat_started'),
   };
-  const plan = composePlan(participants[0]?.displayName ?? null, prefs, progress);
+  const shortCourse = await shortCourseForSession(db, session);
+  const plan = shortCourse
+    ? await composeShortCoursePlan(db, session.id, shortCourse, participants[0]?.displayName ?? null, prefs, progress.diagnosticDone)
+    : composePlan(participants[0]?.displayName ?? null, prefs, progress);
   await logEvent(db, session.id, 'plan_generated', { nextRoute: plan.nextRoute });
   return c.json(plan);
 });
@@ -1029,6 +1218,8 @@ app.get('/api/me', async (c) => {
     if (accounts[0]) account = { email: accounts[0].email, name: accounts[0].name };
   }
 
+  const shortCourse = await shortCourseForSession(db, session);
+
   const res: MeResponse = {
     authenticated: true,
     kind: session.accountId ? 'account' : 'demo',
@@ -1036,6 +1227,16 @@ app.get('/api/me', async (c) => {
     roleLabel: participants[0]?.roleLabel ?? null,
     account,
     brandSlug: session.brandSlug,
+    shortCourse: shortCourse
+      ? {
+          id: shortCourse.id,
+          label: shortCourse.label,
+          blurb: shortCourse.blurb,
+          roleId: shortCourse.roleId,
+          moduleIds: shortCourse.moduleIds,
+          hasDiagnostic: shortCourse.diagnosticItemIds !== null,
+        }
+      : null,
     prefs: await loadPrefs(db, session.id),
     progress: {
       intakeDone: await has('intake_completed'),
@@ -1056,10 +1257,20 @@ type DiagItem = (typeof diagnosticData.items)[number];
 const diagItems = diagnosticData.items as DiagItem[];
 const diagById = new Map(diagItems.map((i) => [i.id, i]));
 
+// A short course names the diagnostic items it wants; everyone else gets the
+// full nine. The order is the content file's either way, so the two kinds of
+// learner see the same questions asked the same way.
+async function diagItemsFor(db: DrizzleD1Database, session: SessionRow) {
+  const shortCourse = await shortCourseForSession(db, session);
+  if (!shortCourse?.diagnosticItemIds) return diagItems;
+  const wanted = new Set(shortCourse.diagnosticItemIds);
+  return diagItems.filter((i) => wanted.has(i.id));
+}
+
 app.get('/api/diagnostic', async (c) => {
   const session = requireSession(c);
   if (!session) return c.json({ error: 'No session.' }, 401);
-  const items: DiagnosticItemPublic[] = diagItems.map((i) =>
+  const items: DiagnosticItemPublic[] = (await diagItemsFor(c.get('db'), session)).map((i) =>
     i.kind === 'knowledge'
       ? { id: i.id, kind: 'knowledge', prompt: i.prompt, options: i.options! }
       : { id: i.id, kind: 'calibration', prompt: i.prompt, scale: diagnosticData.calibrationScale },
@@ -1074,6 +1285,8 @@ app.post('/api/diagnostic/answer', async (c) => {
   const body = await c.req.json<{ itemId?: string; answerIndex?: number; predictedPct?: number; msElapsed?: number }>().catch(() => null);
   const item = body?.itemId ? diagById.get(body.itemId) : undefined;
   if (!body || !item) return c.json({ error: 'Unknown item.' }, 400);
+  const asked = await diagItemsFor(db, session);
+  if (!asked.some((i) => i.id === item.id)) return c.json({ error: 'That item is not part of your diagnostic.' }, 400);
 
   // Latest answer wins — clear any earlier response for this item.
   await db.delete(t.fdDiagnosticResponse).where(and(eq(t.fdDiagnosticResponse.sessionId, session.id), eq(t.fdDiagnosticResponse.itemId, item.id)));
@@ -1127,14 +1340,21 @@ app.post('/api/diagnostic/answer', async (c) => {
   return c.json({ feedback });
 });
 
-async function computeDiagnosticResult(db: DrizzleD1Database, sessionId: string): Promise<DiagnosticResult> {
+// `items` scopes the report to what this learner was actually asked — the
+// full nine, or the subset a short course named. Scoring a short course
+// against nine items would report misses on questions nobody put to them.
+async function computeDiagnosticResult(
+  db: DrizzleD1Database,
+  sessionId: string,
+  items: typeof diagItems = diagItems,
+): Promise<DiagnosticResult> {
   const responses = await db.select().from(t.fdDiagnosticResponse).where(eq(t.fdDiagnosticResponse.sessionId, sessionId));
   const byItem = new Map(responses.map((r) => [r.itemId, r]));
 
   let kCorrect = 0;
   let kTotal = 0;
   const points: DiagnosticResult['calibration']['points'] = [];
-  for (const item of diagItems) {
+  for (const item of items) {
     const r = byItem.get(item.id);
     if (item.kind === 'knowledge') {
       kTotal++;
@@ -1190,8 +1410,8 @@ async function computeDiagnosticResult(db: DrizzleD1Database, sessionId: string)
   }
 
   return {
-    answered: responses.length,
-    total: diagItems.length,
+    answered: items.filter((i) => byItem.has(i.id)).length,
+    total: items.length,
     knowledge: { correct: kCorrect, total: kTotal },
     calibration: { points, meanDelta: Math.round(mean * 10) / 10, meanAbsDelta: Math.round(meanAbs * 10) / 10, direction, headline, detail },
   };
@@ -1201,7 +1421,7 @@ app.post('/api/diagnostic/complete', async (c) => {
   const db = c.get('db');
   const session = requireSession(c);
   if (!session) return c.json({ error: 'No session.' }, 401);
-  const result = await computeDiagnosticResult(db, session.id);
+  const result = await computeDiagnosticResult(db, session.id, await diagItemsFor(db, session));
   await logEvent(db, session.id, 'diagnostic_completed', {
     knowledge: result.knowledge,
     meanDelta: result.calibration.meanDelta,
@@ -1214,7 +1434,7 @@ app.get('/api/diagnostic/result', async (c) => {
   const db = c.get('db');
   const session = requireSession(c);
   if (!session) return c.json({ error: 'No session.' }, 401);
-  return c.json(await computeDiagnosticResult(db, session.id));
+  return c.json(await computeDiagnosticResult(db, session.id, await diagItemsFor(db, session)));
 });
 
 // ---------- path & content ----------
