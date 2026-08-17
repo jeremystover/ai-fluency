@@ -9,6 +9,42 @@
       "roleId": "hrbp",
       "moduleIds": ["ai101-m1", "ai101-m6", "ai301-hrbp-m1", "ai301-hrbp-m2"],
       "diagnostic": { "items": ["k1", "c1", "k2", "c2"] }
+    },
+    {
+      "id": "sc-talent-dev-sprint",
+      "brandSlug": "omnissa",
+      "createdAt": "2026-08-17",
+      "label": "The Talent Development Sprint",
+      "blurb": "For L&D people who already have the fundamentals: three modules on making AI work repeatable and checkable, then three on the judgment that stays yours — what to kill, what was never a training problem, and how to defend that it worked.",
+      "roleId": "talentdev",
+      "moduleIds": [
+        "ai201-m1",
+        "ai201-m3",
+        "ai201-m4",
+        "ai301-talent-dev-m1",
+        "ai301-talent-dev-m2",
+        "ai301-talent-dev-m6"
+      ],
+      "diagnostic": { "items": ["c1", "c2", "c3", "c4", "c5"] }
+    },
+    {
+      "id": "sc-ai-foundations",
+      "brandSlug": "omnissa",
+      "createdAt": "2026-08-17",
+      "label": "AI Foundations",
+      "blurb": "The whole foundation, start to finish: what these tools are, what they cost, how to brief them, where they go wrong, and what you own when they do.",
+      "roleId": null,
+      "moduleIds": [
+        "ai101-m1",
+        "ai101-m2",
+        "ai101-m3",
+        "ai101-m4",
+        "ai101-m5",
+        "ai101-m6",
+        "ai101-m7",
+        "ai101-m8"
+      ],
+      "diagnostic": { "items": ["k1", "c1", "k2", "c2", "k3", "c3", "c4", "k4", "c5"] }
     }
   ]
 }

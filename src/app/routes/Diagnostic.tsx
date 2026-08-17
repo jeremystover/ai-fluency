@@ -100,24 +100,34 @@ export default function Diagnostic() {
   }, [feedback]);
 
   if (phase === 'intro') {
+    // A short course names the items it wants, so the count and the promise
+    // are both read from what was actually served. A calibration-only set is
+    // one kind of measurement and says so.
+    const hasKnowledge = !!items?.some((i) => i.kind === 'knowledge');
+    const hasCalibration = !!items?.some((i) => i.kind === 'calibration');
     return (
       <Screen>
         <div className="pt-16 sm:pt-24 max-w-xl">
           <p className="label-utility">Diagnostic</p>
-          {/* A short course names the items it wants, so the count is read
-              from what was actually served rather than asserted. */}
           <h1 className="font-display font-bold text-ink-strong text-3xl sm:text-4xl mt-3 anim-rise">
-            {items ? `${COUNT_WORDS[items.length] ?? items.length} questions.` : 'A few questions.'} Two kinds of measurement.
+            {items ? `${COUNT_WORDS[items.length] ?? items.length} questions.` : 'A few questions.'}{' '}
+            {hasKnowledge && hasCalibration ? 'Two kinds of measurement.' : hasKnowledge ? 'One honest read.' : 'One question underneath: where are your instincts off?'}
           </h1>
           <div className="mt-6 flex flex-col gap-4 text-ink anim-rise" style={{ animationDelay: '100ms' }}>
-            <p>
-              Some check what you know — and give you permission to move fast where you're already fluent.
-            </p>
-            <p>
-              The rest ask you to <strong className="text-ink-strong">predict how well AI will do a real task</strong>. Those are
-              scored against field data, and they measure something a knowledge quiz can't: whether your instincts about these
-              tools point in the right direction.
-            </p>
+            {hasKnowledge && (
+              <p>
+                {hasCalibration ? 'Some check' : 'These check'} what you know — and give you permission to move fast where you're
+                already fluent.
+              </p>
+            )}
+            {hasCalibration && (
+              <p>
+                {hasKnowledge ? 'The rest ask' : 'Each one asks'} you to{' '}
+                <strong className="text-ink-strong">predict how well AI will do a real task</strong>. Those are scored against
+                field data, and they measure something a knowledge quiz can't: whether your instincts about these tools point in
+                the right direction.
+              </p>
+            )}
             <p className="text-muted text-sm">
               One question per screen. You'll see how each answer landed immediately; the full picture waits until the end.
               {device.coarse ? ' Tap an answer, tap Next — it moves quickly.' : ' Keyboard works throughout — arrows or number keys, Enter to continue.'}
