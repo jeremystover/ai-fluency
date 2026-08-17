@@ -36,7 +36,13 @@ const { shortCourses } = read('content/short-courses.json');
 
 const codesSpec = (
   process.env.DEMO_CODES ??
-  'omnissa:OMNISSA-101:Reviewer 1 · Omnissa,verdant:VERDANT-DEMO:Theming proof,omnissa:HRBP-SPRINT:HRBP short course:sc-hrbp-sprint'
+  [
+    'omnissa:OMNISSA-101:Reviewer 1 · Omnissa',
+    'verdant:VERDANT-DEMO:Theming proof',
+    'omnissa:HRBP-SPRINT:HRBP short course:sc-hrbp-sprint',
+    'omnissa:TD-SPRINT-26:Talent Development short course:sc-talent-dev-sprint',
+    'omnissa:AI101-BASICS:AI Foundations short course:sc-ai-foundations',
+  ].join(',')
 )
   .split(',')
   .map((entry) => {

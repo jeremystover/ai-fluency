@@ -852,8 +852,10 @@ app.post('/api/intake', async (c) => {
   const raw = shortCourse
     ? {
         ...(body.prefs ?? {}),
-        roleId: shortCourseRole?.id,
-        roleOther: '',
+        // Only a short course that declares a role answers that question. One
+        // that doesn't (a foundations course is nobody's specialty) leaves the
+        // learner's own answer alone — the intake still asks them.
+        ...(shortCourseRole ? { roleId: shortCourseRole.id, roleOther: '' } : {}),
         start: shortCourse.diagnosticItemIds ? ('diagnostic' as const) : ('module' as const),
       }
     : (body.prefs ?? {});

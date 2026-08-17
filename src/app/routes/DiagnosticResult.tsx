@@ -161,12 +161,16 @@ export default function DiagnosticResult() {
         >
           <h1 className="font-display font-bold text-ink-strong text-3xl sm:text-4xl leading-tight max-w-2xl">{cal.headline}</h1>
           <p className="text-ink text-lg mt-4 max-w-2xl">{cal.detail}</p>
-          <p className="text-sm text-muted mt-5">
-            Knowledge items: {result.knowledge.correct} of {result.knowledge.total}.{' '}
-            {result.knowledge.correct === result.knowledge.total
-              ? 'The mechanics are already in place — Module 1 will mostly be sharpening.'
-              : 'Module 1 covers exactly the mechanics behind the ones you missed.'}
-          </p>
+          {/* A diagnostic can be calibration-only (a short course names the
+              items it wants), and "0 of 0" is not a score worth reporting. */}
+          {result.knowledge.total > 0 && (
+            <p className="text-sm text-muted mt-5">
+              Knowledge items: {result.knowledge.correct} of {result.knowledge.total}.{' '}
+              {result.knowledge.correct === result.knowledge.total
+                ? 'The mechanics are already in place — Module 1 will mostly be sharpening.'
+                : 'Module 1 covers exactly the mechanics behind the ones you missed.'}
+            </p>
+          )}
           <div className="mt-8 flex items-center gap-4">
             <Button onClick={() => navigate('/plan')}>See your path</Button>
             <button onClick={() => navigate('/diagnostic')} className="text-muted text-sm underline underline-offset-4 hover:text-ink-strong">

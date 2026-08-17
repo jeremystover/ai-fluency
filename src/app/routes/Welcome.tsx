@@ -116,6 +116,10 @@ export default function Welcome() {
   const editing = params.get('edit') === '1';
   const { me, brand, refreshMe } = useApp();
   const shortCourse = me?.shortCourse ?? null;
+  // A short course answers the role question only when it declares one. A
+  // foundations course is nobody's specialty, so there the question is still
+  // the learner's to answer.
+  const roleFromCode = shortCourse?.roleId ? shortCourse.roleId : null;
   const STEPS = shortCourse ? ALL_STEPS.filter((s) => s.key !== 'start') : ALL_STEPS;
   const TOTAL_STEPS = STEPS.length;
   const [step, setStep] = useState(0);
@@ -188,11 +192,11 @@ export default function Welcome() {
   // The display string the tutor, podcast and echoes use. A picked role gives
   // its label; 'Something else' gives whatever they typed, so personalization
   // says their actual job rather than "Something else in People".
-  // On a short course the role came in with the passcode, so it's known
-  // rather than asked — and everything downstream that personalizes on it
-  // (the echoes, the goal cards) works exactly as if they'd picked it.
-  const roleTrim = shortCourse
-    ? (roleChoice(shortCourse.roleId ?? undefined)?.label ?? '').trim()
+  // When the role came in with the passcode it's known rather than asked —
+  // and everything downstream that personalizes on it (the echoes, the goal
+  // cards) works exactly as if they'd picked it.
+  const roleTrim = roleFromCode
+    ? (roleChoice(roleFromCode)?.label ?? '').trim()
     : (roleId === 'other' ? roleOther.trim() : roleChoice(roleId)?.label ?? '').trim();
   // The goals screen reuses what earlier screens taught us: their role
   // personalizes the apply goal, their tools personalize the tools goal, and
@@ -262,8 +266,9 @@ export default function Welcome() {
   const skipFor = (key: StepKey): string | null => {
     switch (key) {
       case 'you':
-        // On a short course the only thing this screen asks for is the name.
-        return !nameTrim && (shortCourse || !roleTrim) ? 'Skip — stay anonymous' : null;
+        // When the passcode carries the role, the only thing this screen asks
+        // for is the name.
+        return !nameTrim && (roleFromCode || !roleTrim) ? 'Skip — stay anonymous' : null;
       case 'ai':
         return !aiUsage.trim() && !aiTools.length ? 'Skip this one' : null;
       case 'level':
@@ -437,16 +442,14 @@ export default function Welcome() {
                     className="border border-line-strong bg-surface rounded-brand px-4 py-2.5 text-ink-strong focus:border-accent"
                   />
                 </label>
-                {/* A short course is role-specific and the passcode carries the
-                    role, so this question is already answered — shown as a
+                {/* When the short course is role-specific the passcode carries
+                    the role, so this question is already answered — shown as a
                     fact rather than asked again. */}
-                {shortCourse ? (
-                  roleTrim && (
-                    <p className="text-muted text-[0.85rem]">
-                      Your code is for the <span className="text-ink-strong font-semibold">{roleTrim}</span> course, so the examples and
-                      the tutor are already fitted to that.
-                    </p>
-                  )
+                {roleFromCode ? (
+                  <p className="text-muted text-[0.85rem]">
+                    Your code is for the <span className="text-ink-strong font-semibold">{roleTrim}</span> course, so the examples and
+                    the tutor are already fitted to that.
+                  </p>
                 ) : (
                   <div className="flex flex-col gap-1.5">
                     <span className="label-utility">Which part of People are you in?</span>
