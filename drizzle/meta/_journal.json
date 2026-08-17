@@ -141,6 +141,13 @@
       "when": 1786700000000,
       "tag": "0018_password_reset",
       "breakpoints": true
+    },
+    {
+      "idx": 20,
+      "version": "6",
+      "when": 1786800000000,
+      "tag": "0019_short_courses",
+      "breakpoints": true
     }
   ]
 }

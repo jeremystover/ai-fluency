@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import type { RubricDimension } from '../../shared/types';
 import { Screen, ErrorNote } from '../components/ui';
 import { api, ApiError, track } from '../api';
+import { useApp } from '../brand';
 
 type CompleteData = {
   name: string | null;
@@ -11,6 +12,9 @@ type CompleteData = {
 };
 
 export default function Complete() {
+  const { me } = useApp();
+  // Short courses have no path screen; their plan is the way back.
+  const shortCourse = me?.shortCourse ?? null;
   const [data, setData] = useState<CompleteData | null>(null);
   const [error, setError] = useState<string | null>(null);
   const tracked = useRef(false);
@@ -101,12 +105,12 @@ export default function Complete() {
 
         <div className="mt-10 flex items-center gap-5 anim-rise" style={{ animationDelay: '300ms' }}>
           <Link
-            to="/path"
+            to={shortCourse ? '/plan' : '/path'}
             className="inline-flex px-5 py-2.5 font-display font-semibold text-[0.95rem] rounded-brand bg-accent text-on-accent hover:brightness-110 no-underline"
           >
-            Back to the path
+            {shortCourse ? 'Back to your plan' : 'Back to the path'}
           </Link>
-          <span className="text-sm text-muted">Module 2 unlocks in the full course.</span>
+          {!shortCourse && <span className="text-sm text-muted">Module 2 unlocks in the full course.</span>}
         </div>
       </div>
     </Screen>

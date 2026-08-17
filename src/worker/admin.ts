@@ -984,9 +984,14 @@ adminApp.post('/submissions/:id/review', async (c) => {
 
 // ---------- access codes ----------
 
+// Codes carry which course they open: a short course id, or null for the
+// full one. The short courses themselves are seeded content (they name
+// modules, an order, and a diagnostic subset), so this tab assigns them
+// rather than authoring them.
 adminApp.get('/codes', async (c) => {
   const db = c.get('db');
   const rows = await db.select().from(t.fdAccessCode);
+  const shortCourses = await db.select().from(t.fdShortCourse);
   return c.json({
     codes: rows.map((r) => ({
       id: r.id,
@@ -996,20 +1001,33 @@ adminApp.get('/codes', async (c) => {
       maxUses: r.maxUses,
       expiresAt: r.expiresAt,
       active: r.active === 1,
+      shortCourseId: r.shortCourseId,
+    })),
+    shortCourses: shortCourses.map((s) => ({
+      id: s.id,
+      brandSlug: s.brandSlug,
+      label: s.label,
+      moduleCount: (JSON.parse(s.moduleIdsJson) as string[]).length,
     })),
   });
 });
 
 adminApp.post('/codes', async (c) => {
   const db = c.get('db');
-  const body = await c.req.json<{ brandSlug?: string; label?: string; code?: string }>().catch(() => null);
+  const body = await c.req.json<{ brandSlug?: string; label?: string; code?: string; shortCourseId?: string }>().catch(() => null);
   const brandSlug = body?.brandSlug?.trim();
   const label = body?.label?.trim();
   const code = body?.code?.trim();
+  const shortCourseId = body?.shortCourseId?.trim() || null;
   if (!brandSlug || !label || !code) return c.json({ error: 'Brand, label, and code are all required.' }, 400);
   if (code.length < 8) return c.json({ error: 'Codes need at least 8 characters.' }, 400);
   const brand = await db.select({ slug: t.fdBrand.slug }).from(t.fdBrand).where(eq(t.fdBrand.slug, brandSlug)).limit(1);
   if (!brand[0]) return c.json({ error: `No brand "${brandSlug}" is seeded.` }, 400);
+  if (shortCourseId) {
+    const sc = await db.select().from(t.fdShortCourse).where(eq(t.fdShortCourse.id, shortCourseId)).limit(1);
+    if (!sc[0]) return c.json({ error: `No short course "${shortCourseId}" is seeded.` }, 400);
+    if (sc[0].brandSlug !== brandSlug) return c.json({ error: `That short course belongs to brand "${sc[0].brandSlug}".` }, 400);
+  }
   await db.insert(t.fdAccessCode).values({
     id: uuid(),
     brandSlug,
@@ -1019,6 +1037,7 @@ adminApp.post('/codes', async (c) => {
     uses: 0,
     expiresAt: null,
     active: 1,
+    shortCourseId,
   });
   return c.json({ ok: true });
 });

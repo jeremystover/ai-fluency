@@ -20,7 +20,34 @@ export const fdAccessCode = sqliteTable('fd_access_code', {
   uses: integer('uses').notNull().default(0),
   expiresAt: text('expires_at'),
   active: integer('active').notNull().default(1),
+  // Which course this code opens. NULL = the full course (the original
+  // behaviour); set = the short course of that id, and the code is the whole
+  // definition of what that learner sees.
+  shortCourseId: text('short_course_id'),
 });
+
+// A named subset of the catalog, sold as its own thing. The passcode carries
+// the mapping (fd_access_code.short_course_id), so entering the code decides
+// the role, the modules, their order, and whether a diagnostic runs first —
+// all the things the full course's intake has to ask about. Module ids are an
+// ordered JSON array and that order IS the course: the 101/201/301 tiers the
+// modules came from are not shown to a short-course learner. diagnostic_json
+// is NULL when the short course skips the diagnostic, otherwise
+// { "items": ["k1", "c1", …] } naming which diagnostic items to ask.
+export const fdShortCourse = sqliteTable(
+  'fd_short_course',
+  {
+    id: text('id').primaryKey(),
+    brandSlug: text('brand_slug').notNull(),
+    label: text('label').notNull(),
+    blurb: text('blurb'),
+    roleId: text('role_id'), // a ROLE_CHOICES id — replaces the intake's role question
+    moduleIdsJson: text('module_ids_json').notNull(), // ordered JSON array of module ids
+    diagnosticJson: text('diagnostic_json'), // { items: string[] } | null
+    createdAt: text('created_at').notNull(),
+  },
+  (t) => [index('idx_short_course_brand').on(t.brandSlug)],
+);
 
 // A real login identity. Accounts and shared passcodes are two doors into the
 // same deployment, open at the same time: a session with an account_id is a

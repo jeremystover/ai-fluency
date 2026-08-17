@@ -126,6 +126,7 @@ export function ModuleRail({
   progress,
   estReadMinutes,
   courseLabel,
+  moduleNumber,
   listenOpen,
   onToggleListen,
   onJumpToLead,
@@ -139,7 +140,12 @@ export function ModuleRail({
   activeSection: string | null;
   progress: number;
   estReadMinutes: number;
+  // On a short course both of these come from the short course rather than
+  // the module's home course — its label, and its position in the order the
+  // short course declares. The 101/201/301 tier is not a short course's
+  // business.
   courseLabel: string;
+  moduleNumber: number;
   listenOpen: boolean;
   onToggleListen: () => void;
   onJumpToLead: () => void;
@@ -148,7 +154,7 @@ export function ModuleRail({
   const ways = waysFor({ style, me, moduleId: module.id, capabilities, listenOpen, onToggleListen, onJumpToLead, sortingAnchorId });
   return (
     <nav className="hidden lg:block sticky top-24 self-start" aria-label="Contents">
-      <p className="label-utility">{courseLabel} · Module {module.ordinal} · ~{estReadMinutes} min</p>
+      <p className="label-utility">{courseLabel} · Module {moduleNumber} · ~{estReadMinutes} min</p>
       <div className="relative mt-3 pl-4">
         <span aria-hidden="true" className="absolute left-0 top-1 bottom-1 w-0.5 rounded bg-line" />
         <span
@@ -198,7 +204,10 @@ export function ModuleRail({
             );
           })}
           {style === 'podcast' && (
-            <Link to="/path" className="block mt-1.5 text-[0.78rem] font-semibold text-accent no-underline hover:underline">
+            <Link
+              to={me?.shortCourse ? '/plan' : '/path'}
+              className="block mt-1.5 text-[0.78rem] font-semibold text-accent no-underline hover:underline"
+            >
               More episodes — the rest of the course →
             </Link>
           )}

@@ -11,7 +11,9 @@ import { useApp } from '../brand';
 
 export default function KnowledgeCheck() {
   const moduleId = useParams().moduleId ?? 'ai101-m1';
-  const { refreshMe } = useApp();
+  const { me, refreshMe } = useApp();
+  // Short courses have no path screen; their plan is the way back.
+  const homeRoute = me?.shortCourse ? '/plan' : '/path';
   const [check, setCheck] = useState<KnowledgeCheckPublic | null>(null);
   const [idx, setIdx] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
@@ -140,7 +142,9 @@ export default function KnowledgeCheck() {
 
           <div className="mt-8 flex items-center gap-4">
             <Button onClick={retake} variant="quiet">Retake</Button>
-            <Link to="/path" className="text-accent font-semibold text-sm no-underline hover:underline">Back to the path →</Link>
+            <Link to={homeRoute} className="text-accent font-semibold text-sm no-underline hover:underline">
+              {me?.shortCourse ? 'Back to your plan →' : 'Back to the path →'}
+            </Link>
           </div>
         </div>
       </Screen>
