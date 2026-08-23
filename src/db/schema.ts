@@ -190,6 +190,8 @@ export const fdContentBlock = sqliteTable(
     // deployment. Blocks sharing an ordinal form a variant group; the worker
     // serves the one matching ORG_TOOLING, falling back to 'claude'.
     variant: text('variant'),
+    // 'seed' | 'import' — see fd_module.source.
+    source: text('source').notNull().default('seed'),
   },
   (t) => [index('idx_block_module').on(t.moduleId, t.ordinal)],
 );
@@ -316,9 +318,11 @@ export const fdExercise = sqliteTable(
   {
     id: text('id').primaryKey(),
     moduleId: text('module_id').notNull(),
-    kind: text('kind').notNull(), // sorting | rubric | knowledge_check
+    kind: text('kind').notNull(), // sorting | choice | rubric | knowledge_check
     payloadJson: text('payload_json').notNull(),
     reviewedAt: text('reviewed_at').notNull(),
+    // 'seed' | 'import' — see fd_module.source.
+    source: text('source').notNull().default('seed'),
   },
   (t) => [index('idx_exercise_module').on(t.moduleId, t.kind)],
 );
@@ -570,4 +574,21 @@ export const fdModule = sqliteTable('fd_module', {
   // JSON array of module ids that are STRONG prerequisites. Empty/null = take
   // it whenever you want. Locked cards must always say how to unlock.
   prereqJson: text('prereq_json'),
+  // 'seed' | 'import' — which writer owns this row. The seed deletes only its
+  // own rows; the importer replaces only its own and refuses to touch a course
+  // holding any seeded ones. See drizzle/0020_content_source.sql.
+  source: text('source').notNull().default('seed'),
+});
+
+// One row per course accepted through POST /api/import/course. Makes the
+// import idempotent on (course_id, bundle_hash) and backs the manifest the
+// authoring side diffs against before sending anything.
+export const fdImportedCourse = sqliteTable('fd_imported_course', {
+  courseId: text('course_id').primaryKey(),
+  bundleHash: text('bundle_hash').notNull(),
+  cpfVersion: text('cpf_version').notNull(),
+  title: text('title').notNull(),
+  format: text('format').notNull().default('course'),
+  moduleCount: integer('module_count').notNull().default(0),
+  importedAt: text('imported_at').notNull(),
 });

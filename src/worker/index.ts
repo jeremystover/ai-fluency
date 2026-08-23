@@ -9,6 +9,7 @@ import { createMcpApp, recommendationsFor } from './mcp';
 import { createOauthApp, MCP_PATH } from './oauth';
 import { gradeSubmission, type RubricPayload } from './grading';
 import { adminApp, runReminderPass } from './admin';
+import { createImportApp, createReportApp } from './import';
 import { accountEmailFor, commitmentFor, createManagerApp, hasReports, managerEmailForSessionId, managerEmailOf, managerSignalsFor } from './manager';
 import { deliverableAddress, emailEnabled, sendEmail, signature } from './email';
 import { buildTutorSystem, streamTutorReply, KICKOFF_TURN, type LearnerContext as TutorLearnerContext, type TutorMessage } from './chat';
@@ -114,6 +115,9 @@ export interface Env {
   SESSION_SECRET?: string;
   ANTHROPIC_API_KEY?: string;
   ADMIN_PASSCODE?: string;
+  // Bearer token for /api/import/* and /api/report/*, the machine surface the
+  // Chief Learning Officer agent publishes through. Unset closes both routes.
+  IMPORT_API_KEY?: string;
   // Optional bindings. AI powers mic transcription and the tutor's read-aloud
   // voice (not the podcast); R2 caches rendered episode audio.
   AI?: AiBinding;
@@ -4590,6 +4594,12 @@ app.route('/', createOauthApp());
 app.route('/api/manager', createManagerApp({ requireSession }));
 
 app.route('/api/admin', adminApp);
+
+// Machine surface for the authoring agent. Bearer-gated on IMPORT_API_KEY,
+// deliberately separate from the admin passcode cookie: a publish robot
+// should not be able to reach anything the operator console can.
+app.route('/api/import', createImportApp());
+app.route('/api/report', createReportApp());
 
 app.notFound(async (c) => {
   if (new URL(c.req.url).pathname.startsWith('/api/')) return c.json({ error: 'Not found.' }, 404);
