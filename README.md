@@ -60,7 +60,7 @@ count afterwards — the seed opens with `DELETE` statements, so a run that fail
 partway leaves the site blank and should not report success.
 
 What a seed touches: `fd_content_block`, `fd_exercise`, `fd_module`, `fd_brand`,
-`fd_access_code` and `fd_short_course` are deleted and rebuilt. **Learner data is never touched** —
+`fd_access_code` and `fd_short_course` are deleted and rebuilt — only their `source='seed'` rows; anything the Chief Learning Officer imported or provisioned (`source='import'`) is left alone. **Learner data is never touched** —
 accounts, sessions, submissions, progress and calibration records live in other
 tables. Access codes keep working too: the plaintext comes from `DEMO_CODES`, so
 only the stored salt changes.
