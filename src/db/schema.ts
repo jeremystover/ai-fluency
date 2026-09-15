@@ -11,6 +11,9 @@ export const fdBrand = sqliteTable('fd_brand', {
   // 'seed' (content/brands, rebuilt by the seed) | 'import' (provisioned for a
   // client through PUT /api/import/org). Each writer replaces only its own.
   source: text('source').notNull().default('seed'),
+  // PBKDF2 hash of this brand's own admin passcode, or NULL when only the
+  // deployment's master passcode opens the console for it.
+  adminPasscodeHash: text('admin_passcode_hash'),
 });
 
 export const fdAccessCode = sqliteTable('fd_access_code', {

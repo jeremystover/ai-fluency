@@ -1,12 +1,19 @@
 // Operator console: review queue (the M8 async backup path), reporting, and
-// access-code management. Gated by ADMIN_PASSCODE (wrangler secret) and a
-// separate HMAC-signed cookie — admin state never mixes with learner sessions.
+// access-code management. Gated by ADMIN_PASSCODE (wrangler secret) or a
+// brand's own admin passcode, and a separate HMAC-signed cookie — admin state
+// never mixes with learner sessions.
+//
+// Two kinds of admin. The master passcode opens the console for the
+// deployment's default brand and everything global (content, the completion
+// audit). A brand admin passcode — set when a client is provisioned — opens
+// it for that brand only: their learners, codes, guidance, census, reminders
+// and review queue, and none of anyone else's.
 import { Hono } from 'hono';
 import { getCookie, setCookie } from 'hono/cookie';
 import { drizzle, type DrizzleD1Database } from 'drizzle-orm/d1';
 import { and, asc, desc, eq, gt, sql } from 'drizzle-orm';
 import * as t from '../db/schema';
-import { constantTimeEqual, hashCode, signSessionId, verifySessionCookie, hashIp } from './crypto';
+import { constantTimeEqual, hashCode, signSessionId, verifySessionCookie, hashIp, verifyCode } from './crypto';
 import { deliverableAddress, emailEnabled, sendEmail, signature, type EmailEnv } from './email';
 
 export interface AdminEnv extends EmailEnv {
@@ -16,7 +23,10 @@ export interface AdminEnv extends EmailEnv {
   ADMIN_PASSCODE?: string;
 }
 
-type Ctx = { Bindings: AdminEnv; Variables: { db: DrizzleD1Database } };
+// Who is logged in: which brand they administer, and whether they hold the
+// master passcode (global content and audit) or a brand's own.
+type AdminScope = { brand: string; master: boolean };
+type Ctx = { Bindings: AdminEnv; Variables: { db: DrizzleD1Database; scope: AdminScope } };
 
 const ADMIN_COOKIE = 'fd_admin';
 const ADMIN_MAX_AGE = 60 * 60 * 24 * 7; // 7 days
@@ -28,10 +38,17 @@ const uuid = () => crypto.randomUUID();
 const secret = (env: AdminEnv) => env.SESSION_SECRET ?? 'dev-only-secret-set-SESSION_SECRET-in-production';
 const enc = new TextEncoder();
 
-async function isAdminToken(cookieValue: string | undefined, env: AdminEnv): Promise<boolean> {
+// Master tokens are `admin-<uuid>`; brand tokens are `org:<slug>:<uuid>`. The
+// brand rides inside the signed value, so a cookie cannot be re-pointed.
+async function adminScopeOf(cookieValue: string | undefined, env: AdminEnv): Promise<AdminScope | null> {
   const token = await verifySessionCookie(cookieValue, secret(env));
-  return token !== null && token.startsWith('admin-');
+  if (!token) return null;
+  if (token.startsWith('admin-')) return { brand: env.BRAND_SLUG, master: true };
+  const m = token.match(/^org:([a-z0-9-]+):/);
+  return m ? { brand: m[1], master: false } : null;
 }
+
+const brandOf = (c: { get: (k: 'scope') => AdminScope }) => c.get('scope').brand;
 
 export const adminApp = new Hono<Ctx>();
 
@@ -41,12 +58,24 @@ adminApp.use('*', async (c, next) => {
 });
 
 adminApp.get('/me', async (c) => {
-  return c.json({ authenticated: await isAdminToken(getCookie(c, ADMIN_COOKIE), c.env), configured: !!c.env.ADMIN_PASSCODE });
+  const scope = await adminScopeOf(getCookie(c, ADMIN_COOKIE), c.env);
+  const brandAdmins = await c
+    .get('db')
+    .select({ n: sql<number>`count(*)` })
+    .from(t.fdBrand)
+    .where(sql`${t.fdBrand.adminPasscodeHash} IS NOT NULL`);
+  return c.json({
+    authenticated: scope !== null,
+    configured: !!c.env.ADMIN_PASSCODE || (brandAdmins[0]?.n ?? 0) > 0,
+    master: scope?.master ?? false,
+    brand: scope?.brand ?? null,
+  });
 });
 
 adminApp.post('/login', async (c) => {
   const db = c.get('db');
-  if (!c.env.ADMIN_PASSCODE) {
+  const brandAdmins = await db.select().from(t.fdBrand).where(sql`${t.fdBrand.adminPasscodeHash} IS NOT NULL`);
+  if (!c.env.ADMIN_PASSCODE && brandAdmins.length === 0) {
     return c.json({ error: 'Admin is not configured for this deployment. Set the ADMIN_PASSCODE secret.' }, 503);
   }
   const body = await c.req.json<{ code?: string }>().catch(() => null);
@@ -69,7 +98,19 @@ adminApp.post('/login', async (c) => {
     return c.json({ error: 'Too many attempts. Wait 15 minutes.' }, 429);
   }
 
-  if (!constantTimeEqual(enc.encode(code), enc.encode(c.env.ADMIN_PASSCODE))) {
+  // Master first, then each brand's own passcode. The token records which.
+  let token: string | null = null;
+  if (c.env.ADMIN_PASSCODE && constantTimeEqual(enc.encode(code), enc.encode(c.env.ADMIN_PASSCODE))) {
+    token = `admin-${uuid()}`;
+  } else {
+    for (const brand of brandAdmins) {
+      if (brand.adminPasscodeHash && (await verifyCode(code, brand.adminPasscodeHash))) {
+        token = `org:${brand.slug}:${uuid()}`;
+        break;
+      }
+    }
+  }
+  if (!token) {
     await db.insert(t.fdEvent).values({
       id: uuid(),
       sessionId: null,
@@ -80,7 +121,7 @@ adminApp.post('/login', async (c) => {
     return c.json({ error: "That's not the admin passcode." }, 401);
   }
 
-  setCookie(c, ADMIN_COOKIE, await signSessionId(`admin-${uuid()}`, secret(c.env)), {
+  setCookie(c, ADMIN_COOKIE, await signSessionId(token, secret(c.env)), {
     httpOnly: true,
     secure: true,
     sameSite: 'Lax',
@@ -95,9 +136,27 @@ adminApp.post('/logout', async (c) => {
   return c.json({ ok: true });
 });
 
-// Everything below requires the admin cookie.
+// Everything below requires the admin cookie; the scope it carries decides
+// which brand every query is about.
 adminApp.use('*', async (c, next) => {
-  if (!(await isAdminToken(getCookie(c, ADMIN_COOKIE), c.env))) return c.json({ error: 'Admin login required.' }, 401);
+  const scope = await adminScopeOf(getCookie(c, ADMIN_COOKIE), c.env);
+  if (!scope) return c.json({ error: 'Admin login required.' }, 401);
+  c.set('scope', scope);
+  await next();
+});
+
+// Content and the completion audit are global — one library, every brand —
+// so only the master passcode reaches them.
+adminApp.use('/content/*', async (c, next) => {
+  if (!c.get('scope').master) return c.json({ error: 'That needs the master admin passcode.' }, 403);
+  await next();
+});
+adminApp.use('/audit/*', async (c, next) => {
+  if (!c.get('scope').master) return c.json({ error: 'That needs the master admin passcode.' }, 403);
+  await next();
+});
+adminApp.use('/audit', async (c, next) => {
+  if (!c.get('scope').master) return c.json({ error: 'That needs the master admin passcode.' }, 403);
   await next();
 });
 
@@ -105,36 +164,45 @@ adminApp.use('*', async (c, next) => {
 
 adminApp.get('/report', async (c) => {
   const db = c.get('db');
+  const brand = brandOf(c);
   const one = async (q: ReturnType<typeof sql>) => (await db.all<Record<string, unknown>>(q))[0] ?? {};
+  // Every learner-side count goes through fd_session, which carries the
+  // brand: a client's admin sees their people, not the deployment's.
   const totals = {
-    sessions: (await one(sql`SELECT COUNT(*) AS n FROM fd_session`)).n ?? 0,
-    participants: (await one(sql`SELECT COUNT(*) AS n FROM fd_participant`)).n ?? 0,
-    submissions: (await one(sql`SELECT COUNT(*) AS n FROM fd_submission`)).n ?? 0,
-    graded: (await one(sql`SELECT COUNT(*) AS n FROM fd_submission WHERE graded_at IS NOT NULL`)).n ?? 0,
-    reviewed: (await one(sql`SELECT COUNT(DISTINCT submission_id) AS n FROM fd_review`)).n ?? 0,
-    podcasts: (await one(sql`SELECT COUNT(*) AS n FROM fd_podcast`)).n ?? 0,
+    sessions: (await one(sql`SELECT COUNT(*) AS n FROM fd_session WHERE brand_slug = ${brand}`)).n ?? 0,
+    participants: (await one(sql`SELECT COUNT(*) AS n FROM fd_participant p JOIN fd_session s ON s.id = p.session_id WHERE s.brand_slug = ${brand}`)).n ?? 0,
+    submissions: (await one(sql`SELECT COUNT(*) AS n FROM fd_submission x JOIN fd_session s ON s.id = x.session_id WHERE s.brand_slug = ${brand}`)).n ?? 0,
+    graded: (await one(sql`SELECT COUNT(*) AS n FROM fd_submission x JOIN fd_session s ON s.id = x.session_id WHERE s.brand_slug = ${brand} AND x.graded_at IS NOT NULL`)).n ?? 0,
+    reviewed:
+      (await one(
+        sql`SELECT COUNT(DISTINCT r.submission_id) AS n FROM fd_review r JOIN fd_submission x ON x.id = r.submission_id JOIN fd_session s ON s.id = x.session_id WHERE s.brand_slug = ${brand}`,
+      )).n ?? 0,
+    podcasts: (await one(sql`SELECT COUNT(*) AS n FROM fd_podcast x JOIN fd_session s ON s.id = x.session_id WHERE s.brand_slug = ${brand}`)).n ?? 0,
   };
   const funnel = await db.all<{ type: string; events: number; sessions: number }>(
-    sql`SELECT type, COUNT(*) AS events, COUNT(DISTINCT session_id) AS sessions FROM fd_event GROUP BY type ORDER BY MIN(created_at)`,
+    sql`SELECT e.type, COUNT(*) AS events, COUNT(DISTINCT e.session_id) AS sessions
+        FROM fd_event e JOIN fd_session s ON s.id = e.session_id
+        WHERE s.brand_slug = ${brand} GROUP BY e.type ORDER BY MIN(e.created_at)`,
   );
   const demand = {
     goals: await db.all<{ v: string; n: number }>(
-      sql`SELECT je.value AS v, COUNT(*) AS n FROM fd_preference p, json_each(p.value_json) je WHERE p.key = 'goals' GROUP BY je.value ORDER BY n DESC`,
+      sql`SELECT je.value AS v, COUNT(*) AS n FROM fd_preference p JOIN fd_session s ON s.id = p.session_id, json_each(p.value_json) je WHERE p.key = 'goals' AND s.brand_slug = ${brand} GROUP BY je.value ORDER BY n DESC`,
     ),
     styles: await db.all<{ v: string; n: number }>(
-      sql`SELECT je.value AS v, COUNT(*) AS n FROM fd_preference p, json_each(p.value_json) je WHERE p.key = 'styles' GROUP BY je.value ORDER BY n DESC`,
+      sql`SELECT je.value AS v, COUNT(*) AS n FROM fd_preference p JOIN fd_session s ON s.id = p.session_id, json_each(p.value_json) je WHERE p.key = 'styles' AND s.brand_slug = ${brand} GROUP BY je.value ORDER BY n DESC`,
     ),
   };
   const calibration = await one(
-    sql`SELECT ROUND(AVG(delta), 1) AS mean_delta, ROUND(AVG(ABS(delta)), 1) AS mean_abs_delta, COUNT(*) AS n
-        FROM fd_calibration WHERE context LIKE 'diagnostic:%' AND delta IS NOT NULL`,
+    sql`SELECT ROUND(AVG(x.delta), 1) AS mean_delta, ROUND(AVG(ABS(x.delta)), 1) AS mean_abs_delta, COUNT(*) AS n
+        FROM fd_calibration x JOIN fd_session s ON s.id = x.session_id
+        WHERE s.brand_slug = ${brand} AND x.context LIKE 'diagnostic:%' AND x.delta IS NOT NULL`,
   );
   // What reviewers actually open this on — from client_context events, one
   // per session (latest wins) so a reviewer reloading doesn't skew the mix.
   const devices = await db.all<{ platform: string; browser: string; pointer: string; sessions: number }>(
     sql`WITH latest AS (
-          SELECT session_id, payload_json, ROW_NUMBER() OVER (PARTITION BY session_id ORDER BY created_at DESC) AS rn
-          FROM fd_event WHERE type = 'client_context'
+          SELECT e.session_id, e.payload_json, ROW_NUMBER() OVER (PARTITION BY e.session_id ORDER BY e.created_at DESC) AS rn
+          FROM fd_event e JOIN fd_session s ON s.id = e.session_id WHERE e.type = 'client_context' AND s.brand_slug = ${brand}
         )
         SELECT json_extract(payload_json, '$.platform') AS platform,
                json_extract(payload_json, '$.browser') AS browser,
@@ -160,12 +228,12 @@ adminApp.get('/report', async (c) => {
 
 // ---------- brand (identity + steering guidance) ----------
 
-// The admin is brand-scoped by construction: one brand active per deployment
-// (BRAND_SLUG), and this console configures that brand.
+// Everything from here is scoped to the admin's brand: the deployment default
+// for the master passcode, the client's own for a brand admin.
 
 adminApp.get('/brand', async (c) => {
   const db = c.get('db');
-  const rows = await db.select().from(t.fdBrand).where(eq(t.fdBrand.slug, c.env.BRAND_SLUG)).limit(1);
+  const rows = await db.select().from(t.fdBrand).where(eq(t.fdBrand.slug, brandOf(c))).limit(1);
   const row = rows[0];
   if (!row) return c.json({ error: 'No brand seeded for this deployment.' }, 500);
   return c.json({
@@ -181,7 +249,7 @@ adminApp.put('/brand', async (c) => {
   const db = c.get('db');
   const body = await c.req.json<{ name?: unknown; tokens?: unknown; voice?: unknown; profile?: unknown }>().catch(() => null);
   if (!body) return c.json({ error: 'Send the fields to update.' }, 400);
-  const rows = await db.select().from(t.fdBrand).where(eq(t.fdBrand.slug, c.env.BRAND_SLUG)).limit(1);
+  const rows = await db.select().from(t.fdBrand).where(eq(t.fdBrand.slug, brandOf(c))).limit(1);
   if (!rows[0]) return c.json({ error: 'No brand seeded for this deployment.' }, 500);
   const patch: Partial<typeof t.fdBrand.$inferInsert> = {};
   if (body.name !== undefined) {
@@ -197,7 +265,7 @@ adminApp.put('/brand', async (c) => {
     patch[col] = JSON.stringify(value);
   }
   if (Object.keys(patch).length === 0) return c.json({ error: 'Nothing to update.' }, 400);
-  await db.update(t.fdBrand).set(patch).where(eq(t.fdBrand.slug, c.env.BRAND_SLUG));
+  await db.update(t.fdBrand).set(patch).where(eq(t.fdBrand.slug, brandOf(c)));
   await db.insert(t.fdEvent).values({
     id: uuid(),
     sessionId: null,
@@ -215,7 +283,7 @@ adminApp.get('/guidance', async (c) => {
   const rows = await db
     .select()
     .from(t.fdBrandGuidance)
-    .where(eq(t.fdBrandGuidance.brandSlug, c.env.BRAND_SLUG));
+    .where(eq(t.fdBrandGuidance.brandSlug, brandOf(c)));
   const modules = await db.select({ id: t.fdModule.id, courseId: t.fdModule.courseId, title: t.fdModule.title, status: t.fdModule.status }).from(t.fdModule).orderBy(asc(t.fdModule.courseId), asc(t.fdModule.ordinal));
   const courses = [...new Set(modules.map((m) => m.courseId))];
   return c.json({
@@ -247,11 +315,11 @@ adminApp.put('/guidance', async (c) => {
   }
   await db
     .delete(t.fdBrandGuidance)
-    .where(and(eq(t.fdBrandGuidance.brandSlug, c.env.BRAND_SLUG), eq(t.fdBrandGuidance.scope, scope)));
+    .where(and(eq(t.fdBrandGuidance.brandSlug, brandOf(c)), eq(t.fdBrandGuidance.scope, scope)));
   if (text) {
     await db.insert(t.fdBrandGuidance).values({
       id: uuid(),
-      brandSlug: c.env.BRAND_SLUG,
+      brandSlug: brandOf(c),
       scope,
       body: text.slice(0, 8000),
       updatedAt: now(),
@@ -280,7 +348,7 @@ adminApp.get('/learners', async (c) => {
            (SELECT display_name FROM fd_participant p WHERE p.session_id = s.id ORDER BY p.created_at DESC LIMIT 1) AS display_name,
            (SELECT role_label FROM fd_participant p WHERE p.session_id = s.id ORDER BY p.created_at DESC LIMIT 1) AS role_label,
            (SELECT label FROM fd_access_code a WHERE a.id = s.code_id) AS code_label
-    FROM fd_session s ORDER BY s.created_at DESC LIMIT 500`);
+    FROM fd_session s WHERE s.brand_slug = ${brandOf(c)} ORDER BY s.created_at DESC LIMIT 500`);
   const active = await db.all<{ session_id: string; active_min: number }>(sql`
     WITH gaps AS (
       SELECT session_id,
@@ -342,7 +410,7 @@ adminApp.get('/learners', async (c) => {
 adminApp.get('/learners/:sessionId', async (c) => {
   const db = c.get('db');
   const sessionId = c.req.param('sessionId');
-  const sessions = await db.select().from(t.fdSession).where(eq(t.fdSession.id, sessionId)).limit(1);
+  const sessions = await db.select().from(t.fdSession).where(and(eq(t.fdSession.id, sessionId), eq(t.fdSession.brandSlug, brandOf(c)))).limit(1);
   if (!sessions[0]) return c.json({ error: 'No such session.' }, 404);
   const participants = await db
     .select()
@@ -492,14 +560,14 @@ function unwrapAll<T>(rows: { results?: T[] } | T[]): T[] {
   return Array.isArray(rows) ? rows : (rows.results ?? []);
 }
 
-async function censusMatches(db: DrizzleD1Database) {
+async function censusMatches(db: DrizzleD1Database, brand: string) {
   const named = unwrapAll(
     await db.all<CensusMatch & { name: string }>(sql`
     WITH named AS (
       SELECT LOWER(TRIM(p.display_name)) AS name, p.session_id, s.last_seen_at,
              ROW_NUMBER() OVER (PARTITION BY LOWER(TRIM(p.display_name)) ORDER BY p.created_at DESC) AS rn
       FROM fd_participant p JOIN fd_session s ON s.id = p.session_id
-      WHERE p.display_name IS NOT NULL AND TRIM(p.display_name) != ''
+      WHERE s.brand_slug = ${brand} AND p.display_name IS NOT NULL AND TRIM(p.display_name) != ''
     )
     SELECT name, session_id, last_seen_at,
            (SELECT COUNT(DISTINCT json_extract(e.payload_json, '$.moduleId')) FROM fd_event e
@@ -511,7 +579,7 @@ async function censusMatches(db: DrizzleD1Database) {
     WITH latest AS (
       SELECT LOWER(a.email) AS email, s.id AS session_id, s.last_seen_at,
              ROW_NUMBER() OVER (PARTITION BY a.id ORDER BY s.last_seen_at DESC) AS rn
-      FROM fd_account a JOIN fd_session s ON s.account_id = a.id
+      FROM fd_account a JOIN fd_session s ON s.account_id = a.id WHERE s.brand_slug = ${brand}
     )
     SELECT email, session_id, last_seen_at,
            (SELECT COUNT(DISTINCT json_extract(e.payload_json, '$.moduleId')) FROM fd_event e
@@ -532,10 +600,10 @@ adminApp.get('/census', async (c) => {
   const employees = await db
     .select()
     .from(t.fdEmployee)
-    .where(eq(t.fdEmployee.brandSlug, c.env.BRAND_SLUG))
+    .where(eq(t.fdEmployee.brandSlug, brandOf(c)))
     .orderBy(asc(t.fdEmployee.name));
-  const matches = await censusMatches(db);
-  const accounts = await db.select().from(t.fdAccount).where(eq(t.fdAccount.brandSlug, c.env.BRAND_SLUG));
+  const matches = await censusMatches(db, brandOf(c));
+  const accounts = await db.select().from(t.fdAccount).where(eq(t.fdAccount.brandSlug, brandOf(c)));
   const accountByEmail = new Map(accounts.map((a) => [a.email, a]));
   return c.json({
     employees: employees.map((e) => {
@@ -571,7 +639,7 @@ adminApp.post('/census/:id/reset-password', async (c) => {
   const rows = await db
     .select()
     .from(t.fdEmployee)
-    .where(and(eq(t.fdEmployee.id, c.req.param('id')), eq(t.fdEmployee.brandSlug, c.env.BRAND_SLUG)))
+    .where(and(eq(t.fdEmployee.id, c.req.param('id')), eq(t.fdEmployee.brandSlug, brandOf(c))))
     .limit(1);
   const employee = rows[0];
   if (!employee) return c.json({ error: 'No such employee.' }, 404);
@@ -579,7 +647,7 @@ adminApp.post('/census/:id/reset-password', async (c) => {
   const accounts = await db
     .select()
     .from(t.fdAccount)
-    .where(and(eq(t.fdAccount.brandSlug, c.env.BRAND_SLUG), eq(t.fdAccount.email, employee.email.toLowerCase())))
+    .where(and(eq(t.fdAccount.brandSlug, brandOf(c)), eq(t.fdAccount.email, employee.email.toLowerCase())))
     .limit(1);
   if (!accounts[0]) return c.json({ error: 'They haven’t created an account yet — nothing to reset.' }, 404);
 
@@ -614,7 +682,7 @@ adminApp.post('/census/import', async (c) => {
   }
   if (columnOf.name === undefined) return c.json({ error: 'The CSV needs a "name" column (or employee/full_name).' }, 400);
 
-  const existing = await db.select().from(t.fdEmployee).where(eq(t.fdEmployee.brandSlug, c.env.BRAND_SLUG));
+  const existing = await db.select().from(t.fdEmployee).where(eq(t.fdEmployee.brandSlug, brandOf(c)));
   const byEmail = new Map(existing.filter((e) => e.email).map((e) => [e.email!.toLowerCase(), e]));
   const byName = new Map(existing.map((e) => [e.name.trim().toLowerCase(), e]));
 
@@ -647,7 +715,7 @@ adminApp.post('/census/import', async (c) => {
       await db.update(t.fdEmployee).set(values).where(eq(t.fdEmployee.id, prior.id));
       updated++;
     } else {
-      await db.insert(t.fdEmployee).values({ id: uuid(), brandSlug: c.env.BRAND_SLUG, createdAt: now(), ...values });
+      await db.insert(t.fdEmployee).values({ id: uuid(), brandSlug: brandOf(c), createdAt: now(), ...values });
       imported++;
     }
   }
@@ -665,7 +733,7 @@ adminApp.delete('/census/:id', async (c) => {
   const db = c.get('db');
   await db
     .delete(t.fdEmployee)
-    .where(and(eq(t.fdEmployee.id, c.req.param('id')), eq(t.fdEmployee.brandSlug, c.env.BRAND_SLUG)));
+    .where(and(eq(t.fdEmployee.id, c.req.param('id')), eq(t.fdEmployee.brandSlug, brandOf(c))));
   return c.json({ ok: true });
 });
 
@@ -679,7 +747,7 @@ adminApp.get('/reminders', async (c) => {
   const rules = await db
     .select()
     .from(t.fdReminderRule)
-    .where(eq(t.fdReminderRule.brandSlug, c.env.BRAND_SLUG))
+    .where(eq(t.fdReminderRule.brandSlug, brandOf(c)))
     .orderBy(asc(t.fdReminderRule.createdAt));
   return c.json({ rules: rules.map((r) => ({ ...r, active: r.active === 1 })) });
 });
@@ -697,7 +765,7 @@ adminApp.post('/reminders', async (c) => {
   if (!template) return c.json({ error: 'Write the reminder template.' }, 400);
   await db.insert(t.fdReminderRule).values({
     id: uuid(),
-    brandSlug: c.env.BRAND_SLUG,
+    brandSlug: brandOf(c),
     audience,
     trigger,
     days,
@@ -714,7 +782,7 @@ adminApp.post('/reminders/:id/toggle', async (c) => {
   const rows = await db
     .select()
     .from(t.fdReminderRule)
-    .where(and(eq(t.fdReminderRule.id, c.req.param('id')), eq(t.fdReminderRule.brandSlug, c.env.BRAND_SLUG)))
+    .where(and(eq(t.fdReminderRule.id, c.req.param('id')), eq(t.fdReminderRule.brandSlug, brandOf(c))))
     .limit(1);
   if (!rows[0]) return c.json({ error: 'No such rule.' }, 404);
   await db
@@ -728,7 +796,7 @@ adminApp.delete('/reminders/:id', async (c) => {
   const db = c.get('db');
   await db
     .delete(t.fdReminderRule)
-    .where(and(eq(t.fdReminderRule.id, c.req.param('id')), eq(t.fdReminderRule.brandSlug, c.env.BRAND_SLUG)));
+    .where(and(eq(t.fdReminderRule.id, c.req.param('id')), eq(t.fdReminderRule.brandSlug, brandOf(c))));
   return c.json({ ok: true });
 });
 
@@ -745,7 +813,7 @@ export async function evaluateReminders(db: DrizzleD1Database, brandSlug: string
     .from(t.fdReminderRule)
     .where(and(eq(t.fdReminderRule.brandSlug, brandSlug), eq(t.fdReminderRule.active, 1)));
   const employees = await db.select().from(t.fdEmployee).where(eq(t.fdEmployee.brandSlug, brandSlug));
-  const matches = await censusMatches(db);
+  const matches = await censusMatches(db, brandSlug);
   const nowMs = Date.now();
   const daysAgo = (iso: string | null) => (iso ? (nowMs - Date.parse(iso)) / 86_400_000 : null);
 
@@ -790,7 +858,7 @@ export async function evaluateReminders(db: DrizzleD1Database, brandSlug: string
 }
 
 adminApp.get('/reminders/preview', async (c) => {
-  const previews = await evaluateReminders(c.get('db'), c.env.BRAND_SLUG);
+  const previews = await evaluateReminders(c.get('db'), brandOf(c));
   return c.json({ previews, delivery: { configured: emailEnabled(c.env) } });
 });
 
@@ -802,9 +870,10 @@ export async function runReminderPass(
   db: DrizzleD1Database,
   env: AdminEnv,
   origin: string,
+  brandSlug: string = env.BRAND_SLUG,
 ): Promise<{ sent: number; skipped: number; failed: number; suppressed: number }> {
-  const previews = await evaluateReminders(db, env.BRAND_SLUG);
-  const brandRows = await db.select().from(t.fdBrand).where(eq(t.fdBrand.slug, env.BRAND_SLUG)).limit(1);
+  const previews = await evaluateReminders(db, brandSlug);
+  const brandRows = await db.select().from(t.fdBrand).where(eq(t.fdBrand.slug, brandSlug)).limit(1);
   const brandName = brandRows[0]?.name ?? 'Your company';
   const tally = { sent: 0, skipped: 0, failed: 0, suppressed: 0 };
 
@@ -816,7 +885,7 @@ export async function runReminderPass(
       .from(t.fdEmailSend)
       .where(
         and(
-          eq(t.fdEmailSend.brandSlug, env.BRAND_SLUG),
+          eq(t.fdEmailSend.brandSlug, brandSlug),
           eq(t.fdEmailSend.kind, kind),
           gt(t.fdEmailSend.createdAt, windowStart),
         ),
@@ -839,7 +908,7 @@ export async function runReminderPass(
       const result = await sendEmail(env, { to: r.address, subject, text: r.message + signature(brandName, origin) });
       await db.insert(t.fdEmailSend).values({
         id: uuid(),
-        brandSlug: env.BRAND_SLUG,
+        brandSlug,
         kind,
         toEmail: r.address,
         subject,
@@ -857,7 +926,7 @@ export async function runReminderPass(
 }
 
 adminApp.post('/reminders/send', async (c) => {
-  const tally = await runReminderPass(c.get('db'), c.env, new URL(c.req.url).origin);
+  const tally = await runReminderPass(c.get('db'), c.env, new URL(c.req.url).origin, brandOf(c));
   return c.json({ ok: true, ...tally, delivery: { configured: emailEnabled(c.env) } });
 });
 
@@ -868,7 +937,7 @@ adminApp.get('/reminders/log', async (c) => {
     .get('db')
     .select()
     .from(t.fdEmailSend)
-    .where(eq(t.fdEmailSend.brandSlug, c.env.BRAND_SLUG))
+    .where(eq(t.fdEmailSend.brandSlug, brandOf(c)))
     .orderBy(desc(t.fdEmailSend.createdAt))
     .limit(200);
   return c.json({ sends: rows });
@@ -922,15 +991,21 @@ adminApp.get('/submissions', async (c) => {
     SELECT s.id, s.module_id, s.created_at, s.graded_at, s.total_score, LENGTH(s.body) AS chars,
            (SELECT display_name FROM fd_participant p WHERE p.session_id = s.session_id ORDER BY p.created_at DESC LIMIT 1) AS display_name,
            (SELECT COUNT(*) FROM fd_review r WHERE r.submission_id = s.id) AS reviews
-    FROM fd_submission s ORDER BY s.created_at DESC LIMIT 200`);
+    FROM fd_submission s JOIN fd_session ss ON ss.id = s.session_id
+    WHERE ss.brand_slug = ${brandOf(c)} ORDER BY s.created_at DESC LIMIT 200`);
   return c.json({ submissions: rows });
 });
 
 adminApp.get('/submissions/:id', async (c) => {
   const db = c.get('db');
   const id = c.req.param('id');
-  const rows = await db.select().from(t.fdSubmission).where(eq(t.fdSubmission.id, id)).limit(1);
-  const submission = rows[0];
+  const rows = await db
+    .select({ submission: t.fdSubmission })
+    .from(t.fdSubmission)
+    .innerJoin(t.fdSession, eq(t.fdSession.id, t.fdSubmission.sessionId))
+    .where(and(eq(t.fdSubmission.id, id), eq(t.fdSession.brandSlug, brandOf(c))))
+    .limit(1);
+  const submission = rows[0]?.submission;
   if (!submission) return c.json({ error: 'No such submission.' }, 404);
   const reviews = await db.select().from(t.fdReview).where(eq(t.fdReview.submissionId, id)).orderBy(desc(t.fdReview.createdAt));
   const participants = await db
@@ -961,7 +1036,12 @@ adminApp.post('/submissions/:id/review', async (c) => {
   const body = await c.req.json<{ body?: string; score?: number }>().catch(() => null);
   const text = body?.body?.trim();
   if (!text) return c.json({ error: 'Write the review before sending it.' }, 400);
-  const exists = await db.select({ id: t.fdSubmission.id }).from(t.fdSubmission).where(eq(t.fdSubmission.id, id)).limit(1);
+  const exists = await db
+    .select({ id: t.fdSubmission.id })
+    .from(t.fdSubmission)
+    .innerJoin(t.fdSession, eq(t.fdSession.id, t.fdSubmission.sessionId))
+    .where(and(eq(t.fdSubmission.id, id), eq(t.fdSession.brandSlug, brandOf(c))))
+    .limit(1);
   if (!exists[0]) return c.json({ error: 'No such submission.' }, 404);
   const score = Number.isFinite(body?.score) ? Math.max(0, Math.min(20, Math.round(body!.score!))) : null;
   await db.insert(t.fdReview).values({
@@ -990,8 +1070,13 @@ adminApp.post('/submissions/:id/review', async (c) => {
 // rather than authoring them.
 adminApp.get('/codes', async (c) => {
   const db = c.get('db');
-  const rows = await db.select().from(t.fdAccessCode);
-  const shortCourses = await db.select().from(t.fdShortCourse);
+  const scope = c.get('scope');
+  const rows = scope.master
+    ? await db.select().from(t.fdAccessCode)
+    : await db.select().from(t.fdAccessCode).where(eq(t.fdAccessCode.brandSlug, scope.brand));
+  const shortCourses = scope.master
+    ? await db.select().from(t.fdShortCourse)
+    : await db.select().from(t.fdShortCourse).where(eq(t.fdShortCourse.brandSlug, scope.brand));
   return c.json({
     codes: rows.map((r) => ({
       id: r.id,
@@ -1021,6 +1106,7 @@ adminApp.post('/codes', async (c) => {
   const shortCourseId = body?.shortCourseId?.trim() || null;
   if (!brandSlug || !label || !code) return c.json({ error: 'Brand, label, and code are all required.' }, 400);
   if (code.length < 8) return c.json({ error: 'Codes need at least 8 characters.' }, 400);
+  if (!c.get('scope').master && brandSlug !== brandOf(c)) return c.json({ error: 'You can only create codes for your own brand.' }, 403);
   const brand = await db.select({ slug: t.fdBrand.slug }).from(t.fdBrand).where(eq(t.fdBrand.slug, brandSlug)).limit(1);
   if (!brand[0]) return c.json({ error: `No brand "${brandSlug}" is seeded.` }, 400);
   if (shortCourseId) {
@@ -1046,7 +1132,7 @@ adminApp.post('/codes/:id/toggle', async (c) => {
   const db = c.get('db');
   const id = c.req.param('id');
   const rows = await db.select().from(t.fdAccessCode).where(eq(t.fdAccessCode.id, id)).limit(1);
-  if (!rows[0]) return c.json({ error: 'No such code.' }, 404);
+  if (!rows[0] || (!c.get('scope').master && rows[0].brandSlug !== brandOf(c))) return c.json({ error: 'No such code.' }, 404);
   await db.update(t.fdAccessCode).set({ active: rows[0].active === 1 ? 0 : 1 }).where(eq(t.fdAccessCode.id, id));
   return c.json({ ok: true, active: rows[0].active !== 1 });
 });
