@@ -49,6 +49,11 @@ export function buildTutorSystem(
   // Admin-authored steering from the Brand tab. Deployment-wide, so it lives
   // in the stable cached block, not the per-learner one.
   guidance: string | null = null,
+  // The author's notes for whoever tutors this module: teaching order, where
+  // learners predictably go wrong, the one question to ask after each idea.
+  // Written by the Chief Learning Officer for imported modules; seeded
+  // modules have none. Per module, so it belongs in the stable block too.
+  tutorNotes: string | null = null,
 ): { type: 'text'; text: string; cache_control?: { type: 'ephemeral' } }[] {
   const content = blocks.map(blockToText).join('\n\n---\n\n');
   const courseMap = courseModules
@@ -100,6 +105,15 @@ export function buildTutorSystem(
           "The sponsoring company's admin asked that the following be emphasized and reinforced when teaching this material. Weave it in where it fits naturally; it complements the module content, never replaces it.",
           '',
           guidance,
+        ]
+      : []),
+    ...(tutorNotes
+      ? [
+          '',
+          "## Author's tutor notes (for you, never for the learner)",
+          'The person who wrote this module left these notes on how to teach it. Follow them where they apply; they know where learners go wrong.',
+          '',
+          tutorNotes,
         ]
       : []),
   ].join('\n');

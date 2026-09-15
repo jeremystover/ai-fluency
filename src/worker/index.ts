@@ -2357,6 +2357,19 @@ async function buildLearnerContext(db: DrizzleD1Database, brandSlug: string, ses
   };
 }
 
+// The author's tutor notes, when the module was published with them: the
+// importer parks them under `<id>-tutor`, and this is the one place they are
+// read. Seeded modules have no such block and get null.
+export async function tutorNotesFor(db: DrizzleD1Database, moduleId: string): Promise<string | null> {
+  const rows = await db
+    .select({ body: t.fdContentBlock.body })
+    .from(t.fdContentBlock)
+    .where(eq(t.fdContentBlock.moduleId, `${moduleId}-tutor`))
+    .orderBy(asc(t.fdContentBlock.ordinal));
+  const text = rows.map((r) => r.body.trim()).filter(Boolean).join('\n\n');
+  return text || null;
+}
+
 async function loadChatModule(db: DrizzleD1Database, moduleId: string, tooling: string) {
   const modRows = await db.select().from(t.fdModule).where(eq(t.fdModule.id, moduleId)).limit(1);
   const mod = modRows[0];
@@ -2468,7 +2481,8 @@ app.post('/api/module/:id/chat', async (c) => {
     .orderBy(asc(t.fdModule.ordinal));
   const learner = await buildLearnerContext(db, session.brandSlug, session.id);
   const guidance = await guidanceFor(db, session.brandSlug, moduleId, loaded.mod.courseId, await managerEmailOf(db, c.env.BRAND_SLUG, session));
-  const system = buildTutorSystem(loaded.mod as ModuleCard, loaded.blocks, courseModules as ModuleCard[], learner, guidance?.text ?? null);
+  const tutorNotes = await tutorNotesFor(db, moduleId);
+  const system = buildTutorSystem(loaded.mod as ModuleCard, loaded.blocks, courseModules as ModuleCard[], learner, guidance?.text ?? null, tutorNotes);
 
   // The stored opener starts with an assistant turn; the API requires user-first,
   // so the deterministic kickoff turn stands in (byte-stable for prompt caching).
@@ -4598,6 +4612,7 @@ app.route(
     submitActivity: submitActivityCore,
     askTheHosts: createQaEpisodeCore,
     guidanceFor,
+    tutorNotesFor,
   }),
 );
 

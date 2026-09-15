@@ -65,6 +65,7 @@ export type McpDeps = {
   // Company-admin steering from the Brand tab — rides into every teaching
   // surface, this one included.
   guidanceFor: (db: DrizzleD1Database, brandSlug: string, moduleId: string, courseId: string | null) => Promise<{ text: string; updatedAt: string } | null>;
+  tutorNotesFor: (db: DrizzleD1Database, moduleId: string) => Promise<string | null>;
 };
 
 const TEACH_BACK_LIMIT_PER_HOUR = 5; // grading calls, mirroring the activity grader's budget
@@ -517,6 +518,10 @@ const TOOLS: ToolDef[] = [
       coach.push('- If the learner mentions a real task from their week, offer apply_to_my_work on it — live material beats every canned example.');
       if (view === 'summary') coach.push('- This was the summary view — call get_module with view "full" before teaching in depth.');
       out.push(...coach);
+      const notes = await deps.tutorNotesFor(db, moduleId);
+      if (notes) {
+        out.push('', "## Author's tutor notes (for the assistant — never for the learner)", 'The person who wrote this module left these notes on how to teach it. Follow them where they apply.', '', notes);
+      }
       return out.join('\n');
     },
   },
