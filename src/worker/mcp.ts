@@ -182,6 +182,7 @@ async function requireOpenModule(db: DrizzleD1Database, moduleId: string): Promi
   const rows = await db.select().from(t.fdModule).where(eq(t.fdModule.id, moduleId)).limit(1);
   const mod = rows[0];
   if (!mod) throw new ToolError(`No module "${moduleId}". Call get_course_overview for valid module ids (like ai101-m1 or ai201-m3).`);
+  if (mod.status === 'soon') throw new ToolError(`"${mod.title}" is still being built for this course — check back soon. Call get_course_overview for what's open.`);
   if (mod.status !== 'open') throw new ToolError(`"${mod.title}" ships in the full course — this deployment carries it as a locked preview. Call get_course_overview for what's open.`);
   return mod;
 }

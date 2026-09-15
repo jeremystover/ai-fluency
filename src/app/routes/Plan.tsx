@@ -119,7 +119,7 @@ export default function Plan() {
                     </span>
                   )}
                   <span className={`font-utility text-[0.65rem] uppercase tracking-wider shrink-0 ${step.state === 'done' ? 'text-accent' : 'text-muted'}`}>
-                    {step.state === 'done' ? '✓ Done' : `${STATE_LABEL[step.state]} · ${step.minutes} min`}
+                    {step.state === 'done' ? '✓ Done' : step.soon ? 'Coming soon' : `${STATE_LABEL[step.state]} · ${step.minutes} min`}
                   </span>
                 </div>
                 <p className={`text-sm mt-1 ${step.state === 'done' ? 'text-muted' : 'text-ink'}`}>{step.detail}</p>

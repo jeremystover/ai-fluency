@@ -1105,6 +1105,12 @@ async function composeShortCoursePlan(
   for (const id of ids) {
     const m = byId.get(id);
     if (!m) continue; // a short course naming a module this deployment hasn't seeded
+    if (m.status === 'soon') {
+      // Promised, not built: a placeholder row with nowhere to go. It never
+      // becomes "this sitting" — that would be an invitation to a blank page.
+      steps.push({ id, title: m.title, detail: m.blurb, minutes: m.estMinutes, route: '', state: 'later', soon: true });
+      continue;
+    }
     const done = receipts.completed.has(id);
     const state: PlanStep['state'] = done ? 'done' : markedNow ? 'now' : 'later';
     if (!done && markedNow) markedNow = false;
@@ -1949,6 +1955,9 @@ app.get('/api/module/:id', async (c) => {
   const modRows = await db.select().from(t.fdModule).where(eq(t.fdModule.id, id)).limit(1);
   const mod = modRows[0];
   if (!mod) return c.json({ error: 'No such module.' }, 404);
+  if (mod.status === 'soon') {
+    return c.json({ error: 'This module is still being built for your course — check back soon.' }, 403);
+  }
   if (mod.status !== 'open') {
     return c.json({ error: "This module's content ships in the full course — the demo carries Module 1 end to end." }, 403);
   }

@@ -25,6 +25,7 @@ import { type DrizzleD1Database, drizzle } from 'drizzle-orm/d1';
 import { Hono } from 'hono';
 import * as t from '../db/schema';
 import { constantTimeEqual } from './crypto';
+import contentCatalog from '../../content/modules.json';
 
 const enc = new TextEncoder();
 
@@ -77,6 +78,10 @@ interface CpfModule {
   exercise?: { kind: string; payload: unknown } | null;
   conceptMap?: { flow: string; whatToSee: string } | null;
   tutorNotes?: string | null;
+  // 'soon' is a module the course promises but has not built yet: it renders
+  // as "Coming soon" in a learner's plan and carries no content. Omitted or
+  // 'open' means the real thing.
+  status?: 'open' | 'soon';
 }
 
 interface CpfBundle {
@@ -117,7 +122,7 @@ function validate(bundle: CpfBundle): string[] {
     seen.add(m.id);
 
     if (!m.title) errors.push(`${m.id}: no title`);
-    if (!m.blocks || m.blocks.length === 0) errors.push(`${m.id}: no body content`);
+    if (m.status !== 'soon' && (!m.blocks || m.blocks.length === 0)) errors.push(`${m.id}: no body content`);
 
     const check = m.knowledgeCheck as { questions?: Array<{ id?: string; options?: unknown[]; correctIndex?: number }> } | undefined;
     for (const q of check?.questions ?? []) {
@@ -177,6 +182,60 @@ export function createImportApp() {
         format: r.format,
         moduleCount: r.moduleCount,
         importedAt: r.importedAt,
+      })),
+    });
+  });
+
+  /**
+   * The whole library, whoever wrote it: every module the seed or an import
+   * put here, with what each actually has (a body, which exercises), plus
+   * the course shells and short courses. The authoring side reads this to
+   * propose a client course out of existing material — a module with no body
+   * is not something to promise a learner, so hasBlocks is reported rather
+   * than assumed.
+   */
+  app.get('/library', async (c) => {
+    const db = c.get('db');
+    const [moduleRows, blockRows, exRows, imported, shortCourses] = await Promise.all([
+      db.select().from(t.fdModule).all(),
+      db.selectDistinct({ moduleId: t.fdContentBlock.moduleId }).from(t.fdContentBlock).all(),
+      db.select({ moduleId: t.fdExercise.moduleId, kind: t.fdExercise.kind }).from(t.fdExercise).all(),
+      db.select().from(t.fdImportedCourse).all(),
+      db.select().from(t.fdShortCourse).all(),
+    ]);
+    const hasBlocks = new Set(blockRows.map((b) => b.moduleId));
+    const exKinds = new Map<string, string[]>();
+    for (const e of exRows) exKinds.set(e.moduleId, [...(exKinds.get(e.moduleId) ?? []), e.kind]);
+
+    const catalogCourses = (contentCatalog as { courses: Array<{ id: string; title: string; level: string; blurb: string; status: string }> }).courses;
+    return c.json({
+      modules: moduleRows
+        .sort((a, b) => a.courseId.localeCompare(b.courseId) || a.ordinal - b.ordinal)
+        .map((m) => ({
+          id: m.id,
+          courseId: m.courseId,
+          ordinal: m.ordinal,
+          title: m.title,
+          blurb: m.blurb,
+          status: m.status,
+          estMinutes: m.estMinutes,
+          prereqs: m.prereqJson ? (JSON.parse(m.prereqJson) as string[]) : [],
+          source: m.source,
+          hasBlocks: hasBlocks.has(m.id),
+          exercises: exKinds.get(m.id) ?? [],
+        })),
+      courses: [
+        ...catalogCourses.map((course) => ({ id: course.id, title: course.title, level: course.level, blurb: course.blurb, status: course.status, source: 'seed' })),
+        ...imported.map((r) => ({ id: r.courseId, title: r.title, level: r.format, blurb: '', status: 'open', source: 'import' })),
+      ],
+      shortCourses: shortCourses.map((sc) => ({
+        id: sc.id,
+        brandSlug: sc.brandSlug,
+        label: sc.label,
+        blurb: sc.blurb,
+        roleId: sc.roleId,
+        moduleIds: JSON.parse(sc.moduleIdsJson) as string[],
+        source: sc.source,
       })),
     });
   });
@@ -314,7 +373,7 @@ export function createImportApp() {
         raw
           .prepare(
             `INSERT INTO fd_module (id, course_id, ordinal, title, blurb, status, est_minutes, prereq_json, source)
-             VALUES (?, ?, ?, ?, ?, 'open', ?, ?, 'import')`,
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'import')`,
           )
           .bind(
             m.id,
@@ -322,6 +381,7 @@ export function createImportApp() {
             m.ordinal,
             m.title,
             m.blurb ?? '',
+            m.status === 'soon' ? 'soon' : 'open',
             m.estMinutes ?? 20,
             m.prereqs?.length ? JSON.stringify(m.prereqs) : null,
           ),
