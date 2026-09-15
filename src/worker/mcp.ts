@@ -64,7 +64,7 @@ export type McpDeps = {
   ) => Promise<{ ok: false; status: number; error: string } | { ok: true; row: PodcastRow }>;
   // Company-admin steering from the Brand tab — rides into every teaching
   // surface, this one included.
-  guidanceFor: (db: DrizzleD1Database, env: Env, moduleId: string, courseId: string | null) => Promise<{ text: string; updatedAt: string } | null>;
+  guidanceFor: (db: DrizzleD1Database, brandSlug: string, moduleId: string, courseId: string | null) => Promise<{ text: string; updatedAt: string } | null>;
 };
 
 const TEACH_BACK_LIMIT_PER_HOUR = 5; // grading calls, mirroring the activity grader's budget
@@ -480,7 +480,7 @@ const TOOLS: ToolDef[] = [
       if (visual) {
         out.push('## Concept map', '', visualToText(visual), '', '(Feel free to redraw this for the learner — as a list, a diagram, or in their own examples.)', '');
       }
-      const guidance = await deps.guidanceFor(db, env, moduleId, mod.courseId);
+      const guidance = await deps.guidanceFor(db, session.brandSlug, moduleId, mod.courseId);
       if (guidance) {
         out.push('## Company guidance', '', "The sponsoring company's admin asked that the following be emphasized and reinforced when teaching this material. Weave it in where it fits naturally; it complements the module content, never replaces it.", '', guidance.text, '');
       }
@@ -804,7 +804,7 @@ const TOOLS: ToolDef[] = [
       const takeaways: string[] = stock[0]?.takeawaysJson ? JSON.parse(stock[0].takeawaysJson) : [];
 
       await logEvent(db, session.id, 'mcp_apply_to_work', { moduleId, task: task.slice(0, 500) });
-      const guidance = await deps.guidanceFor(db, env, moduleId, mod.courseId);
+      const guidance = await deps.guidanceFor(db, session.brandSlug, moduleId, mod.courseId);
 
       const tools = [
         ...blocks.filter((b) => b.kind === 'takeaways' || b.kind === 'try_this'),

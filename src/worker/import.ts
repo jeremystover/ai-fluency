@@ -24,8 +24,10 @@ import { and, eq, inArray } from 'drizzle-orm';
 import { type DrizzleD1Database, drizzle } from 'drizzle-orm/d1';
 import { Hono } from 'hono';
 import * as t from '../db/schema';
-import { constantTimeEqual } from './crypto';
+import { constantTimeEqual, hashCode } from './crypto';
+import { ROLE_IDS } from '../shared/roles';
 import contentCatalog from '../../content/modules.json';
+import diagnosticData from '../../content/diagnostic.json';
 
 const enc = new TextEncoder();
 
@@ -43,6 +45,9 @@ function bearerOk(header: string | undefined, expected: string): boolean {
 
 export interface ImportEnv {
   DB: D1Database;
+  // The deployment's default brand — what a provisioned client's brand clones
+  // its look from when the caller sends no tokens of its own.
+  BRAND_SLUG: string;
   // Bearer token the authoring agent presents. Unset = the import surface is
   // closed, which is the correct default: an unauthenticated route that
   // rewrites course content is worse than no route.
@@ -93,6 +98,36 @@ interface CpfBundle {
 
 const today = () => new Date().toISOString().slice(0, 10);
 const nowIso = () => new Date().toISOString();
+const uuid = () => crypto.randomUUID();
+
+// ── Org provisioning shapes ────────────────────────────────────────────────
+
+interface OrgRequest {
+  brand?: {
+    slug?: string;
+    name?: string;
+    tokens?: unknown;
+    voice?: unknown;
+    profile?: unknown;
+    // Brand to copy tokens/voice from when none are sent. Defaults to the
+    // deployment's brand, so a client starts in the house look and the
+    // operator console restyles it later.
+    cloneFrom?: string;
+  };
+  shortCourse?: {
+    id?: string;
+    label?: string;
+    blurb?: string | null;
+    roleId?: string | null;
+    moduleIds?: unknown;
+    diagnosticItems?: unknown;
+  };
+  accessCode?: { code?: string; label?: string };
+  guidance?: { global?: string };
+}
+
+const SLUG_RE = /^[a-z0-9][a-z0-9-]{1,31}$/;
+const DIAG_IDS = new Set((diagnosticData as { items: Array<{ id: string }> }).items.map((i) => i.id));
 
 /**
  * Structural validation. Deliberately strict about the two things that
@@ -237,6 +272,222 @@ export function createImportApp() {
         moduleIds: JSON.parse(sc.moduleIdsJson) as string[],
         source: sc.source,
       })),
+    });
+  });
+
+  /**
+   * Provision — or re-provision — one client on this deployment: their brand,
+   * the short course that IS their course (an ordered list of module ids, any
+   * tier, seeded or imported, built or still promised), the passcode that
+   * opens it, and optional global guidance for the tutor and podcast.
+   *
+   * Everything written carries source='import', so the seed never touches it
+   * and a seeded brand or short course can never be overwritten from here.
+   * Module ids need not exist yet — the course is usually provisioned before
+   * its new modules are published — so unknown ids are reported, not refused.
+   *
+   * The passcode is optional on purpose: the first call sets it, and a later
+   * call that only reorders the course sends none and leaves it alone.
+   */
+  app.put('/org', async (c) => {
+    const db = c.get('db');
+    let body: OrgRequest;
+    try {
+      body = (await c.req.json()) as OrgRequest;
+    } catch {
+      return c.json({ error: 'Body is not valid JSON.' }, 400);
+    }
+
+    const slug = body.brand?.slug?.trim() ?? '';
+    const name = body.brand?.name?.trim() ?? '';
+    const sc = body.shortCourse ?? {};
+    const scId = sc.id?.trim() ?? '';
+    const label = sc.label?.trim() ?? '';
+    const moduleIds = Array.isArray(sc.moduleIds) ? sc.moduleIds.filter((x): x is string => typeof x === 'string' && x.trim() !== '') : null;
+    const roleId = sc.roleId?.trim() || null;
+    const code = body.accessCode?.code?.trim() ?? '';
+    const codeLabel = body.accessCode?.label?.trim() ?? '';
+
+    const errors: string[] = [];
+    if (!SLUG_RE.test(slug)) errors.push('brand.slug must be 2–32 chars of a-z, 0-9 and hyphens');
+    if (!name) errors.push('brand.name is required');
+    if (!scId) errors.push('shortCourse.id is required');
+    if (!label) errors.push('shortCourse.label is required');
+    if (!moduleIds || moduleIds.length === 0) errors.push('shortCourse.moduleIds must be a non-empty array');
+    if (roleId && !ROLE_IDS.includes(roleId)) errors.push(`shortCourse.roleId "${roleId}" is not a known role (${ROLE_IDS.join(', ')})`);
+    if (body.accessCode && (code.length < 12 || !codeLabel)) {
+      errors.push('accessCode needs a code of at least 12 characters and a label');
+    }
+    if (errors.length) return c.json({ error: 'Invalid org request.', errors }, 422);
+
+    // The seed owns its rows. A client slug colliding with a seeded brand, or
+    // a short-course id colliding with a seeded one, is refused outright — the
+    // alternative is a client quietly hijacking the house demo.
+    const [brandRow, scRow] = await Promise.all([
+      db.select().from(t.fdBrand).where(eq(t.fdBrand.slug, slug)).get(),
+      db.select().from(t.fdShortCourse).where(eq(t.fdShortCourse.id, scId)).get(),
+    ]);
+    if (brandRow && brandRow.source !== 'import') {
+      return c.json({ error: `Brand "${slug}" is hand-authored seed content and will not be overwritten.` }, 409);
+    }
+    if (scRow && scRow.source !== 'import') {
+      return c.json({ error: `Short course "${scId}" is hand-authored seed content and will not be overwritten.` }, 409);
+    }
+    if (scRow && scRow.brandSlug !== slug) {
+      return c.json({ error: `Short course "${scId}" belongs to brand "${scRow.brandSlug}".` }, 409);
+    }
+
+    // Tokens and voice: what was sent, else what the brand already has, else
+    // a clone of the deployment's brand. The columns are NOT NULL — a brand
+    // with no look would blank every page.
+    let tokensJson = body.brand?.tokens ? JSON.stringify(body.brand.tokens) : (brandRow?.tokensJson ?? null);
+    let voiceJson = body.brand?.voice ? JSON.stringify(body.brand.voice) : (brandRow?.voiceJson ?? null);
+    if (!tokensJson || !voiceJson) {
+      const cloneFrom = body.brand?.cloneFrom?.trim() || c.env.BRAND_SLUG;
+      const source = await db.select().from(t.fdBrand).where(eq(t.fdBrand.slug, cloneFrom)).get();
+      if (!source) return c.json({ error: `No brand "${cloneFrom}" to clone the look from.` }, 422);
+      tokensJson ??= source.tokensJson;
+      voiceJson ??= source.voiceJson;
+    }
+    const profileJson = body.brand?.profile ? JSON.stringify(body.brand.profile) : (brandRow?.profileJson ?? null);
+
+    const knownIds = (moduleIds ?? []).length
+      ? new Set((await db.select({ id: t.fdModule.id }).from(t.fdModule).where(inArray(t.fdModule.id, moduleIds ?? [])).all()).map((r) => r.id))
+      : new Set<string>();
+    const unknownModuleIds = (moduleIds ?? []).filter((id) => !knownIds.has(id));
+
+    const diagnosticItems = Array.isArray(sc.diagnosticItems)
+      ? sc.diagnosticItems.filter((x): x is string => typeof x === 'string' && DIAG_IDS.has(x))
+      : [];
+
+    const raw = c.env.DB;
+    const ts = nowIso();
+    const statements: D1PreparedStatement[] = [
+      raw
+        .prepare(
+          `INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at, source)
+           VALUES (?, ?, ?, ?, ?, ?, 'import')
+           ON CONFLICT (slug) DO UPDATE SET
+             name = excluded.name, tokens_json = excluded.tokens_json,
+             voice_json = excluded.voice_json, profile_json = excluded.profile_json`,
+        )
+        .bind(slug, name, tokensJson, voiceJson, profileJson, ts),
+      raw
+        .prepare(
+          `INSERT INTO fd_short_course (id, brand_slug, label, blurb, role_id, module_ids_json, diagnostic_json, created_at, source)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'import')
+           ON CONFLICT (id) DO UPDATE SET
+             label = excluded.label, blurb = excluded.blurb, role_id = excluded.role_id,
+             module_ids_json = excluded.module_ids_json, diagnostic_json = excluded.diagnostic_json`,
+        )
+        .bind(
+          scId,
+          slug,
+          label,
+          sc.blurb?.trim() || null,
+          roleId,
+          JSON.stringify(moduleIds),
+          diagnosticItems.length ? JSON.stringify({ items: diagnosticItems }) : null,
+          today(),
+        ),
+    ];
+
+    if (body.accessCode) {
+      // One code per (brand, label): re-sending replaces it, so a leaked code
+      // can be rotated by provisioning again with a new one.
+      statements.push(
+        raw.prepare(`DELETE FROM fd_access_code WHERE source = 'import' AND brand_slug = ? AND label = ?`).bind(slug, codeLabel),
+        raw
+          .prepare(
+            `INSERT INTO fd_access_code (id, brand_slug, code_hash, label, max_uses, uses, expires_at, active, short_course_id, source)
+             VALUES (?, ?, ?, ?, NULL, 0, NULL, 1, ?, 'import')`,
+          )
+          .bind(uuid(), slug, await hashCode(code), codeLabel.slice(0, 120), scId),
+      );
+    }
+
+    if (typeof body.guidance?.global === 'string') {
+      statements.push(raw.prepare(`DELETE FROM fd_brand_guidance WHERE brand_slug = ? AND scope = 'global'`).bind(slug));
+      const text = body.guidance.global.trim().slice(0, 8000);
+      if (text) {
+        statements.push(
+          raw
+            .prepare(`INSERT INTO fd_brand_guidance (id, brand_slug, scope, body, updated_at) VALUES (?, ?, 'global', ?, ?)`)
+            .bind(uuid(), slug, text, ts),
+        );
+      }
+    }
+
+    await raw.batch(statements);
+
+    const origin = new URL(c.req.url).origin;
+    return c.json({
+      status: brandRow ? 'updated' : 'created',
+      brandSlug: slug,
+      shortCourseId: scId,
+      enterUrl: `${origin}/enter`,
+      adminUrl: `${origin}/admin`,
+      unknownModuleIds,
+    });
+  });
+
+  /**
+   * What a client has, read back without secrets: the brand, the course with
+   * each module's live status (built, promised, missing), the codes by label
+   * with their use counts, and how many learners have come through.
+   */
+  app.get('/org/:slug', async (c) => {
+    const db = c.get('db');
+    const slug = c.req.param('slug');
+    const brand = await db.select().from(t.fdBrand).where(eq(t.fdBrand.slug, slug)).get();
+    if (!brand) return c.json({ error: `No brand "${slug}".` }, 404);
+
+    const [shortCourses, codes] = await Promise.all([
+      db.select().from(t.fdShortCourse).where(eq(t.fdShortCourse.brandSlug, slug)).all(),
+      db.select().from(t.fdAccessCode).where(eq(t.fdAccessCode.brandSlug, slug)).all(),
+    ]);
+    const ids = [...new Set(shortCourses.flatMap((sc) => JSON.parse(sc.moduleIdsJson) as string[]))];
+    const [moduleRows, blockRows] = ids.length
+      ? await Promise.all([
+          db.select().from(t.fdModule).where(inArray(t.fdModule.id, ids)).all(),
+          db.selectDistinct({ moduleId: t.fdContentBlock.moduleId }).from(t.fdContentBlock).where(inArray(t.fdContentBlock.moduleId, ids)).all(),
+        ])
+      : [[], []];
+    const byId = new Map(moduleRows.map((m) => [m.id, m]));
+    const hasBlocks = new Set(blockRows.map((b) => b.moduleId));
+
+    const raw = c.env.DB;
+    const learners = await raw
+      .prepare(`SELECT COUNT(*) AS n FROM fd_session WHERE brand_slug = ?`)
+      .bind(slug)
+      .first<{ n: number }>();
+    const completions = await raw
+      .prepare(
+        `SELECT COUNT(DISTINCT a.session_id || ':' || a.module_id) AS n
+           FROM fd_completion_audit a JOIN fd_session s ON s.id = a.session_id
+          WHERE s.brand_slug = ? AND a.activity = 'module_completed'`,
+      )
+      .bind(slug)
+      .first<{ n: number }>();
+
+    return c.json({
+      brand: { slug: brand.slug, name: brand.name, source: brand.source, createdAt: brand.createdAt },
+      shortCourses: shortCourses.map((sc) => ({
+        id: sc.id,
+        label: sc.label,
+        blurb: sc.blurb,
+        roleId: sc.roleId,
+        source: sc.source,
+        modules: (JSON.parse(sc.moduleIdsJson) as string[]).map((id) => {
+          const m = byId.get(id);
+          return m
+            ? { id, title: m.title, status: m.status, source: m.source, hasBlocks: hasBlocks.has(id), estMinutes: m.estMinutes }
+            : { id, title: null, status: 'missing', source: null, hasBlocks: false, estMinutes: null };
+        }),
+      })),
+      codes: codes.map((k) => ({ id: k.id, label: k.label, uses: k.uses, active: k.active === 1, shortCourseId: k.shortCourseId, source: k.source })),
+      learners: learners?.n ?? 0,
+      completions: completions?.n ?? 0,
     });
   });
 
