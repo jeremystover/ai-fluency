@@ -57,8 +57,11 @@ jobs:
       # through this task. A merge that adds a module changes nothing a learner
       # can see until this runs.
       #
-      # What it touches: fd_content_block, fd_exercise, fd_module, fd_brand,
-      # fd_access_code — deleted and rebuilt. Learner data is in other tables
+      # What it touches: the source='seed' rows of fd_content_block,
+      # fd_exercise, fd_module, fd_brand, fd_short_course and fd_access_code —
+      # deleted and rebuilt. Rows the Chief Learning Officer wrote
+      # (source='import': published courses, provisioned client brands, short
+      # courses and passcodes) are left alone. Learner data is in other tables
       # (accounts, sessions, submissions, calibration) and is never touched.
       # Access codes survive too: the plaintext comes from DEMO_CODES, so only
       # the salt is regenerated.
@@ -114,7 +117,7 @@ jobs:
         run: |
           EXPECTED=$(grep -c '^INSERT INTO fd_module' seed/seed.sql)
           OUT=$(npx wrangler d1 execute fluency-demo --remote --json \
-            --command "SELECT COUNT(*) AS n FROM fd_module")
+            --command "SELECT COUNT(*) AS n FROM fd_module WHERE source = 'seed'")
           # wrangler can print a banner ahead of the JSON, and the banner itself
           # may contain a bracket, so try each '[' until one parses rather than
           # trusting the first.

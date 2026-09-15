@@ -8,6 +8,9 @@ export const fdBrand = sqliteTable('fd_brand', {
   // Optional company profile: { aiTools?: string[] } — what the org provisions.
   profileJson: text('profile_json'),
   createdAt: text('created_at').notNull(),
+  // 'seed' (content/brands, rebuilt by the seed) | 'import' (provisioned for a
+  // client through PUT /api/import/org). Each writer replaces only its own.
+  source: text('source').notNull().default('seed'),
 });
 
 export const fdAccessCode = sqliteTable('fd_access_code', {
@@ -24,6 +27,7 @@ export const fdAccessCode = sqliteTable('fd_access_code', {
   // behaviour); set = the short course of that id, and the code is the whole
   // definition of what that learner sees.
   shortCourseId: text('short_course_id'),
+  source: text('source').notNull().default('seed'), // seed | import — see fd_brand
 });
 
 // A named subset of the catalog, sold as its own thing. The passcode carries
@@ -45,6 +49,7 @@ export const fdShortCourse = sqliteTable(
     moduleIdsJson: text('module_ids_json').notNull(), // ordered JSON array of module ids
     diagnosticJson: text('diagnostic_json'), // { items: string[] } | null
     createdAt: text('created_at').notNull(),
+    source: text('source').notNull().default('seed'), // seed | import — see fd_brand
   },
   (t) => [index('idx_short_course_brand').on(t.brandSlug)],
 );
