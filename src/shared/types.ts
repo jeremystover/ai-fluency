@@ -64,7 +64,7 @@ export type ModuleCard = {
   ordinal: number;
   title: string;
   blurb: string;
-  status: 'open' | 'locked';
+  status: 'open' | 'locked' | 'soon';
   estMinutes: number;
 };
 
@@ -285,6 +285,9 @@ export type PlanStep = {
   // ways into it. Short-course steps only.
   moduleId?: string;
   activities?: PlanActivity[];
+  // The short course promises this module and it is not built yet. No route,
+  // no activities — the step is a placeholder that says so.
+  soon?: boolean;
 };
 
 // The short course this session is on, as the plan reports it. Absent/null =

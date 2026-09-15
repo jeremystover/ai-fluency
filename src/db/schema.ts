@@ -574,7 +574,7 @@ export const fdModule = sqliteTable('fd_module', {
   ordinal: integer('ordinal').notNull(),
   title: text('title').notNull(),
   blurb: text('blurb').notNull(),
-  status: text('status').notNull(), // open | locked
+  status: text('status').notNull(), // open | locked | soon (promised to a short course, not built yet)
   estMinutes: integer('est_minutes').notNull(),
   // JSON array of module ids that are STRONG prerequisites. Empty/null = take
   // it whenever you want. Locked cards must always say how to unlock.
