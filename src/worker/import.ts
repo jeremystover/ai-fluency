@@ -123,6 +123,9 @@ interface OrgRequest {
     diagnosticItems?: unknown;
   };
   accessCode?: { code?: string; label?: string };
+  // Opens the operator console scoped to this brand. Optional; a later call
+  // without one leaves the existing admin passcode alone.
+  adminPasscode?: string;
   guidance?: { global?: string };
 }
 
@@ -307,6 +310,7 @@ export function createImportApp() {
     const roleId = sc.roleId?.trim() || null;
     const code = body.accessCode?.code?.trim() ?? '';
     const codeLabel = body.accessCode?.label?.trim() ?? '';
+    const adminPasscode = body.adminPasscode?.trim() ?? '';
 
     const errors: string[] = [];
     if (!SLUG_RE.test(slug)) errors.push('brand.slug must be 2–32 chars of a-z, 0-9 and hyphens');
@@ -317,6 +321,9 @@ export function createImportApp() {
     if (roleId && !ROLE_IDS.includes(roleId)) errors.push(`shortCourse.roleId "${roleId}" is not a known role (${ROLE_IDS.join(', ')})`);
     if (body.accessCode && (code.length < 12 || !codeLabel)) {
       errors.push('accessCode needs a code of at least 12 characters and a label');
+    }
+    if (body.adminPasscode !== undefined && adminPasscode.length < 10) {
+      errors.push('adminPasscode needs at least 10 characters');
     }
     if (errors.length) return c.json({ error: 'Invalid org request.', errors }, 422);
 
@@ -350,6 +357,7 @@ export function createImportApp() {
       voiceJson ??= source.voiceJson;
     }
     const profileJson = body.brand?.profile ? JSON.stringify(body.brand.profile) : (brandRow?.profileJson ?? null);
+    const adminHash = adminPasscode ? await hashCode(adminPasscode) : (brandRow?.adminPasscodeHash ?? null);
 
     const knownIds = (moduleIds ?? []).length
       ? new Set((await db.select({ id: t.fdModule.id }).from(t.fdModule).where(inArray(t.fdModule.id, moduleIds ?? [])).all()).map((r) => r.id))
@@ -365,13 +373,14 @@ export function createImportApp() {
     const statements: D1PreparedStatement[] = [
       raw
         .prepare(
-          `INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at, source)
-           VALUES (?, ?, ?, ?, ?, ?, 'import')
+          `INSERT INTO fd_brand (slug, name, tokens_json, voice_json, profile_json, created_at, source, admin_passcode_hash)
+           VALUES (?, ?, ?, ?, ?, ?, 'import', ?)
            ON CONFLICT (slug) DO UPDATE SET
              name = excluded.name, tokens_json = excluded.tokens_json,
-             voice_json = excluded.voice_json, profile_json = excluded.profile_json`,
+             voice_json = excluded.voice_json, profile_json = excluded.profile_json,
+             admin_passcode_hash = excluded.admin_passcode_hash`,
         )
-        .bind(slug, name, tokensJson, voiceJson, profileJson, ts),
+        .bind(slug, name, tokensJson, voiceJson, profileJson, ts, adminHash),
       raw
         .prepare(
           `INSERT INTO fd_short_course (id, brand_slug, label, blurb, role_id, module_ids_json, diagnostic_json, created_at, source)
@@ -471,7 +480,7 @@ export function createImportApp() {
       .first<{ n: number }>();
 
     return c.json({
-      brand: { slug: brand.slug, name: brand.name, source: brand.source, createdAt: brand.createdAt },
+      brand: { slug: brand.slug, name: brand.name, source: brand.source, createdAt: brand.createdAt, hasAdminPasscode: !!brand.adminPasscodeHash },
       shortCourses: shortCourses.map((sc) => ({
         id: sc.id,
         label: sc.label,

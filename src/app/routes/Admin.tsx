@@ -1412,21 +1412,30 @@ function Audit() {
   );
 }
 
+// Content and the completion audit are one library shared by every brand, so
+// only the master passcode gets those tabs. A client's admin sees the rest,
+// scoped to their brand.
+const MASTER_TABS: Tab[] = ['content', 'audit'];
+
 export default function Admin() {
   const [state, setState] = useState<'loading' | 'login' | 'in'>('loading');
   const [tab, setTab] = useState<Tab>('learners');
+  const [master, setMaster] = useState(true);
 
   const check = () =>
     api
-      .get<{ authenticated: boolean }>('/api/admin/me')
-      .then((d) => setState(d.authenticated ? 'in' : 'login'))
+      .get<{ authenticated: boolean; master?: boolean }>('/api/admin/me')
+      .then((d) => {
+        setMaster(d.master ?? false);
+        setState(d.authenticated ? 'in' : 'login');
+      })
       .catch(() => setState('login'));
   useEffect(() => {
     check();
   }, []);
 
   if (state === 'loading') return <Screen><p className="label-utility pt-24 text-center">…</p></Screen>;
-  if (state === 'login') return <Login onDone={() => setState('in')} />;
+  if (state === 'login') return <Login onDone={() => check()} />;
 
   return (
     <Screen wide>
@@ -1437,7 +1446,7 @@ export default function Admin() {
             <h1 className="font-display font-bold text-ink-strong text-2xl mt-1">Admin</h1>
           </div>
           <div className="flex items-center gap-1">
-            {(Object.keys(TAB_LABELS) as Tab[]).map((tabId) => (
+            {(Object.keys(TAB_LABELS) as Tab[]).filter((tabId) => master || !MASTER_TABS.includes(tabId)).map((tabId) => (
               <button
                 key={tabId}
                 onClick={() => setTab(tabId)}

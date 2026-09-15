@@ -162,6 +162,13 @@
       "when": 1786800000002,
       "tag": "0021_provisioning_source",
       "breakpoints": true
+    },
+    {
+      "idx": 23,
+      "version": "6",
+      "when": 1786800000003,
+      "tag": "0022_brand_admin",
+      "breakpoints": true
     }
   ]
 }
