@@ -82,7 +82,20 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [brand, setBrand] = useState<Brand | null>(null);
   const [me, setMe] = useState<MeResponse | null>(null);
 
+  // The brand follows the session — a passcode carries its client's brand —
+  // so it is re-read whenever the session is, or a learner who just entered a
+  // code would sit under the deployment's default colours until a reload.
+  const refreshBrand = () =>
+    api
+      .get<Brand>('/api/brand')
+      .then((b) => {
+        applyTokens(b);
+        setBrand(b);
+      })
+      .catch(() => {});
+
   const refreshMe = async () => {
+    void refreshBrand();
     try {
       setMe(await api.get<MeResponse>('/api/me'));
     } catch {
@@ -94,13 +107,6 @@ export function AppProvider({ children }: { children: ReactNode }) {
   };
 
   useEffect(() => {
-    api
-      .get<Brand>('/api/brand')
-      .then((b) => {
-        applyTokens(b);
-        setBrand(b);
-      })
-      .catch(() => {});
     refreshMe();
   }, []);
 

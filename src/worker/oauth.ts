@@ -183,7 +183,7 @@ const escapeHtml = (s: string) => s.replace(/[&<>"']/g, (ch) => ({ '&': '&amp;',
 
 type BrandLook = { name: string; colors: Record<string, string>; fontDisplay: string; fontBody: string; radius: string };
 
-async function brandLook(db: DrizzleD1Database, env: Env): Promise<BrandLook> {
+async function brandLook(db: DrizzleD1Database, env: Env, brandSlug?: string | null): Promise<BrandLook> {
   const fallback: BrandLook = {
     name: 'AI Fluency',
     colors: { bg: '#f5f5f7', surface: '#ffffff', ink: '#28334a', 'ink-strong': '#001e60', muted: '#616899', accent: '#4a12f0', 'on-accent': '#ffffff', line: '#d9d9e4' },
@@ -192,7 +192,7 @@ async function brandLook(db: DrizzleD1Database, env: Env): Promise<BrandLook> {
     radius: '10px',
   };
   try {
-    const rows = await db.select().from(t.fdBrand).where(eq(t.fdBrand.slug, env.BRAND_SLUG)).limit(1);
+    const rows = await db.select().from(t.fdBrand).where(eq(t.fdBrand.slug, brandSlug ?? env.BRAND_SLUG)).limit(1);
     const row = rows[0];
     if (!row) return fallback;
     const tokens = JSON.parse(row.tokensJson) as { color?: Record<string, string>; fontDisplay?: string; fontBody?: string; radius?: string };
@@ -477,7 +477,7 @@ export function createOauthApp() {
       },
       secret(c.env),
     );
-    return c.html(consentPage(look, client.name ?? 'This application', blob, participant?.displayName ?? null));
+    return c.html(consentPage(await brandLook(db, c.env, session.brandSlug), client.name ?? 'This application', blob, participant?.displayName ?? null));
   });
 
   // --- Consent submitted: mint the one-time code and hand back control.

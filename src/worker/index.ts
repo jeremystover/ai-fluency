@@ -231,7 +231,12 @@ async function shortCourseForSession(db: DrizzleD1Database, session: SessionRow)
 
 app.get('/api/brand', async (c) => {
   const db = c.get('db');
-  const rows = await db.select().from(t.fdBrand).where(eq(t.fdBrand.slug, c.env.BRAND_SLUG)).limit(1);
+  // The brand is the learner's, not the deployment's: a session carries the
+  // brand of the code it was opened with, so one deployment serves every
+  // client under their own name and colours. Before login, the deployment's
+  // default brand fronts the landing page.
+  const slug = c.get('session')?.brandSlug ?? c.env.BRAND_SLUG;
+  const rows = await db.select().from(t.fdBrand).where(eq(t.fdBrand.slug, slug)).limit(1);
   const row = rows[0];
   if (!row) return c.json({ error: 'No brand seeded for this deployment. Run the seed migration.' }, 500);
   const profile = row.profileJson ? JSON.parse(row.profileJson) : null;
@@ -344,10 +349,10 @@ app.post('/api/enter', async (c) => {
     return c.json({ error: 'Too many attempts from this connection. Wait 15 minutes, then try again — or check the code with whoever sent it.' }, 429);
   }
 
-  const codes = await db
-    .select()
-    .from(t.fdAccessCode)
-    .where(and(eq(t.fdAccessCode.brandSlug, c.env.BRAND_SLUG), eq(t.fdAccessCode.active, 1)));
+  // Every brand's codes are candidates: the code decides the brand (the
+  // session records it below), which is what lets one deployment host many
+  // clients. Codes are random and long enough that two brands never share one.
+  const codes = await db.select().from(t.fdAccessCode).where(eq(t.fdAccessCode.active, 1));
 
   let matched: typeof codes[number] | null = null;
   for (const candidate of codes) {
@@ -2273,6 +2278,13 @@ app.get('/api/module/:id/chat/audio/:messageId', async (c) => {
 
 // ---------- tutor chat ----------
 
+// Which brand a session belongs to — the one its access code carried. Falls
+// back to the deployment default for anything older than the brand column.
+async function brandOfSession(db: DrizzleD1Database, env: Env, sessionId: string): Promise<string> {
+  const rows = await db.select({ brandSlug: t.fdSession.brandSlug }).from(t.fdSession).where(eq(t.fdSession.id, sessionId)).limit(1);
+  return rows[0]?.brandSlug ?? env.BRAND_SLUG;
+}
+
 // The learner's provisioned AI tools, as display names for a prompt. The brand
 // profile (company-declared) wins; intake prefs fill in when the brand doesn't
 // say; [] when neither knows — callers phrase generically in that case.
@@ -2454,8 +2466,8 @@ app.post('/api/module/:id/chat', async (c) => {
     .from(t.fdModule)
     .where(eq(t.fdModule.courseId, loaded.mod.courseId))
     .orderBy(asc(t.fdModule.ordinal));
-  const learner = await buildLearnerContext(db, c.env.BRAND_SLUG, session.id);
-  const guidance = await guidanceFor(db, c.env, moduleId, loaded.mod.courseId, await managerEmailOf(db, c.env.BRAND_SLUG, session));
+  const learner = await buildLearnerContext(db, session.brandSlug, session.id);
+  const guidance = await guidanceFor(db, session.brandSlug, moduleId, loaded.mod.courseId, await managerEmailOf(db, c.env.BRAND_SLUG, session));
   const system = buildTutorSystem(loaded.mod as ModuleCard, loaded.blocks, courseModules as ModuleCard[], learner, guidance?.text ?? null);
 
   // The stored opener starts with an assistant turn; the API requires user-first,
@@ -3395,9 +3407,10 @@ const stockBodyChunkKey = (moduleId: string, i: number) => `podcast-stock/${modu
 const personalIntroKey = (sessionId: string, moduleId: string) => `podcast-intro/${sessionId}/${moduleId}.mp3`;
 
 // Admin-authored steering from the Brand tab: what the company wants
-// emphasized, overall and for this course/module. It varies only by
-// deployment (one brand) and module — the same axes as the content itself —
-// so it is safe to ride inside the prompt-cached module block.
+// emphasized, overall and for this course/module. It varies by brand and
+// module — the same axes as the content itself — so it is safe to ride inside
+// the prompt-cached module block. Per-learner paths pass the session's brand;
+// anything baked once and shared across brands uses the deployment default.
 // Scopes stack widest-first: the company's global steer, then the course, then
 // the module, then — when the learner's manager has written one — their team's.
 // The team scope is the only one that varies per learner rather than per
@@ -3406,7 +3419,7 @@ const personalIntroKey = (sessionId: string, moduleId: string) => `podcast-intro
 // is. Team text goes last so the most specific voice lands closest to the task.
 async function guidanceFor(
   db: DrizzleD1Database,
-  env: Env,
+  brandSlug: string,
   moduleId: string,
   courseId: string | null,
   teamEmail?: string | null,
@@ -3420,7 +3433,7 @@ async function guidanceFor(
   const rows = await db
     .select()
     .from(t.fdBrandGuidance)
-    .where(and(eq(t.fdBrandGuidance.brandSlug, env.BRAND_SLUG), inArray(t.fdBrandGuidance.scope, scopes)));
+    .where(and(eq(t.fdBrandGuidance.brandSlug, brandSlug), inArray(t.fdBrandGuidance.scope, scopes)));
   const order = new Map(scopes.map((s, i) => [s, i]));
   const parts = rows
     .filter((r) => r.body.trim())
@@ -3443,7 +3456,7 @@ const withGuidance = (contentMd: string, guidance: { text: string } | null) =>
 // personal intro, a Q&A follow-up — and omit it on anything baked once and
 // shared (stock episodes, goal intros), where folding one team's guidance into
 // a shared asset would serve it to other teams.
-async function moduleContent(db: DrizzleD1Database, env: Env, moduleId: string, teamEmail?: string | null) {
+async function moduleContent(db: DrizzleD1Database, env: Env, moduleId: string, teamEmail?: string | null, brandSlug: string = env.BRAND_SLUG) {
   const modRows = await db.select().from(t.fdModule).where(eq(t.fdModule.id, moduleId)).limit(1);
   const mod = modRows[0];
   if (!mod || mod.status !== 'open') return null;
@@ -3454,7 +3467,7 @@ async function moduleContent(db: DrizzleD1Database, env: Env, moduleId: string, 
     .orderBy(asc(t.fdContentBlock.ordinal));
   if (blockRows.length === 0) return null;
   const blocks = selectVariants(blockRows, toolingOf(env)).filter((b) => b.kind !== 'exercise');
-  const guidance = await guidanceFor(db, env, moduleId, mod.courseId, teamEmail);
+  const guidance = await guidanceFor(db, brandSlug, moduleId, mod.courseId, teamEmail);
   const contentMd = withGuidance(blocks.map((b) => b.body).join('\n\n'), guidance);
   // Guidance edits count as content changes, so stale stock episodes rebake.
   const reviewedAt = [...blocks.map((b) => b.reviewedAt), guidance?.updatedAt ?? ''].reduce((max, d) => (d > max ? d : max), '');
@@ -3731,9 +3744,10 @@ async function preparePersonalIntro(env: Env, sessionId: string, moduleId: strin
       generic = await loadStock(db, moduleId, 'generic');
       if (!generic) return;
     }
-    const content = await moduleContent(db, env, moduleId, await managerEmailForSessionId(db, env.BRAND_SLUG, sessionId));
+    const brand = await brandOfSession(db, env, sessionId);
+    const content = await moduleContent(db, env, moduleId, await managerEmailForSessionId(db, env.BRAND_SLUG, sessionId), brand);
     if (!content) return;
-    const learner = await podcastLearner(db, env.BRAND_SLUG, sessionId);
+    const learner = await podcastLearner(db, brand, sessionId);
     const model = env.PODCAST_MODEL ?? env.GRADING_MODEL;
     const lines = await writePersonalIntro(
       env.ANTHROPIC_API_KEY,
@@ -3841,7 +3855,8 @@ async function completeAssembledBody(env: Env, row: PodcastRow): Promise<void> {
   try {
     const db = drizzle(env.DB);
     const generic = await loadStock(db, row.moduleId, 'generic');
-    const content = await moduleContent(db, env, row.moduleId, await managerEmailForSessionId(db, env.BRAND_SLUG, row.sessionId));
+    const brand = await brandOfSession(db, env, row.sessionId);
+    const content = await moduleContent(db, env, row.moduleId, await managerEmailForSessionId(db, env.BRAND_SLUG, row.sessionId), brand);
     const introLines = JSON.parse(row.introJson ?? '[]') as PodcastLine[];
     const beats = generic ? (JSON.parse(generic.beatsJson) as string[]) : [];
 
@@ -3852,7 +3867,7 @@ async function completeAssembledBody(env: Env, row: PodcastRow): Promise<void> {
     let fallback = false;
 
     if (env.ANTHROPIC_API_KEY && content && beats.length > 0) {
-      const learner = await podcastLearner(db, env.BRAND_SLUG, row.sessionId);
+      const learner = await podcastLearner(db, brand, row.sessionId);
       const model = env.PODCAST_MODEL ?? env.GRADING_MODEL;
       const draft = await writeCustomBody(
         env.ANTHROPIC_API_KEY,
@@ -3958,7 +3973,7 @@ async function generateEpisode(
       .filter((b) => b.kind !== 'exercise')
       .map((b) => b.body)
       .join('\n\n'),
-    await guidanceFor(db, env, moduleId, mod.courseId, await managerEmailForSessionId(db, env.BRAND_SLUG, sessionId)),
+    await guidanceFor(db, await brandOfSession(db, env, sessionId), moduleId, mod.courseId, await managerEmailForSessionId(db, env.BRAND_SLUG, sessionId)),
   );
 
   // Q&A hosts remember what this listener actually heard: their module episode
@@ -3981,7 +3996,7 @@ async function generateEpisode(
     }));
   }
 
-  const learner = await podcastLearner(db, env.BRAND_SLUG, sessionId);
+  const learner = await podcastLearner(db, await brandOfSession(db, env, sessionId), sessionId);
   const model = env.PODCAST_MODEL ?? env.GRADING_MODEL;
   const script = await writeScript(env.ANTHROPIC_API_KEY, model, mod.title, contentMd, learner, focus, length, kind, heard);
   if (!script) return null;
